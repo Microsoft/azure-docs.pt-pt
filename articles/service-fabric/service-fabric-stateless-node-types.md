@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: d3ce6e888c937676027f2b71578c38b56f3bd6af
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97388028"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516611"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementar um cluster de tecido de serviço Azure com tipos de nó apenas apátridas (Pré-visualização)
 Os tipos de nó de tecido de serviço vêm com a presunção inerente de que em algum momento, os serviços estatais podem ser colocados nos nós. Os tipos de nó apátrida relaxam esta suposição para um tipo de nó, permitindo assim que o tipo de nó utilize outras funcionalidades, tais como operações de escala mais rápida, suporte para upgrades automáticos de SO na durabilidade de Bronze e escala para mais de 100 nós num único conjunto de escala de máquina virtual.
@@ -24,6 +24,8 @@ Modelos de amostra estão disponíveis: Modelo de [tipos de node apátrida de te
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Habilitando tipos de nódoaço apátridas no cluster de tecido de serviço
 Para definir um ou mais tipos de nó como apátridas num recurso de cluster, desaprote a propriedade **isStateless** para "verdadeiro". Ao implantar um cluster de tecido de serviço com tipos de nó apátridas, lembre-se de ter pelo menos um tipo de nó primário no recurso cluster.
+
+* A apiversão de recursos do cluster de tecido de serviço deve ser "2020-12-01-pré-visualização" ou superior.
 
 ```json
 {
@@ -238,6 +240,8 @@ O Balancer de Carga Padrão e o IP público standard introduzem novas habilidade
 
 
 ### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrar para usar tipos de nódoas apátridas de um cluster utilizando um Balanceador de Carga SKU Básico e um IP SKU Básico
+Para todos os cenários de migração, é necessário adicionar um novo tipo de nó só apátrida. O tipo de nó existente não pode ser migrado para ser apenas apátrida.
+
 Para migrar um cluster, que estava a utilizar um Balanceador de Carga e IP com um SKU básico, primeiro deve criar um balanceador de carga inteiramente novo e recurso IP utilizando o SKU padrão. Não é possível atualizar estes recursos no local.
 
 Os novos LB e IP devem ser referenciados nos novos tipos de nódoas estepáus que gostaria de utilizar. No exemplo acima, um novo conjunto de conjuntos de máquinas virtuais é adicionado para ser usado para tipos de nódoaço apátrida. Estes conjuntos de escala de máquina virtual referem-se ao LB e IP recém-criados e são marcados como tipos de nó apátridas no Recurso de Cluster de Tecido de Serviço.
@@ -247,30 +251,10 @@ Para começar, terá de adicionar os novos recursos ao modelo de Gestor de Recur
 * Um recurso de balançador de carga utilizando o SKU padrão.
 * Um NSG referenciado pela sub-rede na qual implementa os conjuntos de escala de máquina virtual.
 
-
-Um exemplo destes recursos pode ser encontrado no modelo de [amostra.](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure)
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 Uma vez que os recursos tenham terminado de ser implantados, pode começar a desativar os nós no tipo de nó que pretende remover do cluster original.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Tipos de nós e conjuntos de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md)
 

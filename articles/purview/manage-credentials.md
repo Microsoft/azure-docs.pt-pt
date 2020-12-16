@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: c991559d550b351ce70bcc5834f96f313f856a82
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553446"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516687"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem em Azure Purview
 
@@ -20,7 +20,7 @@ Este artigo descreve como pode criar credenciais no Azure Purview para reutiliza
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Cofre de chaves Azure. Se ainda não tem um, está aqui como (inserir link para o artigo de criação KV) para criar um.
+* Um cofre de chaves Azure. Para aprender a criar um, consulte [Quickstart: Crie um cofre-chave utilizando o portal Azure](../key-vault/general/quick-create-portal.md).
 
 ## <a name="introduction"></a>Introdução
 Uma Credencial é a informação de autenticação que o Azure Purview pode utilizar para autenticar nas suas fontes de dados registadas. Um objeto credencial pode ser criado para vários tipos de cenários de autenticação (como a Autenticação Básica que requer nome de utilizador/palavra-passe) e irá capturar as informações específicas necessárias com base no tipo escolhido de método de autenticação. As credenciais utilizam os seus segredos Azure Key Vaults existentes para recuperar informações de autenticação sensível durante o processo de criação de credenciais.
@@ -32,7 +32,7 @@ Se estiver a usar a identidade gerida pela Purview para configurar as sondagens,
 - [Armazenamento do Azure Data Lake Ger1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan) (Armazenamento do Azure Data Lake Gen2)
 - [Base de Dados SQL do Azure](register-scan-azure-sql-database.md)
-- [Exemplo gerido pela base de dados Azure SQL](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Instância Gerida da Base de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 
 ## <a name="create-azure-key-vaults-connections-in-your-azure-purview-account"></a>Crie ligações Azure Key Vaults na sua conta Azure Purview

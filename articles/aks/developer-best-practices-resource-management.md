@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 693cabac616dca8e108a2029c173a5e1b71c2695
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900353"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516732"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Melhores práticas para os desenvolvedores de aplicações gerir recursos no Serviço Azure Kubernetes (AKS)
 
@@ -34,7 +34,7 @@ Uma forma primária de gerir os recursos computacional dentro de um cluster AKS 
 * **Os pedidos de POD CPU/Memória** definem uma quantidade definida de CPU e memória que o pod necessita regularmente.
     * Quando o programador Kubernetes tenta colocar uma vagem num nó, os pedidos do pod são usados para determinar que nó tem recursos suficientes disponíveis para agendamento.
     * Não definir um pedido de pod irá predefini-lo ao limite definido.
-    * É muito importante monitorizar o desempenho da sua aplicação para ajustar estes pedidos. Se forem feitos pedidos insuficientes, a sua aplicação poderá receber um desempenho degradado devido ao excesso de programação de um nó. Se os pedidos forem sobrestimados, o seu pedido pode ter aumentado a dificuldade em ser agendado.
+    * É muito importante monitorizar o desempenho da sua aplicação para ajustar estes pedidos. Se forem feitos pedidos de recursos de pod insuficientes, a sua aplicação poderá receber um desempenho degradado devido ao excesso de programação de um nó. Se os pedidos forem sobrestimados, o seu pedido pode ter aumentado a dificuldade em ser agendado.
 * **Os limites de POD CPU/Memória** são a quantidade máxima de CPU e memória que uma cápsula pode usar. Os limites de memória ajudam a definir quais as cápsulas que devem ser mortas em caso de instabilidade do nó devido a recursos insuficientes. Sem limites adequados, as cápsulas definidas serão eliminadas até que a pressão dos recursos seja levantada. Uma cápsula pode ou não ser capaz de exceder o limite do CPU por um período de tempo, mas a vagem não será morta por exceder o limite do CPU. 
     * Os limites do pod ajudam a definir quando uma cápsula perdeu o controlo do consumo de recursos. Quando um limite é ultrapassado, a cápsula é prioritária para matar para manter a saúde do nó e minimizar o impacto nas cápsulas que partilham o nó.
     * Não definir um limite de pod predefini-lo para o valor mais alto disponível em um dado nó.
@@ -100,7 +100,7 @@ A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites 
 
 Num cluster AKS que acolhe muitas equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, corra regularmente `kube-advisor` nos seus clusters AKS.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo de boas práticas focado em como executar o seu cluster e cargas de trabalho a partir de uma perspetiva de cluster operator. Para obter informações sobre as melhores práticas administrativas, consulte as [melhores práticas do operador cluster para isolamento e gestão de recursos no Serviço Azure Kubernetes (AKS)][operator-best-practices-isolation].
 

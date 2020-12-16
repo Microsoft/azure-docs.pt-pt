@@ -3,25 +3,20 @@ title: Implementar a ferramenta de diagnóstico para Windows Virtual Desktop (cl
 description: Como implementar a ferramenta UX de diagnóstico para o Windows Virtual Desktop (clássico).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023076"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515633"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico virtual do Windows Desktop (clássico)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
-
->[!IMPORTANT]
->A partir de 16 de março de 2020, desativamos temporariamente as consultas de diagnóstico que impactaram a experiência do utilizador devido ao aumento da procura no serviço. Isto fará com que a ferramenta deixe de funcionar porque depende dessas consultas para funcionar. Atualizaremos este artigo quando as consultas de diagnóstico estiverem disponíveis novamente.
->
->Até lá, recomendamos vivamente que [utilize o Log Analytics](diagnostics-log-analytics-2019.md) para uma monitorização contínua.
 
 Aqui está o que a ferramenta de diagnóstico para o Windows Virtual Desktop pode fazer por si:
 
@@ -43,8 +38,8 @@ Precisa de criar um Registo de Aplicações de Diretório Ativo Azure e um espa�
 
 Também precisa de instalar estes dois módulos PowerShell antes de começar:
 
-- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Módulo AD AZure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Módulo AD AZure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 Certifique-se de que tem o seu ID de subscrição pronto para quando iniciar sôs o seu sôm.
 
@@ -113,7 +108,7 @@ Eis como configurar manualmente os contadores de desempenho recomendados:
 1. Abra o seu navegador de Internet e inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta administrativa.
 2. Em seguida, vá aos **espaços de trabalho do Log Analytics** para rever os contadores de desempenho do Windows configurados.
 3. Na secção **Definições,** selecione  **Definições Avançadas**.
-4. Depois disso, **Data** navegue nos  >  **Contadores de Desempenho do Windows de dados** e adicione os seguintes contadores:
+4. Depois disso, navegue nos  >  **Contadores de Desempenho do Windows de dados** e adicione os seguintes contadores:
 
     -   LogicalDisk, \* \\ %Espaço Livre
     -   LogicalDisk(C:) \\ Avg. Comprimento da fila do disco
@@ -145,7 +140,7 @@ Para se certificar de que o seu espaço de trabalho Log Analytics tem os contado
 
 1. No [portal Azure,](https://portal.azure.com/)vá aos **espaços de trabalho do Log Analytics** para rever os contadores de desempenho do Windows configurados.
 2. Em **Definições**, selecione **Definições Avançadas**.
-3. Depois disso, **Data** aceda aos  >  **contadores de desempenho do Data Windows**.
+3. Depois disso, aceda aos  >  **contadores de desempenho do Data Windows**.
 4. Certifique-se de que os seguintes contadores estão pré-configurados:
 
    - Por \* \\ %Free Space: Exibe em percentagem a quantidade de espaço livre do espaço total utilizável do espaço utilizável total do disco.
@@ -162,7 +157,7 @@ Para poder ver a saúde dos VMs, terá de ativar a ligação Log Analytics. Siga
 2. Vá ao seu log analytics workspace.
 3. No painel esquerdo, em Fontes de Dados do Espaço de Trabalho, selecione **máquinas virtuais.**
 4. Selecione o nome do VM a que pretende ligar.
-5. Selecione **Connect** (Ligar).
+5. Selecione **Ligar**.
 
 ## <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -264,7 +259,7 @@ Também pode interagir com os utilizadores no anfitrião da sessão:
 
     - Limiar: Mais de 2000 ms é marcado como insalubre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como monitorizar os registos de atividade no [Use diagnostics com Log Analytics](diagnostics-log-analytics-2019.md).
 - Leia sobre cenários de erro comuns e como corrigi-los em [Identificar e diagnosticar problemas](diagnostics-role-service-2019.md).

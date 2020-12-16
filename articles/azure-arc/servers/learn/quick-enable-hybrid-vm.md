@@ -2,13 +2,13 @@
 title: Ligue a máquina híbrida com servidores ativados do Arco Azure
 description: Saiba como conectar e registar a sua máquina híbrida com servidores ativados Azure Arc.
 ms.topic: quickstart
-ms.date: 11/12/2020
-ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576837"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516788"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Quickstart: Ligue a máquina híbrida com servidores ativados do Azure Arc
 
@@ -29,6 +29,9 @@ ms.locfileid: "94576837"
     * Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, certifique-se de que os URLs [listados](../agent-overview.md#networking-configuration) não estão bloqueados.
 
     * Os servidores ativados Azure Arc suportam apenas as regiões especificadas [aqui.](../overview.md#supported-regions)
+
+> [!WARNING]
+> O nome de hospedeiro Linux ou nome do computador Windows não pode utilizar uma das palavras ou marcas registadas reservadas no nome, caso contrário, tentar registar a máquina conectada com a Azure falhará. Consulte [os erros de nome de recursos reservados](../../../azure-resource-manager/templates/error-reserved-resource-name.md) resolvem uma lista das palavras reservadas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

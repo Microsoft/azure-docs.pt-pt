@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700227"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516418"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerir chaves api para um serviço de Pesquisa Cognitiva Azure
 
@@ -27,15 +27,15 @@ As chaves são criadas com o seu serviço de pesquisa durante a prestação de s
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Página do portal, configurações de recuperação, secção de chaves" border="false":::
 
-## <a name="what-is-an-api-key"></a>O que é uma api-chave
+## <a name="what-is-an-api-key"></a>O que é uma chave api?
 
 Uma chave api é uma cadeia composta por números e letras gerados aleatoriamente. Através [de permissões baseadas em funções,](search-security-rbac.md)pode eliminar ou ler as teclas, mas não pode substituir uma chave por uma palavra-passe definida pelo utilizador ou utilizar o Ative Directory como a metodologia de autenticação primária para aceder às operações de pesquisa. 
 
 São utilizados dois tipos de chaves para aceder ao seu serviço de pesquisa: administração (ler-escrever) e consulta (apenas para leitura).
 
-|Chave|Description|Limites|  
+|Chave|Descrição|Limites|  
 |---------|-----------------|------------|  
-|Administrador|Concede plenos direitos a todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar índices, indexadores e fontes de dados.<br /><br /> Duas teclas de administração, referidas como chaves *primárias* e *secundárias* no portal, são geradas quando o serviço é criado e podem ser regeneradas individualmente a pedido. Ter duas teclas permite-lhe passar por cima de uma tecla enquanto utiliza a segunda chave para o acesso continuado ao serviço.<br /><br /> As teclas de administração só são especificadas nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave api-administrador numa URL.|Máximo de 2 por serviço|  
+|Admin|Concede plenos direitos a todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar índices, indexadores e fontes de dados.<br /><br /> Duas teclas de administração, referidas como chaves *primárias* e *secundárias* no portal, são geradas quando o serviço é criado e podem ser regeneradas individualmente a pedido. Ter duas teclas permite-lhe passar por cima de uma tecla enquanto utiliza a segunda chave para o acesso continuado ao serviço.<br /><br /> As teclas de administração só são especificadas nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave api-administrador numa URL.|Máximo de 2 por serviço|  
 |Consulta|Concede acesso apenas de leitura a índices e documentos, e são normalmente distribuídos para aplicações de clientes que emitem pedidos de pesquisa.<br /><br /> As chaves de consulta são criadas a pedido. Pode criá-las manualmente no portal ou programáticamente através da [API Management REST](/rest/api/searchmanagement/).<br /><br /> As teclas de consulta podem ser especificadas num cabeçalho de pedido HTTP para pesquisa, sugestão ou operação de pesquisa. Em alternativa, pode passar uma chave de consulta como parâmetro num URL. Dependendo da forma como a sua aplicação de cliente formula o pedido, pode ser mais fácil passar a chave como parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 por serviço|  
 
  Visualmente, não há distinção entre uma chave de administração ou chave de consulta. Ambas as teclas são cordas compostas por 32 caracteres alfanuméricos gerados aleatoriamente. Se perder a noção do tipo de chave especificada na sua aplicação, pode [verificar os valores-chave no portal](https://portal.azure.com) ou utilizar a [API REST](/rest/api/searchmanagement/) para devolver o valor e o tipo de chave.  
@@ -49,7 +49,7 @@ Pode obter chaves de acesso no portal ou através da [API Management REST](/rest
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Enuse os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  da sua subscrição.
-3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas** para visualizar as teclas de administração e consulta.
+3. Selecione o serviço e na página 'Vista Geral', clique em  > **Definições Teclas** para visualizar as teclas de administração e consulta.
 
    :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página do portal, ver definições, seção de teclas" border="false":::
 
@@ -61,7 +61,7 @@ Restringir o acesso e as operações em aplicações de clientes é essencial pa
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Enuse os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  da sua subscrição.
-3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas**.
+3. Selecione o serviço e na página 'Vista Geral', clique em  > **Definições Teclas**.
 4. Clique **em Gerir as teclas de consulta**.
 5. Utilize a tecla de consulta já gerada para o seu serviço ou crie até 50 novas teclas de consulta. A chave de consulta padrão não está nomeada, mas as chaves de consulta adicionais podem ser nomeadas para a gestão.
 
@@ -88,6 +88,7 @@ Ainda pode aceder ao serviço através do portal ou da camada de gestão[(REST A
 Depois de criar novas teclas através de portal ou camada de gestão, o acesso é restaurado ao seu conteúdo (índices, indexadores, fontes de dados, mapas de sinónimo) uma vez que tenha as novas teclas e forneça essas teclas nos pedidos.
 
 ## <a name="secure-api-keys"></a>Proteger as teclas api
+
 A segurança da chave é assegurada restringindo o acesso através das interfaces portal ou Gestor de Recursos (Interface PowerShell ou linha de comando). Como notado, os administradores de subscrição podem ver e regenerar todas as chaves api. Como precaução, reveja as atribuições de funções para entender quem tem acesso às teclas de administração.
 
 + No painel de instrumentos de serviço, clique no **controlo de acesso (IAM)** e, em seguida, no separador **atribuições de funções** para visualizar as atribuições de funções para o seu serviço.

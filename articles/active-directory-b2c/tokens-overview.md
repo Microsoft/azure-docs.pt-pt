@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379791"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516350"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
 
@@ -64,7 +64,7 @@ A tabela que se segue lista as alegações que pode esperar em fichas de identif
 | Assunto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização com segurança, como quando o token é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório. |
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Usado apenas com políticas mais antigas. |
 | Política de enquadramento de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da apólice que foi usada para adquirir o símbolo de identificação. |
-| Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador inseriu credenciais pela última vez, representadas em tempo de época. Não há discriminação entre essa autenticação ser um novo sinal, uma sessão de sessão de sessão de sso ou outro tipo de inscrição. Esta `auth_time` é a última vez que a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
+| Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador inseriu credenciais pela última vez, representadas em tempo de época. Não há discriminação entre essa autenticação ser um novo sinal, uma sessão de sso ou outro tipo de inscrição. Esta `auth_time` é a última vez que a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
 | Âmbito | `scp` | `Read`| As permissões concedidas ao recurso para um token de acesso. Várias permissões concedidas são separadas por um espaço. |
 | Parte Autorizada | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | A **identificação** do pedido de cliente que iniciou o pedido. |
 
@@ -97,7 +97,7 @@ As seguintes propriedades são utilizadas [para gerir a compatibilidade simbóli
 
 ## <a name="pass-through"></a>Pass-through
 
-Quando uma viagem de utilizador começa, a Azure AD B2C recebe um token de acesso de um fornecedor de identidade. O Azure AD B2C utiliza esse símbolo para obter informações sobre o utilizador. [Você ativa uma reclamação no fluxo do seu utilizador](idp-pass-through-user-flow.md) ou define uma [reclamação na sua política personalizada](idp-pass-through-custom.md) para passar o token através das aplicações que regista no Azure AD B2C. A sua aplicação deve estar a utilizar um [fluxo de utilizador recomendado](user-flow-versions.md) para aproveitar a passagem do token como reivindicação.
+Quando uma viagem de utilizador começa, a Azure AD B2C recebe um token de acesso de um fornecedor de identidade. O Azure AD B2C utiliza esse símbolo para obter informações sobre o utilizador. Você ativa uma reclamação no fluxo do seu utilizador para [passar o token através](idp-pass-through-user-flow.md) das aplicações que regista no Azure AD B2C. A sua aplicação deve estar a utilizar um [fluxo de utilizador recomendado](user-flow-versions.md) para aproveitar a passagem do token como reivindicação.
 
 Atualmente, o Azure AD B2C apenas suporta a passagem do token de acesso de fornecedores de identidade OAuth 2.0, que incluem o Facebook e o Google. Para todos os outros fornecedores de identidade, a reclamação é devolvida em branco.
 
@@ -149,7 +149,7 @@ Quando as suas aplicações ou API recebem um token de ID, também deve efetuar 
 
 Para obter uma lista completa de validações que a sua aplicação deve realizar, consulte a [especificação OpenID Connect](https://openid.net).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [usar fichas de acesso.](access-tokens.md)
 

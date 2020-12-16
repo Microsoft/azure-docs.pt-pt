@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750514"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516371"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -124,7 +124,7 @@ Para ambientes não produtivos, se ainda não tiver um certificado, pode utiliza
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. Abra **os certificados de utilizador** De corrente yourappname.yourtenant.onmicrosoft.com de  >  **Current User**  >  certificados **pessoais**  >  **Certificates**  >  *do* utilizador.
+1. Abra **os certificados de utilizador** De corrente yourappname.yourtenant.onmicrosoft.com de  >    >  certificados **pessoais**  >    >  *do* utilizador.
 1. Selecione o certificado > **Action**  >  **All Tasks**  >  **Export**.
 1. Selecione **Yes**  >  **Next**  >  **Yes, exporte a chave privada**  >  **Next**.
 1. Aceite os predefinidos do **formato de ficheiro de exportação.**
@@ -230,7 +230,7 @@ Uma reclamação fornece armazenamento temporário de dados durante uma execuç�
 
 ### <a name="acquiring-an-access-token"></a>Aquisição de um token de acesso 
 
-Pode obter um token de acesso de uma de várias formas: obtendo-o a [partir de um fornecedor de identidade federado,](idp-pass-through-custom.md)chamando uma API DE REST que devolve um token de acesso, utilizando um fluxo [ROPC,](../active-directory/develop/v2-oauth-ropc.md)ou utilizando o [fluxo de credenciais](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)do cliente.  
+Pode obter um token de acesso de uma de várias formas: obtendo-o a [partir de um fornecedor de identidade federado,](idp-pass-through-user-flow.md)chamando uma API DE REST que devolve um token de acesso, utilizando um fluxo [ROPC,](../active-directory/develop/v2-oauth-ropc.md)ou utilizando o [fluxo de credenciais](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)do cliente.  
 
 O exemplo a seguir utiliza um perfil técnico da API REST para fazer um pedido ao ponto final da Azure AD usando as credenciais do cliente passadas como autenticação básica HTTP. Para configurar isto em AD Azure, consulte [a plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Poderá ser necessário modificá-lo para interagir com o seu Fornecedor de Identidade. 
 

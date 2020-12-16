@@ -7,18 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341979"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516516"
 ---
-# <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para armazenamento
+# <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para Armazenamento
 
-**O Azure Defender for Storage** deteta atividade potencialmente prejudicial nas suas contas de Armazenamento Azure. Os seus dados podem ser protegidos quer sejam armazenados como recipientes blob, partilhas de ficheiros ou lagos de dados.
 
-Esta camada de proteção permite-lhe lidar com ameaças *sem* exigir que seja um perito em segurança e ajuda-o a gerir os seus sistemas de monitorização de segurança.
+**O Azure Defender for Storage** é uma camada nativa de inteligência de segurança Azure que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar as suas contas de armazenamento. Utiliza as capacidades avançadas da IA de segurança e da [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) para fornecer alertas e recomendações de segurança contextuais.
+
+Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas estão integrados no Azure Security Center, e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
 
 
 ## <a name="availability"></a>Disponibilidade
@@ -28,7 +29,7 @@ Esta camada de proteção permite-lhe lidar com ameaças *sem* exigir que seja u
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|**O Azure Defender for Storage** é faturado como mostrado [na página de preços](security-center-pricing.md)|
 |Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Ficheiros do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Armazenamento do Azure Data Lake Gen2)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 
@@ -36,14 +37,14 @@ Esta camada de proteção permite-lhe lidar com ameaças *sem* exigir que seja u
 
 Alertas de segurança são acionados quando há:
 
-- **Atividade suspeita** - por exemplo, a conta de armazenamento foi acedida com sucesso a partir de um endereço IP que é conhecido como um nó de saída ativa de Tor
-- **Comportamento anómalo** - por exemplo, alterações no padrão de acesso a uma conta de armazenamento
-- **Potencial malware carregado** - análise de reputação de haxixe indica que um ficheiro carregado contém malware
+- **Padrões de acesso suspeitos** - como acesso bem sucedido a partir de um nó de saída tor ou de um IP considerado suspeito pela Microsoft Threat Intelligence
+- **Atividades suspeitas** - tais como extração de dados anómalos ou alteração invulgar de permissões de acesso
+- **Upload de conteúdo malicioso** - como potenciais ficheiros de malware (baseados na análise da reputação de haxixe) ou hospedagem de conteúdo de phishing
 
-Os alertas incluem detalhes do incidente que os desencadeou, bem como recomendações sobre como investigar e remediar ameaças.
+Os alertas incluem detalhes do incidente que os desencadeou, bem como recomendações sobre como investigar e remediar ameaças. Os alertas podem ser exportados para o Azure Sentinel ou para qualquer outro SIEM de terceiros ou qualquer outra ferramenta externa.
 
 > [!TIP]
-> Pode simular alertas de armazenamento seguindo as instruções [neste post de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> É uma boa prática configurar o [Azure Defender para armazenamento](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) no nível de subscrição, mas também pode [configugá-lo em contas de armazenamento individuais.](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal)
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>O que é a análise de reputação de haxixe para malware?

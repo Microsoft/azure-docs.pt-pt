@@ -3,34 +3,32 @@ title: 'Tutorial: Criar uma app de análise de contadores inteligentes com IoT C
 description: 'Tutorial: Saiba como criar uma aplicação de monitorização de contadores inteligentes utilizando modelos de aplicação Azure IoT Central.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a95f1befcdc9b59293eb97330ba7ceae3034a74b
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127136"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516767"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicação de monitorização do contador inteligente 
-
-
 
 Este tutorial guia-o através do processo de criação da aplicação de monitorização do contador inteligente, que inclui um modelo de dispositivo de amostra com dados simulados. Neste tutorial, ficará a saber:
 
 > [!div class="checklist"]
 > * Crie gratuitamente a App Smart Meter
 > * Walk-through de aplicação
-> * Limpar recursos
+> * Limpar os recursos
 
 
 Se não tiver uma subscrição, [crie uma conta de teste gratuita](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Nenhum
+- Nenhuma
 - A subscrição do Azure é recomendada, mas não é necessária para experimentar
 
 ## <a name="create-a-smart-meter-monitoring-app"></a>Criar uma aplicação de monitorização de medidores inteligentes 
@@ -38,14 +36,13 @@ Se não tiver uma subscrição, [crie uma conta de teste gratuita](https://azure
 Pode criar esta aplicação em três passos simples:
 
 1. Abra [a página inicial do Azure IoT Central](https://apps.azureiotcentral.com) e clique em **Construir** para criar uma nova aplicação. 
-
-2. Selecione o separador **Energia** e clique em **Criar app** em azulejo de aplicação de **monitorização de contadores** inteligentes.
+1. Selecione o separador **Energia** e clique em **Criar app** em azulejo de aplicação de **monitorização de contadores** inteligentes.
 
     > [!div class="mx-imgBorder"]
     > ![Construir App](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
-3. **A aplicação Create** abrirá o novo formulário **de aplicação.** Preencha os dados solicitados, tal como indicado na figura abaixo:
+1. **A aplicação Create** abrirá o novo formulário **de aplicação.** Preencha os dados solicitados, tal como indicado na figura abaixo:
     * **Nome da aplicação**: Escolha um nome para a sua aplicação IoT Central. 
     * **URL**: Escolha um URL IoT Central, a plataforma verificará a sua singularidade.
     * **Ensaio gratuito de 7 dias**: Se já tiver uma subscrição Azure, recomenda-se a definição predefinida. Se não tiver uma assinatura Azure, comece com o teste gratuito.
@@ -55,7 +52,6 @@ Pode criar esta aplicação em três passos simples:
         ![Formulário de nova aplicação](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Nova informação de faturação do formulário de candidatura](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
-
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verifique a aplicação e os dados simulados
 
@@ -95,11 +91,11 @@ Clique no **separador modelos do dispositivo** para ver o modelo do dispositivo 
 > ![Modelos de dispositivo de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação com os seguintes passos:
 
 1. Do painel esquerdo, abra o separador administração
-2. Selecione as definições de Aplicação e clique em Eliminar o botão na parte inferior da página. 
+1. Selecione as definições de Aplicação e clique em Eliminar o botão na parte inferior da página. 
 
     > [!div class="mx-imgBorder"]
     > ![Excluir aplicação](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)

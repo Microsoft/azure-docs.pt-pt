@@ -1,18 +1,18 @@
 ---
 title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.topic: how-to
-ms.openlocfilehash: b353a8194b9f5dd48b315340435669531359e8d5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608474"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516131"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
-Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para o Farol Azure. Ao fazê-lo, os recursos delegados do cliente (subscrições e/ou grupos de recursos) podem ser acedidos e geridos através do seu próprio inquilino Azure Ative Directory (Azure AD), utilizando a [gestão de recursos delegada da Azure.](../concepts/azure-delegated-resource-management.md)
+Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para o Farol Azure. Ao fazê-lo, os recursos delegados (subscrições e/ou grupos de recursos) no inquilino Azure Ative Directory (Azure AD) do cliente podem ser geridos através do seu próprio inquilino utilizando [a gestão de recursos delegada da Azure.](../concepts/azure-delegated-resource-management.md)
 
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
@@ -22,7 +22,7 @@ Pode repetir o processo de embarque para vários clientes. Quando um utilizador 
 Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Você precisará realizar esta associação no seu inquilino prestador de serviços. Recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, incluindo o principal de serviço sempre que estiver a bordo de um cliente. Para obter mais informações, consulte [Link o seu parceiro ID para permitir que o parceiro ganhou crédito em recursos delegados.](partner-earned-credit.md)
 
 > [!NOTE]
-> Os clientes também podem ser acedidos ao Farol de Azure quando adquirem uma oferta de Serviço Gerido (público ou privado) que [publica no Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui ao lado das ofertas publicadas no Azure Marketplace.
+> Os clientes podem alternadamente ser acedidos ao Farol de Azure quando adquirem uma oferta de Serviço Gerido (público ou privado) que [publica no Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui juntamente com ofertas publicadas no Azure Marketplace.
 
 O processo de embarque requer a ações a tomar tanto dentro do arrendatário do prestador de serviços como do arrendatário do cliente. Todos estes passos são descritos neste artigo.
 
@@ -303,7 +303,19 @@ az account list
 
 Se precisar de fazer alterações após o cliente ter sido a bordo, pode [atualizar a delegação](update-delegation.md). Também pode remover completamente [o acesso à delegação.](remove-delegation.md)
 
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se não conseguir embarcar com sucesso no seu cliente, ou se os seus utilizadores tiverem dificuldade em aceder aos recursos delegados, verifique as seguintes dicas e requisitos e tente novamente.
+
+- O `managedbyTenantId` valor não deve ser o mesmo que o ID do inquilino para a subscrição que está a bordo.
+- Não se pode ter várias missões no mesmo âmbito com o `mspOfferName` mesmo. 
+- O fornecedor de recursos **Microsoft.ManagedServices** deve estar registado para a subscrição delegada. Isto deve acontecer automaticamente durante a colocação, mas se não, pode [registá-lo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- As autorizações não devem incluir quaisquer utilizadores com a função incorporada [do Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou quaisquer funções incorporadas com [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
+- Os grupos devem ser criados com o [**tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) definido para **Segurança** e não para o **Microsoft 365**.
+- Os utilizadores que necessitem de ver recursos no portal Azure devem ter a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Leitor).
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.
+- Saiba como [atualizar](update-delegation.md) ou [remover](remove-delegation.md) uma delegação.

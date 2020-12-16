@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349185"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516553"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrar dados de Cassandra para Azure Cosmos DB Cassandra Conta API usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -42,7 +42,7 @@ Existem várias formas de migrar cargas de trabalho de base de dados de uma plat
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Provisão de um cluster Azure Databricks
 
-Pode seguir as instruções para [providenciar um cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). No entanto, note que o Apache Spark 3.x não está atualmente suportado para o Conector Apache Cassandra. Você precisará de providenciar um tempo de execução Databricks com uma versão v2.x suportada de Apache Spark. Recomendamos a versão 6.6 do tempo de execução de Databricks:
+Pode seguir as instruções para [providenciar um cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). No entanto, note que o Apache Spark 3.x não está atualmente suportado para o Conector Apache Cassandra. Você precisará de providenciar um tempo de execução Databricks com uma versão v2.x suportada de Apache Spark. Recomendamos a seleção de uma versão do tempo de execução databricks que suporta a versão mais recente do Spark 2.x, com o mais tardar na versão Scala 2.11:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks tempo de execução":::
 

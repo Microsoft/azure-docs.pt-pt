@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68526fd542d8bc891358a36d031af3314edab4c2
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507987"
+ms.locfileid: "97516098"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -116,7 +116,7 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | Parâmetro de cadeia de consulta `login_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
 | Insira o JSON na viagem do utilizador através `client_assertion` | X |  |  | Será depreciado. |
 | Insira o JSON na jornada do utilizador como `id_token_hint` |  | X |  | Avance para passar JSON. |
-| [Passe o token do fornecedor de identidade para a aplicação](idp-pass-through-custom.md) |  | X |  | Por exemplo, do Facebook à app. |
+| [Passe o token do fornecedor de identidade para a aplicação](idp-pass-through-user-flow.md) |  | X |  | Por exemplo, do Facebook à app. |
 
 
 ### <a name="session-management"></a>Gestão de Sessão

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173571"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516503"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>As melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -28,7 +28,7 @@ Se está apenas a começar, consulte a [documentação](index.yml) da plataforma
 Utilize a seguinte lista de verificação para garantir que a sua aplicação está efetivamente integrada na plataforma de identidade da [Microsoft.](./index.yml)
 
 > [!TIP]
-> O *assistente de integração* no portal Azure pode ajudá-lo a aplicar muitas destas boas práticas e recomendações. Selecione qualquer uma das suas inscrições de [aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal Azure e, em seguida, selecione o item do menu **do assistente de Integração (pré-visualização)** para começar com o assistente.
+> O *assistente de integração* no portal Azure pode ajudá-lo a aplicar muitas destas boas práticas e recomendações. Selecione qualquer uma das suas [inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de aplicações no portal Azure e, em seguida, selecione o item do menu **assistente de Integração** para começar com o assistente.
 
 ## <a name="basics"></a>Noções básicas
 
