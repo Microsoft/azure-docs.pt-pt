@@ -92,8 +92,18 @@
           href: diagnostics-log-analytics.md
     - name: Publicar aplicações incorporadas
       href: publish-apps.md
-    - name: Configurar a anexação da aplicação MSIX
-      href: app-attach.md
+    - name: Utilizar a anexação de aplicações MSIX
+      items:
+        - name: Configurar a anexação de aplicações MSIX com o portal do Azure
+          href: app-attach-azure-portal.md
+        - name: Configurar a anexação de aplicações MSIX com o PowerShell
+          href: app-attach-powershell.md
+        - name: Criar scripts do PowerShell
+          href: app-attach.md
+        - name: Preparar uma imagem de MSIX
+          href: app-attach-image-prep.md
+        - name: Configurar uma partilha de ficheiros
+          href: app-attach-file-share.md
     - name: Utilizar o Microsoft Teams
       href: teams-on-wvd.md
     - name: Configurar o Multi-Factor Authentication do Azure AD
@@ -112,6 +122,8 @@
       href: disaster-recovery.md
 - name: Conceitos
   items:
+    - name: Funções incorporadas
+      href: rbac.md
     - name: Autenticação
       href: authentication.md
     - name: Ambiente do Windows Virtual Desktop

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 89520dacd9faea0373559119636d5c558b3b1536
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a33490d289e3867dffec0041a5da21ea5f235b28
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366404"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582751"
 ---
 > [!IMPORTANT]
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
@@ -36,17 +36,23 @@ ms.locfileid: "97366404"
 
 Depois de instalar o Python, pode instalar a versão mais recente da biblioteca do cliente Do Reconhecimento de Formulários com:
 
-#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+> [!NOTE]
+> O mais recente Reconhecimento de Formulários reflete a versão API 2.0
+
+#### <a name="version-21-preview"></a>[versão 2.1 pré-visualização](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
+
+> [!NOTE]
+> A pré-visualização do SDK do Reconhecimento de Formulários reflete a versão API 2.1
 
 ---
 
@@ -91,7 +97,7 @@ Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro,
 
 Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Do Reconhecimento de Formulários para Python:
 
-#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Reconhecer o conteúdo da forma](#recognize-form-content)
@@ -100,7 +106,7 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
 
-#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+#### <a name="version-21-preview"></a>[versão 2.1 pré-visualização](#tab/preview)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Reconhecer o conteúdo da forma](#recognize-form-content)
@@ -194,11 +200,15 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-#### <a name="version-30"></a>[versão 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
 
 ## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta funcionalidade não está disponível na versão API selecionada.
+
+#### <a name="version-21-preview"></a>[versão 2.1 pré-visualização](#tab/preview)
 
 Esta secção demonstra como reconhecer e extrair campos comuns de cartões de visita ingleses, utilizando um modelo pré-treinado. Para reconhecer cartões de visita de um URL, utilize o `begin_recognize_business_cards_from_url` método. 
 
@@ -207,7 +217,16 @@ Esta secção demonstra como reconhecer e extrair campos comuns de cartões de v
 > [!TIP]
 > Também pode reconhecer imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) tais como `begin_recognize_business_cards` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
+---
+
 ## <a name="recognize-invoices"></a>Reconhecer faturas
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta funcionalidade não está disponível na versão API selecionada.
+
+#### <a name="version-21-preview"></a>[versão 2.1 pré-visualização](#tab/preview)
 
 Esta secção demonstra como reconhecer e extrair campos comuns das faturas de venda, utilizando um modelo pré-treinado. Para reconhecer faturas de um URL, utilize o `begin_recognize_invoices_from_url` método. 
 
