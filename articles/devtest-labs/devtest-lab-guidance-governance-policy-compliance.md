@@ -4,12 +4,12 @@ description: Este artigo fornece orientações sobre a política da empresa e o 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480937"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592352"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Governação da infraestrutura Azure DevTest Labs - Política e conformidade da empresa
 Este artigo fornece orientações sobre a política da empresa e o cumprimento da infraestrutura da Azure DevTest Labs. 

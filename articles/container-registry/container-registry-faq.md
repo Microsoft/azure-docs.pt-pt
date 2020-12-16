@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347000"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606288"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -33,11 +33,11 @@ Para orientação de resolução de problemas de registo, consulte:
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Posso criar um registo de contentores Azure utilizando um modelo de Gestor de Recursos?
 
-Sim. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
+Yes. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe vulnerabilidade de segurança à procura de imagens em ACR?
 
-Sim. Consulte a documentação do [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. Consulte a documentação do [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como posso configurar Kubernetes com registo de contentores Azure?
 
@@ -111,6 +111,7 @@ Leva algum tempo para propagar as mudanças na regra da firewall. Depois de alte
 - [Como posso conceder acesso a imagens de puxar ou empurrar sem permissão para gerir o recurso de registo?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Como posso permitir a quarentena automática de imagem para um registo?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Como posso permitir o acesso anónimo?](#how-do-i-enable-anonymous-pull-access)
+- [Como empurro camadas não distribuíveis para um registo?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Como acesso ao Registo de Docker HTTP API V2?
 
@@ -264,6 +265,33 @@ A criação de um registo de contentores Azure para acesso anónimo (público) �
 > [!NOTE]
 > * Apenas as APIs necessárias para retirar uma imagem conhecida podem ser acedidas anonimamente. Nenhuma outra APIs para operações como lista de tags ou lista de repositórios está acessível anonimamente.
 > * Antes de tentar uma operação de atração anónima, corra `docker logout` para garantir que limpe as credenciais existentes do Docker.
+
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Como empurro camadas não distribuíveis para um registo?
+
+Uma camada não distribuível num manifesto contém um parâmetro URL de que o conteúdo pode ser recolhido. Alguns casos de utilização possíveis para permitir emoções de camadas não distribuíveis são para registos restritos de rede, registos com lacunas aéreas com acesso restrito ou para registos sem conectividade com internet.
+
+Por exemplo, se tiver regras NSG configuradas para que um VM possa retirar imagens apenas do seu registo de contentores Azure, Docker irá retirar falhas para camadas estranhas/não distribuíveis. Por exemplo, uma imagem do Núcleo do Servidor do Windows conteria referências de camadas estranhas ao registo de contentores Azure no seu manifesto e não conseguiria puxar neste cenário.
+
+Para permitir empurrar camadas não distribuíveis:
+
+1. Edite o `daemon.json` ficheiro, que está localizado nos `/etc/docker/` anfitriões Linux e `C:\ProgramData\docker\config\daemon.json` no Windows Server. Assumindo que o ficheiro estava anteriormente vazio, adicione o seguinte conteúdo:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > O valor é um conjunto de endereços de registo, separados por vírgulas.
+
+2. Guarde e saia do ficheiro.
+
+3. Reinicie o Docker.
+
+Quando empurra as imagens para os registos da lista, as suas camadas não distribuíveis são empurradas para o registo.
+
+> [!WARNING]
+> Os artefactos não distribuíveis normalmente têm restrições sobre como e onde podem ser distribuídos e partilhados. Utilize esta funcionalidade apenas para empurrar artefactos para registos privados. Certifique-se de que está em conformidade com quaisquer termos que cubram a redistribuição de artefactos não distribuíveis.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e exames de saúde
 
@@ -511,8 +539,8 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
 | Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | No |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | No |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 
@@ -525,6 +553,6 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais](container-registry-intro.md) sobre o Registo de Contentores Azure.

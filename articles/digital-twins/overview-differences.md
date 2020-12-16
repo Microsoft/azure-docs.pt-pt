@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: af8d768ceeaacdf1c8a0f6cdc8be0041e4ae4ed1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb0d3e3c57a26f7ca14b74edc42cb657ba6074c3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099084"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605007"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Quais são as novas Gémeas Digitais Azure? Qual é a diferença da versão anterior (2018)?
 
 A primeira pré-estreia pública da Azure Digital Twins foi lançada em outubro de 2018. Embora os conceitos fundamentais dessa primeira versão tenham levado para o novo serviço, muitas das interfaces e detalhes de implementação mudaram para tornar o serviço mais flexível e acessível. Estas alterações foram motivadas pelo feedback do cliente.
 
 > [!IMPORTANT]
-> Tendo em conta as capacidades expandidas do novo serviço, o anterior serviço Azure Digital Twins será reformado até ao final do ano de 2020.
+> Tendo em conta as capacidades expandidas do novo serviço, o anterior serviço Azure Digital Twins será retirado, com as suas APIs e dados associados já não disponíveis a partir de 18 de janeiro de 2021.
 
 Se utilizou a primeira versão da Azure Digital Twins durante a primeira pré-visualização pública, use as informações e as melhores práticas deste artigo para aprender a trabalhar com o novo serviço e tirar partido das suas funcionalidades.
 

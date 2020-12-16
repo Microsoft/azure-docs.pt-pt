@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: dcbb82dafc5f4c51299e4bcca7947e2f38f502ff
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585484"
+ms.locfileid: "97605535"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
@@ -96,7 +96,7 @@ Seguem-se conversões do JavaScript para o Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
-Data | DateTime
+Date | DateTime
 String | nvarchar(MAX)
 Objeto | Registo
 Matriz | Matriz
@@ -215,7 +215,7 @@ A saída desta consulta será a data de entrada em **de-DE** com as opções for
 Samstag, 28. Dezember 2019
 ```
 
-### <a name="user-logging"></a>Registo do utilizador
+## <a name="user-logging"></a>Registo do utilizador
 O mecanismo de registo permite-lhe capturar informações personalizadas enquanto um trabalho está em execução. Pode utilizar dados de registo para depurar ou avaliar a correção do código personalizado em tempo real. Este mecanismo está disponível através do método Console.Log().
 
 ```javascript

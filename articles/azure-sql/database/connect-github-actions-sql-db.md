@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669752"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606985"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Utilize ações do GitHub para ligar à Base de Dados Azure SQL
 
-Inicie com [as ações do GitHub](https://docs.github.com/en/actions) utilizando um fluxo de trabalho para implementar atualizações de bases de dados para [a Base de Dados Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Inicie com [as ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) utilizando um fluxo de trabalho para implementar atualizações de bases de dados para [a Base de Dados Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,7 +68,7 @@ A saída é um objeto JSON com as credenciais de atribuição de funções que f
 
 ## <a name="copy-the-sql-connection-string"></a>Copie a cadeia de ligação SQL 
 
-No portal Azure, aceda à sua Base de **Dados** Azure SQL e abra as  >  **cordas de ligação** de definições . Copie a cadeia de ligação de **ADO.NET** . Substitua os valores de espaço reservado `your_database` para e `your_password` . A cadeia de ligação será semelhante a esta saída. 
+No portal Azure, aceda à sua Base de **Dados** Azure SQL e abra as  >  **cordas de ligação** de definições . Copie a cadeia de ligação de **ADO.NET**. Substitua os valores de espaço reservado `your_database` para e `your_password` . A cadeia de ligação será semelhante a esta saída. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,7 +80,7 @@ Vais usar a cadeia de ligação como segredo do GitHub.
 
 1. No [GitHub,](https://github.com/)navegue no seu repositório.
 
-1. Selecione **Definições > Segredos > Novo segredo** .
+1. Selecione **Definições > Segredos > Novo segredo**.
 
 1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 
@@ -101,7 +101,7 @@ Vais usar a cadeia de ligação como segredo do GitHub.
 
 1. Vá às **ações** para o seu repositório GitHub. 
 
-2. Selecione **Configurar o seu fluxo de trabalho por si mesmo** . 
+2. Selecione **Configurar o seu fluxo de trabalho por si mesmo**. 
 
 2. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
 

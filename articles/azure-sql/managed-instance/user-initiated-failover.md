@@ -9,15 +9,15 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 7f30ff70e0219a803051b0f8e1208740c359863a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985523"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605399"
 ---
-# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
+# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Ativação pós-falha manual iniciada pelo utilizador no SQL Managed Instance
 
 Este artigo explica como falhar manualmente um nó primário nos níveis de serviço SQL Managed Instance General Purpose (GP) e Business Critical (BC) e como falhar manualmente um nó de réplica de leitura secundária apenas no nível de serviço BC.
 
@@ -46,7 +46,7 @@ O utilizador que iniciar uma falha terá de ter uma das seguintes funções do A
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Utilizar o PowerShell
+### <a name="using-powershell"></a>Com o PowerShell
 
 A versão mínima de Az.Sql tem de ser [v2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere usar [a Azure Cloud Shell](../../cloud-shell/overview.md) do portal Azure que tem sempre a versão mais recente do PowerShell disponível. 
 
@@ -140,11 +140,11 @@ Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para 
 
 > [!IMPORTANT]
 > As limitações funcionais da falha manual iniciada pelo utilizador são:
-> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **30 minutos**.
+> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **15 minutos**.
 > - Para os casos a.C. deve existir quórum de réplicas para que o pedido de caduco seja aceite.
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a alta disponibilidade de exemplo gerido [Alta disponibilidade para Azure SQL Managed Instance](../database/high-availability-sla.md).
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .

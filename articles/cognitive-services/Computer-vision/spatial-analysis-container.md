@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014599"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606271"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -113,7 +113,7 @@ Na página de **computação Configure Edge,**   escolha um Hub IoT existent
 
 Clique em **Criar**. A criação de recursos IoT Hub pode demorar alguns minutos. Após a criação do recurso IoT Hub, o azulejo **computacional Configure Edge** atualizar-se-á para mostrar a nova configuração. Para confirmar que a função de computação Edge foi configurada, selecione **Ver configurar** no azulejo **computacional Configure.**  
 
-Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. O tempo de execução Azure IoT Edge já estará em funcionamento no dispositivo IoT Edge.            
+Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. O tempo de execução Azure IoT Edge já estará em funcionamento no dispositivo IoT Edge.
 
 > [!NOTE]
 > * Atualmente apenas a plataforma Linux é suportada para dispositivos IoT Edge. Para ajudar a resolver problemas no dispositivo Azure Stack Edge, consulte o artigo [de registo e resolução de problemas.](spatial-analysis-logging.md)
@@ -427,7 +427,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 * As imagens do contentor funcionam como Módulos IoT em Azure IoT Edge.
 * Como configurar o recipiente e implantá-lo numa máquina hospedeira.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Configure operações de análise espacial](spatial-analysis-operations.md)

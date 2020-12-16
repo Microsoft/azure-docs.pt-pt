@@ -1,27 +1,27 @@
 ---
-title: Recomendações de segurança para armazenamento de fila
+title: Recomendações de segurança para armazenamento de filas
 titleSuffix: Azure Storage
-description: Saiba mais sobre as recomendações de segurança para o armazenamento da fila. Implementar esta orientação irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada.
-services: storage
+description: Saiba mais sobre as recomendações de segurança para o armazenamento de filas. Implementar esta orientação irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada.
 author: tamram
+services: storage
+ms.author: tamram
+ms.date: 03/11/2020
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 9ec7dcc12b7452ee4bd40fab9b2bc53b5cca9be3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348813"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592165"
 ---
-# <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de fila
+# <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de filas
 
-Este artigo contém recomendações de segurança para o armazenamento da fila. A implementação destas recomendações irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada. Para obter mais informações sobre o que a Microsoft faz para cumprir as responsabilidades do prestador de serviços, leia [responsabilidades partilhadas na computação em nuvem.](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)
+Este artigo contém recomendações de segurança para o armazenamento de filas. A implementação destas recomendações irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada. Para obter mais informações sobre o que a Microsoft faz para cumprir as responsabilidades do prestador de serviços, consulte [responsabilidades partilhadas para a computação em nuvem.](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf)
 
-Algumas das recomendações incluídas neste artigo podem ser monitorizadas automaticamente pelo Azure Security Center. O Centro de Segurança Azure é a primeira linha de defesa na proteção dos seus recursos em Azure. Para obter informações sobre o Centro de Segurança Azure, consulte o [Centro de Segurança Azure?](../../security-center/security-center-introduction.md)
+Algumas das recomendações incluídas neste artigo podem ser monitorizadas automaticamente pelo Azure Security Center. O Centro de Segurança Azure é a primeira linha de defesa na proteção dos seus recursos em Azure. Para obter informações sobre o Centro de Segurança Azure, veja [o que é o Centro de Segurança Azure?](../../security-center/security-center-introduction.md)
 
 O Azure Security Center analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como abordá-las. Para obter mais informações sobre as recomendações do Azure Security Center, consulte [as recomendações de segurança no Centro de Segurança Azure.](../../security-center/security-center-recommendations.md)
 
@@ -37,7 +37,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
-| Utilize o Azure Ative Directory (Azure AD) para autorizar o acesso aos dados da fila | A Azure AD proporciona uma segurança superior e facilidade de utilização sobre a Chave Partilhada para autorizar pedidos de armazenamento de fila. Para obter mais informações, consulte [Autoriza o acesso a blobs e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md). | - |
+| Utilize o Azure Ative Directory (Azure AD) para autorizar o acesso aos dados da fila | A Azure AD proporciona uma segurança superior e facilidade de utilização sobre a autorização da Chave Partilhada para autorizar pedidos de armazenamento de fila. Para obter mais informações, consulte [Autoriza o acesso a blobs e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md). | - |
 | Tenha em mente o principal de menor privilégio ao atribuir permissões a um diretor de segurança Azure AD via Azure RBAC | Ao atribuir uma função a um utilizador, grupo ou aplicação, conceda a esse principal de segurança apenas as permissões necessárias para que possam desempenhar as suas tarefas. Limitar o acesso aos recursos ajuda a prevenir o uso indevido e malicioso dos seus dados. | - |
 | Proteja as chaves de acesso à sua conta com cofre de chaves Azure | A Microsoft recomenda a utilização do Azure AD para autorizar pedidos para o Azure Storage. No entanto, se tiver de utilizar a autorização da Chave Partilhada, então proteja as chaves da sua conta com o Cofre da Chave Azure. Podes recuperar as chaves do cofre da chave em tempo de execução, em vez de as guardares com a tua aplicação. | - |
 | Regenerar as chaves da sua conta periodicamente | A rotação das chaves da conta reduz periodicamente o risco de expor os seus dados a atores mal-intencionados. | - |
@@ -51,19 +51,19 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 |-|----|--|
 | Configure a versão mínima exigida de Segurança da Camada de Transporte (TLS) para uma conta de armazenamento.  | Exigir que os clientes utilizem uma versão mais segura do TLS para fazer pedidos contra uma conta de Armazenamento Azure, configurando a versão mínima de TLS para essa conta. Para obter mais informações, consulte [a versão mínima exigida de Segurança da Camada de Transporte (TLS) para uma conta de armazenamento](../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)| - |
 | Ativar a opção **de transferência Secure necessária** em todas as suas contas de armazenamento | Quando ativa a opção **de transferência Secure necessária,** todos os pedidos feitos contra a conta de armazenamento devem ser feitos sobre ligações seguras. Quaisquer pedidos feitos sobre HTTP falharão. Para mais informações, consulte [Exigir transferência segura no Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | [Sim](../../security-center/security-center-remediate-recommendations.md) |
-| Ativar regras de firewall | Configure as regras de firewall para limitar o acesso à sua conta de armazenamento a pedidos originários de endereços ou intervalos IP especificados, ou de uma lista de sub-redes numa Rede Virtual Azure (VNet). Para obter mais informações sobre a configuração das regras de firewall, consulte [as firewalls de armazenamento Configure Azure e redes virtuais](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | - |
-| Permitir serviços fidedignos da Microsoft para aceder à conta de armazenamento | A ligação das regras de firewall para a sua conta de armazenamento bloqueia os pedidos de dados por padrão, a menos que os pedidos sejam originários de um serviço que opera dentro de uma Rede Virtual Azure (VNet) ou de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Pode permitir pedidos de outros serviços da Azure adicionando uma exceção para permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento. Para obter mais informações sobre a adição de uma exceção para serviços de confiança da Microsoft, consulte [firewalls de armazenamento Configure Azure e redes virtuais](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
-| Utilizar pontos finais privados | Um ponto final privado atribui um endereço IP privado da sua Rede Virtual Azure (VNet) à conta de armazenamento. Protege todo o tráfego entre o seu VNet e a conta de armazenamento por uma ligação privada. Para obter mais informações sobre os pontos finais privados, consulte [Connect private a uma conta de armazenamento utilizando o Azure Private Endpoint](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
+| Ativar regras de firewall | Configure as regras de firewall para limitar o acesso à sua conta de armazenamento a pedidos originários de endereços ou intervalos IP especificados, ou de uma lista de sub-redes numa rede virtual Azure (VNet). Para obter mais informações sobre a configuração das regras de firewall, consulte [as firewalls de armazenamento Configure Azure e redes virtuais](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | - |
+| Permitir serviços fidedignos da Microsoft para aceder à conta de armazenamento | A ligação das regras de firewall para a sua conta de armazenamento bloqueia os pedidos de dados por padrão, a menos que os pedidos sejam originários de um serviço que opera dentro de um Azure VNet ou de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Pode permitir pedidos de outros serviços da Azure adicionando uma exceção para permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento. Para obter mais informações sobre a adição de uma exceção para serviços de confiança da Microsoft, consulte [firewalls de armazenamento Configure Azure e redes virtuais](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
+| Utilizar pontos finais privados | Um ponto final privado atribui um endereço IP privado do seu Azure VNet à conta de armazenamento. Protege todo o tráfego entre o seu VNet e a conta de armazenamento sobre o Private Link. Para obter mais informações sobre os pontos finais privados, consulte [Connect private a uma conta de armazenamento utilizando um ponto final privado Azure](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
 | Utilize tags de serviço VNet | Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam. Para obter mais informações sobre etiquetas de serviço suportadas pelo Azure Storage, consulte [as etiquetas de serviço Azure.](../../virtual-network/service-tags-overview.md) Para um tutorial que mostre como usar tags de serviço para criar regras de rede de saída, consulte [restringir o acesso aos recursos do PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitar o acesso à rede a redes específicas | Limitar o acesso à rede a redes que aloquem clientes que necessitem de acesso reduz a exposição dos seus recursos a ataques de rede. | [Sim](../../security-center/security-center-remediate-recommendations.md) |
 
-## <a name="loggingmonitoring"></a>Registo/Monitorização
+## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
-| Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o registo de análises a Azure Storage.](../common/storage-analytics-logging.md) | - |
+| Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito anonimamente, utilizando um token OAuth 2.0, utilizando uma chave partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o registo de análises a Azure Storage.](../common/storage-analytics-logging.md) | - |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação de segurança do Azure](../../security/index.yml)
 - [Documentação de desenvolvimento segura.](../../security/develop/index.yml)

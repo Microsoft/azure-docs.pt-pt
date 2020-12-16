@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: b59a764510b93daf358e00a4d75bcefd31d2980f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7ca566c554c02d20d21bd7eba87dfbcbf1f746da
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460240"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Azure Ative Directory com Infogix Data3Sixty Govern
 
@@ -64,7 +64,7 @@ Para configurar a integração do Infogix Data3Sixty Govern em AD Azure, é nece
 
 4. Na caixa de pesquisa, **escreva Infogix Data3Sixty Govern**, selecione **Infogix Data3Sixty Govern** a partir do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Infogix Data3Sixty Governe na lista de resultados](common/search-new-app.png)
+    ![Infogix Data3Sixty Governe na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -121,11 +121,11 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | -----------| -------------- |
     | nome de primeiro nome  | user.givenname |
-    | último nome   | utilizador.sobrenome |
-    | nome de utilizador   | user.mail    |
+    | último nome | utilizador.sobrenome |
+    | nome de utilizador | user.mail |
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
@@ -180,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

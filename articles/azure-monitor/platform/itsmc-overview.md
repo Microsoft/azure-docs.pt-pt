@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ecdecc78d4c1adeba49a28f3cf555caa164a97a5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507376"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592454"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -154,9 +154,9 @@ Utilize o seguinte procedimento para criar artigos de trabalho:
 
     * Num caso que selecione no item de trabalho "Incidente" ou "Alerta": Se limpar os itens de trabalho individuais para cada caixa de **verificação de ponto de configuração,** cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
-       ![Screenshot que mostra a janela itsm Incident.](media/itsmc-overview/itsm-action-configuration.png)
-
-    * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho.
+   ![Screenshot que mostra a janela do bilhete ITSM com 'Incidente' selecionado para 'Work Item'.](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho.
    ![Screenshot que mostra a janela do Evento ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selecione **OK**.
@@ -194,7 +194,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Criada Por
 - Resolvido por
 - Fechado por
-- Origem
+- Fonte
 - Atribuído a
 - Categoria
 - Título
@@ -215,7 +215,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID de serviço
 - Criada Por
 - Fechado por
-- Origem
+- Fonte
 - Atribuído a
 - Título
 - Tipo

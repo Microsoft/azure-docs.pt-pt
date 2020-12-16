@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3c2f90403afbc581f80312be2271d802f4d719a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584243"
+ms.locfileid: "97604928"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar no Serviço de Aplicações através do GitHub Actions
 
-Começa com [as ações do GitHub](https://help.github.com/en/articles/about-github-actions) para automatizar o teu fluxo de trabalho e implementar para o Serviço de [Aplicações Azure](overview.md) do GitHub. 
+Começa com [as ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) para automatizar o teu fluxo de trabalho e implementar para o Serviço de [Aplicações Azure](overview.md) do GitHub. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -63,7 +63,7 @@ Também pode implementar um fluxo de trabalho sem utilizar o Centro de Implanta�
 
 A forma recomendada de autenticar com os Serviços de Aplicações Azure para ações GitHub é com um perfil de publicação. Também pode autenticar com um diretor de serviço, mas o processo requer mais passos. 
 
-Guarde a sua credencial de perfil de publicação ou principal de serviço como [um segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com a Azure. Vais aceder ao segredo dentro do teu fluxo de trabalho. 
+Guarde a sua credencial de perfil de publicação ou principal de serviço como [um segredo do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) para autenticar com a Azure. Vais aceder ao segredo dentro do teu fluxo de trabalho. 
 
 # <a name="publish-profile"></a>[Publicar perfil](#tab/applevel)
 
@@ -746,7 +746,7 @@ Você pode encontrar o nosso conjunto de Ações agrupadas em diferentes reposit
 
 - [Login/logout do Docker](https://github.com/Azure/docker-login)
 
-- [Eventos que acionam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que acionam fluxos de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [Implantação de K8s](https://github.com/Azure/k8s-deploy)
 

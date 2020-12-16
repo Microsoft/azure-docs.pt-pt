@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: d0eef49ea82afe50c5e178de9ad5e82bcb0db0eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342169"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606339"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Use o feed de alteração DB do Azure Cosmos para visualizar a análise de dados em tempo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,14 +35,14 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
  
 1. **Geração de Dados:** O simulador de dados é utilizado para gerar dados de retalho que representam eventos como um utilizador que visualiza um item, adiciona um item ao seu carrinho e compra um item. Pode gerar um grande conjunto de dados de amostra utilizando o gerador de dados. Os dados da amostra gerada contêm documentos no seguinte formato:
    
-   ```json
-   {      
-     "CartID": 2486,
-     "Action": "Viewed",
-     "Item": "Women's Denim Jacket",
-     "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** Os dados gerados são armazenados num contentor Azure Cosmos.  
 
@@ -112,7 +112,7 @@ Irá agora criar uma coleção para realizar eventos do site de e-commerce. Quan
 
    * Para o campo **de id de base de dados,** selecione **Utilizar a base de** dados do **changefeedlab**.  
    * Para o campo **de id Coleção,** **insira os contratos de arrendamento.**  
-   * Para **capacidade de armazenamento** , selecione **Fixo**.  
+   * Para **capacidade de armazenamento**, selecione **Fixo**.  
    * Deixe o campo **de produção** definido para o seu valor predefinido.  
    * Selecione o botão **OK**.
 
@@ -150,7 +150,7 @@ Quando um novo documento é criado, ou um documento atual é modificado num reci
 
 1. Volte ao repositório que clonou no seu dispositivo.  
 
-2. Clique com o botão direito no ficheiro chamado **ChangeFeedLabSolution.sln** e **selecione Open With Visual Studio**.  
+2. Clique com o botão direito no ficheiro chamado **ChangeFeedLabSolution.sln** e selecione **Open With Visual Studio**.  
 
 3. Navegue para **local.settings.jsno** Estúdio Visual. Em seguida, utilize os valores que gravou anteriormente para preencher os espaços em branco.  
 
@@ -180,7 +180,7 @@ Para ver como a mudança de feed processa novas ações num site de e-commerce, 
  
 6. Espera que o programa corra. As estrelas significam que os dados estão a chegar! Mantenha o programa em funcionamento - é importante que muitos dados são recolhidos.  
 
-7. Se navegar para o [portal Azure,](https://portal.azure.com/) em seguida, para a conta Cosmos DB dentro do seu grupo de recursos, em seguida, para **Data Explorer** , você verá os dados aleatórios importados na sua recolha **de changefeedlab** .
+7. Se navegar para o [portal Azure,](https://portal.azure.com/) em seguida, para a conta Cosmos DB dentro do seu grupo de recursos, em seguida, para **Data Explorer**, você verá os dados aleatórios importados na sua recolha **de changefeedlab** .
  
    :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Dados gerados no portal":::
 
@@ -325,7 +325,7 @@ Irá agora observar como pode utilizar a sua nova ferramenta de análise de dado
 
 1. Volte ao [portal Azure,](https://portal.azure.com/)depois para a sua **conta Cosmos DB,** depois para o **Data Explorer**.  
 
-   Adicione duas coleções em produtos e categorias **de changefeedfeedlabdatabase**  -  **products** com capacidade de armazenamento fixo. **categories**
+   Adicione duas coleções em produtos e categorias **de changefeedfeedlabdatabase**  -   com capacidade de armazenamento fixo. 
 
    Adicione outra coleção sob **a base de dados changefeedlab** nomeada **topItems** e **/Item** como chave de partição.
 
@@ -341,14 +341,14 @@ Irá agora observar como pode utilizar a sua nova ferramenta de análise de dado
  
 5. Se adicionar a consulta opcional TOP 5 na parte anterior do laboratório, proceda à parte 5a. Caso contrário, proceda à parte 5b.
 
-   5a. No **streamjob1** , **selecione Editar consulta** e cole a seguinte consulta no seu editor de consulta Azure Stream Analytics abaixo da consulta TOP 5, mas acima do resto das consultas.
+   5a. No **streamjob1**, **selecione Editar consulta** e cole a seguinte consulta no seu editor de consulta Azure Stream Analytics abaixo da consulta TOP 5, mas acima do resto das consultas.
 
    ```sql
    SELECT arrayvalue.value.item AS Item, arrayvalue.value.price, arrayvalue.value.countEvents
    INTO topItems
    FROM arrayselect
    ```
-   5b. No **streamjob1** , **selecione Editar consulta** e cole a seguinte consulta no seu editor de consulta Azure Stream Analytics acima de todas as outras consultas.
+   5b. No **streamjob1**, **selecione Editar consulta** e cole a seguinte consulta no seu editor de consulta Azure Stream Analytics acima de todas as outras consultas.
 
    ```sql
    /*TOP 5*/
@@ -383,7 +383,7 @@ Irá agora observar como pode utilizar a sua nova ferramenta de análise de dado
 
    Preencha o nome da recolha dos seus **produtos,** **nome de coleção de categorias** e **nome de recolha de artigos de topo,** conforme indicado. (Estes nomes devem ser **produtos, categorias e topItems,** a menos que tenha optado por nomear o seu de forma diferente.)  
 
-8. Navegue para abrir e abrir a **pasta Checkout** dentro **do EcommerceWebApp.sln.** Em seguida, abra o ficheiro **Web.config** dentro dessa pasta.  
+8. Navegue e abra a **pasta Checkout** dentro do **EcommerceWebApp.sln.** Em seguida, abra o ficheiro **Web.config** dentro dessa pasta.  
 
 9. Dentro do `<appSettings>` bloco, adicione o **URI** e **a CHAVE PRIMÁRIA** que guardou anteriormente, onde indicado. Em seguida, adicione o nome da sua **base de dados** e **o nome da recolha** como indicado. (Estes nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection,** a menos que tenha optado por nomear o seu de forma diferente.)  
 

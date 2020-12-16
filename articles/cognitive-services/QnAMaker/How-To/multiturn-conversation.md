@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: b04a5535ada9532d62d395f7070d9bcd8aa4380c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591784"
+ms.locfileid: "97605149"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -38,7 +38,6 @@ Com multi-volta, um bot de chat gere uma conversa com um utilizador para determi
 Na imagem anterior, um utilizador iniciou uma conversa ao inserir a **minha conta**. A base de conhecimento tem três pares de perguntas e respostas ligados. Para refinar a resposta, o utilizador seleciona uma das três opções na base de conhecimento. A questão (#1), tem três pedidos de acompanhamento, que são apresentados no chat bot como três opções (#2).
 
 Quando o utilizador seleciona uma opção (#3), é apresentada a próxima lista de opções de refinação (#4). Esta sequência continua (#5) até que o utilizador determine a resposta final correta (#6).
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>Use multi-turn em um bot
 
@@ -79,7 +78,6 @@ Ao adicionar um documento hierárquico, o QnA Maker determina as indicações de
 > [!Caution]
 > O suporte para a utilização de um ficheiro de base de conhecimento multi-turn de TSV ou XLS exportado como fonte de dados para uma base de conhecimento nova ou vazia não é suportado. É necessário **importar** esse tipo de ficheiro, a partir da página **Definições** do portal QnA Maker, de modo a adicionar solicitações de várias voltas exportadas a uma base de conhecimento.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar base de conhecimento com solicitações de várias voltas com a API Criar
 
 Pode criar um caso de conhecimento com solicitações de várias voltas utilizando a [API do Criador de QnA.](/rest/api/cognitiveservices/qnamaker/knowledgebase/create) As indicações estão adicionando na `context` matriz da `prompts` propriedade.
@@ -116,7 +114,6 @@ Adicione um pedido de seguimento a um par de perguntas e respostas existente que
     |Apenas contexto| Selecione esta caixa de verificação. Uma resposta só é devolvida se a pergunta especificar o contexto.|
     |Link para responder|Introduza **Utilize o ecrã de entrada** para encontrar o par de perguntas e respostas existente.|
 
-
 1.  Uma partida é devolvida. Selecione esta resposta como seguimento e, em seguida, **selecione Guardar**.
 
     ![A página "Pedido de acompanhamento (PREVIEW)"](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -137,7 +134,6 @@ Quando um pedido de seguimento é criado e um par de perguntas e respostas exist
 1. Quando terminar de editar o texto do visor, **selecione Guardar**.
 1. Na barra de navegação de topo, **salve e treine.**
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Adicione um novo par de perguntas e respostas como um pedido de acompanhamento
 
 Quando se adiciona um novo par de perguntas e respostas à base de conhecimento, cada par deve estar ligado a uma pergunta existente como um pedido de seguimento.
@@ -155,7 +151,6 @@ Quando se adiciona um novo par de perguntas e respostas à base de conhecimento,
     |||
 
     ![Criar uma nova pergunta rápida e responder](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. **Selecione Criar novo** e, em seguida, selecione **Guardar**.
 
@@ -353,7 +348,6 @@ A resposta do QnA Maker _GenerateAnswer_ JSON inclui as indicações de seguimen
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consultar a base de conhecimento com o ID do Fabricante QnA
 
 Se estiver a construir uma aplicação personalizada utilizando uma função multi-turn. Na resposta inicial, quaisquer pedidos de seguimento e seus associados `qnaId` são devolvidos. Agora que tem a identificação, pode passar isso no corpo de pedido do pedido de acompanhamento. Se o corpo de pedido contiver o `qnaId` , e o objeto de contexto (que contém as propriedades anteriores do QnA Maker), então GenerateAnswer devolverá a pergunta exata por ID, em vez de usar o algoritmo de classificação para encontrar a resposta pelo texto de pergunta.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>A ordem de exibição é suportada na API de atualização
 

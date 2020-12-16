@@ -4,12 +4,12 @@ description: Uma desagregação detalhada das definições de autoescala e como 
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317472"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605245"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
 As definições de autoescala ajudam a garantir que tem a quantidade certa de recursos em execução para lidar com a carga flutuante da sua aplicação. Pode configurar as definições de Autoescalação a serem ativadas com base em métricas que indicam carga ou desempenho, ou ativadas numa data e hora programadas. Este artigo dá uma olhada detalhada na anatomia de uma definição de Autoscale. O artigo começa com o esquema e propriedades de uma configuração, e depois anda pelos diferentes tipos de perfil que podem ser configurados. Finalmente, o artigo discute como a funcionalidade Autoscale em Azure avalia qual o perfil a executar a qualquer momento.
@@ -60,7 +60,7 @@ Para ilustrar o esquema de definição de autoescala, é utilizada a seguinte de
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -119,34 +119,41 @@ Existem três tipos de perfis de autoescala:
 
 - **Perfil de data fixa:** Este perfil é para casos especiais. Por exemplo, digamos que terá um evento importante a 26 de dezembro de 2017 (PST). Quer que as capacidades mínimas e máximas do seu recurso sejam diferentes nesse dia, mas ainda assim escalar nas mesmas métricas. Neste caso, deverá adicionar um perfil de data fixa à lista de perfis da sua definição. O perfil está configurado para ser executado apenas no dia do evento. Para qualquer outro dia, a Autoscale utiliza o perfil regular.
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

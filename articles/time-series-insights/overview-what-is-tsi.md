@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/02/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8fdbb42d06f26849d14e093c340c6d2457ee6ec9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ae5887657e7657e60348217c21aa0ed17f9f4b07
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020100"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606305"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>O que é Azure Time Series Insights Gen2
 
@@ -87,7 +87,7 @@ Com a introdução destas principais capacidades de IoT industrial, a Azure Time
 | Extensibilidade e integração | A integração do Conector Power BI está disponível diretamente na experiência do utilizador do Time Series Explorer através da opção **Exportação,** permitindo que os clientes exportem as consultas de séries horárias que criam na nossa experiência de utilizador diretamente no ambiente de trabalho Power BI e vejam as suas tabelas de séries de tempo ao lado de outras análises bi. Isto abre a porta a uma nova classe de cenários para empresas industriais de IoT que investiram no Power BI, fornecendo um único painel de vidro sobre a análise de várias fontes de dados, incluindo séries de tempo IoT. |
 | Aplicações personalizadas construídas na plataforma Azure Time Series Insights Gen2 | Azure Time Series Insights Gen2 suporta o [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controlos ricos e acesso simplificado a consultas. Use o SDK para construir aplicações IoT personalizadas em cima da Azure Time Series Insights Gen2 para atender às necessidades do seu negócio. Também pode utilizar as [APIs](./concepts-query-overview.md) de Consulta de Consultas Azure Time Series Gen2 para conduzir dados em aplicações IoT personalizadas. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com o Azure Time Series Insights Gen2:
 

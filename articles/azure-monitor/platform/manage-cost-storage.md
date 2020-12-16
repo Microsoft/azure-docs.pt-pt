@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a6b92d1b7f36b73d91b8e0e8e519981b936d8735
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185917"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592437"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -150,11 +150,11 @@ A retenção também pode ser [definida através do Gestor de Recursos Azure](..
 
 Os espaços de trabalho com retenção de 30 dias podem conservar dados durante 31 dias. Se for imperativo que os dados sejam conservados por apenas 30 dias, utilize o Gestor de Recursos Azure para definir a retenção para 30 dias e com o `immediatePurgeDataOn30Days` parâmetro.  
 
-Dois tipos de dados `Usage` são `AzureActivity` retidos por um mínimo de 90 dias por defeito, e não há nenhuma taxa para esta retenção de 90 dias. Se a retenção do espaço de trabalho for aumentada acima dos 90 dias, a retenção destes tipos de dados também será aumentada.  Estes tipos de dados também estão isentos de encargos de ingestão de dados. 
+Dois tipos de dados `Usage` `AzureActivity` são retidos por um mínimo de 90 dias por defeito, e não há nenhuma taxa para esta retenção de 90 dias. Se a retenção do espaço de trabalho for aumentada acima dos 90 dias, a retenção destes tipos de dados também será aumentada.  Estes tipos de dados também estão isentos de encargos de ingestão de dados. 
 
-Os tipos de dados dos recursos de Insights de Aplicação baseados no espaço de trabalho ( , , , , , , `AppAvailabilityResults` , , e `AppBrowserTimings` - também `AppDependencies` são `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` `AppTraces` mantidos por 90 dias por padrão, e não há nenhuma taxa para esta retenção de 90 dias. A sua retenção pode ser ajustada utilizando a funcionalidade de tipo de dados. 
+Os tipos de dados dos recursos de Insights de Aplicação baseados no espaço de trabalho ( `AppAvailabilityResults` , `AppBrowserTimings` e - também `AppDependencies` são `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` `AppTraces` mantidos por 90 dias por padrão, e não há nenhuma taxa para esta retenção de 90 dias. A sua retenção pode ser ajustada utilizando a funcionalidade de tipo de dados. 
 
-Note que a [API de purga](/rest/api/loganalytics/workspacepurge/purge) log Analytics não afeta a faturação de retenção e destina-se a ser usada para casos muito limitados. Para reduzir a sua conta de retenção, o período de retenção deve ser reduzido quer para o espaço de trabalho, quer para tipos de dados específicos. 
+Tenha em atenção que a [API de remoção](/rest/api/loganalytics/workspacepurge/purge) do Log Analytics não afeta a faturação de retenção e destina-se a ser utilizada em casos muito limitados. Para reduzir a sua conta de retenção, o período de retenção deve ser reduzido quer para o espaço de trabalho, quer para tipos de dados específicos. 
 
 ### <a name="retention-by-data-type"></a>Retenção por tipo de dados
 
@@ -304,7 +304,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 
 ### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Nódes faturados pelo nível de preços de Per Node
 
-O [legado Per Node preços de preços de preços](#legacy-pricing-tiers) de nós com granularidade horária e também não conta nós apenas enviando um conjunto de tipos de dados de segurança. A sua contagem diária de nódes seria próxima da seguinte consulta:
+O [legado Per Node preços de nós](#legacy-pricing-tiers) com granularidade horária e também não conta nós apenas enviando um conjunto de tipos de dados de segurança. A sua contagem diária de nódes seria próxima da seguinte consulta:
 
 ```kusto
 find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated

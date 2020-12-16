@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c6b646688fb0c42091182cc7f94e019432b354fa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f1e6cd222c9ee8f40f81d4db3750956e8e698e3e
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504648"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607674"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Tutorial: Azure Ative Directory integração única (SSO) com TextMagic
 
@@ -93,9 +93,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | Nome |   Atributo de origem| Espaço de Nomes  |
     | --------------- | --------------- | --------------- |
     | empresa | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | nomePróprio               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | apelido            | utilizador.sobrenome |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | telefone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | nomePróprio | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | apelido | utilizador.sobrenome |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | telefone | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -121,7 +121,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao TextMagic.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **TextMagic**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

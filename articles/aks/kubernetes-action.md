@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: b17d005afa4b14a7895dbc7c9d7f9a67c680e320
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: d03acab340e593a925f042ca41f9e8967b468858
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560360"
+ms.locfileid: "97605450"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions para implantação no serviço Kubernetes
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. Pode utilizar várias ações de Kubernetes para implantar em contentores desde o Registo de Contentores Azure até ao Serviço Azure Kubernetes com ações do GitHub. 
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. Pode utilizar várias ações de Kubernetes para implantar em contentores desde o Registo de Contentores Azure até ao Serviço Azure Kubernetes com ações do GitHub. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 

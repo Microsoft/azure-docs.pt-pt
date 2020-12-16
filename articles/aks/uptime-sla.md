@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033022"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607344"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
@@ -25,9 +25,8 @@ Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de n
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Uptime SLA está disponível nas regiões públicas e nas regiões do Governo de Azure onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
-
-## <a name="limitations"></a>Limitações
+* O Uptime SLA está disponível nas regiões públicas e nas regiões do Governo de Azure onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
+* Uptime SLA está disponível para [clusters privados AKS][private-clusters] em todas as regiões onde a AKS é apoiada.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
@@ -138,3 +137,4 @@ Configure o seu cluster para [limitar o tráfego de saídas](limit-egress-traffi
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

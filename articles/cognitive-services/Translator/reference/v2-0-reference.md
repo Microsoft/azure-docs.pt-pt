@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 25dda63c6450040e396de9ee0d3fb0a459416343
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369516"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606833"
 ---
 # <a name="translator-v20"></a>Tradutor v2.0
 
@@ -39,7 +39,7 @@ Quando utilizar uma chave secreta multi-serviço, tem de incluir dois cabeçalho
 
 A região é necessária para a subscrição de API de texto multi-serviço. A região que seleciona é a única região que pode utilizar para tradução de texto quando utilizar a chave de subscrição multi-serviço. Tem de ser a mesma região que selecionou quando se inscreveu para a sua subscrição de vários serviços no portal Azure.
 
-As regiões disponíveis são, , , , , , , , , , , , , , `australiaeast` , , , `brazilsouth` , , , `canadacentral` `centralindia` `centraluseuap` `eastasia` e `eastus` `eastus2` `japaneast` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2` .
+As regiões disponíveis `australiaeast` são, `brazilsouth` `canadacentral` `centralindia` `centraluseuap` `eastasia` e `eastus` `eastus2` `japaneast` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2` .
 
 A chave de subscrição e o token de acesso são segredos que devem ser escondidos da vista.
 
@@ -51,9 +51,9 @@ Se quiser evitar palavrões na tradução mesmo quando está no texto de origem,
 
 |ProfanidadeAcção    |Ação |Fonte de exemplo (japonesa)  |Tradução de exemplo (inglês)  |
 |:--|:--|:--|:--|
-|NoAction   |Predefinição. O mesmo que não definir a opção. Profanidade passará de fonte para alvo.        |彼はジャッカスです。     |É um idiota.   |
-|Marcado     |Palavras profanas serão rodeadas por tags XML \<profanity> e \</profanity> .       |彼はジャッカスです。 |É um \<profanity> \</profanity> idiota.  |
-|Eliminado    |Palavras profanas serão removidas da saída sem substituição.     |彼はジャッカスです。 |É um.   |
+|NoAction   |Predefinição. O mesmo que não definir a opção. Profanidade passará de fonte para alvo. |彼はジャッカスです。 |É um idiota.  |
+|Marcado |Palavras profanas serão rodeadas por tags XML \<profanity> e \</profanity> . |彼はジャッカスです。   |É um \<profanity> \</profanity> idiota.  |
+|Eliminado    |Palavras profanas serão removidas da saída sem substituição. |彼はジャッカスです。 |É um.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Excluindo o conteúdo da tradução

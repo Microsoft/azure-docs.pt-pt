@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azul, cinect, especificações, hardware, DK, capacidades, profundidade, cor, RGB, IMU, array, profundidade, multi, sincronização
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361165"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592284"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos DK Azure Kinect
 
@@ -83,11 +83,14 @@ Para cada captura de câmara de profundidade, o laser liga-se nove vezes e está
 
 Além disso, as diferenças entre o relógio da câmara e o relógio de firmware do dispositivo aumentam o mínimo para 160 &mu; s. Para calcular uma compensação mais precisa para a sua configuração, note o modo de profundidade que está a utilizar e consulte a [tabela de cronometragem bruta do sensor de profundidade](hardware-specification.md#depth-sensor-raw-timing). Utilizando os dados desta tabela, pode calcular o mínimo de compensação (o tempo de exposição de cada câmara) utilizando a seguinte equação:
 
-> *Tempo de exposição* =*(Largura* do pulso de pulso de pulso de pulso de pulso &times; *Pulse Width*de IV) + (Tempo*inativo do* &times; *inativo)*
+> *Tempo de exposição* =*(Largura* do pulso de pulso &times; de IV) + (Tempo *inativo do* &times; *inativo)*
 
 Quando se usa uma offset de 160 &mu; s, pode configurar até nove câmaras de profundidade adicionais para que cada laser se atrase enquanto os outros lasers estão inativos.
 
 No seu software, utilize ```depth_delay_off_color_usec``` ou ```subordinate_delay_off_master_usec``` certifique-se de que cada laser IR dispara na sua própria janela de 160 &mu; s ou tem um campo de visão diferente.
+
+> [!NOTE]  
+> A largura do pulso real é de 125us no entanto, nós afirmamos 160us para fornecer alguma margem de manobra. Tomando NFOV UNBINNED como um exemplo, cada pulso de 125us é seguido por 1450us inativo. Totalizando estes - (9 x 125) + (8 x 1450) - rende o tempo de exposição de 12,8ms. O armário que pode intercalar a exposição de 2 dispositivos é ter o primeiro pulso da segunda câmara a cair no primeiro período inativo da primeira câmara. O atraso entre a primeira e a segunda câmaras pode ser de apenas 125us (a largura de um pulso) no entanto recomendamos alguma margem de manobra, daí o 160us. Dado o 160us pode intercalar os períodos de exposição de um máximo de 10 câmaras.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Prepare os seus dispositivos e outros equipamentos
 

@@ -1,5 +1,5 @@
 ---
-title: Ações GitHub para CI/CD
+title: GitHub Actions para CI/CD
 titleSuffix: Azure Machine Learning
 description: Saiba como criar um fluxo de trabalho gitHub actions para treinar um modelo em Azure Machine Learning
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4336827dc7f8cb45f04e4cef94d79d1e6409d5c0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795338"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605030"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Use ações do GitHub com aprendizagem de máquinas Azure
 
-Começa com as [ações do GitHub](https://help.github.com/en/articles/about-github-actions) para treinar um modelo no Azure Machine Learning. 
+Começa com as [ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) para treinar um modelo no Azure Machine Learning. 
 
 > [!NOTE]
 > GitHub Actions for Azure Machine Learning são fornecidos como é, e não são totalmente suportados pela Microsoft. Se encontrar problemas com uma ação específica, abra uma questão no repositório para a ação. Por exemplo, se encontrar um problema com a ação de implantação da AML, informe o problema no [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repo.
@@ -77,7 +77,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição, 
 
 ## <a name="configure-the-github-secret"></a>Configure o segredo do GitHub
 
-1. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo** .
+1. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo**.
 
 2. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 

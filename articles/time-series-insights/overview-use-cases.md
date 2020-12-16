@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: b8f13a20232fab61dc082c1b12b7ddaa11807554
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7d97958c5fd1274495da88c064b63e59e354f691
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016195"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606968"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 usam casos
 
@@ -60,7 +60,7 @@ Existem três formas primárias de interagir com os dados armazenados na Azure T
 
   * Saiba mais sobre a partilha de URLs e a nova UI, analisando [dados do Visualize no Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
-* A terceira maneira de começar é usar as poderosas APIs para consultar os dados armazenados em Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 tem operadores temporais `from` `to` como, `first` e `last` . Tem agregações e transformações `average` `sum` como, `min` , `max` , , , `time-weighted average` `time-weighted sum` , etc. Também permite operadores de filtragem, aritmética e boolean, funções de escala, etc. Todos estes operadores permitem que as aplicações a jusante encontrem rapidamente tendências e padrões interessantes nos seus dados. Use-as para povoar visualizações caseiras para detetar anomalias.
+* A terceira maneira de começar é usar as poderosas APIs para consultar os dados armazenados em Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 tem operadores temporais `from` `to` como, `first` e `last` . Tem agregações e transformações `average` `sum` como, `min` `max` `time-weighted average` `time-weighted sum` etc. Também permite operadores de filtragem, aritmética e boolean, funções de escala, etc. Todos estes operadores permitem que as aplicações a jusante encontrem rapidamente tendências e padrões interessantes nos seus dados. Use-as para povoar visualizações caseiras para detetar anomalias.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Análise operacional e eficiência do processo de condução
 
@@ -98,7 +98,7 @@ Azure Time Series Insights Gen2 faz a ponte entre os dados IoT e a análise avan
 
 * Em segundo lugar, a saída de modelos de machine learning e previsão pode ser alimentada no Azure Time Series Insights Gen2 para visualizar e armazenar os seus resultados. Este procedimento ajuda as organizações a otimizar e ajustar os seus modelos. Azure Time Series Insights Gen2 torna simples visualizar dados de telemetria de streaming no mesmo plano que as saídas do modelo treinado. Desta forma, ajuda as equipas de ciência de dados a detetar anomalias e a identificar padrões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 * Leia [as melhores práticas da Azure Time Series Insights Gen2](./how-to-plan-your-environment.md) para planear o seu ambiente.

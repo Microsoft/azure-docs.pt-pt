@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022467"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606220"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computativos apoiados pela Azure Data Factory
 
@@ -28,11 +28,11 @@ A tabela seguinte fornece uma lista de ambientes computativos apoiados pela Data
 | Ambiente de computação                                          | atividades                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight a pedido](#azure-hdinsight-on-demand-linked-service) ou [o seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [Colmeia,](transform-data-using-hadoop-hive.md) [Porco,](transform-data-using-hadoop-pig.md) [Faísca,](transform-data-using-spark.md) [MapReduce,](transform-data-using-hadoop-map-reduce.md) [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service)                   | [Personalizar](transform-data-using-dotnet-custom-activity.md)     |
+| [Azure Batch](#azure-batch-linked-service)                   | [Personalizado](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio (clássico)](#azure-machine-learning-studio-classic-linked-service) | [Atividades do Estúdio de Machine Learning (clássicos): Execução de Lote e Recurso de Atualização](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Executar Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics,](#azure-synapse-analytics-linked-service) [SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Caderno,](transform-data-databricks-notebook.md) [Jar,](transform-data-databricks-jar.md) [Python](transform-data-databricks-python.md) |
 | [Função do Azure](#azure-function-linked-service)         | [Atividade da Função Azure](control-flow-azure-function-activity.md)
 >  
@@ -154,7 +154,7 @@ O JSON seguinte define um serviço hdinsight baseado na procura do Linux. O serv
 
 O serviço on-demand HDInsight ligado requer uma autenticação principal do serviço para criar clusters HDInsight em seu nome. Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe o papel **de Contribuinte** da subscrição ou do grupo de recursos em que o cluster HDInsight é criado. Para etapas detalhadas, consulte [o portal Use para criar uma aplicação e um diretor de serviço azure ative que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
 
-- ID da Aplicação
+- ID da aplicação
 - Chave de aplicação 
 - ID do inquilino
 
@@ -253,7 +253,7 @@ Se pretender criar nós de cabeça de tamanho D4 e nós de trabalhadores, especi
 "dataNodeSize": "Standard_D4",
 ```
 
-Se especificar um valor errado para estas propriedades, poderá receber o seguinte **erro:** Não conseguiu criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Mensagem: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o nome **CMDLET & APIS** da tabela no artigo [Tamanhos das Máquinas Virtuais.](../virtual-machines/sizes.md)          
+Se especificar um valor errado para estas propriedades, poderá receber o seguinte **erro:** Não conseguiu criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Mensagem: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o nome **CMDLET & APIS** da tabela no artigo [Tamanhos das Máquinas Virtuais.](../virtual-machines/sizes.md)
 
 ### <a name="bring-your-own-compute-environment"></a>Traga o seu próprio ambiente computacional
 Neste tipo de configuração, os utilizadores podem registar um ambiente de computação já existente como um serviço ligado na Data Factory. O ambiente de computação é gerido pelo utilizador e o serviço Data Factory utiliza-o para executar as atividades.
@@ -393,7 +393,7 @@ Você cria um serviço ligado ao Azure Machine Learning Studio (clássico) para 
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade               | Descrição                              | Necessário                                 |
+| Propriedade               | Descrição                              | Obrigatório                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | A propriedade tipo deve ser definida para: **AzureML**. | Sim                                      |
 | mlEndpoint             | O URL de pontuação do lote.                   | Sim                                      |
@@ -437,7 +437,7 @@ Você cria um serviço ligado a Azure Machine Learning para ligar um espaço de 
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade               | Descrição                              | Necessário                                 |
+| Propriedade               | Descrição                              | Obrigatório                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | A propriedade tipo deve ser configurada para: **AzureMLService**. | Sim                                      |
 | subscriptionId         | ID de assinatura Azure              | Sim                                      |
@@ -564,7 +564,7 @@ Cria um serviço ligado Azure SQL e utiliza-o com a [Atividade de Procedimento A
 
 ## <a name="azure-synapse-analytics-linked-service"></a>Serviço Azure Synapse Analytics ligado
 
-Cria um serviço de azure Synapse Analytics (anteriormente SQL Data Warehouse) e utiliza-o com a [Atividade de Procedimento Armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado a partir de um oleoduto data factory. Consulte o artigo [de conector Azure Synapse Analytics (anteriormente SQL Data Warehouse)](connector-azure-sql-data-warehouse.md#linked-service-properties) para obter mais informações sobre este serviço ligado.
+Cria um serviço Azure Synapse Analytics ligado e utiliza-o com a [Atividade de Procedimento Armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado a partir de um oleoduto data factory. Consulte o artigo [do Azure Synapse Analytics Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) para obter mais detalhes sobre este serviço ligado.
 
 ## <a name="sql-server-linked-service"></a>Serviço ligado ao SQL Server
 
@@ -576,8 +576,8 @@ Cria um serviço ligado à Função Azure e utiliza-o com a [atividade da Funç�
 
 | **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| tipo   | A propriedade tipo deve ser definida para: **AzureFunction** | yes |
-| url de aplicação de função | URL para a App de Função Azure. O formato é `https://<accountname>.azurewebsites.net` . Este URL é o valor na secção **URL** ao visualizar a sua App de Função no portal Azure  | yes |
+| tipo   | A propriedade tipo deve ser definida para: **AzureFunction** | sim |
+| url de aplicação de função | URL para a App de Função Azure. O formato é `https://<accountname>.azurewebsites.net` . Este URL é o valor na secção **URL** ao visualizar a sua App de Função no portal Azure  | sim |
 | chave de função | Chave de acesso para a Função Azure. Clique na secção **'Gerir'** para a respetiva função e copie a **tecla 'Função'** ou a **tecla 'Anfitrião'.** Saiba mais aqui: [Funções Azure HTTP detona e encadernações](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sim |
 |   |   |   |
 

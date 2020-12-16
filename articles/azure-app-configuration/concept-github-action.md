@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: cd644ed4a3edb1110f2cef60c2bb9170a81fe8d7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 588efd692119c9e2831e16c1ce26c2759898a1e5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584073"
+ms.locfileid: "97607369"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sync o seu repositório GitHub para a Configuração de Aplicações
 
@@ -20,9 +20,9 @@ As equipas que pretendam continuar a utilizar as suas práticas de controlo de o
 &nbsp;&nbsp;&nbsp;&nbsp;• Atualizar a configuração sem recolocar toda a sua app <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integração com serviços como o Azure App Service and Functions. 
 
-Um fluxo [de trabalho](https://help.github.com/articles/about-github-actions#workflow) gitHub Actions define um processo automatizado num repositório GitHub. A *Azure App Configuration Sync* Action desencadeia atualizações para uma instância de Configuração de Aplicações quando são feitas alterações ao repositório de origem. Utiliza um ficheiro YAML (.yml) encontrado no `/.github/workflows/` caminho do seu repositório para definir os passos e parâmetros. Pode desencadear atualizações de configuração ao premir, rever ou ramificar ficheiros de configuração de aplicações, tal como faz com o código da aplicação.
+Um fluxo [de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) gitHub Actions define um processo automatizado num repositório GitHub. A *Azure App Configuration Sync* Action desencadeia atualizações para uma instância de Configuração de Aplicações quando são feitas alterações ao repositório de origem. Utiliza um ficheiro YAML (.yml) encontrado no `/.github/workflows/` caminho do seu repositório para definir os passos e parâmetros. Pode desencadear atualizações de configuração ao premir, rever ou ramificar ficheiros de configuração de aplicações, tal como faz com o código da aplicação.
 
-A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) do GitHub fornece uma visão aprofundada dos fluxos de trabalho e ações do GitHub. 
+A [documentação](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) do GitHub fornece uma visão aprofundada dos fluxos de trabalho e ações do GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Ativar as ações do GitHub no seu repositório
 Para começar a utilizar esta ação do GitHub, vá ao seu repositório e selecione o **separador Ações.** Selecione **novo fluxo de trabalho** e, em seguida, crie um fluxo de trabalho por si **mesmo**. Finalmente, procure no mercado "Azure App Configuration Sync".
@@ -35,7 +35,7 @@ Para começar a utilizar esta ação do GitHub, vá ao seu repositório e seleci
 ## <a name="sync-configuration-files-after-a-push"></a>Sync ficheiros de configuração após um empurrão
 Esta ação sincroniza ficheiros de configuração de aplicações Azure quando uma alteração é empurrada para `appsettings.json` . Quando um desenvolvedor empurra uma alteração para `appsettings.json` , a ação De Sincronização de Configuração de Aplicação de Aplicações atualiza a instância de Configuração da Aplicação com os novos valores.
 
-A primeira secção deste fluxo de trabalho especifica que a ação desencadeia *um* *impulso* contendo o `appsettings.json` ramo *principal.* A segunda secção lista os postos de trabalho executados assim que a ação é desencadeada. A ação verifica os ficheiros relevantes e atualiza a instância de Configuração da Aplicação utilizando a cadeia de ligação armazenada como segredo no repositório.  Para obter mais informações sobre a utilização de segredos no GitHub, consulte o [artigo do GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre a criação e utilização de segredos encriptados.
+A primeira secção deste fluxo de trabalho especifica que a ação desencadeia *um* *impulso* contendo o `appsettings.json` ramo *principal.* A segunda secção lista os postos de trabalho executados assim que a ação é desencadeada. A ação verifica os ficheiros relevantes e atualiza a instância de Configuração da Aplicação utilizando a cadeia de ligação armazenada como segredo no repositório.  Para obter mais informações sobre a utilização de segredos no GitHub, consulte o [artigo do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) sobre a criação e utilização de segredos encriptados.
 
 ```json
 on: 
@@ -300,7 +300,7 @@ Dada uma profundidade de 2, o exemplo acima devolve agora o seguinte par de valo
 | Objeto:Interior | {"InnerKey":"InnerValue"} |
 
 ## <a name="understand-action-inputs"></a>Compreender entradas de ação
-Os parâmetros de entrada especificam os dados utilizados pela ação durante o tempo de funcionamento.  A tabela seguinte contém parâmetros de entrada aceites pelo App Configuration Sync e os valores esperados para cada um.  Para obter mais informações sobre entradas de ação para ações do GitHub Actions, consulte a [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)do GitHub .
+Os parâmetros de entrada especificam os dados utilizados pela ação durante o tempo de funcionamento.  A tabela seguinte contém parâmetros de entrada aceites pelo App Configuration Sync e os valores esperados para cada um.  Para obter mais informações sobre entradas de ação para ações do GitHub Actions, consulte a [documentação](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs)do GitHub .
 
 > [!Note]
 > As entradas são insensíveis a casos.

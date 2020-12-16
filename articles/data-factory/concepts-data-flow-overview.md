@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
-ms.openlocfilehash: f78cbaedea90a241efddd0eff9cb7503201528c5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 01ee890fe77abebfdec8d3d643773b42cb54187e
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590411"
+ms.locfileid: "97606186"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
@@ -99,7 +99,7 @@ A equipa da Azure Data Factory criou um [guia de afinação de desempenho](conce
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões em ADF:
+==== Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões em ADF:
 
 | Região do Azure | Fluxos de dados em ADF |
 | ------------ | ----------------- |

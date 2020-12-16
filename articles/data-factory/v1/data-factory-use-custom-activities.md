@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012872"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606951"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Utilize atividades personalizadas num pipeline da versão 1 da Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -98,8 +98,10 @@ O método tem quatro parâmetros:
 O método devolve um dicionário que pode ser usado para acorrentar atividades personalizadas no futuro. Esta funcionalidade ainda não foi implementada, por isso devolva um dicionário vazio do método.
 
 ### <a name="procedure"></a>Procedimento
+
 1. Criar um projeto **da Biblioteca classe .NET.**
-   <ol type="a">
+   
+    <ol type="a">
      <li>Lançamento Visual Studio.</li>
      <li>Clique em <b>Ficheiro</b>, aponte para <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li>
      <li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste walkthrough, você usa C#, mas você pode usar qualquer idioma .NET para desenvolver a atividade personalizada.</li>
@@ -116,6 +118,7 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
+
 4. Importe o pacote **Azure Storage** NuGet para o projeto.
 
     ```powershell
@@ -149,16 +152,19 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
+
 6. Altere o nome do **espaço de nomes** para **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
+
 7. Altere o nome da classe para **MyDotNetActivity** e o retire da interface **IDotNetActivity,** tal como mostrado no seguinte código:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
+
 8. Implementar (Adicionar) o método **executar** a interface **IDotNetActivity** para a classe **MyDotNetActivity** e copiar o seguinte código de amostra para o método.
 
     A amostra seguinte conta o número de ocorrências do termo de pesquisa ("Microsoft") em cada bolha associada a uma fatia de dados.
@@ -279,6 +285,7 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
         return new Dictionary<string, string>();
     }
     ```
+
 9. Adicione os seguintes métodos de ajuda:
 
     ```csharp
@@ -367,25 +374,30 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
     ```
 
     O método calcular calcula o número de casos de palavra-chave Microsoft nos ficheiros de entrada (bolhas na pasta). O termo de pesquisa ("Microsoft") está codificado no código.
+
 10. Compilar o projeto. Clique em **Construir** a partir do menu e clique em **Build Solution**.
 
     > [!IMPORTANT]
     > Desaponte a versão 4.5.2 do Quadro .NET como o quadro-alvo do seu projeto: clique à direita no projeto e clique em **Propriedades** para definir o quadro-alvo. A Data Factory não suporta atividades personalizadas compiladas contra versões .NET Framework mais tarde do que 4.5.2.
 
 11. Inicie **o Windows Explorer** e navegue para a pasta **bin\debug** ou **bin\release** dependendo do tipo de construção.
+
 12. Crie um ficheiro zip **MyDotNetActivity.zip** que contenha todos os binários na \<project folder\> pasta \bin\Debug. Inclua o ficheiro **.pdb MyDotNetActivity** para obter detalhes adicionais, como o número de linha no código fonte que causou o problema se houver uma falha.
 
     > [!IMPORTANT]
     > Todos os ficheiros no ficheiro zip da atividade personalizada têm de estar no **nível superior** sem subpastas.
 
     ![Ficheiros de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
-14. Crie um recipiente blob denominado **recipiente de atividades personalizadas** se já não existir.
-15. Faça o upload MyDotNetActivity.zip como uma bolha para o dispositivo de atividades **personalizadas** num armazenamento de bolhas Azure (não quente/fresco blob) que é referido pelo AzureStorageLinkedService.
+
+13. Crie um recipiente blob denominado **recipiente de atividades personalizadas** se já não existir.
+
+14. Faça o upload MyDotNetActivity.zip como uma bolha para o dispositivo de atividades **personalizadas** num armazenamento de bolhas Azure (não quente/fresco blob) que é referido pelo AzureStorageLinkedService.
 
 > [!IMPORTANT]
 > Se adicionar este projeto de atividade .NET a uma solução no Estúdio Visual que contenha um projeto data Factory, e adicionar uma referência ao projeto de atividade .NET do projeto de aplicação data Factory, não precisa de executar os dois últimos passos de criação manual do ficheiro zip e de o carregar para o armazenamento de bolhas Azure de propósito geral. Quando publica entidades da Data Factory utilizando o Visual Studio, estes passos são feitos automaticamente pelo processo de publicação. Para mais informações, consulte o projeto Data Factory na secção [Estúdio Visual.](#data-factory-project-in-visual-studio)
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Criar um oleoduto com atividade personalizada
+
 Criou uma atividade personalizada e carregou o ficheiro zip com binários para um recipiente de bolhas numa Conta de Armazenamento Azure **de uso geral.** Nesta secção, cria-se uma fábrica de dados Azure com um oleoduto que utiliza a atividade personalizada.
 
 O conjunto de dados de entrada para a atividade personalizada representa bolhas (ficheiros) na pasta de substituição de dados de adftutorial no armazenamento do blob. O conjunto de dados de saída para a atividade representa bolhas de saída na pasta de saída personalizada do recipiente adftutorial no armazenamento do blob.
@@ -505,7 +517,7 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
     }
     ```
 
-   Cria-se um oleoduto mais tarde nesta passagem com a hora de início: 2016-11-16T00:00:00Z e tempo de fim: 2016-11-16T05:00:00Z. Está programado para produzir dados de hora em hora, pelo que existem cinco fatias de entrada/saída (entre as 00:00:00 -> **00** **05:00:00).**
+   Cria-se um oleoduto mais tarde nesta passagem com a hora de início: 2016-11-16T00:00:00Z e tempo de fim: 2016-11-16T05:00:00Z. Está programado para produzir dados de hora em hora, pelo que existem cinco fatias de entrada/saída (entre as 00:00:00 ->  **05:00:00).**
 
    A **frequência** e **intervalo** para o conjunto de dados de entrada é definido para **Hora** e **1**, o que significa que a fatia de entrada está disponível a cada hora. Nesta amostra, é o mesmo ficheiro (file.txt) no intputfolder.
 
@@ -544,7 +556,7 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
     }
     ```
 
-     A localização da saída é **adftutorial/customactivityoutput/** e o nome do ficheiro de saída é yyyy-MM-dd-HH.txt onde yyyy-MM-dd-HH é o ano, mês, data e hora da fatia que está a ser produzida. Consulte [a Referência do Desenvolvedor][adf-developer-reference] para obter mais detalhes.
+     A localização da saída é **adftutorial/customactivityoutput/** e o nome do ficheiro de saída é yyyy-MM-dd-HH.txt onde yy-MM-dd-HH é o ano, mês, data e hora da fatia que está a ser produzida. Consulte [a Referência do Desenvolvedor][adf-developer-reference] para obter mais detalhes.
 
     Uma bolha de saída/ficheiro é gerada para cada fatia de entrada. Aqui está como um ficheiro de saída é nomeado para cada fatia. Todos os ficheiros de saída são gerados numa pasta de saída: **adftutorial\customactivityout .**
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c7e859b05450b95cf9c75421599dd9c54a639cdc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364430"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606849"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -34,88 +34,88 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 
 [Ver Traduzir documentação de referência de operação](reference/v3-0-translate.md)
 
-|Linguagem|  Código do idioma|
-|:-----|:-----:|
-|Afrikaans| `af`|
-|Árabe|    `ar`    |
-|Assamese|  `as`    |
-|Bangla|    `bn`    |
-|Bósnio (Latim)|   `bs`    |
-|Búlgaro| `bg`    |
-|Cantonês (Tradicional)|   `yue`|
-|Catalão|   `ca`    |
-|Chinês simplificado|    `zh-Hans`|
-|Chinês tradicional|   `zh-Hant`       |
-|Croata|  `hr`    |
-|Checo| `cs`    |
-|Rio Dari|  `prs`   |
-|Dinamarquês|    `da`        |
-|Neerlandês| `nl`|
-|Inglês|   `en`    |
-|Estónio|  `et`    |
-|Fijian|    `fj`    |
-|Filipino|  `fil`   |
-|Finlandês|   `fi`    |
-|Francês|    `fr`    |
-|Francês (Canadá)|   `fr-ca` |
-|Alemão|    `de`    |
-|Grego| `el`    |
-|Guzerate|  `gu`    |
-|Crioulo haitiano|    `ht`        |
-|Hebraico |`he`   |
-|Hindi| `hi`    |
-|Hmong Daw| `mww`   |
-|Húngaro| `hu`    |
-|Islandês| `is`    |
-|Indonésio|    `id`    |
-|Irlandês | `ga`|
-|Italiano|   `it`    |
-|Japonês|  `ja`    |
-|Canarês|`kn`|
-|Cazaque|`kk`|
-|Klingon|   `tlh-Latn`  |
-|Klingon (plqaD)|   `tlh-Piqd`  |
-|Coreano |`ko`   |
-|Curdo (Central)  |`ku`   |
-|Curdo (Norte) |`kmr`  |
-|Letão|   `lv`    |
-|Lituano|    `lt`    |
-|Malgaxe|  `mg`    |
-|Malaio| `ms`        |
-|Malaiala| `ml` |
-|Maltês|   `mt`    |
-|Maori| `mi`  |
-|Marata| `mr`  |
-|Norueguês| `nb`    |
-|Odia|  `or`    |
-|Rio Pashto|    `ps`    |
-|Persa|   `fa`    |
-|Polaco|    `pl`    |
-|Português (Brasil)|   `pt-br` |
-|Português (Portugal)| `pt-pt` |
-|Punjabi|`pa`|
-|Queretaro Otomi|   `otq`   |
-|Romeno|  `ro`    |
-|Russo|   `ru`    |
-|Samoa|    `sm`    |
-|Sérvio (Cirílico)|    `sr-Cyrl`|
-|Sérvio (Latim)|   `sr-Latn`       |
-|Eslovaco|    `sk`    |
-|Esloveno| `sl`    |
-|Espanhol|   `es`    |
-|Suaíli|   `sw`    |
-|Sueco|   `sv`    |
-|Taitiano|  `ty`    |
-|Tâmil| `ta`    |
-|Telugu|    `te`    |
-|Tailandês|  `th`    |
-|Tongan|    `to`    |
-|Turco|   `tr`        |
-|Ucraniano| `uk`    |
-|Urdu|  `ur`    |
-|Vietnamita|    `vi`    |
-|Galês| `cy`    |
-|Maia-de-iucatec|  `yua`   |
+| Linguagem | Código do idioma |
+|:-|:-:|
+| Afrikaans | `af` |
+| Árabe | `ar` |
+| Assamese | `as` |
+| Bangla | `bn` |
+| Bósnio (Latim) | `bs` |
+| Búlgaro | `bg` |
+| Cantonês (Tradicional) | `yue` |
+| Catalão | `ca` |
+| Chinês simplificado | `zh-Hans` |
+| Chinês tradicional | `zh-Hant` |
+| Croata | `hr` |
+| Checo | `cs` |
+| Rio Dari | `prs` |
+| Dinamarquês | `da` |
+| Neerlandês | `nl` |
+| Inglês | `en` |
+| Estónio | `et` |
+| Fijian | `fj` |
+| Filipino | `fil` |
+| Finlandês | `fi` |
+| Francês | `fr` |
+| Francês (Canadá) | `fr-ca` |
+| Alemão | `de` |
+| Grego | `el` |
+| Guzerate | `gu` |
+| Crioulo haitiano | `ht` |
+| Hebraico | `he` |
+| Hindi | `hi` |
+| Hmong Daw | `mww` |
+| Húngaro | `hu` |
+| Islandês | `is` |
+| Indonésio | `id` |
+| Irlandês | `ga` |
+| Italiano | `it` |
+| Japonês | `ja` |
+| Canarês | `kn` |
+| Cazaque | `kk` |
+| Klingon | `tlh-Latn` |
+| Klingon (plqaD) | `tlh-Piqd` |
+| Coreano | `ko` |
+| Curdo (Central) | `ku` |
+| Curdo (Norte) | `kmr` |
+| Letão | `lv` |
+| Lituano | `lt` |
+| Malgaxe | `mg` |
+| Malaio | `ms` |
+| Malaiala | `ml` |
+| Maltês | `mt` |
+| Maori | `mi` |
+| Marata | `mr` |
+| Norueguês | `nb` |
+| Odia | `or` |
+| Rio Pashto | `ps` |
+| Persa | `fa` |
+| Polaco | `pl` |
+| Português (Brasil) | `pt-br` |
+| Português (Portugal) | `pt-pt` |
+| Punjabi | `pa` |
+| Queretaro Otomi | `otq` |
+| Romeno | `ro` |
+| Russo | `ru` |
+| Samoa | `sm` |
+| Sérvio (Cirílico) | `sr-Cyrl` |
+| Sérvio (Latim) | `sr-Latn` |
+| Eslovaco | `sk` |
+| Esloveno | `sl` |
+| Espanhol | `es` |
+| Suaíli | `sw` |
+| Sueco | `sv` |
+| Taitiano | `ty` |
+| Tâmil | `ta` |
+| Telugu | `te` |
+| Tailandês | `th` |
+| Tongan | `to` |
+| Turco | `tr` |
+| Ucraniano | `uk` |
+| Urdu | `ur` |
+| Vietnamita | `vi` |
+| Galês | `cy` |
+| Maia-de-iucatec | `yua` |
 
 > [!NOTE]
 > O código `pt` linguístico será desafins a `pt-br` português (Brasil).
@@ -126,63 +126,63 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 
 [Ver Detetar documentação de referência de operação](reference/v3-0-detect.md)
 
-|Linguagem|  Código do idioma|
-|:-----|:-----:|
-|Afrikaans| `af`|
-|Árabe|    `ar`    |
-|Búlgaro| `bg`    |
-|Catalão|   `ca`    |
-|Chinês simplificado|    `zh-Hans`|
-|Chinês tradicional|   `zh-Hant`       |
-|Croata|  `hr`    |
-|Checo| `cs`    |
-|Dinamarquês|    `da`        |
-|Neerlandês| `nl`|
-|Inglês|   `en`    |
-|Estónio|  `et`    |
-|Finlandês|   `fi`    |
-|Francês|    `fr`    |
-|Alemão|    `de`    |
-|Grego| `el`    |
-|Guzerate|  `gu`    |
-|Crioulo haitiano|    `ht`        |
-|Hebraico |`he`   |
-|Hindi| `hi`    |
-|Húngaro| `hu`    |
-|Islandês| `is`    |
-|Indonésio|    `id`    |
-|Irlandês | `ga`|
-|Italiano|   `it`    |
-|Japonês|  `ja`    |
-|Klingon|   `tlh-Latn`  |
-|Coreano |`ko`   |
-|Curdo (Central)  |`ku-Arab`  |
-|Letão|   `lv`    |
-|Lituano|    `lt`    |
-|Malaio| `ms`        |
-|Maltês|   `mt`    |
-|Norueguês| `nb`    |
-|Rio Pashto|    `ps`    |
-|Persa|   `fa`    |
-|Polaco|    `pl`    |
-|Português|    `pt`    |
-|Romeno|  `ro`    |
-|Russo|   `ru`    |
-|Sérvio (Cirílico)|    `sr-Cyrl`|
-|Sérvio (Latim)|   `sr-Latn`       |
-|Eslovaco|    `sk`    |
-|Esloveno| `sl`    |
-|Espanhol|   `es`    |
-|Suaíli|   `sw`    |
-|Sueco|   `sv`    |
-|Taitiano|  `ty`    |
-|Tailandês|  `th`    |
-|Turco|   `tr`        |
-|Ucraniano| `uk`    |
-|Urdu|  `ur`    |
-|Vietnamita|    `vi`    |
-|Galês| `cy`    |
-|Maia-de-iucatec|  `yua`   |
+| Linguagem | Código do idioma |
+|:-|:-:|
+| Afrikaans | `af` |
+| Árabe | `ar` |
+| Búlgaro | `bg` |
+| Catalão | `ca` |
+| Chinês simplificado | `zh-Hans` |
+| Chinês tradicional | `zh-Hant` |
+| Croata | `hr` |
+| Checo | `cs` |
+| Dinamarquês | `da` |
+| Neerlandês | `nl` |
+| Inglês | `en` |
+| Estónio | `et` |
+| Finlandês | `fi` |
+| Francês | `fr` |
+| Alemão | `de` |
+| Grego | `el` |
+| Guzerate | `gu` |
+| Crioulo haitiano | `ht` |
+| Hebraico | `he` |
+| Hindi | `hi` |
+| Húngaro | `hu` |
+| Islandês | `is` |
+| Indonésio | `id` |
+| Irlandês | `ga` |
+| Italiano | `it` |
+| Japonês | `ja` |
+| Klingon | `tlh-Latn` |
+| Coreano | `ko` |
+| Curdo (Central) | `ku-Arab` |
+| Letão | `lv` |
+| Lituano | `lt` |
+| Malaio | `ms` |
+| Maltês | `mt` |
+| Norueguês | `nb` |
+| Rio Pashto | `ps` |
+| Persa | `fa` |
+| Polaco | `pl` |
+| Português | `pt` |
+| Romeno | `ro` |
+| Russo | `ru` |
+| Sérvio (Cirílico) | `sr-Cyrl` |
+| Sérvio (Latim) | `sr-Latn` |
+| Eslovaco | `sk` |
+| Esloveno | `sl` |
+| Espanhol | `es` |
+| Suaíli | `sw` |
+| Sueco | `sv` |
+| Taitiano | `ty` |
+| Tailandês | `th` |
+| Turco | `tr` |
+| Ucraniano | `uk` |
+| Urdu | `ur` |
+| Vietnamita | `vi` |
+| Galês | `cy` |
+| Maia-de-iucatec | `yua` |
 
 ### <a name="transliterate"></a>Transliterar
 
@@ -319,7 +319,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
 | Malgaxe| `mg`    |
-| Malaio|    `ms`        |
+| Malaio|    `ms` |
 |Maltês|   `mt`    |
 | Maori| `mi`  |
 | Marata| `mr`  |
@@ -387,47 +387,47 @@ Converta a fala em texto para traduzir para a linguagem de texto à sua escolha.
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 Converter texto em discurso. O texto-a-discurso é usado para adicionar produção audível dos resultados de tradução, ou para tradução fala-a-fala quando usado com discurso-a-texto. 
 
-| Linguagem    |
-|:----------- |
-|Árabe|
-|Búlgaro|
-|Cantonês (Tradicional)|
-|Catalão|
-|Chinês simplificado|
-|Chinês tradicional|
-|Croata|
-|Checo|
-|Dinamarquês|
-|Neerlandês|
-|Inglês|
-|Finlandês|
-|Francês|
-|Francês (Canadá)|
-|Alemão|
-|Grego|
-|Hebraico|
-|Hindi|
-|Húngaro|
-|Indonésio|
-|Italiano|
-|Japonês|
-|Coreano|
-|Malaio|
-|Norueguês|
-|Polaco|
-|Português (Brasil)|
-|Português (Portugal)|
-|Romeno|
-|Russo|
-|Eslovaco|
-|Esloveno|
-|Espanhol|
-|Sueco|
-|Tâmil|
-|Telugu|
-|Tailandês|
-|Turco|
-|Vietnamita|
+| Linguagem |
+|:-|
+| Árabe |
+| Búlgaro |
+| Cantonês (Tradicional) |
+| Catalão |
+| Chinês simplificado |
+| Chinês tradicional |
+| Croata |
+| Checo |
+| Dinamarquês |
+| Neerlandês |
+| Inglês |
+| Finlandês |
+| Francês |
+| Francês (Canadá) |
+| Alemão |
+| Grego |
+| Hebraico |
+| Hindi |
+| Húngaro |
+| Indonésio |
+| Italiano |
+| Japonês |
+| Coreano |
+| Malaio |
+| Norueguês |
+| Polaco |
+| Português (Brasil) |
+| Português (Portugal) |
+| Romeno |
+| Russo |
+| Eslovaco |
+| Esloveno |
+| Espanhol |
+| Sueco |
+| Tâmil |
+| Telugu |
+| Tailandês |
+| Turco |
+| Vietnamita |
 
 ## <a name="view-the-language-list-on-the-microsoft-translator-website"></a>Ver a lista de idiomas no site do Microsoft Tradutor
 

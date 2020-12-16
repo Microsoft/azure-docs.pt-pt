@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185662"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607428"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de resolução de problemas para problemas comuns do Serviço Azure SignalR
 
@@ -144,11 +144,17 @@ Para ASP.NET SignalR, quando a ligação do [cliente cai,](#client_connection_dr
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (Pedidos demasiados) devolvidos para pedidos de clientes
 
-429 devoluções se a sua contagem de ligação **simultânea** exceder o limite.
+Existem dois casos.
+
+### <a name="concurrent-connection-count-exceeds-limit"></a>A contagem de ligação **simultânea** excede o limite.
 
 Para casos **gratuitos,** o limite de contagem de ligação **simultânea** é de 20 Para instâncias **standard,** o limite de contagem de ligação **simultânea** **por unidade** é de 1 K, o que significa que a Unit100 permite ligações simultâneas de 100 K.
 
 As ligações incluem ligações de cliente e servidor. consulte [aqui](./signalr-concept-messages-and-connections.md#how-connections-are-counted) como as ligações são contadas.
+
+### <a name="too-many-negotiate-requests-at-the-same-time"></a>Demasiados pedidos de negociação ao mesmo tempo.
+
+Sugerimos um atraso aleatório antes de voltar a ligar, por favor, consulte [aqui](#restart_connection) amostras de repetição.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 Erro ao negociar: O Serviço Azure SignalR ainda não está ligado, tente novamente mais tarde.
 

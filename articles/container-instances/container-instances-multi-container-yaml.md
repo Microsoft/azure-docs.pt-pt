@@ -3,12 +3,12 @@ title: Tutorial - Implementar grupo multi-contentores - YAML
 description: Neste tutorial, aprende-se a implantar um grupo de contentores com vários contentores em Instâncias de Contentores Azure utilizando um ficheiro YAML com o Azure CLI.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091298"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605166"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementar um grupo multi-contentores usando um ficheiro YAML
 
@@ -37,7 +37,7 @@ Neste tutorial, segue os passos para executar uma configuração simples do side
 
 Para implantar um grupo multi-contentor com o [recipiente az criar][az-container-create] comando no CLI Azure, deve especificar a configuração do grupo de contentores num ficheiro YAML. Em seguida, passe o ficheiro YAML como parâmetro para o comando.
 
-Comece por copiar o seguinte YAML num novo ficheiro chamado **deploy-aci.yaml** . Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
+Comece por copiar o seguinte YAML num novo ficheiro chamado **deploy-aci.yaml**. Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
 
 ```
 code deploy-aci.yaml
@@ -178,7 +178,6 @@ Neste tutorial, utilizou um ficheiro YAML para implantar um grupo multi-contento
 Também pode especificar um grupo multi-contentores utilizando um [modelo de Gestor de Recursos.](container-instances-multi-container-group.md) Um modelo de Gestor de Recursos pode ser facilmente adaptado para cenários quando você precisa implementar recursos adicionais de serviço Azure com o grupo de contentores.
 
 <!-- LINKS - External -->
-
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
