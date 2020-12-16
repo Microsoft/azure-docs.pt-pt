@@ -14,12 +14,12 @@ ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daf03ab7608357e80705403889a41895e63d07a4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 77483920e327b95c699c9bb2b494f41eff3d2605
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859798"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586385"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos de PowerShell e Graph para licenciamento baseado em grupo em Azure AD
 

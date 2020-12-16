@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1dfd4185f077806d6b84376e786cfe5de1a8ffc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f37341233eec45a22fe92450e69d486e61f26eb4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653449"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585314"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -23,6 +23,7 @@ As máquinas virtuais da série ND são uma nova adição à família GPU projet
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+Nvidia NVLink Interconnect: Não suportado<br>
 
 > [!IMPORTANT]
 > Para esta série VM, a quota vCPU (core) por região na sua subscrição está inicialmente definida para 0. [Solicitar um aumento da quota vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/).

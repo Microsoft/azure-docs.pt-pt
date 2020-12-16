@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028279"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586351"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML
 Para resolver os problemas de inscrição abaixo, recomendamos o seguinte para um melhor diagnóstico e automatizar as etapas de resolução:
@@ -33,7 +33,9 @@ Para abrir a página de configuração do início de sessão único baseado em S
 1.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
 1.  Selecione **Aplicações Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 1.  Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
+
     Se não vir aqui a aplicação que quer apresentar, utilize o controlo **Filtrar** na parte superior da **Lista Todas as Aplicações** e defina a opção **Mostrar** como **Todas as Aplicações**.
+
 1.  Selecione a aplicação que quer configurar para o início de sessão único.
 1. Uma vez que a aplicação é carregada, selecione **Single sign-on** do menu de navegação à esquerda da aplicação.
 1. Selecione SSO baseado em SAML.
@@ -63,7 +65,7 @@ O `AssertionConsumerServiceURL` valor do pedido SAML não corresponde ao valor u
 Certifique-se de que o `AssertionConsumerServiceURL` valor no pedido SAML corresponde ao valor URL de resposta configurado em Azure AD. 
 
 Verifique ou atualize o valor na caixa de texto URL de resposta para corresponder ao `AssertionConsumerServiceURL` valor do pedido SAML.   
-    
+
 Depois de ter atualizado o valor URL de resposta em Azure AD, e corresponder ao valor enviado pela aplicação no pedido SAML, deverá poder inscrever-se na aplicação.
 
 ## <a name="user-not-assigned-a-role"></a>Utilizador não atribuiu uma função

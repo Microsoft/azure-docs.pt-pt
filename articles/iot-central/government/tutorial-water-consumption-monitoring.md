@@ -3,17 +3,17 @@ title: 'Tutorial: Criar uma app de monitorização do consumo de água com a Azu
 description: 'Tutorial: Aprenda a criar uma aplicação de monitorização do consumo de água utilizando modelos de aplicação Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 400585d3e5908268708d93ceeefd26a4a5efdd49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972398"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587201"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização do consumo de água com a Azure IoT Central
 
@@ -58,7 +58,7 @@ Este modelo inclui um modelo de dispositivo de consumo de água de amostra, um d
 1. Selecione **Criar app** para abrir o novo formulário de criação **de aplicações** com os seguintes campos:
     * **Nome da aplicação**: Por padrão, a aplicação utiliza *a monitorização do consumo de água* seguida de uma cadeia de ID única que a Azure IoT Central gera. Opcionalmente, escolha um nome de aplicação amigável. Também pode alterar o nome da candidatura mais tarde.
     * **URL**: Azure IoT Central autogere um URL baseado no nome da aplicação. Pode optar por atualizar o URL ao seu gosto. Também pode alterar a URL mais tarde.
-    * Se tiver uma subscrição do Azure, insira o seu **Diretório,** **subscrição Azure**e informações **de Localização.** Se não tiver uma subscrição, pode selecionar a opção **de teste gratuito de 7 dias** e completar as informações de contacto necessárias.
+    * Se tiver uma subscrição do Azure, insira o seu **Diretório,** **subscrição Azure** e informações **de Localização.** Se não tiver uma subscrição, pode selecionar a opção **de teste gratuito de 7 dias** e completar as informações de contacto necessárias.
 
     Para obter mais informações sobre diretórios e subscrições, consulte [Criar um quickstart de aplicação](../core/quick-deploy-iot-central.md).
 
@@ -93,17 +93,17 @@ Como construtor, pode criar e personalizar vistas no painel de instrumentos para
   
 O painel é composto por diferentes tipos de azulejos:
 
-* **Azulejo de imagem de utilidade de água em todo**o mundo : O primeiro azulejo no tablier é um azulejo de imagem do utilitário de água fictício Wide World Water. Pode personalizar o azulejo inserindo a sua própria imagem ou removendo-a.
+* **Azulejo de imagem de utilidade de água em todo** o mundo : O primeiro azulejo no tablier é um azulejo de imagem do utilitário de água fictício Wide World Water. Pode personalizar o azulejo inserindo a sua própria imagem ou removendo-a.
 * **Caudal médio de água KPI**: O azulejo KPI está configurado para mostrar como exemplo *a média dos últimos 30 minutos*. Pode personalizar o azulejo KPI e defini-lo para um tipo e intervalo de tempo diferentes.
-* **Telhas de comando do dispositivo**: Estes azulejos incluem a válvula de **fecho,** **a válvula aberta**e os azulejos da válvula de **fixação.** A seleção dos comandos leva-o à página de comando do dispositivo simulado. No Azure IoT Central, um *comando* é um tipo *de capacidade de dispositivo.* Vamos explorar este conceito mais tarde na secção "Modelo de Dispositivo" deste tutorial.
+* **Telhas de comando do dispositivo**: Estes azulejos incluem a válvula de **fecho,** **a válvula aberta** e os azulejos da válvula de **fixação.** A seleção dos comandos leva-o à página de comando do dispositivo simulado. No Azure IoT Central, um *comando* é um tipo *de capacidade de dispositivo.* Vamos explorar este conceito mais tarde na secção "Modelo de Dispositivo" deste tutorial.
 * **Mapa da área de distribuição de água**: O mapa utiliza mapas Azure, que pode configurar diretamente no Azure IoT Central. O azulejo do mapa mostra a localização do dispositivo. Passe por cima do mapa e experimente os controlos sobre o mapa, como *zoom in,* *zoom out*, ou *expandir*.
 
     ![Mapa do painel de monitorização do consumo de água](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard-map.png)
 
 * **Gráfico médio da linha de fluxo de água** e gráfico de linha de condição **ambiental**: Pode visualizar uma ou múltiplas telemetrias de dispositivos traçadas como um gráfico de linha sobre um intervalo de tempo desejado.
-* **Gráfico de mapas de calor de pressão média**da válvula : Pode escolher o tipo de visualização de mapas de calor dos dados de telemetria do dispositivo que pretende ver distribuídos por um intervalo de tempo com um índice de cor.
+* **Gráfico de mapas de calor de pressão média** da válvula : Pode escolher o tipo de visualização de mapas de calor dos dados de telemetria do dispositivo que pretende ver distribuídos por um intervalo de tempo com um índice de cor.
 * **Redefinir limiares de alerta em azulejo de conteúdo**: Pode incluir azulejos de conteúdo call-to-action e incorporar um link para uma página de ação. Neste caso, o limiar de alerta de reset leva-o à aplicação **Jobs,** onde pode executar atualizações para as propriedades do dispositivo. Vamos explorar esta opção mais tarde na secção "Configure jobs" deste tutorial.
-* **Azulejos de propriedade**: O painel de instrumentos exibe **informações operacionais da Valve,** **limiares de alerta de fluxo**e azulejos de **informação de manutenção.**
+* **Azulejos de propriedade**: O painel de instrumentos exibe **informações operacionais da Valve,** **limiares de alerta de fluxo** e azulejos de **informação de manutenção.**
 
 ### <a name="customize-the-dashboard"></a>Personalizar o dashboard
 
@@ -177,7 +177,7 @@ No Azure IoT Central, pode criar dispositivos simulados para testar o modelo e a
 
     ![Válvula Inteligente 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
 
-1. No separador **Comandos,** pode ver os três comandos do dispositivo (**Válvula de fecho,** **válvula aberta**e **posição da válvula definida**) que são capacidades definidas no modelo do dispositivo Smart **Valve.**
+1. No separador **Comandos,** pode ver os três comandos do dispositivo (**Válvula de fecho,** **válvula aberta** e **posição da válvula definida**) que são capacidades definidas no modelo do dispositivo Smart **Valve.**
 
 1. Explore o separador Propriedades do **Dispositivo** e o **separador dashboard do dispositivo.**
 
@@ -244,7 +244,7 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 
    ![Seleções para logotipo de aplicação, ícone de navegador e cores do navegador](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
-1. Também pode alterar imagens **Administration**de aplicações selecionando definições de  >  **Aplicação de**Administração . Para escolher uma imagem para carregar como imagem de aplicação, selecione o botão **de imagem Select.**
+1. Também pode alterar imagens de aplicações selecionando definições de  >  **Aplicação de** Administração . Para escolher uma imagem para carregar como imagem de aplicação, selecione o botão **de imagem Select.**
 1. Por fim, também pode alterar o **Tema** selecionando o ícone **Definições** no canto superior direito da aplicação.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
@@ -252,7 +252,7 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 Se não vai continuar a utilizar esta aplicação, elimine-a.
 
 1. Selecione **Administração** no painel esquerdo da sua aplicação Azure IoT Central.
-1. Selecione **as definições de Aplicação**e, em seguida, selecione **Eliminar** na parte inferior da página.
+1. Selecione **as definições de Aplicação** e, em seguida, selecione **Eliminar** na parte inferior da página.
 
 ## <a name="next-steps"></a>Passos seguintes
 

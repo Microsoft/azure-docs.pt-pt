@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: ee3d1335de1b2bb3096e88c4d04cd03daaa665f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f85df2e16554b4830d3e5f1bc82c5c8cdf22e28b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96014105"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586635"
 ---
 # <a name="smb-multichannel-performance"></a>Desempenho SMB Multicanal
 
@@ -81,7 +81,7 @@ Para as tabelas deste artigo, foi utilizada a seguinte configuração: Um único
 |---|---|---|---|---|---|---|---|---|
 | [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot dos resultados da ligação get-smbmultichannel." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot que mostra a configuração do teste de desempenho." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 
 ### <a name="mutli-threadedmultiple-files-with-smb-multichannel"></a>Ficheiros mutli-threaded/múltiplos com SMB Multicanal
 

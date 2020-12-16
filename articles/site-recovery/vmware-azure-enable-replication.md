@@ -3,15 +3,15 @@ title: Ativar VMware VMs para recuperação de desastres usando a recuperação 
 description: Este artigo descreve como permitir a replicação de VMware VM para recuperação de desastres usando o serviço de recuperação do local de Azure
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 04/01/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f4759bc40c4074f0dd618be8ac66ad088e848c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004216"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587762"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação no Azure para as VMs VMware
 
@@ -84,7 +84,7 @@ Para ativar a replicação, siga estes passos:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Ativar a janela de configuração de propriedades de replicação":::
 
-1. A partir das **definições de replicação,**  >  **certifique-se de que** a política de replicação correta está selecionada. Pode modificar as definições **Settings** de política de replicação nas  >  **definições de políticas de replicação**  >  _policy name_  >  **designar definições de edição**. As alterações aplicadas a uma política também se aplicam à replicação e às novas máquinas virtuais.
+1. A partir das **definições de replicação,**  >  **certifique-se de que** a política de replicação correta está selecionada. Pode modificar as definições de política de replicação nas  >  **definições de políticas de replicação**  >    >  **designar definições de edição**. As alterações aplicadas a uma política também se aplicam à replicação e às novas máquinas virtuais.
 1. Se pretender juntar máquinas virtuais num grupo de replicação, ative a **consistência multi-VM**. Especifique um nome para o grupo e, em seguida, selecione **OK**.
 
    > [!NOTE]
@@ -94,6 +94,41 @@ Para ativar a replicação, siga estes passos:
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Ativar a janela de replicação":::
 
 1. Selecione **Ativar a replicação**. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Definições**  >  **de**  >  **Empregos Locais de Recuperação .** Após o funcionaamento do trabalho **de Proteção Finalização,** a máquina virtual está pronta para o failover.
+
+## <a name="monitor-initial-replication"></a>Monitorizar a replicação inicial
+
+Depois de "Permitir a replicação" do item protegido estar concluído, a Azure Site Recovery inicia a replicação (sinónimo de sincronização) de dados da máquina de origem para a região alvo. Durante este período, a réplica dos discos de origem é criada. Só após a conclusão da cópia dos discos originais, as alterações delta são copiadas para a região alvo. O tempo necessário para copiar os discos originais depende de vários parâmetros tais como:
+
+- tamanho dos discos de máquina de origem
+- largura de banda disponível para transferir os dados para a Azure (Pode alavancar o planejador de implementação para identificar a largura de banda ideal necessária)
+- processar recursos do servidor como memória, espaço de disco gratuito, CPU disponível para cache & processar os dados recebidos de itens protegidos (certifique-se de que o servidor de processo é [saudável)](vmware-physical-azure-monitor-process-server.md#monitor-proactively)
+
+Para acompanhar o progresso da replicação inicial, navegue para o cofre dos serviços de recuperação no portal Azure -> itens replicados -> monitorizar o valor da coluna "Status" do item replicado. O estado mostra a percentagem de conclusão da replicação inicial. Ao pairar sobre o Estado, o "Total de dados transferidos" estaria disponível. Ao clicar no estado, uma página contextual abre e exibe os seguintes parâmetros:
+
+- A última atualização indica o último momento em que a informação de replicação de toda a máquina foi atualizada pelo serviço.
+- Percentagem completa - indica a percentagem de replicação inicial concluída para o VM
+- Total de dados transferidos - Quantidade de dados transferidos de VM para Azure
+
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="estado de replicação" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Progresso da sincronização (para acompanhar detalhes a nível de disco)
+    - Estado de replicação
+      - Se a replicação ainda não tiver começado, então o estado é atualizado como "Em fila". Durante a replicação inicial, apenas 3 discos são replicados de cada vez. Este mecanismo é seguido para evitar estrangulamentos no servidor de processo.
+      - Após o início da replicação, o estado é atualizado como "Em curso".
+      - Após a conclusão da replicação inicial, o estado é marcado como "Completo".        
+   - A Recuperação do Site lê através do disco original, transfere dados para o Azure e captura o progresso a nível do disco. Note que, A Recuperação do Site ignora a replicação do tamanho desocupado do disco e adiciona-o aos dados preenchidos. Assim, a soma dos dados transferidos em todos os discos pode não somar o "total de dados transferidos" ao nível do VM.
+   - Ao clicar no balão de informação contra um disco, pode obter detalhes sobre quando a replicação (sinónimo de sincronização) foi desencadeada para o disco, dados transferidos para Azure nos últimos 15 minutos seguidos do último carimbo de tempo renovado. Este carimbo de tempo indica a última hora em que a informação foi recebida pelo serviço Azure a partir da máquina de origem :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="vídeo-replicação-info-balão-detalhes" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+   - A saúde de cada disco é exibida
+      - Se a replicação for mais lenta do que o esperado, então o estado do disco transforma-se em aviso
+      - Se a replicação não está a progredir, então o estado do disco torna-se crítico
+
+Se a saúde estiver em estado crítico/de alerta, certifique-se de que a Saúde de Replicação da máquina e [do Processo Sever](vmware-physical-azure-monitor-process-server.md) estão saudáveis. 
+
+Assim que o trabalho de replicação estiver concluído, o progresso da replicação seria de 0% e os dados totais transferidos seriam NA. Ao clicar, os dados contra cada disco identificado seriam como "NA". Isto indica que a replicação ainda está para começar e a Recuperação do Site Azure ainda está para receber as últimas estatísticas. O progresso é refrescado num intervalo de 30 min.
+
+> [!NOTE]
+> Certifique-se de atualizar servidores de configuração, servidores de processos de escala e agentes de mobilidade para versões 9.36 ou superiores para garantir que o progresso preciso é capturado e enviado para os serviços de Recuperação de Locais.
+
 
 ## <a name="view-and-manage-vm-properties"></a>Ver e gerir propriedades da VM
 

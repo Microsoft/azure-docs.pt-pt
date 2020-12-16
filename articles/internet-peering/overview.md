@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 34d340881e4f612544f4b3d68d3c1f3da598cab3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8f960e58d47963cbb239d498af52e7adfc77caa9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023433"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586871"
 ---
 # <a name="internet-peering-overview"></a>Visão geral do olho da Internet
 
@@ -49,7 +49,7 @@ A Microsoft tem uma política de observação seletiva, mas geralmente aberta. O
 ## <a name="faq"></a>FAQ
 Para perguntas frequentes sobre espreitar, consulte [olhando para a Internet - PERGUNTAS Frequentes](faqs.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre os passos para configurar o persigo direto com a Microsoft, siga [o Walkthrough de observação direto](walkthrough-direct-all.md)
 * Para aprender sobre os passos para configurar o Exchange peering com a Microsoft, siga [o Exchange peering walkthrough](walkthrough-exchange-all.md)

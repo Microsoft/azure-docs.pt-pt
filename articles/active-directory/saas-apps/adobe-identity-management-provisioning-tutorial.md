@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: aafdbe631426b4b0c8c762a81457369bc474f479
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a87a08db672c459138fc1efd865332dc0f19944e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181132"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586664"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutorial: Configurar a Gestão de Identidade da Adobe para o fornecimento automático de utilizadores
 
@@ -61,7 +61,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 3. Selecione **utilizadores sync do Microsoft Azure** e clique em **Seguinte**.
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+      ![Screenshot que mostra 'Sync users from Microsoft Azure Ative Directory' selecionado.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copie e guarde o URL do **inquilino** e **o símbolo secreto.** Estes valores serão introduzidos nos campos URL e **Secret Token** do **Arrendatário** no separador Provisioning da sua aplicação de Gestão de Identidade da Adobe no portal Azure.
 

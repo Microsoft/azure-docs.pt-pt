@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: resolução de problemas, atualização, bug, kinect, feedback, recuperação, registo, dicas
-ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356387"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587286"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect conhecidos problemas e resolução de problemas
 
@@ -33,7 +33,7 @@ A exploração madeireira para K4A.dll é ativada através de variáveis ambient
 1. `set K4A_ENABLE_LOG_TO_A_FILE=k4a.log`
 2. `set K4A_LOG_LEVEL=w`
 3. Executar cenário a partir de viagens de comando (por exemplo, espectador de lançamento)
-4. Navegue para o ficheiro k4a.log e share.
+4. Navegue para k4a.log e partilhe o ficheiro.
 
 Para obter mais informações, consulte abaixo o clip a partir do ficheiro do cabeçalho:
 
@@ -151,7 +151,7 @@ O tópico dos controladores de anfitriões USB torna-se ainda mais complicado qu
 **Janelas:** Para saber que controlador anfitrião tem gestor de dispositivos aberto
 
 1. Ver dispositivos de > por tipo 
-2. Com a a azure Kinect conectada câmaras->Azure Kinect 4K Camera
+2. Com azure Kinect conectada câmaras->Azure Kinect 4K Camera
 3. Ver dispositivos de > por conexão
 
 ![Resolução de problemas da porta USB](./media/resources/usb-troubleshooting.png)
@@ -165,6 +165,21 @@ O laser utilizado pela câmara de profundidade para calcular dados de profundida
 ## <a name="using-body-tracking-sdk-with-unreal"></a>Usando O SDK de rastreio do corpo com irreal
 
 Para utilizar o Body Tracking SDK com Unreal, certifique-se de que adicionou `<SDK Installation Path>\tools` à variável ambiental `PATH` e copiado e para `dnn_model_2_0.onnx` `cudnn64_7.dll` `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64` .
+
+## <a name="using-azure-kinect-on-headless-linux-system"></a>Usando Azure Kinect no sistema Linux sem cabeça
+
+O motor de profundidade Azure Kinect em Linux utiliza o OpenGL. O OpenGL requer uma instância de janela que requer que um monitor seja ligado ao sistema. Uma solução alternativa para esta questão é:
+
+1. Faça o login automático para a conta de utilizador que pretende utilizar. Consulte [este](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) artigo para obter instruções sobre como ativar o login automático.
+2. Desligue o sistema, desligue o monitor e ligue o sistema. O login automático força a criação de uma sessão de x-servidor.
+2. Conecte-se via ssh e desloque a variável DISPLAY env `export DISPLAY=:0`
+3. Inicie a sua aplicação Azure Kinect.
+
+## <a name="missing-c-documentation"></a>Documentação C# desaparecida
+
+A documentação sensor SDK C# está localizada [aqui.](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html)
+
+A documentação Body Tracking SDK C# está localizada [aqui.](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html)
 
 ## <a name="next-steps"></a>Passos seguintes
 

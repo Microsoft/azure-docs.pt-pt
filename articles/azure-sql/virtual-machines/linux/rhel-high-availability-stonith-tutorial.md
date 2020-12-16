@@ -7,12 +7,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 74dd14298b3c1cc72e72de9b4abcee8a9c2d9c37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359681"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587218"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -945,6 +945,9 @@ Se as `synchronization_state_desc` listas `db1` sincronizadas, isto significa qu
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Criar recursos de grupo de disponibilidade no cluster Pacemaker
 
 Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no cluster Pacemaker.](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)
+
+> [!NOTE]
+> Este artigo contém referências ao termo escravo, um termo que a Microsoft já não usa. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ### <a name="create-the-ag-cluster-resource"></a>Criar o recurso cluster AG
 

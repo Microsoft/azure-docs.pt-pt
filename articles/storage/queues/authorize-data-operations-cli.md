@@ -2,21 +2,21 @@
 title: Escolha como autorizar o acesso aos dados da fila com o Azure CLI
 titleSuffix: Azure Storage
 description: Especificar como autorizar operações de dados contra dados de fila com o Azure CLI. Pode autorizar operações de dados utilizando credenciais Azure AD, com a chave de acesso à conta, ou com um token de assinatura de acesso partilhado (SAS).
-services: storage
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 11/13/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 11/13/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e753f5b09b6cd03744ba8520c668a8227e56e8a1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637521"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587609"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Escolha como autorizar o acesso aos dados da fila com o Azure CLI
 
@@ -32,22 +32,22 @@ Os comandos Azure CLI para ler e escrever dados de fila incluem o `--auth-mode` 
 - Descreva o `--auth-mode` parâmetro para iniciar a `login` sação utilizando um princípio de segurança Azure AD (recomendado).
 - Desa estade o `--auth-mode` parâmetro ao valor do legado para tentar recuperar a chave de acesso à conta para usar para `key` autorização. Se omitir o `--auth-mode` parâmetro, o CLI Azure também tenta recuperar a chave de acesso.
 
-Para utilizar o `--auth-mode` parâmetro, certifique-se de que instalou a versão 2.0.46 ou posterior do Azure CLI. Corra `az --version` para verificar a sua versão instalada.
+Para utilizar o `--auth-mode` parâmetro, certifique-se de que instalou o Azure CLI v2.0.46 ou mais tarde. Corra `az --version` para verificar a sua versão instalada.
 
 > [!IMPORTANT]
-> Se omitir o `--auth-mode` parâmetro ou o `key` definir, então o CLI Azure tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na variável ambiente **AZURE_STORAGE_KEY.** Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Conjunto de variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
+> Se omitir o `--auth-mode` parâmetro ou o `key` definir, então o CLI Azure tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na `AZURE_STORAGE_KEY` variável ambiente. Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Conjunto de variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
 >
 > Se não fornecer a chave de acesso, o CLI Azure tenta ligar para o fornecedor de recursos de armazenamento Azure para recuperá-la para cada operação. A realização de muitas operações de dados que requerem uma chamada para o fornecedor de recursos pode resultar em estrangulamento. Para obter mais informações sobre os limites do fornecedor de recursos, consulte [os objetivos de Escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure](../common/scalability-targets-resource-provider.md).
 
 ## <a name="authorize-with-azure-ad-credentials"></a>Autorizar com credenciais AD AZure
 
-Quando você iniciar súm na Azure CLI com credenciais Azure AD, um token de acesso OAuth 2.0 é devolvido. Este token é automaticamente utilizado pela Azure CLI para autorizar operações de dados subsequentes contra o armazenamento de Blob ou Queue. Para operações apoiadas, já não precisa de passar uma chave de conta ou um sinal SAS com o comando.
+Quando você iniciar súm na Azure CLI com credenciais Azure AD, um token de acesso OAuth 2.0 é devolvido. Este token é automaticamente utilizado pela Azure CLI para autorizar operações de dados subsequentes contra o Armazenamento de Blob ou o Armazenamento de Filas. Para operações apoiadas, já não precisa de passar uma chave de conta ou um sinal SAS com o comando.
 
 Pode atribuir permissões para os dados de fila a um diretor de segurança Azure AD através do controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações sobre as funções Azure no Azure Storage, consulte [Gerir os direitos de acesso aos dados de armazenamento Azure com o Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Permissões para chamadas de operações de dados
 
-As extensões de Armazenamento Azure são suportadas para operações em dados de fila. Quais as operações que pode ligar dependem das permissões concedidas ao diretor de segurança da AZure AD com as quais se inscreve no Azure CLI. As permissões para as filas de armazenamento Azure são atribuídas através do Azure RBAC. Por exemplo, se lhe for atribuída a função **de Leitor de Dados de Fila de Armazenamento,** então pode executar comandos de script que lêem dados a partir de uma fila. Se lhe for atribuída a **função de Contribuinte de Dados de Fila de Armazenamento,** poderá executar comandos de script que leiam, escrevam ou apaguem uma fila ou os dados que contêm.
+As extensões de Armazenamento Azure são suportadas para operações em dados de fila. Quais as operações que pode ligar dependem das permissões concedidas ao diretor de segurança da AZure AD com as quais se inscreve no Azure CLI. As permissões às filas são atribuídas através do Azure RBAC. Por exemplo, se lhe for atribuída a função **de Leitor de Dados de Fila de Armazenamento,** então pode executar comandos de script que lêem dados a partir de uma fila. Se lhe for atribuída a **função de Contribuinte de Dados de Fila de Armazenamento,** poderá executar comandos de script que leiam, escrevam ou apaguem uma fila ou os dados que contêm.
 
 Para obter mais informações sobre as permissões necessárias para cada operação de Armazenamento Azure em uma fila, consulte [as operações de armazenamento de chamadas com fichas OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
@@ -60,7 +60,7 @@ O exemplo a seguir mostra como criar uma fila a partir do Azure CLI utilizando a
     > [!IMPORTANT]
     > As atribuições de funções azure podem demorar alguns minutos a propagar-se.
 
-1. Ligue para a [fila de armazenamento az criar](/cli/azure/storage/queue#az-storage-queue-create) comando com o parâmetro definido para criar a fila `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
+1. Ligue para o [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) comando com o parâmetro definido para criar a fila `--auth-mode` `login` usando as suas credenciais AZure AD. Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
     ```azurecli
     az storage queue create \
@@ -98,13 +98,13 @@ az storage queue create \
 
 Pode especificar parâmetros de autorização em variáveis ambientais para evitar incluí-los em cada chamada para uma operação de dados de armazenamento Azure. A tabela a seguir descreve as variáveis ambientais disponíveis.
 
-| Variável de ambiente                  | Description                                                                                                                                                                                                                                                                                                                                                                     |
-|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    AZURE_STORAGE_ACCOUNT              |    O nome da conta de armazenamento. Esta variável deve ser utilizada em conjunto com a chave da conta de armazenamento ou com um token SAS. Se nenhum dos dois estiver presente, o Azure CLI tenta recuperar a chave de acesso à conta de armazenamento utilizando a conta Azure AD autenticada. Se um grande número de comandos for executado de uma só vez, o limite de estrangulamento do fornecedor de recursos de armazenamento Azure pode ser atingido. Para obter mais informações sobre os limites do fornecedor de recursos, consulte [os objetivos de Escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure](../common/scalability-targets-resource-provider.md).             |
-|    AZURE_STORAGE_KEY                  |    A chave da conta de armazenamento. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                                          |
-|    AZURE_STORAGE_CONNECTION_STRING    |    Uma cadeia de ligação que inclui a chave da conta de armazenamento ou um token SAS. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                       |
-|    AZURE_STORAGE_SAS_TOKEN            |    Um token de assinatura de acesso partilhado (SAS). Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores permitidos são `login` (recomendados) ou `key` . . Se `login` especificar, o Azure CLI utiliza as suas credenciais Azure AD para autorizar a operação de dados. Se especificar o `key` modo legado, o CLI Azure tenta consultar a chave de acesso à conta e autorizar o comando com a chave.    |
+| Variável de ambiente | Descrição |
+|--|--|
+| **AZURE_STORAGE_ACCOUNT** | O nome da conta de armazenamento. Esta variável deve ser utilizada em conjunto com a chave da conta de armazenamento ou com um token SAS. Se nenhum dos dois estiver presente, o Azure CLI tenta recuperar a chave de acesso à conta de armazenamento utilizando a conta Azure AD autenticada. Se um grande número de comandos for executado de uma só vez, o limite de estrangulamento do fornecedor de recursos de armazenamento Azure pode ser atingido. Para obter mais informações sobre os limites do fornecedor de recursos, consulte [os objetivos de Escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure](../common/scalability-targets-resource-provider.md). |
+| **AZURE_STORAGE_KEY** | A chave da conta de armazenamento. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento. |
+| **AZURE_STORAGE_CONNECTION_STRING** | Uma cadeia de ligação que inclui a chave da conta de armazenamento ou um token SAS. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento. |
+| **AZURE_STORAGE_SAS_TOKEN** | Um token de assinatura de acesso partilhado (SAS). Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento. |
+| **AZURE_STORAGE_AUTH_MODE** | O modo de autorização com o qual executar o comando. Os valores permitidos são `login` (recomendados) ou `key` . . Se `login` especificar, o Azure CLI utiliza as suas credenciais Azure AD para autorizar a operação de dados. Se especificar o `key` modo legado, o CLI Azure tenta consultar a chave de acesso à conta e autorizar o comando com a chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

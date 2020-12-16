@@ -6,17 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 466b9e389beb94ff527cbce014ca39f85de8d5bd
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d6d5ab13c8997dffee42a053ba498376ccbcb6d8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503629"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585263"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adicionar Acesso Condicional aos fluxos de utilizadores no Azure Ative Directory B2C
 

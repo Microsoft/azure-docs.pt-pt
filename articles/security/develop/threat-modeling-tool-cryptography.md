@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517449"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587184"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de Segurança: Criptografia / Mitigações 
 

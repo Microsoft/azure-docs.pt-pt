@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: dcbb82dafc5f4c51299e4bcca7947e2f38f502ff
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780846"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585484"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
@@ -86,10 +86,10 @@ Stream Analytics | JavaScript
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
 double | Número
-nvarchar(MAX) | Cadeia
+nvarchar(MAX) | String
 Registo | Objeto
 Matriz | Matriz
-NULL | Nulo
+NULL | Null
 
 Seguem-se conversões do JavaScript para o Stream Analytics:
 
@@ -97,7 +97,7 @@ JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
 Data | DateTime
-Cadeia | nvarchar(MAX)
+String | nvarchar(MAX)
 Objeto | Registo
 Matriz | Matriz
 Null, Undefined | NULL
@@ -215,6 +215,14 @@ A saída desta consulta será a data de entrada em **de-DE** com as opções for
 Samstag, 28. Dezember 2019
 ```
 
+### <a name="user-logging"></a>Registo do utilizador
+O mecanismo de registo permite-lhe capturar informações personalizadas enquanto um trabalho está em execução. Pode utilizar dados de registo para depurar ou avaliar a correção do código personalizado em tempo real. Este mecanismo está disponível através do método Console.Log().
+
+```javascript
+console.log('my error message');
+```
+
+Pode aceder às mensagens de registo através dos [registos de diagnóstico](data-errors.md).
 ## <a name="next-steps"></a>Passos seguintes
 
 * [UDF de aprendizagem automática](./machine-learning-udf.md)

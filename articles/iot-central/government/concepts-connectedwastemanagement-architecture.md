@@ -3,20 +3,18 @@ title: Arquitetura de referência para solução de gestão de resíduos conecta
 description: Aprenda conceitos para uma solução de gestão de resíduos conectada construída com a Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 94098a1a2a9ac1b4889ad165a65c8b9d50d734dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873697"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586810"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Arquitetura de referência da monitorização de resíduos associada 
-
-
 
 Uma solução de gestão de resíduos conectada pode ser construída usando o modelo de **aplicação Azure IoT Central** como uma aplicação IoT de arranque de pontapé. Este artigo fornece uma orientação de arquitetura de referência de alto nível sobre a construção de uma solução final. 
 
@@ -26,16 +24,16 @@ Uma solução de gestão de resíduos conectada pode ser construída usando o mo
 Conceitos:
 
 1. Dispositivos e conectividade  
-1. IoT Central 
-2. Extensibilidade e integrações
-3. Aplicações empresariais
+1. Centro de IoT 
+1. Extensibilidade e integrações
+1. Aplicações empresariais
 
 Vamos olhar para os componentes-chave que geralmente desempenham um papel numa solução de monitorização do consumo de água.
 
 ## <a name="devices-and-connectivity"></a>Dispositivos e conectividade 
 Os dispositivos utilizados em ambientes abertos, como caixotes de lixo, podem ser ligados através de redes de área de baixa potência (LPWAN), através de um operador de rede de terceiros. Para este tipo de dispositivos, pode utilizar a [Ponte Central de Dispositivos Azure IoT](../core/howto-build-iotc-device-bridge.md) para enviar os dados do seu dispositivo para a sua aplicação IoT no Azure IoT Central. Em alternativa, pode ter gateways de dispositivos capazes de IP e pode ligar-se diretamente à IoT Central.
 
-## <a name="iot-central"></a>IoT Central 
+## <a name="iot-central"></a>Centro de IoT 
 O Azure IoT Central é uma plataforma IoT App, que o faz começar a funcionar rapidamente na sua solução IoT. Pode marcar, personalizar e integrar a sua solução com serviços de terceiros.
 Depois de ligar os seus dispositivos de água inteligentes à IoT Central, obtém comando e controlo do dispositivo, monitorização e alerta, interface do utilizador com RBAC incorporado, dashboards de insights configuráveis e opções de extensibilidade. 
 

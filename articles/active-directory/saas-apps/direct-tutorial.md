@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 8226a1e445c6f7f6360d715d17bbe5229e4172b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a3b9ae91118f714ce15f56cde0f79faa4fb4d640
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454787"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Ative Directory com direto
 
@@ -63,7 +63,7 @@ Para configurar a integração do direct no AD Azure, é necessário adicionar d
 
 4. Na caixa de pesquisa, escreva **diretamente**, selecione **diretamente** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![direto na lista de resultados](common/search-new-app.png)
+    ![direto na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -144,7 +144,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a direto.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **diretamente**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **diretamente**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -193,7 +193,7 @@ Nesta secção, testa a configuração de inscrição única AZure AD utilizando
 
     a. Clique no azulejo **direto** no Painel de Acesso e será redirecionado para a página de inscrição da aplicação.
 
-    b. Insira a sua `subdomain` na caixa de texto exibida e prima '次へ (Seguinte)' e deverá ser automaticamente inscrito na sua aplicação **direta** .
+    b. Insira a sua `subdomain` caixa de texto visualizada e selecione **Seguinte**, e deverá ser automaticamente inscrita na sua aplicação **direta** .
 
 Quando clicar no azulejo direto no Painel de Acesso, deverá ser automaticamente inscrito no direct para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 

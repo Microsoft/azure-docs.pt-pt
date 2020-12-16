@@ -7,12 +7,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 7b7ded4e7f94e2f9dfdfdda86aec99ff87f2beda
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359987"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586232"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -262,6 +262,10 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     ```
 
 1. Verifique os recursos do seu cluster utilizando o `sudo pcs resource` comando, e deve ver se a instância principal é agora `<VM2>` .
+
+    > [!NOTE]
+    > Este artigo contém referências ao termo escravo, um termo que a Microsoft já não usa. Quando o termo for removido do software, vamos removê-lo deste artigo.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

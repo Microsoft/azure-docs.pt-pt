@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a15ac2b5632cb881b094ca2c333dfca55a689062
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092623"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587558"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -77,7 +77,7 @@ O servidor de conector Windows necessita de ter o TLS 1.2 ativado antes de insta
 Para ativar o TLS 1.2:
 
 1. Definir as seguintes chaves de registo:
-    
+
    ```
    Windows Registry Editor Version 5.00
 

@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
-ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 12/15/2020
+ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324963"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587116"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como permitir a eliminação suave e a proteção de purga
 
@@ -23,7 +23,7 @@ Este artigo abrange duas funcionalidades de recuperação do Cofre da Chave Azur
 
 A proteção de eliminação e purga suave são duas características diferentes de recuperação do cofre.
 > [!IMPORTANT]
-> É necessária proteção para eliminar suavemente em todos os cofres-chave. A capacidade de desativar a proteção de eliminação suave será depreciada até dezembro de 2020. Por favor, consulte todos os detalhes [ **aqui.**](soft-delete-change.md)
+> Ligar a eliminação suave é fundamental para garantir que os seus cofres e credenciais estão protegidos contra a eliminação acidental. No entanto, ligar o soft delete é considerado uma mudança de rutura porque pode exigir que altere a sua lógica de aplicação ou forneça permissões adicionais aos seus principais serviços. Antes de ligar suavemente, elimine usando as instruções abaixo, certifique-se de que a sua aplicação é compatível com a alteração utilizando este documento [ **aqui**.](soft-delete-change.md)
 
 **O soft delete** foi concebido para evitar a eliminação acidental do cofre e chaves, segredos e certificados armazenados dentro do cofre da chave. Pense em apagar suavemente como um caixote de reciclagem. Quando eliminar um cofre de teclas ou um objeto de cofre chave, permanecerá recuperável durante um período de retenção configurável do utilizador ou por um padrão de 90 dias. As abóbadas-chave no estado suave apagado também podem ser **purgadas,** o que significa que são permanentemente eliminadas. Isto permite-lhe recriar cofres-chave e objetos-chave com o mesmo nome. Tanto a recuperação como a eliminação de cofres e objetos requerem permissões elevadas de política de acesso. **Uma vez ativada a eliminação suave, não pode ser desativada.**
 

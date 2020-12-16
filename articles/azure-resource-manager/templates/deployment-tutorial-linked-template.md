@@ -5,12 +5,12 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 7a5872f94a2d267ed2a0e17815e84cec5b02c613
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 81a8b6cd5044b31ee80f50448d6610ba6a57281e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368108"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585654"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementar um modelo ligado
 
@@ -32,7 +32,7 @@ Pode separar o recurso da conta de armazenamento num modelo ligado:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-O modelo a seguir é o modelo principal. O objeto realçado `Microsoft.Resources/deployments` mostra como chamar um modelo ligado. O modelo ligado não pode ser armazenado como um ficheiro local ou um ficheiro que só está disponível na sua rede local. Só pode fornecer um valor URI que inclua um `HTTP` ou `HTTPS` . O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item. O URI é passado para o modelo usando um parâmetro. Consulte a definição de parâmetro realçado.
+O modelo a seguir é o modelo principal. O objeto realçado `Microsoft.Resources/deployments` mostra como chamar um modelo ligado. O modelo ligado não pode ser armazenado como um ficheiro local ou um ficheiro que só está disponível na sua rede local. Só é possível fornecer um valor URI que inclua HTTP ou HTTPS. O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item. O URI é passado para o modelo usando um parâmetro. Consulte a definição de parâmetro realçado.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 

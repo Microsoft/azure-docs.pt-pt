@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f3b918fdf753cef75782a47ef157c282ef47e1ed
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: b2342ed978204284bee4d2be0f1c983aa10ade36
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503646"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585042"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurar o acesso direto usando o Azure Ative Directory B2C
 

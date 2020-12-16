@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560038"
+ms.locfileid: "97586028"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Preview)
 > [!NOTE]
@@ -70,6 +70,9 @@ Em seguida, irá criar o fluxo de utilizador para inscrição de autosserviço e
 7. Nos **atributos do Utilizador,** escolha os atributos que pretende recolher do utilizador. Para obter atributos adicionais, **selecione Mostrar mais**. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição** e **Código Postal**. Selecione **OK**.
 
    ![Criar uma nova página de fluxo de utilizador](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Só é possível recolher atributos quando um utilizador se inscreve pela primeira vez. Depois de um utilizador se inscrever, deixará de ser solicitado a recolher informações de atributos, mesmo que altere o fluxo do utilizador.
 
 8. Selecione **Criar**.
 9. O novo fluxo de utilizador aparece na lista de **fluxos do Utilizador (Pré-visualização).** Se necessário, refresque a página.

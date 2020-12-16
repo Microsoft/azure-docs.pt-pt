@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869cf5a47831844b04e0461a95fb7d16aa4d1569
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111492"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585195"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador no Azure Ative Directory B2C
 
@@ -29,9 +29,7 @@ Marcar e personalizar a interface de utilizador que o Azure Ative Directory B2C 
 > [!TIP]
 > Se pretender modificar apenas o logótipo do banner, a imagem de fundo e a cor de fundo das páginas de fluxo do utilizador, pode experimentar a funcionalidade [de marca Da Empresa.](company-branding.md)
 
-
 ## <a name="custom-html-and-css-overview"></a>Visão geral personalizada de HTML e CSS
-
 
 O Azure AD B2C executa código no navegador do seu cliente utilizando [a Partilha de Recursos de Origem Cruzada (CORS)](https://www.w3.org/TR/cors/). No tempo de execução, o conteúdo é carregado a partir de um URL que especifica no fluxo do utilizador ou na política personalizada. Cada página na experiência do utilizador carrega o seu conteúdo a partir do URL que especifica para essa página. Depois de o conteúdo ser carregado a partir do seu URL, é fundido com um fragmento HTML inserido pelo Azure AD B2C e, em seguida, a página é exibida ao seu cliente.
 
@@ -121,7 +119,6 @@ Aqui está uma visão geral do processo:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### <a name="1-create-your-html-content"></a>1. Crie o seu conteúdo HTML
 
@@ -235,7 +232,6 @@ Valide que está pronto executando os seguintes passos:
 1. Selecione **Enviar Pedido**.
     O resultado deve ser `XHR status: 200` . 
     Se receber um erro, certifique-se de que as definições do CORS estão corretas. Também poderá ter de limpar a cache do seu navegador ou abrir uma sessão de navegação privada pressionando ctrl+Shift+P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -391,10 +387,7 @@ Para utilizar a amostra:
 1. Agora modifique a política, apontando para o seu ficheiro HTML, como mencionado anteriormente.
 1. Se vir tipos de letra, imagens ou CSS em falta, verifique as suas referências na política de extensões e nos \* ficheiros .html.
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como ativar o [código JavaScript do lado do cliente.](javascript-and-page-layout.md)
-
-
 

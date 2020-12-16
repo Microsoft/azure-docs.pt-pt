@@ -1,6 +1,6 @@
 ---
-title: Problemas na resolução de Azure Linux Agente Convidado
-description: Resolução de problemas O Agente Convidado Azure Linux não está a trabalhar
+title: Resolução de problemas do Agente Azure Linux
+description: Resolva problemas com o agente Azure Linux.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
 author: axelg
@@ -11,96 +11,81 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: fc609b60c9d5d4d4734c3d73cbda87935b533caf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 247324c30bbe0edaef78c0b0d5e6a6d593e8cac9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500262"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586402"
 ---
-# <a name="troubleshooting-azure-linux-guest-agent"></a>Problemas na resolução de Azure Linux Agente Convidado
+# <a name="troubleshoot-the-azure-linux-agent"></a>Resolução de problemas do Agente Azure Linux
 
-[Azure Linux Guest Agent](../extensions/agent-linux.md) é um agente de máquina virtual (VM). Permite que o VM comunique com o Controlador de Tecidos (o servidor físico subjacente no qual o VM está hospedado) no endereço IP 168.63.129.16. Este endereço IP é um endereço IP público virtual que facilita a comunicação. Para mais informações, consulte [o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+O [Agente Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) permite que uma máquina virtual (VM) comunique com o Controlador de Tecidos (o servidor físico subjacente no qual o VM está hospedado) no endereço IP 168.63.129.16.
 
-## <a name="checking-agent-status-and-version"></a>Verificação do estado e versão do agente
+>[!NOTE]
+>Este endereço IP é um endereço IP público virtual que facilita a comunicação e não deve ser bloqueado. Para mais informações, consulte [o endereço IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
-Veja https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output
+## <a name="before-you-begin"></a>Before you begin
 
-## <a name="troubleshooting-vm-agent-that-is-in-not-ready-status"></a>Agente VM de resolução de problemas que está em estado de não pronto
+Verifique o estado e a versão do agente para se certificar de que ainda está suportado. Consulte [o suporte mínimo de versão para agentes de máquinas virtuais em Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) para verificar o suporte da versão ou consulte [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) para obter etapas para encontrar o estado e a versão.
 
-### <a name="step-1-check-whether-the-azure-linux-guest-agent-service-is-running"></a>Passo 1 Verifique se o serviço de agente convidado Azure Linux está em execução
+## <a name="troubleshoot-a-not-ready-status"></a>Resolução de problemas um estado de não pronto
 
-Dependendo do distro, o nome de serviço pode ser walinuxagent ou waagent:
+1. Verifique o estado de serviço do agente Azure Linux para se certificar de que está a funcionar. O nome de serviço pode ser **walinuxagent** ou **waagent**.
 
-```
-root@nam-u18:/home/nam# service walinuxagent status
-● walinuxagent.service - Azure Linux Agent
-   Loaded: loaded (/lib/systemd/system/walinuxagent.service; enabled; vendor preset: enabled)
-   Active: active (running) since Thu 2020-10-08 17:10:29 UTC; 3min 9s ago
- Main PID: 1036 (python3)
-    Tasks: 4 (limit: 4915)
-   CGroup: /system.slice/walinuxagent.service
-           ├─1036 /usr/bin/python3 -u /usr/sbin/waagent -daemon
-           └─1156 python3 -u bin/WALinuxAgent-2.2.51-py2.7.egg -run-exthandlers
+   ```
+   root@nam-u18:/home/nam# service walinuxagent status
+   ● walinuxagent.service - Azure Linux Agent
+      Loaded: loaded (/lib/systemd/system/walinuxagent.service; enabled; vendor preset: enabled)
+      Active: active (running) since Thu 2020-10-08 17:10:29 UTC; 3min 9s ago
+    Main PID: 1036 (python3)
+       Tasks: 4 (limit: 4915)
+      CGroup: /system.slice/walinuxagent.service
+              ├─1036 /usr/bin/python3 -u /usr/sbin/waagent -daemon
+              └─1156 python3 -u bin/WALinuxAgent-2.2.51-py2.7.egg -run-exthandlers
+   Oct 08 17:10:33 nam-u18 python3[1036]: 2020-10-08T17:10:33.129375Z INFO ExtHandler ExtHandler Started tracking cgroup: Microsoft.OSTCExtensions.VMAccessForLinux-1.5.10, path: /sys/fs/cgroup/memory/sys
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.189020Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] Target handler state: enabled [incarnation 2]
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.197932Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] [Enable] current handler state is: enabled
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.212316Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] Update settings file: 0.settings
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.224062Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] Enable extension [bin/run-command-shim enable]
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.236993Z INFO ExtHandler ExtHandler Started extension in unit 'Microsoft.CPlat.Core.RunCommandLinux_1.0.1_db014406-294a-49ed-b112-c7912a86ae9e
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.263572Z INFO ExtHandler ExtHandler Started tracking cgroup: Microsoft.CPlat.Core.RunCommandLinux-1.0.1, path: /sys/fs/cgroup/cpu,cpuacct/syst
+   Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.280691Z INFO ExtHandler ExtHandler Started tracking cgroup: Microsoft.CPlat.Core.RunCommandLinux-1.0.1, path: /sys/fs/cgroup/memory/system.sl
+   Oct 08 17:10:37 nam-u18 python3[1036]: 2020-10-08T17:10:37.349090Z INFO ExtHandler ExtHandler ProcessGoalState completed [incarnation 2; 4496 ms]
+   Oct 08 17:10:37 nam-u18 python3[1036]: 2020-10-08T17:10:37.365590Z INFO ExtHandler ExtHandler [HEARTBEAT] Agent WALinuxAgent-2.2.51 is running as the goal state agent [DEBUG HeartbeatCounter: 1;Heartb
+   root@nam-u18:/home/nam#
+   ```
 
-Oct 08 17:10:33 nam-u18 python3[1036]: 2020-10-08T17:10:33.129375Z INFO ExtHandler ExtHandler Started tracking cgroup: Microsoft.OSTCExtensions.VMAccessForLinux-1.5.10, path: /sys/fs/cgroup/memory/sys
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.189020Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] Target handler state: enabled [incarnation 2]
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.197932Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] [Enable] current handler state is: enabled
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.212316Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] Update settings file: 0.settings
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.224062Z INFO ExtHandler [Microsoft.CPlat.Core.RunCommandLinux-1.0.1] Enable extension [bin/run-command-shim enable]
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.236993Z INFO ExtHandler ExtHandler Started extension in unit 'Microsoft.CPlat.Core.RunCommandLinux_1.0.1_db014406-294a-49ed-b112-c7912a86ae9e
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.263572Z INFO ExtHandler ExtHandler Started tracking cgroup: Microsoft.CPlat.Core.RunCommandLinux-1.0.1, path: /sys/fs/cgroup/cpu,cpuacct/syst
-Oct 08 17:10:35 nam-u18 python3[1036]: 2020-10-08T17:10:35.280691Z INFO ExtHandler ExtHandler Started tracking cgroup: Microsoft.CPlat.Core.RunCommandLinux-1.0.1, path: /sys/fs/cgroup/memory/system.sl
-Oct 08 17:10:37 nam-u18 python3[1036]: 2020-10-08T17:10:37.349090Z INFO ExtHandler ExtHandler ProcessGoalState completed [incarnation 2; 4496 ms]
-Oct 08 17:10:37 nam-u18 python3[1036]: 2020-10-08T17:10:37.365590Z INFO ExtHandler ExtHandler [HEARTBEAT] Agent WALinuxAgent-2.2.51 is running as the goal state agent [DEBUG HeartbeatCounter: 1;Heartb
-root@nam-u18:/home/nam#
-```
+   Se o serviço estiver em funcionamento, reinicie-o para resolver o problema. Se o serviço for interrompido, inicie-o, aguarde alguns minutos e verifique novamente o estado.
 
+1. Certifique-se de que a atualização automática está ativada. Verifique a definição de atualização automática em **/etc/waagent.conf**.
 
-Se conseguir ver os serviços e eles estiverem a funcionar, reinicie o serviço para ver se o problema está resolvido. Se os serviços estiverem parados, inicie-os e espere alguns minutos. Em seguida, verifique se o **estado do Agente** está a reportar como **Ready**. Para uma maior resolução de problemas destes problemas, contacte [o Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+   ```
+   AutoUpdate.Enabled=y
+   ```
 
-### <a name="step-2-check-whether-auto-update-is-enabled"></a>Passo 2 Verifique se a atualização automática está ativada
+   Para obter mais informações sobre como atualizar o Agente Azure Linux, consulte [como atualizar o Agente Azure Linux num VM](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
 
-Verifique esta definição em /etc/waagent.conf:
-
-```
-AutoUpdate.Enabled=y
-```
-
-Para mais informações sobre como atualizar o Agente Azure Linux, consulte https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent 
-    
-
-### <a name="step-3-check-whether-the-vm-can-connect-to-the-fabric-controller"></a>Passo 3 Verifique se o VM pode ligar-se ao controlador de tecido
-
-Utilize uma ferramenta como o curl para testar se o VM pode ligar-se a 168.63.129.16 nas portas 80, 32526 e 443. Se o VM não se ligar como esperado, verifique se a comunicação de saída sobre as portas 80, 443 e 32526 está aberta na firewall local no VM. Se este endereço IP estiver bloqueado, o Agente de VM poderá ter um comportamento inesperado em vários cenários.
+1. Certifique-se de que o VM pode ligar-se ao controlador de tecido. Utilize uma ferramenta como o curl para testar se o VM pode ligar-se a 168.63.129.16 nas portas 80, 443 e 32526. Se o VM não se ligar como esperado, verifique se a comunicação de saída sobre as portas 80, 443 e 32526 está aberta na firewall local no VM. Se este endereço IP estiver bloqueado, o agente VM pode apresentar um comportamento inesperado.
 
 ## <a name="advanced-troubleshooting"></a>Resolução de problemas avançados
 
-Os eventos para resolução de problemas Azure Linux Guest Agent são registados nos seguintes ficheiros de registo:
+Os eventos para resolução de problemas do Agente Azure Linux são registados no ficheiro **/var/log/waagent.log.**
 
-- /var/log/waagent.log
+### <a name="unable-to-connect-to-wireserver-ip-host-ip"></a>Não é possível ligar ao Ip do WireServer (HOST IP)
 
-
-  
-### <a name="unable-to-connect-to-wireserver-ip-host-ip"></a>Não é possível ligar ao Ip do WireServer (HOST IP) 
-
-Nota as seguintes entradas de erro em /var/log/waagent.log:
+O seguinte erro aparece no ficheiro **/var/log/waagent.log** quando o VM não consegue chegar ao IP do WireServer no servidor anfitrião.
 
 ```
 2020-10-02T18:11:13.148998Z WARNING ExtHandler ExtHandler An error occurred while retrieving the goal state:
 ```
 
-**Análise**
+Para resolver este problema:
 
-O VM não pode chegar ao IP do WireServer no servidor anfitrião.
-
-**Solução**
-
-1. Como o IP do WireServer não é alcançável, ligue-se ao VM utilizando sSH e tente aceder ao seguinte URL a partir do caracol: http://168.63.129.16/?comp=versions 
-1. Verifique se existem problemas que possam ser causados por uma firewall, um representante ou outra fonte que possa estar a bloquear o acesso ao endereço IP 168.63.129.16.
-1. Verifique se o Linux IPTables ou uma firewall de terceiros está a bloquear o acesso às portas 80, 443 e 32526. Para obter mais informações sobre o motivo pelo qual este endereço não deve ser bloqueado, consulte [o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
-
+* Ligue-se ao VM utilizando sSH e tente aceder ao seguinte URL a partir do caracol: http://168.63.129.16/?comp=versions .
+* Verifique se podem ser causados por uma firewall, um representante ou outra fonte que possa estar a bloquear o acesso ao endereço IP 168.63.129.16.
+* Verifique se o Linux IPTables ou uma firewall de terceiros está a bloquear o acesso às portas 80, 443 e 32526.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para resolver mais problemas, o problema do "Windows Azure Guest Agent não está a funcionar", [contacte o suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para resolver mais problemas, contacte o agente da Azure Linux, [contacte o suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

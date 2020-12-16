@@ -1,58 +1,60 @@
 ---
-title: Lista de verificação de desempenho e escalabilidade para armazenamento de fila - Azure Storage
+title: Lista de verificação de desempenho e escalabilidade para armazenamento de fila - Armazenamento Azure
 description: Uma lista de práticas comprovadas para utilização com armazenamento de fila no desenvolvimento de aplicações de alto desempenho.
-services: storage
 author: tamram
-ms.service: storage
-ms.topic: overview
-ms.date: 10/10/2019
+services: storage
 ms.author: tamram
+ms.date: 10/10/2019
+ms.topic: overview
+ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4040a81d5b509ddbdd355953e28721a7c9fccfb8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345759"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585671"
 ---
-# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de fila
+<!-- docutune:casing "Timeout and Server Busy errors" -->
 
-A Microsoft desenvolveu uma série de práticas comprovadas para desenvolver aplicações de alto desempenho com armazenamento de fila. Esta lista de verificação identifica práticas-chave que os desenvolvedores podem seguir para otimizar o desempenho. Tenha em mente estas práticas enquanto está a desenhar a sua aplicação e durante todo o processo.
+# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de filas
+
+A Microsoft desenvolveu uma série de práticas comprovadas para desenvolver aplicações de alto desempenho com o Armazenamento de Fila. Esta lista de verificação identifica práticas-chave que os desenvolvedores podem seguir para otimizar o desempenho. Tenha em mente estas práticas enquanto está a desenhar a sua aplicação e durante todo o processo.
 
 O Azure Storage tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre os objetivos de escalabilidade do Armazenamento Azure, consulte [metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) e [metas de escalabilidade e desempenho para armazenamento de fila.](scalability-targets.md)
 
 ## <a name="checklist"></a>Lista de Verificação
 
-Este artigo organiza práticas comprovadas para o desempenho numa lista de verificação que pode seguir enquanto desenvolve a sua aplicação de armazenamento de fila.
+Este artigo organiza práticas comprovadas para o desempenho numa lista de verificação que pode seguir enquanto desenvolve a sua aplicação de Armazenamento de Fila.
 
 | Concluído | Categoria | Consideração de design |
-| --- | --- | --- |
-| &nbsp; |Metas de escalabilidade |[Pode conceber a sua aplicação para utilizar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Metas de escalabilidade |[Está a evitar aproximar-se dos limites de capacidade e transação?](#capacity-and-transaction-targets) |
-| &nbsp; |Redes |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
-| &nbsp; |Redes |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
-| &nbsp; |Redes |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
-| &nbsp; |Acesso direto ao cliente |[Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Azure Storage?](#sas-and-cors) |
-| &nbsp; |Configuração .NET |[Está a utilizar .NET Core 2.1 ou mais tarde para um desempenho ótimo?](#use-net-core) |
-| &nbsp; |Configuração .NET |[Configurado o seu cliente para utilizar um número suficiente de ligações simultâneas?](#increase-default-connection-limit) |
-| &nbsp; |Configuração .NET |[Para aplicações .NET, configuraste .NET para utilizar um número suficiente de fios?](#increase-minimum-number-of-threads) |
-| &nbsp; |Paralelismo |[Assegurou-se de que o paralelismo está devidamente limitado para não sobrecarregar as capacidades do seu cliente ou aproximar-se dos alvos de escalabilidade?](#unbounded-parallelism) |
-| &nbsp; |Ferramentas |[Está a utilizar as versões mais recentes das bibliotecas e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Tentativas |[Está a usar uma política de repetição com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
-| &nbsp; |Tentativas |[A sua aplicação evita recaída por erros não retáveis?](#non-retryable-errors) |
-| &nbsp; |Configuração |[Desligou o algoritmo Nagle para melhorar o desempenho de pequenos pedidos?](#disable-nagle) |
-| &nbsp; |Tamanho da mensagem |[As suas mensagens são compactas para melhorar o desempenho da fila?](#message-size) |
-| &nbsp; |Recuperação a granel |[Está a recuperar várias mensagens numa única operação GET?](#batch-retrieval) |
-| &nbsp; |Frequência de sondagens |[Está a sondar com frequência para reduzir a percebido latência da sua candidatura?](#queue-polling-interval) |
-| &nbsp; |Mensagem de atualização |[Está a utilizar a operação ''' ''Update Message' para armazenar o progresso no processamento de mensagens, para evitar ter de reprocessar toda a mensagem se ocorrer um erro?](#use-update-message) |
-| &nbsp; |Arquitetura |[Está a usar filas para tornar toda a sua aplicação mais escalável, mantendo cargas de trabalho de longa duração fora do caminho crítico e escala, em seguida, independentemente?](#application-architecture) |
+|--|--|--|
+| &nbsp; | Metas de escalabilidade | [Pode conceber a sua aplicação para utilizar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
+| &nbsp; | Metas de escalabilidade | [Está a evitar aproximar-se dos limites de capacidade e transação?](#capacity-and-transaction-targets) |
+| &nbsp; | Redes | [Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
+| &nbsp; | Redes | [Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
+| &nbsp; | Redes | [O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
+| &nbsp; | Acesso direto ao cliente | [Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Azure Storage?](#sas-and-cors) |
+| &nbsp; | Configuração .NET | [Está a utilizar .NET Core 2.1 ou mais tarde para um desempenho ótimo?](#use-net-core) |
+| &nbsp; | Configuração .NET | [Configurado o seu cliente para utilizar um número suficiente de ligações simultâneas?](#increase-default-connection-limit) |
+| &nbsp; | Configuração .NET | [Para aplicações .NET, configuraste .NET para utilizar um número suficiente de fios?](#increase-the-minimum-number-of-threads) |
+| &nbsp; | Paralelismo | [Assegurou-se de que o paralelismo está devidamente limitado para não sobrecarregar as capacidades do seu cliente ou aproximar-se dos alvos de escalabilidade?](#unbounded-parallelism) |
+| &nbsp; | Ferramentas | [Está a utilizar as versões mais recentes das bibliotecas e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
+| &nbsp; | Tentativas | [Está a usar uma política de repetição com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
+| &nbsp; | Tentativas | [A sua aplicação evita recaída por erros não retáveis?](#non-retryable-errors) |
+| &nbsp; | Configuração | [Desligou o algoritmo do Nagle para melhorar o desempenho de pequenos pedidos?](#disable-nagles-algorithm) |
+| &nbsp; | Tamanho da mensagem | [As suas mensagens são compactas para melhorar o desempenho da fila?](#message-size) |
+| &nbsp; | Recuperação a granel | [Está a recuperar várias mensagens numa única operação?](#batch-retrieval) |
+| &nbsp; | Frequência de sondagens | [Está a sondar com frequência para reduzir a percebido latência da sua candidatura?](#queue-polling-interval) |
+| &nbsp; | Atualizar mensagem | [Está a realizar uma operação de mensagem de atualização para armazenar o progresso no processamento de mensagens, para evitar ter de reprocessar toda a mensagem se ocorrer um erro?](#perform-an-update-message-operation) |
+| &nbsp; | Arquitetura | [Está a usar filas para tornar toda a sua aplicação mais escalável, mantendo cargas de trabalho de longa duração fora do caminho crítico e escala, em seguida, independentemente?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
-Se a sua aplicação se aproximar ou exceder qualquer um dos alvos de escalabilidade, poderá encontrar atrasos de transação aumentadas ou estrangulamentos. Quando o Azure Storage acelera a sua aplicação, o serviço começa a devolver códigos de erro 503 (Server busy) ou 500 (Tempo limite de funcionamento). Evitar estes erros mantendo-se dentro dos limites dos objetivos de escalabilidade é uma parte importante para melhorar o desempenho da sua aplicação.
+Se a sua aplicação se aproximar ou exceder qualquer um dos alvos de escalabilidade, poderá encontrar atrasos de transação aumentadas ou estrangulamentos. Quando o Azure Storage acelera a sua aplicação, o serviço começa a devolver `Server Busy` códigos de erro 503 () ou 500 ( `Operation Timeout` ). Evitar estes erros mantendo-se dentro dos limites dos objetivos de escalabilidade é uma parte importante para melhorar o desempenho da sua aplicação.
 
-Para obter mais informações sobre os alvos de escalabilidade para o serviço de fila, consulte a [escalabilidade do armazenamento Azure e os objetivos de desempenho](./scalability-targets.md#scale-targets-for-queue-storage).
+Para obter mais informações sobre os alvos de escalabilidade para armazenamento de fila, consulte [a escalabilidade do armazenamento Azure e os objetivos de desempenho](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -66,7 +68,7 @@ Se a sua aplicação estiver a aproximar-se dos objetivos de escalabilidade de u
 - Reconsidere a carga de trabalho que faz com que a sua aplicação se aproxime ou exceda o objetivo de escalabilidade. Pode desenhá-lo de forma diferente para utilizar menos largura de banda ou capacidade, ou menos transações?
 - Se a sua aplicação tiver de exceder um dos objetivos de escalabilidade, em seguida, crie várias contas de armazenamento e partition os seus dados de aplicação através dessas contas de armazenamento múltiplas. Se utilizar este padrão, então certifique-se de conceber a sua aplicação para que possa adicionar mais contas de armazenamento no futuro para equilibrar a carga. As próprias contas de armazenamento não têm qualquer custo que não seja a sua utilização em termos de dados armazenados, transações efe feitas ou dados transferidos.
 - Se a sua aplicação estiver a aproximar-se dos alvos de largura de banda, considere comprimir dados do lado do cliente para reduzir a largura de banda necessária para enviar os dados para o Azure Storage. Embora a compressão de dados possa salvar a largura de banda e melhorar o desempenho da rede, também pode ter efeitos negativos no desempenho. Avaliar o impacto de desempenho dos requisitos adicionais de processamento para a compressão de dados e descompressão do lado do cliente. Tenha em mente que armazenar dados comprimidos pode dificultar a resolução de problemas, pois pode ser mais desafiante visualizar os dados usando ferramentas padrão.
-- Se a sua aplicação estiver a aproximar-se dos alvos de escalabilidade, certifique-se de que está a utilizar um backoff exponencial para retrações. É melhor tentar evitar atingir os objetivos de escalabilidade implementando as recomendações descritas neste artigo. No entanto, a utilização de um recuo exponencial para as retreições impedirá que a sua aplicação volte rapidamente, o que pode piorar a aceleração. Para obter mais informações, consulte a secção intitulada [Timeout e Server Busy errors](#timeout-and-server-busy-errors).
+- Se a sua aplicação estiver a aproximar-se dos alvos de escalabilidade, certifique-se de que está a utilizar um backoff exponencial para retrações. É melhor tentar evitar atingir os objetivos de escalabilidade implementando as recomendações descritas neste artigo. No entanto, a utilização de um recuo exponencial para as retreições impedirá que a sua aplicação volte rapidamente, o que pode piorar a aceleração. Para obter mais informações, consulte a secção [de erros timeout e Server Busy.](#timeout-and-server-busy-errors)
 
 ## <a name="networking"></a>Redes
 
@@ -78,17 +80,17 @@ A largura de banda e a qualidade da ligação de rede desempenham papéis import
 
 #### <a name="throughput"></a>Débito
 
-Para a largura de banda, o problema é muitas vezes as capacidades do cliente. Casos maiores de Azure têm NICs com maior capacidade, por isso deve considerar usar um caso maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Azure Storage a partir de uma aplicação no local, então aplica-se a mesma regra: compreenda as capacidades de rede do dispositivo cliente e a conectividade da rede com o local de Armazenamento Azure e melhore-as conforme necessário ou desenhe a sua aplicação para trabalhar dentro das suas capacidades.
+Para a largura de banda, o problema é muitas vezes as capacidades do cliente. Casos maiores de Azure têm NICs com maior capacidade, por isso deve considerar usar um caso maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Azure Storage a partir de uma aplicação no local, então aplica-se a mesma regra: compreenda as capacidades de rede do dispositivo cliente e a conectividade da rede com o local de armazenamento Azure e melhore-as conforme necessário ou desenhe a sua aplicação para funcionar dentro das suas capacidades.
 
 #### <a name="link-quality"></a>Qualidade de ligação
 
-Como em qualquer utilização da rede, tenha em mente que as condições de rede que resultam em erros e perda de pacotes retardarão a produção eficaz. A utilização do WireShark ou da NetMon pode ajudar a diagnosticar este problema.
+Como em qualquer utilização da rede, tenha em mente que as condições de rede que resultam em erros e perda de pacotes retardarão a produção eficaz. A utilização de Arameshark ou Monitor de Rede pode ajudar a diagnosticar este problema.
 
 ### <a name="location"></a>Localização
 
-Em qualquer ambiente distribuído, colocar o cliente perto do servidor oferece na melhor performance. Para aceder ao Azure Storage com a latência mais baixa, a melhor localização para o seu cliente é dentro da mesma região de Azure. Por exemplo, se tiver uma aplicação web Azure que utiliza o Azure Storage, então localize-os numa única região, como o Eua West ou o Asia Southeast. A co-localização de recursos reduz a latência e o custo, uma vez que o uso de largura de banda numa única região é gratuito.
+Em qualquer ambiente distribuído, colocar o cliente perto do servidor oferece na melhor performance. Para aceder ao Azure Storage com a latência mais baixa, a melhor localização para o seu cliente é dentro da mesma região de Azure. Por exemplo, se tiver uma aplicação web Azure que utiliza o Azure Storage, então localize-os numa única região, como o Oeste dos EUA ou o Sudeste Asiático. A co-localização de recursos reduz a latência e o custo, uma vez que o uso de largura de banda numa única região é gratuito.
 
-Se as aplicações do cliente acederem ao Azure Storage mas não estiverem hospedadas no Azure, como aplicações de dispositivos móveis ou em serviços empresariais de instalações, então a localização da conta de armazenamento numa região próxima a esses clientes pode reduzir a latência. Se os seus clientes são amplamente distribuídos (por exemplo, alguns na América do Norte, e alguns na Europa), então considere usar uma conta de armazenamento por região. Esta abordagem é mais fácil de implementar se os dados que as lojas de aplicações são específicos de cada um dos utilizadores, e não requer a replicação de dados entre contas de armazenamento.
+Se as aplicações do cliente acederem ao Azure Storage mas não estiverem hospedadas no Azure, como aplicações de dispositivos móveis ou serviços empresariais no local, então localizar a conta de armazenamento numa região próxima a esses clientes pode reduzir a latência. Se os seus clientes são amplamente distribuídos (por exemplo, alguns na América do Norte, e alguns na Europa), então considere usar uma conta de armazenamento por região. Esta abordagem é mais fácil de implementar se os dados que as lojas de aplicações são específicos de cada um dos utilizadores, e não requer a replicação de dados entre contas de armazenamento.
 
 ## <a name="sas-and-cors"></a>SAS e CORS
 
@@ -127,9 +129,9 @@ Desa estada o limite de ligação antes de abrir quaisquer ligações.
 
 Para outras linguagens de programação, consulte a documentação dessa língua para determinar como definir o limite de ligação.
 
-Para mais informações, consulte o blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).
+Para mais informações, consulte os serviços web post [blog: Conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).
 
-### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de fios
+### <a name="increase-the-minimum-number-of-threads"></a>Aumentar o número mínimo de fios
 
 Se estiver a utilizar chamadas sincronizadas juntamente com tarefas assíncronos, é melhor aumentar o número de fios na piscina de roscas:
 
@@ -137,7 +139,7 @@ Se estiver a utilizar chamadas sincronizadas juntamente com tarefas assíncronos
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Para obter mais informações, consulte o método [ThreadPool.SetMinThreads.](/dotnet/api/system.threading.threadpool.setminthreads)
+Para mais informações, consulte o [`ThreadPool.SetMinThreads`](/dotnet/api/system.threading.threadpool.setminthreads) método.
 
 ## <a name="unbounded-parallelism"></a>Paralelismo ilimitado
 
@@ -153,19 +155,19 @@ O Azure Storage retorna um erro quando o serviço não pode processar um pedido.
 
 ### <a name="timeout-and-server-busy-errors"></a>Erros de timeout e servidor ocupado
 
-O Azure Storage pode acelerar a sua aplicação se se aproximar dos limites de escalabilidade. Em alguns casos, o Azure Storage pode não conseguir lidar com um pedido devido a alguma condição transitória. Em ambos os casos, o serviço pode devolver um erro de 503 (Server Busy) ou 500 (Timeout). Estes erros também podem ocorrer se o serviço estiver a reequilibtar as divisórias de dados para permitir uma maior produção. A aplicação do cliente deve normalmente voltar a tentar a operação que causa um destes erros. No entanto, se o Azure Storage está a estrangular a sua aplicação por estar a exceder os alvos de escalabilidade, ou mesmo que o serviço não tenha conseguido servir o pedido por outra razão, as retrações agressivas podem piorar o problema. Recomenda-se a utilização de uma política de retrocesso exponencial e as bibliotecas do cliente estão em incumprimento deste comportamento. Por exemplo, a sua aplicação pode voltar a tentar após 2 segundos, depois 4 segundos, depois 10 segundos, depois 30 segundos, e depois desistir completamente. Desta forma, a sua aplicação reduz significativamente a sua carga no serviço, em vez de exacerbar comportamentos que podem levar a estrangulamentos.
+O Azure Storage pode acelerar a sua aplicação se se aproximar dos limites de escalabilidade. Em alguns casos, o Azure Storage pode não conseguir lidar com um pedido devido a alguma condição transitória. Em ambos os casos, o serviço pode devolver um erro de 503 ( `Server Busy` ou 500 `Timeout` ). Estes erros também podem ocorrer se o serviço estiver a reequilibtar as divisórias de dados para permitir uma maior produção. A aplicação do cliente deve normalmente voltar a tentar a operação que causa um destes erros. No entanto, se o Azure Storage está a estrangular a sua aplicação por estar a exceder os alvos de escalabilidade, ou mesmo que o serviço não tenha conseguido servir o pedido por outra razão, as retrações agressivas podem piorar o problema. Recomenda-se a utilização de uma política de retrocesso exponencial e as bibliotecas do cliente estão em incumprimento deste comportamento. Por exemplo, a sua aplicação pode voltar a tentar após 2 segundos, depois 4 segundos, depois 10 segundos, depois 30 segundos, e depois desistir completamente. Desta forma, a sua aplicação reduz significativamente a sua carga no serviço, em vez de exacerbar comportamentos que podem levar a estrangulamentos.
 
 Os erros de conectividade podem ser novamente julgados imediatamente, porque não são o resultado de estrangulamento e espera-se que sejam transitórios.
 
 ### <a name="non-retryable-errors"></a>Erros não retáveis
 
-As bibliotecas do cliente lidam com retreiças com consciência de quais os erros que podem ser novamente julgados e que não podem. No entanto, se estiver a ligar diretamente para a API do Azure Storage REST, existem alguns erros que não deve voltar a tentar. Por exemplo, um erro de 400 (Mau Pedido) indica que o pedido do cliente enviou um pedido que não pôde ser processado porque não estava na forma esperada. Reencando este pedido resulta sempre na mesma resposta, pelo que não faz sentido voltar a tentar. Se estiver a ligar diretamente para a AZure Storage REST API, esteja ciente de potenciais erros e se devem ser novamente julgados.
+As bibliotecas do cliente lidam com retreiças com consciência de quais os erros que podem ser novamente julgados e que não podem. No entanto, se estiver a ligar diretamente para a API do Azure Storage REST, existem alguns erros que não deve voltar a tentar. Por exemplo, um erro de 400 indica `Bad Request` que o pedido do cliente enviou um pedido que não pôde ser processado porque não estava na forma esperada. Reencando este pedido resulta sempre na mesma resposta, pelo que não faz sentido voltar a tentar. Se estiver a ligar diretamente para a AZure Storage REST API, esteja ciente de potenciais erros e se devem ser novamente julgados.
 
 Para obter mais informações sobre os códigos de erro do Azure Storage, consulte [códigos de estado e de erro](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="disable-nagle"></a>Desativar o Nagle
+## <a name="disable-nagles-algorithm"></a>Desativar o algoritmo de Nagle
 
-O algoritmo de Nagle é amplamente implementado através das redes TCP/IP como forma de melhorar o desempenho da rede. No entanto, não é o ideal em todas as circunstâncias (tais como ambientes altamente interativos). O algoritmo da Nagle tem um impacto negativo no desempenho dos pedidos para o serviço Azure Table, e deve desativá-lo se possível.
+O algoritmo de Nagle é amplamente implementado através das redes TCP/IP como forma de melhorar o desempenho da rede. No entanto, não é o ideal em todas as circunstâncias (tais como ambientes altamente interativos). O algoritmo da Nagle tem um impacto negativo no desempenho dos pedidos para o Azure Table Storage, e deve desativá-lo se possível.
 
 ## <a name="message-size"></a>Tamanho da mensagem
 
@@ -173,17 +175,17 @@ O desempenho da fila e a escalabilidade diminuem à medida que o tamanho da mens
 
 ## <a name="batch-retrieval"></a>Recuperação de lotes
 
-Pode recuperar até 32 mensagens de uma fila numa única operação. A recuperação de lotes pode reduzir o número de velas da aplicação do cliente, o que é especialmente útil para ambientes, como dispositivos móveis, com alta latência.
+Pode recuperar até 32 mensagens de uma fila numa única operação. A recuperação de lotes pode reduzir o número de viagens de ida e volta da aplicação do cliente, o que é especialmente útil para ambientes, como dispositivos móveis, com alta latência.
 
 ## <a name="queue-polling-interval"></a>Intervalo de votação na fila
 
 A maioria das aplicações pesquisa para mensagens de uma fila, que pode ser uma das maiores fontes de transações para essa aplicação. Selecione o seu intervalo de sondagens com demasiada frequência: as sondagens com demasiada frequência podem fazer com que a sua aplicação se aproxime dos alvos de escalabilidade da fila. No entanto, a 200.000 transações por $0,01 (no momento da escrita), uma sondagem de um único processador a cada segundo por mês custaria menos de 15 cêntimos, pelo que o custo não é normalmente um fator que afete a sua escolha de intervalo de votação.
 
-Para obter informações sobre os custos atualizados, consulte [o preço de armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage/)
+Para obter informações sobre os custos atualizados, consulte [os preços de armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage/)
 
-## <a name="use-update-message"></a>Use a mensagem de atualização
+## <a name="perform-an-update-message-operation"></a>Realizar uma operação de mensagem de atualização
 
-Pode utilizar a operação **'Mensagem de Actualização'** para aumentar o tempo limite de invisibilidade ou para atualizar as informações estatais de uma mensagem. Usar **a Mensagem de Atualização** pode ser uma abordagem mais eficiente do que ter um fluxo de trabalho que passa de uma fila para outra, à medida que cada passo do trabalho está concluído. A sua aplicação pode guardar o estado de trabalho para a mensagem e depois continuar a trabalhar, em vez de requenciar a mensagem para o próximo passo do trabalho sempre que um passo completo. Tenha em mente que cada operação **de mensagem de atualização** conta para o alvo de escalabilidade.
+Pode executar uma operação de mensagem de atualização para aumentar o tempo limite de invisibilidade ou atualizar as informações do estado de uma mensagem. Esta abordagem pode ser mais eficiente do que ter um fluxo de trabalho que passa um trabalho de uma fila para outra, à medida que cada passo do trabalho está concluído. A sua aplicação pode guardar o estado de trabalho para a mensagem e depois continuar a trabalhar, em vez de requenciar a mensagem para o próximo passo do trabalho sempre que um passo completo. Tenha em mente que cada operação de mensagem de atualização conta para o alvo de escalabilidade.
 
 ## <a name="application-architecture"></a>Arquitetura da aplicação
 
@@ -192,8 +194,8 @@ Use filas para tornar a sua arquitetura de aplicação escalável. As seguintes 
 - Pode utilizar filas para criar atrasos de trabalho para o processamento e suavizar as cargas de trabalho na sua aplicação. Por exemplo, pode fazer fila de pedidos dos utilizadores para realizar trabalhos intensivos de processador, como redimensionar imagens carregadas.
 - Pode utilizar as filas para dissociar partes da sua aplicação para que possa escaloná-las de forma independente. Por exemplo, uma extremidade frontal web poderia colocar os resultados do inquérito dos utilizadores numa fila para posterior análise e armazenamento. Pode adicionar mais instâncias de função do trabalhador para processar os dados da fila conforme necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Metas de escalabilidade e desempenho para armazenamento de fila](scalability-targets.md)
+- [Metas de escalabilidade e desempenho para armazenamento de filas](scalability-targets.md)
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Códigos de estado e de erro](/rest/api/storageservices/Status-and-Error-Codes2)

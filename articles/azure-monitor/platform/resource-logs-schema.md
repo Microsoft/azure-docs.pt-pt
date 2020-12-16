@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para regi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 6a76d642863a0baac8021a3da196ad5a2db48126
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c1c5ed715527add4218378c05602ed3352e55461
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931168"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586946"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
 
@@ -23,7 +23,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de alto nível
 
-| Name | Obrigatório/Opcional | Descrição |
+| Nome | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | hora | Obrigatório | A hora de jogo (UTC) do evento. |
 | resourceId | Obrigatório | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
@@ -56,7 +56,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Automatização do Azure |[Analítica de registo para Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registo de lote de Azure](../../batch/batch-diagnostics.md) |
 | Serviços Cognitivos | [Registo de Serviços Cognitivos Azure](../../cognitive-services/diagnostic-logging.md) |
-| Registo de Contentor | [Registo de registo de contentores Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Registo de registo de contentores Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rede de Entrega de Conteúdos | [Registos Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Azure Cosmos DB Logging](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorize fábricas de dados usando o Monitor Azure](../../data-factory/monitor-using-azure-monitor.md) |
@@ -72,17 +72,17 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Azure Firewall | Schema não está disponível. |
 | Front Door | [Registo para porta da frente](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
-| Cofre de Chaves |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
+| Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |
 | Balanceador de Carga |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
-| Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Logic Apps |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Proteção contra DDOS | [Gerir a norma de proteção Azure DDoS](../../ddos-protection/manage-ddos-protection.md) |
+| Proteção contra DDOS | [Gerir a norma de proteção Azure DDoS](../../ddos-protection/reports-and-flow-logs.md#sample-log-outputs) |
 | Power BI Dedicado | [Registo de Power BI Incorporado em Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para backup Azure](../../backup/backup-azure-reports-data-model.md)|
-| Pesquisa |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
+| Pesquisar |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de ônibus de serviço Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| Base de Dados SQL | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registos de trabalhos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Gestor de Tráfego | [Esquema de registo do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Schema não está disponível. |
