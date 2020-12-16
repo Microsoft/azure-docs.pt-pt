@@ -3,12 +3,12 @@ title: Questões comuns sobre recuperação de desastres VMware com recuperaçã
 description: Obtenha respostas a perguntas comuns sobre a recuperação de desastres de VMware VMs para Azure utilizando a Recuperação do Site Azure.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379995"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587797"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -112,7 +112,7 @@ A Recuperação do Site replica VMware VMs e servidores físicos para discos ger
 
 ### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>Posso replicar novas máquinas nas contas de armazenamento?
 
-Não. A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
+N.º A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
 
 A replicação de novos VMs numa conta de armazenamento só está disponível utilizando o PowerShell[(az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) ou a API REST (versão 2018-01-10 ou 2016-08-10). [Aprenda](./vmware-azure-disaster-recovery-powershell.md) a configurar a replicação utilizando os comandos PowerShell.
 
@@ -131,7 +131,7 @@ Sim, pode [facilmente alterar o tipo de disco gerido](../virtual-machines/window
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Posso mudar a replicação de discos geridos para discos não geridos?
 
-Não. Mudar de gerido para não gerido não é suportado.
+N.º Mudar de gerido para não gerido não é suportado.
 
 ## <a name="replication"></a>Replicação
 
@@ -146,6 +146,10 @@ A replicação é contínua ao replicar VMware VMs para Azure.
 ### <a name="can-i-extend-replication"></a>Posso estender a replicação?
 
 Não é suportada a replicação expandida ou em cadeia. Solicite esta funcionalidade no [fórum de comentários.](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Como posso acompanhar o progresso da replicação/sincronização inicial?
+
+Esta capacidade foi recentemente para os serviços de Recuperação do Local. Atualize a sua infraestrutura de Recuperação de Sítio (servidores de configuração, servidores de processos de escala) e agente de mobilidade para versões 9.36 ou superiores para obter detalhes precisos. Saiba mais sobre como acompanhar o progresso [aqui.](vmware-azure-enable-replication.md#monitor-initial-replication)
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Posso fazer uma replicação inicial offline?
 
@@ -234,7 +238,7 @@ Recomendamos que [crie o VM do servidor de configuração](vmware-azure-deploy-c
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar-se em mais de uma região?
 
-Não. Para se replicar em mais de uma região, precisa de um servidor de configuração em cada região.
+N.º Para se replicar em mais de uma região, precisa de um servidor de configuração em cada região.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Posso hospedar um servidor de configuração em Azure?
 
@@ -266,15 +270,15 @@ Yes. Descarregue o instalador MySQL e coloque-o na pasta C:\Temp\ASRSetup. Quand
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Posso usar o VM do servidor de configuração para qualquer outra coisa?
 
-Não. Utilize o VM apenas para o servidor de configuração.
+N.º Utilize o VM apenas para o servidor de configuração.
 
 ### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Posso clonar um servidor de configuração e usá-lo para orquestração?
 
-Não. Crie um novo servidor de configuração para evitar problemas de registo.
+N.º Crie um novo servidor de configuração para evitar problemas de registo.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Posso alterar o cofre no qual o servidor de configuração está registado?
 
-Não. Depois de um cofre estar associado ao servidor de configuração, não pode ser alterado. [Saiba](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) como registar um servidor de configuração com um cofre diferente.
+N.º Depois de um cofre estar associado ao servidor de configuração, não pode ser alterado. [Saiba](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) como registar um servidor de configuração com um cofre diferente.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Posso usar o mesmo servidor de configuração para a recuperação de desastres tanto de VMware vMs como de servidores físicos?
 
@@ -286,7 +290,7 @@ Sim, mas note que a máquina física só pode ser falhada para um VMware VM.
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Onde posso baixar as chaves de registo do cofre?
 
-No cofre dos Serviços de Recuperação, selecione **Servidores de Configuração** na **Gestão da Infraestrutura de Recuperação do Local**  >  **Manage**. Em seguida, em **Servers,** **selecione Baixar** a chave de registo para descarregar o ficheiro de credenciais do cofre.
+No cofre dos Serviços de Recuperação, selecione **Servidores de Configuração** na **Gestão da Infraestrutura de Recuperação do Local**  >  . Em seguida, em **Servers,** **selecione Baixar** a chave de registo para descarregar o ficheiro de credenciais do cofre.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Um único servidor de configuração pode ser usado para proteger várias instâncias do vCenter?
 
@@ -361,7 +365,7 @@ Yes. Pode automatizar fluxos de trabalho de Recuperação de Sítio utilizando a
 
 Yes. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Rever os](vmware-physical-azure-support-matrix.md) requisitos de apoio.
 - [Configurar](vmware-azure-tutorial.md) VMware para replicação Azure.

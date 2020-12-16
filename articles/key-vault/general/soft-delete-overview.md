@@ -4,20 +4,20 @@ description: A eliminação suave no Cofre da Chave Azure permite-lhe recuperar 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452186"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589989"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
 > [!IMPORTANT]
-> Tem de ativar a eliminação suave dos cofres das chaves imediatamente. A capacidade de excluir o soft-delete será depreciada até ao final do ano, e a proteção de eliminação suave será automaticamente ligada para todos os cofres-chave.  Veja todos os detalhes [aqui](soft-delete-change.md)
+> Tem de ativar a eliminação suave dos cofres das chaves imediatamente. A capacidade de excluir o soft-delete será depreciada em breve. Veja todos os detalhes [aqui](soft-delete-change.md)
 
 A funcionalidade de eliminação suave do Key Vault permite a recuperação dos cofres apagados e dos objetos do cofre de chaves eliminados (por exemplo, chaves, segredos, certificados), conhecidos como soft-delete. Especificamente, abordamos os seguintes cenários: Esta salvaguarda oferece as seguintes proteções:
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 473ed1f14d77470e31c2f14665a12542a70a2a98
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6bb1aafd942046faa77072d99af043ebd43b4a8a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512303"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589972"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação web Azure em .NET
 
@@ -31,7 +31,7 @@ Para concluir este guia de início rápido, precisa de:
 * O [Núcleo .NET 3.1 SDK (ou mais tarde)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * Uma instalação [git.](https://www.git-scm.com/downloads)
 * [A Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/).
-* [Cofre de Chaves Azure.](./overview.md) Pode criar um cofre-chave utilizando o [portal Azure,](quick-create-portal.md)o [Azure CLI](quick-create-cli.md)ou [a Azure PowerShell](quick-create-powershell.md).
+* [Azure Key Vault.](./overview.md) Pode criar um cofre-chave utilizando o [portal Azure,](quick-create-portal.md)o [Azure CLI](quick-create-cli.md)ou [a Azure PowerShell](quick-create-powershell.md).
 * Um segredo do Cofre [chave.](../secrets/about-secrets.md) Pode criar um segredo utilizando o [portal Azure,](../secrets/quick-create-portal.md) [PowerShell](../secrets/quick-create-powershell.md)ou [o Azure CLI](../secrets/quick-create-cli.md).
 
 ## <a name="create-a-net-core-app"></a>Criar uma aplicação .NET Core
@@ -180,7 +180,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 Utilize o seguinte comando para empurrar para o comando Azure para implementar a sua aplicação. Quando git Credencial Manager lhe pedir credenciais, use as credenciais que criou na secção [de configuração do Git local.](#configure-the-local-git-deployment)
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Este comando pode levar alguns minutos a correr. Enquanto funciona, apresenta informações semelhantes às que vê aqui:
@@ -191,7 +191,7 @@ Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 remote: Deploy Async
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'd6b54472f7'.
 remote: Repository path is /home/site/repository
@@ -208,7 +208,7 @@ remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
 remote: Deployment successful.
 remote: Deployment Logs : 'https://&lt;your-webapp-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
 To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-name&gt;.git
-   d87e6ca..d6b5447  master -> master
+   d87e6ca..d6b5447  main -> main
 </pre>
 
 Aceda (ou atualize) a aplicação implementada utilizando o seu navegador web:
@@ -311,7 +311,7 @@ Agora que atualizou o seu código, pode reimplantá-lo para Azure utilizando est
 ```bash
 git add .
 git commit -m "Updated web app to access my key vault"
-git push azure master
+git push azure main
 ```
 
 ## <a name="go-to-your-completed-web-app"></a>Vá para a sua aplicação web completa

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090217"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588714"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação em colaboração com Git
 
@@ -39,7 +39,7 @@ Também pode criar um novo ramo utilizando o seguinte comando de bash Git no Win
 git checkout -b <new branch name> <base branch name>
 
 ```
-Se não especificar \<base branch name> um, o novo ramo baseia-se `master` em . 
+Se não especificar \<base branch name> um, o novo ramo baseia-se `main` em . 
 
 Para mudar para o seu ramo de trabalho, executar o seguinte comando: 
 
@@ -47,7 +47,7 @@ Para mudar para o seu ramo de trabalho, executar o seguinte comando:
 git checkout <working branch name>
 ```
 
-Depois de mudar para o ramo de trabalho, pode começar a desenvolver artefactos de código ou documentação para completar o artigo de trabalho. Correr `git checkout master` troca-te de volta para o `master` ramo.
+Depois de mudar para o ramo de trabalho, pode começar a desenvolver artefactos de código ou documentação para completar o artigo de trabalho. Correr `git checkout main` troca-te de volta para o `main` ramo.
 
 É uma boa prática criar um ramo Git para cada item de trabalho de User Story. Em seguida, para cada item de trabalho de tarefa, pode criar um ramo baseado na sucursal de User Story. Organize os balcões numa hierarquia que corresponda à relação Story-Task utilizador quando tem várias pessoas a trabalhar em diferentes Histórias de Utilizador para o mesmo projeto, ou em diferentes Tarefas para a mesma História do Utilizador. Pode minimizar conflitos fazendo com que cada membro da equipa trabalhe num ramo diferente, ou em códigos diferentes ou outros artefactos ao partilhar um ramo. 
 
@@ -72,7 +72,7 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Criar um pedido de puxar
+## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Criar um pedido Pull
 
 Depois de um ou mais compromissos e impulsos, quando estiver pronto para fundir o seu atual ramo de trabalho no seu ramo base, pode criar e submeter um *pedido de atração* em Azure Repos. 
 
@@ -90,7 +90,7 @@ Assim que criar o pedido de retirada, os seus revisores recebem uma notificaçã
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-Depois de os revisores aprovarem as alterações, você ou outra pessoa com permissões de fusão podem fundir o ramo de trabalho para o seu ramo base. Selecione **Complete**e, em seguida, selecione **Complete merge** in the **Complete pull request request** dialog. Pode optar por eliminar o ramo de trabalho depois de se ter fundido. 
+Depois de os revisores aprovarem as alterações, você ou outra pessoa com permissões de fusão podem fundir o ramo de trabalho para o seu ramo base. Selecione **Complete** e, em seguida, selecione **Complete merge** in the **Complete pull request request** dialog. Pode optar por eliminar o ramo de trabalho depois de se ter fundido. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
@@ -105,7 +105,7 @@ Quando voltas para **Repos** na navegação à esquerda, podes ver que foste mud
 Também pode utilizar os seguintes comandos de bash Git para fundir o `script` ramo de trabalho no seu ramo base e eliminar o ramo de trabalho após a fusão:
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

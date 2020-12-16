@@ -1,20 +1,20 @@
 ---
-title: Resolução de problemas da orquestração do gasoduto e dos gatilhos na ADF
-description: Utilize diferentes métodos para resolver problemas de desencadeamento de gasodutos em ADF
+title: Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
+description: Utilize diferentes métodos para resolver problemas de desencadeamento de gasodutos na Azure Data Factory.
 author: ssabat
 ms.service: data-factory
 ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: ed3728513820da9f4ef85d44cac983dc09c3fc7d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97521850"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589173"
 ---
-# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-adf"></a>Resolução de problemas da orquestração do gasoduto e dos gatilhos na ADF
+# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,10 +27,10 @@ Normalmente, as execuções de pipeline são instanciadas pela transmissão de a
 ### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Pipeline com Função Azure lança erro com conectividade de ponto final privado
  
 #### <a name="issue"></a>Problema
-Para algum contexto, tem a ADF e a Azure Function App a funcionar em um ponto final privado. Está a tentar que funcione um oleoduto que interage com a App de Função Azure. Já experimentou três métodos diferentes, mas um retorna `Bad Request` erro, os outros dois métodos `103 Error Forbidden` regressam.
+Para algum contexto, tem a Data Factory e a Azure Function App a funcionar num ponto final privado. Está a tentar que funcione um oleoduto que interage com a App de Função Azure. Já experimentou três métodos diferentes, mas um retorna `Bad Request` erro, os outros dois métodos `103 Error Forbidden` regressam.
 
 #### <a name="cause"></a>Causa 
-A ADF não suporta atualmente um conector de ponto final privado para a App de Função Azure. E esta deve ser a razão pela qual a Azure Function App está rejeitando as chamadas, uma vez que seria configurada para permitir apenas ligações a partir de um Link Privado.
+A Data Factory não suporta atualmente um conector de ponto final privado para a App de Função Azure. E esta deve ser a razão pela qual a Azure Function App está rejeitando as chamadas, uma vez que seria configurada para permitir apenas ligações a partir de um Link Privado.
 
 #### <a name="resolution"></a>Resolução
 Pode criar um Ponto Final Privado do tipo **PrivateLinkService** e fornecer o DNS da sua aplicação de função, e a ligação deve funcionar.
@@ -46,7 +46,7 @@ Refresque o navegador e aplique filtros certos para monitorização.
 ### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Falha do Pipeline copy – encontrou mais colunas do que a contagem de colunas esperada (DelimitedTextMoreColumnsThanDefined)
 
 #### <a name="issue"></a>Problema  
-Se os ficheiros de uma determinada pasta que está a copiar contiverem ficheiros com esquemas diferentes, como número variável de colunas, delimiters diferentes, definições de carvão de cotação ou algum problema de dados, o gasoduto ADF acabará por funcionar neste erro:
+Se os ficheiros de uma determinada pasta que está a copiar contiverem ficheiros com esquemas diferentes, como número variável de colunas, delimiters diferentes, definições de carvão de cotação ou algum problema de dados, o gasoduto Data Factory acabará por funcionar neste erro:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -57,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 `
 
 #### <a name="resolution"></a>Resolução
-Selecione a opção "Cópia Binária" enquanto cria a atividade de Dados de Cópia. Desta forma, para copiar a granel ou migrar os seus dados de um Lago de Dados para outro, com opção **binária,** a ADF não abrirá os ficheiros para ler esquemas, mas apenas tratará cada ficheiro como binário e copiá-losá para o outro local.
+Selecione a opção "Cópia Binária" enquanto cria a atividade de Dados de Cópia. Desta forma, para copiar a granel ou migrar os seus dados de um Lago de Dados para outro, com opção **binária,** a Data Factory não abrirá os ficheiros para ler esquemas, mas apenas tratará cada ficheiro como binário e copiá-losá para o outro local.
 
 ### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>O gasoduto falha quando se atinge o limite de capacidade do tempo de execução da integração
 
@@ -79,14 +79,14 @@ Se executar uma grande quantidade de fluxo de dados usando o mesmo tempo de inte
 ### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Como monitorizar falhas do gasoduto em intervalos regulares
 
 #### <a name="issue"></a>Problema
-Há muitas vezes a necessidade de monitorizar os gasodutos ADF em intervalos, digamos, 5 minutos. Pode consultar e filtrar o gasoduto a partir de uma fábrica de dados utilizando o ponto final. 
+Há muitas vezes a necessidade de monitorizar os oleodutos da Data Factory em intervalos, digamos 5 minutos. Pode consultar e filtrar o gasoduto a partir de uma fábrica de dados utilizando o ponto final. 
 
 #### <a name="recommendation"></a>Recomendação
 1. Crie uma App Azure Logic para consultar todos os oleodutos falhados a cada 5 minutos.
 2. Em seguida, pode reportar incidentes ao nosso sistema de bilhética de acordo com [a QueryByFactory.](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory)
 
 #### <a name="reference"></a>Referência
-- [Notificações de envio externo da ADF](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+- [Notificações de envio externo da Fábrica de Dados](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
 
 ### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Como lidar com erros e falhas ao nível da atividade em gasodutos
 

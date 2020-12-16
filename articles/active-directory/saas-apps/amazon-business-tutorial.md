@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318811"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589955"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio Amazon com o Azure Ative Directory
 
@@ -109,19 +109,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Amazon Business espera que alguns mais atributos sejam repercutidos na resposta da SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Reclamações de Grupo',** executa os seguintes passos:
 
-    a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
+    1. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
-    ![A Screenshot mostra atributos do utilizador & Reclamações com o ícone de Grupos devolvidos na reclamação selecionada.](./media/amazon-business-tutorial/config04.png)
+        ![A Screenshot mostra atributos do utilizador & Reclamações com o ícone de Grupos devolvidos na reclamação selecionada.](./media/amazon-business-tutorial/config04.png)
 
-    ![A screenshot mostra as Reclamações do Grupo com valores descritos neste procedimento.](./media/amazon-business-tutorial/config05.png)
+        ![A screenshot mostra as Reclamações do Grupo com valores descritos neste procedimento.](./media/amazon-business-tutorial/config05.png)
 
-    b. Selecione **Todos os Grupos** da lista de rádio.
+    1. Selecione **Todos os Grupos** da lista de rádio.
 
-    c. Selecione **o ID do Grupo** como atributo **Fonte**.
+    1. Selecione **o ID do Grupo** como atributo **Fonte**.
 
-    d. Verifique personalizar o nome da caixa **de verificação de reclamação do grupo** e insira o nome do grupo de acordo com o requisito da Organização.
+    1. Verifique personalizar o nome da caixa **de verificação de reclamação do grupo** e insira o nome do grupo de acordo com o requisito da Organização.
 
-    e. Clique em **Guardar**.
+    1. Clique em **Guardar**.
 
 1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **metadata XML** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -232,7 +232,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Amazon Business.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Amazon Business**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -269,7 +269,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Procure o Grupo de Segurança que pretende utilizar e, em seguida, clique no grupo para o adicionar à secção 'Selecção' de membros. Clique **em Selecionar**e, em seguida, clique em **Atribuir**.
+5. Procure o Grupo de Segurança que pretende utilizar e, em seguida, clique no grupo para o adicionar à secção 'Selecção' de membros. Clique **em Selecionar** e, em seguida, clique em **Atribuir**.
 
     ![Grupo de Segurança de Pesquisa](./media/amazon-business-tutorial/assign-group.png)
 

@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2d50903f464c03157ee393787af6ddfdad975aed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931406"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588051"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar ficheiros BACPAC SQL com modelos ARM
 
-Saiba como utilizar extensões de base de dados Azure SQL para importar um ficheiro BACPAC com modelos de Gestor de Recursos Azure (modelos ARM). Os artefactos de implantação são quaisquer ficheiros, além dos ficheiros principais do modelo, que são necessários para completar uma implementação. O ficheiro BACPAC é um artefacto.
+Saiba como utilizar extensões de base de dados Azure SQL para importar um ficheiro [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) com modelos de Gestor de Recursos Azure (modelos ARM). Os artefactos de implantação são quaisquer ficheiros, além dos ficheiros principais do modelo, que são necessários para completar uma implementação. O ficheiro BACPAC é um artefacto.
 
 Neste tutorial, você cria um modelo para implementar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) e uma única base de dados e importar um ficheiro BACPAC. Para obter informações sobre como implementar extensões de máquinas virtuais Azure utilizando modelos ARM, consulte [Tutorial: Implemente extensões de máquinas virtuais com modelos ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -55,7 +55,7 @@ O ficheiro BACPAC deve ser armazenado numa conta de Armazenamento Azure antes de
 * Faça o upload do ficheiro BACPAC para o recipiente.
 * Exiba a chave da conta de armazenamento e o URL blob.
 
-1. Selecione **Experimente-o** para abrir a casca da nuvem. Em seguida, cole o seguinte script PowerShell na janela da concha.
+1. Selecione **Experimente-o** para abrir a casca. Em seguida, cole o seguinte script PowerShell na janela da concha.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -116,11 +116,11 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
    * `Microsoft.SQL.servers/databases`. Veja a [referência de modelo](/azure/templates/microsoft.sql/servers/databases).
 
         É útil obter alguma compreensão básica do modelo antes de personalizá-lo.
-1. Selecione **File**  >  **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome *azuredeploy.jsligado*.
+1. Selecione   >  **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome *azuredeploy.jsligado*.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-1. Adicione mais dois parâmetros no final da secção de **parâmetros** para definir a chave da conta de armazenamento e o URL BACPAC.
+1. Adicione mais dois parâmetros no final da `parameters` secção para definir a chave da conta de armazenamento e o URL BACPAC.
 
     ```json
         "storageAccountKey": {
@@ -137,7 +137,7 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
         }
     ```
 
-    Adicione uma vírgula após **a palavra-administradora**. Para formatar o ficheiro JSON a partir do Código do Estúdio Visual, selecione Shift+Alt+F.
+    Adicione uma vírgula após o `adminPassword` fecho da cinta encaracolada da propriedade `}` (). Para formatar o ficheiro JSON a partir do Código do Estúdio Visual, selecione Shift+Alt+F.
 
     Para obter estes dois valores, consulte [Preparar um ficheiro BACPAC](#prepare-a-bacpac-file).
 
@@ -196,11 +196,11 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
 
         Para compreender a definição do recurso, veja a [referência de extensão de Base de Dados SQL](/azure/templates/microsoft.sql/servers/databases/extensions). Seguem alguns elementos importantes:
 
-        * **depende:** O recurso de extensão deve ser criado após a criação da base de dados.
-        * **StorageKeyType**: Especifique o tipo da chave de armazenamento a utilizar. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
-        * **storageKey**: Especifique a chave para a conta de armazenamento onde o ficheiro BACPAC está armazenado. Se o tipo de chave de armazenamento `SharedAccessKey` for, deve ser precedido de um "?".
-        * **storageUri**: Especifique o URL do ficheiro BACPAC armazenado numa conta de armazenamento.
-        * **administratorLoginPassword**: A palavra-passe do administrador do SQL. Use uma senha gerada. Veja [Pré-requisitos](#prerequisites).
+        * `dependsOn`: O recurso de extensão deve ser criado após a criação da base de dados.
+        * `storageKeyType`: Especificar o tipo da chave de armazenamento a utilizar. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
+        * `storageKey`: Especifique a chave para a conta de armazenamento onde o ficheiro BACPAC está armazenado. Se o tipo de chave de armazenamento `SharedAccessKey` for, deve ser precedido de um "?".
+        * `storageUri`: Especifique o URL do ficheiro BACPAC armazenado numa conta de armazenamento.
+        * `administratorLoginPassword`: A palavra-passe do administrador do SQL. Use uma senha gerada. Veja [Pré-requisitos](#prerequisites).
 
 O modelo completo assemelha-se a:
 

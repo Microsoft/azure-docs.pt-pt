@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 8f74d2b5ab2cc85edbc8b1ea9f7d230f0215f35d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077730d63d388566bd842a4ba185bd5fd6637043
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854601"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589003"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Crie um pipeline CI/CD para uma aplicação Java com Azure DevOps Starter
 
@@ -35,7 +35,7 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -68,14 +68,14 @@ DevOps Starter cria um repositório git em Azure Repos ou GitHub. Para ver o rep
 
 1. À esquerda do painel de arranque de DevOps, selecione o link para o seu ramo principal. Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para ver o URL do clone do repositório, selecione **Clone** no direito superior do navegador. Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
+1. Para ver o URL do clone do repositório, selecione **Clone** no direito superior do navegador. Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o navegador web para escoar e comprometer alterações de código diretamente para o ramo principal.
 
 1. No lado esquerdo do navegador, vá ao ficheiro **src/main/webapp/index.html.**
 
-1. **Selecione Editar**e, em seguida, faça uma alteração em alguns dos textos.
+1. **Selecione Editar** e, em seguida, faça uma alteração em alguns dos textos.
     Por exemplo, altere algum texto para uma das etiquetas div.
 
-1. **Selecione Cometer**e, em seguida, guarde as suas alterações.
+1. **Selecione Cometer** e, em seguida, guarde as suas alterações.
 
 1. No seu navegador, vá ao painel de arranque do DevOps.   
 Deve agora ver uma construção em progresso. As alterações que acaba de fazer são automaticamente construídas e implementadas através de um gasoduto CI/CD.
@@ -94,7 +94,7 @@ Deve agora ver uma construção em progresso. As alterações que acaba de fazer
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**.   
 No painel **história,** você vê um rasto de auditoria das suas recentes alterações para a construção.  A Azure Pipelines regista quaisquer alterações que sejam feitas ao oleoduto de construção, e permite comparar versões.
@@ -103,7 +103,7 @@ No painel **história,** você vê um rasto de auditoria das suas recentes alter
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**.  
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**.  
  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1. À esquerda, selecione a elipse (...) ao lado do seu pipeline de libertação e, em seguida, **selecione Editar**. O pipeline de lançamento contém um pipeline, que define o processo de lançamento.  

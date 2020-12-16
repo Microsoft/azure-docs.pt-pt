@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 9b870e21ffd5c6a8261b6731b939b5dff558256d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17b31e365e311b97e322828927827f40733313a6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501197"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588833"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Dispositivo Azure IoT SDK para C
 
@@ -101,7 +101,7 @@ Se não estiver familiarizado com a ferramenta de explorador do dispositivo, o s
 
 1. Introduza a sua **cadeia de conexão IoT Hub** no primeiro campo e clique em **Update**. Este passo configura a ferramenta para que possa comunicar com o IoT Hub. 
 
-A **cadeia de ligação** pode ser encontrada no **iothubowner IoT Hub Service**  >  **Settings** Shared Access  >  **Policy**  >  **iothubowner**.
+A **cadeia de ligação** pode ser encontrada no **iothubowner IoT Hub Service**  >  **Settings** Shared Access  >  **Policy**  >  .
 
 1. Quando a cadeia de ligação IoT Hub estiver configurada, clique no **separador Gestão:**
 

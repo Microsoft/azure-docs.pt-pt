@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844442"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587898"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutorial: Construa uma app PHP (Laravel) e MySQL Flexible Server (Preview) no Azure App Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "94844442"
 
 [O Azure App Service](../../app-service/overview.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial mostra como criar uma aplicação PHP em Azure e conectá-la a uma base de dados MySQL. Quando terminar, terá uma aplicação [Laravel](https://laravel.com/) em execução no Azure App Service no Linux.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Configurar uma aplicação PHP (Laravel) com o MySQL local
 > * Criar um Servidor Flexível MySQL (Pré-visualização)
@@ -219,7 +219,7 @@ Guarde as alterações.
 
 ### <a name="configure-tlsssl-certificate"></a>Configure certificado TLS/SSL
 
-Por padrão, o MySQL Flexible Server aplica ligações TLS dos clientes. Para se ligar à sua base de dados MySQL em Azure, tem de utilizar o certificado [ _.pem_ fornecido pela Base de Dados Azure para o MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Faça o download [deste certificado](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) e coloque-o na pasta **ssl** na cópia local do repositório de aplicações da amostra.
+Por padrão, o MySQL Flexible Server aplica ligações TLS dos clientes. Para se ligar à sua base de dados MySQL em Azure, tem de utilizar o certificado [ _.pem_ fornecido pela Base de Dados Azure para o MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Faça o download [deste certificado](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) e coloque-o na pasta **SSL** na cópia local do repositório de aplicações da amostra.
 
 Abra _config/database.php_ e adicione os parâmetros `sslmode` e `options` a `connections.mysql`, conforme mostrado no código abaixo.
 
@@ -390,7 +390,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando o Git Credential Manager lhe pedir credenciais, certifique-se de que introduz as credenciais criadas em **Configurar um utilizador de implementação**, e não as credenciais que utiliza para iniciar sessão no portal Azure.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Este comando pode demorar alguns minutos a ser executado. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
@@ -401,7 +401,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -551,7 +551,7 @@ Consolide todas as alterações no Git e envie as alterações ao código para o
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Uma vez `git push` concluída, navegue para a app Azure e teste a nova funcionalidade.

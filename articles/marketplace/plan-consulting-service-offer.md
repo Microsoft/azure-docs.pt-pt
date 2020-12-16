@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780710"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588476"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Como planear uma oferta de serviços de consultoria no mercado comercial
 
@@ -29,17 +29,42 @@ As ofertas de serviços de consultoria são publicadas como listas **contacte-me
 
 Cada serviço de consultoria deve focar-se num destes produtos da Microsoft, chamado **o produto primário** da oferta:
 
-|Produto Primário                               |                   |
-|-------------------------------|-------------------|
-|Azure                          |Dinâmica 365 Automação do Serviço de Projeto |
-|Dynamics 365 Business Central  |Vendas do Dynamics 365 |
-|Dinâmica 365 Comércio          |Dinâmica 365 Gestão da Cadeia de Abastecimento |
-|Dynamics 365 Customer Insights |Microsoft 365 |
-|Dinâmico 365 Atendimento ao Cliente  |Power Apps |
-|Serviço de Campo Dinâmico 365     |Power Automate |
-|Dinâmica 365 Finanças           |Power BI |
-|Dinâmica 365 Marketing         |Power Virtual Agents |
-|    |    |
+:::row:::
+    :::column:::
+        Azure
+
+        Dynamics 365 Business Central
+
+        Dinâmica 365 Comércio
+
+        Dynamics 365 Customer Insights
+
+        Dinâmico 365 Atendimento ao Cliente
+
+        Serviço de Campo Dinâmico 365
+
+        Dinâmica 365 Finanças
+
+        Dinâmica 365 Marketing
+    :::column-end:::
+    :::column:::
+        Dinâmica 365 Automação do Serviço de Projeto
+
+        Vendas do Dynamics 365
+
+        Dinâmica 365 Gestão da Cadeia de Abastecimento
+
+        Microsoft 365
+
+        Power Apps
+
+        Power Automate
+
+        Power BI
+
+        Power Virtual Agents
+    :::column-end:::
+:::row-end:::
 
 O produto primário que seleciona no Partner Center determina se a sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf8236dbbc9714c705e442bb65eb2ac3d293cc7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80991574"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589581"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP utilizando a Azure Data Factory
 
@@ -34,7 +34,7 @@ A Data Factory suporta atualmente apenas a transferência de dados de uma fonte 
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Cenários apoiados e tipos de autenticação
 
-Pode utilizar este conector HTTP para obter dados tanto de *uma nuvem como de um ponto final HTTP/S no local,* utilizando os métodos HTTP **GET** ou **POST.** São suportados os seguintes tipos de autenticação: **Anónimo,** **Básico,** **Digest,** **Windows**e **ClientCertificate**. Note a diferença entre este conector e o [conector](data-factory-web-table-connector.md)de mesa Web . O conector de mesa Web extrai o conteúdo da tabela a partir de uma página web HTML.
+Pode utilizar este conector HTTP para obter dados tanto de *uma nuvem como de um ponto final HTTP/S no local,* utilizando os métodos HTTP **GET** ou **POST.** São suportados os seguintes tipos de autenticação: **Anónimo,** **Básico,** **Digest,** **Windows** e **ClientCertificate**. Note a diferença entre este conector e o [conector](data-factory-web-table-connector.md)de mesa Web . O conector de mesa Web extrai o conteúdo da tabela a partir de uma página web HTML.
 
 Ao copiar dados de um ponto final HTTP no local, tem de instalar o Data Management Gateway no ambiente no local ou num VM Azure. Para saber mais sobre o Gateway de Gestão de Dados e para obter instruções passo a passo sobre como configurar o gateway, consulte [dados de deslocação entre os locais do local e a nuvem.](data-factory-move-data-between-onprem-and-cloud.md)
 
@@ -44,7 +44,7 @@ Pode criar um pipeline que tenha uma atividade de cópia para mover dados de uma
 
 - A forma mais fácil de criar um oleoduto é utilizar o assistente de dados de cópia. Para uma rápida passagem pela criação de um oleoduto utilizando o assistente de dados de cópia, consulte [Tutorial: Crie um pipeline utilizando o assistente copy](data-factory-copy-data-wizard-tutorial.md).
 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: o **Visual Studio**, **Azure PowerShell**, um **modelo Azure Resource Manager**, a **API .NET**ou a **API REST**. Para obter instruções passo a passo sobre como criar um oleoduto que tenha uma atividade de cópia, consulte o tutorial de [Copy Activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para amostras JSON que copiam dados de uma fonte HTTP para o armazenamento de Azure Blob, consulte [exemplos JSON](#json-examples).
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: o **Visual Studio**, **Azure PowerShell**, um **modelo Azure Resource Manager**, a **API .NET** ou a **API REST**. Para obter instruções passo a passo sobre como criar um oleoduto que tenha uma atividade de cópia, consulte o tutorial de [Copy Activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para amostras JSON que copiam dados de uma fonte HTTP para o armazenamento de Azure Blob, consulte [exemplos JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 
@@ -54,7 +54,7 @@ A tabela a seguir descreve elementos JSON específicos do serviço ligado HTTP:
 | --- | --- | --- |
 | tipo | A propriedade **tipo** deve ser definida para **Http**. | Sim |
 | url | O URL base para o servidor web. | Sim |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows**e **ClientCertificate**. <br><br> Consulte secções posteriores neste artigo para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Sim |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows** e **ClientCertificate**. <br><br> Consulte secções posteriores neste artigo para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Sim |
 | enableServerCertificateValidation | Especifica se deve ativar a validação do certificado TLS/SSL do servidor se a fonte for um servidor web HTTPS. Quando o seu servidor HTTPS utilizar um certificado auto-assinado, descreva-o **em falso**. | Não<br /> (o padrão é **verdadeiro)** |
 | gatewayName | O nome da instância Data Management Gateway para usar para ligar a uma fonte HTTP no local. | Sim, se estiver a copiar dados a partir de uma fonte HTTP no local |
 | criptografadoCredential | A credencial encriptada para aceder ao ponto final HTTP. O valor é autogerido quando configura as informações de autenticação no assistente copy ou utilizando a caixa de diálogo **ClickOnce.** | Não<br /> (aplicar apenas quando copiar dados de um servidor HTTP no local) |
@@ -63,7 +63,7 @@ Para obter mais informações sobre a definição de credenciais para uma fonte 
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Utilização da autenticação Básica, Digest ou Windows
 
-Definir **autenticaçãoType** para **Basic**, **Digest**ou **Windows**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, definir as seguintes propriedades:
+Definir **autenticaçãoType** para **Basic**, **Digest** ou **Windows**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, definir as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ Para utilizar a autenticação básica, **defie a autenticaçãoType** ao **Clie
 Se utilizar **o certThumbprint** para autenticação e o certificado estiver instalado na loja pessoal do computador local, conceda permissões de leitura ao serviço gateway:
 
 1. Abra a Consola de Gestão da Microsoft (MMC). Adicione o encaixe de **certificados** que visa **o Computador Local.**
-2. Expandir **Certificados**  >  **Pessoais**e, em seguida, selecionar **Certificados**.
+2. Expandir **Certificados**  >  **Pessoais** e, em seguida, selecionar **Certificados**.
 3. Clique com o botão direito no certificado da loja pessoal e, em seguida, selecione **Todas as Tarefas**  > **Gerencie as Teclas Privadas**.
 3. No separador **Segurança,** adicione a conta de utilizador sob a qual o Serviço de Anfitriões gateway de gestão de dados está em execução, com acesso lido ao certificado.  
 
@@ -120,8 +120,8 @@ Este serviço ligado liga a sua fábrica de dados a um servidor web HTTP no loca
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "certThumbprint": "thumbprint of certificate",
-            "gatewayName": "gateway name"
+        "certThumbprint": "thumbprint of certificate",
+        "gatewayName": "gateway name"
 
         }
     }
@@ -142,8 +142,8 @@ Este serviço ligado liga a sua fábrica de dados a um servidor web HTTP no loca
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "embeddedCertData": "Base64-encoded cert data",
-            "password": "password of cert"
+        "embeddedCertData": "Base64-encoded cert data",
+        "password": "password of cert"
         }
     }
 }
@@ -160,25 +160,25 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | O **tipo** de conjunto de dados deve ser definido em **Http**. | Sim |
-| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. <br><br> Para construir um URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema.](data-factory-functions-variables.md) Exemplo: **relativoUrl**: **$$Text.Formato('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Não |
+| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. <br><br> Para construir um URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema.](data-factory-functions-variables.md) Exemplo: **relativoUrl**: **$$Text.Formato('/my/report?month={0:yy}-{0:MM}&fmt=csv', SliceStart)**. | Não |
 | requestMethod | O método HTTP. Os valores permitidos são **GET** e **POST.** | Não <br />(predefinição é **GET)** |
 | cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | Não |
 | requestCorp | O corpo para o pedido HTTP. | Não |
-| formato | Se pretender *recuperar os dados de um ponto final HTTP como-é* sem analisá-los, salte a definição de **formato.** <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, suportam-se os seguintes tipos de formato: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat**e **ParquetFormat**. Para mais informações, consulte [o formato Text,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc,](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Tipos suportados: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Níveis suportados: **Ideal** e **Mais Rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| formato | Se pretender *recuperar os dados de um ponto final HTTP como-é* sem analisá-los, salte a definição de **formato.** <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, suportam-se os seguintes tipos de formato: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat** e **ParquetFormat**. Para mais informações, consulte [o formato Text,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc,](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Tipos suportados: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Níveis suportados: **Ideal** e **Mais Rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 **Exemplo: Utilização do método GET (predefinido)**
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+      "relativeUrl": "XXX/test.xml",
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -198,7 +198,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-           "requestMethod": "Post",
+       "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -283,14 +283,14 @@ A definição **externa** à **verdade** informa o serviço Data Factory de que 
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",

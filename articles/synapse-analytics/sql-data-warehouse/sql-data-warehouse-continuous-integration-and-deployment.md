@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462814"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589904"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração contínua e implantação para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Este simples tutorial descreve como integrar o seu projeto de base de dados sql 
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-Neste momento, você tem um ambiente simples onde qualquer check-in no seu ramo principal de repositório de controlo de origem deve automaticamente desencadear uma construção bem sucedida do Visual Studio do seu projeto de base de dados. Validar a automatização está a trabalhar de ponta a ponta, fazendo uma alteração no seu projeto de base de dados local e verificando essa alteração no seu ramo principal.
+Neste momento, você tem um ambiente simples onde qualquer check-in no seu ramo principal de controlo de origem deve automaticamente desencadear uma construção bem sucedida do Visual Studio do seu projeto de base de dados. Validar a automatização está a trabalhar de ponta a ponta, fazendo uma alteração no seu projeto de base de dados local e verificando essa alteração para o seu ramo principal.
 
 ## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Implementação contínua com a tarefa de implantação Azure Synapse Analytics (ou Base de Dados)
 

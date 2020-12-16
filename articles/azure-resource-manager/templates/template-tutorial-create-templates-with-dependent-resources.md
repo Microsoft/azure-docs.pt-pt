@@ -5,14 +5,14 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931593"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588041"
 ---
-# <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos ARM com recursos dependentes
+# <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos do ARM com recursos dependentes
 
 Saiba como criar um modelo de Gestor de Recursos Azure (modelo ARM) para implementar múltiplos recursos e configurar a ordem de implementação. Depois de criar o modelo, implementa o modelo utilizando a Cloud Shell a partir do portal Azure.
 
@@ -46,7 +46,7 @@ Para concluir este artigo, precisa de:
 
 Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de**  >  **Ficheiros**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -54,18 +54,18 @@ Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar 
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione  > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
+4. Selecione   >  **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome _azuredeploy.jsligado_.
 
 ## <a name="explore-the-template"></a>Explorar o modelo
 
 Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
 * Número de recursos do Azure definidos neste modelo?
-* Um dos recursos é uma conta de armazenamento do Azure.  A definição aparenta ser como a utilizada no último tutorial?
+* Um dos recursos é uma conta de armazenamento do Azure. A definição aparenta ser como a utilizada no último tutorial?
 * Pode encontrar as referências de modelo para os recursos definidos neste modelo?
 * Pode encontrar as dependências dos recursos?
 
-1. No Visual Studio Code, feche os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro de **recursos**:
+1. A partir do Código do Estúdio Visual, desabar os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível no `resources` interior:
 
     ![Modelos de ARM de código de estúdio visual](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -96,7 +96,7 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
     ![Modelos de braço de código de estúdio visual dependem deon](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos. Este recurso depende de um outro recurso:
+    O `dependsOn` elemento permite definir um recurso como dependente de um ou mais recursos. Este recurso depende de um outro recurso:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou anteriormente. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou anteriormente. Depois de carregar o ficheiro, pode utilizar o `ls` comando e o comando para verificar se o ficheiro foi carregado com `cat` sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 

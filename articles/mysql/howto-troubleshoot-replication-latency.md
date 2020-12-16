@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087031"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587881"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Resolver problemas de latência da replicação na Base de Dados do Azure para MySQL
 
@@ -31,11 +31,14 @@ O atraso de replicação nas réplicas de leitura secundária depende de vários
 
 Neste artigo, você vai aprender a resolver problemas de latência de replicação na Base de Dados Azure para MySQL. Também compreenderá algumas causas comuns de aumento da latência da replicação nos servidores de réplicas.
 
+> [!NOTE]
+> Este artigo contém referências ao termo escravo, um termo que a Microsoft já não usa. Quando o termo for removido do software, vamos removê-lo deste artigo.
+
 ## <a name="replication-concepts"></a>Conceitos de replicação
 
 Quando um registo binário é ativado, o servidor de origem escreve transações comprometidas no registo binário. O tronco binário é utilizado para a replicação. É ligado por padrão para todos os servidores recém-abastados que suportam até 16 TB de armazenamento. Nos servidores de réplicas, dois fios são executados em cada servidor de réplica. Um fio é o *fio IO,* e o outro é o *fio SQL:*
 
-- A linha IO liga-se ao servidor de origem e solicita registos binários atualizados. Este fio recebe as atualizações de registo binário. Essas atualizações são guardadas num servidor de réplica, num registo local chamado *registo de retransmissão* .
+- A linha IO liga-se ao servidor de origem e solicita registos binários atualizados. Este fio recebe as atualizações de registo binário. Essas atualizações são guardadas num servidor de réplica, num registo local chamado *registo de retransmissão*.
 - O fio SQL lê o registo do retransmissor e aplica as alterações de dados nos servidores de réplicas.
 
 ## <a name="monitoring-replication-latency"></a>Monitorização da latência da replicação
@@ -87,14 +90,14 @@ mysql> SHOW SLAVE STATUS;
 Aqui está uma saída típica:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorização da latência da replicação&quot;:::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorização da latência da replicação":::
 
 
 A saída contém muita informação. Normalmente, é preciso concentrar-se apenas nas linhas que a tabela seguinte descreve.
 
 |Métrica|Descrição|
 |---|---|
-|Slave_IO_State| Representa o estado atual do fio IO. Normalmente, o estado é &quot;Esperar que o mestre envie o evento&quot; se o servidor de origem (master) estiver a sincronizar. Um estado como &quot;Ligar a dominar" indica que a réplica perdeu a ligação ao servidor de origem. Certifique-se de que o servidor de origem está em funcionamento ou verifique se uma firewall está a bloquear a ligação.|
+|Slave_IO_State| Representa o estado atual do fio IO. Normalmente, o estado é "Esperar que o mestre envie o evento" se o servidor de origem (master) estiver a sincronizar. Um estado como "Ligar a dominar" indica que a réplica perdeu a ligação ao servidor de origem. Certifique-se de que o servidor de origem está em funcionamento ou verifique se uma firewall está a bloquear a ligação.|
 |Master_Log_File| Representa o ficheiro de registo binário ao qual o servidor de origem está a escrever.|
 |Read_Master_Log_Pos| Indica onde o servidor de origem está a escrever no ficheiro de registo binário.|
 |Relay_Master_Log_File| Representa o ficheiro de registo binário que o servidor de réplica está a ler a partir do servidor de origem.|

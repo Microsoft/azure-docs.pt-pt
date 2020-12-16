@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432973"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589462"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall de aplicação web Azure e Política Azure
 
@@ -47,7 +47,7 @@ Existem várias definições de Política Azure incorporadas para gerir os recur
     2.  **Exclusões**: Selecione quaisquer recursos do âmbito de aplicação para excluir da atribuição de políticas.
     3.  **Definição de Política**: Selecione a definição de política para aplicar ao âmbito com exclusões. Digite "Firewall de aplicação web" na barra de pesquisa para escolher a política de Azure de Firewall de Aplicação Web relevante.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Separador básico na página 'Política de Atribuir'":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Screenshot que mostra o separador 'Definições políticas' na página 'Definições disponíveis'.":::
 
 5.  Selecione o **separador Parâmetros** e atualize os parâmetros de atribuição de políticas. Para clarificar melhor o que o parâmetro faz, paire sobre o ícone de informação ao lado do nome do parâmetro para mais esclarecimentos.
 

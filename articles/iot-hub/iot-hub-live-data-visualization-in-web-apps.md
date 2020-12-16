@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746459"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588799"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualize os dados do sensor em tempo real do seu hub Azure IoT numa aplicação web
 
@@ -205,7 +205,7 @@ Nesta secção, você fornece uma aplicação web no Serviço de Aplicações e 
 8. Para implementar o código para o Serviço de Aplicações, insira o seguinte comando na sua janela de comando. Se for solicitado para obter credenciais, insira as credenciais de implementação ao nível do utilizador que criou no passo 5. Certifique-se de que empurra para o ramo principal do serviço de aplicações remoto.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. O progresso da implantação será atualizado na sua janela de comando. Uma implementação bem sucedida terminará com linhas semelhantes à seguinte saída:
@@ -216,7 +216,7 @@ Nesta secção, você fornece uma aplicação web no Serviço de Aplicações e 
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. Executa o seguinte comando para consultar o estado da sua aplicação web e certifique-se de que está em execução:

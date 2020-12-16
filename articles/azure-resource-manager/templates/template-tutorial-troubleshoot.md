@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928533"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589122"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Implementações de modelos de braço de resolução de problemas
 
@@ -43,7 +43,7 @@ Para concluir este artigo, precisa de:
 
 Abra um modelo chamado Criar uma conta de [armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/) a partir de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/), e configurar dois problemas de modelo.
 
-1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de**  >  **Ficheiros**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -51,16 +51,16 @@ Abra um modelo chamado Criar uma conta de [armazenamento padrão](https://azure.
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Altere a linha **de apiversionação** para a seguinte linha:
+4. Altere a `apiVersion` linha para a seguinte linha:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** é nome de elemento inválido. É um erro de validação.
-    - A versão API será "2018-07-01".  É um erro de implantação.
+    - `apiVersion1` é um nome de elemento inválido. É um erro de validação.
+    - A versão API deve ser `"2018-07-01"` .  É um erro de implantação.
 
-5. Selecione  > **'Guardar ficheiros' para** guardar o ficheiro à medida **queazuredeploy.jsno** computador local.
+5. Selecione   >  **'Guardar ficheiros' para** guardar o ficheiro à medida _queazuredeploy.jsno_ computador local.
 
 ## <a name="troubleshoot-the-validation-error"></a>Resolução de problemas do erro de validação
 
@@ -68,13 +68,13 @@ Consulte a secção [de modelo](template-tutorial-create-multiple-instances.md#d
 
 Você receberá um erro da concha semelhante a:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-A mensagem de erro indica que o problema é com **apiVersion1**.
+A mensagem de erro indica que o problema está com `apiVersion1` .
 
-Utilize o Código do Estúdio Visual para corrigir o problema alterando **a apiVersion1** para **apiVersion ,** e, em seguida, guarde o modelo.
+Utilize o Código do Estúdio Visual para corrigir o problema alterando `apiVersion1` para `apiVersion` , e, em seguida, guarde o modelo.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Resolver problemas no erro de implantação
 
@@ -82,7 +82,7 @@ Consulte a secção [de modelo](template-tutorial-create-multiple-instances.md#d
 
 Você receberá um erro da concha semelhante a:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",

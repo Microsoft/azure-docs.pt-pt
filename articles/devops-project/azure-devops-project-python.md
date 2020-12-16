@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: b6aa0a1bd14072e6ea4ea42004209f332f46a2d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856080"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588935"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Criar um pipeline CI/CD para Python com Azure DevOps Starter
 
@@ -35,7 +35,7 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
@@ -69,13 +69,13 @@ DevOps Starter cria um repositório git em Azure Repos ou GitHub. Para ver o rep
 
 1. No lado esquerdo do painel de arranque de devOps, selecione o link para o seu ramo principal. Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para ver o URL de clone do repositório, selecione **Clone** na parte superior direita do browser. Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
+1. Para ver o URL de clone do repositório, selecione **Clone** na parte superior direita do browser. Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o navegador web para escoar e comprometer alterações de código diretamente para o ramo principal.
 
 1. À esquerda, vá ao **ficheiro app/templates/app/index.html.**
 
 1. Selecione **Editar** e faça uma alteração a algumas partes do texto. Por exemplo, altere algum texto para uma das etiquetas div.
 
-1. **Selecione Cometer**e, em seguida, guarde as suas alterações.
+1. **Selecione Cometer** e, em seguida, guarde as suas alterações.
 
 1. No seu navegador, vá ao painel de arranque do DevOps. Deve agora ver uma construção em progresso. As alterações que acaba de fazer são automaticamente construídas e implementadas através de um gasoduto CI/CD.
 
@@ -93,7 +93,7 @@ No passo anterior, o DevOps Starter configurau automaticamente um pipeline CI/CD
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**. Verá um registo de auditoria das alterações recentes da compilação. O Azure DevOps regista quaisquer alterações feitas ao pipeline de construção, e permite comparar versões.
 
@@ -101,7 +101,7 @@ No passo anterior, o DevOps Starter configurau automaticamente um pipeline CI/CD
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
-1. Selecione **Construir e Soltar**e, em seguida, escolha **Versões**.   
+1. Selecione **Construir e Soltar** e, em seguida, escolha **Versões**.   
  DevOps Projects cria um oleoduto de lançamento para gerir implementações para a Azure.
 
 1. Selecione a elipse ao lado do seu pipeline de lançamento e, em seguida, **selecione Editar**. O gasoduto de libertação define o processo de libertação.  

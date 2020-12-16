@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708157"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589241"
 ---
 # <a name="deployment-best-practices"></a>Implementação de Melhores Práticas
 
@@ -45,9 +45,9 @@ Sempre que possível, utilize [slots de implantação](deploy-staging-slots.md) 
 
 Se o seu projeto designou ramos para testes, QA e encenação, então cada um desses ramos deve ser continuamente implantado para uma ranhura de encenação. (Isto é conhecido como o [design gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Isto permite que as suas partes interessadas avaliem e testem facilmente o ramo implantado. 
 
-A implantação contínua nunca deve ser ativada para a sua ranhura de produção. Em vez disso, o seu ramo de produção (muitas vezes mestre) deve ser implantado numa ranhura de não produção. Quando estiver pronto para libertar o ramo base, troque-o pela ranhura de produção. A troca em produção - em vez de implantar para a produção - impede o tempo de inatividade e permite-lhe reverter as alterações trocando novamente. 
+A implantação contínua nunca deve ser ativada para a sua ranhura de produção. Em vez disso, o seu ramo de produção (muitas vezes principal) deve ser implantado numa ranhura não-produção. Quando estiver pronto para libertar o ramo base, troque-o pela ranhura de produção. A troca em produção - em vez de implantar para a produção - impede o tempo de inatividade e permite-lhe reverter as alterações trocando novamente. 
 
-![Diagrama que mostra o fluxo entre os ramos Dev, Staging e Master e as ranhuras para as quais estão implantados.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagrama que mostra o fluxo entre os ramos Dev, Staging e Main e as ranhuras para as quais estão implantados.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Transportes contínuos
 
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1

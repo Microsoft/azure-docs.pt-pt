@@ -5,18 +5,18 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f044863be7d0bfaaad57d3974a1d2856b27927ea
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931372"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589139"
 ---
-# <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Condição de utilização em modelos ARM
+# <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Utilizar uma condição nos modelos do ARM
 
 Saiba como implementar recursos Azure com base em condições num modelo de Gestor de Recursos Azure (modelo ARM).
 
-No tutorial [Definir a ordem de implementação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, é utilizada uma conta de armazenamento existente com o nome fornecido.
+No tutorial [Definir a ordem de implementação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for **novo,** é criada uma nova conta de armazenamento. Caso contrário, é utilizada uma conta de armazenamento existente com o nome fornecido.
 
 ![Diagrama de condição do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -54,7 +54,7 @@ Para concluir este artigo, precisa de:
 
 Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de**  >  **Ficheiros**.
 1. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -73,19 +73,19 @@ Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar 
 
     É útil rever a referência do modelo antes de personalizar um modelo.
 
-1. Selecione **File** > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
+1. Selecione   >  **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome _azuredeploy.jsligado_.
 
 ## <a name="modify-the-template"></a>Modificar o modelo
 
 Introduza duas alterações ao modelo existente:
 
 * Adicionar um parâmetro do nome da conta de armazenamento. Os utilizadores podem especificar um novo nome da conta de armazenamento ou um nome da conta de armazenamento existente.
-* Adicionar um novo parâmetro denominado **newOrExisting**. A implementação utiliza este parâmetro para determinar se cria uma nova conta de armazenamento ou se utiliza uma conta de armazenamento existente.
+* Adicione um novo parâmetro chamado `newOrExisting` . A implementação utiliza este parâmetro para determinar se cria uma nova conta de armazenamento ou se utiliza uma conta de armazenamento existente.
 
 Este é o procedimento para fazer as alterações:
 
-1. Abra **azuredeploy. JSON** no Visual Studio Code.
-1. Substitua as três **variáveis ('storageAccountName')** por **parâmetros ('storageAccountName')** em todo o modelo.
+1. Abra _azuredeploy. JSON_ no Visual Studio Code.
+1. Substitua os três `variables('storageAccountName')` com `parameters('storageAccountName')` todo o modelo.
 1. Remova a definição de variável seguinte:
 
     ![Screenshot que realça as definições variáveis que precisa remover.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
@@ -105,7 +105,7 @@ Este é o procedimento para fazer as alterações:
     },
     ```
 
-    Prima **[ALT]+[SHIFT]+F** para formatar o modelo no Código do Estúdio Visual.
+    Prima Alt+Shift+F para formatar o modelo no Código do Estúdio Visual.
 
     A definição de parâmetros atualizada assemelha-se a:
 
@@ -117,12 +117,12 @@ Este é o procedimento para fazer as alterações:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    A condição verifica o valor de um parâmetro denominado **newOrExisting**. Se o valor do parâmetro for **New** (novo), a implementação cria a conta de armazenamento.
+    A condição verifica o valor do `newOrExisting` parâmetro. Se o valor do parâmetro for **New** (novo), a implementação cria a conta de armazenamento.
 
     A definição de conta de armazenamento atualizada assemelha-se a:
 
     ![Screenshot que mostra a definição atualizada da conta de armazenamento.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-1. Atualizar a propriedade **de armazenamentoUri** da definição de recurso de máquina virtual com o seguinte valor:
+1. Atualizar a `storageUri` propriedade da definição de recurso de máquina virtual com o seguinte valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -136,16 +136,16 @@ Este é o procedimento para fazer as alterações:
 
 1. Inscreva-se na [Azure Cloud Shell](https://shell.azure.com)
 
-1. Escolha o seu ambiente preferido selecionando **PowerShell** ou **Bash** (para CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
+1. Escolha o seu ambiente preferido selecionando **PowerShell** ou **Bash** (para CLI) no canto superior esquerdo. É necessário reiniciar o Shell quando mudar.
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o `ls` comando e o comando para verificar se o ficheiro foi carregado com `cat` sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
     > [!IMPORTANT]
-    > O nome da conta do Storage tem de ser exclusivo em todo o Azure. O nome deve ter apenas letras ou números minúsculos. Não pode ter mais de 24 caracteres. O nome da conta de armazenamento é o nome do projeto com "store" anexado. Certifique-se de que o nome do projeto e o nome da conta de armazenamento gerado satisfazem os requisitos do nome da conta de armazenamento.
+    > O nome da conta do Storage tem de ser exclusivo em todo o Azure. O nome deve ter apenas letras ou números minúsculos. Não pode ter mais de 24 caracteres. O nome da conta de armazenamento é o nome do projeto com **a loja** anexada. Certifique-se de que o nome do projeto e o nome da conta de armazenamento gerado satisfazem os requisitos do nome da conta de armazenamento.
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
@@ -172,9 +172,9 @@ Este é o procedimento para fazer as alterações:
     ```
 
     > [!NOTE]
-    > A implementação falhar se **newOrExisting** for **New** (Novo), mas a conta de armazenamento com o nome de conta de armazenamento especificado já existe.
+    > A implementação falha se `newOrExisting` for **nova**, mas a conta de armazenamento com o nome da conta de armazenamento especificado já existe.
 
-Tente fazer outra implementação com **o novo ConjuntoOrExisting** para "existente" e especifique uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
+Tente fazer outra implantação com `newOrExisting` o conjunto para a conta de armazenamento **existente.** Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

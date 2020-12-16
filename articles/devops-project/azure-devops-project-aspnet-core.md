@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854728"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589163"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Crie um pipeline CI/CD para .NET com arranque Azure DevOps
 
@@ -34,7 +34,7 @@ DevOps Starter cria um oleoduto CI/CD em Azure DevOps. Pode criar uma nova organ
 
 1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo. 
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo. 
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -68,11 +68,11 @@ DevOps Starter criou um repositório git em Azure Repos ou GitHub. Para ver o re
 
 1. À esquerda do painel de arranque de DevOps, selecione o link para o seu ramo **principal.** Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-2. Nos próximos passos, pode usar o navegador web para fazer e comprometer alterações de código diretamente para o ramo **principal.** Também pode clonar o seu repositório Git no seu IDE favorito selecionando **Clone** a partir do canto superior direito da página do repositório. 
+2. Nos próximos passos, pode utilizar o navegador web para escoar e comprometer alterações de código diretamente para o ramo **principal.** Também pode clonar o seu repositório Git no seu IDE favorito selecionando **Clone** a partir do canto superior direito da página do repositório. 
 
 3. À esquerda, navegue na estrutura do ficheiro de aplicação para **Aplicação/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-4. **Selecione Editar**e, em seguida, faça uma alteração na posição h2. Por exemplo, **escreva Começar imediatamente com o Azure DevOps Starter** ou fazer outra alteração.
+4. **Selecione Editar** e, em seguida, faça uma alteração na posição h2. Por exemplo, **escreva Começar imediatamente com o Azure DevOps Starter** ou fazer outra alteração.
 
       ![Edições de código](_img/azure-devops-project-aspnet-core/codechange.png)
 
@@ -96,7 +96,7 @@ No passo anterior, o Azure DevOps Starter configurau automaticamente um gasoduto
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**.   
 No painel **história,** você vê um rasto de auditoria das suas recentes alterações para a construção.  A Azure Pipelines regista quaisquer alterações que sejam feitas ao oleoduto de construção, e permite comparar versões.
@@ -105,7 +105,7 @@ No painel **história,** você vê um rasto de auditoria das suas recentes alter
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**.  
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**.  
 O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1.  À esquerda, selecione a elipse (...) ao lado do seu pipeline de libertação e, em seguida, **selecione Editar**. O pipeline de lançamento contém um pipeline, que define o processo de lançamento.  

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65107b0924351ca6debf37201e8849ffe8dd1eab
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652827"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589432"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -26,6 +26,7 @@ Cada GPU em instâncias NVv3 vem com uma licença GRID. Esta licença dá-lhe a 
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+Rede Acelerada: Suportada<br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | Produção de disco não-abacatado por maxilar: IOPS/MBps | Max NICs / Largura de banda esperada (Mbps) | Estações de trabalho virtuais | Aplicações Virtuais |
@@ -35,8 +36,6 @@ Cada GPU em instâncias NVv3 vem com uma licença GRID. Esta licença dá-lhe a 
 | Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 / 24000 | 4 | 100 |
 
 <sup>1</sup> 1 GPU = meia cartão M60.
-
-<sup>2</sup> Neste momento, o Networking Acelerado não é suportado nesta família VM, pelo que o desempenho da rede no mundo real pode ser inferior ao pico dos números teóricos capturados aqui.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

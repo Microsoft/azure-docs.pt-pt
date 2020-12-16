@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: f7348cc2559e73c83ea4c65bc67efebcfe2b031d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9cfc48e3fdb96ba5b63b28288a801095f7b36f43
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520528"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Diretório Ativo Azure com a SpringCM
 
@@ -125,19 +125,19 @@ Para configurar o Azure AD com springcm, execute os seguintes passos:
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa **SpringCM** como administrador.
 
 1. No menu em cima, clique em **GO TO,** clique em **Preferências**, e, em seguida, na secção **Preferências de Conta,** clique em **SSO SAML**.
-   
+
     ![SAML SSO](./media/spring-cm-tutorial/ic797051.png "SAML SSO")
 
 1. Na secção configuração do fornecedor de identidade, execute os seguintes passos:
-   
+
     ![Configuração do fornecedor de identidade](./media/spring-cm-tutorial/ic797052.png "Configuração do fornecedor de identidade")
-    
+
     a. Para fazer o upload do certificado de Diretório Ativo Azure descarregado, clique em **Select Emiter Certificate** ou **Change Emiter Certificate**.
-    
+
     b. Na caixa de texto **emitente,** cole o valor **do identificador Azure AD,** que copiou do portal Azure.
-    
+
     c. Na caixa de texto iniciada do **Fornecedor de Serviços (SP) Endpoint,** cole o valor URL do **Login,** que copiou a partir do portal Azure.
-            
+
     d. Selecione **SAML Ativado** como **Ativação**.
 
     e. Clique em **Guardar**.
@@ -159,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
@@ -170,7 +170,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao SpringCM.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **SpringCM**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **SpringCM**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -203,8 +203,8 @@ Para permitir que os utilizadores do Azure Ative Directory inscrevam-se na Sprin
 
 1. Inscreva-se no site da empresa **SpringCM** como administrador.
 
-1. Clique **em GOTO**e, em seguida, clique em **ADDRESS BOOK**.
-   
+1. Clique **em GOTO** e, em seguida, clique em **ADDRESS BOOK**.
+
     ![Criar Utilizador](./media/spring-cm-tutorial/ic797054.png "Criar Utilizador")
 
 1. Clique **em Criar Utilizador.**

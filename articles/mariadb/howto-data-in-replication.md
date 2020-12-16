@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535372"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587932"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 
@@ -52,7 +52,7 @@ Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitation
 
 Os passos seguintes preparam e configuram o servidor MariaDB alojado no local, num VM ou num serviço de base de dados em nuvem para replicação de dados. O servidor MariaDB é a fonte na Replicação de Dados.
 
-1. Reveja os [requisitos](concepts-data-in-replication.md#requirements) do servidor principal antes de prosseguir. 
+1. Reveja os [requisitos do servidor primário](concepts-data-in-replication.md#requirements) antes de prosseguir. 
 
 2. Certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
    
@@ -284,7 +284,7 @@ Os passos seguintes preparam e configuram o servidor MariaDB alojado no local, n
     
     Devido a uma limitação de replicação nativa em MariaDB, você deve definir  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variáveis na replicação sem o cenário GTID.
 
-    Verifique as variáveis e variáveis do seu servidor `sync_master_info` `sync_relay_log_info` de escravos para se certificar de que a replicação de dados é estável e dedifica as variáveis para `1` .
+    Verifique as variáveis e variáveis do seu servidor de réplica `sync_master_info` para se certificar de que a `sync_relay_log_info` replicação de dados é estável e dedifice as variáveis para `1` .
     
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 

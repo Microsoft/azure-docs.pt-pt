@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318780"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Diretório Ativo Azure com Andromeda
 
@@ -126,30 +126,30 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     | Nome | Atributo de origem|
     | ------ | -----------|
-    | papel        | Papel específico da aplicação |
-    | tipo        | Tipo de Aplicação |
-    | empresa       | CompanyName |
+    | papel | Papel específico da aplicação |
+    | tipo | Tipo de Aplicação |
+    | empresa | CompanyName |
 
     > [!NOTE]
     > Não há valores reais. Estes valores são apenas para fins de demonstração, por favor use os seus papéis de organização.
 
-    a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
+    1. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![A Screenshot mostra as reclamações do Utilizador com opções para adicionar uma nova reclamação e guardar.](common/new-save-attribute.png)
+        ![A Screenshot mostra as reclamações do Utilizador com opções para adicionar uma nova reclamação e guardar.](common/new-save-attribute.png)
 
-    ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir valores descritos I neste passo.](common/new-attribute-details.png)
+        ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir valores descritos I neste passo.](common/new-attribute-details.png)
 
-    b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
+    1. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
-    c. Deixe o **Espaço Namespace** em branco.
+    1. Deixe o **Espaço Namespace** em branco.
 
-    d. Selecione Fonte como **Atributo**.
+    1. Selecione Fonte como **Atributo**.
 
-    e. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
+    1. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
-    f. Clique **em Ok**
+    1. Clique **em Ok**
 
-    exemplo, Clique em **Guardar**.
+    1. Clique em **Guardar**.
 
 8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -159,11 +159,11 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+    1. URL de Inicio de Sessão
 
-    b. Identificador de Azure Ad
+    1. Identificador de Azure Ad
 
-    c. Logout URL
+    1. Logout URL
 
 ### <a name="configure-andromeda-single-sign-on"></a>Configurar Andromeda Single Sign-On
 
@@ -181,25 +181,25 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     ![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Verifique **ativar sSO com SAML**.
+    1. Verifique **ativar sSO com SAML**.
 
-    b. Na secção **de Informação de Andromeda,** copie o valor **de identidade SP** e cole-o na caixa de texto **identifier** da secção **de Configuração Básica SAML.**
+    1. Na secção **de Informação de Andromeda,** copie o valor **de identidade SP** e cole-o na caixa de texto **identifier** da secção **de Configuração Básica SAML.**
 
-    c. Copie o valor **url do consumidor** e cole-o na caixa de texto URL de **resposta** da secção **de configuração básica do SAML.**
+    1. Copie o valor **url do consumidor** e cole-o na caixa de texto URL de **resposta** da secção **de configuração básica do SAML.**
 
-    d. Copie o valor URL do **logon** e **cole-o na** caixa de texto URL de url de assinatura da secção **de configuração básica do SAML.**
+    1. Copie o valor URL do **logon** e **cole-o na** caixa de texto URL de url de assinatura da secção **de configuração básica do SAML.**
 
-    e. Na secção **SAML Identity Provider,** digite o seu Nome IDP.
+    1. Na secção **SAML Identity Provider,** digite o seu Nome IDP.
 
-    f. Na caixa de texto **Single Sign On End Point,** cole o valor do URL de **login** que, copiou a partir do portal Azure.
+    1. Na caixa de texto **Single Sign On End Point,** cole o valor do URL de **login** que, copiou a partir do portal Azure.
 
-    exemplo, Abra o **certificado codificado Base64** descarregado do portal Azure em bloco de notas, cole-o na caixa de texto **do Certificado X 509.**
-    
-    h. Mapear os seguintes atributos com o respetivo valor para facilitar o login SSO a partir do Azure AD. O atributo **ID do utilizador** é necessário para iniciar sessão. Para provisionamento, são necessários **emails,** **empresas,** **UserType**e **Role.** Nesta secção, definimos atributos de mapeamento (nome e valores) que se relacionam com os definidos dentro do portal Azure
+    1. Abra o **certificado codificado Base64** descarregado do portal Azure em bloco de notas, cole-o na caixa de texto **do Certificado X 509.**
 
-    ![Attbmap andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Mapear os seguintes atributos com o respetivo valor para facilitar o login SSO a partir do Azure AD. O atributo **ID do utilizador** é necessário para iniciar sessão. Para provisionamento, são necessários **emails,** **empresas,** **UserType** e **Role.** Nesta secção, definimos atributos de mapeamento (nome e valores) que se relacionam com os definidos dentro do portal Azure
 
-    i. Clique em **Guardar**.
+        ![Attbmap andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -218,7 +218,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.

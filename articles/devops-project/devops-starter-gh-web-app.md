@@ -7,12 +7,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
-ms.openlocfilehash: 9a2abf7e714b75f2551a35a220e30c2465d86a49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332749"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588782"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Tutorial: Implementar Node.js app para a Azure Web App usando DevOps Starter para ações do GitHub
 
@@ -44,7 +44,7 @@ DevOps Starter cria um fluxo de trabalho no GitHub. Pode usar uma organização 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -52,11 +52,11 @@ DevOps Starter cria um fluxo de trabalho no GitHub. Pode usar uma organização 
 
     ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. Selecione **Node.js**e, em seguida, selecione **Seguinte**.
+1. Selecione **Node.js** e, em seguida, selecione **Seguinte**.
 
-1. Em **Escolha um Quadro de Aplicações**, selecione **Express.js**e, em seguida, selecione **Seguinte**. O quadro de aplicação, que escolheu num passo anterior, dita o tipo de alvo de implantação de serviço Azure que está disponível aqui. 
+1. Em **Escolha um Quadro de Aplicações**, selecione **Express.js** e, em seguida, selecione **Seguinte**. O quadro de aplicação, que escolheu num passo anterior, dita o tipo de alvo de implantação de serviço Azure que está disponível aqui. 
 
-1. Selecione a **Aplicação Web**do Windows e, em seguida, selecione **Seguinte**.
+1. Selecione a **Aplicação Web** do Windows e, em seguida, selecione **Seguinte**.
 
 ## <a name="configure-github-and-an-azure-subscription"></a>Configurar GitHub e uma assinatura Azure
 
@@ -104,14 +104,14 @@ DevOps Starter cria um repositório no GitHub. Para ver o repositório e fazer a
 
 1. À esquerda do painel de arranque de DevOps, selecione o link para o seu ramo principal. Esta ligação abre uma vista para o recém-criado repositório GitHub.
 
-1. Para ver o URL do clone do repositório, selecione **Clone** no direito superior do navegador. Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
+1. Para ver o URL do clone do repositório, selecione **Clone** no direito superior do navegador. Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o navegador web para escoar e comprometer alterações de código diretamente para o ramo principal.
 
 1. No lado esquerdo do navegador, aceda ao ficheiro **/Aplicação/vistas/index.pug.**
 
-1. **Selecione Editar**e, em seguida, faça uma alteração em alguns dos textos.
+1. **Selecione Editar** e, em seguida, faça uma alteração em alguns dos textos.
     Por exemplo, altere algumas das etiquetas para uma das etiquetas.
 
-1. **Selecione Cometer**e, em seguida, guarde as suas alterações.
+1. **Selecione Cometer** e, em seguida, guarde as suas alterações.
 
 1. No seu navegador, vá ao painel de arranque do DevOps.   
 Agora deve ver um fluxo de trabalho gitHub construir trabalho em andamento. As alterações que acaba de fazer são automaticamente construídas e implementadas através de um fluxo de trabalho GitHub.
@@ -128,11 +128,11 @@ Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a u
 
    ![O painel de Insights de Aplicação](_img/azure-devops-project-github/appinsights.png) 
 
-1. Selecione **o intervalo de tempo**e, em seguida, selecione Última **hora**. Para filtrar os resultados, selecione **Update**. Agora pode ver toda a atividade dos últimos 60 minutos. 
+1. Selecione **o intervalo de tempo** e, em seguida, selecione Última **hora**. Para filtrar os resultados, selecione **Update**. Agora pode ver toda a atividade dos últimos 60 minutos. 
     
 1. Para sair do intervalo de tempo, selecione **x**.
 
-1. Selecione **Alertas**e, em seguida, **selecione Adicionar alerta métrico**. 
+1. Selecione **Alertas** e, em seguida, **selecione Adicionar alerta métrico**. 
 
 1. Insira um nome para o alerta.
 
@@ -144,7 +144,7 @@ Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a u
 
 1. Saia da área **de Alertas** e volte para o painel **de Insights de Aplicação.**
 
-1. Selecione **Disponibilidade**e, em seguida, selecione **Adicionar teste**. 
+1. Selecione **Disponibilidade** e, em seguida, selecione **Adicionar teste**. 
 
 1. Introduza um nome de teste e, em seguida, **selecione Criar**. Um teste de ping simples é criado para verificar a disponibilidade da sua aplicação. Após alguns minutos, os resultados do teste ficam disponíveis e o dashboard do Application Insights apresenta um estado de disponibilidade.
 

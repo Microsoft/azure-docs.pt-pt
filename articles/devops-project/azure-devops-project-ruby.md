@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b7ab2fb13be10d5992f1b26973e9735ac238090a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e2f7115560148a1d3b9d2671be54c1ba4d61946
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856063"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588918"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Crie um pipeline CI/CD para Ruby on Rails utilizando o Azure DevOps Starter
 
@@ -32,7 +32,7 @@ A Azure DevOps Starter cria um oleoduto CI/CD em Azure Repos. Pode criar uma nov
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
@@ -65,13 +65,13 @@ A Azure DevOps Starter cria um git repo em Azure Pipelines ou GitHub. Para ver o
 
 1. No painel de arranque de DevOps, à esquerda, selecione o link para o seu ramo principal. O link abre uma vista para o recém-criado Git repo.
 
-1. Para ver o URL do clone de repo, selecione **Clone** no topo direito. Pode clonar o seu git repo no seu IDE favorito. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
+1. Para ver o URL do clone de repo, selecione **Clone** no topo direito. Pode clonar o seu git repo no seu IDE favorito. Nos próximos passos, pode utilizar o navegador web para escoar e comprometer alterações de código diretamente para o ramo principal.
 
 1. À esquerda, vá à *aplicação/visualizações/páginas/home.htmficheiro l.erb* e, em seguida, selecione **Editar**.
 
 1. Faça uma alteração no ficheiro. Por exemplo, modifique algum texto dentro de uma das tags div.
 
-1. **Selecione Cometer**e, em seguida, guarde as suas alterações.
+1. **Selecione Cometer** e, em seguida, guarde as suas alterações.
 
 1. No seu navegador, vá ao painel de arranque do DevOps. Uma construção deve estar em andamento. As alterações efetuadas são automaticamente construídas e implementadas através de um gasoduto CI/CD.
 
@@ -91,7 +91,7 @@ O Azure DevOps Starter configura automaticamente um pipeline CI/CD completo na s
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**. Este painel apresenta um rasto de auditoria das suas recentes alterações para a construção. O Azure DevOps regista quaisquer alterações feitas ao pipeline de construção, e permite comparar versões.
 
@@ -99,7 +99,7 @@ O Azure DevOps Starter configura automaticamente um pipeline CI/CD completo na s
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**.  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**.  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1. Selecione a elipse (...) ao lado do seu pipeline de lançamento e, em seguida, **selecione Editar**. O pipeline de lançamento contém um *pipeline*, que define o processo de lançamento.
 

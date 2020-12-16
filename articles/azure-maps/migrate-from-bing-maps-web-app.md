@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: be0b2a3a15c77ae0de303f02be078f115b283eb9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6037deb484ca966ab3a54cc60b0d53ac8299d500
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897148"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590006"
 ---
 # <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Tutorial - Migrar uma aplicação web de Bing Maps
 
 As aplicações web que usam bing Maps usam frequentemente o Bing Maps V8 JavaScript SDK. O Azure Maps Web SDK é o SDK baseado em Azure adequado para migrar. O Azure Maps Web SDK permite personalizar mapas interativos com o seu próprio conteúdo e imagens para exibição nas suas aplicações web ou móveis. Este controlo utiliza o WebGL, permitindo-lhe compor grandes conjuntos de dados com elevado desempenho. Desenvolva-se com este SDK utilizando JavaScript ou TypeScript.
 
-Se migrar uma aplicação web existente, verifique se está a utilizar uma biblioteca de controlo de mapas de código aberto, como Cesium, Folheto e OpenLayers. Se for e preferir continuar a usar essa biblioteca, pode ligá-la aos serviços de azulejos Azure Maps[road tiles](/rest/api/maps/render/getmaptile) \| [(azulejos de telhas de](/rest/api/maps/render/getmapimagerytile)estrada). Os links abaixo fornecem detalhes sobre como usar o Azure Maps em algumas bibliotecas de controlo de mapas de código aberto comumente utilizadas.
+Se migrar uma aplicação web existente, verifique se está a utilizar uma biblioteca de controlo de mapas de código aberto, como Cesium, Folheto e OpenLayers. Se for e preferir continuar a usar essa biblioteca, pode ligá-la aos serviços de azulejos Azure Maps[](/rest/api/maps/render/getmaptile) \| [(azulejos de telhas de](/rest/api/maps/render/getmapimagerytile)estrada). Os links abaixo fornecem detalhes sobre como usar o Azure Maps em algumas bibliotecas de controlo de mapas de código aberto comumente utilizadas.
 
 -   Cesium - Um controlo de mapa 3D para a web. [Amostra de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentação](https://cesiumjs.org/)
 -   Folheto – Controlo de mapa 2D leve para a web. [Amostra de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentação](https://leafletjs.com/)
@@ -69,7 +69,7 @@ O Azure Maps também tem muitos módulos de código aberto adicionais [para a we
 Seguem-se algumas das principais diferenças entre os Bing Maps e os Azure Maps Web SDKs a ter em conta:
 
 -   Além de fornecer um ponto final hospedado para aceder ao Azure Maps Web SDK, um pacote NPM também está disponível para incorporar o Web SDK em aplicações, se preferir. Para mais informações, consulte esta [documentação](./how-to-use-map-control.md) para obter mais informações. Este pacote também inclui definições typeScript.
--   Bing Maps fornece dois ramos hospedados do seu SDK; Lançamento e Experimental. O ramo Experimental pode receber várias atualizações por dia quando estiver a decorrer um novo desenvolvimento. O Azure Maps acolhe apenas um ramo de lançamento, no entanto as funcionalidades experimentais são criadas como módulos personalizados no projeto de amostras de código Azure Maps de código de código de código de código de código de código de código de código. Bing Maps também tinha um ramo congelado que foi atualizado com menos frequência, reduzindo assim o risco de quebra de alterações devido a um lançamento. No Azure Maps pode utilizar o módulo NPM e apontar para qualquer versão menor anterior.
+-   Bing Maps fornece dois ramos hospedados do seu SDK; Lançamento e Experimental. O ramo Experimental pode receber várias atualizações por dia quando estiver a decorrer um novo desenvolvimento. O Azure Maps acolhe apenas um ramo de lançamento, no entanto as funcionalidades experimentais são criadas como módulos personalizados no projeto de amostras de código Azure Maps de código de código de código. Bing Maps também tinha um ramo congelado que foi atualizado com menos frequência, reduzindo assim o risco de quebra de alterações devido a um lançamento. No Azure Maps pode utilizar o módulo NPM e apontar para qualquer versão menor anterior.
 
 > [!TIP]
 > A Azure Maps publica versões minificadas e não administradas do SDK. Simples remover `.min` dos nomes dos ficheiros. A versão nãominada é útil para depurar problemas, mas certifique-se de usar a versão minificada na produção para tirar partido do tamanho de ficheiro mais pequeno.
@@ -883,7 +883,7 @@ No Bing Maps, os dados da GeoJSON podem ser carregados utilizando o módulo GeoJ
             var clusterSize = cluster.containedPushpins.length;
 
             var radius = 20;    //Default radius to 20 pixels.
-            var fillColor = 'lime';     //Default to lime green.
+            var fillColor = 'lime';   //Default to lime green.
 
             if (clusterSize >= 750) {
                 radius = 40;   //If point_count >= 750, radius is 40 pixels.
@@ -935,9 +935,9 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 | Nome da propriedade               | Tipo    | Descrição                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Indica se a característica representa um cluster.     |
-| `cluster_id`                | cadeia  | Um ID único para o cluster que pode ser usado com as `DataSource` `getClusterExpansionZoom` `getClusterChildren` classes, e `getClusterLeaves` funções. |
+| `cluster_id`                | string  | Um ID único para o cluster que pode ser usado com as `DataSource` `getClusterExpansionZoom` `getClusterChildren` classes, e `getClusterLeaves` funções. |
 | `point_count`               | número  | O número de pontos que o cluster contém.     |
-| `point_count_abbreviated`   | cadeia  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K) |
+| `point_count_abbreviated`   | string  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K) |
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 

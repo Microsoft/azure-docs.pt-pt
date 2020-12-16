@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f22d5ddd35d5d0cba48f0d236b28fabae02a966a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c4393ebeb8b1e287bd881233418a902fc523f7f5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631602"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589626"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -47,9 +47,9 @@ Enquanto pode instalar gateway na mesma máquina no local ou no Azure VM que o H
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de uma fonte HDFS utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal Azure,** **Visual Studio** , **Azure PowerShell,** **Modelo de Gestor de Recursos Azure,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal Azure,** **Visual Studio**, **Azure PowerShell,** **Modelo de Gestor de Recursos Azure,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -122,8 +122,8 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Por exemplo: para a sub-dobragem pasta\, especifique \\ \\ a sub-dobradeira e para d:\samplefolder, especificar d: \\ \\ amostragem.<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Sim |
 | fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser usado para especificar uma pasta dinâmicaPath, nome de ficheiro para dados da série de tempo. Exemplo: pastaPametante parametrizada para cada hora de dados. |Não |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat** . Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate** . Os níveis suportados são: **Ideal** e **Mais rápido** . Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > o nome de ficheiro e o ficheiroFiltro não podem ser utilizados simultaneamente.
@@ -308,7 +308,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Uma atividade de cópia num oleoduto com fonte do Sistema de Ficheiros e pia Blob:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **FileSystemSource** e o tipo **de pia** é definido para **BlobSink** . A consulta SQL especificada para a propriedade **de consulta** seleciona os dados na hora passada para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **FileSystemSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **de consulta** seleciona os dados na hora passada para copiar.
 
 ```JSON
 {
@@ -381,26 +381,26 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
     default realm = REALM.COM (external)
     REALM.com:
         kdc = <your_kdc_server_address>
-        ```
+    ```
 
-**In Azure Data Factory:**
+**Na Fábrica de Dados Azure:**
 
-* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
+* Configure o conector HDFS utilizando a **autenticação do Windows** juntamente com o nome principal e a palavra-passe kerberos para ligar à fonte de dados HDFS. Consulte a secção [de propriedades do Serviço Linked HDFS](#linked-service-properties) nos detalhes da configuração.
 
-### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
+### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Permitir a confiança mútua entre o domínio windows e o reino de Kerberos
 
-#### Requirement:
-*   The gateway machine must join a Windows domain.
-*   You need permission to update the domain controller's settings.
+#### <a name="requirement"></a>Requisito:
+*   A máquina de porta de entrada deve juntar-se a um domínio Windows.
+*   Precisa de permissão para atualizar as definições do controlador de domínio.
 
-#### How to configure:
+#### <a name="how-to-configure"></a>Como configurar:
 
 > [!NOTE]
-> Replace REALM.COM and AD.COM in the following tutorial with your own respective realm and domain controller as needed.
+> Substitua REALM.COM e AD.COM no seguinte tutorial pelo seu próprio reino e controlador de domínio, se necessário.
 
-**On KDC server:**
+**No servidor KDC:**
 
-1. Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+1. Edite a configuração KDC no ficheiro **krb5.conf** para permitir que o KDC confie no Windows Domain referindo-se ao modelo de configuração a seguir. Por predefinição, a configuração está localizada em **/etc/krb5.conf**.
 
    ```config
    [logging]
@@ -457,7 +457,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
     C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
     ```
 
-2.  Estabeleça a confiança do Windows Domain para o Reino de Kerberos. [palavra-passe] é a palavra-passe para o **principal krbtgt/REALM.COM \@ AD.COM** .
+2.  Estabeleça a confiança do Windows Domain para o Reino de Kerberos. [palavra-passe] é a palavra-passe para o principal **krbtgt/REALM.COM \@ AD.COM**.
 
     ```cmd
     C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
@@ -467,7 +467,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
     1. Vá ao Gestor de Servidor > Gestão de Políticas de Grupo > Objetos de Política de Grupo > Objetos de Política de Grupo > Política de Domínio Padrão ou Ativo e Edite.
 
-    2. Na janela popup do **Editor de Gestão de Políticas de Grupo,** aceda a Políticas de Configuração de Computador > Políticas > Definições de Segurança do Windows > Definições de Segurança > Políticas Locais > Opções de Segurança e configufique **a segurança da rede: Configurar tipos de encriptação permitidos para Kerberos** .
+    2. Na janela popup do **Editor de Gestão de Políticas de Grupo,** aceda a Políticas de Configuração de Computador > Políticas > Definições de Segurança do Windows > Definições de Segurança > Políticas Locais > Opções de Segurança e configufique **a segurança da rede: Configurar tipos de encriptação permitidos para Kerberos**.
 
     3. Selecione o algoritmo de encriptação que pretende utilizar quando ligar ao KDC. Normalmente, pode simplesmente selecionar todas as opções.
 
@@ -481,9 +481,9 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 4.  Crie o mapeamento entre a conta de domínio e kerberos principal, de modo a utilizar kerberos principal no Domínio do Windows.
 
-    1. Inicie as ferramentas administrativas > **Utilizadores e Computadores de Diretório Ativo** .
+    1. Inicie as ferramentas administrativas > **Utilizadores e Computadores de Diretório Ativo**.
 
-    2. Configure funcionalidades avançadas clicando **em Ver**  >  **Funcionalidades Avançadas** .
+    2. Configure funcionalidades avançadas clicando **em Ver**  >  **Funcionalidades Avançadas**.
 
     3. Localize a conta à qual pretende criar mapeamentos e clique no botão direito para ver **Os Mapeamentos de Nome** > clique no separador **Nomes Kerberos.**
 

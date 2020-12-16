@@ -4,12 +4,12 @@ description: Aprenda a construir, testar e implementar continuamente modelos de 
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1b9e60ec1b3f7626a3cb67a673bf12d14d7d259b
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368210"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588136"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos ARM com Pipelines Azure
 
@@ -100,10 +100,10 @@ O _azuredeploy.js_ foi adicionado ao repositório local. Em seguida, faça o upl
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
-    Pode receber um aviso sobre a LF. Pode ignorar o aviso. **mestre** é o ramo mestre.  Normalmente cria-se um ramo para cada atualização. Para simplificar o tutorial, usa-se o ramo principal diretamente.
+    Pode receber um aviso sobre a LF. Pode ignorar o aviso. **principal** é o ramo principal.  Normalmente cria-se um ramo para cada atualização. Para simplificar o tutorial, usa-se diretamente o ramo principal.
 
 1. Navegue pelo seu repositório GitHub a partir de um browser. A URL `https://github.com/[YourAccountName]/[YourGitHubRepository]` é. Verá a pasta _CreateWebApp_ e os três ficheiros dentro da pasta.
 1. Selecione _linkedStorageAccount.js_ para abrir o modelo.
@@ -217,10 +217,10 @@ Quando atualiza o modelo e empurra as alterações para o repositório remoto, o
 1. Empurre as alterações para o repositório remoto executando os seguintes comandos a partir de Git Bash/Shell.
 
     ```bash
-    git pull origin master
+    git pull origin main
     git add .
     git commit -m "Update the storage account type."
-    git push origin master
+    git push origin main
     ```
 
     O primeiro comando `pull` sincroniza o repositório local com o repositório remoto. O ficheiro YAML do gasoduto só foi adicionado ao repositório remoto. Executar o `pull` comando descarrega uma cópia do ficheiro YAML para a filial local.

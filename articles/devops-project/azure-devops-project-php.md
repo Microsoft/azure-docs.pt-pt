@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 99c8bc00beb7b189b200e0b02435262ae34835d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5727a08159f750a69920f66f4b743c187aa00885
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856097"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588969"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Criar um pipeline CI/CD para PHP com Azure DevOps Starter
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através [
 
 1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
@@ -70,9 +70,9 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através [
 
 1. À esquerda, vá para o ficheiro **resources/views/welcome.blade.php.**
 
-1. **Selecione Editar**e, em seguida, faça uma alteração em alguns dos textos.  Por exemplo, altere algum texto para uma das etiquetas div.
+1. **Selecione Editar** e, em seguida, faça uma alteração em alguns dos textos.  Por exemplo, altere algum texto para uma das etiquetas div.
 
-1. **Selecione Cometer**e, em seguida, guarde as suas alterações.
+1. **Selecione Cometer** e, em seguida, guarde as suas alterações.
 
 1. No seu navegador, vá ao painel de arranque do DevOps. Deve agora ver uma construção em progresso. As alterações que acaba de fazer são automaticamente construídas e implementadas através de um gasoduto CI/CD.
 
@@ -90,7 +90,7 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através [
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Altere o nome do seu pipeline de construção para algo mais descritivo, selecione, **guarde & fila**e, em seguida, selecione **Save**.
+1. Altere o nome do seu pipeline de construção para algo mais descritivo, selecione, **guarde & fila** e, em seguida, selecione **Save**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**.  O **painel de História** apresenta um rasto de auditoria das suas recentes alterações para a construção. A Azure Pipelines regista quaisquer alterações que sejam feitas ao oleoduto de construção, e permite comparar versões.
 
@@ -98,7 +98,7 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através [
 
 1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**.  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**.  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1. Selecione a elipse (...) ao lado do seu pipeline de lançamento e, em seguida, **selecione Editar**. O pipeline de lançamento contém um pipeline, que define o processo de lançamento. 
 

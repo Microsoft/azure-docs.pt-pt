@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931457"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587949"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementar extensões de máquinas virtuais com modelos ARM
 
@@ -42,7 +42,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-powershell-script"></a>Preparar o script do Powershell
 
-Pode utilizar o script inline PowerShell ou um ficheiro de script.  Este tutorial mostra como usar um ficheiro de script. Um script PowerShell com o seguinte conteúdo é partilhado no [GitHub:](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)
+Pode utilizar um script PowerShell inline ou um ficheiro de script. Este tutorial mostra como usar um ficheiro de script. Um script PowerShell com o seguinte conteúdo é partilhado no [GitHub:](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -105,22 +105,22 @@ Adicione um recurso de extensão de máquina virtual ao modelo existente com o s
 
 Para obter mais informações sobre esta definição de recursos, consulte a [referência de extensão](/azure/templates/microsoft.compute/virtualmachines/extensions). Seguem alguns elementos importantes:
 
-* **nome**: uma vez que o recurso de extensão é um recurso subordinado do objeto de máquina virtual, o nome tem de ter o prefixo do nome da máquina virtual. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md)
-* **depende:** Crie o recurso de extensão depois de ter criado a máquina virtual.
-* **fileUris**: As localizações onde os ficheiros de script são armazenados. Se optar por não utilizar a localização fornecida, tem de atualizar os valores.
-* **commandToExecute**: Este comando invoca o script.
+* `name`: Como o recurso de extensão é um recurso infantil do objeto da máquina virtual, o nome deve ter o prefixo do nome da máquina virtual. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md)
+* `dependsOn`: Crie o recurso de extensão depois de ter criado a máquina virtual.
+* `fileUris`: Os locais onde os ficheiros de script são armazenados. Se optar por não utilizar a localização fornecida, tem de atualizar os valores.
+* `commandToExecute`: Este comando invoca o guião.
 
-Para utilizar o script inline, remova **os fileUris** e atualize **o comandoToExecute** para:
+Para utilizar um script em linha, remova `fileUris` e atualize `commandToExecute` para:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-Este script inline também atualiza o conteúdo iisstart.html.
+Este script inline também atualiza o _conteúdoiisstart.html._
 
-Também tem de abrir a porta HTTP para que possa aceder ao servidor web.
+Também tem de abrir a porta HTTP para poder aceder ao servidor web.
 
-1. Encontre **regras de segurança** no modelo.
+1. Encontre `securityRules` no modelo.
 1. Adicione a seguinte regra ao lado **do padrão-permitir-3389**.
 
     ```json
@@ -141,7 +141,7 @@ Também tem de abrir a porta HTTP para que possa aceder ao servidor web.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Para o procedimento de implementação, consulte a secção "Implementar o modelo" do [Tutorial: Criar modelos ARM com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Recomendamos que utilize uma palavra-passe gerada para a conta de administrador de máquina virtual. Consulte a secção [Pré-Requisitos](#prerequisites) deste artigo.
+Para o procedimento de implementação, consulte a secção de modelo de **modelo** de [Tutorial: Criar modelos ARM com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Recomendamos que utilize uma palavra-passe gerada para a conta de administrador de máquina virtual. Consulte a secção [Pré-Requisitos](#prerequisites) deste artigo.
 
 A partir da Cloud Shell, executar o seguinte comando para recuperar o endereço IP público do VM:
 
