@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6a000daa7d9e2aa93e68844e8aec5aa168c9fa60
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592420"
+ms.locfileid: "97607274"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,6 @@ ms.locfileid: "97592420"
 Este artigo explica como criar uma instância de cluster failover (FCI) utilizando discos partilhados Azure com SQL Server em Azure Virtual Machines (VMs). 
 
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas do cluster](hadr-cluster-best-practices.md). 
-
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -37,12 +36,10 @@ Antes de completar as instruções deste artigo, já deve ter:
 - Uma conta que tem permissões para criar objetos tanto em máquinas virtuais Azure como no Ative Directory.
 - A versão mais recente do [PowerShell.](/powershell/azure/install-az-ps) 
 
-
 ## <a name="add-azure-shared-disk"></a>Adicione disco compartilhado Azure
 Implemente um disco SSD Premium gerido com a função de disco partilhado ativada. De `maxShares` forma a **alinhar-se com o número de nós de cluster** para tornar o disco partilhável em todos os nós fci. 
 
 Adicione um disco compartilhado Azure fazendo o seguinte: 
-
 
 1. Guarde o seguinte script à medida *queSharedDiskConfig.jsem*: 
 
@@ -85,7 +82,6 @@ Adicione um disco compartilhado Azure fazendo o seguinte:
    }
    ```
 
-
 2. Executar *SharedDiskConfig.jsutilizando* o PowerShell: 
 
    ```powershell
@@ -119,7 +115,6 @@ Para criar o cluster de failover, você precisa:
 - Um nome para o aglomerado de falhanços.
 - Um endereço IP para o cluster de failover. Pode utilizar um endereço IP que não seja utilizado na mesma rede virtual Azure e sub-rede que os nós de cluster.
 
-
 # <a name="windows-server-2012-2016"></a>[Windows Server 2012-2016](#tab/windows2012)
 
 O seguinte script PowerShell cria um cluster de falha. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível a partir da rede virtual Azure.
@@ -139,7 +134,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 Para obter mais informações, consulte [o cluster Failover: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
 ---
-
 
 ## <a name="configure-quorum"></a>Configure quórum
 
@@ -198,7 +192,6 @@ Os diretórios de dados da FCI têm de estar nos Discos Partilhados do Azure.
 
 Para gerir o seu SQL Server VM a partir do portal, registe-o com a extensão sql IaaS Agent (RP) no [modo de gestão leve,](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)atualmente o único modo suportado com FCI e SQL Server em VMs Azure. 
 
-
 Registar um SQL Server VM em modo leve com PowerShell:  
 
 ```powershell-interactive
@@ -221,7 +214,6 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 ## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
 
 Se os discos partilhados do Azure não forem a solução de armazenamento FCI adequada para si, considere criar o seu FCI utilizando [ações de ficheiros premium](failover-cluster-instance-premium-file-share-manually-configure.md) ou [espaços de armazenamento Direto.](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 
 

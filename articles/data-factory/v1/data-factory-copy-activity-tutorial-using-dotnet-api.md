@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7b925a25e1e246008f393f7b15160417c3b3d7a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d047a45d678918541eb3c2d2c45e4519a34bdd57
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254859"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608685"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com a Atividade de Cópia com a API .NET
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
     ```powershell
     Get-AzSubscription
     ```
-4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
+4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -108,7 +108,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
 9. Obtenha o ID da aplicação.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication
     ```
     Tome nota do ID da aplicação (applicationID) a partir do resultado.
 
@@ -116,7 +116,7 @@ Deve obter os quatro valores seguintes destes passos:
 
 * ID do inquilino
 * ID da subscrição
-* ID da Aplicação
+* ID da aplicação
 * Palavra-passe (especificada no primeiro comando)
 
 ## <a name="walkthrough"></a>Instruções
@@ -134,7 +134,7 @@ Deve obter os quatro valores seguintes destes passos:
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (utilize a API do Azure Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Adicione a secção **appSetttings** seguinte ao ficheiro **App.config**. Estas definições são utilizadas pelo método de ajuda: **GetAuthorizationHeader**.
 
-    Substitua os valores ** &lt; de ID &gt; de aplicação,** ** &lt; password, &gt; ** ** &lt; ID &gt; de assinatura**e ** &lt; ID &gt; do inquilino** pelos seus próprios valores.
+    Substitua os valores **&lt; de ID &gt; de aplicação,** **&lt; password, &gt;** **&lt; ID &gt; de assinatura** e **&lt; ID &gt; do inquilino** pelos seus próprios valores.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Deve obter os quatro valores seguintes destes passos:
 9. Adicione o código seguinte, que cria um **serviço ligado SQL do Azure**, ao método **Principal**.
 
    > [!IMPORTANT]
-   > Substitua **o nome de servidor,** **nome de base de dados,** nome de **utilizador**e **palavra-passe** por nomes do seu servidor, base de dados, utilizador e palavra-passe.
+   > Substitua **o nome de servidor,** **nome de base de dados,** nome de **utilizador** e **palavra-passe** por nomes do seu servidor, base de dados, utilizador e palavra-passe.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database

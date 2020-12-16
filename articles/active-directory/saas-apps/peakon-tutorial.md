@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: d9850c83fc949aa3a2b0521dfa0d41d49b7283bd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a84d4d71e5190c455441d1e627381be86ef5e129
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515638"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Diretório Ativo Azure com Peakon
 
@@ -135,7 +135,7 @@ Para configurar o Azure AD single sign-on com Peakon, execute os seguintes passo
 
 1. Numa janela diferente do navegador web, inscreva-se em Peakon como administrador.
 
-2. Na barra de menus do lado esquerdo da página, clique em **Configuração**e navegue para **Integrações**.
+2. Na barra de menus do lado esquerdo da página, clique em **Configuração** e navegue para **Integrações**.
 
     ![O Config](./media/peakon-tutorial/tutorial_peakon_config.png)
 
@@ -192,7 +192,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Peakon.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Peakon**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Peakon**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -223,23 +223,23 @@ No caso de Peakon, o provisionamento é uma tarefa manual.
 
 1. Inscreva-se no site da empresa Peakon como administrador.
 
-2. Na barra de menus do lado esquerdo da página, clique em **Configuração**e, em seguida, navegue para **os Colaboradores**.
+2. Na barra de menus do lado esquerdo da página, clique em **Configuração** e, em seguida, navegue para **os Colaboradores**.
 
     ![O empregado](./media/peakon-tutorial/tutorial_peakon_employee.png)
 
 3. No lado superior direito da página, clique **em Adicionar empregado**.
 
-      ![O colaborador de adicionar](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
+    ![O colaborador de adicionar](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
 3. Na página de diálogo **do novo funcionário,** execute os seguintes passos:
 
-     ![O novo empregado](./media/peakon-tutorial/tutorial_peakon_create.png)
+    ![O novo empregado](./media/peakon-tutorial/tutorial_peakon_create.png)
 
-    a. Na caixa de texto **Name,** escreva o primeiro nome como **Britta** e sobrenome como **simon**.
+    1. Na caixa de texto **Name,** escreva o primeiro nome como **Britta** e sobrenome como **simon**.
 
-    b. Na caixa de sms **do Email,** digite o endereço de e-mail como **o \@ contoso.com brittasimon**.
+    1. Na caixa de sms **do Email,** digite o endereço de e-mail como **o \@ contoso.com brittasimon**.
 
-    c. Clique **em Criar empregado.**
+    1. Clique **em Criar empregado.**
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

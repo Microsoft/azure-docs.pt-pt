@@ -4,12 +4,12 @@ description: Este artigo fornece uma caminhada para criar uma aplicação Java q
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e77ff762de11a9c8a723b162993db11efe715b66
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591553"
+ms.locfileid: "97607988"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-eventhubs)
 
@@ -17,7 +17,6 @@ Este quickstart mostra como enviar eventos e receber eventos de um centro de eve
 
 > [!WARNING]
 > Este quickstart usa os **antigos azure-eventhubs** e **pacotes azure-eventhubs-eph.** Para um arranque rápido que utilize o mais recente pacote  **de eventos de mensagens azure,consulte** [Enviar e receber eventos usando azure-messaging-eventhubs](event-hubs-java-get-started-send.md). Para mover a sua aplicação de usar o pacote antigo para um novo, consulte o [Guia para migrar de azure-eventhubs para azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,7 +74,6 @@ public class SimpleSend {
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
 
-
     }
  }
 ```
@@ -109,7 +107,6 @@ Crie um evento singular transformando uma corda na sua codificação byte UTF-8.
         // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-
 
         try {
             for (int i = 0; i < 10; i++) {
@@ -418,7 +415,6 @@ Dentro da sua implementação, pode substituir o mecanismo de verificação padr
 Pode utilizar qualquer datastore que esteja disponível no seu ambiente.
 
 A classe com.microsoft.azure.eventprocessorhost.EventProcessorHost fornece-lhe dois construtores que lhe permitem substituir o gestor de checkpoint para o seu EventProcessorHost.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 Leia os seguintes artigos: 

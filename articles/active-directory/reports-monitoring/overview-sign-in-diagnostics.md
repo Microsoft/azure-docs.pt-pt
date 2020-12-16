@@ -1,6 +1,6 @@
 ---
-title: O que é o diagnóstico de inscrição no Azure AD? | Microsoft Docs
-description: Fornece uma visão geral geral dos diagnósticos de inscrição em Azure AD.
+title: O que é o Diagnóstico de Inscrição em Azure AD? | Microsoft Docs
+description: Fornece uma visão geral geral do Diagnóstico de Inscrição em Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,25 +17,25 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6aedf41fbf1ed0d70467a2efe97431fdecaa4fa
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585922"
+ms.locfileid: "97608923"
 ---
-# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>O que é o diagnóstico de inscrição no Azure AD?
+# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>O que é o Diagnóstico de Inscrição em Azure AD?
 
 O Azure AD fornece-lhe um modelo de segurança flexível para controlar o que os utilizadores podem fazer com os recursos geridos. O acesso a estes recursos não é apenas controlado por **quem** é, mas também pela **forma como** os acede. Normalmente, a flexibilidade vem junto com um certo grau de complexidade devido ao número de opções de configuração que você tem. A complexidade tem o potencial de aumentar o risco de erros.
 
-Como administrador de TI, precisa de uma solução que lhe dê o nível certo de insights sobre as atividades no seu sistema para que possa facilmente diagnosticar e resolver problemas quando ocorrem. O diagnóstico de inscrição para Azure AD é um exemplo para tal solução. Utilize o diagnóstico para analisar o que aconteceu durante uma sindes de saúde e que ações pode tomar para resolver problemas sem ser obrigado a envolver o suporte da Microsoft.
+Como administrador de TI, precisa de uma solução que lhe dê o nível certo de insights sobre as atividades no seu sistema para que possa facilmente diagnosticar e resolver problemas quando ocorrem. O Diagnóstico de Inscrição para Azure AD é um exemplo para tal solução. Utilize o diagnóstico para analisar o que aconteceu durante uma sindes de saúde e que ações pode tomar para resolver problemas sem ser obrigado a envolver o suporte da Microsoft.
 
 Este artigo dá-lhe uma visão geral do que a solução faz e como pode usá-la.
 
 
 ## <a name="requirements"></a>Requisitos
 
-O diagnóstico de inscrição está disponível em todas as edições do Azure AD.<br> Deve ser um administrador global na Azure AD para usá-lo.
+O Sign-in Diagnostics está disponível em todas as edições do Azure AD.<br> Deve ser um administrador global na Azure AD para usá-lo.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -47,7 +47,7 @@ Devido à maior flexibilidade do sistema para responder a uma tentativa de inscr
 
 - Mostra o que aconteceu e recomendações sobre como resolver problemas. 
 
-O diagnóstico de inscrição para Azure AD foi concebido para permitir o autodiagnóstico de erros de inscrição. Para completar o processo de diagnóstico, é necessário:
+O Diagnóstico de Inscrição para Azure AD foi concebido para permitir o autodiagnóstico de erros de inscrição. Para completar o processo de diagnóstico, é necessário:
 
 ![Processo de diagnóstico de inscrição](./media/overview-sign-in-diagnostics/process.png)
  

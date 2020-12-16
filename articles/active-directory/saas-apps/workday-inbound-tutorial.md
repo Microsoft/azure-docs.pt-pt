@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: b8560c4890855683e6ebb1c05383db8aa89988c0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5cbfdd57ebd25da013bfb82b761839b1e74ee012
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017649"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609025"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -25,7 +25,6 @@ O objetivo deste tutorial é mostrar os passos que você precisa para executar p
 >Utilize este tutorial, se os utilizadores que pretender abastecer a partir do Workday precisam de uma conta AD no local e uma conta AD Azure. 
 >* Se os utilizadores do Workday apenas precisarem da conta AZure AD (utilizadores apenas na nuvem), consulte o tutorial no dia de trabalho de configuração para o provisionamento do utilizador [Azure AD.](workday-inbound-cloud-only-tutorial.md) 
 >* Para configurar a gravação de atributos como endereço de e-mail, nome de utilizador e número de telefone de Azure AD para Workday, consulte o tutorial sobre configurar a [writeback do Workday](workday-writeback-tutorial.md).
-
 
 ## <a name="overview"></a>Descrição geral
 
@@ -112,7 +111,7 @@ Um requisito comum de todos os conectores de fornecimento de dias de trabalho é
    >[!div class="mx-imgBorder"] 
    >![Criar utilizador](./media/workday-inbound-tutorial/wd_isu_01.png "Criar utilizador")
 2. Complete a tarefa **do Utilizador do Sistema de Integração Criar** fornecendo um nome de utilizador e uma palavra-passe para um novo Utilizador do Sistema de Integração.  
-  
+
    * Deixe a **nova palavra-passe requerendo nova palavra-passe na** próxima sessão Na opção não verificada, porque este utilizador irá iniciar sessão programática.
    * Deixe os **Minutos de Tempo de Sessão** com o seu valor predefinido de 0, o que evitará que as sessões do utilizador se acabem prematuramente.
    * Selecione a opção **Não Permitir sessões de UI,** pois fornece uma camada de segurança adicional que impede um utilizador com a palavra-passe do sistema de integração de iniciar sessão no Workday.
@@ -164,7 +163,7 @@ Neste passo, você concederá permissões políticas de "segurança de domínio"
    * *Dados do Trabalhador: Informação atual sobre pessoal*
    * *Dados do Trabalhador: Título do negócio no perfil do trabalhador*
    * *Contas workday*
-   
+
      >[!div class="mx-imgBorder"]
      >![Screenshot que mostra o relatório de configuração de segurança do domínio com a "Conta Externa" na caixa de texto "Domínio".](./media/workday-inbound-tutorial/wd_isu_07.png "Políticas de Segurança de Domínio")  
 
@@ -218,7 +217,7 @@ Neste passo, você concederá permissões políticas de "segurança do processo 
    >![Screenshot que mostra a página "Editar Política de Segurança do Processo de Negócio" e "Mudança de Contacto de Trabalho" selecionada no menu "Business Process Type".](./media/workday-inbound-tutorial/wd_isu_13.png "Políticas de Segurança do Processo de Negócios")  
 
 3. Na página **Política de Segurança do Processo de Edição,** percorra para a secção Change Work Contact Information **(Serviço Web).**
-    
+
 
 4. Selecione e adicione o novo grupo de segurança do sistema de integração à lista de grupos de segurança que podem iniciar o pedido de serviços web. 
 
@@ -250,9 +249,9 @@ Depois de ter identificado o Servidor do Windows que irá hospedar o Agente de P
 
 ### <a name="permissions-required-to-configure-the-provisioning-agent-service"></a>Permissões necessárias para configurar o serviço de Agente de Provisioning
 Utilize os passos abaixo para configurar uma conta de serviço que pode ser usada para operações de provisionamento de agentes. 
-1.  No seu Controlador de Domínio AD, abra *os utilizadores de diretório ativo e o* snap-in de computadores. 
-2.  Criar um novo utilizador de domínio (exemplo: *provAgentAdmin)*  
-3.  Clique no nome de ou de domínio ou ou do domínio e selecione O Controlo de *Delegados* que abrirá a *Delegação do Assistente de Controlo*. 
+1. No seu Controlador de Domínio AD, abra *os utilizadores de diretório ativo e o* snap-in de computadores. 
+2. Criar um novo utilizador de domínio (exemplo: *provAgentAdmin)*  
+3. Clique no nome de ou de domínio ou ou do domínio e selecione O Controlo de *Delegados* que abrirá a *Delegação do Assistente de Controlo*. 
 
 > [!NOTE] 
 > Se pretender limitar o agente de provisionamento apenas para criar e ler os utilizadores de um determinado OU para efeitos de teste, recomendamos a delegação do controlo ao nível adequado da U durante os ensaios.
@@ -269,8 +268,7 @@ Utilize os passos abaixo para configurar uma conta de serviço que pode ser usad
    >[!div class="mx-imgBorder"]
    >![Tela de tarefas](./media/workday-inbound-tutorial/delegation-wizard-02.png "Tela de tarefas")
 
-7. Clique **em Seguinte** e **Guarde** a configuração
-
+7. Clique **em Seguinte** e **Guarde** a configuração.
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurar o fornecimento de utilizadores de Workday a Ative Directory
 
@@ -305,7 +303,6 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Workd
    >[!div class="mx-imgBorder"]
    >![Agente de descarregamento](./media/workday-inbound-tutorial/pa-download-agent.png "Download Agent Screen")
 
-
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: Instalar e configurar no local agentes de provisionamento
 
 Para o fornecimento ao Ative Directory no local, o agente Provisioning deve ser instalado num servidor que tenha .NET 4.7.1+ Framework e acesso à rede ao domínio ou do Diretório Ativo pretendido.
@@ -322,12 +319,12 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
 
    >[!div class="mx-imgBorder"]
    >![Instalar tela](./media/workday-inbound-tutorial/pa_install_screen_1.png "Instalar tela")
-   
+
 1. Após a instalação estar concluída, o assistente será lançado e verá o ecrã **AD Connect Azure.** Clique no botão **Authenticate** para ligar à sua instância AD Azure.
 
    >[!div class="mx-imgBorder"]
    >![Ligar ao Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ligar ao Azure AD")
-   
+
 1. Autenticar para a sua instância AD Azure usando credenciais de administrador de identidade híbrida.
 
    >[!div class="mx-imgBorder"]
@@ -340,12 +337,12 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
 
    >[!div class="mx-imgBorder"]
    >![Adicionar Diretório](./media/workday-inbound-tutorial/pa_install_screen_4.png "Adicionar Diretório")
-  
+
 1. Será agora solicitado que introduza as credenciais necessárias para se ligar ao Domínio AD. No mesmo ecrã, pode utilizar a prioridade do **controlador de domínio Select** para especificar os controladores de domínio que o agente deve utilizar para enviar pedidos de provisionamento.
 
    >[!div class="mx-imgBorder"]
    >![Credenciais de Domínio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-   
+
 1. Depois de configurar o domínio, o instalador apresenta uma lista de domínios configurados. Neste ecrã, pode repetir #5 e #6 para adicionar mais domínios ou clicar em **Next** para proceder ao registo de agente.
 
    >[!div class="mx-imgBorder"]
@@ -354,22 +351,22 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
    > [!NOTE]
    > Se tiver vários domínios de AD (por exemplo, na.contoso.com, emea.contoso.com), adicione cada domínio individualmente à lista.
    > Apenas a adição do domínio dos pais (por exemplo, contoso.com) não é suficiente. Deve registar cada domínio infantil com o agente.
-   
+
 1. Reveja os detalhes de configuração e clique em **Confirmar** para registar o agente.
-  
+
    >[!div class="mx-imgBorder"]
    >![Confirmar Tela](./media/workday-inbound-tutorial/pa_install_screen_7.png "Confirmar Tela")
-   
+
 1. O assistente de configuração apresenta o progresso do registo do agente.
-  
+
    >[!div class="mx-imgBorder"]
    >![Registo de Agentes](./media/workday-inbound-tutorial/pa_install_screen_8.png "Registo de Agentes")
-   
+
 1. Assim que o registo do agente for bem sucedido, pode clicar na **Saída** para sair do Assistente.
 
    >[!div class="mx-imgBorder"]
    >![Tela de saída](./media/workday-inbound-tutorial/pa_install_screen_9.png "Tela de saída")
-   
+
 1. Verifique a instalação do Agente e certifique-se de que está em execução abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
 
    >[!div class="mx-imgBorder"]
@@ -387,7 +384,7 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
    * **Senha do dia de trabalho -** Introduza a palavra-passe da conta do sistema de integração workday
 
    * **URL API de Serviços Web workday –** Introduza o URL no ponto final dos serviços web workday para o seu inquilino. O URL determina a versão da API dos Serviços Web workday utilizada pelo conector. 
-   
+
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
      | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
@@ -403,7 +400,7 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
 
    * **Contentor de Diretório Ativo -** Introduza o contentor DN onde o agente deve criar contas de utilizador por padrão.
         Exemplo: *OU=Utilizadores Padrão,OU=Utilizadores,DC=contoso,DC=teste*
-        
+
      > [!NOTE]
      > Esta definição só entra em jogo para criações de conta de utilizador se o atributo *nome parental* não estiver configurado nos mapeamentos do atributo. Esta definição não é utilizada para operações de pesquisa ou atualização do utilizador. Toda a sub-árvore de domínio cai no âmbito da operação de busca.
 
@@ -446,7 +443,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
    > [!CAUTION] 
    > O comportamento predefinido do motor de provisionamento é desativar/eliminar utilizadores que ficam fora de alcance. Isto pode não ser desejável no seu dia de trabalho para a integração da AD. Para anular este comportamento padrão consulte o artigo [Ignorar a eliminação das contas de utilizador que ficam fora de alcance](../app-provisioning/skip-out-of-scope-deletions.md)
-  
+
 1. No campo **Target Object Actions,** pode filtrar globalmente as ações que são realizadas no Ative Directory. **Criar** e **Atualizar** são mais comuns.
 
 1. Na secção **de mapeamentos do Atributo,** pode definir como o mapa individual do Dia de Trabalho atribui o mapa aos atributos do Ative Directory.
@@ -509,9 +506,9 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 | **CountryReferenceTwoLetter**      |   co |     |   Criar + atualização |
 | **CountryReferenceTwoLetter**    |  c  |     |         Criar + atualização |
 | **Conferência CountryRegionReference** |  SC     |     | Criar + atualização |
-| **WorkSpaceReference** | físicoDeliveryOfficeName    |     |  Criar + atualização |
-| **PostalCode**  |   código postal  |     | Criar + atualização |
-| **Telefone primaryWorkTelephone**  |  número de telefone   |     | Criar + atualização |
+| **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Criar + atualização |
+| **Código Postal**  |   postalCode  |     | Criar + atualização |
+| **Telefone primaryWorkTelephone**  |  telephoneNumber   |     | Criar + atualização |
 | **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualização |
 | **Móvel**  |    dispositivo móvel       |     |       Criar + atualização |
 | **Referência local** |  preferiuLanguage  |     |  Criar + atualização |                                               
@@ -538,8 +535,6 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-
-
 ## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
 * **Questões de capacidade de solução**
@@ -562,7 +557,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
   * [Como posso assegurar que o Agente de Provisionamento seja capaz de comunicar com o inquilino Azure AD e que não haja firewalls a bloquear portas exigidas pelo agente?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
   * [Como posso desscamur o domínio associado ao meu Agente de Provisionamento?](#how-do-i-de-register-the-domain-associated-with-my-provisioning-agent)
   * [Como desinstalar o Agente de Provisionamento?](#how-do-i-uninstall-the-provisioning-agent)
-  
+
 * **Perguntas de mapeamento e configuração de atributos do dia de trabalho para AD**
   * [Como posso fazer o back up ou exportar uma cópia de trabalho do meu Trabalhoday Provisioning Attribute Mapping e Schema?](#how-do-i-back-up-or-export-a-working-copy-of-my-workday-provisioning-attribute-mapping-and-schema)
   * [Tenho atributos personalizados no Workday e no Ative Directory. Como posso configurar a solução para trabalhar com os meus atributos personalizados?](#i-have-custom-attributes-in-workday-and-active-directory-how-do-i-configure-the-solution-to-work-with-my-custom-attributes)
@@ -604,7 +599,7 @@ A solução utiliza atualmente as seguintes APIs do dia de trabalho:
   * Se o formato URL for: https:// \# \# \# \# \. dia de trabalho \. com/ccx/service/tenantName , então a API v21.1 é utilizada. 
   * Se o formato URL for: https:// \# \# \# \# \. dia de trabalho \. com/ccx/service/tenantName/Recursos \_ Humanos, então a API v21.1 é utilizada 
   * Se o formato URL for: https:// \# \# \# \# \. dia de trabalho \. com/ccx/service/tenantName/Recursos \_ Humanos/v, \# \# \. \# então a versão API especificada é utilizada. (Exemplo: se o v34.0 for especificado, então é usado.)  
-   
+
 * Funcionalidade de writeback de email do dia de trabalho utiliza Change_Work_Contact_Information (v30.0) 
 * Função de writeback do nome de utilizador do dia útil utiliza Update_Workday_Account (v31.2) 
 
@@ -779,7 +774,7 @@ Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* par
      | Nome preferido do Natal | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
      | Empresa | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[='Organization_Type_ID']='Empresa'] @wd:type/wd:Organization_Reference/@wd:Descriptor |
      | SupervisãoOrganização | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[='Organization_Type_ID']='Supervisory']/wd:Organization_Name/text[) @wd:type |
-  
+
    Confirme com a sua equipa workday que a expressão API acima é válida para a configuração do seu inquilino workday. Se necessário, pode editá-los conforme descrito na secção [Personalizar a lista de atributos do utilizador do Workday](#customizing-the-list-of-workday-user-attributes).
 
 * Da mesma forma, as informações sobre o país/região presentes no Workday são recuperadas utilizando o seguinte XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
@@ -995,7 +990,6 @@ Se o serviço de prestação não puder ligar-se ao Workday ou ao Ative Director
 |--|---|---|---|
 |1.| Quando clica na **Ligação de Teste,** obtém a mensagem de erro: *Houve um erro de ligação ao Ative Directory. Certifique-se de que o Agente de Provisionamento no local está em funcionamento e está configurado com o domínio correto do Diretório Ativo.* | Este erro geralmente aparece se o agente de provisionamento não estiver em funcionamento ou se houver uma comunicação de bloqueio de firewall entre a Azure AD e o agente de provisionamento. Pode também ver este erro, se o domínio não estiver configurado no Assistente de Agente. | Abra a consola *de Serviços* no servidor Windows para confirmar que o agente está em funcionamento. Abra o assistente de provisionamento do agente e confirme que o domínio certo está registado com o agente.  |
 |2.| O trabalho de provisionamento entra em estado de quarentena nos fins de semana (Fri-Sat) e recebemos uma notificação por e-mail de que há um erro com a sincronização. | Uma das causas comuns deste erro é o período de indisponibilidade planeado do Workday. Se estiver a utilizar um inquilino de implementação do Workday, tenha em conta que o Workday tem um período de indisponibilidade agendado para os inquilinos de implementação (normalmente, da noite de sexta-feira à manhã de sábado) e, durante esse período, as aplicações de aprovisionamento do Workday podem entrar em quarentena, pois não se conseguem ligar ao Workday. Regressam ao estado normal quando o inquilino de implementação do Workday estiver novamente online. Em casos raros, também poderá ver este erro se a palavra-passe de Utilizador de Sistema de Integração tiver sido alterada devido a uma atualização do inquilino ou se a conta estiver bloqueada ou expirada. | Verifique junto do seu administrador do Workday ou do seu parceiro de integração qual é o período de indisponibilidade do Workday, de modo a ignorar as mensagens de alerta durante esse período e confirmar a disponibilidade assim que a instância do Workday estiver de novo online.  |
-
 
 #### <a name="ad-user-account-creation-errors"></a>Erros de criação de conta de utilizador de AD
 

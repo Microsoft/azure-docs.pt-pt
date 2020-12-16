@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d32fdd77fded90dc998db645aa6dcac2b502eb2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9643d0e63e85a9b500021a415e3cdaf3edc756c5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459174"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integração do Azure Ative Directory com a Kantega SSO para a JIRA
 
@@ -144,7 +144,7 @@ Para configurar o Azure AD single sign-on com a Kantega SSO para jIRA, execute o
 
     ![Screenshot que mostra o diálogo plugin "Instalar".](./media/kantegassoforjira-tutorial/addon3.png)
 
-1. Uma vez concluída a instalação. Clique em **Close** (Fechar).
+1. Uma vez concluída a instalação. Clique em **Fechar**.
 
     ![Screenshot que mostra o "Instalado e pronto para ir!" diálogo com a ação "Fechar" selecionada.](./media/kantegassoforjira-tutorial/addon33.png)
 
@@ -162,31 +162,31 @@ Para configurar o Azure AD single sign-on com a Kantega SSO para jIRA, execute o
 
 1. Selecione o nível de subscrição como **Basic**.
 
-    ![Screenshot que mostra a secção "Preparação Azure A D" com "Básico" selecionado.](./media/kantegassoforjira-tutorial/addon5.png)     
+    ![Screenshot que mostra a secção "Preparação Azure A D" com "Básico" selecionado.](./media/kantegassoforjira-tutorial/addon5.png)
 
 1. Na secção propriedades da **App,** execute os seguintes passos: 
 
     ![Screenshot que mostra a secção "Propriedades de aplicação" com a caixa de texto e o botão de cópia "App I D U R L" realçados, e o botão "Seguinte" selecionado.](./media/kantegassoforjira-tutorial/addon6.png)
 
-    a. Copie o valor **ID URI** da aplicação e use-o como **Identificador, URL de resposta e URL de Sign-On** na secção de **Configuração Básica SAML** no portal Azure.
+    1. Copie o valor **ID URI** da aplicação e use-o como **Identificador, URL de resposta e URL de Sign-On** na secção de **Configuração Básica SAML** no portal Azure.
 
-    b. Clique em **Seguinte**.
+    1. Clique em **Seguinte**.
 
 1. Na secção de **importação de metadados,** execute os seguintes passos: 
 
     ![Screenshot que mostra a secção "Importação de Metadados" com "Ficheiro metadados no meu computador" selecionado.](./media/kantegassoforjira-tutorial/addon7.png)
 
-    a. Selecione **o ficheiro Metadados no meu computador**e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
+    1. Selecione **o ficheiro Metadados no meu computador** e carreja o ficheiro metadados, que descarregou a partir do portal Azure.
 
-    b. Clique em **Seguinte**.
+    1. Clique em **Seguinte**.
 
 1. Na secção **nome e sSo,** execute os seguintes passos:
 
     ![Screenshot que mostra a localização "Nome e S O" com a caixa de texto "Nome do fornecedor de identidade" realçada e o botão "Seguinte" selecionado.](./media/kantegassoforjira-tutorial/addon8.png)
 
-    a. Adicionar Nome do Fornecedor de Identidade na caixa de texto **do fornecedor de identidade** (por exemplo, Azure AD).
+    1. Adicionar Nome do Fornecedor de Identidade na caixa de texto **do fornecedor de identidade** (por exemplo, Azure AD).
 
-    b. Clique em **Seguinte**.
+    1. Clique em **Seguinte**.
 
 1. Verifique o certificado de assinatura e clique em **Seguinte**.
 
@@ -196,9 +196,9 @@ Para configurar o Azure AD single sign-on com a Kantega SSO para jIRA, execute o
 
     ![Screenshot que mostra as "contas de utilizador JIRA" com a opção "Criar utilizadores no Diretório Interno do JIRA, se necessário" realçada e o botão "Seguinte" selecionado.](./media/kantegassoforjira-tutorial/addon10.png)
 
-    a. Selecione **Criar utilizadores no Diretório interno do JIRA se necessário** e introduzir o nome apropriado do grupo para utilizadores (pode ser um número múltiplo. de grupos separados por vírgula).
+    1. Selecione **Criar utilizadores no Diretório interno do JIRA se necessário** e introduzir o nome apropriado do grupo para utilizadores (pode ser um número múltiplo. de grupos separados por vírgula).
 
-    b. Clique em **Seguinte**.
+    1. Clique em **Seguinte**.
 
 1. Clique em **Concluir**.
 
@@ -208,11 +208,11 @@ Para configurar o Azure AD single sign-on com a Kantega SSO para jIRA, execute o
 
     ![Configurar Sign-On Individuais](./media/kantegassoforjira-tutorial/addon12.png)
 
-    a. Selecione **Domínios conhecidos** do painel esquerdo da página.
+    1. Selecione **Domínios conhecidos** do painel esquerdo da página.
 
-    b. Introduza o nome de domínio na caixa de texto **de domínios conhecidos.**
+    2. Introduza o nome de domínio na caixa de texto **de domínios conhecidos.**
 
-    c. Clique em **Guardar**.
+    3. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -230,13 +230,13 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
+    1. No campo **Nome** entra **BrittaSimon**.
 
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
+    1. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
-    d. Clique em **Criar**.
+    1. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
+
+    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -272,7 +272,7 @@ Para permitir que os utilizadores da AZure AD inscrevam-se no JIRA, devem ser ad
 
 1. Inscreva-se no seu servidor JIRA no local como administrador.
 
-1. Hover on cog e clique na **gestão**do Utilizador .
+1. Hover on cog e clique na **gestão** do Utilizador .
 
     ![Screenshot que mostra o ícone "Cog" selecionado e "Gestão do utilizador" selecionado a partir do drop-down.](./media/kantegassoforjira-tutorial/user1.png) 
 
@@ -284,15 +284,15 @@ Para permitir que os utilizadores da AZure AD inscrevam-se no JIRA, devem ser ad
 
     ![Adicionar Empregado](./media/kantegassoforjira-tutorial/user3.png) 
 
-    a. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador como Brittasimon@contoso.com .
+    1. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador como Brittasimon@contoso.com .
 
-    b. Na caixa de texto **'Nome Completo',** escreva o nome completo do utilizador como Britta Simon.
+    2. Na caixa de texto **'Nome Completo',** escreva o nome completo do utilizador como Britta Simon.
 
-    c. Na caixa de texto **username,** escreva o e-mail do utilizador como Brittasimon@contoso.com .
+    3. Na caixa de texto **username,** escreva o e-mail do utilizador como Brittasimon@contoso.com .
 
-    d. Na caixa de texto **da palavra-passe,** digite a palavra-passe do utilizador.
+    4. Na caixa de texto **da palavra-passe,** digite a palavra-passe do utilizador.
 
-    e. Clique **em Criar utilizador.**
+    5. Clique **em Criar utilizador.**
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

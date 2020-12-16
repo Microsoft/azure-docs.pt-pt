@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ed71311125229a7575c675dd3338b4908ea1be95
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518437"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integração do Diretório Ativo Azure com a Skillport
 
@@ -101,23 +101,23 @@ Para configurar o Azure AD com skillport, execute os seguintes passos:
 
     ![Skillport Domain e URLs informações únicas de súmis](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de entrada de inscrição,** digite o URL:
+    1. Na caixa de texto **URL de entrada de inscrição,** digite o URL:
 
-    Datacenter da UE: `https://adfs.skillport.eu`
+        Datacenter da UE: `https://adfs.skillport.eu`
 
-    Centro de Dados dos EUA: `https://sso.skillport.com`
+        Centro de Dados dos EUA: `https://sso.skillport.com`
 
-    b. Na caixa **identifier,** digite o URL:
+    1. Na caixa **identifier,** digite o URL:
 
-    Datacenter da UE: `http://adfs.skillport.eu/adfs/services/trust`
+        Datacenter da UE: `http://adfs.skillport.eu/adfs/services/trust`
 
-    Centro de Dados dos EUA: `https://sso.skillport.com`
+        Centro de Dados dos EUA: `https://sso.skillport.com`
 
-    c. Na caixa de texto **URL de resposta,** digite o URL:
+    1. Na caixa de texto **URL de resposta,** digite o URL:
 
-    Datacenter da UE: `https://adfs.skillport.eu/adfs/ls/`
+        Datacenter da UE: `https://adfs.skillport.eu/adfs/ls/`
 
-      Centro de Dados dos EUA: `https://sso.skillport.com/sp/ACS.saml2`
+        Centro de Dados dos EUA: `https://sso.skillport.com/sp/ACS.saml2`
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -166,7 +166,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Skillport.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Skillport**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Skillport**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

@@ -1,18 +1,18 @@
 ---
 title: Guia de programabilidade definido pelo utilizador U-SQL para o Lago de Dados Azure
-description: Saiba mais sobre o guia de programabilidade UDO UDO UDO UDO - exaustor definido pelo utilizador.
+description: Saiba mais sobre o guia de programabilidade UDO - exaustor definido pelo utilizador.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: a3613c2b95f13e6bbaaf570f522ad1f7b7edd756
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: ad7f6336753903533771033de21aec8262425a61
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512678"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608022"
 ---
-# <a name="use-user-defined-extractor"></a>Utilize o extrator definido pelo utilizador
+# <a name="use-user-defined-extractor"></a>Utilizar o extrator definido pelo utilizador
 
 ## <a name="u-sql-udo-user-defined-extractor"></a>U-SQL UDO: extrator definido pelo utilizador
 O U-SQL permite-lhe importar dados externos utilizando uma declaração Extrata. Uma declaração Extrata pode utilizar extratores de UDO incorporados:  
@@ -157,10 +157,10 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 @rs0 =
     EXTRACT
-            guid Guid,
+        guid Guid,
         dt String,
-            user String,
-            des String
+        user String,
+        des String
     FROM @input_file
         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 

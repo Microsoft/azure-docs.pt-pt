@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cb3417cf765cd703d72d4a2db7a649400ab2d4de
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d74057e32b6f16bdb6dae3d96ac46c5cc93571aa
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896791"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Ative Directory com o Administrador de Acesso à Internet Zscaler
 
@@ -52,7 +52,7 @@ Para configurar a integração do Administrador de Acesso à Internet Zscaler em
 
 **Para adicionar o Administrador de Acesso à Internet Zscaler da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -64,13 +64,13 @@ Para configurar a integração do Administrador de Acesso à Internet Zscaler em
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **Zscaler Internet Access Administrator** , selecione **Zscaler Internet Access Administrator** a partir do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **Zscaler Internet Access Administrator**, selecione **Zscaler Internet Access Administrator** a partir do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
      ![Administrador de acesso à Internet Zscaler na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sinal de acesso à Internet com base num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sinal de acesso à Internet com base num utilizador de teste chamado **Britta Simon**.
 Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Zscaler Internet Access Administrator.
 
 Para configurar e testar o único sinal de acesso a Azure AD com o administrador de acesso à Internet Zscaler, é necessário completar os seguintes blocos de construção:
@@ -88,7 +88,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler Internet Access Administrator,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler Internet Access Administrator,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
 
     | Nome  | Atributo de origem  |
     | ---------| ------------ |
-    | Função     | user.assignedroles |
+    | Função | user.assignedroles |
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
@@ -144,9 +144,9 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
 
     b. A partir da lista **de atributos Fonte,** selecione o valor do atributo.
 
-    c. Clique em **OK** .
+    c. Clique em **OK**.
 
-    d. Clique em **Guardar** .
+    d. Clique em **Guardar**.
 
     > [!NOTE]
     > Clique [aqui](../develop/active-directory-enterprise-app-role-management.md) para saber como configurar o papel em Azure AD
@@ -173,9 +173,9 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
 
     ![O Screenshot mostra a Gestão do Administrador com opções para Ativar a Autenticação SAML, carregar o Certificado S L e especificar um Emitente.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
 
-    a. Verifique **a autenticação SAML** .
+    a. Verifique **a autenticação SAML**.
 
-    b. Clique em **Upload** , para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público** .
+    b. Clique em **Upload**, para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público**.
 
     c. Opcionalmente, para segurança adicional, adicione os detalhes do **Emitente** para verificar o Emitente da resposta SAML.
 
@@ -185,13 +185,13 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
 
     a. Passe por cima do menu **de ativação** perto do canto inferior esquerdo.
 
-    b. Clique **em Ativar** .
+    b. Clique **em Ativar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -203,20 +203,20 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, permite que Britta Simon utilize o Azure como único sinal, permitindo o acesso ao Administrador de Acesso à Internet da Zscaler.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **O Administrador de Acesso à Internet Zscaler** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **O Administrador de Acesso à Internet Zscaler**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -224,7 +224,7 @@ Nesta secção, permite que Britta Simon utilize o Azure como único sinal, perm
 
     ![O link Zscaler Internet Access Administrator na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

@@ -9,14 +9,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316976"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609144"
 ---
-# <a name="what-are-azure-arc-enabled-data-services-preview"></a>O que são serviços de dados habilitados a Azure Arc (pré-visualização)?
+# <a name="what-are-azure-arc-enabled-data-services-preview"></a>O que são serviços de dados compatíveis com o Azure Arc (pré-visualização)?
 
 O Azure Arc permite executar os serviços de dados da Azure no local, no limite, e em nuvens públicas usando Kubernetes e a infraestrutura à sua escolha.
 
@@ -33,7 +33,7 @@ O Azure Arc permitiu que serviços de dados como o Azure Arc permitissem que o S
 
 ## <a name="elastic-scale"></a>Dimensionamento elástico
 
-A elasticidade em nuvem no local permite-lhe escalar as bases de dados para cima ou para baixo de forma dinâmica da mesma forma que em Azure, com base na capacidade disponível da sua infraestrutura. Esta capacidade pode satisfazer cenários de explosão que têm necessidades voláteis, incluindo cenários que requerem ingerir e consultar dados em tempo real, em qualquer escala, com tempo de resposta sub-segundo. Além disso, também pode escalar instâncias de base de dados usando a opção única de implementação de hiperescala da Base de Dados Azure para a Hiperescala PostgreSQL. Esta capacidade dá aos dados um aumento adicional na otimização da capacidade, utilizando*leituras* e escritos únicos em escala.
+A elasticidade em nuvem no local permite-lhe escalar as bases de dados para cima ou para baixo de forma dinâmica da mesma forma que em Azure, com base na capacidade disponível da sua infraestrutura. Esta capacidade pode satisfazer cenários de explosão que têm necessidades voláteis, incluindo cenários que requerem ingerir e consultar dados em tempo real, em qualquer escala, com tempo de resposta sub-segundo. Além disso, também pode escalar instâncias de base de dados usando a opção única de implementação de hiperescala da Base de Dados Azure para a Hiperescala PostgreSQL. Esta capacidade dá aos dados um aumento adicional na otimização da capacidade, utilizando *leituras* e escritos únicos em escala.
 
 ## <a name="self-service-provisioning"></a>Prestação de self-service
 
@@ -50,7 +50,7 @@ Muitos dos serviços, tais como fornecimento de self-service, backups automatiza
 ## <a name="next-steps"></a>Passos seguintes
 
 > **Só quer experimentar as coisas?**  
-> Inicie-se rapidamente com [o Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM.
+> Inicie-se rapidamente com [o Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM.
 
 [Instale as ferramentas do cliente](install-client-tools.md)
 

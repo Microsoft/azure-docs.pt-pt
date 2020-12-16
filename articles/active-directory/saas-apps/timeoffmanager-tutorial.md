@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0adb8d62d02325f92c77d2171eaafd6c2de16f0c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516352"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608821"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Azure Ative Directory integração única (SSO) com TimeOffManager
 
@@ -126,7 +126,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao TimeOffManager.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **TimeOffManager**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -144,7 +144,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa TimeOffManager como administrador.
 
-2. Ir para ** \> opções de conta \> configurações Sign-On únicas**.
+2. Ir para **\> opções de conta \> configurações Sign-On únicas**.
    
     ![A screenshot mostra as definições de Sign-On única selecionadas a partir de opções de conta.](./media/timeoffmanager-tutorial/ic795917.png "Definições de Sign-On única")
 
@@ -168,7 +168,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Na página **'Sign in Settings',** copie o valor do URL do Serviço ao Consumidor de **Afirmação** e cole-o na caixa de texto **URL de resposta** na secção de **Configuração BÁSICA SAML** no portal Azure. 
 
-      ![A screenshot mostra a ligação Com o Serviço de Consumo de Afirmação U R L.](./media/timeoffmanager-tutorial/ic795915.png "Definições de Sign-On única")
+    ![A screenshot mostra a ligação Com o Serviço de Consumo de Afirmação U R L.](./media/timeoffmanager-tutorial/ic795915.png "Definições de Sign-On única")
 
 ### <a name="create-timeoffmanager-test-user"></a>Criar utilizador de teste TimeOffManager
 

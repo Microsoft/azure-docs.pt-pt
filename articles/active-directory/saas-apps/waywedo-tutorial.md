@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fd9a04c2324af2ec36d8fa1d43a079e9f2c32dd8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520307"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608940"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Tutorial: Integrar a forma de fazer com o Diretório Ativo Azure
 
@@ -117,26 +117,26 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![Maneira de salvar](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Clique **na alternação de inscrição única** para **Sim** para ativar o Sign-On único.
+    1. Clique **na alternação de inscrição única** para **Sim** para ativar o Sign-On único.
 
-    b. Na caixa de texto **de nome único,** insira o seu nome.
+    1. Na caixa de texto **de nome único,** insira o seu nome.
 
-    c. Na **caixa de** texto ID da Entidade, cole o valor do **Identificador AD Azure,** que copiou a partir do portal Azure.
+    1. Na **caixa de** texto ID da Entidade, cole o valor do **Identificador AD Azure,** que copiou a partir do portal Azure.
 
-    d. Na caixa de texto **URL SSO SAML,** cole o valor do URL de **Login,** que copiou a partir do portal Azure.
+    1. Na caixa de texto **URL SSO SAML,** cole o valor do URL de **Login,** que copiou a partir do portal Azure.
 
-    e. Faça o upload do certificado clicando no botão **selecionado** ao lado **do Certificado**.
+    1. Faça o upload do certificado clicando no botão **selecionado** ao lado **do Certificado**.
 
-    f. **Definições opcionais** -
-    
-    * Ativar palavras-passe - Quando esta opção é desativada, a palavra-passe regular funciona para que os utilizadores possam utilizar apenas o início de sção.
+    1. **Definições opcionais** -
 
-    * Ativar o provisionamento automático - Quando este estiver ativado, o endereço de e-mail utilizado para iniciar sing-on será automaticamente comparado com a lista de utilizadores na Forma como fazemos. Se o endereço de e-mail não corresponder a um utilizador ativo na Forma como fazemos, adiciona automaticamente uma nova conta de utilizador para a pessoa que se insere, solicitando qualquer informação em falta.
+        * Ativar palavras-passe - Quando esta opção é desativada, a palavra-passe regular funciona para que os utilizadores possam utilizar apenas o início de sção.
 
-      > [!NOTE]
-      > Os utilizadores adicionados através de um único sign-on são adicionados como utilizadores gerais e não são atribuídos um papel no sistema. Um administrador é capaz de entrar e modificar o seu papel de segurança como editor ou administrador e também pode atribuir uma ou várias funções de Org Chart.
+        * Ativar o provisionamento automático - Quando este estiver ativado, o endereço de e-mail utilizado para iniciar sing-on será automaticamente comparado com a lista de utilizadores na Forma como fazemos. Se o endereço de e-mail não corresponder a um utilizador ativo na Forma como fazemos, adiciona automaticamente uma nova conta de utilizador para a pessoa que se insere, solicitando qualquer informação em falta.
 
-    exemplo, Clique **em Guardar** para persistir as suas definições.
+          > [!NOTE]
+          > Os utilizadores adicionados através de um único sign-on são adicionados como utilizadores gerais e não são atribuídos um papel no sistema. Um administrador é capaz de entrar e modificar o seu papel de segurança como editor ou administrador e também pode atribuir uma ou várias funções de Org Chart.
+
+    1. Clique **em Guardar** para persistir as suas definições.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -154,7 +154,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Way We Do.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Way We Do**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a007e64a7bd034397c2030c435a5ad349bd4acc7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053906"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608753"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo do Azure Resource Manager para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -341,46 +341,58 @@ Crie um ficheiro JSON com o nome **ADFCopyTutorialARM Parameters.json** que cont
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
-2. Clique em **Fábricas de dados** no menu da esquerda (ou) clique em **Todos os serviços** e clique em **Fábricas de dados** na categoria **INTELIGÊNCIA + ANÁLISE**.
+
+1. Clique em **Fábricas de dados** no menu da esquerda (ou) clique em **Todos os serviços** e clique em **Fábricas de dados** na categoria **INTELIGÊNCIA + ANÁLISE**.
    
     ![Menu de fábricas de dados](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. Na página **Fábricas de dados**, procure e encontre a sua fábrica de dados (AzureBlobToAzureSQLDatabaseDF). 
+
+1. Na página **Fábricas de dados**, procure e encontre a sua fábrica de dados (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Procure a fábrica de dados](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Clique na sua fábrica de dados do Azure. Pode ver a home page da fábrica de dados.
+
+1. Clique na sua fábrica de dados do Azure. Pode ver a home page da fábrica de dados.
    
     ![Home page da fábrica de dados](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Siga as instruções em [Monitorizar conjuntos de dados e pipeline](data-factory-monitor-manage-pipelines.md) para monitorizar o pipeline e os conjuntos de dados que criou neste tutorial. Atualmente, o Visual Studio não suporta a monitorização de pipelines do Data Factory.
-7. Quando uma fatia estiver no estado **de Ready,** verifique se os dados são copiados para a tabela **emp** na Base de Dados Azure SQL.
 
+1. Siga as instruções em [Monitorizar conjuntos de dados e pipeline](data-factory-monitor-manage-pipelines.md) para monitorizar o pipeline e os conjuntos de dados que criou neste tutorial. Atualmente, o Visual Studio não suporta a monitorização de pipelines do Data Factory.
+
+1. Quando uma fatia estiver no estado **de Ready,** verifique se os dados são copiados para a tabela **emp** na Base de Dados Azure SQL.
 
 Para obter mais informações sobre como utilizar os painéis do portal do Azure para monitorizar os conjuntos de dados e o pipeline que criou neste tutorial, veja [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) (Monitorizar os conjuntos de dados e o pipeline).
 
 Para obter mais informações sobre como utilizar a aplicação Monitorizar e Gerir para monitorizar os seus pipelines de dados, veja [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) (Monitorizar e gerir pipelines do Azure Data Factory com a Aplicação de Monitorização).
 
 ## <a name="data-factory-entities-in-the-template"></a>Entidades do Data Factory no modelo
+
 ### <a name="define-data-factory"></a>Definir fábrica de dados
-Defina uma fábrica de dados no modelo do Resource Manager, conforme mostrado no exemplo seguinte:  
+
+Defina uma fábrica de dados no modelo do Resource Manager, conforme mostrado no exemplo seguinte:
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 }
 ```
 
 O dataFactoryName é definido como: 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
-É uma cadeia exclusiva com base no ID do grupo do recursos.  
+É uma cadeia exclusiva com base no ID do grupo do recursos.
 
 ### <a name="defining-data-factory-entities"></a>Definir entidades do Data Factory
+
 As seguintes entidades do Data Factory são definidas no modelo JSON: 
 
 1. [Serviço ligado do Storage do Azure](#azure-storage-linked-service)
@@ -390,6 +402,7 @@ As seguintes entidades do Data Factory são definidas no modelo JSON:
 5. [Pipeline de dados com uma atividade de cópia](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure
+
 O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábrica de dados. Como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), criou um contentor e carregou dados para esta conta de armazenamento. Especifique o nome e a chave da sua conta de armazenamento do Azure nesta secção. Veja [Azure Storage linked service (Serviço ligado de Armazenamento do Azure)](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obter detalhes sobre as propriedades JSON utilizadas para definir um serviço ligado de Armazenamento do Azure. 
 
 ```json
@@ -413,6 +426,7 @@ O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábri
 A connectionString utiliza os parâmetros storageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também utiliza variáveis: azureStorageLinkedService e dataFactoryName definidos no modelo. 
 
 #### <a name="azure-sql-database-linked-service"></a>Serviço ligado da Base de Dados SQL do Azure
+
 O AzureSqlLinkedService liga a sua base de dados na Base de Dados Azure SQL à fábrica de dados. Os dados copiados do armazenamento de blobs são armazenados nesta base de dados. Como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), criou a tabela emp nesta base de dados. Especifica o nome lógico do servidor SQL, nome da base de dados, nome do utilizador e senha de utilizador nesta secção. Consulte o [Azure SQL linked service (Serviço ligado SQL do Azure)](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON utilizadas para definir um serviço ligado SQL do Azure.  
 
 ```json
@@ -424,11 +438,11 @@ O AzureSqlLinkedService liga a sua base de dados na Base de Dados Azure SQL à f
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-          "type": "AzureSqlDatabase",
-          "description": "Azure SQL linked service",
-          "typeProperties": {
-            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-          }
+      "type": "AzureSqlDatabase",
+      "description": "Azure SQL linked service",
+      "typeProperties": {
+        "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+      }
     }
 }
 ```

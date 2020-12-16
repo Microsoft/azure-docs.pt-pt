@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new, devx-track-js
-ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b157200b03bdc89e00bfa5c8264d78baf24875c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676029"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609127"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteja o backend SPA com AAuth 2.0, Azure Ative Directory B2C e Azure API Management
 
@@ -174,13 +174,13 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
 1. Se pretender continuar a interagir com o portal de funções e a realizar os passos opcionais abaixo, deve adicionar também aqui o seu próprio endereço IP público ou alcance CIDR.
 1. Uma vez que haja uma entrada de permiti na lista, Azure adiciona uma regra implícita de negação para bloquear todos os outros endereços. 
 
-Terá de adicionar blocos de endereços formatados ciDR ao painel de restrições IP. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx.
+Terá de adicionar blocos de endereços formatados ciDR ao painel de restrições IP. Quando precisa de adicionar um único endereço, como o API Management VIP, tem de o adicionar no formato xx.xx.xx.xx
 
    > [!NOTE]
    > Agora, a sua API de função não deve ser chamada de outro lugar que não seja através da gestão da API, ou do seu endereço.
    
 ## <a name="import-the-function-app-definition"></a>Importar a definição de aplicação de função
-1. Abra a *lâmina de gestão da API* e, em seguida, abra *a sua instância* .
+1. Abra a *lâmina de gestão da API* e, em seguida, abra *a sua instância*.
 1. Selecione a Lâmina APIs da secção de Gestão API do seu caso.
 1. A partir do painel 'Adicionar uma Nova API', escolha 'App de função', e depois selecione 'Full' a partir do topo do popup.
 1. Clique em Procurar, escolha a aplicação de função que está hospedando a API no interior e clique em selecionar.
@@ -396,7 +396,8 @@ Terá de adicionar blocos de endereços formatados ciDR ao painel de restriçõe
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},                   url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;
