@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755404a06d8586968801aa22f2af532da278802
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fbddd2eb52414827561d8896dfc8bc9ff705f41b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742328"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584396"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualização para o Servidor Multi-Factor Authentication do Azure mais recente
 
@@ -33,16 +33,16 @@ Se estiver a atualizar de v6.x ou mais para v7.x ou mais recente, todos os compo
 
 Atualizar passos num ápice:
 
-* Atualizar servidores Azure MFA (subordinados e depois Mestre)
+* Atualizar servidores Azure MFA (subordinados e depois primários)
 * Atualizar as instâncias do Portal do Utilizador
 * Atualizar as instâncias do adaptador AD FS
 
 ## <a name="upgrade-azure-mfa-server"></a>Atualizar servidor Azure MFA
 
 1. Utilize as instruções no [Download do Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md#download-the-mfa-server) para obter a versão mais recente do instalador do Servidor Azure MFA.
-2. Faça uma cópia de segurança do ficheiro de dados do Servidor MFA localizado em C:\Program Files\Servidor de Autenticação multi-factor\Data\PhoneFactor.pfdata (assumindo a localização de instalação predefinido) no seu servidor principal do MFA.
+2. Faça uma cópia de segurança do ficheiro de dados do Servidor MFA localizado em C:\Program Files\Servidor de Autenticação multi-factor\Data\PhoneFactor.pfdata (assumindo a localização de instalação predefinido) no seu servidor MFA primário.
 3. Se executar vários servidores para uma elevada disponibilidade, altere os sistemas de clientes que autenticam para o Servidor MFA para que deixem de enviar tráfego para os servidores que estão a atualizar. Se utilizar um equilibrador de carga, remova um Servidor MFA subordinado do equilibrador de carga, faça a atualização e, em seguida, adicione o servidor de volta à quinta.
-4. Execute o novo instalador em cada Servidor MFA. Atualizar os servidores subordinados primeiro porque podem ler o antigo ficheiro de dados que está a ser replicado pelo mestre.
+4. Execute o novo instalador em cada Servidor MFA. Atualizar os servidores subordinados primeiro porque podem ler o antigo ficheiro de dados que está a ser replicado pelas primárias.
 
    > [!NOTE]
    > Ao atualizar um servidor, deve ser removido de qualquer equilíbrio de carga ou partilha de tráfego com outros Servidores MFA.
@@ -51,7 +51,7 @@ Atualizar passos num ápice:
   
 5. Se for solicitado que instale um pacote de atualização redistribuível Microsoft Visual C++ 2015, aceite a solicitação. As versões x86 e x64 do pacote estão instaladas.
 6. Se utilizar o Web Service SDK, é-lhe pedido que instale o novo Serviço Web SDK. Quando instalar o novo Web Service SDK, certifique-se de que o nome do diretório virtual corresponde ao diretório virtual previamente instalado (por exemplo, MultiFactorAuthWebServiceSdk).
-7. Repita os passos em todos os servidores subordinados. Promover um dos subordinados para ser o novo mestre, em seguida, atualizar o antigo servidor principal.
+7. Repita os passos em todos os servidores subordinados. Promover um dos subordinados para ser o novo primário, em seguida, atualizar o antigo servidor primário.
 
 ## <a name="upgrade-the-user-portal"></a>Atualizar o Portal do Utilizador
 
@@ -102,7 +102,7 @@ Estas instruções só se aplicam se executar o Servidor de Autenticação Multi
 
    Se ocorrer um erro indicando: "Microsoft Visual C++ 2015 Redistributable Update 1 ou superior é necessário", descarregue e instale o mais recente pacote de atualização do [Microsoft Download Center](https://www.microsoft.com/download/). Instale as versões x86 e x64.
 
-3. Vá para políticas de autenticação **AD FS**  >  **Authentication Policies**  >  **Editar a Política Global de Autenticação MultiFactor**. Desmarque **o WindowsAzureMultiFactorAuthentication** ou **AzureMFAServerAuthentication** (dependendo da versão atual instalada).
+3. Vá para políticas de autenticação **AD FS**  >    >  **Editar a Política Global de Autenticação MultiFactor**. Desmarque **o WindowsAzureMultiFactorAuthentication** ou **AzureMFAServerAuthentication** (dependendo da versão atual instalada).
 
    Uma vez concluído este passo, a verificação em duas etapas através do MFA Server não estará disponível neste cluster AD FS até completar o passo 8.
 
@@ -110,7 +110,7 @@ Estas instruções só se aplicam se executar o Servidor de Autenticação Multi
 5. Registe o novo adaptador AD FS executando o Register-MultiFactorAuthenticationAdfsAdapter.ps1 script PowerShell. Isto aplica-se a todos os servidores do mesmo cluster AD FS, uma vez que existe uma configuração central.
 6. Reinicie o serviço AD FS em cada servidor removido da fazenda AD FS.
 7. Adicione os servidores atualizados de volta à fazenda AD FS e remova os outros servidores da quinta.
-8. Vá para políticas de autenticação **AD FS**  >  **Authentication Policies**  >  **Editar a Política Global de Autenticação MultiFactor**. Verifique **a AzureMfaServerAuthentication**.
+8. Vá para políticas de autenticação **AD FS**  >    >  **Editar a Política Global de Autenticação MultiFactor**. Verifique **a AzureMfaServerAuthentication**.
 9. Repita o passo 2 para atualizar os servidores agora removidos da fazenda AD FS e reinicie o serviço AD FS nesses servidores.
 10. Adicione os servidores de volta à fazenda AD FS.
 

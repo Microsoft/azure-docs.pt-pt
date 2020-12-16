@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ae2361d12dfe18cadd80dd3b84405b2b17751e59
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929321"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584090"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
@@ -43,6 +43,7 @@ Para concluir este artigo, precisa de:
     ```console
     openssl rand -base64 32
     ```
+
     Verifique se a palavra-passe gerada satisfaz os requisitos de senha VM. Cada serviço do Azure tem requisitos de palavra-passe específicos. Para os requisitos de senha VM, consulte [quais são os requisitos de senha quando criar um VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)
 
 ## <a name="prepare-a-key-vault"></a>Prepare um cofre chave
@@ -53,7 +54,7 @@ Nesta secção, você cria um cofre chave e adiciona-lhe um segredo, para que po
 * Acrescenta um segredo ao cofre das chaves. O segredo armazena a senha do administrador VM.
 
 > [!NOTE]
-> Como utilizador que está a implementar o modelo de máquina virtual, se não for o Proprietário ou um Contribuinte para o cofre de chaves, o Proprietário ou um Contribuinte deve conceder-lhe acesso à *microsoft.KeyVault/vaults/deploy/action* permission para o cofre de chaves. Para obter mais informações, consulte [use Azure Key Vault para passar um valor de parâmetro seguro durante a implementação](./key-vault-parameter.md).
+> Como utilizador que está a implementar o modelo de máquina virtual, se não for o Proprietário ou um Contribuinte para o cofre de chaves, o Proprietário ou um Contribuinte deve conceder-lhe acesso à `Microsoft.KeyVault/vaults/deploy/action` permissão para o cofre de chaves. Para obter mais informações, consulte [use Azure Key Vault para passar um valor de parâmetro seguro durante a implementação](./key-vault-parameter.md).
 
 Para executar o seguinte script Azure PowerShell, selecione **Experimente-o** para abrir a Azure Cloud Shell. Para colar o script, clique com o botão direito da vidraça e, em seguida, **selecione Pasta**.
 
@@ -79,7 +80,7 @@ Write-Host "Press [ENTER] to continue ..."
 > * O nome padrão para o segredo é **vmAdminPassword**. É codificado no modelo.
 > * Para ativar o modelo para recuperar o segredo, tem de ativar uma política de acesso chamada **Enable access to Azure Resource Manager para a implementação** do modelo para o cofre de chaves. Esta política está ativada no modelo. Para obter mais informações sobre a política de acesso, consulte [a Deploy key vaults and secrets](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-O modelo tem um valor de saída, chamado *keyVaultId*. Você usará esta identificação juntamente com o nome secreto para recuperar o valor secreto mais tarde no tutorial. O formato de ID de recursos é:
+O modelo tem um valor de saída, chamado `keyVaultId` . Você usará esta identificação juntamente com o nome secreto para recuperar o valor secreto mais tarde no tutorial. O formato de ID de recursos é:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -87,7 +88,7 @@ O modelo tem um valor de saída, chamado *keyVaultId*. Você usará esta identif
 
 Quando copiar e colar o ID, pode ser dividido em várias linhas. Misture as linhas e corte os espaços extras.
 
-Para validar a colocação, executar o seguinte comando PowerShell no mesmo painel de concha para recuperar o segredo em texto claro. O comando funciona apenas na mesma sessão de concha, porque utiliza a variável *$keyVaultName*, que é definida no script PowerShell anterior.
+Para validar a colocação, executar o seguinte comando PowerShell no mesmo painel de concha para recuperar o segredo em texto claro. O comando funciona apenas na mesma sessão de concha, porque utiliza a variável `$keyVaultName` , que é definida no script anterior do PowerShell.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -119,7 +120,7 @@ Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar 
 
    É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
 
-1. Selecione **File**  >  **'Guardar ficheiros',** e, em seguida, guarde uma cópia do ficheiro para o computador local com o nome *azuredeploy.jsligado*.
+1. Selecione   >  **'Guardar ficheiros',** e, em seguida, guarde uma cópia do ficheiro para o computador local com o nome *azuredeploy.jsligado*.
 
 1. Repita os passos 1-3 para abrir o seguinte URL e, em seguida, guarde o ficheiro à medida *queazuredeploy.parameters.js.*
 
@@ -146,14 +147,14 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
     ```
 
     > [!IMPORTANT]
-    > Substitua o valor **do id** pelo ID de recurso do cofre chave que criou no procedimento anterior. O nome secreto é codificado como **vmAdminPassword**.  Ver [Preparar um cofre de chaves](#prepare-a-key-vault).
+    > Substitua o valor pelo `id` ID de recurso do cofre chave que criou no procedimento anterior. O `secretName` é codificado como **vmAdminPassword**.  Ver [Preparar um cofre de chaves](#prepare-a-key-vault).
 
     ![Integrar o cofre chave e o ficheiro de parâmetros de implementação de modelos de modelo de gestão de modelos de gestão de modelos de gestão de recursos](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. Atualizar os seguintes valores:
 
-    * **adminUsername**: O nome da conta de administrador de máquina virtual.
-    * **dnsLabelPrefix**: Nomeie o valor dnsLabelPrefix.
+    * `adminUsername`: O nome da conta de administrador de máquina virtual.
+    * `dnsLabelPrefix`: Diga o `dnsLabelPrefix` valor.
 
     Por exemplo, veja a imagem anterior.
 
@@ -167,7 +168,7 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça *o upload de ambos osazuredeploy.js* e *azuredeploy.parameters.js* para a Cloud Shell. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça *o upload de ambos osazuredeploy.js* e *azuredeploy.parameters.js* para a Cloud Shell. Depois de carregar o ficheiro, pode utilizar o `ls` comando e o comando para verificar se o ficheiro é carregado com `cat` sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
@@ -193,7 +194,7 @@ Depois de ter implantado com sucesso a máquina virtual, teste as credenciais de
 1. Abra o [portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos de recursos**  >  **\<*YourResourceGroupName*>**  >  **simplesWinVM**.
-1. Selecione **ligar** na parte superior.
+1. Selecione **Connect** na parte superior.
 1. Selecione **Baixar Ficheiro RDP** e, em seguida, siga as instruções para iniciar sing na máquina virtual utilizando a palavra-passe que está armazenada no cofre da chave.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

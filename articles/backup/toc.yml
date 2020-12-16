@@ -423,6 +423,8 @@
       items:
         - name: VM do Azure
           href: backup-azure-vms-troubleshoot.md
+        - name: Recuperação de ficheiros da VM do Azure
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: O agente do Azure Backup ou a extensão da VM excederam o limite de tempo
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Agente do Backup do Azure

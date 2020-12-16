@@ -6,18 +6,18 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a44852fb2f491dd949b58217eca3e4f3e392cf17
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931423"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584141"
 ---
 # <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilize a referência do modelo ARM
 
 Saiba como encontrar as informações do esquema do modelo e use as informações para criar modelos de Gestor de Recursos Azure (modelos ARM).
 
-Neste tutorial, vai utilizar um modelo de base dos modelos de Início Rápido do Azure. Utilizando a documentação de referência do modelo, personaliza o modelo.
+Neste tutorial, você usa um modelo base de Azure Quickstart Templates. Utilizando a documentação de referência do modelo, personaliza o modelo.
 
 ![Conta de armazenamento de referência de modelo de gestor de recursos](./media/template-tutorial-use-template-reference/resource-manager-template-tutorial-deploy-storage-account.png)
 
@@ -42,7 +42,7 @@ Para concluir este artigo, precisa de:
 
 [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste início rápido chama-se [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso de conta de Armazenamento do Azure.
 
-1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de**  >  **Ficheiros**.
 1. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -50,26 +50,26 @@ Para concluir este artigo, precisa de:
     ```
 
 1. Selecione **Abrir** para abrir o ficheiro.
-1. Selecione **File** > **'Guardar ficheiros' para** guardar o ficheiro à medida **queazuredeploy.jsno** computador local.
+1. Selecione   >  **'Guardar ficheiros' para** guardar o ficheiro à medida _queazuredeploy.jsno_ computador local.
 
 ## <a name="understand-the-schema"></a>Compreender o esquema
 
-1. No VS Code, feche o modelo até ao nível da raiz. Tem a estrutura mais simples com os seguintes elementos:
+1. Do Código do Estúdio Visual, desabar o modelo até ao nível da raiz. Tem a estrutura mais simples com os seguintes elementos:
 
     ![Estrutura mais simples do modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-simplest-structure.png)
 
-    * **$schema**: especifique a localização do ficheiro de esquema JSON que descreve a versão da linguagem de modelos.
-    * **contentVersion**: especifique qualquer valor para este elemento, para documentar alterações significativas ao seu modelo.
-    * **parâmetros**: especifique os valores que são fornecidos quando a implementação é executada, para personalizar a implementação de recursos.
-    * **variáveis**: especifique os valores que são utilizados como fragmentos JSON no modelo, para simplificar as expressões de linguagem de modelos.
-    * **recursos**: especifique os tipos de recurso que são implementados ou atualizados num grupo de recursos.
-    * **saídas**: especifique os valores que são devolvidos após a implementação.
+    * `$schema`: especificar a localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo.
+    * `contentVersion`: especifique qualquer valor para este elemento documentar alterações significativas no seu modelo.
+    * `parameters`: especificar os valores fornecidos quando a implementação é executada para personalizar a implementação de recursos.
+    * `variables`: especifique os valores que são usados como fragmentos de JSON no modelo para simplificar as expressões linguísticas do modelo.
+    * `resources`: especificar os tipos de recursos que são implantados ou atualizados num grupo de recursos.
+    * `outputs`: especificar os valores que são devolvidos após a implantação.
 
-1. Expanda os **recursos**. Existe um recurso de `Microsoft.Storage/storageAccounts` definido. O nome SKU usa um valor de parâmetro.  O parâmetro chama-se **StorageAccountType**.
+1. `resources`Expandir. Há um `Microsoft.Storage/storageAccounts` recurso definido. O nome SKU usa um valor de parâmetro. O parâmetro chama-se `storageAccountType` .
 
     ![Definição da conta de armazenamento do modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
-1. Expandir **parâmetros** para ver como **o armazenamentoAccountType** é definido. O parâmetro tem quatro valores permitidos. Encontrará os outros valores permitidos e, em seguida, reverá a definição de parâmetro.
+1. Expanda `parameters` para ver como é `storageAccountType` definido. O parâmetro tem quatro valores permitidos. Encontrará os outros valores permitidos e, em seguida, reverá a definição de parâmetro.
 
     ![Recursos de conta de armazenamento de modelo de gestor de recursos do gestor de recursos de recursos](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
@@ -88,9 +88,9 @@ Para concluir este artigo, precisa de:
 
     ![Versões de tipos de conta de referência de modelo de gestor de recursos](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Selecione a versão mais recente do tipo de recurso **storageAccount.** A versão mais recente é **2019-06-01** quando este artigo está escrito. Certifique-se de que esta versão corresponde à versão utilizada para o recurso da conta de armazenamento no seu modelo. Se atualizar a versão API, verifique se a definição de recurso corresponde à referência do modelo.
+1. Selecione a versão mais recente do `storageAccount` tipo de recurso. A versão mais recente é **2019-06-01** quando este artigo está escrito. Certifique-se de que esta versão corresponde à versão utilizada para o recurso da conta de armazenamento no seu modelo. Se atualizar a versão API, verifique se a definição de recurso corresponde à referência do modelo.
 
-1. Esta página lista os detalhes do tipo de recurso storageAccount.  Por exemplo, lista os valores permitidos para o objeto **Sku.** Há mais skus do que o que está listado no modelo de arranque rápido que abriu anteriormente. Pode personalizar o modelo de arranque rápido para incluir todos os tipos de armazenamento disponíveis.
+1. Esta página lista os detalhes do tipo de recurso storageAccount. Por exemplo, lista os valores permitidos para o **objeto Sku**. Há mais SKUs do que o que está listado no modelo de arranque rápido que abriu anteriormente. Pode personalizar o modelo de arranque rápido para incluir todos os tipos de armazenamento disponíveis.
 
     ![Skus de conta de armazenamento de referência de modelo de gestor de recursos](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 
@@ -108,9 +108,11 @@ A partir do Código do Estúdio Visual, adicione os tipos adicionais de conta de
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o `ls` comando e o comando para verificar se o ficheiro foi carregado com `cat` sucesso.
 
 1. A partir da Cloud Shell, executar os seguintes comandos. Selecione o separador para mostrar o código do PowerShell ou o código da CLI.
+
+   Quando implementar o modelo, especifique o `storageAccountType` parâmetro com um novo valor acrescentado, por exemplo, **Standard_RAGRS**. A implementação falharia se usasse o modelo original de arranque rápido porque **Standard_RAGRS** não era um valor permitido.
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -137,16 +139,14 @@ A partir do Código do Estúdio Visual, adicione os tipos adicionais de conta de
 
     ---
 
- Quando implementar o modelo, especifique o parâmetro **De armazenamentoAconsetype** com um novo valor acrescentado, por exemplo, **Standard_RAGRS**. A implementação falharia se usasse o modelo original de arranque rápido porque **Standard_RAGRS** não era um valor permitido.
-
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
 1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
-2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
-3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
-4. **Selecione Eliminar o grupo** de recursos do menu superior.
+1. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
+1. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
+1. **Selecione Eliminar o grupo** de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

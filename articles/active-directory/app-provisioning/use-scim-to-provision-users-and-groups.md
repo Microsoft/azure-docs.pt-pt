@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c9738d25fdcb1c0ccda70ec116eb369f8b50e980
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027480"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584498"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -1170,7 +1170,7 @@ Se estiver a construir uma aplicação que será usada por mais de um inquilino,
 ### <a name="gallery-onboarding-checklist"></a>Galeria de verificação de bordo
 Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e os clientes têm uma experiência de implementação suave. A informação será recolhida de si quando embarcar na galeria. 
 > [!div class="checklist"]
-> * Suporte um utilizador [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) e ponto final de grupo (Apenas um é necessário, mas ambos são recomendados)
+> * Suporte um utilizador [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) e ponto final de grupo (Apenas um é necessário, mas ambos são recomendados)
 > * Apoiar pelo menos 25 pedidos por segundo por inquilino para garantir que os utilizadores e grupos sejam aprovisionados e desprovisionados sem demora (Obrigatório)
 > * Estabelecer contactos de engenharia e apoio para orientar os clientes post gallery onboarding (Obrigatório)
 > * 3 Credenciais de teste não expiradas para a sua aplicação (Requerida)

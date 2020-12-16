@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 2c7eea87101a36edb0d77026489ea351b601158b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108557"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584600"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar arkose Labs com Azure Ative Directory B2C
 
@@ -120,7 +120,7 @@ Baixe Git Bash e siga os passos abaixo:
 
    ``git commit -am "updated output"``
 
-   ``git push azure master``  
+   ``git push azure main``  
 
 ### <a name="part-3---final-setup"></a>Parte 3 - Configuração final
 

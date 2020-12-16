@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23cf7abeb0aaf8bc3939296a307edb07ce5fcf0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c1853a4784e3098ecbcefa94d5512b4877ac4dc4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742481"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584481"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configure Servidor de Autenticação Multi-Factor Azure para alta disponibilidade
 
@@ -39,23 +39,23 @@ Um Servidor MFA é um Servidor Windows que tem o software de autenticação mult
 
 O primeiro MFA Server que está instalado é o principal Servidor MFA após a ativação pelo Serviço MFA Azure por padrão. O servidor principal do MFA tem uma cópia escrita da base de dados PhoneFactor.pfdata. As instalações subsequentes de instâncias do MFA Server são conhecidas como subordinados. Os subordinados do MFA têm uma cópia replicada apenas de leitura da base de dados PhoneFactor.pfdata. Os servidores MFA replicam informações através da Chamada de Procedimento Remoto (RPC). Todos os MFA Severs devem ser unidos coletivamente ou autónomos para replicar informação.
 
-Tanto os MFA master como os servidores subordinados do MFA comunicam com o Serviço MFA quando é necessária autenticação de dois fatores. Por exemplo, quando um utilizador tenta aceder a uma aplicação que requer autenticação de dois fatores, o utilizador será primeiro autenticado por um fornecedor de identidade, como o Ative Directory (AD).
+Tanto os servidores MFA primários como subordinados da MFA comunicam com o Serviço MFA quando é necessária autenticação de dois fatores. Por exemplo, quando um utilizador tenta aceder a uma aplicação que requer autenticação de dois fatores, o utilizador será primeiro autenticado por um fornecedor de identidade, como o Ative Directory (AD).
 
 Após a autenticação bem sucedida com a AD, o Servidor MFA comunicará com o Serviço MFA. O MFA Server aguarda a notificação do Serviço MFA para permitir ou negar o acesso do utilizador à aplicação.
 
-Se o servidor principal do MFA ficar offline, as autenticações ainda podem ser processadas, mas as operações que requerem alterações na base de dados do MFA não podem ser processadas. (Exemplos incluem: a adição de utilizadores, alterações PIN de autosserviço, alteração da informação do utilizador ou acesso ao portal do utilizador)
+Se o servidor primário do MFA ficar offline, as autenticações ainda podem ser processadas, mas as operações que requerem alterações na base de dados do MFA não podem ser processadas. (Exemplos incluem: a adição de utilizadores, alterações PIN de autosserviço, alteração da informação do utilizador ou acesso ao portal do utilizador)
 
 ## <a name="deployment"></a>Implementação
 
 Considere os seguintes pontos importantes para o equilíbrio de carga Azure MFA Server e seus componentes relacionados.
 
 * **Utilizando o padrão RADIUS para obter uma elevada disponibilidade**. Se estiver a utilizar servidores MFA Azure como servidores RADIUS, pode potencialmente configurar um Servidor MFA como alvo de autenticação RADIUS primário e outros Servidores MFA Azure como alvos de autenticação secundária. No entanto, este método para obter uma elevada disponibilidade pode não ser prático, pois deve esperar que ocorra um período de tempo de tempo quando a autenticação falha no alvo de autenticação primária antes de poder ser autenticado contra o alvo de autenticação secundária. É mais eficiente carregar o equilíbrio do tráfego RADIUS entre o cliente RADIUS e os Servidores RADIUS (neste caso, os Servidores MFA Azure atuando como servidores RADIUS) para que possa configurar os clientes RADIUS com um único URL que possam apontar.
-* **Necessidade de promover manualmente subordinados de MFA.** Se o servidor MFA mestre Azure ficar offline, os servidores Azure MFA secundários continuam a processar os pedidos de MFA. No entanto, até que um servidor MFA principal esteja disponível, os administradores não podem adicionar utilizadores ou modificar as definições de MFA, e os utilizadores não podem fazer alterações usando o portal do utilizador. Promover um MFA subordinado ao papel principal é sempre um processo manual.
+* **Necessidade de promover manualmente subordinados de MFA.** Se o servidor MFA Azure primário ficar offline, os servidores Azure MFA secundários continuam a processar os pedidos de MFA. No entanto, até que um servidor MFA primário esteja disponível, os administradores não podem adicionar utilizadores ou modificar as definições de MFA, e os utilizadores não podem fazer alterações usando o portal do utilizador. Promover um MFA subordinado ao papel primário é sempre um processo manual.
 * **Separabilidade dos componentes.** O Azure MFA Server compreende vários componentes que podem ser instalados na mesma instância do Windows Server ou em diferentes instâncias. Estes componentes incluem o Portal do Utilizador, o Serviço Web de Aplicações Móveis e o adaptador ADFS (agente). Esta separabilidade permite utilizar o Proxy da Aplicação Web para publicar o Portal do Utilizador e o Servidor Web de Aplicações Móveis a partir da rede de perímetro. Esta configuração adiciona à segurança geral do seu design, como mostrado no diagrama seguinte. O Portal do Utilizador MFA e o Servidor Web de Aplicações Móveis também podem ser implantados em configurações equilibradas de carga HA.
 
    ![Servidor MFA com rede de perímetro](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
 
-* **A palavra-passe única (OTP) sobre SMS (também conhecida como SMS de ida) requer a utilização de sessões pegajosas se o tráfego for equilibrado em carga**. O SMS unidireccionário é uma opção de autenticação que faz com que o Servidor MFA envie aos utilizadores uma mensagem de texto contendo uma OTP. O utilizador entra na OTP numa janela rápida para completar o desafio MFA. Se carregar o equilíbrio Azure MFA Servers, o mesmo servidor que serviu o pedido inicial de autenticação deve ser o servidor que recebe a mensagem OTP do utilizador; se outro MFA Server receber a resposta OTP, o desafio de autenticação falha. Para obter mais informações, consulte [uma palavra-passe de uma vez sobre SMS Adicionada ao Servidor MFA Azure](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
+* **A palavra-passe única (OTP) sobre SMS (também conhecida como SMS unidirecional) requer a utilização de sessões pegajosas se o tráfego for equilibrado em carga**. O SMS unidireccionário é uma opção de autenticação que faz com que o Servidor MFA envie aos utilizadores uma mensagem de texto contendo uma OTP. O utilizador entra na OTP numa janela rápida para completar o desafio MFA. Se carregar o equilíbrio Azure MFA Servers, o mesmo servidor que serviu o pedido inicial de autenticação deve ser o servidor que recebe a mensagem OTP do utilizador; se outro MFA Server receber a resposta OTP, o desafio de autenticação falha. Para obter mais informações, consulte [uma palavra-passe de uma vez sobre SMS Adicionada ao Servidor MFA Azure](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
 * **As implementações equilibradas de carga do Portal do Utilizador e do Serviço Web de Aplicações Móveis requerem sessões pegajosas**. Se estiver a equilibrar o Portal do Utilizador MFA e o Serviço Web de Aplicações Móveis, cada sessão tem de permanecer no mesmo servidor.
 
 ## <a name="high-availability-deployment"></a>Implantação de alta disponibilidade
@@ -70,7 +70,7 @@ Note os seguintes itens para a área numerada correspondente do diagrama anterio
    ![Azure MFA Server - Servidor de aplicações HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Como o RPC utiliza portas dinâmicas, não é aconselhável abrir firewalls até à gama de portas dinâmicas que o RPC pode potencialmente utilizar. Se tiver uma firewall **entre** os seus servidores de aplicações MFA, deve configurar o Servidor MFA para comunicar numa porta estática para o tráfego de replicação entre servidores subordinados e principais e abrir essa porta na sua firewall. Pode forçar a porta estática criando um valor de registo DWORD ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` a chamada ```Pfsvc_ncan_ip_tcp_port``` e definindo o valor para uma porta estática disponível. As ligações são sempre iniciadas pelos servidores MFA subordinados ao mestre, a porta estática só é necessária no mestre, mas uma vez que pode promover um subordinado para ser o mestre a qualquer momento, deve definir a porta estática em todos os Servidores MFA.
+   > Como o RPC utiliza portas dinâmicas, não é aconselhável abrir firewalls até à gama de portas dinâmicas que o RPC pode potencialmente utilizar. Se tiver uma firewall **entre** os seus servidores de aplicações MFA, deve configurar o Servidor MFA para comunicar numa porta estática para o tráfego de replicação entre servidores subordinados e primários e abrir essa porta na sua firewall. Pode forçar a porta estática criando um valor de registo DWORD ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` a chamada ```Pfsvc_ncan_ip_tcp_port``` e definindo o valor para uma porta estática disponível. As ligações são sempre iniciadas pelos Servidores MFA subordinados ao primário, a porta estática só é necessária nas primárias, mas uma vez que pode promover um subordinado para ser o principal a qualquer momento, deve definir a porta estática em todos os Servidores MFA.
 
 2. Os dois servidores de aplicações móveis Portal/MFA (MFA-UP-MAS1 e MFA-UP-MAS2) são de carga equilibrada numa configuração **imponente** (mfa.contoso.com). Lembre-se que as sessões pegajosas são um requisito para o equilíbrio de cargas no Portal do Utilizador MFA e no Serviço de Aplicações Móveis.
    ![Servidor Azure MFA - Portal do Utilizador e Serviço de Aplicações Móveis HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

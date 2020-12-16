@@ -13,12 +13,12 @@ ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53a12db9203121d12a69c10aaa81bceab5c1754
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846229"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584260"
 ---
 # <a name="logging-in-msal-applications"></a>Registo de aplicações MSAL
 
@@ -41,7 +41,7 @@ Para mais detalhes sobre o registo do MSAL num determinado idioma, escolha o sep
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
 
-## <a name="logging-in-msalnet"></a>Iniciar sessão em MSAL.NET
+## <a name="logging-in-msalnet"></a>Registos no MSAL.NET
 
  > [!NOTE]
  > Consulte o [wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) para amostras de MSAL.NET de madeira e muito mais.
@@ -142,15 +142,15 @@ var msalConfig = {
     auth: {
         clientId: "<Enter your client id>",
     },
-     system: {
-             logger: new Msal.Logger(
-                                loggerCallback ,{
-                                     level: Msal.LogLevel.Verbose,
-                                     piiLoggingEnabled: false,
-                                     correlationId: '1234'
-                                }
-                        )
-     }
+    system: {
+        logger: new Msal.Logger(
+            loggerCallback , {
+                level: Msal.LogLevel.Verbose,
+                piiLoggingEnabled: false,
+                correlationId: '1234'
+            }
+        )
+    }
 }
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
@@ -210,7 +210,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Para definir o nível de registo quando iniciar sessão utilizando o MSAL para iOS e macOS, utilize um dos seguintes valores:
 
-|Nível  |Descrição |
+|Level  |Descrição |
 |---------|---------|
 | `MSALLogLevelNothing`| Desativar todos os registos |
 | `MSALLogLevelError` | Nível predefinido, imprime a informação apenas quando ocorrem erros |
@@ -287,7 +287,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Para definir o nível de registo quando iniciar sessão utilizando o MSAL para iOS e macOS, utilize um dos seguintes valores:
 
-|Nível  |Descrição |
+|Level  |Descrição |
 |---------|---------|
 | `MSALLogLevelNothing`| Desativar todos os registos |
 | `MSALLogLevelError` | Nível predefinido, imprime a informação apenas quando ocorrem erros |

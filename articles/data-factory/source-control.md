@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355227"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584206"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -103,7 +103,7 @@ O painel de configuração mostra as seguintes definições de repositório de c
 | **Organização Azure Repos** | O nome da organização do Azure Repos. Pode localizar o nome da organização Azure Repos em `https://{organization name}.visualstudio.com` . Pode [iniciar sessão na sua organização Azure Repos](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil de Estúdio Visual e ver os seus repositórios e projetos. | `<your organization name>` |
 | **Nome do Projeto** | O nome do seu projeto Azure Repos. Pode localizar o nome do seu projeto Azure Repos em `https://{organization name}.visualstudio.com/{project name}` . | `<your Azure Repos project name>` |
 | **Nome do Repositório** | O seu nome de repositório de código Azure Repos. Os projetos Azure Repos contêm repositórios de Git para gerir o seu código fonte à medida que o seu projeto cresce. Você pode criar um novo repositório ou usar um repositório existente que já está no seu projeto. | `<your Azure Repos code repository name>` |
-| **Ramo de colaboração** | O seu ramo de colaboração Azure Repos que é usado para a publicação. Por defeito, a sua `master` . Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch name>` |
+| **Ramo de colaboração** | O seu ramo de colaboração Azure Repos que é usado para a publicação. Por defeito, `main` é. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch name>` |
 | **Pasta raiz** | A sua pasta de raiz no seu ramo de colaboração Azure Repos. | `<your root folder name>` |
 | **Importar os recursos existentes da Data Factory para repositório** | Especifica se importa os recursos existentes da fábrica de dados da tela de **autoria** UX para um repositório Azure Repos Git. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (isto é, os serviços e conjuntos de dados ligados são exportados para JSONs separados). Quando esta caixa não é selecionada, os recursos existentes não são importados. | Selecionado (predefinido) |
 | **Sucursal para importar recurso em** | Especifica em que ramo são importados os recursos da fábrica de dados (oleodutos, conjuntos de dados, serviços ligados, etc.). Pode importar recursos para um dos seguintes ramos: a. Colaboração b. Criar novo c. Utilizar a existência |  |
@@ -153,7 +153,7 @@ O painel de configuração mostra as seguintes definições de repositório GitH
 | **URL da Empresa GitHub** | O URL raiz gitHub Enterprise (deve ser HTTPS para o servidor local gitHub Enterprise). Por exemplo: `https://github.mydomain.com`. Só é necessário se **a Utilização da GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
 | **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repositório}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
 | **Nome do Repositório**  | O teu nome de repositório de código GitHub. As contas do GitHub contêm repositórios de Git para gerir o seu código fonte. Pode criar um novo repositório ou usar um repositório existente que já está na sua conta. | `<your repository name>` |
-| **Ramo de colaboração** | O seu ramo de colaboração GitHub que é usado para a publicação. Por defeito, o seu mestre. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch>` |
+| **Ramo de colaboração** | O seu ramo de colaboração GitHub que é usado para a publicação. Por defeito, é principal. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch>` |
 | **Pasta raiz** | A sua pasta de raiz no seu ramo de colaboração GitHub. |`<your root folder name>` |
 | **Importar os recursos existentes da Data Factory para repositório** | Especifica se importa os recursos existentes da fábrica de dados da tela de autoria UX para um repositório gitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (isto é, os serviços e conjuntos de dados ligados são exportados para JSONs separados). Quando esta caixa não é selecionada, os recursos existentes não são importados. | Selecionado (predefinido) |
 | **Sucursal para importar recurso em** | Especifica em que ramo são importados os recursos da fábrica de dados (oleodutos, conjuntos de dados, serviços ligados, etc.). Pode importar recursos para um dos seguintes ramos: a. Colaboração b. Criar novo c. Utilizar a existência |  |
@@ -207,11 +207,11 @@ Os sistemas de controlo de versão (também conhecidos como _controlo de fontes)
 
 ### <a name="creating-feature-branches"></a>Criação de ramos de recursos
 
-Cada repositório Azure Repos Git que está associado a uma fábrica de dados tem um ramo de colaboração. (é `main` o ramo de colaboração padrão). Os utilizadores também podem criar ramos de funcionalidade clicando **+ Novo Ramo** no dropdown do ramo. Assim que aparecer o novo painel de ramificação, insira o nome do seu ramo de recurso.
+Cada repositório Azure Repos Git que está associado a uma fábrica de dados tem um ramo de colaboração. () `main` é o ramo de colaboração padrão). Os utilizadores também podem criar ramos de funcionalidade clicando **+ Novo Ramo** no dropdown do ramo. Assim que aparecer o novo painel de ramificação, insira o nome do seu ramo de recurso.
 
 ![Criar um novo ramo](media/author-visually/new-branch.png)
 
-Quando estiver pronto para fundir as alterações do seu ramo de recurso para o seu ramo de colaboração, clique no dropdown do ramo e selecione **Criar pedido de puxar**. Esta ação leva-o ao Azure Repos Git onde pode levantar pedidos de puxar, fazer revisões de código e fundir alterações no seu ramo de colaboração. (é `master` o padrão). Só pode publicar no serviço data factory a partir da sua filial de colaboração. 
+Quando estiver pronto para fundir as alterações do seu ramo de recurso para o seu ramo de colaboração, clique no dropdown do ramo e selecione **Criar pedido de puxar**. Esta ação leva-o ao Azure Repos Git onde pode levantar pedidos de puxar, fazer revisões de código e fundir alterações no seu ramo de colaboração. (é `main` o padrão). Só pode publicar no serviço data factory a partir da sua filial de colaboração. 
 
 ![Criar um novo pedido de puxar](media/author-visually/create-pull-request.png)
 
@@ -232,7 +232,7 @@ A Azure Data Factory só pode ter uma filial de cada vez. Quando especifica uma 
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 
-Depois de ter fundido alterações no ramo de colaboração `master` (é o padrão), clique em **Publicar** para publicar manualmente as alterações de código na sucursal principal para o serviço Data Factory.
+Depois de ter fundido alterações no ramo de colaboração `main` (é o padrão), clique em **Publicar** para publicar manualmente as alterações de código no ramo principal para o serviço Data Factory.
 
 ![Publicar alterações no serviço Data Factory](media/author-visually/publish-changes.png)
 
@@ -264,7 +264,7 @@ A utilização da autenticação Key Vault ou MSI também facilita a integraçã
 
 ### <a name="stale-publish-branch"></a>Filial de publicação de Stale
 
-Se o ramo de publicação estiver dessincronizado com o ramo principal e contiver recursos desatualizados apesar de uma publicação recente, tente seguir estes passos:
+Se a sucursal de publicação estiver dessincronizada com o ramo principal e contiver recursos desatualizados apesar de uma publicação recente, tente seguir estes passos:
 
 1. Remova o seu repositório git atual
 1. Reconfigure Git com as mesmas definições, mas certifique-se de que **importa os recursos existentes da Data Factory para repositório** é selecionado e escolha **Novo ramo**

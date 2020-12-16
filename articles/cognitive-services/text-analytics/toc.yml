@@ -31,24 +31,8 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Biblioteca de cliente
-      items:
-        - name: Analisar Texto com a biblioteca de cliente
-          href: quickstarts/text-analytics-sdk.md
-    - name: API REST
-      items:
-        - name: Utilizar o Java
-          href: quickstarts/java.md
-        - name: Utilizar o Python
-          href: quickstarts/python.md
-        - name: Com Node.js
-          href: quickstarts/nodejs.md
-        - name: Utilizar o PHP
-          href: quickstarts/php.md
-        - name: Utilizar o Go
-          href: quickstarts/go.md
-        - name: Utilizar o Ruby
-          href: quickstarts/ruby.md
+    - name: Utilizar a biblioteca de cliente e API REST
+      href: quickstarts/client-libraries-rest-api.md
 - name: Tutoriais
   items:
     - name: Integre o Power BI para analisar os comentários dos clientes

@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 95f41283b78c39ed2cf3b4abb75275902d8cf7bd
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 73964fa1840f3f220662000eb91d34c3eb37bbd8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509585"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584430"
 ---
 # <a name="userinfo-endpoint"></a>Ponto final UserInfo
 

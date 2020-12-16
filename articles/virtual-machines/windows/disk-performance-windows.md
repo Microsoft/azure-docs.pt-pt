@@ -1,20 +1,20 @@
 ---
-title: Desempenho da máquina virtual e do disco
-description: Saiba mais sobre como os VMs e os seus discos anexos funcionam em combinação para o desempenho
+title: Desempenho da máquina virtual e do disco - Windows
+description: Saiba mais sobre como as máquinas virtuais e os seus discos anexos funcionam em combinação para o desempenho no Windows.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 88cf9c28a9d325d617f4b049015f0cd238a2fb31
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: dec8b0cc33a9fffa7cac1ac9261b3c38ef5a6449
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016464"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584124"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>Desempenho da máquina virtual e do disco
+# <a name="virtual-machine-and-disk-performance-windows"></a>Desempenho da máquina virtual e do disco (Windows)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Máquina virtual sem acasa vs limites em cache
