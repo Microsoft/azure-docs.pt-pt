@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362812"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631295"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
@@ -49,7 +49,7 @@ Também pode criar um pacote de acesso programáticamente utilizando o Microsoft
 Para utilizar a gestão de direitos AD da Azure, deve ter uma das seguintes licenças:
 
 - Azure AD Premium P2
-- Licença E5 de Mobilidade Empresarial + Segurança (EMS)
+- Licença E5 do Enterprise Mobility + Security (EMS)
 
 Para mais informações, consulte [os requisitos da Licença.](entitlement-management-overview.md#license-requirements)
 
@@ -117,6 +117,7 @@ Um pacote de *acesso* é um pacote de recursos que uma equipa ou projeto precisa
 11. Na lista de drop-down **role,** selecione **Member**.
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles.png)
+
     >[!IMPORTANT]
     >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados utilizando o sub tipo **atribuível às funções**. Consulte a [Criação de um grupo atribuível a funções](../roles/groups-create-eligible.md) no Azure Ative Directory para obter mais detalhes sobre grupos atribuíveis às funções AZure AD. Se não vir um grupo atribuível a um papel que pretenda adicionar ou não conseguir adicioná-lo, certifique-se de que tem o papel de AD Azure e o papel de gestão de direitos necessários para executar esta operação. Pode ser necessário perguntar a alguém com as funções necessárias que adicione o recurso ao seu catálogo. Para obter mais informações, consulte [as funções necessárias para adicionar recursos a um catálogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 

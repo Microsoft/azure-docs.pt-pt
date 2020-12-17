@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5bc00ecf5e4c8ae440ce6610e9be8c8f77ed666
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862212"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630620"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Código migrar de v2.0 a v3.0 da API REST
 
@@ -33,12 +33,16 @@ A lista de alterações de rutura foi classificada pela magnitude das alteraçõ
 ### <a name="host-name-changes"></a>Alterações no nome do anfitrião
 
 Os nomes dos anfitriões do ponto final mudaram de `{region}.cris.ai` `{region}.api.cognitive.microsoft.com` . Os caminhos para os novos pontos finais já não contêm `api/` porque faz parte do nome de hospedeiro. O [documento Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) lista regiões e caminhos válidos.
+>[!IMPORTANT]
+>Mude o nome de anfitrião `{region}.cris.ai` para onde a `{region}.api.cognitive.microsoft.com` região é a região da sua assinatura de discurso. Remova também `api/` de qualquer caminho no seu código cliente.
 
 ### <a name="identity-of-an-entity"></a>Identidade de uma entidade
 
 A propriedade `id` é `self` agora. Em v2, um utilizador da API tinha de saber como estão a ser criados os nossos caminhos na API. Isto não era extensível e exigia trabalho desnecessário do utilizador. A propriedade `id` (uuid) é substituída por `self` (string), que é a localização da entidade (URL). O valor ainda é único entre todas as suas entidades. Se `id` for armazenado como uma cadeia no seu código, um renomeão é suficiente para suportar o novo esquema. Agora pode utilizar o `self` conteúdo como URL para o , e REST chama a sua `GET` `PATCH` `DELETE` entidade.
 
 Se a entidade tiver funcionalidades adicionais disponíveis através de outros caminhos, estão listadas em `links` . O exemplo seguinte para a transcrição mostra um método separado `GET` do conteúdo da transcrição:
+>[!IMPORTANT]
+>Mude o nome da propriedade `id` para o seu código `self` cliente. Mude o tipo de `uuid` para `string` se necessário. 
 
 **v2 transcrição:**
 
@@ -91,6 +95,9 @@ A `values` propriedade contém um subconjunto das entidades de recolha disponív
 
 Esta alteração requer a `GET` chamada para a recolha em loop até que todos os elementos tenham sido devolvidos.
 
+>[!IMPORTANT]
+>Quando a resposta de um GET `speechtotext/v3.0/{collection}` conter um valor em , continue a emitir até que não esteja definido para recuperar todos `$.@nextLink` os `GETs` `$.@nextLink` `$.@nextLink` elementos dessa coleção.
+
 ### <a name="creating-transcriptions"></a>Criação de transcrições
 
 Uma descrição detalhada sobre como criar lotes de transcrições pode ser encontrada na [transcrição do Lote Como-to](./batch-transcription.md).
@@ -134,6 +141,8 @@ O novo `timeToLive` imóvel em baixo `properties` pode ajudar a podar as entidad
   }
 }
 ```
+>[!IMPORTANT]
+>Mude o nome da propriedade `recordingsUrl` para e passe uma variedade de `contentUrls` urls em vez de um único url. Passe as definições para `diarizationEnabled` ou como em vez de `wordLevelTimestampsEnabled` `bool` `string` .
 
 ### <a name="format-of-v3-transcription-results"></a>Formato dos resultados da transcrição v3
 
@@ -201,6 +210,9 @@ Amostra de um resultado de transcrição v3. As diferenças são descritas nos c
   ]
 }
 ```
+>[!IMPORTANT]
+>Deserialize o resultado da transcrição para o novo tipo, como mostrado acima. Em vez de um único ficheiro por canal de áudio, distinguir canais verificando o valor da propriedade de `channel` cada elemento em `recognizedPhrases` . Existe agora um único ficheiro de resultados para cada ficheiro de entrada.
+
 
 ### <a name="getting-the-content-of-entities-and-the-results"></a>Obtenção do conteúdo das entidades e dos resultados
 
@@ -269,6 +281,9 @@ Em v3, `links` incluir uma subalto chamada `files` caso a entidade exponha dados
 
 A `kind` propriedade indica o formato de conteúdo do ficheiro. Para transcrições, os ficheiros `TranscriptionReport` são o resumo do trabalho e ficheiros do tipo são o resultado do trabalho em `Transcription` si.
 
+>[!IMPORTANT]
+>Para obter os resultados das operações, utilize um `GET` `/speechtotext/v3.0/{collection}/{id}/files` on, eles já não estão contidos nas respostas de `GET` on ou `/speechtotext/v3.0/{collection}/{id}` `/speechtotext/v3.0/{collection}` .
+
 ### <a name="customizing-models"></a>Modelos de personalização
 
 Antes da V3, havia uma distinção entre um _modelo acústico_ e um _modelo de linguagem_ quando um modelo estava a ser treinado. Esta distinção resultou na necessidade de especificar vários modelos ao criar pontos finais ou transcrições. Para simplificar este processo para um chamador, removemos as diferenças e fizemos com que tudo dependesse do conteúdo dos conjuntos de dados que estão a ser utilizados para a formação de modelos. Com esta alteração, a criação do modelo suporta agora conjuntos de dados mistos (dados linguísticos e dados acústicos). Pontos finais e transcrições agora requerem apenas um modelo.
@@ -277,11 +292,17 @@ Com esta alteração, a necessidade de um `kind` na `POST` operação foi removi
 
 Para melhorar os resultados de um modelo treinado, os dados acústicos são automaticamente utilizados internamente durante o treino linguístico. Em geral, os modelos criados através da API v3 fornecem resultados mais precisos do que os modelos criados com a API v2.
 
+>[!IMPORTANT]
+>Para personalizar tanto a parte do modelo acústico como a parte do modelo de linguagem, passe todos os conjuntos de dados de linguagem e acústica necessários `datasets[]` no POST para `/speechtotext/v3.0/models` . Isto irá criar um único modelo com ambas as peças personalizadas.
+
 ### <a name="retrieving-base-and-custom-models"></a>Recuperação de bases e modelos personalizados
 
 Para simplificar a obtenção dos modelos disponíveis, a V3 separou as coleções de "modelos base" dos "modelos personalizados" do cliente. As duas rotas são agora `GET /speechtotext/v3.0/models/base` `GET /speechtotext/v3.0/models/` e.
 
 Em v2, todos os modelos foram devolvidos juntos numa única resposta.
+
+>[!IMPORTANT]
+>Para obter uma lista de modelos base fornecidos para personalização, use `GET` em `/speechtotext/v3.0/models/base` . Pode encontrar os seus próprios modelos personalizados com um `GET` on `/speechtotext/v3.0/models` .
 
 ### <a name="name-of-an-entity"></a>Nome de uma entidade
 
@@ -302,6 +323,9 @@ A `name` propriedade é `displayName` agora. Isto é consistente com outras AZur
     "displayName": "Transcription using locale en-US"
 }
 ```
+
+>[!IMPORTANT]
+>Mude o nome da propriedade `name` para o seu código `displayName` cliente.
 
 ### <a name="accessing-referenced-entities"></a>Acesso a entidades referenciadas
 
@@ -351,6 +375,10 @@ Na V2, as entidades referenciadas foram sempre inlineadas, por exemplo, os model
 
 Se precisar de consumir os detalhes de um modelo referenciado como mostrado no exemplo acima, basta emitir um GET on `$.model.self` .
 
+>[!IMPORTANT]
+>Para recuperar os metadados de entidades referenciadas, emita um GET `$.{referencedEntity}.self` on, por exemplo, para recuperar o modelo de uma transcrição fazer um `GET` on `$.model.self` .
+
+
 ### <a name="retrieving-endpoint-logs"></a>Recuperação de registos de pontos finais
 
 A versão v2 do serviço suportava os resultados do ponto final de registo. Para recuperar os resultados de um ponto final com v2, criaria uma "exportação de dados", que representasse uma imagem instantânea dos resultados definidos por um intervalo de tempo. O processo de exportação de lotes de dados era inflexível. A API v3 dá acesso a cada ficheiro individual e permite a iteração através deles.
@@ -392,6 +420,9 @@ A paginação para registos de pontos finais funciona semelhante a todas as outr
 
 Em v3, cada registo de ponto final pode ser eliminado individualmente através da emissão de uma `DELETE` operação num `self` ficheiro ou através da utilização de `DELETE` `$.links.logs` . Para especificar uma data de fim, o parâmetro de consulta `endDate` pode ser adicionado ao pedido.
 
+>[!IMPORTANT]
+>Em vez de criar exportações de registos em `/api/speechtotext/v2.0/endpoints/{id}/data` uso para aceder a `/v3.0/endpoints/{id}/files/logs/` ficheiros de registo individualmente. 
+
 ### <a name="using-custom-properties"></a>Usando propriedades personalizadas
 
 Para separar as propriedades personalizadas das propriedades de configuração opcional, todas as propriedades explicitamente nomeadas estão agora localizadas na `properties` propriedade e todas as propriedades definidas pelos chamadores estão agora localizadas na `customProperties` propriedade.
@@ -424,15 +455,26 @@ Para separar as propriedades personalizadas das propriedades de configuração o
 
 Esta alteração também permite utilizar tipos corretos em todas as propriedades explicitamente nomeadas `properties` (por exemplo, boolean em vez de string).
 
+>[!IMPORTANT]
+>Passe todas as propriedades personalizadas como `customProperties` em vez de nos seus `properties` `POST` pedidos.
+
 ### <a name="response-headers"></a>Cabeçalhos de resposta
 
 v3 já não devolve o `Operation-Location` cabeçalho para além do `Location` cabeçalho sobre `POST` pedidos. O valor de ambos os cabeçalhos na V2 foi o mesmo. Agora só `Location` é devolvido.
 
 Uma vez que a nova versão da API é agora gerida pela Azure API management (APIM), os cabeçalhos relacionados com o estrangulamento `X-RateLimit-Limit` `X-RateLimit-Remaining` , e não `X-RateLimit-Reset` estão contidos nos cabeçalhos de resposta.
 
+>[!IMPORTANT]
+>Leia o local do cabeçalho de resposta `Location` em vez de `Operation-Location` . No caso de um código de resposta 429, leia o `Retry-After` valor do cabeçalho em vez de `X-RateLimit-Limit` , ou `X-RateLimit-Remaining` `X-RateLimit-Reset` .
+
+
 ### <a name="accuracy-tests"></a>Testes de precisão
 
 Os testes de precisão foram renomeados para avaliações porque o novo nome descreve melhor o que representam. Os novos caminhos são: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations` .
+
+>[!IMPORTANT]
+>Mude o nome do segmento de caminho `accuracytests` para o seu código `evaluations` cliente.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

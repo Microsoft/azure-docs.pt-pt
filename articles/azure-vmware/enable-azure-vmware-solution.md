@@ -3,12 +3,12 @@ title: Como ativar o seu recurso Azure VMware Solution
 description: Saiba como submeter um pedido de suporte para ativar o seu recurso Azure VMware Solution. Também pode solicitar mais anfitriões na sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6d614dffc4ab3127e1e6740b1a8773e5fd7c23ff
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346542"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630892"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como ativar o recurso Azure VMware Solution
 Saiba como submeter um pedido de suporte para ativar o seu recurso [Azure VMware Solution.](introduction.md) Também pode solicitar mais anfitriões na sua nuvem privada Azure VMware Solution.
@@ -61,7 +61,7 @@ Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Ativar a Solução VMware Azure para clientes CSP 
 
-Os CSPs devem utilizar [o Microsoft Partner Center](https://partner.microsoft.com) para ativar a Solução VMware Azure para os seus clientes. Este artigo utiliza o [plano CSP Azure](/partner-center/azure-plan-lp.md) como exemplo para ilustrar o procedimento de compra dos parceiros.
+Os CSPs devem utilizar [o Microsoft Partner Center](https://partner.microsoft.com) para ativar a Solução VMware Azure para os seus clientes. Este artigo utiliza o [plano CSP Azure](/partner-center/azure-plan-lp) como exemplo para ilustrar o procedimento de compra dos parceiros.
 
    >[!IMPORTANT] 
    >O serviço Azure VMware Solution não fornece um arrendamento multi-arrendamento necessário. Os parceiros de acolhimento que o exigem não são apoiados. 
@@ -76,9 +76,9 @@ Os CSPs devem utilizar [o Microsoft Partner Center](https://partner.microsoft.co
 
 1. Selecione **O plano Azure** e, em seguida, selecione **Adicionar ao carrinho**. 
 
-1. Reveja e termine a configuração geral da subscrição do plano Azure para o seu cliente. Para obter mais informações, consulte [a documentação do Microsoft Partner Center](/partner-center/azure-plan-manage.md).
+1. Reveja e termine a configuração geral da subscrição do plano Azure para o seu cliente. Para obter mais informações, consulte [a documentação do Microsoft Partner Center](/partner-center/azure-plan-manage).
 
-Depois de configurar o plano Azure e as [permissões Azure RBAC necessárias](/partner-center/azure-plan-manage.md) para a subscrição, irá envolver a Microsoft para ativar a quota para uma subscrição do plano Azure. Aceder ao portal Azure do [Microsoft Partner Center](https://partner.microsoft.com) utilizando o procedimento **Admin On Behalf Of** (AOBO).
+Depois de configurar o plano Azure e as [permissões Azure RBAC necessárias](/partner-center/azure-plan-manage) para a subscrição, irá envolver a Microsoft para ativar a quota para uma subscrição do plano Azure. Aceder ao portal Azure do [Microsoft Partner Center](https://partner.microsoft.com) utilizando o procedimento **Admin On Behalf Of** (AOBO).
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com).
 

@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 72c31d0eebc19a926805976ed637168a00fa9495
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ebf094ddfec19dac98238adf7d55af785b3df122
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617192"
+ms.locfileid: "97629634"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Ligações RabbitMQ para visão geral das funções azure
 
 > [!NOTE]
-> As ligações RabbitMQ só são totalmente suportadas nos planos **do Windows Premium.** O consumo e o Linux não são atualmente apoiados.
+> As ligações RabbitMQ só são totalmente suportadas em planos **Windows Premium e Dedicados.** O consumo e o Linux não são atualmente apoiados.
 
 As funções Azure integram-se com [o RabbitMQ](https://www.rabbitmq.com/) através [de gatilhos e encadernações](./functions-triggers-bindings.md). As extensões de ligação Azure Functions RabbitMQ permitem-lhe enviar e receber mensagens usando a API RabbitMQ com Funções.
 

@@ -1,6 +1,6 @@
 ---
-title: Crie um papel personalizado Azure usando um modelo de Gestor de Recursos Azure - Azure RBAC
-description: Aprenda a criar um papel personalizado Azure usando um modelo de Gestor de Recursos Azure (modelo ARM) e controlo de acesso baseado em funções Azure (Azure RBAC).
+title: Criar ou atualizar funções personalizadas Azure usando um modelo de Gestor de Recursos Azure - Azure RBAC
+description: Aprenda a criar ou atualizar funções personalizadas Azure usando um modelo de Gestor de Recursos Azure (modelo ARM) e controlo de acesso baseado em funções Azure (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -8,24 +8,24 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 06/25/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097027"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631317"
 ---
-# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Crie um papel personalizado Azure usando um modelo ARM
+# <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Criar ou atualizar funções personalizadas Azure usando um modelo ARM
 
-Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus [próprios papéis personalizados.](custom-roles.md) Este artigo descreve como criar um papel personalizado usando um modelo de Gestor de Recursos Azure (modelo ARM).
+Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus [próprios papéis personalizados.](custom-roles.md) Este artigo descreve como criar ou atualizar uma função personalizada usando um modelo de Gestor de Recursos Azure (modelo ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para criar um papel personalizado, especifica um nome de função, permissões e onde a função pode ser usada. Neste artigo, cria uma função chamada _Custom Role - RG Reader_ com permissões de recursos que podem ser atribuídas num âmbito de subscrição ou inferior.
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
@@ -66,15 +66,13 @@ Siga estes passos para implementar o modelo anterior.
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
-1. Introduza um local para a implantação como *central* .
+1. Introduza um local para a implantação como `centralus` .
 
-1. Introduza uma lista de ações para o papel personalizado como uma lista separada por vírgula, como *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read* .
+1. Introduza uma lista de ações para o papel personalizado como uma lista separada por vírgula, tais como `Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read` .
 
 1. Se necessário, prima Enter para executar o `New-AzDeployment` comando.
 
@@ -143,17 +141,58 @@ Siga estes passos para verificar se o papel personalizado foi criado.
 
 1. No portal Azure, abra a sua subscrição.
 
-1. No menu esquerdo, selecione **Access control (IAM)** .
+1. No menu esquerdo, selecione **Access control (IAM)**.
 
 1. Selecione o **separador Funções.**
 
-1. Deslote a lista **de tipo** para **CustomRole** .
+1. Deslote a lista **de tipo** para **CustomRole**.
 
 1. Verifique se a **função De Função Personalizada - Leitor RG** está listada.
 
    ![Novo papel personalizado no portal Azure](./media/custom-roles-template/custom-role-template-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
+
+Semelhante à criação de um papel personalizado, pode atualizar um papel personalizado existente usando um modelo. Para atualizar uma função personalizada, tem de especificar a função que pretende atualizar.
+
+Aqui estão as alterações que você precisaria de fazer para o modelo quickstart anterior para atualizar o papel personalizado.
+
+- Inclua o iD de função como parâmetro.
+    ```json
+        ...
+        "roleDefName": {
+          "type": "string",
+          "metadata": {
+            "description": "ID of the role definition"
+          }
+        ...
+    ```
+
+- Incluir o parâmetro de ID de função na definição de função.
+
+    ```json
+      ...
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "apiVersion": "2018-07-01",
+          "name": "[parameters('roleDefName')]",
+          "properties": {
+            ...
+    ```
+
+Aqui está um exemplo de como implementar o modelo.
+
+```azurepowershell
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+[string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
+$actions = $actions.Split(',')
+$roleDefName = Read-Host -Prompt "Enter the role ID to update"
+$templateFile = "rg-reader-update.json"
+New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o papel personalizado, siga estes passos.
 

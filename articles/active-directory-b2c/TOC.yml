@@ -119,6 +119,22 @@
           href: signin-appauth-ios.md
         - name: Android com a Autenticação da Aplicação
           href: signin-appauth-android.md
+    - name: Criar um fluxo
+      items:
+        - name: Política de inscrição ou início de sessão
+          href: add-sign-up-and-sign-in-policy.md
+        - name: Política de reposição de palavra-passe
+          href: add-password-reset-policy.md
+        - name: Política de alteração de palavra-passe
+          href: add-password-change-policy.md
+        - name: Política de edição de perfil
+          href: add-profile-editing-policy.md
+        - name: Política de credenciais de palavra-passe do proprietário do recurso
+          href: add-ropc-policy.md
+        - name: Política de configuração da reposição personalizada de palavra-passe (Preterida)
+          href: user-flow-self-service-password-reset.md
+        - name: Inscrição e início de sessão no telemóvel
+          href: phone-authentication-user-flows.md
     - name: Fornecedores de identidade
       items:
         - name: Adicionar um fornecedor de identidade
@@ -192,38 +208,18 @@
           href: conditional-access-user-flow.md
     - name: Configurar o controlo de idade
       href: basic-age-gating.md
-    - name: Fluxo de utilizador
+    - name: Conectores de API (pré-visualização)
       items:
-        - name: Criar um fluxo
-          items:
-            - name: Inscrever-se ou iniciar sessão
-              href: tutorial-create-user-flows.md
-            - name: Credenciais de palavra-passe do proprietário do recurso
-              href: configure-ropc.md
-            - name: Configurar a reposição personalizada de palavra-passe
-              href: user-flow-self-service-password-reset.md
-        - name: Conectores de API (pré-visualização)
-          items:
-            - name: Descrição geral
-              href: api-connectors-overview.md
-            - name: Adicionar um conector de API
-              href: add-api-connector.md
+        - name: Descrição geral
+          href: api-connectors-overview.md
+        - name: Adicionar um conector de API
+          href: add-api-connector.md
     - name: Política personalizada
       items:
         - name: Descrição geral da política personalizada
           href: custom-policy-trust-frameworks.md
         - name: Introdução às políticas personalizadas
           href: custom-policy-get-started.md
-        - name: Criar uma política
-          items:
-            - name: Credenciais de palavra-passe do proprietário do recurso
-              href: ropc-custom.md
-              displayName: ropc
-            - name: Alteração da palavra-passe
-              href: custom-policy-password-change.md
-            - name: Inscrição e início de sessão no telemóvel
-              href: phone-authentication.md
-              displayName: 'otp, passwordless, phone number'
         - name: Verificação personalizada do e-mail
           items:
             - name: Mailjet

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253563"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629668"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -264,8 +264,9 @@ Pode apagar imagens que já não precisa de guardar.
 
     ![Screenshot que confirma a eliminação de instantâneos](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas das políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
 * [Azure NetApp Files Snapshots 101 vídeo](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [O que é a ferramenta instantânea consistente da aplicação Azure](azacsnap-introduction.md)

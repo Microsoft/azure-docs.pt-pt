@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 193ceab0b2df1ab833a86eb748c18271a8e33b71
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5012383e64a85ee025273f5339b828f5338e1d4f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852919"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629073"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são os aceleradores de soluções IoT do Azure?
 
 Uma solução IoT baseada na nuvem normalmente usa código personalizado e serviços de nuvem para gerir a conectividade do dispositivo, processamento de dados e análise, e apresentação.
 
-Os aceleradores de soluções de IoT são soluções de IoT completas e prontas a implementar que aplicam cenários de IoT comuns. Os cenários incluem a simulação de fábrica conectada e o dispositivo. Quando implementa um acelerador de soluções, a implementação inclui todos os serviços baseados na cloud que são precisos, juntamente com qualquer código de aplicação exigido.
+Os aceleradores de soluções de IoT são soluções de IoT completas e prontas a implementar que aplicam cenários de IoT comuns. Os cenários incluem uma fábrica ligada e uma simulação de dispositivos. Quando implementa um acelerador de soluções, a implementação inclui todos os serviços baseados na cloud que são precisos, juntamente com qualquer código de aplicação exigido.
 
 Os aceleradores de soluções são pontos de partida para as suas próprias soluções IoT. O código de origem de todos os aceleradores de soluções é aberto e está disponível no GitHub. Pode transferir e personalizar os aceleradores de soluções para satisfazer os seus requisitos.
 
@@ -29,7 +29,7 @@ Também pode utilizar os aceleradores de soluções como ferramentas de aprendiz
 O código da aplicação em cada acelerador de soluções inclui uma aplicação Web que lhe permite gerir o mesmo.
 
 > [!NOTE]
-> As soluções de monitorização remota e manutenção preditiva foram removidas do local de aceleração da [solução Azure IoT.](https://www.azureiotsolutions.com/Accelerators) Para saber mais, veja quais são os aceleradores de [solução Azure IoT? (versão anterior)](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md).
+> As soluções de monitorização remota e manutenção preditiva foram removidas do local de aceleração da [solução Azure IoT.](https://www.azureiotsolutions.com/Accelerators) Para saber mais, veja quais são os aceleradores de [solução Azure IoT? (versão anterior)](/previous-versions/azure/iot-accelerators/about-iot-accelerators).
 
 ## <a name="supported-iot-scenarios"></a>Cenários IoT suportados
 
@@ -65,7 +65,7 @@ Todos os aceleradores de soluções seguem os mesmos princípios de design e obj
 
 Os aceleradores de soluções originais foram escritos com .NET através de uma arquitetura do modelo-vista-controlador (MVC). A Microsoft está a atualizar os aceleradores de soluções para uma nova arquitetura de microsserviços. A tabela abaixo mostra o estado atual dos aceleradores de soluções, com ligações para os repositórios do GitHub:
 
-| Acelerador de soluções   | Arquitetura  | Linguagens     |
+| Acelerador de soluções   | Arquitetura  | Idiomas     |
 | ---------------------- | ------------- | ------------- |
 | Fábrica Ligada      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulação do Dispositivo      | Microsserviços | [.NET](https://github.com/Azure/device-simulation-dotnet)          |

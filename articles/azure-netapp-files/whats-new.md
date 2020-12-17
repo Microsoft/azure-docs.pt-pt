@@ -12,20 +12,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421707"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631164"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
 Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um resumo sobre as novidades e melhorias mais recentes. 
 
-## <a name="november-2020"></a>novembro de 2020
+## <a name="december-2020"></a>Dezembro de 2020
+
+* [Ferramenta instantânea consistente da aplicação Azure](azacsnap-introduction.md) (visualização pública)    
+
+    A azure Application Consistent Snapshot Tool (AzAcSnap) é uma ferramenta de linha de comando que permite simplificar a proteção de dados para bases de dados de terceiros (SAP HANA) em ambientes Linux (por exemplo, SUSE e RHEL).   
+
+    O AzAcSnap aproveita as funcionalidades de instantâneo e replicação de volume em Ficheiros Azure NetApp e Azure Large Instance. Proporciona os seguintes benefícios:
+
+    * Proteção de dados consistente com aplicação 
+    * Gestão de catálogos de bases de dados 
+    * *Proteção do* volume ad hoc 
+    * Clonagem de volumes de armazenamento 
+    * Apoio à recuperação de desastres 
+
+## <a name="november-2020"></a>Novembro de 2020
 
 * [Instantâneo reverter](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
 
@@ -52,10 +66,10 @@ Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 * Novas [métricas:](azure-netapp-files-metrics.md)   
 
     * Novas métricas de volume: 
-        * *Tamanho atribuído volume* : Tamanho previsto de um volume
+        * *Tamanho atribuído volume*: Tamanho previsto de um volume
     * Novas métricas da piscina: 
-        * *Tamanho atribuído da piscina* : O tamanho a provisionado da piscina 
-        * *Tamanho total do instantâneo para a piscina* : A soma do tamanho do instantâneo de todos os volumes na piscina
+        * *Tamanho atribuído da piscina*: O tamanho a provisionado da piscina 
+        * *Tamanho total do instantâneo para a piscina*: A soma do tamanho do instantâneo de todos os volumes na piscina
 
 ## <a name="july-2020"></a>Julho de 2020
 

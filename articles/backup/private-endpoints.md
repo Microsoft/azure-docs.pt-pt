@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184757"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629719"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -26,6 +26,7 @@ Este artigo irá ajudá-lo a entender o processo de criação de pontos finais p
 - O Azure Ative Directory não suporta atualmente pontos finais privados. Assim, os IPs e FQDNs necessários para que o Azure Ative Directory funcione numa região terá de ser autorizado a aceder à saída da rede segura ao realizar cópias de segurança de bases de dados em VMs Azure e cópia de segurança utilizando o agente MARS. Também pode utilizar tags NSG e Azure Firewall para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não são suportadas por pontos finais privados. Terá de desativar a Polícia de Rede antes de continuar.
 - Tem de voltar a registar o fornecedor de recursos dos Serviços de Recuperação com a assinatura se o registar antes de 1 de maio de 2020. Para voltar a registar o fornecedor, aceda à sua subscrição no portal Azure, navegue para o **fornecedor de Recursos** na barra de navegação esquerda, em seguida, selecione **Microsoft.RecoveryServices** e selecione **Re-registr .**
+- [A restauração transversal](backup-create-rs-vault.md#set-cross-region-restore) para as cópias de dados SQL e SAP HANA não são suportadas se o cofre tiver pontos finais privados ativados.
 
 ## <a name="recommended-and-supported-scenarios"></a>Cenários recomendados e apoiados
 
@@ -448,7 +449,7 @@ P. Tentei proteger um objeto para o meu cofre, mas falhou e o cofre ainda não c
 A. Não, o cofre não deve ter tido nenhuma tentativa de proteger quaisquer objetos no passado.
 
 P. Tenho um cofre que está a usar pontos finais privados para reforços e restauros. Posso adicionar ou remover mais tarde pontos finais privados para este cofre, mesmo que eu tenha itens de reserva protegidos?<br>
-A. Sim. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
+A. Yes. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
 
 P. O ponto final privado do Azure Backup também pode ser usado para a recuperação do local de Azure?<br>
 A. Não, o ponto final privado para cópia de segurança só pode ser utilizado para o Azure Backup. Terá de criar um novo ponto final privado para a Recuperação do Site Azure, se for suportado pelo serviço.

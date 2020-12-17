@@ -4,15 +4,15 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081897"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629651"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
 
 1. Do painel **all resources,** escolha uma conta Azure Cosmos.
 
-1. Selecione **As Ligações de Ponto Final Privado da** lista de definições e, em seguida, selecione Private **endpoint** :
+1. Selecione **As Ligações de Ponto Final Privado da** lista de definições e, em seguida, selecione Private **endpoint**:
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Seleções para criar um ponto final privado no portal Azure":::
 
@@ -49,33 +49,33 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
     |Região| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
-1. Selecione **Seguinte: Recurso** .
+1. Selecione **Seguinte: Recurso**.
 1. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    |Método de ligação  | Selecione **Ligar a um recurso Azure no meu diretório** . <br/><br/> Em seguida, pode escolher um dos seus recursos para configurar o Private Link. Ou pode ligar-se ao recurso de outra pessoa usando um ID de recurso ou um pseudónimo que partilharam consigo.|
+    |Método de ligação  | Selecione **Ligar a um recurso Azure no meu diretório**. <br/><br/> Em seguida, pode escolher um dos seus recursos para configurar o Private Link. Ou pode ligar-se ao recurso de outra pessoa usando um ID de recurso ou um pseudónimo que partilharam consigo.|
     | Subscrição| Selecione a sua subscrição. |
-    | Tipo de recurso | Selecione **Microsoft.AzureCosmosDB/databaseSa contas** . |
+    | Tipo de recurso | Selecione **Microsoft.AzureCosmosDB/databaseSa contas**. |
     | Recurso |Selecione a sua conta Azure Cosmos. |
     |Recurso secundário de destino |Selecione o tipo Azure Cosmos DB API que deseja mapear. Isto é uma padrão para apenas uma escolha para as APIs SQL, MongoDB e Cassandra. Para as APIs gremlin e de tabela, você também pode escolher **Sql** porque estes APIs são interoperáveis com o SQL API. |
     |||
 
-1. Selecione **Seguinte: Configuração** .
+1. Selecione **Seguinte: Configuração**.
 1. Em **Criar um ponto final privado - Configuração,** insira ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
-    |**Redes**| |
+    |**Rede**| |
     | Rede virtual| Selecione a sua rede virtual. |
     | Sub-rede | Selecione a sua sub-rede. |
     |**Integração privada de DNS**||
-    |Integrar com zona DNS privada |Selecione **Sim** . <br><br/> Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais. |
-    |Zona DNS Privada |Selecione **privatelink.documents.azure.com** . <br><br/> A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.|
+    |Integrar com zona DNS privada |Selecione **Yes** (Sim). <br><br/> Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais. |
+    |Zona DNS Privada |Selecione **privatelink.documents.azure.com**. <br><br/> A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.|
     |||
 
-1. Selecione **Rever + criar** . Na página **'Rever + criar',** o Azure valida a sua configuração.
-1. Quando vir a mensagem **A validação passou** , selecione **Criar** .
+1. Selecione **Rever + criar**. Na página **'Rever + criar',** o Azure valida a sua configuração.
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 Quando tiver aprovado o Private Link para uma conta Azure Cosmos, no portal Azure, a opção **Todas as redes** no Painel de Firewall e redes **virtuais** não está disponível.
 
@@ -95,11 +95,11 @@ A tabela seguinte mostra o mapeamento entre diferentes tipos de API de conta Azu
 
 Depois de ser previsto o ponto final privado, pode consultar os endereços IP. Para ver os endereços IP a partir do portal Azure:
 
-1. Selecione **Todos os recursos** .
-1. Procure o ponto final privado que criou anteriormente. Neste caso, é **cdbPrivateEndpoint3** .
+1. Selecione **Todos os recursos**.
+1. Procure o ponto final privado que criou anteriormente. Neste caso, é **cdbPrivateEndpoint3**.
 1. Selecione o **separador 'Vista Geral'** para ver as definições de DNS e endereços IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Seleções para criar um ponto final privado no portal Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Endereços IP privados no portal Azure":::
 
 Vários endereços IP são criados por ponto final privado:
 
@@ -403,7 +403,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-No script PowerShell, a `GroupId` variável pode conter apenas um valor. Este valor é o tipo API da conta. Os valores permitidos são: `Sql` , , , e `MongoDB` `Cassandra` `Gremlin` `Table` . Alguns tipos de conta Azure Cosmos são acessíveis através de várias APIs. Por exemplo:
+No script PowerShell, a `GroupId` variável pode conter apenas um valor. Este valor é o tipo API da conta. Os valores permitidos são: `Sql` `MongoDB` , e `Cassandra` `Gremlin` `Table` . Alguns tipos de conta Azure Cosmos são acessíveis através de várias APIs. Por exemplo:
 
 * Uma conta API gremlin pode ser acedida a partir de contas de API gremlin e SQL.
 * Uma conta API de tabela pode ser acedida a partir de contas API de Tabela e SQL.
@@ -412,7 +412,7 @@ Para essas contas, deve criar um ponto final privado para cada tipo de API. O ti
 
 Depois de o modelo ser implementado com sucesso, pode ver uma saída semelhante à que a imagem seguinte mostra. O `provisioningState` valor é se os `Succeeded` pontos finais privados forem configurado corretamente.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Seleções para criar um ponto final privado no portal Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Saída de implementação para o modelo de Gestor de Recursos":::
 
 Após a implementação do modelo, os endereços IP privados são reservados dentro da sub-rede. A regra de firewall da conta Azure Cosmos está configurada para aceitar ligações apenas a partir do ponto final privado.
 
@@ -616,6 +616,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 Deve utilizar uma zona de DNS privada dentro da sub-rede onde criou o ponto final privado. Configure os pontos finais de modo a que cada endereço IP privado seja mapeado para uma entrada DE DNS. (Ver o `fqdns` imóvel na resposta mostrada anteriormente.)
 
 Quando estiver a criar o ponto final privado, pode integrá-lo com uma zona privada de DNS em Azure. Se optar por utilizar uma zona DE DNS personalizada, tem de as configurar para adicionar registos DNS para todos os endereços IP privados reservados para o ponto final privado.
+
+> [!IMPORTANT]
+> É a resolução do DNS dos seus pedidos que determina se estes pedidos passam por cima dos seus pontos finais privados, ou se seguem o caminho público padrão. Certifique-se de que o seu DNS local faz referência correta ao IP privado mapeado pelo seu ponto final privado.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Ligação privada combinada com regras de firewall
 

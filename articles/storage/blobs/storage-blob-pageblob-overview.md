@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545963"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629362"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
@@ -57,7 +57,7 @@ O diagrama seguinte descreve as relações globais entre contas, contentores e b
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-Primeiro, faça referência a um contentor. Para criar uma bolha de página, ligue para o método [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) e, em seguida, chame o método [PageBlobClient.Create.](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) Passe no tamanho máximo para a bolha criar. Esse tamanho deve ser um múltiplo de 512 bytes.
+Primeiro, faça referência a um contentor. Para criar uma bolha de página, ligue para o método GetPageBlobClient e, em seguida, chame o método [PageBlobClient.Create.](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) Passe no tamanho máximo para a bolha criar. Esse tamanho deve ser um múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 

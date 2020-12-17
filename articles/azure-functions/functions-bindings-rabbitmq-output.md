@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8ea4b0c7c8df1ff7fe0e3ecb253b23d188681e80
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616665"
+ms.locfileid: "97629685"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Ligação de saída RabbitMQ para visão geral das funções do Azure
 
 > [!NOTE]
-> As ligações RabbitMQ só são totalmente suportadas nos planos **do Windows Premium.** O consumo e o Linux não são atualmente apoiados.
+> As ligações RabbitMQ só são totalmente suportadas em planos **Windows Premium e Dedicados.** O consumo e o Linux não são atualmente apoiados.
 
 Utilize a ligação de saída RabbitMQ para enviar mensagens para uma fila RabbitMQ.
 
@@ -263,7 +263,7 @@ Consulte o [exemplo](#example) de ligação de saída para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `RabbitMQ` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para "RabbitMQ".|
 |**direção** | n/a | Deve ser definido para "fora". |

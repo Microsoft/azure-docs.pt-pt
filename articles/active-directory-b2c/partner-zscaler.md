@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: ff51c2a71dfcaec580733a92e265628ac816e229
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 223f8acd6aad7aaf4c37e0b2eae2df882ed2ad1d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096057"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629379"
 ---
 # <a name="tutorial-to-configure-zscaler-private-access-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Tutorial para configurar acesso privado Zscaler com Azure Ative Directory B2C para acesso híbrido seguro
 
@@ -46,7 +46,7 @@ O diagrama seguinte mostra como a ZPA se integra com o Azure AD B2C.
 
 ![Imagem mostra o diagrama de arquitetura zscaler](media/partner-zscaler/zscaler-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a um Portal do Utilizador ZPA ou a uma aplicação ZPA Browser Access.
 | 2. | O ZPA requer informações sobre o contexto do utilizador antes de poder decidir se permite que o utilizador aceda à aplicação web. Para autenticar o utilizador, a ZPA executa um redirecionamento SAML para a página de login Azure AD B2C.  
@@ -125,7 +125,7 @@ A partir do passo anterior, você precisa obter um URL de metadados SAML no segu
 
 onde `<tenant-name>` é o nome do seu inquilino Azure AD B2C e é o nome da política personalizada `<policy-name>` saml que criou no último passo.
 
-Por exemplo, https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata
+Por exemplo, https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata "
 
 Abra um navegador web e navegue para o URL de metadados SAML. Quando a página estiver carregada, clique com o botão direito em qualquer lugar da página. Selecione **'Guardar página como'** e guarde o ficheiro no seu computador; Vais usar isto na próxima parte.
 

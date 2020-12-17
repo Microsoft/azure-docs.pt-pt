@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445460"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630280"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade AML num oleoduto de enriquecimento de pesquisa cognitiva Azure
 
@@ -33,7 +33,7 @@ Tal como as competências incorporadas, uma habilidade **AML** tem entradas e sa
 
 * Um [espaço de trabalho AML](../machine-learning/concept-workspace.md)
 * Um [alvo de computação AML de serviço AZure Kubernetes](../machine-learning/concept-compute-target.md) neste espaço de trabalho com um [modelo implantado](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
-  * O [objetivo do cálculo deve ter SSL ativado](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). A Azure Cognitive Search só permite o acesso a **pontos finais https**
+  * O [objetivo do cálculo deve ter SSL ativado](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). A Azure Cognitive Search só permite o acesso a **pontos finais https**
   * Os certificados auto-assinados não podem ser utilizados.
 
 ## <a name="odatatype"></a>@odata.type  

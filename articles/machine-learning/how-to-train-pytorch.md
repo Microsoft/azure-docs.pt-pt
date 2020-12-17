@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: eec53570c542ceb60c937072135fcb70b59e80a6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559646"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631045"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Treinar modelos PyTorch em escala com Azure Machine Learning
 
@@ -199,7 +199,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 Para obter mais informações sobre a configuração de empregos com scriptRunConfig, consulte [Configure e submeta cursos de formação.](how-to-set-up-training-targets.md)
 
 > [!WARNING]
-> Se já usou o estimador PyTorch para configurar os seus trabalhos de formação PyTorch, por favor, note que os Estimadores serão depreciados numa futura versão do Azure ML SDK. Com Azure ML SDK >= 1.15.0, o ScriptRunConfig é a forma recomendada de configurar trabalhos de formação, incluindo aqueles que usam quadros DL.
+> Se já usou o estimador PyTorch para configurar os seus trabalhos de formação PyTorch, por favor, note que os estimadores foram depreciados a partir da versão 1.19.0 SDK. Com Azure ML SDK >= 1.15.0, o ScriptRunConfig é a forma recomendada de configurar trabalhos de formação, incluindo aqueles que usam quadros de aprendizagem profunda. Para questões de migração comuns, consulte o [guia de migração ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ## <a name="submit-your-run"></a>Submeta a sua corrida
 

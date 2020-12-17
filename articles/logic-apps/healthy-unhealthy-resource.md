@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 9c22e7cbc71c2b29c4b3e50319c6b6d256856bb3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7d43c128f0f587a32cc4b8673727579043f268eb
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855681"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629600"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Configurar o registo para monitorizar aplicações lógicas no Azure Security Center
 
@@ -24,7 +24,7 @@ Quando monitoriza os recursos das suas Aplicações Lógicas no [Microsoft Azure
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [crie uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Aplicativos lógicos existentes com [registo de diagnóstico ativado](#enable-diagnostic-logging).
-* Um espaço de trabalho Log Analytics, que é necessário para permitir o registo para a sua aplicação lógica. Se não tiver um espaço de trabalho, primeiro [crie o seu espaço de trabalho.](/learn/quick-create-workspace.md)
+* Um espaço de trabalho Log Analytics, que é necessário para permitir o registo para a sua aplicação lógica. Se não tiver um espaço de trabalho, primeiro [crie o seu espaço de trabalho.](/azure/azure-monitor/learn/quick-create-workspace)
 
 ## <a name="enable-diagnostic-logging"></a>Ativar o registo de diagnósticos
 
@@ -50,7 +50,7 @@ Depois de ter [ativado a sessão de diagnóstico,](#enable-diagnostic-logging)po
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na barra de pesquisa, insira e selecione **o Centro de Segurança.**
 1. No menu do painel do Centro de Segurança, em **Geral,** selecione **Inventário**.
-1. Na página de inventário, filtre a sua lista de ativos para mostrar apenas recursos de Aplicações Lógicas. No menu da página, selecione **aplicações lógicas de tipos de** &gt; **logic apps** recursos.
+1. Na página de inventário, filtre a sua lista de ativos para mostrar apenas recursos de Aplicações Lógicas. No menu da página, selecione **aplicações lógicas de tipos de** &gt; recursos.
 
    O balcão **dos Recursos Insalubres** mostra o número de aplicações lógicas que o Security Center considera insalubres.
 1.  Na lista de recursos de aplicações lógicas, reveja a coluna **Recomendações.** Para rever os detalhes de saúde de uma aplicação lógica específica, selecione um nome de recurso ou selecione o botão elipses **(...**) &gt; **Ver recurso**.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356710"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631997"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento de lote para recipientes de fala
 
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Para executar o cliente do lote:  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 Para executar o cliente do lote e o recipiente num único comando:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -154,12 +154,12 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 ## <a name="logging"></a>Registo
 
 > [!NOTE]
-> O cliente do lote pode substituir periodicamente o ficheiro *run.log* se ficar demasiado grande.
+> O cliente do lote pode substituir o ficheiro .log de *execução* periodicamente se ficar demasiado grande.
 
-O cliente cria um ficheiro *run.log* no diretório especificado pelo `-log_folder` argumento no comando do estivador. `run` Os registos são capturados ao nível DEBUG por defeito. Os mesmos registos são enviados para o `stdout/stderr` , e filtrados dependendo do `-log_level` argumento. Este registo é apenas necessário para depurar, ou se precisar enviar um rastreio para obter apoio. A pasta de registo também contém os registos SDK de discurso para cada ficheiro áudio.
+O cliente cria um ficheiro *.log execução* no diretório especificado pelo `-log_folder` argumento no comando do estivador. `run` Os registos são capturados ao nível DEBUG por defeito. Os mesmos registos são enviados para o `stdout/stderr` , e filtrados dependendo dos `-file_log_level` argumentos ou `console_log_level` argumentos. Este registo é apenas necessário para depurar, ou se precisar enviar um rastreio para obter apoio. A pasta de registo também contém os registos SDK de discurso para cada ficheiro áudio.
 
 O diretório de saída especificado `-output_folder` conterá um *run_summary.jsem*   arquivo, que é periodicamente reescrito a cada 30 segundos ou sempre que novas transcrições estejam terminadas. Pode utilizar este ficheiro para verificar o progresso à medida que o lote prossegue. Também conterá as estatísticas finais de execução e o estado final de cada ficheiro quando o lote estiver concluído. O lote é concluído quando o processo tiver uma saída limpa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como instalar e executar contentores](speech-container-howto.md)

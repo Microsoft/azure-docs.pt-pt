@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 470dc146d1658b97a707be8cb7ad868d943a8e60
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170906"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629396"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar Nevis com Azure Ative Directory B2C para autenticação sem palavras-passe
 
@@ -134,9 +134,9 @@ Receberá dois e-mails:
 
 4. **Guarde** as alterações no ficheiro.
 
-5. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#2-create-an-azure-blob-storage-account) e carrehe o ficheiro **nevis.html** para o seu armazenamento de bolhas Azure.
+5. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) e carrehe o ficheiro **nevis.html** para o seu armazenamento de bolhas Azure.
 
-6. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors) e ative a partilha de recursos de origem cruzada (CORS) para este ficheiro.
+6. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) e ative a partilha de recursos de origem cruzada (CORS) para este ficheiro.
 
 7. Uma vez que o upload esteja concluído e o CORS esteja ativado, selecione o ficheiro **nevis.html** na lista.
 

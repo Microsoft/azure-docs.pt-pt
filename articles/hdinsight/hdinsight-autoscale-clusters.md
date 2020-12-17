@@ -1,30 +1,29 @@
 ---
-title: Aglomerados de escala automática Azure HDInsight
-description: Utilize a função Azure HDInsight Autoscale para escalar automaticamente os clusters Apache Hadoop.
+title: Dimensionar automaticamente os clusters do Azure HDInsight
+description: Utilize a função Autoscale para escalar automaticamente os clusters Azure HDInsight com base numa agenda ou métricas de desempenho.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-ms.date: 09/14/2020
-ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033141"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629260"
 ---
-# <a name="autoscale-azure-hdinsight-clusters"></a>Aglomerados autoscale Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
-A funcionalidade autoescala gratuita da Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalhadores no seu cluster com base em critérios previamente definidos. Você define um número mínimo e máximo de nós durante a criação do cluster, estabelece os critérios de escala usando um horário diurno ou métricas de desempenho específicas, e a plataforma HDInsight faz o resto.
+A funcionalidade autoescala gratuita da Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalhadores no seu cluster com base em critérios previamente definidos. A funcionalidade Autoscale funciona escalando o número de nós dentro dos limites predefinidos com base em métricas de desempenho ou num calendário de operações de escala e de escala.
 
 ## <a name="how-it-works"></a>Como funciona
 
-A funcionalidade Autoscale utiliza dois tipos de condições para desencadear eventos de escala: limiares para várias métricas de desempenho do cluster (chamada *escala baseada em carga)* e gatilhos baseados no tempo (chamado *escalamento baseado no horário).* O dimensionamento à base de carga altera o número de nós no seu cluster, dentro de um intervalo que definiu, para garantir uma utilização ideal do CPU e minimizar o custo de funcionamento. A escala baseada no horário altera o número de nós no seu cluster com base em operações que associa a datas e horários específicos.
+A funcionalidade Autoscale utiliza dois tipos de condições para desencadear eventos de escala: limiares para várias métricas de desempenho do cluster (chamada *escala baseada em carga)* e gatilhos baseados no tempo (chamado *escalamento baseado no horário).* O dimensionamento à base de carga altera o número de nós no seu cluster, dentro de um intervalo que definiu, para garantir uma utilização ideal do CPU e minimizar o custo de funcionamento. A escala baseada em horários altera o número de nós no seu cluster com base num calendário de operações de escala e de escala.
 
 O vídeo que se segue fornece uma visão geral dos desafios que a Autoscale resolve e como pode ajudá-lo a controlar os custos com o HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
@@ -74,10 +73,10 @@ A tabela seguinte descreve os tipos e versões de cluster compatíveis com a fun
 
 | Versão | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
 
 \* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 
@@ -133,7 +132,7 @@ Para obter mais informações sobre a criação de clusters HDInsight utilizando
 
 #### <a name="load-based-autoscaling"></a>Autoscalagem baseada em carga
 
-Pode criar um cluster HDInsight com autoscaling baseado em carga um modelo de Gestor de Recursos Azure, adicionando um `autoscale` nó à secção com as propriedades e como mostrado no `computeProfile`  >  `workernode` `minInstanceCount` `maxInstanceCount` snippet json abaixo. Para obter um modelo completo de gestor de recursos, consulte [o modelo Quickstart: Implementar o Cluster de Faíscas com autoescala](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased)de carga ativada .
+Pode criar um cluster HDInsight com autoscaling baseado em carga um modelo de Gestor de Recursos Azure, adicionando um `autoscale` nó à secção com as propriedades e como mostrado no `computeProfile`  >  `workernode` `minInstanceCount` `maxInstanceCount` snippet json abaixo. Para obter um modelo completo de Gestor de Recursos, consulte [o modelo Quickstart: Implementar o Cluster de Faíscas com uma autoescala baseada em carga ativada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +160,7 @@ Pode criar um cluster HDInsight com autoscaling baseado em carga um modelo de Ge
 
 #### <a name="schedule-based-autoscaling"></a>Autoscalagem baseada em horários
 
-Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` secção. O `autoscale` nó contém um que tem um e que descreve quando a mudança `recurrence` `timezone` `schedule` ocorrerá. Para obter um modelo completo de gestor de recursos, consulte [Implementar o Cluster de Faíscas com autoescalação baseada em horários Ativado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
+Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` secção. O `autoscale` nó contém um que tem um e que descreve quando a mudança `recurrence` `timezone` `schedule` ocorrerá. Para obter um modelo completo de Gestor de Recursos, consulte [implementar o Cluster de Faíscas com autoescalação baseada em horários Ativado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -225,7 +224,7 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Descrição |
+| Estado do cluster | Description |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |

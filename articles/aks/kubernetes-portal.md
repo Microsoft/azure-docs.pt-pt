@@ -3,31 +3,33 @@ title: Aceder aos recursos da Kubernetes a partir do portal Azure
 description: Saiba como interagir com os recursos da Kubernetes para gerir um cluster Azure Kubernetes Service (AKS) a partir do portal Azure.
 services: container-service
 ms.topic: article
-ms.date: 12/09/2020
-ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/16/2020
+ms.openlocfilehash: 4f34535f74de562c0a1b65c31f28476ca02e540f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921593"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631880"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal"></a>Aceder aos recursos da Kubernetes a partir do portal Azure
 
 O portal Azure inclui uma vista de recursos de Kubernetes para facilitar o acesso aos recursos de Kubernetes no seu cluster Azure Kubernetes Service (AKS). Visualizar recursos de Kubernetes a partir do portal Azure reduz a troca de contexto entre o portal Azure e a `kubectl` ferramenta de linha de comando, racionalizando a experiência para visualizar e editar os recursos de Kubernetes. O visualizador de recursos inclui atualmente vários tipos de recursos, tais como implementações, cápsulas e conjuntos de réplicas.
 
-A visão de recurso kubernetes do portal Azure substitui o addon do [dashboard AKS][kubernetes-dashboard], que foi depreciado.
+A vista de recursos de Kubernetes do portal Azure substitui o addon do [dashboard AKS][kubernetes-dashboard], que é depreciado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para ver os recursos de Kubernetes no portal Azure, precisa de um cluster AKS. Qualquer cluster é suportado, mas se utilizar a integração do Azure Ative Directory (Azure AD), o seu cluster deve utilizar [a integração Azure AD gerida pela AKS.][aks-managed-aad] Se o seu cluster utilizar o legado Azure AD, pode atualizar o seu cluster no portal ou com o [Azure CLI][cli-aad-upgrade].
+Para ver os recursos de Kubernetes no portal Azure, precisa de um cluster AKS. Qualquer cluster é suportado, mas se utilizar a integração do Azure Ative Directory (Azure AD), o seu cluster deve utilizar [a integração Azure AD gerida pela AKS.][aks-managed-aad] Se o seu cluster utilizar o legado Azure AD, pode atualizar o seu cluster no portal ou com o [Azure CLI][cli-aad-upgrade]. Também pode [utilizar o portal Azure][portal-cluster] para criar um novo cluster AKS.
 
 ## <a name="view-kubernetes-resources"></a>Ver recursos de Kubernetes
 
 Para ver os recursos de Kubernetes, navegue para o seu cluster AKS no portal Azure. O painel de navegação à esquerda é utilizado para aceder aos seus recursos. Os recursos incluem:
 
 - **Os espaços de** nome exibem os espaços de nome do seu cluster. O filtro no topo da lista de espaços de nome fornece uma forma rápida de filtrar e exibir os recursos do seu espaço de identificação.
-- **As cargas de trabalho** mostram informações sobre implementações, cápsulas, conjuntos de réplicas e conjuntos de daemon implantados no seu cluster. A imagem abaixo mostra as cápsulas de sistema predefinidos num cluster AKS exemplo.
+- **As cargas de trabalho** mostram informações sobre implantações, cápsulas, conjuntos de réplicas, conjuntos imponentes, conjuntos de daemon, empregos e cron jobs implantados no seu cluster. A imagem abaixo mostra as cápsulas de sistema predefinidos num cluster AKS exemplo.
 - **Serviços e ingressess** mostram todo o serviço do seu cluster e recursos ingresss.
+- **O armazenamento** mostra as suas aulas de armazenamento Azure e informações de volume persistentes.
+- **A configuração** mostra os mapas e segredos do seu cluster.
 
 :::image type="content" source="media/kubernetes-portal/workloads.png" alt-text="Informações do pod kubernetes exibidas no portal Azure." lightbox="media/kubernetes-portal/workloads.png":::
 
@@ -35,7 +37,7 @@ Para ver os recursos de Kubernetes, navegue para o seu cluster AKS no portal Azu
 
 Neste exemplo, usaremos o nosso cluster AKS de amostra para implementar a aplicação Azure Vote a partir do [quickstart AKS][portal-quickstart].
 
-1. **Selecione Adicionar** a partir de qualquer uma das vistas de recursos (Espaço de nome, cargas de trabalho ou serviços e ingresses).
+1. **Selecione Adicionar** a partir de qualquer uma das vistas de recursos (Espaço nome, cargas de trabalho, serviços e ingressess, armazenamento ou configuração).
 1. Cole o YAML para o pedido de voto Azure do [quickstart AKS][portal-quickstart].
 1. **Selecione Adicionar** na parte inferior do editor YAML para implementar a aplicação. 
 
@@ -45,7 +47,7 @@ Uma vez adicionado o ficheiro YAML, o visualizador de recursos mostra ambos os s
 
 ### <a name="monitor-deployment-insights"></a>Monitorar insights de implementação
 
-Os agrupamentos AKS com [monitor Azure para recipientes][enable-monitor] ativados podem visualizar rapidamente os insights de implantação. A partir da visão de recursos de Kubernetes, os utilizadores podem ver o estado ao vivo de implementações individuais, incluindo CPU e uso de memória, bem como a transição para o monitor Azure para obter informações mais aprofundadas. Aqui está um exemplo de insights de implantação de um cluster AKS de amostra:
+Os agrupamentos AKS com [monitor Azure para recipientes][enable-monitor] ativados podem visualizar rapidamente a implantação e outros insights. A partir da visão de recursos de Kubernetes, os utilizadores podem ver o estado ao vivo de implementações individuais, incluindo CPU e uso da memória, bem como a transição para o monitor Azure para obter informações mais aprofundadas sobre nós e contentores específicos. Aqui está um exemplo de insights de implantação de um cluster AKS de amostra:
 
 :::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Insights de implementação apresentados no portal Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
@@ -75,8 +77,6 @@ Para aceder aos recursos de Kubernetes, você deve ter acesso ao cluster AKS, à
 
 Para os clusters existentes, poderá ser necessário ativar a vista de recursos de Kubernetes. Para ativar a visualização do recurso, siga as indicações no portal para o seu cluster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Mensagem do portal Azure para ativar a visualização do recurso Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
-
 > [!TIP]
 > A funcionalidade AKS para [**gamas IP autorizadas pelo servidor API**](api-server-authorized-ip-ranges.md) pode ser adicionada para limitar o acesso do servidor API apenas ao ponto final público da firewall. Outra opção para estes clusters é a atualização `--api-server-authorized-ip-ranges` para incluir o acesso a um computador cliente local ou gama de endereços IP (a partir do qual o portal está a ser navegado). Para permitir este acesso, precisa do endereço IPv4 público do computador. Pode encontrar este endereço com o comando abaixo ou pesquisando "qual é o meu endereço IP" num navegador de Internet.
 ```bash
@@ -100,3 +100,4 @@ Este artigo mostrou-lhe como aceder aos recursos da Kubernetes para o seu cluste
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/insights/container-insights-enable-existing-clusters.md
+[portal-cluster]: kubernetes-walkthrough-portal.md

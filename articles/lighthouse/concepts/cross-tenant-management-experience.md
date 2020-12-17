@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616580"
+ms.locfileid: "97630093"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -99,7 +99,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 - Ver detalhes do registo de atividade para subscrições delegadas
 - Análise de registo: Dados de consulta de espaços de trabalho remotos em vários inquilinos
 - Crie alertas em inquilinos de clientes que desencadeiem a automação, como os runbooks da Azure Automation ou as Funções Azure, no inquilino gerente através de webhooks
-- Criar definições de diagnóstico nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
+- Criar [definições de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
 - Para cargas de trabalho SAP, [monitorize as métricas da SAP Solutions com uma visão agregada entre os inquilinos do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede Azure:](../../networking/networking-overview.md)

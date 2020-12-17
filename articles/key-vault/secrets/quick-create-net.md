@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: dcf7c8db955b2e85ad7d1c047c714eb2c5968455
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e0141d4a5658b8612ee083c6ed1825b10c0009ec
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780812"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631713"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para .NET (SDK v4)
 
@@ -159,7 +159,7 @@ O teu segredo está agora guardado `secret.Value` como.
 
 ### <a name="delete-a-secret"></a>Eliminar um segredo
 
-Finalmente, vamos apagar o segredo do seu cofre-chave com os métodos [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) e [PurpurDeletedSecretAsync.](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedsecretasync)
+Finalmente, vamos apagar o segredo do seu cofre-chave com os métodos [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) e [PurpurDeletedSecretAsync.](/dotnet/api/azure.security.keyvault.keys.keyclient)
 
 ```csharp
 var operation = await client.StartDeleteSecretAsync("mySecret");
@@ -249,7 +249,7 @@ Purging your secret from <your-unique-keyvault-name> ... done.
 Para saber mais sobre o Key Vault e como integrá-lo com as suas apps, consulte os seguintes artigos:
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
-- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações de aplicações de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
+- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
 - Veja um [cofre de chave de acesso a partir de tutorial de máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

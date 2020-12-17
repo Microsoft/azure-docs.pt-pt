@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: O que é a monitorização do Azure AD?
       href: overview-monitoring.md
-    - name: O que são diagnósticos de início de sessão?
+    - name: O que é o Diagnóstico de Início de Sessão?
       href: overview-sign-in-diagnostics.md
 - name: Guias de Início Rápido
   expanded: true

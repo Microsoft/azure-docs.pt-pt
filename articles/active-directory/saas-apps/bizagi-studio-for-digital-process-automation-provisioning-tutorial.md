@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008049"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632043"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: Configure Bizagi Studio para automatização de processos digitais para fornecimento automático de utilizadores
 
@@ -132,7 +132,14 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |name.familyName|String|
    |nome.formatado|String|
    |phoneNumbers[type eq "mobile"].value|String|
+
+   Os atributos de extensão personalizada podem ser adicionados navegando para **mostrar opções avançadas > editar lista de atributos para Bizagi**. Os atributos de extensão personalizados devem ser pré-fixados com **urna:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:**. Por exemplo, se o atributo de extensão personalizada for **IdentificationNumber,** o atributo deve ser adicionado como **urna:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:IdentificationNumber**. **Selecione Guardar** para escoar quaisquer alterações.
    
+    ![Editar a lista de atributos.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   Mais informações sobre como adicionar atributos personalizados podem ser encontradas em [Atributos de Aplicação Personalizadas.](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)
+
+
 10. Para configurar filtros de deteção, consulte o tutorial do [filtro scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para ativar o serviço de fornecimento de AD Azure para o Estúdio Bizagi para Automatização de Processos Digitais, na secção **Definições,** altere o **Estado de Provisionamento** para **On**.

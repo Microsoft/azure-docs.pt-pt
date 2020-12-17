@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: 
-  ms.openlocfilehash: bc12e75904f375e2e40bce01d102186ec0d39f13
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.openlocfilehash: 88d9ba51815496e7d8ec4ab3d22195c5b42c317b
+  ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92014261"
+  ms.lasthandoff: 12/17/2020
+  ms.locfileid: "97616971"
 landingContent:
 - title: Ligar clusters Kubernetes ao Azure utilizando Azure Arc
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: overview.md
   - linkListType: quickstart
     links:
+    - text: Jumpstart
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
     - text: Ligar cluster
       url: connect-cluster.md
   - linkListType: how-to-guide

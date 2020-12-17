@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: d992748e9829993acc28795778baae3eb92e88f3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468825"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630773"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro R
 
@@ -41,7 +41,7 @@ Para implementar Azure Stack Edge Pro R, consulte os seguintes tutoriais na sequ
 |  | |
 |**Tutoriais de implantação** |Estes tutoriais são necessários para implementar o seu dispositivo Azure Stack Edge Pro R em produção. |
 |**[1. Prepare o portal Azure para o dispositivo](azure-stack-edge-pro-r-deploy-prep.md)** |Crie e configuure o seu recurso Azure Stack Edge antes de instalar um dispositivo físico Azure Stack Box Edge. |
-|**[2. Instale o dispositivo](azure-stack-edge-pro-r-deploy-install.md)**|Desfaça as malas, a cremalheira e o cabo do seu dispositivo físico.  |
+|**[2. Instale o dispositivo](azure-stack-edge-pro-r-deploy-install.md)**|Inspecione e coloque o seu dispositivo físico.  |
 |**[3. Ligar ao dispositivo](azure-stack-edge-pro-r-deploy-connect.md)** |Assim que o dispositivo estiver instalado, ligue-se ao dispositivo web UI local.  |
 |**[4. Configurar as definições da rede](azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md)** |Configure a rede, incluindo a rede de cálculo e as definições de procuração web para o seu dispositivo.   |
 |**[5. Configurações do dispositivo de configuração](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Atribua um nome do dispositivo e domínio DNS, configuure o servidor de atualização e o tempo do dispositivo. |

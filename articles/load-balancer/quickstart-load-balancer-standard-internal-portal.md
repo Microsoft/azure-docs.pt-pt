@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a6739d092c2fe4594ae558414ccb882dd6f821bf
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700312"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630688"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -40,6 +40,8 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos padrão do balanceador de carga criados para o arranque rápido." border="false":::
 
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
 
@@ -83,7 +85,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Nome da sub-rede | Insira **myBackendSubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Save** (Guardar).
+7. Selecione **Guardar**.
 
 8. Selecione o separador **Segurança.**
 
@@ -102,7 +104,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
 
 ## <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  .
 
 2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
 
@@ -197,7 +199,7 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
     | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
     | Reset TCP | Selecione **Ativado**. |
-    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer aos membros do pool backend acesso à internet.** |
+    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer acesso aos membros do pool de backend à internet.** |
 
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
@@ -217,7 +219,7 @@ Nesta secção, irá criar dois VMs (**myVM1** e **myVM2).**
 
 Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi criado anteriormente.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  **Virtual machine**. 
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -276,6 +278,8 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos básicos do balanceador de carga criados em arranque rápido." border="false":::
+
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
 
 Quando cria um equilibrador de carga interno, uma rede virtual é configurada como a rede para o equilibrador de carga. 
@@ -318,7 +322,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Nome da sub-rede | Insira **myBackendSubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Save** (Guardar).
+7. Selecione **Guardar**.
 
 8. Selecione o separador **Segurança.**
 
@@ -337,7 +341,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
 
 ## <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  .
 
 2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
 
@@ -457,7 +461,7 @@ Os dois VMs serão adicionados a um conjunto de disponibilidade chamado **myAvai
 
 Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi criado anteriormente.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  **Virtual machine**. 
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -522,14 +526,14 @@ Os VMs criados nos passos anteriores devem ser adicionados ao pool de backend do
 
 6. Selecione **Adicionar**.
 
-7. Selecione **Save** (Guardar).
+7. Selecione **Guardar**.
 ---
 
 ## <a name="create-test-virtual-machine"></a>Criar máquina virtual de teste
 
 Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado para testar a configuração do balançador de carga.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  **Virtual machine**. 
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -575,7 +579,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
 
 4. Introduza o nome de utilizador e a palavra-passe introduzidos durante a criação de VM.
 
-5. Selecione **Connect** (Ligar).
+5. Selecione **Ligar**.
 
 6. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools** Windows  >  **PowerShell**.
 
@@ -633,6 +637,6 @@ Neste início rápido, irá:
 * Fixado 2 VMs ao equilibrador de carga.
 * Configurar a regra de tráfego do balanceador de carga, a sonda de saúde, e depois testou o equilibrador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, continue a.
+Para saber mais sobre o Azure Load Balancer, continue a:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)

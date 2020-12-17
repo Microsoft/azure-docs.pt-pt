@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a9357f81c3b22f70af2a4a05de2de10e19acfbd9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: edf9df1777c4ab1d204cfc8058ec22c2d4e3f663
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458664"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Diretório Ativo Azure com Learning Seat LMS
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD com o Learning Seat LMS, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.learningseatlms.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. [Contacte a equipa de suporte do cliente LMS Do Learning Seat](http://help.learningseatlms.com/help) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. [Contacte a equipa de suporte do cliente LMS Do Learning Seat](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD com o Learning Seat LMS, execute os seguintes passos:
 
 ### <a name="configure-learning-seat-lms-single-sign-on"></a>Configure assento de aprendizagem LMS single Sign-On
 
-Para configurar um único sign-on no lado **LMS do Assento de Aprendizagem,** é necessário enviar os **Metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte do Learning Seat LMS](http://help.learningseatlms.com/help). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **LMS do Assento de Aprendizagem,** é necessário enviar os **Metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte do Learning Seat LMS](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -185,7 +185,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, p
 
 ### <a name="create-learning-seat-lms-test-user"></a>Criar utilizador de teste LMS de Assento de Aprendizagem
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in Learning Seat LMS. Trabalhe com [a equipa de suporte do Learning Seat LMS](http://help.learningseatlms.com/help) para adicionar os utilizadores na plataforma Learning Seat LMS. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Learning Seat LMS. Trabalhe com [a equipa de suporte do Learning Seat LMS](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview) para adicionar os utilizadores na plataforma Learning Seat LMS. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

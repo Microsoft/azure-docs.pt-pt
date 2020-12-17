@@ -86,8 +86,8 @@
                 - name: Script de SQL
                   href: ./sql/author-sql-script.md
                   displayname: author
-                - name: Fluxo de Dados de Mapeamento
-                  href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Fluxo de Dados
+                  href: concepts-data-flow-overview.md
         - name: Agenda de manutenção
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Controlo de código fonte
@@ -660,8 +660,8 @@
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Fluxos de dados
           items:
-            - name: Descrição geral do fluxo de dados de mapeamento
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Descrição geral do fluxo de dados
+              href: concepts-data-flow-overview.md
             - name: Modo de depuração
               href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Desvio do esquema

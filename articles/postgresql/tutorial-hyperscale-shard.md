@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: bc93c3643e329879e5118d1cfb61a356442df808
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97622253"
+ms.locfileid: "97630314"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Dados fragmentos sobre nós de trabalhadores na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
 
@@ -171,8 +171,8 @@ Podemos ver que os fragmentos são de tamanho igual. Já vimos que as colocaçõ
 
 As linhas do nosso `users` exemplo distribuídas uniformemente porque as propriedades da coluna de distribuição, `email` .
 
-1. O número de endereços de e-mail foi maior ou igual ao número de fragmentos
-2. O número de filas por endereço de e-mail era semelhante (no nosso caso, exatamente uma linha por endereço porque declaramos e-mail uma chave)
+1. O número de endereços de e-mail foi maior ou igual ao número de fragmentos.
+2. O número de filas por endereço de e-mail foi semelhante (no nosso caso, exatamente uma linha por endereço porque declaramos o e-mail uma chave).
 
 Qualquer escolha de mesa e coluna de distribuição onde qualquer uma das propriedades falha acabará com o tamanho de dados desigual nos trabalhadores, ou seja, *distorcer dados.*
 

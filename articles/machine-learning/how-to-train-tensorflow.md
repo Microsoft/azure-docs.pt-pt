@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9b8d48139e6cbabfbc5bf63f85d2d03c64d7efd9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c82b1ffbb005542822016a55346d9067e23050b2
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542291"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630875"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Trem tensorFlow modelos em escala com Azure Machine Learning
 
@@ -216,7 +216,7 @@ src = ScriptRunConfig(source_directory=script_folder,
 Para obter mais informações sobre a configuração de empregos com scriptRunConfig, consulte [Configure e submeta cursos de formação.](how-to-set-up-training-targets.md)
 
 > [!WARNING]
-> Se já usou o estimador TensorFlow para configurar os seus trabalhos de formação tensorFlow, por favor, note que os Estimadores serão depreciados numa futura versão do Azure ML SDK. Com Azure ML SDK >= 1.15.0, o ScriptRunConfig é a forma recomendada de configurar trabalhos de formação, incluindo aqueles que usam quadros DL.
+> Se já usou o estimador TensorFlow para configurar os seus trabalhos de formação tensorFlow, por favor, note que os Estimadores foram depreciados a partir da versão 1.19.0 SDK. Com Azure ML SDK >= 1.15.0, o ScriptRunConfig é a forma recomendada de configurar trabalhos de formação, incluindo aqueles que usam quadros de aprendizagem profunda. Para questões de migração comuns, consulte o [guia de migração ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### <a name="submit-a-run"></a>Submeter uma corrida
 
@@ -231,11 +231,11 @@ run.wait_for_completion(show_output=True)
 
 - **Preparação:** Uma imagem de estivador é criada de acordo com o ambiente definido. A imagem é enviada para o registo de contentores do espaço de trabalho e em cache para posteriores execuções. Os registos também são transmitidos para o histórico de execução e podem ser vistos para monitorizar o progresso. Se um ambiente curado for especificado, em vez disso, a imagem em cache que o ambiente curado será usado.
 
-- **Dimensionamento** : O cluster tenta aumentar se o cluster de AI do lote necessitar de mais nós para executar a execução do que estão atualmente disponíveis.
+- **Dimensionamento**: O cluster tenta aumentar se o cluster de AI do lote necessitar de mais nós para executar a execução do que estão atualmente disponíveis.
 
-- **Execução** : Todos os scripts na pasta do script são carregados para o alvo do cálculo, as lojas de dados são montadas ou copiadas, e a `script` é executada. As saídas da sestada e da pasta **./logs** são transmitidas para o histórico de execução e podem ser utilizadas para monitorizar a execução.
+- **Execução**: Todos os scripts na pasta do script são carregados para o alvo do cálculo, as lojas de dados são montadas ou copiadas, e a `script` é executada. As saídas da sestada e da pasta **./logs** são transmitidas para o histórico de execução e podem ser utilizadas para monitorizar a execução.
 
-- **Pós-Processamento** : A pasta **./outputs** da execução é copiada para o histórico de execução.
+- **Pós-Processamento**: A pasta **./outputs** da execução é copiada para o histórico de execução.
 
 ## <a name="register-or-download-a-model"></a>Registe-se ou descarregue um modelo
 

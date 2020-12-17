@@ -4,20 +4,20 @@ description: Aprenda a executar uma Função Azure quando uma mensagem RabbitMQ 
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617226"
+ms.locfileid: "97630739"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Gatilho RabbitMQ para visão geral das funções azure
 
 > [!NOTE]
-> As ligações RabbitMQ só são totalmente suportadas nos planos **do Windows Premium.** O consumo e o Linux não são atualmente apoiados.
+> As ligações RabbitMQ só são totalmente suportadas em planos **Windows Premium e Dedicados.** O consumo e o Linux não são atualmente apoiados.
 
 Utilize o gatilho RabbitMQ para responder a mensagens de uma fila RabbitMQ.
 
@@ -206,7 +206,7 @@ Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `RabbitMQTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "RabbitMQTrigger".|
 |**direção** | n/a | Deve ser definido para "dentro".|
@@ -275,7 +275,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |prefetchCount|30|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar e está em cache.|
 |nome de fila|n/a| Nome da fila para receber mensagens de. |
@@ -303,7 +303,7 @@ Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a de
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |nome hospedeiro|n/a|(ignorado se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
 |userName|n/a|(ignorado se utilizar o ConnectionStringSetting) <br>Nome para aceder à fila |

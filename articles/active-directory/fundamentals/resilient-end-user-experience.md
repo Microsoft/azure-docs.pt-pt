@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 057599cc92e27e423d25d528d5d84b978ff4a911
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919821"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630297"
 ---
 # <a name="resilient-end-user-experience"></a>Experiência resiliente do utilizador final
 
@@ -58,7 +58,7 @@ Como parte do processo de registo do fornecedor de identidade externo, inclua um
 
  2. Configurar uma política de perfil para permitir que os utilizadores [liguem a outra identidade à sua conta](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) depois de iniciarem a sua sessão.
 
- 3. Notifique e permita que os utilizadores [mudem para um IDP alternativo](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#configure-dynamic-custom-page-content-uri) durante uma paragem.
+ 3. Notifique e permita que os utilizadores [mudem para um IDP alternativo](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) durante uma paragem.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilidade de autenticação multi-factor
 

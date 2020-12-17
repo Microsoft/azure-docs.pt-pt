@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a3f2eb8fe3da9b272c5fe61ef5dd66726cf7764d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 169a8dba979571a5f4b8c8056737fce72db1d058
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348442"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629872"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Amostras de código da plataforma de identidade da Microsoft (ponto final v2.0)
 
@@ -36,7 +36,7 @@ Também pode contribuir para as amostras no GitHub. Para saber como, consulte [a
 
 Estas amostras mostram como escrever uma aplicação de uma página protegida com a plataforma de identidade da Microsoft. Estas amostras usam um dos sabores do MSAL.js.
 
-| Plataforma | Descrição | Ligação |
+| Plataforma | Description | Ligação |
 | -------- | --------------------- | -------- |
 | ![Esta imagem mostra o logótipo JavaScript ](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | SPA chama Microsoft Graph |[javascript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Esta imagem mostra o logótipo JavaScript ](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA chama Microsoft Graph usando Auth Code Flow c/ PKCE |[javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
@@ -46,7 +46,7 @@ Estas amostras mostram como escrever uma aplicação de uma página protegida co
 | ![Esta imagem mostra o logótipo angular ](media/sample-v2-code/logo_angular.png) [angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| SPA chama API web personalizada | [ms-identidade-javascript-angular-spa-aspnetcore-webapi](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi) |
 | ![Esta imagem mostra o logótipo angular ](media/sample-v2-code/logo_angular.png) [angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA chama B2C |[active-directório-b2c-javascript-angular-spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 | ![Esta imagem mostra o logótipo ](media/sample-v2-code/logo_react.png) [Reagir Reagir (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA chama API web personalizada que por sua vez chama Microsoft Graph  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
-| ![Esta imagem mostra o logótipo JavaScript ](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA chama API web personalizada que por sua vez chama Microsoft Graph  | [ms-identidade-javascript-tutorial-capítulo4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph) |
+| ![Esta imagem mostra o logótipo JavaScript ](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA chama API web personalizada que por sua vez chama Microsoft Graph  | [ms-identidade-javascript-tutorial-capítulo4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/1-call-api-graph) |
 | ![Esta imagem mostra o logótipo angular ](media/sample-v2-code/logo_angular.png) [angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA chama API web personalizada com papéis de aplicações e grupos de segurança |[ms-identidade-javascript-angular-spa-dotnetcore-webapi-roles-groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
 | ![Esta imagem mostra o logótipo ](media/sample-v2-code/logo-blazor.png) [Blazor WebAssembly (MSAL-JS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Blazor WebAssembly Tutorial para utilizadores de inscrição e ligar para APIs com diretório ativo Azure |[ms-identidade-blazor-wasm](https://github.com/Azure-Samples/ms-identity-blazor-wasm) |
 
@@ -112,7 +112,7 @@ A amostra que se segue mostra uma aplicação de cliente público a decorrer num
 
 As seguintes amostras mostram como configurar o seu pedido de aceitação de inscrições de qualquer inquilino do Azure Ative Directory (Azure AD). Configurar a sua aplicação como *multi-inquilino* significa que pode oferecer um Software como aplicação **de Serviço** (SaaS) a muitas organizações, permitindo que os seus utilizadores possam iniciar sing-in à sua aplicação após o consentimento para usar a sua conta.
 
-| Plataforma | Descrição | Ligação |
+| Plataforma | Description | Ligação |
 | -------- | --------------------- | -------- |
 | ![Esta imagem mostra o logótipo JavaScript ](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA multi-inquilino chama Graph API |[ms-identidade-javascript-angular-spa-aspnet-webapi-multitenant](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter1) |
 | ![Esta imagem mostra o logótipo angular ](media/sample-v2-code/logo_angular.png) [angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA multi-inquilino chama a API web personalizada multi-arrendatário |[ms-identidade-javascript-angular-spa-aspnet-webapi-multitenant](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter2) |

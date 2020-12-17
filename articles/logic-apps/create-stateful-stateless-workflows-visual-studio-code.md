@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: cf8b6670817132c8c0c0a09194b9aca4bbc8073c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923146"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632065"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -421,9 +421,9 @@ O fluxo de trabalho neste exemplo utiliza este gatilho e estas ações:
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Sim | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
-   | **Assunto** | Sim | `An email from your example workflow` | O assunto do e-mail |
-   | **Corpo** | Sim | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
+   | **Para** | Yes | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
+   | **Assunto** | Yes | `An email from your example workflow` | O assunto do e-mail |
+   | **Corpo** | Yes | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
    ||||
 
    > [!NOTE]
@@ -598,7 +598,7 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    ![Screenshot que mostra a página geral do fluxo de trabalho com estado de execução e histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Estado de execução | Descrição |
+   | Estado de execução | Description |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
    | **Cancelado** | A corrida foi desencadeada e iniciada, mas recebeu um pedido de cancelamento. |
@@ -622,7 +622,7 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    Aqui estão os possíveis estatutos que cada passo no fluxo de trabalho pode ter:
 
-   | Estado de ação | Ícone | Descrição |
+   | Estado de ação | Ícone | Description |
    |---------------|------|-------------|
    | Abortada | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
    | Cancelada | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava em andamento, mas recebeu um pedido de cancelamento. |
@@ -769,7 +769,7 @@ Pode publicar a sua aplicação lógica como um novo recurso, que cria automatic
 
       1. Selecione um recurso de Insights de Aplicação existente ou **Crie um novo recurso de Insights de Aplicação**.
 
-      1. No [portal Azure, aceda](htpps://portal.azure.com)ao seu recurso Application Insights.
+      1. No [portal Azure, aceda](https://portal.azure.com)ao seu recurso Application Insights.
 
       1. No menu de recursos, selecione **Overview**. Encontre e copie o valor **da chave de instrumentação.**
 

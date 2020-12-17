@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509313"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629804"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -227,7 +227,7 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 > [!NOTE]
 > Pode salvar o . O ficheiro RDP localmente no seu computador para lançar futuras ligações remotas de ambiente de trabalho à sua máquina virtual em vez de ter de navegar para a página geral da máquina virtual no portal Azure e utilizar a opção de ligação.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 
@@ -333,6 +333,9 @@ Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambien
 ![A sua conta está configurada para evitar que utilize este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Verifique se [configuraram as políticas de RBAC do Azure](../../virtual-machines/linux/login-using-aad.md) para o VM que concede ao utilizador o Login do Administrador de Máquina Virtual ou a função de Login do Utilizador de Máquina Virtual:
+
+> [!NOTE]
+> Se estiver a ter problemas com atribuições de funções Azure, consulte [o Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Cliente não autorizado
 
