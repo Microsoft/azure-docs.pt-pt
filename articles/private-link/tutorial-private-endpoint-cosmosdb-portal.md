@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484809"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631954"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta Azure Cosmos usando um Azure Private Endpoint
 
@@ -93,7 +93,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
 
 Nesta secção, irá criar uma máquina virtual que será usada para testar o ponto final privado.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >    >   **Virtual** na caixa de pesquisa.
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -135,7 +135,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
 
 Nesta secção, você vai criar uma conta Cosmos DB e configurar o ponto final privado.
 
-1. No menu à esquerda, selecione Criar uma conta DB de base de **dados** de recursos  >  **Databases**  >  **cosmos,** ou procurar **a conta DB cosmos** na caixa de pesquisa.
+1. No menu à esquerda, selecione Criar uma conta DB de base de **dados** de recursos  >    >  **cosmos,** ou procurar **a conta DB cosmos** na caixa de pesquisa.
 
 2. No separador Básicos da **conta Create Cosmos DB** insira ou selecione as **seguintes** informações:
 
@@ -208,13 +208,9 @@ Nesta secção, você vai criar uma conta Cosmos DB e configurar o ponto final p
 
 5. Selecione **OK**.
 
-10. Na secção **Definições** da conta CosmosDB, selecione **Keys**.
+6. Na secção **Definições** da conta CosmosDB, selecione **Keys**.
 
-11. Selecione **myResourceGroup**.
-
-12. Selecione a conta de armazenamento que criou nos passos anteriores.
-
-14. Selecione a cópia na **CADEIA DE LIGAÇÃO PRIMÁRIA**.
+7. Selecione a cópia na **CADEIA DE LIGAÇÃO PRIMÁRIA**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testar conectividade com o ponto final privado
 
@@ -234,7 +230,7 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
 
 7. Abra o Windows PowerShell no servidor depois de ligar.
 
-8. Introduza `nslookup <storage-account-name>.documents.azure.com`. **\<storage-account-name>** Substitua-o pelo nome da conta de armazenamento que criou nos passos anteriores. 
+8. Introduza `nslookup <cosmosdb-account-name>.documents.azure.com`. **\<cosmosdb-account-name>** Substitua-o pelo nome da conta Cosmos DB que criou nos passos anteriores. 
 
     ```powershell
     Server:  UnKnown
@@ -264,7 +260,7 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
 
 16. Verifique se as definições estão corretas no **Resumo da Ligação**.  
 
-17. Selecione **Connect** (Ligar).
+17. Selecione **Ligar**.
 
 18. Feche a ligação ao **myVM**.
 

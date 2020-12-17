@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5d11f343a55d30e5d14d6f4ae0ddb1a74d9c61fa
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508837"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631980"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -32,6 +32,11 @@ A implementação do serviço de voz do SSML baseia-se na [versão 1.0](https://
 Escolha entre vozes padrão e neurais ou crie a sua própria voz personalizada única ao seu produto ou marca. Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, e 5 vozes neurais estão disponíveis em quatro línguas e locais. Para obter uma lista completa de línguas, locais e vozes apoiadas (neurais e padrão), consulte [o suporte linguístico.](language-support.md)
 
 Para saber mais sobre vozes padrão, neurais e personalizadas, consulte [a visão geral do texto para a fala](text-to-speech.md).
+
+
+> [!NOTE]
+> Pode ouvir vozes em diferentes estilos e pitchs a ler texto de exemplo utilizando [a página Texto para Discurso](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
 
 ## <a name="special-characters"></a>Carateres especiais
 
@@ -198,6 +203,7 @@ Atualmente, os ajustes de estilo de fala são suportados para estas vozes neurai
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
@@ -244,7 +250,7 @@ Acima as alterações são aplicadas ao nível da frase, e os estilos e role-pla
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Descrição                                                 |
+| Voz                   | Estilo                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -257,6 +263,7 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 |                         | `style="assistant"`       | Expressa um tom caloroso e descontraído para assistentes digitais    |
 |                         | `style="newscast"`        | Expressa um tom versátil e casual para a entrega de notícias gerais   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
+| `pt-BR-FranciscaNeural` | `style="calm"`            | Expressa uma atitude fria, recolhida e composta ao falar. Tom, tom, prosódia é muito mais uniforme comparado com outros tipos de fala.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
 |                         | `style="assistant"`       | Expressa um tom caloroso e descontraído para assistentes digitais    |
@@ -316,7 +323,7 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 
 Utilize esta tabela para determinar quais as funções suportadas por cada voz neural.
 
-| Voz                   | Função                       | Descrição                                                 |
+| Voz                   | Função                       | Description                                                 |
 |-------------------------|----------------------------|-------------------------------------------------------------|
 | `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | A voz imita uma jovem mulher adulta.                 |
 |                         | `role="OlderAdultMale"`    | A voz imita a um homem adulto mais velho.                   |
@@ -391,7 +398,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, este valor deve ser definido a menos de 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Força                      | Descrição |
+| Força                      | Description |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |

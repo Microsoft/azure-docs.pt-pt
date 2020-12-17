@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "94683629"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630756"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Suporte e compatibilidade de gráficos Azure Cosmos DB Gremlin com características do TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -25,7 +25,7 @@ O motor Azure Cosmos DB Graph segue de perto a especificação de passos travers
 
 A seguinte tabela mostra controladores Gremlin populares que pode utilizar com o Azure Cosmos DB:
 
-| Download | Origem | Introdução | Versão do conector suportado |
+| Download | Fonte | Introdução | Versão do conector suportado |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Gráficos com .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Documentação JavaDoc do Gremlin](https://tinkerpop.apache.org/javadocs/current/full/) | [Criar Gráficos com Java](create-graph-java.md) | 3.2.0+ |
@@ -121,7 +121,7 @@ Cada propriedade pode armazenar múltiplos valores numa matriz.
 
 Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter referências completas do Gremlin, veja [Referências do TinkerPop](https://tinkerpop.apache.org/docs/3.3.2/reference).
 
-| passo | Descrição | Documentação do TinkerPop 3.2 |
+| passo | Description | Documentação do TinkerPop 3.2 |
 | --- | --- | --- |
 | `addE` | Adiciona um limite entre dois vértices | [passo addE](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
 | `addV` | Adiciona um vértice ao gráfico | [passo addV](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |
@@ -195,31 +195,31 @@ _ **As expressões e funções lambda** não são suportadas atualmente. Isto in
 
 _ **Utilização de índice para consultas gremlin com `.V()` passos intermédios**: Atualmente, apenas a primeira `.V()` chamada de um traversal utilizará o índice para resolver quaisquer filtros ou predicados ligados ao mesmo. As chamadas subsequentes não consultarão o índice, o que poderá aumentar a latência e o custo da consulta.
     
-    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
+Assumindo a indexação padrão, uma consulta típica de Gremlin que começa com o `.V()` passo usaria parâmetros nos seus passos de filtragem anexados, tais como `.has()` ou para `.where()` otimizar o custo e desempenho da consulta. Por exemplo:
 
-    ```java
-    g.V().has('category', 'A')
-    ```
+```java
+g.V().has('category', 'A')
+```
 
-    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
+No entanto, quando mais de um `.V()` passo é incluído na consulta gremlin, a resolução dos dados para a consulta pode não ser a melhor. Tome como exemplo a seguinte consulta:
 
-    ```java
-    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
-    ```
+```java
+g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+```
 
-    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
+Esta consulta devolverá dois grupos de vértices com base na sua propriedade chamada `category` . Neste caso, apenas a primeira chamada, `g.V().has('category', 'A')` fará uso do índice para resolver os vértices com base nos valores das suas propriedades.
 
-    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
+Uma solução alternativa para esta consulta é utilizar passos subtraversais como `.map()` e `union()` . Isto é exemplificado abaixo:
 
-    ```java
-    // Query workaround using .map()
-    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+```java
+// Query workaround using .map()
+g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
 
-    // Query workaround using .union()
-    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
-    ```
+// Query workaround using .union()
+g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+```
 
-    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
+Pode rever o desempenho das consultas utilizando o [ `executionProfile()` passo Gremlin](graph-execution-profile.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
