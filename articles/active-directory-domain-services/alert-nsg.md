@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620261"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615652"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de configuração de rede nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -38,21 +38,21 @@ As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de
 
 ### <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
-| Prioridade | Name | Porta | Protocolo | Origem | Destino | Ação |
+| Prioridade | Nome | Porta | Protocolo | Origem | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | Permite Que o SyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Qualquer | Permitir |
-| 201      | PermitirRD | 3389 | TCP | Serra CorpNet | Qualquer | Permitir |
 | 301      | Permitir aRemotagem de Admissão | 5986| TCP | AzureActiveDirectoryDomainServices | Qualquer | Permitir |
+| 201      | PermitirRD | 3389 | TCP | Serra CorpNet | Qualquer | Negar<sup>1</sup> |
 | 65000    | AllVnetInBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Permitir |
 | 65001    | AllowAzureLoadBalancerInBound | Qualquer | Qualquer | AzureLoadBalancer | Qualquer | Permitir |
 | 65500    | DenyAllInBound | Qualquer | Qualquer | Qualquer | Qualquer | Negar |
+<sup>1</sup> Opcional para depurar. Permitir quando necessário para uma resolução avançada de problemas.
 
 > [!NOTE]
 > Também pode ter uma regra adicional que permite o tráfego de entrada se [configurar LDAP seguro][configure-ldaps]. Esta regra adicional é necessária para a comunicação LDAPS correta.
 
 ### <a name="outbound-security-rules"></a>Regras de segurança de saída
 
-| Prioridade | Name | Porta | Protocolo | Origem | Destino | Ação |
+| Prioridade | Nome | Porta | Protocolo | Origem | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Permitir |
 | 65001    | Permitir a Entrada de Água | Qualquer | Qualquer |  Qualquer | Internet | Permitir |

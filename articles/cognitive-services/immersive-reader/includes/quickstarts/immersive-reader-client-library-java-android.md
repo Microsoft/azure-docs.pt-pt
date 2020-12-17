@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 4118ef478f43c5887e2c5fba4595314e5a4ac02d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779112"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612721"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
@@ -38,13 +38,13 @@ Inicie um novo projeto no Android Studio. O código-fonte para este exemplo est�
 
 ![Novo projeto - Android](../../media/android/java/android-studio-create-project.png)
 
-Na janela Escolha a **janela do projeto,** selecione **Atividade Vazia**e, em seguida, selecione **Seguinte**.
+Na janela Escolha a **janela do projeto,** selecione **Atividade Vazia** e, em seguida, selecione **Seguinte**.
 
 ![Projeto atividade vazia - Android](../../media/android/java/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Configurar o projeto
 
-Nomeie o projeto **QuickstartJava**e selecione um local para o salvar. Selecione **Java** como linguagem de programação e, em seguida, selecione **Terminar**.
+Nomeie o projeto **QuickstartJava** e selecione um local para o salvar. Selecione **Java** como linguagem de programação e, em seguida, selecione **Terminar**.
 
 ![Configurar o projeto - Android](../../media/android/java/android-studio-configure-project.png)
 
@@ -235,11 +235,11 @@ Na pasta **res/layout/,** crie um novo ficheiro de recursos layout e **nomeie-o 
 
 ## <a name="set-up-the-app-java-code"></a>Configurar o código Java da aplicação
 
-Na pasta **/Java/com.example.quickstartjava,** verá um ficheiro da classe **MainActivity.java** existente. Esta pasta é onde a lógica da aplicação é da autoria.
+Na pasta **/Java/com.exemplo.quickstartjava,** verá um ficheiro de classe **Java .java MainActivity** existente. Esta pasta é onde a lógica da aplicação é da autoria.
 
 ![MainActivity - Android](../../media/android/java/android-studio-main-activity-java.png)
 
-Substitua o conteúdo **MainActivity.java** pelo seguinte código. Há algumas classes referenciadas em código que ainda não existem e serão criadas mais tarde.
+Substitua o conteúdo **.java MainActivity** pelo seguinte código. Há algumas classes referenciadas em código que ainda não existem e serão criadas mais tarde.
 
 ```MainActivity.java
 /**
@@ -292,11 +292,11 @@ public class MainActivity extends Activity {
 
 Criaremos mais 16 ficheiros da classe Java na pasta **/Java/com.exemplo.quickstartjava.** Cada uma destas aulas é utilizada pela app para integrar o SDK do leitor imersivo. A cada novo ficheiro, há algumas classes referenciadas em código que ainda não existem e serão criadas mais tarde. Depois de todas as classes serem criadas, não deve haver erros de referência nulos.
 
-Para criar um novo ficheiro **classe ImmersiveReader.java** Java, clique com o botão direito na pasta no Android Studio, selecione **New**, e, em seguida, selecione **Java Class**. Usará este mesmo método para criar ficheiros da classe Java para cada novo ficheiro da classe Java que criar.
+Para criar um novo ficheiro da classe **ImersivaReader.java** Java, clique com o botão direito na pasta no Android Studio, selecione **New**, e, em seguida, selecione **Java Class**. Usará este mesmo método para criar ficheiros da classe Java para cada novo ficheiro da classe Java que criar.
 
 ![ImersivoReader - Android](../../media/android/java/android-studio-immersivereader-java.png)
 
-Substitua o conteúdo **ImmersiveReader.java** pelo seguinte código:
+Substitua o conteúdo **.java ImmersiveReader** pelo seguinte código:
 
 ```ImmersiveReader.java
 /**
@@ -318,7 +318,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -376,11 +375,11 @@ public class ImmersiveReader {
 }
 ```
 
-Crie um novo ficheiro da classe **IRActivity.java** Java.
+Crie um novo ficheiro **iractivity.java** classe Java.
 
 ![IRActivity - Android](../../media/android/java/android-studio-iractivity-java.png)
 
-Substitua o conteúdo **IRActivity.java** pelo seguinte código:
+Substitua o conteúdo **.java IRActivity** pelo seguinte código:
 
 ```IRActivity.java
 /**
@@ -402,7 +401,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -460,11 +458,11 @@ public class ImmersiveReader {
 }
 ```
 
-Crie um novo ficheiro da classe **IRError.java** Java.
+Crie um novo ficheiro **irError.java** classe Java.
 
 ![IRError - Android](../../media/android/java/android-studio-irerror-java.png)
 
-Substitua o conteúdo **IRError.java** pelo seguinte código:
+Substitua o conteúdo **.java IRError** pelo seguinte código:
 
 ```IRError.java
 /**
@@ -539,11 +537,11 @@ public class IRError implements Parcelable {
 }
 ```
 
-Crie um novo ficheiro da classe **Error.java** Java.
+Crie um novo ficheiro da classe Java **.java** Erro.
 
 ![Erro - Android](../../media/android/java/android-studio-error-java.png)
 
-Substitua o conteúdo **Error.java** pelo seguinte código:
+Substitua o conteúdo **.java Erro** pelo seguinte código:
 
 ```Error.java
 /**
@@ -570,11 +568,11 @@ public class Error {
 }
 ```
 
-Crie um novo ficheiro da classe **ReadableContent.java** Java.
+Crie um novo ficheiro **da** classe .java Java.
 
 ![ReadableContent - Android](../../media/android/java/android-studio-readablecontent-java.png)
 
-Substitua o conteúdo **de ReadableContent.java** pelo seguinte código:
+Substitua o conteúdo **.java .java ReadableContent** pelo seguinte código:
 
 ```ReadableContent.java
 /**
@@ -614,11 +612,11 @@ public class ReadableContent {
 }
 ```
 
-Crie um novo ficheiro da classe **ReadableTextChutChunk.java.**
+Crie um novo ficheiro da classe Java **.java ReadableTextChunk.**
 
 ![ReadableTextChunk - Android](../../media/android/java/android-studio-readabletextchunk-java.png)
 
-Substitua o conteúdo **de ReadableTextChunk.java** pelo seguinte código:
+Substitua o conteúdo **.java ReadableTextChunk** pelo seguinte código:
 
 ```ReadableTextChunk.java
 /**
@@ -646,11 +644,11 @@ public class ReadableTextChunk {
 }
 ```
 
-Crie um novo ficheiro da classe **IRDataHolder.java** Java.
+Crie um novo ficheiro da classe **IrDataHolder.java** Java.
 
 ![IRDataHolder - Android](../../media/android/java/android-studio-irdataholder-java.png)
 
-Substitua o conteúdo **IRDataHolder.java** pelo seguinte código:
+Substitua o conteúdo **.java IRDataHolder** pelo seguinte código:
 
 ```IRDataHolder.java
 /**
@@ -711,11 +709,11 @@ public class IRDataHolder {
 }
 ```
 
-Crie um novo ficheiro da classe **IRAuthenticator.java** Java.
+Crie um novo ficheiro **irauthenticator.java** java.
 
 ![IRAuthenticator - Android](../../media/android/java/android-studio-irauthenticator-java.png)
 
-Substitua o conteúdo **IRAuthenticator.java** pelo seguinte código:
+Substitua o conteúdo **.java IRAuthenticator** pelo seguinte código:
 
 ```IRAuthenticator.java
 /**
@@ -770,7 +768,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             urlStringBuilder.append("/oauth2/token");
             URL tokenUrl = new URL(urlStringBuilder.toString());
 
-
             StringBuilder formStringBuilder = new StringBuilder();
             formStringBuilder.append("grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=");
             formStringBuilder.append(clientId);
@@ -793,7 +790,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             if (responseCode == HTTP_OK) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuffer response = new StringBuffer();
-
 
                 String line = bufferedReader.readLine();
                 while (!TextUtils.isEmpty(line)) {
@@ -826,7 +822,7 @@ Crie um novo ficheiro da classe **IRLauncher.java** Java.
 
 ![IRLauncher - Android](../../media/android/java/android-studio-irlauncher-java.png)
 
-Substitua o conteúdo **IRLauncher.java** pelo seguinte código:
+Substitua o conteúdo **.java IRLauncher** pelo seguinte código:
 
 ```IRLauncher.java
 /**
@@ -1019,7 +1015,7 @@ Crie um novo ficheiro da classe **IRStore.java** Java.
 
 ![IRStore - Android](../../media/android/java/android-studio-irstore-java.png)
 
-Substitua o conteúdo **IRStore.java** pelo seguinte código:
+Substitua o conteúdo **.java IRStore** pelo seguinte código:
 
 ```IRStore.java
 /**
@@ -1040,11 +1036,11 @@ public final class IRStore {
 }
 ```
 
-Crie um novo ficheiro **autenticaçãoTask.java** Java.
+Crie um novo ficheiro **autenticaçãoTask.java** classe Java.
 
 ![AutenticaçãoTask](../../media/android/java/android-studio-authenticationtask-java.png)
 
-Substitua o conteúdo **autenticaçãoTask.java** pelo seguinte código:
+Substitua o conteúdo **.java Autenticação.java** com o seguinte código:
 
 ```AuthenticationTask.java
 /**
@@ -1097,11 +1093,11 @@ public class AuthenticationTask extends AsyncTask<Void, Void, String> {
 }
 ```
 
-Crie um novo ficheiro **classe Chunk.java** Java.
+Crie um novo ficheiro da classe **Chunk.java** Java.
 
 ![Pedaço - Android](../../media/android/java/android-studio-chunk-java.png)
 
-Substitua o conteúdo **chunk.java** pelo seguinte código:
+Substitua o conteúdo **.java Chunk** pelo seguinte código:
 
 ```Chunk.java
 /**
@@ -1134,11 +1130,11 @@ public class Chunk {
 }
 ```
 
-Crie um novo ficheiro da classe **Content.java** Java.
+Crie um novo ficheiro de classe **Java .java** Conteúdo.
 
 ![Conteúdo - Android](../../media/android/java/android-studio-content-java.png)
 
-Substitua o conteúdo **conteúdo content.java** pelo seguinte código:
+Substituir **Conteúdo.java** conteúdo pelo seguinte código:
 
 ```Content.java
 /**
@@ -1170,11 +1166,11 @@ public class Content {
 }
 ```
 
-Crie um novo ficheiro da classe **Options.java** Java.
+Crie um novo ficheiro **de classe Java .java Opções.**
 
 ![Opções - Android](../../media/android/java/android-studio-options-java.png)
 
-Substitua o conteúdo **Options.java** pelo seguinte código:
+Substituir **Opções.java** conteúdo pelo seguinte código:
 
 ```Options.java
 /**
@@ -1204,11 +1200,11 @@ public class Options {
 }
 ```
 
-Crie um novo ficheiro da classe **Message.java** Java.
+Crie um novo ficheiro da classe Java **.java Mensagem.**
 
 ![Mensagem - Android](../../media/android/java/android-studio-message-java.png)
 
-Substitua o conteúdo **da Mensagem.java** pelo seguinte código:
+Substitua o conteúdo **.java mensagem** pelo seguinte código:
 
 ```Message.java
 /**
@@ -1242,11 +1238,11 @@ public class Message {
 }
 ```
 
-Crie um novo ficheiro da classe **WebAppInterface.java** Java.
+Crie um novo ficheiro da classe **Java .java WebAppInterface.**
 
 ![WebAppInterface - Android](../../media/android/java/android-studio-webappinterface-java.png)
 
-Substitua os conteúdos **WebAppInterface.java** pelo seguinte código:
+Substitua o conteúdo **.java WebAppInterface** pelo seguinte código:
 
 ```WebAppInterface.java
 /**

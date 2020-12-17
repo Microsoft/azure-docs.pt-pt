@@ -4,15 +4,15 @@ description: Aprenda a executar uma Função Azure quando uma mensagem RabbitMQ 
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: e7095c08c385457bddf6d70d345c4f47073b4adb
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505772"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617226"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Gatilho RabbitMQ para visão geral das funções azure
 
@@ -133,14 +133,12 @@ Uma ligação RabbitMQ é definida em *function.jsno* local onde *o tipo* está 
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }
     ]
 }
 ```
-
-O código *_\_ no seu_ \_ .py* declara um parâmetro como `func.RabbitMQMessage` , que lhe permite ler a mensagem na sua função.
 
 ```python
 import logging
@@ -214,11 +212,11 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**direção** | n/a | Deve ser definido para "dentro".|
 |**nome** | n/a | O nome da variável que representa a fila no código de função. |
 |**nome de fila**|**Nome da fila**| Nome da fila para receber mensagens de. |
-|**nome hospedeiro**|**Nome anfitrião**|(opcional se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
-|**nomeamento de utilizadorNameSetting**|**Nomeagem de utilizador**|(opcional se utilizar o ConnectionStringSetting) <br>Nome para aceder à fila |
-|**passwordSetting**|**Passwordsetting**|(opcional se utilizar o ConnectionStringSetting) <br>Senha para aceder à fila|
+|**nome hospedeiro**|**Nome anfitrião**|(ignorado se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
+|**nomeamento de utilizadorNameSetting**|**Nomeagem de utilizador**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém o nome de utilizador para aceder à fila. Por exemplo: UserNameSetting: "%< UserNameFromSettings >%"|
+|**passwordSetting**|**Passwordsetting**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém a palavra-passe para aceder à fila. Por exemplo: PasswordSetting: "%< PasswordFromSettings >%"|
 |**conexãoStringSetting**|**ConexãoStringSetting**|O nome da definição da aplicação que contém a cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que se especificar diretamente o fio de ligação e não através de uma definição de aplicação no local.settings.jsligado, o gatilho não funcionará. (Ex: Em *function.jssobre:* connectionStringSetting: "rabbitMQConnection" <br> Em *local.settings.jsem*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**porto**|**Porta**|Recebe ou define o Porto usado. Incumprimentos para 0.|
+|**porto**|**Porta**|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Incumprimentos para 0.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -226,31 +224,29 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Estão disponíveis os seguintes tipos de parâmetros para a mensagem:
+O tipo de mensagem padrão é [o Evento RabbitMQ,](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` propriedade do Evento RabbitMQ pode ser lida como os tipos listados abaixo:
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - o formato padrão para mensagens RabbitMQ.
-  * `byte[]`- Através da propriedade 'Body' do Evento RabbitMQ.
-* `string` - A mensagem é texto.
 * `An object serializable as JSON` - A mensagem é entregue como uma cadeia JSON válida.
+* `string`
+* `byte[]`
 * `POCO` - A mensagem é formatada como um objeto C#. Para um exemplo completo, consulte o [exemplo](#example)C# .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Estão disponíveis os seguintes tipos de parâmetros para a mensagem:
+O tipo de mensagem padrão é [o Evento RabbitMQ,](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` propriedade do Evento RabbitMQ pode ser lida como os tipos listados abaixo:
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - o formato padrão para mensagens RabbitMQ.
-  * `byte[]`- Através da propriedade 'Body' do Evento RabbitMQ.
-* `string` - A mensagem é texto.
 * `An object serializable as JSON` - A mensagem é entregue como uma cadeia JSON válida.
-* `POCO` - A mensagem é formatada como um objeto C#.
+* `string`
+* `byte[]`
+* `POCO` - A mensagem é formatada como um objeto C#. Para um exemplo completo, consulte o [exemplo](#example)do script C# .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A mensagem RabbitMQ é transmitida para a função como um objeto de corda ou JSON.
+A mensagem de fila está disponível através de contexto.encadernações.<NAME> onde <NAME> corresponde ao nome definido em function.js. Se a carga útil for JSON, o valor é deseralizado num objeto.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A mensagem RabbitMQ é transmitida para a função como um objeto de corda ou JSON.
+Consulte o [exemplo](#example)Python .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -284,14 +280,14 @@ Esta secção descreve as definições de configuração global disponíveis par
 |prefetchCount|30|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar e está em cache.|
 |nome de fila|n/a| Nome da fila para receber mensagens de. |
 |conexãoStragem|n/a|O nome da definição da aplicação que contém a cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que se especificar diretamente o fio de ligação e não através de uma definição de aplicação no local.settings.jsligado, o gatilho não funcionará.|
-|porta|0|O número máximo de sessões que podem ser manuseadas simultaneamente por instância em escala.|
+|porta|0|(ignorado se utilizar a ligaçãoStragem) O número máximo de sessões que podem ser manuseadas simultaneamente por instância em escala.|
 
 ## <a name="local-testing"></a>Testes locais
 
 > [!NOTE]
 > A ligaçãoStragem tem precedência sobre "hostName", "userName" e "password". Se estiverem todos prontos, a ligaçãoStragem irá anular os outros dois.
 
-Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a definição "hostName" e "username" e "password" se aplicável na secção "RabbitMQ" de *host.jsem*:
+Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a definição "HostName" e "userName" e "password" se aplicável na secção "RabbitMQ" de *host.jsem*:
 
 ```json
 {
@@ -300,8 +296,8 @@ Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a de
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
@@ -309,9 +305,9 @@ Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a de
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|nome hospedeiro|n/a|(opcional se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
-|userName|n/a|(opcional se utilizar o ConnectionStringSetting) <br>Nome para aceder à fila |
-|palavra-passe|n/a|(opcional se utilizar o ConnectionStringSetting) <br>Senha para aceder à fila|
+|nome hospedeiro|n/a|(ignorado se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
+|userName|n/a|(ignorado se utilizar o ConnectionStringSetting) <br>Nome para aceder à fila |
+|palavra-passe|n/a|(ignorado se utilizar o ConnectionStringSetting) <br>Senha para aceder à fila|
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Monitorização do ponto final RabbitMQ
 Para monitorizar as suas filas e trocas por um determinado ponto final RabbitMQ:

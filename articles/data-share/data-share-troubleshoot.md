@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579152"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617243"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolver problemas comuns no Azure Data Share 
 
@@ -67,6 +67,10 @@ O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma
 * Data Partilhar a ligação à loja de dados de origem ou alvo é bloqueada por firewall.
 * O conjunto de dados partilhado, ou a loja de dados de origem ou alvo é eliminada.
 
+Para a conta de armazenamento, as seguintes são causas adicionais de falhas de instantâneo.
+
+* O ficheiro está a ser atualizado na fonte enquanto o instantâneo está a acontecer. Isto pode resultar em 0 byte file no alvo. O instantâneo subsequente após a atualização ser concluído na fonte deverá ter sucesso.
+
 Para as fontes SQL, as seguintes são causas adicionais de falhas de instantâneo. 
 
 * O script SQL de origem ou alvo para conceder permissão de Partilha de Dados não é executado. Ou para a Azure SQL Database ou Azure Synapse Analytics (anteriormente Azure SQL DW), é executado usando a autenticação SQL em vez da autenticação do Azure Ative Directory.  
@@ -75,6 +79,9 @@ Para as fontes SQL, as seguintes são causas adicionais de falhas de instantâne
 * A loja de dados SQL de origem ou alvo é bloqueada por outros processos. A Azure Data Share não aplica fechaduras à loja de dados de origem e alvo SQL. No entanto, as fechaduras existentes na loja de dados SQL de origem e alvo causarão falhas instantâneas.
 * A tabela SQL alvo é referenciada por uma restrição de chave estrangeira. Durante o instantâneo, se existir uma tabela-alvo com o mesmo nome, o Azure Data Share deixa cair a tabela e cria uma nova tabela. Se a tabela SQL-alvo for referenciada por uma restrição de chave estrangeira, a tabela não pode ser largada.
 * O ficheiro CSV alvo é gerado, mas os dados não podem ser lidos no Excel. Isto pode acontecer quando a tabela SQL de origem contém dados com caracteres não ingleses. No Excel, selecione o separador 'Obter Dados' e escolha o ficheiro CSV, selecione a origem do ficheiro como 65001: Unicode (UTF-8) e carregue os dados.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Emissão instantânea após atualizar o horário do instantâneo
+Após o provedor de dados atualizar o calendário instantâneo da partilha enviada, o consumidor de dados precisa de desativar o calendário de instantâneos anterior e voltar a ativar o calendário de instantâneos atualizado para a partilha recebida. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

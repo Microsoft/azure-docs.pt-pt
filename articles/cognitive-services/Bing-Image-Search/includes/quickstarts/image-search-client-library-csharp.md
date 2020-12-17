@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 247aea49d60c2d953d8b6dff37d22188a5442a1f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e051eca990ae0aa0b5a79c208a594e1b2332bcb2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625384"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612652"
 ---
 Utilize este quickstart para fazer a sua primeira pesquisa de imagem utilizando a biblioteca do cliente Bing Image Search. 
 
@@ -36,8 +36,6 @@ Consulte também [preços dos serviços cognitivos - Bing Search API](https://az
 ## <a name="create-a-console-project"></a>Criar um projeto de consola
 
 Primeiro, crie uma nova aplicação de consola C#.
-
-## <a name="create-a-console-project"></a>Criar um projeto de consola
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visualstudio)
 
@@ -136,5 +134,5 @@ if (imageResults != null)
 * [O que é a Pesquisa de Imagens do Bing?](../../overview.md)  
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Amostras de .NET para o SDK dos Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-* [Documentação dos Serviços Cognitivos do Azure](../../../index.yml)
+* [Documentação dos Serviços Cognitivos da Azure](../../../index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

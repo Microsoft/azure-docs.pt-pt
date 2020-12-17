@@ -10,12 +10,12 @@ ms.date: 12/11/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 5aa14ae179270813a8c7410425c1614d95b8b497
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e68a46070f03154092d148552fffbb99ae82bcfd
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366392"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612716"
 ---
 <a name="HOLTop"></a>
 
@@ -153,10 +153,10 @@ O cliente Text Analytics é um `TextAnalyticsClient` objeto que autentica a Azur
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis) 
 * [Mineração de opinião](#opinion-mining)
-* [Deteção linguística](#language-detection)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 

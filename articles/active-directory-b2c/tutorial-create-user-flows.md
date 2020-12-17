@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2020
+ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: af0fafe98c3ca48ecced46cef6fb5fe8876c7f50
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215999"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614273"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -28,7 +28,7 @@ Neste artigo, vai aprender a:
 > * Criar um fluxo de utilizador de edição de perfil
 > * Criar um fluxo de utilizador de redefinição de palavra-passe
 
-Este tutorial mostra-lhe como criar alguns fluxos recomendados de utilizador utilizando o portal Azure. Se estiver à procura de informações sobre como configurar um fluxo de credenciais de senha do proprietário de recursos (ROPC) na sua aplicação, consulte [configurar o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C](configure-ropc.md).
+Este tutorial mostra-lhe como criar alguns fluxos recomendados de utilizador utilizando o portal Azure. Se estiver à procura de informações sobre como configurar um fluxo de credenciais de senha do proprietário de recursos (ROPC) na sua aplicação, consulte [configurar o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C](add-ropc-policy.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -49,7 +49,7 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
     ![Inquilina B2C, Diretório e Painel de Assinatura, Portal Azure](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
 1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Em **Políticas**, selecione **os fluxos do Utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
+1. Em **Políticas**, selecione **os fluxos do Utilizador** e, em seguida, selecione Novo fluxo de **utilizador**.
 
     ![Página de fluxos de utilizador no portal com novo botão de fluxo do utilizador realçado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -57,13 +57,13 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 
     ![Selecione uma página de fluxo de utilizador com iniciar s inscrição e iniciar surgiu no fluxo realçado](./media/tutorial-create-user-flows/select-user-flow-type.png)
 
-1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**. (Saiba mais sobre[as](user-flow-versions.md) versões de fluxo de utilizador.)
+1. Em **Selecione uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**. (Saiba mais sobre[as](user-flow-versions.md) versões de fluxo de utilizador.)
 
     ![Crie a página de fluxo do utilizador no portal Azure com propriedades destacadas](./media/tutorial-create-user-flows/select-version.png)
 
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *signo de inscrição em 1*.
 1. Para **fornecedores de identidade**, selecione **Inscrição de e-mail**.
-1. Para **atributos e reclamações do Utilizador,** escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição**e **Código Postal**. Clique em **OK**.
+1. Para **atributos e reclamações do Utilizador,** escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição** e **Código Postal**. Clique em **OK**.
 
     ![Página de seleção de atributos e reclamações com três reclamações selecionadas](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
@@ -73,7 +73,7 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 
 1. Selecione o fluxo de utilizador criado para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador executar**e, em seguida, selecione Iniciar s **inscrição agora**.
+1. Clique **no fluxo do utilizador executar** e, em seguida, selecione Iniciar s **inscrição agora**.
 
     ![Executar a página de fluxo do utilizador no portal com o botão de fluxo do utilizador Executar realçado](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
@@ -89,9 +89,9 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 
 Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize um fluxo de utilizador de edição de perfil.
 
-1. No menu da página geral do inquilino Azure AD B2C, selecione **os fluxos do Utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
+1. No menu da página geral do inquilino Azure AD B2C, selecione **os fluxos do Utilizador** e, em seguida, selecione Novo fluxo de **utilizador**.
 1. Na página De fluxo do **utilizador,** selecione o fluxo do utilizador **de edição de perfil.** 
-1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**.
+1. Em **Selecione uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**.
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *perfilando1*.
 1. Para **fornecedores de identidade**, selecione Local Account **SignIn**.
 2. Para **os atributos do Utilizador,** escolha os atributos que pretende que o cliente possa editar no seu perfil. Por exemplo, selecione **Mostrar mais**, e, em seguida, escolha ambos os atributos e reclamações para o nome **de Exibição** e **o título de Job**. Clique em **OK**.
@@ -101,16 +101,16 @@ Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize
 
 1. Selecione o fluxo de utilizador criado para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique no **fluxo do utilizador executar**e, em seguida, iniciar scontabilidade com a conta que criou anteriormente.
+1. Clique no **fluxo do utilizador executar** e, em seguida, iniciar scontabilidade com a conta que criou anteriormente.
 1. Tem agora a oportunidade de alterar o nome de exibição e o título de trabalho para o utilizador. Clique em **Continue** (Continuar). O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
 
 ## <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de utilizador de redefinição de palavra-passe
 
 Para permitir que os utilizadores da sua aplicação repuvam a sua palavra-passe, utilize uma palavra-passe para redefinir o fluxo do utilizador.
 
-1. No menu geral do inquilino Azure AD B2C, selecione **os fluxos do utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
+1. No menu geral do inquilino Azure AD B2C, selecione **os fluxos do utilizador** e, em seguida, selecione Novo fluxo de **utilizador**.
 1. Na página De fluxo do **utilizador,** selecione o fluxo do utilizador **de redefinição de palavra-passe.** 
-1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**.
+1. Em **Selecione uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**.
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *passwordreste1*.
 1. Para **os fornecedores de identidade,** ative **a palavra-passe Reset utilizando o endereço de e-mail.**
 2. Nas reclamações da Aplicação, clique **em Mostrar mais** e escolha as reclamações que pretende devolvidas nos tokens de autorização enviados de volta para a sua aplicação. Por exemplo, selecione **ID de Objeto do Utilizador**.
@@ -121,7 +121,7 @@ Para permitir que os utilizadores da sua aplicação repuvam a sua palavra-passe
 
 1. Selecione o fluxo de utilizador criado para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador**executar, verifique o endereço de e-mail da conta que criou anteriormente e selecione **Continue**.
+1. Clique **no fluxo do utilizador** executar, verifique o endereço de e-mail da conta que criou anteriormente e selecione **Continue**.
 1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e **selecione Continue**. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
 
 ## <a name="next-steps"></a>Passos seguintes

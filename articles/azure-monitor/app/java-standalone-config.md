@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7c5cac0b52fb0a224595ca7e328b551fd48d6661
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507664"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614239"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -168,6 +168,9 @@ Se quiser adicionar dimensões personalizadas a toda a sua telemetria:
 ```
 
 `${...}` pode ser usado para ler o valor da variável ambiente especificado no arranque.
+
+> [!NOTE]
+> A partir da versão 3.0.1-BETA, se adicionar uma dimensão personalizada `service.version` nomeada, o valor será armazenado na `application_Version` coluna na tabela 'Registos de Insights de Aplicação' e não como uma dimensão personalizada.
 
 ## <a name="telemetry-processors-preview"></a>Processadores de telemetria (pré-visualização)
 

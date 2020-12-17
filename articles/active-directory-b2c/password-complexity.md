@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0cd9f0d6cf9529439f7b5ce46b1a5807d0a68a7c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 11a45adfda306b2ab843725b6aaa28a5e6c026a6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111389"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614256"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configure requisitos de complexidade para senhas no Azure Ative Directory B2C
 
@@ -218,7 +218,7 @@ Guarde o ficheiro da apólice.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como configurar a [mudança de senha utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-password-change.md).
+- Saiba como configurar a [mudança de senha no Azure Ative Directory B2C](add-password-change-policy.md).
 - Saiba mais sobre os [elementos Predicados](predicates.md) e [PredicateValidations](predicates.md#predicatevalidations) na referência IEF.
 
 
