@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 47c8096893742a25904f0f7e688af2fc641166d1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004318"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654800"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -34,20 +34,20 @@ Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utiliza
  * **Configure a biblioteca do seu cliente para utilizar um tempo de *ligação* de pelo menos 15 segundos,** dando ao sistema tempo para se ligar mesmo em condições mais elevadas de CPU.  Um pequeno valor de tempo de ligação não garante que a ligação seja estabelecida nesse período de tempo.  Se algo correr mal (CPU de cliente alto, CPU de servidor alto, e assim por diante), então um curto valor de tempo de ligação causará a tentativa de falha da ligação. Este comportamento muitas vezes piora uma situação má.  Em vez de ajudar, os intervalos mais curtos agravam o problema forçando o sistema a reiniciar o processo de tentar reconectar-se, o que pode levar a um ciclo *de reluto -> de ligação - >.* Recomendamos geralmente que deixe a sua ligação Timeout a 15 segundos ou mais. É melhor deixar a sua tentativa de ligação ter sucesso após 15 ou 20 segundos do que fazê-la falhar rapidamente apenas para tentar novamente. Este ciclo de retíria pode fazer com que a sua paragem dure mais tempo do que se deixar o sistema demorar mais tempo inicialmente.  
      > [!NOTE]
      > Esta orientação é específica para a *tentativa de ligação* e não está relacionada com o tempo que você está disposto a esperar por uma *operação* como GET ou SET para completar.
- 
+
  * **Evite operações dispendiosas** - Algumas operações redis, como o comando [KEYS,](https://redis.io/commands/keys) são *muito* caras e devem ser evitadas.  Para mais informações, consulte algumas considerações em torno [de comandos de longa duração](cache-troubleshoot-server.md#long-running-commands)
 
  * **Utilização da encriptação TLS** - Azure Cache for Redis requer comunicações encriptadas TLS por padrão.  As versões TLS 1.0, 1.1 e 1.2 estão atualmente suportadas.  No entanto, os TLS 1.0 e 1.1 estão num caminho para a depreciação em toda a indústria, pelo que utilize o TLS 1.2, se possível.  Se a biblioteca ou ferramenta do seu cliente não suportar TLS, então permitir ligações não encriptadas pode ser feita [através do portal Azure](cache-configure.md#access-ports) ou [APIs de gestão](/rest/api/redis/redis/update).  Nos casos em que as ligações encriptadas não são possíveis, seria recomendado colocar a sua cache e a sua aplicação de clientes numa rede virtual.  Para obter mais informações sobre quais portas são utilizadas no cenário de cache de rede virtual, consulte esta [tabela](cache-how-to-premium-vnet.md#outbound-port-requirements).
- 
+
  * **Tempo de mente -** Azure Redis tem atualmente um tempo de 10 minutos para ligações, pelo que este deve ser programado para menos de 10 minutos.
- 
+
 ## <a name="memory-management"></a>Gestão da memória
 Existem várias coisas relacionadas com o uso da memória dentro do seu servidor Redis que talvez queira considerar.  Aqui estão alguns:
 
  * **Escolha uma [política de despejo](https://redis.io/topics/lru-cache) que funcione para a sua candidatura.**  A política de incumprimento para Azure Redis é *volátil-lru,* o que significa que apenas as chaves que têm um conjunto de valor TTL serão elegíveis para despejo.  Se nenhuma tecla tiver um valor TTL, então o sistema não despeja nenhuma tecla.  Se pretender que o sistema permita que qualquer chave seja despejada se estiver sob pressão de memória, então talvez deva considerar a política *allkeys-lru.*
 
  * **Desaça um valor de validade nas suas chaves.**  Uma expiração removerá as chaves proactivamente em vez de esperar até que haja pressão de memória.  Quando o despejo faz efeito devido à pressão da memória, pode causar carga adicional no seu servidor.  Para obter mais informações, consulte a documentação dos comandos [EXPIRE](https://redis.io/commands/expire) e [EXPIREAT.](https://redis.io/commands/expireat)
- 
+
 ## <a name="client-library-specific-guidance"></a>Orientação específica da biblioteca do cliente
  * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java - Que cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
@@ -62,9 +62,9 @@ Existem várias coisas relacionadas com o uso da memória dentro do seu servidor
 Infelizmente, não há uma resposta fácil.  Cada aplicação tem de decidir que operações podem ser novamente julgadas e quais não podem.  Cada operação tem diferentes requisitos e dependências inter-chave.  Eis algumas coisas que podem considerar:
 
  * Podes obter erros do lado do cliente, apesar do Redis ter executado com sucesso o comando que pediste para executar.  Por exemplo:
-     - Os intervalos são um conceito do lado do cliente.  Se a operação chegar ao servidor, o servidor executará o comando mesmo que o cliente desasse de esperar.  
-     - Quando ocorre um erro na ligação da tomada, não é possível saber se a operação realmente funcionou no servidor.  Por exemplo, o erro de ligação pode ocorrer após o servidor processar o pedido, mas antes que o cliente receba a resposta.
- *  Como reage a minha candidatura se eu acidentalmente executar a mesma operação duas vezes?  Por exemplo, e se eu incrementar um inteiro duas vezes em vez de uma?  A minha candidatura está a escrever para a mesma chave de vários lugares?  E se a minha lógica de repreensão substituir um valor definido por outra parte da minha app?
+    - Os intervalos são um conceito do lado do cliente.  Se a operação chegar ao servidor, o servidor executará o comando mesmo que o cliente desasse de esperar.  
+    - Quando ocorre um erro na ligação da tomada, não é possível saber se a operação realmente funcionou no servidor.  Por exemplo, o erro de ligação pode ocorrer após o servidor processar o pedido, mas antes que o cliente receba a resposta.
+ * Como reage a minha candidatura se eu acidentalmente executar a mesma operação duas vezes?  Por exemplo, e se eu incrementar um inteiro duas vezes em vez de uma?  A minha candidatura está a escrever para a mesma chave de vários lugares?  E se a minha lógica de repreensão substituir um valor definido por outra parte da minha app?
 
 Se quiser testar como o seu código funciona em condições de erro, considere utilizar a [função 'Reiniciar'.](cache-administration.md#reboot) O reboot permite-lhe ver como os blips de ligação afetam a sua aplicação.
 
@@ -75,12 +75,12 @@ Se quiser testar como o seu código funciona em condições de erro, considere u
  * Certifique-se de que o VM do cliente que utiliza tem pelo *menos tanto cálculo e largura de banda* como a cache que está a ser testada. 
  * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11))  Exemplo de script do PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (Get-NetAdapter). Nome 
-     
+
  * **Considere utilizar instâncias De nível Premium Redis**.  Estes tamanhos de cache terão melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
- 
+
      > [!NOTE]
      > Os nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para a sua referência.   Além disso, esteja ciente de que o SSL/TLS adiciona algumas despesas gerais, para que possa obter latências e/ou produção diferentes se estiver a usar encriptação de transporte.
- 
+
 ### <a name="redis-benchmark-examples"></a>Redis-Benchmark exemplos
 **Configuração pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 

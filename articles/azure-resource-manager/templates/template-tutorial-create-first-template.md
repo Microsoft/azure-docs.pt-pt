@@ -2,16 +2,16 @@
 title: Tutorial - Criar & modelo de implementação
 description: Crie o seu primeiro modelo de Gestor de Recursos Azure (modelo ARM). No tutorial, você aprende sobre a sintaxe do ficheiro do modelo e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 001a20c38a82d053ae22a2614a32f0be9d8aabce
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107028"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656993"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM
 
@@ -19,7 +19,7 @@ Este tutorial apresenta-o aos modelos do Gestor de Recursos Azure (modelos ARM).
 
 Este tutorial é o primeiro de uma série. À medida que progride através da série, modifica o modelo inicial passo a passo até que tenha explorado todas as partes centrais de um modelo ARM. Estes elementos são os blocos de construção para modelos muito mais complexos. Esperamos que até ao final da série esteja confiante em criar os seus próprios modelos e pronto para automatizar as suas implementações com modelos.
 
-Se quiser saber sobre os benefícios da utilização de modelos e por que deve automatizar a implementação com modelos, consulte a [visão geral do modelo ARM](overview.md).
+Se quiser saber sobre os benefícios da utilização de modelos e por que deve automatizar a implementação com modelos, consulte a [visão geral do modelo ARM](overview.md). Para conhecer os modelos ARM através de um conjunto guiado de módulos no Microsoft Learn, consulte [implementar e gerir recursos em Azure utilizando modelos ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -35,7 +35,7 @@ Os modelos são ficheiros JSON. Para criar modelos, precisa de um bom editor JSO
 
 Também precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Se utilizar o Azure CLI, deve ter a versão mais recente. Para as instruções de instalação, consulte:
 
-- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 - [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)

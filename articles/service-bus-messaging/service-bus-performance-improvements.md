@@ -4,12 +4,12 @@ description: Descreve como usar o Service Bus para otimizar o desempenho ao troc
 ms.topic: article
 ms.date: 11/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12de7edd5dec42b01c46307febbef7d739d0495d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 6a0457537712ccb85191f320fd348446eed9b229
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811658"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655633"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus
 
@@ -349,7 +349,7 @@ Objetivo: Minimizar a latência de uma fila ou tópico. O número de remetentes 
 
 Objetivo: Maximizar a produção de uma fila ou tópico com um grande número de remetentes. Cada remetente envia mensagens com uma taxa moderada. O número de recetores é pequeno.
 
-O Service Bus permite até 1000 ligações simultâneas a uma entidade de mensagens. Esta limit é aplicada ao nível do espaço de nome, e as filas, tópicos ou subscrições são limitados pelo limite de ligações simultâneas por espaço de nome. Para as filas, este número é partilhado entre remetentes e recetores. Se todas as 1000 ligações forem necessárias para os remetentes, substitua a fila por um tópico e uma única subscrição. Um tópico aceita até 1000 ligações simultâneas de remetentes. A subscrição aceita mais 1000 ligações simultâneas de recetores. Se forem necessários mais de 1000 remetentes simultâneos, os remetentes devem enviar mensagens para o protocolo de Service Bus via HTTP.
+O Service Bus permite até 1000 ligações simultâneas a uma entidade de mensagens. Este limite é imposto ao nível do espaço de nome, e as filas, tópicos ou subscrições são limitados pelo limite de ligações simultâneas por espaço de nome. Para as filas, este número é partilhado entre remetentes e recetores. Se todas as 1000 ligações forem necessárias para os remetentes, substitua a fila por um tópico e uma única subscrição. Um tópico aceita até 1000 ligações simultâneas de remetentes. A subscrição aceita mais 1000 ligações simultâneas de recetores. Se forem necessários mais de 1000 remetentes simultâneos, os remetentes devem enviar mensagens para o protocolo de Service Bus via HTTP.
 
 Para maximizar a produção, siga estes passos:
 
