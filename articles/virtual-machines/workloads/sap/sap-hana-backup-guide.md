@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950028"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617107"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Azure Virtual Machines
 
@@ -103,7 +103,7 @@ As informações sobre a verificação de consistência da tabela também podem 
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Prós e contras de backup HANA versus instantâneo de armazenamento
 
-O SAP não&#39;dar preferência a qualquer cópia de segurança HANA versus instantâneo de armazenamento. Ele lista os seus prós e contras, para que se possa determinar qual usar dependendo da situação e da tecnologia de armazenamento disponível (ver [Planeamento da Sua Estratégia de Backup e Recuperação).](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
+O SAP não&#39;dar preferência a qualquer cópia de segurança HANA versus instantâneo de armazenamento. Ele lista os seus prós e contras, para que se possa determinar qual usar dependendo da situação e da tecnologia de armazenamento disponível (ver [Planeamento da Sua Estratégia de Backup e Recuperação).](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)
 
 No Azure, esteja ciente de que a função de snapshot blob Azure não&#39;fornecer consistência do sistema de ficheiros em vários discos (ver [Utilização de instantâneos blob com PowerShell).](/archive/blogs/cie/using-blob-snapshots-with-powershell) 
 

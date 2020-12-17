@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491677"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617430"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics divisória de saída de bolha personalizada
 
@@ -25,7 +25,13 @@ Os atributos de campo ou de entrada personalizados melhoram os fluxos de trabalh
 
 ### <a name="partition-key-options"></a>Opções-chave de partição
 
-A chave de partição, ou nome da coluna, usado para os dados de entrada de partição pode conter caracteres alfanuméricos com hífens, sublinhados e espaços. Não é possível utilizar campos aninhados como chave de partição, a menos que seja utilizado em conjunto com pseudónimos. A tecla de partição deve ser NVARCHAR(MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade de 1,2 ou superior). Para obter mais informações, consulte os [tipos de dados Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
+A chave de partição, ou nome da coluna, utilizada para os dados de entrada de partição pode conter qualquer personagem que seja aceite para [nomes blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). Não é possível usar campos aninhados como chave de partição, a menos que seja usado em conjunto com pseudónimos, mas pode usar certos caracteres para criar uma hierarquia de ficheiros. Por exemplo, pode usar a seguinte consulta para criar uma coluna que combine dados de duas outras colunas para fazer uma chave de partição única.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+A tecla de partição deve ser NVARCHAR(MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade de 1,2 ou superior). Os tipos de DataTime, Array e Records não são suportados, mas podem ser usados como chaves de partição se forem convertidos em Cordas. Para obter mais informações, consulte os [tipos de dados Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemplo
 

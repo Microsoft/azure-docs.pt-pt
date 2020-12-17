@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f87ed9b7455bed870cf25a6920cc6295811d94c8
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167700"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617073"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -118,8 +118,8 @@ Este exemplo utiliza o pacote [Microsoft.Extensions.Http](https://www.nuget.org/
 
 As aplicações Azure Functions fornecem as mesmas vidas de serviço [que ASP.NET Injeção de Dependência](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Para uma aplicação Funções, as diferentes vidas de serviço comportam-se da seguinte forma:
 
-- **Transitório:** Os serviços transitórios são criados a cada pedido do serviço.
-- **Âmbito :** A vida útil do serviço de âmbito corresponde a uma execução útil da função. Os serviços de âmbito são criados uma vez por execução. Os pedidos posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
+- **Transitório:** Os serviços transitórios são criados após cada resolução do serviço.
+- **Âmbito :** A vida útil do serviço de âmbito corresponde a uma execução útil da função. Os serviços de âmbito são criados uma vez por execução de função. Os pedidos posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
 - **Singleton**: A vida útil de singleton corresponde à vida útil do hospedeiro e é reutilizada através de execuções de funções nesse caso. Os serviços de vida da Singleton são recomendados para ligações e clientes, por exemplo `DocumentClient` ou `HttpClient` casos.
 
 Veja ou descarregue uma [amostra de diferentes vidas de serviço](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
@@ -181,6 +181,8 @@ O ficheiro de exemplo a seguir `host.json` adiciona o filtro de registo.
     }
 }
 ```
+
+Para obter mais informações sobre os níveis de registo, consulte [os níveis de registo](configure-monitoring.md#configure-log-levels)de configuração .
 
 ## <a name="function-app-provided-services"></a>App de função prestado serviços
 

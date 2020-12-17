@@ -1,18 +1,18 @@
 ---
 title: Ver e gerir fornecedores de serviços
 description: Os clientes podem utilizar a página de prestadores de serviços no portal Azure para visualizar informações sobre prestadores de serviços, ofertas de prestadores de serviços e recursos delegados.
-ms.date: 10/12/2020
+ms.date: 12/16/2020
 ms.topic: how-to
-ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5ee897503c997ab10fdb489f7921c9d2d001e472
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371108"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617209"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
-Os clientes podem utilizar a página **de prestadores de serviços** no [portal Azure](https://portal.azure.com) para visualizar detalhes sobre os prestadores de serviços e ofertas de prestadores de serviços, delegar recursos específicos para o [Farol Azure](../overview.md)e fazer compras para novas ofertas de prestadores de serviços.
+A página **de prestadores de serviços** no [portal Azure](https://portal.azure.com) dá aos clientes controlo e visibilidade para os seus prestadores de serviços que utilizam [o Farol Azure.](../overview.md) Os clientes podem ver detalhes sobre os prestadores de serviços, delegar recursos específicos, fazer compras para novas ofertas de prestadores de serviços, remover o acesso do prestador de serviços, e muito mais.
 
 > [!TIP]
 > Enquanto nos referimos a prestadores de serviços e clientes aqui, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para consolidar a sua experiência de gestão.
@@ -41,7 +41,7 @@ Na coluna **Delegações,** o cliente vê quantas subscrições e/ou grupos de r
 
 Um cliente pode adicionar uma nova oferta de prestador de serviços da página de ofertas do prestador de **serviços,** selecionando **a oferta Add.** O prestador de serviços deve ter publicado uma oferta para este cliente. O cliente pode então selecionar essa oferta a partir do ecrã **de ofertas privadas** e, em seguida, selecionar **Criar**.
 
-Se o cliente quiser remover uma oferta de prestador de serviços, pode selecionar o ícone do caixote do lixo na fila para essa oferta. Após confirmar a supressão, este prestador de serviços deixará de ter acesso aos recursos do cliente que anteriormente estavam delegados para essa oferta.
+Se o cliente quiser remover uma oferta de prestador de serviços, pode fazê-lo a qualquer momento selecionando o ícone do caixote do lixo na fila para essa oferta. Após confirmar a supressão, este prestador de serviços deixará de ter acesso aos recursos do cliente que anteriormente estavam delegados para essa oferta.
 
 ## <a name="delegate-resources"></a>Delegar recursos
 
@@ -85,4 +85,5 @@ Para obter mais informações sobre como atribuir uma política e ver os resulta
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Farol Azure.](../overview.md)
+- Saiba como auditar a [atividade do prestador de serviços.](view-service-provider-activity.md)
 - Saiba como os prestadores de serviços podem [ver e gerir clientes](view-manage-customers.md) na página **dos meus clientes** no portal Azure.

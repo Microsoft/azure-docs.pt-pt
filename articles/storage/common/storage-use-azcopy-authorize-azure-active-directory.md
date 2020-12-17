@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360293"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617413"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a blobs com AzCopy e Azure Ative Directory (Azure AD)
 
@@ -183,9 +183,9 @@ Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo
 > [!NOTE]
 > Considere usar um pedido como mostrado neste exemplo. Assim, a sua palavra-passe não aparecerá no histórico de comando da sua consola. 
 
-## <a name="authorize-without-a-keyring-linux"></a>Autorizar sem porta-chaves (Linux)
+## <a name="authorize-without-a-secret-store"></a>Autorizar sem uma loja secreta
 
-Se o seu sistema operativo não tiver uma loja secreta, como um *porta-chaves,* o `azcopy login` comando não funcionará. Em vez disso, pode definir variáveis ambientais na memória antes de executar cada operação. Estes valores desaparecem da memória uma vez que a operação termina, por isso terás de definir estas variáveis cada vez que executares um comando de azcopia.
+Se o seu sistema operativo não tiver uma loja secreta, como um *porta-chaves* Linux, o `azcopy login` comando não funcionará. Em vez disso, pode definir variáveis ambientais na memória antes de executar cada operação. 
 
 ### <a name="authorize-a-user-identity"></a>Autorizar a identidade do utilizador
 

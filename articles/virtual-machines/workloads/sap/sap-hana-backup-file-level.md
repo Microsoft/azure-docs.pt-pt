@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 13bdf4b10ec586bf83a70434f003cc1573aca469
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950266"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617141"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup no nível de ficheiro
 
@@ -28,7 +28,7 @@ Este artigo é um artigo relacionado com [o guia de backup da SAP HANA em Azure 
 
 Diferentes tipos de VM em Azure permitem um número diferente de VHDs ligados. Os detalhes exatos estão documentados em [Tamanhos para máquinas virtuais Linux em Azure](../../sizes.md). Para os testes referidos nesta documentação utilizamos um GS5 Azure VM, que permite 64 discos de dados anexados. Para sistemas SAP HANA maiores, um número significativo de discos pode já ser levado para ficheiros de dados e registos, possivelmente em combinação com a tira de software para uma produção ótima de IO do disco. Para obter mais detalhes sobre as configurações sugeridas do disco para implementações SAP HANA em VMs Azure, leia o artigo [Configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md). As recomendações feitas incluem recomendações de espaço em disco para cópias de segurança locais também.
 
-A forma padrão de gerir backup/restauro ao nível do ficheiro é com uma cópia de segurança baseada em ficheiros através do SAP HANA Studio ou através de declarações SAP HANA SQL. Para mais informações, leia o artigo [SAP HANA SQL e System Views Reference](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
+A forma padrão de gerir backup/restauro ao nível do ficheiro é com uma cópia de segurança baseada em ficheiros através do SAP HANA Studio ou através de declarações SAP HANA SQL. Para mais informações, leia o artigo [SAP HANA SQL e System Views Reference](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html).
 
 ![Este número mostra o diálogo do item do menu de reserva no ESTÚDIO SAP HANA](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 

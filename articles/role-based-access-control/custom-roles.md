@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369128"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617328"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
 
@@ -208,6 +208,7 @@ A lista que se segue descreve os limites para funções personalizadas.
 - Cada diretório pode ter até **5000** funções personalizadas.
 - AZure Germany e Azure China 21Vianet podem ter até 2000 funções personalizadas para cada diretório.
 - Não é possível definir `AssignableScopes` o âmbito da raiz `"/"` ().
+- Não é possível utilizar wildcards `*` em `AssignableScopes` . Esta restrição wildcard ajuda a garantir que um utilizador não pode potencialmente obter acesso a um âmbito atualizando a definição de função.
 - Só é possível definir um grupo de gestão num `AssignableScopes` papel personalizado. A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 - As funções personalizadas `DataActions` com as quais não podem ser atribuídas no âmbito do grupo de gestão.
 - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função.

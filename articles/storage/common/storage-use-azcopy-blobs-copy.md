@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f536e163e3d19d91c150506ab44fdd9cbc02c693
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907573"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617294"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Copiar bolhas entre contas de armazenamento Azure utilizando AzCopy v10
 
@@ -28,6 +28,8 @@ Para baixar a AzCopy e saber sobre as formas de fornecer credenciais de autoriza
 ## <a name="guidelines"></a>Diretrizes
 
 Aplique as seguintes diretrizes nos comandos AzCopy. 
+
+- O seu cliente deve ter acesso à rede tanto nas contas de armazenamento de origem como de destino. Para aprender a configurar as definições de rede para cada conta de armazenamento, consulte [firewalls de armazenamento Configure Azure e redes virtuais](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 - Anexar um token SAS a cada URL de origem. 
 
@@ -146,10 +148,10 @@ Para obter uma lista completa, consulte [as opções.](storage-ref-azcopy-copy.m
 
 Encontre mais exemplos nestes artigos:
 
-- [Exemplos: Upload](storage-use-azcopy-blobs-upload.md)
-- [Exemplos: Download](storage-use-azcopy-blobs-download.md)
+- [Exemplos: Carregar](storage-use-azcopy-blobs-upload.md)
+- [Exemplos: Transferência](storage-use-azcopy-blobs-download.md)
 - [Exemplos: Sincronizar](storage-use-azcopy-blobs-synchronize.md)
-- [Exemplos: Baldes Amazon S3](storage-use-azcopy-s3.md)
+- [Exemplos: Registos Amazon S3](storage-use-azcopy-s3.md)
 - [Exemplos: Ficheiros Azure](storage-use-azcopy-files.md)
 - [Tutorial: migrar dados no local para o armazenamento na cloud com o AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)

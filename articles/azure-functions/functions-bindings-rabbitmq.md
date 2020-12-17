@@ -4,15 +4,15 @@ description: Aprenda a enviar gatilhos e encadernações Azure RabbitMQ em Funç
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: cd6c8de0d9290aab273e25403bb1cb2d8fe07e27
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 72c31d0eebc19a926805976ed637168a00fa9495
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505765"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617192"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Ligações RabbitMQ para visão geral das funções azure
 
@@ -30,11 +30,11 @@ As funções Azure integram-se com [o RabbitMQ](https://www.rabbitmq.com/) atrav
 
 Para começar a desenvolver com esta extensão, certifique-se de que [primeiro configura um ponto final RabbitMQ](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). Para saber mais sobre o RabbitMQ, confira a página [de início.](https://www.rabbitmq.com/getstarted.html)
 
-### <a name="functions-2x-and-higher"></a>Funções 2.x e superior
+### <a name="functions-3x-and-higher"></a>Funções 3.x e superior
 
 Trabalhar com o gatilho e as ligações requer que você refira o pacote apropriado. O pacote NuGet é utilizado para bibliotecas de classe .NET enquanto o pacote de extensão é utilizado para todos os outros tipos de aplicação.
 
-| Idioma                                        | Adicione por...                                   | Observações 
+| Linguagem                                        | Adicione por...                                   | Observações 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 4.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registar o [pacote de extensão]          | Recomenda-se a utilização da [extensão Azure Tools] com Código de Estúdio Visual. |
@@ -46,9 +46,9 @@ Trabalhar com o gatilho e as ligações requer que você refira o pacote apropri
 [Atualize as suas extensões]: ./functions-bindings-register.md
 [Extensão de Ferramentas Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
-### <a name="functions-1x"></a>Funções 1.x
+### <a name="functions-1x-and-2x"></a>Funções 1.x e 2.x
 
-As extensões de ligação RabbitMQ não são suportadas para as funções 1.x. Utilize as funções 2.x ou mais.
+As extensões de ligação RabbitMQ não são suportadas para as funções 1.x e 2.x. Utilize as funções 3.x e superiores.
 
 ## <a name="next-steps"></a>Passos seguintes
 

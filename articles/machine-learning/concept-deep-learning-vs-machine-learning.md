@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562842"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617124"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 
@@ -57,9 +57,9 @@ A tabela a seguir compara mais detalhadamente as duas técnicas:
 |  **Tempo de execução** | Leva relativamente pouco tempo para treinar, variando de alguns segundos a algumas horas. | Normalmente demora muito tempo a treinar porque um algoritmo de aprendizagem profunda envolve muitas camadas. |
 |  **Saída** | A saída é geralmente um valor numérico, como uma pontuação ou uma classificação. | A saída pode ter vários formatos, como um texto, uma partitura ou um som. |
 
-## <a name="transfer-learning"></a>Aprendizagem de Transferência
+## <a name="transfer-learning"></a>Transferir aprendizagem
 
-A formação de modelos de aprendizagem profunda requer frequentemente grandes quantidades de dados de formação, recursos computacionais de alta qualidade (GPU, TPU) e um tempo de treino mais longo. Em cenários em que não tenha nenhum destes disponíveis, pode encurtar o processo de treino usando uma técnica conhecida como aprendizagem de transferência.
+A formação de modelos de aprendizagem profunda requer frequentemente grandes quantidades de dados de formação, recursos computacionais de alta qualidade (GPU, TPU) e um tempo de treino mais longo. Em cenários em que não tenha nenhum destes disponíveis, pode encurtar o processo de treino usando uma técnica conhecida como *aprendizagem de transferência.*
 
 A aprendizagem de transferência é uma técnica que aplica conhecimentos adquiridos desde a resolução de um problema para um problema diferente, mas relacionado.
 

@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6d1e9e8eeddaaa2ce8c891888935faad12d40295
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907580"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617277"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronizar com o armazenamento Azure Blob utilizando o AzCopy v10
 
@@ -79,7 +79,7 @@ O primeiro recipiente que aparece neste comando é a fonte. O segundo é o desti
 | **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-## <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Atualizar um diretório com alterações a um diretório em outra partilha de ficheiros
+## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Atualizar um diretório com alterações a um diretório em outro recipiente
 
 O primeiro diretório que aparece neste comando é a fonte. O segundo é o destino.
 
@@ -107,10 +107,10 @@ Para obter uma lista completa, consulte [as opções.](storage-ref-azcopy-sync.m
 
 Encontre mais exemplos nestes artigos:
 
-- [Exemplos: Upload](storage-use-azcopy-blobs-upload.md)
-- [Exemplos: Download](storage-use-azcopy-blobs-download.md)
+- [Exemplos: Carregar](storage-use-azcopy-blobs-upload.md)
+- [Exemplos: Transferência](storage-use-azcopy-blobs-download.md)
 - [Exemplos: Copiar entre contas](storage-use-azcopy-blobs-copy.md)
-- [Exemplos: Baldes Amazon S3](storage-use-azcopy-s3.md)
+- [Exemplos: Registos Amazon S3](storage-use-azcopy-s3.md)
 - [Exemplos: Ficheiros Azure](storage-use-azcopy-files.md)
 - [Tutorial: migrar dados no local para o armazenamento na cloud com o AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)

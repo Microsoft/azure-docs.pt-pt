@@ -1,7 +1,7 @@
 ---
-title: Analisar e monitorizar a deriva de dados em conjuntos de dados (pré-visualização)
+title: Detetar deriva de dados em conjuntos de dados (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Crie monitores de conjuntos de dados Azure Machine Learning (pré-visualização), monitorize a deriva de dados em conjuntos de dados e crie alertas.
+description: Saiba como configurar a deteção de deriva de dados em Azure Learning. Criar monitores de conjuntos de dados (pré-visualização), monitorizar para deriva de dados e configurar alertas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 04882c71a2d80e01029dd0a8b476f21a658e632b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1622f8ce988c5592ac96cec798617ca6ac37aa8d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359600"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617175"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
 
 
 > [!IMPORTANT]
-> A deteção da deriva de dados nos conjuntos de dados encontra-se atualmente em visualização pública.
+> A deteção de deriva de dados para conjuntos de dados está atualmente em visualização pública.
 > A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Aprenda a monitorizar a deriva de dados e desemprete alertas quando a deriva é elevada.  
@@ -98,7 +98,7 @@ Utilize conjuntos de dados de Machine Learning para monitorizar a deriva de dado
 
 ## <a name="create-target-dataset"></a>Criar conjunto de dados-alvo
 
-O conjunto de dados-alvo necessita do `timeseries` traço definido, especificando a coluna de hora a partir de uma coluna nos dados ou de uma coluna virtual derivada do padrão de trajetória dos ficheiros. Crie o conjunto de dados com um timetamp através do estúdio [Python SDK](#sdk-dataset) ou [Azure Machine Learning](#studio-dataset). Uma coluna que represente uma "timetamp" deve ser especificada para adicionar `timeseries` traço ao conjunto de dados. Se os seus dados forem divididos na estrutura de pastas com informações de tempo, tais como '{yyyy/MM/dd}', crie uma coluna virtual através da definição do padrão do caminho e defina-o como "partição de tempo" para melhorar a importância da funcionalidade da série de tempo.
+O conjunto de dados-alvo necessita do `timeseries` traço definido, especificando a coluna de hora a partir de uma coluna nos dados ou de uma coluna virtual derivada do padrão de trajetória dos ficheiros. Crie o conjunto de dados com um timetamp através do estúdio [Python SDK](#sdk-dataset) ou [Azure Machine Learning](#studio-dataset). Uma coluna que represente uma "timetamp" deve ser especificada para adicionar `timeseries` traço ao conjunto de dados. Se os seus dados forem divididos na estrutura de pastas com informações de tempo, tais como '{y/MM/dd}', crie uma coluna virtual através da definição do padrão do caminho e defina-o como "partição de tempo" para melhorar a importância da funcionalidade da série de tempo.
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>SDK Python
 
@@ -223,14 +223,14 @@ Para obter um exemplo completo de configuração de um conjunto de `timeseries` 
 
     | Definições | Descrição | Sugestões | Mutável | 
     | ------- | ----------- | ---- | ------- |
-    | Nome | Nome do monitor do conjunto de dados. | | No |
+    | Nome | Nome do monitor do conjunto de dados. | | Não |
     | Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Sim | 
     | Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Sim | 
     | Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Sim | 
-    | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Cada execução compara dados no conjunto de dados-alvo de acordo com a frequência: <li>Diariamente: Compare o dia completo mais recente no conjunto de dados-alvo com a linha de base <li>Semanal: Compare a semana completa mais recente (segunda-feira a domingo) em conjunto de dados-alvo com linha de base <li>Mensalmente: Compare o mês completo mais recente no conjunto de dados-alvo com a linha de base | No | 
-    | Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | No | 
+    | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Cada execução compara dados no conjunto de dados-alvo de acordo com a frequência: <li>Diariamente: Compare o dia completo mais recente no conjunto de dados-alvo com a linha de base <li>Semanal: Compare a semana completa mais recente (segunda-feira a domingo) em conjunto de dados-alvo com linha de base <li>Mensalmente: Compare o mês completo mais recente no conjunto de dados-alvo com a linha de base | Não | 
+    | Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | Não | 
     | Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Sim | 
-    | Limiar | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Sim |
+    | Limite | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Sim |
 
 Após terminar o assistente, aparecerá na lista o monitor de conjuntos de dados resultante. Selecione-o para ir à página de detalhes do monitor.
 
@@ -247,7 +247,7 @@ Comece com os conhecimentos de alto nível sobre a magnitude da deriva de dados 
 | ------ | ----------- | 
 | Magnitude da deriva de dados | Uma percentagem de deriva entre o conjunto de dados de base e o alvo ao longo do tempo. Variar entre 0 e 100, 0 indica conjuntos de dados idênticos e 100 indica que o modelo de deriva de dados Azure Machine Learning pode distinguir completamente os dois conjuntos de dados. Espera-se ruído na percentagem exata medida devido às técnicas de aprendizagem automática utilizadas para gerar esta magnitude. | 
 | Principais características à deriva | Mostra as características do conjunto de dados que mais têm derivado e estão, portanto, a contribuir mais para a métrica de Magnitude da Deriva. Devido à mudança de covaria, a distribuição subjacente de uma funcionalidade não precisa necessariamente de mudar para ter uma importância relativamente elevada. |
-| Limiar | A magnitude da deriva de dados para além do limiar definido irá desencadear alertas. Isto pode ser configurado nas definições do monitor. | 
+| Limite | A magnitude da deriva de dados para além do limiar definido irá desencadear alertas. Isto pode ser configurado nas definições do monitor. | 
 
 ### <a name="drift-magnitude-trend"></a>Tendência de magnitude de deriva
 
@@ -319,7 +319,7 @@ Pode utilizar um grupo de ação existente ou criar um novo para definir as medi
 
 ![Novo grupo de ação](./media/how-to-monitor-datasets/action-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Dirija-se ao [estúdio Azure Machine Learning](https://ml.azure.com) ou ao caderno [Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) para configurar um monitor de conjunto de dados.
 * Veja como configurar a deriva de dados em [modelos implantados no Serviço Azure Kubernetes](./how-to-enable-data-collection.md).

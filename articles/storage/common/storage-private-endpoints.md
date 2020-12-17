@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905558"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617260"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -46,13 +46,16 @@ Os proprietários de conta de armazenamento podem gerir os pedidos de consentime
 
 Pode proteger a sua conta de armazenamento apenas para aceitar ligações a partir do seu VNet, [configurando a firewall de armazenamento](storage-network-security.md#change-the-default-network-access-rule) para negar o acesso através do seu ponto final público por padrão. Não é necessária uma regra de firewall para permitir o tráfego a partir de um VNet que tem um ponto final privado, uma vez que a firewall de armazenamento apenas controla o acesso através do ponto final público. Em vez disso, os pontos finais privados dependem do fluxo de consentimento para a concessão de acesso às sub-redes ao serviço de armazenamento.
 
+> [!NOTE]
+> Ao copiar bolhas entre contas de armazenamento, o seu cliente deve ter acesso à rede a ambas as contas. Por isso, se optar por utilizar um link privado para apenas uma conta (seja a fonte ou o destino), certifique-se de que o seu cliente tem acesso à rede à outra conta. Para saber mais sobre outras formas de configurar o acesso à rede, consulte [firewalls de armazenamento Configure Azure e redes virtuais.](storage-network-security.md?toc=/azure/storage/blobs/toc.json) 
+
 ### <a name="private-endpoints-for-azure-storage"></a>Pontos finais privados para armazenamento Azure
 
-Ao criar o ponto final privado, deve especificar a conta de armazenamento e o serviço de armazenamento ao qual se conecta. Você precisa de um ponto final privado separado para cada serviço de armazenamento em uma conta de armazenamento que você precisa para aceder, nomeadamente [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Arquivos, Filas,](../queues/storage-queues-introduction.md) [Tabelas](../tables/table-storage-overview.md)ou [Websites Estáticos.](../blobs/storage-blob-static-website.md) [Files](../files/storage-files-introduction.md)
+Ao criar o ponto final privado, deve especificar a conta de armazenamento e o serviço de armazenamento ao qual se conecta. Você precisa de um ponto final privado separado para cada serviço de armazenamento em uma conta de armazenamento que você precisa para aceder, nomeadamente [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Arquivos, Filas,](../queues/storage-queues-introduction.md) [Tabelas](../tables/table-storage-overview.md)ou [Websites Estáticos.](../blobs/storage-blob-static-website.md) [](../files/storage-files-introduction.md)
 
 > [!TIP]
 > Crie um ponto final privado separado para a instância secundária do serviço de armazenamento para um melhor desempenho nas contas RA-GRS.
-> Certifique-se de criar uma conta de armazenamento v2 (Standard ou Premium) para fins gerais .
+> Certifique-se de criar uma conta de armazenamento v2 (Standard ou Premium) para fins gerais.
 
 Para ler o acesso à região secundária com uma conta de armazenamento configurada para armazenamento geo-redundante, precisa de pontos finais privados separados para as instâncias primárias e secundárias do serviço. Não é necessário criar um ponto final privado para a instância secundária para **o failover**. O ponto final privado liga-se automaticamente à nova instância primária após a falha. Para obter mais informações sobre as opções de despedimento de armazenamento, consulte [a redundância do Azure Storage](storage-redundancy.md).
 

@@ -1,20 +1,20 @@
 ---
 title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os prestadores de serviços entreguem serviços geridos aos seus clientes com maior automatização e eficiência em escala.
-ms.date: 12/10/2020
+ms.date: 12/16/2020
 ms.topic: overview
-ms.openlocfilehash: bef6107878f36e02a896b3c38b8913ebb50169a7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: b9215f42e3ad3b7517d14fdaee710a31680ce453
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356366"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617158"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
 O Azure Lighthouse permite a gestão multi-inquilino e entre inquilinos, o que garante uma maior automatização, escalabilidade e melhor governação de recursos e inquilinos.
 
-Com o Azure Lighthouse, os prestadores de serviços podem fornecer serviços geridos usando ferramentas de gestão abrangentes e robustas incorporadas na plataforma Azure. Os clientes mantêm o controlo sobre quem pode aceder ao seu inquilino, que recursos podem aceder e que ações podem ser tomadas. Esta oferta também pode beneficiar [organizações de TI empresariais](concepts/enterprise.md) que gerem recursos em vários inquilinos.
+Com o Azure Lighthouse, os prestadores de serviços podem fornecer serviços geridos usando ferramentas de gestão abrangentes e robustas incorporadas na plataforma Azure. Os clientes mantêm o controlo sobre quem pode aceder ao seu inquilino, a que recursos podem aceder, e quais as ações que podem ser tomadas. Esta oferta também pode beneficiar [organizações de TI empresariais](concepts/enterprise.md) que gerem recursos em vários inquilinos.
 
 ![Diagrama de visão geral do Farol de Azure](media/azure-lighthouse-overview.jpg)
 

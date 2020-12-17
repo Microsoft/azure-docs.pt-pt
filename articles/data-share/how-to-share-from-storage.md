@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.openlocfilehash: da1683ec48fcae10ff74163a7db089c30ddd7aad
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 12/16/2020
+ms.openlocfilehash: 9dfc8be54fc55842440e376916b2eb9bb04a4610
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219909"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617090"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -21,7 +21,7 @@ O Azure Data Share suporta a partilha baseada em instantâneos a partir da conta
 
 O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Gen1 e da Azure Data Lake Gen2. Também suporta a partilha de bolhas, pastas e contentores do Azure Blob Storage. Apenas a bolha de blocos está atualmente suportada. Os dados partilhados destas fontes podem ser recebidos no Azure Data Lake Gen2 ou no Azure Blob Storage.
 
-Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, o consumidor de dados pode optar por fazer uma cópia completa dos dados de partilha ou aproveitar a capacidade incremental de instantâneo para copiar apenas ficheiros novos ou atualizados. O instantâneo incremental baseia-se no último tempo modificado dos ficheiros. Os ficheiros existentes com o mesmo nome serão substituídos.
+Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, o consumidor de dados pode optar por fazer uma cópia completa dos dados de partilha ou aproveitar a capacidade incremental de instantâneo para copiar apenas ficheiros novos ou atualizados. O instantâneo incremental baseia-se no último tempo modificado dos ficheiros. Os ficheiros existentes com o mesmo nome serão substituídos durante a snapshot. O ficheiro eliminado da fonte não é eliminado no alvo. As sub-pastas vazias na fonte não são copiadas para o alvo. 
 
 ## <a name="share-data"></a>Partilhar dados
 
@@ -58,10 +58,10 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
     | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-    | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+    | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
-1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
+1. Selecione **Rever + criar** e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
 
 1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
@@ -136,7 +136,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Pode abrir o convite a partir de e-mail ou diretamente do portal Azure. 
 
-   Para abrir o convite a partir de e-mail, consulte a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é da Microsoft Azure, intitulada **Azure <yourdataprovider@domain.com> Data Share invitation from **. Clique em **Ver convite** para ver o seu convite em Azure. 
+   Para abrir o convite a partir de e-mail, consulte a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é da Microsoft Azure, intitulada **Azure <yourdataprovider@domain.com> Data Share invitation from**. Clique em **Ver convite** para ver o seu convite em Azure. 
 
    Para abrir diretamente o convite do portal Azure, procure convites de **partilha de dados** no portal Azure. Isto leva-o à lista de convites da Partilha de Dados.
 
@@ -185,7 +185,7 @@ Estes passos aplicam-se apenas à partilha baseada em instantâneos.
 
    ![Instantâneo do gatilho](./media/trigger-snapshot.png "Instantâneo do gatilho") 
 
-1. Quando o estado da última execução for *bem sucedido,* vá à loja de dados de destino para ver os dados recebidos. Selecione **Conjuntos de dados**e clique no link no Caminho Alvo. 
+1. Quando o estado da última execução for *bem sucedido,* vá à loja de dados de destino para ver os dados recebidos. Selecione **Conjuntos de dados** e clique no link no Caminho Alvo. 
 
    ![Conjuntos de dados do consumidor](./media/consumer-datasets.png "Mapeamento do conjunto de dados do consumidor") 
 

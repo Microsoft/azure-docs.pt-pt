@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595495"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617379"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Boas práticas para o Azure RBAC
 
@@ -24,7 +24,7 @@ Este artigo descreve algumas boas práticas para a utilização do controlo de a
 
 Com o RBAC do Azure, pode fazer a segregação de deveres na sua equipa e conceder aos utilizadores apenas a quantidade de acesso de que precisam para desempenhar as suas funções. Em vez de dar a todas as pessoas permissões sem restrições na sua subscrição do Azure ou recursos, pode permitir apenas determinadas ações num âmbito específico.
 
-Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. Evite atribuir funções mais amplas a âmbitos mais amplos, mesmo que inicialmente pareça mais conveniente fazê-lo. Limitando funções e âmbitos, limita-se os recursos em risco se o diretor de segurança estiver alguma vez comprometido.
+Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. Evite atribuir funções mais amplas a âmbitos mais amplos, mesmo que inicialmente pareça mais conveniente fazê-lo. Ao criar funções personalizadas, apenas inclua as permissões de que os utilizadores precisam. Limitando papéis e âmbitos, limita-se os recursos em risco se o diretor de segurança estiver alguma vez comprometido.
 
 O diagrama seguinte mostra um padrão sugerido para a utilização do RBAC Azure.
 

@@ -27,6 +27,8 @@
   items:
     - name: Segurança
       items:
+        - name: Descrição geral da segurança
+          href: security.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Terminologia do Azure Data Share
@@ -62,8 +64,6 @@
       href: how-to-revoke-share-subscription.md
     - name: Monitor
       href: how-to-monitor.md
-    - name: Segurança
-      href: security.md
     - name: Recuperação após desastre
       href: disaster-recovery.md
     - name: Resolução de problemas
