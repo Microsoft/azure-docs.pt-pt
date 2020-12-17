@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4956d11ea2a4b011a792827357c3f4627058ead9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355870"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97651995"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos do aprovisionamento na cloud do Azure AD Connect
 Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Conecte o fornecimento de nuvem como solução de identidade.
@@ -51,33 +51,33 @@ Executar a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes
 
 ### <a name="in-your-on-premises-environment"></a>No seu ambiente no local
 
- 1. Identifique um servidor anfitrião ligado a domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4-GB de RAM e .NET 4.7.1+ tempo de execução.
+1. Identifique um servidor anfitrião ligado a domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4-GB de RAM e .NET 4.7.1+ tempo de execução.
 
- >[!NOTE]
- > Tenha em atenção que a definição de um filtro de deteção incorre num custo de memória no servidor anfitrião.  Se não for utilizado nenhum filtro de deteção, não há custos de memória extra. O mínimo de 4GB irá suportar a sincronização para até 12 unidades organizacionais definidas no filtro de escotagem. Se precisar de sincronizar OUs adicionais, terá de aumentar a quantidade mínima de memória. Utilize a seguinte tabela como guia:
- >
- >  
- >  | Número de OUs no filtro de escotagem| memória mínima exigida|
- >  | --- | --- |
- >  | 12| 4GB|
- >  | 18|5,5 GB|
- >  | 28|10+ GB|
- >
- > 
+    >[!NOTE]
+    > Tenha em atenção que a definição de um filtro de deteção incorre num custo de memória no servidor anfitrião.  Se não for utilizado nenhum filtro de deteção, não há custos de memória extra. O mínimo de 4GB irá suportar a sincronização para até 12 unidades organizacionais definidas no filtro de escotagem. Se precisar de sincronizar OUs adicionais, terá de aumentar a quantidade mínima de memória. Utilize a seguinte tabela como guia:
+    >
+    >
+    > | Número de OUs no filtro de escotagem| memória mínima exigida|
+    > | --- | --- |
+    > | 12 | 4GB |
+    > | 18 | 5,5 GB|
+    > | 28 | 10+ GB|
+    >
+    > 
 
- 2. A política de execução PowerShell no servidor local deve ser definida para Undefined ou RemoteSigned.
+2. A política de execução PowerShell no servidor local deve ser definida para Undefined ou RemoteSigned.
 
- 3. Se houver uma firewall entre os seus servidores e Azure AD, configuure os seguintes itens:
+3. Se houver uma firewall entre os seus servidores e Azure AD, configuure os seguintes itens:
+
    - Certifique-se de que os agentes podem fazer pedidos *de saída* à Azure AD nas seguintes portas:
 
-        | Número da porta | Como é usado |
-        | --- | --- |
-        | **80** | Descarrega as listas de revogação de certificados (CRLs) ao mesmo tempo que valida o certificado TLS/SSL.  |
-        | **443** | Lida com todas as comunicações de saída com o serviço. |
-        |**8082**|Necessário para a instalação e se pretender configurar a API de administração da HIS.  Esta porta pode ser removida uma vez instalado o agente e se não estiver a planear utilizar a API.   |
-        | **8080** (opcional) | Os agentes reportam o seu estado a cada 10 minutos sobre o porto 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal AD Azure. |
-   
-     
+      | Número da porta | Como é usado |
+      | --- | --- |
+      | **80** | Descarrega as listas de revogação de certificados (CRLs) ao mesmo tempo que valida o certificado TLS/SSL.  |
+      | **443** | Lida com todas as comunicações de saída com o serviço. |
+      |**8082**|Necessário para a instalação e se pretender configurar a API de administração da HIS.  Esta porta pode ser removida uma vez instalado o agente e se não estiver a planear utilizar a API.   |
+      | **8080** (opcional) | Os agentes reportam o seu estado a cada 10 minutos sobre o porto 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal AD Azure. |
+
    - Se o seu firewall aplicar as regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
    - Se a sua firewall ou proxy permitir que especifique sufixos seguros, adicione ligações a \* .msappproxy.net e \* .servicebus.windows.net. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
    - Os seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para o registo inicial. Abra a firewall para os URLs também.
@@ -86,10 +86,8 @@ Executar a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes
 >[!NOTE]
 > A instalação do agente de provisionamento em nuvem no Windows Server Core não é suportada.
 
-
-
-
 ### <a name="additional-requirements"></a>Requisitos adicionais
+
 - [Quadro Microsoft .NET 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
 
 #### <a name="tls-requirements"></a>Requisitos TLS
@@ -102,7 +100,7 @@ O servidor Windows que acolhe o agente de provisionamento de nuvem Azure AD Conn
 Para ativar o TLS 1.2, siga estes passos.
 
 1. Definir as seguintes chaves de registo:
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001

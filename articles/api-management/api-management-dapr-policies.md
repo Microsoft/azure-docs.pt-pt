@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d1ba226e3ca1276658f7e72e9094918f0379a77
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335490"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653542"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Políticas de integração da API Management Dapr
 

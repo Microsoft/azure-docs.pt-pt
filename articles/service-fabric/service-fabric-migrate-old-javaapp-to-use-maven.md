@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: f65194cde25deac8c03d6ddc3a7c0b928aaca171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3efa51f5632dd5cdc274ea39df5178aa0351a01f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327315"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652301"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualizar a sua aplicação Java do Service Fabric anterior para obter as bibliotecas do Java a partir do Maven
 Os binários de tecido de serviço Java mudaram-se do serviço Java SDK para o alojamento maven. Você pode usar **o mavencentral** para buscar as mais recentes dependências de Java de Tecido de Serviço. Este guia irá ajudá-lo a atualizar as aplicações java existentes criadas para o Tecido de Serviço Java SDK usando o modelo Yeoman ou Eclipse para ser compatível com a construção baseada em Maven.
@@ -385,7 +385,7 @@ As alterações nesta secção são semelhantes às da secção anterior, ou sej
 ```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-      compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
@@ -398,7 +398,7 @@ jar
         "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
     }
     baseName "myactor-test"
-  destinationDir = file('out/lib')
+    destinationDir = file('out/lib')
 }
 .
 .

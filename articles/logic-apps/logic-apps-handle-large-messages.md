@@ -7,12 +7,12 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b23c92ec70b80a6cd08fc42a05ffec1e5b43b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83117568"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656772"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Lidar com mensagens grandes com chunking em Azure Logic Apps
 
@@ -41,7 +41,7 @@ Os serviços que comunicam com as Aplicações Lógicas podem ter os seus própr
 Para os conectores que suportam a chunking, o protocolo subjacente é invisível para os utilizadores finais. No entanto, nem todos os conectores suportam a chunking, pelo que estes conectores geram erros de tempo de funcionamento quando as mensagens recebidas excedem os limites de tamanho dos conectores.
 
 > [!NOTE]
-> Para ações que usam o chunking, você não pode passar o corpo do gatilho ou usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para o conteúdo de ficheiros texto ou JSON, pode tentar utilizar a ação [ **Compose** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, tais como ficheiros de mídia, é necessário executar outros passos para lidar com esse conteúdo.
+> Para ações que usam o chunking, você não pode passar o corpo do gatilho ou usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para o conteúdo de ficheiros texto ou JSON, pode tentar utilizar a ação [ **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, tais como ficheiros de mídia, é necessário executar outros passos para lidar com esse conteúdo.
 
 <a name="set-up-chunking"></a>
 
@@ -115,7 +115,7 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
 
    | Aplicativos lógicos solicitam campo de cabeçalho | Valor | Tipo | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-modo de transferência** | em pedaços | Cadeia | Indica que o conteúdo é carregado em pedaços |
+   | **x-ms-modo de transferência** | em pedaços | String | Indica que o conteúdo é carregado em pedaços |
    | **x-ms-content-comprimento** | <*comprimento do conteúdo*> | Número inteiro | Todo o tamanho do conteúdo em bytes antes de bater |
    ||||
 
@@ -123,8 +123,8 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
 
    | Campo de cabeçalho de resposta de ponto final | Tipo | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-tamanho-chunk** | Número inteiro | Não | O tamanho do pedaço sugerido em bytes |
-   | **Localização** | Cadeia | Sim | A localização do URL para onde enviar as mensagens HTTP PATCH |
+   | **x-ms-tamanho-chunk** | Número inteiro | No | O tamanho do pedaço sugerido em bytes |
+   | **Localização** | String | Yes | A localização do URL para onde enviar as mensagens HTTP PATCH |
    ||||
 
 3. A sua aplicação lógica cria e envia mensagens HTTP PATCH de seguimento - cada uma com esta informação:
@@ -135,17 +135,17 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
 
      | Aplicativos lógicos solicitam campo de cabeçalho | Valor | Tipo | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Gama de conteúdos** | <*gama*> | Cadeia | A gama byte para o pedaço de conteúdo atual, incluindo o valor inicial, o valor final, e o tamanho total do conteúdo, por exemplo: "bytes=0-1023/10100" |
-     | **Tipo de conteúdo** | <*tipo de conteúdo*> | Cadeia | O tipo de conteúdo em pedaços |
-     | **Comprimento do conteúdo** | <*comprimento do conteúdo*> | Cadeia | O comprimento do tamanho em bytes do pedaço atual |
+     | **Gama de conteúdos** | <*gama*> | String | A gama byte para o pedaço de conteúdo atual, incluindo o valor inicial, o valor final, e o tamanho total do conteúdo, por exemplo: "bytes=0-1023/10100" |
+     | **Tipo de conteúdo** | <*tipo de conteúdo*> | String | O tipo de conteúdo em pedaços |
+     | **Comprimento do conteúdo** | <*comprimento do conteúdo*> | String | O comprimento do tamanho em bytes do pedaço atual |
      |||||
 
 4. Após cada pedido patch, o ponto final confirma o recibo de cada pedaço respondendo com o código de estado "200" e os seguintes cabeçalhos de resposta:
 
    | Campo de cabeçalho de resposta de ponto final | Tipo | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **Intervalo** | Cadeia | Sim | A gama byte para conteúdos que foi recebido pelo ponto final, por exemplo: "bytes=0-1023" |   
-   | **x-ms-tamanho-chunk** | Número inteiro | Não | O tamanho do pedaço sugerido em bytes |
+   | **Intervalo** | String | Yes | A gama byte para conteúdos que foi recebido pelo ponto final, por exemplo: "bytes=0-1023" |   
+   | **x-ms-tamanho-chunk** | Número inteiro | No | O tamanho do pedaço sugerido em bytes |
    ||||
 
 Por exemplo, esta definição de ação mostra um pedido HTTP POST para o upload de conteúdo em pedaços para um ponto final. Na propriedade da `runTimeConfiguration` ação, o `contentTransfer` imóvel define `transferMode` `chunked` para:

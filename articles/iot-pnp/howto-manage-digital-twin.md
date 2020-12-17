@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 51bd073b6f84f3378b91091e04f2f278ea2f49b6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495274"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654613"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerir ioT plug e jogar gémeos digitais
 
@@ -26,7 +26,7 @@ Um dispositivo IoT Plug and Play implementa um modelo descrito pela [Digital Twi
 
 O dispositivo IoT Plug and Play utilizado como exemplo neste artigo implementa o [modelo de Controlador de Temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) com componentes do [termóstato.](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json)
 
-O seguinte corte mostra a resposta a um pedido **de gémeos digitais** formatado como um objeto JSON. Para saber mais sobre o formato digital twin, consulte [o Understand IoT Plug e Play digital twins](./concepts-digital-twin.md#digital-twin-json-format):
+O seguinte corte mostra a resposta a um pedido **de gémeos digitais** formatado como um objeto JSON. Para saber mais sobre o formato digital twin, consulte [o Understand IoT Plug e Play digital twins](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {
@@ -155,7 +155,7 @@ A seguinte amostra do Patch JSON mostra como adicionar, substituir ou remover um
 
 ### <a name="rules-for-setting-the-desired-value-of-a-digital-twin-property"></a>Regras para definir o valor desejado de uma propriedade digital twin
 
-**Name**
+**Nome**
 
 O nome de um componente ou propriedade deve ser válido nome DTDL v2.
 

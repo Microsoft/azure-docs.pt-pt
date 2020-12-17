@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: e5d25e71e4700f3f327319e4f444d2060c7ab5f6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 91e10c25d2c3bef9c1ca20e3e5737a326d45997c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561890"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654783"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave usando a Análise de Texto
 
@@ -30,8 +30,6 @@ Para obter mais informações, veja os [Idiomas suportados](../language-support.
 > * Também pode utilizar esta funcionalidade [com assincronizadousando](text-analytics-how-to-call-api.md) o `/analyze` ponto final.
 
 ## <a name="preparation"></a>Preparação
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 A extração de frases-chave funciona melhor quando lhe dá grandes quantidades de texto para trabalhar. Isto é oposto à análise do sentimento, que tem um melhor desempenho em quantidades menores de texto. Para obter os melhores resultados em ambas as operações, considere reestruturar as entradas em conformidade.
 

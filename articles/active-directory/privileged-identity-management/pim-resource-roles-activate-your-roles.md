@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4e3fe72492ef92fe65572c75bf9f88b5f9ffda3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023886"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653423"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Ativar os meus recursos Azure na Gestão de Identidade Privilegiada
 
@@ -50,7 +50,7 @@ Quando precisa assumir uma função de recurso Azure, pode solicitar a ativaçã
 
 1. **Selecione Ativar** para abrir a página Ativar.
 
-     ![O painel de ativação aberto com âmbito, hora de início, duração e razão](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
+    ![O painel de ativação aberto com âmbito, hora de início, duração e razão](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Se a sua função necessitar de autenticação multi-factor, **selecione Verifique a sua identidade antes de prosseguir**. Só tem de autenticar uma vez por sessão.
 

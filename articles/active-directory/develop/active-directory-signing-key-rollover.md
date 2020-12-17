@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 981ac775e7153cfd03dc1760bbbc4e50fd9ecc57
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9fbf6990f789bdb0edb1cf45885003569d4f6a8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169550"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653236"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Assinatura de capotamento de chaves na plataforma de identidade da Microsoft
 Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar fichas de segurança. É importante notar que estas teclas rerolam periodicamente e, em caso de emergência, podem ser reviradas imediatamente. Todas as aplicações que utilizam a plataforma de identidade da Microsoft devem ser capazes de lidar programáticamente com o processo de capotamento da chave. Continuar a ler Para entender como funcionam as teclas, como avaliar o impacto da capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com a capotamento da chave, se necessário.
@@ -85,7 +85,7 @@ app.UseWsFederationAuthentication(
      });
 ```
 ```
- app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+app.UseWindowsAzureActiveDirectoryBearerAuthentication(
      new WindowsAzureActiveDirectoryBearerAuthenticationOptions
      {
      // ...

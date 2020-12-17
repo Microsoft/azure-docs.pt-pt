@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710537"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657027"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorize o desempenho com a Loja de Consultas
 
@@ -90,7 +90,7 @@ As seguintes opções estão disponíveis para configurar parâmetros da Loja de
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
 |---|---|---|---|
-| pg_qs.consulta_capture_mode | Conjuntos que declarações são rastreadas. | nenhuma | ninguém, em cima, todos os |
+| pg_qs.consulta_capture_mode | Conjuntos que declarações são rastreadas. | nenhum | ninguém, em cima, todos os |
 | pg_qs.max_consulta_text_length | Define o comprimento máximo de consulta que pode ser guardado. Consultas mais longas serão truncadas. | 6000 | 100 - 10K |
 | pg_qs.retenção_period_in_days | Define o período de retenção. | 7 | 1 - 30 |
 | pg_qs.track_utility | Define se os comandos de utilidade são rastreados | em | em, fora |
@@ -99,7 +99,7 @@ As seguintes opções aplicam-se especificamente às estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
 |---|---|---|---|
-| pgms_wait_sampling.consulta_capture_mode | Conjuntos que declarações são rastreadas para estatísticas de espera. | nenhuma | nenhum, todos os|
+| pgms_wait_sampling.consulta_capture_mode | Conjuntos que declarações são rastreadas para estatísticas de espera. | nenhum | nenhum, todos os|
 | Pgms_wait_sampling.history_period | Desa ajuste a frequência, em milissegundos, em que os eventos de espera são amostrados. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -149,25 +149,25 @@ Esta vista devolve todos os dados na Loja de Consultas. Há uma linha para cada 
 ### <a name="query_storequery_texts_view"></a>query_store.consulta_texts_view
 Esta vista devolve dados de texto de consulta na Loja de Consultas. Há uma linha para cada query_text distinto.
 
-|**Nome**|  **Tipo**|   **Descrição**|
-|---|---|---|
-|query_text_id  |bigint     |ID para a mesa query_texts|
-|query_sql_text |Varchar(10000)     |Texto de uma declaração representativa. Diferentes consultas com a mesma estrutura estão agrupadas; este texto é o texto para a primeira das consultas no cluster.|
+| **Nome** | **Tipo** | **Descrição** |
+|--|--|--|
+| query_text_id | bigint | ID para a mesa query_texts |
+| query_sql_text | Varchar(10000) | Texto de uma declaração representativa. Diferentes consultas com a mesma estrutura estão agrupadas; este texto é o texto para a primeira das consultas no cluster. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Esta vista devolve os dados dos eventos de espera na Loja de Consultas. Há uma linha para cada ID de base de dados distinto, ID do utilizador, identificação de consulta e evento.
 
-|**Nome**|  **Tipo**|   **Referências**| **Descrição**|
-|---|---|---|---|
-|user_id    |oid    |pg_authid.oid  |OID do utilizador que executou a declaração|
-|db_id  |oid    |pg_database.oid    |OID da base de dados em que a declaração foi executada|
-|query_id   |bigint     ||Código de haxixe interno, calculado a partir da árvore de parse da declaração|
-|event_type |texto       ||O tipo de evento para o qual o backend está à espera|
-|evento  |texto       ||O nome do evento de espera se o backend está à espera|
-|chama  |Número inteiro        ||Número do mesmo evento capturado|
-
+| **Nome** | **Tipo** | **Referências** | **Descrição** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID do utilizador que executou a declaração |
+| db_id | oid | pg_database.oid | OID da base de dados em que a declaração foi executada |
+| query_id | bigint |  | Código de haxixe interno, calculado a partir da árvore de parse da declaração |
+| event_type | texto |  | O tipo de evento para o qual o backend está à espera |
+| evento | texto |  | O nome do evento de espera se o backend está à espera |
+| chama | Número inteiro |  | Número do mesmo evento capturado |
 
 ### <a name="functions"></a>Funções
+
 Query_store.qs_reset() devolução do vazio
 
 `qs_reset` descarta todas as estatísticas recolhidas até agora pela Query Store. Esta função só pode ser executada pela função de administração do servidor.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ca5f237585f74225a04091b5694dbfad12864332
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422336"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656041"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -68,64 +68,64 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 ## <a name="language-analyzer-list"></a>Lista de analisadores de idiomas 
  Abaixo está a lista de línguas suportadas juntamente com nomes de analisadores lucene e Microsoft.  
 
-|Linguagem|Nome do analisador da Microsoft|Nome do analisador lucene|  
-|--------------|-----------------------------|--------------------------|  
-|Árabe|ar.microsoft|ar.lucene|  
-|Arménio||hy.lucene|  
-|Bangla|bn.microsoft||  
-|Basco||eu.lucene|  
-|Búlgaro|bg.microsoft|bg.lucene|  
-|Catalão|ca.microsoft|ca.lucene|  
-|Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
-|Chinês tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
-|Croata|hr.microsoft||  
-|Checo|cs.microsoft|cs.lucene|  
-|Dinamarquês|da.microsoft|da.lucene|  
-|Neerlandês|nl.microsoft|nl.lucene|  
-|Inglês|en.microsoft|en.lucene|  
-|Estónio|et.microsoft||  
-|Finlandês|fi.microsoft|fi.lucene|  
-|Francês|fr.microsoft|fr.lucene|  
-|Galego||gl.lucene|  
-|Alemão|de.microsoft|de.lucene|  
-|Grego|el.microsoft|el.lucene|  
-|Guzerate|gu.microsoft||  
-|Hebraico|he.microsoft||  
-|Hindi|hi.microsoft|hi.lucene|  
-|Húngaro|hu.microsoft|hu.lucene|  
-|Islandês|is.microsoft||  
-|Indonésio (Bahasa)|id.microsoft|id.lucene|  
-|Irlandês||ga.lucene|  
-|Italiano|it.microsoft|it.lucene|  
-|Japonês|ja.microsoft|ja.lucene|  
-|Canarês|kn.microsoft||  
-|Coreano|ko.microsoft|ko.lucene|  
-|Letão|lv.microsoft|lv.lucene|  
-|Lituano|lt.microsoft||  
-|Malaiala|ml.microsoft||  
-|Malaio (latim)|ms.microsoft||  
-|Marata|mr.microsoft||  
-|Norueguês|nb.microsoft|no.lucene|  
-|Persa||fa.lucene|  
-|Polaco|pl.microsoft|pl.lucene|  
-|Português (Brasil)|pt-Br.microsoft|pt-Br.lucene|  
-|Português (Portugal)|pt-Pt.microsoft|pt-pt.lucene|  
-|Punjabi|pa.microsoft||  
-|Romeno|ro.microsoft|ro.lucene|  
-|Russo|ru.microsoft|ru.lucene|  
-|Sérvio (Cirílico)|sr-cirílico.microsoft||  
-|Sérvio (Latim)|sr-latin.microsoft||  
-|Eslovaco|sk.microsoft||  
-|Esloveno|sl.microsoft||  
-|Espanhol|es.microsoft|es.lucene|  
-|Sueco|sv.microsoft|sv.lucene|  
-|Tâmil|ta.microsoft||  
-|Telugu|te.microsoft||  
-|Tailandês|th.microsoft|th.lucene|  
-|Turco|tr.microsoft|tr.lucene|  
-|Ucraniano|uk.microsoft||  
-|Urdu|seu.microsoft||  
-|Vietnamita|vi.microsoft||  
+| Linguagem | Nome do analisador da Microsoft | Nome do analisador lucene |  |
+|--|--|--|--|
+| Árabe | ar.microsoft | ar.lucene |  |
+| Arménio |  | hy.lucene |  |
+| Bangla | bn.microsoft |  |  |
+| Basco |  | eu.lucene |  |
+| Búlgaro | bg.microsoft | bg.lucene |  |
+| Catalão | ca.microsoft | ca.lucene |  |
+| Chinês simplificado | zh-Hans.microsoft | zh-Hans.lucene |  |
+| Chinês tradicional | zh-Hant.microsoft | zh-Hant.lucene |  |
+| Croata | hr.microsoft |  |  |
+| Checo | cs.microsoft | cs.lucene |  |
+| Dinamarquês | da.microsoft | da.lucene |  |
+| Neerlandês | nl.microsoft | nl.lucene |  |
+| Inglês | en.microsoft | en.lucene |  |
+| Estónio | et.microsoft |  |  |
+| Finlandês | fi.microsoft | fi.lucene |  |
+| Francês | fr.microsoft | fr.lucene |  |
+| Galego |  | gl.lucene |  |
+| Alemão | de.microsoft | de.lucene |  |
+| Grego | el.microsoft | el.lucene |  |
+| Guzerate | gu.microsoft |  |  |
+| Hebraico | he.microsoft |  |  |
+| Hindi | hi.microsoft | hi.lucene |  |
+| Húngaro | hu.microsoft | hu.lucene |  |
+| Islandês | is.microsoft |  |  |
+| Indonésio (Bahasa) | id.microsoft | id.lucene |  |
+| Irlandês |  | ga.lucene |  |
+| Italiano | it.microsoft | it.lucene |  |
+| Japonês | ja.microsoft | ja.lucene |  |
+| Canarês | kn.microsoft |  |  |
+| Coreano | ko.microsoft | ko.lucene |  |
+| Letão | lv.microsoft | lv.lucene |  |
+| Lituano | lt.microsoft |  |  |
+| Malaiala | ml.microsoft |  |  |
+| Malaio (latim) | ms.microsoft |  |  |
+| Marata | mr.microsoft |  |  |
+| Norueguês | nb.microsoft | no.lucene |  |
+| Persa |  | fa.lucene |  |
+| Polaco | pl.microsoft | pl.lucene |  |
+| Português (Brasil) | pt-Br.microsoft | pt-Br.lucene |  |
+| Português (Portugal) | pt-Pt.microsoft | pt-pt.lucene |  |
+| Punjabi | pa.microsoft |  |  |
+| Romeno | ro.microsoft | ro.lucene |  |
+| Russo | ru.microsoft | ru.lucene |  |
+| Sérvio (Cirílico) | sr-cirílico.microsoft |  |  |
+| Sérvio (Latim) | sr-latin.microsoft |  |  |
+| Eslovaco | sk.microsoft |  |  |
+| Esloveno | sl.microsoft |  |  |
+| Espanhol | es.microsoft | es.lucene |  |
+| Sueco | sv.microsoft | sv.lucene |  |
+| Tâmil | ta.microsoft |  |  |
+| Telugu | te.microsoft |  |  |
+| Tailandês | th.microsoft | th.lucene |  |
+| Turco | tr.microsoft | tr.lucene |  |
+| Ucraniano | uk.microsoft |  |  |
+| Urdu | seu.microsoft |  |  |
+| Vietnamita | vi.microsoft |  |  |
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 

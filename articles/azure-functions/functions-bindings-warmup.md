@@ -10,16 +10,19 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 6a909b246e7cb3695533a75294c523d7c9aeaeda
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832947"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655863"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Gatilho de aquecimento de funções Azure Functions
 
-Este artigo explica como trabalhar com o gatilho de aquecimento em Funções Azure. O gatilho de aquecimento é suportado apenas para aplicações de função que funcionam num [plano Premium.](functions-premium-plan.md) Um gatilho de aquecimento é invocado quando um caso é adicionado para escalar uma aplicação de função de funcionamento. Pode utilizar um gatilho de aquecimento para pré-carregar dependências personalizadas durante o [processo de pré-aquecimento](./functions-premium-plan.md#pre-warmed-instances) para que as suas funções estejam prontas para iniciar os pedidos de processamento imediatamente. 
+Este artigo explica como trabalhar com o gatilho de aquecimento em Funções Azure. Um gatilho de aquecimento é invocado quando um caso é adicionado para escalar uma aplicação de função de funcionamento. Pode utilizar um gatilho de aquecimento para pré-carregar dependências personalizadas durante o [processo de pré-aquecimento](./functions-premium-plan.md#pre-warmed-instances) para que as suas funções estejam prontas para iniciar os pedidos de processamento imediatamente. 
+
+> [!NOTE]
+> O gatilho de aquecimento não é suportado para aplicações de função que funcionam num plano de Consumo.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

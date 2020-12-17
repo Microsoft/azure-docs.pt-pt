@@ -6,18 +6,21 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956505"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653117"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este artigo mostra-lhe como criar, carregar ou importar um certificado privado ou um certificado público no Serviço de Aplicações. 
 
 Uma vez que o certificado seja adicionado à sua app de Serviço de Aplicações ou [aplicação de função,](../azure-functions/index.yml)pode [garantir um nome DNS personalizado com ele](configure-ssl-bindings.md) ou [usá-lo no seu código de aplicação](configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> Um certificado enviado para uma aplicação é armazenado numa unidade de implantação que está ligada à combinação de recursos e região da aplicação (internamente chamada de *webspace).* Isto torna o certificado acessível a outras aplicações no mesmo grupo de recursos e combinação de região. 
 
 A tabela que se segue lista as opções que tem para adicionar certificados no Serviço de Aplicações:
 
@@ -272,7 +275,7 @@ Está agora pronto para enviar o certificado para o Serviço de Aplicações.
 
 No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **Serviços de Aplicações**  >  **\<app-name>** .
 
-A partir da navegação à esquerda da sua aplicação, selecione **certificados**  >  **de porta-chaves privados (.pfx)** De  >  configuração (.pfx).**Upload Certificate**
+A partir da navegação à esquerda da sua aplicação, selecione **certificados**  >  **de porta-chaves privados (.pfx)** De  >  configuração (.pfx).
 
 ![Faça upload de certificado privado no Serviço de Aplicações](./media/configure-ssl-certificate/upload-private-cert.png)
 

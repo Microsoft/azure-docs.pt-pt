@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 053c120b7a1a6c50c16ff419a9e64666d83dc59a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5e44ae3280d3ca0f8d5052be10d0955ba342352f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542495"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652879"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Como usar twilio para capacidades de voz e SMS em Java
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [Etapas Seguintes.](#NextSteps)
@@ -99,8 +99,8 @@ Para ficheiros de origem java server page (JSP):
     import="com.twilio.rest.api.*"
     import="com.twilio.type.*"
     import="com.twilio.twiml.*"
- ```
- 
+```
+
 Dependendo dos pacotes ou classes Twilio que pretende utilizar, as suas **declarações de importação** podem ser diferentes.
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Como: Fazer uma chamada de saída
@@ -133,7 +133,7 @@ Para obter mais informações sobre os parâmetros transmitidos ao método **Cal
 Como mencionado, este código utiliza um site fornecido por Twilio para devolver a resposta TwiML. Em vez disso, pode utilizar o seu próprio site para fornecer a resposta TwiML; para obter mais informações, consulte [Como Fornecer Respostas TwiML numa Aplicação Java em Azure](#howto_provide_twiml_responses).
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Como: Enviar uma mensagem SMS
-O seguinte mostra como enviar uma mensagem SMS utilizando a classe **Mensagem.** O **from** número, **4155992671,** é fornecido pela Twilio para contas de teste para o envio de mensagens SMS. O número deve ser verificado para **a** sua conta Twilio antes de executar o código.
+O seguinte mostra como enviar uma mensagem SMS utilizando a classe **Mensagem.** O  número, **4155992671,** é fornecido pela Twilio para contas de teste para o envio de mensagens SMS. O número deve ser verificado para **a** sua conta Twilio antes de executar o código.
 
 ```java
     // Use your account SID and authentication token instead

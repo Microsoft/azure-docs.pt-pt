@@ -2,13 +2,13 @@
 title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure (modelos ARM) para a implementação de recursos.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: da091d09f6d242d4b98903a8dcd76fe305e578b8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/17/2020
+ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498001"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657316"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -129,6 +129,7 @@ Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos li
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implemente o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
+* Para conhecer os modelos ARM através de um conjunto guiado de módulos no Microsoft Learn, consulte [implementar e gerir recursos em Azure utilizando modelos ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Para obter informações sobre as propriedades em ficheiros de modelos, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 * Para saber mais sobre os modelos de exportação, consulte [Quickstart: Crie e implemente modelos ARM utilizando o portal Azure](quickstart-create-templates-use-the-portal.md).
 * Para obter respostas a perguntas comuns, consulte [perguntas frequentes sobre modelos ARM](frequently-asked-questions.md).

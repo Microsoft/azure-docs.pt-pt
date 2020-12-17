@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a890a72773392ec179c3565954c3136d47db1dc4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68ffde11059de4809e519c1ac4f79503f25b0004
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584923"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653746"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta GitHub utilizando o Azure Ative Directory B2C
 
@@ -34,19 +34,7 @@ ms.locfileid: "97584923"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: zone pivot="b2c-user-flow"
-
-* [Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
-* Se ainda não o tiver feito, [adicione uma aplicação API ao seu inquilino do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Complete os passos no [Get start com políticas personalizadas no Ative Directory B2C](custom-policy-get-started.md).
-* Se ainda não o tiver feito, [adicione uma aplicação API ao seu inquilino do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-a-github-oauth-application"></a>Criar uma aplicação GitHub OAuth
 

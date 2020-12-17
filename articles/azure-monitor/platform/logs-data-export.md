@@ -7,17 +7,17 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8fa823620d6d1306260d719cbabaa3d815cc0d09
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3b29245aed1b2c7767c340cbe8cd35dfa38610b9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505448"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656687"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma vez configurada a exportação de dados para o seu espaço de trabalho Log Analytics, quaisquer novos dados enviados para as tabelas selecionadas no espaço de trabalho são automaticamente exportados para a sua conta de armazenamento de hora a hora ou para o seu centro de eventos em tempo quase real.
 
 ![Visão geral da exportação de dados](media/logs-data-export/data-export-overview.png)
@@ -58,7 +58,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 ## <a name="data-completeness"></a>Preencha os dados
 A exportação de dados continuará a tentar o envio de dados por um tempo até 30 minutos no caso de o destino não estar disponível. Se ainda estiver indisponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 Atualmente, não existem encargos adicionais para a funcionalidade de exportação de dados. Os preços para a exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da faturação. Se optar por continuar a utilizar a exportação de dados após o período de pré-aviso, será cobrado à taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400643"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654954"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastres VMware num ambiente de vários arrendamentos com o programa Cloud Solution Provider (CSP)
 
@@ -65,22 +65,22 @@ Pode agora realizar e gerir todas as operações de Recuperação do Local para 
 ## <a name="assign-tenant-access-to-the-subscription"></a>Atribuir acesso ao inquilino à subscrição
 
 1. Assegurar a criação da infraestrutura de recuperação de desastres. Os parceiros acedem a assinaturas de inquilinos através do portal CSP, independentemente de a recuperação de desastres ser gerida ou self-service. Instale o cofre e registe a infraestrutura para as assinaturas dos inquilinos.
-2. Forneça ao inquilino a [conta que criou.](#create-a-tenant-account)
-3. Pode adicionar um novo utilizador à subscrição do inquilino através do portal CSP da seguinte forma:
+1. Forneça ao inquilino a [conta que criou.](#create-a-tenant-account)
+1. Pode adicionar um novo utilizador à subscrição do inquilino através do portal CSP da seguinte forma:
 
-    a) Vá à página de subscrição do CSP do arrendatário e, em seguida, selecione a opção **Utilizadores e licenças.**
+    1. Vá à página de subscrição do CSP do inquilino e, em seguida, selecione a opção **Utilizadores e licenças.**
 
-      ![Página de assinatura CSP do inquilino](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![Página de assinatura CSP do inquilino](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) Agora criar um novo utilizador introduzindo os detalhes relevantes e selecionando permissões, ou fazendo o upload da lista de utilizadores num ficheiro CSV.
-    
-    c) Depois de criar um novo utilizador, volte ao portal Azure. Na página **Subscrição,** selecione a subscrição relevante.
+    1. Agora crie um novo utilizador introduzindo os detalhes relevantes e selecionando permissões, ou carregando a lista de utilizadores num ficheiro CSV.
 
-    d) Selecione **o controlo de acesso (IAM)** e, em seguida, clique em **atribuições de Função**.
+    1. Depois de criar um novo utilizador, volte ao portal Azure. Na página **Subscrição,** selecione a subscrição relevante.
 
-    e) Clique **Em Adicionar a atribuição de funções** para adicionar um utilizador ao nível de acesso relevante. Os utilizadores que foram criados através do portal CSP são apresentados no separador atribuições de Função.
+    1. Selecione **o controlo de acesso (IAM)** e, em seguida, clique em **atribuições de Função**.
 
-      ![Adicionar um utilizador](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Clique **em Adicionar atribuição de função** para adicionar um utilizador ao nível de acesso relevante. Os utilizadores que foram criados através do portal CSP são apresentados no separador atribuições de Função.
+
+        ![Adicionar um utilizador](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - Para a maioria das operações de gestão, o *papel de Contribuinte* é suficiente. Os utilizadores com este nível de acesso podem fazer tudo numa subscrição, exceto alterar os níveis de acesso (para os quais é necessário aceder ao nível *do Proprietário).*
 - A Recuperação do Site também possui três [funções de utilizador predefinidas,](site-recovery-role-based-linked-access-control.md)que podem ser usadas para restringir ainda mais os níveis de acesso, conforme necessário.

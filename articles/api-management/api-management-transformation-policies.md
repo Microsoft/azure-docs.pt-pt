@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 212a6b0786b371bfb92f2e193e67d9accd432bf8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078498"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657248"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](./api-management-policies.md)
@@ -316,12 +316,12 @@ Neste exemplo, a política encaminha o pedido para um backend de tecido de servi
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -329,14 +329,14 @@ Neste exemplo, a política encaminha o pedido para um backend de tecido de servi
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acesso ao corpo como um JObject. Note que uma vez que não estamos reservando o corpo de pedido original, aceder-lhe mais tarde no oleoduto resultará numa exceção.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -502,7 +502,7 @@ OriginalUrl.
 > As exceções incluem cabeçalhos padronizados, que valorizam:
 > - podem conter vírgulas , `User-Agent` `WWW-Authenticate` , `Proxy-Authenticate`
 > - pode conter data ( `Cookie` , `Set-Cookie` , `Warning` ),
-> - conter a data `Date` `Expires` (, `If-Modified-Since` , , , , , . `If-Unmodified-Since` `Last-Modified` `Retry-After` .
+> - conter a data `Date` `Expires` (, `If-Modified-Since` , , , . `If-Unmodified-Since` `Last-Modified` `Retry-After` .
 >
 > Em caso de exceções, os valores múltiplos dos cabeçalhos não serão concatenados numa única corda e serão passados como cabeçalhos separados, por exemplo: `User-Agent: value1`
 >`User-Agent: value2`
@@ -697,7 +697,7 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
             <!-- Copy all nodes directly-->
             <xsl:template match="node()| @*|*">
@@ -705,7 +705,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />
                 </xsl:copy>
             </xsl:template>
-        </xsl:stylesheet>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>
@@ -732,4 +732,4 @@ Para obter mais informações, consulte os seguintes tópicos:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](./policy-reference.md)
++ [Exemplos de Políticas](./policy-reference.md)

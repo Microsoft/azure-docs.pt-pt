@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 56654f09d3a92eec5b86d8c8e4cd76fec0639394
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499667"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653049"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de lançamento do Microsoft Azure Storage Explorer
 
@@ -567,7 +567,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
   * Criar novas pastas
   * Carregar, transferir, renomear e eliminar ficheiros e pastas
   * Gerir propriedades e permissões de ficheiros e pastas (lado direito).
-    
+
     Outras funcionalidades típicas do Blob, como Soft Delete e Snapshots, não estão atualmente disponíveis. A gestão de permissões também só está disponível quando assinada. Além disso, ao trabalhar numa conta de armazenamento ADLS Gen2, o Storage Explorer utilizará o AzCopy para todos os uploads e downloads e por defeito para usar o nome e as credenciais principais para todas as operações, se disponível.
 * Após um forte feedback do utilizador, o leasing de break pode ser usado mais uma vez para quebrar arrendamentos em várias bolhas ao mesmo tempo.
 

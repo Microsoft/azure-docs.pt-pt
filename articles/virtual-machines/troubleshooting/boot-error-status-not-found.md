@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088670"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657129"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Erro do Gestor de Boot do Windows de resolução de problemas - 0xC000225 "Estado não encontrado"
  
@@ -105,7 +105,7 @@ Uma corrupção de colmeia de registo pode ser devido a:
 ### <a name="repair-the-system-file"></a>Reparar o Ficheiro do Sistema
 
 1. Utilizando o VHD anexado, navegue para a localização do ficheiro do binário mostrado na sua imagem de máquina virtual (VM).
-1. Clique no ficheiro com direito, selecione **Propriedades**e, em seguida, selecione o separador **Detalhes** para ver informações no ficheiro.
+1. Clique no ficheiro com direito, selecione **Propriedades** e, em seguida, selecione o separador **Detalhes** para ver informações no ficheiro.
    1. Note a versão do ficheiro, como mostra a imagem abaixo:
 
       ![A janela de propriedades para o ficheiro 'cng.sys', com a versão do ficheiro realçada.](./media/troubleshoot-boot-error-status-not-found/5.png)
@@ -126,7 +126,7 @@ Uma corrupção de colmeia de registo pode ser devido a:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       Este comando irá listar todas as versões do ficheiro que a máquina tem, dando-lhe o histórico do caminho desse componente.
-      
+
       Por exemplo, **dir cng.sys** seria renomeado **dir cng.sys /s**
 
    1. Escolha a versão mais recente do ficheiro na lista (ou qualquer que prefira) e copie o ficheiro para a pasta **windows\system32** utilizando o caminho anterior e o seguinte comando:

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 318095e6cf68ec100dc9ea5221ecd93cba8f7c1e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082448"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656823"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Manipulação de notificações de manutenção planeadas utilizando o portal
 
@@ -32,15 +32,14 @@ Pode utilizar o portal Azure e procurar VMs agendados para manutenção.
 
    **Estado de manutenção**: Mostra o estado de manutenção do VM. Seguem-se os valores potenciais:
       
-      | Valor | Descrição |
-      |-------|-------------|
-      | Iniciar agora | O VM encontra-se na janela de manutenção de autosserviço que lhe permite iniciar a manutenção. Veja abaixo como iniciar a manutenção no seu VM. | 
-      | Agendado | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode conhecer a janela de manutenção selecionando a janela Manutenção - Janela programada nesta vista ou clicando no VM. | 
-      | Já atualizado | O seu VM já está atualizado e não são necessárias mais medidas neste momento. | 
-      | Redaçar mais tarde | Iniciou a manutenção sem sucesso. Poderá utilizar a opção de manutenção de autosserviço mais tarde. | 
-      | Redaçar agora | Pode voltar a tentar uma manutenção auto-iniciada sem sucesso. | 
-      | - | O seu VM não faz parte de uma onda de manutenção planeada. |
-      
+    | Valor | Descrição |
+    |-------|-------------|
+    | Iniciar agora | O VM encontra-se na janela de manutenção de autosserviço que lhe permite iniciar a manutenção. Veja abaixo como iniciar a manutenção no seu VM. | 
+    | Agendado | O VM está agendado para manutenção sem opção de iniciar a manutenção. Pode conhecer a janela de manutenção selecionando a janela Manutenção - Janela programada nesta vista ou clicando no VM. | 
+    | Já atualizado | O seu VM já está atualizado e não são necessárias mais medidas neste momento. | 
+    | Redaçar mais tarde | Iniciou a manutenção sem sucesso. Poderá utilizar a opção de manutenção de autosserviço mais tarde. | 
+    | Redaçar agora | Pode voltar a tentar uma manutenção auto-iniciada sem sucesso. | 
+    | - | O seu VM não faz parte de uma onda de manutenção planeada. |
 
    **Manutenção - Janela de autosserviço**: Mostra a janela de tempo quando pode iniciar a manutenção auto-iniciada nos seus VMs.
    

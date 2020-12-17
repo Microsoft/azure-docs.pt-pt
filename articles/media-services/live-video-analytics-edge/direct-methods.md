@@ -3,16 +3,16 @@ title: Utilize métodos diretos em Live Video Analytics em IoT Edge - Azure
 description: Live Video Analytics on IoT Edge expõe vários métodos diretos. Os métodos diretos baseiam-se nas convenções descritas neste tópico.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091832"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656245"
 ---
 # <a name="direct-methods"></a>Métodos diretos
 
-Live Video Analytics on IoT Edge expõe vários métodos diretos que podem ser invocados a partir do IoT Hub. Os métodos diretos representam uma interação de resposta de pedido com um dispositivo semelhante a uma chamada HTTP na medida em que eles sucedem ou falham imediatamente (após um tempo limite especificado pelo utilizador). Esta abordagem é útil para cenários em que o curso de ação imediata é diferente dependendo se o dispositivo foi capaz de responder. Para mais informações, consulte [Compreender e invocar métodos diretos do IoT Hub.](../../iot-hub/iot-hub-devguide-direct-methods.md)
+Live Video Analytics on IoT Edge expõe vários métodos diretos que podem ser invocados a partir do IoT Hub. Os métodos diretos representam uma interação de resposta de pedido com um dispositivo semelhante a uma chamada HTTP na medida em que eles sucedem ou falham imediatamente (após um tempo limite especificado pelo utilizador). Esta abordagem é útil para cenários onde as medidas imediatas variam consoante a capacidade de resposta do dispositivo. Para mais informações, consulte [Compreender e invocar métodos diretos do IoT Hub.](../../iot-hub/iot-hub-devguide-direct-methods.md)
 
 Este tópico descreve estes métodos e convenções.
 
@@ -140,12 +140,12 @@ Este método direto recupera uma topologia de gráfico único.
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Entidade encontrada|  200 |N/D
-|Erros gerais do utilizador    |Gama 400  ||
-|Entidade não encontrada   |404        ||
-|Erros gerais do servidor| Gama 500       ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Entidade encontrada | 200 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Entidade não encontrada | 404 |  |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -227,13 +227,13 @@ Elimina uma topologia de um único gráfico.
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Entidade eliminada|    200|    N/D|
-|Entidade não encontrada|  204|    N/D|
-|Erros gerais do utilizador|   Gama 400   ||
-|Topologia de gráficos está sendo referenciada por uma ou mais instâncias de gráfico| 409 |GraphTopologyInUse|
-|Erros gerais do servidor| Gama 500   ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Entidade eliminada | 200 | N/D |
+| Entidade não encontrada | 204 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Topologia de gráficos está sendo referenciada por uma ou mais instâncias de gráfico | 409 | GraphTopologyInUse |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphtopologylist"></a>Lista de Graftopologia
 
@@ -278,18 +278,18 @@ Recupera uma lista de todas as topologias de gráficos que correspondem aos crit
 
 #### <a name="filter-support"></a>Suporte de filtro
 
-|Operação      |Campo(s)   |Operadores|
+|Operação |Campo(s)    |Operadores|
 |---|---|---|
 |$orderby|name  |asc|
 
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Success|   200 |N/D|
-|Erros gerais do utilizador|   Gama 400   ||
-|Erros gerais do servidor| Gama 500   ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Success | 200 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -323,12 +323,12 @@ Recupera uma única instância de gráfico:
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Entidade encontrada   |200|   N/D|
-|Erros gerais do utilizador|   Gama 400   ||
-|Entidade não encontrada|  404 ||
-|Erros gerais do servidor| Gama 500   ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Entidade encontrada | 200 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Entidade não encontrada | 404 |  |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -373,15 +373,15 @@ Aspectos-chave:
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Entidade existente atualizada    |200    |N/D|
-|Nova entidade criada|    201 |N/D|
-|Erros gerais do utilizador|   Gama 400   ||
-|Erros de validação de gráficos    |400|   GraphValidationError|
-|Erros de validação do módulo|  400 |MóduloValidationError|
-|Erros de validação de recursos |409    |RecursoValidationError|
-|Erros gerais do servidor  |Gama 500||    
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Entidade existente atualizada | 200 | N/D |
+| Nova entidade criada | 201 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Erros de validação de gráficos | 400 | GraphValidationError |
+| Erros de validação do módulo | 400 | MóduloValidationError |
+| Erros de validação de recursos | 409 | RecursoValidationError |
+| Erros gerais do servidor | Gama 500 |  |  |
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -414,13 +414,13 @@ Aspectos-chave:
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Gráfico eliminado com sucesso|    200|    N/D|
-|Gráfico não encontrado|   204|    N/D|
-|Erros gerais do utilizador    |Gama 400  ||
-|O gráfico não está no estado "Parado"    |409    |OperaçãoNotAllowedInState|
-|Erros gerais do servidor| Gama 500   ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Gráfico eliminado com sucesso | 200 | N/D |
+| Gráfico não encontrado | 204 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| O gráfico não está no estado "Parado" | 409 | OperaçãoNotAllowedInState |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -472,11 +472,11 @@ Recupera uma lista de todos os casos de gráficos que correspondem aos critério
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Success    |200    |N/D|
-|Erros gerais do utilizador|   Gama 400   ||
-|Erros gerais do servidor| Gama 500   ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Success | 200 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -516,15 +516,15 @@ Aspectos-chave
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Gráfico ativado com sucesso   |200    |N/D|
-|Nova entidade criada |201|   N/D|
-|Erros gerais do utilizador    |Gama 400  ||
-|Erros de validação do módulo   |400|   MóduloValidationError|
-|Erros de validação de recursos|    409|    RecursoValidationError|
-|O gráfico está em estado de desativar |409    |OperaçãoNotAllowedInState|
-|Erros gerais do servidor| Gama 500   ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Gráfico ativado com sucesso | 200 | N/D |
+| Nova entidade criada | 201 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| Erros de validação do módulo | 400 | MóduloValidationError |
+| Erros de validação de recursos | 409 | RecursoValidationError |
+| O gráfico está em estado de desativar | 409 | OperaçãoNotAllowedInState |
+| Erros gerais do servidor | Gama 500 |  |
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivo
 
@@ -565,13 +565,13 @@ Aspectos-chave:
 }
 ```
 
-|Condição  |Código de estado    |Código de erro detalhado|
-|---|---|---|
-|Gráfico ativado com sucesso   |200|   N/D|
-|Nova entidade criada |201|   N/D|
-|Erros gerais do utilizador    |Gama 400  ||
-|O gráfico está em estado de ativação   |409|   OperaçãoNotAllowedInState|
-|Erros gerais do servidor  |Gama 500  ||
+| Condição | Código de estado | Código de erro detalhado |
+|--|--|--|
+| Gráfico ativado com sucesso | 200 | N/D |
+| Nova entidade criada | 201 | N/D |
+| Erros gerais do utilizador | Gama 400 |  |
+| O gráfico está em estado de ativação | 409 | OperaçãoNotAllowedInState |
+| Erros gerais do servidor | Gama 500 |  |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781724"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654035"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ O elemento **ClaimType** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o tipo de reclamação. Outros elementos podem usar este identificador na apólice. |
+| Id | Yes | Um identificador que é usado para o tipo de reclamação. Outros elementos podem usar este identificador na apólice. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
@@ -75,7 +75,7 @@ O elemento **DataType** suporta os seguintes valores:
 |número de telefone|Representa um número de telefone. |
 |int| Representa o número entre -2.147.483.648 e 2.147.483.647|
 |long| Representa o número entre -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 |
-|cadeia| Representa o texto como uma sequência de unidades de código UTF-16.|
+|string| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção `string` de.|
 |userDentity| Representa uma identidade de utilizador.|
 |userIdentityCollection|Representa uma coleção `userIdentity` de.|
@@ -92,8 +92,8 @@ O elemento **Protocolo** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | Sim | O nome do tipo reivindicação a ser usado. |
+| Nome | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Yes | O nome do tipo reivindicação a ser usado. |
 
 No exemplo seguinte, quando o Quadro de Experiência de Identidade interage com um fornecedor de identidade SAML2 ou com pedido de parte, a alegação de **apelido** é mapeada `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` para, com OpenIdConnect e OAuth2, a alegação está mapeada para `family_name` .
 
@@ -128,7 +128,7 @@ O elemento **Máscara** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de reivindicação. Valores possíveis: `Simple` ou `Regex` . O `Simple` valor indica que uma simples máscara de texto é aplicada na parte principal de uma alegação de corda. O `Regex` valor indica que uma expressão regular é aplicada à alegação de corda como um todo.  Se o `Regex` valor for especificado, um atributo opcional também deve ser definido com a expressão regular a usar. |
-| `Regex` | Não | Se **`Type`** estiver `Regex` definido, especifique a expressão regular a utilizar.
+| `Regex` | No | Se **`Type`** estiver `Regex` definido, especifique a expressão regular a utilizar.
 
 O exemplo a seguir configura uma reivindicação **Do Número de Telefone** com a `Simple` máscara:
 
@@ -167,7 +167,7 @@ O elemento **restrição** pode conter o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| FusõesBehavior | Não | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O `Prepend` valor é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O `ReplaceAll` valor é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
+| FusõesBehavior | No | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O `Prepend` valor é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O `ReplaceAll` valor é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
 
 O elemento **restrição** contém os seguintes elementos:
 
@@ -184,9 +184,9 @@ O elemento **Enumeração** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Sim | A cadeia de visualização que é mostrada ao utilizador na interface do utilizador para esta opção. |
-|Valor | Sim | O valor de reclamação que está associado à seleção desta opção. |
-| SelecioneByDefault | Não | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
+| Texto | Yes | A cadeia de visualização que é mostrada ao utilizador na interface do utilizador para esta opção. |
+|Valor | Yes | O valor de reclamação que está associado à seleção desta opção. |
+| SelecioneByDefault | No | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
 
 O exemplo a seguir configura uma reivindicação da lista de abandono da **cidade** com um valor padrão definido `New York` para:
 
@@ -213,8 +213,8 @@ O elemento **Padrão** pode conter os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Expressão Regular | Sim | A expressão regular que as alegações deste tipo devem corresponder para ser válida. |
-| HelpText | Não | Uma mensagem de erro para os utilizadores se a verificação de expressão regular falhar. |
+| Expressão Regular | Yes | A expressão regular que as alegações deste tipo devem corresponder para ser válida. |
+| HelpText | No | Uma mensagem de erro para os utilizadores se a verificação de expressão regular falhar. |
 
 O exemplo a seguir configura uma reclamação **de e-mail** com validação regular de entrada de expressão e texto de ajuda:
 
@@ -223,14 +223,14 @@ O exemplo a seguir configura uma reclamação **de e-mail** com validação regu
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
   <DefaultPartnerClaimTypes>
-    <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+  <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
   </DefaultPartnerClaimTypes>
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
     <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
-    </Restriction>
- </ClaimType>
+  </Restriction>
+</ClaimType>
 ```
 
 O Quadro de Experiência de Identidade torna a reclamação do endereço de e-mail com validação de entrada de formato de e-mail:

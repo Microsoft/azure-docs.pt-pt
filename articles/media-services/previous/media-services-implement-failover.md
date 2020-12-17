@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256536"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657265"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com Serviços de Media v2
 
@@ -66,7 +66,7 @@ Nesta secção, cria-se e cria um projeto de Aplicação para consolas C.
 
 1. Utilize o Visual Studio para criar uma nova solução que contenha o projeto C# Console Application. **Insira HandleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique **em OK**.
 2. Crie a pasta **SupportFiles** no mesmo nível que o ficheiro do projeto **HandleRedundancyForOnDemandStreaming.csproj.** Sob a pasta **SupportFiles,** crie as **pastas Desaquicha** e **MP4Files.** Copie um ficheiro .mp4 na pasta **MP4Files.** (Neste exemplo, é utilizado o **ficheiroignite.mp4.)** 
-3. Utilize **o NuGet** para adicionar referências a DLLs relacionados com os Serviços de Mídia. No **Menu Principal do Estúdio Visual**, selecione **TOOLS**  >  **NuGet Package Manager**Package Manager  >  **Consola**. Na janela da consola, **escreva o Pacote de Instalação windowsazure.mediaservices**e prima Enter.
+3. Utilize **o NuGet** para adicionar referências a DLLs relacionados com os Serviços de Mídia. No **Menu Principal do Estúdio Visual**, selecione **TOOLS**  >  **NuGet Package Manager** Package Manager  >  **Consola**. Na janela da consola, **escreva o Pacote de Instalação windowsazure.mediaservices** e prima Enter.
 4. Adicione outras referências necessárias para este projeto: System.Runtime.Serialization e System.Web.
 5. Substitua **a utilização de** declarações adicionadas ao ficheiro **Programs.cs** por predefinição com as seguintes:
 
@@ -755,7 +755,7 @@ O exemplo neste tópico mostra um streaming claro. Se quiser fazer streaming pro
 
 Para obter mais informações sobre a proteção de conteúdos, consulte [a encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Use webhooks Azure para monitorizar notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
 

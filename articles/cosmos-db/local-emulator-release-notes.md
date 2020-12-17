@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608440"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656228"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - Divulgar notas e descarregar informações
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Este artigo mostra as notas de lançamento do Azure Cosmos DB Emulator com uma l
 | | |
 |---------|---------|
 |**Download MSI**|[Centro de Transferências da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introdução**|[Desenvolva-se localmente com o Emulador Azure Cosmos](local-emulator.md)|
+|**Introdução**|[Desenvolva-se localmente com o Azure Cosmos DB Emulator](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -83,7 +83,7 @@ Esta versão adiciona duas novas opções de arranque emulador Cosmos:
 
 ### <a name="246"></a>2.4.6
 
-- Esta versão proporciona paridade com as funcionalidades do serviço Azure Cosmos a partir de julho de 2019, com as exceções notadas em [Develop localmente com Azure Cosmos Emulator.](local-emulator.md) Também corrige vários bugs relacionados com o emulador desligado quando invocado através da linha de comando e endereço IP interno sobrepõe-se a clientes SDK usando conectividade de modo direto.
+- Esta versão proporciona paridade com as funcionalidades do serviço Azure Cosmos a partir de julho de 2019, com as exceções notadas em [Develop localmente com Azure Cosmos DB Emulator](local-emulator.md). Também corrige vários bugs relacionados com o emulador desligado quando invocado através da linha de comando e endereço IP interno sobrepõe-se a clientes SDK usando conectividade de modo direto.
 
 ### <a name="243"></a>2.4.3
 

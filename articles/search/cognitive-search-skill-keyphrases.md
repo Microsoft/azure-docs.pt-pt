@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 145d8265412c4efcaa2afad97feb23528a36191d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936066"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652318"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de frase-chave
 
@@ -37,14 +37,14 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas                | Descrição |
+| Entradas | Descrição |
 |---------------------|-------------|
 | `defaultLanguageCode` | (Opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua.  Se o código linguístico predefinido não for especificado, o inglês (en) será utilizado como código idioma predefinido. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/language-support.md) |
 | `maxKeyPhraseCount`   | (Opcional) O número máximo de frases-chave a produzir. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Input  | Descrição |
+| Entrada  | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
 | `languageCode`    |  Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o código linguístico predefinido será utilizado para analisar os registos. <br/>Ver [lista completa de línguas apoiadas](../cognitive-services/text-analytics/language-support.md)|
@@ -114,7 +114,7 @@ Se fornecer um código linguístico não suportado, é gerado um erro e não sã
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão analisados e será emitido um aviso.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: eac7999db61bd883dd1148e8b866b811a4f3c851
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ce04053d7b624bddf8c0d3a6476f26c3462af2c2
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222868"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652029"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações com o modelo do Azure Resource Manager
 
@@ -303,7 +303,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
 2. Edite o modelo para satisfazer os seus requisitos. Considere criar um [ficheiro de parâmetros do Gestor](../../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar parâmetros como valores inline.
 
-3. Guarde este ficheiro numa pasta local à medida ** quedeployUMSolutiontemplate.jsligado**.
+3. Guarde este ficheiro numa pasta local à medida **quedeployUMSolutiontemplate.jsligado**.
 
 4. Está pronto para implementar este modelo. Pode utilizar o PowerShell ou o Azure CLI. Quando você é solicitado para um espaço de trabalho e nome de conta Automation, forneça um nome que é globalmente único em todas as subscrições do Azure.
 
@@ -341,7 +341,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
     ![Vista de avaliação de recursos de gestão de atualização](./media/enable-from-template/update-management-assessment-view.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar, elimine a solução De Atualizações no espaço de trabalho Do Log Analytics, **desvincula** a conta Demômpacial do espaço de trabalho e, em seguida, apaga a conta de Automação e espaço de trabalho.
 

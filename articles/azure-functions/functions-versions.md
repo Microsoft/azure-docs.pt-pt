@@ -4,12 +4,12 @@ description: O Azure Functions suporta várias versões do tempo de execução. 
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 3997c5e79192f4386ee5280350620a748dd1489b
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309716"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653355"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de execução do Azure Functions
 
@@ -116,7 +116,7 @@ No Visual Studio, seleciona a versão de tempo de execução quando cria um proj
 ##### <a name="version-1x"></a>Versão 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
@@ -192,7 +192,7 @@ A tabela a seguir mostra quais as ligações suportadas em cada versão de tempo
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os seguintes recursos:
 

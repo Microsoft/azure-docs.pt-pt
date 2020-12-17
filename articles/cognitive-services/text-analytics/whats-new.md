@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: c304c2aad3ba40d7b3a044f0e3222e31bb013648
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503986"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652853"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -160,8 +160,6 @@ Os nomes das seguintes propriedades na resposta JSON foram alterados, se aplicá
     * `confidenceScore` tem dois pontos decimais de precisão. 
 * `type` mudou de nome para `category`
 * `subtype` mudou de nome para `subcategory`
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre text Analytics API v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)

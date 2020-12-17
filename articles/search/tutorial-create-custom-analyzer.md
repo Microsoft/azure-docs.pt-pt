@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 90d60a20bb464936d04662b0b9286bd7aaac9e74
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b83ed506c0aa6299e5308e9e0c7276a21b7d9abe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700176"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652352"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -160,7 +160,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
 
 Com os dados no índice, estamos prontos para começar a procurar.
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Pesquisa
 
 Para tornar a pesquisa intuitiva, o melhor é não esperar que os utilizadores formatem consultas de uma forma específica. Um utilizador pode pesquisar `(425) 555-0100` em qualquer um dos formatos que mostramos acima e ainda espera que os resultados sejam devolvidos. Neste passo, vamos testar algumas consultas de amostra para ver como se comportam.
 
@@ -270,8 +270,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-      "text": "(425) 555-0100",
-      "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 

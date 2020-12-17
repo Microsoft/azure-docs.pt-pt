@@ -1,7 +1,7 @@
 ---
 title: Como utilizar perfInsights no Microsoft Azure Microsoft Docs
 description: Aprende a usar PerfInsights para resolver problemas de desempenho do Windows VM.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9e298bf39446024f384b9af142fe3000e936bb6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002668"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656857"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar PerfInsights em Azure
 
@@ -103,27 +103,27 @@ São recolhidas informações sobre a configuração de conjuntos de discos ou p
 
 | Dados recolhidos | Análise rápida do desempenho | Benchmarking | Análise de desempenho | Análise de Ficheiros Azure | Análise avançada de desempenho |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
-| Informações dos registos de eventos       | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Informações do sistema                | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Mapa de volume                        | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Mapa do disco                          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Tarefas de execução                     | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Balcões de fiabilidade do armazenamento      | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Informação de armazenamento               | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Saída Fsutil                     | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Informação do controlador                | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Saída de netstat                    | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Configuração de rede             | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Configuração da firewall            | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Configuração do SQL Server          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Traços de diagnóstico de desempenho *  | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Rastreio do contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreio de contador SMB **              |                            |                                    |                          | Sim                  |                      |
-| Rastreio do contador do SQL Server **       |                            |                                    | Sim                      |                      | Sim                  |
-| Vestígio de Xperf                       |                            |                                    |                          |                      | Sim                  |
-| Vestígios de StorPort                    |                            |                                    |                          |                      | Sim                  |
-| Vestígios de rede                     |                            |                                    |                          | Sim                  | Sim                  |
-| Traço de referência de discos **_       |                            | Sim                                |                          |                      |                      |
+| Informações dos registos de eventos       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informações do sistema                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Mapa de volume                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Mapa do disco                          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Tarefas de execução                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Balcões de fiabilidade do armazenamento      | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informação de armazenamento               | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Saída Fsutil                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informação do controlador                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Saída de netstat                    | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Configuração de rede             | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Configuração da firewall            | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Configuração do SQL Server          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Traços de diagnóstico de desempenho *  | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Rastreio do contador de desempenho **      |                            |                                    | Yes                      |                      | Yes                  |
+| Rastreio de contador SMB **              |                            |                                    |                          | Yes                  |                      |
+| Rastreio do contador do SQL Server **       |                            |                                    | Yes                      |                      | Yes                  |
+| Vestígio de Xperf                       |                            |                                    |                          |                      | Yes                  |
+| Vestígios de StorPort                    |                            |                                    |                          |                      | Yes                  |
+| Vestígios de rede                     |                            |                                    |                          | Yes                  | Yes                  |
+| Traço de referência de discos **_       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-_"></a>Traço de diagnóstico de desempenho (_)
@@ -144,7 +144,7 @@ Recolhe os seguintes contadores de desempenho:
 
 - \Processo, \Processador, \Memória, \Thread, \PhysicalDisk e \LogicalDisk
 - \Cache\Páginas sujas, \Cache\Preguiçoso Escrever Flushes/seg, \Server\Pool Nonpaged, Fails e \Server\Pool Paged Failures
-- Contadores selecionados em \Interface de Rede, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segmentos, \TCPv6\Segmentos, \Adaptador de rede, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processador Interface Card Activity, e \Microsoftock Wins BSP BSP BSP
+- Contadores selecionados em \Interface de Rede, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segmentos, \TCPv6\Segmentos, \Adaptador de rede, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processador Interface Card Activity, e \Microsoftock Wins BSP
 
 #### <a name="for-sql-server-instances"></a>Para instâncias do SQL Server
 - \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats e \SQLServer:SQL Statistics\
@@ -254,7 +254,7 @@ Quando os vestígios ou operações estiverem concluídos, um novo ficheiro apar
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnósticos
 
-Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zip,** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zipe,** em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics \_ yy-MM-dd \_hh-mm-ss-fff.zip,** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zipe,** em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 Selecione o **separador Resultados.**
 
@@ -319,4 +319,4 @@ A imagem que se segue mostra uma mensagem semelhante à que pode receber:
 
 Siga as instruções na mensagem para aceder ao espaço de trabalho de transferência de ficheiros. Para obter segurança adicional, tem de alterar a sua palavra-passe na primeira utilização.
 
-Depois de iniciar sôs, encontrará uma caixa de diálogo para carregar o ficheiro **performanceDiagnostics \_ yyyy-MM-d \_hh-mm-ss-fff.zipd** que foi recolhido pela PerfInsights.
+Depois de iniciar sôs, encontrará uma caixa de diálogo para carregar o ficheiro **performanceDiagnostics \_ yy-MM-d \_hh-mm-ss-fff.zipd** que foi recolhido pela PerfInsights.

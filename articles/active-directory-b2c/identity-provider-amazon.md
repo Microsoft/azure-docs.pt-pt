@@ -13,12 +13,12 @@ ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0181313a404127f4c542423cdcfe90ca64a03fe6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 48887df0ce6228fa436cb91bfb0a3ee7aa0f6c08
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585076"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654511"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Amazon utilizando o Azure Ative Directory B2C
 
@@ -32,19 +32,7 @@ ms.locfileid: "97585076"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: zone pivot="b2c-user-flow"
-
-* [Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
-* Se ainda não o tiver feito, [adicione uma aplicação API ao seu inquilino do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Complete os passos no [Get start com políticas personalizadas no Ative Directory B2C](custom-policy-get-started.md).
-* Se ainda não o tiver feito, [adicione uma aplicação API ao seu inquilino do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Criar uma app na consola de desenvolvedores da Amazon
 

@@ -3,12 +3,12 @@ title: Azure Event Hubs - Visualizar anomalias de dados em eventos em tempo real
 description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos da Microsoft Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b72b82f3959565e6bd0598fef8e21bb64fedb053
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934060"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655684"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
@@ -26,14 +26,12 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Instalar [o Estúdio Visual](https://www.visualstudio.com/). 
 - Precisa de uma conta do Power BI para analisar a saída de uma tarefa do Stream Analytics. Pode [experimentar o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-resources"></a>Configurar recursos
 
@@ -153,8 +151,8 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 As amostras do Event Hubs [no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluem uma aplicação de Detetor de Anomalias que produz dados de teste para si. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
 
 1. Transfira os [exemplos de Hubs de Eventos do Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) do GitHub e deszipe o ficheiro localmente.
-2. Navegue para a pasta **\azure-event-hubs-master\samples\dotNet. \\ ** 
-3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector \\ ** e clique duas vezes em **AnomalyDetector.sln** para abrir a solução em Visual Studio. 
+2. Navegue para a pasta **\azure-event-hubs-master\samples\dotNet. \\** 
+3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector \\** e clique duas vezes no **AnomalyDetector.sln** para abrir a solução no Estúdio Visual. 
 
     Para utilizar a versão antiga da amostra que utiliza o antigo pacote Microsoft.Azure.EventHubs, abra a solução a partir da pasta **Microsoft.Azure.EventHubs\AnomalyDetector.** 
 3. Abra o ficheiro Program.cs e substitua **Event Hubs connection string** pela cadeia de ligação que guardou quando executou o script. 
@@ -217,7 +215,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 1. Em **Topologia de Tarefas**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
 
-2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: utilize **contosooutputs**. Este campo é o alias exclusivo para a saída. 
 
@@ -308,7 +306,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
    ![Captura de ecrã da especificação do conjunto de dados.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Selecione **Cartão** para o tipo de visualização. Em **Campos**, clique **em Adicionar valor**e, em seguida, selecione `fraudulentuses` .
+9. Selecione **Cartão** para o tipo de visualização. Em **Campos**, clique **em Adicionar valor** e, em seguida, selecione `fraudulentuses` .
 
    ![Captura de ecrã da especificação do tipo de visualização e dos campos.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,7 +327,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 12. Em **Tipo de Visualização**, selecione **Gráfico de linhas**.
 
-13. No **eixo,** clique em **Adicionar Valor**e selecione `windowend` . 
+13. No **eixo,** clique em **Adicionar Valor** e selecione `windowend` . 
 
 14. Em **Valores**, clique **em Adicionar valor** e selecione `fraudulentuses` .
 

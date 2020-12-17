@@ -6,12 +6,12 @@ ms.topic: sample
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/08/2020
-ms.openlocfilehash: d7a8a7b7fa75d7d9bb4dc45a3432370bac4cb4d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5818f1ffac9c89e24c1a12cf92fc5fbf1ddf2386
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498649"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657231"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Amostras de modelo de gestor de recursos para criar recursos de Insights de Aplicação
 

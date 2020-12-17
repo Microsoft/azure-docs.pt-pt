@@ -1,7 +1,7 @@
 ---
 title: Diagnósticos de desempenho para máquinas virtuais Azure Microsoft Docs
 description: Introduz diagnósticos de desempenho Azure para windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: fb0928c75b8fee567e9d0f03489794bd9f65e91e
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109441"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655395"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho para máquinas virtuais do Azure
 

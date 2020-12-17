@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: de11e6f9fd9acc81f7be6d23bb1019f88f9e1322
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518928"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657214"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o Bloco de Notas Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
 
@@ -42,12 +42,7 @@ Descarregue o [instalador Daaconda](https://www.anaconda.com/download/) para a s
 
 ## <a name="install-spark-magic"></a>Instalar magia de faísca
 
-1. Insira um dos comandos abaixo para instalar a magia spark. Consulte também [documentação sparkmagic.](https://github.com/jupyter-incubator/sparkmagic#installation)
-
-    |Versão cluster | Instalar comando |
-    |---|---|
-    |v3.6 e v3.5 |`pip install sparkmagic==0.13.1`|
-    |v3.4|`pip install sparkmagic==0.2.3`|
+1. Introduza o comando `pip install sparkmagic==0.13.1` para instalar a magia Spark para os clusters HDInsight versão 3.6 e 4.0. Consulte também [documentação sparkmagic.](https://github.com/jupyter-incubator/sparkmagic#installation)
 
 1. Certifique-se de que `ipywidgets` está corretamente instalado executando o seguinte comando:
 

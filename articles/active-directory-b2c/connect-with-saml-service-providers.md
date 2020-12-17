@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ad7fe062d30f6858296ad4a2638b62c190862365
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 80e6dbdc02b68c279452127933532106b0f78ab8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936442"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654664"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -39,7 +39,7 @@ Resumindo os dois cenários centrais não exclusivos com a SAML:
 | Cenário | Papel de Azure AD B2C | Procedimentos |
 | -------- | ----------------- | ------- |
 | A minha candidatura espera que uma afirmação da SAML complete uma autenticação. | **AZure AD B2C atua como fornecedor de identidade (IdP)**<br />A Azure AD B2C atua como um IdP SAML para as aplicações. | Este artigo. |
-| Os meus utilizadores precisam de um único sinal com um fornecedor de identidade compatível com SAML, como a ADFS, a Salesforce ou a Shibboleth.  | **A Azure AD B2C atua como prestador de serviços (SP)**<br />O Azure AD B2C atua como prestador de serviços ao ligar-se ao fornecedor de identidade SAML. É um representante da federação entre o seu pedido e o fornecedor de identidade SAML.  | <ul><li>[Configurar o súps com a ADFS como um IdP SAML utilizando políticas personalizadas](identity-provider-adfs.md)</li><li>[Configurar o sôm-in com um fornecedor de SAML salesforce usando políticas personalizadas](identity-provider-salesforce.md)</li></ul> |
+| Os meus utilizadores precisam de um único sinal com um fornecedor de identidade compatível com SAML, como a ADFS, a Salesforce ou a Shibboleth.  | **A Azure AD B2C atua como prestador de serviços (SP)**<br />O Azure AD B2C atua como prestador de serviços ao ligar-se ao fornecedor de identidade SAML. É um representante da federação entre o seu pedido e o fornecedor de identidade SAML.  | <ul><li>[Configurar o súps com a ADFS como um IdP SAML utilizando políticas personalizadas](identity-provider-adfs.md)</li><li>[Configurar o sôm-in com um fornecedor de SAML salesforce usando políticas personalizadas](identity-provider-salesforce-saml.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -393,7 +393,7 @@ Para permitir que o Azure AD B2C envie afirmações encriptadas, desafie o item 
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Permitir o fluxo iniciado pelo fornecedor de identidade (Opcional)
 
-No fluxo iniciado pelo fornecedor de identidade, o processo de inscrição é iniciado pelo fornecedor de identidade (Azure AD B2C), que envia uma resposta SAML não solicitada ao prestador de serviços (a sua aplicação de partido em gestão). Atualmente, não apoiamos cenários em que o fornecedor de identidade iniciante seja um fornecedor de identidade externa, por exemplo [AD-FS,](identity-provider-adfs.md)ou [Salesforce.](identity-provider-salesforce.md)
+No fluxo iniciado pelo fornecedor de identidade, o processo de inscrição é iniciado pelo fornecedor de identidade (Azure AD B2C), que envia uma resposta SAML não solicitada ao prestador de serviços (a sua aplicação de partido em gestão). Atualmente, não apoiamos cenários em que o fornecedor de identidade iniciante seja um fornecedor de identidade externa, por exemplo [AD-FS,](identity-provider-adfs.md)ou [Salesforce.](identity-provider-salesforce-saml.md)
 
 Para permitir o fluxo iniciado pelo fornecedor de identidade (Azure AD B2C), defina o item de metadados **IdpInitiatedProfileEnabled** `true` no perfil técnico da parte de [confiança](relyingparty.md#technicalprofile).
 

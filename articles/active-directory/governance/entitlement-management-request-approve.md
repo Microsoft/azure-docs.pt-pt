@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973580"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655106"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar pedidos de acesso na gestão de direitos da AD Azure
 
@@ -57,11 +57,11 @@ Se não tiver o e-mail, pode encontrar os pedidos de acesso enquanto aguarda a s
 
 1. Clique em **Detalhes do Pedido.**
 
-     ![O meu portal de Acesso - Pedido de acesso- Clique nos detalhes do pedido](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+    ![O meu portal de Acesso - Pedido de acesso- Clique nos detalhes do pedido](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. As informações fornecidas pelo solicitador estarão na parte inferior do painel.
 
-     ![Screenshot mostra os detalhes do pedido](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+    ![Screenshot mostra os detalhes do pedido](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. Com base nas informações fornecidas pelo solicitador, pode então aprovar ou negar o pedido. Consulte os passos em Aprovar ou negar pedido de orientação.
 

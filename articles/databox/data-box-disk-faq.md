@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: acaa0fdb1fa0e9a338f4e249622cad0115c6b58e
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516455"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654630"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados Azure: Perguntas frequentes
 
@@ -100,13 +100,11 @@ Estes prazos são *estimativas.* O tempo para cada fase de processamento da enco
 **Prazos de entrega estimados para uma encomenda de disco de caixa de dados:**
 
 1. Disco de caixa de dados de encomenda: A poucos minutos do portal
-2. Atribuição e preparação do disco: 1-2 dias úteis
+2. Atribuição e preparação do disco: Até 5 dias úteis, dependendo da disponibilidade do inventário e do número de encomendas pendentes a serem processadas
 3. Envio: 2 a 3 dias úteis
-4. Cópia de dados no site do cliente: Depende da natureza dos dados, tamanho e número de ficheiros
+4. Cópia de dados no site do cliente: Depende da natureza dos dados, tamanho e número de ficheiros.
 5. Devolução: 2 a 3 dias úteis
-6. Função de processamento de disco no datacenter: 1-2 dias úteis
-7. Faça o upload dos dados para Azure: Começa assim que o processamento estiver concluído e o disco está ligado. O tempo de upload depende da natureza dos dados, tamanho e número de ficheiros.
-
+6. O processamento no datacenter e o upload para Azure: O upload de dados começa no datacenter assim que o processamento operacional estiver concluído e o disco estiver ligado. O tempo de upload depende da natureza dos dados, tamanho e número de ficheiros.
 
 ## <a name="configure-and-connect"></a>Configurar e ligar
  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9db2bcc0b44dfb6146517de8a139f34cd8584af
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812850"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654460"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure
 

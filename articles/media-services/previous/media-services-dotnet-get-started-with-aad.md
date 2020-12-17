@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 0d0d92c41ec15f4b4cf2307ac686b299cc5fb1ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cca17aacc914412d34f613adfeba31617c60c455
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262123"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652947"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utilize a autenticação Azure AD para aceder à Azure Media Services API com .NET
 
@@ -101,7 +101,7 @@ var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
 Para iniciar a programação contra os Media Services, é necessário criar uma instância **CloudMediaContext** que represente o contexto do servidor. O **CloudMediaContext** inclui referências a importantes coleções, incluindo empregos, ativos, ficheiros, políticas de acesso e localizadores.
 
-Também precisa de passar o **recurso URI para serviços de rest de mídia** para o construtor **CloudMediaContext.** Para obter o recurso URI para Serviços de DESCANSO de Mídia, faça o sômed para o portal Azure, selecione a sua conta Azure Media Services, selecione **acesso API**e, em seguida, selecione **Connect to Azure Media Services com autenticação do utilizador.**
+Também precisa de passar o **recurso URI para serviços de rest de mídia** para o construtor **CloudMediaContext.** Para obter o recurso URI para Serviços de DESCANSO de Mídia, faça o sômed para o portal Azure, selecione a sua conta Azure Media Services, selecione **acesso API** e, em seguida, selecione **Connect to Azure Media Services com autenticação do utilizador.**
 
 O seguinte exemplo de código cria uma instância **CloudMediaContext:**
 
@@ -153,8 +153,8 @@ O seguinte exemplo de código cria um símbolo utilizando o construtor **AzureAd
 
 ```csharp
 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                            new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
-                            AzureEnvironments.AzureCloudEnvironment);
+                        new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
+                        AzureEnvironments.AzureCloudEnvironment);
 
 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 ```
@@ -165,8 +165,8 @@ Para obter instruções sobre como criar e configurar um certificado de forma a 
 
 ```csharp
 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                            new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
-                            AzureEnvironments.AzureCloudEnvironment);
+                        new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
+                        AzureEnvironments.AzureCloudEnvironment);
 ```
 
 Para iniciar a programação contra os Media Services, é necessário criar uma instância **CloudMediaContext** que represente o contexto do servidor. Também precisa de passar o **recurso URI para serviços de rest de mídia** para o construtor **CloudMediaContext.** Também pode obter o **valor URI de recursos para serviços de mídia** do portal Azure.

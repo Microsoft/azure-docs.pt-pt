@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 5ddcd7e5c3e5651062f88b261e7003fb0dd2ef3b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b418a9cae6f6d58dbe82babcfe6fe1e1a5027d43
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435999"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657078"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 **Publicar**
 
-#### <a name="request-url"></a>*URL de pedido*
+#### <a name="request-url"></a>*URL do Pedido*
 
 **`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`**
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 #### <a name="response"></a>*Response*
 
-|  **Name**    |  **Tipo**  |  **Descrição**          |
+|  **Nome**    |  **Tipo**  |  **Descrição**          |
 |  ------------------ |--------------- | ----------------------  |
 |  `200 OK`     |   `TokenResponse`    | Pedido bem sucedido.  |
 | | | |
@@ -114,7 +114,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
     * [Azure portal UI](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
     * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
     * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-    * [Modelo de gestor de recursos Azure](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
     * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
     * [SDKs do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
@@ -134,7 +134,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
     ```powershell
     # Get subscription and resource group
     $metadata = curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content | ConvertFrom-Json 
-    
+
     # Make sure the system identity has at least reader permission on the resource group
     $managementUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "?api-version=2019-10-01"
     $resourceGroupInfo = curl -Headers $Headers $managementUrl | select -ExpandProperty Content | ConvertFrom-Json
