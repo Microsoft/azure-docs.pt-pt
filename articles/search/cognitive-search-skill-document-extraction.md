@@ -8,17 +8,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c77da8252fb3dcb2672a50ec75f676e18dd31da
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85080869"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652335"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
 
 A habilidade **de extração** de documentos extrai o conteúdo de um ficheiro dentro do gasoduto de enriquecimento. Isto permite-lhe tirar partido do passo de extração de documentos que normalmente acontece antes da execução do skillset com ficheiros que podem ser gerados por outras habilidades.
 
@@ -34,10 +34,10 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas            | Valores Permitidos | Descrição |
+| Entradas | Valores Permitidos | Descrição |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Configurar para `default` extração de documentos a partir de ficheiros que não são texto puro ou json. Definido `text` para melhorar o desempenho em ficheiros de texto simples. Configurar `json` para extrair conteúdo estruturado dos ficheiros json. Se `parsingMode` não for definido explicitamente, será definido para `default` . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Configurar `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada ficheiro. Configurado `allMetadata` para extrair apenas os [metadados específicos do tipo de conteúdo](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por exemplo, metadados exclusivos de apenas ficheiros .png). Se `dataToExtract` não for definido explicitamente, será definido para `contentAndMetadata` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Configurar `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada ficheiro. Configurado `allMetadata` para extrair apenas os [metadados específicos do tipo de conteúdo](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por exemplo, metadados exclusivos apenas .png ficheiros). Se `dataToExtract` não for definido explicitamente, será definido para `contentAndMetadata` . |
 | `configuration` | Veja abaixo. | Um dicionário de parâmetros opcionais que ajustam a forma como a extração do documento é realizada. Consulte a tabela abaixo para obter descrições das propriedades de configuração suportadas. |
 
 | Parâmetro de configuração   | Valores Permitidos | Descrição |
@@ -146,7 +146,7 @@ Este objeto de referência de ficheiro pode ser gerado de uma de 3 maneiras:
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

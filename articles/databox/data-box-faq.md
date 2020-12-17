@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 18a1fc7f42884dcc194256e1f51ddecb62d2708c
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516396"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655480"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -97,11 +97,11 @@ Estes prazos são *estimativas.* O tempo para cada fase de processamento da enco
 **Prazos de entrega estimados para uma encomenda de Caixa de Dados:**
 
 1. Caixa de Dados de Encomenda: A poucos minutos do portal
-2. Alocação e preparação do dispositivo: 1 a 2 dias úteis
+2. Atribuição e preparação do dispositivo: 1-2 dias úteis, sujeitos a disponibilidade de inventário e outras ordens pendentes de cumprimento
 3. Envio: 2 a 3 dias úteis
 4. Cópia de dados no site do cliente: Depende da natureza dos dados, tamanho e número de ficheiros
 5. Devolução: 2 a 3 dias úteis
-6. Dispositivo de processamento no datacenter: 1-2 dias úteis
+6. Dispositivo de processamento no datacenter: 1-2 dias úteis, sujeito a outras encomendas pendentes de processamento
 7. Faça o upload dos dados para a Azure: Começa assim que o processamento estiver concluído e o dispositivo está ligado. O tempo de upload depende da natureza dos dados, tamanho e número de ficheiros.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>P. Encomendei alguns dispositivos Data Box. Não posso criar ordens adicionais. Porquê?

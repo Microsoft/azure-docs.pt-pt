@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320460"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652861"
 ---
 # <a name="system-tables-and-views"></a>Tabelas e vistas do sistema
 
@@ -395,7 +395,7 @@ Ressalvas:
 A Hiperescala (Citus) oferece vistas especiais para observar consultas e bloqueios em todo o cluster, incluindo consultas específicas de fragmentos usadas internamente para construir resultados para consultas distribuídas.
 
 -   **citus \_ dist \_ stat \_ activity**: mostra as consultas distribuídas que estão executando em todos os nós. Um superconjunto `pg_stat_activity` de, utilizável onde quer que este último esteja.
--   ** \_ \_ \_ citus atividade stat trabalhador**: mostra consultas sobre os trabalhadores, incluindo consultas de fragmentos contra fragmentos individuais.
+-   **\_ \_ \_ citus atividade stat trabalhador**: mostra consultas sobre os trabalhadores, incluindo consultas de fragmentos contra fragmentos individuais.
 -   **bloqueio citus \_ \_ espera:** Consultas bloqueadas em todo o cluster.
 
 As duas primeiras vistas incluem todas as colunas de [atividade pg \_ stat \_ ](https://www.postgresql.org/docs/current/static/monitoring-stats.html#PG-STAT-ACTIVITY-VIEW) mais o hospedeiro/porto do trabalhador que iniciou a consulta e o anfitrião/porto do nó coordenador do cluster.

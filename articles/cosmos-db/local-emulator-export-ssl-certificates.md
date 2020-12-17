@@ -7,17 +7,17 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
-ms.openlocfilehash: 1c111ca23ce7cf749dc4a7d5ad2ad39756236ab1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6c144f33f32422e27916e1987e0b2e8693f97945
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028211"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656483"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exporte os certificados emuladores Azure Cosmos DB para uso com aplicativos Java, Python e Node.js
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço do Azure Cosmos DB para fins de desenvolvimento. O Azure Cosmos Emulator suporta apenas uma comunicação segura através de ligações TLS.
+O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço do Azure Cosmos DB para fins de desenvolvimento. O Azure Cosmos DB Emulator suporta apenas uma comunicação segura através de ligações TLS.
 
 Os certificados no emulador local Azure Cosmos DB são gerados na primeira vez que você executar o emulador. Existem dois certificados. Um deles é usado para se ligar ao emulador local e o outro é usado para gerir a encriptação padrão dos dados do emulador dentro do emulador. O certificado que pretende exportar é o certificado de ligação com o nome amigável "DocumentDBEmulatorCertificate".
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562570"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654834"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -63,9 +63,6 @@ Consulte a tabela abaixo para ver quais as características que podem ser utiliz
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 
 <a name="json-schema"></a>
 

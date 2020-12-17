@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368014"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652267"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
 
@@ -20,7 +20,7 @@ Para que a replicação da Recuperação do Local funcione, é necessária conec
 
 | **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Necessário para que os dados possam ser escritos na conta de armazenamento de cache na região de origem a partir do VM. Se souber de todas as contas de armazenamento de cache dos seus VMs, pode utilizar uma lista de admissões para os URLs de conta de armazenamento específicos. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez `*.blob.core.windows.net` de. . |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Necessário para que os dados possam ser escritos na conta de armazenamento de cache na região de origem a partir do VM. Se souber de todas as contas de armazenamento de cache dos seus VMs, pode utilizar uma lista de admissões para os URLs de conta de armazenamento específicos. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez `*.blob.core.windows.net` de. . |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Requerida autorização e autenticação para os URLs do serviço de Recuperação do Local. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Necessário para que a comunicação do serviço de recuperação do local possa ocorrer a partir do VM. Pode utilizar o _IP de recuperação do site_ correspondente se o seu representante de firewall suportar IPs. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Necessário para que os dados de monitorização e diagnóstico da Recuperação do Local possam ser escritos a partir do VM. Pode utilizar o IP de _Monitorização de Recuperação do Local_ correspondente se o seu representante de firewall suportar IPs. |
@@ -74,11 +74,14 @@ Este exemplo mostra como configurar as regras NSG para um VM replicar.
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, como mostrado na imagem seguinte. Este exemplo utiliza a **etiqueta de serviço destino**: **Gamas portuárias** _De Armazenamento.EastUS_ e Destino : _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-erro":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="A screenshot mostra um painel de regras de segurança de saída para uma regra de segurança para o ponto de armazenamento East U.S.":::
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, como mostrado na imagem seguinte. Este exemplo utiliza a **etiqueta de serviço destino**: _AzureActiveDirectory_ and **Destination port:** _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-erro" no NSG. Isto permite o acesso ao Serviço de Recuperação de Sítios em qualquer região.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="A screenshot mostra um painel de regras de segurança de saída para uma regra de segurança para o Azure Ative Directory.":::
+
+1. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS (443) para "EventHub.CentralUS" no NSG que corresponda à localização do alvo. Isto permite o acesso à monitorização da Recuperação do Local.
+1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isto permite o acesso ao Serviço de Recuperação de Sítios em qualquer região.
 
 #### <a name="nsg-rules---central-us"></a>Regras NSG - Central US
 

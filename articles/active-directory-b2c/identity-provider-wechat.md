@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 308cbc1e2a9d6e0fbce91b1fac5748af909cc2c1
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: af840a7becb0fb2c23e01153828458ee1cfa51a1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584634"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654239"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta WeChat utilizando o Azure Ative Directory B2C
 
@@ -27,11 +27,9 @@ ms.locfileid: "97584634"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-::: zone pivot="b2c-custom-policy"
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-a-wechat-application"></a>Criar uma aplicação WeChat
 

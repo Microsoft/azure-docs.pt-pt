@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928822"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657180"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -112,7 +112,7 @@ Para obter mais informações sobre como aceder aos dados das métricas para Azu
 
 **Exemplo:** Eu implanto um VM utilizando o tamanho B1ms para a minha aplicação de base de dados de tempo pequeno e de atendimento. Este tamanho permite que a minha aplicação use até 20% de um vCPU como base, que é 0,2 créditos por minuto que posso usar ou banco.
 
-A minha candidatura está ocupada no início e no fim do dia de trabalho dos meus empregados, entre as 7:00 e as 9:00 e as 16:00 às 18:00. Durante as outras 20 horas do dia, a minha aplicação está tipicamente inativa, apenas usando 10% do vCPU. Para as horas não-pico, ganho 0,2 créditos por minuto, mas só consumato 0,l créditos por minuto, por isso o meu VM irá depositar 0,1 x 60 = 6 créditos por hora.  Pelas 20 horas que estou fora do pico, vou depositar 120 créditos.  
+A minha candidatura está ocupada no início e no fim do dia de trabalho dos meus empregados, entre as 7:00 e as 9:00 e as 16:00 às 18:00. Durante as outras 20 horas do dia, a minha aplicação está tipicamente inativa, apenas usando 10% do vCPU. Para as horas não-pico, ganho 0,2 créditos por minuto, mas só consuma 0,1 créditos por minuto, pelo que o meu VM irá depositar 0,1 x 60 = 6 créditos por hora.  Pelas 20 horas que estou fora do pico, vou depositar 120 créditos.  
 
 Durante as horas de ponta a minha aplicação tem uma média de 60% de utilização vCPU, ainda ganho 0,2 créditos por minuto, mas consuma 0,6 créditos por minuto, por um custo líquido de 0,4 créditos por minuto ou 0,4 x 60 = 24 créditos por hora. Tenho 4 horas por dia de utilização máxima, por isso custa 4 x 24 = 96 créditos para o meu pico de utilização.
 

@@ -3,12 +3,12 @@ title: 'Quickstart: A sua primeira consulta go'
 description: Neste arranque rápido, siga os passos para ativar o pacote De Gráfico de Recurso para Go e executar a sua primeira consulta.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 748f6bfa673a2e9fabdcba0c91dc314931df268a
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e09bbb63b56fd30eb3aa9e7e527acdd8691d3ee6
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057455"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655803"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Go
 
@@ -57,48 +57,48 @@ Com os pacotes Go adicionados ao seu ambiente de eleição, é hora de experimen
    package main
    
    import (
-       "fmt"
-       "os"
-       "context"
-       "strconv"
-       arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
-       "github.com/Azure/go-autorest/autorest/azure/auth"
+      "fmt"
+      "os"
+      "context"
+      "strconv"
+      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
+      "github.com/Azure/go-autorest/autorest/azure/auth"
    )
    
    func main() {
-      // Get variables from command line arguments
-      var query = os.Args[1]
-      var subList = os.Args[2:]
+       // Get variables from command line arguments
+       var query = os.Args[1]
+       var subList = os.Args[2:]
    
-      // Create and authorize a ResourceGraph client
-      argClient := arg.New()
-      authorizer, err := auth.NewAuthorizerFromCLI()
-      if err == nil {
-          argClient.Authorizer = authorizer
-      } else {
-          fmt.Printf(err.Error())
-      }
-   
-      // Set options
-      RequestOptions := arg.QueryRequestOptions {
-          ResultFormat: "objectArray",
-      }
-   
-      // Create the query request
-      Request := arg.QueryRequest {
-          Subscriptions: &subList,
-          Query: &query,
-          Options: &RequestOptions,
-      }
-   
-      // Run the query and get the results
-      var results, queryErr = argClient.Resources(context.Background(), Request)
-      if queryErr == nil {
-          fmt.Printf("Resources found: " + strconv.FormatInt(*results.TotalRecords, 10) + "\n")
-          fmt.Printf("Results: " + fmt.Sprint(results.Data) + "\n")
-      } else {
-          fmt.Printf(queryErr.Error())
-      }
+       // Create and authorize a ResourceGraph client
+       argClient := arg.New()
+       authorizer, err := auth.NewAuthorizerFromCLI()
+       if err == nil {
+           argClient.Authorizer = authorizer
+       } else {
+           fmt.Printf(err.Error())
+       }
+     
+       // Set options
+       RequestOptions := arg.QueryRequestOptions {
+           ResultFormat: "objectArray",
+       }
+     
+       // Create the query request
+       Request := arg.QueryRequest {
+           Subscriptions: &subList,
+           Query: &query,
+           Options: &RequestOptions,
+       }
+     
+       // Run the query and get the results
+       var results, queryErr = argClient.Resources(context.Background(), Request)
+       if queryErr == nil {
+           fmt.Printf("Resources found: " + strconv.FormatInt(*results.TotalRecords, 10) + "\n")
+           fmt.Printf("Results: " + fmt.Sprint(results.Data) + "\n")
+       } else {
+           fmt.Printf(queryErr.Error())
+       }
    }
    ```
 
@@ -134,7 +134,7 @@ Com os pacotes Go adicionados ao seu ambiente de eleição, é hora de experimen
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover as embalagens instaladas do ambiente Go, pode fazê-lo utilizando o seguinte comando:
 

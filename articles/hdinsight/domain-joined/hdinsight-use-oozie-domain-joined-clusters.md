@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71432dc2dd09381d39ca646d45c7f2bdd96012c6
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83647570"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653440"
 ---
 # <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Executar Apache Oozie em clusters Azure HDInsight com pacote de segurança empresarial
 
@@ -231,8 +231,8 @@ As definições de fluxo de trabalho Oozie são escritas na Linguagem de Defini�
    ```
 
    - Use o `adl://home` URI para a `nameNode` propriedade se tiver a Azure Data Lake Storage Gen1 como armazenamento de cluster primário. Se estiver a utilizar o Azure Blob Storage, mude para `wasb://home` . Se estiver a usar a Azure Data Lake Storage Gen2, então mude para `abfs://home` .
-   - `domainuser`Substitua-o pelo seu nome de utilizador para o domínio.  
-   - `ClusterShortName`Substitua-a pelo nome curto do cluster. Por exemplo, se o nome do cluster for https:// *[ligação de exemplo]* sechadoopcontoso.azurehdisnight.net, `clustershortname` são os primeiros seis caracteres do cluster: **sechad**.  
+   - `domainuser`Substitua-o pelo seu nome de utilizador para o domínio.
+   - `ClusterShortName`Substitua-a pelo nome curto do cluster. Por exemplo, se o nome do cluster for https:// *[ligação de exemplo]* sechadoopcontoso.azurehdisnight.net, `clustershortname` são os primeiros seis caracteres do cluster: **sechad**.
    - `jdbcurlvalue`Substitua-a pelo URL JDBC da configuração da Colmeia. Um exemplo é jdbc:hive2://headnodehost:10001/;transportMode=http.
    - Para guardar o ficheiro, selecione Ctrl+X, introduza `Y` e, em seguida, **selecione Enter**.
 
@@ -313,17 +313,17 @@ CoordAction ID: -
 
 Actions
 ------------------------------------------------------------------------------------------------
-ID                      Status  Ext ID          ExtStatus   ErrCode
+ID                        Status    Ext ID            ExtStatus                 ErrCode
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@:start:    OK  -           OK      -
+0000015-180626011240801-oozie-oozi-W@:start:    OK    -                         OK             -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@mr-test    OK  job_1529975666160_0051  SUCCEEDED   -
+0000015-180626011240801-oozie-oozi-W@mr-test    OK    job_1529975666160_0051    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@myHive2    OK  job_1529975666160_0053  SUCCEEDED   -
+0000015-180626011240801-oozie-oozi-W@myHive2    OK    job_1529975666160_0053    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@myHive OK  job_1529975666160_0055  SUCCEEDED   -
+0000015-180626011240801-oozie-oozi-W@myHive    OK     job_1529975666160_0055    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@end    OK  -           OK      -
+0000015-180626011240801-oozie-oozi-W@end       OK     -                         OK             -
 -----------------------------------------------------------------------------------------------
 ```
 

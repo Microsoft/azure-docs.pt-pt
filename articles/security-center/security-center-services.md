@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades suportadas disponíveis no Centro de Segurança Azure Microsoft Docs
-description: Este documento fornece uma lista de serviços apoiados pelo Azure Security Center.
+title: As funcionalidades do Azure Security Center de acordo com o SO, tipo de máquina e nuvem
+description: Saiba quais as funcionalidades do Azure Security Center disponíveis de acordo com o seu sistema operativo, tipo e implementação em nuvem.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 12/17/2020
 ms.author: memildin
-ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445256"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654749"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -97,12 +97,47 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 | Symantec v12.1.1100+| Família Windows Server  | No | Yes |
 | McAfee v10+ | Família Windows Server  | No | Yes |
 | McAfee v10+ | Família linux servidor  | No | Sim *\** , |
-| Sophos V9+| Família linux servidor  | No | Sim, é o seu  _*\**_  |
+| Sophos V9+| Família linux servidor  | No | Sim  _*\**_  |
 
- _ *\** * O estado de cobertura e os dados de suporte só estão atualmente disponíveis no espaço de trabalho Log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
+ _*\**_ O estado de cobertura e os dados de suporte só estão atualmente disponíveis no espaço de trabalho Log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
 
 > [!NOTE]
 > A deteção da Proteção de Pontos Finais do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell (v3.0 ou mais recente).
+
+
+
+## <a name="feature-support-in-government-clouds"></a>Suporte de recurso em nuvens do governo
+
+| Serviço / Recurso | US Gov | China Gov |
+|------|:----:|:----:|
+|[Acesso VM just-in-time](security-center-just-in-time.md) (1)|✔|✔|
+|[Monitorização da integridade dos ficheiros](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Controlos de aplicação adaptativos](security-center-adaptive-application.md) (1)|✔|✔|
+|[Endurecimento adaptativo da rede](security-center-adaptive-network-hardening.md) (1)|-|-|
+|[Endurecimento do anfitrião Docker](harden-docker-hosts.md) (1)|✔|✔|
+|[Avaliação integrada da vulnerabilidade das máquinas](deploy-vulnerability-assessment-vm.md) (1)|-|-|
+|[Microsoft Defender para Endpoint](harden-docker-hosts.md) (1)|✔|-|
+|[Ligue a conta AWS](quickstart-onboard-aws.md) (1)|-|-|
+|[Conecte a conta GCP](quickstart-onboard-gcp.md) (1)|-|-|
+|[Exportação contínua](continuous-export.md)|✔|✔|
+|[Automatização do fluxo de trabalho](workflow-automation.md)|✔|✔|
+|[Regras de isenção de recomendação](exempt-resource.md)|-|-|
+|[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
+|[Notificações de email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
+|[Inventário de ativos](asset-inventory.md)|-|-|
+|[Azure Defender para Serviço de Aplicações](defender-for-app-service-introduction.md)|-|-|
+|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender para SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Azure Defender para Key Vault](defender-for-key-vault-introduction.md)|-|-|
+|[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender para registos de contentor](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|||
+
+(1) Requer _ *Azure Defender para servidores**
+
+(2) Parcial
 
 
 ## <a name="next-steps"></a>Passos seguintes

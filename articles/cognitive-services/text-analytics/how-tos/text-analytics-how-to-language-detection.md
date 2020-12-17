@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0ff6bcd2e50b64993966f2780c6c8118aea2694f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ef40201a13412cc735a5e15bf468e2c934ec81ab
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505176"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656806"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar linguagem com análise de texto
 
@@ -31,8 +31,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode experimentar a func
 > O Text Analytics também fornece uma imagem de recipiente Docker baseada em Linux para deteção de idiomas, para que possa [instalar e executar o recipiente Text Analytics](text-analytics-how-to-install-containers.md) perto dos seus dados.
 
 ## <a name="preparation"></a>Preparação
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 Você deve ter documentos JSON neste formato: ID e texto.
 
@@ -300,7 +298,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para deteção de linguagem
 + O pedido do POST é para um `/languages` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta consiste em identificadores de linguagem para cada documento ID. A saída pode ser transmitida para qualquer app que aceite o JSON. As aplicações de exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8e9cf9a7c2556a1f0710b2bf646d83ffbf84ea97
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 767f60cae2f74f7e2a928253d45011bb6ceb5d0e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585059"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653848"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar AD FS como fornecedor de identidade SAML usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -39,7 +39,7 @@ Este artigo mostra-lhe como ativar a inscrição para uma conta de utilizador AD
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Complete os passos em [Começar com políticas personalizadas no Azure Ative Directory B2C](custom-policy-get-started.md).
-- Certifique-se de que tem acesso a um ficheiro certificado .pfx com uma chave privada. Pode gerar o seu próprio certificado assinado e enviá-lo para Azure AD B2C. A Azure AD B2C utiliza este certificado para assinar o pedido SAML enviado ao seu fornecedor de identidade SAML. Para obter mais informações sobre como gerar um certificado, consulte [Gerar um certificado de assinatura.](identity-provider-salesforce.md#generate-a-signing-certificate)
+- Certifique-se de que tem acesso a um ficheiro certificado .pfx com uma chave privada. Pode gerar o seu próprio certificado assinado e enviá-lo para Azure AD B2C. A Azure AD B2C utiliza este certificado para assinar o pedido SAML enviado ao seu fornecedor de identidade SAML. Para obter mais informações sobre como gerar um certificado, consulte [Gerar um certificado de assinatura.](identity-provider-salesforce-saml.md#generate-a-signing-certificate)
 - Para que o Azure aceite a palavra-passe de ficheiro .pfx, a palavra-passe deve ser encriptada com a opção TripleDES-SHA1 no utilitário de exportação da Loja de Certificados do Windows em oposição ao AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política

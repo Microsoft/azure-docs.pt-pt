@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ed36948faf6fe12467128a57af634e52ee457180
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 71e3bf429c7b8d3f4f8fe205c05b0701732fdef9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584998"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653814"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -32,19 +32,7 @@ ms.locfileid: "97584998"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: zone pivot="b2c-user-flow"
-
-* [Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
-* Se ainda não o tiver feito, [adicione uma aplicação API ao seu inquilino do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Complete os passos no [Get start com políticas personalizadas no Ative Directory B2C](custom-policy-get-started.md).
-* Se ainda não o tiver feito, [adicione uma aplicação API ao seu inquilino do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 Este artigo mostra-lhe como permitir a inscrição para utilizadores que usam o ponto final de multi-inquilino para O Diretório Ativo Azure (Azure AD). Isto permite que os utilizadores de vários inquilinos da AZure AD assinem usando o Azure AD B2C, sem que tenha de configurar um fornecedor de identidade para cada inquilino. No entanto, os membros convidados de qualquer um destes inquilinos **não** poderão assinar. Para isso, é necessário [configurar individualmente cada inquilino.](identity-provider-azure-ad-single-tenant.md)
 

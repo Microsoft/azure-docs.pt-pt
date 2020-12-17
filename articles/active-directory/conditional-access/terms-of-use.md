@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509993"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653729"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -238,8 +238,8 @@ Pode editar alguns detalhes dos termos de uso, mas não pode modificar um docume
 2.  Selecione os termos de utilização que pretende editar.
 3.  Clique **em Editar termos**.
 4.  Para o idioma que pretende atualizar uma nova versão, clique em **Update** under the action column
- 
-     ![Editar termos de uso painel mostrando nome e expandir opções](./media/terms-of-use/edit-terms-use.png)
+
+    ![Editar termos de uso painel mostrando nome e expandir opções](./media/terms-of-use/edit-terms-use.png)
 
 5.  No painel à direita, carrece o pdf para a nova versão
 6.  Existe também uma opção de alternância **aqui, exija um novo aceinhão** se pretender que os seus utilizadores aceitem esta nova versão da próxima vez que iniciarem sação. Se exigir que os seus utilizadores voltem a aceitar, da próxima vez que tentarem aceder ao recurso definido na sua política de acesso condicional, serão solicitados a aceitar esta nova versão. Se não necessitar que os seus utilizadores reacetirem, o seu consentimento anterior permanecerá atual e apenas novos utilizadores que não tenham consentido antes ou cujo consentimento expire verão a nova versão.
@@ -293,12 +293,12 @@ O **Requerer que os utilizadores consintam em todas as** definições do disposi
 Aqui está uma lista das plataformas e software suportados.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outros |
+> |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
-> | **Aplicação nativa** | Sim | Sim | Sim |  |
-> | **Microsoft Edge** | Sim | Sim | Sim |  |
-> | **Internet Explorer** | Sim | Sim | Sim |  |
-> | **Cromado (com extensão)** | Sim | Sim | Sim |  |
+> | **Aplicação nativa** | Yes | Yes | Yes |  |
+> | **Microsoft Edge** | Yes | Yes | Yes |  |
+> | **Internet Explorer** | Yes | Yes | Yes |  |
+> | **Cromado (com extensão)** | Yes | Yes | Yes |  |
 
 Os termos de utilização por dispositivo têm os seguintes constrangimentos:
 

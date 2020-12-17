@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370428"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652250"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -130,11 +130,11 @@ Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 
 | **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
-| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
+| Cofre de Chaves                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
 | Automatização do Azure          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite permitir a atualização automática do agente de mobilidade para um item replicado via portal |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP

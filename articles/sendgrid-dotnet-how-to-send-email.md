@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bec9635af696d0ce1cf9d7dcad8c26a1ef23ad
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020597"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652369"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar e-mail usando SendGrid com Azure
 ## <a name="overview"></a>Descrição geral
@@ -53,7 +53,7 @@ Para instalar o pacote SendGrid NuGet na sua aplicação, faça o seguinte:
 1. Clique em **Novo Projeto** e selecione um **modelo.**
 
    ![Criar um novo projeto][create-new-project]
-2. No **Solution Explorer,** clique à direita **Referências**e, em seguida, clique em **Gerir Pacotes NuGet**.
+2. No **Solution Explorer,** clique à direita **Referências** e, em seguida, clique em **Gerir Pacotes NuGet**.
 
    ![Pacote SendGrid NuGet][SendGrid-NuGet-package]
 3. Procure **por SendGrid** e selecione o item **SendGrid** na lista de resultados.
@@ -107,7 +107,7 @@ O envio de e-mail requer que forneça a sua Chave API SendGrid. Se precisar de d
 
 Pode armazenar estas credenciais através do seu portal Azure clicando nas definições de Aplicação e adicionando os pares chave/valor nas definições de App.
 
- ![Definições de aplicativos Azure][azure_app_settings]
+![Definições de aplicativos Azure][azure_app_settings]
 
 Em seguida, pode acessá-los da seguinte forma:
 
@@ -159,17 +159,17 @@ Neste exemplo, a tecla API foi armazenada no `appsettings.json` ficheiro que pod
 
 O conteúdo do `appsettings.json` ficheiro deve ser semelhante a:
 
-```csharp
+```json
 {
-   "Logging": {
-   "IncludeScopes": false,
-   "LogLevel": {
-   "Default": "Debug",
-   "System": "Information",
-   "Microsoft": "Information"
-     }
-   },
- "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 
@@ -208,8 +208,8 @@ namespace SendgridMailApp.Controllers
        public NotificationController(IConfiguration configuration)
        {
          _configuration = configuration;
-       }      
-    
+       }
+
        [Route("SendNotification")]
        public async Task PostMessage()
        {
@@ -222,7 +222,7 @@ namespace SendgridMailApp.Controllers
               new EmailAddress("test3@example.com", "Example User 3"),
               new EmailAddress("test4@example.com","Example User 4")
           };
-        
+
           var subject = "Hello world email from Sendgrid ";
           var htmlContent = "<strong>Hello world with HTML content</strong>";
           var displayRecipients = false; // set this to true if you want recipients to see each others mail id 

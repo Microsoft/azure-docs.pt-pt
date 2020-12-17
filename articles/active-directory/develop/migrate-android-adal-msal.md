@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 178d3896fe8d063855a734f3f0fe6c489b0ec1fc
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074673"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97651978"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração ADAL para MSAL para Android
 
@@ -89,7 +89,7 @@ Se está a usar o ADAL e não precisa de usar o consentimento incremental, a for
 > [!CAUTION]
 > Não é possível definir ambos os âmbitos e uma identificação de recursos. Tentar definir ambos resultará em `IllegalArgumentException` .
 
- Isto resultará no mesmo comportamento v1 que é utilizado. Todas as permissões solicitadas no registo da sua aplicação são solicitadas ao utilizador durante a sua primeira interação.
+Isto resultará no mesmo comportamento v1 que é utilizado. Todas as permissões solicitadas no registo da sua aplicação são solicitadas ao utilizador durante a sua primeira interação.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Autenticar e solicitar permissões apenas conforme necessário
 
@@ -131,13 +131,13 @@ Se tentar usar uma autoridade que não é do conhecimento da Microsoft, e não e
 ### <a name="logging"></a>Registo
 Pode agora configurar declarativamente o registo registado como parte da sua configuração, como esta:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrar do UserInfo para a Conta
 
@@ -151,7 +151,7 @@ Quando a plataforma de identidade da Microsoft difere de uma instituição finan
 
 Sam trabalha para Contoso.com mas gere máquinas virtuais Azure que pertencem a Fabrikam.com. Para o Sam gerir as máquinas virtuais do Fabrikam, tem de ser autorizado a aceder-lhes. Este acesso pode ser concedido adicionando a conta de Sam a Fabrikam.com, e concedendo à sua conta um papel que lhe permite trabalhar com as máquinas virtuais. Isto seria feito com o portal Azure.
 
-Adicionar a conta de Contoso.com de Sam como membro da Fabrikam.com resultaria na criação de um novo recorde no Azure Ative Directory de Fabrikam.com para Sam. O registo de Sam no Azure Ative Directory é conhecido como um objeto de utilizador. Neste caso, esse objeto do utilizador apontaria para o objeto do utilizador do Sam em Contoso.com. O objeto de utilizador de Sam Fabrikam é a representação local de Sam, e seria usado para armazenar informações sobre a conta associada a Sam no contexto de Fabrikam.com. Em Contoso.com, o título de Sam é Consultor Sénior de DevOps. Em Fabrikam, o título de Sam é Contractor-Virtual Máquinas. Em Contoso.com, a Sam não é responsável, nem autorizado, para gerir máquinas virtuais. Em Fabrikam.com, é a sua única função de trabalho. No entanto, Sam ainda só tem um conjunto de credenciais para acompanhar, que são as credenciais emitidas pela Contoso.com.
+Adicionar a conta de Contoso.com de Sam como membro da Fabrikam.com resultaria na criação de um novo recorde em Fabrikam.com's Azure Ative Directory for Sam. O registo de Sam no Azure Ative Directory é conhecido como um objeto de utilizador. Neste caso, esse objeto do utilizador apontaria para o objeto do utilizador do Sam em Contoso.com. O objeto de utilizador de Sam Fabrikam é a representação local de Sam, e seria usado para armazenar informações sobre a conta associada a Sam no contexto de Fabrikam.com. Em Contoso.com, o título de Sam é Consultor Sénior de DevOps. Em Fabrikam, o título de Sam é Contractor-Virtual Máquinas. Em Contoso.com, a Sam não é responsável, nem autorizado, para gerir máquinas virtuais. Em Fabrikam.com, é a sua única função de trabalho. No entanto, Sam ainda só tem um conjunto de credenciais para acompanhar, que são as credenciais emitidas pela Contoso.com.
 
 Uma vez feita uma chamada bem `acquireToken` sucedida, você verá uma referência a um `IAccount` objeto que pode ser usado em `acquireTokenSilent` pedidos posteriores.
 

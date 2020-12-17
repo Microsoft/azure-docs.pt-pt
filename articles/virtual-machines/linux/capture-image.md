@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: 376d9d76633060f504454f85841b9c15bafc6685
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503043"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655174"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerida de uma máquina virtual ou VHD
 
@@ -54,14 +54,14 @@ Em primeiro lugar, irá desprovisionar o VM utilizando o agente Azure VM para el
 4. Após o comando estar concluído, entre na **saída** para fechar o cliente SSH.  O VM ainda estará em execução neste momento.
 
 ## <a name="step-2-create-vm-image"></a>Passo 2: Criar imagem VM
-Utilize o CLI Azure para marcar o VM como generalizado e capturar a imagem. Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myVnet*e *myVM*.
+Utilize o CLI Azure para marcar o VM como generalizado e capturar a imagem. Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myVnet* e *myVM*.
 
 1. Deallocate o VM que você desprovisionou com [az vm deallocate](/cli/azure/vm). O exemplo seguinte é o que a VM nomeou *myVM* no grupo de recursos denominado *myResourceGroup*.  
    
     ```azurecli
     az vm deallocate \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
     
     Aguarde que o VM transorganizar completamente antes de seguir em frente. Isto pode levar alguns minutos para ser concluído.  O VM é encerrado durante a negociação.
@@ -70,8 +70,8 @@ Utilize o CLI Azure para marcar o VM como generalizado e capturar a imagem. Nos 
    
     ```azurecli
     az vm generalize \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 
     Um VM que foi generalizado já não pode ser reiniciado.
@@ -80,8 +80,8 @@ Utilize o CLI Azure para marcar o VM como generalizado e capturar a imagem. Nos 
    
     ```azurecli
     az image create \
-      --resource-group myResourceGroup \
-      --name myImage --source myVM
+        --resource-group myResourceGroup \
+        --name myImage --source myVM
     ```
    
    > [!NOTE]

@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924699"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654869"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
 
@@ -38,7 +38,7 @@ O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Entradas                | Descrição |
+| Entradas | Descrição |
 |---------------------|-------------|
 | códigoToLanguageCode | (Obrigatório) O código linguístico para traduzir documentos em documentos que não especificam explicitamente a linguagem. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/translator/language-support.md) |
 | defaultFromLanguageCode | (Opcional) O código linguístico para traduzir documentos de documentos que não especificam explicitamente o da língua.  Se o Código de Identificação Padrão não for especificado, a deteção automática da linguagem fornecida pela API de Texto do Tradutor será utilizada para determinar a partir da idioma. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/translator/language-support.md) |
@@ -148,7 +148,7 @@ Se fornecer um código linguístico não suportado para o idioma ou para a líng
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão traduzidos e um aviso será emitido.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

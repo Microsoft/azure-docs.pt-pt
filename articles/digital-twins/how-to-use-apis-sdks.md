@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1627db2f1f19c393d4f40892ca65141f26424ac9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187243"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656942"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -26,7 +26,7 @@ Este artigo apresenta uma visão geral das APIs disponíveis e os métodos para 
 
 As APIs do plano de controlo são APIs [ARM](../azure-resource-manager/management/overview.md) usadas para gerir a sua instância Azure Digital Twins como um todo, por isso cobrem operações como criar ou apagar toda a sua instância. Também os utilizará para criar e eliminar pontos finais.
 
-A versão API do plano de controlo mais atual é _**2020-10-31**_.
+A versão API do plano de controlo mais atual é _**2020-12-01**_.
 
 Para utilizar as APIs do plano de controlo:
 * Pode ligar diretamente para as APIs, referindo-se à mais recente swagger na [pasta do plano de controlo Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repo também inclui uma pasta de exemplos que mostram o uso.

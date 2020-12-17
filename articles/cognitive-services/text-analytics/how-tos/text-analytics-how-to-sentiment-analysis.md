@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 62b6869f7269cbc21590e97ba0e2cbda79466832
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505227"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656279"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Como: Análise de sentimento e mineração de opinião
 
@@ -24,8 +24,6 @@ A funcionalidade de Análise de Sentimento da API de Análise de Texto analytics
 Os modelos de IA utilizados pela API são fornecidos pelo serviço, basta enviar conteúdo para análise.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e funcionalidades de Análise de Sentimento
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Funcionalidade                                   | Análise de Sentimento v3 | Análise de Sentimento v3.1 (Pré-visualização) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -299,7 +297,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimento
 + Use `opinionMining=true` em pedidos de Análise Consciente para obter resultados de Mineração de Opinião.
 + A saída de resposta, que consiste numa pontuação de sentimento para cada ID do documento, pode ser transmitida para qualquer app que aceite o JSON. Por exemplo, Excel e Power BI.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)

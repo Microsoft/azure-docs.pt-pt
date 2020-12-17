@@ -4,12 +4,12 @@ description: Aprenda a desenvolver e testar funções Azure utilizando ferrament
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167802"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655820"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as Funções do Azure com o Visual Studio  
 
@@ -42,7 +42,7 @@ Salvo indicação em contrário, os procedimentos e exemplos apresentados são p
 
 ### <a name="check-your-tools-version-in-visual-studio-2017"></a><a name="check-your-tools-version"></a>Consulte a versão das suas ferramentas no Visual Studio 2017
 
-1. No menu **Ferramentas,** escolha **Extensões e Atualizações.** Expanda **Installed**  >  **as Ferramentas Instaladas**e, em seguida, escolha **funções Azure e Ferramentas de Trabalho Web**.
+1. No menu **Ferramentas,** escolha **Extensões e Atualizações.** Expanda   >  **as Ferramentas Instaladas** e, em seguida, escolha **funções Azure e Ferramentas de Trabalho Web**.
 
     ![Verifique a versão das ferramentas funções](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -56,11 +56,11 @@ Salvo indicação em contrário, os procedimentos e exemplos apresentados são p
 
     ![Atualizar a versão de ferramentas funções](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-1. Depois de descarregar a atualização das ferramentas, selecione **Close**e, em seguida, feche o Visual Studio para ativar a atualização das ferramentas com o Instalador VSIX.
+1. Depois de descarregar a atualização das ferramentas, selecione **Close** e, em seguida, feche o Visual Studio para ativar a atualização das ferramentas com o Instalador VSIX.
 
 1. No instalador VSIX, escolha **Modificar** para atualizar as ferramentas. 
 
-1. Depois de concluída a atualização, escolha **Close**e reinicie o Visual Studio.
+1. Depois de concluída a atualização, escolha **Close** e reinicie o Visual Studio.
 
 > [!NOTE]  
 > No Visual Studio 2019 e mais tarde, a extensão das ferramentas Azure Functions é atualizada como parte do Visual Studio.  
@@ -86,6 +86,18 @@ O Visual Studio não faz o upload automaticamente das definições em local.sett
 
 O seu código também pode ler os valores de definições de aplicações de função como variáveis ambientais. Para obter mais informações, consulte [as variáveis Ambiente.](functions-dotnet-class-library.md#environment-variables)
 
+## <a name="configure-your-build-output-settings"></a>Configure as definições de saída de construção
+
+Ao construir um projeto Azure Functions, as ferramentas de construção otimizam a saída de modo a que apenas uma cópia de quaisquer conjuntos partilhados com as funções sejam preservados. O resultado é uma construção otimizada que poupa o máximo de espaço possível. No entanto, quando se muda para uma versão mais recente de qualquer um dos seus conjuntos de projetos, as ferramentas de construção podem não saber que estes conjuntos devem ser preservados. Para se certificar de que estes conjuntos são preservados durante o processo de otimização, pode especificá-los utilizando `FunctionsPreservedDependencies` elementos no ficheiro do projeto (.csproj):
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## <a name="configure-the-project-for-local-development"></a>Configure o projeto para o desenvolvimento local
 
 O tempo de execução das Funções utiliza uma conta de Armazenamento Azure internamente. Para todos os tipos de gatilho que não http e webhooks, desloque a `Values.AzureWebJobsStorage` chave para uma cadeia de ligação de conta Azure Storage válida. A sua aplicação de função também pode usar o [Emulador de Armazenamento Azure](../storage/common/storage-use-emulator.md) para a `AzureWebJobsStorage` definição de ligação que é exigida pelo projeto. Para utilizar o emulador, deite o valor de `AzureWebJobsStorage` `UseDevelopmentStorage=true` . Altere esta definição para uma cadeia de ligação de conta de armazenamento real antes de ser implantada.
@@ -94,7 +106,7 @@ Para definir o fio de ligação da conta de armazenamento:
 
 1. No Estúdio Visual, selecione **View**  >  **Cloud Explorer**.
 
-2. No **Cloud Explorer,** expanda as **Contas de Armazenamento**e, em seguida, selecione a sua conta de armazenamento. No separador **Propriedades,** copie o valor **da cadeia de ligação primária.**
+2. No **Cloud Explorer,** expanda as **Contas de Armazenamento** e, em seguida, selecione a sua conta de armazenamento. No separador **Propriedades,** copie o valor **da cadeia de ligação primária.**
 
 2. No seu projeto, abra a local.settings.jsno ficheiro e desabrocha o valor da `AzureWebJobsStorage` chave para a cadeia de ligação que copiou.
 

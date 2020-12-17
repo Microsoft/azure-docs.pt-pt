@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: abc4529d6076496b34859eec2b931a8dcbd1ce93
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296595"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656908"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -79,7 +79,7 @@ Azure Front Door é um serviço multi-inquilino distribuído globalmente. Assim,
 
 ### <a name="is-http-https-redirection-supported"></a>Http->reorientação HTTPS suportada?
 
-Sim. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
+Yes. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Em que ordem são processadas as regras de encaminhamento?
 
@@ -254,7 +254,7 @@ Para ter ligações HTTPS bem sucedidas ao seu backend, seja para sondas de saú
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Posso usar a autenticação cliente/mútua com a Porta frontal Azure?
 
-Não. Embora a Azure Front Door suporte o TLS 1.2, que introduziu a autenticação cliente/mútua no [RFC 5246,](https://tools.ietf.org/html/rfc5246)atualmente, a Azure Front Door não suporta a autenticação cliente/mútua.
+N.º Embora a Azure Front Door suporte o TLS 1.2, que introduziu a autenticação cliente/mútua no [RFC 5246,](https://tools.ietf.org/html/rfc5246)atualmente, a Azure Front Door não suporta a autenticação cliente/mútua.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 

@@ -4,12 +4,12 @@ description: Saiba como criar e implementar uma aplicação Java Reliable Actors
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 28ddc4f0e47d853df6b026cf2495d710bebfa980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d87b72437f86d7dc1ca4e3cf9f3d67609691c70
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368936"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655956"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Para começar a utilizar o Reliable Actors, só precisa de compreender alguns co
 * **Registo de ator**. Tal como acontece com o Reliable Services, um serviço Reliable Actor tem de ser registado com o runtime do Service Fabric. Além disso, o tipo de ator tem de ser registado com o runtime de Ator.
 * **Interface de ator**. A interface de ator serve para definir uma interface pública com tipos de dados inflexíveis de um ator. Na terminologia modelo do Reliable Actor, a interface de ator define os tipos de mensagens que o ator pode compreender e processar. A interface de ator é utilizada por outros atores e aplicações cliente para "enviar" (de forma assíncrona) mensagens para o ator. O Reliable Actors pode implementar várias interfaces.
 * **Classe ActorProxy**. A classe ActorProxy é utilizada por aplicações cliente para invocar os métodos expostos através da interface de ator. A classe ActorProxy fornece duas funcionalidades importantes:
-  
+
   * Resolução de nomes: é capaz de localizar o ator no cluster (localizar o nó do cluster onde está alojado).
   * Processamento de falhas: pode repetir invocações de método e voltar a resolver a localização do ator após, por exemplo, uma falha que exija que o ator seja relocalizado para outro nó no cluster.
 
@@ -160,9 +160,9 @@ O serviço de ator tem de ser registado com um tipo de serviço no runtime do Se
 public class HelloWorldActorHost {
 
 private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
-    
+
 public static void main(String[] args) throws Exception {
-        
+
         try {
 
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
@@ -221,7 +221,7 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.  O script de teste chama o método `setCountAsync()` no ator para incrementar um contador, chama o método `getCountAsync()` no ator para obter o valor do novo contador e apresenta esse valor à consola.
 
    No caso de MAC OS X, é necessário copiar a pasta HelloWorldTestClient para a localização dentro do contentor, executando os seguintes comandos adicionais.    
-    
+
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
      docker exec -it [first-four-digits-of-container-ID] /bin/bash

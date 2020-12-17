@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913050"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652199"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -43,7 +43,7 @@ A conectividade da rede entre os dados de origem e a Data Lake Storage Gen2 pode
 
 Depois de ter abordado os estrangulamentos de hardware de origem e conectividade de rede acima, está pronto para configurar as suas ferramentas de ingestão. A tabela seguinte resume as definições-chave para várias ferramentas de ingestão populares e fornece artigos de afinação de desempenho aprofundados para eles.  Para saber mais sobre qual ferramenta usar para o seu cenário, visite este [artigo.](data-lake-storage-data-scenarios.md)
 
-| Ferramenta               | Definições     | Mais detalhes                                                                 |
+| Ferramenta               | Definições | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Ligação](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| paralelosCopias    | [Ligação](../../data-factory/copy-activity-performance.md)                          |

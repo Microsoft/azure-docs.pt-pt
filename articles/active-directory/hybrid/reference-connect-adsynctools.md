@@ -11,12 +11,12 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2dd16f89851b9376557e544b86dc5e088891e63b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 03cd612e5a48d6f17eb28c0c1503335e33bebcdf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446981"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654104"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell Reference
 A documentação que se segue fornece informações de referência para o Módulo PowerShell ADSyncTools.psm1 que está incluído no Azure AD Connect.
@@ -557,7 +557,7 @@ Consultas de função AAD Connect Run History e exporta todos os utilizadores qu
 ```
 
 $sourcePath = Read-Host -Prompt "Insira o seu caminho de ficheiro de registo com o nome do ficheiro" \<Source_Path\> #" $outputPath = Read-Host -Prompt "Insira o seu caminho de ficheiro com nome de ficheiro" \<Out_Path\> #"
- 
+
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>EXEMPLO 2
