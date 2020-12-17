@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0a14d57db932ef6cfb17df84b3204d3dec9e4d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094442"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617005"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e resolução de problemas no Azure Machine Learning
 
@@ -183,7 +183,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
   * Chrome (versão mais recente)
   * Firefox (versão mais recente)
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
@@ -428,6 +428,16 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   1. Inicie uma concha de comando, ative o ambiente conda onde são instalados pacotes ml automatizados.
   2. `pip freeze`Insira e `tensorflow` procure, se encontrado, a versão listada deve ser < 1.13
   3. Se a versão listada não for uma versão suportada, `pip uninstall tensorflow` na concha de comando e insira y para confirmação.
+
+## <a name="model-explanations"></a>Explicações do modelo
+
+* **Dados escassos não suportados**: O painel de explicação do modelo quebra/abranda substancialmente com um grande número de funcionalidades, pelo que atualmente não suportamos um formato de dados escasso. Além disso, problemas gerais de memória surgirão com grandes conjuntos de dados e um grande número de funcionalidades. 
+
+* **Modelos de previsão não suportados com explicações de modelos**: Interpretação, melhor explicação de modelo, não está disponível para experiências de previsão autoML que recomendam os seguintes algoritmos como o melhor modelo: TCNForecaster, AutoArima, ExponentialSmoothing, Average, Naive, Sazonal Average e Sazonal Naive. A AutoML Forecasting tem modelos de regressão que suportam explicações. No entanto, na explicação, o separador "Individual feature importance" não é apenas suportado para previsão devido à complexidade dos seus oleodutos de dados.
+
+* **Explicação local para índice de dados**: O painel de explicações não suporta valores de importância local a um identificador de linha do conjunto de dados de validação original se esse conjunto de dados for superior a 5000 pontos de dados à medida que o dashboard diminui aleatoriamente os dados. No entanto, o painel de instrumentos mostra valores de características de conjunto de dados brutos para cada ponto de dados passado no painel de instrumentos no separador de importância de característica individual. Os utilizadores podem mapear as importções locais de volta ao conjunto de dados originais através da correspondência dos valores de funcionalidade de conjunto de dados brutos. Se o tamanho do conjunto de dados de validação for inferior a 5000 amostras, a `index` funcionalidade no estúdio AzureML corresponderá ao índice no conjunto de dados de validação.
+
+* **Os enredos do what-if/ICE não suportados no estúdio AML**: What-If e individual expectativa condicional (ICE) não são suportados no estúdio AzureML no separador Explicações, uma vez que a explicação carregada precisa de um cálculo ativo para recalcular previsões e probabilidades de funcionalidades perturbadas. Atualmente é suportado em cadernos Jupyter quando executado como um widget usando o SDK.
 
 ## <a name="deploy--serve-models"></a>Implementar e fornecer modelos
 

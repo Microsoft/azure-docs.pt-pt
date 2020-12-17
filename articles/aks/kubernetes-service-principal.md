@@ -4,12 +4,12 @@ description: Criar e gerir um principal de serviço do Azure Active Directory pa
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607828"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614800"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
@@ -98,20 +98,9 @@ As seguintes secções detalham as delegações comuns que poderá ter de fazer.
 
 Se utilizar o Registo de Contentores Azure (ACR) como loja de imagens do contentor, tem de conceder permissões ao principal de serviço para que o seu cluster AKS leia e retire imagens. Atualmente, a configuração recomendada é usar o comando [de az aks create][az-aks-create] ou [az aks update][az-aks-update] para integrar-se com um registo e atribuir o papel adequado para o principal serviço. Para obter etapas detalhadas, consulte [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-to-acr].
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 
-Pode utilizar uma rede avançada onde a rede virtual e os endereços IP da sub-rede ou do ip público se encontram noutro grupo de recursos. Atribuir um dos seguintes conjuntos de permissões de função:
-
-- Crie um [papel personalizado][rbac-custom-role] e defina as seguintes permissões de função:
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - Se utilizar [tabelas de rotas personalizadas em clusters Kubenet,](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) adicione estas permissões adicionais:
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft.Network/routeTables/read*
-- Ou, atribuir o papel de [colaborador de rede][rbac-network-contributor] integrado na sub-rede dentro da rede virtual
+Pode utilizar uma rede avançada onde a rede virtual e os endereços IP da sub-rede ou do ip público se encontram noutro grupo de recursos. Atribua a função de colaborador de [rede][rbac-network-contributor] incorporada na sub-rede dentro da rede virtual. Em alternativa, pode criar uma [função personalizada][rbac-custom-role] com permissões de acesso aos recursos da rede nesse grupo de recursos. Consulte [as permissões de serviço da AKS][aks-permissions] para obter mais detalhes.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -188,3 +177,4 @@ Para obter informações sobre como atualizar as credenciais, consulte [Update o
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

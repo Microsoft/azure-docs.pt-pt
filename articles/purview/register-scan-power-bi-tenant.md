@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387586"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615853"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -50,6 +50,7 @@ Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a i
 ## <a name="associate-the-security-group-with-the-tenant"></a>Associe o grupo de segurança ao inquilino
 
 1. Inicie sessão no [portal de administração Power BI](https://app.powerbi.com/admin-portal/tenantSettings).
+1. Selecione a página **de definições do Inquilino.**
 
     > [!Important]
     > Você precisa ser um Power BI Admin para ver a página de configurações do inquilino.
@@ -109,7 +110,7 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Guardar e executar a imagem do ecrã do Power BI":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a usar cmdlets PowerShell para registar e digitalizar um inquilino power bi, consulte:
   

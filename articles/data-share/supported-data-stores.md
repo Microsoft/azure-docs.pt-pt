@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/7/2020
-ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.date: 12/16/2020
+ms.openlocfilehash: d45d9a29f671e66c6caba689f49e1748780545e0
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853152"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616750"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados suportados no Azure Data Share
 
@@ -50,7 +50,7 @@ A tabela abaixo detalha diferentes combinações e escolhas que os consumidores 
 | Azure Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento
-O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Gen1 e da Azure Data Lake Gen2. Também suporta a partilha de bolhas, pastas e contentores do Azure Blob Storage. Apenas a bolha de blocos está atualmente suportada. Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, o consumidor de dados pode optar por fazer uma cópia completa dos dados de partilha ou aproveitar a capacidade incremental de instantâneo para copiar apenas ficheiros novos ou atualizados. O instantâneo incremental baseia-se no último tempo modificado dos ficheiros. Os ficheiros existentes com o mesmo nome serão substituídos.
+O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Gen1 e da Azure Data Lake Gen2. Também suporta a partilha de bolhas, pastas e contentores do Azure Blob Storage. Apenas a bolha de blocos está atualmente suportada. Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, o consumidor de dados pode optar por fazer uma cópia completa dos dados de partilha ou aproveitar a capacidade incremental de instantâneo para copiar apenas ficheiros novos ou atualizados. O instantâneo incremental baseia-se no último tempo modificado dos ficheiros. Os ficheiros existentes com o mesmo nome serão substituídos durante a snapshot. O ficheiro eliminado da fonte não é eliminado no alvo. 
 
 Consulte a [Partilha e receba dados do Azure Blob Storage e do Azure Data Lake Storage](how-to-share-from-storage.md) para mais detalhes.
 

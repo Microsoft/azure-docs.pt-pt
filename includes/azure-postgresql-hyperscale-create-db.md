@@ -1,27 +1,28 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 09/12/2019
+ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54cc31cdb0ddc7694568d60b1446f1cf99663e95
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74973424"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616631"
 ---
+## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Criar uma base de dados Azure para PostgreSQL - Hiperescala (Citus)
+
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+### <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Criar uma base de dados Azure para PostgreSQL - Hiperescala (Citus)
 
 Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreSQL:
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
@@ -38,7 +39,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
    > A palavra-passe de administração do servidor que especifica aqui é necessária para iniciar sessão no servidor e nas suas bases de dados. Lembre-se ou grave estas informações para utilização posterior.
 
 5. Clique **no grupo de servidores Configure**. Deixe as definições inalteradas nessa secção e clique em **Guardar**.
-6. Clique **em seguida : >de rede ** na parte inferior do ecrã.
+6. Clique **em seguida : >de rede** na parte inferior do ecrã.
 
 7. No **separador 'Rede',** clique no botão de rádio **ponto final público.**
    ![Ponto final público selecionado](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
@@ -53,7 +54,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
 10. A página irá redirecionar para a implementação do monitor. Quando o estado de vida mudar da **sua implementação** para a **sua implementação está concluído,** clique no item do menu **Saídas** à esquerda da página.
 11. A página de saídas conterá um nome de anfitrião coordenador com um botão ao lado para copiar o valor para a área de transferência. Grave esta informação para utilização posterior.
 
-## <a name="connect-to-the-database-using-psql"></a>Ligue-se à base de dados usando o psql
+### <a name="connect-to-the-database-using-psql"></a>Ligue-se à base de dados usando o psql
 
 Quando cria a sua Base de Dados Azure para o servidor PostgreSQL, é criada uma base de dados padrão chamada **citus.** Para se ligar ao servidor de base de dados, precisa de uma cadeia de ligação e da senha de administração.
 

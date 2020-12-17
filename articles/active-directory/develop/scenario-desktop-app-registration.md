@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7c0623d58bf88b8bcc5f19665a081ce012b560b6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443148"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614881"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -49,7 +49,7 @@ Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabal
 - Para distinguir o [fluxo de código do dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [Autenticação Integrada do Windows,](scenario-desktop-acquire-token.md#integrated-windows-authentication)nome de [utilizador e palavra-passe](scenario-desktop-acquire-token.md#username-and-password) de uma aplicação confidencial do cliente utilizando um fluxo de credencial do cliente utilizado em [aplicações daemon](scenario-daemon-overview.md), nenhum dos quais requer um URI de redirecionamento, é necessário configurá-lo como uma aplicação de cliente público. Para alcançar esta configuração:
 
     1. No [portal Azure](https://portal.azure.com), selecione a sua aplicação nas **inscrições da App** e, em seguida, selecione **Autenticação**.
-    1. Em **definições avançadas,** o tipo de cliente  >  **padrão** Tratar a  >  **aplicação como cliente público** , selecione **Sim**.
+    1. Em **Definições Avançadas**  >  **Permita fluxos de clientes públicos** Ative os  >  **seguintes fluxos móveis e de ambiente de trabalho:**, selecione **Sim**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Ativar a configuração do cliente público no painel de autenticação no portal Azure":::
 

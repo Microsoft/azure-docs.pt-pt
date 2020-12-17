@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3188571e9188add7bc8f4f4d07ea5a562a79b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d4515d6140123e8e8784fc2d828242d49c59fc4
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658116"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616903"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao Power BI Mobile com o Proxy de Aplicações do Azure Active Directory
 
@@ -133,7 +133,7 @@ Antes que a aplicação móvel Power BI possa ligar e aceder aos Serviços de Re
 
    ![Aplicativo móvel Power BI com URL externo](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
-2. Selecione **Connect** (Ligar). Você será direcionado para o sinal do Diretório Ativo Azure na página.
+2. Selecione **Ligar**. Você será direcionado para o sinal do Diretório Ativo Azure na página.
 
 3. Introduza as credenciais válidas do utilizador e selecione **Iniciar sessão**. Verá os elementos do seu servidor de Serviços de Informação.
 
@@ -154,7 +154,9 @@ Pode utilizar o Microsoft Intune para gerir as aplicações de clientes que a fo
 
 Se a aplicação retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, poderá ter de alterar a definição de tempo limite. Por predefinição, o Application Proxy suporta aplicações que demoram até 85 segundos para responder a um pedido. Para alongar esta definição para 180 segundos, selecione o tempo limite de back-end para **Long** na página de definições de Procuração de Aplicações para a aplicação. Para obter dicas sobre como criar relatórios rápidos e fiáveis consulte [Power BI Reports Best Practices](/power-bi/power-bi-reports-performance).
 
-## <a name="next-steps"></a>Próximos passos
+A utilização do Azure AD Application Proxy para permitir que a aplicação móvel Power BI se conecte nas instalações Power BI Report Server não é suportado com políticas de acesso condicional que requerem a aplicação do Microsoft Power BI como uma aplicação de cliente aprovada.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Permitir que as aplicações de clientes nativos interajam com aplicações proxy](application-proxy-configure-native-client-application.md)
 - [Ver KPIs e relatórios no local do servidor de relatórios nas aplicações móveis do Power BI](/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports)

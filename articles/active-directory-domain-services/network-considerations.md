@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: 246da3a35396430bbda86e5a5e927a456618ac05
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: d1a3ab5face03754bf84f442ac0fa73768b0fc80
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619288"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615823"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para serviços de domínio de diretório ativo Azure
 
@@ -91,7 +91,7 @@ Pode ativar a resolução de nomes utilizando reencaminhadores DENS condicional 
 
 Um domínio gerido cria alguns recursos de networking durante a implantação. Estes recursos são necessários para o funcionamento e gestão bem sucedidos do domínio gerido, e não devem ser configurados manualmente.
 
-| Recurso do Azure                          | Description |
+| Recurso do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Cartão de interface de rede                  | O Azure AD DS acolhe o domínio gerido em dois controladores de domínio (DCs) que funcionam no Windows Server como VMs Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/public-ip-addresses.md). |
@@ -108,11 +108,10 @@ Um [grupo de segurança de rede (NSG)](../virtual-network/network-security-group
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o domínio gerido forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança de rede para a sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
-| Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Obrigatório | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Sincronização com o seu inquilino AZure AD. |
-| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Opcional      | Depurando para o apoio. |
 
 É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente. Não apague este grupo de segurança de rede. O equilibrador de carga não funcionará corretamente sem ele.
 
@@ -127,12 +126,17 @@ Se necessário, pode criar o grupo de segurança de [rede e as regras necessári
 >
 > O Azure SLA não se aplica a implementações em que tenha sido aplicado um grupo de segurança de rede e/ou tabelas de rotas definidas pelo utilizador que bloqueiam o Azure AD DS de atualizar e gerir o seu domínio.
 
-### <a name="port-443---synchronization-with-azure-ad"></a>Porta 443 - sincronização com Azure AD
+### <a name="port-5986---management-using-powershell-remoting"></a>Porto 5986 - gestão utilizando a remoting PowerShell
 
-* Usado para sincronizar o seu inquilino AZure AD com o seu domínio gerido.
-* Sem acesso a esta porta, o seu domínio gerido não pode sincronizar-se com o seu inquilino AZure AD. Os utilizadores podem não conseguir iniciar súmis, uma vez que as alterações às suas palavras-passe não seriam sincronizadas com o seu domínio gerido.
-* O acesso a esta porta a endereços IP é restringido por padrão utilizando a etiqueta de serviço **AzureActiveDirectoryDomainServices.**
-* Não restrinja o acesso de saída a partir deste porto.
+* Utilizado para executar tarefas de gestão utilizando o remoing PowerShell no seu domínio gerido.
+* Sem acesso a esta porta, o seu domínio gerido não pode ser atualizado, configurado, apoiado ou monitorizado.
+* Para domínios geridos que utilizem uma rede virtual baseada em Gestor de Recursos, pode restringir o acesso de entrada a esta porta à tag de serviço *AzureActiveDirectoryDomainServices.*
+    * Para domínios geridos pelo legado utilizando uma rede virtual baseada em clássicos, pode restringir o acesso à entrada nesta porta aos seguintes endereços IP de *origem: 52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *1 3.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, e *104.40.87.209*.
+
+    > [!NOTE]
+    > Em 2017, a Azure AD Domain Services tornou-se disponível para acolher numa rede Azure Resource Manager. Desde então, conseguimos construir um serviço mais seguro utilizando as capacidades modernas do Gestor de Recursos Azure. Como as implementações do Azure Resource Manager substituem totalmente as implementações clássicas, as implementações clássicas da rede virtual Azure AD DS serão retiradas a 1 de março de 2023.
+    >
+    > Para mais informações, consulte o [aviso oficial de depreciação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ### <a name="port-3389---management-using-remote-desktop"></a>Porta 3389 - gestão utilizando ambiente de trabalho remoto
 
@@ -148,18 +152,6 @@ Se necessário, pode criar o grupo de segurança de [rede e as regras necessári
 > Por exemplo, pode utilizar o seguinte script para criar uma regra que permite rdp: 
 >
 > `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
-
-### <a name="port-5986---management-using-powershell-remoting"></a>Porto 5986 - gestão utilizando a remoting PowerShell
-
-* Utilizado para executar tarefas de gestão utilizando o remoing PowerShell no seu domínio gerido.
-* Sem acesso a esta porta, o seu domínio gerido não pode ser atualizado, configurado, apoiado ou monitorizado.
-* Para domínios geridos que utilizem uma rede virtual baseada em Gestor de Recursos, pode restringir o acesso de entrada a esta porta à tag de serviço *AzureActiveDirectoryDomainServices.*
-    * Para domínios geridos pelo legado utilizando uma rede virtual baseada em clássicos, pode restringir o acesso à entrada nesta porta aos seguintes endereços IP de *origem: 52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *1 3.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, e *104.40.87.209*.
-
-    > [!NOTE]
-    > Em 2017, a Azure AD Domain Services tornou-se disponível para acolher numa rede Azure Resource Manager. Desde então, conseguimos construir um serviço mais seguro utilizando as capacidades modernas do Gestor de Recursos Azure. Como as implementações do Azure Resource Manager substituem totalmente as implementações clássicas, as implementações clássicas da rede virtual Azure AD DS serão retiradas a 1 de março de 2023.
-    >
-    > Para mais informações, consulte o [aviso oficial de depreciação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 

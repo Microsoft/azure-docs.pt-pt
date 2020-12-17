@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510656"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616580"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -77,6 +77,11 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 [Gestão de Custos Azure + Faturação:](../../cost-management-billing/index.yml)
 
 - A partir do inquilino gerente, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso ao controlo de acesso baseado em funções (Azure RBAC) que o parceiro tem para a subscrição do cliente.
+
+[Cofre da Chave Azure:](../../key-vault/general/index.yml)
+
+- Criar cofres chave em inquilinos de clientes
+- Use uma identidade gerida para criar Cofres Chave em inquilinos de clientes
 
 [Serviço Azure Kubernetes (AKS)](../../aks/index.yml):
 

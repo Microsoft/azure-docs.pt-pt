@@ -3,12 +3,12 @@ title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563029"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616166"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -49,7 +49,7 @@ O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a
 
 As seguintes versões do sistema operativo Windows e Linux são oficialmente suportadas para o agente Azure Connected Machine:
 
-- Windows Server 2012 R2 e superior (incluindo o Núcleo do Servidor do Windows)
+- Windows Server 2008 R2, Windows Server 2012 R2 e superior (incluindo Server Core)
 - Ubuntu 16.04 e 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
@@ -187,7 +187,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Name |Valor predefinido |Descrição |
+    |Nome |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -250,7 +250,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Valor predefinido |Descrição |
+    |Nome |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

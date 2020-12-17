@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a6b92d1b7f36b73d91b8e0e8e519981b936d8735
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 99375abbf8e9749712b878ea35c9bc034bedbc5e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592437"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616149"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -266,7 +266,7 @@ Para começar, aqui estão as definições recomendadas para a consulta de alert
 - Nome da regra de alerta: Limite de dados diário atingido
 - Gravidade: Aviso (Sev 1)
 
-Uma vez definido o alerta e o limite é atingido, um alerta é acionado e executa a resposta definida no Grupo de Ação. Pode notificar a sua equipa através de mensagens de correio eletrónico e de texto, ou automatizar ações utilizando webhooks, livros de automação ou [integração com uma solução ITSM externa.](itsmc-overview.md#create-itsm-work-items-from-azure-alerts) 
+Uma vez definido o alerta e o limite é atingido, um alerta é acionado e executa a resposta definida no Grupo de Ação. Pode notificar a sua equipa através de mensagens de correio eletrónico e de texto, ou automatizar ações utilizando webhooks, livros de automação ou [integração com uma solução ITSM externa.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts) 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
 

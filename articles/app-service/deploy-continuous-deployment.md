@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 799699662b738804790e3fe18ce9bd579027808d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004360"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616320"
 ---
-# <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua para o Serviço de Aplicações Azure
+# <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua no Serviço de Aplicações do Azure
 
 [O Azure App Service](overview.md) permite a implementação contínua dos repositórios gitHub, BitBucket e [Azure Repos,](https://azure.microsoft.com/services/devops/repos/) puxando as últimas atualizações. Este artigo mostra-lhe como utilizar o portal Azure para implementar continuamente a sua aplicação através do serviço de construção Kudu ou [pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/). 
 
@@ -96,7 +96,7 @@ Se a sua conta tiver as permissões necessárias, pode configurar a Azure Pipeli
 
 Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipelines, a sua organização Azure DevOps deve ter as seguintes permissões: 
 
-- A sua conta Azure deve ter permissões para escrever ao Azure Ative Directory e criar um serviço. 
+- A sua conta Azure deve ter permissões para escrever ao Azure Ative Directory e criar um registo de aplicações. 
   
 - A sua conta Azure deve ter a função **de Proprietário** na sua subscrição Azure.
 

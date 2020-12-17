@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443097"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614902"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registar aplicativos móveis que chamam APIs web
 
@@ -81,7 +81,12 @@ Se preferir configurar manualmente o URI de redirecionamento, pode fazê-lo atra
 
 Se a sua aplicação utilizar apenas a autenticação de nome de utilizador-password, não precisa de registar um URI de redirecionamento para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 da plataforma de identidade da Microsoft. A sua candidatura não será chamada de volta em nenhum URI específico.
 
-No entanto, tem de identificar a sua aplicação como uma aplicação de cliente público. Para tal, comece na secção **autenticação** da sua aplicação. Na subsecção **de definições Avançadas,** no parágrafo padrão do **tipo cliente,** para a **pergunta Tratar a aplicação como cliente público,** selecione **Sim**.
+No entanto, tem de identificar a sua aplicação como uma aplicação de cliente público. Para tal:
+
+1. Ainda no [portal Azure](https://portal.azure.com), selecione a sua aplicação nas **inscrições da App** e, em seguida, selecione **Autenticação**.
+1. Em **Definições Avançadas**  >  **Permita fluxos de clientes públicos** Ative os  >  **seguintes fluxos móveis e de ambiente de trabalho:**, selecione **Sim**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Ativar a configuração do cliente público no painel de autenticação no portal Azure":::
 
 ## <a name="api-permissions"></a>Permissões de API
 

@@ -3,12 +3,12 @@ title: Descrição geral do Azure Arc
 description: Saiba o que é o Azure Arc e como ajuda os clientes a permitir a gestão e governação dos seus recursos híbridos com outros serviços e funcionalidades da Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a8b054d9b7fd8f48dc667a5bd49a2c6994de1a3
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714148"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616529"
 ---
 # <a name="azure-arc-overview"></a>Descrição geral do Azure Arc
 
@@ -50,7 +50,7 @@ Seguem-se os detalhes dos preços das funcionalidades disponíveis hoje com o Az
 
 ### <a name="arc-enabled-servers"></a>Servidores preparados para o Arc
 
-A funcionalidade do plano de controlo Azure Arc é oferecida sem custos adicionais.O que está incluído:
+A funcionalidade do plano de controlo Azure Arc é oferecida sem custos adicionais. O que está incluído:
 
 * Organização de recursos através de grupos de gestão Azure e tags.
 
@@ -60,7 +60,7 @@ A funcionalidade do plano de controlo Azure Arc é oferecida sem custos adiciona
 
 * Ambientes e automação através de modelos e extensões.
 
-* Gestão de atualização
+* Gestão de atualizações
 
 Qualquer serviço Azure que seja utilizado em servidores ativados pelo Arc, por exemplo, O Centro de Segurança Azure ou o Azure Monitor, será cobrado de acordo com os preços desse serviço. Para mais informações, consulte [a página de preços do Azure](https://azure.microsoft.com/pricing/).
 
@@ -72,7 +72,9 @@ Na atual fase de pré-visualização, a Azure Arc permitiu que kubernetes são o
 
 Na atual fase de pré-visualização, os serviços de dados habilitados a Azure Arc são oferecidos sem custos adicionais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
+
+* Comece a experimentar serviços ativados pela Arc a partir dos [cenários Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/)
 
 * Para saber mais sobre os servidores ativados do Arc, consulte a [seguinte visão geral](./servers/overview.md)
 

@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616142"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614936"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação à sua aplicação e recebê-las no token
 
@@ -30,7 +30,10 @@ Outra abordagem é utilizar os grupos AD E as Reivindicações de Grupo Azure, c
 
 ## <a name="declare-roles-for-an-application"></a>Declarar funções para uma aplicação
 
-Define as funções de aplicação utilizando o [portal Azure.](https://portal.azure.com) Quando um utilizador assina a aplicação, a Azure AD emite uma `roles` reclamação por cada papel que o utilizador tenha sido concedido individualmente ao utilizador e da sua filiação em grupo.
+Define as funções de aplicação utilizando o [portal Azure.](https://portal.azure.com) As funções de aplicação são geralmente definidas num registo de aplicação representando um serviço, app ou API. Quando um utilizador assina a aplicação, a Azure AD emite uma `roles` reclamação por cada papel que o utilizador ou titular do serviço foi concedido individualmente ao utilizador e da sua filiação em grupo. Isto pode ser usado para implementar uma autorização baseada em sinistros. As funções da aplicação podem ser atribuídas [a um utilizador ou a um grupo de utilizadores.](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app) As funções da app também podem ser atribuídas ao principal do serviço para outra aplicação, ou [ao principal do serviço para uma identidade gerida.](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md)
+
+> [!IMPORTANT]
+> Atualmente, se adicionar um principal de serviço a um grupo e, em seguida, atribuir um papel de app a esse grupo, a Azure AD não adiciona a `roles` alegação aos tokens que problema.
 
 Existem duas formas de declarar os papéis da aplicação utilizando o portal Azure:
 
@@ -49,7 +52,7 @@ Para criar uma função de aplicação utilizando a interface de utilizador do p
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, escolha o inquilino do Azure Ative Directory que contém o registo da aplicação ao qual pretende adicionar uma função de app.
 1. Procure e selecione **Azure Active Directory**.
-1. Em **Manage** , selecione **registos de Aplicações** e, em seguida, selecione a aplicação em que pretende definir funções de aplicação.
+1. Em **Manage**, selecione **registos de Aplicações** e, em seguida, selecione a aplicação em que pretende definir funções de aplicação.
 1. Selecione **funções de App / Pré-visualizar** e, em seguida, selecionar **Criar o papel da aplicação**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Um painel de funções de aplicação de registo de aplicações no portal Azure":::
@@ -74,8 +77,8 @@ Para adicionar papéis editando o manifesto diretamente:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, escolha o inquilino do Azure Ative Directory que contém o registo da aplicação ao qual pretende adicionar uma função de app.
 1. Procure e selecione **Azure Active Directory**.
-1. Em **Manage** , selecione **registos de Aplicações** e, em seguida, selecione a aplicação em que pretende definir funções de aplicação.
-1. Novamente em **Manage** , selecione **Manifesto**.
+1. Em **Manage**, selecione **registos de Aplicações** e, em seguida, selecione a aplicação em que pretende definir funções de aplicação.
+1. Novamente em **Manage**, selecione **Manifesto**.
 1. Edite o manifesto da aplicação localizando a `appRoles` definição e adicionando as suas funções de aplicação. Pode definir funções de aplicativo que `users` `applications` visam, ou ambos. Os seguintes snippets JSON mostram exemplos de ambos.
 1. Salve o manifesto.
 
@@ -104,7 +107,7 @@ Este exemplo define uma função de aplicação nomeada `Writer` que pode atribu
 "availableToOtherTenants": false,
 ```
 
-#### <a name="example-application-app-role"></a>Exemplo: Função de aplicação de aplicação de aplicação de aplicações
+#### <a name="example-application-app-role"></a>Exemplo: Função de aplicação de aplicações
 
 Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **de Gestão** de uma aplicação > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação.**
 
@@ -137,7 +140,7 @@ Para atribuir utilizadores e grupos a funções utilizando o portal Azure:
 1. No **Azure Ative Directory,** selecione **aplicações Enterprise** no menu de navegação à esquerda.
 1. Selecione **Todas as aplicações** para ver uma lista de todas as suas aplicações. Se a sua aplicação não aparecer na lista, utilize os filtros no topo da lista de **aplicações** para restringir a lista, ou desloque a lista para localizar a sua aplicação.
 1. Selecione a aplicação na qual pretende atribuir utilizadores ou grupo de segurança a funções.
-1. Em **Gerir** , selecione **Utilizadores e grupos**.
+1. Em **Gerir**, selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar** ao utilizador para abrir o painel de atribuição **de adicionar.**
 1. Selecione o seletor **de Utilizadores e grupos** a partir do painel **de atribuição de adicionar.** É apresentada uma lista de utilizadores e grupos de segurança. Pode pesquisar por um determinado utilizador ou grupo, bem como selecionar vários utilizadores e grupos que aparecem na lista.
 1. Uma vez selecionados utilizadores e grupos, selecione o botão **Select** para proceder.
@@ -169,7 +172,7 @@ As funções recém-adicionadas devem aparecer no painel de **permissões API** 
 
 #### <a name="grant-admin-consent"></a>Conceder consentimento administrativo
 
-Como se trata *de permissões de aplicação* , não permissões delegadas, um administrador deve conceder o consentimento para usar as funções da aplicação atribuídas à aplicação.
+Como se trata *de permissões de aplicação*, não permissões delegadas, um administrador deve conceder o consentimento para usar as funções da aplicação atribuídas à aplicação.
 
 1. No painel de **permissões** de API do registo da aplicação, selecione **o consentimento de administração grant para \<tenant name\>**.
 1. Selecione **Sim** quando solicitado para conceder o consentimento para as permissões solicitadas.
