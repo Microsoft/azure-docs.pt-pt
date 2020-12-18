@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.author: banders
-ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348994"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938482"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obter a propriedade da faturação das subscrições do Azure de outras contas
 
@@ -22,6 +22,14 @@ Talvez queira assumir a propriedade das subscrições do Azure caso o proprietá
 Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-for-access).
 
 Para pedir a propriedade da faturação, deve ser um **proprietário da secção da fatura** ou um **contribuidor da secção da fatura**. Para saber mais, veja [tarefas das funções da secção da fatura](understand-mca-roles.md#invoice-section-roles-and-tasks).
+
+A pessoa à qual está a pedir a propriedade de faturação tem de ter uma das seguintes funções:
+
+- Relativamente a um Contrato de Cliente Microsoft do Enterprise, o utilizador tem de ser Proprietário da Faturação.
+- Relativamente a um Contrato Enterprise, o utilizador tem de ser Proprietário da Conta.
+- Quanto a uma conta de faturação do Programa de Serviço Online da Microsoft, o utilizador tem de ser Administrador de Conta.
+
+Para obter mais informações, veja [Ver as contas de faturação no portal do Azure](view-all-accounts.md).
 
 ## <a name="request-billing-ownership"></a>Pedir a propriedade da faturação
 
@@ -42,7 +50,7 @@ Para pedir a propriedade da faturação, deve ser um **proprietário da secção
 1. Selecione uma seção da fatura na lista. Depois de assumir a propriedade das subscrições, as utilizações serão atribuídas a esta secção da fatura do perfil de faturação.
 1. Selecione **Pedidos de transferência** no canto inferior esquerdo e, em seguida, selecione **Adicionar um novo pedido**.  
     [![Captura de ecrã que mostra a seleção dos pedidos de transferência](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Introduza o endereço de e-mail do utilizador ao qual está a pedir a propriedade de faturação. O utilizador deve ser um Administrador de Conta numa conta de faturação do Programa do Serviço Online da Microsoft ou um proprietário de conta num Contrato Enterprise. Para obter mais informações, veja [Ver as contas de faturação no portal do Azure](view-all-accounts.md). Selecione **Enviar pedido de transferência**.  
+1. Introduza o endereço de e-mail do utilizador ao qual está a pedir a propriedade de faturação. Selecione **Enviar pedido de transferência**.  
     [![Captura de ecrã que mostra o envio de um pedido de transferência](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. O utilizador recebe um e-mail com instruções para rever o pedido de transferência.  
     ![Captura de ecrã que mostra o e-mail da revisão do pedido de transferência](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -68,6 +76,7 @@ Para pedir a propriedade da faturação, deve ser um **proprietário da secção
 1. Selecione a secção da fatura na lista para a qual foi enviado o pedido de transferência.
 1. Selecione **Pedidos de transferência** no canto inferior esquerdo. A página Pedidos de transferência apresenta as seguintes informações:  
     [![Captura de ecrã que mostra a lista de pedidos de transferência](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Coluna|Definição|
    |---------|---------|
    |Data do pedido|A data em que o pedido de transferência foi enviado|

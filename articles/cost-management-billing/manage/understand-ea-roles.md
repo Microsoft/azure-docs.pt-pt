@@ -1,24 +1,24 @@
 ---
-title: Compreender as funções de administrador do Enterprise no Azure
+title: Compreender as funções de administrador de Contratos Enterprise (EA) no Azure
 description: Saiba mais sobre as funções de administrador do Enterprise no Azure. Pode atribuir cinco funções administrativas distintas.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409205"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560530"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Gerir as funções Enterprise do Azure
+# <a name="managing-azure-enterprise-agreement-roles"></a>Gerir as funções do Contrato Enterprise do Azure
 
-Para ajudar a gerir a utilização e o gasto da sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
+Para ajudar a gerir a utilização e os gastos da sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
 
 - Administrador do Enterprise (EA)
 - Administrador do Enterprise (só de leitura)<sup>1</sup>
@@ -82,6 +82,8 @@ Os utilizadores com esta função têm o nível de acesso mais alto. Podem:
 - Gerir os contactos de notificação.
 - Ver a utilização em todas as contas.
 - Ver custos não faturados em todas as contas.
+- Ver e gerir todas as encomendas de reservas e as reservas que se aplicam ao Contrato Enterprise.
+  - O administrador do Enterprise (só de leitura) pode ver as encomendas de reservas e as reservas. Não as pode gerir.
 
 Pode ter vários administradores do Enterprise numa inscrição Enterprise. Pode conceder acesso só de leitura aos administradores do Enterprise. Todos eles herdam a função de administrador de departamento.
 

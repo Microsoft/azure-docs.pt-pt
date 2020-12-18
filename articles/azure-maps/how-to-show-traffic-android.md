@@ -1,246 +1,120 @@
 ---
-title: Mostrar dados de tráfego no mapa android Microsoft Azure Maps
+title: Mostrar dados de tráfego em mapas Android Microsoft Azure Maps
 description: Neste artigo você vai aprender, como exibir dados de tráfego em um mapa usando o Microsoft Azure Maps Android SDK.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 11/25/2020
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/04/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 113f39ac2976b870c9e07851cdd0919e2578940f
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532759"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680436"
 ---
-# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando Azure Maps Android SDK
+# <a name="show-traffic-data-on-the-map-android-sdk"></a>Mostrar dados de tráfego no mapa (Android SDK)
 
 Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra-lhe como exibir ambos os tipos de dados de tráfego. Os dados relativos aos incidentes consistem em dados pontuais e baseados em linha para coisas como construções, encerramentos de estradas e acidentes. Os dados do fluxo mostram métricas sobre o fluxo de tráfego na estrada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
-3. Faça o download e instale o [Azure Maps Android SDK](./how-to-use-android-map-control-library.md).
+Certifique-se de completar os passos no [Quickstart: Criar um documento de aplicação Android.](quick-android-map.md) Os blocos de código deste artigo podem ser inseridos no manipulador de eventos de `onReady` mapas.
 
-## <a name="incidents-traffic-data"></a>Incidentes dados de tráfego
+## <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
-Você precisará importar as seguintes bibliotecas para ligar `setTraffic` `incidents` e:
+Existem dois tipos de dados de tráfego disponíveis no Azure Maps:
+
+- Dados de incidentes - consiste em dados de pontos e linhas para coisas como construção, encerramentos de estradas e acidentes.
+- Flow data - fornece métricas sobre o fluxo de tráfego nas estradas. Muitas vezes, os dados de fluxo de tráfego são usados para colorir as estradas. As cores baseiam-se na quantidade de tráfego que está a abrandar o fluxo, em relação ao limite de velocidade, ou noutra métrica. Há quatro valores que podem ser passados para a opção de tráfego `flow` do mapa.
+
+    |Valor do fluxo | Descrição|
+    | :-- | :-- |
+    | TrafficFlow.NONE | Não exibe dados de tráfego no mapa |
+    | TrafficFlow.RELATIVE | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |
+    | TrafficFlow.RELATIVE_DELAY | Exibe áreas mais lentas do que a média esperada |
+    | TrafficFlow.ABSOLUTE | Mostra a velocidade absoluta de todos os veículos na estrada |
+
+O código que se segue mostra como exibir dados de tráfego no mapa.
 
 ```java
-import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
+//Show traffic on the map using the traffic options.
+map.setTraffic(
+    incidents(true),
+    flow(TrafficFlow.RELATIVE)
+);
 ```
 
- O seguinte corte de código mostra-lhe como exibir dados de tráfego no mapa. Passamos um valor booleano ao `incidents` método, e passamos isso para o `setTraffic` método. 
+A imagem que se segue mostra o código acima que mostra informações de tráfego em tempo real no mapa.
+
+![Mapa mostrando informações de tráfego em tempo real](media/how-to-show-traffic-android/android-show-traffic.png)
+
+## <a name="get-traffic-incident-details"></a>Obtenha detalhes do incidente de tráfego
+
+Detalhes sobre um incidente de trânsito estão disponíveis dentro das propriedades da funcionalidade utilizada para exibir o incidente no mapa. Incidentes de tráfego são adicionados ao mapa usando o serviço de vetor de vetor de incidente de tráfego Azure Maps. O formato dos dados nestes azulejos vetoriais se [documentado aqui.](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) O código seguinte adiciona um evento de clique ao mapa e recupera a funcionalidade de incidente de tráfego que foi clicada e exibe uma mensagem de torrada com alguns dos detalhes.
 
 ```java
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map - > {
-        map.setTraffic(incidents(true));
+//Show traffic information on the map.
+map.setTraffic(
+    incidents(true),
+    flow(TrafficFlow.RELATIVE)
+);
+
+//Add a click event to the map.
+map.events.add((OnFeatureClick) (features) -> {
+
+    if (features != null && features.size() > 0) {
+        Feature incident = features.get(0);
+
+        //Ensure that the clicked feature is an traffic incident feature.
+        if (incident.properties() != null && incident.hasProperty("incidentType")) {
+
+            StringBuilder sb = new StringBuilder();
+            String incidentType = incident.getStringProperty("incidentType");
+
+            if (incidentType != null) {
+                sb.append(incidentType);
+            }
+
+            if (sb.length() > 0) {
+                sb.append("\n");
+            }
+
+            //If the road is closed, find out where it is closed from.
+            if ("Road Closed".equals(incidentType)) {
+                String from = incident.getStringProperty("from");
+
+                if (from != null) {
+                    sb.append(from);
+                }
+            } else {
+                //Get the description of the traffic incident.
+                String description = incident.getStringProperty("description");
+
+                if (description != null) {
+                    sb.append(description);
+                }
+            }
+
+            String message = sb.toString();
+
+            if (message.length() > 0) {
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            }
+        }
     }
-}
+});
 ```
 
-## <a name="flow-traffic-data"></a>Dados de tráfego de fluxo
+A imagem que se segue mostra o código acima que mostra informações de tráfego em tempo real no mapa com uma mensagem de torrada mostrando detalhes do incidente.
 
-Primeiro terá de importar as seguintes bibliotecas para ligar `setTraffic` `flow` e:
-
-```java
-import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
-import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
-```
-
-Utilize o seguinte corte de código para definir os dados de fluxo de tráfego. Semelhante ao código na secção anterior, passamos o valor de retorno do `flow` método para o `setTraffic` método. Há quatro valores que podem ser passados `flow` para , e cada valor desencadearia para devolver o respetivo `flow` valor. O valor de retorno será `flow` então passado como argumento para `setTraffic` . Consulte a tabela abaixo para estes quatro valores:
-
-|Valor do fluxo | Descrição|
-| :-- | :-- |
-| TrafficFlow.NONE | Não exibe dados de tráfego no mapa |
-| TrafficFlow.RELATIVE | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |
-| TrafficFlow.RELATIVE_DELAY | Exibe áreas mais lentas do que a média esperada |
-| TrafficFlow.ABSOLUTE | Mostra a velocidade absoluta de todos os veículos na estrada |
-
-```java
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map -> {
-        map.setTraffic(flow(TrafficFlow.RELATIVE)));
-    }
-}
-```
-
-## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Mostrar dados de tráfego de incidentes clicando numa funcionalidade
-
-Para obter os incidentes para uma funcionalidade específica, pode utilizar o código abaixo. Quando uma funcionalidade é clicada, a lógica de código verifica os incidentes e constrói uma mensagem sobre o incidente. Uma mensagem aparece na parte inferior do ecrã com os detalhes.
-
-1. Primeiro, tens de editar, para `res > layout > activity_main.xml` que pareça com a de baixo. Pode substituir o `mapcontrol_centerLat` `mapcontrol_centerLng` , e pelos `mapcontrol_zoom` valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro cabe num único azulejo.
-
-   ```XML
-   <?xml version="1.0" encoding="utf-8"?>
-   <FrameLayout
-       xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:app="http://schemas.android.com/apk/res-auto"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       >
-    
-       <com.microsoft.azure.maps.mapcontrol.MapControl
-           android:id="@+id/mapcontrol"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           app:mapcontrol_centerLat="47.6050"
-           app:mapcontrol_centerLng="-122.3344"
-           app:mapcontrol_zoom="12"
-           />
-
-   </FrameLayout>
-   ```
-
-2. Adicione o seguinte código ao seu ficheiro **.java MainActivity.** O pacote está incluído por padrão, por isso certifique-se de manter a sua encomenda no topo.
-
-   ```java
-   package <yourpackagename>;
-   import androidx.appcompat.app.AppCompatActivity;
-
-   import android.os.Bundle;
-   import android.widget.Toast;
-
-   import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-   import com.microsoft.azure.maps.mapcontrol.MapControl;
-   import com.mapbox.geojson.Feature;
-   import com.microsoft.azure.maps.mapcontrol.events.OnFeatureClick;
-
-   import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
-   import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
-   import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.incidents;
-
-   public class MainActivity extends AppCompatActivity {
-
-       static {
-           AzureMaps.setSubscriptionKey("Your Azure Maps Subscription Key");
-       }
-
-       MapControl mapControl;
-
-       @Override
-       protected void onCreate(Bundle savedInstanceState) {
-           super.onCreate(savedInstanceState);
-           setContentView(R.layout.activity_main);
-
-           mapControl = findViewById(R.id.mapcontrol);
-
-           mapControl.onCreate(savedInstanceState);
-
-           //Wait until the map resources are ready.
-           mapControl.getMapAsync(map -> {
-
-               map.setTraffic(flow(TrafficFlow.RELATIVE));
-               map.setTraffic(incidents(true));
-
-               map.events.add((OnFeatureClick) (features) -> {
-
-                   if (features != null && features.size() > 0) {
-                       Feature incident = features.get(0);
-                       if (incident.properties() != null) {
-
-
-                           StringBuilder sb = new StringBuilder();
-                           String incidentType = incident.getStringProperty("incidentType");
-                           if (incidentType != null) {
-                               sb.append(incidentType);
-                           }
-                           if (sb.length() > 0) sb.append("\n");
-                           if ("Road Closed".equals(incidentType)) {
-                               sb.append(incident.getStringProperty("from"));
-                           } else {
-                               String description = incident.getStringProperty("description");
-                               if (description != null) {
-                                   for (String word : description.split(" ")) {
-                                       if (word.length() > 0) {
-                                           sb.append(word.substring(0, 1).toUpperCase());
-                                           if (word.length() > 1) {
-                                               sb.append(word.substring(1));
-                                           }
-                                           sb.append(" ");
-                                       }
-                                   }
-                               }
-                           }
-                           String message = sb.toString();
-
-                           if (message.length() > 0) {
-                               Toast.makeText(this,message,Toast.LENGTH_LONG).show();
-                           }
-                       }
-                   }
-               });
-           });
-       }
-
-       @Override
-       public void onResume() {
-           super.onResume();
-           mapControl.onResume();
-       }
-
-       @Override
-       protected void onStart(){
-           super.onStart();
-           mapControl.onStart();
-       }
-
-       @Override
-       public void onPause() {
-           super.onPause();
-           mapControl.onPause();
-       }
-
-       @Override
-       public void onStop() {
-           super.onStop();
-           mapControl.onStop();
-       }
-
-       @Override
-       public void onLowMemory() {
-           super.onLowMemory();
-           mapControl.onLowMemory();
-       }
-
-       @Override
-       protected void onDestroy() {
-           super.onDestroy();
-           mapControl.onDestroy();
-       }
-
-       @Override
-       protected void onSaveInstanceState(Bundle outState) {
-           super.onSaveInstanceState(outState);
-           mapControl.onSaveInstanceState(outState);
-       }
-   }
-   ```
-
-3. Assim que incorporar o código acima na sua aplicação, poderá clicar numa funcionalidade e ver os detalhes dos incidentes de trânsito. Dependendo da latitude, longitude e dos valores de nível de zoom que usou no seu ficheiro **activity_main.xml,** verá resultados semelhantes à seguinte imagem:
-
-
-    ![Incidente-tráfego no mapa](./media/how-to-show-traffic-android/android-traffic.png)
-
+![Mapa mostrando informações de tráfego em tempo real com uma mensagem de torrada exibindo detalhes do incidente](media/how-to-show-traffic-android/android-traffic-details.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes guias para saber como adicionar mais dados ao seu mapa:
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo](how-to-add-symbol-to-android-map.md)
-
-> [!div class="nextstepaction"]
 > [Adicionar uma camada de mosaico](how-to-add-tile-layer-android-map.md)
-
-> [!div class="nextstepaction"]
-> [Adicione formas ao mapa do android](how-to-add-shapes-to-android-map.md)
-
-> [!div class="nextstepaction"]
-> [Apresentar informações da funcionalidade](display-feature-information-android.md)
