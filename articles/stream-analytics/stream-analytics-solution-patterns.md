@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02276ebf8e8a2289db2a1f6eac506443cea61c31
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461549"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682708"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões da solução Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Como muitos outros serviços em Azure, o Stream Analytics é mais utilizado com 
 
 ## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Crie um trabalho stream Analytics para potenciar a experiência de dashboarding em tempo real
 
-Com o Azure Stream Analytics, pode levantar-se rapidamente em tempo real de painéis e alertas. Uma solução simples ingere eventos de Event Hubs ou IoT Hub, e [alimenta o painel power BI com um conjunto de dados de streaming](/power-bi/service-real-time-streaming). Para obter mais informações, consulte os dados de chamadas telefónicas tutoriais [detalhadas com Stream Analytics e visualize os resultados no painel Power BI](stream-analytics-manage-job.md).
+Com o Azure Stream Analytics, pode levantar-se rapidamente em tempo real de painéis e alertas. Uma solução simples ingere eventos de Event Hubs ou IoT Hub, e [alimenta o painel power BI com um conjunto de dados de streaming](/power-bi/service-real-time-streaming). Para obter mais informações, consulte o tutorial detalhado [Analisar dados de chamadas fraudulentas com Stream Analytics e visualizar os resultados no painel Power BI](stream-analytics-real-time-fraud-detection.md).
 
 ![Painel DE BI DE ENERGIA ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
@@ -180,7 +180,7 @@ Não é difícil imaginar que todos os padrões de solução acima mencionados p
 
 A chave é projetar o seu sistema em padrões compósíveis, para que cada subsistema possa ser construído, testado, atualizado e recuperado de forma independente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Já viu uma variedade de padrões de solução usando a Azure Stream Analytics. Em seguida, pode criar o seu primeiro trabalho do Stream Analytics e experimentá-lo na prática:
 

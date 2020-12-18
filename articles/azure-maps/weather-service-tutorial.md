@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6d2ede8ab49b22a22d8959ce296182a2210640d0
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 259db10aa8f5cd2b711eca001bc6d48057d5280d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905473"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683207"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python)
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre a autenticação no Azure Maps, consulte [a 
 Para se familiarizar com os cadernos Azure e saber como começar, siga as instruções [Criar um Caderno Azure](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
-> O arquivo de caderno Jupyter para este projeto pode ser descarregado do [repositório de cadernos Weather Maps Jupyter.](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data)
+> O ficheiro de caderno Jupyter para este projeto pode ser descarregado do [repositório do Notebook do Weather Maps.](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data)
 
 ## <a name="load-the-required-modules-and-frameworks"></a>Carregue os módulos e estruturas necessários
 
@@ -197,7 +197,7 @@ Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
 
 Para obter uma lista completa de APIs DE REST Azure Maps, consulte [Azure Maps REST APIs](./consumption-model.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre cadernos Azure, ver
 

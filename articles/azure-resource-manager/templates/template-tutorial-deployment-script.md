@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7352bde887648918cbfd2a9ebeaae83cddefc61e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673283"
+ms.locfileid: "97683493"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Use scripts de implementação para criar um certificado auto-assinado
 
@@ -32,7 +32,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Editar o modelo
 > * Implementar o modelo
 > * Depurar o roteiro falhado
-> * Limpar os recursos
+> * Limpar recursos
 
 Para um módulo Microsoft Learn que cubra scripts de implementação, consulte [os modelos ARM de extensão utilizando scripts de implementação](/learn/modules/extend-resource-manager-template-deployment-scripts/).
 
@@ -42,7 +42,7 @@ Para concluir este artigo, precisa de:
 
 * **[Código de Estúdio Visual](https://code.visualstudio.com/) com a extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Uma identidade gerida atribuída pelo utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar uma, consulte a [identidade gerida atribuída pelo Utilizador](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
+* **Uma identidade gerida atribuída pelo utilizador**. Esta identidade é usada para executar ações específicas do Azure no script. Para criar uma, consulte a [identidade gerida atribuída pelo Utilizador](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -255,7 +255,7 @@ O roteiro de implantação adiciona um certificado ao cofre da chave. Configure 
 
     O `deploymentScripts` recurso depende do recurso chave do cofre e do recurso de atribuição de funções. Possui estas propriedades:
 
-    * `identity`: O script de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts.
+    * `identity`: O script de implementação utiliza uma identidade gerida atribuída ao utilizador para executar as operações no script.
     * `kind`: Especificar o tipo de script. Atualmente, apenas os scripts PowerShell são suportados.
     * `forceUpdateTag`: Determinar se o script de implementação deve ser executado mesmo que a fonte do script não tenha mudado. Pode ser a hora atual ou um GUID. Para saber mais, consulte [o roteiro run mais de uma vez](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: Especifica a versão do módulo Azure PowerShell a utilizar. Atualmente, o script de implementação suporta a versão 2.7.0, 2.8.0 e 3.0.0.
@@ -341,7 +341,7 @@ Retire a `Write-Output1` linha e reimplante o gabarito.
 
 Quando a segunda implantação for executado com sucesso, os recursos de script de implantação serão removidos pelo serviço de script, porque a `cleanupPreference` propriedade está definida para **OnSuccess**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
@@ -350,7 +350,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 3. Selecione o nome do grupo de recursos.  Você verá um total de seis recursos no grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar um script de implementação em modelos ARM. Para saber como implementar recursos do Azure com base em condições, veja:
 

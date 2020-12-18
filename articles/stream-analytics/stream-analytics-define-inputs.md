@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127574"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683461"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Fluxo de dados como entrada no Stream Analytics
 
@@ -31,7 +31,7 @@ O Stream Analytics suporta a compressão em todas as fontes de entrada de fluxo 
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou testar entradas
 
-Pode utilizar o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-visual-studio-code.md) para adicionar e visualizar ou editar as entradas existentes no seu trabalho de streaming. Também pode testar ligações de entrada e consultas de [teste](stream-analytics-manage-job.md#test-your-query) a partir de dados de amostra do portal Azure, [Visual Studio](stream-analytics-vs-tools-local-run.md)e Visual Studio [Code](visual-studio-code-local-run.md). Quando escreve uma consulta, lista a entrada na cláusula FROM. Pode obter a lista de entradas disponíveis na página **'Consulta'** no portal. Se desejar utilizar várias entradas, pode `JOIN` fazê-las ou escrever várias `SELECT` consultas.
+Pode utilizar o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-visual-studio-code.md) para adicionar e visualizar ou editar as entradas existentes no seu trabalho de streaming. Também pode testar ligações de entrada e consultas de teste a partir de dados de amostra do portal Azure, [Visual Studio](stream-analytics-vs-tools-local-run.md)e Visual [Studio Code](visual-studio-code-local-run.md). Quando escreve uma consulta, lista a entrada na cláusula FROM. Pode obter a lista de entradas disponíveis na página **'Consulta'** no portal. Se desejar utilizar várias entradas, pode `JOIN` fazê-las ou escrever várias `SELECT` consultas.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados a partir dos Hubs de Eventos
@@ -185,7 +185,7 @@ SELECT
 FROM Input
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 

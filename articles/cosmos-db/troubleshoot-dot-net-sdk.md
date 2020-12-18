@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545932"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683102"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,9 +54,16 @@ Verifique a [secção de problemas](https://github.com/Azure/azure-cosmos-dotnet
 ### <a name="check-the-portal-metrics"></a>Verifique as métricas do portal
 A verificação das [métricas](./monitor-cosmos-db.md) do portal ajudará a determinar se é um problema do lado do cliente ou se há algum problema com o serviço. Por exemplo, se as métricas contiverem uma alta taxa de pedidos limitados de taxa (código de estado HTTP 429), o que significa que o pedido está a ser acelerado, então verifique a [taxa de pedido demasiado grande.](troubleshoot-request-rate-too-large.md) 
 
+## <a name="retry-logic"></a>Lógica de Retíria <a id="retry-logics"></a>
+Cosmos DB SDK em qualquer falha de IO tentará voltar a tentar a operação falhada se for viável novamente no SDK. Ter uma nova agem para qualquer falha é uma boa prática, mas especificamente lidar/tentar falhar a escrita é uma obrigação. Recomenda-se usar o mais recente SDK, uma vez que a lógica de retíria está continuamente a ser melhorada.
+
+1. As falhas de IO de leitura e consulta serão novamente julgadas pelo SDK sem as deixar em cima do utilizador final.
+2. As escritas (Criar, Aumentar, Substituir, Excluir) são "não" idempotentes e, portanto, a SDK nem sempre pode voltar a tentar cegamente as operações de escrita falhadas. É necessário que a lógica de aplicação do utilizador lide com a falha e relemque.
+3. [Problemas de tiro sdk disponibilidade](troubleshoot-sdk-availability.md) explica retréis para contas de Cosmos DB multi-região.
+
 ## <a name="common-error-status-codes"></a>Códigos comuns de estado de erro <a id="error-codes"></a>
 
-| Código de Estado | Descrição | 
+| Código de Estado | Description | 
 |----------|-------------|
 | 400 | Mau pedido (Depende da mensagem de erro)| 
 | 401 | [Não autorizado](troubleshoot-unauthorized.md) | 
@@ -113,7 +120,7 @@ As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde
 
 Se encontrar o seguinte erro: `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` e estiver a utilizar o Windows, deverá atualizar para a versão mais recente do Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre as diretrizes de desempenho para [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) e [.NET V2](performance-tips.md)
 * Conheça os [SDKs Java baseados no reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)

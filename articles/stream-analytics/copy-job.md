@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129461"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683226"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiar ou apoiar trabalhos de Azure Stream Analytics
 
@@ -37,8 +37,6 @@ Pode copiar ou fazer cópias de segurança dos seus trabalhos Azure Stream Analy
 
     O projeto é exportado para a pasta que seleciona e adicionado ao seu espaço de trabalho atual.
 
-    ![Exportar trabalho asa em Código de Estúdio Visual](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
-
 3. Para publicar o trabalho noutra região ou cópia de segurança utilizando outro nome, **selecione Selecione das suas subscrições para publicar** no editor de consulta \* (.asaql) e siga as instruções.
 
     ![Publicar para Azure em Código de Estúdio Visual](./media/quick-create-visual-studio-code/submit-job.png)
@@ -49,8 +47,7 @@ Pode copiar ou fazer cópias de segurança dos seus trabalhos Azure Stream Analy
 
 2. Abra o \* ficheiro .asaql no Editor de Consulta, **selecione Submeter-se ao Azure** no editor de scripts e siga as instruções para publicar o trabalho para outra região ou cópia de segurança usando um novo nome.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Criar um trabalho stream analytics usando Código de Estúdio Visual](quick-create-visual-studio-code.md)
 * [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)

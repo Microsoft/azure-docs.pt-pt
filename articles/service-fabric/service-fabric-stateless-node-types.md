@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 6259de345b534bfb51ef6ba1a9c3895800546caf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605501"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683194"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementar um cluster de tecido de serviço Azure com tipos de nó apenas apátridas (Pré-visualização)
 Os tipos de nó de tecido de serviço vêm com a presunção inerente de que em algum momento, os serviços estatais podem ser colocados nos nós. Os tipos de nó apátrida relaxam esta suposição para um tipo de nó, permitindo assim que o tipo de nó utilize outras funcionalidades, tais como operações de escala mais rápida, suporte para upgrades automáticos de SO na durabilidade de Bronze e escala para mais de 100 nós num único conjunto de escala de máquina virtual.
@@ -44,7 +44,7 @@ Para definir um ou mais tipos de nó como apátridas num recurso de cluster, des
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -71,9 +71,9 @@ Para definir um ou mais tipos de nó como apátridas num recurso de cluster, des
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>Configurar a escala de máquina virtual definida para os tipos de nódoas estepátrio
 Para ativar os tipos de nóles apátridas, deve configurar o recurso de escala de máquina virtual subjacente da seguinte forma:
 
-* O valor  **único Propriedade DoPlacementGroup,** que deve ser definido como verdadeiro/falso, dependendo da exigência de escala para mais de 100 VMs.
-* O conjunto de **escala's upgradeMode** que deve ser definido para rolar.
-* O modo de atualização de rolamento requer extensão de saúde da aplicação ou sondas de saúde configuradas. Configure a sonda de saúde com configuração padrão para os tipos de nó apátrida, conforme sugerido abaixo. Uma vez implementadas as aplicações para o nótipo, as portas de extensão health probe/health podem ser alteradas para monitorizar a saúde da aplicação.
+* O valor  **único Propriedade DoPlacementGroup,** que deve ser definido como **falso** se precisar de escalar para mais de 100 VMs.
+* O conjunto de **escala's upgradePolicy** que **modo** deve ser definido para **Rolling**.
+* O modo de atualização de rolamento requer extensão de saúde da aplicação ou sondas de saúde configuradas. Configure a sonda de saúde com configuração padrão para os tipos de nó apátrida, conforme sugerido abaixo. Uma vez implementadas as aplicações para o tipo de nó, as portas de extensão health probe/health podem ser alteradas para monitorizar a saúde da aplicação.
 
 ```json
 {
@@ -254,7 +254,7 @@ Para começar, terá de adicionar os novos recursos ao modelo de Gestor de Recur
 Uma vez que os recursos tenham terminado de ser implantados, pode começar a desativar os nós no tipo de nó que pretende remover do cluster original.
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Tipos de nós e conjuntos de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md)
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902515"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97687404"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ O nível de computação sem servidor para bases de dados individuais na Base de
 - Os **vCores mínimos** e **os vCores máximos** são parâmetros configuráveis que definem a gama de capacidade de computação disponível para a base de dados. Os limites de memória e IO são proporcionais à gama vCore especificada.  
 - O **atraso da automatização** é um parâmetro configurável que define o período de tempo em que a base de dados deve estar inativa antes de ser automaticamente interrompida. A base de dados é retomada automaticamente quando ocorre o próximo login ou outra atividade.  Em alternativa, a autopausing pode ser desativada.
 
-### <a name="cost"></a>Custo
+### <a name="cost"></a>Cost
 
 - O custo de uma base de dados sem servidor é a soma do custo de cálculo e do custo de armazenamento.
 - Quando a utilização do cálculo está entre os limites min e máximo configurados, o custo do cálculo baseia-se no vCore e na memória utilizada.
@@ -196,7 +196,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 
@@ -276,7 +276,7 @@ O conjunto de recursos do utilizador é o limite de gestão de recursos mais int
 
 As métricas para monitorizar a utilização de recursos do pacote de aplicações e o conjunto de utilizadores de uma base de dados sem servidor estão listadas na seguinte tabela:
 
-|Entidade|Métrica|Descrição|Unidades|
+|Entidade|Metric|Descrição|Unidades|
 |---|---|---|---|
 |Pacote de aplicações|app_cpu_percent|Percentagem de vCores utilizados pela app relativa ao max vCores permitido para a aplicação.|Percentagem|
 |Pacote de aplicações|app_cpu_billed|A quantidade de cálculo faturada para a app durante o período de reporte. O valor pago durante este período é o produto desta métrica e do preço unitário vCore. <br><br>Os valores desta métrica são determinados agregando ao longo do tempo o máximo de CPU utilizado e a memória utilizada a cada segundo. Se o montante utilizado for inferior ao montante mínimo previsto pela memória min vCores e min, então o montante mínimo previsto é faturado.Para comparar o CPU com a memória para efeitos de faturação, a memória é normalizada em unidades de vCores redimensionando a quantidade de memória em GB por 3 GB por vCore.|vCore segundos|
@@ -366,7 +366,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

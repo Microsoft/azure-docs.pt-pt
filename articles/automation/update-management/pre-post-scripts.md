@@ -3,14 +3,14 @@ title: Gerir pré-scripts e pós-scripts na sua implementação de Gestão de At
 description: Este artigo diz como configurar e gerir pré-scripts e pós-scripts para atualizações de implementações.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb2a272829374cfeba5c334ff87268c4928885f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 4c37fe107d9256461e5aa632f859ae02c5dc42f5
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222495"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683417"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerir pré-scripts e pós-scripts
 
@@ -100,7 +100,7 @@ Para utilizar um pré-script ou pós-script numa implementação de atualizaçã
 
 ![Selecione scripts](./media/pre-post-scripts/select-scripts.png)
 
-Selecione o script que pretende utilizar. Neste exemplo, utilizamos o **runbook UpdateManagement-TurnOnVms.** Quando seleciona o livro de recortes, abre-se a página **Configure Script.** Selecione **Pré-Script**e, em seguida, selecione **OK**.
+Selecione o script que pretende utilizar. Neste exemplo, utilizamos o **runbook UpdateManagement-TurnOnVms.** Quando seleciona o livro de recortes, abre-se a página **Configure Script.** Selecione **Pré-Script** e, em seguida, selecione **OK**.
 
 Repita este processo para o script **UpdateManagement-TurnOffVms.** Mas quando escolher o **tipo de Script,** selecione **Post-Script**.
 
@@ -146,7 +146,7 @@ As pré-tarefas e pós-tarefas funcionam como livros de execução e não funcio
 * Uma conta Run As
 * Um livro de corridas que quer executar
 
-Para interagir com as máquinas Azure, deve utilizar o cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) para interagir com os seus VMs Azure. Para um exemplo de como fazê-lo, consulte o exemplo de [gestão de atualização do](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)exemplo do runbook – executar script com comando Run .
+Para interagir com as máquinas Azure, deve utilizar o cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) para interagir com os seus VMs Azure. Para um exemplo de como fazê-lo, consulte o exemplo de [gestão de atualização do](https://github.com/azureautomation/update-management-run-script-with-run-command)exemplo do runbook – executar script com comando Run .
 
 ### <a name="interact-with-non-azure-machines"></a>Interaja com máquinas não-Azure
 
@@ -157,7 +157,7 @@ As pré-tarefas e pós-tarefas são executadas no contexto Azure e não têm ace
 * Um livro de corridas que você quer executar localmente
 * Um livro de corridas dos pais
 
-Para interagir com máquinas não-Azure, um livro de bordo dos pais é executado no contexto Azure. Este livro de recortes chama um livro de crianças com o [cmdlet Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Tem de especificar o `RunOn` parâmetro e fornecer o nome do Trabalhador do Runbook Híbrido para o script ser executado. Consulte o exemplo de runbook [Update Management – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Para interagir com máquinas não-Azure, um livro de bordo dos pais é executado no contexto Azure. Este livro de recortes chama um livro de crianças com o [cmdlet Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook) Tem de especificar o `RunOn` parâmetro e fornecer o nome do Trabalhador do Runbook Híbrido para o script ser executado. Consulte o exemplo de runbook [Update Management – executar script localmente](https://github.com/azureautomation/update-management-run-script-locally).
 
 ## <a name="abort-patch-deployment"></a>Abortar implantação de patch
 
@@ -173,7 +173,7 @@ if (<My custom error logic>)
 
 ## <a name="samples"></a>Amostras
 
-As amostras para pré-scripts e pós-scripts podem ser encontradas na [Galeria script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) e na [PowerShell Gallery,](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)ou pode importá-las através do portal Azure. Para isso, na sua conta de Automação, em **Processo de Automação,** selecione **Runbooks Gallery**. Utilize **a Atualização De gestão** para o filtro.
+As amostras para pré-scripts e pós-scripts podem ser encontradas na [organização Azure Automation GitHub](https://github.com/azureautomation) e na [PowerShell Gallery,](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)ou pode importá-las através do portal Azure. Para isso, na sua conta de Automação, em **Processo de Automação,** selecione **Runbooks Gallery**. Utilize **a Atualização De gestão** para o filtro.
 
 ![Lista de galerias](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -186,7 +186,7 @@ Ou pode procurá-los pelo nome do guião, como mostra a seguinte lista:
 * Gestão de atualização - Executar script com comando de execução
 
 > [!IMPORTANT]
-> Depois de importar os livros, deve publicá-los antes de poderem ser usados. Para isso, encontre o livro de contas na sua conta de Automação, **selecione Editar**e, em seguida, selecione **Publicar**.
+> Depois de importar os livros, deve publicá-los antes de poderem ser usados. Para isso, encontre o livro de contas na sua conta de Automação, **selecione Editar** e, em seguida, selecione **Publicar**.
 
 As amostras são todas baseadas no modelo básico que é definido no exemplo seguinte. Este modelo pode ser usado para criar o seu próprio runbook para usar com pré-scripts e post-scripts. Está incluída a lógica necessária para autenticar com a Azure e manusear o `SoftwareUpdateConfigurationRunContext` parâmetro.
 
@@ -242,8 +242,8 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](../automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pode utilizar estes cmdlets ou [atualizar os seus módulos](../automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter detalhes sobre a gestão da atualização, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).
+Para obter detalhes sobre a gestão da atualização, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).

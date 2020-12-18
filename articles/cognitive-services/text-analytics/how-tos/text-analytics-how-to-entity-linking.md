@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656296"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683361"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -52,7 +52,7 @@ Denominado Reconhecimento de Entidade v3.1-pré-visualização.3 inclui as capac
 * Um parâmetro opcional `domain=phi` para detetar informações confidenciais de saúde `PHI` ().
 * [Operação assíncronea](text-analytics-how-to-call-api.md) utilizando o `/analyze` ponto final.
 
-Para mais informações, consulte o artigo [das categorias de entidades](../named-entity-types.md) e solicite a secção [pontos finais](#request-endpoints) abaixo. 
+Para mais informações, consulte o artigo [das categorias de entidades](../named-entity-types.md) e solicite a secção [pontos finais](#request-endpoints) abaixo. Para obter mais informações sobre os resultados de confiança, consulte a [nota de transparência text Analytics](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="sending-a-rest-api-request"></a>Envio de um pedido de API REST
 
@@ -481,7 +481,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidade que liga usan
 * Os pedidos de CORREIO são enviados para um ou mais pontos finais, utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 * A saída de resposta, que consiste em entidades ligadas (incluindo pontuações de confiança, compensações e links web, para cada ID do documento) pode ser utilizada em qualquer aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)

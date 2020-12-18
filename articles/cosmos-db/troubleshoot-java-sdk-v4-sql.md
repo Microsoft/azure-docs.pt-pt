@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 4753f7c0b8b5e515d33da3f9df48a2cdd9d921cc
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017581"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683116"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Problemas de resolução de problemas quando utiliza Azure Cosmos DB Java SDK v4 com contas API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "96017581"
 >
 
 Este artigo abrange questões comuns, soluções alternativas, passos de diagnóstico e ferramentas quando utiliza a Azure Cosmos DB Java SDK v4 com contas Azure Cosmos DB SQL API.
-Azure Cosmos DB Java SDK v4 fornece representação lógica do lado do cliente para aceder à API API API AZURE Cosmos DB SQL. Este artigo descreve as ferramentas e abordagens para o ajudar se encontrar problemas.
+Azure Cosmos DB Java SDK v4 fornece representação lógica do lado do cliente para aceder à API AZURE Cosmos DB SQL. Este artigo descreve as ferramentas e abordagens para o ajudar se encontrar problemas.
 
 Comece com esta lista:
 
@@ -38,6 +38,13 @@ Comece com esta lista:
 * Veja o Java SDK no Azure Cosmos DB central repo, que está disponível [fonte aberta no GitHub.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) Tem uma [secção de problemas](https://github.com/Azure/azure-sdk-for-java/issues) que é monitorizada ativamente. Verifique se algum problema semelhante com uma solução já está arquivado. Uma dica útil é filtrar as questões pela etiqueta *cosmos:v4 item.*
 * Reveja as dicas de [desempenho](performance-tips-java-sdk-v4-sql.md) para Azure Cosmos DB Java SDK v4, e siga as práticas sugeridas.
 * Leia o resto deste artigo, se não encontrou uma solução. Em seguida, arquivar um [problema gitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se houver uma opção para adicionar tags à sua edição do GitHub, adicione uma etiqueta *cosmos:v4 item.*
+
+### <a name="retry-logic"></a>Lógica de Retíria <a id="retry-logics"></a>
+Cosmos DB SDK em qualquer falha de IO tentará voltar a tentar a operação falhada se for viável novamente no SDK. Ter uma nova agem para qualquer falha é uma boa prática, mas especificamente lidar/tentar falhar a escrita é uma obrigação. Recomenda-se usar o mais recente SDK, uma vez que a lógica de retíria está continuamente a ser melhorada.
+
+1. As falhas de IO de leitura e consulta serão novamente julgadas pelo SDK sem as deixar em cima do utilizador final.
+2. As escritas (Criar, Aumentar, Substituir, Excluir) são "não" idempotentes e, portanto, a SDK nem sempre pode voltar a tentar cegamente as operações de escrita falhadas. É necessário que a lógica de aplicação do utilizador lide com a falha e relemque.
+3. [Problemas de tiro sdk disponibilidade](troubleshoot-sdk-availability.md) explica retréis para contas de Cosmos DB multi-região.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comuns e soluções
 

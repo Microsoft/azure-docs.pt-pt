@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559019"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683527"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
@@ -68,7 +68,7 @@ O significado do conteúdo médico é altamente afetado por modificadores como a
 
 ---
 
-Consulte as [categorias de entidades devolvidas](../named-entity-types.md?tabs=health) pela Text Analytics para obter uma lista completa de entidades apoiadas.
+Consulte as [categorias de entidades devolvidas](../named-entity-types.md?tabs=health) pela Text Analytics para obter uma lista completa de entidades apoiadas. Para obter informações sobre as pontuações de confiança, consulte a [nota de transparência text Analytics](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### <a name="supported-languages-and-regions"></a>Línguas e regiões apoiadas
 
@@ -136,7 +136,7 @@ Uma vez que este pedido DE POST é usado para submeter um trabalho para a opera�
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
 
-Para verificar o estado do trabalho, faça um pedido GET ao URL no valor do cabeçalho CHAVE de localização de operação da resposta POST.  Os seguintes Estados são utilizados para refletir o estatuto de trabalho: `NotStarted` , , , , , e `running` `succeeded` `failed` `rejected` `cancelling` `cancelled` .  
+Para verificar o estado do trabalho, faça um pedido GET ao URL no valor do cabeçalho CHAVE de localização de operação da resposta POST.  Os seguintes Estados são utilizados para refletir o estatuto de trabalho: `NotStarted` `running` , e `succeeded` `failed` `rejected` `cancelling` `cancelled` .  
 
 Pode cancelar um trabalho com um `NotStarted` ou estado com uma chamada DELETE HTTP para o mesmo URL que o pedido `running` GET.  Mais informações sobre a chamada DELETE estão disponíveis no [Text Analytics para referência de API hospedada em saúde](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
 
@@ -436,7 +436,7 @@ A saída de extração de relação contém referências URI à *origem* da rela
 ]
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Categorias de entidades nomeadas](../named-entity-types.md)
