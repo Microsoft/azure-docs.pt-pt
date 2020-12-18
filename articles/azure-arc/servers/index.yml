@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/07/2020
   ms.author: magoedte
-  ms.openlocfilehash: 25d70341fb96e6458a15770ab49c28f3e8248385
-  ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+  ms.openlocfilehash: 3bdb85eea2f1227a566041badf11539923e7df44
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/17/2020
-  ms.locfileid: "97615635"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97672479"
 landingContent:
 - title: Ligar computadores ao Azure com servidores preparados para o Azure Arc
   linkLists:
@@ -24,8 +24,6 @@ landingContent:
       url: overview.md
   - linkListType: get-started
     links:
-    - text: Jumpstart
-      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
     - text: Ligar computadores ao Azure Arc no portal do Azure
       url: onboard-portal.md
     - text: Ligar computadores em escala através do principal de serviço
@@ -38,6 +36,12 @@ landingContent:
     links:
     - text: Implementar agente de servidor compatível com Arc
       url: ./learn/quick-enable-hybrid-vm.md
+- title: Prova de conceito
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Jumpstart
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
 - title: Arquitetura de referência
   linkLists:
   - linkListType: architecture

@@ -110,6 +110,8 @@
       items:
         - name: Métrica de capacidade
           href: api-management-capacity.md
+        - name: Planear e gerir custos
+          href: plan-manage-costs.md
         - name: Atualizar e dimensionar
           href: upgrade-and-scale.md
         - name: Configurar dimensionamento automático

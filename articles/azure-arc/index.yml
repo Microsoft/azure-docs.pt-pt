@@ -10,19 +10,19 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 09/23/2020
-  ms.openlocfilehash: 14f7497d350da7afb3d3767340ff593e2b411194
-  ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+  ms.openlocfilehash: 8536c583350e15e63f36a1f8adc3e6c51a9f28ac
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/17/2020
-  ms.locfileid: "97616988"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97672530"
 highlightedContent:
   items:
   - title: Sobre o Azure Arc
     itemType: overview
     url: overview.md
   - title: Jumpstart
-    itemType: quickstart
+    itemType: sample
     url: https://azurearcjumpstart.io/overview/
   - title: Servidores preparados para o Azure Arc
     itemType: overview

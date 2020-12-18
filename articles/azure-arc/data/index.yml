@@ -10,12 +10,12 @@ metadata:
   author: MikeRayMSFT
   ms.author: mikeray
   ms.date: 12/16/2020
-  ms.openlocfilehash: d36112882fd134fc16ae6c8b463114ec2bbef447
-  ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+  ms.openlocfilehash: a3f90834c3b4d68e96b02361643bf32786670e84
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/17/2020
-  ms.locfileid: "97615914"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97673916"
 landingContent:
 - title: Sobre
   linkLists:
@@ -33,8 +33,6 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Jumpstart
-      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
     - text: Criar controlador de dados
       url: create-data-controller.md
     - text: Instalar ferramentas de cliente
@@ -63,3 +61,9 @@ landingContent:
       url: migrate-to-managed-instance.md
     - text: Restauro
       url: restore-adventureworks-sample-db.md
+- title: Prova de conceito
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Jumpstart
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/

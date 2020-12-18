@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: 
-  ms.openlocfilehash: 88d9ba51815496e7d8ec4ab3d22195c5b42c317b
-  ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+  ms.openlocfilehash: 9eeddfefe451eb524484df8a1986c7ec736c4c0f
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/17/2020
-  ms.locfileid: "97616971"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97674377"
 landingContent:
 - title: Ligar clusters Kubernetes ao Azure utilizando Azure Arc
   linkLists:
@@ -24,8 +24,6 @@ landingContent:
       url: overview.md
   - linkListType: quickstart
     links:
-    - text: Jumpstart
-      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
     - text: Ligar cluster
       url: connect-cluster.md
   - linkListType: how-to-guide
@@ -38,6 +36,12 @@ landingContent:
       url: use-azure-policy.md
     - text: Implementar cargas de trabalho do Azure IoT Edge
       url: deploy-azure-iot-edge-workloads.md
+- title: Prova de conceito
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Jumpstart
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
 - title: Arquitetura de referência
   linkLists:
   - linkListType: architecture
