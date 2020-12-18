@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ba4d245329c8edad411fcca0398fc3810b833178
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ac85fc0478f4e775b92de21cf931358d63aa95b4
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458018"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Diretório Ativo Azure com a AppDynamics
 
@@ -65,7 +65,7 @@ Para configurar a integração da AppDynamics no AD Azure, é necessário adicio
 
 4. Na caixa de pesquisa, **digite AppDynamics,** selecione **AppDynamics** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![AppDynamics na lista de resultados](common/search-new-app.png)
+    ![AppDynamics na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD com um único sign-on com AppDynamics, execute os seg
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa AppDynamics como administrador.
 
-1. Na barra de ferramentas na parte superior, clique em **Definições**e, em seguida, clique em **Administração**.
+1. Na barra de ferramentas na parte superior, clique em **Definições** e, em seguida, clique em **Administração**.
 
     ![Administration](./media/appdynamics-tutorial/ic790216.png "Administração")
 
@@ -138,7 +138,7 @@ Para configurar o Azure AD com um único sign-on com AppDynamics, execute os seg
 
 1. Na secção **Fornecedor de Autenticação,** execute os seguintes passos:
 
-   ![Configuração SAML](./media/appdynamics-tutorial/ic790225.png "Configuração SAML")
+    ![Configuração SAML](./media/appdynamics-tutorial/ic790225.png "Configuração SAML")
 
    a. Como **Fornecedor de Autenticação**, selecione **SAML**.
 
@@ -167,7 +167,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a AppDynamics.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **AppDynamics**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **AppDynamics**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

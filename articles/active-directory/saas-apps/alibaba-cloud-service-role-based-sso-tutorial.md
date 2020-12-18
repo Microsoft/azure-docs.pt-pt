@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: ef057b64fa04387d0ebec5a6e5c38f0e06c55a7d
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c9db5ab471f743ffbf3ae4e140ad4cb32d0a3d6c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368975"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o Alibaba Cloud Service (SSO baseado em funções)
 
@@ -76,7 +76,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** se tiver **um ficheiro de metadados do Fornecedor de Serviços,** execute os seguintes passos:
 
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
 
-    
+
     >[!NOTE]
     >1. Para o Site Internacional da Alibaba Cloud, descarregue os metadados do Fornecedor de [Serviços a](https://signin.alibabacloud.com/saml-role/sp-metadata.xml) partir deste link.
     > 1. Para o Site do Serviço de Nuvem alibaba (CN), descarregue os metadados do Fornecedor de [Serviços a](https://signin.aliyun.com/saml-role/sp-metadata.xml) partir deste link.
@@ -184,17 +184,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     f. Volte para o Graph Explorer, altere o método de **GET** para **PATCH,** cole o seguinte conteúdo na secção **'Corpo pedido'** e clique em **''' 'Executar's' (')**
     ```
     { 
-    "appRoles": [
+      "appRoles": [
         { 
-        "allowedMemberTypes":[
+          "allowedMemberTypes":[
             "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
+          ],
+          "description": "msiam_access",
+          "displayName": "msiam_access",
+          "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+          "isEnabled": true,
+          "origin": "Application",
+          "value": null
         },
         { "allowedMemberTypes": [
             "User"
@@ -206,7 +206,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
         "origin": "ServicePrincipal",
         "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
         }
-    ]
+      ]
     }
     ```
     > [!NOTE]

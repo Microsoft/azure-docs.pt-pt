@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 835ee5f1c9da081618ed314c694f578a6e9f4aee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8181718d6524c78e036f6953ebff73217acab890
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455396"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Tutorial: Integração do Diretório Ativo Azure com a Condeco
 
@@ -65,7 +65,7 @@ Para configurar a integração do Condeco no AD Azure, precisa adicionar o Conde
 
 4. Na caixa de pesquisa, **digite Condeco,** selecione **Condeco** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Condeco na lista de resultados](common/search-new-app.png)
+    ![Condeco na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

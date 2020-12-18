@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 781ce1fbc8bca0fb816a57d87903d253341414e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 014a394e72b09abf7adcd881e874a965daa6ecb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455515"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integração do Diretório Ativo Azure com a CompetênciaIQ
 
@@ -63,7 +63,7 @@ Para configurar a integração do CompetencyIQ no AD Azure, é necessário adici
 
 4. Na caixa de pesquisa, **digite CompetencyIQ,** selecione **CompetencyIQ** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![CompetênciaIQ na lista de resultados](common/search-new-app.png)
+    ![CompetênciaIQ na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

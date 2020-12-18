@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: b3cbda70fd836482448aa381f6e781ed15666f2c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5bad2293078711456ff06d998c43b87ecc1c9b76
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675172"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674276"
 ---
 # <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Python para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,22 +30,13 @@ Para concluir este guia de início rápido, precisa de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-  | Ação | SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
-  |:--- |:--- |:---|:---|
-  | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Configurar | [Regra de firewall IP de nível de servidor](firewall-create-server-level-portal-quickstart.md)| [Conectividade de um VM](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md) | [Ligue-se a uma instância do Servidor SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Carregar dados|Obras de Aventura carregadas por quickstart|[Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md) | [Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 - [Python](https://python.org/downloads) 3 e software relacionado
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Para instalar o Homebrew e o Python, o controlador ODBC e o SQLCMD, e o controlador Python para o SQL Server, utilize os passos **1.2** , **1.3** e **2.1** na [criação de aplicações Python utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+  Para instalar o Homebrew e o Python, o controlador ODBC e o SQLCMD, e o controlador Python para o SQL Server, utilize os passos **1.2**, **1.3** e **2.1** na [criação de aplicações Python utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   Para mais informações, consulte [o controlador microsoft ODBC no macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
@@ -64,24 +55,13 @@ Para concluir este guia de início rápido, precisa de:
   Para mais informações, consulte [o controlador microsoft ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
 
 ---
-
-> [!IMPORTANT]
-> Os scripts deste artigo são escritos para usar a base de dados **Adventure Works.**
-
-> [!NOTE]
-> Pode optar opcionalmente por utilizar uma Instância Gerida Azure SQL.
->
-> Para criar e configurar, utilize o [portal Azure](../managed-instance/instance-create-quickstart.md), [PowerShell,](../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou o [CLI,](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)e, em seguida, instale [no local](../managed-instance/point-to-site-p2s-configure.md) ou conectividade [VM.](../managed-instance/connect-vm-instance-configure.md)
->
-> Para carregar dados, consulte [restaurar com BACPAC](database-import.md) com o ficheiro [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) ou ver restaurar a base [de dados de importadores do Mundo Largo.](../managed-instance/restore-sample-database-quickstart.md)
-
 Para explorar ainda mais a Python e a base de dados na Base de Dados Azure SQL, consulte [as bibliotecas de bases de dados Azure SQL para Python,](/python/api/overview/azure/sql)o [repositório de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/)e uma [amostra de pyodbc.](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 
 Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Aceda à página **SQL Databases** ou **SQL Managed Instances.**
 
@@ -92,7 +72,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 ## <a name="create-code-to-query-your-database"></a>Crie código para consultar a sua base de dados 
 
-1. Num editor de texto, crie um novo ficheiro chamado *sqltest.py* .  
+1. Num editor de texto, crie um novo ficheiro chamado *sqltest.py*.  
    
 1. Adicione o seguinte código. Substitua os seus próprios valores \<server> \<database> \<username> por, e \<password> .
    
@@ -109,7 +89,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
    
    with pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
        with conn.cursor() as cursor:
-           cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+           cursor.execute("SELECT TOP 3 name, collation_name FROM sys.databases")
            row = cursor.fetchone()
            while row:
                print (str(row[0]) + " " + str(row[1]))

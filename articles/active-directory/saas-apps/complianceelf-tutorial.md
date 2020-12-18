@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
-ms.openlocfilehash: ecd4dd41c0da57770c248f1f71193af8f1daa6d4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c27add82766516157d56fcf0a5c94123930112fc
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455464"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Azure Ative Directory com Compliance ELF
 
@@ -63,7 +63,7 @@ Para configurar a integração do Compliance ELF em Azure AD, é necessário adi
 
 4. Na caixa de pesquisa, **digite Compliance ELF**, selecione **Compliance ELF** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![ELF de conformidade na lista de resultados](common/search-new-app.png)
+    ![ELF de conformidade na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -137,7 +137,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

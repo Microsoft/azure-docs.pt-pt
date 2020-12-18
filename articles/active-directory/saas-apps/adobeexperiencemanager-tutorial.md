@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d82fa5b44d4797d4254a91b4caa72b7c6b5e02ab
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9a98a77b9cc89b7a1a05e676048775aa38c83733
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309231"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integração do Azure Ative Directory com o Adobe Experience Manager
 
@@ -65,7 +65,7 @@ Para configurar a integração do Adobe Experience Manager no Azure AD, é neces
 
 4. Na caixa de pesquisa, **digite Adobe Experience Manager**, selecione **Adobe Experience Manager** do painel de resultados e clique em Adicionar botão **adicionar** a aplicação.
 
-     ![Adobe Experience Manager na lista de resultados](common/search-new-app.png)
+    ![Adobe Experience Manager na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 1. Noutra janela do navegador, abra o portal de administração **Adobe Experience Manager.**
 
-2. Selecione **Definições**  >  **Utilizadores de segurança**  >  **Users**.
+2. Selecione **Definições**  >  **Utilizadores de segurança**  >  .
 
     ![Screenshot que mostra o azulejo dos Utilizadores no Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
@@ -215,7 +215,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -253,7 +253,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 Nesta secção, cria-se um utilizador chamado Britta Simon in Adobe Experience Manager. Se selecionou a opção **Utilizadores de CRX de Autocreate,** os utilizadores são criados automaticamente após a autenticação bem sucedida.
 
-Se pretender criar utilizadores manualmente, trabalhe com a equipa de suporte do [Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html)para adicionar os   utilizadores na plataforma Adobe Experience Manager.
+Se pretender criar utilizadores manualmente, trabalhe com a equipa de suporte do [Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) para adicionar os utilizadores na plataforma Adobe Experience Manager.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

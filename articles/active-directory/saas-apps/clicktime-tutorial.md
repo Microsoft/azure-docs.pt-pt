@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: c184d4758d6435659d737c11904357711f4f0a36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3337d66934c1fe317296cffaa9a663e212cce12d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455878"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Diretório Ativo Azure com o ClickTime
 
@@ -63,7 +63,7 @@ Para configurar a integração do ClickTime no AD Azure, é necessário adiciona
 
 4. Na caixa de pesquisa, escreva **ClickTime**, selecione **ClickTime** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![ClickTime na lista de resultados](common/search-new-app.png)
+    ![ClickTime na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
     a. Na caixa de texto **identifier,** digite um URL: `https://app.clicktime.com/sp/`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
-    
+
     ```http
     https://app.clicktime.com/Login/
     https://app.clicktime.com/App/Login/Consume.aspx
@@ -128,18 +128,18 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa ClickTime como administrador.
 
-1. Na barra de ferramentas na parte superior, clique em **Preferências**e, em seguida, clique em **Definições de Segurança**.
+1. Na barra de ferramentas na parte superior, clique em **Preferências** e, em seguida, clique em **Definições de Segurança**.
 
 1. Na secção de configuração **De Preferências de Sign-On Única,** execute os seguintes passos:
-   
+
     ![Definições de segurança](./media/clicktime-tutorial/tic777280.png "Definições de Segurança")
-   
+
     a.  Selecione **Permitir o** acesso ao Sign-On único (SSO) com **Azure AD**.
-   
+
     b. Na caixa de texto do **Fornecedor de Identidade Endpoint,** cole **URL de login** que copiou do portal Azure.
-   
+
     c.  Abra o **certificado codificado base-64** descarregado do portal Azure no Bloco de **Notas,** copie o conteúdo e, em seguida, cole-o na caixa de texto **do Certificado X.509.**
-   
+
     d.  Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
@@ -159,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -171,7 +171,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao ClickTime.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **ClickTime**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **ClickTime**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -206,24 +206,24 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
 1. Faça login no seu inquilino **ClickTime.**
 
 1. Na barra de ferramentas no topo, clique em **'Empresa'** e, em seguida, clique em **People**.
-   
+
     ![A screenshot mostra o inquilino ClickTime com empresa e pessoas selecionadas.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Clique **em Adicionar Pessoa.**
-   
+
     ![Adicionar Pessoa](./media/clicktime-tutorial/tic777283.png "Adicionar Pessoa")
 
 1. Na secção Pessoa Nova, execute os seguintes passos:
-   
+
     ![A screenshot mostra a secção Add Person onde pode adicionar as informações neste passo.](./media/clicktime-tutorial/tic777284.png "People")
-   
+
     a.  Na caixa de texto **com nome completo,** escreva o nome completo de um utilizador como **Britta Simon**. 
-  
-    b.  Na caixa de texto do **endereço de e-mail,** escreva o e-mail do utilizador como ** \@ brittasimon contoso.com**.
-       
+
+    b.  Na caixa de texto do **endereço de e-mail,** escreva o e-mail do utilizador como **\@ brittasimon contoso.com**.
+
     > [!NOTE]
     > Se quiser, pode definir propriedades adicionais do objeto da nova pessoa.
-   
+
     c.  Clique em **Guardar**.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 

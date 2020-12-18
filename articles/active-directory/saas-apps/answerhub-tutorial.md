@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ef09ef7d2ca6dd68def732831f9341dcd3aa6d62
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 284ec65955de60f41d7bb0f97bf608faba3d4b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458086"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Diretório Ativo Azure com o AnswerHub
 
@@ -53,7 +53,7 @@ Para configurar a integração do AnswerHub no Azure AD, precisa de adicionar o 
 
     ![Botão de diretório ativo Azure](common/select-azuread.png)
 
-2. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+2. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 
     ![Lâmina de aplicações empresariais](common/enterprise-applications.png)
 
@@ -63,7 +63,7 @@ Para configurar a integração do AnswerHub no Azure AD, precisa de adicionar o 
 
 4. Na caixa de pesquisa, insira **o AnswerHub**. Selecione **AnswerHub** na lista de resultados e, em seguida, **selecione Adicionar**.
 
-     ![AnswerHub na lista de resultados](common/search-new-app.png)
+    ![AnswerHub na lista de resultados](common/search-new-app.png)
 
 ## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurar e testar a Azure AD um único sinal de inscrição
 
@@ -141,13 +141,13 @@ Nesta secção, configurar um único sº de sção para o AnswerHub.
 4. No separador **IDP Config,** complete estes passos:
 
     ![O Screenshot mostra a página AnswerHub com o separador Grupos & dos Utilizadores selecionados.](./media/answerhub-tutorial/ic785172.png "Configuração SAML")  
-  
+
     a. Na caixa de URL de login do **IDP,** cole o **URL de login** que copiou do portal Azure.
-  
+
     b. Na caixa **URL do IDP Logout,** cole o **URL logout** que copiou do portal Azure.
 
     c. Na caixa **IDP Name Identifier Format,** insira o valor **identificador** selecionado na secção **Atributos** do Utilizador no portal Azure.
-  
+
     d. Selecione **Chaves e Certificados**.
 
 5. Na secção **Chaves e Certificados,** complete estes passos:
@@ -155,7 +155,7 @@ Nesta secção, configurar um único sº de sção para o AnswerHub.
     ![Secção de Chaves e Certificados](./media/answerhub-tutorial/ic785173.png "Chaves e Certificados")  
 
     a. Abra o certificado codificado base64 que descarregou do portal Azure no Bloco de Notas, copie o seu conteúdo e, em seguida, cole o conteúdo na caixa **de Chave Pública IDP (formato x509).**
-  
+
     b. Selecione **Guardar**.
 
 6. No separador **IDP Config,** selecione **Guardar** novamente.
@@ -179,7 +179,7 @@ Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Az
     ![Propriedades do utilizador](common/user-properties.png)
 
     a. Na caixa **Nome,** **insira BrittaSimon**.
-  
+
     b. Na caixa **de nome do utilizador,** **introduza brittasimon \@<a sua>de extensão.de>**.  
     Por exemplo, BrittaSimon@contoso.com.
 
@@ -193,7 +193,7 @@ Nesta secção, configura o utilizador Britta Simon para utilizar o Azure AD com
 
 **Para atribuir o utilizador de teste Azure AD:**
 
-1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **AnswerHub**.
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações** e, em seguida, selecione **AnswerHub**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -205,7 +205,7 @@ Nesta secção, configura o utilizador Britta Simon para utilizar o Azure AD com
 
     ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+4. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Adicionar painel de atribuição](common/add-assign-user.png)
 
@@ -231,9 +231,9 @@ Para que os utilizadores de Azure AD entrem no AnswerHub, tem de os adicionar no
 
 4. No painel esquerdo, na secção **Gerir utilizadores,** selecione **Criar ou importar utilizadores**, e, em seguida, selecione **Utilizadores & Grupos**.
 
-   ![O Screenshot mostra a página AnswerHub com o separador Grupos & dos Utilizadores selecionados e o link criar ou importar utilizadores chamado.](./media/answerhub-tutorial/ic785175.png "Grupos & utilizadores")
+    ![O Screenshot mostra a página AnswerHub com o separador Grupos & dos Utilizadores selecionados e o link criar ou importar utilizadores chamado.](./media/answerhub-tutorial/ic785175.png "Grupos & utilizadores")
 
-5. Nas caixas apropriadas, insira o **endereço de e-mail,** nome de **utilizador**e **palavra-passe** de uma conta AD Azure válida que pretende adicionar e, em seguida, selecione **Guardar**.
+5. Nas caixas apropriadas, insira o **endereço de e-mail,** nome de **utilizador** e **palavra-passe** de uma conta AD Azure válida que pretende adicionar e, em seguida, selecione **Guardar**.
 
 > [!NOTE]
 > Pode utilizar qualquer outra ferramenta de criação de conta de utilizador ou API fornecida pelo AnswerHub para configurar contas de utilizador Azure AD.

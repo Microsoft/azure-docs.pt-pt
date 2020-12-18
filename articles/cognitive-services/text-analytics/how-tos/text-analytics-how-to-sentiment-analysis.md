@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 62b6869f7269cbc21590e97ba0e2cbda79466832
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656279"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673058"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Como: Análise de sentimento e mineração de opinião
 
@@ -45,7 +45,7 @@ Os rótulos são *positivos,* *negativos* e *neutros.* Ao nível do documento, a
 | Pelo menos uma `negative` frase e pelo menos uma frase `positive` estão no documento.    | `mixed`                 |
 | Todas as frases do documento `neutral` são.                                                  | `neutral`               |
 
-Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Para cada documento ou para cada frase, as pontuações previstas associadas aos rótulos (positivos, negativos e neutros) somam até 1.
+Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Para cada documento ou para cada frase, as pontuações previstas associadas aos rótulos (positivos, negativos e neutros) somam até 1. Para mais informações, consulte a [nota de transparência text Analytics.](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context) 
 
 ## <a name="opinion-mining"></a>Mineração de Opinião
 

@@ -2,13 +2,13 @@
 title: Implementação condicional com modelos
 description: Descreve como implantar um recurso condicionalmente num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906000"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672853"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
 
@@ -90,5 +90,6 @@ Se implementar um modelo com [o modo completo](deployment-modes.md) e um recurso
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Para um módulo Microsoft Learn que cubra a implementação condicional, consulte [Gerir implementações complexas em nuvem utilizando funcionalidades avançadas do modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para recomendações sobre a criação de modelos, consulte [as melhores práticas do modelo ARM](template-best-practices.md).
 * Para criar múltiplas instâncias de um recurso, consulte [a iteração de recursos nos modelos ARM](copy-resources.md).

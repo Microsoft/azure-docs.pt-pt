@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 0725896c1357700cc0e05abfdaaa8acfa588f729
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a4b2af8626f69b6947950f87b99ed5a60692d8b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456582"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Diretório Ativo Azure com Tela
 
@@ -63,7 +63,7 @@ Para configurar a integração do Canvas em Azure AD, precisa adicionar Canvas d
 
 4. Na caixa de pesquisa, escreva **Tela**, selecione **Tela** do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Tela na lista de resultados](common/search-new-app.png)
+    ![Tela na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD com tela, execute os seguintes passos:
 
     ![Telas](./media/canvas-lms-tutorial/ic775990.png "Telas")
 
-3. No painel de navegação à esquerda, selecione **Autenticação**e, em seguida, clique em **Adicionar Novo SAML Config**.
+3. No painel de navegação à esquerda, selecione **Autenticação** e, em seguida, clique em **Adicionar Novo SAML Config**.
 
     ![Autenticação](./media/canvas-lms-tutorial/ic775991.png "Autenticação")
 
@@ -175,7 +175,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -187,7 +187,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Canvas.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Canvas**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Canvas**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -237,7 +237,7 @@ Para permitir que os utilizadores de Azure AD iniciem sessão na Tela, devem ser
 
    b. Na caixa de sms **do Email,** introduza o e-mail do utilizador como **o \@ brittasimon contoso.com**.
 
-   c. Na caixa de texto **do Login,** insira o endereço de e-mail Azure AD do utilizador como ** \@ brittasimon contoso.com**.
+   c. Na caixa de texto **do Login,** insira o endereço de e-mail Azure AD do utilizador como **\@ brittasimon contoso.com**.
 
    d. Selecione **Enviar por email o utilizador sobre esta criação de conta.**
 

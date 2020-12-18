@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 704449a9d70a38f9a05a68df290a4c0d0e6aeb54
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2aaa301a95f3f07ca81d20daba3ef28b812da0e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318916"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Tutorial: Integração do Azure Ative Directory com o Alcumus Info Exchange
 
@@ -63,7 +63,7 @@ Para configurar a integração do Alcumus Info Exchange em AZure AD, é necessá
 
 4. Na caixa de pesquisa, **digite Alcumus Info Exchange**, selecione **Alcumus Info Exchange** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Alcumus Info Exchange na lista de resultados](common/search-new-app.png)
+    ![Alcumus Info Exchange na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 ### <a name="create-alcumus-info-exchange-test-user"></a>Criar utilizador de teste de troca de informações alcumus
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in Alcumus Info Exchange. Trabalhe com a equipa de [suporte da Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) para adicionar os utilizadores na plataforma Alcumus Info Exchange. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Alcumus Info Exchange. Trabalhe com a equipa de [suporte da Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) para adicionar os utilizadores na plataforma Alcumus Info Exchange. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

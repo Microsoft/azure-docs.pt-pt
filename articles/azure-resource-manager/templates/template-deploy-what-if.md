@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563097"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673975"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operação what-if da implementação de modelos do Resource Manager
 
@@ -396,6 +396,7 @@ Pode utilizar a operação "e se" através dos Azure SDKs.
 ## <a name="next-steps"></a>Passos seguintes
 
 - Se notar resultados incorretos da operação "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
+- Para um módulo Microsoft Learn que cobre utilizando o que se, consulte [alterações de pré-visualização e valide os recursos do Azure utilizando o que-se e o kit de ferramentas de teste do modelo ARM](/learn/modules/arm-template-test/).
 - Para implementar modelos com Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
 - Para implementar modelos com Azure CLI, consulte [recursos de implantação com modelos ARM e Azure CLI](deploy-cli.md).
 - Para implementar modelos com REST, consulte [implementar recursos com modelos ARM e API do Gestor de Recursos](deploy-rest.md)REST .

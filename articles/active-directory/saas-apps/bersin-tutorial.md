@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 24b7eabbf992672d308881bf684896befea252ff
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7dc9bbe4b4f2d5de2a79dbdeabb4b61ecb02f2d7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457304"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Diretório Ativo Azure com a Bersin
 
@@ -63,7 +63,7 @@ Para configurar a integração da Bersin no AD Azure, precisa adicionar Bersin d
 
 4. Na caixa de pesquisa, **digite Bersin,** selecione **Bersin** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Bersin na lista de resultados](common/search-new-app.png)
+    ![Bersin na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -147,7 +147,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome,** **insira BrittaSimon**.
-  
+
     b. No campo **nome do utilizador,** **escreva brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -159,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Bersin.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bersin**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Bersin**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

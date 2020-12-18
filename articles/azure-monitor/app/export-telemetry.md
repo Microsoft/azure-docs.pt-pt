@@ -3,12 +3,12 @@ title: Exportação contínua de telemetria a partir de Insights de Aplicação 
 description: Exporte dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregue-os a partir daí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324340"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674142"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Deseja manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de uma forma especializada? Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código necessário para os processar.  
@@ -37,6 +37,9 @@ A Exportação Contínua **não suporta** as seguintes funcionalidades/configura
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Criar uma Exportação Contínua
+
+> [!NOTE]
+> Um pedido não pode exportar mais de 3TB de dados por dia. Se for exportado mais de 3TB por dia, a exportação será desativada. Para exportar sem limite, utilize [a exportação baseada em configurações de diagnóstico.](#diagnostic-settings-based-export)
 
 1. No recurso Application Insights para a sua app em configuração à esquerda, abra exportação contínua e escolha **Adicionar:**
 
@@ -120,7 +123,7 @@ Onde
 ## <a name="data-format"></a><a name="format"></a> Formato de dados
 * Cada bolha é um ficheiro de texto que contém várias linhas separadas de '\n'. Contém a telemetria processada durante um período de tempo de cerca de meio minuto.
 * Cada linha representa um ponto de dados de telemetria, como um pedido ou vista de página.
-* Cada linha é um documento JSON não testado. Se quiser ver as linhas, abra a bolha no Estúdio Visual e escolha **Editar**  >  Ficheiro de Formato**Avançado:**  >  **Format File**
+* Cada linha é um documento JSON não testado. Se quiser ver as linhas, abra a bolha no Estúdio Visual e escolha **Editar**  >  Ficheiro de Formato **Avançado:**  >  
 
    ![Ver a telemetria com uma ferramenta adequada](./media/export-telemetry/06-json.png)
 
@@ -200,13 +203,26 @@ Em escalas maiores, considere [hdInsight](https://azure.microsoft.com/services/h
     Edite a exportação e abra o separador destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação vai recomeçar. Se a mudança foi nos últimos dias, não perderá dados.
 * *Posso parar a exportação?*
 
-    Sim. Clique em Disable.
+    Yes. Clique em Disable.
 
 ## <a name="code-samples"></a>Exemplos de código
 
 * [Amostra de Stream Analytics](export-stream-analytics.md)
 * [Exportar para o SQL com o Stream Analytics][exportasa]
 * [Referência detalhada do modelo de dados para os tipos e valores da propriedade.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>Exportação baseada em definições de diagnóstico
+
+As definições de diagnóstico baseadas na exportação utilizam um esquema diferente do que a exportação contínua. Também suporta características que a exportação contínua não gosta:
+
+* Contas de armazenamento Azure com vnet, firewalls e links privados.
+* Exportação para centro de eventos.
+
+Migrar para as definições de diagnóstico baseadas na exportação:
+
+1. Desative a exportação contínua atual.
+2. [Migrar a aplicação para o espaço de trabalho.](convert-classic-resource.md)
+3. [Permitir a exportação de configurações de diagnóstico](create-workspace-resource.md#export-telemetry). Selecione **definições de diagnóstico > adicione a definição** de diagnóstico a partir do seu recurso Application Insights.
 
 <!--Link references-->
 

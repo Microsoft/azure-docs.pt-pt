@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f992969cf50bb03df7091e0015c936a794946a6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d458d94a4bee4fce523819af2fd3e555db6e70df
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455593"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Azure Ative Directory com o Comeet Recruiting Software
 
@@ -63,7 +63,7 @@ Para configurar a integração do Software de Recrutamento de Comeet em AZure AD
 
 4. Na caixa de pesquisa, **digite Comeet Recruiting Software**, selecione **Comeet Recruiting Software** a partir do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Software de Recrutamento de Comeet na lista de resultados](common/search-new-app.png)
+    ![Software de Recrutamento de Comeet na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -178,7 +178,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 20f66621368840b5d496000186e6be0e36aff19a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319204"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutorial: Integração do Diretório Ativo Azure com 15Five
 
@@ -63,7 +63,7 @@ Para configurar a integração de 15Five em AD Azure, precisa adicionar 15Five d
 
 4. Na caixa de pesquisa, tipo **15Five**, selecione **15Five** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![15Five na lista de resultados](common/search-new-app.png)
+    ![15Five na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a 15Five.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **15Five**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **15Five**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -199,7 +199,7 @@ Para permitir que os utilizadores de Azure AD entrem em 15Five, devem ser a prov
 
     a. Digite o **Nome Inicial**, **Apelido,** **Título**, Endereço de **e-mail** de uma conta de Diretório Ativo Azure válida que pretenda apresentar nas caixas de texto relacionadas.
 
-    b. Clique em **Done** (Concluído).
+    b. Clique em **Concluído**.
 
     > [!NOTE]
     > O titular da conta Azure AD recebe um e-mail incluindo um link para confirmar a conta antes de ficar ativa.

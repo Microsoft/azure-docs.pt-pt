@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 7ac237c7dd2e11d9acc5230608283aa2ba432a68
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 03a216f24013413fd03de9ae71eb599fd1334998
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456352"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: Integração do Diretório Ativo Azure com Certos Admin SSO
 
@@ -63,7 +63,7 @@ Para configurar a integração de Certain Admin SSO em Adure AD, você precisa a
 
 4. Na caixa de pesquisa, **digite Certain Admin SSO**, selecione **Certain Admin SSO** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![Certo SSO de administrador na lista de resultados](common/search-new-app.png)
+    ![Certo SSO de administrador na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

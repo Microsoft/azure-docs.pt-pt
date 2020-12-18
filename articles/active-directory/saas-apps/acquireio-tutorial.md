@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 78f473a7c4b10475c6c206764ce526c70fa056fe
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5fe070bc1abe0592b3082c597c1812781335448a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313354"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673193"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutorial: Azure Ative Directy integração única (SSO) com AcquireIO
 
@@ -73,7 +73,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
@@ -106,11 +106,11 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à AcquireIO.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **AcquireIO**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
@@ -134,7 +134,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Do lado esquerdo do menu, clique na **App Store.**
 
-     ![Screenshot que destaca a App Store.](./media/acquireio-tutorial/config01.png)
+    ![Screenshot que destaca a App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Desloque-se até ao **Ative Directory** e clique em **Instalar**.
 
@@ -162,7 +162,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na AcquireIO, devem s
 
 1. A partir do lado esquerdo do menu, clique em **Perfis** e navegue para **Adicionar Perfil**.
 
-     ![Screenshot que destaca perfis no menu no lado esquerdo do ecrã, bem como a opção Adicionar Perfil.](./media/acquireio-tutorial/config04.png)
+    ![Screenshot que destaca perfis no menu no lado esquerdo do ecrã, bem como a opção Adicionar Perfil.](./media/acquireio-tutorial/config04.png)
 
 1. No pop-up do **cliente Add,** execute os seguintes passos:
 
@@ -182,9 +182,9 @@ Quando clicar no azulejo AcquireIO no Painel de Acesso, deverá ser automaticame
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 

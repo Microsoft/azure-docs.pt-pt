@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ff5c3d09adaba34672a4c934411a6e12b7b65be2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ac77203d395a76079fcf2a44b2081193d0e7fd72
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455365"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-consent2go"></a>Tutorial: Integração do Diretório Ativo Azure com o Consent2Go
 
@@ -63,7 +63,7 @@ Para configurar a integração do Consent2Go no AD Azure, é necessário adicion
 
 4. Na caixa de pesquisa, **escreva Consent2Go**, selecione **Consent2Go** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Consent2Go na lista de resultados](common/search-new-app.png)
+    ![Consent2Go na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -128,7 +128,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

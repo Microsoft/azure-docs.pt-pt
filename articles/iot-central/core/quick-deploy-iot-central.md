@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c5847f686e0712370a1de898eca5735608671e9a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548533"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670898"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Quickstart - Criar uma aplicação Azure IoT Central
 
@@ -41,15 +41,14 @@ Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplica
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Informações de faturação Azure IoT Central":::
 
-    > [!NOTE]
+    > [!Tip]
     > Se escolher **a aplicação Custom** na página anterior, verá um **dropdown do modelo de aplicação.** O dropdown pode mostrar outros modelos que foram disponibilizados por você pela sua organização.
-
-    >[!IMPORTANT]
-    >O modelo **de aplicação personalizada (legado)** (V2) foi retirado, uma vez que todas as capacidades anteriormente disponíveis no modelo de aplicação legado estão agora disponíveis no mais recente modelo **de aplicação personalizada** (V3).
 
 1. Opte por criar esta aplicação utilizando o plano de preços gratuitos de 7 dias, ou um dos planos de preços padrão:
 
     - As aplicações que cria usando o plano *gratuito* são gratuitas durante sete dias e suportam até cinco dispositivos. Pode convertê-los para usar um plano de preços padrão a qualquer momento antes de expirarem.
+        > [!NOTE]
+        > As aplicações criadas através do plano *gratuito* não requerem uma subscrição do Azure, pelo que não as encontrará listadas na subscrição do Azure no portal Azure. Só é possível ver e gerir aplicações gratuitas a partir do portal IoT Central.          
     - As aplicações que cria usando um plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 0,** **Standard 1** ou **Standard 2,** com os dois primeiros dispositivos a serem gratuitos. Saiba mais sobre os planos de preços gratuitos e padrão na página de preços da [Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Se criar uma aplicação utilizando um plano de preços padrão, tem de selecionar o seu *Diretório,* *Subscrição Azure* e *Localização*:
         - *O Diretório* é o Diretório Ativo Azure no qual cria a sua aplicação. Um Diretório Ativo Azure contém identidades de utilizador, credenciais e outras informações organizacionais. Se não tiver um Diretório Ativo Azure, um é criado para si quando cria uma subscrição do Azure.
         - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. A IoT Central fornece recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criar uma gratuitamente na página de inscrição do [Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição do Azure, volte à página de **aplicação Nova.** A sua nova subscrição aparece agora na entrega da **Subscrição Azure.**

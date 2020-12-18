@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 92a878c60ba2a7c08a17ce2833132b389ef49435
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9b6fcec6f564e944f0e73d151b61d46af4b4cc03
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318737"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Tutorial: Integração do Diretório Ativo Azure com o Anaplan
 
@@ -63,7 +63,7 @@ Para configurar a integração do Anaplan em Azure AD, é necessário adicionar 
 
 4. Na caixa de pesquisa, **digite Anaplan,** selecione **Anaplan** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Anaplan na lista de resultados](common/search-new-app.png)
+    ![Anaplan na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-anaplan-test-user"></a>Criar utilizador de teste Anaplan
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Anaplan. Trabalhe com a [equipa de apoio da Anaplan](mailto:support@anaplan.com) para adicionar os utilizadores na plataforma Anaplan. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Anaplan. Trabalhe com a [equipa de apoio da Anaplan](mailto:support@anaplan.com) para adicionar os utilizadores na plataforma Anaplan. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

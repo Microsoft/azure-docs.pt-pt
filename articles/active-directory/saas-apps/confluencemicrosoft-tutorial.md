@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b0cdfd76ed5e7ae20800b52e6074809de12a8b5f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: adee491625cec3b4a22cc7b3d1f3ba17595d9e87
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031492"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673258"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft
 
@@ -196,7 +196,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     1. Copie o **Identificador, URS de Resposta e Assine nos** valores de URL e cole-os em **Identifier, URL de resposta e assinar em** caixas de texto URL, respectivamente, na secção de **Configuração SAML Básica** no portal Azure.
 
     1. No **Botão de Início O nome** do botão o nome do botão que a sua organização quer que os utilizadores vejam no ecrã de login.
-    
+
     1. Na Descrição do botão de início de **sessão,** a descrição do botão que a sua organização quer que os utilizadores vejam no ecrã de login.
 
     1. Nas **localizações de ID do utilizador SAML**, selecione que **o ID do utilizador está no elemento NameIdentifier da declaração do Assunto** ou o **ID do utilizador está num elemento Atributo**.  Esta identificação tem de ser a identificação do utilizador da Confluência. Se o ID do utilizador não for igualado, então o sistema não permitirá que os utilizadores entrem. 
@@ -259,9 +259,9 @@ Quando clicar no SSO SAML de Confluence pela Microsoft no Painel de Acesso, deve
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 

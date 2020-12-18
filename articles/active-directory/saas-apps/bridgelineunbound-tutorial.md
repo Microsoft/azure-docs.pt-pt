@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: aab51f4607e81a36c8bd553ea5a118abcf92411d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 34f72f0aa0b112cb12ebdd0b8c4afed2b49db47c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456760"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Tutorial: Integração do Diretório Ativo Azure com a Bridgeline Unbound
 
@@ -64,7 +64,7 @@ Para configurar a integração da Bridgeline Unbound no AD Azure, é necessário
 
 4. Na caixa de pesquisa, escreva **Bridgeline Unbound**, selecione **Bridgeline Unbound** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Bridgeline Unbound na lista de resultados](common/search-new-app.png)
+    ![Bridgeline Unbound na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -150,7 +150,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No campo **nome do utilizador,** **escreva brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -162,7 +162,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Bridgeline Unbound.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bridgeline Unbound**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Bridgeline Unbound**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

@@ -4,12 +4,12 @@ description: Saiba como lidar com erros na extensão de Funções Duradouras par
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081700"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673652"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Erros de manuseamento em funções duradouras (Funções Azure)
 
@@ -196,7 +196,11 @@ A chamada de função de atividade no exemplo anterior requer um parâmetro para
 * **Coeficiente de recuo**: O coeficiente utilizado para determinar a taxa de aumento do recuo. Incumprimentos para 1.
 * **Intervalo de retenção máxima**: O tempo máximo para esperar entre tentativas de repetição.
 * **Relem os tempos limites:** O tempo máximo para passar a fazer recauchutagens. O comportamento padrão é voltar a tentar indefinidamente.
-* **Cabo**: Pode especificar-se uma chamada definida pelo utilizador para determinar se uma função deve ser novamente experimentada.
+* **Cabo**: Pode especificar-se uma chamada definida pelo utilizador para determinar se uma função deve ser novamente experimentada. 
+
+> [!NOTE]
+> As chamadas definidas pelo utilizador não são atualmente suportadas por Funções Duradouras em JavaScript `context.df.RetryOptions` ().
+
 
 ## <a name="function-timeouts"></a>Intervalos de tempo de função
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bd7213f31eb737bedd64d627141c2576fdadb79a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b2241ff6841a5b3f536419336dc4f4fd888663d9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456386"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: Integração do Diretório Ativo Azure com a Ceridian Dayforce HCM
 
@@ -63,7 +63,7 @@ Para configurar a integração da Ceridian Dayforce HCM em Azure AD, você preci
 
 4. Na caixa de pesquisa, **digite Ceridian Dayforce HCM,** selecione **Ceridian Dayforce HCM** do painel de resultados e clique em **Adicionar** botão adicionar a aplicação.
 
-     ![Ceridian Dayforce HCM na lista de resultados](common/search-new-app.png)
+    ![Ceridian Dayforce HCM na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD single sign-on com Ceridian Dayforce HCM, execute os 
     ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
-    
+
     | Name | Atributo de origem|
     | ---------| --------- |
     | name  | user.extensionattribute2 |
@@ -188,7 +188,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

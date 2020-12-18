@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 08644c8b3c7967a2ba604cbddb58df2b29c6fc3e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b004394d3f0cc1c4d285c9eba9952a43e8cf65f2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457780"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integração do Azure Ative Directory com o ArcGIS Online
 
@@ -66,7 +66,7 @@ Para configurar a integração do ArcGIS Online no AD Azure, é necessário adic
 
 4. Na caixa de pesquisa, **digite ArcGIS Online,** selecione **ArcGIS Online** a partir do painel de resultados e clique em Adicionar botão **adicionar** a aplicação.
 
-     ![ArcGIS Online na lista de resultados](common/search-new-app.png)
+    ![ArcGIS Online na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -166,7 +166,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -210,24 +210,24 @@ No caso do ArcGIS Online, o provisionamento é uma tarefa manual.
 1. Faça login no seu inquilino **ArcGIS.**
 
 2. Clique **em CONVIDAR MEMBROS.**
-   
+
     ![Convidar membros](./media/arcgis-tutorial/ic784747.png "Convidar membros")
 
-3. **Selecione Adicionar os membros automaticamente sem enviar um e-mail**e, em seguida, clique em **SEGUINTE**.
-   
+3. **Selecione Adicionar os membros automaticamente sem enviar um e-mail** e, em seguida, clique em **SEGUINTE**.
+
     ![Adicionar membros automaticamente](./media/arcgis-tutorial/ic784748.png "Adicionar membros automaticamente")
 
 4. Na página de diálogo dos **membros,** execute os seguintes passos:
-   
-     ![Adicionar e rever](./media/arcgis-tutorial/ic784749.png "Adicionar e rever")
-    
-     a. Introduza o **e-mail**, **Nome próprio**e **Último Nome** de uma conta AD válida que pretende obter.
-  
+
+    ![Adicionar e rever](./media/arcgis-tutorial/ic784749.png "Adicionar e rever")
+
+     a. Introduza o **e-mail**, **Nome próprio** e **Último Nome** de uma conta AD válida que pretende obter.
+
      b. CLIQUE **EM ADICIONAR E REVER**.
 5. Reveja os dados introduzidos e, em seguida, clique em **ADD MEMBERS**.
-   
+
     ![Adicionar membro](./media/arcgis-tutorial/ic784750.png "Adicionar membro")
-        
+
     > [!NOTE]
     > O titular da conta Azure Ative Directory receberá um e-mail e seguirá um link para confirmar a sua conta antes de ficar ativa.
 
