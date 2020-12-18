@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895397"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680693"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como utilizar o módulo Azure Maps Spatial IO
 
@@ -30,10 +30,9 @@ Neste guia, aprenderemos a integrar e utilizar o módulo IO Espacial numa aplica
 
 Este vídeo fornece uma visão geral do módulo IO espacial no Azure Maps Web SDK.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integrar facilmente dados espaciais no Azure Maps - Microsoft Channel 9 Video"></iframe>
-
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Utilize apenas dados e serviços que sejam de uma fonte em que confie, especialmente se os referenciar de outro domínio. O módulo IO espacial toma medidas para minimizar o risco, no entanto a abordagem mais segura não permite que quaisquer dados danageros na sua aplicação comecem por começar. 

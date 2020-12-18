@@ -6,20 +6,20 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/08/2020
 ms.author: banders
-ms.openlocfilehash: 050984d58137ec03996572d2de41115073e4ab2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338168"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562978"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
 Depois de comprar uma reserva do Azure, poderá precisar de aplicar a reserva a outra subscrição, mudar quem a pode gerir ou mudar o âmbito da mesma. Também pode dividir uma reserva em duas para aplicar algumas das instâncias que comprou para outra subscrição.
 
-Caso tenha comprado o Azure Reserved VM Instances, poderá alterar a definição de otimização da reserva. O desconto da reserva pode aplicar-se às VMs na mesma série ou pode reservar capacidade de datacenter para um tamanho de VM específico. Além disso, deve tentar otimizar as reservas para que sejam completamente utilizadas.
+Se tiver comprado Azure Reserved Virtual Machine Instances, pode alterar a definição de otimização da reserva. O desconto da reserva pode aplicar-se às VMs na mesma série ou pode reservar capacidade de datacenter para um tamanho de VM específico. Deve tentar otimizar as reservas para que sejam completamente utilizadas.
 
 *A permissão necessária para gerir uma reserva é distinta da permissão de subscrição.*
 
@@ -31,7 +31,7 @@ Quando compra uma reserva, são criados dois objetos: **Encomenda de Reserva** e
 
 No momento da compra, a Encomenda de Reserva contém uma Reserva. Ações como dividir, unir, reembolsar parcialmente ou trocar criam novas reservas na **Encomenda de Reserva**.
 
-Para ver uma Encomenda de Reserva, aceda a **Reservas** > selecione a reserva e, em seguida, clique no **ID da Encomenda de reserva**.
+Para ver uma Encomenda de Reserva, aceda a **Reservas** > selecione a reserva e **ID da Encomenda de reserva**.
 
 ![Exemplo dos detalhes da encomenda de reserva que mostra o ID da Encomenda de reserva ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
@@ -49,31 +49,44 @@ Atualizar o âmbito de uma reserva:
 4. Selecione **Definições** > **Configuração**.
 5. Altere o âmbito.
 
-Se alterar o âmbito de partilhado para individual, só poderá selecionar subscrições em que é o proprietário. Apenas as subscrições que fazem parte do mesmo contexto de faturação que a reserva podem ser selecionadas.
+Se alterar o âmbito de partilhado para individual, só poderá selecionar subscrições em que é o proprietário. Só podem ser selecionadas as subscrições que fazem parte do mesmo contexto de faturação da reserva.
 
 O âmbito só se aplica às subscrições individuais com tarifas pay as you go (ofertas MS-AZR-0003P ou MS-AZR-0023P), oferta Enterprise MS-AZR-0017P ou MS-AZR-0148P ou tipos de subscrição CSP.
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os utilizadores que podem gerir uma reserva
+## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerir reservas por predefinição
 
-Pode delegar a gestão de reservas. Para tal, adicione pessoas às funções no pedido de reservas ou na reserva. Por predefinição, a pessoa que faz o pedido de reserva e o administrador de conta têm a função Proprietário no pedido de reservas e na reserva.
+Por predefinição, os utilizadores seguintes podem ver e gerir as reservas:
 
-Pode gerir o acesso às encomendas de reservas e às reservas *independentemente das subscrições* que obtêm o desconto de reserva. Quando concede permissões a alguém para gerir uma encomenda de reserva ou a reserva, não é concedida permissão para gerir a subscrição. Da mesma forma, caso conceda permissões a alguém para gerir uma subscrição no âmbito de reserva, não serão concedidos direitos para gerir a encomenda de reserva ou a reserva.
+- A pessoa que comprar uma reserva e o administrador de conta da subscrição de faturação utilizada para a compra são adicionados à encomenda da reserva.
+- Administradores de faturação do Contrato Enterprise e do Contrato de Cliente Microsoft.
 
-Para realizar uma troca ou reembolso, o utilizador tem de ter acesso à encomenda de reserva. Ao conceder permissões a alguém, o melhor será conceder permissões para a encomenda de reserva e não para a reserva.
+Para permitir que outras pessoas façam a gestão de reservas, tem duas opções:
 
-Para delegar a gestão do acesso de uma reserva:
+- Delegar a gestão do acesso a encomendas de reservas individuais:
+    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+    1. Selecione **Todos os Serviços** > **Reserva** para listar as reservas às quais tem acesso.
+    1. Selecione a reserva cujo o acesso quer delegar a outros utilizadores.
+    1. Nos Detalhes da reserva, selecione a encomenda da reserva.
+    1. Selecione **Controlo de acesso (IAM)** .
+    1. Selecione **Adicionar atribuição de função** > **Função** > **Proprietário**. Se quiser conceder acesso limitado, selecione uma função diferente.
+    1. Introduza o endereço de e-mail do utilizador que quer adicionar como proprietário.
+    1. Selecione o utilizador e, em seguida, selecione **Guardar**.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os Serviços** > **Reserva** para listar as reservas às quais tem acesso.
-3. Selecione a reserva cujo o acesso quer delegar a outros utilizadores.
-4. Selecione **Controlo de acesso (IAM)** .
-5. Selecione **Adicionar atribuição de função** > **Função** > **Proprietário**. Se preferir dar acesso limitado, selecione uma função diferente.
-6. Introduza o endereço de e-mail do utilizador que quer adicionar como proprietário.
-7. Selecione o utilizador e, em seguida, selecione **Guardar**.
+- Adicionar um utilizador como administrador de faturação a um Contrato Enterprise ou Contrato de Cliente Microsoft:
+    - Num Contrato Enterprise, adicione utilizadores com a função _Administrador do Enterprise_ para ver e gerir todas as encomendas de reservas que se aplicam a esse Contrato Enterprise. Os utilizadores com a função _Administrador do Enterprise (só de leitura)_ só podem ver a reserva. Os administradores de departamentos e os proprietários de conta não podem ver as reservas, _a não ser_ que sejam adicionados explicitamente às mesmas com o Controlo de acesso (IAM). Para obter mais informações, veja [Gerir funções empresariais do Azure](../manage/understand-ea-roles.md).
+
+        _Os administradores Enterprise podem assumir a propriedade de uma encomenda de reserva e podem adicionar outros utilizadores a uma reserva com o Controlo de acesso (IAM)._
+    - Num Contrato de Cliente Microsoft, os utilizadores com a função de proprietário de perfil de faturação ou a função contribuidor de perfil de faturação podem gerir todas as compras de reservas feitas com o perfil de faturação. Os leitores de perfil de faturação e os gestores de faturas podem ver todas as reservas que são pagas com o perfil de faturação. No entanto, não podem fazer alterações às reservas.
+    Para obter mais informações, veja [Funções e tarefas do perfil de faturação](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+### <a name="how-billing-administrators-view-or-manage-reservations"></a>Como os administradores de faturação veem ou gerem as reservas
+
+1. Aceda a **Cost Management + Faturação** e, no lado esquerdo da página, selecione **Transações de Reservas**.
+2. Se tiver as permissões de faturação necessárias, pode ver e gerir reservas. Se não vir reservas, confirme que tem sessão iniciada com o inquilino do Azure AD em que as reservas foram criadas.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividir uma reserva individual em duas
 
- Depois de comprar mais do que uma instância de recursos numa reserva, poderá querer atribuir instâncias nessa reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito - subscrição individual, grupo de recursos ou partilhada. Por exemplo, comprou uma reserva para 10 instâncias VM e especificou o âmbito como subscrição A. Agora, pretende alterar o âmbito para 7 instâncias VM para a subscrição A e as três restantes para a subscrição B. A divisão de uma reserva permite-lhe fazer isto. Depois de dividir uma reserva, o ReservationID original é cancelado e são criadas duas reservas novas. A divisão não afeta a encomenda de reserva - não há nenhuma transação comercial nova com divisão e as novas reservas têm a mesma data de fim da que foi dividida.
+ Depois de comprar mais do que uma instância de recursos numa reserva, poderá querer atribuir instâncias nessa reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito - subscrição individual, grupo de recursos ou partilhada. Por exemplo, comprou uma reserva para dez instâncias de VM e especificou o âmbito como a subscrição A. Agora, pretende alterar o âmbito para sete instâncias de VM para a subscrição A e as três restantes para a subscrição B. A divisão de uma reserva permite-lhe fazer isto. Depois de dividir uma reserva, o ReservationID original é cancelado e são criadas duas reservas novas. A divisão não afeta a encomenda de reserva. Não há nenhuma transação comercial nova com divisão e as novas reservas têm a mesma data de fim da que foi dividida.
 
  Pode dividir uma reserva em duas através do PowerShell, da CLI ou da API.
 
@@ -110,7 +123,7 @@ Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Alterar a definição de otimização do Reserved VM Instances
 
- Quando compra um Reserved VM Instance, escolhe a flexibilidade de tamanho de instância ou a prioridade de capacidade. A flexibilidade de tamanho da instância aplica o desconto de reserva a outras VMs no mesmo [grupo de tamanho de VM](../../virtual-machines/reserved-vm-instance-size-flexibility.md). A prioridade de capacidade prioriza a capacidade de datacenter das implementações. Esta opção oferece-lhe uma garantia adicional no que diz respeito à capacidade de lançar as instâncias de VM quando precisar delas.
+ Quando compra um Reserved VM Instance, escolhe a flexibilidade de tamanho de instância ou a prioridade de capacidade. A flexibilidade de tamanho da instância aplica o desconto de reserva a outras VMs no mesmo [grupo de tamanho de VM](../../virtual-machines/reserved-vm-instance-size-flexibility.md). A prioridade de capacidade designa a capacidade do datacenter mais importante para as suas implementações. Esta opção oferece-lhe uma garantia adicional no que diz respeito à capacidade de lançar as instâncias de VM quando precisar delas.
 
 Por predefinição, quando o âmbito da reserva é partilhado, a flexibilidade de tamanho de instância fica ativa. A capacidade de datacenter não é priorizada para as implementações de VM.
 
@@ -121,9 +134,9 @@ Para atualizar a definição de otimização da reserva:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** > **Reservas**.
 3. Selecione a reserva.
-4. Selecione **Definições** > **Configuração**.  
+4. Selecione **Definições** > **Configuração**.
   ![Exemplo que mostra o item de configuração](./media/manage-reserved-vm-instance/add-product03.png)
-5. Altere a definição **Otimizar para**.  
+5. Altere a definição **Otimizar para**.
   ![Exemplo que mostra a definição Otimizar para](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## <a name="optimize-reservation-use"></a>Otimizar a utilização da reserva
@@ -138,8 +151,8 @@ Uma forma de ver a utilização da reserva é através do portal do Azure.
 2. Selecione **Todos os serviços** > [**Reservas**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e observe a **Utilização (%)** relativa a uma reserva.  
   ![Imagem que mostra a lista de reservas](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Selecione uma reserva.
-4. Analise a tendência de utilização da reserva ao longo do tempo.  
-  ![Imagem que mostra a utilização da reserva ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
+4. Analise a tendência de utilização da reserva ao longo do tempo.
+  ![Imagem que mostra a utilização da reserva](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
 
 ### <a name="view-reservation-use-with-api"></a>Ver a utilização da reserva com a API
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511921"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679200"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -156,7 +156,7 @@ O módulo de script execute python contém o código Python de amostra que pode 
     1. Embrulhe o script e outros recursos personalizados para um ficheiro zip.
     1. Faça o upload do ficheiro zip como um **conjunto de dados de ficheiro** para o estúdio. 
     1. Arraste o módulo de conjunto de dados da lista *datasets* no painel do módulo esquerdo na página de autoria do designer. 
-    1. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
+    1. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do Módulo **de Script De Executo Python.**
     
     Qualquer ficheiro contido no arquivo com fecho de correr carregado pode ser utilizado durante a execução do gasoduto. Se o arquivo incluir uma estrutura de diretório, a estrutura é preservada.
  

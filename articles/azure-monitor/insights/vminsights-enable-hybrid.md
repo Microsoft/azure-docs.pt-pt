@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d994df4d56f4958784256ff9cd92ce1e6f3b3e50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d866729d428e7667cd2225a5d37836b3fd75fa7
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642168"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680336"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Ativar o Azure Monitor para VMs para uma máquina virtual híbrida
 Este artigo descreve como ativar o Azure Monitor para VMs para uma máquina virtual fora de Azure, incluindo no local e outros ambientes em nuvem.
@@ -43,8 +43,8 @@ Você pode baixar o agente Desafiada a partir destes locais:
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.5.10940 | C27A56D0BE9CF162DF73292DFBB2083F5FF749F2B80FCAD2545BC8B14B64A8D7  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.5.10940 | 71B4E1DA5116E61E0317C49C6702b5069F01A0C9A7CB860F6ACFAF5C198740E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.7.12710 | CA29CC328F91D7301FD0360F4F56F78275545BB8856779899CA85E96F0  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.7.12710 | 98380DBEB2E2A5848F2202BC2422C68B20B62090C1BFC1DECAB37ED5451ED8C |
 
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Instale o agente de dependência no Windows
@@ -58,7 +58,7 @@ A tabela seguinte realça os parâmetros suportados pela configuração do agent
 | /? | Devolve uma lista das opções de linha de comando. |
 | /S | Executa uma instalação silenciosa sem interação do utilizador. |
 
-Por exemplo, para executar o programa de instalação com o `/?` parâmetro, ** introduzaInstallDependencyAgent-Windows.exe /?**. .
+Por exemplo, para executar o programa de instalação com o `/?` parâmetro, **introduzaInstallDependencyAgent-Windows.exe /?**. .
 
 Os ficheiros do agente de dependência do Windows são instalados em *C:\Program Files\Microsoft Dependency Agent* por padrão. Se o agente Desasusiting inificado após a configuração terminar, verifique se os registos são informativo sobre erros. O diretório de registos é *%Programfiles%\Microsoft Dependency Agent\logs*.
 
@@ -86,7 +86,7 @@ O agente Dependency é instalado em servidores Linux da *InstallDependencyAgent-
 | -s | Realizar uma instalação automática sem que seja solicitada a interação do utilizador. |
 | --verificar | Verifique as permissões e o sistema operativo, mas não instale o agente. |
 
-Por exemplo, para executar o programa de instalação com o `-help` parâmetro, **insira installDependencyAgent-Linux64.bin -help**. Instale o agente de dependência Linux como raiz executando o comando `sh InstallDependencyAgent-Linux64.bin` .
+Por exemplo, para executar o programa de instalação com o `-help` parâmetro, **insira instalar DependênciaAgent-Linux64.bin -help**. Instale o agente de dependência Linux como raiz executando o comando `sh InstallDependencyAgent-Linux64.bin` .
 
 Se o agente de dependência não arrancar, verifique se os registos são informativo de erro. Nos agentes Linux, o diretório de registos é */var/opt/microsoft/dependency-agent/log*.
 

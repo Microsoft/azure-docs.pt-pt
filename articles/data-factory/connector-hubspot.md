@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do HubSpot utilizando a Azure Data Factory (Pré-visualização)
+title: Copiar dados do HubSpot utilizando a Azure Data Factory
 description: Saiba como copiar dados do HubSpot para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,22 +9,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 151f156439a40b2e5515886849635f00b2fcc1e7
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415212"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680915"
 ---
-# <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados do HubSpot utilizando a Azure Data Factory (Pré-visualização)
+# <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Copiar dados do HubSpot utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados do HubSpot. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
-
-> [!IMPORTANT]
-> Este conector encontra-se atualmente em pré-visualização. Pode experimentar e dar-nos feedback. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

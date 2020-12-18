@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e6afa26c65f097683a5b471dc34621cca38c01e6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377393"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679087"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutorial: Publicar várias versões da sua API 
 
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
 1. Selecione **APIs**.
 1. Selecione **Demo Conference API** na lista de APIs. 
-1. Selecione o menu de contexto **(...** ) ao lado **da API da Conferência de Demonstração**.
+1. Selecione o menu de contexto **(...**) ao lado **da API da Conferência de Demonstração**.
 1. Selecione **a versão Adicionar**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/add-version-menu.png" alt-text="Menu de contexto API - adicionar versão":::
@@ -52,7 +52,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="choose-a-versioning-scheme"></a>Escolher um esquema de versões
 
-Na Azure API Management, você escolhe como os chamadores especificam a versão API selecionando um *esquema de versão* : **caminho, cabeçalho** ou **cadeia de consulta**. No exemplo seguinte, o *caminho* é usado como o esquema de versão.
+Na Azure API Management, você escolhe como os chamadores especificam a versão API selecionando um *esquema de versão*: **caminho, cabeçalho** ou **cadeia de consulta**. No exemplo seguinte, o *caminho* é usado como o esquema de versão.
 
 Introduza os valores a partir da tabela seguinte. Em seguida, **selecione Criar** para criar a sua versão.
 
@@ -64,7 +64,7 @@ Introduza os valores a partir da tabela seguinte. Em seguida, **selecione Criar*
 |---------|---------|---------|
 |**Nome**     |  *demo-conference-api-v1*       |  Nome único no seu caso de Gestão de API.<br/><br/>Como uma versão é, de facto, uma nova API baseada na [revisão](api-management-get-started-revise-api.md)da API , esta definição é o nome da nova API.   |
 |**Esquema de versão**     |  **Caminho**       |  A forma como os chamadores especificam a versão API.     |
-|**Identifer versão**     |  *v1*       |  Indicador específico do esquema da versão. For **Path** , o sufixo para o caminho URL da API. <br/><br/> Se **o cabeçalho** ou a corda de consulta forem **selecionados,** insira um valor adicional: o nome do cabeçalho ou parâmetro de cadeia de consulta.<br/><br/> É apresentado um exemplo de utilização.        |
+|**Identifer versão**     |  *v1*       |  Indicador específico do esquema da versão. For **Path**, o sufixo para o caminho URL da API. <br/><br/> Se **o cabeçalho** ou a corda de consulta forem **selecionados,** insira um valor adicional: o nome do cabeçalho ou parâmetro de cadeia de consulta.<br/><br/> É apresentado um exemplo de utilização.        |
 |**Produtos**     |  **Ilimitado**       |  Opcionalmente, um ou mais produtos a que a versão API está associada. Para publicar a API, precisa de associá-la a um produto. Também pode [adicionar a versão a um produto](#add-the-version-to-a-product) mais tarde.      |
 
 Depois de criar a versão, aparece agora por baixo **da API da Conferência de Demo** na Lista de API. Agora vê duas APIs: **Original,** e **v1**.
@@ -82,8 +82,8 @@ Para os autores de chamadas verem a nova versão, esta tem de ser adicionada a u
 
 Por exemplo, para adicionar a versão ao produto **Ilimitado:**
 1. No portal Azure, navegue para o seu caso de Gestão API.
-1. Selecione **Produtos**  >  **APIs**  >  **APIs**  >  **ilimitados + adicionar.**
-1. Selecione **Demo Conference API** , versão **v1**.
+1. Selecione **Produtos**  >  **APIs**  >    >  **ilimitados + adicionar.**
+1. Selecione **Demo Conference API**, versão **v1**.
 1. Clique em **Selecionar**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Adicionar versão ao produto":::
@@ -111,4 +111,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
-> [Personalizar o estilo das páginas de portal do Programador](api-management-customize-styles.md)
+> [Personalizar o estilo das páginas de portal do Programador](api-management-howto-developer-portal-customize.md)

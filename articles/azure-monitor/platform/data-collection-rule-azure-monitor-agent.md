@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: d04fa25b9c953d151fc16d11f304c48b7046ab76
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315707"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680394"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configure a recolha de dados para o agente Azure Monitor (pré-visualização)
 
@@ -35,6 +35,9 @@ Por exemplo, considere um ambiente com um conjunto de máquinas virtuais executa
 
 Pode utilizar o portal Azure para criar uma regra de recolha de dados e associar máquinas virtuais na sua subscrição a essa regra. O agente Azure Monitor será instalado automaticamente e uma identidade gerida criada para quaisquer máquinas virtuais que ainda não o tenham instalado.
 
+> [!IMPORTANT]
+> Existe atualmente um problema conhecido em que se a regra de recolha de dados criar uma identidade gerida numa máquina virtual que já tem uma identidade gerida atribuída pelo utilizador, a identidade atribuída ao utilizador é desativada.
+
 No menu **Azure Monitor** no portal Azure, selecione Regras de Recolha de **Dados** a partir da secção **Definições.** Clique **em Adicionar** para adicionar uma nova Regra de Recolha de Dados e atribuição.
 
 [![Regras de recolha de dados](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -52,7 +55,7 @@ No **separador Recolher e entregar,** clique em **Adicionar fonte de dados** par
 [![Fonte de dados básica](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Para especificar outros registos e contadores de desempenho, selecione **Custom**. Em seguida, pode especificar um [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) para quaisquer valores específicos a recolher. Consulte [o SAMPLE DCR](data-collection-rule-overview.md#sample-data-collection-rule) por exemplos.
+Para especificar outros registos e contadores de desempenho a partir das fontes de [dados atualmente suportadas](azure-monitor-agent-overview.md#data-sources-and-destinations) ou para filtrar eventos usando consultas XPath, selecione **Custom**. Em seguida, pode especificar um [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) para quaisquer valores específicos a recolher. Consulte [o SAMPLE DCR](data-collection-rule-overview.md#sample-data-collection-rule) por exemplos.
 
 [![Costume de fonte de dados](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
@@ -81,7 +84,7 @@ Siga os passos abaixo para criar uma regra de recolha de dados e associações u
 
 Não é possível criar uma regra de recolha de dados utilizando um modelo de Gestor de Recursos, mas pode criar uma associação entre uma máquina virtual Azure ou um servidor ativado pelo Azure Arc utilizando um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para as regras de recolha de dados no Azure Monitor](../samples/resource-manager-data-collection-rules.md) para modelos de amostras.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Agente monitor Azure.](azure-monitor-agent-overview.md)
 - Saiba mais sobre [as regras de recolha de dados.](data-collection-rule-overview.md)

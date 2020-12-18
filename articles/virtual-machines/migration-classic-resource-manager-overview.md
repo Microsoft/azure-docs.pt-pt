@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 219fe2d9d8ac46ba3dbeebe6aaae9dddc0883aa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500415"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680209"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager em Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "96500415"
 
 
 
-Este artigo descreve como migrar a infraestrutura como um serviço (IaaS) recursos dos modelos de implementação Classic to Resource Manager e detalhes como conectar recursos dos dois modelos de implementação que coexistem na sua subscrição usando gateways de rede virtual site-to-site. Pode ler mais sobre [funcionalidades e benefícios do Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Este artigo fornece uma visão geral sobre a ferramenta de migração suportada pela plataforma, como migrar recursos do Azure Service Manager (ASM) aka Classic para Resource Manager (ARM) e detalhes como conectar recursos dos dois modelos de implementação que coexistem na sua subscrição utilizando gateways de rede virtual para site. Pode ler mais sobre [funcionalidades e benefícios do Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Objetivo para a migração
 O Gestor de Recursos permite a implementação de aplicações complexas através de modelos, configura máquinas virtuais utilizando extensões VM e incorpora a gestão e marcação de acesso. O Azure Resource Manager inclui uma implementação paralela e escalável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo de implementação também fornece gestão do ciclo de vida do cálculo, rede e armazenamento de forma independente. Finalmente, há um foco em permitir a segurança por padrão com a aplicação de máquinas virtuais numa rede virtual.
@@ -37,7 +37,7 @@ Quase todas as funcionalidades do modelo de implementação clássica são supor
 * Contas de Armazenamento
 * Redes Virtuais
 * Gateways de VPN
-* Gateways de rota expresso _(apenas na mesma subscrição que apenas a Rede Virtual)_
+* [Gateways de rota expresso](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(apenas na mesma subscrição que apenas a Rede Virtual)_
 * Grupos de Segurança de Rede
 * Tabelas de Rota
 * IPs Reservados

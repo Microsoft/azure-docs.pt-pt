@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ccc545b15f16879582c671b082cab40f6b11aa08
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e58cbef74aa9b6f58207abf780fd63176d5edd7d
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778976"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680923"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -31,7 +31,7 @@ Antes de poder utilizar identidades geridas para a Azure Resources para autoriza
 - [Portal do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Modelo de gestor de recursos Azure](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 Para obter mais informações sobre identidades geridas, consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -171,3 +171,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 - [Gerir os direitos de acesso aos dados de armazenamento com o Azure RBAC.](./storage-auth-aad-rbac-portal.md)
 - [Utilize a Azure AD com aplicações de armazenamento](storage-auth-aad-app.md).
 - [Executar comandos PowerShell com credenciais AD AD Azure para aceder a dados blob](../blobs/authorize-data-operations-powershell.md)
+- [Tutorial: Armazenamento de acesso a partir do Serviço de Aplicações utilizando identificações geridas](/azure/app-service/scenario-secure-app-access-storage)

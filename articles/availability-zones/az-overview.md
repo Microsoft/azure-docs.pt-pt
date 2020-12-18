@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 32cd6c23e1fe465a801e56fad5dd3461df860503
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 485042c795fd94ef7daa8e00b9869190e9df61c8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182738"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678554"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
 
@@ -22,7 +22,7 @@ Os serviços microsoft Azure estão disponíveis globalmente para conduzir as su
 
 Para melhor entender as regiões e as Zonas de Disponibilidade em Azure, ajuda a compreender termos ou conceitos chave.
 
-| Termo ou conceito | Description |
+| Termo ou conceito | Descrição |
 | --- | --- |
 | region | Um conjunto de datacenters implantados dentro de um perímetro definido pela latência e ligados através de uma rede regional dedicada de baixa latência. |
 | geografia | Uma área do mundo contendo pelo menos uma região de Azure. As geografias definem um mercado discreto que preserva os limites de residência de dados e conformidade. As localizações geográficas permitem que os clientes com uma residência de dados e necessidades de conformidade específicas mantenham os respetivos dados e aplicações próximos. As geografias são tolerantes a falhas para resistir ao fracasso total da região através da sua ligação à nossa dedicada infraestrutura de rede de alta capacidade. |
@@ -105,14 +105,14 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Serviços na Nuvem: Ev3-Series | Base de Dados do Azure para PostgreSQL | Serviço de Nuvem de primavera Azure |
 > | Serviços na Nuvem: IPs de nível de exemplo | Azure Database Migration Service | Azure Time Series Insights |
 > | Serviços cloud: IP reservado | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Armazenamento de Discos | Proteção contra DDoS do Azure | Serviços cloud: Série G |
+> | Armazenamento em Disco | Azure DDoS Protection | Serviços cloud: Série G |
 > | Hubs de Eventos | Azure DevTest Labs | Serviços cloud: Série H |
-> | Key Vault | Azure Firewall | Serviços Cognitivos : Visão Personalizada |
+> | Cofre de Chaves | Azure Firewall | Serviços Cognitivos : Visão Personalizada |
 > | Balanceador de carga | Azure Firewall Manager | Serviços Cognitivos : Reconhecimento de Altifalantes |
 > | Service Bus | Funções do Azure | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Catálogo de Dados |
-> | Conjuntos de Dimensionamento de Máquinas Virtuais | Azure IoT Hub | Data Factory : Data Factory V1 |
-> | Máquinas Virtuais | Serviço de Kubernetes do Azure (AKS) | Data Lake Analytics |
+> | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory : Data Factory V1 |
+> | Máquinas Virtuais | Azure Kubernetes Service (AKS) | Data Lake Analytics |
 > | Máquinas Virtuais: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (clássico)|
 > | Máquinas Virtuais: Bs-Series | Azure Private Link | Microsoft Genomics |
 > | Máquinas Virtuais: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
@@ -181,6 +181,7 @@ Não há custo adicional para máquinas virtuais implantadas numa Zona de Dispon
 - [Começar cache Azure para zonas de disponibilidade de redis](https://aka.ms/redis/az/getstarted)
 - [Criar uma instância do Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Criar um cluster de serviço Azure Kubernetes (AKS) que utiliza Zonas de Disponibilidade](../aks/availability-zones.md)
+- [Permitir redundância de zona no Registo de Contentores de Azure](../container-registry/zone-redundancy.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

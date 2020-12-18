@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9ecde4cb0c8a3bfe3dd8fb2edb59423838e0751c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889872"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679951"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento
 
 Ao visualizar muitos pontos de dados no mapa, os pontos de dados podem sobrepor-se uns aos outros. A sobreposição pode causar a ilegível e difícil utilização do mapa. Os dados de ponto de agrupamento são o processo de combinar dados de pontos que estão próximos uns dos outros e representá-los no mapa como um único ponto de dados agrupados. À medida que o utilizador faz zoom no mapa, os clusters separam-se nos seus pontos de dados individuais. Quando trabalhar com um grande número de pontos de dados, utilize os processos de agrupamento para melhorar a sua experiência de utilizador.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Habilitação de agrupamento numa fonte de dados
 
@@ -95,9 +95,9 @@ Quando os eventos do rato ocorrem numa camada que contém pontos de dados agrupa
 | Nome da propriedade             | Tipo    | Descrição   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
-| `cluster_id`              | cadeia  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
+| `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
 | `point_count`             | número  | O número de pontos que o cluster contém.  |
-| `point_count_abbreviated` | cadeia  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
+| `point_count_abbreviated` | string  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
 
 Este exemplo toma uma camada de bolha que torna os pontos de cluster e adiciona um evento de clique. Quando o evento de clique dispara, o código calcula e amplia o mapa para o nível de zoom seguinte, no qual o cluster se parte. Esta funcionalidade é implementada usando o `getClusterExpansionZoom` método da classe e a propriedade do ponto de `DataSource` `cluster_id` dados agrupado clicado.
 

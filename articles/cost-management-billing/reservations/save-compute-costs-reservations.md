@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352988"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560496"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -58,13 +58,14 @@ Para obter mais informações, veja  [Comprar uma reserva](prepare-buy-reserva
 
 A reserva é cobrada de acordo com o método de pagamento associado à subscrição. O custo da reserva será deduzido do saldo da alocação monetária, se disponível. Quando o saldo da sua alocação monetária não cobrir o custo da reserva, ser-lhe-á faturada a utilização excedida. Se tiver uma subscrição de um plano individual com taxas pay as you go, o cartão de crédito na sua conta será cobrado de imediato por compras adiantadas. Os pagamentos mensais são apresentados na sua fatura e o seu cartão de crédito é cobrado mensalmente. Ao optar pelo custo por fatura, verá os custos na sua próxima fatura. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Permissões para ver e gerir reservas 
+## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerir reservas por predefinição
 
-O utilizador que compra uma reserva e o administrador de conta da subscrição utilizada para faturar a reserva recebem a função Proprietário na encomenda e na reserva.
+Por predefinição, os utilizadores seguintes podem ver e gerir as reservas:
 
-Pode delegar a gestão de reservas. Para tal, adicione pessoas às funções no pedido de reservas ou na reserva. As funções são atribuídas no portal do Azure ou através das APIs e do PowerShell. 
+- A pessoa que comprar uma reserva e o administrador de conta da subscrição de faturação utilizada para a compra são adicionados à encomenda da reserva.
+- Administradores de faturação do Contrato Enterprise e do Contrato de Cliente Microsoft.
 
-Para obter mais informações, veja  [Adicionar ou alterar os utilizadores que podem gerir reservas](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+Para permitir que outras pessoas giram as reservas, veja [Gerir Reservas de recursos do Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obter os detalhes e a utilização da reserva depois da compra
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 37cd2051670221b8b78c075f249f633f9f447099
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: c1443dcefb12a063a287e89f1c292ba39bd38dc6
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674311"
+ms.locfileid: "97680355"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,17 +32,9 @@ Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.c
 Para concluir este guia de início rápido, precisa de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma base de dados. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
+- Uma base de dados onde pode fazer a sua consulta. 
 
-  | Ação | SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure | Azure Synapse Analytics |
-  |:--- |:--- |:---|:---|:---|
-  | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) | [Portal](/azure/synapse-analytics/quickstart-create-workspace.md) |
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | | [CLI](/azure/synapse-analytics/quickstart-create-workspace-cli.md) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md) | [PowerShell](/azure/synapse-analytics/quickstart-create-workspace-powershell.md) |
-  || | | [Modelo de implementação](/azure/azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md) | [Modelo de implementação](/azure/synapse-analytics/quickstart-deployment-template-workspaces.md) | 
-  | Configurar | [Regra de firewall IP de nível de servidor](firewall-create-server-level-portal-quickstart.md)| [Conectividade de um VM](../managed-instance/connect-vm-instance-configure.md)| |
-  |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md) | [Ligue-se a uma instância do Servidor SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) |
-  ||||
+[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 - [.NET Core para o seu sistema operativo](https://www.microsoft.com/net/core) instalado.
 

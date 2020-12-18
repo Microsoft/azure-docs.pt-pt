@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336505"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678643"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy
 
@@ -21,14 +21,11 @@ Este artigo aplica-se tanto à Caixa de Dados Azure como à Caixa de Dados Azure
 
 Este artigo foca as tarefas que pode efetuar com o portal do Azure. Utilize o portal Azure para gerir encomendas, gerir o dispositivo Data Box e acompanhar o estado da encomenda à medida que esta prossegue.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
 ## <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Poderá ter de cancelar uma encomenda por vários motivos depois de fazer a encomenda. 
+Pode ter de cancelar uma encomenda por várias razões depois de a colocar.
 
-Para encomendas de importação e exportação, só pode cancelar a encomenda antes de a encomenda ser processada. Uma vez que a encomenda é processada e o dispositivo Data Box é preparado, não é possível cancelar a encomenda.
+Para encomendas de importação e exportação, só pode cancelar a encomenda antes de ser processada. Uma vez que o seu pedido é processado e o dispositivo Data Box é preparado, não pode cancelar a encomenda.
 
 Execute os seguintes passos para cancelar uma encomenda.
 
@@ -44,10 +41,7 @@ Execute os seguintes passos para cancelar uma encomenda.
 
 ## <a name="clone-an-order"></a>Clonar uma encomenda
 
-A clonagem é útil em determinadas situações. Por exemplo, um utilizador utilizou o Data Box para transferir alguns dados. À medida que mais dados são gerados, há a necessidade de outro dispositivo da Caixa de Dados transferir esses dados para o Azure. Neste caso, a mesma encomenda pode ser clonada.
-
-> [!IMPORTANT]
-> A clonagem não está disponível para encomendas de exportação. Só se pode clonar ordens de importação.
+A clonagem é útil em determinadas situações. Por exemplo, utilizou a Data Box para transferir alguns dados. À medida que mais dados são gerados, precisa de utilizar outro dispositivo Data Box para transferir esses dados para o Azure. Neste caso, pode clonar a mesma ordem.
 
 Execute os seguintes passos para clonar uma ordem de importação.
 
@@ -76,7 +70,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
 ## <a name="download-shipping-label"></a>Transferir etiqueta de envio
 
-Terá de descarregar a etiqueta de envio caso o visor E-ink do Data Box não esteja a funcionar e não apresente a etiqueta de envio para devolução. Não existe um ecrã de tinta E na Caixa de Dados Pesada e, portanto, este fluxo de trabalho não se aplica à Data Box Heavy.
+Poderá ter de descarregar a etiqueta de envio se a exibição de tinta E da sua Caixa de Dados não estiver a funcionar e não apresentar a etiqueta de envio de devolução. Não há ecrã de tinta E na Caixa de Dados Pesada, por isso este fluxo de trabalho não se aplica à Data Box Heavy.
 
 Execute os seguintes passos para transferir uma etiqueta de envio.
 
@@ -104,7 +98,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o dispositivo é entregue ou recolhido. Outro utilizador poderá ter de ser informado quando a cópia de dados estiver completa para que possam verificar se os dados estão na conta de armazenamento Azure antes de os eliminar da fonte. Nestes casos, pode editar os detalhes de notificação.
+Pode ser necessário alterar os utilizadores que recebem os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o dispositivo é entregue ou recolhido. Outro utilizador poderá ter de ser informado quando a cópia de dados estiver completa para que possam verificar se os dados estão na conta de armazenamento Azure antes de os eliminar da fonte. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 
@@ -127,10 +121,10 @@ Execute os seguintes passos para transferir o histórico de encomendas.
 
     ![Transferir histórico de encomendas](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. Clique em **Transferir histórico de encomendas**. No histórico transferido, verá um registo dos registos de controlo da operadora. Haverá dois conjuntos de registo correspondentes aos dois nós numa Caixa de Dados Pesada. Se deslocar para baixo para a parte inferior deste registo, pode ver as ligações para:
+2. Clique em **Transferir histórico de encomendas**. O histórico descarregado inclui um registo de registos de rastreamento de porta-aviões. Haverá dois conjuntos de registo correspondentes aos dois nós num dispositivo Data Box Heavy. Se deslocar para baixo para a parte inferior deste registo, pode ver as ligações para:
     
-   - **Copy logs** - tenha a lista de ficheiros que errou durante a cópia de dados da Data Box para a sua conta de armazenamento Azure (ordem de importação) ou *vice-versa* (ordem de exportação).
-   - **Registos de auditoria** - contenha informações sobre como aceder e aceder a ações na Caixa de Dados quando esta estiver fora do centro de dados Azure.
+   - **Copy logs** - tenha a lista de ficheiros que errou durante a cópia de dados da Caixa de Dados para a sua conta de armazenamento Azure (ordem de importação) ou da sua conta de armazenamento para a Caixa de Dados (ordem de exportação).
+   - **Registos de auditoria** - contenha informações sobre como aceder à Caixa de Dados e aceder a ações quando a Caixa de Dados estiver fora do datacenter Azure.
    - **Ficheiros BOM em ordem de importação** - tenha a lista de ficheiros (também conhecidos como manifesto de ficheiros) que pode descarregar durante a **Preparação para enviar** e tem nomes de ficheiros, tamanhos de ficheiros e os ficheiros.
    - **Verbose logs in export order** - tenha a lista de ficheiros com nomes de ficheiros, tamanhos de ficheiros e cálculo de checkum quando os dados foram copiados das contas de Armazenamento Azure para a Caixa de Dados.
 
@@ -206,15 +200,15 @@ Execute os seguintes passos para transferir o histórico de encomendas.
 
 ## <a name="view-order-status"></a>Ver o estado da encomenda
 
-Quando o estado do dispositivo no portal mudar, será notificado através de uma mensagem de e-mail.
+Quando o estado do dispositivo muda no portal, é notificado através de um e-mail.
 
 ### <a name="statuses-for-import-order"></a>Estatutos da ordem de importação
 
 Aqui estão os estatutos de uma ordem de importação.
 
-|Estado da encomenda |Description |
+|Estado da encomenda |Descrição |
 |---------|---------|
-|Encomendado     | Fez uma encomenda com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível de imediato, a encomenda será processada quando o dispositivo ficar disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma será cancelada e o requerente será notificado.         |
+|Encomendado     | Fez uma encomenda com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível imediatamente, a encomenda será processada quando o dispositivo estiver disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se a ordem não puder ser cumprida em 90 dias, a encomenda é cancelada e você é notificado.         |
 |Processado     | O processamento da encomenda está concluído. De acordo com a sua encomenda, o dispositivo está preparado para envio no datacenter.         |
 |Expedido     | A encomenda foi enviada. Utilize o ID de controlo apresentado na encomenda no portal para controlar o envio.        |
 |Entregue     | A encomenda enviada foi entregue no endereço especificado na encomenda.        |
@@ -224,23 +218,23 @@ Aqui estão os estatutos de uma ordem de importação.
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
 |Concluído com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Consulte [exemplos de registos de cópias quando o upload for concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
 |Concluído com avisos| A cópia de dados foi completada, mas os seus dados foram modificados. Os dados tinham erros de blob ou de nome de ficheiro não críticos que foram corrigidos alterando os nomes de ficheiros ou blob. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Tome nota das modificações dos seus dados. Consulte [exemplos de registos de cópias quando o upload estiver concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
-|Cancelado            |A encomenda foi cancelada. <br> Cancelou a encomenda ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
+|Cancelado            |A encomenda foi cancelada. <br> Ou cancelou a encomenda ou o serviço cancelou a encomenda depois de ocorrer um erro. Se a encomenda não puder ser cumprida em 90 dias, a encomenda também é cancelada e você é notificado.     |
 |Limpeza | Os dados nos discos de dispositivo são apagados. A limpeza de dispositivo será considerada como concluída quando o histórico da encomenda ficar disponível para transferência no portal do Azure.|
 
 ### <a name="statuses-for-export-order"></a>Estatutos para a ordem de exportação
 
 Aqui estão os estatutos para uma ordem de exportação.
 
-|Estado da encomenda |Description |
+|Estado da encomenda |Descrição |
 |---------|---------|
 |Encomendado     | Com sucesso, escruexou uma ordem de exportação. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível de imediato, a encomenda será processada quando o dispositivo ficar disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma será cancelada e o requerente será notificado.         |
 |Cancelado            |A encomenda foi cancelada. <br> Ou cancelou a encomenda (só pode cancelar antes de a encomenda ser processada) ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
 |Processado     | O processamento da encomenda está concluído. De acordo com a sua encomenda, o dispositivo está preparado para cópia de dados no datacenter. As ações do dispositivo são criadas.         |
 |Cópia de dados em curso     | A cópia de dados das contas de Armazenamento Azure especificadas para o dispositivo está em andamento. Controle o progresso da cópia da sua encomenda no portal do Azure. <br> Aguarde até que a cópia de dados esteja concluída. |
-|Cópia concluída     | A cópia de dados das contas de Armazenamento Azure especificadas para o dispositivo está completa. Um ficheiro de registo verboso (se a opção foi ativada na encomenda) e um registo de cópia são criados na sua conta de armazenamento. O registo verboso contém as informações em todos os ficheiros (nome, caminho, check-ução de computação) que são copiados para o dispositivo. O registo de cópia contém o resumo do processo de cópia, incluindo uma lista de ficheiros que não puderam ser copiados devido a quaisquer erros.<br> Os dados da conta de armazenamento permanecem como estão. |
+|Cópia concluída     | A cópia de dados das contas de Armazenamento Azure especificadas para o dispositivo está completa. Um ficheiro de registo verboso (se a opção foi ativada na encomenda) e um registo de cópia são criados na sua conta de armazenamento. O registo verboso contém as informações em todos os ficheiros (nome, caminho, check-ução de computação) que são copiados para o dispositivo. O registo de cópias contém o resumo do processo de cópia, incluindo uma lista de ficheiros que não podiam ser copiados devido a quaisquer erros. <br> Os dados da conta de armazenamento permanecem como estão. |
 |Cópia concluída com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download for concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
 |Cópia completada com avisos| A cópia de dados da conta de Armazenamento Azure foi concluída, mas os dados tiveram erros não críticos. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Tome nota dos erros não críticos. Consulte [exemplos de registos de cópias quando o download for concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
-|Cópia falhou com erros| A cópia de dados da conta de Armazenamento Azure falhou e a encomenda é terminada. Um dispositivo não será enviado.<br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download falhou com erros](./data-box-logs.md#upload-completed-with-errors).   |
+|Cópia falhou com erros| A cópia de dados da conta de Armazenamento Azure falhou e a encomenda é encerrada. Um dispositivo não será enviado. <br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download falhou com erros](./data-box-logs.md#upload-completed-with-errors).   |
 |Expedido     |A encomenda foi enviada. Utilize o ID de controlo apresentado na encomenda no portal para controlar o envio.        |
 |Entregue     |A encomenda enviada foi entregue no endereço especificado na encomenda.        |
 |Recolhido     |O envio de devolução foi recolhido e selecionado e analisado pela transportadora.         |
@@ -252,14 +246,14 @@ Aqui estão os estatutos para uma ordem de exportação.
 > Se o trabalho de cópia para exportar dados das contas de Armazenamento Azure para a Caixa de Dados se completar com erros ou avisos, o dispositivo ainda envia. Só em caso de falha de cópia, a encomenda é terminada e o dispositivo não é enviado.
 
 
-Se utilizar o envio auto-gerido, depois de a cópia estar completa e antes de receber o dispositivo, verá os seguintes estados (em vez dos mencionados na tabela anterior):
+Se estiver a utilizar o envio auto-gerido, depois de a cópia estar completa e antes de receber o dispositivo, verá os seguintes estados (em vez dos mencionados na tabela anterior):
 
-|Estado da encomenda |Description |
+|Estado da encomenda |Descrição |
 |---------|---------|
 |Pronto para recolha no Centro de Dados Azure      |O dispositivo está pronto para ser recolhido no datacenter Azure.        |
 |Recolhido    |Pegou o dispositivo.         |
 |Pronto para receber no Centro de Dados Azure     |O dispositivo está pronto para ser recebido no datacenter Azure.        |
-|Recebido     |O dispositivo é recebido no centro de dados Azure.      |
+|Recebido     |O dispositivo foi recebido no datacenter Azure.      |
 
 
 

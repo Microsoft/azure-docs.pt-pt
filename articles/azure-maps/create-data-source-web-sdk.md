@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9964c99ddfb59811fc67df634b41cede5847ede0
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903620"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678855"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
 O Azure Maps Web SDK armazena dados em fontes de dados. A utilização de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente existem dois tipos de fontes de dados:
 
-- **GeoJSON fonte**: Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
-- **Fonte de azulejos vetoriais**: Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
+* **GeoJSON fonte**: Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
+* **Fonte de azulejos vetoriais**: Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
 
 ## <a name="geojson-data-source"></a>Fonte de dados da GeoJSON
 
@@ -50,8 +50,8 @@ Uma vez criados, as fontes de dados podem ser adicionadas ao mapa através da `m
 
 ```javascript
 //Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 ```
 
 O código que se segue mostra as diferentes formas de adicionar dados da GeoJSON a `DataSource` um .
@@ -60,13 +60,13 @@ O código que se segue mostra as diferentes formas de adicionar dados da GeoJSON
 //GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
 
 //Add geoJSON object to data source. 
-dataSource.add(geoJsonData);
+source.add(geoJsonData);
 
 //Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
-dataSource.importDataFromUrl(geoJsonUrl);
+source.importDataFromUrl(geoJsonUrl);
 
 //Overwrite all data in data source.
-dataSource.setShapes(geoJsonData);
+source.setShapes(geoJsonData);
 ```
 
 > [!TIP]
@@ -76,16 +76,16 @@ dataSource.setShapes(geoJsonData);
 
 Uma fonte de azulejos do vetor descreve como aceder a uma camada de azulejo vetorial. Use a classe [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) para instantaneaizar uma fonte de azulejos vetoriais. As camadas de azulejos vetoriais são semelhantes às camadas de azulejos, mas não são as mesmas. Uma camada de azulejo é uma imagem raster. As camadas de azulejos vetoriais são um ficheiro comprimido, em formato **PBF.** Este ficheiro comprimido contém dados de mapas de vetores e uma ou mais camadas. O ficheiro pode ser renderizado e modelado no cliente, com base no estilo de cada camada. Os dados de um azulejo vetorial contêm características geográficas sob a forma de pontos, linhas e polígonos. Existem várias vantagens de usar camadas de azulejos vetoriais em vez de camadas de azulejos rasteres:
 
- - Um tamanho de arquivo de um azulejo vetorial é tipicamente muito menor do que um azulejo raster equivalente. Como tal, é utilizada menos largura de banda. Significa menor latência, um mapa mais rápido, e uma melhor experiência de utilizador.
- - Uma vez que os azulejos vetoriais são renderizados no cliente, eles adaptam-se à resolução do dispositivo em que estão a ser exibidos. Como resultado, os mapas renderizados parecem mais bem definidos, com rótulos cristalinos.
- - Alterar o estilo dos dados nos mapas de vetores não requer o download dos dados novamente, uma vez que o novo estilo pode ser aplicado no cliente. Em contraste, mudar o estilo de uma camada de azulejo raster normalmente requer carregar azulejos do servidor e, em seguida, aplicar o novo estilo.
- - Uma vez que os dados são entregues em forma de vetor, há menos processamento do lado do servidor necessário para preparar os dados. Como resultado, os dados mais recentes podem ser disponibilizados mais rapidamente.
+* Um tamanho de arquivo de um azulejo vetorial é tipicamente muito menor do que um azulejo raster equivalente. Como tal, é utilizada menos largura de banda. Significa menor latência, um mapa mais rápido, e uma melhor experiência de utilizador.
+* Uma vez que os azulejos vetoriais são renderizados no cliente, eles adaptam-se à resolução do dispositivo em que estão a ser exibidos. Como resultado, os mapas renderizados parecem mais bem definidos, com rótulos cristalinos.
+* Alterar o estilo dos dados nos mapas de vetores não requer o download dos dados novamente, uma vez que o novo estilo pode ser aplicado no cliente. Em contraste, mudar o estilo de uma camada de azulejo raster normalmente requer carregar azulejos do servidor e, em seguida, aplicar o novo estilo.
+* Uma vez que os dados são entregues em forma de vetor, há menos processamento do lado do servidor necessário para preparar os dados. Como resultado, os dados mais recentes podem ser disponibilizados mais rapidamente.
 
 Azure Maps adere à [especificação do azulejo do vetor mapbox,](https://github.com/mapbox/vector-tile-spec)um padrão aberto. A Azure Maps fornece os seguintes serviços de azulejos vetoriais como parte da plataforma:
 
 - Detalhes do formato de dados [de documentação](/rest/api/maps/renderv2/getmaptilepreview)de azulejos  |  [de estrada](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Incidentes de [tráfego documentação](/rest/api/maps/traffic/gettrafficincidenttile)  |  [dados detalhes do formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- Detalhes do formato de [dados de documentação](/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Detalhes do formato de [dados de documentação](/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
 - O Criador de Mapas Azure (Preview) também permite que os azulejos vetoriais personalizados sejam criados e acedidos através do [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
@@ -95,14 +95,14 @@ Para exibir dados de uma fonte de azulejos vetoriais no mapa, ligue a fonte a um
 
 ```javascript
 //Create a vector tile source and add it to the map.
-var datasource = new atlas.source.VectorTileSource(null, {
+var source = new atlas.source.VectorTileSource(null, {
     tiles: ['https://{azMapsDomain}/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}'],
     maxZoom: 22
 });
-map.sources.add(datasource);
+map.sources.add(source);
 
 //Create a layer for traffic flow lines.
-var flowLayer = new atlas.layer.LineLayer(datasource, null, {
+var flowLayer = new atlas.layer.LineLayer(source, null, {
     //The name of the data layer within the data source to pass into this rendering layer.
     sourceLayer: 'Traffic flow',
 
@@ -142,30 +142,30 @@ Consulte a <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>camada de linha de
 
 Os dados são renderizados no mapa utilizando camadas de renderização. Uma única fonte de dados pode ser referenciada por uma ou mais camadas de renderização. As seguintes camadas de renderização requerem uma fonte de dados:
 
-- [Camada de](map-add-bubble-layer.md) bolha - torna os dados de ponto como círculos escalonado no mapa.
-- [Symbol layer](map-add-pin.md) - torna os dados de ponto como ícones ou texto.
-- [Heat map layer](map-add-heat-map-layer.md) - torna os dados do ponto como um mapa de calor de densidade.
-- [Camada de linha](map-add-shape.md) - torne uma linha e ou torne o contorno dos polígonos. 
-- [Polygon layer](map-add-shape.md) - preenche a área de um polígono com uma cor sólida ou padrão de imagem.
+* [Camada de](map-add-bubble-layer.md) bolha - torna os dados de ponto como círculos escalonado no mapa.
+* [Symbol layer](map-add-pin.md) - torna os dados de ponto como ícones ou texto.
+* [Heat map layer](map-add-heat-map-layer.md) - torna os dados do ponto como um mapa de calor de densidade.
+* [Camada de linha](map-add-shape.md) - torne uma linha e ou torne o contorno dos polígonos. 
+* [Polygon layer](map-add-shape.md) - preenche a área de um polígono com uma cor sólida ou padrão de imagem.
 
 O código que se segue mostra como criar uma fonte de dados, adicioná-la ao mapa e conectá-la a uma camada de bolha. E então, importar dados de pontos GeoJSON de uma localização remota para a fonte de dados. 
 
 ```javascript
 //Create a data source and add it to the map.
-var datasource = new atlas.source.DataSource();
-map.sources.add(datasource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 
 //Create a layer that defines how to render points in the data source and add it to the map.
-map.layers.add(new atlas.layer.BubbleLayer(datasource));
+map.layers.add(new atlas.layer.BubbleLayer(source));
 
 //Load the earthquake data.
-datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
+source.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
 Existem camadas de renderização adicionais que não se ligam a estas fontes de dados, mas carregam diretamente os dados para renderização. 
 
-- [Camada de imagem](map-add-image-layer.md) - sobrepõe uma única imagem no topo do mapa e liga os seus cantos a um conjunto de coordenadas especificadas.
-- [Camada de azulejo](map-add-tile-layer.md) - sobrepõe-se a uma camada de azulejo raster no topo do mapa.
+* [Camada de imagem](map-add-image-layer.md) - sobrepõe uma única imagem no topo do mapa e liga os seus cantos a um conjunto de coordenadas especificadas.
+* [Camada de azulejo](map-add-tile-layer.md) - sobrepõe-se a uma camada de azulejo raster no topo do mapa.
 
 ## <a name="one-data-source-with-multiple-layers"></a>Uma fonte de dados com várias camadas
 
@@ -179,34 +179,40 @@ Com o Azure Maps, tudo o que precisa é de um único polígono numa fonte de dad
 
 ```javascript
 //Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 
 //Create a polygon and add it to the data source.
-dataSource.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
+source.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
 
 //Create a polygon layer to render the filled in area of the polygon.
-var polygonLayer = new atlas.layer.PolygonLayer(dataSource, 'myPolygonLayer', {
+var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
      fillColor: 'rgba(255,165,0,0.2)'
 });
 
 //Create a line layer for greater control of rendering the outline of the polygon.
-var lineLayer = new atlas.layer.LineLayer(dataSource, 'myLineLayer', {
+var lineLayer = new atlas.layer.LineLayer(source, 'myLineLayer', {
      color: 'orange',
      width: 2
 });
 
 //Create a bubble layer to render the vertices of the polygon as scaled circles.
-var bubbleLayer = new atlas.layer.BubbleLayer(dataSource, 'myBubbleLayer', {
+var bubbleLayer = new atlas.layer.BubbleLayer(source, 'myBubbleLayer', {
      color: 'orange',
      radius: 5,
-     outlineColor: 'white',
-     outlineWidth: 2
+     strokeColor: 'white',
+     strokeWidth: 2
 });
 
 //Add all layers to the map.
 map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 ```
+
+> [!TIP]
+> Ao adicionar camadas ao mapa utilizando a `map.layers.add` função, o ID ou a instância de uma camada existente podem ser passados como um segundo parâmetro. Isto diria que o mapa para inserir a nova camada a ser adicionada abaixo da camada existente. Além de passar em uma camada ID este método também suporta os seguintes valores.
+>
+> * `"labels"` - Insere a nova camada abaixo das camadas de etiqueta do mapa.
+> * `"transit"` - Insere a nova camada abaixo das camadas de estrada do mapa e do trânsito.
 
 ## <a name="next-steps"></a>Passos seguintes
 

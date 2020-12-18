@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151217"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028723"
 ---
 # <a name="analyze-unexpected-charges"></a>Analisar custos inesperados
 
@@ -80,7 +80,7 @@ Se tiver permissões para ver um recurso, deverá poder aceder aos registos de a
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analisar as permissões do utilizador no âmbito principal do recurso
 
-Geralmente, as pessoas com acesso de escrita a uma subscrição ou a um grupo de recursos têm informações sobre os recursos que foram criados. Deverão conseguir explicar o objetivo de um recurso ou indicar-lhe a pessoa que o saiba. Para identificar as pessoas com permissões para um âmbito de Subscrição, veja [Ver atribuições de funções](../../role-based-access-control/check-access.md#view-role-assignments). Pode utilizar um processo semelhante para grupos de recursos.
+Geralmente, as pessoas com acesso de escrita a uma subscrição ou a um grupo de recursos têm informações sobre os recursos que foram criados. Deverão conseguir explicar o objetivo de um recurso ou indicar-lhe a pessoa que o saiba. Para identificar as pessoas com permissões para um âmbito de Subscrição, veja [Verificar o acesso de um utilizador aos recursos do Azure.](../../role-based-access-control/check-access.md) Pode utilizar um processo semelhante para grupos de recursos.
 
 ## <a name="get-help-to-identify-charges"></a>Obter ajuda para identificar alterações
 

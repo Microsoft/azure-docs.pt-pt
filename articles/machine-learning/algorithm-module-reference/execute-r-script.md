@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 12/17/2020
+ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510595"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679107"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -50,6 +50,9 @@ Para instalar pacotes R adicionais, utilize o `install.packages()` método. As e
 
 > [!NOTE]
 > Especifique o repositório CRAN quando estiver a instalar pacotes, tais como `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
+
+> [!WARNING]
+> O módulo Excute R Script não suporta a instalação de pacotes que requerem compilação nativa, como `qdap` pacote que requer JAVA e pacote que requer `drc` C++. Isto porque este módulo é executado num ambiente pré-instalado com permissão de não administração.
 
 Esta amostra mostra como instalar o Jardim Zoológico:
 ```R

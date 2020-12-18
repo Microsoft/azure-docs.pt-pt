@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505550"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680733"
 ---
 # <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
 
@@ -58,13 +58,13 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Marcação de uma chamada de grupo como participante da PSTN                                                                    | ✔️   | ✔️            | ✔️   
 | Geral           | Teste o seu microfone, altifalante e câmara com um serviço de testes de áudio (disponível através do telefone 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="calling-client-library-browser-support"></a>Chamando o suporte do navegador da biblioteca do cliente
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Javascript chamando suporte à biblioteca do cliente por OS e browser
 
 A tabela a seguir representa o conjunto de navegadores e versões suportadas que estão atualmente disponíveis.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Chamando a biblioteca do cliente** | Chrome*, novo Edge | Chrome *, Safari** | Cromado*  | Cromado* | Cromado* | Safari** |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Chamando a biblioteca do cliente** | Chrome*, novo Edge | Chrome *, Safari** | Cromado*  | Cromado* | Cromado* | Safari** | Safari** |
 
 
 *Note que a versão mais recente do Chrome é suportada para além das duas versões anteriores.<br/>

@@ -7,14 +7,14 @@ ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895975"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680057"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)
 
@@ -24,9 +24,9 @@ Os estilos orientados por dados reduzem a quantidade de código necessária para
 
 Este vídeo fornece uma visão geral do estilo orientado por dados no Azure Maps Web SDK.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 As expressões são representadas como matrizes JSON. O primeiro elemento de uma expressão na matriz é uma cadeia que especifica o nome do operador de expressão. Por exemplo, "+" ou "caso". Os próximos elementos (se houver) são os argumentos para a expressão. Cada argumento é um valor literal (uma corda, número, booleano, `null` ou outro conjunto de expressão. O pseudocódigo que se segue define a estrutura básica de uma expressão. 
 
@@ -58,7 +58,7 @@ O Azure Maps Web SDK suporta muitos tipos de expressões. Expressões podem ser 
 
 Todos os exemplos deste documento utilizam a seguinte característica para demonstrar diferentes formas de utilização dos diferentes tipos de expressões. 
 
-```javascript
+```json
 {
     "type": "Feature",
     "geometry": {
@@ -70,13 +70,13 @@ Todos os exemplos deste documento utilizam a seguinte característica para demon
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
-        "temperature": 72,
+        "temperature": 64,
         "title": "Cafeteria", 
-        "zoneColor": "red",
-        "abcArray": ['a', 'b', 'c'],
-        "array2d": [['a', 'b'], ['x', 'y']],
+        "zoneColor": "purple",
+        "abcArray": ["a", "b", "c"],
+        "array2d": [["a", "b"], ["x", "y"]],
         "_style": {
-            "fillColor": 'red'
+            "fillColor": "red"
         }
     }
 }
@@ -88,22 +88,22 @@ As expressões de dados fornecem acesso aos dados da propriedade numa funcionali
 
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
-| `['at', number, array]` | objeto | Recupera um item de uma matriz. |
-| `['geometry-type']` | cadeia | Obtém o tipo de geometria da funcionalidade: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['at', number, array]` | valor | Recupera um item de uma matriz. |
+| `['geometry-type']` | string | Obtém o tipo de geometria da funcionalidade: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | valor | Obtém o valor da propriedade a partir das propriedades da funcionalidade atual. Devoluções nulas se o imóvel solicitado faltar. |
 | `['get', string, object]` | valor | Obtém o valor da propriedade a partir das propriedades do objeto fornecido. Devoluções nulas se o imóvel solicitado faltar. |
 | `['has', string]` | boolean | Determina se as propriedades de uma característica têm a propriedade especificada. |
 | `['has', string, object]` | boolean | Determina se as propriedades do objeto têm a propriedade especificada. |
 | `['id']` | valor | Obtém a identificação da funcionalidade se tiver uma. |
-| `['length', string | array]` | número | Obtém o comprimento de uma corda ou de uma matriz. |
 | `['in', boolean | string | number, array]` | boolean | Determina se um item existe numa matriz |
 | `['in', substring, string]` | boolean | Determina se um sub-adupe existe numa cadeia |
 | `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | número | Retorna a primeira posição na qual um item pode ser encontrado numa matriz ou um sublpemento pode ser encontrado numa cadeia, ou `-1` se a entrada não puder ser encontrada. Aceita um índice opcional de onde iniciar a pesquisa. |
-| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|matriz | Devolve um item de uma matriz ou de um sub-cordão a partir de uma cadeia a partir de um índice de início especificado, ou entre um índice inicial e um índice final se definido. O valor de retorno é inclusivo do índice inicial, mas não do índice final. |
+| `['length', string | array]` | número | Obtém o comprimento de uma corda ou de uma matriz. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | matriz de cordas \| | Devolve um item de uma matriz ou de um sub-cordão a partir de uma cadeia a partir de um índice de início especificado, ou entre um índice inicial e um índice final se definido. O valor de retorno é inclusivo do índice inicial, mas não do índice final. |
 
 **Exemplos**
 
-As propriedades de uma funcionalidade podem ser acedidas diretamente numa expressão usando uma `get` expressão. Este exemplo utiliza o valor "zoneColor" da funcionalidade para especificar a propriedade colorida de uma camada de bolha. 
+As propriedades de uma funcionalidade podem ser acedidas diretamente numa expressão usando uma `get` expressão. Este exemplo usa o `zoneColor` valor da funcionalidade para especificar a propriedade colorida de uma camada de bolha. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -111,7 +111,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-O exemplo acima funcionará bem, se todas as características de pontos tiverem a `zoneColor` propriedade. Se não o fizerem, a cor provavelmente voltará a "preto". Para modificar a cor do recuo, utilize uma `case` expressão em combinação com a `has` expressão para verificar se a propriedade existe. Se a propriedade não existir, devolva uma cor de retorno.
+O exemplo acima funcionará bem, se todas as características de pontos tiverem a `zoneColor` propriedade. Se não o fizerem, a cor provavelmente voltará a ser "preto". Para modificar a cor do recuo, utilize uma `case` expressão em combinação com a `has` expressão para verificar se a propriedade existe. Se a propriedade não existir, devolva uma cor de retorno.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -203,7 +203,7 @@ As expressões matemáticas fornecem aos operadores matemáticos a realização 
 | `['max', number, number, …]` | número | Calcula o número máximo no conjunto especificado de números. |
 | `['min', number, number, …]` | número | Calcula o número mínimo no conjunto especificado de números. |
 | `['pi']` | número | Devolve a constante `PI` matemática. |
-| `['round', number]` | número | Arredonda o número para o número mais próximo. Os valores intermédios estão arredondados para longe de zero. Por exemplo, `['round', -1.5]` avalia para -2. |
+| `['round', number]` | número | Arredonda o número para o número mais próximo. Os valores intermédios estão arredondados para longe de zero. Por exemplo, `['round', -1.5]` avalia para `-2` . |
 | `['sin', number]` | número | Calcula o seno do número especificado. |
 | `['sqrt', number]` | número | Calcula a raiz quadrada do número especificado. |
 | `['tan', number]` | número | Calcula a tangente do número especificado. |
@@ -228,6 +228,16 @@ Uma expressão agregada requer três valores: um valor do operador e valor inici
 
 Se todas as funcionalidades de um conjunto de dados tiverem uma `revenue` propriedade, que é um número. Em seguida, a receita total de todos os pontos de um cluster, que são criados a partir do conjunto de dados, pode ser calculada. Este cálculo é feito utilizando a seguinte expressão agregada: `['+', 0, ['get', 'revenue']]`
 
+### <a name="accumulated-expression"></a>Expressão acumulada
+
+A `accumulated` expressão obtém o valor de uma propriedade de cluster acumulada até agora. Isto só pode ser utilizado na `clusterProperties` opção de uma fonte agrupada. `DataSource`
+
+**Utilização**
+
+```javascript
+["accumulated"]
+```
+
 ## <a name="boolean-expressions"></a>Expressões booleanas
 
 Expressões booleanas fornecem um conjunto de expressões de operadores booleanos para avaliar comparações booleanas.
@@ -245,6 +255,7 @@ Ao comparar valores, a comparação é estritamente dactilografada. Valores de d
 | `['>=' value, value]` | boolean | Devoluções `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para ser ambas as cordas ou ambos os números. |
 | `['all', boolean, boolean, …]` | boolean | Devoluções `true` se todas as entradas `true` forem, caso `false` contrário. |
 | `['any', boolean, boolean, …]` | boolean | Devoluções `true` se alguma das entradas `true` for, caso `false` contrário. |
+| `['within', Polygon | MultiPolygon | Feature<Polygon | MultiPolygon>]` | boolean | Devoluções `true` se a função avaliada estiver totalmente contida dentro de um limite da geometria de entrada, falsa de outra forma. O valor de entrada pode ser um GeoJSON válido do tipo `Polygon` , , , ou `MultiPolygon` `Feature` `FeatureCollection` . Funcionalidades suportadas para avaliação:<br/><br/>- Ponto: Retorna `false` se um ponto estiver no limite ou cair fora do limite.<br/>- LineString: Devoluções `false` se alguma parte de uma linha cair fora do limite, a linha cruza o limite, ou o ponto final de uma linha está no limite. |
 
 ## <a name="conditional-expressions"></a>Expressões condicionais
 
@@ -355,28 +366,6 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-O exemplo a seguir utiliza uma expressão de correspondência para executar um filtro do tipo "in array" ou "array contains". Neste caso, a expressão filtra dados que têm um valor de ID que está numa lista de IDs permitidos. Ao utilizar expressões com filtros, o resultado tem de ser um valor Boolean.
-
-```javascript
-var layer = new atlas.layer.BubbleLayer(datasource, null, {
-    filter: [
-        'match',  
-
-        //Get the property to match.
-        ['get', 'id'],  
-
-         //List of values to match.
-        [24, 53, 98], 
-
-        //If there is a match, return true.
-        true,
-    
-        //Otherwise return false.
-        false
-    ]
-});
-```
-
 ### <a name="coalesce-expression"></a>Expressão do coalesce
 
 Uma `coalesce` expressão passa por um conjunto de expressões até que o primeiro valor não nulo seja obtido e devolva esse valor. 
@@ -394,7 +383,7 @@ O pseudocódigo que se segue define a estrutura da `coalesce` expressão.
 
 **Exemplo**
 
-O exemplo a seguir utiliza uma `coalesce` expressão para definir a `textField` opção de uma camada de símbolo. Se a `title` propriedade faltar da funcionalidade ou definida `null` para, a expressão tentará então procurar a `subtitle` propriedade, se a sua falta `null` ou, então, cairá de volta para uma corda vazia. 
+O exemplo a seguir utiliza uma `coalesce` expressão para definir a `textField` opção de uma camada de símbolo. Se a `title` propriedade faltar da funcionalidade ou definida `null` para, a expressão tentará então procurar a `subTitle` propriedade, se a sua falta `null` ou, então, cairá de volta para uma corda vazia. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -405,8 +394,8 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
             //Try getting the title property.
             ['get', 'title'],
 
-            //If there is no title, try getting the subtitle. 
-            ['get', 'subtitle'],
+            //If there is no title, try getting the subTitle. 
+            ['get', 'subTitle'],
 
             //Default to an empty string.
             ''
@@ -439,13 +428,19 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
+| `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Objeto[] | Afirma que a entrada é uma matriz. |
+| `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | Afirma que o valor de entrada é um boolean. Se forem fornecidos vários valores, cada um deles é avaliado por ordem até obter um booleano. Se nenhuma das entradas for booleans, a expressão é um erro. |
+| `['collator', { 'case-sensitive': boolean, 'diacritic-sensitive': boolean, 'locale': string }]` | collator | Devolve um coletor para utilização em operações de comparação dependentes do local. As opções sensíveis ao caso e as informações diacríticas não são falsas. O argumento local especifica a etiqueta linguística IETF do local para usar. Se nenhum for fornecido, o local predefinido é utilizado. Se o local solicitado não estiver disponível, o coletor utilizará um local de retorno definido pelo sistema. Utilize localidade resolvida para testar os resultados do comportamento de recuo local. |
 | `['literal', array]`<br/><br/>`['literal', object]` | objeto de matriz \| | Devolve um conjunto literal ou valor de objeto. Utilize esta expressão para evitar que uma matriz ou objeto seja avaliado como uma expressão. Isto é necessário quando uma matriz ou objeto precisa ser devolvido por uma expressão. |
-| `['image', string]` | cadeia | Verifica se um ID de imagem especificado é carregado no sprite de imagem dos mapas. Se for, o ID é devolvido, caso contrário, o nulo é devolvido. |
-| `['to-boolean', value]` | boolean | Converte o valor de entrada num booleano. O resultado é `false` quando a entrada é uma corda vazia, , , ou `0` , caso contrário a sua `false` `null` `NaN` `true` . |
+| `['image', string]` | string | Verifica se um ID de imagem especificado é carregado no sprite de imagem dos mapas. Se for, o ID é devolvido, caso contrário, o nulo é devolvido. |
+| `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | número | Afirma que o valor de entrada é um número. Se forem fornecidos vários valores, cada um é avaliado por ordem até que um número seja obtido. Se nenhuma das entradas for números, a expressão é um erro. |
+| `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Objeto | Afirma que o valor de entrada é um objeto.  Se forem fornecidos vários valores, cada um é avaliado por ordem até que um objeto seja obtido. Se nenhuma das entradas for objetos, a expressão é um erro. |
+| `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Afirma que o valor de entrada é uma corda. Se forem fornecidos vários valores, cada um é avaliado por ordem até que uma cadeia seja obtida. Se nenhuma das entradas for cordas, a expressão é um erro. |
+| `['to-boolean', value]` | boolean | Converte o valor de entrada num booleano. O resultado é `false` quando a entrada é uma corda vazia, ou `0` , caso contrário a sua `false` `null` `NaN` `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte o valor de entrada para uma cor. Se forem fornecidos vários valores, cada um é avaliado por ordem até obter a primeira conversão bem sucedida. Se nenhuma das entradas puder ser convertida, a expressão é um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada num número, se possível. Se a entrada for `null` `false` ou, o resultado é 0. Se a entrada `true` for, o resultado é 1. Se a entrada for uma cadeia, é convertida para um número utilizando a função de cadeia [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da Especificação de Idioma ECMAScript. Se forem fornecidos vários valores, cada um é avaliado por ordem até obter a primeira conversão bem sucedida. Se nenhuma das entradas puder ser convertida, a expressão é um erro. |
-| `['to-string', value]` | cadeia | Converte o valor de entrada numa cadeia. Se a entrada for `null` , o resultado é `""` . Se a entrada for um boolean, o resultado é `"true"` ou `"false"` . Se a entrada for um número, é convertido para uma cadeia utilizando a função número [tostring](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação de idioma ECMAScript. Se a entrada for uma cor, é convertida para cordão de cores CSS RGBA `"rgba(r,g,b,a)"` . Caso contrário, a entrada é convertida numa cadeia utilizando a função [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da Especificação de Idioma ECMAScript. |
-| `['typeof', value]` | cadeia | Devolve uma corda descrevendo o tipo do valor dado. |
+| `['to-string', value]` | string | Converte o valor de entrada numa cadeia. Se a entrada for `null` , o resultado é `""` . Se a entrada for um boolean, o resultado é `"true"` ou `"false"` . Se a entrada for um número, é convertido para uma cadeia utilizando a função número [tostring](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação de idioma ECMAScript. Se a entrada for uma cor, é convertida para cordão de cores CSS RGBA `"rgba(r,g,b,a)"` . Caso contrário, a entrada é convertida numa cadeia utilizando a função [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da Especificação de Idioma ECMAScript. |
+| `['typeof', value]` | string | Devolve uma corda descrevendo o tipo do valor dado. |
 
 > [!TIP]
 > Se uma mensagem de erro semelhante a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparecer na consola do navegador, significa que há uma expressão algures no seu código que tem uma matriz que não tem uma cadeia para o seu primeiro valor. Se quiser que a expressão devolva uma matriz, embrulhe a matriz com a `literal` expressão. O exemplo a seguir define a opção de ícone `offset` de uma camada de símbolo, que precisa de ser uma matriz contendo dois números, utilizando uma expressão para escolher entre dois `match` valores de compensação com base no valor da  `entityType` propriedade da característica de ponto.
@@ -504,8 +499,10 @@ As expressões do operador de cordas executam operações de conversão em corda
 | Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | cadeia (de carateres) | Concatenates várias cordas juntas. Cada valor deve ser uma corda. Utilize a `to-string` expressão tipo para converter outros tipos de valor para corda, se necessário. |
-| `['downcase', string]` | cadeia | Converte a cadeia especificada para minúscula. |
-| `['upcase', string]` | cadeia | Converte a cadeia especificada para maiúscula. |
+| `['downcase', string]` | string | Converte a cadeia especificada para minúscula. |
+| `['is-supported-script', string]` \| `['is-supported-script', Expression]`| boolean | Determina se a cadeia de entrada utiliza um conjunto de caracteres suportado pela pilha de fontes atual. Por exemplo: `['is-supported-script', 'ಗೌರವಾರ್ಥವಾಗಿ']` |
+| `['resolved-locale', string]` | string | Devolve a etiqueta linguística IETF do local utilizado pelo coletor fornecido. Isto pode ser usado para determinar o local do sistema padrão, ou para determinar se um local solicitado foi carregado com sucesso. |
+| `['upcase', string]` | string | Converte a cadeia especificada para maiúscula. |
 
 **Exemplo**
 
@@ -575,14 +572,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'interpolate',
         ['linear'],
         ['get', 'temperature'],
-        50,        
-        'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        50, 'blue',
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -624,12 +617,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'step',
         ['get', 'temperature'],
         'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -724,7 +714,6 @@ A expressão do formato de campo de texto pode ser usada com a `textField` opç�
 
  * `'font-scale'` - Especifica o fator de escala para o tamanho do tipo de letra. Se especificado, este valor irá sobrepor-se à `size` propriedade da `textOptions` cadeia individual.
  * `'text-font'` - Especifica uma ou mais famílias de fontes que devem ser utilizadas para esta cadeia. Se especificado, este valor irá sobrepor-se à `font` propriedade da `textOptions` cadeia individual.
- * `'text-color'` - Especifica uma cor para aplicar a um texto ao renderizar. 
 
 O pseudocódigo que se segue define a estrutura da expressão do formato de campo de texto. 
 
@@ -734,14 +723,12 @@ O pseudocódigo que se segue define a estrutura da expressão do formato de camp
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[],
-        'text-color': color
+        'text-font': string[]
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] ,
-        'text-color': color
+        'text-font': string[]
     },
     …
 ]
@@ -749,7 +736,7 @@ O pseudocódigo que se segue define a estrutura da expressão do formato de camp
 
 **Exemplo**
 
-O exemplo seguinte forma o campo de texto adicionando um tipo de letra arrojado e aumentando o tamanho da fonte da `title` propriedade da funcionalidade. Este exemplo também adiciona a `subtitle` propriedade da funcionalidade numa nova linha, com um tamanho de fonte escalonado e vermelho colorido.
+O exemplo seguinte forma o campo de texto adicionando um tipo de letra arrojado e aumentando o tamanho da fonte da `title` propriedade da funcionalidade. Este exemplo também adiciona a `subTitle` propriedade da funcionalidade numa nova linha, com um tamanho de fonte escalonado.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -766,11 +753,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             '\n', {},   //Add a new line without any formatting.
 
-            //Scale the font size down of the subtitle property. 
-            ['get', 'subtitle'],
+            //Scale the font size down of the subTitle property. 
+            ['get', 'subTitle'],
             { 
-                'font-scale': 0.75, 
-                'text-color': 'red' 
+                'font-scale': 0.75
             }
         ]
     }
@@ -817,7 +803,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency': 'USD' }
+            { 'currency': 'USD' }
         ],
 
         offset: [0, 0.75]
@@ -885,7 +871,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         ['zoom'],
         
         //For zoom level 1 set the radius to 2 pixels.
-        10, 2,
+        1, 2,
 
         //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
         19, 2 * Math.pow(2, 19 - 1)

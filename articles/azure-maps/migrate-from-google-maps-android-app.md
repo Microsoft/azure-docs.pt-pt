@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b096b24acd5cf65f6ad3e9eabb1d536b3aae0168
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f4b0642ce54b862b4d4c7b9663cf10e74b206281
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187073"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680491"
 ---
-# <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Tutorial - Migrar uma aplicação Android do Google Maps
+# <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutorial: Migrar uma aplicação Android do Google Maps
 
 O Azure Maps Android SDK tem uma interface API semelhante à Web SDK. Se você desenvolveu com um destes SDKs, muitos dos mesmos conceitos, boas práticas e arquiteturas se aplicam. Neste tutorial, vai aprender a:
 
@@ -33,9 +33,9 @@ Todos os exemplos são fornecidos em Java; no entanto, você pode usar Kotlin co
 
 Para obter mais informações sobre o desenvolvimento com o Android SDK by Azure Maps, consulte os [guias de como fazer para o Azure Maps Android SDK](how-to-use-android-map-control-library.md).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+1. Crie uma conta Azure Maps ao entrar no [portal Azure](https://portal.azure.com). Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 2. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 3. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
@@ -46,14 +46,14 @@ O carregamento de um mapa numa aplicação Android utilizando o Google ou o Azur
 * Obtenha uma chave de API ou subscrição para aceder a qualquer uma das plataformas.
 * Adicione um pouco de XML a uma Atividade para especificar onde o mapa deve ser renderizado e como deve ser definido.
 * Sobrepõe-se a todos os métodos do ciclo de vida da Atividade que contém a vista do mapa para os métodos correspondentes na classe do mapa. Em particular, deve anular os seguintes métodos:
-    * `onCreate(Bundle)`
-    * `onStart()`
-    * `onResume()`
-    * `onPause()`
-    * `onStop()`
-    * `onDestroy()`
-    * `onSaveInstanceState(Bundle)`
-    * `onLowMemory()`
+  * `onCreate(Bundle)`
+  * `onStart()`
+  * `onResume()`
+  * `onPause()`
+  * `onStop()`
+  * `onDestroy()`
+  * `onSaveInstanceState(Bundle)`
+  * `onLowMemory()`
 * Aguarde que o mapa esteja pronto antes de tentar aceder e programá-lo.
 
 ### <a name="before-google-maps"></a>Antes: Google Maps
@@ -165,9 +165,9 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
 1. Abra o ficheiro **build.gradle** de nível superior e adicione o seguinte código à secção de **blocos de todos os projetos:**
 
-    ```JAVA
+    ```java
     maven {
-            url "https://atlas.microsoft.com/sdk/android"
+        url "https://atlas.microsoft.com/sdk/android"
     }
     ```
 
@@ -186,12 +186,12 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
     3. Atualize o seu bloco de dependências. Adicione uma nova linha de dependência de implementação para o mais recente Azure Maps Android SDK:
 
-        ```java
-        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
+        ```Java
+        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
         ```
 
         > [!Note]
-        > O Azure Maps Android SDK é regularmente atualizado e melhorado. Pode ver o [Início com o controlo de mapas Android](how-to-use-android-map-control-library.md) para obter o mais recente número de versão do Azure Maps. Além disso, pode definir o número da versão de "0.2" para "0+" para ter o seu código sempre apontado para a versão mais recente.
+        > Pode definir o número da versão para "0+" para ter o seu código sempre apontado para a versão mais recente.
 
     4. Vá para **arquivar** na barra de ferramentas e, em seguida, clique no **Sync Project com Ficheiros Gradle**.
 
@@ -224,98 +224,99 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
 
     O controlo do mapa contém os seus próprios métodos de ciclo de vida para gerir o ciclo de vida OpenGL do Android. Estes métodos devem ser chamados diretamente da Atividade contida. Para chamar corretamente os métodos de ciclo de vida do controlo do mapa, deve sobrepor-se aos seguintes métodos de ciclo de vida na Atividade que contém o controlo do mapa. Ligue para o respetivo método de controlo do mapa.
 
-    * `onCreate(Bundle)` 
-    * `onStart()` 
-    * `onResume()` 
-    * `onPause()` 
-    * `onStop()` 
-    * `onDestroy()` 
-    * `onSaveInstanceState(Bundle)` 
+    * `onCreate(Bundle)`
+    * `onStart()`
+    * `onResume()`
+    * `onPause()`
+    * `onStop()`
+    * `onDestroy()`
+    * `onSaveInstanceState(Bundle)`
     * `onLowMemory()`
 
     Editar o ficheiro **.java MainActivity** da seguinte forma:
 
-    ```java
+    ```Java
     package com.example.myapplication;
-
-    import android.support.v7.app.AppCompatActivity;
-    import android.os.Bundle;
+    
+    //For older versions use: import android.support.v7.app.AppCompatActivity; 
+    import androidx.appcompat.app.AppCompatActivity;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
     import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
     import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-
+    
     public class MainActivity extends AppCompatActivity {
-     
-        static {
-            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-        }
-
-        MapControl mapControl;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-
-            mapControl = findViewById(R.id.mapcontrol);
-
-            mapControl.onCreate(savedInstanceState);
     
-            //Wait until the map resources are ready.
-            mapControl.onReady(map -> {
-                //Add your post map load code here.
-    
-            });
-        }
+    static {
+        AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
 
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-
-        @Override
-        protected void onStart(){
-            super.onStart();
-            mapControl.onStart();
-        }
-
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }
+        //Alternatively use Azure Active Directory authenticate.
+        //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
     }
+
+    MapControl mapControl;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mapControl = findViewById(R.id.mapcontrol);
+
+        mapControl.onCreate(savedInstanceState);
+
+        //Wait until the map resources are ready.
+        mapControl.onReady(map -> {
+            //Add your post map load code here.
+
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapControl.onResume();
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        mapControl.onStart();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapControl.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapControl.onStop();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapControl.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapControl.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapControl.onSaveInstanceState(outState);
+    }}
     ```
 
 Se executar a sua aplicação, o controlo do mapa será carregado como na imagem seguinte.
-
 
 ![Mapas simples do Azure](media/migrate-google-maps-android-app/simple-azure-maps.png)
 
@@ -359,7 +360,7 @@ static {
     AzureMaps.setLanguage("fr-FR");
 
     //Set the regional view to be used by Azure Maps.
-    AzureMaps.setView("auto");
+    AzureMaps.setView("Auto");
 }
 ```
 
@@ -371,7 +372,7 @@ A segunda opção é passar o idioma e ver informações para o código XML de c
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="auto"
+    app:mapcontrol_view="Auto"
     />
 ```
 
@@ -379,8 +380,10 @@ A terceira opção é programar a visão do mapa linguístico e regional usando 
 
 ```java
 mapControl.onReady(map -> {
-    map.setStyle(StyleOptions.language("fr-FR"));
-    map.setStyle(StyleOptions.view("auto"));
+    map.setStyle(
+        language("fr-FR"),
+        view("Auto")
+    );
 });
 ```
 
@@ -436,7 +439,7 @@ A vista do mapa pode ser programada usando os mapas `setCamera` e `setStyle` mé
 ```java
 mapControl.onReady(map -> {
     //Set the camera of the map.
-    map.setCamera(center(35.0272, -111.0225), zoom(14));
+    map.setCamera(center(Point.fromLngLat(-111.0225, 35.0272)), zoom(14));
 
     //Set the style of the map.
     map.setStyle(style(MapStyle.SATELLITE));
@@ -492,10 +495,8 @@ mapControl.onReady(map -> {
 
 Imagens personalizadas podem ser usadas para representar pontos num mapa. O mapa em exemplos abaixo usa uma imagem personalizada para exibir um ponto no mapa. O ponto está na latitude: 51.5 e longitude: -0.2. A âncora compensa a posição do marcador, de modo que o ponto do ícone do pino de pressão se alinha com a posição correta no mapa.
 
-<center>
-
 ![imagem de pushpin amarelo](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
-yellow-pushpin.png</center>
+yellow-pushpin.png
 
 Em ambos os exemplos, a imagem acima é adicionada à pasta desenhável dos recursos das aplicações.
 
@@ -666,6 +667,7 @@ mapControl.onReady(map -> {
         strokeWidth(2f)));
 });
 ```
+
 ![Polígono Azure Maps](media/migrate-google-maps-android-app/azure-maps-polygon.png)
 
 ## <a name="overlay-a-tile-layer"></a>Sobrepor uma camada de azulejo
@@ -758,18 +760,13 @@ mapControl.onReady(map -> {
 
 ![Tráfego Azure Maps](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos para ser limpo.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o Azure Maps Android SDK:
+Saiba mais sobre a migração do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Como utilizar o controlo do mapa Android](how-to-use-android-map-control-library.md)
-
-> [!div class="nextstepaction"]
-> [Adicione uma camada de símbolo a um mapa Android](how-to-add-symbol-to-android-map.md)
-
-> [!div class="nextstepaction"]
-> [Adicione formas a um mapa Android](./how-to-add-shapes-to-android-map.md)
-
-> [!div class="nextstepaction"]
-> [Alterar estilos de mapa em mapas Android](./set-android-map-styles.md)
+> [Migrar uma aplicação Android](migrate-from-google-maps-android-app.md)

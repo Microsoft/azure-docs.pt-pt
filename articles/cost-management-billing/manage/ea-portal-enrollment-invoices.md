@@ -3,18 +3,18 @@ title: Faturas de inscrição do Azure Enterprise
 description: Este artigo explica como gerir e interpretar a fatura Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410973"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030727"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
@@ -39,18 +39,14 @@ Para ver a utilização detalhada de contas específicas, transfira o relatório
 Para ver relatórios e grafos do resumo da utilização:
 
 1. Inicie sessão no portal Azure Enterprise.
-
 1. Selecione um termo de Pré-pagamento.
-
-   Para alterar o intervalo de datas do **Resumo de Utilização** , pode alternar entre **M** (Mensal) e **P** (Personalizado) no canto superior direito da página e, em seguida, introduzir datas de início e de fim personalizadas.
-
+   Para alterar o intervalo de datas do **Resumo de Utilização**, pode alternar entre **M** (Mensal) e **P** (Personalizado) no canto superior direito da página e, em seguida, introduzir datas de início e de fim personalizadas.  
    ![Criar e ver o resumo da utilização e transferir os relatórios na vista personalizada](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. Para ver detalhes adicionais, pode selecionar um período ou mês no grafo.
-
    - O grafo mostra a utilização por mês com uma discriminação da utilização consumida, da sobretaxa de serviços, dos custos cobrados separadamente e dos custos do Azure Marketplace.
    - Para o mês selecionado, pode utilizar os campos abaixo do grafo para filtrar por departamentos, contas e subscrições.
    - Pode alternar entre **Custo por Serviços** e **Custo por Hierarquia**.
-   - Veja detalhes do **Serviço Azure** , dos **Custos Cobrados Separadamente** e do **Azure Marketplace** ao expandir as secções relevantes.
+   - Veja detalhes do **Serviço Azure**, dos **Custos Cobrados Separadamente** e do **Azure Marketplace** ao expandir as secções relevantes.
 
 Assista a este vídeo para perceber como ver a utilização:
 
@@ -72,7 +68,7 @@ Para transferir os relatórios:
 3. Selecione **Transferir** ao lado do relatório do mês desejado.
 
    > [!NOTE]
-   > Poderá existir uma latência de cerca de cinco dias entre a data de utilização incorrida e a data em que a utilização é mostrada nos relatórios.
+   > Poderá existir uma latência de até 72 horas entre a data de utilização incorrida e a data em que a utilização é mostrada nos relatórios.
    >
    > Os utilizadores que transferirem os ficheiros CSV para o Excel com o Safari poderão deparar-se com erros de formatação. Para evitar esses erros, abra o ficheiro com um editor de texto.
 
@@ -142,20 +138,20 @@ O intervalo de faturação depende da forma como escolhe fazer as compras de Pr�
 
 A data em que recebe a fatura de utilização excedida depende da configuração e da data de início da inscrição:
 
-- **Inscrições diretas com data de início anterior a 1 de maio de 2018** :
+- **Inscrições diretas com data de início anterior a 1 de maio de 2018**:
   - Se estiver num Contrato Enterprise (EA) direto, encontra-se num período de faturação anual para os serviços do Azure, exceto os serviços do Azure Marketplace. O período de faturação baseia-se na data de aniversário: a data em que o contrato entrou em vigor.
   - Se ultrapassar 150% do limiar do Pré-pagamento do Azure do EA, a inscrição será automaticamente convertida num período de faturação trimestral com base na data de aniversário. Receberá, também, uma fatura de utilização excedida.
   - Se não ultrapassar 150% do limiar do Pré-pagamento do Azure, a inscrição permanecerá num período de faturação anual. Receberá a fatura de utilização excedida no fim do ano de Pré-pagamento.
 
-- **Inscrições diretas com data de início posterior a 1 de maio de 2018** :
+- **Inscrições diretas com data de início posterior a 1 de maio de 2018**:
   - As faturas dos custos faturados em separado e do consumo do Azure são emitidas num período de faturação mensal.
   - Quaisquer custos que não estejam cobertos pelo Pré-pagamento do Azure são devidos como pagamento de utilização excedida.  
 
-- **Inscrições indiretas com data de início anterior a 1 de maio de 2018** :
+- **Inscrições indiretas com data de início anterior a 1 de maio de 2018**:
 
   Se for um cliente de Contrato Enterprise (EA) indireto com uma data de início anterior a 1 de maio de 2018, estará configurado para um período de faturação trimestral. O parceiro de canal (CP) emite-lhe a fatura diretamente.  
 
-- **Inscrições indiretas com data de início posterior a 1 de maio de 2018** :
+- **Inscrições indiretas com data de início posterior a 1 de maio de 2018**:
 
   Encontra-se num período de faturação mensal.  
 
@@ -169,15 +165,15 @@ No caso da utilização excedida, é-lhe cobrada a utilização ou as reservas q
 
 Para cada item na fatura, verá:
 
-- **Montante Alargado** : o total de custos
-- **Utilização do Pré-pagamento** : o montante do Pré-pagamento utilizado para cobrir os custos
-- **Montante Líquido** : os custos que excedem o Pré-pagamento
+- **Montante Alargado**: o total de custos
+- **Utilização do Pré-pagamento**: o montante do Pré-pagamento utilizado para cobrir os custos
+- **Montante Líquido**: os custos que excedem o Pré-pagamento
 
 Os impostos aplicáveis são calculados apenas sobre o montante líquido que excede o Pré-pagamento.
 
 A faturação da utilização excedida é automatizada. O tempo das notificações e das faturas depende da data de fim do período de faturação.
 
-- A notificação de utilização excedida é normalmente enviada sete dias após a data de fim da faturação.
+- Geralmente, a notificação de utilização excedida é enviada sete dias após a data de fim da faturação.
 - As faturas de utilização excedida são enviadas entre sete a nove dias após a notificação.
 - Pode rever os custos e atualizar os números de nota de encomenda gerados pelo sistema durante os sete dias entre a notificação de utilização excedida e a emissão da fatura.
 
@@ -246,7 +242,7 @@ As unidades de medida para os Contratos Enterprise são muitas vezes diferentes 
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversão entre o relatório de detalhes de utilização e a página de resumo de utilização
 
-No relatório de dados de utilização de transferências, pode ver a utilização de recursos não processada até seis casas decimais. No entanto, os dados de utilização apresentados no portal Azure Enterprise são arredondados em quatro casas decimais para unidades de Pré-pagamento e truncados para zero casas decimais para unidades de utilização excedida. Os dados de utilização não processada são primeiramente arredondados para quatro dígitos antes da conversão para as unidades utilizadas no portal Azure Enterprise. Em seguida, as unidades do Enterprise convertidas são arredondadas novamente para quatro dígitos. Só pode ver as horas reais consumidas antes da conversão no relatório de utilização de transferências e não no portal Azure Enterprise.
+No relatório de dados de utilização de transferências, pode ver a utilização de recursos não processada até seis casas decimais. No entanto, os dados de utilização apresentados no portal Azure Enterprise são arredondados em quatro casas decimais para unidades de Pré-pagamento e truncados para zero casas decimais para unidades de utilização excedida. Os dados de utilização brutos são primeiramente arredondados para quatro dígitos antes da conversão nas unidades utilizadas no portal Azure Enterprise. Em seguida, as unidades do Enterprise convertidas são arredondadas novamente para quatro dígitos. Só pode ver as horas reais consumidas antes da conversão no relatório de utilização de transferências e não no portal Azure Enterprise.
 
 Por exemplo: Se forem reportadas 694,533404 horas reais de SQL Server no relatório de detalhes de utilização. Estas unidades são convertidas para 6,94533404 unidades de 100 horas de computação que, em seguida, são arredondadas para 6,9453 e são apresentadas no portal Azure Enterprise.
 

@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591904"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680292"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -28,7 +28,7 @@ A integração contínua é a prática de testar cada alteração feita na sua b
 
 Na Azure Data Factory, integração e entrega contínuas (CI/CD) significa mover os gasodutos data factory de um ambiente (desenvolvimento, teste, produção) para outro. A Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades ADF (pipelines, conjuntos de dados, fluxos de dados, e assim por diante). Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
 
--    Implantação automatizada utilizando a integração da Data Factory com [a Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Implantação automatizada utilizando a integração da Data Factory com [a Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Carre faça o upload manual de um modelo de Gestor de Recursos utilizando a integração UX da Data Factory com o Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -115,7 +115,7 @@ Segue-se um guia para a criação de um lançamento da Azure Pipelines que autom
 
 1.  Guarde o oleoduto de libertação.
 
-1. Para desencadear uma versão, selecione **Criar verção**. Para automatizar a criação de lançamentos, veja [os gatilhos de lançamento do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Para desencadear uma versão, selecione **Criar verção**. Para automatizar a criação de lançamentos, veja [os gatilhos de lançamento do Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selecione Criar ver lançamento](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pod
 
 * Utiliza CI/CD automatizado e pretende alterar algumas propriedades durante a implementação do Gestor de Recursos, mas as propriedades não são parametrizadas por padrão.
 * A sua fábrica é tão grande que o modelo de Gestor de Recursos predefinido é inválido porque tem mais do que os parâmetros máximos permitidos (256).
+
+    Para lidar com o parâmetro personalizado limite 256, existem 3 opções:    
+  
+    * Utilize o ficheiro de parâmetros personalizados e remova propriedades que não necessitam de parametrização, ou seja, propriedades que podem manter um valor padrão e, portanto, diminuir a contagem de parâmetros.
+    * A lógica do refactor no fluxo de dados para reduzir parâmetros, por exemplo, os parâmetros do pipeline todos têm o mesmo valor, pode apenas usar parâmetros globais em vez disso.
+    * Divida uma fábrica de dados em vários fluxos de dados.
 
 Para anular o modelo de parametrização padrão, vá ao centro de gestão e selecione o **modelo de parametrização** na secção de controlo de origem. Selecione **o modelo de edição** para abrir o editor de código de modelo de parâmetros. 
 
@@ -639,7 +645,7 @@ Veja o vídeo abaixo de um tutorial de vídeo aprofundado sobre como corrigir qu
 
 ## <a name="exposure-control-and-feature-flags"></a>Controlo de exposição e bandeiras de características
 
-Ao trabalhar numa equipa, há casos em que pode fundir mudanças, mas não quer que sejam geridas em ambientes elevados como o PROD e o QA. Para lidar com este cenário, a equipa da ADF recomenda [o conceito de DevOps de utilização de bandeiras de características.](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) Em ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade se condicionar](control-flow-if-condition-activity.md) conjuntos de lógica com base nestas bandeiras ambientais.
+Ao trabalhar numa equipa, há casos em que pode fundir mudanças, mas não quer que sejam geridas em ambientes elevados como o PROD e o QA. Para lidar com este cenário, a equipa da ADF recomenda [o conceito de DevOps de utilização de bandeiras de características.](/azure/devops/migrate/phase-features-with-feature-flags) Em ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade se condicionar](control-flow-if-condition-activity.md) conjuntos de lógica com base nestas bandeiras ambientais.
 
 Para aprender a configurar uma bandeira de recurso, veja o tutorial de vídeo abaixo:
 
