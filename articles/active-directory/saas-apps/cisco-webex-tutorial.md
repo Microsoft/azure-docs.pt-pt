@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d53cfc874bca6529fdee821ce3173607d5f06b3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7a4e3a4a6049b48fa70e5352680bdc7342676c0b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456059"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670286"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Azure Ative Directory integração única (SSO) com reuniões webex da Cisco
 
@@ -92,8 +92,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     a. Na secção **De Configuração Básica SAML,** clique no ícone edit/pen.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
-    
-    b. Na placa de texto **URL,** digite o URL utilizando o seguinte padrão: ` https://<customername>.my.webex.com`
+
+    b. Na placa de texto **URL,** digite o URL utilizando o seguinte padrão: `https://<customername>.my.webex.com`
 
 5. A aplicação Cisco Webex Meetings espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
@@ -144,7 +144,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Cisco Webex Meetings.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Cisco Webex Meetings**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -163,7 +163,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Vá para a `https://<customername>.webex.com/admin` URL com as suas credenciais de administração.
 
 2. Aceda às **definições do site comum** e navegue para a **Configuração SSO**.
- 
+
     ![O Screenshot mostra a Administração Webex da Cisco com configurações de site comuns e configuração S S O selecionada.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. Na página **da Administração Webex,** execute os seguintes passos:
@@ -200,9 +200,9 @@ Quando clicar no azulejo cisco Webex Meetings no Painel de Acesso, deverá ser a
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 

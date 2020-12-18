@@ -9,12 +9,12 @@ ms.custom: mvc, contperf-fy21q1
 ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 3bfc8704919fc26db692701eaca526dd5c333b6f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 04ba20bd5607bc309735e509ac37b15c33445c52
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033498"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672738"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -68,7 +68,6 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |As atualizações de configuração podem demorar cinco minutos, em média,|Uma atualização de configuração do Azure Firewall pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.|
 |Azure Firewall usa cabeçalhos SNI TLS para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou do servidor não suportar a extensão do Indicador de Nome do Servidor (SNI), não será capaz de se ligar através do Azure Firewall.|Se o software do navegador ou do servidor não suportar SNI, então poderá ser capaz de controlar a ligação usando uma regra de rede em vez de uma regra de aplicação. Consulte [a indicação do nome do servidor](https://wikipedia.org/wiki/Server_Name_Indication) para software que suporta sNI.|
 |DNS personalizado não funciona com túneis forçados|Se o túnel de força estiver ativado, o DNS personalizado não funciona.|Uma correção está a ser investigada.|
-|Novo suporte público de endereço IP para múltiplas Zonas de Disponibilidade|Não é possível adicionar um novo endereço IP público quando implanta uma firewall com duas zonas de disponibilidade (1 e 2, 2 e 3, ou 1 e 3)|Trata-se de uma limitação de recursos de endereço IP público.|
 |Start/Stop não funciona com uma firewall configurada em modo de túnel forçado|O arranque/paragem não funciona com firewall Azure configurado em modo de túnel forçado. Tentar iniciar a Firewall do Azure com túneis forçados configurados resulta no seguinte erro:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuração IP não pode ser adicionada a uma firewall existente. Reimplantar com uma configuração IP de gestão se quiser utilizar suporte de túneis forçado. <br> StatusCode: 400 <br> ReasonPhrase: Mau pedido*|Sob investigação.<br><br>Como uma solução alternativa, pode eliminar a firewall existente e criar uma nova com os mesmos parâmetros.|
 |Não é possível adicionar tags de política de firewall usando o portal|A Azure Firewall Policy tem uma limitação de suporte de patch que o impede de adicionar uma etiqueta usando o portal Azure. O seguinte erro é gerado: *Não foi possível guardar as etiquetas para o recurso*.|Uma correção está a ser investigada. Em alternativa, pode utilizar o cmdlet Azure PowerShell `Set-AzFirewallPolicy` para atualizar as tags.|
 |IPv6 ainda não apoiado|Se adicionar um endereço IPv6 a uma regra, a firewall falha.|Utilize apenas endereços IPv4. O apoio do IPv6 está sob investigação.|

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 61920b7c5356b6e1fa5683ac0553060c85e256d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f7578972b054747c75cdbbc2371fc0bf35c6039a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457822"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a ArcGIS Enterprise
 
@@ -68,7 +68,7 @@ Para configurar a integração da ArcGIS Enterprise em Azure AD, é necessário 
 
 4. Na caixa de pesquisa, **digite ArcGIS Enterprise**, selecione **ArcGIS Enterprise** do painel de resultados e clique em **Adicionar** botão adicionar a aplicação.
 
-     ![Empresa ArcGIS na lista de resultados](common/search-new-app.png)
+    ![Empresa ArcGIS na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -157,7 +157,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
     b. Na caixa de texto **URL,** cole o valor url de **metadados da Federação de Aplicações** que copiou a partir do portal Azure.
 
     c. Clique em **Mostrar definições avançadas** e copie o valor **de ID** da Entidade e cole-o na caixa de texto **identifier** na secção **Domínio Empresarial e URLs arcgis** no portal Azure.
-    
+
     ![A screenshot mostra onde obter a Entidade I D e atualizar o fornecedor de identificação.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. CLIQUE **EM UPDATE IDENTITY PROVIDER**.
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

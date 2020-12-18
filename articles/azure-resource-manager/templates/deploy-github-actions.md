@@ -4,12 +4,12 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure (mode
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: f8c669393d38d7af2af4f63f251740d8ad72edf7
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 4c1f59e9a18e7359ae543b0311baea0c2a4ab8d6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607308"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674337"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implemente modelos ARM utilizando ações do GitHub
 
@@ -158,3 +158,6 @@ Quando o seu grupo de recursos e repositório já não forem necessários, limpe
 
 > [!div class="nextstepaction"]
 > [Crie o seu primeiro modelo ARM](./template-tutorial-create-first-template.md)
+
+> [!div class="nextstepaction"]
+> [Aprenda módulo: Automatize a implementação de modelos ARM utilizando ações do GitHub](/learn/modules/deploy-templates-command-line-github-actions/)

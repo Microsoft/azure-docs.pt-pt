@@ -2,20 +2,20 @@
 title: Ativar o Snapshot Debugger para aplicações .NET no Azure App Service [ Microsoft Docs
 description: Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 ms.topic: conceptual
-author: brahmnes
-ms.author: bfung
+author: cweining
+ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 35653840c5ddd6f5ae2d5dc078513f0fa35ab34a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0fc46c815906b9aaca7b3ce964e0d23cfdc4e1aa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560938"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673579"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 
-A Snapshot Debugger trabalha atualmente para aplicações ASP.NET e ASP.NET Core que estão a ser executadas no Azure App Service em planos de serviço do Windows. Recomendamos que execute a sua aplicação no nível de serviço Basic ou superior ao utilizar o depurar instantâneo. Para a maioria das aplicações, os níveis de serviço Gratuito e Partilhado não têm memória suficiente para guardar instantâneos.
+A Snapshot Debugger trabalha atualmente para aplicações ASP.NET e ASP.NET Core que estão a ser executadas no Azure App Service em planos de serviço do Windows. Recomendamos que execute a sua aplicação no nível de serviço Basic ou superior ao utilizar o depurar instantâneo. Para a maioria das aplicações, os níveis de serviço Gratuito e Partilhado não têm memória ou espaço de disco suficiente para guardar instantâneos.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Ativar Snapshot Debugger
 Para ativar o Snapshot Debugger para uma aplicação, siga as instruções abaixo.

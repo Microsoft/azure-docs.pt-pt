@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b6bf0736c2887ee19551e2719ec2418bbacdbd1d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bf1b46a42b0b8b68e1ab95a3345bb3b5435a576b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313673"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integração do Diretório Ativo Azure com a Acadia
 
@@ -64,7 +64,7 @@ Para configurar a integração da Acadia no Azure AD, é necessário adicionar a
 
 4. Na caixa de pesquisa, **digite Acadia,** selecione **Acadia** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Acádia na lista de resultados](common/search-new-app.png)
+    ![Acádia na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD com acadia, execute os seguintes passos:
 
 ### <a name="configure-acadia-single-sign-on"></a>Configurar acadia single Sign-On
 
-Para configurar um único sinal no lado da **Acadia,** é necessário enviar o **Metadadata XML**descarregado, o **URL de metadados da Federação de Aplicações,** e URLs copiados apropriados do portal Azure para a equipa de suporte da [Acadia.](mailto:support@systemsalliance.com) Configuram esta definição para que a ligação SSO SAML seja corretamente definida em ambos os lados.
+Para configurar um único sinal no lado da **Acadia,** é necessário enviar o **Metadadata XML** descarregado, o **URL de metadados da Federação de Aplicações,** e URLs copiados apropriados do portal Azure para a equipa de suporte da [Acadia.](mailto:support@systemsalliance.com) Configuram esta definição para que a ligação SSO SAML seja corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -150,7 +150,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -162,7 +162,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Acadia.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Acadia**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Acadia**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

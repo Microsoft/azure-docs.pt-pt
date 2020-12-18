@@ -2,13 +2,13 @@
 title: Implementar múltiplas instâncias de recursos
 description: Utilize a operação de cópia e as matrizes num modelo de Gestor de Recursos Azure (modelo ARM) para implementar o tipo de recurso muitas vezes.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905915"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672836"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recursos em modelos ARM
 
@@ -292,10 +292,9 @@ Os exemplos a seguir mostram cenários comuns para a criação de mais de um cas
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: Crie múltiplas instâncias de recursos com modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para um módulo Microsoft Learn que cubra a cópia de recursos, consulte [Gerir implementações complexas em nuvem utilizando funcionalidades avançadas do modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para outras utilizações do elemento de cópia, consulte:
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
 * Para obter informações sobre a utilização de cópias com modelos aninhados, consulte [utilizar a cópia](linked-templates.md#using-copy).
-* Se quiser aprender sobre as secções de um modelo, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
-* Para aprender a implementar o seu modelo, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

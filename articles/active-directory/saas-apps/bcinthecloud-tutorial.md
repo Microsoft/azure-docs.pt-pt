@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: adac6993c0fc40fa81328655903850c1da85ccf3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5b8d9cedcc2ca3085f342db0bbf5fe3704ac7242
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457372"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com BC na Nuvem
 
@@ -63,7 +63,7 @@ Para configurar a integração de BC na Cloud em Ad Azure, você precisa adicion
 
 4. Na caixa de pesquisa, tipo **BC na Nuvem**, selecione BC na Cloud a partir do painel de resultados e, **em** seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![BC na Nuvem na lista de resultados](common/search-new-app.png)
+    ![BC na Nuvem na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a BC na Nuvem.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **BC na Cloud**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **BC na Cloud**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

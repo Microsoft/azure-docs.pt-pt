@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e17c4e768d02226c1c50baea05b9231acb78cba6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b1c4ab22db3bb9cadc783357bd9963c5de3b6f98
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455430"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Tutorial: Integração do Diretório Ativo Azure com Horizontes Confirmait
 
@@ -65,7 +65,7 @@ Para configurar a integração de Confirmit Horizons em AZure AD, é necessário
 
 4. Na caixa de pesquisa, **escreva Confirmit Horizons**, selecione **Confirmait Horizons** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Confirme Horizontes na lista de resultados](common/search-new-app.png)
+    ![Confirme Horizontes na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -165,7 +165,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome,** **insira BrittaSimon**.
-  
+
     b. No campo **nome do utilizador,** escreva **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

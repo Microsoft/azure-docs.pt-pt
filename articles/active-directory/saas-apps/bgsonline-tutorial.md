@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 28dec1681d2849c6dbcf4b0b1b5ac7767bd77e42
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10531f87ee4a170310a97831a374a836641ce12b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457219"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Tutorial: Integração do Azure Ative Directory com a BGS Online
 
@@ -63,7 +63,7 @@ Para configurar a integração do BGS Online no Azure AD, é necessário adicion
 
 4. Na caixa de pesquisa, escreva **BGS Online,** selecione **BGS Online** a partir do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![BGS Online na lista de resultados](common/search-new-app.png)
+    ![BGS Online na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -151,7 +151,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

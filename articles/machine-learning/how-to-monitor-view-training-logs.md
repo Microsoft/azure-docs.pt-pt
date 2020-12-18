@@ -11,18 +11,22 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0dd5f6a48175bad35b37155c8ff881e352922ca7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360603"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674480"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
-Neste artigo, aprende-se a monitorizar o Azure Machine Learning e a visualizar os seus registos. Antes de poder visualizar os registos, tem de os ativar primeiro. Para obter mais informações, consulte [Ativar o registo em treinos Azure ML](how-to-track-experiments.md).
+Saiba como monitorizar a aprendizagem automática do Azure e veja os seus registos. 
 
-Os registos podem ajudá-lo a diagnosticar erros e advertências, ou rastrear métricas de desempenho como parâmetros e precisão do modelo. Neste artigo, aprende a visualizar registos utilizando os seguintes métodos:
+Quando fazes uma experiência, os registos e as métricas são transmitidos para ti.  Além disso, pode adicionar o seu próprio.  Para saber como, consulte [Enable iniciar sessão em treinos Azure ML](how-to-track-experiments.md).
+
+Os registos podem ajudá-lo a diagnosticar erros e avisos para a sua execução. Métricas de desempenho como parâmetros e precisão do modelo ajudam-no a rastrear e monitorizar as suas corridas.
+
+Neste artigo, aprende a visualizar registos utilizando os seguintes métodos:
 
 > [!div class="checklist"]
 > * Monitor corre no estúdio
@@ -32,27 +36,6 @@ Os registos podem ajudá-lo a diagnosticar erros e advertências, ou rastrear m�
 > * Ver registos de saída no estúdio
 
 Para obter informações gerais sobre como gerir as suas experiências, consulte [Start, monitor e cancele as corridas de treino.](how-to-manage-runs.md)
-
-## <a name="monitor-runs-in-the-studio"></a>Monitor corre no estúdio
-
-Para monitorizar as corres para um alvo de computação específico a partir do seu navegador, utilize os seguintes passos:
-
-1. No [estúdio Azure Machine Learning,](https://ml.azure.com/)selecione o seu espaço de trabalho e, em seguida, selecione __Compute__ do lado esquerdo da página.
-
-1. Selecione __Training Clusters__ para apresentar uma lista de alvos de computação utilizados para o treino. Em seguida, selecione o cluster.
-
-    ![Selecione o cluster de treino](./media/how-to-track-experiments/select-training-compute.png)
-
-1. Selecione __Runs__. É apresentada a lista de execuções que utilizam este cluster. Para ver detalhes para uma execução específica, utilize o link na coluna __Executar.__ Para ver detalhes para a experiência, use o link na coluna __Experiment.__
-
-    ![Selecione corridas para cluster de treino](./media/how-to-track-experiments/show-runs-for-compute.png)
-    
-    > [!TIP]
-    > Uma vez que os alvos de computação de treino são um recurso partilhado, eles podem ter múltiplas corridas em fila ou ativas num dado momento.
-    > 
-    > Uma corrida pode conter corridas de crianças, para que um trabalho de treino possa resultar em múltiplas entradas.
-
-Uma vez concluída uma execução, deixará de ser exibida nesta página. Para ver informações sobre as execuções __completas,__ visite a secção Experiments do estúdio e selecione a experiência e corra. Para obter mais informações, consulte a secção [Ver métricas para execuções completas](#view-the-experiment-in-the-web-portal).
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitor executa usando o widget de caderno Jupyter
 
@@ -94,28 +77,28 @@ RunDetails(run).show()
 Quando utilizar **o ScriptRunConfig,** pode utilizar ```run.wait_for_completion(show_output = True)``` para mostrar quando o treino do modelo está completo. A ```show_output``` bandeira dá-lhe uma saída verbosa. Para obter mais informações, consulte a secção ScriptRunConfig de [Como permitir a sessão de registo](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
+
 ## <a name="query-run-metrics"></a>Métricas de execução de consulta
 
 Pode ver as métricas de um modelo treinado utilizando ```run.get_metrics()``` . Por exemplo, pode usar isto com o exemplo acima para determinar o melhor modelo procurando o modelo com o menor valor quadrado de erro quadrado médio (mse).
 
 <a name="view-the-experiment-in-the-web-portal"></a>
+
 ## <a name="view-run-records-in-the-studio"></a>Ver discos de execução no estúdio
 
 Pode navegar em registos completos, incluindo métricas registadas, no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-Navegue para o **separador Experimentos.** Para visualizar todas as suas corridas no seu espaço de trabalho através de Experiências, selecione o separador **Todas as execuções.** Pode perfurar em execuções para experiências específicas aplicando o filtro Experiment na barra de menu superior. 
+Navegue para o **separador Experimentos.** Para visualizar todas as suas corridas no seu espaço de trabalho através de Experiências, selecione o separador **Todas as execuções.** Pode perfurar em execuções para experiências específicas aplicando o filtro Experiment na barra de menu superior.
 
 Para a vista experimento individual, selecione o separador **Todas as experiências.** No painel de instrumentos de experimentação, pode ver métricas e registos rastreados para cada corrida. 
 
-Desembre para uma corrida específica para ver as suas saídas ou registos, ou descarregue a imagem instantânea da experiência para que possa partilhar a pasta de experiências com outras.
-
-Também pode editar a tabela de listas de execução para selecionar várias execuções e exibir o último, mínimo ou valor máximo registado para as suas execuções. Personalize os seus gráficos para comparar os valores e agregados de métricas registadas em várias corridas.
+Também pode editar a tabela de listas de execução para selecionar várias execuções e exibir o último, mínimo ou valor máximo registado para as suas execuções. Personalize os seus gráficos para comparar os valores e agregados de métricas registadas em várias corridas. 
 
 ![Execute detalhes no estúdio Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="format-charts-in-the-studio"></a>Gráficos de formato no estúdio
+### <a name="format-charts"></a>Gráficos de formato 
 
-Utilize os seguintes métodos nas APIs de registo para influenciar o estúdio visualizando as suas métricas.
+Utilize os seguintes métodos nas APIs de exploração madeireira para influenciar as visualizações de métricas.
 
 |Valor Registado|Código de exemplo| Formato no portal|
 |----|----|----|
@@ -125,7 +108,81 @@ Utilize os seguintes métodos nas APIs de registo para influenciar o estúdio vi
 |Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
 
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="view-log-files-for-a-run"></a>Ver ficheiros de registo para uma execução 
+
+Os ficheiros de registo são um recurso essencial para depurar as cargas de trabalho do Azure ML. Aprofundar até uma corrida específica para ver os seus registos e saídas:  
+
+1. Navegue para o **separador Experimentos.**
+1. Selecione o runID para uma execução específica.
+1. Selecione **Saídas e registos** no topo da página.
+
+:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Screenshot da secção de saída e registos de uma corrida":::
+
+As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que verá nesta secção.
+
+> [!NOTE]
+> Informação que o utilizador deve notar mesmo que skimming Não verá necessariamente todos os ficheiros para cada execução. Por exemplo, o 20_image_build_log*.txt só aparece quando uma nova imagem é construída (por exemplo, quando muda de ambiente).
+
+#### <a name="azureml-logs-folder"></a>`azureml-logs` pasta
+
+|Ficheiro  |Descrição  |
+|---------|---------|
+|20_image_build_log.txt     | Registo de construção de imagem estivador para o ambiente de treino, opcional, um por corrida. Só é aplicável na atualização do seu Ambiente. Caso contrário, a AML reutilizará a imagem em cache. Se for bem sucedido, contém detalhes do registo de imagem para a imagem correspondente.         |
+|55_azureml execução-<node_id>.txt     | stdout/stderr log da ferramenta hospedeira, um por nó. Puxa a imagem para calcular o alvo. Note que este registo só aparece depois de ter garantido recursos de computação.         |
+|65_job_prep-<node_id>.txt     |   stdout/stderr log do script de preparação de trabalho, um por nó. Faça o download do seu código para calcular o alvo e as datastores (se solicitado).       |
+|.txt 70_driver_log(_x)      |  registo stdout/stderr do script de controlo AML e script de treinamento do cliente, um por processo. **Esta é a saída padrão do seu script. É aqui que aparecem os registos do seu código (por exemplo, declarações de impressão).** Na maioria dos casos, irá monitorizar os registos aqui.       |
+|70_mpi_log.txt     |   Registo-quadro mpi, opcional, um por corrida. Só para a execução de MPI.   |
+|75_job_post-<node_id>.txt     |  stdout/stderr log do script de lançamento de trabalho, um por nó. Envie registos, liberte os recursos computacional de volta para Azure.        |
+|process_info.jsem      |   mostrar que processo está em execução em que nó.  |
+|process_status.jsem      | mostrar o estado do processo, isto é, se um processo não for iniciado, em execução ou concluído.         |
+
+#### <a name="logs--azureml-folder"></a>`logs > azureml` pasta
+
+|Ficheiro  |Descrição  |
+|---------|---------|
+|110_azureml.log      |         |
+|job_prep_azureml.log     |   registo do sistema para a preparação do trabalho        |
+|job_release_azureml.log     | registo do sistema para a libertação de emprego        |
+
+#### <a name="logs--azureml--sidecar--node_id-folder"></a>`logs > azureml > sidecar > node_id` pasta
+
+Quando o sidecar estiver ativado, os scripts de preparação de emprego e de lançamento de emprego serão executados dentro do contentor sidecar.  Há uma pasta para cada nó. 
+
+|Ficheiro  |Descrição  |
+|---------|---------|
+|start_cms.txt     |  Registo de processo que começa quando o Contentor Sidecar começa       |
+|prep_cmd.txt      |   Log for ContextManagers introduzidos quando `job_prep.py` é executado (alguns destes serão transmitidos `azureml-logs/65-job_prep` para)       |
+|release_cmd.txt     |  Log for ComtextManagers saiu quando `job_release.py` é executado        |
+
+#### <a name="other-folders"></a>Outras pastas
+
+Para a formação de empregos em clusters multi-compute, os registos estão presentes para cada período de inquérito. A estrutura para cada nó é a mesma que os trabalhos de nó único. Há uma pasta de registos adicionais para execução geral, stderr e registos de sepido.
+
+A Azure Machine Learning regista informações de várias fontes durante o treino, tais como AutoML ou o contentor Docker que gere o trabalho de formação. Muitos destes registos não estão documentados. Se encontrar problemas e contactar o suporte da Microsoft, poderão utilizar estes registos durante a resolução de problemas.
+
+## <a name="monitor-a-compute-cluster"></a>Monitorize um cluster de cálculo
+
+Para monitorizar as corres para um alvo de computação específico a partir do seu navegador, utilize os seguintes passos:
+
+1. No [estúdio Azure Machine Learning,](https://ml.azure.com/)selecione o seu espaço de trabalho e, em seguida, selecione __Compute__ do lado esquerdo da página.
+
+1. Selecione __Training Clusters__ para apresentar uma lista de alvos de computação utilizados para o treino. Em seguida, selecione o cluster.
+
+    ![Selecione o cluster de treino](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Selecione __Runs__. É apresentada a lista de execuções que utilizam este cluster. Para ver detalhes para uma execução específica, utilize o link na coluna __Executar.__ Para ver detalhes para a experiência, use o link na coluna __Experiment.__
+
+    ![Selecione corridas para cluster de treino](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > Uma vez que os alvos de computação de treino são um recurso partilhado, eles podem ter múltiplas corridas em fila ou ativas num dado momento.
+    > 
+    > Uma corrida pode conter corridas de crianças, para que um trabalho de treino possa resultar em múltiplas entradas.
+
+Uma vez concluída uma execução, deixará de ser exibida nesta página. Para ver informações sobre as execuções __completas,__ visite a secção Experiments do estúdio e selecione a experiência e corra. Para obter mais informações, consulte a secção [Ver métricas para execuções completas](#view-the-experiment-in-the-web-portal).
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente estes próximos passos para aprender a usar a Azure Machine Learning:
 

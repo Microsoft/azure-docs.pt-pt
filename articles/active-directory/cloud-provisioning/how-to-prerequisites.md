@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956d11ea2a4b011a792827357c3f4627058ead9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1f0c94ba6fb9ee5ab019458043095271123e325e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97651995"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671017"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos do aprovisionamento na cloud do Azure AD Connect
 Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Conecte o fornecimento de nuvem como solução de identidade.
@@ -62,14 +62,11 @@ Executar a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes
     > | 12 | 4GB |
     > | 18 | 5,5 GB|
     > | 28 | 10+ GB|
-    >
-    > 
 
 2. A política de execução PowerShell no servidor local deve ser definida para Undefined ou RemoteSigned.
 
 3. Se houver uma firewall entre os seus servidores e Azure AD, configuure os seguintes itens:
-
-   - Certifique-se de que os agentes podem fazer pedidos *de saída* à Azure AD nas seguintes portas:
+    - Certifique-se de que os agentes podem fazer pedidos *de saída* à Azure AD nas seguintes portas:
 
       | Número da porta | Como é usado |
       | --- | --- |
@@ -78,13 +75,13 @@ Executar a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes
       |**8082**|Necessário para a instalação e se pretender configurar a API de administração da HIS.  Esta porta pode ser removida uma vez instalado o agente e se não estiver a planear utilizar a API.   |
       | **8080** (opcional) | Os agentes reportam o seu estado a cada 10 minutos sobre o porto 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal AD Azure. |
 
-   - Se o seu firewall aplicar as regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
-   - Se a sua firewall ou proxy permitir que especifique sufixos seguros, adicione ligações a \* .msappproxy.net e \* .servicebus.windows.net. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
-   - Os seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para o registo inicial. Abra a firewall para os URLs também.
-   - Para validação de certificados, desbloqueie os seguintes URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www \. microsoft.com:80. Estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
+    - Se o seu firewall aplicar as regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
+    - Se a sua firewall ou proxy permitir que especifique sufixos seguros, adicione ligações a \* .msappproxy.net e \* .servicebus.windows.net. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
+    - Os seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para o registo inicial. Abra a firewall para os URLs também.
+    - Para validação de certificados, desbloqueie os seguintes URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www \. microsoft.com:80. Estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
 
->[!NOTE]
-> A instalação do agente de provisionamento em nuvem no Windows Server Core não é suportada.
+    >[!NOTE]
+    > A instalação do agente de provisionamento em nuvem no Windows Server Core não é suportada.
 
 ### <a name="additional-requirements"></a>Requisitos adicionais
 
@@ -92,8 +89,8 @@ Executar a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes
 
 #### <a name="tls-requirements"></a>Requisitos TLS
 
->[!NOTE]
->Transport Layer Security (TLS) é um protocolo que prevê comunicações seguras. A alteração das definições de TLS afeta toda a floresta. Para obter mais informações, consulte [Update para ativar os TLS 1.1 e TLS 1.2 como protocolos seguros predefinidos no WinHTTP no Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
+> [!NOTE]
+> Transport Layer Security (TLS) é um protocolo que prevê comunicações seguras. A alteração das definições de TLS afeta toda a floresta. Para obter mais informações, consulte [Update para ativar os TLS 1.1 e TLS 1.2 como protocolos seguros predefinidos no WinHTTP no Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
 
 O servidor Windows que acolhe o agente de provisionamento de nuvem Azure AD Connect deve ter o TLS 1.2 ativado antes de o instalar.
 
@@ -111,6 +108,7 @@ Para ativar o TLS 1.2, siga estes passos.
 1. Reinicie o servidor.
 
 ## <a name="known-limitations"></a>Limitações conhecidas
+
 São conhecidas as seguintes limitações:
 
 ### <a name="delta-synchronization"></a>Sincronização Delta

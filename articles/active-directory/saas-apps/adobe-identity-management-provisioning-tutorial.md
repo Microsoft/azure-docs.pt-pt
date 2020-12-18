@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: a87a08db672c459138fc1efd865332dc0f19944e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586664"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673306"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutorial: Configurar a Gestão de Identidade da Adobe para o fornecimento automático de utilizadores
 
@@ -57,15 +57,15 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 2. Clique **em Adicionar Sincronização.**
 
-      ![Adicionar](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+    ![Adicionar](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. Selecione **utilizadores sync do Microsoft Azure** e clique em **Seguinte**.
 
-      ![Screenshot que mostra 'Sync users from Microsoft Azure Ative Directory' selecionado.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+    ![Screenshot que mostra 'Sync users from Microsoft Azure Ative Directory' selecionado.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copie e guarde o URL do **inquilino** e **o símbolo secreto.** Estes valores serão introduzidos nos campos URL e **Secret Token** do **Arrendatário** no separador Provisioning da sua aplicação de Gestão de Identidade da Adobe no portal Azure.
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
+    ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione a Adobe Gestão de Identidade da galeria de aplicações AZure AD
 

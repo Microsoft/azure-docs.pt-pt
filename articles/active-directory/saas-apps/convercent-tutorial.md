@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 003b577d09e9b1d72077cbda4fde53b457d80e8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 77ccc361e93758feb91867ffe6954f34c1e9d01f
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455260"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Diretório Ativo Azure com a Convercent
 
@@ -63,7 +63,7 @@ Para configurar a integração do Convercent no Azure AD, é necessário adicion
 
 4. Na caixa de pesquisa, **digite Convercent,** selecione **Convercent** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Convercent na lista de resultados](common/search-new-app.png)
+    ![Convercent na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -148,7 +148,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -160,7 +160,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Convercent.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Convercent**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Convercent**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

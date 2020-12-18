@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 05c89c8628b4d4ce10ca4ba12c720b410b72601f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 29baaac7cf9139368a191153fdbd0179595bef66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005151"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Diretório Ativo Azure com a Asana
 
@@ -65,7 +65,7 @@ Para configurar a integração da Asana no Azure AD, precisa adicionar Asana da 
 
 4. Na caixa de pesquisa, **digite Asana,** selecione **Asana** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Asana na lista de resultados](common/search-new-app.png)
+    ![Asana na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -154,7 +154,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

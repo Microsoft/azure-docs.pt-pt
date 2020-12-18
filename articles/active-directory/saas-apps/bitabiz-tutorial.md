@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: f762f4d81a71296d306e181f7b30a2b93b9ab52c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f564032873be6e4c70426d48c4576371862ea35d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457163"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutorial: Integração do Diretório Ativo Azure com o BitaBIZ
 
@@ -63,7 +63,7 @@ Para configurar a integração do BitaBIZ no AD Azure, é necessário adicionar 
 
 4. Na caixa de pesquisa, **escreva BitaBIZ,** selecione **BitaBIZ** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![BitaBIZ na lista de resultados](common/search-new-app.png)
+    ![BitaBIZ na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -173,7 +173,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

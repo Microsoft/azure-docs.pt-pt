@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c56f1ab546327aaf281ff3616fa489728f3885a6
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: cd926875eda5676da6c154a57b0ac18ca12d9b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297088"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Ative Directory com a Agiloft
 
@@ -64,7 +64,7 @@ Para configurar a integração da Agiloft no Azure AD, é necessário adicionar 
 
 4. Na caixa de pesquisa, **digite Agiloft,** selecione **Agiloft** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Agiloft na lista de resultados](common/search-new-app.png)
+    ![Agiloft na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -184,7 +184,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

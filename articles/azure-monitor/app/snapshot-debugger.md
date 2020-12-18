@@ -4,13 +4,15 @@ description: Os instantâneos de depurg são automaticamente recolhidos quando a
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
+author: cweining
+ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5913f5fa8d45e6bf92d6132468e0e3bf7a121c65
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530238"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673523"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 Quando ocorre uma exceção, pode recolher automaticamente uma imagem de depurar da sua aplicação web ao vivo. O instantâneo mostra o estado do código fonte e as variáveis no momento em que a exceção foi lançada. O Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe instantâneos nas suas exceções de arremesso de topo para que tenha a informação necessária para diagnosticar problemas na produção. Inclua o [pacote NuGet do colecionador Snapshot](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e configurar opcionalmente os parâmetros de recolha em [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). As imagens aparecem em [exceções](./asp-net-exceptions.md) no portal Application Insights.
@@ -47,7 +49,7 @@ O acesso a instantâneos é protegido pelo controlo de acesso baseado em funçõ
 Os proprietários de subscrições devem atribuir a `Application Insights Snapshot Debugger` função aos utilizadores que irão inspecionar as imagens. Esta função pode ser atribuída a utilizadores ou grupos individuais por proprietários de subscrição para o recurso Target Application Insights ou o seu grupo de recursos ou subscrição.
 
 1. Navegue para o recurso Application Insights no portal Azure.
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 1. Clique no botão **de atribuição de função +Add.**
 1. Selecione **Application Insights Snapshot Debugger** da lista de lançamento de **funções.**
 1. Procure e introduza um nome para o utilizador adicionar.

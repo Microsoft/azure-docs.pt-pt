@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: fe113575c9ac70efc0afc571758eea668a23d8cb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1df8c6fa0877c20518be072674447d28d7f1ca0c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455821"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutorial: Integração do Azure Ative Directory com o Cloud Service PICCO
 
@@ -64,7 +64,7 @@ Para configurar a integração do Cloud Service PICCO em AD Azure, precisa adici
 
 4. Na caixa de pesquisa, **digite Cloud Service PICCO**, selecione **Cloud Service PICCO** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![Cloud Service PICCO na lista de resultados](common/search-new-app.png)
+    ![Cloud Service PICCO na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -136,7 +136,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

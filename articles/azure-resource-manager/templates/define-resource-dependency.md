@@ -2,13 +2,13 @@
 title: Definir ordem de implantação de recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implementação para garantir que os recursos são implantados na ordem correta.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255216"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672819"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem para a implantação de recursos em modelos ARM
 
@@ -150,6 +150,7 @@ Para obter informações sobre a avaliação da ordem de implantação e a resol
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: crie modelos de Gestor de Recursos Azure com recursos dependentes.](template-tutorial-create-templates-with-dependent-resources.md)
+* Para um módulo Microsoft Learn que cubra as dependências de recursos, consulte [Gerir implementações complexas em nuvem utilizando funcionalidades avançadas do modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para obter recomendações ao definir dependências, consulte as [melhores práticas do modelo do Gestor de Recursos Azure](template-best-practices.md).
 * Para saber mais sobre as dependências de resolução de problemas durante a implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).
 * Para saber sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autoria](template-syntax.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 91d48e42dc1c92e05e963b4c8b53e44daa403378
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f999818ab791cabac6b0877b7735fa730dab89e2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456705"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Azure Ative Directory com Brightspace by Desire2Learn
 
@@ -66,7 +66,7 @@ Para configurar a integração do Brightspace by Desire2Learn em AD Azure, é ne
 
 4. Na caixa de pesquisa, **escreva Brightspace by Desire2Learn,** selecione **Brightspace by Desire2Learn** do painel de resultados e clique em Adicionar botão **Adicionar** a aplicação.
 
-     ![Brightspace by Desire2Learn na lista de resultados](common/search-new-app.png)
+    ![Brightspace by Desire2Learn na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -105,7 +105,7 @@ Para configurar o único sign-on Ad Ad ad com Brightspace by Desire2Learn, execu
     ![Brightspace by Desire2Learn Domain e URLs informações únicas de início de súrbio](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
-    
+
     ```http
     https://<companyname>.tenants.brightspace.com/samlLogin
     https://<companyname>.desire2learn.com/shibboleth-sp
@@ -151,7 +151,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3329d092e27e7d8885daa87650734cd8e84202c9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: cf74b563352ccd0f62e583bccccd72078cbb2046
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313661"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutorial: Integração do Diretório Ativo Azure com Accredible
 
@@ -63,7 +63,7 @@ Para configurar a integração da Accredible no Azure AD, é necessário adicion
 
 4. Na caixa de pesquisa, **escreva Accredible,** selecione **Accredible** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Credível na lista de resultados](common/search-new-app.png)
+    ![Credível na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -148,7 +148,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome,** **insira BrittaSimon**.
-  
+
     b. No campo **nome do utilizador,** **escreva brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -160,7 +160,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Accredible.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Accredible**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Accredible**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -184,7 +184,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-accredible-test-user"></a>Criar utilizador de teste accredible
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Accredible. É necessário enviar o e-mail do utilizador para a equipa de [suporte accredible,](mailto:support@accredible.com)depois verificam o e-mail e enviam-lhe o correio de convite para que possa adicionar o utilizador numa plataforma credível.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Accredible. É necessário enviar o e-mail do utilizador para a equipa de [suporte accredible,](mailto:support@accredible.com)depois verificam o e-mail e enviam-lhe o correio de convite para que possa adicionar o utilizador numa plataforma credível.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

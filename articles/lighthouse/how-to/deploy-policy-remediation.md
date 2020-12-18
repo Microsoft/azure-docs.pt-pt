@@ -1,14 +1,14 @@
 ---
 title: Implementar uma política que pode ser corrigida
 description: Para implementar políticas que utilizem uma tarefa de reparação através do Farol Azure, você precisará criar uma identidade gerida no inquilino do cliente.
-ms.date: 08/12/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010100"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670496"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementar uma política que pode ser remediada dentro de uma subscrição delegada
 
@@ -41,7 +41,7 @@ O exemplo abaixo mostra um **principalid** que terá a função de Administrador
 
 ## <a name="deploy-policies-that-can-be-remediated"></a>Implementar políticas que possam ser remediadas
 
-Uma vez criado o utilizador com as permissões necessárias, conforme descrito acima, o utilizador pode implementar políticas que utilizem tarefas de reparação dentro do cliente.
+Uma vez criado o utilizador com as permissões necessárias, tal como acima descrito, esse utilizador pode implementar políticas que utilizem tarefas de reparação dentro de subscrições de clientes delegadas.
 
 Por exemplo, digamos que queria ativar os diagnósticos dos recursos do Azure Key Vault no inquilino do cliente, como ilustrado nesta [amostra.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring) Um utilizador no inquilino gerente com as permissões apropriadas (como descrito acima) implementaria um [modelo de Gestor de Recursos Azure](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para permitir este cenário.
 

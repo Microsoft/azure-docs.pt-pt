@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 36d6d40b471edb20f2e4294a4ba29323fac2ebc6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8010bf25cc62d2de1b8b6ff9c0ecdc140c02c6a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457491"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integração do Azure Ative Directory com Autotask Workplace
 
@@ -67,7 +67,7 @@ Para configurar a integração do Autotask Workplace em AD Azure, precisa adicio
 
 4. Na caixa de pesquisa, digite **Autotask Workplace**, selecione **Autotask Workplace** a partir do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![Autotask Workplace na lista de resultados](common/search-new-app.png)
+    ![Autotask Workplace na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -173,7 +173,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -185,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao Autotask Workplace.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Autotask Workplace**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Autotask Workplace**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

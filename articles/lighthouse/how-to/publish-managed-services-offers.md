@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
-ms.date: 08/18/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023930"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673159"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -18,7 +18,7 @@ Neste artigo, você aprenderá a publicar uma oferta de Serviço Gerido público
 
 Precisa de ter uma conta válida [no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se ainda não tiver uma conta, o processo de inscrição irá [levá-lo](https://aka.ms/joinmarketplace) através dos passos de criação de uma conta no Partner Center e inscrição no programa Mercado Comercial.
 
-De acordo com os [requisitos de certificação do Serviço Gerido,](/legal/marketplace/certification-policies#7004-business-requirements)você deve ter um [nível](/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido.
+De acordo com os [requisitos de certificação do Serviço Gerido,](/legal/marketplace/certification-policies#7004-business-requirements)você deve ter um [nível](/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido. Também tem de [introduzir um destino de chumbo que irá criar um registo no seu sistema CRM](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) sempre que um cliente implementar a sua oferta.
 
 O seu ID da Microsoft Partner Network (MPN) será [automaticamente associado às](../../cost-management-billing/manage/link-partner-id.md) ofertas que publicar para acompanhar o seu impacto através dos compromissos com os clientes.
 
@@ -28,13 +28,13 @@ A tabela a seguir pode ajudar a determinar se devem ou não embarcar clientes pu
 
 |**Consideração**  |**Oferta de Serviço Gerido**  |**Modelos de ARM**  |
 |---------|---------|---------|
-|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Sim         |Não        |
-|Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Sim         |Não         |
-|Disponível para novos clientes através do Azure Marketplace     |Sim     |Não       |
-|Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Sim         |
-|Requer aceitação do cliente no portal Azure     |Sim     |Não   |
-|Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |Não     |Sim    |
-|Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Sim         |
+|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
+|Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
+|Disponível para novos clientes através do Azure Marketplace     |Yes     |No       |
+|Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Yes         |
+|Requer aceitação do cliente no portal Azure     |Yes     |No   |
+|Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |No     |Yes    |
+|Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Yes         |
 
 ## <a name="create-your-offer"></a>Crie a sua oferta
 

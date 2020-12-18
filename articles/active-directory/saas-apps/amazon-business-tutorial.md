@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589955"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672904"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio Amazon com o Azure Ative Directory
 
@@ -74,12 +74,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na página **de método de inscrição única,** selecione **SAML**.
 1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **De Configuração Básica SAML,** se pretender configurar no modo iniciado pelo **IDP,** execute os seguintes passos:
 
     1. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando um dos seguintes padrões:
-    
+
        | URL | Região |
        |-|-|
        | `https://www.amazon.com`| América do Norte |
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
        | `https://www.amazon.de`| Europa |
 
     1. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
-    
+
        | URL | Região |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
@@ -146,7 +146,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. No assistente **SSO configurar,** selecione o fornecedor de acordo com os requisitos da Organização e clique em **Seguinte**.
 
     ![Screenshot mostra Configurar S S O, com Microsoft Azure A D e Next selecionados.](media/amazon-business-tutorial/default-group1.png)
-    
+
     > [!NOTE]
     > Embora o Microsoft ADFS seja uma opção listada, não funcionará com a Azure AD SSO.
 
@@ -193,12 +193,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Finalmente na secção de detalhes da **Ligação SSO** o **Estado** é apresentado como **Ativo**.
 
     ![A screenshot mostra detalhes de conexão S S O com um estado de Ative.](media/amazon-business-tutorial/sso-connection5.png)
-    
+
     > [!NOTE]
     > Se pretender configurar a aplicação **no** modo iniciado sp, complete o passo seguinte, cole o URL de entrada de sinalização a partir da imagem acima na caixa de texto **URL sign-on** da secção **DeBS adicionais** no portal Azure. Utilize o seguinte formato:
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
-    
+
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
@@ -236,7 +236,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na lista de candidaturas, selecione **Amazon Business**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
@@ -288,8 +288,8 @@ Ao clicar no azulejo da Amazon Business no Painel de Acesso, deverá ser automat
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 56d2a3355fac565fac65ac1ba3c7d0c4c2fd8429
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5004b433189700bc2fbaf5efe65e4556d40521cb
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456811"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutorial: Integração do Azure Ative Directory com Brandfolder
 
@@ -65,7 +65,7 @@ Para configurar a integração de Brandfolder no Azure AD, é necessário adicio
 
 4. Na caixa de pesquisa, escreva **Brandfolder,** selecione **Brandfolder** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Brandfolder na lista de resultados](common/search-new-app.png)
+    ![Brandfolder na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -135,7 +135,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome,** **insira BrittaSimon**.
-  
+
     b. No campo **nome do utilizador,** **escreva brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -147,7 +147,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Brandfolder.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Brandfolder**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Brandfolder**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

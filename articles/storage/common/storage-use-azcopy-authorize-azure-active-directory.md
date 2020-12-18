@@ -4,15 +4,15 @@ description: Pode fornecer credenciais de autorização para operações AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617413"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672496"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a blobs com AzCopy e Azure Ative Directory (Azure AD)
 
@@ -185,7 +185,9 @@ Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo
 
 ## <a name="authorize-without-a-secret-store"></a>Autorizar sem uma loja secreta
 
-Se o seu sistema operativo não tiver uma loja secreta, como um *porta-chaves* Linux, o `azcopy login` comando não funcionará. Em vez disso, pode definir variáveis ambientais na memória antes de executar cada operação. 
+O `azcopy login` comando recupera um token OAuth e depois coloca esse símbolo numa loja secreta no seu sistema. Se o seu sistema operativo não tiver uma loja secreta como um *porta-chaves* Linux, o `azcopy login` comando não funcionará porque não há onde colocar o símbolo. 
+
+Em vez de usar o `azcopy login` comando, pode definir variáveis de ambiente na memória. Em seguida, executar qualquer comando AzCopy. A AzCopy recuperará o símbolo Auth necessário para completar a operação. Após a operação terminar, o símbolo desaparece da memória. 
 
 ### <a name="authorize-a-user-identity"></a>Autorizar a identidade do utilizador
 
@@ -248,8 +250,6 @@ Substitua o `<resource-id>` espaço reservado pelo ID de recursos da identidade 
 Depois de definir estas variáveis, pode executar qualquer comando de azcopia (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ### <a name="authorize-a-service-principal"></a>Autorizar um diretor de serviço
-
-Antes de executar um script, tem de assinar interativamente pelo menos uma vez para poder fornecer ao AzCopy as credenciais do seu principal de serviço.  Essas credenciais são armazenadas num ficheiro seguro e encriptado para que o seu script não tenha de fornecer essa informação sensível.
 
 Pode inscrever-se na sua conta utilizando um segredo de cliente ou utilizando a palavra-passe de um certificado associado ao registo de aplicações do seu titular de serviço.
 

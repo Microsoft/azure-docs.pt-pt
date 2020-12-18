@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 97d95f9993f85a51ac7baa69ebb331f6c8588c18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: acc1660be99b3b7cc9a3c7414c47f9f6e159b559
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318728"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: Integração do Diretório Ativo Azure com &francamente
 
@@ -63,7 +63,7 @@ Para configurar a integração de &francamente no AD Azure, você precisa adicio
 
 4. Na caixa de pesquisa, escreva **&francamente**, selecione **&francamente** do painel de resultados e depois clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![&francamente na lista de resultados](common/search-new-app.png)
+    ![&francamente na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar a Azure AD um único sign-on com &francamente, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração ** de aplicações&francamente,** selecione **Single sign-on**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração **de aplicações&francamente,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -123,7 +123,7 @@ Para configurar a Azure AD um único sign-on com &francamente, execute os seguin
 
 Para permitir um único s-on em &francamente:
 
-1. Faça login para &francamente. Ir **Account**para a  >  **Gestão do Utilizador de Conta.**
+1. Faça login para &francamente. Ir para a  >  **Gestão do Utilizador de Conta.**
 1. Altere o mecanismo de autenticação do padrão para **a Enterprise Sign-on (SAML)**.
 1. Faça o upload do **Metdata XML da Federação** que descarregou no passo 6 na secção anterior.
 1. Selecione **Guardar**.
@@ -145,7 +145,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-frankly-test-user"></a>Crie &utilizador de teste francamente
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em &francamente. Trabalhe com [&equipa de apoio francamente](mailto:help@andfrankly.com) para adicionar os utilizadores na plataforma &francamente. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em &francamente. Trabalhe com [&equipa de apoio francamente](mailto:help@andfrankly.com) para adicionar os utilizadores na plataforma &francamente. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

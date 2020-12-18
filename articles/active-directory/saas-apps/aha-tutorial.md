@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e5b9b9ba71412244d42204f6cad712b939d7c15
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 82f3a2dc7f43bd484d6a81efaa8d07f13b746d9e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319000"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671102"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integrar Aha! com O Diretório Ativo Azure
 
@@ -77,7 +77,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na página **de método de inscrição única,** selecione **SAML**.
 1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
@@ -112,7 +112,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Aha!.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Aha!**
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     ![Definições](./media/aha-tutorial/IC798950.png "Definições")
 
 5. Clique **em Conta**.
-  
+
     ![Perfil](./media/aha-tutorial/IC798951.png "Perfil")
 
 6. Clique **em Segurança e numa única sincção.**
@@ -178,8 +178,8 @@ Quando clicar no Aha! azulejo no Painel de Acesso, deverá ser automaticamente i
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

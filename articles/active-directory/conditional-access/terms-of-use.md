@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 399cbef4de91623ada1c38de7c6148d22fde94c7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653729"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672405"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -74,11 +74,11 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 1. Inscreva-se no Azure como Administrador Global, Administrador de Segurança ou Administrador de Acesso Condicional.
 1. Navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Acesso Condicional - Termos de utilização da lâmina](./media/terms-of-use/tou-blade.png)
+    ![Acesso Condicional - Termos de utilização da lâmina](./media/terms-of-use/tou-blade.png)
 
 1. Clique em **Novos termos**.
 
-   ![Novo painel de uso para especificar os seus termos de definições de utilização](./media/terms-of-use/new-tou.png)
+    ![Novo painel de uso para especificar os seus termos de definições de utilização](./media/terms-of-use/new-tou.png)
 
 1. Na caixa **Nome,** insira um nome para os termos de utilização que serão utilizados no portal Azure.
 1. Na caixa de **nomes Do Visor,** introduza um título que os utilizadores vêem quando entram.
@@ -88,7 +88,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 1. Para exigir que os utilizadores finais aceitem os seus termos de utilização em todos os dispositivos a partir dos quais estão a aceder, desemboar **os utilizadores para consentir em todos os dispositivos** para **o On**. Os utilizadores poderão ser obrigados a instalar aplicações adicionais se esta opção estiver ativada. Para obter mais informações, consulte [os termos de utilização por dispositivo.](#per-device-terms-of-use)
 1. Se pretender expirar os termos de consentimento de utilização num horário, desa esta **hora de definir os consentimentos** de **Expiração** para On . Quando programado para On, são apresentadas duas definições de agenda adicionais.
 
-   ![Expire conseqüentes definições para definir data de início, frequência e duração](./media/terms-of-use/expire-consents.png)
+    ![Expire conseqüentes definições para definir data de início, frequência e duração](./media/terms-of-use/expire-consents.png)
 
 1. Utilize as definições **de início de expiração** e **frequência** para especificar o calendário para os termos de utilização expirações. A tabela a seguir mostra o resultado de algumas definições de exemplo:
 
@@ -115,7 +115,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
 1. Em **Acesso Condicional,** use a lista de **modelos de política de acesso condicional para** selecionar o modelo para impor os termos de utilização.
 
-   ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
+    ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
    | Modelo | Descrição |
    | --- | --- |
@@ -131,7 +131,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
 1. Clique em **Criar**.
 
-   Se selecionou um modelo de acesso condicional personalizado, então aparece um novo ecrã que lhe permite criar a política de Acesso Condicional personalizada.
+    Se selecionou um modelo de acesso condicional personalizado, então aparece um novo ecrã que lhe permite criar a política de Acesso Condicional personalizada.
 
    ![Novo painel de acesso condicional se você escolher o modelo de política de acesso condicional personalizado](./media/terms-of-use/custom-policy.png)
 
@@ -145,15 +145,15 @@ O painel Termos de utilização mostra uma contagem dos utilizadores que aceitar
 
 1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Termos de utilização que listam o número de mostra de utilizador aceitaram e recusaram](./media/terms-of-use/view-tou.png)
+    ![Termos de utilização que listam o número de mostra de utilizador aceitaram e recusaram](./media/terms-of-use/view-tou.png)
 
 1. Para um termo de utilização, clique nos números em **Accepted** ou **Recusou** ver o estado atual para os utilizadores.
 
-   ![Termos de uso consente painel listagem dos utilizadores que aceitaram](./media/terms-of-use/accepted-tou.png)
+    ![Termos de uso consente painel listagem dos utilizadores que aceitaram](./media/terms-of-use/accepted-tou.png)
 
 1. Para ver o histórico de um utilizador individual, clique na elipse **(...)** e, em seguida, **ver História**.
 
-   ![Ver menu de contexto de história para um utilizador](./media/terms-of-use/view-history-menu.png)
+    ![Ver menu de contexto de história para um utilizador](./media/terms-of-use/view-history-menu.png)
 
    Na visão da história, vê-se uma história de todos os aceitações, declínios e expirações.
 
@@ -169,11 +169,11 @@ Para começar com os registos de auditoria da AZure AD, utilize o seguinte proce
 1. Selecione um termos de utilização.
 1. Clique em **Ver registos de auditoria**.
 
-   ![Termos de utilização com a opção de registos de auditoria Ver realçada](./media/terms-of-use/audit-tou.png)
+    ![Termos de utilização com a opção de registos de auditoria Ver realçada](./media/terms-of-use/audit-tou.png)
 
 1. No ecrã de registos de auditoria Azure AD, pode filtrar as informações utilizando as listas fornecidas para direcionar informações específicas de registo de auditoria.
 
-   Também pode clicar em **Transferir** para transferir as informações para um ficheiro. csv, para utilização local.
+    Também pode clicar em **Transferir** para transferir as informações para um ficheiro. csv, para utilização local.
 
    ![Azure AD audita data de listagem de ecrã, política de destino, iniciada por, e atividade](./media/terms-of-use/audit-logs-tou.png)
 
@@ -204,11 +204,11 @@ Os utilizadores podem rever e ver os termos de utilização que aceitaram utiliz
 1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. No canto superior direito, clique no seu nome e selecione **Perfil**.
 
-   ![MyApps site com o painel do utilizador aberto](./media/terms-of-use/tou14.png)
+    ![MyApps site com o painel do utilizador aberto](./media/terms-of-use/tou14.png)
 
 1. Na página Perfil, clique em **Rever os termos de utilização**.
 
-   ![Página de perfil para um utilizador que mostra os termos de utilização do link](./media/terms-of-use/tou13a.png)
+    ![Página de perfil para um utilizador que mostra os termos de utilização do link](./media/terms-of-use/tou13a.png)
 
 1. A partir daí, pode rever os termos de utilização que aceitou.
 
@@ -220,11 +220,11 @@ Pode editar alguns detalhes dos termos de uso, mas não pode modificar um docume
 1. Selecione os termos de utilização que pretende editar.
 1. Clique **em Editar termos**.
 1. Nos termos de utilização da Edição, pode alterar o seguinte:
-     - **Nome** – este é o nome interno da TOU que não é partilhado com os utilizadores finais
-     - **Nome do ecrã** – este é o nome que os utilizadores finais podem ver ao visualizar a ToU
-     - **Exigir que os utilizadores expandam os termos de utilização** – Configurar isto para **On** forçará o uso final a expandir os termos do documento de utilização antes de o aceitar.
-     - (Pré-visualização) Pode atualizar um documento **de utilização existente**
-     - Pode adicionar uma língua a uma ToU existente
+    - **Nome** – este é o nome interno da TOU que não é partilhado com os utilizadores finais
+    - **Nome do ecrã** – este é o nome que os utilizadores finais podem ver ao visualizar a ToU
+    - **Exigir que os utilizadores expandam os termos de utilização** – Configurar isto para **On** forçará o uso final a expandir os termos do documento de utilização antes de o aceitar.
+    - (Pré-visualização) Pode atualizar um documento **de utilização existente**
+    - Pode adicionar uma língua a uma ToU existente
 
    Se houver outras configurações que gostaria de alterar, como o documento PDF, exigir que os utilizadores consintam em cada dispositivo, expirem consentimentos, duração antes de reacetar ou política de Acesso Condicional, deve criar um novo termos de utilização.
 
@@ -279,7 +279,7 @@ O procedimento a seguir descreve como adicionar um idioma de utilização.
 1. Clique em **Adicionar idioma** na parte inferior da página.
 1. Nos termos de utilização do painel de linguagem de utilização, faça o upload do PDF localizado e selecione o idioma.
 
-   ![Termos de utilização selecionados e mostrando o separador idiomas no painel de detalhes](./media/terms-of-use/select-language.png)
+    ![Termos de utilização selecionados e mostrando o separador idiomas no painel de detalhes](./media/terms-of-use/select-language.png)
 
 1. Clique **em Adicionar idioma**.
 1. Clique em **Guardar**
@@ -340,7 +340,7 @@ Pode eliminar termos de utilização antigos utilizando o seguinte procedimento.
 1. Clique em **Eliminar termos**.
 1. Na mensagem que é apresentada a perguntar se pretende continuar, clique em **Sim**.
 
-   ![Mensagem a pedir confirmação para apagar termos de utilização](./media/terms-of-use/delete-tou.png)
+    ![Mensagem a pedir confirmação para apagar termos de utilização](./media/terms-of-use/delete-tou.png)
 
    Não deve mais ver os seus termos de uso.
 

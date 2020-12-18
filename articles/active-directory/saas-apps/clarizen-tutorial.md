@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e4a0199e8d9a04b07b52f90d9c1823f69e07c7d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455991"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Diretório Ativo Azure com Clarizen
 
@@ -63,7 +63,7 @@ Para configurar a integração do Clarizen no Azure AD, precisa adicionar Clariz
 
 4. Na caixa de pesquisa, **digite Clarizen,** selecione **Clarizen** do painel de resultados e clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Clarizen na lista de resultados](common/search-new-app.png)
+    ![Clarizen na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -167,7 +167,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Clarizen.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Clarizen**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Clarizen**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

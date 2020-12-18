@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 7f0eff28533d8cf736d032aff61454a49bcf379e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449723"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673421"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacidade para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Valores máximos permitidos para vários componentes de piscina SQL dedicada em 
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU para uma única piscina SQL dedicada  | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinido por servidor |54,000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota DTU de 54.000, que permite até DW5000c. Esta quota é apenas um limite de segurança. Pode aumentar a sua quota [criando um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *quota* como tipo de pedido.  Para calcular as suas necessidades de DTU, multiplique o 7.5 pelo DWU total necessário, ou multiplique 9,5 pelo total de cDWU necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Pode ver o seu consumo atual de DTU a partir da opção do servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
+| [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinido por servidor |54,000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota DTU de 54.000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a sua quota [criando um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *quota* como tipo de pedido.  Para calcular as suas necessidades de DTU, multiplique o 7.5 pelo DWU total necessário, ou multiplique 9 pelo total de cDWU necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW7500c x 9 = 67.500 DTUs.<br></br>Pode ver o seu consumo atual de DTU a partir da opção do servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Ligação de base de dados |Sessões abertas concurrentes máximas |1024<br/><br/>O número de sessões abertas simultâneas variará em função do DWU selecionado. DWU600c e acima suportam um máximo de 1024 sessões abertas. DWU500c e abaixo, suporte um limite máximo de sessão aberta simultânea de 512. Nota: existem limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de concordância é ultrapassado, o pedido entra numa fila interna onde espera ser processado. |
 | Ligação de base de dados |Memória máxima para declarações preparadas |20 MB |
 | [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas concurrentas máximas |128<br/><br/>  Um máximo de 128 consultas simultâneas serão executadas e as restantes consultas serão em fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os utilizadores são atribuídos a classes de recursos mais elevadas ou quando a definição da [unidade de armazém de dados](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas de DMV, são sempre permitidas a correr e não impactam o limite de consulta simultânea. Para obter mais informações sobre execução de consultas simultâneas, consulte o artigo [máximos de concordância.](memory-concurrency-limits.md) |

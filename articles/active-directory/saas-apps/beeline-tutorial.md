@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: fd961c611b0f002880f8aee677d759e547433a86
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4274596f7d53488a2ca5d0e0d3ab3021531907df
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457321"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Tutorial: Integração do Diretório Ativo Azure com a Beeline
 
@@ -63,7 +63,7 @@ Para configurar a integração da Beeline no Azure AD, precisa adicionar a Beeli
 
 4. Na caixa de pesquisa, **digite Beeline**, selecione **Beeline** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Beeline na lista de resultados](common/search-new-app.png)
+    ![Beeline na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -146,7 +146,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -158,7 +158,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Beeline.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Beeline**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Beeline**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

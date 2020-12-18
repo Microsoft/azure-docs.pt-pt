@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: a7e71f1c146b0e99ffa20cc74546e35e3ff8a5a6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bd7d05225ef0583c8d56804fb2164cfc73ad4a6a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309095"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Diretório Ativo Azure com Sinal de Adobe
 
@@ -63,7 +63,7 @@ Para configurar a integração do Adobe Sign em Azure AD, é necessário adicion
 
 4. Na caixa de pesquisa, escreva **Adobe Sign**, selecione **Adobe Sign** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Sinal de Adobe na lista de resultados](common/search-new-app.png)
+    ![Sinal de Adobe na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -126,15 +126,15 @@ Para configurar o Azure AD com o Adobe Sign, execute os seguintes passos:
 
 1. Antes da configuração, contacte a equipa de suporte do [Adobe Sign Client](https://helpx.adobe.com/in/contact/support.html) para adicionar o seu domínio na lista de autorizações do Adobe Sign. Eis como adicionar o domínio:
 
-    a. A [equipa de suporte do Adobe Sign Client](https://helpx.adobe.com/in/contact/support.html) envia-lhe um token gerado aleatoriamente. Para o seu domínio, o token será como o seguinte: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+    a. A [equipa de suporte do Adobe Sign Client](https://helpx.adobe.com/in/contact/support.html) envia-lhe um token gerado aleatoriamente. Para o seu domínio, o token será como o seguinte: **adobe-sign-verification= xxxx**
 
     b. Publique o token de verificação num registo de texto DNS e notifique a equipa de suporte do [Adobe Sign Client](https://helpx.adobe.com/in/contact/support.html).
-    
+
     > [!NOTE]
     > Isto pode levar alguns dias, ou mais. Note que os atrasos de propagação do DNS significam que um valor publicado no DNS pode não ser visível por uma hora ou mais. O seu administrador de TI deve saber como publicar este token num registo de texto DNS.
-    
+
     c. Quando notifica a equipa de suporte do [Adobe Sign Client](https://helpx.adobe.com/in/contact/support.html) através do bilhete de suporte, após a publicação do token, eles validam o domínio e adicionam-no à sua conta.
-    
+
     d. Geralmente, eis como publicar o símbolo num registo de DNS:
 
     * Inscreva-se na sua conta de domínio
@@ -145,26 +145,26 @@ Para configurar o Azure AD com o Adobe Sign, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Adobe Sign como administrador.
 
-1. No menu SAML, selecione **Definições**DE  >  **SAML de Definições**de Contas .
-   
+1. No menu SAML, selecione **Definições** DE  >  **SAML de Definições** de Contas .
+
     ![Screenshot da página de Definições SAML do Sinal de Adobe](./media/adobe-echosign-tutorial/ic789520.png "Conta")
 
 1. Na secção **Definições SAML,** execute os seguintes passos:
-  
-   ![Screenshot que destaca as definições DE SAML, incluindo a SAML Mandatory.](./media/adobe-echosign-tutorial/ic789521.png "Definições SAML")
-   
+
+    ![Screenshot que destaca as definições DE SAML, incluindo a SAML Mandatory.](./media/adobe-echosign-tutorial/ic789521.png "Definições SAML")
+
    ![Screenshot das Definições SAML](./media/adobe-echosign-tutorial/ic789522.png "Definições SAML")
 
    a. No **modo SAML**, selecione **SAML Mandatory**.
-   
+
    b. Selecione **Permitir que os administradores de conta echosign iniciem o login utilizando as suas credenciais de ecosign**.
-   
+
    c. Sob **a Criação do Utilizador**, selecione adicionar automaticamente os **utilizadores autenticados através do SAML**.
 
    d. Pasta **Azure Ad Identifier**, que copiou do portal Azure para a caixa de texto **Idp Entity ID.**
-    
+
    e. Colar **URL de login**, que copiou do portal Azure para a caixa de texto **URL do Idp Login.**
-   
+
    f. Pasta **URL logout,** que copiou do portal Azure para a caixa de texto **Idp Logout URL.**
 
    exemplo, Abra o seu ficheiro **Certificado (Base64)** descarregado no Bloco de Notas. Copie o conteúdo da sua pasta e, em seguida, cole-o na caixa de texto **do Certificado IdP.**
@@ -188,7 +188,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -200,7 +200,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao Adobe Sign.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Adobe Sign**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Adobe Sign**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -232,15 +232,15 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Adobe Sign, devem 
 1. Inscreva-se no site da empresa **Adobe Sign** como administrador.
 
 2. No menu em cima, selecione **Conta.** Em seguida, no painel esquerdo, selecione **Utilizadores & Grupos**  >  **Criar um novo utilizador**.
-   
+
     ![Screenshot do site da empresa Adobe Sign, com Conta, Utilizadores &Grupos e Criar um novo utilizador em destaque](./media/adobe-echosign-tutorial/ic789524.png "Conta")
-   
+
 3. Na secção **Criar Novo Utilizador,** execute os seguintes passos:
-   
+
     ![Screenshot da secção criar novo utilizador](./media/adobe-echosign-tutorial/ic789525.png "Criar Utilizador")
-   
-    a. Digite o **Endereço de E-mail,** **Primeiro Nome**e **Último Nome** de uma conta AD válida que pretenda obter nas caixas de texto relacionadas.
-   
+
+    a. Digite o **Endereço de E-mail,** **Primeiro Nome** e **Último Nome** de uma conta AD válida que pretenda obter nas caixas de texto relacionadas.
+
     b. Selecione **Criar Utilizador**.
 
 >[!NOTE]

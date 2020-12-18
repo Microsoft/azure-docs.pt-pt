@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f3de29e5f046da56638876a35ca983792a4ce6c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2e7935de23dcbdccfa6f4efa602dbab42931075
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319131"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Tutorial: Integração do Azure Ative Directory com 360 Online
 
@@ -63,7 +63,7 @@ Para configurar a integração do 360 Online no AD Azure, é necessário adicion
 
 4. Na caixa de pesquisa, tipo **360 Online,** selecione **360 Online** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![360 Online na lista de resultados](common/search-new-app.png)
+    ![360 Online na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -141,7 +141,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -153,7 +153,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao 360 Online.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **360 Online**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **360 Online**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -177,7 +177,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-360-online-test-user"></a>Criar 360 utilizador de teste online
 
-Nesta secção, cria-se um utilizador chamado Britta Simon no 360 Online. Trabalhe com [a equipa de suporte online 360](mailto:360online@software-innovation.com) para adicionar os utilizadores na plataforma 360 Online. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon no 360 Online. Trabalhe com [a equipa de suporte online 360](mailto:360online@software-innovation.com) para adicionar os utilizadores na plataforma 360 Online. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

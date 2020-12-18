@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7352bde887648918cbfd2a9ebeaae83cddefc61e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589105"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673283"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Use scripts de implementação para criar um certificado auto-assinado
 
@@ -33,6 +33,8 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar o modelo
 > * Depurar o roteiro falhado
 > * Limpar os recursos
+
+Para um módulo Microsoft Learn que cubra scripts de implementação, consulte [os modelos ARM de extensão utilizando scripts de implementação](/learn/modules/extend-resource-manager-template-deployment-scripts/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

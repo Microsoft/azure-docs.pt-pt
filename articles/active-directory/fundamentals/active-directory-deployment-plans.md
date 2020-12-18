@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498086"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672386"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procura orientação de ponta a ponta sobre a implementação de capacidades do Azure Ative Directory (Azure AD) ? Os planos de implementação da AD AZure percorrem o valor do negócio, as considerações de planeamento e os procedimentos operacionais necessários para implementar com sucesso as capacidades comuns da AD Azure.
@@ -29,7 +29,7 @@ A partir de qualquer uma das páginas do plano, use a capacidade de Impressão d
 
 | Funcionalidade | Description|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| A Azure AD Multi-Factor Authentication (MFA) é a solução de verificação em duas etapas da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure AD MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, satisfazendo a procura de um processo simples de inscrição. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| A Azure AD Multi-Factor Authentication (MFA) é a solução de verificação em duas etapas da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure AD MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, satisfazendo a procura de um processo simples de inscrição. Veja este vídeo sobre [Como configurar e impor a autenticação de vários fatores no seu inquilino](https://www.youtube.com/watch?v=qNndxl7gqVM)|
 | [Conditional Access](../conditional-access/plan-conditional-access.md)| Com o Acesso Condicional, pode implementar decisões automatizadas de controlo de acesso para quem pode aceder às suas aplicações na nuvem, com base nas condições. |
 | [Reposição personalizada de palavra-passe](../authentication/howto-sspr-deployment.md)| O reset da palavra-passe de autosserviço ajuda os seus utilizadores a redefinir as suas palavras-passe sem intervenção do administrador, quando e onde precisam. |
 | [Sem palavra-passe](../authentication/howto-authentication-passwordless-deployment.md) | Implementar autenticação sem palavras-passe utilizando a app Microsoft Authenticator ou as teclas de segurança FIDO2 na sua organização |
@@ -49,7 +49,7 @@ A partir de qualquer uma das páginas do plano, use a capacidade de Impressão d
 | -| -|
 | [ADFS para Sincronização Hash de Palavras-passe](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Com a sincronização de Hash Password, as hashes de senhas de utilizador são sincronizadas desde o Ative Directy no local até ao Azure AD, permitindo que o Azure AD autente os utilizadores sem qualquer interação com o Ative Directory no local |
 | [ADFS para Autenticação Pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| A Azure AD AD Authentication ajuda os seus utilizadores a iniciar súmis tanto no local como em aplicações baseadas na nuvem usando as mesmas palavras-passe. Esta funcionalidade proporciona aos utilizadores uma melhor experiência - uma palavra-passe a menos para se lembrarem - e reduz os custos de IT helpdesk porque os utilizadores são menos propensos a esquecer como fazer o s. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local. |
-| [Proxy de Aplicações do Azure AD](../manage-apps/application-proxy-deployment-plan.md) |Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). |
+| [Azure AD Application Proxy](../manage-apps/application-proxy-deployment-plan.md) |Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). |
 | [SSO totalmente integrado](../hybrid/how-to-connect-sso-quick-start.md)| O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO Totalmente Integrado do Azure AD) inicia sessão automaticamente pelos utilizadores quando estão a utilizar os dispositivos da empresa ligados à sua rede empresarial. Com esta funcionalidade, os utilizadores não precisarão de digitar as suas palavras-passe para iniciar sação no AZure AD e normalmente não precisarão de introduzir os seus nomes de utilizador. Esta funcionalidade proporciona aos utilizadores autorizados um fácil acesso às suas aplicações baseadas na nuvem sem necessitar de componentes adicionais no local. |
 
 ## <a name="deploy-user-provisioning"></a>Implementar o fornecimento de utilizadores

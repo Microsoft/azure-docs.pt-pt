@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 31b0a4fd8d97371eb4e127a2a473893a0487f220
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3d90d35e113b5f9757faf59681bb2532b66f2b09
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319080"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Diretório Ativo Azure com Absorver LMS
 
@@ -66,7 +66,7 @@ Para configurar a integração do Absorb LMS em AD Azure, é necessário adicion
 
 4. Na caixa de pesquisa, **digite Absorva LMS,** selecione **Absorva LMS** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Absorva LMS na lista de resultados](common/search-new-app.png)
+    ![Absorva LMS na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -196,7 +196,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador**`brittasimon\@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -208,7 +208,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso a Absorb LMS.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Absorva LMS**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Absorva LMS**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

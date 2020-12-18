@@ -2,23 +2,20 @@
 title: Ver Dados Ao Vivo (pré-visualização) com monitor Azure para contentores / Microsoft Docs
 description: Este artigo descreve a visão em tempo real de registos, eventos e métricas de casulos de Kubernetes sem usar kubectl em Azure Monitor para contentores.
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346836"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672873"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como ver registos, eventos e métricas de kubernetes em tempo real
 
 O Azure Monitor para contentores inclui a funcionalidade Dados Vivos (pré-visualização), que é uma funcionalidade de diagnóstico avançada que lhe permite aceder diretamente aos registos de contentores do Serviço Azure Kubernetes (AKS) (stdout/stderror), eventos e métricas de pod. Expõe o acesso direto a `kubectl logs -c` `kubectl get` eventos, `kubectl top pods` e. Um painel de consola mostra os registos, eventos e métricas gerados pelo motor do contentor para ajudar ainda mais em problemas de resolução de problemas em tempo real.
 
 Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade.
-
->[!NOTE]
->Os clusters AKS ativados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esta funcionalidade. Esta funcionalidade baseia-se no acesso direto à API de Kubernetes através de um servidor proxy do seu navegador. Permitir a segurança em rede para bloquear a API de Kubernetes a partir deste proxy bloqueará este tráfego.
 
 Para ajudar a configurar ou resolver problemas na funcionalidade Dados Ao Vivo (pré-visualização), reveja o nosso [guia de configuração](container-insights-livedata-setup.md). Esta funcionalidade acede diretamente à API de Kubernetes, e informações adicionais sobre o modelo de autenticação podem ser [encontradas aqui.](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 74fa6924675d15ae42fac8568bee2ed11c2029c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 403d04039deef7890bdd5dba1ef337a4b26e86ac
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457389"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integração do Diretório Ativo Azure com a Bambu by Sprout Social
 
@@ -64,7 +64,7 @@ Para configurar a integração de Bambu by Sprout Social em AZure AD, você prec
 
 4. Na caixa de pesquisa, **digite Bambu by Sprout Social,** selecione **Bambu by Sprout Social** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![Bambu by Sprout Social na lista de resultados](common/search-new-app.png)
+    ![Bambu by Sprout Social na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -137,7 +137,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

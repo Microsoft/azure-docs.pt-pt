@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951660"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669164"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de sugestão de iD numa política personalizada do Azure Ative Directory B2C
 
@@ -34,12 +34,12 @@ Com id_token_hint, o emitente simbólico (uma app de partes dependentes ou um fo
 
 O id_token_hint deve ser um símbolo JWT válido. A tabela que se segue lista as reclamações que são obrigatórias. Reclamações adicionais são opcionais.
 
-| Nome | Afirmação | Valor de exemplo | Descrição |
+| Name | Afirmação | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
-| Audiência | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica o destinatário pretendido do token. Esta é uma cadeia arbitrária definida pelo emitente simbólico. Azure AD B2C valida este valor e rejeita o token se não corresponder.  |
-| Emissor | `iss` |`https://localhost` | Identifica o serviço de fichas de segurança (emitente simbólico). Este é um URI arbitrário definido pelo emitente simbólico. Azure AD B2C valida este valor e rejeita o token se não corresponder.  |
-| Tempo de validade | `exp` | `1600087315` | O momento em que o símbolo se torna inválido, representado no tempo da época. A Azure AD B2C não valida esta alegação. |
-| Não antes | `nbf` | `1599482515` | O momento em que o símbolo se torna válido, representado no tempo da época. Desta vez é geralmente o mesmo que a hora em que o símbolo foi emitido. A Azure AD B2C não valida esta alegação. |
+| Audiência | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica o destinatário pretendido do token. O público é uma corda arbitrária definida pelo emitente simbólico. Azure AD B2C valida este valor, e rejeita o token se não corresponder.  |
+| Emissor | `iss` |`https://localhost` | Identifica o serviço de fichas de segurança (emitente simbólico). O emitente é um URI arbitrário definido pelo emitente simbólico. Azure AD B2C valida este valor, e rejeita o token se não corresponder.  |
+| Tempo de validade | `exp` | `1600087315` | O momento em que o símbolo se torna inválido, representado no tempo da época. O Azure AD B2C valida este valor e rejeita o token se o token estiver caducado.|
+| Não antes | `nbf` | `1599482515` | O momento em que o símbolo se torna válido, representado no tempo da época. Desta vez é geralmente o mesmo que a hora em que o símbolo foi emitido. Azure AD B2C valida este valor e rejeita o token se o token lifetime não for válido. |
 
  O seguinte símbolo é um exemplo de um símbolo de identificação válido:
 
@@ -85,7 +85,7 @@ Os seguintes metadados são relevantes quando se utilizam a chave simétrica.
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | issuer | Yes | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor deve ser idêntico ao `iss` pedido no âmbito da reclamação simbólica da JWT. | 
-| IdTokenAudience | Yes | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` alegação com a alegação simbólica do JWT. | 
+| IdTokenAudience | Yes | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` reclamação no âmbito da alegação simbólica do JWT. | 
 
 Os seguintes metadados são relevantes quando se utiliza uma chave assimétrica. 
 
@@ -93,7 +93,7 @@ Os seguintes metadados são relevantes quando se utiliza uma chave assimétrica.
 | --------- | -------- | ----------- |
 | METADADOS| Yes | Um URL que aponta para um documento de configuração do emitente simbólico, que também é conhecido como um ponto final de configuração bem conhecido do OpenID.   |
 | issuer | No | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `iss` reclamação dentro da reclamação simbólica do JWT. |  
-| IdTokenAudience | No | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` alegação com a alegação simbólica do JWT. |  
+| IdTokenAudience | No | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` reclamação no âmbito da alegação simbólica do JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -272,7 +272,7 @@ Para abordagens simétricas e assimétricas, o `id_token_hint` perfil técnico �
     </RelyingParty>
     ```
 
-Dependendo dos requisitos do seu negócio, poderá ter de adicionar validações simbólicas, por exemplo, para verificar a expiração do token, o formato do endereço de e-mail, e muito mais. Para tal, adicione passos de orquestração que invoquem um [perfil técnico de transformação de sinistros.](claims-transformation-technical-profile.md) Adicione também um [perfil técnico autoafirmado](self-asserted-technical-profile.md) para apresentar uma mensagem de erro. 
+Dependendo dos requisitos do seu negócio, poderá ter de adicionar validações simbólicas, por exemplo, verificar o formato do endereço de e-mail. Para tal, adicione passos de orquestração que invoquem um [perfil técnico de transformação de sinistros.](claims-transformation-technical-profile.md) Adicione também um [perfil técnico autoafirmado](self-asserted-technical-profile.md) para apresentar uma mensagem de erro. 
 
 ### <a name="create-and-sign-a-token"></a>Criar e assinar um símbolo
 

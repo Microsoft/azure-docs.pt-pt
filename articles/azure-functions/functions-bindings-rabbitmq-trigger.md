@@ -4,15 +4,15 @@ description: Aprenda a executar uma Função Azure quando uma mensagem RabbitMQ 
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630739"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673992"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Gatilho RabbitMQ para visão geral das funções azure
 
@@ -32,7 +32,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -50,7 +50,7 @@ public class TestClass
 
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
     ILogger logger
     )
 {
@@ -74,7 +74,7 @@ Aqui estão os dados vinculativos do *function.jsarquivado:*
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -105,7 +105,7 @@ Aqui estão os dados vinculativos do *function.jsarquivado:*
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -134,7 +134,7 @@ Uma ligação RabbitMQ é definida em *function.jsno* local onde *o tipo* está 
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -155,7 +155,7 @@ A seguinte função Java utiliza a `@RabbitMQTrigger` anotação dos [tipos Java
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -180,7 +180,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-Para um exemplo completo, consulte o exemplo C#.
+Para um exemplo completo, consulte o [exemplo](#example)C# .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -206,7 +206,7 @@ Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `RabbitMQTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "RabbitMQTrigger".|
 |**direção** | n/a | Deve ser definido para "dentro".|
@@ -275,12 +275,12 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |prefetchCount|30|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar e está em cache.|
-|nome de fila|n/a| Nome da fila para receber mensagens de. |
-|conexãoStragem|n/a|O nome da definição da aplicação que contém a cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que se especificar diretamente o fio de ligação e não através de uma definição de aplicação no local.settings.jsligado, o gatilho não funcionará.|
-|porta|0|(ignorado se utilizar a ligaçãoStragem) O número máximo de sessões que podem ser manuseadas simultaneamente por instância em escala.|
+|nome de fila|n/a| Nome da fila para receber mensagens de.|
+|conexãoStragem|n/a|A cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que a cadeia de ligação é especificada diretamente aqui e não através de uma configuração de aplicação.|
+|porta|0|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Incumprimentos para 0.|
 
 ## <a name="local-testing"></a>Testes locais
 
@@ -303,7 +303,7 @@ Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a de
 }
 ```
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |nome hospedeiro|n/a|(ignorado se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
 |userName|n/a|(ignorado se utilizar o ConnectionStringSetting) <br>Nome para aceder à fila |

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: f0335e28b3f0fd2d339aa329b92203ddb8d3216c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1d6471e1443e02592e86ea0708ac173a7afff3e1
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424914"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97665034"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -202,6 +202,9 @@ A seguinte secção mostra como personalizar atributos de saída de áudio, incl
 Para alterar o formato áudio, utilize a `speechSynthesisOutputFormat` propriedade no `SpeechConfig` objeto. Esta propriedade espera um `enum` [`SpeechSynthesisOutputFormat`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) tipo, que você usa para selecionar o formato de saída. Consulte os documentos de referência para obter uma [lista de formatos áudio](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) disponíveis.
 
 Existem várias opções para diferentes tipos de ficheiros, dependendo dos seus requisitos. Note que, por definição, formatos brutos como `Raw24Khz16BitMonoPcm` não incluem cabeçalhos de áudio. Utilize formatos brutos apenas quando souber que a sua implementação a jusante pode descodificar um bitstream cru, ou se planeia construir manualmente cabeçalhos baseados na profundidade de bit, taxa de amostra, número de canais, etc.
+
+> [!NOTE]
+> As vozes **en-US-AriaRUS** e **en-US-GuyRUS** apoiam a `Riff24Khz16BitMonoPcm` taxa de amostragem.
 
 Neste exemplo, especifica-se um formato RIFF de alta `Riff24Khz16BitMonoPcm` fidelidade, definindo `speechSynthesisOutputFormat` o no `SpeechConfig` objeto. Semelhante ao exemplo na secção anterior, obtenha os dados áudio `ArrayBuffer` e interaja com os mesmos.
 

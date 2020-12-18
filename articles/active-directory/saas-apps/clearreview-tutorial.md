@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: cc5a214d53441a5e1f30158a0264278b3cdc95a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e971b02fb87440d4833c2eeba8897143f97a20dd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455928"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670550"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Azure Ative Directory com Clear Review
 
@@ -66,7 +66,7 @@ Para configurar a integração da Clear Review no Azure AD, precisa de adicionar
 
 4. Na caixa de pesquisa, escreva **Clear Review**, selecione **Clear Review** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Revisão clara na lista de resultados](common/search-new-app.png)
+    ![Revisão clara na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -190,7 +190,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -202,7 +202,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Clear Review.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Clear Review**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Clear Review**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

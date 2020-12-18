@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0264baf6a8ff107c4a3aa811b9e8639352dca782
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 349a77d2f2cd5e1c492de63919d84efb436a51a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301802"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Azure Ative Directory com Backup de Ponto Final autotask
 
@@ -63,7 +63,7 @@ Para configurar a integração do Autotask Endpoint Backup em AZure AD, é neces
 
 4. Na caixa de pesquisa, **digite Cópia** de Segurança Final do ponto de crédito automático , selecione Cópia de Segurança Final automática do painel de **resultados** e clique em **Adicionar** botão adicionar a aplicação.
 
-     ![Cópia de segurança do ponto final automática na lista de resultados](common/search-new-app.png)
+    ![Cópia de segurança do ponto final automática na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 

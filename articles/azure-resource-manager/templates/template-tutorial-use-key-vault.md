@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: ae2361d12dfe18cadd80dd3b84405b2b17751e59
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584090"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674162"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
@@ -32,6 +32,8 @@ Este tutorial abrange as seguintes tarefas:
 > * Limpar os recursos
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+Para um módulo Microsoft Learn que utiliza um valor seguro a partir de um cofre de chaves, consulte [Gerir implementações complexas de nuvem utilizando funcionalidades avançadas do ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

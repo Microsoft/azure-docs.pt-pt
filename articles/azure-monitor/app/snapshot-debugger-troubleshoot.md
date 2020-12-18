@@ -3,14 +3,15 @@ title: Resolução de problemas Azure Application Insights Snapshot Debugger
 description: Este artigo apresenta etapas e informações de resolução de problemas para ajudar os desenvolvedores a ativar e utilizar o Debugger Snapshot Debugger do Application Insights.
 ms.topic: conceptual
 author: cweining
+ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1f799634fac223670db5c38effbe7fc29cf6f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3e45b5a48f9a7fb66d7539e83f385203ae371ad7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560904"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673557"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
 Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 99ee85c569340d8f1d3cff27112436465238c05f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 753256adddf8b28518bac45011d582bc7a079629
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455889"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Azure Ative Directory com a Plataforma de Produtividade ClickUp
 
@@ -63,7 +63,7 @@ Para configurar a integração da Plataforma de Produtividade ClickUp em AD Azur
 
 4. Na caixa de pesquisa, **escreva a Plataforma de Produtividade ClickUp**, selecione **ClickUp Productivity Platform** a partir do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Plataforma de Produtividade ClickUp na lista de resultados](common/search-new-app.png)
+    ![Plataforma de Produtividade ClickUp na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino da Plataforma de Produtividade ClickUp como administrador.
 
-2. Clique no **perfil do Utilizador**e, em seguida, selecione **Definições**.
+2. Clique no **perfil do Utilizador** e, em seguida, selecione **Definições**.
 
     ![O screenshot mostra o inquilino de produtividade clickUp com o ícone Definições selecionado.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
     ![O screenshot mostra o sinal único do Microsoft configurar na página onde pode copiar a Entidade I D e salvar os metadados U R L da Federação Azure.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Clique em **Copiar** para copiar o valor do ID da Entidade e cole-o na caixa de texto **identifier (Entity ID)** na secção **configuração BÁSICA SAML** no portal Azure.
-    
+
     b. Na caixa de texto **URL da Federação Azure,** cole o valor do url de metadados da Federação de Aplicações, que copiou a partir do portal Azure e, em seguida, clique em **Guardar**.
 
 5. Para completar a configuração, clique em **Autenticar com a Microsoft para completar a configuração** e autenticar com a conta microsoft.
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -167,7 +167,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concedendo acesso à Plataforma de Produtividade ClickUp.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **a Plataforma de Produtividade ClickUp**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **a Plataforma de Produtividade ClickUp**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -193,8 +193,8 @@ Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino da Plataforma de Produtividade ClickUp como administrador.
 
-2. Clique no **perfil de Utilizador**e, em seguida, selecione **Pessoas**.
-   
+2. Clique no **perfil de Utilizador** e, em seguida, selecione **Pessoas**.
+
     ![A screenshot mostra o inquilino da Produtividade ClickUp.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![A screenshot mostra a ligação Pessoas selecionada.](./media/clickup-productivity-platform-tutorial/user1.png)

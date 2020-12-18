@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07cdb6c3c4a0eb97b4b98b5854c481c4cee16a20
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 124485819bf7fab02e2d62bec46ad50468589773
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457185"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integração do Azure Ative Directory com a Birst Agile Business Analytics
 
@@ -63,7 +63,7 @@ Para configurar a integração da Birst Agile Business Analytics no Azure AD, é
 
 4. Na caixa de pesquisa, **digite Birst Agile Business Analytics**, selecione **Birst Agile Business Analytics** do painel de resultados e clique em Adicionar botão **adicionar** a aplicação.
 
-     ![Birst Agile Business Analytics na lista de resultados](common/search-new-app.png)
+    ![Birst Agile Business Analytics na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -150,7 +150,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

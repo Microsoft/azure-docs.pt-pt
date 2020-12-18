@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b0e0703105094507a9f6a16bf30775354f67b950
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d1f45244d09ce55b61b04d88ce2eb4a16289b1ab
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457708"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integração do Diretório Ativo Azure com Contratos ASC
 
@@ -63,7 +63,7 @@ Para configurar a integração dos Contratos ASC em AZure AD, é necessário adi
 
 4. Na caixa de pesquisa, digite **OSC Contracts**, selecione **Os Contratos ASC** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![Contratos ASC na lista de resultados](common/search-new-app.png)
+    ![Contratos ASC na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -143,7 +143,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

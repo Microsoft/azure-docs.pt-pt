@@ -6,12 +6,13 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: a9735e355244d51464c66c10e02f97f03d2e67cd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100621"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673478"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 
@@ -19,73 +20,30 @@ Este artigo fornece informações sobre questões conhecidas associadas à Azure
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"400 Erro do Cliente: Mau Pedido" na Cloud Shell
 
-Os comandos em Cloud Shell em execução *https://shell.azure.com* podem falhar intermitentemente com o erro "400 Erro do Cliente: Mau Pedido para url: http://localhost:50342/oauth2/token ", seguido de traço de pilha completa.
+**Descrição da emissão:** Os comandos em Cloud Shell em execução *https://shell.azure.com* podem falhar intermitentemente com o erro "400 Erro do Cliente: Mau Pedido para url: http://localhost:50342/oauth2/token ", seguido de traço de pilha completa.
 
-Especificamente para a Azure Digital Twins, isto afeta os seguintes grupos de comando:
-* `az dt route`
-* `az dt model`
-* `az dt twin`
+| Isto afeta-me? | Causa | Resolução |
+| --- | --- | --- |
+| Em &nbsp; Azure &nbsp; Digital &nbsp; Twins, isto afeta os seguintes grupos de comando:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Este é o resultado de um problema conhecido na Cloud Shell: [*Obter ficha da Cloud Shell falha intermitentemente com 400 Erro do Cliente: Mau Pedido*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Isto apresenta um problema com os tokens auth auth instance da Azure Digital Twins e a autenticação baseada em [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) pela Cloud Shell. <br><br>Isto não afeta os comandos Azure Digital Twins dos `az dt` grupos ou grupos de `az dt endpoint` comando, porque utilizam um tipo diferente de token de autenticação (baseado no Azure Resource Manager), que não tem qualquer problema com a autenticação de identidade gerida da Cloud Shell. | Uma maneira de resolver isto é refazer o `az login` comando em Cloud Shell e completar os passos de login subsequentes. Isto irá mudar a sua sessão para fora da autenticação de identidade gerida, o que evita o problema da raiz. Depois disto, deve ser capaz de refazer o comando.<br><br>Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o seu trabalho cloud Shell a partir daí.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Imagem do ícone Cloud Shell na barra de ícone do portal Azure" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão. |
 
-### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
-
-Isto pode ser resolvido repetindo o `az login` comando em Cloud Shell e completando os passos de login subsequentes. Depois disto, deve ser capaz de refazer o comando.
-
-Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o seu trabalho cloud Shell a partir daí:
-
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista do portal Azure com o ícone 'Cloud Shell' em destaque, e a Cloud Shell aparecendo na parte inferior da janela do portal" lightbox="media/includes/portal-cloud-shell.png":::
-
-Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão.
-
-### <a name="possible-causes"></a>Possíveis causas
-
-Este é o resultado de um problema conhecido na Cloud Shell: [*Obter ficha da Cloud Shell falha intermitentemente com 400 Erro do Cliente: Mau Pedido*](https://github.com/Azure/azure-cli/issues/11749).
-
-Isto apresenta um problema com os tokens auth auth instance da Azure Digital Twins e a autenticação baseada em [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) pela Cloud Shell. O passo de resolução de problemas de funcionamento `az login` tira-o da autenticação de identidade gerida, ultrapassando assim este problema.
-
-Isto não afeta os comandos Azure Digital Twins dos `az dt` grupos ou `az dt endpoint` grupos de comando, porque utilizam um tipo diferente de token de autenticação (baseado em ARM), que não tem qualquer problema com a autenticação de identidade gerida da Cloud Shell.
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Atribuição de função em falta após configuração escrita
 
-Alguns utilizadores podem experimentar problemas com a parte de atribuição de funções de [*Como-a- Configurar um caso e autenticação (scripted)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função *Azure Digital Twins Data Owner* não é atribuída com sucesso ao utilizador, e este problema terá impacto na capacidade de criar outros recursos ao longo da estrada.
+**Descrição da emissão:** Alguns utilizadores podem experimentar problemas com a parte de atribuição de funções de [*Como-a- Configurar um caso e autenticação (scripted)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função *Azure Digital Twins Data Owner* não é atribuída com sucesso ao utilizador, e este problema terá impacto na capacidade de criar outros recursos ao longo da estrada.
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-Para determinar se a sua atribuição de funções foi configurada com sucesso após a execução do script, siga as instruções na secção de atribuição de [*funções*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) de utilizador do artigo de configuração. Se o seu utilizador não for mostrado com esta função, este problema afeta-o.
-
-### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
-
-Para resolver, pode configurar manualmente a sua atribuição de funções utilizando o portal CLI ou Azure. 
-
-Siga estas instruções:
-* [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
-* [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions)
-
-### <a name="possible-causes"></a>Possíveis causas
-
-Para os utilizadores que iniciam sessão com uma conta pessoal da [Microsoft (MSA),](https://account.microsoft.com/account)o ID principal do utilizador que o identifica em comandos como este pode ser diferente do e-mail de login do utilizador, dificultando a descoberta e utilização do script para atribuir a função corretamente.
+| Isto afeta-me? | Causa | Resolução |
+| --- | --- | --- |
+| Para determinar se a sua atribuição de funções foi configurada com sucesso após a execução do script, siga as instruções na secção de atribuição de [*funções*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) de utilizador do artigo de configuração. Se o seu utilizador não for mostrado com esta função, este problema afeta-o. | Para os utilizadores que iniciam sessão com uma conta pessoal da [Microsoft (MSA),](https://account.microsoft.com/account)o ID principal do utilizador que o identifica em comandos como este pode ser diferente do e-mail de login do utilizador, dificultando a descoberta e utilização do script para atribuir a função corretamente. | Para resolver, pode configurar manualmente a sua atribuição de funções utilizando as instruções do [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions) ou [do portal Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
-Ao escrever código de autenticação nas suas aplicações Azure Digital Twins utilizando a versão **1.2.0** da biblioteca **[Azure.Identity,](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** poderá experimentar problemas com o método [InteractiveBrowserCredential.](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)
+**Descrição da emissão:** Ao escrever código de autenticação nas suas aplicações Azure Digital Twins utilizando a versão **1.2.0** da biblioteca **[Azure.Identity,](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** poderá experimentar problemas com o método [InteractiveBrowserCredential.](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) Isto apresenta-se como uma resposta de erro de "Azure.Identity.AuthenticationFailedException" ao tentar autenticar numa janela do navegador. A janela do navegador pode não conseguir arrancar completamente ou parecer autenticar o utilizador com sucesso, enquanto a aplicação do cliente ainda falha com o erro.
 
-Esta não é a última versão da biblioteca. A versão mais recente é **1.2.2** .
-
-O método afetado é utilizado nos seguintes artigos: 
-* [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)
-* [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)
-* [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure*](how-to-use-apis-sdks.md)
-
-O problema inclui uma resposta de erro de "Azure.Identity.AuthenticationFailedException" ao tentar autenticar numa janela do navegador. A janela do navegador pode não conseguir arrancar completamente ou parecer autenticar o utilizador com sucesso, enquanto a aplicação do cliente ainda falha com o erro.
-
-### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
-
-Para resolver, atualize as suas aplicações para utilizar a `Azure.Identity` versão **1.2.2** . Com esta versão da biblioteca, o navegador deve carregar e autenticar como esperado.
-
-### <a name="possible-causes"></a>Possíveis causas
-
-Isto está relacionado com um problema aberto com a versão mais recente da `Azure.Identity` biblioteca (versão **1.2.0):** [*Não autentica quando utilizar o InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
-
-Verá este problema se utilizar a versão **1.2.0** na sua aplicação Azure Digital Twins, ou se adicionar a biblioteca ao seu projeto sem especificar uma versão (como também por defeito nesta versão mais recente).
+| Isto afeta-me? | Causa | Resolução |
+| --- | --- | --- |
+| O &nbsp; método afetado é utilizado nos &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; seguintes artigos:<br><br>[*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)<br><br>[*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)<br><br>[*Como fazer: Use as APIs e SDKs de gémeos digitais Azure*](how-to-use-apis-sdks.md) | Alguns utilizadores já tiveram este problema com a versão **1.2.0** da `Azure.Identity` biblioteca. | Para resolver, atualize as suas aplicações para utilizar a [versão mais recente](https://www.nuget.org/packages/Azure.Identity) de `Azure.Identity` . Depois de atualizar a versão da biblioteca, o navegador deve carregar e autenticar conforme esperado. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

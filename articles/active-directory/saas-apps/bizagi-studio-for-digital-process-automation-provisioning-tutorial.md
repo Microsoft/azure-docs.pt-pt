@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632043"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673445"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: Configure Bizagi Studio para automatização de processos digitais para fornecimento automático de utilizadores
 
@@ -139,6 +139,8 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    Mais informações sobre como adicionar atributos personalizados podem ser encontradas em [Atributos de Aplicação Personalizadas.](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)
 
+> [!NOTE]
+> Apenas propriedades básicas do tipo são suportadas (por exemplo, String, Inteiro, Boolean, DateTime, etc). As propriedades ligadas a mesas paramétricas ou vários tipos ainda não estão suportadas.
 
 10. Para configurar filtros de deteção, consulte o tutorial do [filtro scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

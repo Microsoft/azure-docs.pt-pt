@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9fbf6990f789bdb0edb1cf45885003569d4f6a8
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a8c9a15761a4b37dfcf5ba7cc4cf046390092145
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653236"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672150"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Assinatura de capotamento de chaves na plataforma de identidade da Microsoft
 Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar fichas de segurança. É importante notar que estas teclas rerolam periodicamente e, em caso de emergência, podem ser reviradas imediatamente. Todas as aplicações que utilizam a plataforma de identidade da Microsoft devem ser capazes de lidar programáticamente com o processo de capotamento da chave. Continuar a ler Para entender como funcionam as teclas, como avaliar o impacto da capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com a capotamento da chave, se necessário.
@@ -68,28 +68,30 @@ A funcionalidade autenticação /Autorização (EasyAuth) da Azure App Services 
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplicações web / APIs protegendo recursos usando .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware
 Se a sua aplicação estiver a utilizar o middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication, já tem a lógica necessária para lidar automaticamente com a capotagem da chave.
 
-Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes excertos na Startup.cs ou Startup.Auth.cs da sua aplicação
+Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes cortes nos ficheiros Startup.cs ou Startup.Auth.cs da sua aplicação.
 
-```
+```csharp
 app.UseOpenIdConnectAuthentication(
-     new OpenIdConnectAuthenticationOptions
-     {
-         // ...
-     });
+    new OpenIdConnectAuthenticationOptions
+    {
+        // ...
+    });
 ```
-```
+
+```csharp
 app.UseWsFederationAuthentication(
     new WsFederationAuthenticationOptions
     {
-     // ...
-     });
+        // ...
+    });
 ```
-```
+
+```csharp
 app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-     new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-     {
-     // ...
-     });
+    new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+    {
+        // ...
+    });
 ```
 
 ### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Aplicações web / APIs protegendo recursos usando .NET Core OpenID Connect ou JwtBearerAuthentication middleware

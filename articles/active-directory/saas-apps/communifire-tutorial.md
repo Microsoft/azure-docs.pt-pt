@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6c2d89c20294446da63889e53e807db7919eb2e1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 48d09a5ef43e267550dd584a9f6356493887d6d7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455532"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integração do Diretório Ativo Azure com a Communifire
 
@@ -65,7 +65,7 @@ Para configurar a integração do Communifire no AD Azure, precisa adicionar o C
 
 4. Na caixa de pesquisa, **digite Communifire**, selecione **Communifire** do painel de resultados e clique em Adicionar botão **Adicionar** a aplicação.
 
-     ![Communifire na lista de resultados](common/search-new-app.png)
+    ![Communifire na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -125,11 +125,11 @@ Para configurar a Azure AD um único sinal de inscrição com a Communifire, exe
     ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
     a. Selecione **Sign SAML resposta e afirmação** a partir da **Opção de Assinatura**.
-    
+
     b. Clique em **Guardar**
 
     ![Opção de assinatura de communifire](./media/communifire-tutorial/tutorial-communifire-signing-option.png)
- 
+
 8. Na secção **Configurar o Fogo de Comunicação,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
@@ -161,7 +161,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

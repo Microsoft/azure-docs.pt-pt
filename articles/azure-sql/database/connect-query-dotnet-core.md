@@ -12,15 +12,15 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 32ea1dd2141a8df1fb495af64848f87e9f152328
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 37cd2051670221b8b78c075f249f633f9f447099
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669728"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674311"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.com/net/) e C# para ligar a uma base de dados. Em seguida, irá executar uma declaração Transact-SQL para consultar dados.
 
@@ -34,30 +34,23 @@ Para concluir este guia de início rápido, precisa de:
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma base de dados. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
 
-  | Ação | SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
-  |:--- |:--- |:---|:---|
-  | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Configurar | [Regra de firewall IP de nível de servidor](firewall-create-server-level-portal-quickstart.md)| [Conectividade de um VM](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md) | [Ligue-se a uma instância do Servidor SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Carregar dados|Obras de Aventura carregadas por quickstart|[Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md) | [Restaurar importadores mundiais](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restaurar ou importar Obras de Aventura a partir de um ficheiro [BACPAC](database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
-  > [!IMPORTANT]
-  > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com uma SQL Managed Instance, você deve importar a base de dados Adventure Works em uma base de dados de casos ou modificar os scripts deste artigo para usar a base de dados de importadores do mundo amplo.
+  | Ação | SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure | Azure Synapse Analytics |
+  |:--- |:--- |:---|:---|:---|
+  | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) | [Portal](/azure/synapse-analytics/quickstart-create-workspace.md) |
+  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | | [CLI](/azure/synapse-analytics/quickstart-create-workspace-cli.md) |
+  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md) | [PowerShell](/azure/synapse-analytics/quickstart-create-workspace-powershell.md) |
+  || | | [Modelo de implementação](/azure/azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md) | [Modelo de implementação](/azure/synapse-analytics/quickstart-deployment-template-workspaces.md) | 
+  | Configurar | [Regra de firewall IP de nível de servidor](firewall-create-server-level-portal-quickstart.md)| [Conectividade de um VM](../managed-instance/connect-vm-instance-configure.md)| |
+  |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md) | [Ligue-se a uma instância do Servidor SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) |
+  ||||
 
 - [.NET Core para o seu sistema operativo](https://www.microsoft.com/net/core) instalado.
-
-> [!NOTE]
-> Este arranque rápido utiliza a base *de dados mySampleDatabase.* Se pretender utilizar uma base de dados diferente, terá de alterar as referências da base de dados e modificar a `SELECT` consulta no código C.
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 
 Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
 
@@ -68,7 +61,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 ## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Obtenha informações de ligação ADO.NET (opcional - apenas base de dados SQL)
 
-1. Navegue na página **mySampleDatabase** e, em **Definições,** selecione **cadeias de ligação** .
+1. Navegue para a lâmina da base de dados no portal Azure e, em **Definições,** selecione **cadeias de ligação**.
 
 2. Reveja a cadeia de ligação **ADO.NET** completa.
 
@@ -78,7 +71,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
   
 ## <a name="create-a-new-net-core-project"></a>Criar um novo projeto .NET Core
 
-1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest** . Navegue para esta pasta e execute este comando.
+1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest**. Navegue para esta pasta e execute este comando.
 
     ```cmd
     dotnet new console
@@ -131,12 +124,8 @@ namespace sqltest
                     Console.WriteLine("=========================================\n");
                     
                     connection.Open();       
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                    sb.Append("JOIN [SalesLT].[Product] p ");
-                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                    String sql = sb.ToString();
+
+                    String sql = "SELECT name, collation_name FROM sys.databases";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -170,32 +159,15 @@ namespace sqltest
    dotnet run
    ```
 
-2. Verifique se as 20 melhores linhas são devolvidas.
+2. Verifique se as linhas são devolvidas.
 
    ```text
    Query data example:
    =========================================
 
-   Road Frames HL Road Frame - Black, 58
-   Road Frames HL Road Frame - Red, 58
-   Helmets Sport-100 Helmet, Red
-   Helmets Sport-100 Helmet, Black
-   Socks Mountain Bike Socks, M
-   Socks Mountain Bike Socks, L
-   Helmets Sport-100 Helmet, Blue
-   Caps AWC Logo Cap
-   Jerseys Long-Sleeve Logo Jersey, S
-   Jerseys Long-Sleeve Logo Jersey, M
-   Jerseys Long-Sleeve Logo Jersey, L
-   Jerseys Long-Sleeve Logo Jersey, XL
-   Road Frames HL Road Frame - Red, 62
-   Road Frames HL Road Frame - Red, 44
-   Road Frames HL Road Frame - Red, 48
-   Road Frames HL Road Frame - Red, 52
-   Road Frames HL Road Frame - Red, 56
-   Road Frames LL Road Frame - Black, 58
-   Road Frames LL Road Frame - Black, 60
-   Road Frames LL Road Frame - Black, 62
+   master   SQL_Latin1_General_CP1_CI_AS
+   tempdb   SQL_Latin1_General_CP1_CI_AS
+   WideWorldImporters   Latin1_General_100_CI_AS
 
    Done. Press enter.
    ```

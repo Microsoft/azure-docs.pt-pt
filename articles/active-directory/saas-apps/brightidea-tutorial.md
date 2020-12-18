@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 659118039464a4f99e4f8df211318a7f639dbde9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9967f349011b52a2218681956885c33456ba1d46
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456726"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integração do Diretório Ativo Azure com Brightidea
 
@@ -66,7 +66,7 @@ Para configurar a integração de Brightidea no AD Azure, precisa adicionar Brig
 
 4. Na caixa de pesquisa, **digite Brightidea,** **selecione Brightidea** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Brightidea na lista de resultados](common/search-new-app.png)
+    ![Brightidea na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -141,7 +141,7 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
 
 1. Numa janela diferente do navegador web, inscreva-se em Brightidea usando as credenciais de administrador.
 
-2. Para chegar à funcionalidade SSO no seu sistema Brightidea, navegue para o Separador de Autenticação **de Configuração**  ->  **da**Empresa. Lá você verá dois separadores sub-separadores: Auth Selection & Perfis SAML.
+2. Para chegar à funcionalidade SSO no seu sistema Brightidea, navegue para o Separador de Autenticação **de Configuração**  ->  **da** Empresa. Lá você verá dois separadores sub-separadores: Auth Selection & Perfis SAML.
 
     ![A screenshot mostra o site Brightidea com o separador autenticação selecionado.](./media/brightidea-tutorial/configure1.png)
 
@@ -156,20 +156,20 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
     a. Clique nos **Metadados de Descarregamento** e faça o upload na secção **Configuração Básica SAML** no portal Azure.
 
     b. Clique no botão **Adicionar Novo** na **Definição do Fornecedor de Identidade** e execute os seguintes passos:
-    
+
     ![A screenshot mostra a Definição do Fornecedor de Identidade Brightidea onde introduz informações.](./media/brightidea-tutorial/configure4.png)
-    
+
    * Introduza o **Nome do Perfil SAML** como por exemplo `Azure Ad SSO`
-    
+
    * Para **carregar metadados,** clique em escolher o ficheiro e carrete o ficheiro de metadados descarregado a partir do portal Azure.
 
      > [!NOTE]
      > Depois de carregar o ficheiro de metadados, os restantes campos **Serviço de Registo Único, Emitente de Fornecedor de Identidade, Portar A Chave Pública** preencherá automaticamente.
 
    * Na caixa de texto **por e-mail,** insira o valor como `mail` .
-     
+
    * Na caixa de texto **Screen Name,** insira o valor como `givenName` .
-     
+
    * Clique em **Guardar Alterações**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
@@ -189,7 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome,** **insira BrittaSimon**.
-  
+
     b. No campo **nome do utilizador,** **escreva brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 

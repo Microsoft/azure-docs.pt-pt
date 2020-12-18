@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 321c6bf52f4dac636f6bebb3a79d3a206c2ea11b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456437"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674213"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Diretório Ativo Azure com o Ambiente central
 
@@ -63,7 +63,7 @@ Para configurar a integração do Central Desktop em Azure AD, é necessário ad
 
 4. Na caixa de pesquisa, **digite Central Desktop**, selecione **Central Desktop** a partir do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-     ![Ambiente de trabalho central na lista de resultados](common/search-new-app.png)
+    ![Ambiente de trabalho central na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com o Central Desktop, execute os seguintes passos:
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.centraldesktop.com`
 
     b. Na caixa **identifier,** digite um URL utilizando o seguinte padrão:
-    
+
     ```http
     https://<companyname>.centraldesktop.com/saml2-metadata.php
     https://<companyname>.imeetcentral.com/saml2-metadata.php
@@ -133,7 +133,7 @@ Para configurar o Azure AD com o Central Desktop, execute os seguintes passos:
 
 1. Inscreva-se no seu inquilino **central de desktop.**
 
-2. Ir para **Definições**. Selecione **Advanced**e, em seguida, selecione **Single Sign On**.
+2. Ir para **Definições**. Selecione **Advanced** e, em seguida, selecione **Single Sign On**.
 
     ![Configuração - Avançado](./media/central-desktop-tutorial/ic769563.png "Configuração - Avançado")
 
@@ -152,7 +152,7 @@ Para configurar o Azure AD com o Central Desktop, execute os seguintes passos:
 4. Na secção **Método de Verificação de Assinaturas de Mensagens,** tome os seguintes passos:
 
     ![Método de verificação da assinatura de mensagem](./media/central-desktop-tutorial/ic769565.png "Método de verificação de assinatura de mensagem")
-    
+
     a. Selecione **Certificado**.
 
     b. Na lista de **CertificadoS SSO,** selecione **RSH SHA256**.
@@ -180,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -192,7 +192,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao Ambiente central de trabalho.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Central Desktop**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Central Desktop**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -236,7 +236,7 @@ Para que os utilizadores da AZure AD possam fazer o seu sedível, devem ser adus
 4. **Selecione Adicionar Membro Interno.**
 
     ![Adicionar membro interno](./media/central-desktop-tutorial/ic781053.png "Adicionar membro interno")
-  
+
    > [!NOTE]
    > Os utilizadores que adiciona recebem um e-mail que inclui um link de confirmação para ativar as suas contas.
 

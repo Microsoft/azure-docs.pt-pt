@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ffd93016a2cbde3aa2a5844cfdb72e4c0cc8b623
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e0b1d8d2cb80886131a88c01a6c24102ad7c77c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457117"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Bitbucket por resolução GmbH
 
@@ -65,7 +65,7 @@ Para configurar a integração do SSO SAML para a Bitbucket através da resoluç
 
 4. Na caixa de pesquisa, **escreva SAML SSO para Bitbucket por resolução GmbH**, selecione **SAML SSO para Bitbucket por resolução GmbH** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
 
-     ![SAML SSO para Bitbucket por resolução GmbH na lista de resultados](common/search-new-app.png)
+    ![SAML SSO para Bitbucket por resolução GmbH na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
@@ -153,7 +153,7 @@ Para configurar o Azure AD um único sinal de lançamento com o SAML SSO para a 
 7.  Na página **de metadados do Idp Import SAML,** clique em **Carregar Ficheiro** para carregar o ficheiro **METADADATA XML** que descarregou a partir do portal Azure.
 
     ![O idpmetadata](./media/bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
-    
+
 8. Clique em **Seguinte**.
 
 9. Clique em **Guardar definições**.
@@ -177,7 +177,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
     a. No campo **Nome** entra **BrittaSimon**.
-  
+
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
