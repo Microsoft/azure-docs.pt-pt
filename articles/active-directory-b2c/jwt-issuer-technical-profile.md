@@ -50,7 +50,7 @@ O exemplo a seguir mostra um perfil técnico `JwtIssuer` para:
 
 ## <a name="input-output-and-persist-claims"></a>Entradas, saídas e reivindicações persistentes
 
-Os **elementos InputClaims,** **OutputClaims**e **PersistClaims** estão vazios ou ausentes. Os **elementos InutputClaimsTransformations** e **OutputClaimsTransformations** também estão ausentes.
+Os **elementos InputClaims,** **OutputClaims** e **PersistClaims** estão vazios ou ausentes. Os **elementos InutputClaimsTransformations** e **OutputClaimsTransformations** também estão ausentes.
 
 ## <a name="metadata"></a>Metadados
 
