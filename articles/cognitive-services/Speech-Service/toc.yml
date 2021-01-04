@@ -367,21 +367,9 @@
                   href: quickstart-custom-commands-application.md
             - name: Guias de procedimentos
               items:
-                - name: Programar
-                  items:
-                    - name: Criar uma aplicação com comandos simples
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: Adicionar parâmetros aos comandos
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: Adicionar configurações aos parâmetros dos comandos
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: Adicionar regras de interação
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: Adicionar modelos de geração de linguagem para respostas de voz
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: Utilizar a Voz Personalizada
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: Integrar
+                - name: Desenvolver e personalizar aplicações dos Comandos Personalizados
+                  href: how-to-develop-custom-commands-application.md
+                - name: Integrar em aplicações cliente
                   items:
                     - name: Integrar numa aplicação cliente com o SDK de Voz
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -395,26 +383,18 @@
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: Atualizar um comando a partir de um ponto final Web
                       href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Implementação
-                  items:
-                    - name: Implementação Contínua com o Azure DevOps
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: Teste
-                  items:
-                    - name: Testar a sua aplicação de Comandos Personalizados
-                      href: how-to-custom-commands-developer-flow-test.md
-                - name: Depurar
-                  items:
-                    - name: Depurar erros ao criar a aplicação
-                      href: how-to-custom-commands-debug-build-time.md
-                    - name: Depurar erros ao executar a aplicação
-                      href: how-to-custom-commands-debug-runtime.md
-                - name: Referências
-                  items:
-                    - name: Conceitos dos Comandos Personalizados
-                      href: custom-commands-references.md
+                - name: Implementação Contínua com o Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: Testar aplicações dos Comandos Personalizados
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: Depurar erros ao criar a aplicação
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Depurar erros ao executar a aplicação
+                  href: how-to-custom-commands-debug-runtime.md
             - name: Recursos
               items:
+                - name: Conceitos dos Comandos Personalizados
+                  href: custom-commands-references.md
                 - name: Exemplos de Comandos Personalizados (GitHub)
                   href: 'https://aka.ms/speech/cc-samples'
                 - name: Exemplos do Assistente de Voz (GitHub)

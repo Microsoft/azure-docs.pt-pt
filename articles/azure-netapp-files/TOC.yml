@@ -59,6 +59,8 @@
               href: solutions-windows-virtual-desktop.md
     - name: FAQs sobre o Azure NetApp Files
       href: azure-netapp-files-faqs.md
+    - name: O que é a Ferramenta de Instantâneo Consistente da Aplicação Azure
+      href: azacsnap-introduction.md
 - name: Guias de procedimentos
   items:
     - name: Registar nos Azure NetApp Files
@@ -131,6 +133,32 @@
       href: /rest/api/netapp/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Ferramenta de Instantâneo Consistente da Aplicação Azure (AzAcSnap)
+      items:
+        - name: Introdução ao AzAcSnap
+          href: azacsnap-get-started.md
+        - name: Instalar o AzAcSnap
+          href: azacsnap-installation.md
+        - name: Recuperação após desastre com o AzAcSnap
+          href: azacsnap-disaster-recovery.md
+        - name: Sugestões e truques para utilizar o AzAcSnap
+          href: azacsnap-tips.md
+        - name: Resolver problemas do AzAcSnap
+          href: azacsnap-troubleshoot.md
+        - name: Referência de comandos do AzAcSnap
+          items:
+            - name: Configurar o AzAcSnap
+              href: azacsnap-cmd-ref-configure.md
+            - name: Testar o AzAcSnap
+              href: azacsnap-cmd-ref-test.md
+            - name: Fazer cópia de segurança com o AzAcSnap
+              href: azacsnap-cmd-ref-backup.md
+            - name: Obter detalhes com o AzAcSnap
+              href: azacsnap-cmd-ref-details.md
+            - name: Eliminar com o AzAcSnap
+              href: azacsnap-cmd-ref-delete.md
+            - name: Restaurar com o AzAcSnap
+              href: azacsnap-cmd-ref-restore.md
 - name: Recursos
   items:
     - name: Preços

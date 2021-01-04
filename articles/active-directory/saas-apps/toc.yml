@@ -819,6 +819,8 @@
           href: idrive-tutorial.md
         - name: Igloo Software
           href: igloo-software-tutorial.md
+        - name: Illusive Networks
+          href: illusive-networks-tutorial.md
         - name: iLMS
           href: ilms-tutorial.md
         - name: Image Relay
@@ -829,6 +831,8 @@
           href: imagineerwebVision-tutorial.md
         - name: IMPAC Risk Manager
           href: impacriskmanager-tutorial.md
+        - name: Imperva Data Security
+          href: imperva-data-security-tutorial.md
         - name: In Case of Crisis - Móvel
           href: in-case-of-crisis-mobile-tutorial.md
         - name: In Case of Crisis - Portal Online
@@ -1365,6 +1369,8 @@
           href: proprofs-knowledge-base-tutorial.md
         - name: Proto.io
           href: proto.io-tutorial.md
+        - name: Proware
+          href: proware-tutorial.md
         - name: Proxyclick
           href: proxyclick-tutorial.md
         - name: PureCloud da Genesys
@@ -1603,6 +1609,8 @@
           href: skyward-qmlativ-tutorial.md
         - name: Slack
           href: slack-tutorial.md
+        - name: Splan Visitor
+          href: splan-visitor-tutorial.md
         - name: Small Improvements
           href: smallimprovements-tutorial.md
         - name: SmartDraw
@@ -1679,6 +1687,8 @@
           href: syncplicity-tutorial.md
         - name: Synergi
           href: synergi-tutorial.md
+        - name: Synerise AI Growth Ecosystem
+          href: synerise-ai-growth-ecosystem-tutorial.md
         - name: Syxsense
           href: syxsense-tutorial.md
     - name: T - V
@@ -2098,8 +2108,6 @@
           href: meta-networks-connector-provisioning-tutorial.md
         - name: Mixpanel
           href: mixpanel-provisioning-tutorial.md
-        - name: monday.com
-          href: mondaycom-provisioning-tutorial.md
         - name: myPolicies
           href: mypolicies-provisioning-tutorial.md
         - name: Mindtickle
