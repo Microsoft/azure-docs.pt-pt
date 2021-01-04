@@ -89,6 +89,22 @@
       href: event-hubs-availability-and-consistency.md
     - name: Escalabilidade
       href: event-hubs-scalability.md
+    - name: de Federação
+      items:
+        - name: Federação de vários sites e várias regiões
+          href: event-hubs-federation-overview.md
+        - name: Tarefas e aplicações de replicação de eventos
+          href: event-hubs-federation-replicator-functions.md
+        - name: Padrões da tarefa de replicação de eventos
+          href: event-hubs-federation-patterns.md
+        - name: Tarefas de replicação configuradas
+          href: event-hubs-federation-configuration.md
+        - name: Replicar eventos entre os Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy'
+        - name: Enviar eventos para o Azure Service Bus
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
+        - name: Adquirir eventos do Azure Service Bus
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
     - name: Recuperação após desastre geográfica
       items:
         - name: Recuperação após desastre geográfica e georreplicação

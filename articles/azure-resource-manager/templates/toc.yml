@@ -290,6 +290,8 @@
         - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: Percurso do Microsoft Learn sobre modelos
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Conceitos
   items:
     - name: Modelo de melhores práticas

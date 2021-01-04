@@ -96,6 +96,22 @@
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
     - name: Otimizar o desempenho
       href: service-bus-performance-improvements.md
+    - name: de Federação
+      items:
+        - name: Replicação de mensagens e federação entre regiões
+          href: service-bus-federation-overview.md
+        - name: Tarefas e aplicações de replicação de mensagens
+          href: service-bus-federation-replicator-functions.md
+        - name: Padrões da tarefa de replicação de mensagens
+          href: service-bus-federation-patterns.md
+        - name: Tarefas de replicação configuradas
+          href: service-bus-federation-configuration.md
+        - name: Replicar eventos entre entidades do Service Bus
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy'
+        - name: Replicar mensagens para os Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
+        - name: Adquirir mensagens dos Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
     - name: Recuperação após desastre geográfica e georreplicação
       href: service-bus-geo-dr.md
     - name: Mensagens assíncronas e elevada disponibilidade
