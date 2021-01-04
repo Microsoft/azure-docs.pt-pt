@@ -5,10 +5,10 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.openlocfilehash: be2242e22ad2815a70be1a56cb77696afbd9a8d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 12/22/2020
 ms.locfileid: "95975361"
 ---
 > [!NOTE]

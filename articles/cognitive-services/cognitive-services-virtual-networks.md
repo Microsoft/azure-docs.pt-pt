@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: aahi
 ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 12/22/2020
 ms.locfileid: "97034025"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
