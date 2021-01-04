@@ -3,12 +3,12 @@ title: Ver e usar o modelo de gestor de recursos Azure de uma máquina virtual
 description: Saiba como usar o modelo Azure Resource Manager a partir de uma máquina virtual para criar outros VMs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb7cb38dfb2c1664017f0e342fefecdd464df45f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282513"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696011"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais usando um modelo de Gestor de Recursos Azure 
 
@@ -25,7 +25,7 @@ Existem duas formas de criar VMs em DevTest Labs usando um modelo de Gestor de R
 
    ![Screenshot que mostra a lista de máquinas virtuais como itens únicos na lista de máquinas virtuais DavTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   Este tipo de modelo de Gestor de Recursos pode ser fornecido através do comando Azure PowerShell **New-AzResourceGroupDeployment** ou através da **implementação**do grupo Azure CLI az . Requer permissões de administrador, para que os utilizadores que são designados com uma função de utilizador da DevTest Labs não possam executar a implementação. 
+   Este tipo de modelo de Gestor de Recursos pode ser fornecido através do comando Azure PowerShell **New-AzResourceGroupDeployment** ou através do **grupo de implementação de** comando Azure CLI. Requer permissões de administrador, para que os utilizadores que são designados com uma função de utilizador da DevTest Labs não possam executar a implementação. 
 
 - Os modelos de Gestor de Recursos que utilizam um tipo de recurso Microsoft.Compute/virtualmachines podem fornecer vários VMs como um único ambiente na lista de máquinas virtuais DevTest Labs:
 

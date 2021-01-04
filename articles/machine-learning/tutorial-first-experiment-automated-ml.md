@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921890"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695214"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
 
@@ -98,13 +98,11 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
         ---|---|---
         Formato do ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
         Delimitador|Um ou mais caracteres para especificar a fronteira entre &nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
-        Codificação|Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.| UTF-8
+        Encoding|Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
         Saltar filas | Indica quantas, se houver, são ignoradas no conjunto de dados.| Nenhum
 
-    1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternação para a funcionalidade **day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Seguinte**.
-
-        ![Configuração do separador de pré-visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
+    1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. Por exemplo, não fazemos seleções. Selecione **Seguinte**.
 
     1. No formulário **de detalhes confirme,** verifique as informações correspondem ao que foi previamente preenchido na **informação Básica, datastore e seleção de ficheiros** e **configurações e formulários de pré-visualização.**
     
@@ -112,32 +110,44 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
     
     1. Selecione o seu conjunto de dados assim que aparecer na lista.
     
-    1. Reveja a **pré-visualização de Dados**  para garantir que não incluiu **day_of_week** então, selecione **OK**.
+    1. Reveja a **pré-visualização de Dados**  para garantir que não incluiu **day_of_week** então, selecione **Close**.
 
     1. Selecione  **Seguinte**.
 
-## <a name="configure-experiment-run"></a>Configure a experiência
+## <a name="configure-run"></a>Configure corrida
 
 Depois de carregar e configurar os seus dados, pode configurar a sua experiência. Esta configuração inclui tarefas de design de experiências como, selecionar o tamanho do seu ambiente de computação e especificar qual a coluna que pretende prever. 
+
+1. Selecione o novo botão de rádio **Criar.**
 
 1. Povoar o formulário **Configure Run** da seguinte forma:
     1. Insira este nome de experiência: `my-1st-automl-experiment`
 
     1. Selecione **y** como a coluna-alvo, o que quer prever. Esta coluna indica se o cliente subscreveu ou não um depósito a prazo.
     
-    1. Selecione **Crie um novo compute e** configuure o seu alvo de computação. Um alvo de cálculo é um ambiente de recursos local ou baseado na nuvem usado para executar o seu script de treino ou hospedar a sua implementação de serviço. Para esta experiência, usamos uma computação baseada em nuvem. 
+    1. Selecione **+Crie um novo cálculo** e configuure o seu alvo de computação. Um alvo de cálculo é um ambiente de recursos local ou baseado na nuvem usado para executar o seu script de treino ou hospedar a sua implementação de serviço. Para esta experiência, usamos uma computação baseada em nuvem. 
+        1. Preencha o formulário **Máquina Virtual** para configurar o seu cálculo.
 
-        Campo | Descrição | Valor para tutorial
-        ----|---|---
-        Nome da computação |Um nome único que identifica o seu contexto computacional.|automl-compute
-        Tipo de máquina virtual &nbsp; &nbsp;| Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
-        Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo.|Standard_DS12_V2
-        Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
-        Ocioso segundos antes de baixar a escala | Tempo de marcha lenta antes do cluster ser automaticamente reduzido à contagem mínima de nós.|120 (padrão)
-        Definições avançadas | Configurações para configurar e autorizar uma rede virtual para a sua experiência.| Nenhum
-        1. Selecione **Criar** para obter o alvo do cálculo. 
+            Campo | Descrição | Valor para tutorial
+            ----|---|---
+            Prioridade da máquina virtual &nbsp; &nbsp; |Selecione qual a prioridade que a sua experiência deve ter| Dedicada
+            Tipo de máquina virtual &nbsp; &nbsp;| Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
+            Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo. Uma lista de tamanhos recomendados é fornecida com base nos seus dados e tipo de experiência. |Standard_DS12_V2
+        
+        1. Selecione **Seguinte** para preencher o **formulário configurações configurações de configuração**.
+        
+            Campo | Descrição | Valor para tutorial
+            ----|---|---
+            Nome da computação |  Um nome único que identifica o seu contexto computacional. | automl-compute
+            Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
+            Ocioso segundos antes de baixar a escala | Tempo de marcha lenta antes do cluster ser automaticamente reduzido à contagem mínima de nós.|120 (padrão)
+            Definições avançadas | Configurações para configurar e autorizar uma rede virtual para a sua experiência.| Nenhum               
+
+        1. Selecione **Criar** para criar o seu alvo de computação. 
 
             **Isto leva alguns minutos para ser concluído.** 
+
+             ![Página de definições](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. Após a criação, selecione o seu novo alvo de computação a partir da lista de drop-down.
 
@@ -149,7 +159,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
     1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-        &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
+        &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|AUC_weighted
         Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
@@ -159,14 +169,18 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
         Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; máximas simultâneas: 5
         
         Selecione **Guardar**.
+    
+    1. Selecione **Ver as definições de exibição**. Para este exemplo, selecione o interruptor de alternação para a funcionalidade **day_of_week,** de modo a não incluí-lo para a apresentação nesta experiência.
 
-1. **Selecione Acabamento** para executar a experiência. O ecrã **'Run Detail'**  abre-se com o **estado de Execução** no topo à medida que a preparação da experiência começa.
+        ![Seleção de exibição](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
+ 
+        Selecione **Guardar**.
+
+1. **Selecione Acabamento** para executar a experiência. O ecrã **'Run Detail'**  abre-se com o **estado de Execução** no topo à medida que a preparação da experiência começa. Este estado atualiza à medida que a experiência progride. As notificações também aparecem no canto superior direito do estúdio, para informá-lo sobre o estado da sua experiência.
 
 >[!IMPORTANT]
 > A preparação leva **10 a 15 minutos** para preparar a experiência.
-> Uma vez em funcionamento, demora **mais 2 a 3 minutos para cada iteração**.  
-> Selecione **Refresh** periodicamente para ver o estado da execução à medida que a experiência progride.
->
+> Uma vez em funcionamento, demora **mais 2 a 3 minutos para cada iteração**.  <br> <br>
 > Na produção, provavelmente afastar-se-ia um pouco. Mas para este tutorial, sugerimos que comece a explorar os algoritmos testados no separador **Modelos** à medida que eles completam enquanto os outros ainda estão em execução. 
 
 ##  <a name="explore-models"></a>Explore modelos
@@ -238,7 +252,7 @@ Elimine apenas a instância de implantação do Azure Machine Learning em https:
 Neste tutorial automatizado de machine learning, usou a interface ML automatizada da Azure Machine Learning para criar e implementar um modelo de classificação. Consulte estes artigos para obter mais informações e próximos passos:
 
 > [!div class="nextstepaction"]
-> [Consumir serviços Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir serviços Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md)

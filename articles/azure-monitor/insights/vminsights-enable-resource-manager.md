@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cee7072f9bc844fb1f89168de3547dc726472b67
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328356"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695916"
 ---
 # <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Ativar o Monitor Azure para VMs utilizando modelos de gestor de recursos
 Este artigo descreve como ativar o Azure Monitor para VMs para uma máquina virtual ou conjunto de escala de máquina virtual usando modelos de Gestor de Recursos. Este procedimento pode ser utilizado para o seguinte procedimento:
@@ -33,7 +33,7 @@ Criámos modelos de gestores de recursos Azure para embarcar as suas máquinas v
 >O modelo precisa de ser implantado no mesmo grupo de recursos que a máquina virtual ou o conjunto de escala de máquina virtual que está a ser ativado.
 
 
-Os modelos Azure Resource Manager são fornecidos num ficheiro de arquivo (.zip) que pode [descarregar](https://aka.ms/VmInsightsARMTemplates) a partir do nosso repo GitHub. O conteúdo do ficheiro inclui pastas que representam cada cenário de implantação com um modelo e ficheiro de parâmetros. Antes de executá-los, modifique o ficheiro de parâmetros e especifique os valores necessários. 
+Os modelos do Gestor de Recursos Azure são fornecidos num ficheiro de arquivo (.zip) que pode [descarregar](https://aka.ms/VmInsightsARMTemplates) a partir do nosso repo GitHub. O conteúdo do ficheiro inclui pastas que representam cada cenário de implantação com um modelo e ficheiro de parâmetros. Antes de executá-los, modifique o ficheiro de parâmetros e especifique os valores necessários. 
 
 O ficheiro de descarregamento contém os seguintes modelos para diferentes cenários:
 
@@ -55,7 +55,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 
 
 ```azurecli
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
 
 

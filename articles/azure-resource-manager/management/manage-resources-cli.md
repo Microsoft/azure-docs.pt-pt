@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6672fd41dbd199940d663c4f7e1cb7f3b1936ce9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 077ebdb4dd33249923064a4f5ed20c5641a82e26
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185781"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695892"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gerir os recursos do Azure utilizando o Azure CLI
 
@@ -43,14 +43,14 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>Implementar um modelo
 
-O seguinte script cria uma implementação de um modelo Quickstart para criar uma conta de armazenamento. Para obter mais informações, consulte [Quickstart: Crie modelos de Gestor de Recursos Azure utilizando código de estúdio visual](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+O seguinte script cria uma implementação de um modelo Quickstart para criar uma conta de armazenamento. Para obter mais informações, consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
-az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../templates/deploy-cli.md).

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921858"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695434"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 
@@ -80,7 +80,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
         ---|---|---
         Formato do ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
         Delimitador|Um ou mais caracteres para especificar a fronteira entre &nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
-        Codificação|Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.| UTF-8
+        Encoding|Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Use cabeçalhos do primeiro ficheiro
         Saltar filas | Indica quantas, se houver, são ignoradas no conjunto de dados.| Nenhum
 
@@ -100,7 +100,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
 
     1. Selecione  **Seguinte**.
 
-## <a name="configure-experiment-run"></a>Configure a experiência
+## <a name="configure-run"></a>Configure corrida
 
 Depois de carregar e configurar os seus dados, configure o seu alvo de computação remota e selecione qual a coluna nos seus dados que pretende prever.
 
@@ -111,14 +111,22 @@ Depois de carregar e configurar os seus dados, configure o seu alvo de computaç
 
     1. Selecione **Crie um novo compute e** configuure o seu alvo de computação. O ML automatizado suporta apenas o cálculo Azure Machine Learning. 
 
-        Campo | Descrição | Valor para tutorial
-        ----|---|---
-        Nome da computação |Um nome único que identifica o seu contexto computacional.|bike-compute
-        Tipo de máquina virtual &nbsp; &nbsp;|Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
-        Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo.|Standard_DS12_V2
-        Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
-        Ocioso segundos antes de baixar a escala | Tempo de marcha lenta antes do cluster ser automaticamente reduzido à contagem mínima de nós.|120 (padrão)
-        Definições avançadas | Configurações para configurar e autorizar uma rede virtual para a sua experiência.| Nenhum
+        1. Preencha o formulário **Máquina Virtual** para configurar o seu cálculo.
+
+            Campo | Descrição | Valor para tutorial
+            ----|---|---
+            Prioridade da máquina virtual &nbsp; &nbsp; |Selecione qual a prioridade que a sua experiência deve ter| Dedicada
+            Tipo de máquina virtual &nbsp; &nbsp;| Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
+            Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo. Uma lista de tamanhos recomendados é fornecida com base nos seus dados e tipo de experiência. |Standard_DS12_V2
+        
+        1. Selecione **Seguinte** para preencher o **formulário configurações configurações de configuração**.
+        
+             Campo | Descrição | Valor para tutorial
+            ----|---|---
+            Nome da computação |  Um nome único que identifica o seu contexto computacional. | bike-compute
+            Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
+            Ocioso segundos antes de baixar a escala | Tempo de marcha lenta antes do cluster ser automaticamente reduzido à contagem mínima de nós.|120 (padrão)
+            Definições avançadas | Configurações para configurar e autorizar uma rede virtual para a sua experiência.| Nenhum 
   
         1. Selecione **Criar** para obter o alvo do cálculo. 
 
@@ -140,12 +148,12 @@ Complete a configuração para a sua experiência automatizada de ML especifican
 
 1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas definições são para controlar melhor o trabalho de treino e especificar as definições para a sua previsão. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-    &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
+    &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
     ------|---------|---
     Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
     Algoritmos bloqueados | Algoritmos que pretende excluir do trabalho de formação| Árvores aleatórias extremas
-    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_: especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
+    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo. <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_: especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
     Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo &nbsp; de trabalho de &nbsp; formação (horas): 3 <br> Limiar de &nbsp; pontuação &nbsp; métrica: Nenhum
     Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-dobrar &nbsp; validação cruzada <br> <br> Número de validações: 5
     Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; concorrâneas máximas: 6
@@ -154,11 +162,11 @@ Complete a configuração para a sua experiência automatizada de ML especifican
 
 ## <a name="run-experiment"></a>Experiência de execução
 
-Para executar a sua experiência, **selecione Finish**. O ecrã **de detalhes do Run**  abre com o estado de **Execução** na parte superior ao lado do número de execução. Este estado atualiza à medida que a experiência progride.
+Para executar a sua experiência, **selecione Finish**. O ecrã **de detalhes do Run**  abre com o estado de **Execução** na parte superior ao lado do número de execução. Este estado atualiza à medida que a experiência progride. As notificações também aparecem no canto superior direito do estúdio, para informá-lo sobre o estado da sua experiência.
 
 >[!IMPORTANT]
 > A preparação leva **10 a 15 minutos** para preparar a experiência.
-> Uma vez em funcionamento, demora **mais 2 a 3 minutos para cada iteração**.  <br> <br>
+> Uma vez em funcionamento, demora **mais 2 a 3 minutos para cada iteração**.<br> <br>
 > Na produção, provavelmente afastar-se-ia um pouco enquanto este processo leva tempo. Enquanto espera, sugerimos que comece a explorar os algoritmos testados no separador **Modelos** à medida que eles se completam. 
 
 ##  <a name="explore-models"></a>Explore modelos
@@ -169,7 +177,7 @@ Enquanto espera que todos os modelos de experiência terminem, selecione o **nom
 
 O exemplo a seguir navega através dos separadores **Detalhes** e **Métricas** para ver as propriedades, métricas e gráficos de desempenho do modelo selecionado. 
 
-![Detalhe de execução](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Detalhe de execução](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
@@ -232,7 +240,7 @@ Neste tutorial, você usou ML automatizado no estúdio Azure Machine Learning pa
 Consulte este artigo para ver como criar um esquema suportado por Power BI para facilitar o consumo do seu serviço web recém-implementado:
 
 > [!div class="nextstepaction"]
-> [Consumir serviços Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir serviços Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md)

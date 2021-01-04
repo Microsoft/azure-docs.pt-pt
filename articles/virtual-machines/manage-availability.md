@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0ae4a311bc4f5084ff930b97d68482d64671a782
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401190"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695749"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerir a disponibilidade de máquinas virtuais Linux
 
@@ -40,7 +40,6 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 * Use eventos programados para responder proativamente aos eventos com impacto em VM
 * Configurar cada camada da aplicação em conjuntos de disponibilidade separados
 * Combine um equilibrador de carga com zonas de disponibilidade ou conjuntos
-* Utilize zonas de disponibilidade para proteger contra falhas no nível do datacenter
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Utilize zonas de disponibilidade para proteger contra falhas no nível do datacenter
 

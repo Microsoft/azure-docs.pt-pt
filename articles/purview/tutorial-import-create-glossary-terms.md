@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Criar e importar termos glossários em Azure Purview (pré-visualização)'
 description: Este tutorial descreve como criar termos glossários, adicionar termos glossários a um ativo, e importar termos glossários.
-author: hophanms
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 4dc8dd84c22d094c87c82f5a920015f886780df2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0ea6fcaff1ec699431da8b67adee68735a8611a8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399813"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696082"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Tutorial: Criar e importar termos glossários em Azure Purview (pré-visualização)
 
@@ -23,7 +23,7 @@ Um glossário é uma ferramenta importante para manter e organizar o seu catálo
 
 Este tutorial é *parte 5 de uma série tutorial* de cinco partes na qual você aprende os fundamentos de como gerir a governação de dados através de uma propriedade de dados usando Azure Purview. Este tutorial baseia-se no trabalho que concluiu na [Parte 4: Explore conjuntos de recursos, detalhes, esquemas e classificações em Azure Purview (pré-visualização)](tutorial-schemas-and-classifications.md).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >

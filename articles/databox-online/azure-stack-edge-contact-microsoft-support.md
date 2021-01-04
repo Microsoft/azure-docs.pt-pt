@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743306"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696029"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um bilhete de apoio para Azure Stack Edge Pro e Azure Data Box Gateway
 
@@ -24,7 +24,7 @@ Este artigo aplica-se ao Azure Stack Edge Pro e ao Azure Data Box Gateway ambos 
 
 ## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
-Execute os seguintes passos para criar um pedido de apoio:
+Faça as seguintes etapas para criar um pedido de apoio:
 
 1. Aceda ao seu pedido Azure Stack Edge Pro ou Data Box Gateway. Navegue para a secção **de suporte + resolução de problemas** e, em seguida, selecione **Novo pedido de suporte**.
 
@@ -34,12 +34,12 @@ Execute os seguintes passos para criar um pedido de apoio:
     2. Escolha a sua **Subscrição**.
     3. Em **Serviço,** consulte os **meus serviços.** Na lista de dropdown, selecione **Azure Stack Edge Pro e Data Box Gateway**.
     4. Selecione o seu **Recurso**. Isto corresponde ao nome da sua encomenda.
-    5. Forneça um breve **Resumo** da questão que está a passar. 
+    5. Faça um breve **resumo** da questão que está a passar. 
     6. Selecione o **seu tipo de problema**.
-    7. Com base no tipo de problema selecionado, escolha um **subtipo de problema**correspondente .
+    7. Com base no tipo de problema selecionado, escolha um **subtipo de problema** correspondente .
     8. Selecione **Seguinte: Soluções >>**.
 
-        ![Noções básicas](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Informações básicas](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. No separador **Detalhes,** tome os seguintes passos:
 
@@ -51,7 +51,7 @@ Execute os seguintes passos para criar um pedido de apoio:
     6. Na lista de abandono, selecione a **Severidade.**
     7. Especifique um **método de contacto preferido.**
     8. As **horas de Resposta** são selecionadas automaticamente com base no seu plano de subscrição.
-    9. Forneça a língua que prefere para Suporte.
+    9. Forneça o idioma que prefere para Suporte.
     10. Nas **informações de Contacto,** forneça o seu nome, e-mail, telefone, contacto opcional, país/região. O Microsoft Support utiliza estas informações para lhe chegar a mais informações, diagnósticos e resolução. 
     11. Selecione **Seguinte: Revisão + Criar >>**.
 
@@ -61,7 +61,7 @@ Execute os seguintes passos para criar um pedido de apoio:
 
     ![Problema 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    Depois de ter criado o bilhete De Apoio, um engenheiro de Suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
+    Depois de criar o bilhete De Apoio, um engenheiro de Suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
 
 ## <a name="get-hardware-support"></a>Obtenha suporte de hardware
 
@@ -73,12 +73,12 @@ Esta informação aplica-se apenas ao dispositivo Azure Stack. O processo de rep
 
     Depois de ter criado o bilhete De Apoio, um engenheiro de Suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
 
-2. Se o Microsoft Support determinar que se trata de um problema de hardware, ocorre uma das seguintes ações:
+2. Se o Microsoft Support determinar que se trata de um problema de hardware, então ocorre uma das seguintes ações:
 
-    * É enviada uma Unidade de Substituição de Campo (FRU) para a peça de hardware falhada. Atualmente, as unidades de alimentação e os discos rígidos são os únicos FRUs suportados.
+    * É enviada uma Unidade de Substituição de Campo (FRU) para a peça de hardware falhada. Atualmente, as unidades de alimentação e as unidades de estado sólido são as únicas FUs suportadas.
     * Apenas as FUs são substituídas no dia útil seguinte, tudo o resto requer uma substituição completa do sistema (FSR) para ser enviada.
 
-3. Se um bilhete de Apoio for levantado antes das 16h30 locais (segunda a sexta-feira), é enviado um técnico no local no dia útil seguinte para a sua localização para realizar um FRU ou uma substituição completa do dispositivo.
+3. Se um bilhete de Apoio for levantado antes das 16h30 locais (segunda a sexta-feira), é enviado um técnico no local no dia útil seguinte para a sua localização para realizar uma substituição de FRU. Uma substituição completa do sistema normalmente demorará muito mais tempo porque as peças são enviadas da nossa fábrica e podem estar sujeitas a atrasos de transporte e alfândega.
 
 ## <a name="manage-a-support-request"></a>Gerir um pedido de apoio
 
