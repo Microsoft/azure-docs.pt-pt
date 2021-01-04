@@ -4,12 +4,12 @@ description: Faça backup e restaure bases de dados SQL em VMs Azure usando Azur
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 0b3b943a53c1da0f6f1e938b5b234dc82541b46d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a3467ffa3a67ac9ad593748948cea8da59e3e6b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901672"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734543"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer o back up e restaurar as bases de dados SQL em VMs Azure com PowerShell
 
@@ -56,10 +56,10 @@ Configurar o PowerShell da seguinte forma:
 
     ![Lista de serviços de recuperação](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Inscreva-se na sua conta Azure com **o Connect-AzAccount** .
+4. Inscreva-se na sua conta Azure com **o Connect-AzAccount**.
 5. Na página web que aparece, é solicitado que insira as credenciais da sua conta.
 
-    * Alternadamente, pode incluir as suas credenciais de conta como parâmetro no cmdlet **Connect-AzAccount** com **-Credencial** .
+    * Alternadamente, pode incluir as suas credenciais de conta como parâmetro no cmdlet **Connect-AzAccount** com **-Credencial**.
     * Se você é um parceiro CSP que trabalha para um inquilino, especifique o cliente como inquilino, usando o seu nome de domínio principal inquilino ou inquilino. Um exemplo é **Connect-AzAccount -Tenant** fabrikam.com.
 
 6. Associe a subscrição que pretende utilizar na conta, porque uma conta pode ter várias subscrições.
@@ -80,7 +80,7 @@ Configurar o PowerShell da seguinte forma:
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. Na saída de comando, verifique se o **Estado de Registo** altera as alterações **registadas** . Se não o fizer, volte a executar o **cmdlet Register-AzResourceProvider.**
+9. Na saída de comando, verifique se o **Estado de Registo** altera as alterações **registadas**. Se não o fizer, volte a executar o **cmdlet Register-AzResourceProvider.**
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -103,7 +103,7 @@ O cofre dos Serviços de Recuperação é um recurso do Gestor de Recursos, pelo
 3. Especifique o tipo de redundância a utilizar para o armazenamento do cofre.
 
     * Pode utilizar [armazenamento localmente redundante,](../storage/common/storage-redundancy.md#locally-redundant-storage) [armazenamento geo-redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) ou [armazenamento redundante de zona.](../storage/common/storage-redundancy.md#zone-redundant-storage)
-    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd para **testvault** definido para **GeoRedundant** .
+    * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd para **testvault** definido para **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -137,7 +137,7 @@ Guarde o objeto do cofre numa variável e desaje no contexto do cofre.
 * Muitos cmdlets de backup Azure requerem o objeto do cofre dos Serviços de Recuperação como uma entrada, por isso é conveniente armazenar o objeto do cofre numa variável.
 * O contexto do cofre é o tipo de dados protegidos no cofre. Desaperte-o com [o Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Após o contexto definido, aplica-se a todos os cmdlets subsequentes.
 
-O exemplo a seguir define o contexto do cofre para **o testvault** .
+O exemplo a seguir define o contexto do cofre para **o testvault**.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -219,7 +219,7 @@ A saída mostrará todos os componentes SQL desprotegidos em todos os VMs SQL re
 $SQLDB = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDataBase -VaultId $targetVault.ID -Name "<Item Name>" -ServerName "<Server Name>"
 ```
 
-### <a name="configuring-backup"></a>Configurar backup
+### <a name="configuring-backup"></a>Configurar a cópia de segurança
 
 Agora que temos o DB SQL necessário e a política com a qual precisa de ser apoiado, podemos usar o [cmdlet Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para configurar a cópia de segurança para este DB SQL.
 
@@ -268,7 +268,7 @@ O Azure Backup pode restaurar as bases de dados do SQL Server que estão a ser e
 * Restaurar a data ou hora específicas (para a segunda) utilizando cópias de segurança de registo de transações. O Azure Backup determina automaticamente a cópia de segurança diferencial adequada e a cadeia de backups de registos que são necessárias para restaurar com base no tempo selecionado.
 * Restaurar uma cópia de segurança completa ou diferencial específica para restaurar um ponto de recuperação específico.
 
-Consulte os pré-requisitos [aqui](restore-sql-database-azure-vm.md#prerequisites) mencionados antes de restaurar os DBs SQL.
+Consulte os pré-requisitos [aqui](restore-sql-database-azure-vm.md#restore-prerequisites) mencionados antes de restaurar os DBs SQL.
 
 Em primeiro lugar, obtenha o DB SQL apoiado relevante utilizando o [cmdlet Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell.
 
@@ -333,7 +333,7 @@ No caso de um restauro do SQL DB, são suportados os seguintes cenários de rest
 * Sobrevam o DB SQL com dados de outro ponto de recuperação - OriginalWorkloadRestore
 * Restaurar o SQL DB como um novo DB no mesmo exemplo SQL - AlternateWorkloadRestore
 * Restaurar o SQL DB como um novo DB em outro exemplo SQL em outro SQL VM - AlternateWorkloadRestore
-* Restaurar o SQL DB como ficheiros .bak -RestoreAsFiles
+* Restaurar o DB SQL como .bak ficheiros -RestoreAsFiles
 
 Depois de obter o ponto de recuperação relevante (ponto-a-tempo distinto ou log-in-time), utilize [o Get-AzRecoveryServicesBackworkloadRecoveryConfig](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupworkloadrecoveryconfig) PowerShell para obter o objeto config de recuperação de acordo com o plano de recuperação pretendido.
 
@@ -380,7 +380,7 @@ $AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConf
 
 ##### <a name="restore-as-files"></a>Restaurar como Ficheiros
 
-Para restaurar os dados de cópia de segurança como ficheiros .bak em vez de uma base de dados, escolha a opção **Restaurar como Ficheiros.** O SQL DB apoiado pode ser restaurado a qualquer VM alvo que esteja registado neste cofre.
+Para restaurar os dados de cópia de segurança como .bak ficheiros em vez de uma base de dados, escolha a opção **Restaurar como Ficheiros.** O SQL DB apoiado pode ser restaurado a qualquer VM alvo que esteja registado neste cofre.
 
 ```powershell
 $TargetContainer= Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName "VM name" -VaultId $vaultID
@@ -499,7 +499,7 @@ Se a saída for perdida ou se quiser obter o ID de emprego relevante, [obtenha a
 
 ### <a name="change-policy-for-backup-items"></a>Alterar política para artigos de backup
 
-Pode alterar a política do item back-up da *Policy1* para *a Policy2* . Para mudar as políticas para um item de reserva, pegue na política relevante e faça backup do item e utilize o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como parâmetro.
+Pode alterar a política do item back-up da *Policy1* para *a Policy2*. Para mudar as políticas para um item de reserva, pegue na política relevante e faça backup do item e utilize o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como parâmetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

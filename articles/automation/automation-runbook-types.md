@@ -3,26 +3,26 @@ title: Tipos de runbook Azure Automation
 description: Este artigo descreve os tipos de livros que pode utilizar na Azure Automation e considerações para determinar que tipo de utilização.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/05/2019
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c12297f19d30bf13ffbe594e0433c83914a8e
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185930"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733965"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook Azure Automation
 
 A funcionalidade Azure Automation Process Automation suporta vários tipos de runbooks, conforme definido na tabela seguinte. Para conhecer o ambiente de automatização de processos, consulte [a execução do Runbook na Azure Automation.](automation-runbook-execution.md)
 
-| Tipo | Descrição |
+| Tipo | Description |
 |:--- |:--- |
 | [Gráficos](#graphical-runbooks)|Livro gráfico baseado no Windows PowerShell e criado e editado completamente no editor gráfico no portal Azure. |
 | [Fluxo de trabalho gráfico powershell](#graphical-runbooks)|Livro gráfico baseado no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico no portal Azure. |
-| [PowerShell](#powershell-runbooks) |Livro de texto baseado na script do Windows PowerShell. |
+| [PowerShell](#powershell-runbooks) |Livro de texto baseado na scripting do Windows PowerShell. |
 | [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks)|Livro de texto baseado na scripting do fluxo de trabalho do Windows PowerShell. |
-| [Python](#python-runbooks) |Livro de texto baseado na scripting python. |
+| [Python](#python-runbooks) |Livro textual baseado na escrita python. |
 
 Tenha em conta as seguintes considerações ao determinar qual o tipo de utilização para um determinado livro de bordo.
 
@@ -33,9 +33,9 @@ Tenha em conta as seguintes considerações ao determinar qual o tipo de utiliza
 
 Pode criar e editar livros gráficos e gráficos de fluxo de trabalho PowerShell utilizando o editor gráfico no portal Azure. No entanto, não é possível criar ou editar este tipo de livro com outra ferramenta. Principais características dos livros gráficos:
 
-* Pode ser exportado para ficheiros na sua conta de Automação e depois importado para outra conta de Automação. 
-* Gerar código PowerShell. 
-* Pode ser convertido para ou a partir de livros gráficos de fluxo de trabalho PowerShell durante a importação. 
+* Exportado para ficheiros na sua conta de Automação e depois importado para outra conta de Automação.
+* Gerar código PowerShell.
+* Convertidos para ou a partir de livros gráficos de fluxo de trabalho powerShell durante a importação.
 
 ### <a name="advantages"></a>Vantagens
 
@@ -59,7 +59,7 @@ Os livros powerShell são baseados no Windows PowerShell. Edita diretamente o c�
 
 ### <a name="advantages"></a>Vantagens
 
-* Implemente toda a lógica complexa com o código PowerShell sem as complexidades adicionais do Fluxo de Trabalho PowerShell.
+* Implementar toda a lógica complexa com o código PowerShell sem as outras complexidades do Fluxo de Trabalho PowerShell.
 * Comece mais rápido que os livros de fluxo de trabalho powerShell, uma vez que não precisam de ser compilados antes de serem executados.
 * Corra em Azure e em Hybrid Runbook Workers tanto para Windows como Linux.
 
@@ -68,7 +68,7 @@ Os livros powerShell são baseados no Windows PowerShell. Edita diretamente o c�
 * Deves estar familiarizado com os scripts da PowerShell.
 * Os runbooks não podem usar [o processamento paralelo](automation-powershell-workflow.md#use-parallel-processing) para executar várias ações em paralelo.
 * Os runbooks não podem usar [postos de controlo](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) para retomar o livro de contas se houver um erro.
-* Pode incluir apenas livros de fluxo de trabalho PowerShell e runbooks gráficos como livros infantis utilizando o [cmdlet Start-AzAutomationRunbook,](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) que cria um novo emprego.
+* Pode incluir apenas livros de fluxo de trabalho PowerShell e runbooks gráficos como livros infantis utilizando o [cmdlet Start-AzAutomationRunbook,](/powershell/module/az.automation/start-azautomationrunbook) que cria um novo emprego.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
@@ -76,7 +76,7 @@ Seguem-se os problemas atuais conhecidos com os livros de execução PowerShell:
 
 * Os livros powerShell não conseguem recuperar um [ativo variável](./shared-resources/variables.md) não encriptado com um valor nulo.
 * Os livros powerShell não conseguem recuperar um ativo variável com `*~*` o nome.
-* Uma operação [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) em loop num livro de execução PowerShell pode colidir após cerca de 80 iterações.
+* Uma operação [Get-Process](/powershell/module/microsoft.powershell.management/get-process) em loop num livro de execução PowerShell pode colidir após cerca de 80 iterações.
 * Um livro de execução PowerShell pode falhar se tentar escrever uma grande quantidade de dados para o fluxo de saída de uma só vez. Normalmente, pode trabalhar em torno deste problema, tendo a saída do runbook apenas a informação necessária para trabalhar com objetos grandes. Por exemplo, em vez de utilizar `Get-Process` sem limitações, pode ter a saída de cmdlet apenas os parâmetros necessários como em `Get-Process | Select ProcessName, CPU` .
 
 ## <a name="powershell-workflow-runbooks"></a>Livros de fluxo de trabalho PowerShell
@@ -100,18 +100,29 @@ Os livros de fluxo de trabalho PowerShell são livros de texto baseados no [flux
 
 ## <a name="python-runbooks"></a>Livros de python
 
-Os livros de python compilam-se sob Python 2. Pode editar diretamente o código do livro de texto utilizando o editor de texto no portal Azure. Também pode utilizar um editor de texto offline e [importar o livro de bordo](manage-runbooks.md) para a Azure Automation.
+Os livros de python compilam-se sob Python 2 e Python 3. Os livros de 100 python estão atualmente em pré-visualização. Pode editar diretamente o código do livro de texto utilizando o editor de texto no portal Azure. Também pode utilizar um editor de texto offline e [importar o livro de bordo](manage-runbooks.md) para a Azure Automation.
 
 ### <a name="advantages"></a>Vantagens
 
 * Use as robustas bibliotecas Python.
-* Pode correr em Azure ou em Linux Hybrid Runbook Workers. Os Trabalhadores do Runbook Híbrido do Windows são suportados com [python2.7](https://www.python.org/downloads/release/latest/python2) instalado.
+* Pode correr em Azure ou em Hybrid Runbook Workers.
+* Para o Python 2, os Trabalhadores do Runbook Híbrido do Windows são suportados com [python 2.7](https://www.python.org/downloads/release/latest/python2) instalado.
+* Para Python 3 Cloud Jobs, a versão Python 3.8 é suportada. Scripts e pacotes de qualquer versão 3.x podem funcionar se o código for compatível em diferentes versões.  
+* Para trabalhos híbridos Python 3 em máquinas Windows, pode optar por instalar qualquer versão 3.x que queira utilizar.  
+* Para trabalhos híbridos Python 3 em máquinas Linux, dependemos da versão Python 3 instalada na máquina para executar DSC OMSConfig e o Linux Hybrid Worker. Recomendamos a instalação de 3.6 em máquinas Linux. No entanto, diferentes versões também devem funcionar se não houver alterações nas assinaturas de métodos ou contratos entre versões de Python 3.
 
 ### <a name="limitations"></a>Limitações
 
 * Deves estar familiarizado com os guiões dos Python.
-* Apenas Python 2 é apoiado atualmente. Quaisquer funções específicas da Python falham.
 * Para utilizar bibliotecas de terceiros, deve [importar os pacotes](python-packages.md) para a conta Automation.
+* A utilização do cmdlet **Start-AutomationRunbook**   no PowerShell/PowerShell Workflow para iniciar um livro de bordo Python 3 (pré-visualização) não funciona. Pode utilizar o cmdlet **Start-AzAutomationRunbook** a partir do módulo Az.Automation ou o cmdlet **Start-AzureRmAutomationRunbook** da AzureRm.Automation module para contornar esta limitação.  
+* Os livros de bordo Python 3 (pré-visualização) e os pacotes não funcionam com o PowerShell.
+* Não é suportado o suporte de um webhook para iniciar um livro de aplicações Python.
+* A Azure Automation não suporta **sys.stderr**.
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+Os trabalhos python 3 às vezes falham com uma mensagem de exceção *inválido caminho executável de intérpretes*. Poderá ver esta exceção se um trabalho for atrasado, a partir de mais de 10 minutos ou utilizando **o Start-AutomationRunbook** para iniciar os runbooks Python 3. Se o trabalho for atrasado, reiniciar o livro deve ser suficiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

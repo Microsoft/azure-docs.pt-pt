@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427456"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724888"
 ---
 # <a name="configure-authentication"></a>Configurar a autenticação
 
@@ -19,14 +19,17 @@ A Azure Remote Rendering utiliza o mesmo mecanismo de autenticação que [as ân
 * **ContaKey**: pode ser obtido no separador "Chaves" para a conta de renderização remota no portal Azure. As chaves de conta são apenas recomendados para desenvolvimento/prototipagem.
     ![ID da Conta](./media/azure-account-primary-key.png)
 
+* **AccountDomain**: pode ser obtido no separador "Visão Geral" para a conta de renderização remota no portal Azure.
+    ![Domínio da conta](./media/azure-account-domain.png)
+
 * **AutenticaçãoToken:** é um símbolo AD Azure, que pode ser obtido através da [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Existem vários fluxos diferentes disponíveis para aceitar credenciais de utilizador e usar essas credenciais para obter um token de acesso.
 
-* **MRAccessToken:** é um token MR, que pode ser obtido a partir do Azure Mixed Reality Security Token Service (STS). Recuperado do `https://sts.mixedreality.azure.com` ponto final usando uma chamada REST semelhante à chamada abaixo:
+* **MRAccessToken:** é um token MR, que pode ser obtido a partir do Azure Mixed Reality Security Token Service (STS). Recuperado do `https://sts.<accountDomain>` ponto final utilizando uma chamada REST semelhante à seguinte:
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK

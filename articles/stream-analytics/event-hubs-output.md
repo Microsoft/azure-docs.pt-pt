@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e01a4418681e0f78864eacbf70016cfb33fa6f53
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295289"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739642"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída de Hubs de Eventos da Azure Stream Analytics
 
@@ -22,7 +22,7 @@ O serviço [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
 
 A tabela seguinte tem os parâmetros necessários para configurar fluxos de dados dos centros de eventos como uma saída.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída | Um nome amigável usado em consultas para direcionar a saída de consulta para este centro de eventos. |
 | Espaço de nomes do hub de eventos | Um contentor para um conjunto de entidades de mensagens. Quando criou um novo centro de eventos, também criou um espaço de nomes de centros de eventos. |
@@ -62,13 +62,9 @@ No exemplo seguinte, os campos `DeviceId` são `DeviceStatus` adicionados aos me
 
 A imagem a seguir é das propriedades de mensagens de saída esperadas inspecionadas no EventHub utilizando [o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Colunas de propriedade":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Utilize identidades geridas para aceder ao Event Hub a partir de um trabalho de Azure Stream Analytics (Preview)](event-hubs-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
-* [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

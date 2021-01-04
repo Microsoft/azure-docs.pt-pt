@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 17fc2db8c51c06601852037c38b9cfc2096c811f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ba64f5972d77637ec830fe6b872af66363d6c1bd
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109760"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740050"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Armazenamento de blob e saída do Azure Data Lake Gen2 da Azure Stream Analytics
 
@@ -24,7 +24,7 @@ O armazenamento Azure Blob oferece uma solução rentável e escalável para arm
 
 A tabela que se segue lista os nomes da propriedade e as suas descrições para a criação de uma saída blob ou ADLS Gen2.
 
-| Nome da propriedade       | Descrição                                                                      |
+| Nome da propriedade       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Alias de saída        | Um nome amigável usado em consultas para direcionar a saída de consulta para este armazenamento de bolhas. |
 | Conta de armazenamento     | O nome da conta de armazenamento para onde está a enviar a sua produção.               |
@@ -63,9 +63,5 @@ Para obter o tamanho máximo da mensagem, consulte [os limites de armazenamento 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Utilize identidade gerida (pré-visualização) para autenticar o seu trabalho Azure Stream Analytics para o armazenamento de blob Azure](blob-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
-* [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

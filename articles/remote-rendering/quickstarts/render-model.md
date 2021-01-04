@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207228"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724939"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Renderiza um modelo com Unidade
 
@@ -74,8 +74,8 @@ O modelo padrão que prestamos é um [modelo de amostra incorporado.](../samples
 ![Informação da Conta ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> O Portal Azure exibe o domínio da sua conta apenas *mixedreality.azure.com*. Isto é insuficiente para uma ligação com sucesso.
-> Desacorde **com a AccountDomain** `<region>.mixedreality.azure.com` para, onde está uma das `<region>` [regiões disponíveis perto de si](../reference/regions.md).
+> Desacorde **com a AccountDomain** `<region>.mixedreality.azure.com` para, onde está uma das `<region>` [regiões disponíveis perto de si](../reference/regions.md).\
+> Deite **contaAuthenticationDomain** para [o domínio da conta,](../how-tos/create-an-account.md#retrieve-the-account-information) tal como mostrado no Portal Azure.
 
 Mais tarde queremos implementar este projeto num HoloLens e conectar-nos ao serviço de renderização remota a partir desse dispositivo. Uma vez que não temos uma maneira fácil de introduzir as credenciais no dispositivo, a amostra de arranque rápido **salvará as credenciais na cena da Unidade.**
 
@@ -92,9 +92,7 @@ Parabéns! Está agora a ver um modelo remotamente renderizado!
 
 ## <a name="inspecting-the-scene"></a>Inspecionando o local
 
-Uma vez que a ligação de renderização remota esteja em execução, o painel do inspetor atualiza com informações adicionais sobre o estado:
-
-![Amostra de unidade tocando](./media/arr-sample-configure-session-running.png)
+Uma vez que a ligação de renderização remota está em execução, o painel do inspetor atualiza com informações adicionais sobre o estado: ![ Amostra de unidade reproduzindo](./media/arr-sample-configure-session-running.png)
 
 Agora pode explorar o gráfico de cena selecionando o novo nó e clicando em **mostrar as crianças** no Inspetor.
 

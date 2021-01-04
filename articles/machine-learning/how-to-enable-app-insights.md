@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 13b99fe129191b89b5bb2d7f5473e910fa619ce7
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536596"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739846"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorizar e recolher dados de pontos finais de serviço Web de ML
 
@@ -157,14 +157,24 @@ Também pode ativar a Azure Application Insights do estúdio Azure Machine Learn
 
 ### <a name="query-logs-for-deployed-models"></a>Registos de consulta para modelos implantados
 
-Pode utilizar a `get_logs()` função para recuperar registos de um serviço web previamente implantado. Os registos podem conter informações detalhadas sobre quaisquer erros ocorridos durante a implantação.
+Os registos dos pontos finais em tempo real são dados do cliente. Pode utilizar a `get_logs()` função para recuperar registos de um serviço web previamente implantado. Os registos podem conter informações detalhadas sobre quaisquer erros ocorridos durante a implantação.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+Se tiver vários Inquilinos, poderá ter de adicionar o seguinte código autenticado antes `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>Ver registos no estúdio

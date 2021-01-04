@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565913"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740509"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
@@ -25,6 +25,11 @@ Neste artigo aprende-se:
 > - Como [gerir ativos e recursos](#manage-assets-and-resources) no estúdio.
 > - As diferenças entre [o estúdio Azure Machine Learning e o ML Studio (clássico)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
+Recomendamos que utilize o browser mais atualizado compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
+  * Microsoft Edge (O novo Microsoft Edge, versão mais recente. Não o legado da Microsoft Edge)
+  * Safari (versão mais recente, apenas Mac)
+  * Chrome (versão mais recente)
+  * Firefox (versão mais recente)
 
 ## <a name="author-machine-learning-projects"></a>Projetos de aprendizagem automática de autor
 
@@ -33,6 +38,8 @@ O estúdio oferece múltiplas experiências de autoria dependendo do projeto tip
 + **Notebooks**
 
   Escreva e execute o seu próprio código em [servidores jupyter notebook geridos](how-to-run-jupyter-notebooks.md) que estão diretamente integrados no estúdio. 
+
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Screenshot: escrever e executar código em um caderno":::
 
 + **Estruturador do Azure Machine Learning**
 
@@ -55,7 +62,7 @@ O estúdio oferece múltiplas experiências de autoria dependendo do projeto tip
 Gerencie os seus ativos de aprendizagem automática diretamente no seu browser. Os ativos são partilhados no mesmo espaço de trabalho entre o SDK e o estúdio para uma experiência perfeita. Utilize o estúdio para gerir:
 
 - Modelos
-- Conjuntos de dados
+- Conjuntos de Dados
 - Arquivos de dados
 - Recursos de cálculo
 - Notebooks
@@ -94,6 +101,9 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 | Deteção de deriva de dados | Não suportado | [Suportado](how-to-monitor-datasets.md) |
 | Projetos de rotulagem de dados | Não suportado | [Suportado](how-to-create-labeling-projects.md) |
 
+## <a name="troubleshooting"></a>Resolução de problemas
+
+* **Itens de interface de utilizador em falta no estúdio** O controlo de acesso baseado em funções Azure pode ser usado para restringir as ações que pode realizar com a Azure Machine Learning. Estas restrições podem impedir que os itens de interface do utilizador apareçam no estúdio Azure Machine Learning. Por exemplo, se lhe for atribuída uma função que não pode criar uma instância de computação, a opção de criar uma instância de computação não aparecerá no estúdio. Para obter mais informações, consulte [Gerir os utilizadores e as funções.](how-to-assign-roles.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

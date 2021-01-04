@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas de modelos
-description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
+description: Descreve abordagens recomendadas para a autoria de modelos de Gestor de Recursos Azure (modelos ARM). Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497984"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724991"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
-Este artigo mostra-lhe como utilizar as práticas recomendadas ao construir o seu modelo ARM. Estas recomendações ajudam-no a evitar problemas comuns ao utilizar um modelo ARM para implementar uma solução.
+Este artigo mostra-lhe como utilizar as práticas recomendadas ao construir o seu modelo de Gestor de Recursos Azure (modelo ARM). Estas recomendações ajudam-no a evitar problemas comuns ao utilizar um modelo ARM para implementar uma solução.
 
 ## <a name="template-limits"></a>Limites de modelo
 
@@ -26,9 +26,9 @@ Também se limita a:
 * 64 valores de saída
 * 24.576 caracteres em uma expressão de modelo
 
-Pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [utilizando modelos ligados ao implementar recursos Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para obter mais informações, consulte [os Objetos como parâmetros.](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
+Pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [utilizando modelos ligados e aninhados ao utilizar recursos Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para obter mais informações, consulte [os Objetos como parâmetros.](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>O grupo de recursos
 
 Quando implementa recursos para um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados na localização do grupo de recursos.
 
@@ -48,32 +48,32 @@ As informações nesta secção podem ser úteis quando se trabalha com [parâme
 
 * Utilize parâmetros para nomes de recursos que pretende especificar para uma identificação fácil.
 
-* Fornecer uma descrição de todos os parâmetros nos metadados:
+* Forneça uma descrição de todos os parâmetros dos metadados.
 
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Defina valores predefinidos para parâmetros que não são sensíveis. Ao especificar um valor padrão, é mais fácil implementar o modelo, e os utilizadores do seu modelo vêem um exemplo de um valor apropriado. Qualquer valor predefinido para um parâmetro deve ser válido para todos os utilizadores na configuração de implementação predefinido. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
+    ```json
+    "parameters": {
+      "storageAccountType": {
+        "type": "string",
+        "metadata": {
+          "description": "The type of the new storage account created to store the VM disks."
         }
-   }
-   ```
+      }
+    }
+    ```
+
+* Defina valores predefinidos para parâmetros que não são sensíveis. Ao especificar um valor padrão, é mais fácil implementar o modelo, e os utilizadores do seu modelo vêem um exemplo de um valor apropriado. Qualquer valor predefinido para um parâmetro deve ser válido para todos os utilizadores na configuração de implementação predefinido.
+
+    ```json
+    "parameters": {
+      "storageAccountType": {
+        "type": "string",
+        "defaultValue": "Standard_GRS",
+        "metadata": {
+          "description": "The type of the new storage account created to store the VM disks."
+        }
+      }
+    }
+    ```
 
 * Para especificar um parâmetro opcional, não utilize uma corda vazia como valor predefinido. Em vez disso, use um valor literal ou uma expressão linguística para construir um valor.
 
@@ -84,7 +84,7 @@ As informações nesta secção podem ser úteis quando se trabalha com [parâme
      "metadata": {
        "description": "Name of the storage account"
      }
-   },
+   }
    ```
 
 * Use `allowedValues` com moderação. Use-o apenas quando tiver de se certificar de que alguns valores não estão incluídos nas opções permitidas. Se utilizar `allowedValues` de forma demasiado ampla, poderá bloquear implementações válidas não mantendo a sua lista atualizada.
@@ -95,18 +95,18 @@ As informações nesta secção podem ser úteis quando se trabalha com [parâme
 
 * Utilize sempre parâmetros para nomes de utilizador e palavras-passe (ou segredos).
 
-* Use `securestring` para todas as palavras-passe e segredos. Se passar dados sensíveis num objeto JSON, utilize o `secureObject` tipo. Os parâmetros do modelo com tipos de conjuntos seguros ou de objetos seguros não podem ser lidos após a implementação do recurso. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
+* Use `securestring` para todas as palavras-passe e segredos. Se passar dados sensíveis num objeto JSON, utilize o `secureObject` tipo. Os parâmetros do modelo com tipos de conjuntos seguros ou de objetos seguros não podem ser lidos após a implementação do recurso.
+
+    ```json
+    "parameters": {
+      "secretValue": {
+        "type": "securestring",
+        "metadata": {
+          "description": "The value of the secret to store in the vault."
+        }
+      }
+    }
+    ```
 
 * Não forneça valores predefinidos para nomes de utilizador, palavras-passe ou qualquer valor que exija um `secureString` tipo.
 
@@ -114,7 +114,7 @@ As informações nesta secção podem ser úteis quando se trabalha com [parâme
 
 ### <a name="location-recommendations-for-parameters"></a>Recomendações de localização para parâmetros
 
-* Utilize um parâmetro para especificar a localização dos recursos e desafine o valor predefinido para `resourceGroup().location` . Fornecer um parâmetro de localização permite aos utilizadores do modelo especificar um local para o qual têm permissão para implementar.
+* Utilize um parâmetro para especificar a localização dos recursos e desafine o valor predefinido para `resourceGroup().location` . O fornecimento de um parâmetro de localização permite aos utilizadores do modelo especificar um local onde tenham permissão para implementar recursos.
 
    ```json
    "parameters": {
@@ -125,7 +125,7 @@ As informações nesta secção podem ser úteis quando se trabalha com [parâme
          "description": "The location in which the resources should be deployed."
        }
      }
-   },
+   }
    ```
 
 * Não especifique `allowedValues` o parâmetro de localização. As localizações que especifica podem não estar disponíveis em todas as nuvens.
@@ -144,7 +144,7 @@ As seguintes informações podem ser úteis quando se trabalha com [variáveis:]
 
 * Use variáveis para valores que constrói a partir de um arranjo complexo de funções de modelo. O seu modelo é mais fácil de ler quando a expressão complexa só aparece em variáveis.
 
-* Não é possível utilizar a função [de referência](template-functions-resource.md#reference) na secção de **variáveis** do modelo. A função de **referência** obtém o seu valor a partir do estado de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que necessitem da função **de referência** diretamente na secção de **recursos** ou **saídas** do modelo.
+* Não é possível utilizar a função [de referência](template-functions-resource.md#reference) na secção `variables` do modelo. A `reference` função obtém o seu valor a partir do estado de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que necessitem da `reference` função diretamente na `resources` secção ou secção do `outputs` modelo.
 
 * Incluir variáveis para nomes de recursos que devem ser únicos.
 
@@ -166,7 +166,7 @@ Não utilize variáveis para a versão API. Em particular, não utilize a [funç
 
 Ao decidir quais [as dependências](define-resource-dependency.md) a definir, utilize as seguintes orientações:
 
-* Use a função **de referência** e passe no nome do recurso para definir uma dependência implícita entre recursos que precisam de partilhar um imóvel. Não adicione um elemento explícito `dependsOn` quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias. Para um exemplo de definição de uma dependência implícita, consulte [a dependência implícita](define-resource-dependency.md#reference-and-list-functions).
+* Use a `reference` função e passe no nome do recurso para definir uma dependência implícita entre recursos que precisam de partilhar um imóvel. Não adicione um elemento explícito `dependsOn` quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias. Para um exemplo de definição de dependência implícita, consulte [funções de referência e lista](define-resource-dependency.md#reference-and-list-functions).
 
 * Desaprote um recurso para crianças como dependente do seu recurso principal.
 
@@ -180,103 +180,102 @@ Ao decidir quais [as dependências](define-resource-dependency.md) a definir, ut
 
 As seguintes informações podem ser úteis quando se trabalha com [recursos:](template-syntax.md#resources)
 
-* Para ajudar outros contribuintes a compreender a finalidade do recurso, **especifique comentários** para cada recurso no modelo:
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2019-06-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
+* Para ajudar outros contribuintes a compreender a finalidade do recurso, especifique `comments` para cada recurso no modelo.
 
-* Se utilizar um *ponto final público* no seu modelo (como um ponto final público de armazenamento Azure Blob), não *codigem* o espaço de nomes. Utilize a função **de referência** para recuperar dinamicamente o espaço de nomes. Pode utilizar esta abordagem para implementar o modelo em diferentes ambientes do espaço de nome público sem alterar manualmente o ponto final no modelo. Desaça a versão API para a mesma versão que está a usar para a conta de armazenamento no seu modelo:
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   Se a conta de armazenamento for implantada no mesmo modelo que está a criar e o nome da conta de armazenamento não for partilhado com outro recurso no modelo, não precisa de especificar o espaço de nome do fornecedor ou a apiversão quando referenciar o recurso. O exemplo a seguir mostra a sintaxe simplificada:
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-       }
-   }
-   ```
-     
-   Também pode fazer referência a uma conta de armazenamento existente que se encontra num grupo de recursos diferente:
+    ```json
+    "resources": [
+      {
+        "name": "[variables('storageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "location": "[resourceGroup().location]",
+        "comments": "This storage account is used to store the VM disks.",
+          ...
+      }
+    ]
+    ```
 
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
+* Se utilizar um *ponto final público* no seu modelo (como um ponto final público de armazenamento Azure Blob), não *codigem* o espaço de nomes. Utilize a `reference` função para recuperar dinamicamente o espaço de nomes. Pode utilizar esta abordagem para implementar o modelo em diferentes ambientes do espaço de nome público sem alterar manualmente o ponto final no modelo. Desaça a versão API para a mesma versão que está a usar para a conta de armazenamento no seu modelo.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      }
+    }
+    ```
+
+   Se a conta de armazenamento for implantada no mesmo modelo que está a criar e o nome da conta de armazenamento não for partilhado com outro recurso no modelo, não precisa de especificar o espaço de nome do fornecedor ou `apiVersion` quando referenciar o recurso. O exemplo a seguir mostra a sintaxe simplificada.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
+      }
+    }
+    ```
+
+   Também pode fazer referência a uma conta de armazenamento existente que se encontre num grupo de recursos diferente.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      }
+    }
+    ```
 
 * Atribua endereços IP públicos a uma máquina virtual apenas quando uma aplicação o exigir. Para ligar a uma máquina virtual (VM) para depurar, ou para fins de gestão ou administrativa, utilize regras NAT de entrada, um gateway de rede virtual ou uma caixa de salto.
-   
+
      Para obter mais informações sobre a ligação a máquinas virtuais, consulte:
-   
+
    * [Executar VMs para uma arquitetura n-tier em Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Configurar o acesso winrm para VMs em Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Permitir o acesso externo ao seu VM utilizando o portal Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Permitir o acesso externo ao seu VM utilizando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Permitir o acesso externo ao seu Linux VM utilizando o Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
 
-* O **domínio Propriedade DeNameLabel** para endereços IP públicos deve ser único. O **valor de domínioNabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Como a função **un uniqueString** gera uma cadeia de 13 caracteres de comprimento, o parâmetro **dnsPrefixString** está limitado a 50 caracteres:
+* O `domainNameLabel` imóvel para endereços IP públicos deve ser único. O `domainNameLabel` valor deve ter entre 3 e 63 caracteres e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Como a `uniqueString` função gera uma corda com 13 caracteres de comprimento, o `dnsPrefixString` parâmetro é limitado a 50 caracteres.
 
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
+    ```json
+    "parameters": {
+      "dnsPrefixString": {
+        "type": "string",
+        "maxLength": 50,
+        "metadata": {
+          "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
+        }
+      }
+    },
+    "variables": {
+      "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
+    }
+    ```
 
-* Quando adicionar uma palavra-passe a uma extensão de script personalizada, utilize a propriedade **commandToExecute** na propriedade **protectedSettings:**
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
+* Quando adicionar uma palavra-passe a uma extensão de script personalizada, use a `commandToExecute` propriedade na `protectedSettings` propriedade.
+
+    ```json
+    "properties": {
+      "publisher": "Microsoft.Azure.Extensions",
+      "type": "CustomScript",
+      "typeHandlerVersion": "2.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "fileUris": [
+          "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
+        ]
+      },
+      "protectedSettings": {
+        "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
+      }
+    }
+    ```
+
    > [!NOTE]
-   > Para garantir que os segredos são encriptados quando são passados como parâmetros para VMs e extensões, use a propriedade **protectedSettings** das extensões relevantes.
-   > 
+   > Para garantir que os segredos são encriptados quando são passados como parâmetros para VMs e extensões, use a `protectedSettings` propriedade das extensões relevantes.
 
 ## <a name="use-test-toolkit"></a>Use o kit de ferramentas de teste
 

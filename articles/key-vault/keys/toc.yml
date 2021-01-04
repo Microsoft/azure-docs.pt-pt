@@ -19,6 +19,8 @@
       href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
+    - name: Java
+      href: quick-create-java.md
     - name: Modelo ARM
       displayName: Resource Manager
       href: quick-create-template.md

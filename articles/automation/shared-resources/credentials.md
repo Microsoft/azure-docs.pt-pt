@@ -3,14 +3,14 @@ title: Gerir credenciais na Automatização do Azure
 description: Este artigo diz como criar ativos credenciais e usá-los num livro de execução ou configuração DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/03/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec35653f67c46a7032e834020d8e2ca4ab3125c8
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: caaeb0e40d277ef5e356c0f385a818b831326d6e
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558845"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734832"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerir credenciais na Automatização do Azure
 
@@ -51,9 +51,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > Deve evitar a utilização de variáveis no `Name` parâmetro de `Get-AutomationPSCredential` . A sua utilização pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos credenciais no momento do design.
 
-## <a name="python-2-functions-that-access-credentials"></a>Funções Python 2 que acedem a credenciais
+## <a name="python-functions-that-access-credentials"></a>Funções python que acedem a credenciais
 
-A função na tabela seguinte é utilizada para aceder a credenciais num livro de bordo Python 2.
+A função na tabela seguinte é utilizada para aceder a credenciais num livro python 2 e 3. Os livros de 100 python estão atualmente em pré-visualização.
 
 | Função | Descrição |
 |:---|:---|
@@ -104,6 +104,8 @@ Em alternativa, pode utilizar o método [GetNetworkCredential](/dotnet/api/syste
 
 ### <a name="textual-runbook-example"></a>Exemplo de livro de texto
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 O exemplo a seguir mostra como utilizar uma credencial PowerShell num livro de bordo. Recupera a credencial e atribui o seu nome de utilizador e palavra-passe a variáveis.
 
 ```powershell
@@ -126,6 +128,36 @@ $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$sec
 Connect-AzAccount -Credential $myPsCred
 ```
 
+# <a name="python-2"></a>[Python 2](#tab/python2)
+
+O exemplo a seguir mostra um exemplo de acesso a credenciais em livros python 2.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print cred["username"]
+print cred["password"]
+```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+O exemplo a seguir mostra um exemplo de acesso a credenciais em livros python 3 (pré-visualização).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print (cred["username"])
+print (cred["password"])
+```
+
+---
+
 ### <a name="graphical-runbook-example"></a>Exemplo de runbook gráfico
 
 Pode adicionar uma atividade do `Get-AutomationPSCredential` cmdlet interno a um runbook gráfico clicando à direita na credencial no painel de biblioteca do editor gráfico e selecionando **Adicionar à tela**.
@@ -139,20 +171,6 @@ A imagem a seguir mostra um exemplo de utilização de uma credencial num livro 
 ## <a name="use-credentials-in-a-dsc-configuration"></a>Utilize credenciais numa configuração DSC
 
 Enquanto as configurações de DSC na Azure Automation podem funcionar com ativos credenciais `Get-AutomationPSCredential` usando, também podem passar ativos credenciais através de parâmetros. Para obter mais informações, consulte [configurações de compilação no Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
-
-## <a name="use-credentials-in-a-python-2-runbook"></a>Use credenciais num livro python 2
-
-O exemplo a seguir mostra um exemplo de acesso a credenciais em livros python 2.
-
-```python
-import automationassets
-from automationassets import AutomationAssetNotFound
-
-# get a credential
-cred = automationassets.get_automation_credential("credtest")
-print cred["username"]
-print cred["password"]
-```
 
 ## <a name="next-steps"></a>Passos seguintes
 

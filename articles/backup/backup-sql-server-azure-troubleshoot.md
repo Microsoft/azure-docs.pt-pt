@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332785"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733948"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -56,13 +56,47 @@ Por vezes, ou falhas aleatórias podem ocorrer em operações de backup e restau
 
 1. A SQL também oferece algumas diretrizes prestes a trabalhar com programas antivírus. Consulte [este artigo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para mais detalhes.
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Instância defeituosa num VM com várias instâncias do SQL Server
+
+Só pode restaurar um SQL VM se todas as instâncias SQL que estão a decorrer dentro do VM forem reportadas como saudáveis. Se uma ou mais instâncias forem "defeituosas", o VM não aparecerá como um alvo de restauro. Portanto, esta pode ser uma possível razão pela qual um VM de vários casos pode não aparecer no dropdown "servidor" durante a operação de restauro.
+
+Pode validar a "Preparação de Backup" de todas as instâncias SQL no VM, sob **cópia de segurança configurada:**
+
+![Validar a prontidão de backup](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Se quiser desencadear uma restauração nas ocorrências saudáveis do SQL, faça os seguintes passos:
+
+1. Inscreva-se no SQL VM e vá a `C:\Program Files\Azure Workload Backup\bin` .
+1. Crie um ficheiro JSON nomeado `ExtensionSettingsOverrides.json` (se ainda não estiver presente). Se este ficheiro já estiver presente no VM, continue a usá-lo.
+1. Adicione o seguinte conteúdo no ficheiro JSON e guarde o ficheiro:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Desencadeie a operação **De Rediscover DBs** no servidor impactado a partir do portal Azure (o mesmo local onde a prontidão de backup pode ser vista). O VM começará a aparecer como alvo para operações de restauro.
+
+    ![Redescobrir DBs](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Remova a entrada *whitelistedInstancesForInquiry* do ExtensionSettingsOverrides.jsem ficheiro uma vez que a operação de restauro esteja concluída.
+
 ## <a name="error-messages"></a>Mensagens de erro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup não suportado
 
 | Gravidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As definições atuais para esta base de dados não suportam certos tipos de backup presentes na política associada. | <li>Apenas uma operação de backup de base de dados completa pode ser realizada na base de dados principal. A cópia de segurança diferencial e a cópia de segurança do registo de transações não são possíveis. </li> <li>Qualquer base de dados no modelo de recuperação simples não permite a cópia de segurança dos registos de transações.</li> | Modificar as definições da base de dados para que todos os tipos de backup da política sejam suportados. Ou alterar a política atual para incluir apenas os tipos de backup suportados. Caso contrário, os tipos de backup não suportados serão ignorados durante o backup programado ou o trabalho de backup falhará para o backup a pedido.
+| Aviso | As definições atuais para esta base de dados não suportam certos tipos de backup presentes na política associada. | <li>Apenas uma operação de backup de base de dados completa pode ser realizada na base de dados principal. A cópia de segurança diferencial e a cópia de segurança do registo de transações não são possíveis. </li> <li>Qualquer base de dados no modelo de recuperação simples não permite a cópia de segurança dos registos de transações.</li> | Modifique as definições da base de dados para que todos os tipos de backup da política sejam suportados. Ou alterar a política atual para incluir apenas os tipos de backup suportados. Caso contrário, os tipos de backup não suportados serão ignorados durante o backup programado ou o trabalho de backup falhará para o backup a pedido.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -172,7 +206,7 @@ A operação está bloqueada, uma vez que o cofre atingiu o seu limite máximo p
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Serviço de Backup Azure e, da mesma forma, para os serviços Azure*AD (AzureActiveDirectory)* e Azure Storage *(Storage).* Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
+O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Serviço de Backup Azure e, da mesma forma, para os serviços Azure *AD (AzureActiveDirectory)* e Azure Storage *(Storage).* Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
 
 ## <a name="re-registration-failures"></a>Falhas de re-registo
 

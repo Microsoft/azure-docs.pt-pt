@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016841"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740543"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticar e resolver problemas num ambiente Azure Time Series Insights Gen2
 
@@ -125,15 +125,7 @@ Este problema pode ocorrer se o seu ambiente não tiver uma hierarquia do Modelo
 
   [![Casos não-parados apresentarão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
-## <a name="problem-power-bi-connector-shows-unable-to-connect"></a>Problema: Conector Power BI mostra "Unable to Connect"
-
-Este problema pode ocorrer se não estiver a utilizar a versão mais recente do Conector Power BI no Power BI Desktop.
-
-[![A screenshot mostra a caixa de diálogo incapaz de ligar.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- Verifique a versão do seu Power BI Desktop e certifique-se de que está a utilizar a versão julho 2020. Caso contrário, atualize o seu Power BI Desktop e volte a executar o conector.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre como [trabalhar com modelos de séries de tempo.](./time-series-insights-overview.md)
 

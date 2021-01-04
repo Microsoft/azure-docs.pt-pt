@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 52b46d67d745017237a8c648abed66e2693d9d6a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573022"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739438"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 
@@ -39,7 +39,7 @@ Neste tutorial:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão da [3.....00m](tutorial-1st-experiment-sdk-train.md) da série.
+* Conclusão da [3.00m](tutorial-1st-experiment-sdk-train.md) da série.
 * Conhecimento introdutório da língua python e fluxos de trabalho de aprendizagem automática.
 * Ambiente de desenvolvimento local, como Visual Studio Code, Jupyter ou PyCharm.
 * Python (versão 3.5 a 3.7).
@@ -155,7 +155,43 @@ Uploaded 9 files
 
 Como já fez anteriormente, crie um novo script de controlo Python chamado `06-run-pytorch-data.py` :
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/06-run-pytorch-data.py":::
+```python
+# 06-run-pytorch-data.py
+from azureml.core import Workspace
+from azureml.core import Experiment
+from azureml.core import Environment
+from azureml.core import ScriptRunConfig
+from azureml.core import Dataset
+
+if __name__ == "__main__":
+    ws = Workspace.from_config()
+    datastore = ws.get_default_datastore()
+    dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))
+
+    experiment = Experiment(workspace=ws, name='day1-experiment-data')
+
+    config = ScriptRunConfig(
+        source_directory='./src',
+        script='train.py',
+        compute_target='cpu-cluster',
+        arguments=[
+            '--data_path', dataset.as_named_input('input').as_mount(),
+            '--learning_rate', 0.003,
+            '--momentum', 0.92],
+    )
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='./.azureml/pytorch-env.yml'
+    )
+    config.run_config.environment = env
+
+    run = experiment.submit(config)
+    aml_url = run.get_portal_url()
+    print("Submitted to compute cluster. Click link below")
+    print("")
+    print(aml_url)
+```
 
 ### <a name="understand-the-code-changes"></a>Compreender as alterações de código
 
@@ -238,7 +274,7 @@ Aviso:
 > [!div class="nextstepaction"]
 > [Inspecionei o ficheiro de registo](?success=inspect-log#clean-up-resources) que [encontrei num problema.](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

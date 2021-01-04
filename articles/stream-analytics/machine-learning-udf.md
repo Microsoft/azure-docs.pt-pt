@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 01c85311c9ea49be3543edee405cdd66a0659797
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130685"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733010"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integre a Azure Stream Analytics com Azure Machine Learning (Preview)
 
@@ -37,7 +37,7 @@ Pode adicionar funções de Aprendizagem automática Azure ao seu trabalho strea
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Navegue para o seu trabalho stream Analytics no portal Azure e selecione **Funções** em **topologia de Job** . Em seguida, selecione O Serviço de Aprendizagem automática **Azure** a partir do menu **+ Adicionar** o menu de dropdown.
+1. Navegue para o seu trabalho stream Analytics no portal Azure e selecione **Funções** em **topologia de Job**. Em seguida, selecione O Serviço de Aprendizagem automática **Azure** a partir do menu **+ Adicionar** o menu de dropdown.
 
    ![Adicionar Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
@@ -47,17 +47,17 @@ Pode adicionar funções de Aprendizagem automática Azure ao seu trabalho strea
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-1. Abra o seu projeto Stream Analytics no Código do Estúdio Visual e clique com o botão direito na pasta **Funções.** Em seguida, escolha **Adicionar Função** . Selecione **Machine Learning UDF** da lista de dropdown.
+1. Abra o seu projeto Stream Analytics no Código do Estúdio Visual e clique com o botão direito na pasta **Funções.** Em seguida, escolha **Adicionar Função**. Selecione **Machine Learning UDF** da lista de dropdown.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Adicionar UDF no Código VS":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Adicionar UDF no Código VS":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Adicione Azure Machine Learning UDF em código VS":::
 
 2. Introduza o nome da função e preencha as definições no ficheiro de configuração utilizando **Selecione das suas subscrições** em CodeLens.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Adicionar UDF no Código VS":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Selecione Azure Machine Learning UDF em código VS":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Adicionar UDF no Código VS":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Configurar Azure Machine Learning UDF em código VS":::
 
 A tabela seguinte descreve cada propriedade das funções do Serviço de Aprendizagem automática Azure em Stream Analytics.
 
@@ -83,7 +83,7 @@ INTO output
 FROM input
 ```
 
-Stream Analytics suporta apenas a passagem de um parâmetro para as funções de Aprendizagem automática Azure. Poderá ter de preparar os seus dados antes de os passar como uma entrada para a aprendizagem automática da UDF.
+Stream Analytics suporta apenas a passagem de um parâmetro para as funções de Aprendizagem automática Azure. Poderá ter de preparar os seus dados antes de os passar como uma entrada para a aprendizagem automática da UDF. Deve certificar-se de que a entrada para o ML UDF não é nula, uma vez que as entradas nulas farão com que o trabalho falhe.
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>Passe vários parâmetros de entrada para o UDF
 
@@ -104,11 +104,18 @@ function createArray(vendorid, weekday, pickuphour, passenger, distance) {
 Uma vez adicionado o UDF JavaScript ao seu trabalho, pode invocar o seu UDF de aprendizagem de máquinas Azure utilizando a seguinte consulta:
 
 ```SQL
-SELECT udf.score(
-udf.createArray(vendorid, weekday, pickuphour, passenger, distance)
-)
-INTO output
+WITH 
+ModelInput AS (
+#use JavaScript UDF to construct array that will be used as input to ML UDF
+SELECT udf.createArray(vendorid, weekday, pickuphour, passenger, distance) as inputArray
 FROM input
+)
+
+SELECT udf.score(inputArray)
+INTO output
+FROM ModelInput
+#validate inputArray is not null before passing it to ML UDF to prevent job from failing
+WHERE inputArray is not null
 ```
 
 O seguinte JSON é um pedido de exemplo:

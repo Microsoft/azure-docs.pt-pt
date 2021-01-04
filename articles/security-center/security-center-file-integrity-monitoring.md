@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341537"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734764"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização da integridade do ficheiro no Centro de Segurança Azure
 Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azure Security Center utilizando este walkthrough.
@@ -31,7 +31,7 @@ Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azur
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md).<br>O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|**O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**O leitor** pode ver resultados.|
-|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) EUA Gov<br>![No ](./media/icons/no-icon.png) China Gov, Other Gov<br>Suportado apenas em regiões onde a Azure Automation está disponível.<br>Consulte [regiões apoiadas para o espaço de trabalho do Log Analytics ligado.](../automation/how-to/region-mappings.md)<br>[Saiba mais sobre o rastreio de mudanças.](../automation/change-tracking/overview.md)|
+|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) Nacional/Soberano (Eua Gov, China Gov, Outro Gov)<br>Suportado apenas em regiões onde a Azure Automation está disponível.<br>Consulte [regiões apoiadas para o espaço de trabalho do Log Analytics ligado.](../automation/how-to/region-mappings.md)<br>[Saiba mais sobre o rastreio de mudanças.](../automation/change-tracking/overview.md)|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM no Centro de Segurança?
@@ -56,7 +56,7 @@ Neste tutorial, ficará a saber como:
 
 Ao comparar o estado atual destes itens com o estado durante a verificação anterior, o FIM alerta-o se forem feitas modificações suspeitas.
 
-A FIM utiliza a solução Azure Change Tracking para rastrear e identificar alterações no seu ambiente. Quando a monitorização da integridade do ficheiro estiver ativada, tem um recurso de Rastreio de **Alterações** da **Solução**tipo . Para obter detalhes da frequência de recolha de dados, consulte [os detalhes da recolha de dados de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
+A FIM utiliza a solução Azure Change Tracking para rastrear e identificar alterações no seu ambiente. Quando a monitorização da integridade do ficheiro estiver ativada, tem um recurso de Rastreio de **Alterações** da **Solução** tipo . Para obter detalhes da frequência de recolha de dados, consulte [os detalhes da recolha de dados de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > Se remover o recurso **Change Tracking,** também irá desativar a funcionalidade de monitorização da integridade do ficheiro no Centro de Segurança.
@@ -124,7 +124,7 @@ O FIM só está disponível nas páginas do Security Center no portal Azure. Atu
 
     - ![Ativar o ícone][3] Ativar o FIM em todas as máquinas no espaço de trabalho e configurar as opções FIM. Este ícone indica que o FIM não está ativado para o espaço de trabalho.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Lançamento FIM":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Ativar o FIM para um espaço de trabalho específico":::
 
 
     > [!TIP]
@@ -133,9 +133,9 @@ O FIM só está disponível nas páginas do Security Center no portal Azure. Atu
 
 1. **Selecione ATIVA**. São apresentados os detalhes do espaço de trabalho, incluindo o número de máquinas Windows e Linux no espaço de trabalho.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Lançamento FIM":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Página de detalhes do espaço de trabalho FIM":::
 
-   As definições recomendadas para Windows e Linux também estão listadas.  Expandir **ficheiros Windows,** **Registo**e **Ficheiros Linux** para ver a lista completa de itens recomendados.
+   As definições recomendadas para Windows e Linux também estão listadas.  Expandir **ficheiros Windows,** **Registo** e **Ficheiros Linux** para ver a lista completa de itens recomendados.
 
 1. Limpe as caixas de verificação para quaisquer entidades recomendadas que não queira ser monitorizada pela FIM.
 
@@ -150,7 +150,7 @@ O FIM só está disponível nas páginas do Security Center no portal Azure. Atu
 
 O **painel de monitorização da integridade** do ficheiro apresenta espaços de trabalho onde o FIM está ativado. O painel FIM abre depois de ativar o FIM num espaço de trabalho ou quando seleciona um espaço de trabalho na janela **de monitorização** da integridade do ficheiro que já tem o FIM ativado.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Lançamento FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="O dashboard FIM e os seus vários painéis informativos":::
 
 O painel FIM para um espaço de trabalho apresenta os seguintes detalhes:
 
@@ -161,7 +161,7 @@ O painel FIM para um espaço de trabalho apresenta os seguintes detalhes:
 
 Selecione **Filtro** na parte superior do painel de instrumentos para alterar o período de tempo para o qual são apresentadas alterações.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Lançamento FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Filtro de período de tempo para o dashboard FIM":::
 
 O separador **Servidores** lista as máquinas que reportam a este espaço de trabalho. Para cada máquina, o painel de instrumentos lista:
 
@@ -191,9 +191,9 @@ O separador **Alterações** (mostrado abaixo) lista todas as alterações para 
 
    ![Definições][11]
 
-   **A configuração do espaço de trabalho** abre apresentando três separadores: Registo do **Windows,** **Ficheiros Windows**e **Ficheiros Linux**. Cada separador lista as entidades que pode editar nessa categoria. Para cada entidade listada, o Centro de Segurança identifica se o FIM está ativado (verdadeiro) ou não ativado (falso).  A edição da entidade permite-lhe ativar ou desativar o FIM.
+   **A configuração do espaço de trabalho** abre apresentando três separadores: Registo do **Windows,** **Ficheiros Windows** e **Ficheiros Linux**. Cada separador lista as entidades que pode editar nessa categoria. Para cada entidade listada, o Centro de Segurança identifica se o FIM está ativado (verdadeiro) ou não ativado (falso).  A edição da entidade permite-lhe ativar ou desativar o FIM.
 
-   ![Configuração do espaço de trabalho][12]
+   ![Configuração da área de trabalho][12]
 
 2. Selecione uma proteção de identidade. Neste exemplo, selecionamos um item no Registo do Windows. **A edição para Change Tracking** abre.
 
@@ -212,7 +212,7 @@ Em **Edição para Rastreio de Alterações** pode:
 
    ![Adicione um novo item para monitorizar][14]
 
-3. Selecione **Adicionar**. **Adicione para o Change Tracking** abre.
+3. Selecione **Add** (Adicionar). **Adicione para o Change Tracking** abre.
 
    ![Insira informações solicitadas][15]
 

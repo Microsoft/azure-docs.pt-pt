@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320205"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739710"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implemente a sua aplicação para máquinas virtuais Linux em Azure utilizando serviços Azure DevOps e Pipelines Azure
 
@@ -91,7 +91,7 @@ Siga os passos adicionais descritos abaixo com base na pilha de tempo de execuç
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Para instalar uma aplicação javascript ou uma aplicação Node.js, vai precisar de um VM Linux com servidor web Nginx para implementar a aplicação.
+Para instalar uma aplicação JavaScript ou uma aplicação Node.js, precisará de um VM Linux com servidor web Nginx para implementar a aplicação.
 Se ainda não tem um Linux VM com Nginx, crie um agora em Azure usando os passos [neste exemplo.](./quick-create-cli.md)
 
 * * * 
@@ -118,7 +118,7 @@ Pode criar um ambiente no centro "**Ambientes**" dentro da secção "**Pipelines
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Pode adicionar tags ao VM como parte do script interativo de registo ps (ou) também pode adicionar/remover o mesmo da vista de recursos clicando nos pontos triplos no final de cada recurso VM na vista de recursos.
+9. Pode adicionar tags ao VM como parte do script interativo de registo PowerShell (ou) também pode adicionar/remover o mesmo da vista de recursos clicando nos pontos triplos no final de cada recurso VM na vista de recursos.
 
    As tags que atribui permitem limitar a implantação a máquinas virtuais específicas quando o ambiente é utilizado numa função de Implantação. As etiquetas são limitadas a 256 caracteres, mas não há limite para o número de tags que pode usar.
 
@@ -202,7 +202,7 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
 
 - Dê uma olhada no oleoduto para ver o que faz. Certifique-se de que todas as entradas predefinidos são apropriadas para o seu código.
 
-- **Selecione Guardar e executar,** em seguida, selecione **Comprometa-se diretamente no ramo principal**e, em seguida, escolha Guardar e **executar** novamente.
+- **Selecione Guardar e executar,** em seguida, selecione **Comprometa-se diretamente no ramo principal** e, em seguida, escolha Guardar e **executar** novamente.
 
 - Uma nova corrida começou. Aguarde a conclusão da execução.
 
@@ -224,7 +224,7 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
 2. Pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implementação especificando as **etiquetas** que definiu para cada máquina virtual no ambiente.
 [Aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está o esquema YAML completo para o trabalho de implantação.
 
-3. Pode especificar o eithor `runOnce` ou como estratégia de `rolling` implantação. 
+3. Pode especificar uma `runOnce` ou como estratégia de `rolling` implantação. 
 
    `runOnce` é a estratégia de implantação mais simples em que todos os ganchos do ciclo de vida, nomeadamente `preDeploy` `deploy` , e , são `routeTraffic` `postRouteTraffic` executados uma vez. Então, `on:` `success` ou é `on:` `failure` executado.
 

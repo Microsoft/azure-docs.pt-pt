@@ -3,15 +3,15 @@ title: Gerir ligações na Azure Automation
 description: Este artigo diz como gerir as ligações da Azure Automation a serviços ou aplicações externas e como trabalhar com eles em livros de recortes.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/13/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0a3cff616f814b8e5209b15f9d3f7439533452ca
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8deb249dc042701ec02c3e5e30f3603be132d0ec
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071766"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733999"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Azure Automation
 
@@ -43,25 +43,25 @@ Os cmdlets na tabela seguinte criam e gerem as ligações automation com a Power
 
 |Cmdlet|Descrição|
 |---|---|
-|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Recupera informações sobre uma ligação.|
-|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Cria uma ligação nova.|
-|[Remover-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Remove uma ligação existente.|
-|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Define o valor de um determinado campo para uma ligação existente.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection)|Recupera informações sobre uma ligação.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)|Cria uma ligação nova.|
+|[Remover-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection)|Remove uma ligação existente.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue)|Define o valor de um determinado campo para uma ligação existente.|
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Cmdlets internos para aceder a ligações
 
 O cmdlet interno na tabela seguinte é utilizado para aceder a ligações nos seus runbooks e configurações DSC. Este cmdlet vem com o módulo `Orchestrator.AssetManagement.Cmdlets` global. Para obter mais informações, consulte [as cmdlets internas.](shared-resources/modules.md#internal-cmdlets)
 
-|Cmdlet Interno|Descrição|
+|Cmdlet Interno|Description|
 |---|---|
 |`Get-AutomationConnection` | Recupera os valores dos diferentes campos na ligação e devolve-os como um [haxixe.](/powershell/module/microsoft.powershell.core/about/about_hash_tables) Em seguida, pode utilizar este haxixe com os comandos apropriados na configuração do runbook ou DSC.|
 
 >[!NOTE]
 >Evite utilizar variáveis com o `Name` parâmetro de `Get-AutomationConnection` . A utilização de variáveis neste caso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
 
-## <a name="python-2-functions-to-access-connections"></a>Python 2 funciona para aceder a ligações
+## <a name="python-functions-to-access-connections"></a>Funções python para aceder a conexões
 
-A função na tabela a seguir é utilizada para aceder a ligações num livro de bordo Python 2.
+A função na tabela a seguir é utilizada para aceder a ligações num livro de bordo Python 2 e 3. Os livros de 100 python estão atualmente em pré-visualização.
 
 | Função | Descrição |
 |:---|:---|
@@ -76,7 +76,7 @@ A função na tabela a seguir é utilizada para aceder a ligações num livro de
 
 Para criar uma nova ligação no portal Azure:
 
-1. A partir da sua conta de Automação, clique em Conexões em **Recursos Partilhados.** **Connections**
+1. A partir da sua conta de Automação, clique em Conexões em **Recursos Partilhados.** 
 2. Clique **+ Adicionar uma ligação** na página 'Ligações'.
 4. No campo **Tipo** no painel De Nova Ligação, selecione o tipo de ligação a criar. As tuas escolhas `Azure` `AzureServicePrincipal` são, `AzureClassicCertificate` e. 
 5. O formulário apresenta propriedades para o tipo de ligação que escolheu. Preencha o formulário e clique em **Criar** para salvar a nova ligação.
@@ -97,7 +97,7 @@ Ao criar a sua conta Automation, inclui vários módulos globais por padrão, ju
 
 ## <a name="add-a-connection-type"></a>Adicionar um tipo de ligação
 
-Se o seu runbook ou configuração DSC se ligar a um serviço externo, deve definir um tipo de ligação num [módulo personalizado](shared-resources/modules.md#custom-modules) chamado módulo de integração. Este módulo inclui um ficheiro de metadados que especifica propriedades do tipo de ligação e é nomeado ** &lt; MóduloName &gt;-Automation.js,** localizado na pasta do módulo do seu ficheiro **.zip** comprimido. Este ficheiro contém os campos de uma ligação que é necessária para ligar ao sistema ou serviço que o módulo representa. Utilizando este ficheiro, pode definir os nomes de campo, tipos de dados, estado de encriptação e estado opcional para o tipo de ligação. 
+Se o seu runbook ou configuração DSC se ligar a um serviço externo, deve definir um tipo de ligação num [módulo personalizado](shared-resources/modules.md#custom-modules) chamado módulo de integração. Este módulo inclui um ficheiro de metadados que especifica propriedades do tipo de ligação e é nomeado **&lt; MóduloName &gt;-Automation.js,** localizado na pasta do módulo do seu ficheiro **de .zip** comprimido. Este ficheiro contém os campos de uma ligação que é necessária para ligar ao sistema ou serviço que o módulo representa. Utilizando este ficheiro, pode definir os nomes de campo, tipos de dados, estado de encriptação e estado opcional para o tipo de ligação. 
 
 O exemplo a seguir é um modelo no formato de ficheiro **.json** que define o nome de utilizador e as propriedades de senha para um tipo de ligação personalizado chamado `MyModuleConnection` :
 
@@ -124,9 +124,9 @@ O exemplo a seguir é um modelo no formato de ficheiro **.json** que define o no
 
 ## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Obtenha uma ligação em um runbook ou configuração DSC
 
-Recupere uma ligação num livro de bordo ou na configuração DSC com o `Get-AutomationConnection` cmdlet interno. Este cmdlet é preferido sobre o `Get-AzAutomationConnection` cmdlet, uma vez que recupera os valores de ligação em vez de informações sobre a ligação. 
+Recupere uma ligação num livro de bordo ou na configuração DSC com o `Get-AutomationConnection` cmdlet interno. Este cmdlet é preferido sobre o `Get-AzAutomationConnection` cmdlet, uma vez que recupera os valores de ligação em vez de informações sobre a ligação.
 
-### <a name="textual-runbook-example"></a>Exemplo de livro de texto
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 O exemplo a seguir mostra como utilizar a conta Run As para autenticar com os recursos do Azure Resource Manager no seu runbook. Utiliza um ativo de ligação que representa a conta Run As, que faz referência ao principal do serviço baseado em certificados.
 
@@ -135,19 +135,9 @@ $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
-### <a name="graphical-runbook-examples"></a>Exemplos gráficos de runbook
+# <a name="python"></a>[Python](#tab/python2)
 
-Pode adicionar uma atividade para o `Get-AutomationConnection` cmdlet interno a um runbook gráfico. Clique com o botão direito na ligação no painel da Biblioteca do editor gráfico e **selecione Adicionar à tela**.
-
-![adicionar a tela](media/automation-connections/connection-add-canvas.png)
-
-A imagem a seguir mostra um exemplo de utilização de um objeto de ligação num livro de bordo gráfico. Este exemplo utiliza o `Constant value` conjunto de dados para a `Get RunAs Connection` atividade, que utiliza um objeto de ligação para autenticação. Uma [ligação de gasoduto](automation-graphical-authoring-intro.md#use-links-for-workflow) é usada aqui, uma vez que o conjunto de `ServicePrincipalCertificate` parâmetros está à espera de um único objeto.
-
-![obter ligações](media/automation-connections/automation-get-connection-object.png)
-
-### <a name="python-2-runbook-example"></a>Exemplo de livro de bordo python 2
-
-O exemplo a seguir mostra como autenticar usando a ligação Run As num livro de bordo Python 2.
+O exemplo a seguir mostra como autenticar usando a ligação Run As num livro de bordo Python 2 e 3.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """
@@ -155,7 +145,7 @@ import azure.mgmt.resource
 import automationassets
 
 def get_automation_runas_credential(runas_connection):
-    """ Returns credentials to authenticate against Azure resoruce manager """
+    """ Returns credentials to authenticate against Azure resource manager """
     from OpenSSL import crypto
     from msrestazure import azure_active_directory
     import adal
@@ -189,6 +179,18 @@ runas_connection = automationassets.get_automation_connection(
     "AzureRunAsConnection")
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
+
+---
+
+### <a name="graphical-runbook-examples"></a>Exemplos gráficos de runbook
+
+Pode adicionar uma atividade para o `Get-AutomationConnection` cmdlet interno a um runbook gráfico. Clique com o botão direito na ligação no painel da Biblioteca do editor gráfico e **selecione Adicionar à tela**.
+
+![adicionar a tela](media/automation-connections/connection-add-canvas.png)
+
+A imagem a seguir mostra um exemplo de utilização de um objeto de ligação num livro de bordo gráfico. Este exemplo utiliza o `Constant value` conjunto de dados para a `Get RunAs Connection` atividade, que utiliza um objeto de ligação para autenticação. Uma [ligação de gasoduto](automation-graphical-authoring-intro.md#use-links-for-workflow) é usada aqui, uma vez que o conjunto de `ServicePrincipalCertificate` parâmetros está à espera de um único objeto.
+
+![obter ligações](media/automation-connections/automation-get-connection-object.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

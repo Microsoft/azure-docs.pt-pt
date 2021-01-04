@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 626246f34cbd037db60bd13fd120f0ba133f8924
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 87b032b3a8382f632c1db56d2724b267c2db6727
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488277"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734424"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o módulo Azure PowerShell para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
@@ -35,7 +35,7 @@ Também pode encontrar os tamanhos VM programáticamente. Para aprender a recupe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail para encryptionAtHost@microsoft .com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
+Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail encryptionAtHost@microsoft.com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Criar um cofre de chave azul e diskEncryptionSet
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380911"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708945"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento
 
@@ -82,10 +82,10 @@ Os caracteres de comprimento e aceitáveis para nome e valor dos metadados estã
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Conhecimento
 Limites globais sobre o conteúdo na base de conhecimento:
-* Duração do texto de resposta: 25.000
-* Duração do texto de pergunta: 1.000
-* Comprimento do texto chave dos metadados: 100
-* Duração do texto do valor dos metadados: 500
+* Duração do texto de resposta: 25.000 caracteres
+* Duração do texto de pergunta: 1.000 caracteres
+* Comprimento do texto chave dos metadados: 100 caracteres
+* Comprimento do texto do valor dos metadados: 500 caracteres
 * Caracteres suportados para nome de metadados: Alfabetos, dígitos e `_`
 * Caracteres suportados para valor de metadados: Todos exceto `:` e `|`
 * Duração do ficheiro: 200
@@ -107,6 +107,6 @@ Estes representam os limites para cada ação de atualização; isto é, clicar 
 * Número máximo de campos de metadados adicionados ou eliminados: 10
 * Número máximo de URLs que podem ser atualizados: 5
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba quando e como alterar os [níveis de preços do serviço](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

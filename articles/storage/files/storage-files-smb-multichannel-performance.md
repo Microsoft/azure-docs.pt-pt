@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: f85df2e16554b4830d3e5f1bc82c5c8cdf22e28b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586635"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724821"
 ---
 # <a name="smb-multichannel-performance"></a>Desempenho SMB Multicanal
 
@@ -63,7 +63,7 @@ Na maioria dos cenários, particularmente cargas de trabalho multi-roscadas, os 
 1. Open PowerShell como administrador e use o seguinte comando: `Get-SmbMultichannelConnection |fl`
 1. Procure propriedades **maxChannels** e **CurrentChannels**
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot dos resultados da ligação get-smbmultichannel." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot dos resultados Get-SMBMultichannelConnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 
 ## <a name="performance-comparison"></a>Comparação de desempenho
 
@@ -119,7 +119,7 @@ As seguintes dicas podem ajudá-lo a otimizar o seu desempenho:
 - Certifique-se de que a sua conta de armazenamento e o seu cliente estão na mesma região de Azure para reduzir a latência da rede.
 - Utilize aplicações com vários fios e espalhe a carga em vários ficheiros.
 - Os benefícios de desempenho do SMB Multichannel aumentam com o número de ficheiros distribuindo carga.
-- O desempenho das ações premium está vinculado pelo tamanho das ações previstas (IOPS/egress/ingress) e pelos limites de ficheiros únicos. Para mais informações, consulte [a compreensão das ações de ficheiros premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- O desempenho das ações premium está vinculado pelo tamanho das ações previstas (IOPS/egress/ingress) e pelos limites de ficheiros únicos. Para mais informações, consulte [a compreensão das ações de ficheiros premium](understanding-billing.md#provisioned-billing).
 - O desempenho máximo de um único cliente VM ainda está vinculado aos limites de VM. Por exemplo, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) pode suportar uma largura de banda máxima de 16.000 MBps (ou 2GBps), a saída do VM (escreve para armazenamento) é medido, a entrada (lê-se no armazenamento) não é. O desempenho da partilha de ficheiros está sujeito a limites de rede de máquinas, CPUs, armazenamento interno disponível largura de banda de rede, tamanhos de IO, paralelismo, bem como outros fatores.
 - O teste inicial é geralmente um aquecimento, deita fora os seus resultados e repete o teste.
 - Se o desempenho for limitado por um único cliente e a carga de trabalho ainda estiver abaixo dos limites de ações previstos, um desempenho mais elevado pode ser alcançado espalhando carga sobre vários clientes.

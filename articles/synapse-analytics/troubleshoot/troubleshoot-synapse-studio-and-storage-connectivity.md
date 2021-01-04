@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8cf440a517c1a3496b3df438fdd0d2534609908f
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445322"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733116"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Resolver problemas de conectividade entre o Synapse Studio do Azure Synapse Analytics e o armazenamento
 
@@ -24,7 +24,11 @@ Se a sua conta de armazenamento não tiver as permissões adequadas, não poder�
 
 A mensagem de erro detalhada pode variar, mas o significado geral da mensagem de erro é: "Este pedido não está autorizado a executar esta operação."
 
-![Problema de conectividade de armazenamento 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+No nó de armazenamento ligado:  
+![Problema de conectividade de armazenamento 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
+
+No nó do recipiente de armazenamento:  
+![Problema de conectividade de armazenamento 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **SOLUÇÃO**: Para atribuir a sua conta à função adequada, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../../storage/common/storage-auth-aad-rbac-portal.md)
 
@@ -33,7 +37,11 @@ A mensagem de erro detalhada pode variar, mas o significado geral da mensagem de
 
 Ao selecionar a seta para expandir a estrutura de armazenamento em "Data" --> "Linked" no Synapse Studio, poderá ver a questão "REQUEST_SEND_ERROR" no painel esquerdo. Veja a imagem do sintoma de emissão abaixo:
 
-![Problema de conectividade de armazenamento 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+No nó de armazenamento ligado:  
+![Problema de conectividade de armazenamento 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
+
+No nó do recipiente de armazenamento:  
+![Problema de conectividade de armazenamento 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 Pode haver várias razões possíveis por trás desta questão:
 
@@ -51,6 +59,7 @@ Pode utilizar o comando "nslookup \<storage-account-name\> .dfs.core.windows.net
 
 * O recurso de armazenamento a que está a aceder é o Azure Data Lake Storage Gen2 e está por trás de uma firewall e vNet (com o ponto final privado de armazenamento configurado) ao mesmo tempo.
 * O recurso do contentor a que está a aceder foi apagado ou não existe.
+* Travessia-inquilino: o inquilino do espaço de trabalho que o utilizador costumava fazer login não é o mesmo com o inquilino da conta de armazenamento. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

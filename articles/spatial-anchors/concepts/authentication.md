@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95484615"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722968"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure
 
@@ -193,7 +193,7 @@ O token de acesso Azure AD é recuperado através do [MSAL](../../active-directo
 **No seu código**
 
 >[!NOTE]
-> Pode utilizar a amostra de serviço disponível no GitHub.
+> Pode utilizar a [amostra de serviço](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) que está disponível como parte das aplicações de amostra de [Âncoras Espaciais.](https://github.com/Azure/azure-spatial-anchors-samples)
 
 1.    Certifique-se de usar o ID da aplicação, o segredo da aplicação e redirecionar a URI da sua própria aplicação AZure AD como o ID do **cliente,** **segredo** e **redirectUri** parâmetros msal.
 2.    Coloque a identificação do inquilino para o seu próprio ID de inquilino Azure no parâmetro **da autoridade** na MSAL.

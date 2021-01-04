@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346661"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739659"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -256,6 +256,17 @@ Pode exportar os dados do rótulo para a experimentação de Machine Learning a 
 O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Machine Learning numa pasta dentro *da exportação/coco*. Pode aceder ao conjunto de dados de aprendizagem automática Azure exportado na secção **Datasets** da Machine Learning. A página de detalhes do conjunto de dados também fornece código de amostra para aceder às suas etiquetas a partir de Python.
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Use estas dicas se vir algum destes problemas.
+
+|Problema  |Resolução  |
+|---------|---------|
+|Apenas podem ser utilizados conjuntos de dados criados nas datas-do-canal blob.     |  Esta é uma limitação conhecida da libertação atual.       |
+|Após a criação, o projeto mostra "Inicialização" durante muito tempo.     | Refresque manualmente a página. A inicialização deve prosseguir em cerca de 20 pontos de dados por segundo. A falta de auto-defesa é uma questão conhecida.         |
+|Ao rever imagens, imagens recentemente rotuladas não são mostradas.     |   Para carregar todas as imagens etiquetadas, escolha o botão **First.** O botão **First** irá levá-lo de volta para a frente da lista, mas carrega todos os dados rotulados.      |
+|Premir a tecla Esc durante a rotulagem para deteção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. Enviar etiquetas neste estado falha.     |   Elimine a etiqueta clicando na marca transversal ao lado.  |
 
 ## <a name="next-steps"></a>Passos seguintes
 

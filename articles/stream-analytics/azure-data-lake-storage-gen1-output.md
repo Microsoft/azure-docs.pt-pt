@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 688cd7c2e54a6b4c6b5a11705e10c33604324f09
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0445126046a6f4140dd68b2969221b196b8bef8b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576286"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740458"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage Gen 1 produção da Azure Stream Analytics
 
@@ -24,7 +24,7 @@ A produção de armazenamento de lagos de dados Azure da Stream Analytics não e
 
 A tabela que se segue lista os nomes das propriedades e as suas descrições para configurar a sua saída do Data Lake Storage Gen 1.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída | Um nome amigável usado em consultas para direcionar a saída de consulta para data lake store. |
 | Subscrição | A subscrição que contém a sua conta de Armazenamento de Data Lake Azure. |
@@ -48,9 +48,5 @@ Para obter o tamanho máximo da mensagem, consulte os [limites de armazenamento 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas (pré-visualização)](stream-analytics-managed-identities-adls.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
-* [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

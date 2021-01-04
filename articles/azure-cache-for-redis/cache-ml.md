@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537580"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734237"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implementar um modelo de aprendizagem automática para funções Azure com cache Azure para Redis 
 
@@ -41,9 +41,9 @@ Azure Cache para Redis é extremamente performante e escalável – quando empar
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Criar uma Cache Azure para a instância Redis 
 Poderá implementar um modelo de machine learning para funções Azure com qualquer instância de cache Básica, Padrão ou Premium. Para criar uma instância de cache, siga estes passos.  
 
-1. Vá à página inicial do portal Azure ou abra o menu da barra lateral e, em seguida, **selecione Criar um recurso** . 
+1. Vá à página inicial do portal Azure ou abra o menu da barra lateral e, em seguida, **selecione Criar um recurso**. 
    
-1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis** .
+1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione Azure Cache para Redis.":::
    
@@ -51,7 +51,7 @@ Poderá implementar um modelo de machine learning para funções Azure com qualq
    
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será *\<DNS name> .redis.cache.windows.net* . | 
+   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será *\<DNS name> .redis.cache.windows.net*. | 
    | **Subscrição** | Desça e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
    | **Grupo de recursos** | Desça e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
    | **Localização** | Desça e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
@@ -71,9 +71,9 @@ Poderá implementar um modelo de machine learning para funções Azure com qualq
 
 1. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso. 
 
-1. Selecione **Rever + criar** . É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
+1. Selecione **Rever + criar**. É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
 
-1. Depois de aparecer a mensagem de validação verde, selecione **Criar** .
+1. Depois de aparecer a mensagem de validação verde, selecione **Criar**.
 
 Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.** Quando **o Estado** aparece como **Running,** a cache está pronta a ser utilizada. 
 
@@ -123,7 +123,7 @@ def run(data):
 
 Para obter mais informações sobre o script de entrada, consulte [o código de pontuação De definir.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
-* **Dependências** , tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
+* **Dependências**, tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
 
 Estas entidades são encapsuladas numa __configuração de inferência.__ A configuração de inferência referencia o script de entrada e outras dependências.
 
@@ -149,7 +149,7 @@ Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes
 Para obter mais informações sobre a configuração de inferência, consulte [implementar modelos com Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> Ao implementar para funções, não necessita de criar uma __configuração de implementação__ .
+> Ao implementar para funções, não necessita de criar uma __configuração de implementação__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Instale o pacote de pré-visualização SDK para suporte a funções
 
@@ -178,7 +178,7 @@ print(model_package.location)
 Quando `show_output=True` , a saída do processo de construção do Docker é mostrada. Uma vez terminado o processo, a imagem foi criada no Registo do Contentor Azure para o seu espaço de trabalho. Uma vez construída a imagem, é visualizada a localização do registo do seu contentor Azure. A localização devolvida está no `<acrinstance>.azurecr.io/package@sha256:<imagename>` formato.
 
 > [!NOTE]
-> A embalagem para funções suporta atualmente os gatilhos HTTP Triggers, Blob e os gatilhos do autocarro service. Para obter mais informações sobre os gatilhos, consulte [as ligações Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
+> A embalagem para funções suporta atualmente os gatilhos HTTP, Blob e os gatilhos do autocarro service. Para obter mais informações sobre os gatilhos, consulte [as ligações Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Guarde as informações de localização, tal como é utilizada ao implementar a imagem.
@@ -283,14 +283,14 @@ Neste ponto, a aplicação de função começa a carregar a imagem.
 > [!IMPORTANT]
 > Pode levar alguns minutos até que a imagem esteja carregada. Pode monitorizar o progresso utilizando o portal Azure.
 
-## <a name="test-azure-function-http-trigger"></a>Teste Azure Function HTTP Trigger 
+## <a name="test-azure-functions-http-trigger"></a>Testar funções azure http trigger 
 
-Vamos agora executar e testar o nosso gatilho Azure Function HTTP.
+Vamos agora executar e testar o nosso gatilho Azure Functions HTTP.
 
-1. Aceda à sua aplicação Azure Function no portal Azure.
-1. No âmbito do programador, selecione **Código + Teste** . 
+1. Aceda à sua aplicação de função no portal Azure.
+1. No âmbito do programador, selecione **Código + Teste**. 
 1. No lado direito, selecione o **separador Entrada.** 
-1. Clique no botão **Executar** para testar o gatilho HTTP da Função Azure. 
+1. Clique no botão **Executar** para testar o gatilho Azure Functions HTTP. 
 
 Implementou agora com sucesso um modelo da Azure Machine Learning como uma aplicação de função utilizando um Azure Cache para o exemplo de Redis. Saiba mais sobre a Azure Cache for Redis navegando para os links na secção abaixo.
 
@@ -305,17 +305,17 @@ Caso contrário, se terminar com o arranque rápido, pode apagar os recursos Azu
 
 ### <a name="to-delete-a-resource-group"></a>Para eliminar um grupo de recursos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-2. Na caixa **Filtrar por nome...** , escreva o nome do grupo de recursos. No grupo de recursos na lista de resultados, selecione **...** e, em seguida, selecione **Eliminar grupo de recursos** .
+2. Na caixa **Filtrar por nome...**, escreva o nome do grupo de recursos. No grupo de recursos na lista de resultados, selecione **...** e, em seguida, selecione **Eliminar grupo de recursos**.
 
-É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e, em seguida, selecione **Eliminar** .
+É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e, em seguida, selecione **Eliminar**.
 
 Após alguns instantes, o grupo de recursos e todos os respetivos recursos são eliminados.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
 * Saiba mais sobre [a Azure Cache para Redis](./cache-overview.md)
-* Aprenda a configurar a sua App funções na documentação [funções.](../azure-functions/functions-create-function-linux-custom-image.md)
+* Aprenda a configurar a sua aplicação de função na documentação [funções.](../azure-functions/functions-create-function-linux-custom-image.md)
 * [Referência da API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
 * Crie uma [aplicação Python que usa Azure Cache para Redis](./cache-python-get-started.md)

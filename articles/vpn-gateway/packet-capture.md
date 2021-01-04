@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661040"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733811"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Captura de pacotes de configuração para gateways VPN
 
@@ -31,6 +31,7 @@ Os seguintes exemplos de JSON e um esquema JSON fornecem explicações de cada p
 - Não pode executar várias capturas de pacotes em toda a porta ao mesmo tempo.
 - Não é possível executar várias capturas de pacotes numa única ligação ao mesmo tempo. Pode executar várias capturas de pacotes em diferentes ligações ao mesmo tempo.
 - Um máximo de cinco capturas de pacotes pode ser executado em paralelo por gateway. Estas capturas de pacotes podem ser uma combinação de capturas de pacotes em larga porta e capturas de pacotes por ligação.
+- A unidade para MaxPacketBufferSize é bytes e MaxFileSize é megabytes
 
 ### <a name="example-json"></a>Exemplo JSON
 ```JSON-interactive
@@ -358,6 +359,6 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o VPN Gateway, veja [o que é VPN Gateway?](vpn-gateway-about-vpngateways.md)

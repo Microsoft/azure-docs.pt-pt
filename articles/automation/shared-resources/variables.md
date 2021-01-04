@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461453"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734781"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 
@@ -65,7 +65,7 @@ Os cmdlets na tabela seguinte criam e gerem variáveis de automação com PowerS
 
 Os cmdlets internos na tabela seguinte são utilizados para aceder a variáveis nos seus runbooks e configurações DSC. Estes cmdlets vêm com o módulo `Orchestrator.AssetManagement.Cmdlets` global. Para obter mais informações, consulte [as cmdlets internas.](modules.md#internal-cmdlets)
 
-| Cmdlet Interno | Descrição |
+| Cmdlet Interno | Description |
 |:---|:---|
 |`Get-AutomationVariable`|Obtém o valor de uma variável existente.|
 |`Set-AutomationVariable`|Define o valor de uma variável existente.|
@@ -80,11 +80,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="python-2-functions-to-access-variables"></a>Píton 2 funciona para aceder a variáveis
+## <a name="python-functions-to-access-variables"></a>Funções python para aceder a variáveis
 
-As funções na tabela seguinte são utilizadas para aceder a variáveis num livro de bordo Python 2.
+As funções na tabela seguinte são utilizadas para aceder a variáveis num livro de bordo Python 2 e 3. Os livros de 100 python estão atualmente em pré-visualização.
 
-|Funções Python 2|Descrição|
+|Funções Python|Description|
 |:---|:---|
 |`automationassets.get_automation_variable`|Obtém o valor de uma variável existente. |
 |`automationassets.set_automation_variable`|Define o valor de uma variável existente. |
@@ -99,7 +99,7 @@ As funções na tabela seguinte são utilizadas para aceder a variáveis num liv
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Criar e obter uma variável usando o portal Azure
 
-1. Na sua conta de Automação, no painel esquerdo selecione Variáveis em **Recursos Partilhados.** **Variables**
+1. Na sua conta de Automação, no painel esquerdo selecione Variáveis em **Recursos Partilhados.** 
 2. Na página **'Variáveis',** **selecione Adicionar uma variável.**
 3. Preencha as opções na página **Nova Variável** e, em seguida, selecione **Criar** para guardar a nova variável.
 
@@ -135,9 +135,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## <a name="textual-runbook-examples"></a>Exemplos de runbook textual
 
-### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Recupere e desateia um valor simples a partir de uma variável
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 O exemplo a seguir mostra como definir e recuperar uma variável num livro de texto. Este exemplo pressupõe a criação de variáveis inteiros nomeadas `NumberOfIterations` `NumberOfRunnings` e uma variável de cordas denominada `SampleMessage` .
 
@@ -154,7 +155,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>Recupere e desateia uma variável num livro de bordo Python 2
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 A amostra que se segue mostra como obter uma variável, definir uma variável, e lidar com uma exceção para uma variável inexistente num livro de bordo python 2.
 
@@ -177,6 +178,32 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+A amostra que se segue mostra como obter uma variável, definir uma variável, e lidar com uma exceção para uma variável inexistente num livro de bordo Python 3 (pré-visualização).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
+```
+
+---
 
 ## <a name="graphical-runbook-examples"></a>Exemplos gráficos de runbook
 

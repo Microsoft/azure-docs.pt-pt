@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449374"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734725"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalar Azure Stack Edge Pro com GPU
 
@@ -22,7 +22,7 @@ Este tutorial descreve como instalar um dispositivo físico Azure Stack Edge Pro
 
 A instalação pode demorar cerca de duas horas a ser concluída.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo
@@ -159,14 +159,14 @@ Localize os componentes para a instalação do conjunto do kit ferroviário:
 
 Encaminhe os cabos e, em seguida, teleférico o seu dispositivo. Os seguintes procedimentos explicam como cabo o seu dispositivo Azure Stack Edge Pro para energia e rede.
 
-Antes de começar a ligar o seu dispositivo, precisa do seguinte:
+Antes de começar a ligar o seu dispositivo, precisa das seguintes coisas:
 
 - O seu dispositivo físico Azure Stack Edge Pro, desembalado e montado na cremalheira.
 - Dois cabos de alimentação.
 - Pelo menos um cabo de rede de 1 GbE RJ-45 para ligar à interface de gestão. Existem duas interfaces de rede de 1 GbE, uma de gestão e uma de dados, no dispositivo.
 - Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Pelo menos uma interface de rede de dados entre os PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 tem de ser ligada à Internet (com conectividade com a Azure).  
 - Acesso a duas unidades de distribuição de energia (recomendada).
-- Pelo menos um interruptor de rede de 1 GbE para ligar uma interface de rede de 1 GbE à Internet para obter dados. A UI web local não estará acessível se o interruptor ligado não for pelo menos 1-GbE. Se utilizar uma interface de 25/10 GbE para obter dados, necessitará de um interruptor de 25-GbE ou de 10 GbE. 
+- Pelo menos um interruptor de rede de 1 GbE para ligar uma interface de rede de 1 GbE à Internet para obter dados. A UI web local não estará acessível se o interruptor ligado não for pelo menos 1 GbE. Se utilizar uma interface de 25/10-GbE para obter dados, necessitará de um interruptor de 25-GbE ou 10-GbE.
 
 > [!NOTE]
 > - Se estiver a ligar apenas uma interface de rede de dados, recomendamos que utilize uma interface de rede de 25/10 GbE, como PORT 3, PORT 4, PORT 5 ou PORT 6 para enviar dados para o Azure. 
@@ -186,14 +186,14 @@ No seu dispositivo Azure Stack Edge Pro:
     - Quatro interfaces de 25 Gbps que também podem servir como interfaces de 10 Gbps.
     - Um controlador de gestão de rodapé (BMC).
 
-- O avião traseiro tem dois cartões de rede correspondentes às 6 portas:
+- O avião traseiro tem dois cartões de rede correspondentes às seis portas:
 
-    - **Adaptador personalizado do Microsoft Qlogic Cavium 25G NDC** - Porta 1 através da porta 4.
+    - **Microsoft `Qlogic` personalizada Adaptador Cavium 25G NDC** - Porta 1 através da porta 4.
     - **Adaptador de rede de rede de canal Mellanox dual port 25G ConnectX-4** - Porta 5 e porta 6.
 
 Para uma lista completa de cabos, interruptores e transmissores suportados para estes cartões de rede, aceda a:
 
-- [Matriz de interoperabilidade do adaptador Qlogic Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [ `Qlogic` Matriz de interoperabilidade do adaptador de NDC Cavium 25G](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Mellanox porta dupla 25G ConnectX-4 produtos compatíveis com o adaptador de rede de canais](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
@@ -201,15 +201,15 @@ Tome os seguintes passos para teleférico para a alimentação e rede.
 
 1. Identifique as várias portas no plano traseiro do seu dispositivo. Pode ter recebido um dos seguintes dispositivos da fábrica, dependendo do número de GPUs no seu dispositivo.
 
-    - Dispositivo com 2 ranhuras de interligação de componentes periféricos (PCI) e uma GPU
+    - Dispositivo com duas ranhuras de interligação de componentes periféricos (PCI) e uma GPU
 
         ![Plano traseiro de um dispositivo por cabo](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - Dispositivo com 3 ranhuras PCI e uma GPU
+    - Dispositivo com três slots PCI e um GPU
 
         ![Plano traseiro de um dispositivo por cabo 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Dispositivo com 3 ranhuras PCI e dois GPU
+    - Dispositivo com três slots PCI e dois GPUs
 
         ![Plano traseiro de um dispositivo por cabo 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 

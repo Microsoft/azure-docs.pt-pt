@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 3eaabc6c1e7d34bb5d9433d742581f39bdfbf98e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669538"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739744"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conecte-se às redes virtuais Azure a partir de Azure Logic Apps utilizando um ambiente de serviço de integração (ISE)
 
@@ -44,24 +44,14 @@ Também pode criar um ISE utilizando o modelo de arranque rápido do [Azure Reso
   > [!IMPORTANT]
   > Aplicações lógicas, gatilhos incorporados, ações incorporadas e conectores que funcionam no seu ISE usam um plano de preços diferente do plano de preços baseado no consumo. Para aprender como os preços e a faturação funcionam para as ISEs, consulte o [modelo de preços de Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Para taxas de preços, consulte [os preços das Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md)
 
-* Uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) A sua rede virtual precisa de ter quatro sub-redes *vazias,* que são necessárias para criar e implantar recursos no seu ISE e são utilizadas por estes componentes internos e ocultos:
+* Uma [rede virtual Azure](../virtual-network/virtual-networks-overview.md) que tem quatro sub-redes *vazias,* que são necessárias para criar e implantar recursos no seu ISE e são utilizadas por estes componentes internos e ocultos:
 
   * Cálculo de Apps Lógicas
   * Ambiente de Serviço de Aplicações Internas (conectores)
   * Gestão Interna da API (conectores)
   * Redis Interno para caching e desempenho
   
-  Pode criar as sub-redes com antecedência ou esperar até criar o ise para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar as suas sub-redes, reveja os [requisitos da sub-rede](#create-subnet).
-
-  > [!IMPORTANT]
-  >
-  > Não utilize os seguintes espaços de endereço IP para a sua rede virtual ou sub-redes porque não são resolúveis por Azure Logic Apps:<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  Pode criar as sub-redes com antecedência ou quando criar o seu ISE para que possa criar as sub-redes ao mesmo tempo. No entanto, antes de criar as suas sub-redes, certifique-se de que revê os requisitos da [sub-rede](#create-subnet).
 
   * Certifique-se de que a sua rede virtual [permite o acesso ao seu ISE para](#enable-access) que o seu ISE possa funcionar corretamente e permanecer acessível.
 
@@ -71,7 +61,7 @@ Também pode criar um ISE utilizando o modelo de arranque rápido do [Azure Reso
     **Prefixo do endereço**: 0.0.0.0/0<br>
     **Próximo salto**: Internet
     
-    Esta tabela de rotas específica é necessária para que os componentes da Logic Apps possam comunicar com outros Serviços Azure dependentes, tais como Azure Storage e Azure SQL DB. Para obter mais informações sobre esta rota, consulte [o prefixo do endereço 0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Se não usar um túnel forçado com o ExpressRoute, não precisa desta tabela de rotas específica.
+    Esta tabela de rotas específica é necessária para que os componentes da Logic Apps possam comunicar com outros serviços Azure dependentes, tais como Azure Storage e Azure SQL DB. Para obter mais informações sobre esta rota, consulte [o prefixo do endereço 0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Se não usar um túnel forçado com o ExpressRoute, não precisa desta tabela de rotas específica.
     
     O ExpressRoute permite-lhe estender as suas redes no local para a nuvem da Microsoft e ligar-se aos serviços de cloud da Microsoft através de uma ligação privada que é facilitada pelo fornecedor de conectividade. Especificamente, o ExpressRoute é uma rede privada virtual que liga o tráfego através de uma rede privada, em vez de através da internet pública. As suas aplicações lógicas podem ligar-se a recursos no local que estão na mesma rede virtual quando se conectam através do ExpressRoute ou de uma rede privada virtual.
    
@@ -170,14 +160,14 @@ Se não permitir o acesso a estas dependências, a sua implantação ise falha e
 
 * Pontos finais de serviço
 
-  Você precisa ativar os pontos finais de serviço para Azure SQL, Storage, Service Bus e Event Hubs porque você não pode enviar tráfego através de uma firewall para estes serviços.
+  Você precisa ativar os pontos finais de serviço para Azure SQL, Storage, Service Bus, KeyVault e Event Hubs porque você não pode enviar tráfego através de uma firewall para estes serviços.
 
 *  Outras dependências de entrada e saída
 
    A sua firewall *deve* permitir as seguintes dependências de entrada e saída:
    
    * [Dependências do Serviço de Aplicações Azure](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
-   * [Dependências do Serviço Azure Cache](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Dependências do Serviço Azure Cache](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
    * [Dependências de Gestão da AZURE API](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
@@ -219,7 +209,7 @@ Se não permitir o acesso a estas dependências, a sua implantação ise falha e
 
    * Usa um nome que começa com um carácter alfabético ou um sublinhado (sem números), e não usa estes caracteres: `<` `>` . `%` `&` `\\` `?` `/`
 
-   * Utiliza o [formato de encaminhamento de Inter-Domain (CIDR) sem classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereço classe B.
+   * Utiliza o [formato de encaminhamento de Inter-Domain sem classe (CIDR).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
    
      > [!IMPORTANT]
      >

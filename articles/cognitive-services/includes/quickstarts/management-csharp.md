@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 1b50fbfa0ec4116f7d0b5988e5be70d0db086732
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 74f9ed5913ca089e12d5958fe96eeb1552c9137a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096388"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745746"
 ---
 [Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="c-prerequisites"></a>C# pré-requisitos
 
 * Uma subscrição válida da Azure - [Crie uma gratuitamente.](https://azure.microsoft.com/free/)
 * A versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -86,6 +86,10 @@ Adicione o seguinte código ao seu método **Principal** para listar os recursos
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
 
+Para criar e subscrever um novo recurso de Serviços Cognitivos, utilize o método **Criar.** Este método adiciona um novo recurso faturado ao grupo de recursos em que passa. Ao criar o seu novo recurso, terá de conhecer o "tipo" de serviço que pretende utilizar, juntamente com o seu nível de preços (ou SKU) e uma localização Azure. O seguinte método toma todos estes como argumentos e cria um recurso.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
+
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolha um nível de serviço e preços
 
 Quando criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende utilizar, juntamente com o [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) que pretende. Usará esta e outras informações como parâmetros ao criar o recurso. Pode encontrar uma lista de "tipos" disponíveis do Serviço Cognitivo, chamando o seguinte método no seu script:
@@ -95,12 +99,6 @@ Quando criar um novo recurso, terá de conhecer o "tipo" de serviço que pretend
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e subscrever um novo recurso de Serviços Cognitivos, utilize o método **Criar.** Este método adiciona um novo recurso faturado ao grupo de recursos em que passa. Ao criar o seu novo recurso, terá de conhecer o "tipo" de serviço que pretende utilizar, juntamente com o seu nível de preços (ou SKU) e uma localização Azure. O seguinte método toma todos estes como argumentos e cria um recurso.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Ver os seus recursos
 
@@ -122,7 +120,7 @@ Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 dotnet run
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Documentação de referência da Azure Management SDK](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
 * [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)

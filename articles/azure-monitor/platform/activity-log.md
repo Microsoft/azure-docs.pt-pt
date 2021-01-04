@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6eae805b6edce4c414d26f1b79d52ac33f8f2d9d
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592471"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709117"
 ---
 # <a name="azure-activity-log"></a>Registo de atividades do Azure
 O Registo de atividades é um [registo de plataformas](platform-logs-overview.md) no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Para obter funcionalidades adicionais, deverá criar uma definição de diagnóstico para enviar o registo de Atividade para [Registos do Monitor Azure,](data-platform-logs.md)para Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar. Este artigo fornece detalhes sobre a visualização do registo de atividade e o envio para diferentes destinos.
@@ -67,14 +67,14 @@ Por exemplo, para visualizar uma contagem de registos de atividade para cada cat
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 Para obter todos os registos na categoria administrativa, utilize a seguinte consulta.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -200,14 +200,14 @@ Se já existe um perfil de registo, primeiro tem de remover o perfil de registo 
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Propriedade | Obrigatório | Descrição |
+    | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | Nome |Sim |O nome do seu perfil de registo. |
-    | ArmazenamentoAccountId |Não |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
-    | serviçoBusRuleId |Não |Service Bus Rule ID para o espaço de nomes do Service Bus que você gostaria de ter centros de eventos criados. Esta é uma corda com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Nome |Yes |O nome do seu perfil de registo. |
+    | ArmazenamentoAccountId |No |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
+    | serviçoBusRuleId |No |Service Bus Rule ID para o espaço de nomes do Service Bus que você gostaria de ter centros de eventos criados. Esta é uma corda com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista de regiões separadas por vírgulas para as quais gostaria de recolher eventos de Registo de Atividade. |
-    | Retenção Dias |Sim |Número de dias para os quais os eventos devem ser mantidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os registos indefinidamente. |
-    | Categoria |Não |Lista separada por vírgula das categorias de eventos que devem ser recolhidas. Os valores possíveis são _Write,_ _Delete_ e _Action_. |
+    | Retenção Dias |Yes |Número de dias para os quais os eventos devem ser mantidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os registos indefinidamente. |
+    | Categoria |No |Lista separada por vírgula das categorias de eventos que devem ser recolhidas. Os valores possíveis são _Write,_ _Delete_ e _Action_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Segue-se uma amostra do script PowerShell para criar um perfil de registo que escreve o Registo de Atividades tanto para uma conta de armazenamento como para um centro de eventos.
@@ -243,14 +243,14 @@ Se já existe um perfil de registo, primeiro tem de remover o perfil de registo 
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Propriedade | Obrigatório | Descrição |
+    | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | name |Sim |O nome do seu perfil de registo. |
-    | armazenamento-id conta |Sim |Identificação de recursos da Conta de Armazenamento para a qual devem ser guardados registos de atividade. |
-    | Locais |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name` . |
-    | Dias |Sim |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
-    |ativado | Sim |Verdadeiro ou Falso.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
-    | categories |Sim |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são escrever, eliminar e agir. |
+    | name |Yes |O nome do seu perfil de registo. |
+    | armazenamento-id conta |Yes |Identificação de recursos da Conta de Armazenamento para a qual devem ser guardados registos de atividade. |
+    | Locais |Yes |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name` . |
+    | Dias |Yes |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
+    |ativado | Yes |Verdadeiro ou Falso.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
+    | categories |Yes |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são escrever, eliminar e agir. |
 
 
 ### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
@@ -278,6 +278,7 @@ As colunas da tabela seguinte foram depreciadas no esquema atualizado. Ainda exi
 |:---|:---|
 | Estatísticas de Atividades    | ActivityStatusValue    |
 | ActividadeSubstatus | AtividadeSSubstatusValue |
+| Categoria          | CategoriaValue          |
 | OperationName     | Operação Natalvalue     |
 | ResourceProvider  | ResourceProviderValue  |
 

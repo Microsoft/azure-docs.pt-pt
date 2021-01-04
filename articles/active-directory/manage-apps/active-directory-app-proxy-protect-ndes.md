@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0793547c4eafcad256664546240a07c1bcb0e628
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656756"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709015"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integre com o Azure AD Application Proxy em um servidor do Serviço de Inscrição de Dispositivos de Rede (NDES)
 
@@ -81,7 +81,7 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
 
 1. **Selecione +Adicionar** para guardar a sua aplicação.
 
-1. Teste se pode aceder ao seu servidor NDES através do proxy Azure AD Application, colando o link que copiou no passo 10 para um browser. Deverá ver uma página de boas-vindas IIS padrão.
+1. Teste se pode aceder ao seu servidor NDES através do proxy Azure AD Application, colando o link que copiou no passo 15 para um browser. Deverá ver uma página de boas-vindas IIS padrão.
 
 1. Como teste final, adicione o *caminhomscep.dll* ao URL existente que colou no passo anterior:
 
@@ -94,6 +94,6 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
    * Para o Gestor de Configuração, vá ao ponto de registo do certificado e ajuste o URL. Este URL é o que os dispositivos chamam e apresentam o seu desafio.
    * Para Intune autónomo, edite ou crie uma nova política SCEP e adicione o novo URL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com o Azure AD Application Proxy integrado com o NDES, publique aplicações para os utilizadores acederem. Para obter mais informações, consulte [as aplicações de publicação utilizando o Azure AD Application Proxy](./application-proxy-add-on-premises-application.md).

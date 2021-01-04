@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/28/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 5d17d4769825bdf377c2dbe9892ceba429beabb7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 426b4de61f2cf654ce24b311767a0aabbba6c6d3
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457630"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724855"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Tutorial: Azure Ative Directory integração única (SSO) com AskYourTeam
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar AskYourTeam com Azure Ative Direct
 * Controle em Azure AD que tem acesso a AskYourTeam.
 * Ative os seus utilizadores a serem automaticamente inscritos no AskYourTeam com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,37 +38,36 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * AskYourTeam suporta **SP e IDP** iniciado SSO.
-* Uma vez configurado AskYourTeam, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-askyourteam-from-the-gallery"></a>Adicionar AskYourTeam da galeria
 
 Para configurar a integração do AskYourTeam no AD Azure, é necessário adicionar o AskYourTeam da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **digite AskYourTeam** na caixa de pesquisa.
 1. Selecione **AskYourTeam** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-askyourteam"></a>Configurar e testar Azure AD único sign-on para AskYourTeam
+## <a name="configure-and-test-azure-ad-sso-for-askyourteam"></a>Configure e teste Azure AD SSO para AskYourTeam
 
 Configure e teste Azure AD SSO com AskYourTeam usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AD Azure e o utilizador relacionado na AskYourTeam.
 
-Para configurar e testar o Azure AD SSO com a AskYourTeam, complete os seguintes blocos de construção:
+Para configurar e testar Azure AD SSO com AskYourTeam, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
-    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 1. **[Configure AskYourTeam SSO](#configure-askyourteam-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    * **[Create AskYourTeam test user](#create-askyourteam-test-user)** - para ter uma contraparte de B.Simon em AskYourTeam que está ligada à representação AD AD do utilizador.
+    1. **[Create AskYourTeam test user](#create-askyourteam-test-user)** - para ter uma contraparte de B.Simon em AskYourTeam que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **AskYourTeam,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **AskYourTeam,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -111,25 +108,29 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao AskYourTeam.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **AskYourTeam**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-askyourteam-sso"></a>Configurar AskyourTeam SSO
 
-1. Numa janela diferente do navegador web, inscreva-se no website da AskYourTeam como administrador.
+1. Para automatizar a configuração dentro do AskYourTeam, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
-1. Clique na **Organização My.**
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar AskYourTeam** irá direcioná-lo para a aplicação AskYourTeam. A partir daí, forneça as credenciais de administração para assinar na AskYourTeam. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-7.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se pretender configurar o AskYourTeam manualmente, numa janela diferente do navegador web, inscreva-se no site da empresa AskYourTeam como administrador.
+
+1. Clique na **My Organization**.
 
     ![A screenshot mostra a ligação My Organization.](./media/askyourteam-tutorial/user1.png)
 
@@ -166,7 +167,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se no website da AskYourTeam como administrador.
 
-1. Clique na **Organização My.**
+1. Clique na **My Organization**.
 
     ![A screenshot mostra a ligação My Organization onde inicia esta tarefa.](./media/askyourteam-tutorial/user1.png)
 
@@ -190,18 +191,20 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no azulejo AskYourTeam no Painel de Acesso, deverá ser automaticamente inscrito na AskYourTeam para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Sinal askYourTeam no URL onde pode iniciar o fluxo de login.
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Vá diretamente ao URL de inscrição askYourTeam e inicie o fluxo de login a partir daí.
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na AskYourTeam para a qual configura o SSO
 
-- [Experimente AskYourTeam com Azure AD](https://aad.portal.azure.com/)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo AskYourTeam nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no AskYourTeam para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado AskYourTeam, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

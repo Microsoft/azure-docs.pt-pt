@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207279"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724974"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Quickstart: Implementar a amostra nativa C++ para hololens
 
@@ -39,7 +39,7 @@ Deve ser instalado o seguinte software:
 
 ## <a name="clone-the-arr-samples-repository"></a>Clone o repositório de amostras de ARR
 
-Como primeiro passo, clonamos o repositório git, que abriga as amostras de renderização remota do Azure. Abra uma solicitação de comando (escreva `cmd` no menu inicial do Windows) e mude para um diretório onde pretende armazenar o projeto de amostra ARR.
+Como primeiro passo, clonamos o repositório git, que abriga as amostras globais de renderização remota do Azure. Abra uma solicitação de comando (escreva `cmd` no menu inicial do Windows) e mude para um diretório onde pretende armazenar o projeto de amostra ARR.
 
 Execute os seguintes comandos:
 
@@ -55,7 +55,7 @@ O tutorial C++ HoloLens pode ser encontrado no subdiretório *NativeCpp/HoloLens
 
 ## <a name="build-the-project"></a>Compilar o projeto
 
-Abra o ficheiro de solução *HolographicApp.sln* localizado na subdirectory *NativeCpp/HoloLens* com Visual Studio 2019.
+Abra o ficheiro de solução *HolographicApp.sln* localizado na subdirectory *NativeCpp/HoloLens* com o Visual Studio 2019.
 
 Mude a configuração de construção para *Debug* (ou *Soltar)* e *ARM64*. Certifique-se também de que o modo depurar está definido para *dispositivo* em oposição à *Máquina Remota*:
 
@@ -70,7 +70,8 @@ Uma vez que as credenciais de conta são codificadas no código fonte do tutoria
     RR::AzureFrontendAccountInfo init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
     m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
@@ -78,9 +79,9 @@ Uma vez que as credenciais de conta são codificadas no código fonte do tutoria
 ```
 
 Especificamente, alterar os seguintes valores:
-* `init.AccountId` e `init.AccountKey` para usar os dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* A região parte da `init.AccountDomain` cadeia para outras regiões do `westus2` que, por exemplo, `"westeurope.mixedreality.azure.com"`
-* Além disso, `m_sessionOverride` pode ser alterado para um ID de sessão existente. As sessões podem ser criadas fora desta amostra, por exemplo, utilizando [o script powershell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou utilizando diretamente a [Sessão REST API.](../../../how-tos/session-rest-api.md#create-a-session)
+* `init.AccountId`, `init.AccountKey` e para usar os `init.AccountAuthenticationDomain` dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Especificar onde criar a sessão de renderização remota modificando a parte da cadeia da região `init.AccountDomain` para outras regiões que `westus2` não, por exemplo `"westeurope.mixedreality.azure.com"` .
+* Além disso, `m_sessionOverride` pode ser alterado para um ID de sessão existente. As sessões podem ser criadas fora desta amostra, por exemplo, utilizando [o script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou utilizando diretamente a [Sessão REST API.](../../../how-tos/session-rest-api.md#create-a-session)
 Recomenda-se a criação de uma sessão fora da amostra quando a amostra deve ser executada várias vezes. Se nenhuma sessão for transmitida, a amostra criará uma nova sessão em cada startup, que poderá demorar vários minutos.
 
 Agora a aplicação pode ser compilada.
@@ -97,7 +98,7 @@ A aplicação da amostra deve ser lançada e deve aparecer um painel de texto qu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este quickstart baseia-se no resultado de um tutorial que explica como integrar todas as peças relacionadas com a renderização remota numa *App Holográfica*de stock. Para saber quais são os passos necessários, siga este tutorial:
+Este quickstart baseia-se no resultado de um tutorial que explica como integrar todas as peças relacionadas com a renderização remota numa *App Holográfica* de stock. Para saber quais são os passos necessários, siga este tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Integrar renderização remota numa app holográfica HoloLens](../../../tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md)

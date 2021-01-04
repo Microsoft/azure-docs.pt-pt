@@ -4,12 +4,12 @@ description: Saiba mais sobre a Base de Dados Azure para cópia de segurança p�
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927894"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734645"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)
 
@@ -31,7 +31,7 @@ Pode utilizar esta solução de forma independente ou além da solução de back
 
 |Suporte  |Detalhes  |
 |---------|---------|
-|Implantações apoiadas   |  Base de dados Azure para servidor único autónomo postgreSQL     |
+|Implantações apoiadas   |  [Base de Dados do Azure para PostgreSQL – Servidor Único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |Regiões de Azure apoiadas |  Leste dos EUA, Leste dos EUA 2, Central EUA, Centro Sul dos EUA, Oeste dos EUA 2, West Central EUA, Brasil Sul, Canadá Central, Europa do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido Oeste, Alemanha West Central, Suíça Norte, Suíça Oeste, Ásia Oriental, Ásia Do Sudeste, Japão Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Índia Central, Austrália Oriental, Austrália Central 2, UAE  |
 |Versões Azure PostgreSQL suportadas    |   9.5, 9.6, 10, 11      |
 
@@ -55,7 +55,7 @@ Pode utilizar esta solução de forma independente ou além da solução de back
   
 5. Assim que acionar a proteção de configuração nas bases de dados selecionadas, o serviço de cópia de segurança configura o coordenador com os horários de backup e outros detalhes da política.
 
-6. Na hora programada, o coordenador comunica com o plugin e começa a transmitir os dados de backup do servidor Postgres utilizando **pg_dump** .
+6. Na hora programada, o coordenador comunica com o plugin e começa a transmitir os dados de backup do servidor Postgres utilizando **pg_dump**.
 
 7. O plugin envia os dados diretamente para o cofre de reserva, eliminando a necessidade de um local de paragem. Os dados são encriptados utilizando as chaves geridas pela Microsoft e armazenados pelo serviço Azure Backup em contas de armazenamento.
 
@@ -71,11 +71,11 @@ As seguintes instruções são um guia passo a passo para configurar a cópia de
 
 1. Há duas maneiras de iniciar o processo:
 
-    1. Vá para [backup Center](backup-center-overview.md)  ->  **Overview**  ->  **Backup** .
+    1. Vá para [backup Center](backup-center-overview.md)  ->  **Overview**  ->  **Backup**.
 
         ![Ir para o Centro de Apoio](./media/backup-azure-database-postgresql/backup-center.png)
 
-        Em **Iniciar: Configurar backup,** selecione o **tipo de fonte de dados** como Base de **Dados para PostgreSQL** .
+        Em **Iniciar: Configurar backup,** selecione o **tipo de fonte de dados** como Base de **Dados para PostgreSQL**.
 
         ![In Iniciar: Configurar backup, selecionar tipo de fonte de dados](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
@@ -89,7 +89,7 @@ As seguintes instruções são um guia passo a passo para configurar a cópia de
 
     ![Selecione o cofre de backup em cópia de segurança Configure](./media/backup-azure-database-postgresql/configure-backup.png)
 
-1. Selecione ou crie uma **política de backup** .
+1. Selecione ou crie uma **política de backup**.
 
     ![Escolha a política de backup](./media/backup-azure-database-postgresql/backup-policy.png)
 
@@ -121,7 +121,7 @@ As seguintes instruções são um guia passo a passo para configurar a cópia de
 
 ## <a name="create-backup-policy"></a>Criar política de backup
 
-1. Vá para as políticas de backup **do Centro de Backup**  ->  **Backup policies**  ->  **Add** . Alternativamente, pode ir para a política **de backup do cofre** de reserva  ->  **Backup policy**  ->  **Adicionar** .
+1. Vá para as políticas de backup **do Centro de Backup**  ->    ->  **Add**. Alternativamente, pode ir para a política **de backup do cofre** de reserva  ->    ->  **Adicionar**.
 
     ![Adicionar política de backup](./media/backup-azure-database-postgresql/add-backup-policy.png)
 
@@ -142,7 +142,7 @@ As seguintes instruções são um guia passo a passo para configurar a cópia de
 
 1. A **regra de retenção por defeito** é aplicada na ausência de qualquer outra regra de retenção, e tem um valor padrão de três meses.
 
-    - A duração da retenção varia de sete dias a 10 anos na **loja de dados de backup** .
+    - A duração da retenção varia de sete dias a 10 anos na **loja de dados de backup**.
     - A duração da retenção varia de seis meses a 10 anos na **loja de dados do Arquivo.**
 
     ![Editar a duração da retenção](./media/backup-azure-database-postgresql/edit-retention.png)
@@ -157,15 +157,15 @@ Pode restaurar uma base de dados em qualquer servidor Azure PostgreSQL dentro da
 Siga este guia passo a passo para desencadear uma restauração:
 
 1. Há duas maneiras de iniciar o processo de restauro:
-    1. Vá ao [Back Backup Center](backup-center-overview.md)  ->  **Overview**  ->  **Restore** .
+    1. Vá ao [Back Backup Center](backup-center-overview.md)  ->  **Overview**  ->  **Restore**.
 
     ![Selecione Restaurar no Centro de Backup](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    Em **Iniciar: Restaurar** , selecione o **tipo de fonte de dados** como **Base de Dados para PostgreSQL** . Selecione a **instância de cópia de segurança** .
+    Em **Iniciar: Restaurar**, selecione o **tipo de fonte de dados** como **Base de Dados para PostgreSQL**. Selecione a **instância de cópia de segurança**.
 
     ![Selecione o tipo de fonte de dados em Iniciar:Restaurar](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    1. Em alternativa, pode dirigir-se diretamente às **Backup vault**  ->  **instâncias de backup do** cofre de reserva . Selecione **a instância de Backup** correspondente à base de dados que pretende restaurar.
+    1. Em alternativa, pode dirigir-se diretamente às   ->  **instâncias de backup do** cofre de reserva . Selecione **a instância de Backup** correspondente à base de dados que pretende restaurar.
 
     ![Instâncias de backup para restauro](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
@@ -179,25 +179,25 @@ Siga este guia passo a passo para desencadear uma restauração:
 
     ![Lista de pontos de recuperação](./media/backup-azure-database-postgresql/list-recovery-points.png)
 
-1. Inserir **Parâmetros de restauro** . Neste ponto, pode selecionar a partir de dois tipos de restauros: **Restaurar como Base de Dados** e Restaurar como **Ficheiros** .
+1. Inserir **Parâmetros de restauro**. Neste ponto, pode selecionar a partir de dois tipos de restauros: **Restaurar como Base de Dados** e Restaurar como **Ficheiros**.
 
-1. **Restaurar como Base de Dados** : Restaurar os dados de backup para criar uma nova base de dados no servidor PostgreSQL alvo.
+1. **Restaurar como Base de Dados**: Restaurar os dados de backup para criar uma nova base de dados no servidor PostgreSQL alvo.
 
     - O servidor alvo pode ser o mesmo que o servidor de origem. No entanto, a sobreescrita da base de dados original não é suportada.
     - Pode escolher entre o servidor em todas as subscrições, mas na mesma região que o cofre.
-    - Selecione **Review + Restaurar** . Isto irá desencadear a validação para verificar se o serviço tem permissões de restauro apropriadas no servidor alvo.
+    - Selecione **Review + Restaurar**. Isto irá desencadear a validação para verificar se o serviço tem permissões de restauro apropriadas no servidor alvo.
 
     ![Restaurar como base de dados](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **Restaurar como Ficheiros** : Despeje os ficheiros de cópia de segurança na conta de armazenamento do alvo (bolhas).
+1. **Restaurar como Ficheiros**: Despeje os ficheiros de cópia de segurança na conta de armazenamento do alvo (bolhas).
 
     - Pode escolher entre as contas de armazenamento em todas as subscrições, mas na mesma região que o cofre.
     - Selecione o recipiente-alvo da lista de recipientes filtrado para a conta de armazenamento selecionada.
-    - Selecione **Review + Restaurar** . Isto irá desencadear a validação para verificar se o serviço tem permissões de restauro apropriadas no servidor alvo.
+    - Selecione **Review + Restaurar**. Isto irá desencadear a validação para verificar se o serviço tem permissões de restauro apropriadas no servidor alvo.
 
     ![Restaurar como ficheiros](./media/backup-azure-database-postgresql/restore-as-files.png)
 
-1. Reveja as informações e **selecione Restaurar.** Isto irá desencadear um trabalho de Restauro correspondente que pode ser rastreado sob **trabalhos de backup** .
+1. Reveja as informações e **selecione Restaurar.** Isto irá desencadear um trabalho de Restauro correspondente que pode ser rastreado sob **trabalhos de backup**.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permissões pré-requisitos para configurar backup e restaurar
 
@@ -211,7 +211,7 @@ Estas são as operações de gestão que pode realizar nas **Instâncias de Back
 
 ### <a name="on-demand-backup"></a>Backup a pedido
 
-Para ativar uma cópia de segurança não no calendário especificado na apólice, vá a **Backup De instâncias de Backup**  ->  **Agora** .
+Para ativar uma cópia de segurança não no calendário especificado na apólice, vá a **Backup De instâncias de Backup**  ->  **Agora**.
 Escolha entre a lista de regras de retenção definidas na política de Backup associada.
 
 ![Acionar backup agora](./media/backup-azure-database-postgresql/backup-now.png)
@@ -228,7 +228,7 @@ Pode parar a proteção num item de reserva. Isto também eliminará os pontos d
 
 Pode alterar a política associada com uma instância de backup.
 
-1. Selecione a Política de Alteração **de Instância de Cópia de**  ->  **Segurança** .
+1. Selecione a Política de Alteração **de Instância de Cópia de**  ->  **Segurança**.
 
     ![Alterar política](./media/backup-azure-database-postgresql/change-policy.png)
 
@@ -254,7 +254,7 @@ Passos:
 
     ![Painel de Controlo de Acesso](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. **Selecione Adicionar uma atribuição de função** .
+1. **Selecione Adicionar uma atribuição de função**.
 
     ![Adicionar atribuição de função](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
@@ -280,7 +280,7 @@ Passos:
 
 Adicione um Administrador De Diretório Ativo ao servidor OSS:
 
-Este passo é necessário para ligar à base de dados através de um utilizador que possa autenticar com o Azure Ative Directory em vez de uma palavra-passe. O utilizador Azure AD Admin na Base de Dados Azure para PostgreSQL terá o papel **azure_ad_admin** . Apenas uma **função azure_ad_admin** pode criar novos utilizadores de bases de dados que possam autenticar com Azure AD.
+Este passo é necessário para ligar à base de dados através de um utilizador que possa autenticar com o Azure Ative Directory em vez de uma palavra-passe. O utilizador Azure AD Admin na Base de Dados Azure para PostgreSQL terá o papel **azure_ad_admin**. Apenas uma **função azure_ad_admin** pode criar novos utilizadores de bases de dados que possam autenticar com Azure AD.
 
 1. Vá ao separador Ative Directory Admin no painel de navegação esquerdo da vista do servidor e adicione-se (ou a outra pessoa) como administrador do Ative Directory.
 
@@ -294,7 +294,7 @@ Consulte [este documento](https://download.microsoft.com/download/7/4/d/74d689aa
 
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
-Estabeleça uma linha de visão de rede, permitindo o acesso à bandeira **dos serviços Azure** na vista do servidor. Na vista do servidor, no painel **de segurança De Ligação,** desace ainda a bandeira **de serviços do Azure** para **Sim** .
+Estabeleça uma linha de visão de rede, permitindo o acesso à bandeira **dos serviços Azure** na vista do servidor. Na vista do servidor, no painel **de segurança De Ligação,** desace ainda a bandeira **de serviços do Azure** para **Sim**.
 
 ![Permitir acesso aos serviços do Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
@@ -303,7 +303,7 @@ Estabeleça uma linha de visão de rede, permitindo o acesso à bandeira **dos s
 #### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>Permissão para restaurar um recipiente de conta de armazenamento ao restaurar como ficheiros
 
 1. Dê ao cofre de reserva MSI a permissão para aceder aos recipientes da conta de armazenamento usando o portal Azure.
-    1. Vá para **o controlo de** acesso à conta de armazenamento Adicionar a atribuição de  ->  **Access Control**  ->  **função** .
+    1. Vá para **o controlo de** acesso à conta de armazenamento Adicionar a atribuição de  ->    ->  **função**.
     1. Atribua o papel **de contribuinte de dados blob** de armazenamento para o MSI do cofre de reserva.
 
     ![Atribuir papel de contribuinte de dados blob de armazenamento](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
@@ -315,7 +315,7 @@ Estabeleça uma linha de visão de rede, permitindo o acesso à bandeira **dos s
     ```
 
     1. Substitua o parâmetro do destinatário pelo ID de **aplicação** do MSI do cofre e pelo parâmetro de âmbito para consultar o seu recipiente específico.
-    1. Para obter o **ID** de aplicação do MSI do cofre, selecione **Todas as aplicações** sob **o tipo de Aplicação** :
+    1. Para obter o **ID** de aplicação do MSI do cofre, selecione **Todas as aplicações** sob **o tipo de Aplicação**:
 
         ![Selecione todas as aplicações](./media/backup-azure-database-postgresql/select-all-applications.png)
 

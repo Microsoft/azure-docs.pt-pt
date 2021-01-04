@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 42f649f9dd206b34f0fac8513ba742febed2dbcb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483768"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724634"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
@@ -38,7 +38,34 @@ Parceiros-chave da Vault com a seguinte a duas autoridades de certificados para 
 Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de certificados que não são parceiros com o Key Vault (por exemplo, o GoDaddy não é um cofre de confiança CA) 
 
 
-### <a name="azure-powershell"></a>Azure PowerShell
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1.  Para gerar CSR para o CA à sua escolha, navegue até ao cofre Key que pretende adicionar o certificado.
+2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
+3.  **Selecione o separador Gerar/Importar.**
+4.  No **Ecrã de Certificado escolha** os seguintes valores:
+    - **Método de Criação de Certificados:** Gerar.
+    - **Nome do certificado:** ContosoManualCSRCertificate.
+    - **Tipo de Autoridade de Certificados (CA):** Certificado emitido por uma AC não integrada
+    - **Objeto:**`"CN=www.contosoHRApp.com"`
+    - Selecione os outros valores conforme desejado. Clique em **Criar**.
+
+    ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
+6.  Verá que o certificado foi agora adicionado na lista de Certificados. Selecione este novo certificado que tinha acabado de criar. O estado atual do certificado seria "desativado", uma vez que ainda não foi emitido pela AC.
+7. Clique no separador **Operação certificado** e selecione **Download CSR**.
+
+   ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
+8.  Leve .csr arquivo para a AC para o pedido de assinatura.
+9.  Uma vez que o pedido seja assinado pela AC, traga de volta o ficheiro de certificado para **fundir o pedido assinado** no mesmo ecrã de Operação certificado.
+
+O pedido de certificado foi agora fundido com êxito.
+
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 
 
@@ -68,36 +95,11 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
     ```
 
     O pedido de certificado foi agora fundido com sucesso.
-
-### <a name="azure-portal"></a>Portal do Azure
-
-1.  Para gerar CSR para o CA à sua escolha, navegue até ao cofre Key que pretende adicionar o certificado.
-2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
-3.  **Selecione o separador Gerar/Importar.**
-4.  No **Ecrã de Certificado escolha** os seguintes valores:
-    - **Método de Criação de Certificados:** Gerar.
-    - **Nome do certificado:** ContosoManualCSRCertificate.
-    - **Tipo de Autoridade de Certificados (CA):** Certificado emitido por uma AC não integrada
-    - **Objeto:**`"CN=www.contosoHRApp.com"`
-    - Selecione os outros valores conforme desejado. Clique em **Criar**.
-
-    ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)  
-
-
-6.  Verá que o certificado foi agora adicionado na lista de Certificados. Selecione este novo certificado que tinha acabado de criar. O estado atual do certificado seria "desativado", uma vez que ainda não foi emitido pela AC.
-7. Clique no separador **Operação certificado** e selecione **Download CSR**.
-
-   ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
- 
-8.  Leve .csr arquivo para a AC para o pedido de assinatura.
-9.  Uma vez que o pedido seja assinado pela AC, traga de volta o ficheiro de certificado para **fundir o pedido assinado** no mesmo ecrã de Operação certificado.
-
-O pedido de certificado foi agora fundido com êxito.
+---
 
 > [!NOTE]
 > Se os seus valores RDN tiverem vírgulas, também pode adicioná-las no campo **Assunto,** rodeando o valor em cotações duplas, como mostrado no passo 4.
 > Exemplo de entrada para "Assunto": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` Neste exemplo, o RDN `OU` contém um valor com uma vírgula no nome. A saída resultante `OU` é **docs, Contoso.**
-
 
 ## <a name="adding-more-information-to-csr"></a>Adicionar mais informações à CSR
 
@@ -118,6 +120,8 @@ Exemplo
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
+- Para monitorizar ou gerir a resposta do pedido de certificado, saiba mais [aqui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+
 - **Error type 'A chave pública do certificado de entidade final no conteúdo do certificado X.509 especificado não corresponde à parte pública da chave privada especificada. Verifique se o certificado é válido»** Este erro pode ocorrer se não estiver a fundir a RSE com o mesmo pedido de RSE iniciado. Sempre que um CSR é criado, cria uma chave privada cuja correspondência deve ser cumprida ao intercalar o pedido assinado.
     
 - Quando a RSE for fundida, fundiria toda a cadeia?
@@ -129,6 +133,7 @@ Para obter mais informações, consulte as operações do [Certificado na refer�
 
 - **Error type 'O nome do sujeito fornecido não é um nome X500 válido'** Este erro pode ocorrer se tiver incluído quaisquer "caracteres especiais" nos valores do Nome Sujeito. Consulte notas no portal Azure e instruções PowerShell respectivamente. 
 
+---
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)

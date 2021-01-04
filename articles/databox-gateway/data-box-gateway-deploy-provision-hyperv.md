@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583507"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740662"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Provision Azure Data Box Gateway em Hiper-V
 
@@ -23,7 +23,7 @@ Este tutorial descreve como aprovisionar um Data Box Gateway num sistema anfitri
 
 Para aprovisionar e configurar um dispositivo virtual, precisa de privilégios de administrador. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -57,8 +57,8 @@ Antes de implementar um dispositivo, certifique-se de que:
   * Um mínimo de 4 núcleos.
   * Pelos menos 8 GB de RAM.
   * Uma interface de rede.
-  * Um disco de SO de 250 GB.
-  * Um disco virtual de 2 TB para dados.
+  * Um disco de 250 -GB DE SO.
+  * Um disco virtual de 2-TB para dados.
 
 ### <a name="for-the-network-in-the-datacenter"></a>Para a rede no datacenter
 
@@ -78,8 +78,8 @@ Para criar um dispositivo virtual, precisa:
   * Um mínimo de 4 processadores virtuais.
   * Pelos menos 8 GB de RAM.
   * Uma interface de rede ligada à rede com capacidade para encaminhar o tráfego para a Internet.
-  * Um disco de SO de 250 GB.
-  * Um disco virtual de 2 TB para dados do sistema.
+  * Um disco de 250 GB de SO.
+  * Um disco virtual de 2-TB para dados do sistema.
 
 ## <a name="bitlocker-considerations"></a>Considerações BitLocker
 
@@ -92,10 +92,11 @@ Para criar um dispositivo virtual, precisa:
 Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 
 1. No anfitrião do Windows Server, copie a imagem do dispositivo virtual para uma unidade local. Esta imagem VHDX foi transferida através do portal do Azure. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
+
 2. Abra o **Gestor de Servidor**. No canto superior direito, clique em **Ferramentas** e selecione **Hyper-V Manager**.
 
-    ![Selecione Hyper-V Manager no Gestor do Servidor](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
-  
+    ![Selecione Hyper-V Manager no Gestor do Servidor](./media/data-box-gateway-deploy-provision-hyperv/image1.png)
+
 3. No **Hyper-V Manager**, no painel de âmbito, clique com o botão direito do rato no nó do seu sistema para abrir o menu de contexto e clique em **Novo** > **Máquina Virtual**.
 
    ![Criar nova máquina virtual no Hyper-V Manager](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
@@ -118,13 +119,13 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 10. Reveja **Summary** (Resumo) e clique em **Finish** (Concluir) para criar a máquina virtual.
 
     ![Completar a nova página de assistente de máquina virtual](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. Para satisfazer os requisitos mínimos, precisa de 4 processadores virtuais. Para adicionar quatro processadores virtuais, selecione o seu sistema anfitrião, na janela **Hyper-V Manager**. No painel do lado direito, na lista **Virtual Machines** (Máquinas Virtuais), localize a máquina virtual que acabou de criar. Selecione e clique com o botão direito do rato no nome da máquina e selecione **Settings** (Definições).
+11. Para cumprir os requisitos mínimos, precisa de quatro processadores virtuais. Para adicionar quatro processadores virtuais, selecione o seu sistema de anfitrião na janela **Hyper-V Manager.** No painel do lado direito, na lista **Virtual Machines** (Máquinas Virtuais), localize a máquina virtual que acabou de criar. Selecione e clique com o botão direito do rato no nome da máquina e selecione **Settings** (Definições).
 
     ![Definições da máquina virtual](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. Na página **Settings** (Definições), no painel do lado esquerdo, clique em **Processor** (Processador). No painel do lado direito, defina **number of virtual processors** (número de processadores virtuais) como quatro (ou mais). Clique em **Aplicar**.
 
     ![Definir número de processadores virtuais na página De Definições](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
-13. Para cumprir os requisitos mínimos, também precisa de adicionar um disco de dados virtual de 2 TB. Na página **Settings** (Definições):
+13. Para satisfazer os requisitos mínimos, também precisa adicionar um disco de dados virtual de 2-TB. Na página **Settings** (Definições):
 
     1. No painel do lado esquerdo, selecione **SCSI Controller** (Controlador SCSI).
     2. No painel do lado direito, selecione **Hard Drive** (Disco Rígido) e clique em **Add** (Adicionar).
@@ -138,12 +139,12 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 17. Na página **Choose Disk Type page** (Escolher Tipo de Disco), defina o tipo do disco rígido virtual como **Dynamically expanding** (Expansão dinâmica), que é a recomendação. **Fixed size disk** (Disco de tamanho fixo) também funcionaria, mas teria de esperar muito tempo. Não recomendamos a utilização da opção **Differencing** (Diferenciação). Clique em **Seguinte**.
 
     ![Escolha a página do tipo do disco](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
-18. Na página **Specify Name and Location** (Especificar Nome e Localização), indique **name** (nome) e **location** (localização, para a qual pode navegar) para o disco de dados. Clique em **Seguinte**.
+18. Na página **'Nomear e Localização' especifique,** forneça um **nome** e **localização** (pode navegar para um) para o disco de dados. Clique em **Seguinte**.
 
     ![Especificar o nome e a página de localização](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Na página **Configure Disk** (Configurar Disco), selecione a opção **Create a new blank virtual hard disk** (Criar um disco rígido virtual vazio novo) e especifique o tamanho como **2 TB** (ou mais).
+19. Na página **Configure Disk,** selecione a nova opção **de disco rígido virtual em branco** e especifique o tamanho como **2 TB** (ou mais).
 
-    Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não pode encolher o disco depois de aprovisionado. Tentar encolher o disco resulta numa perda de todos os dados locais do dispositivo. A expansão do disco de dados não é suportada. Clique em **Seguinte**.
+    Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Note que não pode encolher o disco uma vez que está previsto. Tentar encolher o disco resulta numa perda de todos os dados locais do dispositivo. A expansão do disco de dados não é suportada. Clique em **Seguinte**.
 
     ![Configure a página do disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Na página **Summary** (Resumo), reveja os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Finish** (Concluir) para criar o disco. O assistente fecha-se e é adicionado um disco rígido virtual à sua máquina.
@@ -152,6 +153,11 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 21. Regresse à página **Settings** (Definições). Clique em **OK** para fechar a página **Settings** (Definições) e regressar à janela do Hyper-V Manager.
 
     ![Página de definições](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+A sua máquina virtual está agora totalmente configurada.
+
+> [!NOTE]
+> Não é possível prever um novo Gateway de Caixa de Dados copiando o seu VHD configurado. Cada novo dispositivo virtual Data Box Gateway deve ser ateado a partir de uma imagem de dispositivo virtual para Hiper-V que é descarregada a partir do portal Azure.
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Iniciar o dispositivo virtual e obter o IP
 

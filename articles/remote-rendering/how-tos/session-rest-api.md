@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d957c5d6521010c7393e2297be16cd7bef41c35f
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023759"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724073"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
 
@@ -37,11 +37,14 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 Se não tiver uma conta de renderização remota, [crie uma](create-an-account.md). Cada recurso é identificado por um *accountId*, que é usado ao longo da sessão APIs.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Script de exemplo: Definir contaD e contaKey
+### <a name="example-script-set-accountid-accountkey-and-account-domain"></a>Script de exemplo: Definir contaD, contaKey e domínio de conta
+
+O domínio da conta é a localização da conta de renderização remota. Neste exemplo, a localização da conta é região *leste.*
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## <a name="common-request-headers"></a>Cabeçalhos de pedido comuns
@@ -52,7 +55,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
@@ -69,11 +72,11 @@ Este comando cria uma sessão. Devolve a identificação da nova sessão. Precis
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/create | POST |
 
-**Corpo do pedido:**
+**Entidade de pedido:**
 
 * maxLeaseTime (timepan): um valor de tempo limite quando a sessão será desativada automaticamente
 * modelos (matriz): URLs de contentores de ativos para pré-carregar
-* tamanho (cadeia): o tamanho do servidor para configurar[**("standard"**](../reference/vm-sizes.md) ou [**"premium").**](../reference/vm-sizes.md) Consulte [limitações de tamanho específicas.](../reference/limits.md#overall-number-of-polygons)
+* tamanho (cadeia): o tamanho do servidor para configurar [**("standard"**](../reference/vm-sizes.md) ou [**"premium").**](../reference/vm-sizes.md) Consulte [limitações de tamanho específicas.](../reference/limits.md#overall-number-of-polygons)
 
 **Respostas:**
 
@@ -133,9 +136,9 @@ Este comando atualiza os parâmetros de uma sessão. Atualmente só pode estende
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/accounts/*accountID*/sessions/sessionId*sessionId* | PATCH |
+| /v1/accounts/*accountID*/sessions/sessionId | PATCH |
 
-**Corpo do pedido:**
+**Entidade de pedido:**
 
 * maxLeaseTime (timepan): um valor de tempo limite quando a sessão será desativada automaticamente
 
@@ -259,7 +262,7 @@ Este comando para uma sessão. O VM atribuído será recuperado pouco depois.
 
 | URI | Método |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions/sessionId*sessionId* | DELETE |
+| /v1/accounts/*accountId*/sessions/sessionId | DELETE |
 
 **Respostas:**
 

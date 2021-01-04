@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444776"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740475"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
 O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
@@ -20,31 +21,51 @@ O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saú
 O Azure Monitor para a saúde dos hóspedes VMs tem as seguintes limitações na pré-visualização pública:
 
 - Apenas máquinas virtuais Azure são suportadas atualmente. Azure Arc para servidores não está suportada atualmente.
-- A Máquina Virtual deve executar um dos seguintes sistemas operativos: 
+
+
+## <a name="supported-operating-systems"></a>Sistemas operativos suportados
+A Máquina Virtual deve executar um dos seguintes sistemas operativos: 
+
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 ou posterior
-- A máquina virtual deve estar localizada numa das seguintes regiões:
-  - Leste da Austrália
-  - Sudeste da Austrália
-  - Índia Central
-  - E.U.A. Central
-  - E.U.A. Leste
-  - E.U.A. Leste 2
-  - Leste DOS EUA 2
-  - Alemanha Centro-Oeste
-  - Leste do Japão
-  - E.U.A. Centro-Norte
-  - Europa do Norte
-  - E.U.A. Centro-Sul
-  - Sudeste Asiático
-  - Sul do Reino Unido
-  - Europa Ocidental
-  - E.U.A. Oeste
-  - E.U.A. Oeste 2
-- O espaço de trabalho log Analytics deve estar localizado numa das seguintes regiões:
-  - E.U.A. Leste
-  - Leste DOS EUA 2
-  - Região da Europa Ocidental
+
+## <a name="supported-regions"></a>Regiões suportadas
+
+A máquina virtual deve estar localizada numa das seguintes regiões:
+
+- Austrália Central
+- Leste da Austrália
+- Sudeste da Austrália
+- Índia Central
+- E.U.A. Central
+- Ásia Leste
+- E.U.A. Leste
+- E.U.A. Leste 2
+- Leste DOS EUA 2
+- Alemanha Centro-Oeste
+- Leste do Japão
+- E.U.A. Centro-Norte
+- Europa do Norte
+- E.U.A. Centro-Sul
+- Sudeste Asiático
+- Sul do Reino Unido
+- E.U.A. Centro-Oeste
+- Europa Ocidental
+- E.U.A. Oeste
+- E.U.A. Oeste 2
+
+
+O espaço de trabalho log Analytics deve estar localizado numa das seguintes regiões:
+
+- E.U.A. Central
+- E.U.A. Leste
+- E.U.A. Leste 2
+- Leste DOS EUA 2
+- Europa do Norte
+- Sudeste Asiático
+- Sul do Reino Unido
+- Região da Europa Ocidental
+- E.U.A. Oeste 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,9 +73,8 @@ O Azure Monitor para a saúde dos hóspedes VMs tem as seguintes limitações na
 - A execução dos passos de embarque do utilizador deve ter um acesso mínimo ao nível do Contribuinte à subscrição onde está localizada a máquina virtual e a regra de recolha de dados.
 - Os fornecedores de recursos Azure necessários devem estar registados como descrito na secção seguinte.
 
-
 ## <a name="register-required-azure-resource-providers"></a>Registar os fornecedores de recursos Azure necessários
-Os seguintes fornecedores de recursos Azure precisam de se registar para a sua subscrição para permitir a Saúde do Hóspede do Azure Monitor para a saúde dos hóspedes. 
+Os seguintes fornecedores de recursos Azure estão registados para a sua subscrição para permitir a Saúde do Hóspede do Azure Monitor para a saúde dos hóspedes VMs. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights

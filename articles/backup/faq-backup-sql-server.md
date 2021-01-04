@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172383"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734118"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -32,14 +32,14 @@ Em algumas circunstâncias, o serviço de backup Azure aciona cópias de seguran
 
 A cura automática como capacidade é ativada por padrão para todos os utilizadores. No entanto, se optar por não o fazer, então execute os seguintes passos:
 
-- Na instância do Servidor SQL, na pasta de backup\bin de cópia de segurança da *carga de trabalho do programa C:\Azure,* criar ou editar oExtensionSettingsOverrides.js** no** ficheiro.
+- Na instância do Servidor SQL, na pasta de backup\bin de cópia de segurança da *carga de trabalho do programa C:\Azure,* criar ou editar oExtensionSettingsOverrides.js **no** ficheiro.
 - No **ExtensionSettingsOverrides.jsem**, definir *{"EnableAutoHealer": falso}*.
 - Guarde as suas alterações e feche o ficheiro.
 - Na instância do SQL Server, abra **a Task Manage** e, em seguida, reinicie o serviço **AzureWLBackupCoordinatorSvc.**
 
-## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança simultâneas são executadas no servidor SQL?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança em simultâneo são executadas no SQL Server?
 
-Sim. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
+Yes. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
 1. Na instância do Servidor SQL, na pasta *de backup\bin de cópia de trabalho do programa C:\Azure,* crie a *ExtensionSettingsOverrides.jsno* ficheiro.
 2. Na *ExtensionSettingsOverrides.jsno* ficheiro, altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
@@ -56,19 +56,19 @@ O valor predefinido de DefaultBackupTasksThreshold é **de 20**.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso fazer uma cópia de segurança de uma réplica secundária?
 
-According to SQL limitations, you can run Copy Only Full backup on Secondary Replica. No entanto, não é permitido um reforço completo.
+De acordo com as limitações SQL, pode executar cópia apenas cópia de cópia na Réplica Secundária. No entanto, não é permitido um reforço completo.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger grupos de disponibilidade no local?
 
-Não. O Azure Backup protege as bases de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre as máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, o Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
+N.º O Azure Backup protege as bases de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre as máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, o Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger os grupos de disponibilidade entre regiões?
+## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger grupos de disponibilidade em todas as regiões?
 
 O cofre dos Serviços de Recuperação de Backup Azure pode detetar e proteger todos os nós que estão na mesma região que o cofre. Se o seu grupo SQL Server Always On disponibilidade abrange várias regiões do Azure, confmede o backup da região que tem o nó primário. O Azure Backup pode detetar e proteger todas as bases de dados do grupo de disponibilidade de acordo com a sua preferência de backup. Quando a sua preferência de backup não é cumprida, os backups falham e você recebe o alerta de falha.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+N.º Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -78,7 +78,7 @@ O menu **Backup Job** mostra todas as operações programadas e a pedido, exceto
 
 Sim, pode conseguir esta capacidade com [proteção automática.](backup-sql-server-database-azure-vms.md#enable-auto-protection)  
 
-## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eu apagar uma base de dados de um caso autoprotegido, o que acontecerá com as cópias de segurança?
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eliminar uma base de dados de uma instância autoprotegida, o que acontecerá com as cópias de segurança?
 
 Se uma base de dados for retirada de um caso autoprotegido, as cópias de segurança da base de dados ainda são tentadas. Isto implica que a base de dados eliminada começa a aparecer como pouco saudável sob **Itens de Cópia de Segurança** e ainda está protegida.
 
@@ -104,7 +104,12 @@ Uma base de dados que [adicione a uma instância autoprotegido](backup-sql-serve
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Posso proteger bases de dados que tenham o TDE (Encriptação de Dados Transparente) ligado e que a base de dados permaneça encriptada durante todo o processo de backup?
 
-Sim, o Azure Backup suporta a cópia de segurança das bases de dados do SQL Server ou do servidor com TDE ativada. A cópia de segurança suporta [o TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) com teclas geridas pela Azure, ou com teclas geridas pelo cliente (BYOK).  A cópia de segurança não executa qualquer encriptação SQL como parte do processo de backup para que a base de dados permaneça encriptada quando estiver cópia de segurança.
+Sim, o Azure Backup suporta a cópia de segurança das bases de dados do SQL Server ou do servidor com TDE ativada. A cópia de segurança suporta [o TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) com teclas geridas pela Azure, ou com teclas geridas pelo cliente (BYOK).  A cópia de segurança não executa qualquer encriptação SQL como parte do processo de backup para que a base de dados permaneça encriptada quando estiver cópia de segurança.
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>O Azure Backup realiza uma operação de checkum no fluxo de dados?
+
+Fazemos uma operação de checkum no fluxo de dados. No entanto, isto não deve ser confundido com [a estação de controlo SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+A azure workload backup calcula a data de verificação no fluxo de dados e armazena-o explicitamente durante a operação de backup. Este fluxo de dados é então tomado como referência e verificado com a parte de verificação do fluxo de dados durante a operação de restauro para garantir que os dados são consistentes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

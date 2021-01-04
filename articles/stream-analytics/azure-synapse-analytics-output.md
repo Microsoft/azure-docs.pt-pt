@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 63d03559b2a30020ed2e8bd1cd030855b8fb20b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 65752321f94bfa1403839889ead284d46b5f7191
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445093"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740067"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Saída Azure Synapse Analytics da Azure Stream Analytics
 
@@ -28,7 +28,7 @@ Para utilizar o Azure Synapse como saída, tem de se certificar de que tem a con
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação da saída am Azure Synapse Analytics.
 
-|Nome da propriedade|Descrição|
+|Nome da propriedade|Description|
 |-|-|
 |Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta base de dados. |
 |Base de Dados |nome de piscina SQL dedicado para onde está a enviar a sua saída. |
@@ -39,9 +39,5 @@ A tabela que se segue lista os nomes dos imóveis e as suas descrições para a 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics a partir de um trabalho de Azure Stream Analytics (Preview)](sql-database-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
-* [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

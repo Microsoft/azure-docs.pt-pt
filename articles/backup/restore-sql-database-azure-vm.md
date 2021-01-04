@@ -3,12 +3,12 @@ title: Restaurar bases de dados do SQL Server num Azure VM
 description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure. Também pode utilizar o Cross Region Restore para restaurar as suas bases de dados para uma região secundária.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172165"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734407"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure
 
@@ -23,12 +23,13 @@ O Azure Backup pode restaurar as bases de dados do SQL Server que estão a ser e
 - Restaurar a data ou hora específicas (para a segunda) utilizando cópias de segurança de registo de transações. O Azure Backup determina automaticamente a cópia de segurança diferencial adequada e a cadeia de backups de registos que são necessárias para restaurar com base no tempo selecionado.
 - Restaurar uma cópia de segurança completa ou diferencial específica para restaurar um ponto de recuperação específico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="restore-prerequisites"></a>Restaurar os pré-requisitos
 
 Antes de restaurar uma base de dados, note o seguinte:
 
 - Pode restaurar a base de dados a um exemplo de um SQL Server na mesma região do Azure.
 - O servidor de destino deve estar registado no mesmo cofre que a fonte.
+- Se tiver várias instâncias a decorrer num servidor, todas as instâncias devem estar a funcionar. Caso contrário, o servidor não aparecerá na lista de servidores de destino para restaurar a base de dados. Para obter mais informações, consulte [as etapas de resolução de problemas](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - Para restaurar uma base de dados encriptada TDE para outro SqL Server, é necessário restaurar primeiro [o certificado no servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [As](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) bases de dados ativadas pelo CDC devem ser restauradas utilizando a opção [Restaurar como ficheiros.](#restore-as-files)
 - Antes de restaurar a base de dados "master", inicie a instância do SQL Server no modo de utilizador único utilizando a opção de arranque **-m AzureWorkloadBackup**.
@@ -36,7 +37,6 @@ Antes de restaurar uma base de dados, note o seguinte:
   - Apenas o nome do cliente especificado pode abrir a ligação.
 - Para todas as bases de dados do sistema (modelo, master, msdb), pare o serviço sql Server Agent antes de ativar a restauração.
 - Feche quaisquer aplicações que possam tentar estabelecer uma ligação a qualquer uma destas bases de dados.
-- Se tiver várias instâncias em execução num servidor, todas as instâncias devem estar em funcionamento, caso contrário o servidor não aparecerá na lista de servidores de destino para restaurar a base de dados.
 
 ## <a name="restore-a-database"></a>Restaurar uma base de dados
 
@@ -52,7 +52,7 @@ Restaurar da seguinte forma:
 
 1. Abra o cofre no qual está registado o SQL Server VM.
 2. No painel de instrumentos do cofre, sob **utilização,** selecione **Itens de Reserva**.
-3. Em **Itens de Cópia de Segurança**, sob o Tipo de **Gestão de Cópias**de Segurança, selecione **SQL em Azure VM**.
+3. Em **Itens de Cópia de Segurança**, sob o Tipo de **Gestão de Cópias** de Segurança, selecione **SQL em Azure VM**.
 
     ![Selecione SQL em Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -116,7 +116,7 @@ Restaurar da seguinte forma:
 
 ### <a name="restore-as-files"></a>Restaurar como ficheiros
 
-Para restaurar os dados de cópia de segurança como ficheiros .bak em vez de uma base de dados, escolha **Restaurar como Ficheiros**. Uma vez que os ficheiros são despejados para um caminho especificado, pode levar estes ficheiros a qualquer máquina onde pretenda restaurá-los como base de dados. Uma vez que pode mover estes ficheiros para qualquer máquina, pode agora restaurar os dados através de subscrições e regiões.
+Para restaurar os dados de cópia de segurança como .bak ficheiros em vez de uma base de dados, escolha **Restaurar como Ficheiros**. Uma vez que os ficheiros são despejados para um caminho especificado, pode levar estes ficheiros a qualquer máquina onde pretenda restaurá-los como base de dados. Uma vez que pode mover estes ficheiros para qualquer máquina, pode agora restaurar os dados através de subscrições e regiões.
 
 1. Em **Onde e como Restaurar,** selecione Restaurar como **ficheiros**.
 1. Selecione o nome SQL Server para o qual pretende restaurar os ficheiros de cópia de segurança.
@@ -181,7 +181,7 @@ Para ver se a CRR está ativada, siga as instruções no [Configure Cross Region
 
 Se o CRR estiver ativado, pode ver os itens de reserva na região secundária.
 
-1. A partir do portal, aceda a itens de backup de **cofres dos Serviços de Recuperação.**  >  **Backup items**
+1. A partir do portal, aceda a itens de backup de **cofres dos Serviços de Recuperação.**  >  
 1. Selecione **Região Secundária** para ver os itens na região secundária.
 
 >[!NOTE]

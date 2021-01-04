@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591993"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739863"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de aprendizagem automática Azure
 
@@ -47,8 +47,7 @@ Se os dados de saída do módulo estiverem num formato tabular, deve optar por r
  - **O conjunto de dados de ficheiros** regista a pasta de saída do módulo como conjunto de dados de ficheiros. A pasta de saída contém um ficheiro de dados e ficheiros de meta que o designer utiliza internamente. Selecione esta opção se pretender continuar a utilizar o conjunto de dados registado no designer. 
 
  - **O conjunto de dados tabular** regista apenas o ficheiro de dados de saída do módulo como um conjunto de dados tabular. Este formato é facilmente consumido por outras ferramentas, por exemplo, em Machine Learning automatizado ou no Python SDK. Selecione esta opção se pretender utilizar o conjunto de dados registado fora do designer.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados
 
@@ -62,6 +61,14 @@ Se registar um conjunto de dados de ficheiros, o tipo de porta de saída do conj
 > [!NOTE]
 > O designer suporta [a versão do conjunto de dados.](how-to-version-track-datasets.md) Especifique a versão do conjunto de dados no painel de propriedade do módulo de conjunto de dados.
 
+### <a name="limitations"></a>Limitações 
+
+- Atualmente só é possível visualizar o conjunto de dados tabulares no designer. Se registar um conjunto de dados de ficheiros fora do designer, não poderá visualizá-lo na tela do designer.
+- O seu conjunto de dados é armazenado em rede virtual (VNet). Se quiser visualizar, tem de ativar a identidade gerida pelo espaço de trabalho da datastore.
+    1. Vá à loja de dados relacionada e clique em **Atualização de** 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Credenciais De Atualização Credenciais":::
+    1. Selecione **Sim** para ativar a identidade gerida pelo espaço de trabalho.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Ativar identidade gerida do espaço de trabalho":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Dados de importação utilizando o módulo de dados de importação
 

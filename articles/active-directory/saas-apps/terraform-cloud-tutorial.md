@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: a960bb3590138ca5efa5146988240db1707a3cf0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c26224f388c09ec758373c877004f5485bb420df
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182126"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-cloud"></a>Tutorial: Azure Ative Directy integração única (SSO) com Terraform Cloud
 
@@ -76,7 +76,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
+1. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
     Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:  `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
 
@@ -116,7 +116,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-terraform-cloud-sso"></a>Configure nuvem terraforme SSO
 
-1. Numa janela diferente do navegador web, inscreva-se no site da Terraform Cloud como administrador.
+1. Para automatizar a configuração dentro da Nuvem Terraform, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar a Nuvem Terraform** irá direcioná-lo para a aplicação Terraform Cloud. A partir daí, forneça as credenciais de administração para assinar na Nuvem Terraform. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se pretender configurar o Terraform Cloud manualmente, numa janela diferente do navegador web, inscreva-se no site da empresa Terraform Cloud como administrador.
 
 2. Vá às **Definições > SSO > Configurações de Edição**
 

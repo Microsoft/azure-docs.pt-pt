@@ -2,13 +2,14 @@
 title: Gerir o DHCP para a Solução VMware Azure
 description: Aprenda a criar e gerir o DHCP para a sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
+ms.custom: contperf-fy21q2
 ms.date: 11/09/2020
-ms.openlocfilehash: 9143a8544fe1b98262c3e990ccdf56f5d5f65957
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: bcaba4274b0e6b423e9fa490c80fc57204d4e153
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335993"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708556"
 ---
 # <a name="manage-dhcp-for-azure-vmware-solution"></a>Gerir o DHCP para a Solução VMware Azure
 
@@ -40,9 +41,9 @@ Se pretender utilizar o NSX-T para hospedar o seu servidor DHCP, criará um serv
 
    :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="adicionar uma sub-rede" border="true":::
 
-1. Para **tipo** , selecione **DHCP Local Server**. 
+1. Para **tipo**, selecione **DHCP Local Server**. 
    
-1. Para o **servidor DHCP** , selecione **DHCP predefinido** e, em seguida, selecione **Guardar**.
+1. Para o **servidor DHCP**, selecione **DHCP predefinido** e, em seguida, selecione **Guardar**.
 
 1. **Selecione Guardar** novamente e, em seguida, selecione **Close Editing**.
 
@@ -69,16 +70,16 @@ Se quiser utilizar um servidor DHCP externo de terceiros, terá de criar um serv
 
    :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="editar a atribuição de endereços ip" border="true":::
 
-1. Para **tipo** , selecione **O Servidor DHCP**. 
+1. Para **tipo**, selecione **O Servidor DHCP**. 
    
-1. Para o **Servidor DHCP** , selecione **o Relé DHCP** e, em seguida, selecione **Save**.
+1. Para o **Servidor DHCP**, selecione **o Relé DHCP** e, em seguida, selecione **Save**.
 
 1. **Selecione Guardar** novamente e, em seguida, selecione **Close Editing**.
 
 
 ## <a name="specify-the-dhcp-ip-address-range"></a>Especificar a gama de endereços IP DHCP
 
-1. No NSX-T Manager, selecione **Networking**  >  **Segmentos** de Rede . 
+1. No NSX-T Manager, selecione   >  **Segmentos** de Rede . 
    
 1. Selecione a elipse vertical no nome do segmento e **selecione Editar**.
    
@@ -109,7 +110,7 @@ Se pretender enviar pedidos dhCP dos VMs da Solução VMware Azure no segmento L
 
    :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Screenshot de uma extensão de rede em VMware vSphere Client" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
 
-1. No Gestor NSX-T da Solução VMware Azure, selecione Perfis de Segmentos **de Segmentos de Rede**  >  **Segments**  >  **Segment Profiles**. 
+1. No Gestor NSX-T da Solução VMware Azure, selecione Perfis de Segmentos **de Segmentos de Rede**  >    >  . 
 
 1. Selecione **adicionar perfil de segmento** e, em seguida, **segmentar segurança**.
 
@@ -123,7 +124,7 @@ Se pretender enviar pedidos dhCP dos VMs da Solução VMware Azure no segmento L
 
    :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-allow-list.png" alt-text="Screenshot mostrando endereços MAC na lista de autorizações do filtro bpdu":::
 
-1. Em **Segmentos de Segmentos de**  >  **Segments**  >  **Segments** Rede, na área de pesquisa, insira o nome de rede de definição.
+1. Em **Segmentos de Segmentos de**  >    >  Rede, na área de pesquisa, insira o nome de rede de definição.
 
    :::image type="content" source="media/manage-dhcp/networking-segments-search.png" alt-text="Screenshot do campo de filtro de segmentos de > de rede":::
 

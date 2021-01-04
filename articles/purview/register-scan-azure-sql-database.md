@@ -1,18 +1,18 @@
 ---
 title: Registar e digitalizar base de dados Azure SQL
 description: Este tutorial descreve como digitalizar a Base de Dados Azure SQL
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920268"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739795"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -28,7 +28,7 @@ A fonte de dados da Base de Dados Azure SQL suporta a seguinte funcionalidade:
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não suporta a digitalização de [visualizações](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) na Base de Dados Azure SQL. 
+O Azure Purview não suporta a digitalização de [visualizações](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) na Base de Dados Azure SQL. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,7 +89,7 @@ Para utilizar um principal de serviço, pode utilizar um existente ou criar um n
 O principal do serviço ou identidade gerida deve ter permissão para obter metadados para a base de dados, esquemas e tabelas. Deve também poder consultar as tabelas a amostrar para a classificação.
 
 - [Configure e gere a autenticação AD AD com Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Se estiver a usar identidade gerida, a sua conta Purview tem a sua própria identidade gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador AZure AD na Base de Dados Azure SQL com a identidade gerida exata da Purview ou com o seu próprio chefe de serviço, seguindo o tutorial sobre [criar o utilizador principal do serviço na Base de Dados Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Tem de atribuir `db_owner` **(recomendada)** permissão à identidade. Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
+- Se estiver a usar identidade gerida, a sua conta Purview tem a sua própria identidade gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador AZure AD na Base de Dados Azure SQL com a identidade gerida exata da Purview ou com o seu próprio chefe de serviço, seguindo o tutorial sobre [criar o utilizador principal do serviço na Base de Dados Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Tem de atribuir a devida permissão (por `db_owner` exemplo, `db_datareader` ou) à identidade. Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -100,7 +100,7 @@ O principal do serviço ou identidade gerida deve ter permissão para obter meta
     ```
 
     > [!Note]
-    > O `Username` é o seu próprio chefe de serviço ou a identidade gerida de Purview
+    > É `Username` o seu próprio chefe de serviço ou a identidade gerida de Purview. Pode ler mais sobre [funções de base de dados fixas e suas capacidades.](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles)
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicione o principal de serviço ao cofre-chave e à credencial de Purview
 

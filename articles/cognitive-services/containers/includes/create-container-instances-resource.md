@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009871"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704857"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso de instância de recipiente Azure
+## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Criar um recurso Azure Container Instance utilizando o portal Azure
 
 1. Aceda à página [Criar](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) instâncias para contentores.
 
@@ -25,9 +25,9 @@ ms.locfileid: "96009871"
     |Definição|Valor|
     |--|--|
     |Subscrição|Selecione a sua subscrição.|
-    |Grupo de recursos|Selecione o grupo de recursos disponível ou crie um novo, como `cognitive-services` .|
+    |O grupo de recursos|Selecione o grupo de recursos disponível ou crie um novo, como `cognitive-services` .|
     |Nome do contentor|Insira um nome como `cognitive-container-instance` . O nome deve estar em tampas mais baixas.|
-    |Localização|Selecione uma região para implantação.|
+    |A localização|Selecione uma região para implantação.|
     |Tipo de imagem|Se a imagem do seu recipiente estiver guardada num registo de contentores que não exija credenciais, escolha `Public` . Se aceder à imagem do seu contentor requer credenciais, escolha `Private` . Consulte [os repositórios e imagens](../../cognitive-services-container-support.md#container-repositories-and-images) dos contentores para obter mais informações sobre se a imagem do contentor é ou não `Public` `Private` ("Visualização pública"). |
     |Nome da imagem|Insira o local do contentor dos Serviços Cognitivos. A localização é o que é usado como argumento para o `docker pull` comando. Consulte os [repositórios e imagens](../../cognitive-services-container-support.md#container-repositories-and-images) dos recipientes para ver os nomes de imagem disponíveis e o respetivo repositório.<br><br>O nome da imagem deve estar totalmente qualificado especificando três partes. Primeiro, o registo do contentor, depois o repositório, finalmente o nome da imagem: `<container-registry>/<repository>/<image-name>` .<br><br>Aqui está um exemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` representaria a imagem de extração de frase-chave no registo do contentor da Microsoft sob o repositório de Serviços Cognitivos Azure. Outro exemplo é `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` o que representaria a imagem do Discurso a Texto no repositório da Microsoft do registo do contentor de pré-visualização do contentor. |
     |Tipo de SO|`Linux`|
@@ -43,9 +43,9 @@ ms.locfileid: "96009871"
 
     | Chave | Valor |
     |--|--|
-    |`apikey`|Copiado da página **Keys** do recurso. É uma corda de 32 caracteres alfanuméricos sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
-    |`billing`|Copiado da página **geral** do recurso.|
-    |`eula`|`accept`|
+    |`ApiKey`|Copiado a partir das **Chaves e** página de ponta do recurso. É uma corda de 32 caracteres alfanuméricos sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
+    |`Billing`| O url do ponto final copiado a partir da página **keys e ponto final** do recurso.|
+    |`Eula`|`accept`|
 
 5. Clique **em Rever e criar**
 6. Após a validação passar, clique em **Criar** para terminar o processo de criação

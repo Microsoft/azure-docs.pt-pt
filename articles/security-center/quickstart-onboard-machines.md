@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734359"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740611"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Ligue as suas máquinas não-Azure ao Centro de Segurança
 
@@ -139,4 +139,4 @@ Parabéns! Agora podem ver as suas máquinas Azure e não-Azure juntas num só l
 
 Esta página mostrou-lhe como adicionar as suas máquinas não-Azure ao Centro de Segurança Azure. Para monitorizar o seu estado, utilize as ferramentas de inventário como explicado na página seguinte:
 
-- [Explore e gere os seus recursos com ferramentas de inventário e gestão de ativos](asset-inventory.md)
+- [Explore e gere os seus recursos com o inventário de ativos](asset-inventory.md)
