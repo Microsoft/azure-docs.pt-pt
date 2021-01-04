@@ -1,18 +1,18 @@
 ---
 title: Gerir fontes de dados em Azure Purview (Pré-visualização)
 description: Saiba como registar novas fontes de dados, gerir recolhas de fontes de dados e ver fontes em Azure Purview (Preview).
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781169"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694786"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Gerir fontes de dados em Azure Purview (Pré-visualização)
 
@@ -28,7 +28,6 @@ Neste artigo, aprende-se a registar novas fontes de dados, a gerir recolhas de f
 * Azure Synapse Analytics (anteriormente SQL DW)
 * Azure Cosmos DB
 * Power BI
-* Teradata (Pré-visualização)
 
 ## <a name="register-a-new-source"></a>Registar uma nova fonte
 

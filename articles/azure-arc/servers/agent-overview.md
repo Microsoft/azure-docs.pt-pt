@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616166"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723274"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -82,6 +82,10 @@ Para garantir a segurança dos dados em trânsito para Azure, encorajamo-lo a co
 
 O agente de máquinas conectadas para Linux e Windows comunica de saída de forma segura ao Arco Azure sobre a porta TCP 443. Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, reveja o seguinte para entender os requisitos de configuração da rede.
 
+> [!NOTE]
+> Os servidores ativados pelo Arco não suportam a utilização de um [gateway Log Analytics](../../azure-monitor/platform/gateway.md) como procuração para o agente 'Máquina Conectada'.
+>
+
 Se a conectividade de saída for restringida pela sua firewall ou servidor proxy, certifique-se de que os URLs listados abaixo não estão bloqueados. Quando apenas permite os intervalos IP ou nomes de domínio necessários para que o agente comunique com o serviço, tem de permitir o acesso às seguintes Tags de Serviço e URLs.
 
 Etiquetas de serviço:
@@ -93,24 +97,26 @@ Etiquetas de serviço:
 
 URLs:
 
-| Recursos do agente | Descrição |
+| Recursos do agente | Description |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Configuração de Convidado|
 |`*.his.arc.azure.com`|Serviço de Identidade Híbrida|
+|`www.office.com`|Office 365|
 
 Os agentes de pré-visualização (versão 0.11 e inferior) também requerem acesso aos seguintes URLs:
 
-| Recursos do agente | Descrição |
+| Recursos do agente | Description |
 |---------|---------|
 |`agentserviceapi.azure-automation.net`|Configuração de Convidado|
 |`*-agentservice-prod-1.azure-automation.net`|Configuração de Convidado|
 
 Para obter uma lista de endereços IP para cada tag/região de serviço, consulte o ficheiro JSON - [Gamas IP Azure e Tags de Serviço – Nuvem Pública.](https://www.microsoft.com/download/details.aspx?id=56519) A Microsoft publica atualizações semanais contendo cada Serviço Azure e as gamas IP que utiliza. Para mais informações, [reveja as etiquetas de serviço.](../../virtual-network/network-security-groups-overview.md#service-tags)
 
-Os URLs na tabela anterior são necessários para além das informações do intervalo de endereços IP da Marca de Serviço, uma vez que a maioria dos serviços não tem atualmente um registo de Marca de Serviço. Como tal, os endereços IP estão sujeitos a alterações. Se forem necessários intervalos de endereços IP para a sua configuração de firewall, então a Tag de Serviço **AzureCloud** deve ser utilizada para permitir o acesso a todos os serviços Azure. Não desative a monitorização de segurança ou a inspeção destes URLs, permitindo-os como se fosse outro tráfego de Internet.
+Os URLs na tabela anterior são necessários para além das informações do intervalo de endereços IP tag de serviço, porque a maioria dos serviços não tem atualmente um registo de Marca de Serviço. Como tal, os endereços IP estão sujeitos a alterações. Se forem necessários intervalos de endereços IP para a sua configuração de firewall, então a Tag de Serviço **AzureCloud** deve ser utilizada para permitir o acesso a todos os serviços Azure. Não desative a monitorização de segurança ou a inspeção destes URLs, permitindo-os como se fosse outro tráfego de Internet.
 
 ### <a name="register-azure-resource-providers"></a>Registar fornecedores de recursos Azure
 
@@ -163,11 +169,11 @@ O agente da Máquina Conectada para Windows pode ser instalado utilizando um dos
 * Manualmente, executando o pacote do Instalador do Windows `AzureConnectedMachineAgent.msi` a partir da concha do Comando.
 * A partir de uma sessão PowerShell usando um método scripted.
 
-Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se as seguintes alterações adicionais de configuração a nível do sistema.
+Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se as seguintes alterações de configuração a nível do sistema.
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Descrição |
+    |Pasta |Description |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contém os ficheiros de configuração do agente.|
@@ -179,7 +185,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Os seguintes serviços Windows são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
     |-------------|-------------|-------------|------------|
     |osds |Serviço de Metadados de Caso Híbrido Azure |osds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |GCArcService |Serviço de Arco de Configuração de Hóspedes |gc_service |Monitoriza a configuração estatal desejada da máquina.|
@@ -187,14 +193,14 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Nome |Valor predefinido |Descrição |
+    |Nome |Valor predefinido |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Descrição |
+    |Registo |Description |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -215,11 +221,11 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 O agente da Máquina Conectada para o Linux é fornecido no formato de pacote preferido para a distribuição (. RPM ou . DEB) que está hospedado no [repositório](https://packages.microsoft.com/)de pacotes da Microsoft. O agente está instalado e configurado com o pacote de scripts da concha [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
-Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as seguintes alterações adicionais de configuração a nível do sistema.
+Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as seguintes alterações de configuração a nível do sistema.
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Descrição |
+    |Pasta |Description |
     |-------|------------|
     |/var/opt/azcmagent/ |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |/opt/azcmagent/ |
@@ -231,7 +237,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Os seguintes daemons são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Serviço de agente de máquinas conectado Azure |osds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |gcad.servce |Serviço GC Arc |gc_linux_service |Monitoriza a configuração estatal desejada da máquina. |
@@ -239,7 +245,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Descrição |
+    |Registo |Description |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -250,7 +256,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Nome |Valor predefinido |Descrição |
+    |Nome |Valor predefinido |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

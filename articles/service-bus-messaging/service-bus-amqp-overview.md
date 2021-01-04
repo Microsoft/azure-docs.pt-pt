@@ -3,12 +3,12 @@ title: Visão geral do AMQP 1.0 em Azure Service Bus
 description: Saiba como o Azure Service Bus suporta o Protocolo avançado de Fila de Mensagens (AMQP), um protocolo padrão aberto.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: e585fcc905d1651d49008b623b01a6c2f8a04fcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 241a6b7fb9f9055ce610e44e5cd37dba87c77554
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498783"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709287"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte AMQP 1.0 em Service Bus
 O serviço de nuvem de ônibus de serviço Azure utiliza o [Protocolo avançado de fila de mensagens (AMQP) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) como principal meio de comunicação. A Microsoft tem estado envolvida com parceiros em toda a indústria, tanto clientes como fornecedores de corretores de mensagens concorrentes, para desenvolver e evoluir amQP ao longo da última década, com novas extensões a serem desenvolvidas no [Comité Técnico da AMQP do OASIS.](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) AMQP 1.0 é uma norma ISO e IEC[(ISO 19464:20149).](https://www.iso.org/standard/64955.html) 
@@ -42,7 +42,7 @@ Em outubro de 2011, o trabalho de desenvolvimento transitou para um comité téc
 * **Fornecedores de tecnologia**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **Empresas de utilizadores**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
-Os atuais presidentes do Comité Técnico [OASIS AMQP](representam https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) a Red Hat e a Microsoft.
+Os atuais presidentes do [Comité Técnico da AMQP do OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) representam a Red Hat e a Microsoft.
 
 Alguns dos benefícios geralmente citados de normas abertas incluem:
 

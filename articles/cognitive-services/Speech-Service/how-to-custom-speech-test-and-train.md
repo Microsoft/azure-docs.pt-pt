@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484010"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709304"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -46,9 +46,11 @@ Esta tabela lista os tipos de dados aceites, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Utilizado para testes | Quantidade recomendada | Usado para treino | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | 5+ ficheiros áudio | Não | N/D |
-| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1-1.000 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
+| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | 5+ ficheiros áudio | No | N/D |
+| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Yes | 1-20 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB de texto relacionado |
+
+Quando treinar um novo modelo, comece com [textos relacionados.](#related-text-data-for-training) Estes dados já melhorarão o reconhecimento de termos e frases especiais.
 
 Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados como um ficheiro .zip. Cada conjunto de dados só pode conter um único tipo de dados.
 
@@ -91,7 +93,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 
 Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> SoX</a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
 
-| Atividade | Descrição | Comando SoX |
+| Atividade | Description | Comando SoX |
 |----------|-------------|-------------|
 | Verifique o formato áudio | Use este comando para verificar<br>o formato de ficheiro áudio. | `sox --i <filename>` |
 | Converter formato áudio | Use este comando para converter<br>o ficheiro áudio para um único canal, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -117,7 +119,7 @@ Os ficheiros áudio podem ter silêncio no início e no fim da gravação. Se po
 > [!NOTE]
 > Ao carregar dados de treino e teste, o tamanho do ficheiro .zip não pode exceder 2 GB. Só pode testar a partir de um *único* conjunto de dados, certifique-se de mantê-lo dentro do tamanho apropriado do ficheiro. Além disso, cada ficheiro de treino não pode exceder 60 segundos, caso contrário, irá errar.
 
-Para resolver questões como a eliminação ou substituição de palavras, é necessária uma quantidade significativa de dados para melhorar o reconhecimento. Geralmente, é recomendado fornecer transcrições palavra-a-palavra para aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
+Para resolver questões como a eliminação ou substituição de palavras, é necessária uma quantidade significativa de dados para melhorar o reconhecimento. Geralmente, é recomendado fornecer transcrições palavra-a-palavra para aproximadamente 10 a 20 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
 
   Por exemplo:
 ```
@@ -135,6 +137,8 @@ Depois de ter recolhido os seus ficheiros áudio e transcrições correspondente
 
 > [!div class="mx-imgBorder"]
 > ![Selecione áudio do Portal do Discurso](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+Consulte [configurar a sua conta Azure](custom-speech-overview.md#set-up-your-azure-account) para obter uma lista de regiões recomendadas para as suas subscrições de serviço de Discurso. A criação das assinaturas Discurso numa destas regiões reduzirá o tempo necessário para formar o modelo.
 
 ## <a name="related-text-data-for-training"></a>Dados de texto relacionados para a formação
 

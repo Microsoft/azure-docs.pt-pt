@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: c67415be38bc7b6fa48fd1046b51194c294df2f3
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.custom: designer
+ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030395"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709423"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Permitir o login nos oleodutos de designers de machine learning do Azure
 

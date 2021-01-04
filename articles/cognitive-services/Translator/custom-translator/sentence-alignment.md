@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347800"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724311"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -22,7 +22,7 @@ Após o upload dos documentos, as frases presentes em documentos paralelos são 
 
 ## <a name="pairing-and-alignment-process"></a>Processo de emparelhamento e alinhamento
 
-O Tradutor Personalizado aprende traduções de frases uma frase de cada vez. Lê uma frase de origem, e depois a tradução desta frase do alvo. Depois alinha palavras e frases nestas duas frases uma à outra. Este processo permite-lhe criar um mapa das palavras e frases numa frase às palavras e frases equivalentes na tradução desta frase. O alinhamento tenta garantir que o sistema treina em frases que são traduções uns dos outros.
+O Tradutor Personalizado aprende traduções de frases uma frase de cada vez. Lê uma frase do texto de origem e, em seguida, a tradução desta frase a partir do texto-alvo. Depois alinha palavras e frases nestas duas frases uma à outra. Este processo permite-lhe criar um mapa das palavras e frases numa frase às palavras e frases equivalentes na tradução da sua frase. O alinhamento tenta garantir que o sistema treina em frases que são traduções uns dos outros.
 
 ## <a name="pre-aligned-documents"></a>Documentos pré-alinhados
 

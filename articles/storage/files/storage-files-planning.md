@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842716"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724238"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -98,7 +98,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](./storage-files-prevent-file-share-deletion.md).
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](./storage-snapshots-files.md)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.
@@ -114,56 +114,6 @@ Para obter mais informações, consulte [a proteção contra ameaças avançadas
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="understanding-provisioning-for-premium-file-shares"></a>Compreensão do provisionamento das ações de ficheiros premium
-As ações de ficheiros premium são abastecadas com base num rácio GiB/IOPS/produção fixo. Todos os tamanhos de ações são oferecidos de base/produção mínima e autorizados a rebentar. Para cada GiB a provisionado, a ação será emitida como IOPS/produção mínima e um IOPS e 0,1 MiB/s até aos limites máximos por ação. O fornecimento mínimo permitido é de 100 GiB com o mínimo IOPS/produção. 
-
-Todas as ações premium são oferecidas rebentando gratuitamente com a melhor base de esforço. Todos os tamanhos de ações podem explodir até 4.000 IOPS ou até três IOPS por GiB provisitado, o que fornecer um IOPS de maior explosão para a parte. Todas as ações suportam rebentar por uma duração máxima de 60 minutos num limite máximo de rajada. As novas ações começam com o crédito total com base na capacidade provisida.
-
-As ações devem ser abastradas em 1 incremento GiB. O tamanho mínimo é de 100 GiB, o próximo tamanho é 101 GiB, e assim por diante.
-
-> [!TIP]
-> IOPS de base = 400 + 1 * GiB provisionado. (Até um máximo de 100.000 IOPS).
->
-> Limite de explosão = MAX (4.000, 3 * PIOS de base). (qualquer que seja o limite maior, até um máximo de 100.000 IOPS).
->
-> taxa de egress = 60 MiB/s + 0,06 * GiB a provisionado
->
-> taxa de entrada = 40 MiB/s + 0,04 * GiB a provisionado
-
-O tamanho das ações previstas é especificado por quota de ações. A quota de ações pode ser aumentada a qualquer momento, mas só pode ser diminuída após 24 horas desde o último aumento. Depois de esperar 24 horas sem um aumento de quota, pode diminuir a quota de ações quantas vezes quiser, até que a aumente novamente. As alterações na escala IOPS/Produção serão eficazes dentro de poucos minutos após a mudança de tamanho.
-
-É possível diminuir o tamanho da sua parte abaixo do seu GiB usado. Se o fizer, não perderá dados mas, ainda será cobrado pelo tamanho utilizado e receberá o desempenho (IOPS de base, produção e IOPS rebentado) da parte atada, e não do tamanho utilizado.
-
-A tabela a seguir ilustra alguns exemplos destas fórmulas para as dimensões das ações previstas:
-
-|Capacidade (GiB) | IOPS de linha de base | IOPS de explosão | Egress (MiB/s) | Ingress (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Até 4.000     | 66   | 44   |
-|500         | 900     | Até 4.000  | 90   | 60   |
-|1,024       | 1,424   | Até 4.000   | 122   | 81   |
-|5,120       | 5,520   | Até 15.360  | 368   | 245   |
-|10,240      | 10,640  | Até 30.720  | 675   | 450   |
-|33,792      | 34,192  | Até 100.000 | 2,088 | 1,392   |
-|51,200      | 51,600  | Até 100.000 | 3,132 | 2,088   |
-|102,400     | 100.000 | Até 100.000 | 6,204 | 4,136   |
-
-É importante notar que o desempenho efetivo das partilhas de ficheiros está sujeito a limites de rede de máquinas, largura de banda de rede disponível, tamanhos de IO, paralelismo, entre muitos outros fatores. Por exemplo, com base em testes internos com tamanhos IO de leitura/escrita de 8 KiB, uma única máquina virtual Windows sem O Multicanal SMB ativada, *Standard F16s_v2,* ligada à partilha de ficheiros premium sobre SMB poderia alcançar 20K ler IOPS e 15K escrever IOPS. Com 512 tamanhos de IO de leitura/escrita MiB, o mesmo VM poderia alcançar 1.1 GiB/s e 370 MiB/s ingress produção. O mesmo cliente pode alcançar até \~ 3x de desempenho se o SMB Multichannel estiver ativado nas ações premium. Para atingir a escala máxima de desempenho, [ative o SMB Multicanal](storage-files-enable-smb-multichannel.md) e espalhe a carga por vários VMs. Consulte o [guia de desempenho multicanal](storage-files-smb-multichannel-performance.md) e [resolução de problemas](storage-troubleshooting-files-performance.md) SMB para alguns problemas de desempenho comuns e soluções alternativas.
-
-#### <a name="bursting"></a>Estourando
-Se a sua carga de trabalho necessitar do desempenho extra para satisfazer a procura máxima, a sua parte pode usar créditos de rutura para ir acima do limite de IOPS de linha de base para oferecer o desempenho de partilha que precisa para satisfazer a procura. As ações de ficheiros premium podem rebentar o seu IOPS até 4.000 ou até um fator de três, o que for um valor mais elevado. A explosão é automatizada e funciona com base num sistema de crédito. A explosão funciona com uma melhor base de esforço e o limite de explosão não é uma garantia, as ações de ficheiro podem rebentar *até ao* limite por uma duração máxima de 60 minutos.
-
-Os créditos acumulam-se num balde de rutura sempre que o tráfego para a sua parte de ficheiro está abaixo do IOPS de base. Por exemplo, uma quota de 100 GiB tem 500 IOPS de base. Se o tráfego real na parte foi de 100 IOPS para um intervalo específico de 1 segundo, então os 400 IOPS não reutilizados são creditados a um balde de explosão. Da mesma forma, uma quota de TiB ociosa 1, acumula crédito rebentado em 1.424 IOPS. Estes créditos serão então utilizados mais tarde quando as operações excederem o IOPS de base.
-
-Sempre que uma ação exceder o IOPS de base e tiver créditos num balde de rutura, irá rebentar na taxa máxima de pico permitida. As ações podem continuar a rebentar enquanto os créditos permanecerem, até ao máximo de 60 minutos de duração, mas isso baseia-se no número de créditos acumulados. Cada IO para além do IOPS de base consome um crédito e uma vez consumidos todos os créditos, a parte regressaria ao IOPS de base.
-
-Os créditos de ações têm três estados:
-
-- Acumulando, quando a parte do ficheiro está a usar menos do que o IOPS de base.
-- Em declínio, quando a partilha de ficheiros está a utilizar mais do que o IOPS de base e no modo de rebentamento.
-- Constante, a partilha de ficheiros está a usar exatamente o IOPS de base, ou não existem créditos acumulados ou utilizados.
-
-As novas ações de ficheiros começam com o número total de créditos no seu balde de rebentamento. Os créditos de rutura não serão acumulados se o IOPS de ações cair abaixo do IOPS de base devido ao estrangulamento pelo servidor.
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Permitir que as ações de ficheiros padrão se estendem até 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]

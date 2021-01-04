@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas de implementação
 description: Este artigo fornece as melhores práticas para a implementação do Azure Purview. O Azure Purview permite que qualquer utilizador registe, descubra, compreenda e consuma fontes de dados.
-author: hophanms
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400697"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695856"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure Purview implementa as melhores práticas
 
@@ -110,7 +110,7 @@ Estes cenários podem ser escritos de várias maneiras, mas deve incluir pelo me
 
 Os cenários devem ser específicos, exequíveis e executáveis com resultados mensuráveis. Alguns cenários de exemplo que pode utilizar:
 
-|Cenário|Detalhes|Persona|
+|Scenario|Detalhes|Persona|
 |---------|---------|---------|
 |Catalogar ativos críticos de negócio|Preciso de informação sobre cada conjunto de dados para ter uma boa compreensão do que é. Este cenário inclui dados de metadados empresariais e técnicos sobre os dados definidos no catálogo. As fontes de dados incluem Azure Data Lake Storage Gen2, Azure Synapse DW e/ou Power BI. Este cenário também inclui recursos no local, como o SQL Server.|Analista de Negócios, Cientista de Dados, Engenheiro de Dados|
 |Descubra ativos críticos de negócio|Preciso de um motor de busca que possa pesquisar todos os metadados do catálogo. Eu deveria ser capaz de pesquisar usando termo técnico, termo de negócio com pesquisa simples ou complexa usando wildcard.|Analista de Negócios, Cientista de Dados, Engenheiro de Dados, Administrador de Dados|

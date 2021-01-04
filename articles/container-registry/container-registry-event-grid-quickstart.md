@@ -4,12 +4,12 @@ description: Neste arranque rápido, você ativa eventos de Grade de Evento para
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074221"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694395"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
 
@@ -78,7 +78,7 @@ Para implementar a aplicação da amostra, desloque-se `SITE_NAME` a um nome ún
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -202,7 +202,7 @@ A imagem que se segue mostra a aplicação da amostra com os três eventos, e o 
 
 Parabéns! Se vir os `ImagePushed` eventos e `ImageDeleted` eventos, o seu registo está a enviar eventos para a Grade de Eventos, e a Grade de Eventos está a encaminhar esses eventos para o ponto final da sua aplicação web.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Uma vez terminado os recursos que criou neste arranque rápido, pode eliminá-los todos com o seguinte comando Azure CLI. Quando elimina um grupo de recursos, todos os recursos que contém são permanentemente eliminados.
 

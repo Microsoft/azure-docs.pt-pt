@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467578"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709449"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instruções de segurança Azure Stack Edge Pro R
 
@@ -27,14 +27,14 @@ Leia todas as informações de segurança deste artigo antes de utilizar o seu d
 
 As seguintes palavras de sinal para sinais de alerta de perigo são:
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Símbolo de perigo](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)| **PERIGO:** Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. <br> **ADVERTÊNCIA:** Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. <br> **ATENÇÃO:** Indica uma situação perigosa que, se não for evitada, pode resultar em ferimentos ligeiros ou moderados.|
 |
 
 Os seguintes ícones de perigo devem ser observados ao configurar e executar o seu dispositivo Azure Stack Edge Pro R Edge:
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Leia todas as instruções primeiro](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Leia todas as instruções primeiro |
 | ![Símbolo de perigo](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Símbolo de perigo |
@@ -86,6 +86,7 @@ Os seguintes ícones de perigo devem ser observados ao configurar e executar o s
   * Isolados de campos eletromagnéticos fortes produzidos por dispositivos elétricos.
   * Provido de tomadas devidamente aterradas.
   * Dotamento de espaço adequado para aceder aos cabos de alimentação, porque servem como a principal desconexão de energia do produto.
+* Os cabos Ethernet não estão equipados com o produto. Para reduzir a interferência eletromagnética, recomenda-se a utilização de cabos de pares torcidos blindados cat 6 (STP).
 * Instale o equipamento numa área de trabalho que permite uma circulação de ar adequada em torno do equipamento; Certifique-se de que as tampas dianteiras e traseiras estão completamente removidas enquanto o aparelho está em funcionamento.
 * Instale o equipamento em zona controlada a temperatura, sem contaminantes condutores e permita uma circulação adequada do ar em torno do equipamento.
 * Mantenha o equipamento afastado de fontes de ambientes líquidos e excessivamente húmidos.
@@ -115,6 +116,11 @@ Os seguintes ícones de perigo devem ser observados ao configurar e executar o s
   * O dispositivo foi largado e o invólucro do dispositivo está danificado.
   * Suspeita que o dispositivo precisa de assistência ou reparação.
 * Desligue permanentemente a ficha antes de a mover ou se pensa que ficou danificada de alguma forma.
+* Para evitar uma corrente de alta fuga, quando um único estojo de trânsito tem mais de uma fonte de alimentação ininterrupta (UPS), recomenda-se que cada UPS esteja ligada a um circuito de ramificação independente. No entanto, no caso de ser utilizada uma unidade de distribuição de energia (PDU) ou outro dispositivo em que o solo de segurança de cada UPS dependa de um único condutor de ligação à terra do PDU, o terminal de ligação à terra no exterior de cada UPS deve também ser utilizado com um condutor de terra suplementar.
+
+  > [!NOTE]
+  > Se for utilizado um PDU que já tenha um condutor de ligação à terra suplementar, não é necessário utilizar o terminal de ligação à terra adicional da UPS.
+
 * Fornecer uma fonte de alimentação adequada com proteção elétrica para sobrecargas para satisfazer as seguintes especificações de energia:
 
   * Voltagem: 100 a 240 Volts AC
@@ -157,7 +163,7 @@ O aparelho foi concebido para funcionar nos seguintes ambientes:
 |:--- |:--- |
 |Especificações de temperatura | <ul><li>Temperatura de armazenamento: -33 &deg; C-63 &deg; C (-28 &deg; F-145 &deg; F) </li><li>Funcionamento contínuo: 5 &deg; C-43 &deg; C (41 &deg; F-110 &deg; F)</li><li>Gradiente de temperatura máxima (funcionamento e armazenamento): 20 &deg; C/h (68 &deg; F/h)</li></ul> |
 |Especificações relativas de humidade | <ul><li>Armazenamento: 5% a 95% RH com 33 &deg; C (91 &deg; F) ponto máximo de orvalho. A atmosfera deve estar sempre a não ser condensada.</li><li>Funcionamento: 5% a 85% humidade relativa com 29 &deg; C (84,2 &deg; F) ponto máximo de orvalho</li></ul> |
-| Especificações máximas de altitude | <ul><li>Funcionamento (Sem UPS): 15.000 pés (4.572 metros)</li><li>Funcionamento (com UPS): 6.561 pés (2.000 metros)</li><li>Armazenamento: 40.000 pés (12.192 metros)</li></ul> |
+| Especificações máximas de altitude | <ul><li>Funcionamento (Sem UPS): 15.000 pés (4.572 metros)</li><li>Funcionamento (com UPS): 10.000 pés (3.048 metros)</li><li>Armazenamento: 40.000 pés (12.192 metros)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

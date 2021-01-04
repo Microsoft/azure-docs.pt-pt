@@ -7,14 +7,16 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8bf3959651048a7a568df1d94aa07aa206663d50
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d9c8df4fe296bcd40f26847233fcd49bcab573c0
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750990"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709455"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
+
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 As características do Azure Security Center cobrem os dois grandes pilares da segurança na nuvem:
 
@@ -39,7 +41,7 @@ Quando ativa o Azure Defender a partir da área de Preços e Definições do Azu
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registos de contentor](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
-- [Azure Defender para Gestor de Recursos](defender-for-resource-manager-introduction.md)
+- [Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)
 - [Azure Defender para DNS](defender-for-dns-introduction.md)
 
 Cada um destes planos é explicado separadamente na documentação do Centro de Segurança.

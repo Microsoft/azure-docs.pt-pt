@@ -5,21 +5,21 @@ description: Os clientes que fazem pedidos contra o armazenamento Azure Blob tê
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618731"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694706"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob
 
-Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação por pedido. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob. As chaves fornecidas pelo cliente podem ser armazenadas no Cofre da Chave Azure ou noutra loja de chaves.
+Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação AES-256 por pedido. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob. As chaves fornecidas pelo cliente podem ser armazenadas no Cofre da Chave Azure ou noutra loja de chaves.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -41,11 +41,11 @@ Cada instantâneo blob pode ter a sua própria chave de encriptação.
 
 Para chamadas REST, os clientes podem usar os seguintes cabeçalhos para passar de forma segura informações das chaves de encriptação num pedido de armazenamento blob:
 
-|Cabeçalho do Pedido | Descrição |
+|Cabeçalho do Pedido | Description |
 |---------------|-------------|
 |`x-ms-encryption-key` |Requerido tanto para escrever como ler pedidos. Um valor chave de encriptação AES-256 codificado pela Base64. |
 |`x-ms-encryption-key-sha256`| Requerido tanto para escrever como ler pedidos. O SHA256 codificado pela Base64 da chave de encriptação. |
-|`x-ms-encryption-algorithm` | Requerido para pedidos de escrita, opcional para pedidos de leitura. Especifica o algoritmo a utilizar ao encriptar dados utilizando a chave dada. Deve ser AES256. |
+|`x-ms-encryption-algorithm` | Requerido para pedidos de escrita, opcional para pedidos de leitura. Especifica o algoritmo a utilizar ao encriptar dados utilizando a chave dada.  O valor deste cabeçalho deve ser `AES256` . |
 
 Especificar chaves de encriptação no pedido é opcional. No entanto, se especificar um dos cabeçalhos acima indicados para uma operação de escrita, deve especificar todos eles.
 

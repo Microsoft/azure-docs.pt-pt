@@ -2,19 +2,21 @@
 title: Recursos infantis em modelos
 description: Descreve como definir o nome e o tipo de recursos para crianças num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80743831"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97721948"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis
 
-Os recursos infantis são recursos que existem apenas no contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). O recurso de extensão é uma criança da máquina virtual.
+Os recursos infantis são recursos que existem apenas no contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). O recurso de extensão é uma criança da máquina virtual.
 
-Num modelo de Gestor de Recursos, pode especificar o recurso da criança dentro do recurso principal ou fora do recurso principal. O exemplo a seguir mostra o recurso da criança incluído na propriedade dos recursos do recurso principal.
+Cada recurso dos pais aceita apenas certos tipos de recursos como recursos infantis. O tipo de recurso para o recurso da criança inclui o tipo de recurso para o recurso principal. Por exemplo, **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos infantis da **Microsoft.Web/sites**. Os tipos de recursos aceites são especificados no esquema de [modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso principal.
+
+Num modelo de Gestor de Recursos Azure (modelo ARM), pode especificar o recurso da criança dentro do recurso principal ou fora do recurso principal. O exemplo a seguir mostra o recurso da criança incluído na propriedade dos recursos do recurso principal.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ Num modelo de Gestor de Recursos, pode especificar o recurso da criança dentro 
   }
 ]
 ```
+
+Os recursos infantis só podem ser definidos com cinco níveis de profundidade.
 
 O exemplo seguinte mostra o recurso da criança fora do recurso principal. Pode utilizar esta abordagem se o recurso dos pais não for implantado no mesmo modelo, ou se quiser usar a [cópia](copy-resources.md) para criar mais do que um recurso infantil.
 
@@ -132,6 +136,6 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definid
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autoria](template-syntax.md).
+* Para aprender a criar modelos ARM, consulte [os modelos de autoria](template-syntax.md).
 
 * Para saber mais sobre o formato do nome do recurso ao fazer referência ao recurso, consulte a [função de referência](template-functions-resource.md#reference).
