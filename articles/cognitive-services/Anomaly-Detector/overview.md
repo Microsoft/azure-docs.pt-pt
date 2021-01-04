@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: deteção de anomalias, aprendizagem automática, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999110"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705086"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -97,6 +97,6 @@ Pode ler o [serviço de deteção de anomalias de séries de tempo na Microsoft]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Detetar anomalias nos dados da sua série de tempo utilizando a API do Detetor de Anomalias](quickstarts/detect-data-anomalies-csharp.md)
+* [Quickstart: Detetar anomalias nos dados da série de tempo usando o Detetor de Anomalias](quickstarts/client-libraries.md)
 * A demonstração online do Detetor [de Anomalias](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) API
 * A referência API do Detetor de [Anomalias REST](https://aka.ms/anomaly-detector-rest-api-ref)

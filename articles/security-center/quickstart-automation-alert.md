@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 12b7c86e528af6c174f456add4d29a92239cd01e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e53a5c4840cee0651090bec0b68cc53e13102299
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678010"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705494"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>Quickstart: Criar uma resposta automática a um alerta de segurança específico usando um modelo ARM
 
@@ -21,7 +21,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
@@ -57,7 +57,7 @@ Para outros modelos de arranque rápido do Security Center, consulte estes [mode
 
   ```azurecli-interactive
   az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment
-  az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json
+  az deployment group create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json
   ```
 
 - **Portal:**
@@ -84,9 +84,9 @@ Quando já não for necessário, elimine a automatização do fluxo de trabalho 
 1. A partir do [portal Azure,](https://portal.azure.com) **Abrir Centro de Segurança.**
 1. A partir da barra de menu superior, selecione o ícone do filtro e selecione a subscrição específica na qual implementou a nova automatização do fluxo de trabalho.
 1. Da barra lateral do Security Center, abra **a automatização do fluxo de trabalho** e encontre a automatização a ser eliminada.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Lista de automações configuradas" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Passos para a remoção de uma automatização do fluxo de trabalho" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Selecione a caixa de verificação para que o item seja eliminado.
-1. A partir da barra de ferramentas, **selecione Delete** .
+1. A partir da barra de ferramentas, **selecione Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

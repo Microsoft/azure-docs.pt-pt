@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207534"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724135"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
@@ -172,7 +172,7 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
     * **Caminho do Modelo**: A combinação do "outputFolderPath" e do "outputAssetFileName" definido no *arrconfig.jsem* ficheiro. No arranque rápido, este foi "outputFolderPath":"convertido/robô", "outputAssetFileName": "robot.arrAsset". O que resultaria num valor de Model Path de "convertido/robô/robot.arrAsset", o seu valor será diferente.
 
     >[!TIP]
-    > Se [executar **Conversion.ps1** o](../../../quickstarts/convert-model.md#run-the-conversion)Conversion.ps1script, sem o argumento "UseContainerSas", o script irá descoduar todos os valores acima para o seu em vez do token SAS. ![Modelo ligado](./media/converted-output.png)
+    > Se [executar  o](../../../quickstarts/convert-model.md#run-the-conversion)Conversion.ps1script, sem o argumento "UseContainerSas", o script irá descoduar todos os valores acima para o seu em vez do token SAS. ![Modelo ligado](./media/converted-output.png)
 1. Por enquanto, remova ou desative o GameObject **TestModel,** para abrir espaço para o seu modelo personalizado carregar.
 1. Toque a cena e ligue-se a uma sessão remota.
 1. Clique no seu **RemoteRenderingCoordinator** e selecione **Load Linked Custom Model**.
@@ -255,6 +255,14 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -262,7 +270,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -279,7 +287,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -369,7 +377,7 @@ A parte mais importante desta classe do ponto de vista ARR é esta linha:
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Aqui, criamos um novo objeto **AzureFrontendAccountInfo** usando o domínio da conta, iD de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
+Aqui, criamos um novo objeto **AzureFrontendAccountInfo** utilizando o domínio da conta, iD de conta, domínio de autenticação de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
 
 Com esta mudança, o estado atual da aplicação e o seu acesso aos seus recursos Azure são assim:
 
@@ -391,6 +399,7 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
     * **ID do Cliente de Aplicação de Diretório Ativo** é o *ID da Aplicação (cliente)* encontrado no registo da sua aplicação AAD (ver imagem abaixo).
     * **Azure Tenant ID** é o ID do *Diretório (inquilino)* encontrado no seu registo de aplicações AAD (ver imagem abaixo).
     * **O ID da conta de renderização remota Azure** é o mesmo **ID** de conta que tem usado para **RemoteRenderingCoordinator**.
+    * **O Domínio de Autenticação de Conta** é o mesmo domínio de **autenticação** de conta que tem vindo a utilizar no **Comando Dereservador** remoto .
 
     ![Screenshot que destaca o ID de Aplicação (cliente) e Diretório (inquilino) ID.](./media/app-overview-data.png)
 
@@ -405,7 +414,7 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
 
 Se estiver a construir uma aplicação utilizando o MSAL para o dispositivo, terá de incluir um ficheiro na pasta **Ativos** do seu projeto. Isto ajudará o compilador a construir a aplicação corretamente utilizando o *Microsoft.Identity.Client.dll* incluído nos **Ativos Tutoriais**.
 
-1. Adicione um novo ficheiro em **Ativos** ** nomeadoslink.xml**
+1. Adicione um novo ficheiro em **Ativos** **nomeadoslink.xml**
 1. Adicione o seguinte para o ficheiro:
 
     ```xml
@@ -418,7 +427,7 @@ Se estiver a construir uma aplicação utilizando o MSAL para o dispositivo, ter
     </linker>
     ```
 
-1. Guardar as alterações
+1. Guarde as alterações
 
 Siga os passos encontrados em [Quickstart: Deploy Unitity sample to HoloLens - Build the sample Project](../../../quickstarts/deploy-to-hololens.md#build-the-sample-project), to build to HoloLens.
 

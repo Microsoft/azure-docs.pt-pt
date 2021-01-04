@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: fd4ea4b671ee8efa853109e288459fdc256bee23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73fd6c7f49c10c8aca1060e91fc69b0e581738b
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776685"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707508"
 ---
 # <a name="import-and-export-data-reference"></a>Referência de dados de importação e exportação
 
@@ -18,4 +18,6 @@ Reveja esta referência de importação e exportação para obter os melhores re
 
 ## <a name="import-and-export-knowledge-base"></a>Base de conhecimentos de importação e exportação
 
-**Os ficheiros TSV e XLS**, a partir de bases de conhecimento exportadas, só podem ser utilizados importando os ficheiros da página **Definições** no portal Do Criador QnA. Não podem ser utilizados como fontes de dados durante a criação da base de conhecimento ou a partir do **ficheiro + Adicionar** ou + Adicionar a função **URL** na página **Definições.**
+**Os ficheiros TSV e XLS**, a partir de bases de conhecimento exportadas, só podem ser utilizados importando os ficheiros da página **Definições** no portal Do Criador QnA. Não podem ser utilizados como fontes de dados durante a criação da base de conhecimento ou a partir do **ficheiro + Adicionar** ou + Adicionar a função **URL** na página **Definições.** 
+
+Quando importa a base de conhecimento através **destes ficheiros TSV e XLS,** os pares QnA são adicionados à fonte editorial e não às fontes a partir das quais os QnAs foram extraídos na Base de Conhecimento exportada. 

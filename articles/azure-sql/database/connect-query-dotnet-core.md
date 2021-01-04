@@ -12,14 +12,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: c1443dcefb12a063a287e89f1c292ba39bd38dc6
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1d25f43ef5a694d8b94710055bf1be72a7fcb45c
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680355"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705222"
 ---
-# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL
+# <a name="quickstart-use-net-core-c-to-query-a-database"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.com/net/) e C# para ligar a uma base de dados. Em seguida, irá executar uma declaração Transact-SQL para consultar dados.
@@ -32,34 +32,10 @@ Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.c
 Para concluir este guia de início rápido, precisa de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [.NET Core para o seu sistema operativo](https://www.microsoft.com/net/core) instalado.
 - Uma base de dados onde pode fazer a sua consulta. 
 
-[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
-
-- [.NET Core para o seu sistema operativo](https://www.microsoft.com/net/core) instalado.
-
-## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
-
-Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-
-2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
-
-3. Na página **'Vista Geral',** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para a base de dados na Base de Dados Azure SQL ou o nome do servidor (ou endereço IP) totalmente qualificado ao lado do **Anfitrião** para uma Instância Gerida SQL Azure ou servidor SQL em Azure VM. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copy.**
-
-> [!NOTE]
-> Para obter informações de ligação para O Servidor SQL em Azure VM, consulte [Conecte-se a uma instância do SqL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
-
-## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Obtenha informações de ligação ADO.NET (opcional - apenas base de dados SQL)
-
-1. Navegue para a lâmina da base de dados no portal Azure e, em **Definições,** selecione **cadeias de ligação**.
-
-2. Reveja a cadeia de ligação **ADO.NET** completa.
-
-    ![Cadeia de ligação de ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
-
-3. Copie o **fio de** ligação ADO.NET se pretender usá-lo.
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
   
 ## <a name="create-a-new-net-core-project"></a>Criar um novo projeto .NET Core
 

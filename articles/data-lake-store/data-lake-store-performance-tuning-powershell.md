@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 afinação de desempenho - PowerShell
 description: Dicas sobre como melhorar o desempenho ao utilizar o Azure PowerShell com a Azure Data Lake Storage Gen1.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/09/2018
-ms.author: stewu
-ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: twooley
+ms.openlocfilehash: 4ac2bbb21fd1a987d544a536d0f52628824e0bf4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504700"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723834"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para usar PowerShell com Azure Data Lake Storage Gen1
 
@@ -21,7 +21,7 @@ Este artigo descreve as propriedades que você pode sintonizar para obter um mel
 
 ## <a name="performance-related-properties"></a>Propriedades relacionadas com o desempenho
 
-| Propriedade            | Predefinição | Descrição |
+| Propriedade            | Predefinição | Description |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Este parâmetro permite-lhe escolher o número de threads paralelos para carregar ou transferir cada ficheiro. Este número representa as linhas máximas que podem ser atribuídas por ficheiro, mas pode obter menos fios dependendo do seu cenário (por exemplo, se estiver a carregar um ficheiro de 1 KB, obtém-se um fio mesmo que peça 20 threads).  |
 | ConcurrentFileCount | 10      | Este parâmetro destina-se especificamente ao carregamento ou transferência de pastas. Este parâmetro determina o número de ficheiros simultâneos que podem ser carregados ou transferidos. Este número representa o número máximo de ficheiros simultâneos que podem ser carregados ou descarregados de uma só vez, mas pode obter menos concordância dependendo do seu cenário (por exemplo, se estiver a carregar dois ficheiros, obtém dois ficheiros simultâneos mesmo que peça 15). |

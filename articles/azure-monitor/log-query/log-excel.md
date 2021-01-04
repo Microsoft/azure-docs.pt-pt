@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: d903d1bb16ba3576d0092979f1cc6b82fac1c0be
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507587"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703454"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Integrar a Analytics de Registos e Excel
 
-Pode integrar o Azure Monitor Log Analytics e o Microsoft Excel utilizando a consulta M e a API do Log Analytics.  Esta integração permite-lhe enviar 500.000 registos para o Excel.
+Pode integrar o Azure Monitor Log Analytics e o Microsoft Excel utilizando a consulta M e a API do Log Analytics. Esta integração permite-lhe enviar até 500.000 registos para o Excel, desde que o volume total dos resultados não exceda 61MiB.
 
 > [!NOTE]
 > Como o Excel é uma aplicação de cliente local, as limitações de hardware e software locais têm impacto no seu desempenho e capacidade de processar grandes conjuntos de dados.
@@ -30,7 +30,7 @@ Pode integrar o Azure Monitor Log Analytics e o Microsoft Excel utilizando a con
 
 
 
-A escolha desta opção descarrega um ficheiro .txt contendo o código M que pode utilizar no Excel.
+A escolha desta opção descarrega um ficheiro .txt que contém o código M que pode utilizar no Excel.
 
 A consulta acima apresentada exporta o seguinte código M. Aqui está um exemplo do código M exportado para a consulta no nosso exemplo:
 
@@ -84,7 +84,7 @@ Para importar a consulta.
  
    :::image type="content" source="media/log-excel/excel-import-blank-query.png" alt-text="Importar do branco na opção Excel" border="true":::
 
-1. Na janela de consulta de energia selecione **editor avançado** :
+1. Na janela de consulta de energia selecione **editor avançado**:
 
    :::image type="content" source="media/log-excel/advanced-editor.png" alt-text="Excel Advanced editor de consulta" border="true":::
 
@@ -93,10 +93,13 @@ Para importar a consulta.
 
    :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="Criar uma consulta em branco" border="true":::
  
-1. Selecione **Fazer** , e depois **Carregar e fechar**. O Excel executa a consulta utilizando a API de análise de registo e o conjunto de resultados mostrado.
+1. Selecione **Fazer**, e depois **Carregar e fechar**. O Excel executa a consulta utilizando a API de análise de registo e o conjunto de resultados mostrado.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Resultados de consulta no Excel" border="true":::
+
+> [!Note]
+> Se o número de registos for inferior ao esperado, o volume dos resultados poderá exceder o limite de 61MiB. Tente utilizar `project` ou na sua consulta limitar as `project-away` colunas à que necessita.
 
 ##  <a name="refreshing--data"></a>Dados refrescantes
 

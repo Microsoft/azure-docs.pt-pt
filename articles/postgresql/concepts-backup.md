@@ -6,16 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488015"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706775"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Servidor Único
 
-A Azure Database for PostgreSQL cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.
+A Azure Database for PostgreSQL cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. A cópia de segurança e o restauro são uma parte essencial de qualquer estratégia de continuidade empresarial, uma vez que protegem os seus dados contra danos e a eliminação acidentais.
 
 ## <a name="backups"></a>Cópias de segurança
 
@@ -47,7 +47,7 @@ O período de retenção de backups regula o quão longe no tempo um restauro de
 A Base de Dados Azure para PostgreSQL proporciona a flexibilidade para escolher entre armazenamento de backup localmente redundante ou geo-redundante nos níveis Geral De Finalidade e Memória Otimizada. Quando as cópias de segurança são armazenadas no armazenamento de backup geo-redundante, não só são armazenadas na região em que o seu servidor está hospedado, como também são replicadas num centro de [dados emparelhado](../best-practices-availability-paired-regions.md). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível básico só oferece armazenamento de backup localmente redundante.
 
 > [!IMPORTANT]
-> Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança.
+> Só é permitido configurar o armazenamento localmente redundante ou georredundante para cópias de segurança durante a criação do servidor. Assim que o servidor tiver sido aprovisionado, não poderá alterar a opção de redundância do armazenamento de cópias de segurança.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 
@@ -59,7 +59,7 @@ O principal meio de controlar o custo de armazenamento de backup é definindo o 
 
 ## <a name="restore"></a>Restauro
 
-Na Base de Dados Azure para PostgreSQL, executar uma restauração cria um novo servidor a partir das cópias de segurança do servidor original.
+Na Base de Dados Azure para PostgreSQL, executar uma restauração cria um novo servidor a partir das cópias de segurança do servidor original. 
 
 Existem dois tipos de restauro disponíveis:
 
@@ -68,8 +68,11 @@ Existem dois tipos de restauro disponíveis:
 
 O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
 
-> [!IMPORTANT]
-> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](../azure-resource-manager/management/lock-resources.md).
+> [!NOTE] 
+> Se o servidor PostgreSQL da sua fonte estiver encriptado com as teclas geridas pelo cliente, consulte a [documentação](concepts-data-encryption-postgresql.md) para obter considerações adicionais. 
+
+> [!NOTE]
+> Se pretender restaurar um servidor PostgreSQL eliminado, siga o procedimento documentado [aqui](howto-restore-dropped-server.md).
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
@@ -81,11 +84,14 @@ Poderá ter de esperar que a próxima cópia de segurança do registo de transa�
 
 ### <a name="geo-restore"></a>Georrestauro
 
-Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança geo-redundantes. Os servidores que suportam até 4 TB de armazenamento podem ser restaurados na região geo emparelhada, ou em qualquer região que suporte até 16 TB de armazenamento. Para servidores que suportam até 16 TB de armazenamento, as geo-cópias podem ser restauradas em qualquer região que suporte também 16 servidores TB. Reveja [a base de dados Azure para os níveis de preços postgeSQL](concepts-pricing-tiers.md) para a lista de regiões apoiadas.
+Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança geo-redundantes. Os servidores que suportam até 4 TB de armazenamento podem ser restaurados na região geo emparelhada, ou em qualquer região que suporte até 16 TB de armazenamento. Para servidores que suportam até 16 TB de armazenamento, as geo-cópias podem ser restauradas em qualquer região que suporte também 16 servidores TB. Reveja [a base de dados Azure para os níveis de preços pós-SQL](concepts-pricing-tiers.md) para a lista de regiões apoiadas.
 
 O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
 
 Durante o geo-restauro, as configurações do servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do nível de preços (Básico, Final geral ou memória otimizada) ou o tamanho do armazenamento não é suportado.
+
+> [!NOTE]
+> Se o seu servidor de origem utilizar a dupla encriptação da infraestrutura, para restaurar o servidor, existem limitações, incluindo regiões disponíveis. Por favor, consulte a encriptação dupla da [infraestrutura](concepts-infrastructure-double-encryption.md) para mais detalhes.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas pós-restauro
 

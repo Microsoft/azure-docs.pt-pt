@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853293"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722407"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -311,12 +311,13 @@ Se a rede virtual incluir um DNS personalizado, o servidor DNS personalizado dev
 
 **O TLS 1.2 é aplicado nas ligações de saída**: Em janeiro de 2020, a Microsoft impôs TLS 1.2 para tráfego intra-serviço em todos os serviços Azure. Para a Azure SQL Managed Instance, isto resultou na aplicação do TLS 1.2 nas ligações de saída utilizadas para replicação e ligações de servidores ligados ao SQL Server. Se estiver a utilizar versões do SQL Server com mais de 2016 com a SQL Managed Instance, certifique-se de que foram [aplicadas atualizações específicas TLS 1.2.](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)
 
-As seguintes funcionalidades de rede virtual não são atualmente suportadas com a SQL Managed Instance:
+As seguintes funcionalidades de rede virtual não são atualmente *suportadas* com a SQL Managed Instance:
 
 - **Microsoft peering**: Habilitar [a Microsoft a espreitar](../../expressroute/expressroute-faqs.md#microsoft-peering) os circuitos ExpressRoute espreitei-o direta ou transitivamente com uma rede virtual onde o SQL Managed Instance reside afeta o fluxo de tráfego entre os componentes da SQL Managed Instance dentro da rede virtual e os serviços de que depende, causando problemas de disponibilidade. Espera-se que as implementações de SqL Managed Instance para rede virtual com o microsoft já ativado falhem.
 - **Observação global da rede virtual**: A conectividade de rede virtual que espreita [as](../../virtual-network/virtual-network-peering-overview.md) regiões de Azure não funciona para as Instâncias Geridas SQL colocadas em sub-redes criadas antes de 22/9/2020.
 - **AzurePlatformDNS**: A utilização da [etiqueta de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma tornaria a SQL Managed Instance indisponível. Embora a SQL Managed Instance suporte DNS definido pelo cliente para resolução de DNS dentro do motor, existe uma dependência da plataforma DNS para operações da plataforma.
 - **Gateway NAT**: A utilização [da Rede Virtual Azure NAT](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a SQL Managed Instance indisponível. O serviço SQL Managed Instance está atualmente limitado ao uso de balanceador de carga básico que não proporciona coexistência de fluxos de entrada e saída com a Rede Virtual NAT.
+- **IPv6 para Azure Virtual Network**: Implantar a SQL Managed Instance para [dupla pilha redes virtuais IPv4/IPv6](../../virtual-network/ipv6-overview.md) deverá falhar. Associar o grupo de segurança da rede (NSG) ou a tabela de rotas (UDR) que contenha prefixos de endereço IPv6 na sub-rede SQL Managed Instance, ou adicionar prefixos de endereço IPv6 a NSG ou UDR que já esteja associado à sub-rede de instância gerida, tornaria indisponíveis as instâncias geridas sql. As implementações de Exemplos Geridos SQL para uma sub-rede com NSG e UDR que já têm prefixos IPv6 devem falhar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

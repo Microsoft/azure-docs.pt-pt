@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como implementar uma aplicação Java Service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c2e2b2883bfa01d3a36de5d58425449f6f973010
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738902"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702162"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure
 
@@ -61,7 +61,7 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. Na pasta *service-fabric-java-quickstart/AzureCluster* , execute o comando seguinte para criar um certificado de cluster no Key Vault. Este certificado é utilizado para proteger o cluster do Service Fabric. Indique a região (tem de ser a mesma do cluster do Service Fabric), o nome do grupo de recursos do cofre de chaves, o nome do cofre de chaves, a palavra-passe do certificado e o nome DNS do cluster.
+4. Na pasta *service-fabric-java-quickstart/AzureCluster*, execute o comando seguinte para criar um certificado de cluster no Key Vault. Este certificado é utilizado para proteger o cluster do Service Fabric. Indique a região (tem de ser a mesma do cluster do Service Fabric), o nome do grupo de recursos do cofre de chaves, o nome do cofre de chaves, a palavra-passe do certificado e o nome DNS do cluster.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
@@ -114,10 +114,10 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
 10. Crie um recurso dos Hubs de Eventos com o seguinte comando. Siga as indicações para introduzir detalhes para namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule e receiveAuthorizationRule.
 
     ```azurecli
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup
@@ -154,7 +154,7 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
     ```
 
-    Copie o valor do campo **sr** no JSON devolvido. O valor do campo **sr** é o token SAS para EventHubs. O URL seguinte é um exemplo do campo **sr** :
+    Copie o valor do campo **sr** no JSON devolvido. O valor do campo **sr** é o token SAS para EventHubs. O URL seguinte é um exemplo do campo **sr**:
 
     ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
@@ -176,8 +176,8 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     }
     ```
 
-13. É aberta **sfdeploy.parameters.json** . Altere os parâmetros seguintes e, em seguida, guarde o ficheiro.
-    - **clusterName** . Utilize apenas letras minúsculas e números.
+13. É aberta **sfdeploy.parameters.json**. Altere os parâmetros seguintes e, em seguida, guarde o ficheiro.
+    - **clusterName**. Utilize apenas letras minúsculas e números.
     - **adminUserName** (para um valor diferente de zero)
     - **adminPassword** (para um valor diferente de zero)
 
@@ -189,7 +189,7 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Implemente a aplicação no cluster
 
-1. Antes de implementar a aplicação, tem de adicionar o fragmento seguinte ao ficheiro *Voting/VotingApplication/ApplicationManifest.xml* . O campo **X509FindValue** é o thumbprint devolvido no Passo 4 da secção **Criar um cluster do Service Fabric no Azure** . Este fragmento está aninhado no campo **ApplicationManifest** (o campo raiz).
+1. Antes de implementar a aplicação, tem de adicionar o fragmento seguinte ao ficheiro *Voting/VotingApplication/ApplicationManifest.xml*. O campo **X509FindValue** é o thumbprint devolvido no Passo 4 da secção **Criar um cluster do Service Fabric no Azure**. Este fragmento está aninhado no campo **ApplicationManifest** (o campo raiz).
 
     ```xml
     <Certificates>
@@ -209,7 +209,7 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Para implementar a aplicação, navegue para a pasta *Voting/Scripts* e execute o script **install.sh** .
+4. Para implementar a aplicação, navegue para a pasta *Voting/Scripts* e execute o script **install.sh**.
 
     ```bash
     ./install.sh

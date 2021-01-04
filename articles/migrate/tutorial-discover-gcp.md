@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 767617833789c71bfc2ecfc2d518166f8bcee6c6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 181f645540a267d65b15a0345a61752a8a5f78fa
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109526"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704741"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Descubra instâncias da Plataforma Google Cloud (GCP) com avaliação do servidor
 
@@ -20,7 +20,7 @@ Como parte da sua viagem de migração para Azure, você descobre os seus servid
 
 Este tutorial mostra-lhe como descobrir instâncias da Plataforma Google Cloud (GCP) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Coloca o aparelho numa instância GCP VM, para descobrir continuamente metadados de máquina e desempenho.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma conta Azure.
@@ -225,11 +225,16 @@ Coloque o aparelho pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
 1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
-1. Clique em **Iniciar sessão**. Abrirá um pedido de login do Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-1. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
+1. Necessitará de um código de dispositivo para autenticar com o Azure. Clicar no **Login** abrirá um código modal com o código do dispositivo, como mostrado abaixo.
+
+    ![Modal mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Clique no **código copy & Iniciar sessão** para copiar o código do dispositivo e abrir um pedido de Login Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
+1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e palavra-passe.
    
    O s-in com um PIN não é suportado.
-3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
+3. Caso feche o separador de login acidentalmente sem iniciar sessão, é necessário atualizar o separador de navegador do gestor de configuração do aparelho para ativar novamente o botão Iniciar sessão.
+1. Depois de iniciar sessão com sucesso, volte ao separador anterior com o gestor de configuração do aparelho.
 4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](#prepare-an-azure-user-account) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 5. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
@@ -246,6 +251,10 @@ Agora, ligue-se do aparelho aos servidores GCP a descobrir e inicie a descoberta
     - A azure Migrate suporta a chave privada SSH gerada pelo comando ssh-keygen usando algoritmos RSA, DSA, ECDSA e ed25519.
     - Atualmente, a Azure Migrate não suporta a chave SSH baseada em palavras-passe. Por favor, use uma chave SSH sem uma palavra-passe.
     - Atualmente, a Azure Migrate não suporta ficheiro chave ssh gerado pela PuTTY.
+    - A Azure Migrate suporta o formato OpenSSH do ficheiro de chave privada SSH, conforme mostrado abaixo:
+    
+    ![Formato suportado por chave privada SSH](./media/tutorial-discover-physical/key-format.png)
+
 
 2. Se quiser adicionar várias credenciais ao mesmo tempo, clique em **Adicionar mais** para guardar e adicionar mais credenciais. 
 3. No **Passo 2:Forneça detalhes físicos ou virtuais do servidor**, clique na fonte de descoberta **Adicionar** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para credenciais para se ligar ao servidor.

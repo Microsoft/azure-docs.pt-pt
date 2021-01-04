@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d5eba5486e7d26e62379e0112cd4b95322e6dae1
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516565"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705239"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com um modelo do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -76,10 +76,10 @@ Vamos utilizar o modelo de exemplo para criar um conjunto de dimensionamento e a
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az group deployment create](/cli/azure/group/deployment). Quando lhe for pedido, forneça o seu nome de utilizador e a palavra-passe que são utilizados como as credenciais para cada instância de VM:
+Agora crie um conjunto de escala de máquina virtual com [criação do grupo de implantação AZ](/cli/azure/deployment/group). Quando lhe for pedido, forneça o seu nome de utilizador e a palavra-passe que são utilizados como as credenciais para cada instância de VM:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -90,7 +90,7 @@ Cada instância de VM no conjunto de dimensionamento transfere e executa o scrip
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetPublicIP* , criado como parte do conjunto de dimensionamento:
+Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetPublicIP*, criado como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -134,10 +134,10 @@ Para atualizar a definição da Extensão de Script Personalizado, edite o model
 }
 ```
 
-Aplique a configuração da Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento novamente, com [az group deployment create](/cli/azure/group/deployment). Este modelo *azuredeployv2.json* é utilizado para aplicar a versão atualizada da aplicação. Na prática, tem de editar o modelo *azuredeploy.json* existente para fazer referência ao script de instalação atualizado, conforme mostrado na secção anterior. Quando lhe for pedido, introduza as mesmas credenciais de nome de utilizador e palavra-passe que utilizou ao criar o conjunto de dimensionamento:
+Aplique a configuração de extensão de script personalizada às instâncias VM na sua escala definida novamente com [o grupo de implementação az criar](/cli/azure/deployment/group). Este modelo *azuredeployv2.json* é utilizado para aplicar a versão atualizada da aplicação. Na prática, tem de editar o modelo *azuredeploy.json* existente para fazer referência ao script de instalação atualizado, conforme mostrado na secção anterior. Quando lhe for pedido, introduza as mesmas credenciais de nome de utilizador e palavra-passe que utilizou ao criar o conjunto de dimensionamento:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```
@@ -147,7 +147,7 @@ Todas as instâncias de VM no conjunto de dimensionamento são automaticamente a
 ![Página Web atualizada no Nginx](media/tutorial-install-apps-template/running-nginx-updated.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive

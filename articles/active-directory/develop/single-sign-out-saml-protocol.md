@@ -12,16 +12,18 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118268"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703420"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Sign-Out Única
 
 O Azure Ative Directory (Azure AD) suporta o perfil de sessão de assinatura único do navegador SAML 2.0. Para que a súmis funcione corretamente, o **LogoutURL** para o pedido deve ser explicitamente registado no Azure AD durante o registo da aplicação. O Azure AD utiliza o LogoutURL para redirecionar os utilizadores depois de terem sido assinados.
+
+A azure AD suporta a ligação de redirecionamento (HTTP GET) e não a ligação HTTP POST.
 
 O diagrama seguinte mostra o fluxo de trabalho do processo de assinatura único Azure AD.
 

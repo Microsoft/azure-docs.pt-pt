@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82cec4cc448f0ec30aecf6f8a69f399e0abbdde0
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708089"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706954"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
 
@@ -37,7 +37,7 @@ O período de retenção de backup de um servidor pode ser alterado através dos
 2. Selecione o servidor da Base de Dados do Azure para PostgreSQL. Esta ação abre a página **de visão geral.**
 3. Selecione **O Nível de Preços** do menu, em **DEFINIÇÕES**. Utilizando o slider pode alterar o **Período de Retenção de Cópia** de Segurança para a sua preferência entre 7 e 35 dias.
 Na imagem abaixo foi aumentado para 34 dias.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Período de retenção de backup aumentado":::
 
 4. Clique **em OK** para confirmar a alteração.
 
@@ -53,11 +53,11 @@ Os seguintes passos restauram o servidor da amostra num ponto no tempo:
 
 2. Na barra de ferramentas da página **'Visão Geral'** do servidor, selecione **'Restaurar'.**
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Base de Dados Azure para PostgreSQL - Visão geral - Botão de restauro":::
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Base de Dados Azure para PostgreSQL - Restaurar informações":::
    - **Ponto de restauro**: Selecione o ponto a tempo a que pretende restabelecer.
    - **Servidor-alvo**: Forneça um nome para o novo servidor.
    - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
@@ -71,23 +71,25 @@ O novo servidor criado por point-in-time restore tem o mesmo nome de login de ad
 
 O novo servidor criado durante o restauro não tem as regras de firewall ou os pontos finais de serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor.
 
+Se o servidor PostgreSQL da sua fonte estiver encriptado com as teclas geridas pelo cliente, consulte a [documentação](concepts-data-encryption-postgresql.md) para obter considerações adicionais.
+
 ## <a name="geo-restore"></a>Restauro geo
 
 Se configurar o servidor para cópias de segurança geograficamente redundantes, um novo servidor pode ser criado a partir da cópia de segurança desse servidor existente. Este novo servidor pode ser criado em qualquer região onde a Base de Dados Azure para PostgreSQL esteja disponível.  
 
 1. Selecione o botão **De recurso** (+) no canto superior esquerdo do portal. Selecione **Base de Dados**  >  **Azure Databases para PostgreSQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Navegue para a Base de Dados Azure para PostgreSQL.":::
 
 2. Selecione a opção de implementação **do servidor único.**
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Selecione Azure Database para a opção de implementação do servidor postgreSQL - única.":::
  
 3. Forneça a subscrição, o grupo de recursos e o nome do novo servidor. 
 
 4. Selecione **Backup** como **fonte de dados**. Esta ação carrega uma redução que fornece uma lista de servidores que têm cópias de segurança geo redundantes ativadas.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Selecione fonte de dados.":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, pode não estar imediatamente disponível para restauro geo. Pode levar algumas horas para que os metadados necessários sejam povoados.
@@ -95,21 +97,21 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
 
 5. Selecione o **dropdown de backup.**
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Selecione o dropdown de reserva.":::
 
 6. Selecione o servidor de origem para restaurar a partir de.
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Selecione backup.":::
 
-7. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia**de Segurança , **Opção de Redundância de Backup,** **Versão do Motor**e **credenciais de administração**. Selecione **Continuar**. 
+7. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia** de Segurança , **Opção de Redundância de Backup,** **Versão do Motor** e **credenciais de administração**. Selecione **Continuar**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Nível de Preços - Escolha redundância de backup":::
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Continue com reforços.":::
 
 8. Preencha o resto do formulário com as suas preferências. Pode selecionar qualquer **localização.**
 
-    Depois de selecionar a localização, pode selecionar o **servidor Configure** para atualizar a **Geração computacional** (se disponível na região escolhida), número de **vCores,** Período de **Retenção de Backup**e **Opção de Redundância de Backup**. A alteração **do nível de preços** (Final básico, geral ou otimizado da memória) ou o tamanho do **armazenamento** durante a restauração não é suportado.
+    Depois de selecionar a localização, pode selecionar o **servidor Configure** para atualizar a **Geração computacional** (se disponível na região escolhida), número de **vCores,** Período de **Retenção de Backup** e **Opção de Redundância de Backup**. A alteração **do nível de preços** (Final básico, geral ou otimizado da memória) ou o tamanho do **armazenamento** durante a restauração não é suportado.
 
-   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Nível de Preços - Escolha redundância de backup"::: 
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Preencher formulário."::: 
 
 9. Selecione **Review + crie** para rever as suas seleções. 
 
@@ -118,6 +120,8 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
 O novo servidor criado pela geo restauro tem o mesmo nome de login de administrador do servidor e senha que era válido para o servidor existente no momento em que a restauração foi iniciada. A palavra-passe pode ser alterada a partir da página **geral** do novo servidor.
 
 O novo servidor criado durante o restauro não tem as regras de firewall ou os pontos finais de serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor.
+
+Se o servidor PostgreSQL da sua fonte estiver encriptado com as teclas geridas pelo cliente, consulte a [documentação](concepts-data-encryption-postgresql.md) para obter considerações adicionais.
 
 
 ## <a name="next-steps"></a>Passos seguintes

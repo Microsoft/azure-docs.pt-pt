@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 647e07fe32beedbd54ca6c5bb95c1de9564df2fd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654018"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704032"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -42,12 +42,6 @@ Isto pode acontecer se a máquina do aparelho estiver por detrás de um represen
 - Se estiver a usar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de indicações.
 - Se estiver a utilizar um representante de interceção para ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](./migrate-appliance.md).
 
-
-## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Clicar no botão 'Login' abre um novo separador sem código de dispositivo
-
-Se depois de clicar em 'Login' no gestor de configuração do aparelho, um novo separador abre sem código, volte ao separador do gestor de configuração do aparelho e poderá encontrar o código do dispositivo em fonte em negrito sob o botão 'Login', tal como mostrado na imagem abaixo. Copie o código e cole-o no separador de início de sessão para autenticar com o Azure.
-
-![Código do dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Não pode assinar no Azure a partir da aplicação web do aparelho
 

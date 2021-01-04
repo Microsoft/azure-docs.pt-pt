@@ -1,7 +1,7 @@
 ---
-title: Retrain modelos usando Azure Machine Learning designer
+title: Use parâmetros de gasoduto para retreinar modelos no designer
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar modelos de machine learning com oleodutos publicados no Azure Machine Learning designer.
+description: Retrain modelos com oleodutos publicados e parâmetros de pipeline no Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437121"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708471"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Retrain modelos com Azure Machine Learning designer
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Use parâmetros de gasoduto para retreinar modelos no designer
 
 
-Neste artigo de como fazer, aprende-se a usar o designer de Aprendizagem automática Azure para treinar um modelo de aprendizagem automática. Utilizará os oleodutos publicados para automatizar o seu fluxo de trabalho e definirá parâmetros para treinar o seu modelo em novos dados. 
+Neste artigo de como fazer, aprende-se a usar o designer de Aprendizagem automática Azure para treinar um modelo de aprendizagem automática utilizando parâmetros de pipeline. Utilizará os oleodutos publicados para automatizar o seu fluxo de trabalho e definirá parâmetros para treinar o seu modelo em novos dados. Os parâmetros do gasoduto permitem-lhe reutilizar os gasodutos existentes para diferentes trabalhos.  
 
 Neste artigo, vai aprender a:
 

@@ -6,19 +6,19 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975387"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704474"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
 Para criar rapidamente uma máquina virtual (VM) em Azure, pode utilizar um único comando Azure CLI que utiliza valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras do grupo de segurança de rede são automaticamente criados. Para um maior controlo do seu ambiente em uso de produção, pode criar estes recursos com antecedência e, em seguida, adicionar-lhes os seus VMs. Este artigo guia-o através da forma de criar um VM e cada um dos recursos de apoio, um a um.
 
 Certifique-se de que instalou o mais recente [Azure CLI](/cli/azure/install-az-cli2) e iniciou sessão numa conta Azure com [login az](/cli/azure/reference-index).
 
-Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myVnet*e *myVM*.
+Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myVnet* e *myVM*.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos deve ser criado antes de uma máquina virtual e de suporte a recursos de rede virtuais. Criar o grupo de recursos com [a criação do grupo AZ](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
@@ -558,10 +558,10 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Este comando cria o `myResourceGroup.json` ficheiro no seu diretório de trabalho atual. Quando cria um ambiente a partir deste modelo, é solicitado para todos os nomes de recursos. Pode preencher estes nomes no seu ficheiro de modelo adicionando o `--include-parameter-default-value` parâmetro ao `az group export` comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou [crie uma parameters.jsno ficheiro](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) que especifique os nomes dos recursos.
 
-Para criar um ambiente a partir do seu modelo, utilize a implementação do [grupo az criar](/cli/azure/group/deployment) da seguinte forma:
+Para criar um ambiente a partir do seu modelo, use [o grupo de implementação az criar](/cli/azure/deployment/group) da seguinte forma:
 
 ```azurecli
-az group deployment create \
+az deployment group create \
     --resource-group myNewResourceGroup \
     --template-file myResourceGroup.json
 ```

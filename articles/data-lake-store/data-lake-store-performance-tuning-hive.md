@@ -1,17 +1,17 @@
 ---
 title: Afinação de desempenho - Colmeia no Azure Data Lake Storage Gen1
 description: Saiba mais sobre afinação de desempenho para a Hive em HdInsight e Azure Data Lake Storage Gen1. Para consultas intensivas de I/O, afina a Hive para obter um melhor desempenho.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 7b1bbe7f632d8101dbff02a31092f06c7b644ece
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 082d684ed0a29cb6bf2de9c506886b6d98cf174a
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108325"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723786"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para a Colmeia em HDInsight e Azure Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Para verificar se está a ser estrangulado, tem de ativar o registo de depuragem
 
 1. Coloque a seguinte propriedade nas propriedades log4j em Hive config. Isto pode ser feito a partir da vista de Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Reinicie todos os nós/serviço para que o config entre em vigor.
 
-2. Se estiver a ser estrangulado, verá o código de erro HTTP 429 no ficheiro de registo da colmeia. O ficheiro de registo da colmeia está em /tmp/ &lt; utilizador &gt; /hive.log
+2. Se estiver a ser estrangulado, verá o código de erro HTTP 429 no ficheiro de registo da colmeia. O ficheiro de registo da colmeia está em /tmp/ &lt; utilizador &gt; /colmeia.log
 
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre a afinação da Colmeia
 

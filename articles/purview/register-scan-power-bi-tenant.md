@@ -1,18 +1,18 @@
 ---
 title: Registar e digitalizar um inquilino power BI (pré-visualização)
 description: Saiba como usar o portal Azure Purview para registar e digitalizar um inquilino power BI.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615853"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696225"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -72,8 +72,6 @@ Agora que deu permissões ao catálogo para se ligar à ADMIN API do seu inquili
 
 Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview 
 
-1. Adicione o seguinte fio ao fim do uri da sua instância de Purview: `?feature.ext.catalog={"pbi":"true"}` . Isto permite a opção de registo Power BI no seu catálogo.
-
 1. Selecione o ícone **do Centro de Gestão.**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Ícone do centro de gestão.":::
@@ -112,6 +110,5 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a usar cmdlets PowerShell para registar e digitalizar um inquilino power bi, consulte:
-  
-- [Use PowerShell para registar e digitalizar Power BI](powershell-register-scan-power-bi.md)
+- [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
+- [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

@@ -1,6 +1,6 @@
 ---
 title: Notas de lançamento para Azure SQL Edge
-description: Notas de lançamento detalhando o que é novo ou o que mudou nas imagens Azure SQL Edge
+description: Notas de lançamento que detalham as novidades ou o que mudou nas imagens Azure SQL Edge.
 keywords: notas de lançamento SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -10,182 +10,164 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808630"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704355"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
-Este artigo descreve o que é novo e o que mudou a cada nova construção de Azure SQL Edge.
+Este artigo descreve o que é novo e o que mudou com cada nova construção de Azure SQL Edge.
 
-## <a name="azure-sql-edge---101"></a>Azure SQL Edge - 1.0.1
+## <a name="azure-sql-edge-101"></a>Aresta Azure SQL 1.0.1
 
-### <a name="sql-engine-build-number---15020001553"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1553
+Motor SQL constrói 15.0.2000.1553
 
 ### <a name="whats-new"></a>Novidades
 
-- Permitir a expressão Datebucket definida em colunas computadas
+- Permitir Date_Bucket expressões definidas em colunas computadas.
 
 ### <a name="fixes"></a>Correções
 
-- Correção da política de retenção para deixar cair a mesa com política de retenção ativada com intervalo infinito
-- Suporte em Implementação da DacFx para funcionalidades de Política de Streaming e Retenção 
-- Correção de implementação da DacFx para permitir a implantação a partir de uma pasta aninhada em URL SAS 
+- Correção da política de retenção para deixar cair uma tabela que tem uma política de retenção ativada com um intervalo infinito
+- Suporte de implementação da DacFx para funcionalidades de streaming e funcionalidades de política de retenção 
+- Correção de implementação da DacFx para permitir a implantação de uma pasta aninhada num URL SAS 
 - PREVISÃO corrigir para suportar nomes de colunas longas em mensagens de erro
 
-## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
+## <a name="azure-sql-edge-100-rtm"></a>Aresta Azure SQL 1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001552"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1552
+Motor SQL constrói 15.0.2000.1552
 
 ### <a name="whats-new"></a>Novidades
-1. Ubuntu 18.04 imagens de contentores à base. 
-2. Suporte `IGNORE NULL` e `RESPECT NULL` sintaxe com `LAST_VALUE()` e `FIRST_VALUE()` funções. 
-3. Melhorias de fiabilidade para PREVISÃO com ONNX.
-4. Assistência à limpeza baseada na política de retenção de dados.
-   - Suporte de tampão para tarefa de limpeza de retenção para resolução de problemas.
-5. Suporte de novas funcionalidades 
-   - Recuperação Rápida
+- Imagens de contentores baseadas em Ubuntu 18.04 
+- Suporte `IGNORE NULL` e `RESPECT NULL` sintaxe com `LAST_VALUE()` e `FIRST_VALUE()` funções 
+- Melhorias de fiabilidade para PREVISÃO com ONNX
+- Suporte à limpeza com base na política de retenção de dados:
+   - Suporte de tampão de anel para uma tarefa de limpeza de retenção para resolução de problemas
+- Suporte de novas funcionalidades: 
+   - Recuperação rápida
    - Afinação automática de consultas
-   - Ativar cenários de execução paralela
-6. Melhorias na poupança de energia para o modo de baixa potência
-7. Streaming de novos suportes de funcionalidades 
-   - [Snapshot Windows](/stream-analytics-query/snapshot-window-azure-stream-analytics) : novo tipo de janela que permite agrupar-se por eventos que chegam exatamente ao mesmo tempo. 
-   - Ativar [o TopOne](/stream-analytics-query/topone-azure-stream-analytics) e [o CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) como função analítica, isto permitirá devolver registos encomendados pela coluna à sua escolha, sem o necessário para fazer parte de uma janela. 
+   - Cenários de execução paralela
+- Melhorias na poupança de energia para o modo de baixa potência
+- Suporte de novas funcionalidades: 
+   - [Janelas instantâneas](/stream-analytics-query/snapshot-window-azure-stream-analytics): Um novo tipo de janela permite-lhe agrupar-se por eventos que chegam ao mesmo tempo.
+   - [TopOne](/stream-analytics-query/topone-azure-stream-analytics) e [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) podem ser ativados como funções analíticas. Pode devolver os registos encomendados pela coluna à sua escolha. Não precisam de ser parte de uma janela. 
    - Melhorias na [MATCH_RECOGNIZE.](/stream-analytics-query/match-recognize-stream-analytics) 
 
 ### <a name="fixes"></a>Correções
-1. Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming da TSQL. 
-2. Melhorias para preservar a vida útil da bateria no modo Idle. 
-3. Correções do motor de streaming TSQL: 
-   - Limpeza para trabalho de streaming parado 
-   - Correções para localização e melhorias no manuseamento de unicódigo
-   - Melhorar a depurabilidade para o streaming de TSQL edge, permitir que os utilizadores questionem erros de falha de trabalho a partir de get_streaming_job.
-4. Limpeza baseada em política de retenção de dados
-   - Correções para cenários de criação de políticas de retenção e limpeza.
-5. Correções para tarefas de temporizador de fundo para melhorar a poupança de energia para o modo de baixa potência.
+- Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming T-SQL 
+- Melhorias para preservar a vida útil da bateria em modo inativo 
+- Correções do motor de streaming T-SQL: 
+   - Limpeza para trabalhos de streaming parados 
+   - Correções para localização 
+   - Melhor manuseamento do Unicode 
+   - Melhor depuração para o streaming SQL Edge T-SQL, permitindo aos utilizadores consultarem erros de falha de trabalho a partir de get_streaming_job
+- Limpeza baseada na política de retenção de dados: 
+    - Correções para cenários de criação e limpeza de políticas de retenção
+- Correções para tarefas de temporizador de fundo para melhorar a poupança de energia para o modo de baixa potência
 
-### <a name="known-issues"></a>Problemas Conhecidos 
-1. Date_Bucket Função T-SQL não pode ser utilizada numa coluna computada.
+### <a name="known-issues"></a>Problemas conhecidos 
+- A função T-SQL Date_Bucket não pode ser utilizada numa coluna computada.
 
 
 ## <a name="ctp-23"></a>CTP 2.3
-### <a name="sql-engine-build-number---15020001549"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1549
+Motor SQL constrói 15.0.2000.1549
 ### <a name="whats-new"></a>Novidades
-1. Suporte para origens personalizadas na função Date_Bucket(). 
-2. Suporte para ficheiros BacPac como parte da implementação do SQL.
-3. Assistência à limpeza baseada na política de retenção de dados.      
-   - Apoio DDL para permitir a política de retenção 
-   - Procedimentos de limpeza armazenados e tarefa de limpeza de antecedentes
+- Suporte para origens personalizadas na função Date_Bucket() 
+- Suporte para ficheiros BACPAC como parte da implantação do SQL
+- Suporte à limpeza com base na política de retenção de dados:      
+   - Suporte DDL para permitir a política de retenção 
+   - Limpeza para procedimentos armazenados e tarefa de limpeza de fundo
    - Eventos alargados para monitorizar tarefas de limpeza
 
 ### <a name="fixes"></a>Correções
-1. Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming da TSQL. 
-2. Melhorias para preservar a vida útil da bateria no modo Idle. 
-3. Correções do motor de streaming TSQL: 
-   - Corrigir problema de marca de água preso com janela de salto substreamed 
-   - Corrigir o tratamento da excepção-quadro para garantir que é recolhido como erro de funcionamento do utilizador
+- Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming T-SQL 
+- Melhorias para preservar a vida útil da bateria em modo inativo 
+- Motor de streaming T-SQL: 
+   - Fixação para marca de água presa na janela de salto substreamed 
+   - Correção para o manuseamento de exceções de enquadramento para garantir que é recolhido como um erro de localização do utilizador
 
 
 ## <a name="ctp-22"></a>CTP 2.2
-### <a name="sql-engine-build-number---15020001546"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1546
+Motor SQL constrói 15.0.2000.1546
 ### <a name="whats-new"></a>Novidades
-1. Apoio a contentores não-enraizados 
-2. Suporte à recolha de dados de utilização e diagnóstico 
-3. Atualizações de streaming T-SQL
+- Apoio a contentores não-de-corda 
+- Suporte para a recolha de dados de utilização e diagnóstico 
+- Atualizações de streaming T-SQL:
    - Suporte para caracteres Unicode para nomes de objetos de fluxo
 
 ### <a name="fixes"></a>Correções
-1. Atualizações de streaming T-SQL
+- Atualizações de streaming T-SQL:
    - Melhorias na limpeza do processo
    - Melhorias no registo e no diagnóstico
-2. Melhoria do desempenho para a ingestão de dados
+- Melhoria do desempenho para a ingestão de dados
 
 ## <a name="ctp-21"></a>CTP 2.1 
-### <a name="sql-engine-build-number---15020001545"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1545
+Motor SQL constrói 15.0.2000.1545
 ### <a name="fixes"></a>Correções
-1. Corrija o PREVISÃO com os modelos ONNX para lidar com o problema do CPUID na ARM 
-2. Correção para melhorar o manuseamento do caminho de falha no arranque do streaming TSQL 
-3. Corrija o valor incorreto do atraso da marca de água nas métricas de trabalho quando não há dados. 
-4. Corrija o problema com o adaptador de saída quando o adaptador tem esquemas variáveis entre lotes.  
+- Permitiu que os modelos PREDICT-with-ONNX lidassem com um problema cpUID na ARM 
+- Melhor manuseamento do caminho de falha quando o streaming T-SQL começa
+- Valor corrigido do atraso da marca de água nas métricas de trabalho quando não há dados.
+- Correção para um problema com o adaptador de saída quando o adaptador tem um esquema variável entre lotes  
 
 ## <a name="ctp-20"></a>CTP 2.0 
-### <a name="sql-engine-build-number---15020001401"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1401
+Motor SQL constrói 15.0.2000.1401
 ### <a name="whats-new"></a>Novidades
-1.  Nome do produto atualizado para 'Azure SQL Edge'
-1.  função Date_bucket
-
-    i.  Suporte para data, hora, tipo data
-3.  PREVER com ONNX
-    
-    i.  Parâmetro RUNTIME necessário para ONNX 
-    
-4.  Suporte de streaming TSQL (pré-visualização limitada) 
+-   Nome do produto atualizado para *Azure SQL Edge*
+-  Date_Bucket função:
+    - Suporte para tipos de data, hora e data
+- PREVER com ONNX:
+    - Requisito ONNX para o parâmetro RUNTIME  
+- Suporte de streaming T-SQL (pré-visualização limitada) 
  
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
-1. <b>Emissão:</b> Potenciais falhas na aplicação do dacpac no arranque devido a problemas de tempo.
+- Problema: Potenciais falhas na aplicação do DACPAC no arranque devido a um problema de tempo.
+- Solução alternativa: Reiniciar o SQL Server. Caso contrário, o recipiente voltará a tentar aplicar o DACPAC.
 
-    <b>Solução alternativa:</b> Reiniciar o SQL Server ou o contentor vai voltar a tentar aplicar o dacpac e deve corrigir o problema
-### <a name="request-support"></a>Apoio ao Pedido
-1. Pode solicitar apoio na [página de suporte.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+### <a name="request-support"></a>Solicitar apoio
+Pode solicitar apoio na [página de suporte.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Selecione os seguintes campos: 
+- **Tipo de problema**: *técnico* 
+- **Serviço**: *IoT Edge*
+- **Tipo de problema**: *O meu problema diz respeito a um módulo IoT Edge*
+- **Subtipo de problema**: *Azure SQL Edge*
 
-4. Certifique-se de que os seguintes campos são selecionados: 
-    * Tipo de emissão - Técnico 
-    * Serviço - IoT Edge
-    * Tipo de Problema - O meu problema diz respeito a um módulo IoT Edge
-    * Subtipo de problema - Azure SQL Edge
-
-   ![Bilhete de apoio à amostra](media/get-support/support-ticket.png)
+:::image type="content" source="media/get-support/support-ticket.png" alt-text="Screenshot mostrando um bilhete de suporte de amostra.":::
 
 ## <a name="ctp-15"></a>CTP 1.5
-### <a name="sql-engine-build-number---15020001331"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1331
+Motor SQL constrói 15.0.2000.1331
 ### <a name="whats-new"></a>Novidades
-1. função Date_bucket
-    
-    i. Suporte para o tipo DateTimeOffset
-2. PREVER com os modelos ONNX
-
-    i. suporte nvarchar
+- Date_Bucket função:
+    - Suporte para o tipo DateTimeOffset
+- PREVER com os modelos ONNX:
+  - Suporte NVARCHAR
  
 ## <a name="ctp-14"></a>CTP 1.4
-### <a name="sql-engine-build-number---15020001247"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1247
+Motor SQL constrói 15.0.2000.1247
 ### <a name="whats-new"></a>Novidades
-1.  PREVER com os modelos ONNX
- 
-    i.  Apoio varchar
-    
-    ii. Migração para onNX versão runtime 1.0 
-2.  Suporte de funcionalidades - As seguintes funcionalidades estão ativadas:
+-   PREVER com os modelos ONNX:
+    - Suporte VARCHAR
+    - Migração para onNX versão runtime 1.0 
 
-    i.   Apoio cdc
-
-    ii.  Tabela de história com compressão
-
-    iii. Fator de escala mais elevado para leitura de log
-
-    iv.  Pushdown do filtro ES do modo de lote
-
-    v.   Ler otimizações antecipadas
+- As seguintes funcionalidades estão ativadas:
+  - Apoio cdc
+  - Tabela de história com compressão
+  - Um fator de maior escala para a leitura do registo
+  - Pushdown do filtro ES do modo de lote
+  - Otimizações de leitura antecipada
  
 ## <a name="ctp-13"></a>CTP 1.3
-### <a name="sql-engine-build-number---15020001147"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1147
+Motor SQL constrói 15.0.2000.1147
 ### <a name="whats-new"></a>Novidades
-1. Implantação do portal Azure IOT 
-
-    i.   Suporte para implantação de imagens AMD64 e ARM
-
-    ii.  Apoio à criação de emprego em streaming
-
-    iii. Implantação da Dacpac
-2. PREVER com os modelos ONNX
-
-    i. Suporte tipo numérico
-3. Suporte de funcionalidades - As seguintes funcionalidades estão ativadas:
-
-    i.  Agregação pushdown para a varredura da loja de colunas
-
-    ii. Digitalizações de carrosséis
-4. Trabalho de redução do consumo de pegadas e memória
+- Implantação do portal Azure IoT: 
+    - Suporte para implantação de imagens AMD64 e ARM
+    - Apoio à criação de emprego em streaming
+    - Implantação da DACPAC
+- PREVER com os modelos ONNX:
+    - Suporte tipo numérico
+- As seguintes funcionalidades estão ativadas:
+    - Agregação pushdown para a varredura da loja de colunas
+    - Digitalizações de carrosséis
+- Trabalho de redução da pegada e do consumo de memória

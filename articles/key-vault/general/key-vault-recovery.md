@@ -3,25 +3,37 @@ title: Visão geral da recuperação do Azure Key Vault Microsoft Docs
 description: As funcionalidades de recuperação do cofre de chaves foram concebidas para evitar a eliminação acidental ou maliciosa do cofre e segredos, chaves e certificados armazenados dentro do cofre de chaves.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
-ms.date: 12/15/2020
-ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
+ms.date: 09/30/2020
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587116"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704219"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como permitir a eliminação suave e a proteção de purga
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestão de recuperação do Cofre Azure Key com proteção de eliminação e purga suave
 
 Este artigo abrange duas funcionalidades de recuperação do Cofre da Chave Azure, proteção de eliminação suave e purga. Este documento fornece uma visão geral destas funcionalidades, e mostra-lhe como geri-las através do portal Azure CLI e Azure PowerShell.
 
+Para mais informações sobre o Key Vault, consulte
+- [Descrição geral do Key Vault](overview.md)
+- [Chaves, segredos e certificados do Azure Key Vault](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma subscrição do Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet)
+* [Módulo PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [CLI do Azure](/cli/azure/install-azure-cli)
+* Um Cofre chave - você pode criar um usando [o portal Azure](../general/quick-create-portal.md) [CLI](../general/quick-create-cli.md), ou [Azure PowerShell](../general/quick-create-powershell.md)
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>O que são a proteção de eliminação e purga suave
 
-A proteção de eliminação e purga suave são duas características diferentes de recuperação do cofre.
+[A proteção de eliminação](soft-delete-overview.md) e purga suave são duas características diferentes de recuperação do cofre.
+
 > [!IMPORTANT]
 > Ligar a eliminação suave é fundamental para garantir que os seus cofres e credenciais estão protegidos contra a eliminação acidental. No entanto, ligar o soft delete é considerado uma mudança de rutura porque pode exigir que altere a sua lógica de aplicação ou forneça permissões adicionais aos seus principais serviços. Antes de ligar suavemente, elimine usando as instruções abaixo, certifique-se de que a sua aplicação é compatível com a alteração utilizando este documento [ **aqui**.](soft-delete-change.md)
 
@@ -33,6 +45,8 @@ A proteção de eliminação e purga suave são duas características diferentes
 
 > [!NOTE]
 > A Proteção de Purga foi concebida de modo a que nenhuma função ou permissão do administrador possa sobrepor-se, desativar ou contornar a proteção da purga. **Uma vez ativada a proteção contra a purga, não pode ser desativada ou ultrapassada por ninguém, incluindo a Microsoft.** Isto significa que deve recuperar um cofre de teclas apagado ou esperar que o período de retenção dedante antes de reutilizar o nome do cofre da chave.
+
+Para obter mais informações sobre a eliminação suave, consulte [a visão geral do Azure Key Vault](soft-delete-overview.md)
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
@@ -66,7 +80,7 @@ A proteção de eliminação e purga suave são duas características diferentes
 1. No topo do ecrã clique na opção de "Gerir cofres apagados"
 1. Um painel de contexto abrir-se-á no lado direito do ecrã.
 1. Selecione a sua subscrição.
-1. Se o cofre da chave tiver sido apagado suavemente, aparecerá no painel de contexto à direita.
+1. Se o cofre da chave tiver sido apagado suave, aparecerá no painel de contexto à direita.
 1. Se houver demasiados cofres, pode clicar em "Load More" na parte inferior do painel de contexto ou utilizar CLI ou PowerShell para obter os resultados.
 1. Assim que encontrar o cofre que deseja recuperar ou purgar, selecione a caixa de verificação ao lado.
 1. Selecione a opção de recuperação na parte inferior do painel de contexto se quiser recuperar o cofre da chave.
@@ -370,3 +384,14 @@ A proteção de eliminação e purga suave são duas características diferentes
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Cmdlets Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Comandos Key Vault Azure CLI](https://docs.microsoft.com/cli/azure/keyvault)
+- [Backup do Cofre de Chaves Azure](backup.md)
+- [Como permitir a exploração do Cofre de Chaves](howto-logging.md)
+- [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)
+- [Guia de desenvolvedores do Azure Key Vault](developers-guide.md)
+- [Melhores práticas para usar um cofre chave](best-practices.md)

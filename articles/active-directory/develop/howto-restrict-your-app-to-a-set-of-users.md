@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116908"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722271"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como: Restringir a sua app Azure AD a um conjunto de utilizadores num inquilino AZure AD
 
@@ -56,16 +56,16 @@ Existem duas formas de criar uma aplicação com a atribuição do utilizador at
     1. Digite **o Diretório Ativo Azure** na caixa de pesquisa do filtro e, em seguida, selecione o item **Azure Ative Directory** a partir do resultado.
 
 1. No painel **de diretório ativo Azure,** selecione **Aplicações empresariais** do menu de navegação à esquerda do **Azure Ative.**
-1. Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
+1. Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
 
      Se não vir a aplicação que pretende aparecer aqui em cima, utilize os vários filtros no topo da lista de **aplicações** para restringir a lista ou desloque a lista para localizar a sua aplicação.
 
 1. Selecione a aplicação a que pretende atribuir um utilizador ou grupo de segurança à lista.
 1. Na **página** geral da aplicação, selecione **Propriedades** do menu de navegação à esquerda da aplicação.
-1. Localizar a **definição de atribuição do utilizador necessária?** **Yes** Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
+1. Localizar a **definição de atribuição do utilizador necessária?**  Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
 1. **Selecione Guardar** para guardar esta alteração de configuração.
 
-### <a name="app-registration"></a>Registo da aplicação
+### <a name="app-registration"></a>Registo de aplicações
 
 1. Vá ao [**portal Azure.**](https://portal.azure.com/)
 1. Na barra superior, selecione a conta de inscrito. 
@@ -75,14 +75,14 @@ Existem duas formas de criar uma aplicação com a atribuição do utilizador at
 1. Crie ou selecione a aplicação que pretende gerir. Você precisa ser **proprietário** deste registo de aplicativo.
 1. Na **página** geral da aplicação, siga a **aplicação Managed no** link de diretório local sob o essencial no topo da página. Isto irá levá-lo à _aplicação empresarial gerida_ do seu registo de aplicações.
 1. A partir da lâmina de navegação à esquerda, selecione **Propriedades**.
-1. Localizar a **definição de atribuição do utilizador necessária?** **Yes** Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
+1. Localizar a **definição de atribuição do utilizador necessária?**  Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
 1. **Selecione Guardar** para guardar esta alteração de configuração.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Atribuir utilizadores e grupos à app
 
 Uma vez configurada a sua aplicação para ativar a atribuição do utilizador, pode ir em frente e atribuir utilizadores e grupos à aplicação.
 
-1. Selecione o painel **de Utilizadores e grupos** no menu de navegação à esquerda da aplicação.
+1. Selecione o painel **de Utilizadores e grupos** no menu de navegação à esquerda da aplicação da empresa.
 1. No topo da lista de **Utilizadores e grupos,** selecione o botão **de utilizador Adicionar** para abrir o painel de atribuição de **adicionar.**
 1. Selecione o seletor **de Utilizadores** a partir do painel **de atribuição de adicionar.** 
 

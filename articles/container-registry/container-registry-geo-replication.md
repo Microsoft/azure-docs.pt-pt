@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810054"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705171"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
 
@@ -59,6 +59,8 @@ Utilizando a funcionalidade de geo-replicação do Registo do Contentor Azure, e
 * Gerir uma única configuração de implementações de imagem, uma vez que todas as regiões utilizam o mesmo URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
 * Empurre para um único registo, enquanto a ACR gere a geo-replicação. O ACR apenas replica camadas únicas, reduzindo a transferência de dados entre regiões. 
 * Configure [webhooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
+
+O Registo de Contentores Azure também suporta [zonas de disponibilidade](zone-redundancy.md) para criar um registo de contentores Azure resiliente e de alta disponibilidade dentro de uma região de Azure. A combinação de zonas de disponibilidade para redundância dentro de uma região, e a geo-replicação em várias regiões, aumenta tanto a fiabilidade como o desempenho de um registo.
 
 ## <a name="configure-geo-replication"></a>Configurar georreplicação
 

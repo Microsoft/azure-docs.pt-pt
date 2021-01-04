@@ -11,18 +11,18 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: a87c08d81724a6639fce6b6673b139b3ef94e410
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.date: 12/19/2020
+ms.openlocfilehash: 8fb6d319cacf85630b2c400cd18d14487725f925
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680036"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703977"
 ---
-# <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Python para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
+# <a name="quickstart-use-python-to-query-a-database"></a>Quickstart: Use Python para consultar uma base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Neste arranque rápido, você usa Python para ligar à Base de Dados Azure SQL ou Azure SQL Managed Instance, e usar declarações T-SQL para consultar dados.
+Neste arranque rápido, você usa Python para ligar à Base de Dados Azure SQL, Azure SQL Gestd Instance, ou base de dados Sinaapse SQL e usar declarações T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,9 @@ Para concluir este guia de início rápido, precisa de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-[!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
+- Uma base de dados onde vai fazer uma consulta.
+
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 - [Python](https://python.org/downloads) 3 e software relacionado
 
@@ -57,27 +59,11 @@ Para concluir este guia de início rápido, precisa de:
 ---
 Para explorar ainda mais a Python e a base de dados na Base de Dados Azure SQL, consulte [as bibliotecas de bases de dados Azure SQL para Python,](/python/api/overview/azure/sql)o [repositório de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/)e uma [amostra de pyodbc.](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)
 
-## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
-
-Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-
-2. Aceda à página **SQL Databases** ou **SQL Managed Instances.**
-
-3. Na página **'Vista Geral',** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para a base de dados na Base de Dados Azure SQL ou o nome do servidor (ou endereço IP) totalmente qualificado ao lado do **Anfitrião** para uma Instância Gerida SQL Azure ou servidor SQL em Azure VM. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copy.**
-
-> [!NOTE]
-> Para obter informações de ligação para O Servidor SQL em Azure VM, consulte [Conecte-se a uma instância do SqL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
-
 ## <a name="create-code-to-query-your-database"></a>Crie código para consultar a sua base de dados 
 
 1. Num editor de texto, crie um novo ficheiro chamado *sqltest.py*.  
    
-1. Adicione o seguinte código. Substitua os seus próprios valores \<server> \<database> \<username> por, e \<password> .
-   
-   >[!IMPORTANT]
-   >O código neste exemplo utiliza a amostra de dados AdventureWorksLT, que pode escolher como fonte ao criar a sua base de dados. Se a sua base de dados tiver dados diferentes, utilize tabelas da sua própria base de dados na consulta SELECT. 
+1. Adicione o seguinte código. Obtenha a informação de ligação da secção pré-requisitos e substitua os seus próprios valores \<server> \<database> \<username> por, e \<password> .
    
    ```python
    import pyodbc
@@ -105,7 +91,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
    python sqltest.py
    ```
 
-1. Verifique se as linhas top 20 categoria/produto são devolvidas e, em seguida, feche a janela de comando.
+1. Verifique se as bases de dados e as suas colagens são devolvidas e feche a janela de comando.
 
 ## <a name="next-steps"></a>Passos seguintes
 

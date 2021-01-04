@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004658"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708488"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada
 
@@ -43,7 +43,7 @@ Siga os passos deste artigo para aprovar ou negar pedidos de funções Azure AD.
 Siga estes passos para abrir as definições para um papel AD Azure.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador na função [de Administrador de Função Privilegiada.](../roles/permissions-reference.md#privileged-role-administrator)
-gt
+
 1. Open **Azure AD Gestão de Identidade Privilegiada** &gt; **Azure Ad** &gt; **funções Funções de funções**.
 
     ![Definições de função página listando funções AD Azure](./media/pim-how-to-change-default-settings/role-settings.png)

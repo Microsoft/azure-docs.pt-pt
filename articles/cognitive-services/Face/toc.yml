@@ -48,7 +48,8 @@
         - name: Configurar contentores
           href: face-resource-container-config.md
         - name: Utilizar instâncias de contentor
-          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Documentação sobre contentores dos Serviços Cognitivos
           href: ../containers/index.yml
 - name: Análises aprofundadas de cenários
@@ -75,7 +76,7 @@
           href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
         - name: Node.js
           href: /javascript/api/@azure/cognitiveservices-face
-        - name: Go
+        - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Recursos
   items:

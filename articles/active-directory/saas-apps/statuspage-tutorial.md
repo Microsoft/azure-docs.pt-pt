@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com statusPage / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com StatusPage Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o StatusPage.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: b138ab5a67de747480806c19f0d58014c41a1a77
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 40cb3c6e326cbacfbfb9879cfa92b5780d86fe99
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522058"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724209"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Diretório Ativo Azure com statusPage
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-statuspage"></a>Tutorial: Azure Ative Directory integração única (SSO) com statusPage
 
 Neste tutorial, aprende-se a integrar o StatusPage com o Azure Ative Directory (Azure AD).
 A integração do StatusPage com a AD Azure proporciona-lhe os seguintes benefícios:
@@ -26,9 +26,6 @@ A integração do StatusPage com a AD Azure proporciona-lhe os seguintes benefí
 * Pode controlar em Azure AD que tem acesso ao StatusPage.
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no StatusPage (Sign-on único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,69 +44,54 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 Para configurar a integração do StatusPage no AD Azure, é necessário adicionar o StatusPage da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar statusPage da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria,** digite **StatusPage** na caixa de pesquisa.
+1. Selecione **StatusPage** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
-
-    ![O botão Azure Ative Directory](common/select-azuread.png)
-
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
-
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
-
-    ![O novo botão de aplicação](common/add-new-app.png)
-
-4. Na caixa de pesquisa, escreva **StatusPage**, selecione **StatusPage** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
-
-    ![StatusPage na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+## <a name="configure-and-test-azure-ad-sso-for-statuspage"></a>Configure e teste Azure AD SSO para statusPage
 
 Nesta secção, configura e testa o Azure AD com statusPage com base num utilizador de teste chamado **Britta Simon**.
 Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no StatusPage.
 
-Para configurar e testar o Azure AD com o StatusPage, é necessário completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com statusPage, execute os seguintes passos:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configurar statusPage Single Sign-On](#configure-statuspage-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create StatusPage test user](#create-statuspage-test-user)** - para ter uma contraparte de Britta Simon no StatusPage que está ligada à representação AD AZure do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+1. **[Configure statusPage SSO](#configure-statuspage-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
+    1. **[Create StatusPage test user](#create-statuspage-test-user)** - para ter uma contraparte de Britta Simon no StatusPage que está ligada à representação AD AZure do utilizador.
+6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-Para configurar o Azure AD com statusPage, execute os seguintes passos:
+1. No portal Azure, na página de integração da aplicação **AskYourTeam,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **StatusPage,** selecione **'Único s-on'.**
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
-    ![StatusPage Domain e URLs informações únicas de súpr-on](common/idp-intiated.png)
+    a. Na caixa de texto **do identificador,** digite um URL utilizando um dos seguintes padrões:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
-
-    - `https://<subdomain>.statuspagestaging.com/`
-    - `https://<subdomain>.statuspage.io/`
+    | Identificador |
+    |--------------|
+    | `https://<subdomain>.statuspagestaging.com/` |
+    | `https://<subdomain>.statuspage.io/` |
+    |
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
 
-    - `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
-    - `https://<subdomain>.statuspage.io/sso/saml/consume`
+     | URL de Resposta |
+    |--------------|
+    | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
+    | `https://<subdomain>.statuspage.io/sso/saml/consume` |
+    |
 
     > [!NOTE]
     > Contacte a equipa de suporte do StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io) para solicitar metadados necessários para configurar um único sinal de inscrição. 
@@ -126,15 +108,47 @@ Para configurar o Azure AD com statusPage, execute os seguintes passos:
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    b. Identificador de Azure Ad
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
-### <a name="configure-statuspage-single-sign-on"></a>Configurar statusPage Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-1. Noutra janela do navegador, inscreva-se no site da empresa statusPage como administrador.
+Nesta secção, permite que Britta Simon utilize o Azure como único sinal, concedendo acesso ao StatusPage.
+
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **StatusPage**.
+
+2. Na lista de aplicações, selecione **StatusPage**.
+
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
+
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+
+6. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
+
+## <a name="configure-statuspage-sso"></a>Configurar statusPage SSO
+
+1. Para automatizar a configuração dentro do StatusPage, tem de instalar a extensão do **navegador 'As aplicações' Secure's,** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar statusPage** irá direcioná-lo para a aplicação StatusPage. A partir daí, forneça as credenciais de administração para assinar no StatusPage. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se pretender configurar o StatusPage manualmente, numa janela diferente do navegador web, inscreva-se no site da empresa statusPage como administrador.
 
 1. Na barra de ferramentas principal, clique em **Gerir Conta.**
 
@@ -156,62 +170,11 @@ Para configurar o Azure AD com statusPage, execute os seguintes passos:
 
     c. CLIQUE **EM GUARDAR CONFIGURAÇÃO**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **nome de utilizador**`brittasimon@yourcompanydomain.extension`  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, permite que Britta Simon utilize o Azure como único sinal, concedendo acesso ao StatusPage.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **StatusPage**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **StatusPage**.
-
-    ![O link StatusPage na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
-
 ### <a name="create-statuspage-test-user"></a>Criar utilizador de teste statusPage
 
 O objetivo desta secção é criar um utilizador chamado Britta Simon no StatusPage.
 
-O StatusPage suporta o provisionamento just-in-time. Já o ativou no [Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on).
+O StatusPage suporta o provisionamento just-in-time. Já o ativou no [Configure Azure AD Single Sign-On](#configure-azure-ad-sso).
 
 **Para criar um utilizador chamado Britta Simon no StatusPage, execute os seguintes passos:**
 
@@ -229,7 +192,7 @@ O StatusPage suporta o provisionamento just-in-time. Já o ativou no [Configure 
   
     ![A screenshot mostra o botão Add Team Member.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Digite o **Endereço de E-mail,** **Nome próprio**e **Apelido** de um utilizador válido que pretende apresentar nas caixas de texto relacionadas. 
+1. Digite o **Endereço de E-mail,** **Nome próprio** e **Apelido** de um utilizador válido que pretende apresentar nas caixas de texto relacionadas. 
 
     ![A screenshot mostra a caixa de diálogo Adicionar um Utilizador onde pode introduzir os valores descritos.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
@@ -237,16 +200,14 @@ O StatusPage suporta o provisionamento just-in-time. Já o ativou no [Configure 
 
 1. CLIQUE **EM CONTA CREATE**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no azulejo statusPage no Painel de Acesso, deverá ser automaticamente inscrito no StatusPage para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no StatusPage para o qual configura o SSO
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo statusPage nas Minhas Apps, deverá ser automaticamente inscrito no StatusPage para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado o StatusPage, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

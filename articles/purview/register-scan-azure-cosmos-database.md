@@ -1,18 +1,18 @@
 ---
 title: Como digitalizar a Base de Dados Azure Cosmos (SQL API)
 description: Esta forma de orientar descreve detalhes de como digitalizar a Base de Dados Azure Cosmos (SQL API).
-author: viseshag
-ms.author: viseshag
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
-ms.openlocfilehash: e1d2035b787380d9b93943b92fbe81c09fc6a527
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554990"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696251"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registar e digitalizar a Base de Dados Azure Cosmos (SQL API)
 
@@ -38,7 +38,7 @@ Só há uma forma de configurar a autenticação para a Base de Dados Azure Cosm
 Quando o método de autenticação selecionado é **a Chave de Conta,** tem de obter a chave de acesso e armazenar no cofre da chave:
 
 1. Navegue para a sua conta Cosmos DB no portal Azure 
-1. Selecione **Chaves de Definições**  >  **Keys** 
+1. Selecione **Chaves de Definições**  >   
 1. Copie a sua *chave* e guarde-a em algum lugar para os próximos passos
 1. Navegue até ao cofre da chave
 1. Selecione **Definições > Segredos**

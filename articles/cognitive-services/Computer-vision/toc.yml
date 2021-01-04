@@ -77,7 +77,8 @@
           href: deploy-computer-vision-on-premises.md
           displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
         - name: Utilizar instâncias de contentor
-          href: deploy-computer-vision-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
           displayName: 'container instances, container, containers, images'
     - name: Contentor de Análise Espacial
       items:

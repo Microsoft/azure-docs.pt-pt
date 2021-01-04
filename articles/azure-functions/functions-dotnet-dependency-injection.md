@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: b2bf406dcab626b3ac08caf1a21ffea9332d3ca2
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672649"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706937"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -30,7 +30,7 @@ Antes de poder utilizar a injeção de dependência, tem de instalar os seguinte
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
 
-- [Microsoft.Extenstions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (atualmente, apenas a versão 3.x e anteriormente suportada)
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (atualmente, apenas a versão 3.x e anteriormente suportada)
 
 ## <a name="register-services"></a>Serviços de registo
 
@@ -190,7 +190,7 @@ Para obter mais informações sobre os níveis de registo, consulte [os níveis 
 
 O anfitrião da função regista muitos serviços. Os seguintes serviços são seguros para assumir como uma dependência na sua aplicação:
 
-|Tipo de Serviço|Vida útil|Descrição|
+|Tipo de Serviço|Vida útil|Description|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Rio Singleton|Configuração do tempo de execução|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Rio Singleton|Responsável por fornecer a ID da instância de anfitrião|

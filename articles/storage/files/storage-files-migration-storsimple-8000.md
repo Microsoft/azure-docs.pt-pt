@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512176"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723983"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -105,7 +105,7 @@ Uma boa prática é implementar contas de armazenamento com uma partilha de fich
 
 Estas considerações aplicam-se mais ao [acesso direto](#direct-share-access-vs-azure-file-sync) à nuvem (através de um VM ou serviço Azure) do que ao Azure File Sync. Se planeia utilizar o Azure File Sync apenas nestas ações, agrupar várias numa única conta de armazenamento Azure está bem. Considere também que pode querer levantar e transferir uma aplicação para a nuvem que, em seguida, acederia diretamente a uma partilha de ficheiros. Ou pode começar a usar um serviço em Azure que também beneficiaria de ter iops mais elevados e números de produção disponíveis.
 
-Se fez uma lista das suas ações, mapeeeia cada ação para a conta de armazenamento onde ela irá residir.
+Se fez uma lista das suas ações, mapeia cada ação para a conta de armazenamento onde ela irá residir.
 
 > [!IMPORTANT]
 > Decida uma região de Azure e certifique-se de que cada conta de armazenamento e recurso Azure File Sync correspondem à região selecionada.
@@ -137,7 +137,7 @@ Provavelmente terá de implementar várias contas de armazenamento da Azure. Cad
 
 Pode utilizar a mesma subscrição que utilizou para a sua implementação StorSimple ou outra. A única limitação é que a sua subscrição deve estar no mesmo inquilino do Azure Ative Directory que a subscrição StorSimple. Considere mover a assinatura StorSimple para o inquilino correto antes de iniciar uma migração. Só pode mover toda a subscrição. Os recursos individuais StorSimple não podem ser transferidos para um inquilino ou subscrição diferente.
 
-#### <a name="resource-group"></a>Grupo de recursos
+#### <a name="resource-group"></a>O grupo de recursos
 
 Os grupos de recursos estão a ajudar na organização de recursos e permissões de gestão de administração. Saiba mais sobre [grupos de recursos em Azure.](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)
 
@@ -145,7 +145,7 @@ Os grupos de recursos estão a ajudar na organização de recursos e permissões
 
 O nome da sua conta de armazenamento passará a fazer parte de um URL e tem determinadas limitações de caracteres. Na sua convenção de nomeação, considere que os nomes das contas de armazenamento têm de ser únicos no mundo, permitem apenas letras e números minúsculos, requerem entre 3 a 24 caracteres, e não permitem caracteres especiais como hífens ou sublinhados. Para obter mais informações, consulte [as regras de nomeação de recursos de armazenamento Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>Localização
+#### <a name="location"></a>A localização
 
 A localização ou região de Azure de uma conta de armazenamento é muito importante. Se utilizar o Azure File Sync, todas as suas contas de armazenamento devem estar na mesma região que o seu recurso De Serviço de Sincronização de Armazenamento. A região Azure que escolher deve ser próxima ou central para os seus servidores e utilizadores locais. Depois de o seu recurso ter sido implantado, não pode mudar a sua região.
 
@@ -160,7 +160,7 @@ Tem a opção de escolher armazenamento premium (SSD) para ações de ficheiros 
 
 Ainda não tem certeza?
 
-* Escolha o armazenamento premium se precisar do [desempenho de uma partilha de ficheiros Azure premium.](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)
+* Escolha o armazenamento premium se precisar do [desempenho de uma partilha de ficheiros Azure premium.](understanding-billing.md#provisioned-billing)
 * Escolha o armazenamento padrão para as cargas de trabalho do servidor de ficheiros de uso geral, que inclui dados quentes e dados de arquivo. Escolha também o armazenamento padrão se a única carga de trabalho na partilha na nuvem será O Azure File Sync.
 
 #### <a name="account-kind"></a>Tipo de conta
@@ -430,7 +430,7 @@ Também pode utilizar o Visualizador de Eventos na sua instância do Windows Ser
 1. Procure o mais recente **evento 9102,** que corresponde a uma sessão de sincronização completa.
 1. Selecione **Detalhes** e confirme que está a olhar para um evento onde o valor **SyncDirection** é **Download.**
 1. Para o momento em que o seu espaço de nome tiver concluído o download para o servidor, haverá um único evento com **Scenario**, o valor **FullGhostedSync**, e **HResult**  =  **0**.
-1. Se perder esse evento, também pode procurar outros **eventos 9102** com Download e Cenário **SyncDirection**  =  **Download** **Scenario**  =  **"RegularSync"** do SyncDirection. Encontrar um destes eventos também indica que o espaço de nomes terminou o download e a sincronização progrediu para sessões regulares de sincronização, quer haja algo para sincronizar ou não neste momento.
+1. Se perder esse evento, também pode procurar outros **eventos 9102** com Download e Cenário   =     =  **"RegularSync"** do SyncDirection. Encontrar um destes eventos também indica que o espaço de nomes terminou o download e a sincronização progrediu para sessões regulares de sincronização, quer haja algo para sincronizar ou não neste momento.
 
 ### <a name="a-final-robocopy"></a>Um RoboCopy final
 

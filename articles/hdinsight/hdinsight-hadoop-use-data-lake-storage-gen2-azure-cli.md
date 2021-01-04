@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: f88c242ab6f7ddabe17c9363aa1e6bb7f617c800
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4ffe5acce831435d3771a2eb48a90b16f584c92a
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845118"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704015"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Criar um cluster com data lake storage gen2 usando Azure CLI
 
@@ -34,7 +34,7 @@ Para criar um cluster HDInsight que usa data lake storage gen2 para armazenament
 
 Você pode [baixar um ficheiro de modelo de amostra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e descarregar um ficheiro de [parâmetros de amostra](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de utilizar o modelo e o corte de código Azure CLI abaixo, substitua os seguintes espaços reservados pelos seus valores corretos:
 
-| Marcador de posição | Descrição |
+| Marcador de posição | Description |
 |---|---|
 | `<SUBSCRIPTION_ID>` | O ID da sua assinatura Azure |
 | `<RESOURCEGROUPNAME>` | O grupo de recursos onde pretende a criação da nova conta de cluster e armazenamento. |
@@ -77,7 +77,7 @@ Em seguida, inscreva-se no portal. Adicione a nova identidade gerida atribuída 
  > Certifique-se de que a sua conta de armazenamento tem a identidade atribuída ao utilizador com permissões de função **de contribuinte de dados de armazenamento,** caso contrário a criação de cluster falhará.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json

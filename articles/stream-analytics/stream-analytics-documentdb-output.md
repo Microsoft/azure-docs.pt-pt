@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: e8b8c89b94b2fbb191eee0ea57e957802a54204e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 35231eda43e766b5febd8ba90c4d92a44537e0ef
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126979"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703760"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída Azure Stream Analytics para Azure Cosmos DB  
 O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para a implementação desta configuração. Recomendamos que descreva o seu trabalho para o nível de compatibilidade 1.2 ao utilizar o Azure Cosmos DB como saída.
@@ -21,7 +21,7 @@ O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.
 Se não está familiarizado com a Azure Cosmos DB, consulte a documentação do [Azure Cosmos DB](../cosmos-db/index.yml) para começar. 
 
 > [!Note]
-> Neste momento, o Stream Analytics suporta a ligação ao Azure Cosmos DB apenas através da *API SQL* .
+> Neste momento, o Stream Analytics suporta a ligação ao Azure Cosmos DB apenas através da *API SQL*.
 > Outras APIs DB de Azure Cosmos ainda não estão apoiadas. Se apontar o Stream Analytics para as contas DB do Azure Cosmos criadas com outras APIs, os dados podem não estar devidamente armazenados. 
 
 ## <a name="basics-of-azure-cosmos-db-as-an-output-target"></a>Básicos da Azure Cosmos DB como alvo de saída
@@ -97,7 +97,7 @@ A taxa de entrada em Event Hubs é duas vezes maior do que os contentores DB Azu
 
 ![Comparação de métricas Azure Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-Com 1.2, o Stream Analytics é mais inteligente na utilização de 100% da produção disponível em Azure Cosmos DB com muito poucas resubmissãos de estrangulamento ou limitação de taxas. Isto proporciona uma melhor experiência para outras cargas de trabalho, como consultas que correm no recipiente ao mesmo tempo. Se quiser ver como o Stream Analytics escala com a Azure Cosmos DB como pia para 1.000 a 10.000 mensagens por segundo, experimente [este projeto de amostra Azure.](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)
+Com 1.2, o Stream Analytics é mais inteligente na utilização de 100% da produção disponível em Azure Cosmos DB com muito poucas resubmissãos de estrangulamento ou limitação de taxas. Isto proporciona uma melhor experiência para outras cargas de trabalho, como consultas que correm no recipiente ao mesmo tempo. Se quiser ver como o Stream Analytics escala com a Azure Cosmos DB como pia para 1.000 a 10.000 mensagens por segundo, experimente [este projeto de amostra Azure.](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb)
 
 A produção de DB Azure Cosmos é idêntica com 1.0 e 1.1. *Recomendamos vivamente* que utilize o nível de compatibilidade 1.2 em Stream Analytics com Azure Cosmos DB.
 

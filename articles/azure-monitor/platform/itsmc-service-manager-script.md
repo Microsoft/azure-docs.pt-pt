@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 4babd015b05527cb03d2747b1c9b9a34941634ab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657010"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722883"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web do Gestor de Serviços utilizando o script automatizado
 
-Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviço. Mais informações sobre a ligação do Service Manager estão aqui: [App Web do Gestor de Serviços](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviço. Mais informações sobre a ligação do Service Manager estão aqui: [App Web do Gestor de Serviços](./itsmc-connections-scsm.md)
 
 Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
-- Localização
+- A localização
 - Detalhes do servidor do Gestor de Serviço (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo de nome do site para a sua aplicação Web
 - Espaço de nomes ServiceBus.
@@ -29,9 +29,6 @@ Execute o script fornecendo os seguintes detalhes necessários:
 O script criará a aplicação Web usando o nome especificado (juntamente com algumas cordas adicionais para torná-la única). Gera o URL da **aplicação Web,** **iD do cliente** e **o segredo do cliente.**
 
 Guarde estes valores, necessitará destes valores quando criar uma ligação com o Connector de Gestão de Serviços de TI.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -321,5 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configure a ligação Híbrida](./itsmc-connections.md#configure-the-hybrid-connection).
+[Configure a ligação Híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
 

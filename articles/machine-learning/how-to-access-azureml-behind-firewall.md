@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461403"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705069"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
-Neste artigo, aprenda a configurar o Azure Firewall para controlar o acesso ao seu espaço de trabalho Azure Machine Learning e à internet pública. Para saber mais sobre a garantia de Azure Machine Learning, consulte [a segurança da Empresa para a Azure Machine Learning](concept-enterprise-security.md)
+Neste artigo, aprenda a configurar o Azure Firewall para controlar o acesso ao seu espaço de trabalho Azure Machine Learning e à internet pública. Para saber mais sobre a garantia de Azure Machine Learning, consulte [a segurança da Empresa para a Azure Machine Learning.](concept-enterprise-security.md)
+
+> [!WARNING]
+> O acesso ao armazenamento de dados por trás de uma firewall só é suportado em primeiras experiências de código. A utilização do [estúdio Azure Machine Learning](overview-what-is-machine-learning-studio.md) para aceder a dados por detrás de uma firewall não é suportada. Para trabalhar com o armazenamento de dados numa rede privada com o estúdio, você deve primeiro [configurar uma rede virtual](../virtual-network/quick-create-portal.md) e [dar ao estúdio acesso a dados armazenados dentro de uma rede virtual.](how-to-enable-studio-virtual-network.md)
 
 ## <a name="azure-firewall"></a>Azure Firewall
 

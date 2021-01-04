@@ -1,6 +1,6 @@
 ---
 title: Sobre os segredos do Cofre da Chave Azure - Azure Key Vault
-description: Visão geral da interface Azure Key Vault REST e detalhes do desenvolvedor para segredos.
+description: Visão geral dos segredos do Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930476"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705273"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Cofre da Chave Azure
 
-O Key Vault fornece um armazenamento seguro de segredos, tais como palavras-passe e cadeias de ligação de bases de dados.
+[O Key Vault](../general/overview.md) fornece um armazenamento seguro de segredos genéricos, tais como palavras-passe e cadeias de conexão de base de dados.
 
 Do ponto de vista de um desenvolvedor, as APIs do Cofre chave aceitam e devolvem valores secretos como cordas. Internamente, o Key Vault armazena e gere segredos como sequências de octetos (bytes de 8 bits), com um tamanho máximo de 25k bytes cada. O serviço Key Vault não fornece semântica para segredos. Apenas aceita os dados, encripta-os, armazena-os e devolve um identificador secreto ("id"). O identificador pode ser usado para recuperar o segredo mais tarde.  
 
@@ -44,9 +44,11 @@ Existem atributos adicionais apenas de leitura que estão incluídos em qualquer
 - *criado*: IntDate, opcional. O atributo criado indica quando esta versão do segredo foi criada. Este valor é nulo para segredos criados antes da adição deste atributo. O seu valor deve ser um número que contenha um valor IntDate.  
 - *atualizado*: IntDate, opcional. O atributo atualizado indica quando esta versão do segredo foi atualizada. Este valor é nulo para segredos que foram atualizados pela última vez antes da adição deste atributo. O seu valor deve ser um número que contenha um valor IntDate.
 
+Para obter informações sobre atributos comuns para cada tipo de objeto de abóbada de chave, consulte [as teclas, segredos e certificados do Azure Key Vault](../general/about-keys-secrets-certificates.md)
+
 ### <a name="date-time-controlled-operations"></a>Operações controladas à data
 
-Uma **operação** secreta funcionará para segredos ainda não válidos e expirados, fora da janela *da NBF*  /  *Exp.* Chamar uma **operação** secreta, para um segredo ainda não válido, pode ser usado para fins de teste. A recuperação **(get**ting) de um segredo expirado, pode ser usada para operações de recuperação.
+Uma **operação** secreta funcionará para segredos ainda não válidos e expirados, fora da janela *da NBF*  /  *Exp.* Chamar uma **operação** secreta, para um segredo ainda não válido, pode ser usado para fins de teste. A recuperação **(get** ting) de um segredo expirado, pode ser usada para operações de recuperação.
 
 ## <a name="secret-access-control"></a>Secret access control (Controlo de acesso a segredos)
 
@@ -68,6 +70,12 @@ As seguintes permissões podem ser utilizadas, numa base por princípio, na entr
 
 Para obter mais informações sobre o trabalho com segredos, consulte [as operações secretas na referência da API key Vault REST](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
+Guias para controlar o acesso no Cofre de Chaves:
+- [Atribua uma política de acesso ao Cofre de Chaves utilizando o CLI](../general/assign-access-policy-cli.md)
+- [Atribua uma política de acesso ao Cofre de Chaves utilizando o PowerShell](../general/assign-access-policy-powershell.md)
+- [Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure](../general/assign-access-policy-portal.md)
+- [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)](../general/rbac-guide.md)
+
 ## <a name="secret-tags"></a>Etiquetas secretas  
 Pode especificar metadados específicos de aplicação adicionais sob a forma de etiquetas. O Key Vault suporta até 15 tags, cada uma das quais pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
 
@@ -76,14 +84,17 @@ Pode especificar metadados específicos de aplicação adicionais sob a forma de
 
 ## <a name="azure-storage-account-key-management"></a>Gestão de chaves de conta de armazenamento Azure
 
-Key Vault pode gerir as chaves da conta de armazenamento Azure:
+Key Vault pode gerir as chaves [da conta de armazenamento Azure:](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
 
 - Internamente, o Key Vault pode listar as chaves (sincronização) com uma conta de armazenamento Azure. 
 - O Cofre-chave regenera (gira) as chaves periodicamente.
 - Os valores-chave nunca são devolvidos em resposta ao chamador.
 - Key Vault gere chaves de contas de armazenamento e contas de armazenamento clássicas.
 
-Para mais informações, consulte [as chaves da conta de armazenamento do cofre da chave Azure](../secrets/overview-storage-keys.md))
+Para obter mais informações, veja:
+- [Chaves de acesso da conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Gestão de chaves de conta de armazenamento no Cofre da Chave Azure](../secrets/overview-storage-keys.md))
+
 
 ## <a name="storage-account-access-control"></a>Controlo de acesso à conta de armazenamento
 
@@ -109,11 +120,18 @@ As seguintes permissões podem ser utilizadas ao autorizar um utilizador ou o pr
 
 Para obter mais informações, consulte as operações da [conta de armazenamento na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
+Guias para controlar o acesso no Cofre de Chaves:
+- [Atribua uma política de acesso ao Cofre de Chaves utilizando o CLI](../general/assign-access-policy-cli.md)
+- [Atribua uma política de acesso ao Cofre de Chaves utilizando o PowerShell](../general/assign-access-policy-powershell.md)
+- [Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure](../general/assign-access-policy-portal.md)
+- [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)](../general/rbac-guide.md)
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Sobre o Key Vault](../general/overview.md)
 - [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
 - [Acerca de chaves](../keys/about-keys.md)
 - [Acerca de certificados](../certificates/about-certificates.md)
-- [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
+- [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1f7b115c5a8198b53e36672a891903a41a9511b
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488541"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704134"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -23,7 +23,7 @@ Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar co
 
 Pode aceder à sua informação de registo 10 minutos (no máximo) após a operação do cofre da chave. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os seus registos na sua conta de armazenamento:
 
-* Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
+* Utilize métodos padrão de controlo de acesso Azure na sua conta de armazenamento para proteger os seus registos, restringindo quem pode aceder aos mesmos.
 * Elimine os registos que já não pretende manter na sua conta de armazenamento.
 
 Para obter informações gerais sobre o Key Vault, veja [o que é o Cofre da Chave Azure?](overview.md) Para obter informações sobre onde o Cofre-Chave está disponível, consulte [a página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre a utilização [do Monitor Azure para o Cofre de Chaves](../../azure-monitor/insights/key-vault-insights-overview.md).
@@ -85,6 +85,8 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 
 ### <a name="operation-names-table"></a>Tabela de nomes de operação
 
+# <a name="vault"></a>[Cofre](#tab/Vault)
+
 | operationName | Comando API REST |
 | --- | --- |
 | **Autenticação** |Autenticar via Azure Ative Directory endpoint |
@@ -97,6 +99,12 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **Recuperação de cofres** |Recuperar cofre apagado|
 | **VaultGetDeleted** |[Receba o cofre apagado](/rest/api/keyvault/vaults/getdeleted) |
 | **VaultListDeleted** |[Lista de cofres eliminados](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultAccessPolicyChangedEventGridNotification** | A política de acesso ao cofre mudou o evento publicado |
+
+# <a name="keys"></a>[Chaves](#tab/Keys)
+
+| operationName | Comando API REST |
+| --- | --- |
 | **KeyCreate** |[Criar uma chave](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Obter informações sobre uma chave](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importar uma chave para um cofre](/rest/api/keyvault/vaults) |
@@ -116,36 +124,13 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **Chaverecover** |[Recuperar uma chave](/rest/api/keyvault/recoverdeletedkey) |
 | **KeyGetDeleted** |[Obtenha a chave eliminada](/rest/api/keyvault/getdeletedkey) |
 | **KeyListDeleted** |[Listar as chaves apagadas num cofre](/rest/api/keyvault/getdeletedkeys) |
-| **CertificadoR** |[Obtenha informações sobre um certificado](/rest/api/keyvault/getcertificate) |
-| **CertificadoCreato** |[Criar um certificado](/rest/api/keyvault/createcertificate) |
-| **CertificadoImport** |[Importe um certificado em um cofre](/rest/api/keyvault/importcertificate) |
-| **CertificadoUpdate** |[Atualizar um certificado](/rest/api/keyvault/updatecertificate) |
-| **Lista de Certificados** |[Listar os certificados num cofre](/rest/api/keyvault/getcertificates) |
-| **CertificadosListversões** |[Listar as versões de um certificado](/rest/api/keyvault/getcertificateversions) |
-| **CertificadoDelete** |[Apagar um certificado](/rest/api/keyvault/deletecertificate) |
-| **CertificadoPurge** |[Purgue um certificado](/rest/api/keyvault/purgedeletedcertificate) |
-| **CertificateBackup** |[Backup de um certificado](/rest/api/keyvault/backupcertificate) |
-| **Loja de Certificados** |[Restaurar um certificado](/rest/api/keyvault/restorecertificate) |
-| **CertificadoRecover** |[Recuperar um certificado](/rest/api/keyvault/recoverdeletedcertificate) |
-| **CertificadoGetDeleted** |[Obter certificado eliminado](/rest/api/keyvault/getdeletedcertificate) |
-| **CertificadoSDeletado** |[Listar os certificados eliminados num cofre](/rest/api/keyvault/getdeletedcertificates) |
-| **CertificadoPolicyGet** |[Obtenha a política de certificados](/rest/api/keyvault/getcertificatepolicy) |
-| **CertificadoPolicyUpdate** |[Atualizar a política de certificados](/rest/api/keyvault/updatecertificatepolicy) |
-| **CertificadoPolicySet** |[Criar política de certificados](/rest/api/keyvault/createcertificate) |
-| **CertificadoContactsGet** |[Obter contactos de certificado](/rest/api/keyvault/getcertificatecontacts) |
-| **CertificadoContactsSet** |[Definir contactos de certificado](/rest/api/keyvault/setcertificatecontacts) |
-| **CertificadoContactsDelete** |[Eliminar contactos de certificados](/rest/api/keyvault/deletecertificatecontacts) |
-| **CertificadoIssuerGet** |[Obtenha o emitente de certificado](/rest/api/keyvault/getcertificateissuer) |
-| **CertificadoIssuerSet** |[Emitente de certificado definido](/rest/api/keyvault/setcertificateissuer) |
-| **CertificadoIssuerUpdate** |[Emitente de certificado de atualização](/rest/api/keyvault/updatecertificateissuer) |
-| **CertificadoIssuerDelete** |[Eliminar emissor de certificados](/rest/api/keyvault/deletecertificateissuer) |
-| **CertifiIssuersList** |[Listar os emitentes de certificados](/rest/api/keyvault/getcertificateissuers) |
-| **CertificadoEnroll** |Inscreva um certificado |
-| **CertificadoRenovo** |Renovar um certificado |
-| **100 000's** |Recuperar certificado pendente |
-| **Licenciatura em Penitência** |Enquanto se aguarda uma fusão de certificado |
-| **Certificado GastoUpdate** |Enquanto se aguarda uma atualização de certificado |
-| **Certificado PendenteDelete** |Apagar certificado pendente |
+| **KeyNearExpiryEventGridNotification** |Chave perto do evento de expiração publicado |
+| **KeyExpiredEventGridNotification** |Evento expirado chave publicado |
+
+# <a name="secrets"></a>[Segredos](#tab/Secrets)
+
+| operationName | Comando API REST |
+| --- | --- |
 | **SecretSet** |[Criar um segredo](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Obter um segredo](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Atualizar um segredo](/rest/api/keyvault/updatesecret) |
@@ -158,13 +143,17 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **SecretRecover** |[Recuperar um segredo](/rest/api/keyvault/recoverdeletedsecret) |
 | **SecretGetDeleted** |[Obter segredo apagado](/rest/api/keyvault/getdeletedsecret) |
 | **SecretListDeleted** |[Listar os segredos apagados num cofre](/rest/api/keyvault/getdeletedsecrets) |
-| **VaultAccessPolicyChangedEventGridNotification** | A política de acesso ao cofre mudou o evento publicado |
 | **SecretNearExpiryEventGridNotification** |Evento secreto perto da expiração publicado |
 | **SecretExpiredEventGridNotification** |Evento secreto expirado publicado |
-| **KeyNearExpiryEventGridNotification** |Chave perto do evento de expiração publicado |
-| **KeyExpiredEventGridNotification** |Evento expirado chave publicado |
-| **CertificadoNearExpiryEventGridNotification** |Certificado perto do evento de validade publicado |
-| **CertificadoExpiredEventGridNotification** |Certificado vencida evento publicado |
+
+# <a name="certificates"></a>[Certificados](#tab/Cerificates)
+
+| operationName | Comando API REST |
+| --- | --- |
+
+| **CertificadoR**  | [Obtenha informações sobre um certificado](/rest/api/keyvault/getcertificate) . **CertificadoCreato**  | [Criar um certificado](/rest/api/keyvault/createcertificate) ! **CertificadoImport**  | [Importar um certificado para um cofre](/rest/api/keyvault/importcertificate) . **CertificadoUpdate**  | [Atualizar um certificado](/rest/api/keyvault/updatecertificate) / **Lista de Certificados**  | [Listar os certificados num cofre](/rest/api/keyvault/getcertificates) . **CertificadosListversões**  | [Listar as versões de um certificado](/rest/api/keyvault/getcertificateversions) ! **CertificadoDelete**  | [Apagar um certificado](/rest/api/keyvault/deletecertificate) ! **CertificadoPurge**  | [Purgar um certificado](/rest/api/keyvault/purgedeletedcertificate) ! **CertificateBackup**  | [Backup de um certificado](/rest/api/keyvault/backupcertificate) / **Loja de Certificados**  | [Restaurar um certificado](/rest/api/keyvault/restorecertificate) ! **CertificadoRecover**  | [Recuperar um certificado](/rest/api/keyvault/recoverdeletedcertificate) ! **CertificadoGetDeleted**  | [Obter certificado apagado](/rest/api/keyvault/getdeletedcertificate) / **CertificadoSDeletado**  | [Listar os certificados apagados num cofre](/rest/api/keyvault/getdeletedcertificates) . **CertificadoPolicyGet**  | [Obtenha a política de certificados](/rest/api/keyvault/getcertificatepolicy) . **CertificadoPolicyUpdate**  | [Política de certificados](/rest/api/keyvault/updatecertificatepolicy) de atualização ! **CertificadoPolicySet**  | [Criar política de certificados](/rest/api/keyvault/createcertificate) ! **CertificadoContactsGet**  | [Obtenha contactos com certificados](/rest/api/keyvault/getcertificatecontacts) ! **CertificadoContactsSet**  | [Definir contactos de certificados](/rest/api/keyvault/setcertificatecontacts) ! **CertificadoContactsDelete**  | [Apagar contactos de certificados](/rest/api/keyvault/deletecertificatecontacts) **CertificadoIssuerGet**  | [Obtenha o emitente de certificados](/rest/api/keyvault/getcertificateissuer) . **CertificadoIssuerSet**  | [Definir emissor de certificados](/rest/api/keyvault/setcertificateissuer) . **CertificadoIssuerUpdate**  | [Emitente de certificado de atualização](/rest/api/keyvault/updatecertificateissuer) ! **CertificadoIssuerDelete**  | [Eliminar emitente de certificados](/rest/api/keyvault/deletecertificateissuer) **CertifiIssuersList**  | [Listar os emitentes de certificados](/rest/api/keyvault/getcertificateissuers) ! **CertificadoEnroll** / Inscreva um certificado ! **CertificadoRenew** ! Renovar um certificado ! **CertificadoS GastosGet** [ Recuperar certificado pendente / **Licenciatura em Gastos Desempados** Pendente de um certificado de fusão ! **CertificadoS GastosUpdate** / Enquanto se aguarda uma atualização do certificado ! **CertificadoS DeDeete Gastos** / Apagar certificado pendente ! **CertificadoNearExpiryEventGridNotification** / Certificado perto do evento de validade publicado !
+<a name="-certificateexpiredeventgridnotification-certificate-expired-event-published-"></a>|**CertificadoSExpiredEventGridNotification** / Certificado vencida evento publicado /
+---
 
 ## <a name="use-azure-monitor-logs"></a>Utilizar os registos do Azure Monitor
 
@@ -175,6 +164,7 @@ Para obter mais informações, incluindo como configurar isto, consulte [o Azure
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Como permitir a exploração do Cofre de Chaves](howto-logging.md)
+- [Monitor azul](https://docs.microsoft.com/azure/azure-monitor/)
 - Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consulte [Use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
 - Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](developers-guide.md).
 - Para obter uma lista de Azure PowerShell 1.0 cmdlets para Azure Key Vault, consulte [as cmdlets do Cofre da Chave Azure](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

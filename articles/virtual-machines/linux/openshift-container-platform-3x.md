@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368154"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703743"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementar plataforma de contentores openshift 3.11 em Azure
 
@@ -32,7 +32,7 @@ Certifique-se de que tem um nome de utilizador válido do Red Hat Subscription M
 
 ### <a name="private-clusters"></a>Aglomerados Privados
 
-A implantação de clusters openshift privados requer mais do que simplesmente não ter um IP público associado ao equilibrador de carga principal (consola web) ou ao equilibrador de infravermelhos (router).  Um cluster privado geralmente usa um servidor DNS personalizado (não o padrão Azure DNS), um nome de domínio personalizado (como contoso.com) e redes virtuais pré-definidas).  Para clusters privados, é necessário configurar a sua rede virtual com todas as sub-redes apropriadas e as definições de servidor DNS com antecedência.  Em seguida, utilize **a referência DeresubnetReference**existente , **indemnizadoraInfraSubnetReference**, **a referência existenteCnsSubnetReference,** e a referência **ExistenteNodeSubnetReference** para especificar a sub-rede existente para utilização pelo cluster.
+A implantação de clusters openshift privados requer mais do que simplesmente não ter um IP público associado ao equilibrador de carga principal (consola web) ou ao equilibrador de infravermelhos (router).  Um cluster privado geralmente usa um servidor DNS personalizado (não o padrão Azure DNS), um nome de domínio personalizado (como contoso.com) e redes virtuais pré-definidas).  Para clusters privados, é necessário configurar a sua rede virtual com todas as sub-redes apropriadas e as definições de servidor DNS com antecedência.  Em seguida, utilize **a referência DeresubnetReference** existente , **indemnizadoraInfraSubnetReference**, **a referência existenteCnsSubnetReference,** e a referência **ExistenteNodeSubnetReference** para especificar a sub-rede existente para utilização pelo cluster.
 
 Se o mestre privado for selecionado **(masterClusterType**=privado), um IP privado estático precisa de ser especificado para **masterPrivateClusterIp**.  Este IP será atribuído à parte frontal do equilibral de carga principal.  O IP deve estar dentro do CIDR para a sub-rede principal e não para a utilização.  **masterClusterDnsType** deve ser definido como "personalizado" e o nome principal DNS deve ser fornecido para **masterClusterDns**.  O nome DNS deve mapear para o IP privado estático e será usado para aceder à consola nos nós principais.
 
@@ -312,7 +312,7 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 O exemplo seguinte implementa o cluster OpenShift e todos os recursos relacionados num grupo de recursos chamado openshiftrg, com um nome de implantação do myOpenShiftCluster. O modelo é referenciado diretamente a partir do repo GitHub, e um ficheiro de parâmetros locais nomeado azuredeploy.parameters.jsno ficheiro é usado.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```

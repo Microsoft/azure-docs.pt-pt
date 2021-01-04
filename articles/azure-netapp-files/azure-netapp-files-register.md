@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61d6ba1f908a7dae56db066bfae329fc26f1c5c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533643"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696130"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 
@@ -30,7 +30,8 @@ Neste artigo, saiba como se registar nos Ficheiros Azure NetApp para que possa c
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Submeter um pedido de lista de espera para aceder ao serviço
 
-1. Envie um pedido de lista de espera para aceder ao serviço Azure NetApp Files através da página de submissão da [lista de espera Azure NetApp Files](https://aka.ms/azurenetappfiles). 
+1. Vá à página seguinte e envie um pedido de lista de espera para aceder ao serviço Azure NetApp Files:  
+    [**Página de submissão da lista de espera Azure NetApp Files**](https://aka.ms/azurenetappfiles) 
 
     A inscrição na lista de espera não garante o acesso imediato ao serviço. 
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493105"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702632"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
@@ -107,9 +107,14 @@ Se a ligação ao Azure falhar, pode tentar resolver o problema ligando manualme
 
 1. Utilize o portal [Azure](https://portal.azure.com/) para criar uma conta Azure Media Services, conforme descrito na [Criar uma conta](../previous/media-services-portal-create-account.md).
 
+     Certifique-se de que a conta dos Serviços de Comunicação social foi criada com as APIs clássicas. 
+ 
+    ![API clássica dos Serviços de Media](./media/create-account/enable-classic-api.png)
+
+
     Ao criar uma conta de armazenamento para a sua conta De Serviços de Mídia, selecione **StorageV2** para o tipo de conta e **Geo-redundante** (GRS) para campos de replicação.
 
-    ![Nova conta AMS](./media/create-account/create-ams-account1.png)
+    ![Nova conta AMS](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Certifique-se de escrever os nomes dos recursos e contas dos Serviços de Comunicação Social. Vai precisar deles para os passos na próxima secção.
@@ -120,14 +125,14 @@ Se a ligação ao Azure falhar, pode tentar resolver o problema ligando manualme
 
     Na nova conta dos Serviços de Comunicação Social, selecione **Streaming endpoints**. Em seguida, selecione o ponto final de streaming e prima o início.
 
-    ![Pontos finais de transmissões em fluxo](./media/create-account/create-ams-account2.png)
+    ![Pontos finais de transmissões em fluxo](./media/create-account/create-ams-account-se.png)
 4. Para que o Indexante de Vídeo autentica com a API dos Serviços de Mídia, é necessário criar uma aplicação AD. Os seguintes passos guiam-no através do processo de autenticação AD Azure descrito em [Get start with Azure AD authentication utilizando o portal Azure:](../previous/media-services-portal-get-started-with-aad.md)
 
     1. Na nova conta dos Serviços de Comunicação Social, selecione **acesso API**.
     2. Selecione [o método de autenticação principal do Serviço](../previous/media-services-portal-get-started-with-aad.md).
     3. Obtenha a iD do cliente e o segredo do cliente
 
-        Depois de **Settings** selecionar -> **Definições Chaves**, adicione **Descrição**, prima **Guardar**, e o valor da chave é povoado.
+        Depois de selecionar -> **Definições Chaves**, adicione **Descrição**, prima **Guardar**, e o valor da chave é povoado.
 
         Se a chave expirar, o proprietário da conta terá de contactar o suporte do Video Indexer para renovar a chave.
 
@@ -147,7 +152,7 @@ No diálogo, forneça as seguintes informações:
 |ID da subscrição|A assinatura Azure sob a qual esta ligação deve ser criada. O ID de subscrição pode ser recuperado a partir do portal Azure. Selecione **Todos os serviços** no painel esquerdo e procure por "subscrições". Selecione **Subscrições** e escolha o ID desejado na lista das suas subscrições.|
 |Nome do grupo de recursos Azure Media Services|O nome do grupo de recursos em que criou a conta dos Serviços de Comunicação Social.|
 |Nome de recurso de serviço de mídia|O nome da conta Azure Media Services que criou na secção anterior.|
-|ID da aplicação|O ID de aplicação Azure (com permissões para a conta de Serviços de Mídia especificadas) que criou na secção anterior.|
+|ID da Aplicação|O ID de aplicação Azure (com permissões para a conta de Serviços de Mídia especificadas) que criou na secção anterior.|
 |Chave de aplicação|A chave de aplicação AD AZure que criou na secção anterior. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>Importe o seu conteúdo da conta *experimental*
@@ -171,7 +176,9 @@ A conta será permanentemente apagada em 90 dias.
 
 Aplicam-se as seguintes considerações relacionadas com os Serviços de Comunicação Social da Azure:
 
-* Se ligar automaticamente, vê um novo grupo de recursos, uma conta de Serviços de Mídia e uma conta de Armazenamento na sua assinatura Azure.
+* Se planeia ligar-se a uma conta de Serviços de Comunicação existente, certifique-se de que a conta de Serviços de Mídia foi criada com as APIs clássicas. 
+ 
+    ![API clássica dos Serviços de Media](./media/create-account/enable-classic-api.png)
 * Se ligar a uma conta de Serviços de Comunicação existente, o Índice de Vídeo não altera a configuração de **Unidades Reservadas** para os meios de comunicação existentes.
 
    Poderá ser necessário ajustar o tipo e o número de Unidades Reservadas de Mídia de acordo com a sua carga planeada. Tenha em mente que se a sua carga for elevada e não tiver unidades ou velocidade suficientes, o processamento de vídeos pode resultar em falhas de tempo.

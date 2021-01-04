@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2019
+ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509330"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703322"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento de administração na plataforma de identidade da Microsoft
 
@@ -50,10 +50,9 @@ https://graph.microsoft.com/mail.send
 | `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
 | `redirect_uri` | Necessário |O URI de redirecionamento onde deseja que a resposta seja enviada para que a sua aplicação seja tratada. Deve corresponder exatamente a um dos URIs redirecionados que registou no portal de registo de aplicações. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. Utilize o estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam. |
-|`scope` | Necessário | Define o conjunto de permissões solicitadas pela aplicação. Isto pode ser estático (usando /.predefinido) ou âmbitos dinâmicos. Isto pode incluir os âmbitos OIDC `openid` (, `profile` , . `email` . |
+|`scope` | Necessário | Define o conjunto de permissões solicitadas pela aplicação. Isto pode ser estático `/.default` (utilizando) ou âmbitos dinâmicos. Isto pode incluir os âmbitos OIDC `openid` (, `profile` , . `email` . |
 
-
-Neste momento, a Azure AD exige que um administrador de inquilino assine para completar o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no `scope` parâmetro.  Se tiver usado um valor estático `/.default` () funcionará como o ponto final de consentimento de administração v1.0 e solicitará o consentimento para todos os âmbitos encontrados nas permissões necessárias para a aplicação.
+Neste momento, a Azure AD exige que um administrador de inquilino assine para completar o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no `scope` parâmetro.  Se tiver usado um valor estático `/.default` () funcionará como o ponto final de consentimento de administração v1.0 e solicitará o consentimento para todos os âmbitos encontrados nas permissões necessárias (tanto do utilizador como da aplicação). Para solicitar permissões de aplicações, deve utilizar o `/.default` valor. Se não quiser que os administradores vejam sempre uma determinada permissão no ecrã de consentimento administrativo quando `/.default` utilizar, a melhor prática é não colocar a permissão na secção de permissões necessárias. Em vez disso, pode utilizar o consentimento dinâmico para adicionar as permissões que pretende estar no ecrã de consentimento no tempo de execução, em vez de usar `/.default` .
 
 ### <a name="successful-response"></a>Resposta bem sucedida
 

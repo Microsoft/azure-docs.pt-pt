@@ -10,18 +10,18 @@ ms.custom: how-to, automl
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: cf1eb1c72cc93fcb72862b15f3884969915c24dd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ce13e0431827bb2c72a03ca33a1ecaefc53d4970
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360654"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702531"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidade de interpretação: explicações de modelos no machine learning automatizado (pré-visualização)
 
 
 
-Neste artigo, aprende-se a obter explicações para o machine learning automatizado (ML) em Azure Machine Learning. O ML automatizado ajuda-o a compreender a importância do recurso projetado. 
+Neste artigo, aprende-se a obter explicações para o machine learning automatizado (AutoML) em Azure Machine Learning. O AutoML ajuda-o a compreender a importância da funcionalidade dos modelos gerados. 
 
 Todas as versões SDK depois de 1.0.85 `model_explainability=True` definidas por padrão. Na versão SDK 1.0.85 e nas versões anteriores os utilizadores precisam de definir `model_explainability=True` o objeto para utilizar a interpretação do `AutoMLConfig` modelo. 
 
@@ -34,15 +34,18 @@ Neste artigo, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Características de interpretação. Corra `pip install azureml-interpret` para obter o pacote necessário.
-- Conhecimento de construção de experiências automatizadas de ML. Para obter mais informações sobre como utilizar o Azure Machine Learning SDK, complete este [tutorial de modelo de regressão](tutorial-auto-train-models.md) ou veja como [configurar experiências automatizadas de ML](how-to-configure-auto-train.md).
+- Conhecimento de construir experiências autoML. Para obter mais informações sobre como utilizar o Azure Machine Learning SDK, complete este [tutorial de modelo de regressão](tutorial-auto-train-models.md) ou veja como [configurar experiências AutoML](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretação durante o treino para o melhor modelo
 
-Recupere a explicação do `best_run` , que inclui explicações para as características projetadas.
+Recupere a explicação do `best_run` , que inclui explicações para características cruas e projetadas.
 
 > [!Warning]
 > A interpretação, melhor explicação para o modelo, não está disponível para experiências de previsão de ML auto que recomendem os seguintes algoritmos como o melhor modelo: 
-> * PrevisãoTCN
+> * TCNForecaster
+> * AutoArima
+> * ExponencialSmoothing
+> * Profeta
 > * Média 
 > * Ingénuo
 > * Média sazonal 
@@ -62,7 +65,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-training-for-any-model"></a>Interpretação durante o treino para qualquer modelo 
 
-Quando calculas explicações de modelos e as visualizas, não te limitas a uma explicação de modelo existente para um modelo automatizado de ML. Também pode obter uma explicação para o seu modelo com diferentes dados de teste. Os passos desta secção mostram-lhe como calcular e visualizar a importância da funcionalidade projetada com base nos seus dados de teste.
+Quando calculas explicações de modelos e as visualizas, não te limitas a uma explicação de modelo existente para um modelo AutoML. Também pode obter uma explicação para o seu modelo com diferentes dados de teste. Os passos desta secção mostram-lhe como calcular e visualizar a importância da funcionalidade projetada com base nos seus dados de teste.
 
 ### <a name="retrieve-any-other-automl-model-from-training"></a>Recupere qualquer outro modelo AutoML do treino
 
@@ -94,7 +97,7 @@ Para gerar uma explicação para os modelos AutoML, utilize a `MimicWrapper` cla
 
 - O objeto de configuração do explicador
 - O seu espaço de trabalho
-- Um modelo de substituição para explicar o `fitted_model` modelo automatizado de ML
+- Um modelo de substituição para explicar o `fitted_model` modelo AutoML
 
 O MimicWrapper também leva o `automl_run` objeto onde as explicações projetadas serão carregadas.
 
@@ -113,7 +116,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Use MimicExplainer para computação e visualização da importância do recurso projetado
 
-Pode ligar para o `explain()` método em MimicWrapper com as amostras de teste transformadas para obter a importância da funcionalidade para as características geradas. Também pode utilizar `ExplanationDashboard` para visualizar a visualização do painel de instrumentos dos valores de importância da característica das funcionalidades geradas por afetivos ML automatizados.
+Pode ligar para o `explain()` método em MimicWrapper com as amostras de teste transformadas para obter a importância da funcionalidade para as características geradas. Também pode utilizar `ExplanationDashboard` para visualizar a visualização do painel de instrumentos dos valores de importância da característica das funcionalidades geradas pelos admis de marcação AutoML.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -122,7 +125,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-inference"></a>Interpretação durante a inferência
 
-Nesta secção, aprende-se a operacionalizar um modelo de ML automatizado com o explicador que foi utilizado para calcular as explicações na secção anterior.
+Nesta secção, aprende-se a operacionalizar um modelo AutoML com o explicador que foi utilizado para calcular as explicações na secção anterior.
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Registe o modelo e o explicador de pontuação
 
@@ -200,7 +203,7 @@ service.wait_for_deployment(show_output=True)
 
 ### <a name="inference-with-test-data"></a>Inferência com dados de teste
 
-Inferência com alguns dados de teste para ver o valor previsto do modelo ML automatizado. Veja a importância da característica projetada para o valor previsto.
+Inferência com alguns dados de teste para ver o valor previsto do modelo AutoML, atualmente suportado apenas em Azure Machine Learning SDK. Veja as importâncias do recurso contribuindo para um valor previsto. 
 
 ```python
 if service.state == 'Healthy':
@@ -217,10 +220,12 @@ if service.state == 'Healthy':
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualizar para descobrir padrões em dados e explicações no momento do treino
 
-Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com) Depois de concluída a sua execução automatizada de ML, **selecione Ver detalhes do modelo** para visualizar uma execução específica. Selecione o **separador Explicações** para ver o painel de visualização da explicação.
+Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com) Depois de concluída a sua execução AutoML, **selecione Ver detalhes do modelo** para visualizar uma execução específica. Selecione o **separador Explicações** para ver o painel de visualização da explicação.
 
-[![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
+[![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+Para obter mais informações sobre as visualizações do painel de explicações e parcelas específicas, consulte o [documento de como fazer o doc sobre a interpretação](how-to-machine-learning-interpretability-aml.md).
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como pode permitir explicações de modelos e destacar importância em áreas do Azure Machine Learning SDK que não seja o machine learning automatizado, consulte o [artigo de conceito sobre interpretação.](how-to-machine-learning-interpretability.md)

@@ -15,6 +15,8 @@
       href: cognitive-services-custom-subdomains.md
     - name: Suporte de idiomas
       href: language-support.md
+    - name: Planear e gerir custos
+      href: plan-manage-costs.md
 - name: Guias de Início Rápido
   items:
     - name: Criar um novo recurso utilizando o portal do Azure

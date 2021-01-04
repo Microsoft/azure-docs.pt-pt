@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 88cec878ca5d3ccab3a232888ff3a3c0b0faa1db
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518299"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705256"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
@@ -33,7 +33,7 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de dimensionamento automático
-Defina um perfil de dimensionamento automático num modelo do Azure com o fornecedor de recursos *Microsoft.insights/autoscalesettings*. Um *perfil* fornece detalhes sobre a capacidade do conjunto de dimensionamento e quaisquer regras associadas. O exemplo seguinte define um perfil com o nome *Dimensionamento automático por percentagem com base na utilização da CPU* e define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10* :
+Defina um perfil de dimensionamento automático num modelo do Azure com o fornecedor de recursos *Microsoft.insights/autoscalesettings*. Um *perfil* fornece detalhes sobre a capacidade do conjunto de dimensionamento e quaisquer regras associadas. O exemplo seguinte define um perfil com o nome *Dimensionamento automático por percentagem com base na utilização da CPU* e define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10*:
 
 ```json
 {
@@ -143,10 +143,10 @@ Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O e
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az group deployment create](/cli/azure/group/deployment). Quando lhe for pedido, forneça o seu nome de utilizador, como *azureuser* e a palavra-passe que são utilizados como as credenciais para cada instância de VM:
+Agora crie um conjunto de escala de máquina virtual com [criação do grupo de implantação AZ](/cli/azure/deployment/group). Quando lhe for pedido, forneça o seu nome de utilizador, como *azureuser* e a palavra-passe que são utilizados como as credenciais para cada instância de VM:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```
@@ -188,9 +188,9 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , prima a tecla *Enter* para regressar à linha de comandos.
+Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
 
-Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top** :
+Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top**:
 
 ```console
 top
@@ -216,7 +216,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , prima a tecla *Enter* para regressar à linha de comandos.
+Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
 
 Feche a ligação à segunda instância de VM. O **stress** continua a ser executado na instância de VM.
 
@@ -257,7 +257,7 @@ Assim que o **stress** para nas instâncias de VM iniciais, a carga de CPU médi
 Saia de *watch* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e remove uma instância de VM até ser atingida uma contagem mínima de duas instâncias.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de escalas e recursos adicionais, elimine o grupo de recursos e todos os seus recursos com [o grupo AZ eliminar:](/cli/azure/group)
 
 ```azurecli-interactive

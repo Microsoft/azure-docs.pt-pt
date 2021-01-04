@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182840"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704321"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de resolução de problemas do Microsoft Azure Attestation
 
@@ -263,7 +263,7 @@ Não é possível instalar módulos Az ou Az.Attestation no PowerShell
 
 ### <a name="error"></a>Erro
 
-AVISO: Não foi possível resolver a fonte do pacote https://www.powershellgallery.com/api/v2 ' ' ' PackageManagement\Install-Package : Não foi encontrada nenhuma correspondência para os critérios de pesquisa especificados e nome do módulo
+AVISO: Não foi possível resolver a fonte do pacote https://www.powershellgallery.com/api/v2 ' PackageManagement\Install-Package : Não foi encontrada nenhuma correspondência para os critérios de pesquisa especificados e nome do módulo
 
 ### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
@@ -280,7 +280,7 @@ Para continuar a interagir com a PowerShell Gallery, executar o seguinte comando
 Utilizador designado com funções apropriadas. Mas enfrentar problemas de autorização enquanto gere as políticas de atestação através do PowerShell.
 
 ### <a name="error"></a>Erro
-O cliente com identificação de <object Id>  objetos não tem autorização para executar ações Microsoft.Autorização/roleassignments/write over scope 'subcrições/resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/ <subscriptionId> ' ou o âmbito é <role assignmentId> inválido. Se o acesso foi concedido recentemente, por favor refresque as suas credenciais
+O cliente com identificação de objeto de objeto &lt; não tem autorização para executar &gt;  ação Microsoft.Autorização/roleassignments/write over scope 'subcrições/subscriçãoId &lt; &gt; resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/ &lt; role assignmentId ' ou o âmbito é &gt; inválido. Se o acesso foi concedido recentemente, por favor refresque as suas credenciais
 
 ### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 

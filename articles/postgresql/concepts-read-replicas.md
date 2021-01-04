@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422149"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706801"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -71,6 +71,8 @@ Todas as réplicas estão ativadas para o armazenamento [de crescimento automát
 A funcionalidade de réplica de leitura utiliza a replicação física postgreSQL, não a replicação lógica. A replicação de streaming utilizando ranhuras de replicação é o modo de funcionamento predefinido. Quando necessário, o envio de registos é utilizado para o seu catch up.
 
 Saiba como [criar uma réplica de leitura no portal Azure.](howto-read-replicas-portal.md)
+
+Se o servidor PostgreSQL da sua fonte estiver encriptado com as teclas geridas pelo cliente, consulte a [documentação](concepts-data-encryption-postgresql.md) para obter considerações adicionais.
 
 ## <a name="connect-to-a-replica"></a>Ligar-se a uma réplica
 Quando cria uma réplica, não herda as regras de firewall ou o ponto final de serviço VNet do servidor primário. Estas regras devem ser criadas de forma independente para a réplica.
@@ -166,7 +168,7 @@ As regras de firewall, as regras de rede virtual e as definições de parâmetro
 Escalar vCores ou entre Propósito Geral e Memória Otimizada:
 * O PostgreSQL requer que a `max_connections` definição num servidor secundário seja [maior ou igual à definição na primária,](https://www.postgresql.org/docs/current/hot-standby.html)caso contrário o secundário não será iniciado.
 * Na Base de Dados Azure para PostgreSQL, as ligações máximas permitidas para cada servidor são fixadas ao sku compute uma vez que as ligações ocupam a memória. Você pode saber mais sobre o [mapeamento entre max_connections e compute skus](concepts-limits.md).
-* **Escalonamento** : Primeiro escalone o cálculo de uma réplica, em seguida, escalone o primário. Esta ordem evitará que os erros violem a `max_connections` exigência.
+* **Escalonamento**: Primeiro escalone o cálculo de uma réplica, em seguida, escalone o primário. Esta ordem evitará que os erros violem a `max_connections` exigência.
 * **Escalonamento :** Primeiro escale o cálculo da primária, em seguida, reduza a réplica. Se tentar escalar a réplica abaixo da primária, haverá um erro, uma vez que isto viola o `max_connections` requisito.
 
 Armazenamento de escalonamento:

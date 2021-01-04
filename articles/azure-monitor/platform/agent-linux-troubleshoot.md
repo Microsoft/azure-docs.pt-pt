@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011902"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704899"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
 
@@ -92,7 +92,7 @@ Vimos que uma reinstalação limpa do agente resolverá a maioria dos problemas.
 | NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plugin auditado auoms não será instalado | A instalação de auoms falhou, instalou pacote auditado. |
 | 2 | Opção inválida fornecida ao pacote de conchas. Correr `sudo sh ./omsagent-*.universal*.sh --help` para uso |
 | 3 | Nenhuma opção fornecida ao pacote de conchas. Corra `sudo sh ./omsagent-*.universal*.sh --help` para uso. |
-| 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; Os pacotes de .sh omsagent-*rpm* só podem ser instalados em sistemas baseados em RPM, e pacotes omsagent-deb .sh pacotes só podem ser instalados em sistemas baseados em Debian.*deb* Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
+| 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; Os pacotes de .sh omsagent-*rpm* só podem ser instalados em sistemas baseados em RPM, e pacotes omsagent-deb .sh pacotes só podem ser instalados em sistemas baseados em Debian. Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
 | 5 | O feixe de concha deve ser executado como raiz OU houve 403 erros devolvidos durante o embarque. Executar o seu comando utilizando `sudo` . |
 | 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os *pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e* os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
 | 17 | A instalação do pacote OMS falhou. Procurem através da saída de comando para a falha da raiz. |
@@ -241,23 +241,6 @@ Os bugs relacionados com o desempenho não acontecem a toda a hora, e são muito
 3. Reiniciar o OMI: <br/>
 `sudo scxadmin -restart`
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problema: Não está a ver nenhum dado no portal Azure
-
-### <a name="probable-causes"></a>Causas prováveis
-
-- A bordo do Monitor Azure falhou
-- A ligação ao Monitor Azure está bloqueada
-- O agente do Log Analytics para dados do Linux é apoiado
-
-### <a name="resolution"></a>Resolução
-1. Verifique se o Monitor Azure foi bem sucedido ao verificar se existe o seguinte ficheiro: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reonboard usando as `omsadmin.sh` instruções da linha de comando
-3. Se utilizar um representante, consulte os passos de resolução de procuração fornecidos anteriormente.
-4. Em alguns casos, quando o agente Log Analytics para o Linux não consegue comunicar com o serviço, os dados sobre o agente são indicados para o tamanho total do tampão, que é de 50 MB. O agente deve ser reiniciado com o seguinte comando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` . 
-
-    >[!NOTE]
-    >Esta emissão é corrigida na versão 1.1.0-28 do agente e posteriormente.
-
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problema: Não está a ver mensagens Syslog reencaminhadas 
 
@@ -335,6 +318,7 @@ Este erro indica que a extensão de Diagnóstico Linux (LAD) está instalada lad
 * A ligação ao Monitor Azure está bloqueada
 * Máquina virtual foi reiniciada
 * O pacote OMI foi atualizado manualmente para uma versão mais recente em comparação com o que foi instalado pelo agente Log Analytics para o pacote Linux
+* OMI está congelado, bloqueando o agente OMS
 * Classe de registos de recursos DSC *não encontrou* erro no ficheiro `omsconfig.log` de registo
 * O agente do Log Analytics para os dados é apoiado
 * Registos DSC *A configuração atual não existe. Execute Start-DscConfiguration comando com parâmetro -Path para especificar um ficheiro de configuração e criar uma configuração atual primeiro.* no `omsconfig.log` ficheiro de registo, mas não existe nenhuma mensagem de registo sobre `PerformRequiredConfigurationChecks` operações.
@@ -345,6 +329,7 @@ Este erro indica que a extensão de Diagnóstico Linux (LAD) está instalada lad
 4. Se utilizar um representante, verifique os passos de resolução de problemas por procuração acima.
 5. Em alguns sistemas de distribuição Azure, o omid OMI server daemon não começa após o reboot da máquina virtual. Isto resultará em não ver dados relacionados com auditoria, ChangeTracking ou UpdateManagement. A solução é iniciar manualmente o servidor omi executando `sudo /opt/omi/bin/service_control restart` .
 6. Depois de o pacote OMI ser atualizado manualmente para uma versão mais recente, tem de ser reiniciado manualmente para que o agente Log Analytics continue a funcionar. Este passo é necessário para alguns distros onde o servidor OMI não começa automaticamente depois de ser atualizado. Corra `sudo /opt/omi/bin/service_control restart` para reiniciar o OMI.
+* Em algumas situações, o OMI pode ficar congelado. O agente da OMS pode entrar num estado bloqueado à espera de OMI, bloqueando toda a recolha de dados. O processo de agente da OMS estará em curso, mas não haverá atividade, evidenciado por nenhuma nova linha de registo (como batimentos cardíacos) presentes em `omsagent.log` . Reinicie o OMI `sudo /opt/omi/bin/service_control restart` para recuperar o agente.
 7. Se vir a classe de recursos DSC *não encontrada* erro em omsconfig.log, corra `sudo /opt/omi/bin/service_control restart` .
 8. Em alguns casos, quando o agente Log Analytics do Linux não pode falar com o Azure Monitor, os dados sobre o agente são apoiados até ao tamanho total do tampão: 50 MB. O agente deve ser reiniciado executando o seguinte comando `/opt/microsoft/omsagent/bin/service_control restart` .
 

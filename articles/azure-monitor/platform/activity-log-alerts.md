@@ -4,12 +4,12 @@ description: Seja notificado via SMS, webhook, SMS, e-mail e muito mais, quando 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536086"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708437"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no registo de atividades
 
@@ -18,7 +18,8 @@ ms.locfileid: "95536086"
 Os alertas de registo de atividade são alertas que se ativam quando ocorre um novo [evento de registo de atividade](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e volume dos eventos registados no [registo de atividades do Azure,](platform-logs-overview.md)a regra de alerta disparará. As regras de alerta de registo de atividade são recursos Azure, para que possam ser criadas usando um modelo de Gestor de Recursos Azure. Também podem ser criados, atualizados ou eliminados no portal Azure. Este artigo introduz os conceitos por trás dos alertas de registo de atividade. Para obter mais informações sobre a criação ou utilização de regras de alerta de registo de atividades, consulte [Criar e gerir alertas de registo de atividades](alerts-activity-log.md).
 
 > [!NOTE]
-> Não **podem** ser criados alertas para eventos na categoria de alerta de registo de atividade.
+> * Não **podem** ser criados alertas para eventos na categoria de alerta de registo de atividade.
+> * Os Alertas de Registo de Atividade com a categoria de Segurança podem ser definidos também num [novo fluxo atualizado](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) para o [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
 
 Normalmente, cria alertas de registo de atividade para receber notificações quando:
 

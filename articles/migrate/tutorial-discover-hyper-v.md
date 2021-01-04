@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 1b860c739ab9ed9737f9f946cb13c731fa4722db
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: e7b4a1b2e1d737dad0054cbdf08443436ac2c181
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753064"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705562"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -20,7 +20,7 @@ Como parte da sua viagem de migração para Azure, você descobre o seu inventá
 
 Este tutorial mostra-lhe como descobrir no local máquinas virtuais Hiper-V (VMs) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Você implanta o aparelho como um Hiper-VM, para descobrir continuamente metadados de máquina e desempenho.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta Azure
@@ -121,7 +121,7 @@ Este tutorial configura o aparelho num Hiper-V VM, da seguinte forma:
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
 1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
-2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
+2. In **Discover machines**  >  **Are your machines virtualized?** 
 3. Na **tecla de projeto 1:Generate Azure Migrate**, forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMs Hiper-V.O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
 1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
@@ -202,11 +202,16 @@ Coloque o aparelho pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
 1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
-1. Clique em **Iniciar sessão**. Abrirá um pedido de login do Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-1. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
+1. Necessitará de um código de dispositivo para autenticar com o Azure. Clicar no **Login** abrirá um código modal com o código do dispositivo, como mostrado abaixo.
+
+    ![Modal mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Clique no **código copy & Iniciar sessão** para copiar o código do dispositivo e abrir um pedido de Login Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
+1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e palavra-passe.
    
    O s-in com um PIN não é suportado.
-3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
+3. Caso feche o separador de login acidentalmente sem iniciar sessão, é necessário atualizar o separador de navegador do gestor de configuração do aparelho para ativar novamente o botão Iniciar sessão.
+1. Depois de iniciar sessão com sucesso, volte ao separador anterior com o gestor de configuração do aparelho.
 4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as permissões certas sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
@@ -223,7 +228,7 @@ Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do 
     ```
 
 2. Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
-    - Na **Local Computer Policy**  >  **configuração** do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
+    - Na   >  **configuração** do computador local, clique na delegação de credenciais **de sistema de modelos**  >    >  **administrativos**.
     - Clique duas **vezes Em permitir a delegação de credenciais frescas** e selecione **Ativado**.
     - Em **Opções**, clique em **Mostrar**, e adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
     - Na  **Delegação de Credenciais,** clique duplo **Deixe delegar credenciais frescas com autenticação do servidor apenas NTLM**. Mais uma vez, adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
