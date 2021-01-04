@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 54d1d8a29c87f8d129c0ea5b29973c4fef0e6f7a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 2d9d511098613ddc5bf3579a42b7abe91f51e1a4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889002"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694318"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho Log Analytics com Azure CLI 2.0
 
@@ -35,7 +35,7 @@ Para outras fontes, tais como VMs Azure e Windows ou VMs Linux no seu ambiente, 
 - Este artigo requer a versão 2.0.30 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
-Criar um espaço de trabalho com [a criação de grupo az.](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) O exemplo a seguir cria um espaço de trabalho na localização *leste* usando um modelo de Gestor de Recursos a partir da sua máquina local. O modelo JSON é configurado apenas para o solicitar o nome do espaço de trabalho, e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com os modelos, consulte [recursos de implementação com modelos de Gestor de Recursos e CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
+Criar um espaço de trabalho com [o grupo de implantação az criar](/cli/azure/deployment/group#az_deployment_group_create). O exemplo a seguir cria um espaço de trabalho na localização *leste* usando um modelo de Gestor de Recursos a partir da sua máquina local. O modelo JSON é configurado apenas para o solicitar o nome do espaço de trabalho, e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com os modelos, consulte [recursos de implementação com modelos de Gestor de Recursos e CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para obter informações sobre as regiões suportadas, consulte [as regiões Log Analytics](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor a partir da pesquisa de um campo de **produtos.**
 
@@ -111,7 +111,7 @@ Os seguintes parâmetros definem um valor predefinido:
 4. Está pronto para implementar este modelo. Utilize os seguintes comandos da pasta que contém o gabarito. Quando você é solicitado para um nome de espaço de trabalho, forneça um nome que é globalmente único em todas as subscrições do Azure.
 
     ```azurecli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 A implementação pode demorar alguns minutos a concluir. Quando termina, vê uma mensagem semelhante à seguinte que inclui o resultado:
@@ -122,8 +122,8 @@ A implementação pode demorar alguns minutos a concluir. Quando termina, vê um
 Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](../platform/delete-workspace.md#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
 1. Se fornecer o mesmo nome do espaço de trabalho, grupo de recursos, subscrição e região como no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
 2. Se utilizar o mesmo nome do espaço de trabalho, mas diferente grupo de recursos, subscrição ou região, obterá um erro *O nome do espaço de trabalho 'workspace-name' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
-   * [Recupere](../platform/delete-workspace.md#recover-workspace) o seu espaço de trabalho
-   * [Elimine permanentemente](../platform/delete-workspace.md#permanent-workspace-delete) o seu espaço de trabalho
+   * [Recuperar](../platform/delete-workspace.md#recover-workspace) a área de trabalho
+   * [Eliminar de forma permanente](../platform/delete-workspace.md#permanent-workspace-delete) a área de trabalho
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
 ## <a name="next-steps"></a>Passos seguintes

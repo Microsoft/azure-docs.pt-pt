@@ -3,12 +3,12 @@ title: Dados pessoais
 description: Saiba como gerir os dados pessoais associados às operações do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 22cfc1b6096980f3d10db404a1c4e02f2de355d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e531f7cd9992536bcc191637111761c5bbdefa2
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75485263"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693694"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gerir dados pessoais associados ao Azure Resource Manager
 
@@ -26,13 +26,13 @@ Para **listar implementações** na história, utilize:
 
 * [Lista por Grupo de Recursos](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
-* [lista de implantação de grupos az](/cli/azure/group/deployment#az-group-deployment-list)
+* [lista de grupos de implantação az](/cli/azure/deployment/group#az_deployment_group_list)
 
 Para eliminar **as implementações** da história, utilize:
 
 * [Eliminar](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
-* [az implantação de grupo](/cli/azure/group/deployment#az-group-deployment-delete)
+* [az grupo de implantação eliminar](/cli/azure/deployment/group#az_deployment_group_delete)
 
 ## <a name="delete-personal-data-in-resource-group-names"></a>Eliminar dados pessoais em nomes de grupos de recursos
 

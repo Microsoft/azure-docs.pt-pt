@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131501"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693621"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta da aplicação Power BI
 
@@ -23,8 +23,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
-3. Na página 'Vista Geral', selecione **+ Nova oferta** Power BI Service  >  **App** .
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Vista Geral', selecione **+ Nova oferta** Power BI Service  >  **App**.
 
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-power-bi-app.png)
 
@@ -36,16 +36,16 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **aqui o test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar** .
+- O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -81,7 +81,7 @@ Ao publicar a sua oferta no mercado com o Partner Center, deve conectá-la ao se
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [O cliente lidera a partir da sua oferta de mercado comercial](commercial-marketplace-get-customer-leads.md)
+- [Oportunidades potenciais da oferta do marketplace comercial](commercial-marketplace-get-customer-leads.md)
 - [Questões comuns sobre gestão de chumbo](../lead-management-faq.md#common-questions-about-lead-management)
 - [Erros de configuração de chumbo de resolução de problemas](../lead-management-faq.md#publishing-config-errors)
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
@@ -97,7 +97,7 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
@@ -109,9 +109,7 @@ Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas 
 
 #### <a name="terms-and-conditions"></a>Termos e condições
 
-Para fornecer os seus próprios termos e condições personalizados, insira até 10.000 caracteres na caixa **de Termos e Condições.** Se os seus termos e condições requerem uma descrição mais longa, insira um único link web para onde possam ser encontrados. Será apresentado aos clientes como um link ativo.
-
-Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
+Para fornecer os seus próprios termos e condições personalizados, insira até 10.000 caracteres na caixa **de Termos e Condições.** Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
 **Selecione Guardar o rascunho** antes de continuar para a secção seguinte, Ofereça a listagem.
 
@@ -146,7 +144,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 10. Description
 11. Screenshots/vídeos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -248,7 +246,7 @@ Opcionalmente, adicione instruções (até 3.000 caracteres) para ajudar a equip
 
 Depois de ter completado todas as secções necessárias da oferta, pode submeter a sua oferta para rever e publicar.
 
-No canto superior direito do portal, selecione **'Rever e publicar** .
+No canto superior direito do portal, selecione **'Rever e publicar**.
 
 Na página de comentários pode:
 
@@ -258,6 +256,6 @@ Na página de comentários pode:
   - **Completo** - A secção tem todos os dados necessários e não há erros. Todas as secções da oferta devem estar completas antes de poder submeter a oferta.
 - Forneça instruções de teste à equipa de certificação para garantir que a sua aplicação é testada corretamente. Além disso, forneça quaisquer notas suplementares que sejam úteis para entender a sua oferta.
 
-Para submeter a oferta de publicação, **selecione Publicar** .
+Para submeter a oferta de publicação, **selecione Publicar**.
 
-Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live** .
+Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.

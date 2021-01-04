@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874632"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693672"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Como instalar um controlador de entrada de gateway de aplicação (AGIC) usando um novo gateway de aplicações
 
@@ -92,7 +92,7 @@ Este passo irá adicionar os seguintes componentes à sua subscrição:
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -101,7 +101,7 @@ Este passo irá adicionar os seguintes componentes à sua subscrição:
 
 1. Uma vez terminada a implementação, descarregue a saída de implementação num ficheiro denominado `deployment-outputs.json` .
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>Configurar o Controlador de Entrada de Gateway de Aplicação
@@ -270,7 +270,7 @@ Para instalar a identidade do pod AAD no seu cluster:
    > `<resource-group>` no comando acima está o grupo de recursos do seu Gateway de Aplicação. `<identity-name>` é o nome da identidade criada. Todas as identidades de uma determinada subscrição podem ser listadas utilizando: `az identity list`
 
 
-1. Instale o pacote do controlador de entrada de entrada de entrada de aplicação:
+1. Instale o pacote do controlador de entrada de aplicação:
 
     ```bash
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure

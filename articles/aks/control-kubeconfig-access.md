@@ -4,12 +4,12 @@ description: Saiba como controlar o acesso ao ficheiro de configuração Kuberne
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 371628b02ebecee23697e996ee0d484688167875
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 77b9988557106ef460d3b222ef85eb29e08f31c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684819"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693990"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilize o controlo de acesso baseado em funções Azure para definir o acesso ao ficheiro de configuração Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -17,7 +17,7 @@ Pode interagir com os clusters Kubernetes utilizando a `kubectl` ferramenta. O A
 
 Este artigo mostra-lhe como atribuir funções Azure que limitam quem pode obter a informação de configuração de um cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -69,6 +69,22 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!IMPORTANT]
+> Em alguns casos, o *user.name* na conta é diferente do nome do *utilizadorPrincipalName,* como é o caso dos utilizadores convidados da Azure AD:
+>
+> ```output
+> $ az account show --query user.name -o tsv
+> user@contoso.com
+> $ az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv
+> user_contoso.com#EXT#@contoso.onmicrosoft.com
+> ```
+>
+> Neste caso, desapasse o valor da *ACCOUNT_UPN* ao *utilizadorPrincipalName* do utilizador Azure AD. Por exemplo, se a sua conta *user.name* ser *\@ contoso.com de utilizador:*
+> 
+> ```azurecli-interactive
+> ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
+> ```
 
 > [!TIP]
 > Se pretender atribuir permissões a um grupo AD Azure, atualize o `--assignee` parâmetro mostrado no exemplo anterior com o ID do objeto para o *grupo* e não com um *utilizador*. Para obter o ID do objeto para um grupo, utilize o comando [de exibição de grupo az ad.][az-ad-group-show] O exemplo a seguir obtém o ID do objeto para o grupo Azure AD nomeado *appdev:*`az ad group show --group appdev --query objectId -o tsv`
@@ -133,7 +149,7 @@ Para remover as atribuições de funções, utilize o comando de eliminação de
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma maior segurança no acesso aos clusters AKS, [integre a autenticação do Azure Ative Directory][aad-integration].
 

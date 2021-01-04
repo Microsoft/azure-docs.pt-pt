@@ -1,23 +1,33 @@
 ---
 title: Azure Lighthouse e aplicações geridas do Azure
-description: Entenda como as aplicações geridas pelo Farol de Azure e Azure podem ajudar a ativar diferentes cenários e como podem ser usadas em conjunto.
-ms.date: 08/12/2020
+description: Entenda como o Farol Azure e as aplicações geridas aZure podem ser usadas em conjunto.
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436526"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693978"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicações geridas do Azure
 
-Tanto a Azure geriu aplicações como o trabalho do Farol Azure, permitindo a um prestador de serviços aceder a recursos que residem no inquilino do cliente. Pode ser útil compreender as diferenças na forma como funcionam e nos cenários que ajudam a permitir, bem como como podem ser usados em conjunto.
+Tanto a Azure geriu aplicações como o trabalho do Farol Azure, permitindo a um prestador de serviços aceder a recursos que residem no inquilino do cliente. Pode ser útil compreender as diferenças na forma como funcionam e nos cenários que ajudam a permitir e como podem ser usados em conjunto.
 
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](enterprise.md) podem usar os mesmos processos e ferramentas.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Comparando as aplicações geridas pelo Farol de Azure e Azure
+
+Esta tabela ilustra algumas diferenças de alto nível que podem ter impacto se você pode optar por usar aplicações geridas pelo Azure Lighthouse ou Azure. Como nota abaixo, também pode desenhar uma solução que os utilize em conjunto.
+
+|Consideração  |Azure Lighthouse  |Aplicações geridas do Azure  |
+|---------|---------|---------|
+|Utilizador típico     |Prestadores de serviços ou empresas que gerem vários inquilinos         |Fornecedores de software independentes (ISVs)         |
+|Âmbito de acesso ao inquilino transversal     |Subscrições ou grupos de recursos         |Grupo de recursos (abrangido por uma única aplicação)         |
+|Adescaizável no Mercado Azure     |Não (as ofertas podem ser publicadas no Azure Marketplace, mas os clientes são faturados separadamente)        |Yes         |
+|Proteção IP     |Sim (IP pode permanecer no inquilino do prestador de serviços)        |Sim (por design, o grupo de recursos está bloqueado aos clientes)         |
+|Atribuições de negação     |No         |Yes        |
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
@@ -51,3 +61,4 @@ Os clientes também podem estar interessados em aplicações geridas de vários 
 
 - Conheça as [aplicações geridas pela Azure.](../../azure-resource-manager/managed-applications/overview.md)
 - Saiba como embarcar [numa subscrição do Azure Lighthouse.](../how-to/onboard-customer.md)
+- Conheça os [cenários isv com o Farol Azure.](isv-scenarios.md)

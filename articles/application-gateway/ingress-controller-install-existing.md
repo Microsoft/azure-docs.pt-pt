@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018703"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693725"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instale um Controlador de Entrada de Gateway de Aplicação (AGIC) utilizando um Gateway de aplicação existente
 
@@ -323,7 +323,7 @@ Alargar permissões AGIC com:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Permitir uma instalação AGIC existente
-Vamos assumir que já temos uma AKS em funcionamento, gateway de aplicação, e AGIC configurado no nosso cluster. Temos uma Ingress `prod.contosor.com` para e estamos a servir com sucesso o tráfego da AKS. Queremos adicionar `staging.contoso.com` ao nosso Gateway de aplicações existente, mas precisamos acolhê-lo num [VM](https://azure.microsoft.com/services/virtual-machines/). Vamos reutilizar o Gateway de Aplicação existente e configurar manualmente um ouvinte e piscinas de backend para `staging.contoso.com` . Mas ajustar manualmente a aplicação Gateway config (via [portal,](https://portal.azure.com) [APIs ARM](/rest/api/resources/) ou [Terraform)](https://www.terraform.io/)entraria em conflito com os pressupostos da AGIC de plena propriedade. Pouco depois de aplicarmos alterações, a AGIC substituirá ou apagará.
+Vamos assumir que já temos uma AKS em funcionamento, gateway de aplicação, e AGIC configurado no nosso cluster. Temos uma Ingress `prod.contoso.com` para e estamos a servir com sucesso o tráfego da AKS. Queremos adicionar `staging.contoso.com` ao nosso Gateway de aplicações existente, mas precisamos acolhê-lo num [VM](https://azure.microsoft.com/services/virtual-machines/). Vamos reutilizar o Gateway de Aplicação existente e configurar manualmente um ouvinte e piscinas de backend para `staging.contoso.com` . Mas ajustar manualmente a aplicação Gateway config (via [portal,](https://portal.azure.com) [APIs ARM](/rest/api/resources/) ou [Terraform)](https://www.terraform.io/)entraria em conflito com os pressupostos da AGIC de plena propriedade. Pouco depois de aplicarmos alterações, a AGIC substituirá ou apagará.
 
 Podemos proibir a AGIC de fazer alterações a um subconjunto de configuração.
 

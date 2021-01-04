@@ -1,18 +1,18 @@
 ---
 title: 'Como: navegar no Catálogo de Dados'
 description: Este artigo dá uma visão geral de como navegar no Catálogo de Dados Azure Purview com base no tipo de ativo.
-author: hrasheed-msft
-ms.author: hrasheed
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: b8cdbbc29472ae10920c347dde308c352bf0b68a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: dd2fd4fbc9d8aecd9821d668dd02bd4b68659cf6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553607"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695056"
 ---
 # <a name="browse-the-azure-purview-data-catalog"></a>Navegue no catálogo de dados Azure Purview Data
 

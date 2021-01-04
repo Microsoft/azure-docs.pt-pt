@@ -1,7 +1,7 @@
 ---
-title: Caracterização em experiências AutoML
+title: A exibição com aprendizagem automática de máquinas
 titleSuffix: Azure Machine Learning
-description: Saiba quais as configurações de ações que o Azure Machine Learning oferece e como a engenharia de recursos é suportada em experiências automatizadas de ML.
+description: Aprenda as definições de exibição de dados no Azure Machine Learning e como personalizar essas funcionalidades para as suas experiências automatizadas de ML.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,25 +9,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
-ms.date: 05/28/2020
-ms.openlocfilehash: 658db1604895515525e5a4826a43c0b21d9698b1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359634"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694005"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Caracterização em machine learning automatizado
+# <a name="data-featurization-in-automated-machine-learning"></a>A participação de dados na aprendizagem automática de máquinas
 
 
 
-Neste guia, aprende-se:
+Conheça as definições de exibição de dados no Azure Machine Learning e como personalizar essas funcionalidades para [experiências automatizadas de ML](concept-automated-ml.md).
 
-- O que as definições de ações Azure Machine Learning oferecem.
-- Como personalizar essas funcionalidades para as suas [experiências automatizadas de aprendizagem automática de máquinas.](concept-automated-ml.md)
+## <a name="feature-engineering-and-featurization"></a>Engenharia de recursos e a presença
 
-*A engenharia* de recursos é o processo de utilização do conhecimento de domínio dos dados para criar funcionalidades que ajudam a aprendizagem automática (ML) algoritmos para aprender melhor. No Azure Machine Learning, as técnicas de dimensionamento de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, estas técnicas e esta engenharia de recursos são chamadas *de caracterização* em machine learning automatizado, ou *AutoML,* experiências.
+*A engenharia* de recursos é o processo de utilização do conhecimento de domínio dos dados para criar funcionalidades que ajudam a aprendizagem automática (ML) algoritmos para aprender melhor. No Azure Machine Learning, as técnicas de dimensionamento de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, estas técnicas e esta engenharia de recursos são chamadas *de caracterização* em machine learning automatizado, ou *autoML,* experiências.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +37,7 @@ Este artigo assume que já sabe configurar uma experiência AutoML. Para obter i
 
 ## <a name="configure-featurization"></a>Conigure aconsendo a exibição
 
-Em todas as experiências automatizadas de aprendizagem automática de máquinas, [as técnicas automáticas de escala e normalização](#featurization) são aplicadas aos seus dados por padrão. Estas técnicas são tipos de caracterização que ajudam *certos* algoritmos que são sensíveis a características em escalas diferentes. No entanto, também pode permitir a acoplamento adicional, como *a imputação de valores em falta,* *codificação* e *transformação.*
+Em todas as experiências automatizadas de aprendizagem automática de máquinas, [as técnicas automáticas de escala e normalização](#featurization) são aplicadas aos seus dados por padrão. Estas técnicas são tipos de caracterização que ajudam *certos* algoritmos que são sensíveis a características em escalas diferentes. Pode ativar mais aloções, tais como *imputação de valores em falta,* *codificação* e *transformação.*
 
 > [!NOTE]
 > Os passos para a caracterização automatizada de aprendizagem automática (como a normalização de recursos, o manuseamento de dados em falta ou a conversão de texto em numérico) tornam-se parte do modelo subjacente. Quando utiliza o modelo para previsões, aplicam-se automaticamente os mesmos passos de apresentação que são aplicados durante o treino.
@@ -47,9 +46,9 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Descrição|
+|Configuração de exibição | Description|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
+|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados](#data-guardrails) e [as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Especifica que devem ser utilizados passos de aposição personalizados. [Saiba como personalizar a caracterização.](#customize-featurization)|
 
@@ -62,11 +61,11 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de exibição &nbsp;| Descrição |
+|Etapas de exibição &nbsp;| Description |
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação** _ |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |_*Imputar valores em falta**_ |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
-|_*Gerar funcionalidades adicionais**_ |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> _For tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, Semana, Dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas por dia)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
+|_*Gerar mais funcionalidades**_ |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> _For tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, Semana, Dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas por dia)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
 |**Transformar e codificar** _|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
 |_ *Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
 |**Codificações de alvos**|Para características categóricas, este passo mapeia cada categoria com um valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada em frequências e a validação cruzada k-fold são aplicadas para reduzir a sobremontagem do mapeamento e do ruído causados por categorias de dados escassas.|
@@ -81,7 +80,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 São aplicados guarda-costas de dados:
 
 - **Para experiências com SDK:** Quando os parâmetros `"featurization": 'auto'` ou `validation=auto` estiverem especificados no seu `AutoMLConfig` objeto.
-- **Para experiências em estúdio** : Quando a apresentação automática estiver ativada.
+- **Para experiências em estúdio**: Quando a apresentação automática estiver ativada.
 
 Pode rever os guarda-dados para a sua experiência:
 
@@ -303,16 +302,18 @@ class_prob = fitted_model.predict_proba(X_test)
 
 Se o modelo subjacente não suportar a `predict_proba()` função ou o formato estiver incorreto, será lançada uma exceção específica da classe do modelo. Consulte os docs de referência [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para exemplos de como esta função é implementada para diferentes tipos de modelos.
 
-## <a name="bert-integration"></a>Integração BERT
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>Integração BERT em ML automatizado
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) é utilizado na camada de caracterização de AutoML. Nesta camada, se uma coluna contiver texto livre ou outros tipos de dados como timetamps ou números simples, então a caracterização é aplicada em conformidade.
 
 Para o BERT, o modelo é afinado e treinado utilizando as etiquetas fornecidas pelo utilizador. A partir daqui, as incorporações de documentos são saídas como funcionalidades ao lado de outras, como funcionalidades baseadas em timetamp, dia da semana. 
 
 
-### <a name="bert-steps"></a>Passos BERT
+### <a name="steps-to-invoke-bert"></a>Passos para invocar o BERT
 
-Para invocar o BERT, tem de definir  `enable_dnn: True` o seu automl_settings e utilizar um cálculo gpu (por `vm_size = "STANDARD_NC6"` exemplo, ou uma GPU superior). Se for utilizado um cálculo CPU, em vez de BERT, o AutoML permite o aditador BiLSTM DNN.
+Para invocar o BERT, inseeta-se  `enable_dnn: True` no seu automl_settings e use um computo `vm_size = "STANDARD_NC6"` GPU (ou uma GPU superior). Se for utilizado um cálculo CPU, em vez de BERT, o AutoML permite o aditador BiLSTM DNN.
 
 A AutoML dá os seguintes passos para o BERT. 
 
@@ -327,9 +328,10 @@ A AutoML dá os seguintes passos para o BERT.
 O BERT geralmente corre mais tempo do que outros afetantes. Para um melhor desempenho, recomendamos a utilização de "STANDARD_NC24r" ou "STANDARD_NC24rs_V3" para as suas capacidades de RDMA. 
 
 O AutoML distribuirá o treino BERT por vários nosdes se estiverem disponíveis (até um máximo de oito nóns). Isto pode ser feito no seu `AutoMLConfig` objeto definindo o `max_concurrent_iterations` parâmetro para mais de 1. 
-### <a name="supported-languages"></a>Linguagens suportadas
 
-A AutoML suporta atualmente cerca de 100 idiomas e, dependendo do idioma do conjunto de dados, o AutoML escolhe o modelo BERT apropriado. Para os dados alemães, utilizamos o modelo BERT alemão. Para inglês, usamos o modelo BERT inglês. Para todas as outras línguas, usamos o modelo BERT multilíngue.
+## <a name="supported-languages-for-bert-in-automl"></a>Línguas apoiadas para BERT em autoML 
+
+A AutoML suporta atualmente cerca de 100 idiomas e, dependendo do idioma do conjunto de dados, o autoML escolhe o modelo BERT apropriado. Para os dados alemães, utilizamos o modelo BERT alemão. Para inglês, usamos o modelo BERT inglês. Para todas as outras línguas, usamos o modelo BERT multilíngue.
 
 No código seguinte, o modelo BERT alemão é acionado, uma vez que a língua de conjunto de dados é especificada para `deu` , o código linguístico de três letras para alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/deu):
 
@@ -350,7 +352,7 @@ automl_settings = {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como configurar as suas experiências automatizadas de ML:
 

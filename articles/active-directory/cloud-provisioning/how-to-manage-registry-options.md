@@ -15,12 +15,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3bd938355d138e660958e34d046d7af03e75c7
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: edb602e3d55ae07f49d5448283ae0d2b6da4b0cb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371138"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694140"
 ---
 # <a name="manage-agent-registry-options"></a>Gerir opções de registo de agentes
 
@@ -63,6 +63,30 @@ Utilize os seguintes passos para ligar a perseguição de encaminhamento:
     > ![Perseguição de referência](media/how-to-manage-registry-options/referral-chasing.png)
 1. Reinicie o serviço de provisionamento Azure AD Connect da consola *De Serviços.*
 1. Se tiver implantado vários agentes de provisionamento, aplique esta alteração de registo a todos os agentes para obter consistência.
+
+## <a name="skip-gmsa-configuration"></a>Ignore a configuração da GMSA
+Com a versão 1.1.281.0+, por padrão, quando executa o assistente de configuração do agente, é solicitado que se configura a Conta de Serviço Gerido do [Grupo (GMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). A configuração GMSA pelo assistente é utilizada em tempo de execução para todas as operações de sincronização e provisionamento. 
+
+Se estiver a atualizar a partir de uma versão anterior do agente e tiver configurado uma conta de serviço personalizada com permissões de nível OU delegadas específicas para a sua topologia do Ative Directory, poderá querer saltar/adiar a configuração da GMSA e planear esta alteração. 
+
+> [!NOTE]
+> Esta orientação aplica-se especificamente aos clientes que tenham configurado o fornecimento de RH (Workday/SuccessFactors) com versões de agente antes do 1.1.281.0 e tenham configurado uma conta de serviço personalizado para operações de agente. A longo prazo, recomendamos a mudança para GMSA como uma boa prática.  
+
+Neste cenário, ainda pode atualizar os binários do agente e saltar a configuração GMSA utilizando os seguintes passos: 
+
+1. Inicie sessão como Administrador no servidor do Windows que executa o Agente de Provisionamento AZure AD Connect.
+1. Executar o instalador do agente para instalar os novos binários de agente. Feche o assistente de configuração do agente que se abre automaticamente após o sucesso da instalação. 
+1. Utilize o item do menu *Executar* para abrir o editor de registo (regedit.exe) 
+1. Localize a pasta chave **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Provisioning Agent**
+1. Clique à direita e selecione "Novo valor DWORD de >"
+1. Fornecer o nome: `UseCredentials`
+1. Clique duas vezes no **Nome do Valor** e introduza os dados de valor como `1` .  
+    > [!div class="mx-imgBorder"]
+    > ![Usar credenciais](media/how-to-manage-registry-options/use-credentials.png)
+1. Reinicie o serviço de provisionamento Azure AD Connect da consola *De Serviços.*
+1. Se tiver implantado vários agentes de provisionamento, aplique esta alteração de registo a todos os agentes para obter consistência.
+1. A partir do atalho do ambiente de trabalho, executar o assistente de configuração do agente. O assistente saltará a configuração GMSA. 
+
 
 > [!NOTE]
 > Pode confirmar que as opções de registo foram definidas permitindo a [registo de verbose](how-to-troubleshoot.md#log-files). Os registos emitidos durante a arranque do agente apresentarão os valores config escolhidos no registo. 

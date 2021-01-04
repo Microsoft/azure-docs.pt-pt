@@ -65,6 +65,8 @@
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
+        - name: Melhores práticas de segurança
+          href: security-best-practices.md
     - name: Fluxo de trabalho e recursos do serviço Batch
       displayName: developer features
       href: batch-service-workflow-features.md

@@ -5,12 +5,12 @@ ms.subservice: operations
 ms.topic: include
 ms.date: 12/17/2020
 ms.author: jovanpop
-ms.openlocfilehash: a898b56e3f99d10a0a78ca9e075ba0c6e3788bbc
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d1422d029bc2c5d41330e4ac2d21ff14e4fa82ab
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674277"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703976"
 ---
   Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
 
@@ -22,4 +22,5 @@ ms.locfileid: "97674277"
   || | | [Modelo de implementação](../virtual-machines/windows/create-sql-vm-resource-manager-template.md) | [Modelo de implementação](../../synapse-analytics/quickstart-deployment-template-workspaces.md) | 
   | Configurar | [Regra de firewall IP de nível de servidor](../database/firewall-create-server-level-portal-quickstart.md)| [Conectividade de um VM](../managed-instance/connect-vm-instance-configure.md)| |
   |||[Conectividade a partir de instalações](../managed-instance/point-to-site-p2s-configure.md) | [Ligue-se a uma instância do Servidor SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md) |
-  ||||
+  | Obter informações da ligação | [SQL do Azure](../database/connect-query-content-reference-guide.md#get-server-connection-information)|[SQL do Azure](../database/connect-query-content-reference-guide.md#get-server-connection-information)| [VM do SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md?#connect-to-sql-server)| [SQL do Synapse](../../synapse-analytics/sql/connect-overview.md#find-your-server-name)|
+  |||||
