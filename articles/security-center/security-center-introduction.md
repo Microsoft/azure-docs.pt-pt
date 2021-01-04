@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0a1cac0fe61ea13a18224ea5992b5c7c1ba69d8a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b52fbd820c4b4603481f585ea0b0983720cabb22
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510340"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709095"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
+
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados, e fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem - quer estejam em Azure ou não - bem como nas instalações.
 

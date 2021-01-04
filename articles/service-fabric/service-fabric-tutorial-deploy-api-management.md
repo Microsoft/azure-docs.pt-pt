@@ -4,12 +4,12 @@ description: Saiba como começar rapidamente com a Azure API Management e encami
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 61a13d80fd67751d77bc77199fa433143ad92048
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b89204e2df5c8e79200b780de38d06b1a93c1fa3
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007108"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702196"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a Gestão da API com tecido de serviço em Azure
 
@@ -114,7 +114,7 @@ As secções seguintes descrevem os recursos que o modelo *apim.json* define. Pa
 
 [Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) configura a segurança da Gestão de API. A Gestão de API tem de se autenticar com o seu cluster do Service Fabric para a deteção de serviço através de um certificado de cliente que tenha acesso ao cluster. Este artigo utiliza o mesmo certificado especificado anteriormente na criação do [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor), que por padrão pode ser utilizado para aceder ao seu cluster.
 
-Este artigo utiliza o mesmo certificado para autenticação do cliente e segurança de nó de nó de nó. Se tiver configurado um certificado de cliente separado, pode utilizá-lo para aceder ao seu cluster do Service Fabric. Indique o **nome**, a **palavra-passe** e os **dados** (cadeia com codificação base 64) do ficheiro de chave privada (.pfx) do certificado de cluster que especificou quando criou o cluster do Service Fabric.
+Este artigo utiliza o mesmo certificado para autenticação do cliente e segurança de nó. Se tiver configurado um certificado de cliente separado, pode utilizá-lo para aceder ao seu cluster do Service Fabric. Indique o **nome**, a **palavra-passe** e os **dados** (cadeia com codificação base 64) do ficheiro de chave privada (.pfx) do certificado de cluster que especificou quando criou o cluster do Service Fabric.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 
@@ -190,7 +190,7 @@ Preencha os parâmetros vazios seguintes em *apim.parameters.json* da sua implem
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Programador|
+|apimSku|Suporte para Programadores|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -243,9 +243,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$temp
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
-az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+az deployment group create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
 
-az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json
+az deployment group create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json
 ```
 
 ## <a name="test-it"></a>Testar

@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: eddab12e8ecf2e4757998bbd1e6e07c4c4d85f3c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fb7540009fe0154766df91beda1cc962b1ec8096
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573867"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695104"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
 
@@ -105,7 +105,7 @@ Ter o ID de pesquisa permite a correlação das métricas emitidas pela Azure Co
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
 
-var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
@@ -122,7 +122,7 @@ if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };

@@ -4,12 +4,12 @@ description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópic
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e83c9193ef3beaed2a5a65afe964a1687a2d2505
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 0a3d8f5a1614704cea4242ce64ecc6c4504da754
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566338"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702026"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da web com Azure CLI e Grade de Eventos
 
@@ -60,7 +60,7 @@ Substitua `<your-site-name>` por um nome exclusivo para a aplicação Web. O nom
 ```azurecli-interactive
 sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group gridResourceGroup \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
@@ -132,7 +132,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 }]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento ou com a aplicação de visualizador de eventos, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive

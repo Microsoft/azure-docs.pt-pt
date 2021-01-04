@@ -3,12 +3,12 @@ title: Configure um laboratório para usar o Gateway de Desktop Remoto em Azure 
 description: Aprenda a configurar um laboratório em Azure DevTest Labs com uma porta de entrada remota para garantir acesso seguro aos VMs de laboratório sem ter de expor a porta RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144700"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695692"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure o seu laboratório em Azure DevTest Labs para usar um gateway remoto
 Em Azure DevTest Labs, pode configurar uma porta de entrada remota para o seu laboratório para garantir um acesso seguro às máquinas virtuais de laboratório (VMs) sem ter de expor a porta RDP. O laboratório fornece um lugar central para os utilizadores do laboratório verem e conectarem-se a todas as máquinas virtuais a que têm acesso. O botão **Ligar** na página **Máquina Virtual** cria um ficheiro RDP específico para máquinas que pode abrir para ligar à máquina. Pode personalizar e proteger ainda mais a ligação RDP ligando o seu laboratório a um gateway remoto de secretária. 
@@ -19,7 +19,7 @@ Esta abordagem é mais segura porque o utilizador do laboratório autentica dire
 
 ![Arquitetura da solução](./media/configure-lab-remote-desktop-gateway/architecture.png)
 
-1. A ação [do conteúdo do ficheiro Get RDP](/rest/api/dtl/virtualmachines/getrdpfilecontents) é chamada quando seleciona o botão Ligar.1. **Connect** 
+1. A ação [do conteúdo do ficheiro Get RDP](/rest/api/dtl/virtualmachines/getrdpfilecontents) é chamada quando seleciona o botão Ligar.1.  
 1. A ação de conteúdo de ficheiro Get RDP invoca `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` para solicitar um token de autenticação.
     1. `{gateway-hostname}` é o nome de anfitrião de gateway especificado na página **de Definições** de Laboratório para o seu laboratório no portal Azure. 
     1. `{lab-machine-name}` é o nome da máquina que está a tentar ligar.
@@ -66,7 +66,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 Configure o laboratório para utilizar a autenticação simbólica utilizando estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** da lista.
 1. Da lista de laboratórios, selecione o seu **laboratório.**
 1. Na página do laboratório, selecione **Configuração e políticas**.
 1. No menu esquerdo, na secção **Definições,** selecione **as definições do Laboratório**.
@@ -135,7 +135,7 @@ Siga estes passos para configurar uma solução de amostra para a exploração r
     O modelo pode ser implantado utilizando o CLI Azure utilizando o seguinte comando:
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
+    az deployment group create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     Aqui estão as descrições dos parâmetros:

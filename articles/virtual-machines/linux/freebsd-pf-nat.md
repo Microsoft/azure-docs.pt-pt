@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 6a20708c5564075c24eb031a39292b020a2ecc00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7027dd86945e53149b3c4daeb9d6faee3593e95
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371325"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702247"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como utilizar o filtro de pacotes freeBSD para criar uma firewall segura em Azure
 Este artigo introduz como implementar uma firewall NAT usando o filtro packer do FreeBSD através do modelo Azure Resource Manager para um cenário comum de servidor web.
@@ -34,10 +34,10 @@ Precisa do mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e inic
 az group create --name myResourceGroup --location westus
 ```
 
-Em seguida, implemente a configuração livre de pf-pf do modelo com [a implementação do grupo az criar](/cli/azure/group/deployment). Faça o download azuredeploy.parameters.jsno mesmo caminho e defina os seus próprios valores de recursos, tais `adminPassword` `networkPrefix` como, e `domainNamePrefix` . 
+Em seguida, implemente a configuração livre de pf-pf do modelo com [o grupo de implementação az criar](/cli/azure/deployment/group). Faça o download azuredeploy.parameters.jsno mesmo caminho e defina os seus próprios valores de recursos, tais `adminPassword` `networkPrefix` como, e `domainNamePrefix` . 
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeploymentName \
+az deployment group create --resource-group myResourceGroup --name myDeploymentName \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json \
     --parameters '@azuredeploy.parameters.json' --verbose
 ```

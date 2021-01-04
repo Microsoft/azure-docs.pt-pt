@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: a64d26ad11911e2cb9dcdec027b3ab3e4d22984b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 245dd9abf93771d5be142367679d622a3908b7d5
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96584513"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97717593"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ const main = async () => {
 };
 
 main().catch((error) => {
-  console.log("Encountered and error");
+  console.log("Encountered an error");
   console.log(error);
 })
 ```
