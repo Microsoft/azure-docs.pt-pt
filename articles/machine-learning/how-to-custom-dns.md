@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 07ff656c5eacbbcdc16c6c7cf098478ca6baf745
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509296"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724719"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado
 
-Ao utilizar um espaço de trabalho de aprendizagem automática Azure com um ponto final privado, [existem várias formas de lidar com a resolução do nome DNS](../private-link/private-endpoint-dns.md). Por predefinição, o Azure lida automaticamente com a resolução de nomes para o seu espaço de trabalho e ponto final privado. Se, em vez disso, _utilizar o seu próprio servidor DNS personalizado_ _, deve criar manualmente entradas DNS para o espaço de trabalho.
+Ao utilizar um espaço de trabalho de aprendizagem automática Azure com um ponto final privado, [existem várias formas de lidar com a resolução do nome DNS](../private-link/private-endpoint-dns.md). Por predefinição, o Azure lida automaticamente com a resolução de nomes para o seu espaço de trabalho e ponto final privado. Se, em vez disso, _utilizar o seu próprio servidor DNS personalizado_ _, deve criar manualmente entradas de DNS ou utilizar reencaminhadores condicional para o espaço de trabalho.
 
 > [!IMPORTANT]
 > Este artigo abrange apenas como encontrar os endereços de domínio totalmente qualificados (FQDN) e IP para estas entradas, não fornece informações sobre a configuração dos registos DNS para estes itens. Consulte a documentação do seu software DNS para obter informações sobre como adicionar registos.
@@ -37,9 +37,9 @@ Ao utilizar um espaço de trabalho de aprendizagem automática Azure com um pont
 
 - Opcionalmente, [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="find-the-ip-addresses"></a>Encontre os endereços IP
-
-A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho e ponto final privado:
+## <a name="fqdns-in-use"></a>FQDNs em uso
+### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Estas FQDNs estão a ser utilizadas nas seguintes regiões: leste, sulcentralus e westus2.
+A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -51,6 +51,19 @@ A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN)
 
     > [!NOTE]
     > As instâncias computacional só podem ser acedidas a partir da rede virtual.
+    
+### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Estes FQDNs estão em uso em todas as outras regiões
+A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `<instance-name>.<region>.instances.azureml.ms`
+
+    > [!NOTE]
+    > As instâncias computacional só podem ser acedidas a partir da rede virtual.
+
+## <a name="find-the-ip-addresses"></a>Encontre os endereços IP
 
 Para encontrar os endereços IP internos para as FQDNs no VNet, utilize um dos seguintes métodos:
 
@@ -89,7 +102,7 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]
-> Algumas FQDNs não são mostradas na lista pelo ponto final privado, mas são exigidas pelo espaço de trabalho. Estes FQDNs estão listados na tabela seguinte, e também devem ser adicionados ao seu servidor DNS:
+> Algumas FQDNs não são mostradas na lista pelo ponto final privado, mas são exigidas pelo espaço de trabalho em Eastus, Southcentralus e Westus2. Estas FQDNs estão listadas na tabela seguinte, e também devem ser adicionadas ao seu servidor DNS e/ou a uma Zona DNS Privada Azure:
 >
 > * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
@@ -102,3 +115,5 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a utilização do Azure Machine Learning com uma rede virtual, consulte a visão geral da [rede virtual.](how-to-network-security-overview.md)
+
+Para obter mais informações sobre a integração de Pontos Finais Privados na sua configuração DNS, consulte [a configuração do DNS do Ponto Final Privado Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).

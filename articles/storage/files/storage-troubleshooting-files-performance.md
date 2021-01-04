@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512074"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724668"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -46,7 +46,7 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
 ### <a name="solution"></a>Solução
 
 - Se estiver a utilizar uma parte de ficheiro padrão, ative [grandes ações de ficheiros](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) na sua conta de armazenamento. As grandes ações suportam até 10.000 IOPS por ação.
-- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte a secção "Compreensão de provisões para ações de ficheiros premium" no guia de planeamento dos [Ficheiros Azure](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte o [Provisioning Understanding para ações de ficheiros premium.](./understanding-billing.md#provisioned-billing)
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: Metadados ou carga de trabalho pesada do espaço de nome
 
@@ -228,7 +228,7 @@ Para confirmar, pode utilizar a Azure Metrics no portal -
 1. Na lista de valores de **dimensão,** selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
 
    > [!NOTE]
-   > Se não estiver listado nem o valor da dimensão **SuccessWithThrottlingError,** isto significa que o recurso não foi estrangulado. **ClientThrottlingError** Para adicionar o valor de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** insira **SuccessWithThrottling** ou **ClientThrottlingError**, selecione **OK** e, em seguida, repita o passo 7.
+   > Se não estiver listado nem o valor da dimensão **SuccessWithThrottlingError,** isto significa que o recurso não foi estrangulado.  Para adicionar o valor de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** insira **SuccessWithThrottling** ou **ClientThrottlingError**, selecione **OK** e, em seguida, repita o passo 7.
 
 1. Na lista de drop-down de **nome Dimension,** selecione **'Partilhar ficheiros'.**
 1. Na lista de valores de **Dimensão,** selecione a partilha de ficheiros ou as ações que pretende alertar.
@@ -285,7 +285,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 - [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)  
 - [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [FAQ sobre Ficheiros do Azure](storage-files-faq.md)

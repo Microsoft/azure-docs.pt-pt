@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.custom: references_regions
+ms.openlocfilehash: c5f8be87e7ee95e1deff12cce09204b5fe8a0bb7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329156"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694190"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz com os Comandos Personalizados
 
@@ -27,12 +28,12 @@ Neste momento, os Comandos Personalizados suportam subscrições de discurso cri
 * E.U.A. Oeste 2
 * E.U.A. Leste
 * E.U.A. Leste 2
+* E.U.A. Centro-Oeste
 * Europa do Norte
 * Europa Ocidental
-* E.U.A. Centro-Oeste
-* Índia Central
 * Ásia Leste
 * Sudeste Asiático
+* Índia Central
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -120,7 +121,7 @@ Em alternativa, também pode obter estes valores selecionando **definições**  
 ### <a name="access-application-from-client"></a>Pedido de acesso do cliente
 
 No âmbito deste artigo, utilizaremos o cliente Assistente de Voz do Windows que descarregou como parte dos requisitos prévios. Deszipe a pasta.
-1. Lançamento **VoiceAssistantClient.exe. **
+1. Lançamento **VoiceAssistantClient.exe.**
 1. Crie um novo perfil de publicação e introduza valor para **o Perfil de Ligação.** Na secção **Definições Gerais,** introduza valores **A Chave de Subscrição** (isto é o mesmo que o valor chave de **recurso do Discurso** que guardou ao publicar a aplicação), **região-chave de subscrição** e **ID de aplicação de comandos personalizados**.
     > [!div class="mx-imgBorder"]
     > ![Screenshot que realça a secção Definições Gerais para criar um perfil WVAC.](media/custom-commands/create-profile.png)

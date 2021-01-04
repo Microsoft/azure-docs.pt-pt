@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dccce597dcfbcedd5083befafa79b8ba6f3adac
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451394"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693472"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
@@ -42,6 +42,29 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 |[Ruby](connect-query-ruby.md)|Este quickstart demonstra como usar a Ruby para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
 |[R](connect-query-r.md)|Este quickstart demonstra como usar R com Azure SQL Database Machine Learning Services para criar um programa para ligar a uma base de dados na Base de Dados Azure SQL e usar declarações Transact-SQL para obter dados de consulta.|
 |||
+
+## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
+
+Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
+2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
+
+3. Na página **'Vista Geral',** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para a base de dados na Base de Dados Azure SQL ou o nome do servidor (ou endereço IP) totalmente qualificado ao lado do **Anfitrião** para uma Instância Gerida SQL Azure ou servidor SQL em Azure VM. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copy.**
+
+> [!NOTE]
+> Para obter informações de ligação para O Servidor SQL em Azure VM, consulte [Conecte-se a uma instância do SqL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+
+## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Obtenha informações de ligação ADO.NET (opcional - apenas base de dados SQL)
+
+1. Navegue para a lâmina da base de dados no portal Azure e, em **Definições,** selecione **cadeias de ligação**.
+
+2. Reveja a cadeia de ligação **ADO.NET** completa.
+
+    ![Cadeia de ligação de ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. Copie o **fio de** ligação ADO.NET se pretender usá-lo.
 
 ## <a name="tls-considerations-for-database-connectivity"></a>Considerações TLS para conectividade de base de dados
 

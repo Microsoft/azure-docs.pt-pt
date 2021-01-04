@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77866fcb72515d5167d9f06b7d9ad91c59bc7945
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993959"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97700591"
 ---
 Este artigo lista as versões e funcionalidades do Azure Ative Directory Connect Provisioning Agent que foram lançados. A equipa Azure AD atualiza regularmente o Agente de Provisionamento com novas funcionalidades e funcionalidades. O Agente Provisionante é atualizado automaticamente quando uma nova versão é lançada. 
 
@@ -28,6 +28,8 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 * Suporte para filtragem de PHS apenas para objetos de âmbito (Originalmente, estávamos a sincronizar hashes de palavra-passe para todos os objetos)
 * Corrigiu o problema da fuga de memória no agente
 * Registos de provisionamento melhorados
+* Suporte para configurar o tempo limite de [ligação LDAP](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Apoio à configuração da perseguição de [encaminhamento](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## <a name="11960"></a>1.1.96.0

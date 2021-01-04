@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 - afinação de desempenho
 description: Saiba como usar toda a produção disponível no Azure Data Lake Storage Gen1 é importante para obter o melhor desempenho executando o maior número possível de leituras e escritos em paralelo.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
-ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: twooley
+ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332523"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724685"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Tune Azure Data Lake Storage Gen1 para desempenho
 
@@ -131,7 +131,7 @@ Além das diretrizes gerais acima, cada aplicação tem diferentes parâmetros d
 | [MapReduce em HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduzir.memória</li><li>Mapreduce.job.reduz</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalhadores</li><li>Número de casos de executor de bico</li><li>Número de instâncias executores de parafusos </li><li>Número de tarefas de bico</li><li>Número de tarefas de parafuso</li></ul>|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

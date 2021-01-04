@@ -1,18 +1,18 @@
 ---
 title: Registar e digitalizar Azure Data Lake Storage (ADLS) Gen1
 description: Este tutorial descreve como digitalizar dados do Azure Data Lake Storage Gen1 para a Azure Purview.
-author: kchandra
-ms.author: kchandra
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: ee0b9238deb7805113f0cbfa28d0b60a114820a9
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555098"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693715"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registar e digitalizar Azure Data Lake Storage Gen1
 
@@ -108,7 +108,7 @@ Para utilizar um principal de serviço, tem primeiro de criar um seguindo estes 
 
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Clique no Acesso":::
 
-4. Clique em **Adicionar**. Adicione a **aplicação principal do Serviço** na seleção de utilizador ou grupo Select. Selecione **permissões de Ler** e **Executar.** Certifique-se de escolher **Esta pasta e todas as crianças** na opção Adicionar à opção como mostrado na imagem abaixo e clique em detalhes de **OK** 
+4. Clique em **Adicionar**. Adicione a **aplicação principal do Serviço** na seleção de utilizador ou grupo Select. Selecione **permissões de Ler** e **Executar.** Certifique-se de escolher **Esta pasta e todas as crianças** na opção Adicionar à opção como mostrado na imagem abaixo e clique em detalhes de  
     :::image type="content" source="./media/register-scan-adls-gen1/service-principal-authentication.png" alt-text="autenticação principal do serviço"::: OK
 
 5. Se o cofre da chave ainda não estiver ligado ao Purview, terá de [criar uma nova ligação](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)ao cofre de chaves .

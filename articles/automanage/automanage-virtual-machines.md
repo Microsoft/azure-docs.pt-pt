@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182857"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695791"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -52,7 +52,7 @@ Tem de ter a função **de Contribuinte** no grupo de recursos que contém os se
 > [!NOTE]
 > Se pretender utilizar a Automanage num VM que esteja ligado a um espaço de trabalho numa subscrição diferente, deve ter as permissões acima descritas em cada subscrição.
 
-É igualmente importante notar que a Automanage apenas suporta vMs Windows localizados nas seguintes regiões: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental DOS EUA.
+É igualmente importante notar que a Automanage apenas suporta vMs Windows localizados nas seguintes regiões: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental dos EUA, Japão Leste.
 
 ## <a name="participating-services"></a>Serviços participantes
 

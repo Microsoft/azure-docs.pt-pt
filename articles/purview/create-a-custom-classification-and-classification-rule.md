@@ -1,18 +1,18 @@
 ---
 title: Criar uma regra de classificação e classificação personalizada (pré-visualização)
 description: Este artigo descreve como pode criar classificações personalizadas para definir tipos de dados no seu espólio de dados que são exclusivos da sua organização. Também descreve a criação de regras de classificação personalizadas que lhe permitem encontrar dados especificados em toda a sua propriedade de dados.
-author: chandrakavya
-ms.author: kchandra
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
-ms.openlocfilehash: 16a714cff506117c5d6f7fd4921fbd5346bfda39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553926"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693461"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificações personalizadas em Azure Purview 
 
@@ -98,7 +98,7 @@ Para criar uma regra de classificação personalizada:
 |Campo     |Descrição  |
 |---------|---------|
 |Nome   |    Obrigatório. O máximo é de 100 caracteres.    |
-|Descrição      |Opcional. O máximo é de 256 caracteres.    |
+|Description      |Opcional. O máximo é de 256 caracteres.    |
 |Nome de classificação    | Obrigatório. Selecione o nome da classificação da lista de drop-down para dizer ao scanner para aplicá-lo se for encontrada uma correspondência.        |
 |Estado   |  Obrigatório. As opções estão ativadas ou desativadas. Ativado é o padrão.    |
 |Padrão de dados    |Opcional. Uma expressão regular que representa os dados armazenados no campo de dados. O limite é muito grande. No exemplo anterior, os padrões de dados testam para um ID de funcionário que é literalmente a palavra `Employee{GUID}` .  |

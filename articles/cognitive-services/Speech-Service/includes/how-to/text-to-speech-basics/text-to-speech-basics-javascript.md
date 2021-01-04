@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 1d6471e1443e02592e86ea0708ac173a7afff3e1
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ae2cd72bfde3eb7fdc6b135cbb22d04535a2f251
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97665034"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97731940"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -204,7 +204,7 @@ Para alterar o formato áudio, utilize a `speechSynthesisOutputFormat` proprieda
 Existem várias opções para diferentes tipos de ficheiros, dependendo dos seus requisitos. Note que, por definição, formatos brutos como `Raw24Khz16BitMonoPcm` não incluem cabeçalhos de áudio. Utilize formatos brutos apenas quando souber que a sua implementação a jusante pode descodificar um bitstream cru, ou se planeia construir manualmente cabeçalhos baseados na profundidade de bit, taxa de amostra, número de canais, etc.
 
 > [!NOTE]
-> As vozes **en-US-AriaRUS** e **en-US-GuyRUS** apoiam a `Riff24Khz16BitMonoPcm` taxa de amostragem.
+> As vozes **en-US-AriaRUS** e **en-US-GuyRUS** são criadas a partir de amostras codificadas na `Riff24Khz16BitMonoPcm` taxa de amostra.
 
 Neste exemplo, especifica-se um formato RIFF de alta `Riff24Khz16BitMonoPcm` fidelidade, definindo `speechSynthesisOutputFormat` o no `SpeechConfig` objeto. Semelhante ao exemplo na secção anterior, obtenha os dados áudio `ArrayBuffer` e interaja com os mesmos.
 

@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891466"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695773"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
 Este artigo fornece respostas a algumas das perguntas mais comuns sobre [a Azure Automanage para máquinas virtuais.](automanage-virtual-machines.md)
 
-Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure sobre [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes fóruns ou publicar [ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Também pode submeter um pedido de apoio ao Azure. Para submeter um pedido de apoio, na página de suporte do [Azure,](https://azure.microsoft.com/support/options/)selecione **Obter suporte** .
+Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure sobre [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes fóruns ou publicar [ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Também pode submeter um pedido de apoio ao Azure. Para submeter um pedido de apoio, na página de suporte do [Azure,](https://azure.microsoft.com/support/options/)selecione **Obter suporte**.
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
@@ -43,7 +43,7 @@ Se estiver a utilizar uma nova Conta de Autoadministração ao habilitar, tem de
 
 **Que regiões são apoiadas?**
 
-Os VMs nas seguintes regiões são apoiados: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental dos EUA.
+Os VMs nas seguintes regiões são apoiados: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental dos EUA, Japão Leste.
 
 
 **Que capacidades automatiza a Azure Automanage?**
@@ -105,7 +105,7 @@ Não, a auto-produção não vai reconfigurá-lo. Começaremos a monitorizar os 
 
 **Porque é que o meu VM tem um estatuto falhado no portal auto-piloto?**
 
-Se vir o estado como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos** , selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+Se vir o estado como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
 
 **Como posso conseguir apoio para a auto-produção?**
 
