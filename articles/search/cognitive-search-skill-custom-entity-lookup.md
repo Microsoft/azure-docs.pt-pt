@@ -8,17 +8,17 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936117"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844956"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (pré-visualização)
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
 
 A habilidade **de Pesquisa de Entidade Personalizada** procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos.  
 
@@ -41,11 +41,13 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 | `entitiesDefinitionUri`    | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para combinar. Esta definição de entidade é lida no início de uma execução indexante; quaisquer atualizações a este ficheiro a meio do percurso não serão realizadas até que os subsequentes sejam executados. Este config deve estar acessível em HTTPS. Consulte o formato [de definição de entidade personalizada"](#custom-entity-definition-format) abaixo para o esquema esperado de CSV ou JSON.|
 |`inlineEntitiesDefinition` | Definições de entidades JSON inline. Este parâmetro substitui as entidadesDefinitionUri se estiver presente. Não podem ser fornecidos mais de 10 KB de configuração em linha. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para o esquema esperado do JSON. |
 |`defaultLanguageCode` |    (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. São apoiadas as seguintes línguas: `da, de, en, es, fi, fr, it, ko, pt` . O padrão é inglês `en` ( ). Se passar num formato de código de identificação de idiomas, apenas é utilizada a parte do código de idiomas do formato.  |
-
+|`globalDefaultCaseSensitive` | (Opcional) Valor sensível a caso padrão para a habilidade. Se `defaultCaseSensitive` o valor de uma entidade não for especificado, este valor passará a ser o valor para essa `defaultCaseSensitive` entidade. |
+|`globalDefaultAccentSensitive` | (Opcional) Valor sensível ao sotaque padrão para a habilidade. Se `defaultAccentSensitive` o valor de uma entidade não for especificado, este valor passará a ser o valor para essa `defaultAccentSensitive` entidade. |
+|`globalDefaultFuzzyEditDistance` | (Opcional) Valor de distância de edição difusa padrão para a habilidade. Se `defaultFuzzyEditDistance` o valor de uma entidade não for especificado, este valor passará a ser o valor para essa `defaultFuzzyEditDistance` entidade. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Nome de entrada      | Description                   |
 |---------------|-------------------------------|
 | `text`          | O texto para analisar.          |
 | `languageCode`    | Opcional. A predefinição é `"en"`.  |
@@ -54,7 +56,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="skill-outputs"></a>Saídas de competências
 
 
-| Nome de saída      | Descrição                   |
+| Nome de saída      | Description                   |
 |---------------|-------------------------------|
 | `entities` | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade tal como definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade tal como definida pelo utilizador no "Formato de Definição de Entidade Personalizada". </li> <li> *tipo:* Tipo de entidade tal como definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Coleção que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto em bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a partida foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes esta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
   |
@@ -143,7 +145,7 @@ Um exemplo mais complexo de uma definição JSON pode opcionalmente fornecer o i
 
 As tabelas abaixo descrevem em mais detalhes os diferentes parâmetros de configuração que pode definir ao definir as entidades para combinar:
 
-|  Nome do campo  |        Descrição  |
+|  Nome do campo  |        Description  |
 |--------------|----------------------|
 | `name` | O descritor de entidade de alto nível. Os fósforos na saída de habilidades serão agrupados por este nome, e devem representar a forma "normalizada" do texto encontrado.  |
 | `description`  | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
@@ -151,15 +153,18 @@ As tabelas abaixo descrevem em mais detalhes os diferentes parâmetros de config
 | `subtype` | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
 | `id` | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
 | `caseSensitive` | (Opcional) Incumprimentos a falsos. Valor booleano denotando se as comparações com o nome da entidade devem ser sensíveis ao invólucro do carácter. Caso de amostras partidas insensíveis de "Microsoft" podem ser: microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | (Opcional) Incumprimentos a falsos. O valor booleano denotando se as letras acentuadas e não acentadas, tais como "é" e "e" devem ser idênticas. |
 | `fuzzyEditDistance` | (Opcional) Incumprimentos para 0. Valor máximo de 5. Denota o número aceitável de caracteres divergentes que ainda constituíam uma correspondência com o nome da entidade. A menor confusão possível para qualquer partida é devolvida.  Por exemplo, se a distância de edição for definida para 3, o "Windows 10" ainda corresponderia a "Windows", "Windows10" e "windows 7". <br/> Quando a sensibilidade do caso é definida como falsa, as diferenças de casos NÃO contam para a tolerância à fuzziness, mas de outra forma contam. |
-| `defaultCaseSensitive` | (Opcional) Altera o valor de sensibilidade ao caso padrão para esta entidade. É usado para alterar o valor predefinido de todos os casos de pseudónimos Valoressensíveis. |
+| `defaultCaseSensitive` | (Opcional) Altera o valor de sensibilidade ao caso padrão para esta entidade. Pode ser usado para alterar o valor predefinido de todos os casos de pseudónimos Valoressensíveis. |
+| `defaultAccentSensitive` | (Opcional) Altera o valor de sensibilidade ao sotaque padrão para esta entidade. Pode ser usado para alterar o valor padrão de todos os pseudónimos sotaque Valoressensíveis.|
 | `defaultFuzzyEditDistance` | (Opcional) Altera o valor de distância de edição padrão para esta entidade. Pode ser usado para alterar o valor padrão de todos os valores de EditDistance. |
 | `aliases` | (Opcional) Uma variedade de objetos complexos que podem ser usados para especificar ortografias ou sinónimos alternativos ao nome da entidade raiz. |
 
-| Propriedades de alias | Descrição |
+| Propriedades de alias | Description |
 |------------------|-------------|
 | `text`  | A ortografia ou representação alternativa de algum nome de entidade-alvo.  |
 | `caseSensitive` | (Opcional) Age o mesmo que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
+| `accentSensitive` | (Opcional) Age o mesmo que o parâmetro "accentSensitive" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
 | `fuzzyEditDistance` | (Opcional) Age o mesmo que o parâmetro "fuzzyEditDistance" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
 
 
@@ -302,7 +307,7 @@ Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição d
 
 Este aviso será emitido se o número de partidas detetadas for superior ao máximo permitido. Neste caso, deixaremos de incluir correspondências duplicadas. Se isto for inaceitável para si, por favor preencha um [bilhete de apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

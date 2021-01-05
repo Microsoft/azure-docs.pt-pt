@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: b3a633c1eff6adf2a33b4f3bfc818eb51ff5ee85
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653100"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844961"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
@@ -61,9 +61,9 @@ ms.locfileid: "97653100"
 | Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
-| Checo                 |     `cs`      |     ✓      |            |                                 |                    |
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` também aceitou |
 | Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Checo                 |     `cs`      |     ✓      |            |                                 |                    |
 | Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                                 |                    |
 | Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -77,14 +77,14 @@ ms.locfileid: "97653100"
 | Coreano                |     `ko`      |     ✓      |            |                                 |                    |
 | Norueguês (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` também aceitou |
 | Polaco                |     `pl`      |     ✓      |            |                                 |                    |
-| Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` também aceitou |
 | Português (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` também aceitou |
 | Russo              |     `ru`      |     ✓      |            |                                 |                    |
 | Espanhol               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extração de expressões-chave](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
 > [!NOTE]
 > As versões de modelo de Extração de Frase-Chave antes de 2020-07-01 têm um limite de caracteres de 64. Este limite não está presente nas versões posteriores do modelo.
@@ -101,8 +101,8 @@ ms.locfileid: "97653100"
 | Coreano                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` também aceitou |
 | Polaco                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` também aceitou |
 | Português (Brasil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` também aceitou |
 | Russo               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Espanhol               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Sueco               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -217,6 +217,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é a API de Análise de Texto?](overview.md)   

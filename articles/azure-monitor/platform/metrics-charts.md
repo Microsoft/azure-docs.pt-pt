@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562808"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845055"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562808"
 ## <a name="metrics-in-azure"></a>Métricas em Azure
 
 [As métricas no Azure Monitor](data-platform-metrics.md) são a série de valores e contagens medidos que são recolhidos e armazenados ao longo do tempo. Existem métricas padrão (ou "plataforma") e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de saúde e utilização dos seus recursos Azure. Enquanto as métricas personalizadas são enviadas para a Azure pelas suas aplicações utilizando a [API de Insights de Aplicação para eventos e métricas personalizadas,](../app/api-custom-events-metrics.md)  [extensão de Diagnóstico do Windows Azure (WAD)](./diagnostics-extension-overview.md)ou pela [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
+
+## <a name="resource-scope-picker"></a>Selecionador de âmbito de recursos
+O selecionador de recursos permite-lhe visualizar métricas em recursos únicos e múltiplos. Abaixo estão as instruções sobre como utilizar o selecionador de âmbito de recursos. 
+
+### <a name="selecting-a-single-resource"></a>Selecionando um único recurso
+Selecione **métricas** do menu **Azure Monitor** ou da secção de **monitorização** do menu de um recurso. Clique no botão "Selecione um âmbito" para abrir o seletor de âmbito, o que lhe permitirá selecionar os recursos para os quais pretende ver métricas. Isto já deve ser preenchido se você abriu métricas explorador a partir do menu de um recurso. 
+
+![Screenshot do selecionador de âmbito de recursos](./media/metrics-charts/scope-picker.png)
+
+Para certos recursos, só se pode ver as métricas de um único recurso de cada vez. Estes recursos estão na secção "Todos os tipos de recursos" na queda dos tipos de recursos.
+
+![Screenshot de recurso único](./media/metrics-charts/single-resource-scope.png)
+
+Depois de clicar no seu recurso pretendido, verá todas as subscrições e grupos de recursos que contêm esse recurso.
+
+![Screenshot dos recursos disponíveis](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> Se quiser ver as métricas de vários recursos ao mesmo tempo, ou métricas através de um grupo de subscrição ou recursos, clique no botão Upvote.
+
+Assim que estiver satisfeito com a sua seleção, clique em "Aplicar".
+
+### <a name="viewing-metrics-across-multiple-resources"></a>Métricas de visualização em vários recursos
+Alguns tipos de recursos permitiram a possibilidade de consultar métricas sobre vários recursos, desde que estejam dentro da mesma subscrição e localização. Estes tipos de recursos podem ser encontrados no topo da redução dos "Tipos de Recursos". Para obter mais detalhes sobre como ver métricas através de vários recursos veja [este documento.](metrics-dynamic-scope.md#selecting-multiple-resources)
+
+![Screenshot dos tipos de recursos cruzados](./media/metrics-charts/multi-resource-scope.png)
+
+Para tipos compatíveis com vários recursos, também pode consultar métricas através de uma subscrição ou de vários grupos de recursos. Para aprender a fazer isto, veja [este artigo](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar vistas com várias métricas e gráficos
 
@@ -61,11 +90,25 @@ Por exemplo, suponha que o gráfico esteja a mostrar a métrica **do Tempo de Re
 
 Existem cinco tipos básicos de agregação de estatísticas disponíveis no explorador de métricas: **Soma,** **Conde,** **Min,** **Max** e **Média.** A **agregação** da Soma é por vezes referida como **agregação total.** Para muitas métricas, o Metrics Explorer esconderá as agregações que são totalmente irrelevantes e não podem ser usadas.
 
-- **Soma** – a soma de todos os valores capturados ao longo do intervalo de agregação
-- **Count** – o número de medições capturadas durante o intervalo de agregação. Note que **o Conde** será igual a **Sum** no caso em que a métrica é sempre capturada com o valor de 1. Isto é comum quando a métrica acompanha a contagem de eventos distintos, e cada medição representa um evento (ou seja, o código dispara um registo métrico cada vez que um novo pedido entra)
-- **Média** – a média dos valores métricos capturados ao longo do intervalo de agregação
-- **Min** – o menor valor capturado ao longo do intervalo de agregação
-- **Max** – o maior valor capturado ao longo do intervalo de agregação
+**Soma** – a soma de todos os valores capturados ao longo do intervalo de agregação
+
+![Screenshot da soma do pedido](./media/metrics-charts/request-sum.png)
+
+**Count** – o número de medições capturadas durante o intervalo de agregação. Note que **o Conde** será igual a **Sum** no caso em que a métrica é sempre capturada com o valor de 1. Isto é comum quando a métrica acompanha a contagem de eventos distintos, e cada medição representa um evento (ou seja, o código dispara um registo métrico cada vez que um novo pedido entra)
+
+![Screenshot da contagem de pedidos](./media/metrics-charts/request-count.png)
+
+**Média** – a média dos valores métricos capturados ao longo do intervalo de agregação
+
+![Screenshot do pedido médio](./media/metrics-charts/request-avg.png)
+
+**Min** – o menor valor capturado ao longo do intervalo de agregação
+
+![Screenshot do pedido mínimo](./media/metrics-charts/request-min.png)
+
+**Max** – o maior valor capturado ao longo do intervalo de agregação
+
+![Screenshot do pedido máximo](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>Aplicar filtros em gráficos
 

@@ -10,34 +10,34 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409387"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844955"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selecione um domínio para um projeto de Visão Personalizada
 
-A partir da lâmina de definições para o seu projeto Visão Personalizada, pode selecionar um domínio para o seu projeto. Escolha o domínio mais próximo do seu cenário.
+A partir do separador de definições do seu projeto Visão Personalizada, pode selecionar um domínio para o seu projeto. Escolha o domínio mais próximo do seu cenário. Se estiver a aceder à Visão Personalizada através de uma biblioteca de clientes ou da REST API, terá de especificar um ID de domínio ao criar o projeto. Pode obter uma lista de IDs de domínio com [O Domínio Get](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab)ou utilizar a tabela abaixo.
 
 ## <a name="image-classification"></a>Classificação de Imagens
 
 |Domínio|Objetivo|
 |---|---|
-|__Genérico__| Otimizado para uma ampla gama de tarefas de classificação de imagem. Se nenhum dos outros domínios for apropriado, ou se não tiver a certeza de qual domínio escolher, selecione o domínio Genérico.|
-|__Comida__|Otimizado para fotografias de pratos como você os veria no menu de um restaurante. Se quiser classificar fotografias de frutas ou vegetais individuais, utilize o domínio Food.|
-|__Pontos de referência__|Otimizado para marcos reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o marco é claramente visível na fotografia. Este domínio funciona mesmo que o marco seja ligeiramente obstruído por pessoas à sua frente.|
-|__Retail__|Otimizado para imagens que são encontradas em um catálogo de compras ou site de compras. Se quiser classificar de alta precisão entre vestidos, calças e camisas, use este domínio.|
+|__Geral__| Otimizado para uma ampla gama de tarefas de classificação de imagem. Se nenhum dos outros domínios for apropriado, ou se não tiver a certeza de qual domínio escolher, selecione o domínio Geral. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Comida__|Otimizado para fotografias de pratos como você os veria no menu de um restaurante. Se quiser classificar fotografias de frutas ou vegetais individuais, utilize o domínio Food. ID: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
+|__Pontos de referência__|Otimizado para marcos reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o marco é claramente visível na fotografia. Este domínio funciona mesmo que o marco seja ligeiramente obstruído por pessoas à sua frente. ID: `ca455789-012d-4b50-9fec-5bb63841c793`|
+|__Retail__|Otimizado para imagens que são encontradas em um catálogo de compras ou site de compras. Se quiser classificar de alta precisão entre vestidos, calças e camisas, use este domínio. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Domínios compactos__| Otimizado para os constrangimentos da classificação em tempo real em dispositivos de borda.|
 
 ## <a name="object-detection"></a>Deteção de Objetos
 
 |Domínio|Objetivo|
 |---|---|
-|__Geral__| Otimizado para uma ampla gama de tarefas de deteção de objetos. Se nenhum dos outros domínios for apropriado, ou se não tiver a certeza de qual domínio escolher, selecione o domínio Genérico.|
-|__Logótipo__|Otimizado para encontrar logotipos da marca em imagens.|
-|__Produtos nas prateleiras__|Otimizado para detetar e classificar produtos nas prateleiras.|
+|__Geral__| Otimizado para uma ampla gama de tarefas de deteção de objetos. Se nenhum dos outros domínios for apropriado, ou se não tiver a certeza de qual domínio escolher, selecione o domínio Geral. ID: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__Logótipo__|Otimizado para encontrar logotipos da marca em imagens. ID: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
+|__Produtos nas prateleiras__|Otimizado para detetar e classificar produtos nas prateleiras. ID: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Domínios compactos__| Otimizado para os constrangimentos da deteção de objetos em tempo real em dispositivos de borda.|
 
 ## <a name="compact-domains"></a>Domínios compactos
@@ -46,11 +46,11 @@ Os modelos gerados por domínios compactos podem ser exportados para serem execu
 
 O desempenho do modelo varia de acordo com o domínio selecionado. Na tabela abaixo, reportamos o tamanho do modelo e o tempo de inferência no Intel Desktop CPU e no NVidia GPU \[ 1 \] . Estes números não incluem tempo de pré-processamento e pós-processamento.
 
-|Tarefa|Domínio|Tamanho do Modelo|Tempo de inferência do CPU|Tempo de inferência da GPU|
-|---|---|---|---|---|
-|Classificação|General (compact) (Geral [compacto])|5 MB|13 ms|5 ms|
-|Deteção de Objetos|General (compact) (Geral [compacto])|45 MB|35 ms|5 ms|
-|Deteção de Objetos|Geral (compacto) [S1]|14 MB|27 ms|7 ms|
+|Tarefa|Domínio|ID|Tamanho do Modelo|Tempo de inferência do CPU|Tempo de inferência da GPU|
+|---|---|---|---|---|---|
+|Classificação|General (compact) (Geral [compacto])|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 ms|5 ms|
+|Deteção de Objetos|General (compact) (Geral [compacto])|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 ms|5 ms|
+|Deteção de Objetos|Geral (compacto) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 
 >[!NOTE]
 >O domínio __geral (compacto)__ para deteção de objetos requer uma lógica especial de pós-processamento. Para obter os detalhes, consulte um roteiro de exemplo no pacote zip exportado. Se precisar de um modelo sem a lógica de pós-processamento, utilize __o General (compacto) [S1]__.
