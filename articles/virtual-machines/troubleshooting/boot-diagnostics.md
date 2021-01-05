@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fbf8c1987a66cad6d9d9bc9dab829af4b42a224e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 236390529ddaf84416448138d7b5bdf31caf681b
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971562"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827500"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar diagnósticos de arranque para resolver problemas em máquinas virtuais em Azure
 
@@ -52,7 +52,7 @@ No separador **Gestão,** na secção **de Monitorização,** certifique-se de q
 ![Criar VM](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> A funcionalidade de diagnóstico boot não suporta conta de armazenamento premium ou Tipos de Conta de Armazenamento De Zona Redundent. Se utilizar a conta de armazenamento premium para diagnósticos boot, poderá receber o erro de ArmazenamentoAccountTypeNotSupported quando iniciar o VM.
+> A funcionalidade de diagnóstico boot não suporta conta de armazenamento premium ou tipos de conta de armazenamento redundantes da zona. Se utilizar a conta de armazenamento premium para diagnósticos boot, poderá receber o erro de ArmazenamentoAccountTypeNotSupported quando iniciar o VM.
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Implantação a partir de um modelo de gestor de recursos Azure
@@ -86,7 +86,7 @@ Para obter mais informações sobre a implementação de recursos utilizando mod
 Para ativar os diagnósticos boot numa máquina virtual existente, siga estes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e, em seguida, selecione a máquina virtual.
-2. Na secção **Suporte + resolução de problemas,** selecione **diagnósticos de arranque**e, em seguida, selecione o **separador Definições.**
+2. Na secção **Suporte + resolução de problemas,** selecione **diagnósticos de arranque** e, em seguida, selecione o **separador Definições.**
 3. Nas **definições de diagnóstico boot,** altere o estado para **On**, e a partir da lista de down-down da **conta de Armazenamento** selecione uma conta de armazenamento. 
 4. Guarde a alteração.
 

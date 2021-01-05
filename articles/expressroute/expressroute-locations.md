@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/10/2020
 ms.author: duau
-ms.openlocfilehash: cc844059d14a182db11e18f95e676b38762f6a0d
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: dab480012ced3a8fc50fd5f4295272c0eccc4307
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561652"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831861"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -134,7 +134,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Amesterdão, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Genebra, Hong Kong SAR, Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Montreal, Nova Iorque, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapura2, Stavanger, Estocolmo, Sydney, Sydney2, Tóquio, Tóquio, Washington DC2, |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Suportado |Suportado |Londres |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportado |Dallas, Los Angeles, Miami, São Paulo, Washington DC |
-| **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
+| **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** |Suportado |Suportado |Newport (País de Gales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Suportado |Suportado |Melbourne, Perth, Sydney, Sydney2 |
 | **[NOS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** |Suportado |Suportado |Amesterdão2 |
 | **[Comunicações NTT](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportado |Amesterdão, Hong Kong SAR, Londres, Los Angeles, Osaka, Singapura, Sydney, Tóquio, Washington DC |
@@ -147,7 +147,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Suportado | Suportado | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Suportado |Suportado |Chicago, Las Vegas, Silicon Valley, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Suportado |Suportado |Chicago, Hong Kong, Hong Kong2, Londres, Singapura2 |
-| **[Retelit](https://www.retelit.it/en/services/enterprises-and-public-sector/data-center-e-cloud/cloud-services/direct-cloud-4-azure-expressroute.aspx)** | Suportado | Suportado | Milão | 
+| **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Suportado | Suportado | Milão | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportado |Suportado |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Suportado |Suportado | London2 |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Suportado |Suportado |Chennai, Mumbai2 |

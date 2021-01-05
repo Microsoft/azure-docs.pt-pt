@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a657f43ef2d889cad1608d34e9235b1d5e7cb576
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85534d1f64b273e42a2ea063e67286ee7bb4a90a
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894155"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827160"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
 
@@ -169,7 +169,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Resposta 2:** Tem de fornecer o nome de voz correto no pedido, que é sensível a casos. Consulte o mapeamento de nome de serviço completo. Tem de usar `en-US-JessaRUS` , como não está `en-US-JessaNeural` disponível neste momento na versão de container de texto-a-discurso.
+**Resposta 2:** Tem de fornecer o nome de voz correto no pedido, que é sensível a casos. Consulte o mapeamento de nome de serviço completo.
 
 **Erro 3:**
 
@@ -292,8 +292,8 @@ Pode ajudar a preencher as seguintes métricas de teste, incluindo que funções
 
 | Ponto final                                                | Teste funcional                                                   | SDK | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (texto-a-discurso)                                  |     | Sim      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ponto final do ditado v1 websocket        | Sim | Não       |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (texto-a-discurso)                                  |     | Yes      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ponto final do ditado v1 websocket        | Yes | No       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto final do serviço cognitivo on-prem interactive v1 websocket  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | Os serviços cognitivos on-prem conversa v1 websocket endpoint |     |          |
 
@@ -309,6 +309,8 @@ A solução alternativa é ou mudar para usar reconhecimento contínuo no seu c�
 Para o seu código, desaponte o ponto final para `host:port` /speech/recognition/interactive/cognitiveservices/v1
 
 Para os vários modos, consulte os modos de voz - veja abaixo:
+
+## <a name="speech-modes---interactive-conversation-dictation"></a>Modos de fala - Interativo, conversa, ditado
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
@@ -558,6 +560,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 </summary>
 
 **Resposta:** Existem três pontos finais no recipiente de discurso para diferentes utilizações, são definidos como modos de fala - veja abaixo:
+
+## <a name="speech-modes"></a>Modos de fala
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 

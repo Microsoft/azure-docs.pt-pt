@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a visão em tempo real dos tro
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530187"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830790"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -48,7 +48,7 @@ O portal Azure solicita-lhe que valide as suas credenciais de login para um clus
 
 Para eliminar a necessidade de aplicar alterações de configuração adicionais para permitir que o **clusterUser** de ligação da função do utilizador Kubernetes aceda à funcionalidade De dados vivos (pré-visualização) depois de permitir a autorização [do AMC de Kubernetes,](#configure-kubernetes-rbac-authorization) a AKS adicionou uma nova ligação de cluster de kubernetes chamada **clusterMonitoringUser**. Esta ligação de funções de cluster tem todas as permissões necessárias fora da caixa para aceder à API de Kubernetes e aos pontos finais para utilizar a funcionalidade De Dados Ao Vivo (pré-visualização).
 
-Para utilizar a funcionalidade Dados Ao Vivo (pré-visualização) com este novo utilizador, é necessário ser membro da função [Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) no recurso cluster AKS. O Monitor Azure para recipientes, quando ativado, é configurado para autenticar utilizando este utilizador por predefinição. Se a ligação de funções clusterMonitoringUser não existir num cluster, **o clusterUser** é utilizado para a autenticação.
+Para utilizar a funcionalidade Dados Ao Vivo (pré-visualização) com este novo utilizador, é necessário ser membro do [Grupo de Atendimento Azure Kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) ou [do contributo](../../role-based-access-control/built-in-roles.md#contributor) no recurso cluster AKS. O Monitor Azure para recipientes, quando ativado, é configurado para autenticar utilizando o clusterMonitoringUser por predefinição. Se a ligação de funções clusterMonitoringUser não existir num cluster, **o clusterUser** é utilizado para a autenticação. O colaborador dá-lhe acesso ao clusterMonitoringUser (se existir) e o Utilizador do Cluster de Serviços Azure Kuberenetes dá-lhe acesso ao clusterUser. Qualquer uma destas duas funções dá acesso suficiente à utilização desta funcionalidade.
 
 A AKS divulgou esta nova função vinculativa em janeiro de 2020, pelo que os clusters criados antes de janeiro de 2020 não o têm. Se tiver um cluster que foi criado antes de janeiro de 2020, o novo **clusterMonitoringUser** pode ser adicionado a um cluster existente através da realização de uma operação PUT no cluster, ou realizando qualquer outra operação no cluster que execute uma operação PUT no cluster, como atualizar a versão do cluster.
 

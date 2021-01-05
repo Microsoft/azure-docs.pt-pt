@@ -7,15 +7,15 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 4339e8217702e9f25877bc8c250b5363e2c59a42
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483700"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826123"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Certificados de exportação do Azure Key Vault
 
@@ -42,10 +42,10 @@ Consulte [os certificados Azure Key Vault](./about-certificates.md#exportable-or
 
 ## <a name="export-stored-certificates"></a>Certificados armazenados de exportação
 
-Pode exportar certificados armazenados no Cofre da Chave Azure utilizando o Azure CLI, a Azure PowerShell ou o portal Azure.
+Pode exportar certificados armazenados no Azure Key Vault com a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
 > [!NOTE]
-> Só requer uma senha de certificado quando importa o certificado no cofre da chave. O Cofre-Chave não guarda a senha associada. Quando exporta o certificado, a senha está em branco.
+> Só requer uma senha de certificado quando importa o certificado no cofre da chave. O Key Vault não guarda a palavra-passe associada. Quando exporta o certificado, a senha está em branco.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

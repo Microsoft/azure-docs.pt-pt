@@ -7,13 +7,13 @@ ms.date: 12/6/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 3854b7491bf068bf7130180f483905531f053f7c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.custom: devx-track-js
+ms.openlocfilehash: a96c3a2dc3b013f79799f20595bf5b5f575b363b
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841923"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826088"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Quickstart: Biblioteca de clientes certificados Azure Key Vault para JavaScript (versão 4)
 
@@ -283,7 +283,7 @@ Neste quickstart, criou um cofre chave, guardou um certificado e recuperou o cer
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Leia uma [visão geral dos certificados](about-certificates.md)
-- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações de aplicações de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
+- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
 - Veja um [cofre de chave de acesso a partir de tutorial de máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

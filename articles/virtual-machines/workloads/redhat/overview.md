@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 3e4a770a33f5cdb3c3b2de09cbcb8431b2fc3fbb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968660"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830654"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de carga de chapéu vermelho em Azure
 
@@ -36,7 +36,7 @@ O Azure oferece uma variedade de imagens de pay-as-you-go rhel. Estas imagens t�
 ### <a name="red-hat-gold-images"></a>Imagens de ouro do chapéu vermelho
 
 Azure também oferece Imagens de Ouro de Chapéu Vermelho `rhel-byos` (). Estas imagens podem ser úteis para clientes que tenham subscrições de Red Hat existentes e queiram usá-las em Azure. É-lhe exigido que ative as subscrições do Red Hat existente para o Red Hat Cloud Access antes de as poder utilizar no Azure. O acesso a estas imagens é concedido automaticamente quando as subscrições do Red Hat estão ativadas para o Cloud Access e cumprem os requisitos de elegibilidade. A utilização destas imagens permite que um cliente evite faturações duplas que possam ser incorridas com a utilização das imagens pay-as-you-go.
-* Saiba como [ativar as subscrições do Red Hat para o Cloud Access com Azure.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs)
+* Saiba como [ativar as subscrições do Red Hat para o Cloud Access com Azure.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)
 * Saiba como [localizar imagens de ouro do chapéu vermelho no portal Azure, no Azure CLI ou no Cmdlet PowerShell](./byos.md).
 
 > [!NOTE]

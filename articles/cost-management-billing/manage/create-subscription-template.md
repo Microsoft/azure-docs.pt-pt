@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 21791b096d66b73c522c50f38cae7fd8a1b9fb70
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 92dd129444800dc44e4418fb12d2e4df4aebc02d
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507562"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826154"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-an-azure-resource-manager-template"></a>Criar programaticamente subscrições do Azure com um modelo do Azure Resource Manager
 

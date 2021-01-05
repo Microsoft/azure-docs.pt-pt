@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 3e93b5c4fd2a169da5cdcc42aaabdd29a2c22bb7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2a7d191af78da417d0ee2ade12b1576912643b6c
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522473"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827466"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nova Relíquia por Conta
 
@@ -80,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:
 
-    `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Substitua-se `acc_id` pela sua própria Conta ID de Nova Relíquia por Conta.
+    `https://rpm.newrelic.com:443/accounts/{acc_id}/sso/saml/finalize` - Substitua-se `acc_id` pela sua própria Conta ID de Nova Relíquia por Conta.
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL: `rpm.newrelic.com`
 
@@ -114,7 +114,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Nova Relíquia por Conta.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Nova Relíquia por Conta**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -160,7 +160,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
    
     ![A screenshot mostra as definições de conta selecionadas na página Welcome.](./media/new-relic-tutorial/ic797040.png "Definições de conta")
 
-3. No painel **conta** no lado esquerdo, clique em **Resumo**e, em seguida, clique em **Adicionar utilizador**.
+3. No painel **conta** no lado esquerdo, clique em **Resumo** e, em seguida, clique em **Adicionar utilizador**.
    
     ![A screenshot mostra o painel resumo onde pode selecionar Adicionar utilizador.](./media/new-relic-tutorial/ic797041.png "Definições de conta")
 

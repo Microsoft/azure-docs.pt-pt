@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: f69d81656358b8ee9a5fa51cb8261e3115729714
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 00095eed3fe6d143d9ed7a0c748c4702028f4632
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511564"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832065"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque BitLocker num Azure VM
 
@@ -181,7 +181,7 @@ Para um cenário chave de encriptação, siga estes passos:
      else
      {
     $adal="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms ="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Agit pgit ccounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    $adalforms ="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
     [System.Reflection.Assembly]::LoadFrom($adal)
     [System.Reflection.Assembly]::LoadFrom($adalforms)
      }  

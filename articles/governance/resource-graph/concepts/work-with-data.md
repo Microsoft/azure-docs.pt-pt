@@ -3,13 +3,13 @@ title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6054d2cd2cf012c21f451ece87db672897fa0398
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 59f69738bf9fe25cb739539b7a1f93e4499d781a
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843354"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826021"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 

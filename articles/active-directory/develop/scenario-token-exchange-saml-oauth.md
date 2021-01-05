@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 16de95e177f6be1b5bb2517b5ae3ca595cfb5766
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5841af4225f88b36fe727b60a597af208ac830f5
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939174"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827177"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Cenários de troca de símbolos de plataforma de identidade da Microsoft com SAML e OIDC/OAuth
 
@@ -33,4 +33,4 @@ A estratégia geral é adicionar a pilha OIDC/OAuth à sua aplicação. Com a su
 > A biblioteca recomendada para adicionar o comportamento OIDC/OAuth é a Microsoft Authentication Library (MSAL). Para saber mais sobre o MSAL, consulte [a visão geral da Biblioteca de Autenticação do Microsoft (MSAL)](msal-overview.md). A biblioteca anterior chamava-se Ative Directory Authentication Library (ADAL), no entanto não é recomendada, uma vez que a MSAL está a substituí-la.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)
+- [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

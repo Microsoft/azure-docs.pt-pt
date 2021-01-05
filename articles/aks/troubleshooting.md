@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d157dd6b3347c8fbfd8712fa20d52cedb425f47f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02ff1581bafe62a092be87d16df51c7ca8c020b4
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751483"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830943"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -145,7 +145,7 @@ Siga os passos *antes de iniciar* os passos no doc apropriado para criar correta
 As restrições de nomeação são implementadas tanto pela plataforma Azure como pela AKS. Se um nome de recurso ou parâmetro quebrar uma destas restrições, é devolvido um erro que lhe pede que forneça uma entrada diferente. Aplicam-se as seguintes diretrizes comuns de nomeação:
 
 * Os nomes dos agrupamentos devem ser de 1-63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e último personagem deve ser uma letra ou um número.
-* O nome do grupo *MC_* de recursos AKS Node/MC_ combina nome de grupo de recursos e nome de recurso. A sintaxe autogerada `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS. Também pode [personalizar o nome do grupo de recursos de nó](cluster-configuration.md#custom-resource-group-name)
+* O nome do grupo de recursos AKS Node/MC_ combina nome de grupo de recursos e nome de recurso. A sintaxe autogerada `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS. Também pode [personalizar o nome do grupo de recursos de nó](cluster-configuration.md#custom-resource-group-name)
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve estar entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hífens (-). O *dnsPrefix* não pode incluir caracteres especiais como um período (.).
 * Os nomes do AKS Node Pool devem ser todos minúsculos e ser caracteres de 1-11 para piscinas de nóleiros linux e 1-6 caracteres para piscinas de nó de janelas. O nome deve começar com uma letra e os únicos caracteres permitidos são letras e números.
 * O *nome de administração-utilizador*, que define o nome de utilizador do administrador para os nós Linux, deve começar com uma letra, pode conter apenas letras, números, hífenes e sublinhados, e tem um comprimento máximo de 64 caracteres.
@@ -439,7 +439,7 @@ Nas versões Kubernetes **com mais de 1.15.0,** pode receber um erro como **Erro
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para Kubernetes 1.16 falham ao usar etiquetas de nó com um prefixo kubernetes.io
 
-A partir de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [apenas um subconjunto definido de etiquetas com o prefixo kubernetes.io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) pode ser aplicado pelo kubelet aos nós. A AKS não pode remover etiquetas ativas em seu nome sem consentimento, pois pode causar tempo de inatividade para cargas de trabalho impactadas.
+A partir de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [apenas um subconjunto definido de etiquetas com o prefixo kubernetes.io](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) pode ser aplicado pelo kubelet aos nós. A AKS não pode remover etiquetas ativas em seu nome sem consentimento, pois pode causar tempo de inatividade para cargas de trabalho impactadas.
 
 Como resultado, para atenuar esta questão pode:
 

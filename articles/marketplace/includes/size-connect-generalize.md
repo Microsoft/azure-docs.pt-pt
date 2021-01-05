@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 6c7536e38a0d2cf7d4e906947aff645c74e459c0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: addc18a0ebf9e49d3474d3f40cb1e2a6e0f0b272
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025517"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826668"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -53,31 +53,31 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
 
 Use o seguinte script para exportar o instantâneo para um VHD na sua conta de armazenamento.
 
-```JSON
+```azurecli-interactive
 #Provide the subscription Id where the snapshot is created
-subscriptionId=yourSubscriptionId
+$subscriptionId=yourSubscriptionId
 
 #Provide the name of your resource group where the snapshot is created
-resourceGroupName=myResourceGroupName
+$resourceGroupName=myResourceGroupName
 
 #Provide the snapshot name
-snapshotName=mySnapshot
+$snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
 #Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-sasExpiryDuration=3600
+$sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file. 
-storageAccountName=mystorageaccountname
+$storageAccountName=mystorageaccountname
 
 #Name of the storage container where the downloaded VHD will be stored.
-storageContainerName=mystoragecontainername
+$storageContainerName=mystoragecontainername
 
 #Provide the key of the storage account where you want to copy the VHD 
-storageAccountKey=mystorageaccountkey
+$storageAccountKey=mystorageaccountkey
 
 #Give a name to the destination VHD file to which the VHD will be copied.
-destinationVHDFileName=myvhdfilename.vhd
+$destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 

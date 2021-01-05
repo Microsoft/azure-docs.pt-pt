@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36dfbf0fda060a8f273fee64098d6234b575088c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962333"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831844"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de código aberto FAQs para Web Apps em Azure
 
@@ -32,10 +32,10 @@ Para ligar a registo de PHP:
 4. Selecione a pasta **wwwroot.**
 5. Selecione o **+** ícone e, em seguida, selecione **Novo Ficheiro**.
 6. Desave o nome do ficheiro para **.user.ini**.
-7. Selecione o ícone do lápis ao lado ** de.user.ini**.
+7. Selecione o ícone do lápis ao lado **de.user.ini**.
 8. No ficheiro, adicione este código: `log_errors=on`
 9. Selecione **Guardar**.
-10. Selecione o ícone do lápis ao lado **de wp-config.php**.
+10. Selecione o ícone do lápis ao lado **do wp-config.php**.
 11. Altere o texto para o seguinte código:
     ```php
     //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
@@ -80,14 +80,14 @@ Para alterar a versão da aplicação Node.js, pode utilizar uma das seguintes o
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Vejo a mensagem "Erro que estabelece uma ligação de base de dados" na minha aplicação WordPress que está hospedada no Serviço de Aplicações. Como é que resolvo isto?
 
-Se vir este erro na sua aplicação Azure WordPress, para ativar php_errors.log e debug.log, preencha os passos detalhados nos [registos de erro do Enable WordPress](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
+Se vir este erro na sua aplicação Azure WordPress, para ativar php_errors.log e depurar.log, complete os passos detalhados nos [registos de erro do Enable WordPress](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 Quando os registos estiverem ativados, reproduza o erro e, em seguida, verifique os registos para ver se está a ficar sem ligações:
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
 
-Se vir este erro nos ficheiros de debug.log ou php_errors.log, a sua aplicação excede o número de ligações. Se estiver hospedado no ClearDB, verifique o número de ligações disponíveis no seu [plano de serviço.](https://www.cleardb.com/pricing.view)
+Se vir este erro nos seus ficheiros de depurado.log ou php_errors.log, a sua aplicação está a exceder o número de ligações. Se estiver hospedado no ClearDB, verifique o número de ligações disponíveis no seu [plano de serviço.](https://www.cleardb.com/pricing.view)
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Como depurar uma Node.js aplicação que está hospedada no Serviço de Aplicações?
 
@@ -109,22 +109,22 @@ Para a Azure Marketplace e implementações personalizadas:
 
 * Localização da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Ficheiros de interesse:
-    * A Catalina. *yyyy-mm-dd.log*
-    * anfitrião-gerente. *yyyy-mm-dd.log*
-    * local. *yyyy-mm-dd.log*
-    * gerente. *yyyy-mm-dd.log*
-    * site_access_log. *yyyy-mm-dd.log*
+    * A Catalina. *yyyy-mm-dd*.log
+    * anfitrião-gerente. *yyyy-mm-dd*.log
+    * local. *yyyy-mm-dd*.log
+    * gerente. *yyyy-mm-dd*.log
+    * site_access_log. *yyyy-mm-dd*.log
 
 
 Para **implementações de configurações de aplicações** do portal app:
 
 * Localização da pasta: D:\home\LogFiles
 * Ficheiros de interesse:
-    * A Catalina. *yyyy-mm-dd.log*
-    * anfitrião-gerente. *yyyy-mm-dd.log*
-    * local. *yyyy-mm-dd.log*
-    * gerente. *yyyy-mm-dd.log*
-    * site_access_log. *yyyy-mm-dd.log*
+    * A Catalina. *yyyy-mm-dd*.log
+    * anfitrião-gerente. *yyyy-mm-dd*.log
+    * local. *yyyy-mm-dd*.log
+    * gerente. *yyyy-mm-dd*.log
+    * site_access_log. *yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Como é que resolvo os erros de ligação do condutor JDBC?
 
@@ -136,7 +136,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 Para resolver o erro:
 
-1. Retire o ficheiro sqljdbc*.jar da sua pasta app/lib.
+1. Remova o ficheiro sqljdbc*.jar da sua pasta app/lib.
 2. Se estiver a utilizar o servidor web Tomcat ou Azure Marketplace Tomcat, copie este ficheiro .jar para a pasta Lib Tomcat.
 3. Se estiver a ativar a Java a partir do portal Azure (selecione **Java 1.8**  >  **Tomcat server),** copie o ficheiro de frasco sqljdbc.* na pasta paralela à sua aplicação. Em seguida, adicione a seguinte definição de classe ao ficheiro web.config:
 
@@ -169,9 +169,9 @@ Outra solução alternativa é escrever um WebJob que executa um horário e copi
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>Onde encontro os registos do Jetty?
 
-Para o Marketplace e as implementações personalizadas, o ficheiro de registo encontra-se na pasta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Note que a localização da pasta depende da versão do Jetty que está a utilizar. Por exemplo, o caminho aqui fornecido é para Jetty 9.1.2. Procure jetty_*YYYY_MM_DD*.stderrout.log.
+Para o Marketplace e as implementações personalizadas, o ficheiro de registo encontra-se na pasta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Note que a localização da pasta depende da versão do Jetty que está a utilizar. Por exemplo, o caminho aqui fornecido é para Jetty 9.1.2. Procure jetty_ *YYYY_MM_DD*.stderrout.log.
 
-Para implementações de Definição de aplicativos do portal, o ficheiro de registo está em D:\home\LogFiles. Procure jetty_*YYYY_MM_DD*.stderrout.log
+Para implementações de Definição de aplicativos do portal, o ficheiro de registo está em D:\home\LogFiles. Procure jetty_ *YYYY_MM_DD*.stderrout.log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>Posso enviar e-mail da minha aplicação web Azure?
 
@@ -181,24 +181,24 @@ O Serviço de Aplicações não tem uma funcionalidade de e-mail incorporada. Pa
 
 Se emigrou recentemente para Azure, o WordPress poderá redirecionar para o antigo URL de domínio. Isto é causado por uma definição na base de dados MySQL.
 
-WordPress Buddy+ é uma extensão do Site Azure que pode utilizar para atualizar o URL de reorientação diretamente na base de dados. Para obter mais informações sobre a utilização do WordPress Buddy+, consulte [as ferramentas WordPress e a migração MySQL com o WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+WordPress Buddy+ é uma extensão do Site Azure que pode utilizar para atualizar o URL de reorientação diretamente na base de dados. Para obter mais informações sobre a utilização do WordPress Buddy+, consulte [as ferramentas WordPress e a migração MySQL com o WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 Em alternativa, se preferir atualizar manualmente o URL de reorientação utilizando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionamento para URL errado](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como posso alterar a minha palavra-passe de entrada do WordPress?
 
-Se esqueceu a sua palavra-passe de entrada do WordPress, pode utilizar o WordPress Buddy+ para a atualizar. Para redefinir a sua palavra-passe, instale a extensão do WordPress Buddy+ Azure Site e, em seguida, complete os passos descritos nas [ferramentas WordPress e na migração mySQL com o WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Se esqueceu a sua palavra-passe de entrada do WordPress, pode utilizar o WordPress Buddy+ para a atualizar. Para redefinir a sua palavra-passe, instale a extensão do WordPress Buddy+ Azure Site e, em seguida, complete os passos descritos nas [ferramentas WordPress e na migração mySQL com o WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Não posso assinar com o WordPress. Como posso resolver isto?
 
-Se se encontrar bloqueado fora do WordPress depois de ter instalado recentemente um plugin, poderá ter um plugin defeituoso. WordPress Buddy+ é uma extensão do Site Azure que pode ajudá-lo a desativar plugins no WordPress. Para mais informações, consulte [as ferramentas WordPress e a migração MySQL com o WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Se se encontrar bloqueado fora do WordPress depois de ter instalado recentemente um plugin, poderá ter um plugin defeituoso. WordPress Buddy+ é uma extensão do Site Azure que pode ajudá-lo a desativar plugins no WordPress. Para mais informações, consulte [as ferramentas WordPress e a migração MySQL com o WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>Como posso migrar a minha base de dados WordPress?
 
 Tem várias opções para migrar a base de dados MySQL que está ligada ao seu website WordPress:
 
 * Desenvolvedores: Utilize o [pedido de comando ou PHPMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
-* Não desenvolvedores: Use [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* Não desenvolvedores: Use [WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como posso ajudar a tornar o WordPress mais seguro?
 

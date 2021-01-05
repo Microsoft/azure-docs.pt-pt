@@ -7,13 +7,13 @@ ms.service: event-grid
 ms.topic: include
 ms.date: 08/17/2018
 ms.author: tomfitz
-ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 6c5ab187eb1307a95bbae4ff39d387221e094ea5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: include file
+ms.openlocfilehash: 579ea74c4767ba1afb6e0128c9f12ff83f7f3998
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736873"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826652"
 ---
 ## <a name="enable-the-event-grid-resource-provider"></a>Ativar o fornecedor de recursos da Grelha de Eventos
 

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: d7540066ccc0d3a62dbd4012eee100d8e8aea98f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505091"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831737"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 
@@ -91,6 +91,55 @@ O componente frontal (azureml-fe) que encaminha os pedidos de inferência de ent
 Azureml-fe escala tanto (verticalmente) para usar mais núcleos, como para fora (horizontalmente) para usar mais cápsulas. Ao tomar a decisão de aumentar a escala, é utilizado o tempo que demora a encaminhar os pedidos de inferência recebidas. Se este tempo exceder o limiar, ocorre uma escala. Se o tempo de encaminhar os pedidos de entrada continuar a exceder o limiar, ocorre uma escala.
 
 Ao escalonar e entrar, é utilizada a utilização do CPU. Se o limiar de utilização do CPU for atingido, a extremidade frontal será primeiro reduzida. Se a utilização do CPU descer para o limiar de escala, uma operação de escala-in acontece. A escalada e a saída só ocorrerão se houver recursos de cluster suficientes disponíveis.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Compreender os requisitos de conectividade para o cluster de inferenculação AKS
+
+Quando o Azure Machine Learning cria ou anexa um cluster AKS, o cluster AKS é implantado com um dos dois modelos de rede seguintes:
+* Rede Kubenet - Os recursos de rede são tipicamente criados e configurados à medida que o cluster AKS é implantado.
+* Redes do Azure Container Networking Interface (CNI) – o cluster do AKS está associado aos recursos e configurações existentes da rede virtual.
+
+Para o primeiro modo de rede, a rede é criada e configurada adequadamente para o serviço Azure Machine Learning. Para o segundo modo de rede, uma vez que o cluster está ligado à rede virtual existente, especialmente quando o DNS personalizado é usado para a rede virtual existente, o cliente precisa prestar uma atenção extra aos requisitos de conectividade para o cluster de inferencing AKS e garantir a resolução de DNS e conectividade de saída para o inferencing AKS.
+
+O diagrama seguinte captura todos os requisitos de conectividade para a inferencing AKS. As setas pretas representam a comunicação real, e as setas azuis representam os nomes de domínio, que o DNS controlado pelo cliente deve resolver.
+
+ ![Requisitos de conectividade para a inferencing AKS](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>Requisitos globais de resolução de DNS
+A resolução DNS dentro do VNET existente está sob o controlo do cliente. As seguintes entradas dns devem ser resolúveis:
+* Servidor AKS API sob a forma de \<cluster\> .hcp. \<region\> . . azmk8s.io
+* Microsoft Container Registry (MCR): mcr.microsoft.com
+* Registo do Contentor Azure (ARC) do cliente sob a forma de \<ACR name\> .azurecr.io
+* Conta de Armazenamento Azure sob a forma de \<account\> .table.core.windows.net e \<account\> .blob.core.windows.net
+* (Opcional) Para autenticação AAD: api.azureml.ms
+* Marcar o nome de domínio do ponto final, gerado automaticamente por Azure ML ou nome de domínio personalizado. O nome de domínio gerado automaticamente seria: \<leaf-domain-label \+ auto-generated suffix\> \<region\> . . cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Requisitos de conectividade por ordem cronológica: desde a criação de clusters até à implantação de modelos
+
+No processo de criação ou anexação da AKS, o router Azure ML (azureml-fe) é implantado no cluster AKS. Para implantar o router Azure ML, o nó AKS deve ser capaz de:
+* Resolver DNS para servidor AKS API
+* Resolver DNS para MCR para descarregar imagens de docker para router Azure ML
+* Descarregue imagens da MCR, onde é necessária conectividade de saída
+
+Logo após a implantação do azureml-fe, tentará iniciar-se e isto requer:
+* Resolver DNS para servidor AKS API
+* Consulta o servidor AKS API para descobrir outras instâncias de si mesma (é um serviço multi-pod)
+* Ligar-se a outras instâncias de si mesmo
+
+Uma vez iniciado o azureml-fe, requer conectividade adicional para funcionar corretamente:
+* Ligue-se ao Azure Storage para descarregar configuração dinâmica
+* Resolver o DNS para o servidor de autenticação AAD api.azureml.ms e comunicar com ele quando o serviço implantado utilizar a autenticação AAD.
+* Consulta o servidor AKS API para descobrir modelos implementados
+* Comunicar para os PODs de modelo implantados
+
+Na hora de implantação do modelo, para uma implementação bem sucedida do nó AKS deve ser capaz de: 
+* Resolver DNS para ACR do cliente
+* Baixar imagens do ACR do cliente
+* Resolver DNS para Azure BLOBs onde o modelo está armazenado
+* Baixar modelos a partir de Azure BLOBs
+
+Após o início do modelo e o arranque do serviço, o azureml-fe descobrirá automaticamente utilizando a AKS API e estará pronto para encaminhar o pedido para o mesmo. Deve ser capaz de comunicar com pods modelo.
+>[!Note]
+>Se o modelo implementado necessitar de qualquer conectividade (por exemplo, consulta de bases de dados externas ou outro serviço REST, descarregamento de um BLOG etc), então deve ser ativada a resolução de DNS e a comunicação de saída para estes serviços.
 
 ## <a name="deploy-to-aks"></a>Implementar para AKS
 

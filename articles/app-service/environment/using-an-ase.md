@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18
+ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021032"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826006"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 

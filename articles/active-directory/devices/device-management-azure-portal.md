@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7f142aa4ca203a65c45741f87853579ca60e1879
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837367"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831759"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -39,7 +39,7 @@ A página **Todos os dispositivos** permite:00:
 Pode aceder ao portal dos dispositivos utilizando os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue por dispositivos **de diretório ativo Azure**  >  **Devices**.
+1. Navegue por dispositivos **de diretório ativo Azure**  >  .
 
 ## <a name="manage-devices"></a>Gerir dispositivos
 
@@ -140,7 +140,7 @@ Para ativar a funcionalidade de filtragem de pré-visualização na vista **de t
 ![Ativar a funcionalidade de pré-visualização da filtragem](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue por dispositivos **de diretório ativo Azure**  >  **Devices**.
+1. Navegue por dispositivos **de diretório ativo Azure**  >  .
 1. Selecione o banner que diz, **Experimente os novos dispositivos filtrando melhorias. Clique para ativar a pré-visualização.**
 
 Terá agora a capacidade de **adicionar filtros** à sua vista **de todos os dispositivos.**
@@ -165,10 +165,10 @@ Deve ser-lhe atribuída uma das seguintes funções para visualizar ou gerir as 
 
 - **Administradores locais adicionais em dispositivos aderidos a Azure AD** - Pode selecionar os utilizadores a quem são concedidos direitos de administrador local num dispositivo. Estes utilizadores são adicionados à função *de Administradores de Dispositivos* no Azure AD. Administradores globais em Azure AD e proprietários de dispositivos recebem direitos de administrador local por defeito. Esta opção é uma capacidade de edição premium disponível através de produtos como o Azure AD Premium ou o Enterprise Mobility Suite (EMS).
 - **Os utilizadores podem registar os seus dispositivos com Azure AD** - É necessário configurar esta definição para permitir que os dispositivos pessoais, iOS, Android e macOS do Windows 10 sejam registados com Azure AD. Se selecionar **Nenhum,** os dispositivos não podem registar-se no Azure AD. A inscrição com o Microsoft Intune ou Mobile Device Management (MDM) para o Microsoft 365 requer registo. Se tiver configurado algum destes serviços, **ALL** está selecionado e **nenhum** está disponível.
-- **Exija que o Multi-Factor Auth se junte a dispositivos** - Pode escolher se os utilizadores são obrigados a fornecer um fator de autenticação adicional para se juntarem ao Azure AD. O padrão é **nº**. Recomendamos que exija a autenticação de vários fatores ao registar um dispositivo. Antes de ativar a autenticação de vários fatores para este serviço, deve certificar-se de que a autenticação de vários fatores está configurada para os utilizadores que registam os seus dispositivos. Para obter mais informações sobre diferentes serviços de autenticação multi-factor Azure AD, consulte [a autenticação multi-factor Azure AD](../authentication/concept-mfa-howitworks.md). 
+- **Exija que o Multi-Factor Auth se junte a dispositivos** - Pode escolher se os utilizadores são obrigados a fornecer um fator de autenticação adicional para se juntarem ou registarem o seu dispositivo no Azure AD. O padrão é **nº**. Recomendamos que exija a autenticação de vários fatores ao registar ou juntar um dispositivo. Antes de ativar a autenticação de vários fatores para este serviço, deve certificar-se de que a autenticação de vários fatores está configurada para os utilizadores que registam os seus dispositivos. Para obter mais informações sobre diferentes serviços de autenticação multi-factor Azure AD, consulte [a autenticação multi-factor Azure AD](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> **Exija que o Multi-Factor Auth se junte à** definição de dispositivos que estejam aderentes a Azure AD ou a AZure AD registados. Esta definição não se aplica aos dispositivos híbridos Azure AD.
+> **Exija que o Multi-Factor Auth se junte à** definição de dispositivos que estejam ligados ao Azure AD (com algumas exceções) ou a Azure AD registados. Esta definição não se aplica aos dispositivos híbridos Azure AD, [a Azure AD juntou VMs em Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure AD dispositivos de ligação com [o Modo de Auto-implantação do Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 50**.
 

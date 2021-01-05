@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 77907b6e901ae074c879b4911a8ee755224a7948
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a1404969b67a0c4919902a407427227ce397d9a
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780421"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825944"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Quickstart: Azure Key Vault key client library for .NET (SDK v4)
 
@@ -257,7 +257,7 @@ Para saber mais sobre o Key Vault e como integrá-lo com as suas apps, consulte 
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Leia uma [visão geral das teclas](about-keys.md)
-- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações de aplicações de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
+- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
 - Veja um [cofre de chave de acesso a partir de tutorial de máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

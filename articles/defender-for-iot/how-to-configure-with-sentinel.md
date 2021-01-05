@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Sentinel para Defender para IoT (pré-visualização)
+title: Configure Azure Sentinel para Defender para IoT
 description: Explica como configurar o Azure Sentinel para receber dados da sua solução Defender para ioT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -10,19 +10,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 12/28/2020
 ms.author: shhazam
-ms.openlocfilehash: c033f6fc6f3fc40005d98bd48832c15792d6f484
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: d4686f1d7192d1469e52e653185f1fc9389764de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629090"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832323"
 ---
-# <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Ligue os seus dados do Defender para IoT a Azure Sentinel (pré-visualização)
-
-> [!IMPORTANT]
-> O Conector de dados do Defender para IoT encontra-se atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>Ligue os seus dados do Defender para IoT a Azure Sentinel 
 
 Utilize o conector Defender para IoT para transmitir todos os eventos do Defender para IoT em Azure Sentinel. 
 

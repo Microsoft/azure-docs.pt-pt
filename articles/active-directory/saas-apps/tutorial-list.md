@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 29f33f05c2883fe0696ea7769ac655e91aeb0b42
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e4746b8beb722f74681beb9afe8c5dd1115539c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399709"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831611"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutorials for integrating SaaS applications with Azure Active Directory (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 
@@ -45,7 +45,7 @@ Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 | :--- | :--- | :--- |
 | ![Consola de Serviços Web da Amazon (AWS)](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Consola Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Consola Amazon Web Services (AWS) - Provisioning de funções](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![Serviço nuvem logo-Alibaba (Fun bases SSO)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Fun bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
-| ![Plataforma nuvem do logotipo-Google](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma Google Cloud](google-apps-tutorial.md)| [Plataforma Google Cloud - Provisioning de utilizadores](google-apps-provisioning-tutorial.md) |
+| ![Plataforma nuvem do logotipo-Google](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma Google Cloud](google-apps-tutorial.md)| [Plataforma Google Cloud - Provisioning de utilizadores](g-suite-provisioning-tutorial.md) |
 | ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - Fornecimento de Utilizadores](salesforce-provisioning-tutorial.md) |
 | ![Plataforma de Identidade de Nuvem de logotipo-SAP](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem SAP](saphana-tutorial.md)|[Plataforma de Identidade cloud SAP - Provisioning](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
@@ -63,8 +63,8 @@ Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 | ![logotipo-AskYourTeam](./media/tutorial-list/active-directory-saas-askyourteam-tutorial.png)| [AskYourTeam](askyourteam-tutorial.md)|
 | ![Nuvem atlassiana de logotipo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
 | ![logo-caixa](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)|
-| ![Backup de ponto final de logotipo-Carbonite](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
 | ![logotipo-CakeHR](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
+| ![Backup de ponto final de logotipo-Carbonite](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
 | ![logo-Cisco Webex](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-spark-tutorial.md)|
 | ![Logotipo-Citrix ShareFile](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![Logo-Concur Viagens e Despesas](./media/tutorial-list/active-directory-saas-concur-travel-and-expense-tutorial.png)| [Concur Travel and Expense](concur-travel-and-expense-tutorial.md)|
@@ -113,9 +113,11 @@ Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 | ![logotipo-Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|
 | ![logo-SmartDraw](./media/tutorial-list/active-directory-saas-smartdraw-tutorial.png)| [SmartDraw](smartdraw-tutorial.md)|
 | ![logo-Soloinsight-CloudGate SSO](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|
+| ![logotipo-StatusPage](./media/tutorial-list/active-directory-saas-statuspage-tutorial.png)| [StatusPage](statuspage-tutorial.md)|
 | ![logo-Tableau Online](./media/tutorial-list/active-directory-saas-tableau-online-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
 | ![logotipo-TargetProcess](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|
 | ![logotipo-Teamphoria](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
+| ![Nuvem logo-Terraform](./media/tutorial-list/active-directory-saas-terraform-cloud-tutorial.png)| [Cloud do Terraform](terraform-cloud-tutorial.md)|
 | ![logo-TextMagic](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|
 | ![logo-Upshotly](./media/tutorial-list/active-directory-saas-upshotly-tutorial.png)| [Upshotly](upshotly-tutorial.md)|
 | ![LOGOTIPO-Velpic SAML](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|
@@ -129,6 +131,7 @@ Para encontrar mais tutoriais, use a tabela de conteúdos à esquerda.
 | ![logotipo-XaitPorter](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|
 | ![logotipo-Yodeck](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|  
 | ![logotipo-Zendesk](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|  
+| ![logotipo-Zoom](./media/tutorial-list/active-directory-saas-zoom-tutorial.png)| [Zoom](zoom-tutorial.md)|
 | ![logo-Zscaler](./media/tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](zscaler-tutorial.md)|
 | ![logo-Zscaler Beta](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|
 | ![logo-Zscaler One](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|

@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682854"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831640"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -63,7 +63,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. Selecione **regras de segurança de saída** em **Definições**.
 
-1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
+1. Selecione **Add** (Adicionar). Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 
 1. **Selecione Adicionar** para salvar a regra de segurança de saída recém-criada.
 
@@ -71,7 +71,7 @@ Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Az
 
 #### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 
-Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN Azure Firewall AzureBackup .](../firewall/fqdn-tags.md) *AzureBackup* Isto permite que todo o acesso de saída ao Azure Backup.
+Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN Azure Firewall AzureBackup .](../firewall/fqdn-tags.md)  Isto permite que todo o acesso de saída ao Azure Backup.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Permitir o acesso às gamas IP de serviço
 
@@ -91,11 +91,14 @@ Também pode utilizar os seguintes FQDNs para permitir o acesso aos serviços ne
 
 Quando faz backup de uma base de dados SAP HANA em execução num Azure VM, a extensão de backup no VM utiliza as APIs HTTPS para enviar comandos de gestão para Azure Backup e dados para Azure Storage. A extensão de backup também utiliza Azure AD para autenticação. Encaminhe o tráfego da extensão da cópia de segurança destes três serviços através do proxy HTTP. Utilize a lista de IPs e FQDNs acima mencionadas para permitir o acesso aos serviços necessários. Os servidores de procuração autenticados não são suportados.
 
+> [!NOTE]
+> Não existe suporte de procuração de nível de serviço. Ou seja, o tráfego através do proxy de apenas alguns ou serviços selecionados (serviços de backup Azure) não é suportado. Todos os dados ou tráfego podem ser encaminhados por procuração ou não.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Descubra as bases de dados
 
-1. No cofre, em **"Getting Started",** selecione **Backup**. Em Onde está a correr **SAP HANA in Azure VM** a sua carga **de trabalho?**
+1. No cofre, em **"Getting Started",** selecione **Backup**. Em Onde está a correr a sua carga **de trabalho?**
 2. Selecione **Iniciar a Descoberta**. Isto inicia a descoberta de VMs Linux desprotegidos na região do cofre.
 
    * Após a descoberta, os VMs desprotegidos aparecem no portal, listados pelo nome e pelo grupo de recursos.
@@ -216,9 +219,9 @@ Se quiser fazer uma cópia de segurança local (usando o HANA Studio) de uma bas
 1. Reverta as configurações anteriores para as do Azure:
     * Desateia **enable_auto_log_backup** para **Sim.**
     * Desa parte **log_backup_using_backint** a **True**.
-    * De **catalog_backup_using_backint** catalog_backup_using_backint a **True**.
+    * De  catalog_backup_using_backint a **True**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como restaurar as [bases de dados SAP HANA em execução em VMs Azure](./sap-hana-db-restore.md)
 * Saiba como [gerir as bases de dados SAP HANA que são apoiadas através do Azure Backup](./sap-hana-db-manage.md)
