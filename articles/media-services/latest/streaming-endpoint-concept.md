@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297200"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882879"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) em Azure Media Services
 
 No Microsoft Azure Media Services, um [Serviço de Streaming Endpoint](/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode entregar o seu conteúdo ao vivo e a pedido diretamente a uma aplicação de cliente usando um dos protocolos comuns de streaming de meios de comunicação (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece encriptação dinâmica (just-in-time) para DRMs líderes do setor. 
 
-Quando cria uma conta de Serviços de Mídia, é criado um Ponto Final de Streaming **predefinido** para si num estado parado. Não é possível eliminar o ponto final de streaming **predefinido.** Mais pontos finais de streaming podem ser criados na conta (ver [Quotas e limites).](limits-quotas-constraints.md)
+Quando cria uma conta de Serviços de Mídia, é criado um Ponto Final de Streaming **predefinido** para si num estado parado. Mais pontos finais de streaming podem ser criados na conta (ver [Quotas e limites).](limits-quotas-constraints.md)
 
 > [!NOTE]
 > Para começar a transmitir vídeos, tem de iniciar o **Streaming Endpoint** a partir do qual pretende transmitir o vídeo.
@@ -51,7 +51,7 @@ O limite máximo da unidade de streaming é geralmente de 10. Contacte-nos [aqui
 
 A tabela descreve os tipos:
 
-|Tipo|Unidades de escala|Descrição|
+|Tipo|Unidades de escala|Description|
 |--------|--------|--------|  
 |**Standard**|0|O ponto final de streaming predefinido é um tipo **standard** — pode ser alterado para o tipo Premium `scaleUnits` ajustando-o .|
 |**Premium**|>0|**Premium** Os pontos finais de streaming são adequados para cargas de trabalho avançadas e fornecem capacidade de largura de banda dedicada e escalável. Move-se para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornecer-lhe uma capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium,** cada unidade ativada fornece uma capacidade de largura de banda adicional à aplicação. |
@@ -67,12 +67,12 @@ Funcionalidade|Standard|Premium
 ---|---|---
 Débito |Até 600 Mbps e pode fornecer uma produção eficaz muito maior quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma produção eficaz muito maior quando um CDN é usado.
 CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
-A faturação é prostimada| Diário|Diário
-Encriptação dinâmica|Sim|Sim
-Empacotamento dinâmico|Sim|Sim
+A faturação é prostimada| Diariamente|Diariamente
+Encriptação dinâmica|Yes|Yes
+Empacotamento dinâmico|Yes|Yes
 Escala|A escala automática sobe até à produção visada.|SUs adicionais
-Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Sim|Sim
-Download progressivo|Sim|Sim
+Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Yes|Yes
+Download progressivo|Yes|Yes
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.
 
 <sup>1</sup> Apenas utilizado diretamente no Ponto de Final de Streaming quando o CDN não estiver ativado no ponto final.<br/>
@@ -165,7 +165,7 @@ Consulte os seguintes artigos:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Empacotamento dinâmico](dynamic-packaging-overview.md)
 

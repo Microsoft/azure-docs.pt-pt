@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3213df378bc3b8403ebd11f899d722106de67a65
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094850"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882029"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -114,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Esta função escreve um registo quando uma bolha é adicionada ou atualizada no `myblob` recipiente.
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma ligação do gatilho blob numa *function.jsno* ficheiro e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um registo quando uma bolha é adicionada ou atualizada no `samples-workitems` recipiente.
@@ -146,6 +164,34 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como criar uma função que funciona quando um ficheiro é adicionado ao `source` recipiente de armazenamento de bolhas.
+
+O ficheiro de configuração da função (_function.jsem)_ inclui uma ligação com o `type` de e definido para `blobTrigger` `direction` `in` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+Aqui está o código associado para o ficheiro _run.ps1._
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -183,24 +229,6 @@ import azure.functions as func
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Esta função escreve um registo quando uma bolha é adicionada ou atualizada no `myblob` recipiente.
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
 ```
 
 ---
@@ -267,17 +295,21 @@ A conta de armazenamento a utilizar é determinada na seguinte ordem:
 
 Os atributos não são suportados pelo Script C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou a função. Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os atributos não são suportados pela PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou a função. Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
 
 ---
 
@@ -285,7 +317,7 @@ O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou 
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `BlobTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `blobTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. As exceções são anotados na secção [de utilização.](#usage) |
@@ -305,17 +337,21 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou a função. Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` *em*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Aceda aos dados blob através de um parâmetro que corresponda ao nome designado pelo parâmetro de nome de encadernação no _function.jsem_ ficheiro.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Aceder aos dados do blob através do parâmetro dactilografado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
-
-# <a name="java"></a>[Java](#tab/java)
-
-O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou a função. Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
+Aceder aos dados do blob através do parâmetro dactilografado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
 
 ---
 
@@ -374,6 +410,10 @@ Se a bolha for nomeada *{20140101}-soundfile.mp3,* o `name` valor variável no c
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+Os metadados não estão disponíveis em Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -383,13 +423,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os metadados estão disponíveis através do `$TriggerMetadata` parâmetro.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Os metadados não estão disponíveis em Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Os metadados não estão disponíveis em Java.
 
 ---
 
@@ -399,11 +439,11 @@ O tempo de funcionamento das funções Azure garante que nenhuma função de gat
 
 A Azure Functions armazena recibos de bolhas num recipiente chamado *azure-webjobs-hosts* na conta de armazenamento Azure para a sua aplicação de função (definida pela definição da `AzureWebJobsStorage` aplicação). Um recibo blob tem as seguintes informações:
 
-* A função desencadeada ("*&lt; nome da aplicação de função>*. Funções. *&lt; nome da função>*", por exemplo: "MyFunctionApp.Functions.CopyBlob")
+* A função desencadeada `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` (, por exemplo: `MyFunctionApp.Functions.CopyBlob` )
 * O nome do recipiente
-* O tipo de bolha ("BlockBlob" ou "PageBlob")
+* O tipo de bolha `BlockBlob` `PageBlob` (ou)
 * O nome blob
-* O ETag (um identificador de versão blob, por exemplo: "0x8D1DC6E70A277EF")
+* O ETag (um identificador de versão blob, por exemplo: `0x8D1DC6E70A277EF` )
 
 Para forçar o reprocessamento de uma bolha, elimine o recibo de bolha para a bolha do recipiente *azure-webjobs-hosts* manualmente. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra num momento posterior. Para reprocessar imediatamente, a bolha *scaninfo* em *azure-webjobs-hosts/blobscaninfo* pode ser atualizada. Quaisquer bolhas com um último tempo de tempo modificado após a `LatestScan` propriedade serão novamente digitalizadas.
 
@@ -413,11 +453,11 @@ Quando uma função de gatilho blob falha para uma determinada bolha, o Azure Fu
 
 Se todas as 5 tentativas falharem, a Azure Functions adiciona uma mensagem a uma fila de armazenamento chamada *webjobs-blobtrigger-poison*. O número máximo de retrós assim questão é configurável. A mesma definição MaxDequeueCount é usada para o manuseamento de bolhas venenosas e manuseamento de mensagens de fila venenosas. A mensagem de fila para bolhas venenosas é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionId (no nome da aplicação da *&lt; função de* formato>. Funções. *&lt; nome da função>*)
-* BlobType ("BlockBlob" ou "PageBlob")
+* FunctionId (no `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` formato)
+* BlobType `BlockBlob` `PageBlob` (ou)
 * ContainerName
 * Nome Blob
-* ETag (um identificador de versão blob, por exemplo: "0x8D1DC6E70A277EF")
+* ETag (um identificador de versão blob, por exemplo: `0x8D1DC6E70A277EF` )
 
 ## <a name="concurrency-and-memory-usage"></a>Concurrency e utilização da memória
 

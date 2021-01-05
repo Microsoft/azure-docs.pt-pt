@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 120a73c7bf2ea9ee61d1fe1aef9ffa39a3cb3f76
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011834"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882403"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
 
@@ -56,7 +56,7 @@ Consulte [os tipos de recursos nos clusters Azure HDInsight](hdinsight-virtual-n
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>Posso instalar componentes adicionais no meu cluster?
 
-Sim. Para instalar componentes adicionais ou personalizar a configuração do cluster, utilize:
+Yes. Para instalar componentes adicionais ou personalizar a configuração do cluster, utilize:
 
 - Scripts durante ou após a criação. Os scripts são invocados através da [ação do script](./hdinsight-hadoop-customize-cluster-linux.md). A ação do script é uma opção de configuração que pode utilizar a partir do portal Azure, cmdlets HDInsight Windows PowerShell ou o HDInsight .NET SDK. Esta opção de configuração pode ser utilizada a partir do portal Azure, cmdlets HDInsight Windows PowerShell ou HDInsight .NET SDK.
 
@@ -198,7 +198,7 @@ Em cenários em que deve controlar o horário, pode utilizar os seguintes passos
 
 1. Desativar a execução automática utilizando o seguinte comando:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  sudo `usr/local/bin/azsecd config -s clamav -d Disabled` sudo serviço azsecd reiniciar 
    
 1. Adicione um trabalho cron que executa o seguinte comando como raiz:
    
@@ -262,7 +262,7 @@ Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus uti
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>Posso aumentar o armazenamento de HDFS num cluster sem aumentar o tamanho do disco dos nós dos trabalhadores?
 
-Não. Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
+N.º Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
 
 ## <a name="edge-nodes"></a>Nós periféricos
 

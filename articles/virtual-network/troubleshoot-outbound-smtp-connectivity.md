@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814487"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883117"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Problemas de conectividade SMTP de resolução de problemas em Azure
 
@@ -76,10 +76,6 @@ Para subscrições dos seguintes tipos que foram criados após 15 de novembro de
 Se pretender enviar e-mails da Azure VMs diretamente para fornecedores de e-mail externos (sem utilizar um relé SMTP autenticado), pode fazer um pedido abrindo um caso de suporte utilizando o seguinte tipo de problema: Conectividade de rede virtual **técnica**  >    >    >  **Não pode enviar e-mail (SMTP/Porta 25)**. Certifique-se de adicionar detalhes sobre o motivo pelo qual a sua implementação tem de enviar correio diretamente para os fornecedores de correio em vez de usar um retransmissor autenticado. Os pedidos serão revistos e aprovados à discrição da Microsoft. Os pedidos só serão concedidos após a conclusão de controlos antifraundo adicionais. 
 
 Depois de uma subscrição ser isenta e os VMs terem sido interrompidos e reiniciados no portal Azure, todos os VMs nessa subscrição estão isentos daqui para a frente. A isenção aplica-se apenas à subscrição solicitada e apenas ao tráfego VM que é encaminhado diretamente para a internet.
-
-## <a name="restrictions-and-limitations"></a>Restrições e limitações
-
-O tráfego do porto de encaminhamento 25 através dos serviços Azure PaaS, como [o Azure Firewall,](https://azure.microsoft.com/services/azure-firewall/) não é suportado.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

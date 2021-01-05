@@ -6,17 +6,17 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451257"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881298"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Azure Monitor
 O explorador de métricas é uma característica do Azure Monitor no portal Azure que permite criar gráficos a partir de valores métricos, correlacionar visualmente tendências e investigar picos e mergulhos em valores métricos. Use o explorador de métricas para investigar a saúde e utilização dos seus recursos Azure ou para traçar gráficos a partir de métricas personalizadas. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Selecione uma métrica para a qual deseja traçar um gráfico
@@ -40,7 +40,7 @@ Pode abrir métricas exploradores a partir do menu Azure Monitor ou a partir do 
 
 1. Selecione **métricas** do menu **Azure Monitor** ou da secção de **monitorização** do menu de um recurso.
 
-1. Selecione o **Scope**, que é o recurso para o qual deseja ver métricas. O âmbito já está preenchido se abrisse o explorador de métricas a partir do menu de um recurso.
+1. Selecione o **Scope**, que é o recurso para o qual deseja ver métricas. O âmbito já está preenchido se abrisse o explorador de métricas a partir do menu de um recurso. Para saber mais sobre as várias capacidades do selecionador de recursos, visite [este artigo.](../platform/metrics-charts.md#resource-scope-picker)
 
     ![Selecione um âmbito](media/tutorial-metrics-explorer/scope-picker.png)
 

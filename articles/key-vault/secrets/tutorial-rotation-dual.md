@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: c2496959f851b55f8cc66c0e793b641cdafb003a
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: e3d657f5f666caf159a082d121d551b839699158
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808339"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882998"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que têm dois conjuntos de credenciais de autenticação
 
@@ -222,8 +222,15 @@ Note que `value` a chave é o mesmo que o segredo no cofre chave:
 
 ## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>Funções de rotação do cofre chave para dois conjuntos de credenciais
 
-- [Conta de armazenamento](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
-- [Cache de Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
+Modelo de funções de rotação para dois conjuntos de credenciais e várias funções prontas a utilizar:
+
+- [Modelo de função em PowerShell](https://github.com/Azure/KeyVault-Secrets-Rotation-Template-PowerShell)
+- [Cache de Redis](https://github.com/Azure/KeyVault-Secrets-Rotation-Redis-PowerShell)
+- [Conta de armazenamento](https://github.com/Azure/KeyVault-Secrets-Rotation-StorageAccount-PowerShell)
+- [BD do Cosmos](https://github.com/Azure/KeyVault-Secrets-Rotation-CosmosDB-PowerShell)
+
+> [!NOTE]
+> As funções de rotação acima são criadas por um membro da comunidade e não pela Microsoft. As Funções Azure comunitárias não são suportadas ao abrigo de qualquer programa ou serviço de suporte da Microsoft e são disponibilizadas AS IS sem qualquer tipo de garantia.
 
 ## <a name="next-steps"></a>Passos seguintes
 

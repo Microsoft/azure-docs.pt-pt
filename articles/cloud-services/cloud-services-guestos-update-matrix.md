@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/21/2020
+ms.date: 1/4/2021
 ms.author: yohaddad
-ms.openlocfilehash: 5e61dcb5a329916ed2c95646282bbdccad3b5767
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 429e343a61e61b01fa07c37a6c2b702f6ef633d1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708505"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882352"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Azure Guest OS e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure Guest OS para serviços cloud. Estas informações ajudam-no a planear o seu caminho de upgrade antes de um So convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Guest OS, conforme descrito nas [Definições de Atualização do Azure Guest OS,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -187,7 +187,7 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.49_202011-02  |  19 de dezembro de 2020  |  Posto 5.51  | 
+|  WA-GUEST-OS-5.49_202011-01  |  19 de dezembro de 2020  |  Posto 5.51  | 
 |  WA-GUEST-OS-5.48_202010-02  |  17 de novembro de 2020  |  Posto 5.50  | 
 |~~WA-GUEST-OS-5.47_202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
 |~~WA-GUEST-OS-5.46_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  

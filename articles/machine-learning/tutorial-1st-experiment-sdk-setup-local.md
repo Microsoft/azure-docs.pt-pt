@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734203"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883304"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -67,8 +67,10 @@ tutorial
 - `.azureml`: Subdiretório oculto para armazenar ficheiros de configuração de aprendizagem automática Azure.
 
 > [!TIP]
-> Se estiver num Mac, utilize uma janela finder **Command + Shift + .** para alternar a capacidade de ver e criar diretórios que começam com um ponto.  Ou use o terminal de comando para criar o diretório.
-
+> Pode criar o subdiretório .azureml escondido numa janela terminal.  Ou usar o seguinte:
+> * Numa janela Mac Finder use **Command + Shift + .** para alternar a capacidade de ver e criar diretórios que começam com um ponto.  
+> * No Windows 10, veja [como visualizar ficheiros e pastas ocultos](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * Na Interface Gráfica Linux, utilize **ctrl + h** ou o menu **Ver** e verifique a caixa para **mostrar ficheiros ocultos**.
 
 > [!div class="nextstepaction"]
 > [Criei um diretório](?success=create-dir#workspace) [que encontrei um problema.](https://www.research.net/r/7C8Z3DN?issue=create-dir)

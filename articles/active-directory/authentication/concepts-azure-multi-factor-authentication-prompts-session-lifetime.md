@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a65b83195bff48934668ff029f925e13884bad
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743705"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881247"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Otimizar as solicitações de reautorização e compreender a vida útil da sessão para autenticação multi-factor Azure AD
 
@@ -90,7 +90,7 @@ Mais informações, consulte [Remember Multi-Factor Authentication](howto-mfa-mf
 
 **A frequência de login** permite ao administrador escolher a frequência de login que se aplica tanto para o primeiro como para o segundo fator tanto no cliente como no navegador. Recomendamos a utilização destas definições, juntamente com a utilização de dispositivos geridos, em cenários em que tenha necessidade de restringir a sessão de autenticação, como por exemplo para aplicações empresariais críticas.
 
-**A sessão de navegador persistente** permite que os utilizadores permaneçam assinados após o fecho e reabertura da janela do navegador. Semelhante à definição *de inscrito do Remain,* define um cookie persistente no navegador. No entanto, uma vez que é configurado pela administração, não requer que o utilizador selecione **Sim** na opção *de inscrição de Permanência?* Se utilizar a opção *Remain?* **Persistent browser session**
+**A sessão de navegador persistente** permite que os utilizadores permaneçam assinados após o fecho e reabertura da janela do navegador. Semelhante à definição *de inscrito do Remain,* define um cookie persistente no navegador. No entanto, uma vez que é configurado pela administração, não requer que o utilizador selecione **Sim** na opção *de inscrição de Permanência?* Se utilizar a opção *Remain?* 
 
 Para obter mais informações. ver [Configurar gestão de sessão de autenticação com Acesso Condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
 
@@ -108,7 +108,7 @@ Para configurar ou rever a opção *Remain,* complete os seguintes passos:
 1. Selecione **Branding da Empresa,** em seguida, para cada local, escolha **a opção Show para permanecer assinado em**.
 1. Escolha *Sim* e, em seguida, selecione **Guardar**.
 
-Para lembrar as definições de autenticação de vários fatores, complete os seguintes passos:
+Para lembrar as definições de autenticação de vários fatores em dispositivos fidedignos, complete os seguintes passos:
 
 1. No portal AD AZure, procure e selecione *O Diretório Ativo Azure*.
 1. Selecione **Segurança,** em **seguida, MFA**.

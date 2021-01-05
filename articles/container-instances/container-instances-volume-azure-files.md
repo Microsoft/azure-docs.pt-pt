@@ -4,12 +4,12 @@ description: Saiba como montar um volume de Ficheiros Azure para persistir com i
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746858"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881808"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure no Azure Container Instances
 
@@ -20,6 +20,9 @@ Por predefinição, o Azure Container Instances não tem monitorização de esta
 >
 > A montagem de uma partilha de Ficheiros Azure para uma instância de contentor é semelhante a um [suporte de encaixe](https://docs.docker.com/storage/bind-mounts/)docker . Tenha em atenção que se montar uma partilha num diretório de contentores em que existam ficheiros ou diretórios, estes ficheiros ou diretórios são obscurecidos pelo suporte e não estão acessíveis enquanto o contentor funciona.
 >
+
+> [!IMPORTANT]
+> Se estiver a colocar grupos de contentores numa Rede Virtual Azure, tem de adicionar um [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) à sua Conta de Armazenamento Azure.
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 

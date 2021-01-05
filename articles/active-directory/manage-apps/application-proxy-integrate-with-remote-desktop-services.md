@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 666b3c609224c1665c150718b2b89c4bac72577e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488073"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882233"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD
 
@@ -42,18 +42,13 @@ Numa implementação RDS, o papel da RD Web e o papel RD Gateway funcionam em m�
 ## <a name="requirements"></a>Requisitos
 
 - Tanto os pontos finais rd Web como RD Gateway devem estar localizados na mesma máquina e com uma raiz comum. RD Web e RD Gateway são publicados como uma única aplicação com Application Proxy para que possa ter uma única experiência de sign-on entre as duas aplicações.
-
-- Já deveria ter [implantado RDS,](/windows-server/remote/remote-desktop-services/rds-in-azure)e [ativado o Proxy de Aplicação](application-proxy-add-on-premises-application.md).
-
+- Já deveria ter [implantado RDS,](/windows-server/remote/remote-desktop-services/rds-in-azure)e [ativado o Proxy de Aplicação](application-proxy-add-on-premises-application.md). Certifique-se de que satisfez os pré-requisitos para ativar o Application Proxy, como instalar o conector, abrir portas e URLS necessários e ativar o TLS 1.2 no servidor.
 - Os seus utilizadores finais devem utilizar um navegador compatível para se conectarem à RD Web ou ao cliente DA WEB RD. Para mais detalhes consulte [Suporte para configurações do cliente](#support-for-other-client-configurations).
-
 - Ao publicar a RD Web, recomenda-se a utilização do mesmo FQDN interno e externo. Se as FQDNs internas e externas forem diferentes, então deve desativar a Tradução do Cabeçalho de Pedido para evitar que o cliente receba links inválidos.
-
 - Se estiver a utilizar a REDE RD no Internet Explorer, terá de ativar o add-on RDS ActiveX.
-
 - Se estiver a utilizar o cliente RD Web, terá de utilizar a [versão 1.5.1975 ou posterior](./application-proxy-release-version-history.md)do conector application Proxy .
-
 - Para o fluxo de pré-autenticação AD Azure, os utilizadores só podem ligar-se aos recursos que lhes são publicados no **painel RemoteApp e Desktops.** Os utilizadores não conseguem ligar-se a um ambiente de trabalho utilizando o **Painel de Ligação a um painel remoto** do PC.
+- Se estiver a utilizar o Windows Server 2019, poderá ter de desativar o protocolo HTTP2. Para mais informações, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através de Aplicação Proxy no Diretório Ativo Azure](application-proxy-add-on-premises-application.md).
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar o cenário conjunto RDS e Application Proxy
 

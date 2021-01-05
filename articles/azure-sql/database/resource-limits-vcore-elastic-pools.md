@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 10/15/2020
-ms.openlocfilehash: fb4746972f78dc40a3ec264d2e1964e8d4e99b3d
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097597"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882316"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +46,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
 |DBs max por piscina <sup>1</sup>|100|200|500|500|500|500|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|512|756|1536|1536|1536|2048|
 |Tamanho de registo máximo|154|227|461|461|461|614|
@@ -78,7 +78,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|159.5|
 |DBs max por piscina <sup>1</sup>|500|500|500|500|500|500|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|2048|2048|2048|2048|3584|4096|
 |Tamanho do tronco máximo (GB)|614|614|614|614|1075|1229|
@@ -112,7 +112,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
 |DBs max por piscina <sup>1</sup>|100|200|500|500|500|500|500|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|512|756|1536|1536|1536|2048|2048|
 |Tamanho do tronco máximo (GB)|154|227|461|461|461|614|614|
@@ -126,7 +126,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
@@ -142,9 +142,9 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
-|Memória (GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
+|Memória (GB)|83|93,4|103,8|124.6|166.1|207.6|415.2|
 |DBs max por piscina <sup>1</sup>|500|500|500|500|500|500|500|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|2048|3072|3072|3072|4096|4096|4096|
 |Tamanho do tronco máximo (GB)|614|922|922|922|1229|1229|1229|
@@ -158,7 +158,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Multi-AZ|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponível em pré-visualização](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
@@ -176,9 +176,9 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |:---| ---:|---:|---:|---:|---:|
 |Geração computacional|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
 |vCores|8|10|12|14|16|
-|Memória (GB)|15.1|18.9|22.7|26.5|30.2|
+|Memória (GB)|15.1|18,9|22.7|26,5|30.2|
 |DBs max por piscina <sup>1</sup>|500|500|500|500|500|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1024|1024|1024|1024|1536|
 |Tamanho do tronco máximo (GB)|336|336|336|336|512|
@@ -209,9 +209,9 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |:---| ---:|---:|---:|---:|---:|---:|
 |Geração computacional|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
 |vCores|18|20|24|32|36|72|
-|Memória (GB)|34.0|37.8|45.4|60.5|68.0|136.0|
+|Memória (GB)|34,0|37.8|45.4|60.5|68,0|136.0|
 |DBs max por piscina <sup>1</sup>|500|500|500|500|500|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1536|1536|1536|3072|3072|4096|
 |Tamanho do tronco máximo (GB)|512|512|512|1024|1024|1024|
@@ -248,7 +248,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |vCores|2|3|4|5|6|
 |Memória (GB)|14|21|28|35|42|
 |DBs max por piscina <sup>1</sup>|50|100|100|100|100|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|2|3|4|5|6|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Tamanho máximo dos dados (GB)|1024|1024|1024|1024|1024|
@@ -262,8 +262,8 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|
-|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
@@ -294,8 +294,8 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
-|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
@@ -314,7 +314,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |vCores|4|6|8|10|12|14|
 |Memória (GB)|20.8|31.1|41.5|51.9|62.3|72.7|
 |DBs max por piscina <sup>1</sup>|50|100|100|100|100|100|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|3.14|4.71|6.28|8.65|11.02|13.39|
 |Tamanho máximo dos dados (GB)|1024|1536|1536|1536|3072|3072|
 |Tamanho do tronco máximo (GB)|307|307|461|461|922|922|
@@ -328,8 +328,8 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
-|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
@@ -344,9 +344,9 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
-|Memória (GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
+|Memória (GB)|83|93,4|103,8|124.6|166.1|207.6|415.2|
 |DBs max por piscina <sup>1</sup>|100|100|100|100|100|100|100|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|15,77|18.14|20.51|25.25|37.94|52.23|131.68|
 |Tamanho máximo dos dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho do tronco máximo (GB)|922|922|922|1229|1229|1229|1229|
@@ -360,8 +360,8 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
@@ -380,7 +380,7 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |vCores|8|10|12|14|16|18|
 |Memória (GB)|235.4|294.3|353.2|412.0|470.9|529.7|
 |DBs max por piscina <sup>1</sup>|100|100|100|100|100|100|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|64|80|96|112|128|150|
 |Tamanho máximo dos dados (GB)|512|640|768|896|1024|1152|
 |Tamanho do tronco máximo (GB)|171|213|256|299|341|384|
@@ -394,8 +394,8 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|
 |Min/max elástico piscina vCore escolhas por base de dados|0-8|0-10|0-12|0-14|0-16|0-18|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Não|Não|Não|Não|Não|Não|
-|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|No|No|No|No|No|No|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
@@ -416,7 +416,7 @@ Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base
 |vCores|20|24|32|64|128|
 |Memória (GB)|588.6|706.3|941.8|1883.5|3767.0|
 |DBs max por piscina <sup>1</sup>|100|100|100|100|100|100|
-|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento OLTP na memória (GB)|172|216|304|704|1768|
 |Tamanho máximo dos dados (GB)|1280|1536|2048|4096|4096|
 |Tamanho do tronco máximo (GB)|427|512|683|1024|1024|
@@ -429,8 +429,8 @@ Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base
 |Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|2.000|2,400|3,200|6,400|12,800|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
-|Multi-AZ|Não|Não|Não|Não|Não|
-|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|No|No|No|No|No|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.

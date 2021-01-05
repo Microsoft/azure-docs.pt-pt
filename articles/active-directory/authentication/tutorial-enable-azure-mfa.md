@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741155"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881315"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutorial: Garantir eventos de entrada de utilizadores com autenticação multi-factor Azure AD
 
 A autenticação multi-factor (MFA) é um processo em que um utilizador é solicitado durante um evento de inscrição para formas adicionais de identificação. Esta solicitação pode ser introduzir um código no telemóvel ou fornecer uma digitalização de impressões digitais. Quando se precisa de uma segunda forma de autenticação, a segurança é aumentada, uma vez que este fator adicional não é algo que seja fácil para um intruso obter ou duplicar.
 
-As políticas de autenticação multi-factor AD Ad e acesso condicional conferem a flexibilidade para permitir mFA para os utilizadores durante eventos específicos de entrada.
+As políticas de autenticação multi-factor AD Ad e acesso condicional conferem a flexibilidade para permitir mFA para os utilizadores durante eventos específicos de entrada. Aqui está um [vídeo sobre Como configurar e impor a autenticação de vários fatores no seu inquilino](https://www.youtube.com/watch?v=qNndxl7gqVM) **(Recomendado)**
 
 > [!IMPORTANT]
 > Este tutorial mostra a um administrador como ativar a autenticação multi-factor Azure AD.
@@ -114,7 +114,7 @@ Agora inscreva-se no portal Azure. Como o portal Azure foi configurado na polít
 
 1. Feche a janela do browser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a política de Acesso Condicional para ativar a autenticação multi-factor Ad Azure configurada como parte deste tutorial, elimine a política utilizando os seguintes passos:
 

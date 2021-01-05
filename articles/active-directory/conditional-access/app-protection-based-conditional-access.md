@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266047"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881166"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional
 
@@ -45,7 +45,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 **Passo 1: Configurar uma política de acesso condicional Azure AD para a Microsoft 365**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -60,8 +60,8 @@ As organizações devem completar os seguintes passos para exigir a utilização
    1. Selecione **aplicativos móveis e clientes de desktop** e desmarcar tudo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
    - **Requera uma aplicação de cliente aprovada**
-   - **Requerer a política de proteção de aplicações (pré-visualização)**
-   - **Requerer todos os controlos selecionados**
+   - **Pedir uma política de proteção de aplicações**
+   - **Exigir um dos controlos selecionados**
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -69,7 +69,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 
 Para a política de acesso condicional neste passo, configuure os seguintes componentes:
 
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -96,7 +96,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 **Passo 1: Configurar uma política de acesso condicional Azure AD para a Microsoft 365**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -111,8 +111,8 @@ As organizações devem completar os seguintes passos para exigir a utilização
    1. Selecione **Browser** e desmarcar todo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
    - **Requera uma aplicação de cliente aprovada**
-   - **Requerer a política de proteção de aplicações (pré-visualização)**
-   - **Requerer todos os controlos selecionados**
+   - **Pedir uma política de proteção de aplicações**
+   - **Exigir um dos controlos selecionados**
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -129,7 +129,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 **Passo 1: Política para clientes modernos de autenticação moderna baseados em Android e iOS que exigem a utilização de uma aplicação de clientes aprovada e política de proteção de aplicações ao aceder ao Exchange Online e sharePoint.**
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -144,14 +144,14 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
    1. Selecione **aplicativos móveis e clientes de desktop** e desmarcar tudo o resto.
 1. Sob **controlos de acesso**  >  **Grant**, selecione as seguintes opções:
    - **Requera uma aplicação de cliente aprovada**
-   - **Requerer a política de proteção de aplicações (pré-visualização)**
+   - **Pedir uma política de proteção de aplicações**
    - **Exigir um dos controlos selecionados**
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
 **Passo 2: Política de clientes Dom ActiveSync que exigem a utilização de uma aplicação de cliente aprovada.**
 
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -175,5 +175,5 @@ Reveja o artigo [Como criar e atribuir políticas de proteção de aplicações]
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 
-[Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

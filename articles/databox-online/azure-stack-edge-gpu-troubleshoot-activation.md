@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 10/08/2020
 ms.author: alkohli
-ms.openlocfilehash: e93a7fd7aec5463a3d77bd9d6bb17d7072097870
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e6f411fef5d3e27b6ad61b720f1c64fb6f8c9a0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447633"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883338"
 ---
 # <a name="troubleshoot-activation-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Problemas de ativação de resolução de problemas no seu dispositivo GPU Azure Stack Edge Pro 
 
@@ -31,7 +31,7 @@ O quadro seguinte resume os erros relacionados com a ativação do dispositivo e
 | Se o Cofre da Chave Azure utilizado para ativação for eliminado antes de o dispositivo ser ativado com a chave de ativação, então receberá este erro. <br> ![Erro do cofre da chave 1](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-1.png)  | Se o cofre da chave tiver sido apagado, pode recuperar o cofre se o cofre estiver em duração de proteção de purga. Siga os passos em [Recuperar um cofre chave.](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) <br>Se a duração da proteção da purga tiver decorrido, o cofre da chave não pode ser recuperado. Contacte o Suporte da Microsoft para saber quais os próximos passos. |
 | Se o Cofre da Chave Azure for eliminado após a ativação do dispositivo, e tentar efetuar qualquer operação que envolva encriptação, por exemplo: **Adicionar Utilizador**, **Adicionar Share**, **Configurar Compute**, então recebe este erro. <br> ![Erro do cofre da chave 2](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-2.png)    | Se o cofre da chave tiver sido apagado, pode recuperar o cofre se o cofre estiver em duração de proteção de purga. Siga os passos em Recuperar um cofre chave. <br>Se a duração da proteção da purga tiver decorrido, o cofre da chave não pode ser recuperado. Contacte o Suporte da Microsoft para saber quais os próximos passos. |
 | Se a Chave de Integridade do Canal no Cofre da Chave Azure for eliminada e você, tente efetuar quaisquer operações que envolvam encriptação, por exemplo: **Adicionar Utilizador**, **Adicionar Share**, **Configurar Compute** - então receberá este erro. <br> ![Erro do cofre da chave 3](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-3.png) | Se a chave de integridade do canal no cofre da chave for eliminada, mas ainda estiver dentro da duração da purga, siga os passos na [remoção da chave do cofre do undo-key](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval). <br>Se a duração da proteção da purga tiver decorrido, e se tiver a chave apoiada, pode restaurar a partir da cópia de segurança que não conseguirá recuperar a chave. Contacte o Suporte da Microsoft para saber quais os próximos passos. |
-| Se a geração da chave de ativação falhar devido a qualquer erro, receberá este erro. Estão presentes mais detalhes na notificação. <br> ![Erro do cofre da chave 4](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-4.png)   | Espere alguns minutos e re-teste da operação. Se o problema persistir, contacte o Microsoft Support. |
+| Se a geração da chave de ativação falhar devido a qualquer erro, receberá este erro. Estão presentes mais detalhes na notificação. <br> ![Erro do cofre da chave 4](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-4.png)   | Certifique-se de que as portas e URLs especificados no [Access Azure Key Vault atrás de uma firewall](../key-vault/general/access-behind-firewall.md) estão abertos na sua firewall para aceder ao Cofre de Chaves. Espere alguns minutos e re-teste da operação. Se o problema persistir, contacte o Microsoft Support. |
 | Se o utilizador tiver permissões apenas de leitura, então o utilizador não está autorizado a gerar uma chave de ativação e este erro é apresentado. <br> ![Erro do cofre da chave 5](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-5.png) | Isto pode ser porque não tem o acesso certo ou o  *Microsoft.KeyVault* não está registado.<li>Certifique-se de que tem acesso ao proprietário ou ao contribuinte ao nível do grupo de recursos utilizado para o seu recurso Azure Stack Edge.</li><li>Certifique-se de que o fornecedor de recursos Microsoft.KeyVault está registado. Para registar um fornecedor de recursos, aceda à subscrição utilizada para o recurso Azure Stack Edge. Aceda a **fornecedores de recursos,** procure *o Microsoft.KeyVault* e selecione e **registe-se.**</li> |
 
 ## <a name="next-steps"></a>Passos seguintes

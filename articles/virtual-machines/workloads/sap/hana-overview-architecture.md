@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967589"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880992"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA nas Instâncias Grandes do Azure?
 
@@ -35,12 +35,14 @@ O isolamento do cliente dentro do carimbo da infraestrutura é realizado em inqu
 
 Estas unidades de servidor de metal nu são suportadas apenas para executar SAP HANA. A camada de aplicação SAP ou a camada de trabalho de ware médio funciona em máquinas virtuais. Os carimbos de infraestrutura que executam as unidades SAP HANA em Azure (Grandes Instâncias) estão ligados às espinhas traseiras dos serviços de rede Azure. Desta forma, é fornecida uma conectividade de baixa latência entre unidades SAP HANA em Azure (Grandes Instâncias) e máquinas virtuais.
 
-A partir de julho de 2019, diferenciamos entre duas revisões diferentes de selos HANA Large Instance e localização de implantações:
+A partir de janeiro de 2021, diferenciamos entre duas revisões diferentes de selos HANA Large Instance e localização de implantações:
 
 - "Revisão 3" (Rev 3): São os selos que foram disponibilizados para o cliente implementar antes de julho de 2019
 - "Revisão 4" (Rev 4): Novo desenho de selos que é implantado nas proximidades dos anfitriões Azure VM e que até agora são lançados nas regiões de Azure de:
     -  E.U.A. Oeste 2 
-    -  E.U.A. Leste 
+    -  E.U.A. Leste
+    -  East US2 (em duas zonas de disponibilidade)
+    -  South Central US (em duas zonas de disponibilidade)
     -  Europa Ocidental
     -  Europa do Norte
 

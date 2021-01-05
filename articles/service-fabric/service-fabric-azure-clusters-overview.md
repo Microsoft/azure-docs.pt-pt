@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018924"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882216"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -45,7 +45,7 @@ Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máqui
 
 Para obter mais informações, leia [os tipos de nó de nó de tecido de serviço e conjuntos de balança de máquinas virtuais](service-fabric-cluster-nodetypes.md).
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
 As instâncias VM são unidas por trás de um [equilibrador de carga Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e etiqueta DNS.  Quando fornece um cluster com *&lt; nome &gt; de cluster,* o nome DNS, *&lt; nome de &gt; cluster. &lt; localização &gt; .cloudapp.azure.com* é a etiqueta DNS associada ao equilibrador de carga em frente ao conjunto de escala.
 
 Os VMs num cluster têm [apenas endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de tráfego de gestão e o tráfego de serviços são encaminhados através do público virado para o balancer de carga.  O tráfego de rede é encaminhado para estas máquinas através das regras NAT (os clientes ligam-se a nós/instâncias específicos) ou regras de equilíbrio de carga (o tráfego vai para o robin redondo dos VMs).  Um equilibrador de carga tem um IP público associado com um nome DNS no formato: *&lt; clustername &gt; . &lt; localização &gt; .cloudapp.azure.com*.  Um IP público é outro recurso Azure no grupo de recursos.  Se definir vários tipos de nós num cluster, é criado um equilibrador de carga para cada conjunto de tipo/escala de nó. Ou, pode configurar um único balançador de carga para vários tipos de nós.  O nó primário tem o nome de cluster de etiqueta DNS *&lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*, outros tipos de nós têm o nó de conjunto de rótulo DNS *&lt; &gt; - &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*.
@@ -86,7 +86,7 @@ A aplicação exige mudanças ao longo do tempo. Poderá ser necessário aumenta
 
 Para mais informações, leia [os clusters Scaling Azure.](service-fabric-cluster-scaling.md)
 
-## <a name="upgrading"></a>Modernização
+## <a name="upgrading"></a>Atualizar
 Um cluster Azure Service Fabric é um recurso que possui, mas é parcialmente gerido pela Microsoft. A Microsoft é responsável por corrigir o sistema operativo subjacente e executar atualizações de tempo de execução do Tecido de Serviço no seu cluster. Pode configurar o seu cluster para receber atualizações automáticas de tempo de execução, quando a Microsoft lançar uma nova versão, ou optar por selecionar uma versão de tempo de execução suportada que pretenda. Além das atualizações de tempo de execução, também pode atualizar a configuração do cluster, como certificados ou portas de aplicação.
 
 Para mais informações, leia [a atualização dos agrupamentos.](service-fabric-cluster-upgrade.md)
@@ -94,16 +94,17 @@ Para mais informações, leia [a atualização dos agrupamentos.](service-fabric
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 É possível criar clusters em máquinas virtuais que executam estes sistemas operativos:
 
-| Sistema operativo | Primeira versão suportada do Tecido de Serviço |
-| --- | --- |
-| Windows Server 2012 R2 | Todas as versões |
-| Windows Server 2016 | Todas as versões |
-| Servidor Windows 1709 | 6,0 |
-| Servidor Windows 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6,0 |
-| Linux Ubuntu 18.04 | 7.1 |
+| Sistema operativo | Primeira versão suportada do Tecido de Serviço | Última versão suportada do Service Fabric |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | N/D |
+| Windows Server 2016 | Todas as versões | N/D |
+| Windows Server 20H2 | 7.2.445.9590 | N/D |
+| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| Servidor Windows 1803 | 6.4 | 7.2.445.9590 |
+| Servidor Windows 1709 | 6,0 | 7.2.445.9590 |
+| Windows Server 2012 | Todas as versões | N/D | 
+| Linux Ubuntu 16.04 | 6,0 | N/D |
+| Linux Ubuntu 18.04 | 7.1 | N/D |
 
 Para mais informações consulte [ver versões de cluster suportadas em Azure](./service-fabric-versions.md#supported-operating-systems)
 

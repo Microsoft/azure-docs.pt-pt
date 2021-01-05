@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347511"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882471"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classes 
 
@@ -104,7 +104,8 @@ Agora que tem acesso aos dados que pretende ter rotulado, crie o seu projeto de 
 1. Utilize a seguinte entrada para o conjunto de dados Criar a partir do formulário **datastore:**
 
     1. No formulário **de informação básica,** adicione um nome, aqui usaremos **imagens-para-tutorial.**  Adicione uma descrição, se desejar.  Em seguida, selecione **Seguinte**.
-    1. No formulário **de seleção datastore,** utilize o dropdown para selecionar a sua **datastore anteriormente criada,** por exemplo **tutorial_images (Azure Blob Storage)**
+    1. No formulário **de seleção datastore,** selecione **datastore previamente criado,** clique no nome da datastore e selecione **Select datastore**.
+    1. Na página seguinte, verifique se a datastore atualmente selecionada está correta. Caso contrário, selecione **Datastore previamente criado** e repita o passo anterior.
     1. Em seguida, ainda no formulário **de seleção datastore,** selecione **Browse** e, em seguida, selecione **MultiClass - DogsCats**.  **Selecione Guardar** para usar **/MultiClass - DogsCats** como o caminho.
     1. Selecione **Next** para confirmar detalhes e, em seguida, **criar** para criar o conjunto de dados.
     1. Selecione o círculo ao lado do nome do conjunto de dados na lista, por exemplo **imagens-para-tutorial**.

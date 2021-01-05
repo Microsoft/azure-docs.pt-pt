@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305160"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883253"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -75,7 +75,7 @@ Azure Policy incorporados e padrões estão em [amostras da Política Azure](../
 Usa **o nome e** **a descrição** do display Para identificar a definição de política e fornecer contexto para quando for usado. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
 
 > [!NOTE]
-> Durante a criação ou atualização de uma definição de política, **id,** **tipo** e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. A obtenção da definição de política via SDK devolve o **id** , **tipo** , e propriedades de **nome** como parte do JSON, mas cada uma delas são apenas informações de leitura relacionadas com a definição de política.
+> Durante a criação ou atualização de uma definição de política, **id,** **tipo** e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. A obtenção da definição de política via SDK devolve o **id**, **tipo**, e propriedades de **nome** como parte do JSON, mas cada uma delas são apenas informações de leitura relacionadas com a definição de política.
 
 ## <a name="type"></a>Tipo
 
@@ -132,7 +132,7 @@ A propriedade opcional `metadata` armazena informações sobre a definição de 
 
 ## <a name="parameters"></a>Parâmetros
 
-Os parâmetros ajudam a simplificar a sua gestão de políticas reduzindo o número de definições políticas. Pense em parâmetros como os campos numa forma , `name` `address` , , , `city` `state` . Estes parâmetros mantêm-se sempre os mesmos, no entanto os seus valores mudam com base no indivíduo que preenche o formulário.
+Os parâmetros ajudam a simplificar a sua gestão de políticas reduzindo o número de definições políticas. Pense em parâmetros como os campos numa forma , `name` `address` `city` `state` . Estes parâmetros mantêm-se sempre os mesmos, no entanto os seus valores mudam com base no indivíduo que preenche o formulário.
 Os parâmetros funcionam da mesma forma quando se constrói políticas. Ao incluir parâmetros numa definição de política, pode reutilizar essa política para diferentes cenários utilizando valores diferentes.
 
 > [!NOTE]
@@ -284,7 +284,7 @@ Uma condição avalia se um **campo** ou o acessório **de valor** cumpre determ
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-Por **menos,** **menos, os locais EQuals** , **maiores** e **maiores,** se o tipo de propriedade não corresponder ao tipo de condição, é lançado um erro. As comparações de cordas são feitas `InvariantCultureIgnoreCase` utilizando.
+Por **menos,** **menos, os locais EQuals**, **maiores** e **maiores,** se o tipo de propriedade não corresponder ao tipo de condição, é lançado um erro. As comparações de cordas são feitas `InvariantCultureIgnoreCase` utilizando.
 
 Ao utilizar as condições **similares** e **não semelhantes,** fornece um wildcard `*` no valor.
 O valor não deve ter mais do que um `*` wildcard.
@@ -569,11 +569,11 @@ Exemplo 6: Utilizar `field()` a função dentro das `where` condições de acess
 
 A Azure Policy apoia os seguintes tipos de efeito:
 
-- **Apêndice** : adiciona o conjunto de campos definido ao pedido
-- **Auditoria** : gera um evento de alerta no registo de atividades mas não falha o pedido
-- **AuditIfNotExists** : gera um evento de alerta no registo de atividades se um recurso relacionado não existir
+- **Apêndice**: adiciona o conjunto de campos definido ao pedido
+- **Auditoria**: gera um evento de alerta no registo de atividades mas não falha o pedido
+- **AuditIfNotExists**: gera um evento de alerta no registo de atividades se um recurso relacionado não existir
 - **Negar:** gera um evento no registo de atividades e falha o pedido
-- **ImplementarIfNotExists** : implementa um recurso relacionado se já não existir
+- **ImplementarIfNotExists**: implementa um recurso relacionado se já não existir
 - **Deficiente:** não avalia recursos para o cumprimento da regra da política
 - **Modificar:** adicionar, atualizar ou remover as tags definidas de um recurso
 - **EnforceOPAConstraint** (preterido): configura o controlador de admissão de Agente de Política Aberta com Gatekeeper v3 para clusters kubernetes auto-geridos em Azure
@@ -606,10 +606,10 @@ A função a seguir está disponível para ser utilizada numa regra de política
 As seguintes funções só estão disponíveis nas regras políticas:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dataTime** : [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:mms. FFFFFZ'
-  - **númeroOfDaysToAdd** : [Necessário] inteiro - Número de dias a adicionar
+  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yy-MM-ddTHH:mm:mms. FFFFFZ'
+  - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar
 - `field(fieldName)`
-  - **nome de campo** : [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
+  - **nome de campo**: [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
   - Devolve o valor desse campo do recurso que está a ser avaliado pela condição "Se".
   - `field` é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência sobre o recurso que estão sendo avaliados. Um exemplo desta utilização pode ser visto no [exemplo do DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
@@ -629,8 +629,8 @@ As seguintes funções só estão disponíveis nas regras políticas:
 
 
 - `ipRangeContains(range, targetRange)`
-    - **gama** : [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
-    - **targetRange** : [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+    - **gama**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+    - **targetRange**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
 
     Devolve se o intervalo de endereço IP dado contém o intervalo de endereço IP alvo. Não são permitidas gamas vazias, ou mistura entre famílias ip e resulta em falha de avaliação.
 
@@ -669,25 +669,6 @@ A lista de pseudónimos está sempre a crescer. Para encontrar os pseudónimos a
   Utilize a [extensão da Política Azure para o Código do Estúdio Visual](../how-to/extension-for-vscode.md) para visualizar e descobrir pseudónimos para propriedades de recursos.
 
   :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot da extensão da Política Azure para Visual Studio Code pairando sobre uma propriedade para exibir os nomes de pseudónimos." border="false":::
-
-- Azure Resource Graph
-
-  Utilize o `project` operador para visualizar o **pseudónimo** de um recurso.
-
-  ```kusto
-  Resources
-  | where type=~'microsoft.storage/storageaccounts'
-  | limit 1
-  | project aliases
-  ```
-  
-  ```azurecli-interactive
-  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-  
-  ```azurepowershell-interactive
-  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
 
 - Azure PowerShell
 

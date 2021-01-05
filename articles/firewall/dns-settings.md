@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/04/2021
 ms.author: victorh
-ms.openlocfilehash: 197d48a2f5368111ec194a18f86aedf5ad78e1b2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565624"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883231"
 ---
 # <a name="azure-firewall-dns-settings"></a>Definições de DNS de Firewall Azure Firewall
 
@@ -65,13 +65,16 @@ $azFw | Set-AzFirewall
 
 Pode configurar a Azure Firewall para agir como um representante do DNS. Um proxy DNS é um intermediário para pedidos DNS de máquinas virtuais de clientes para um servidor DNS. Se configurar um servidor DNS personalizado, então ative o proxy DNS para evitar uma incompatibilidade de resolução de DNS e ativar a filtragem FQDN (nome de domínio totalmente qualificado) nas regras de rede.
 
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="Configuração de procuração D N S usando um servidor D N S personalizado.":::
+
+
 Se não ativar o proxy do DNS, então os pedidos de DNS do cliente podem viajar para um servidor DNS num momento diferente ou devolver uma resposta diferente em comparação com a da firewall. O proxy DONS coloca o Azure Firewall no caminho dos pedidos do cliente para evitar inconsistências.
 
 Quando o Azure Firewall é um proxy DNS, dois tipos de função de caching são possíveis:
 
-- **Cache positivo** : A resolução do DNS é bem sucedida. A firewall utiliza o TTL (tempo de vida) do pacote ou objeto. 
+- **Cache positivo**: A resolução do DNS é bem sucedida. A firewall utiliza o TTL (tempo de vida) do pacote ou objeto. 
 
-- **Cache negativo** : Resolução DNS não resulta em resposta ou nenhuma resolução. A firewall caches esta informação por uma hora.
+- **Cache negativo**: Resolução DNS não resulta em resposta ou nenhuma resolução. A firewall caches esta informação por uma hora.
 
 O proxy DNS armazena todos os endereços IP resolvidos a partir de FQDNs nas regras da rede. Como uma boa prática, use FQDNs que resolvem um endereço IP.  
 
@@ -89,8 +92,8 @@ Para configurar o proxy DNS, tem de configurar a definição de servidores DNS d
 ##### <a name="configure-virtual-network-dns-servers"></a>Configurar servidores DNS de rede virtual 
 
 1. Selecione a rede virtual onde o tráfego DNS será encaminhado através da instância Azure Firewall.
-2. Em **Definições** , selecione **servidores DNS**.
-3. Nos **servidores DNS** , selecione **Custom**.
+2. Em **Definições**, selecione **servidores DNS**.
+3. Nos **servidores DNS**, selecione **Custom**.
 4. Insira o endereço IP privado da firewall.
 5. Selecione **Guardar**.
 6. Reinicie os VMs que estão ligados à rede virtual para que lhes sejam atribuídas as novas definições do servidor DNS. Os VMs continuam a utilizar as definições de DNS atuais até serem reiniciados.
@@ -98,7 +101,7 @@ Para configurar o proxy DNS, tem de configurar a definição de servidores DNS d
 ##### <a name="enable-dns-proxy"></a>Ativar o proxy DNS
 
 1. Selecione a sua instância Azure Firewall.
-2. Em **Definições** , selecione **as definições de DNS**.
+2. Em **Definições**, selecione **as definições de DNS**.
 3. Por predefinição, **o DNS Proxy** está desativado. Quando esta definição está ativada, a firewall ouve na porta 53 e encaminha os pedidos dns para os servidores DNS configurados.
 4. Reveja a configuração dos **servidores DNS** para se certificar de que as definições são adequadas para o seu ambiente.
 5. Selecione **Guardar**.

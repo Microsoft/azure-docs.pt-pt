@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859968"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881401"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory
 
@@ -48,7 +48,7 @@ Para aplicar rótulos publicados em grupos, tem primeiro de ativar a funcionalid
     ```
 
     > [!NOTE]
-    > Se não tiverem sido criadas configurações de grupo para esta organização Azure AD, deve primeiro criar as definições. Siga os [passos em cmdlets do Azure Ative Directory para configurar as definições de grupo](../enterprise-users/groups-settings-cmdlets.md) para criar configurações de grupo para esta organização Azure AD.
+    > Se não tiverem sido criadas configurações de grupo para esta organização Azure AD, obterá um erro no cmdlet acima que diz "Não posso vincular o argumento ao parâmetro 'Id' porque é nulo". Neste caso, deve primeiro criar as definições. Siga os [passos em cmdlets do Azure Ative Directory para configurar as definições de grupo](../enterprise-users/groups-settings-cmdlets.md) para criar configurações de grupo para esta organização Azure AD.
 
 1. Em seguida, apresente as definições de grupo atuais.
 

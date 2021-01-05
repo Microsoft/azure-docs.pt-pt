@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172668"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881196"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
 
@@ -45,7 +45,7 @@ O exemplo a seguir mostra um perfil técnico de senha única:
 
 ## <a name="generate-code"></a>Gerar código
 
-O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opções que podem ser configuradas para este modo.
+O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opções que podem ser configuradas para este modo. Os códigos gerados e as tentativas são rastreados dentro da sessão. 
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -53,7 +53,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| identificador | Yes | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identifier | Yes | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **transmissão inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha de uma única vez.
 
@@ -73,7 +73,7 @@ As seguintes definições podem ser utilizadas para configurar o modo de geraç�
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tempo em segundos até a expiração do código. Mínimo: `60` ; Máximo: `1200` Predefinição: `600` . Sempre que é fornecido um código (o mesmo código que utiliza `ReuseSameCode` , ou um novo código), a expiração do código é estendida.  |
+| CodeExpirationInSeconds | No | Tempo em segundos até a expiração do código. Mínimo: `60` ; Máximo: `1200` Predefinição: `600` . Sempre que é fornecido um código (o mesmo código que utiliza `ReuseSameCode` , ou um novo código), a expiração do código é estendida. Este tempo também é usado para definir o tempo limite de re-tentativas (uma vez que as tentativas máximas são alcançadas, o utilizador é bloqueado de tentar obter novos códigos até que este tempo expire) |
 | CodeLength | No | Comprimento do código. O valor predefinido é `6`. |
 | Conjunto de Caracteres | No | O conjunto de caracteres para o código, formatado para utilização numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
 | NumRetryAttempts | No | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
@@ -119,7 +119,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReclamaçãoReferênciaId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| identificador | Yes | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identifier | Yes | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 | otpToVerificar | Yes | O código de verificação fornecido pelo utilizador. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **transmissão inputClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha de uma única vez.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979968"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881514"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
@@ -183,7 +183,6 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
     ```
 
 - **Falhou no registo do fornecedor de recursos Microsoft.ChangeAnalysis**. Esta mensagem significa que algo falhou imediatamente, pois a UI enviou um pedido de registo do fornecedor de recursos, e não está relacionado com a questão da permissão. É provável que seja um problema temporário de conectividade na Internet. Tente refrescar a página e verifique a sua ligação à Internet. Se o erro persistir, contacte changeanalysishelp@microsoft.com
-- Não tendo consultado o fornecedor de **recursos microsoft.ChangeAnalysis** com a *subscrição do farol Azure não é suportado, as alterações só estão disponíveis no inquilino da subscrição*. Existe neste momento uma limitação para que o fornecedor de recursos change analysis seja registado através da subscrição do Azure Lighthouse para utilizadores que não estejam no arrendatário doméstico. Esperamos que esta limitação seja abordada num futuro próximo. Se esta é uma questão de bloqueio para si, existe uma solução alternativa que envolve a criação de um principal de serviço e a atribuição explícita do papel para permitir o acesso.  Contacto changeanalysishelp@microsoft.com para saber mais sobre isso.
 
 - **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
     ![Registo de RP de resolução de problemas demorando muito tempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
 ![Screenshot da ferramenta Diagnose and Solve Problems para uma Máquina Virtual com ferramentas de resolução de problemas selecionadas.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Screenshot do azulejo para a ferramenta de resolução de problemas de alterações recentes para uma máquina virtual.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>A subscrição do Farol Azure não é suportada
+
+- Não tendo consultado o fornecedor de **recursos microsoft.ChangeAnalysis** com a *subscrição do farol Azure não é suportado, as alterações só estão disponíveis no inquilino da subscrição*. Existe neste momento uma limitação para que o fornecedor de recursos change analysis seja registado através da subscrição do Azure Lighthouse para utilizadores que não estejam no arrendatário doméstico. Esperamos que esta limitação seja abordada num futuro próximo. Se esta é uma questão de bloqueio para si, existe uma solução alternativa que envolve a criação de um principal de serviço e a atribuição explícita do papel para permitir o acesso.  Contacto changeanalysishelp@microsoft.com para saber mais sobre isso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

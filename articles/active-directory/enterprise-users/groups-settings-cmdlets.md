@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c48e23de6832999b262283c0bf6664b4dfe88ee7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859883"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881570"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 
@@ -84,10 +84,11 @@ Estes passos criam configurações ao nível do diretório, que se aplicam a tod
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. Em seguida, atualize o valor da orientação de utilização:
+4. Em seguida, atualize o objeto de definições com um novo valor. Os dois exemplos abaixo alteram o valor da orientação de utilização e permitem etiquetas de sensibilidade. Defina estes ou qualquer outro ajuste no modelo conforme necessário:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. Em seguida, aplique a definição:
   
@@ -118,7 +119,7 @@ Para atualizar o valor para UsageGuideLinesUrl no modelo de definição, leia as
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions

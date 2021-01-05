@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/18/2020
+ms.date: 01/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c075e19422341ad7ccfd3ad951517876ab26a495
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1b0771687aa7ccf9b749c107a6b1c507cb3ba08d
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858421"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881944"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -44,7 +44,7 @@ Além destas três contas utilizadas para executar o Azure AD Connect, também n
 
 - **Conta administrador da empresa AD DS**: Opcionalmente utilizada para criar a "conta AD DS Connector" acima.
 
-- **Conta Azure AD Global Administrator**: usada para criar a conta Azure AD Connector e configurar Azure AD.
+- **Conta Azure AD Global Administrator**: usada para criar a conta Azure AD Connector e configurar Azure AD.  Pode ver contas de administrador global no portal azul.  Ver [Ver Funções](../../active-directory/roles/manage-roles-portal.md#view-all-roles).
 
 - **Conta SQL SA (opcional)**: usada para criar a base de dados ADSync ao utilizar a versão completa do SQL Server.  Este SQL Server pode ser local ou remoto para a instalação Azure AD Connect.  Esta conta pode ser a mesma que o Administrador da Empresa.  O fornecimento da base de dados pode agora ser realizado fora da banda pelo administrador SQL e depois instalado pelo administrador Azure AD Connect com direitos de proprietário de base de dados.  Para obter informações sobre isto consulte [instalar Azure AD Connect usando permissões de administrador delegadas sql](how-to-connect-install-sql-delegation.md)
 
@@ -175,7 +175,7 @@ Se utilizar definições personalizadas, é responsável por criar a conta antes
 ### <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O serviço de sincronização pode ser executado em diferentes contas. Pode ser executado numa **Conta de Serviço Virtual** (VSA), numa Conta de Serviço Gerido pelo **Grupo** (gMSA/sMSA), ou numa conta de utilizador regular. As opções suportadas foram alteradas com o lançamento de abril de 2017 do Connect quando se faz uma nova instalação. Se atualizar a partir de uma versão anterior do Azure AD Connect, estas opções adicionais não estão disponíveis.
 
-| Tipo de conta | Opção de instalação | Descrição |
+| Tipo de conta | Opção de instalação | Description |
 | --- | --- | --- |
 | [Conta de Serviço Virtual](#virtual-service-account) | Expresso e personalizado, abril de 2017 e mais tarde | Esta é a opção utilizada para todas as instalações expressas, com exceção das instalações num Controlador de Domínio. Para o costume, é a opção padrão a menos que outra opção seja usada. |
 | [Conta de Serviço Gerida de Grupo](#group-managed-service-account) | Personalizado, abril de 2017 e mais tarde | Se utilizar um servidor SQL remoto, recomendamos a utilização de uma conta de serviço gerida pelo grupo. |

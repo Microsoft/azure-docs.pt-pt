@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511003"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882981"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -36,7 +36,7 @@ Um pseudónimo incorreto ou inexistente é utilizado numa definição de políti
 
 #### <a name="resolution"></a>Resolução
 
-Em primeiro lugar, valide que a propriedade do Gestor de Recursos tem um pseudónimo. Utilize [a extensão da Política Azure para o Código do Estúdio Visual](../how-to/extension-for-vscode.md), Gráfico de Recursos [Azure](../../resource-graph/samples/starter.md#distinct-alias-values)ou SDK para procurar pseudónimos disponíveis. Se o pseudónimo de uma propriedade do Gestor de Recursos não existir, crie um bilhete de apoio.
+Em primeiro lugar, valide que a propriedade do Gestor de Recursos tem um pseudónimo. Utilize [a extensão da Política Azure para o Código do Estúdio Visual](../how-to/extension-for-vscode.md) ou SDK para procurar pseudónimos disponíveis. Se o pseudónimo de uma propriedade do Gestor de Recursos não existir, crie um bilhete de apoio.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>Cenário: Detalhes da avaliação não atualizados
 

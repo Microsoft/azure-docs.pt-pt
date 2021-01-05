@@ -3,12 +3,12 @@ title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873953"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883083"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -42,6 +42,8 @@ Os pedidos para criar ou atualizar um recurso são avaliados pela Azure Policy e
 - **A auditoria** é avaliada em último lugar.
 
 Depois de o Fornecedor de Recursos retornar um código de sucesso num pedido de modo Gestor de Recursos, **auditifNotExists** e **DeployIfNotExists** avaliam para determinar se é necessário registo ou ação adicional de conformidade.
+
+Além disso, `PATCH` os pedidos que apenas modificam `tags` os campos relacionados restringem a avaliação das políticas que contêm condições que inspecionam `tags` os campos relacionados.
 
 ## <a name="append"></a>Acrescentar
 
@@ -166,7 +168,7 @@ Os **detalhes** da propriedade dos efeitos AuditIfNotExists tem todas as subprop
   - Os valores permitidos são _Subscrição_ e _Grupo de Recursos._
   - Define o âmbito de onde buscar o recurso relacionado para combinar.
   - Não se aplica se **o tipo** for um recurso que estaria abaixo do recurso **de** condição.
-  - Para o _Grupo de Recursos,_ limitar-se-ia ao grupo de recursos do recurso se estiver em condições ou ao grupo de recursos especificado no **ResourceGroupName**. **if**
+  - Para o _Grupo de Recursos,_ limitar-se-ia ao grupo de recursos do recurso se estiver em condições ou ao grupo de recursos especificado no **ResourceGroupName**. 
   - Para _Subscrição,_ questione toda a subscrição do recurso relacionado.
   - Predefinido é _Grupo de Recursos._
 - **ExistênciaCondição** (opcional)
@@ -288,7 +290,7 @@ A propriedade de **detalhes** do efeito DeployIfNotExists tem todas as subpropri
   - Os valores permitidos são _Subscrição_ e _Grupo de Recursos._
   - Define o âmbito de onde buscar o recurso relacionado para combinar.
   - Não se aplica se **o tipo** for um recurso que estaria abaixo do recurso **de** condição.
-  - Para o _Grupo de Recursos,_ limitar-se-ia ao grupo de recursos do recurso se estiver em condições ou ao grupo de recursos especificado no **ResourceGroupName**. **if**
+  - Para o _Grupo de Recursos,_ limitar-se-ia ao grupo de recursos do recurso se estiver em condições ou ao grupo de recursos especificado no **ResourceGroupName**. 
   - Para _Subscrição,_ questione toda a subscrição do recurso relacionado.
   - Predefinido é _Grupo de Recursos._
 - **ExistênciaCondição** (opcional)
@@ -535,11 +537,11 @@ Os **detalhes** da propriedade do efeito Modificar têm todas as subpropriedades
       - Esta propriedade é necessária se **a operação** for _addOrReplace_ ou _Add_.
     - **condição** (opcional)
       - Uma corda que contém uma expressão linguística Azure Policy com [funções políticas](./definition-structure.md#policy-functions) que _avaliam_ a verdade ou _falsa_.
-      - Não suporta as seguintes funções políticas: `field()` `resourceGroup()` . . . `subscription()` .
+      - Não suporta as seguintes funções políticas: `field()` `resourceGroup()` . `subscription()`
 
 ### <a name="modify-operations"></a>Modificar operações
 
-O conjunto de propriedades **de operações** permite alterar várias tags de diferentes maneiras a partir de uma única definição de política. Cada operação é constituída por propriedades de **operação,** **campo**e **valor.** O funcionamento determina o que a tarefa de remediação faz às tags, o campo determina qual a etiqueta alterada e o valor define a nova definição para essa etiqueta. O exemplo abaixo faz as seguintes alterações na etiqueta:
+O conjunto de propriedades **de operações** permite alterar várias tags de diferentes maneiras a partir de uma única definição de política. Cada operação é constituída por propriedades de **operação,** **campo** e **valor.** O funcionamento determina o que a tarefa de remediação faz às tags, o campo determina qual a etiqueta alterada e o valor define a nova definição para essa etiqueta. O exemplo abaixo faz as seguintes alterações na etiqueta:
 
 - Define a `environment` etiqueta para "Testar", mesmo que já exista com um valor diferente.
 - Remove a etiqueta `TempResource` .
@@ -569,7 +571,7 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Descrição |
+|Operação |Description |
 |-|-|
 |addOrReplace |Adiciona a propriedade definida ou etiqueta e valor ao recurso, mesmo que o imóvel ou etiqueta já exista com um valor diferente. |
 |Adicionar |Adiciona a propriedade definida ou etiqueta e valor ao recurso. |
@@ -671,7 +673,7 @@ Se tanto a política 1 como a política 2 tiveram efeito de negação, a situaç
 - Qualquer novo recurso na subscrição A não em 'westus' é negado pela política 1
 - Qualquer novo recurso no grupo B de subscrição A é negado
 
-Cada atribuição é avaliada individualmente. Como tal, não há uma oportunidade para um recurso escapar através de uma lacuna de diferenças de âmbito. Considera-se **cumulativo o**resultado líquido das definições de política de camadas. A título de exemplo, se ambas as políticas 1 e 2 tivessem um efeito de negação, um recurso seria bloqueado pelas definições políticas sobrepostas e contraditórias. Se ainda precisar do recurso para ser criado no âmbito alvo, reveja as exclusões de cada atribuição para validar as atribuições políticas certas estão a afetar os âmbitos certos.
+Cada atribuição é avaliada individualmente. Como tal, não há uma oportunidade para um recurso escapar através de uma lacuna de diferenças de âmbito. Considera-se **cumulativo o** resultado líquido das definições de política de camadas. A título de exemplo, se ambas as políticas 1 e 2 tivessem um efeito de negação, um recurso seria bloqueado pelas definições políticas sobrepostas e contraditórias. Se ainda precisar do recurso para ser criado no âmbito alvo, reveja as exclusões de cada atribuição para validar as atribuições políticas certas estão a afetar os âmbitos certos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

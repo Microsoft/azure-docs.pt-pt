@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 895b4529a8b99ecc66e3566b4696a0e61c337153
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483632"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881917"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -38,16 +38,23 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 >
 > Para mais detalhes, consulte: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="regional-availability"></a>Disponibilidade regional
+
+A Azure Media Services está agora disponível na região leste da Noruega no portal Azure.  Não há repousoV2 nesta região.
+
 ## <a name="october-2020"></a>Outubro de 2020
 
 ### <a name="basic-audio-analysis"></a>Análise áudio básica
+
 A predefinição de Análise áudio inclui agora um nível de preços de modo básico. O novo modo Basic Audio Analyzer oferece uma opção de baixo custo para extrair transcrição de voz e legendas e legendas de saída de formato. Este modo executa a transcrição de discurso-a-texto e a geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. Consulte a lista de [línguas apoiadas.](analyzing-video-audio-files-concept.md#built-in-presets)
 
 Os clientes que usam Indexer v1 e Indexer v2 devem migrar para a predefinição de Análise Áudio Básica.
 
 Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyzing-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](how-to-create-basic-audio-transform.md).
 
-## <a name="live-events"></a>Eventos em Direto
+### <a name="live-events"></a>Eventos em Direto
 
 As atualizações para a maioria das propriedades são agora permitidas quando os eventos ao vivo são interrompidos. Além disso, os utilizadores estão autorizados a especificar um prefixo para o nome de anfitrião estático para os URLs de entrada e pré-visualização do evento ao vivo. A VanityUrl é agora chamada `useStaticHostName` para melhor refletir a intenção da propriedade.
 
@@ -57,7 +64,7 @@ Um evento ao vivo suporta receber vários rácios de aspeto de entrada. O modo a
 
 A codificação ao vivo adiciona agora a capacidade de saída de fragmentos de intervalo de chave fixa entre 0,5 e 20 segundos.
 
-## <a name="accounts"></a>Contas
+### <a name="accounts"></a>Contas
 
 > [!WARNING]
 > Se criar uma conta de Media Services com a versão API 2020-05-01 não funcionará com a RESTv2 
@@ -427,7 +434,7 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 

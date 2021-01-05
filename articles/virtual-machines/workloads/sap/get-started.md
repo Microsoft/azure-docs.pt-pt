@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/21/2020
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d56ed0cdae9046cb7d76f7d74545309ee6292ecd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722900"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883100"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -83,6 +83,8 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 01/04/2021: Adicione novas regiões de Azure apoiadas pelo HLI [no que é SAP HANA em Azure (Grandes Instâncias)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- 12/29/2020: Adicionar recomendações de arquitetura para regiões específicas do Azure em [configurações de carga de trabalho SAP com Zonas de Disponibilidade Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: Adicionar novas certificações às SKUs de Grandes Instâncias HANA em [SKUs disponíveis para HLI](./hana-available-skus.md)
 - 12/12/2020: Ponteiro adicionado à nota SAP esclarecendo detalhes sobre o suporte da Oracle Enterprise Linux pela SAP ao [que o software SAP é suportado para implementações da Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 11/26/2020: Adaptar [as configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md) e [os tipos de Armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md) para alterar [SLAs VM](https://azure.microsoft.com/support/legal/sla/virtual-machines) individuais

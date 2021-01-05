@@ -2,13 +2,13 @@
 title: Leia os Azure Event Hubs capturados dados de uma aplicação Python (mais recente)
 description: Este artigo mostra-lhe como escrever código Python para capturar dados enviados para um centro de eventos e ler os dados do evento capturados a partir de uma conta de armazenamento Azure.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 01/04/2021
+ms.openlocfilehash: acc2ce04add5fd837e9edc789e9616a9f04fb4b9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109917"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883202"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Capture os dados do Event Hubs no Azure Storage e leia-os utilizando python (azure-eventhub)
 
@@ -27,7 +27,11 @@ Neste início rápido, irá:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Python 2.7, e 3.5 ou mais tarde, com PIP instalado e atualizado.  
+- Python com PIP e os seguintes pacotes instalados. O código deste artigo foi testado contra estas versões. 
+    - Python 3.7
+    - azure-eventhub 5.2.0
+    - azure-storage-blob 12.6.0
+    - avro-python3 1.10.1
 - Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.  
 - Um espaço de nomes e centro de eventos do Event Hubs ativo.
 [Crie um espaço de nomes de Event Hubs e um centro de eventos no espaço de nomes.](event-hubs-create.md) Grave o nome do espaço de nomes do Event Hubs, o nome do centro de eventos e a chave de acesso primária para o espaço de nome. Para obter a chave de acesso, consulte [obter uma cadeia de conexão Event Hubs](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). O nome-chave predefinido é *RootManageSharedAccessKey*. Para este arranque rápido, só precisas da chave primária. Não precisas da corda de ligação.  
@@ -155,6 +159,13 @@ Neste exemplo, os dados capturados são armazenados no armazenamento da Azure Bl
    pip install azure-eventhub
    pip install avro-python3
    ```
+
+    > [!NOTE]
+    > O código deste artigo foi testado contra estas versões. 
+    > - Python 3.7
+    > - azure-eventhub 5.2.0
+    > - azure-storage-blob 12.6.0
+    > - avro-python3 1.10.1
 2. Mude o seu diretório para o diretório onde guardou *sender.py* e *capturereader.py*, e executar este comando:
    
    ```

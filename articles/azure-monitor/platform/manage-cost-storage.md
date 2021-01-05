@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 12/24/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a3a4c7a51f0d75b67465a83a2fbbf3ae8a141c4c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 45f02850797582f97220e91d1582b04b3be711c0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97671170"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882488"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -132,9 +132,9 @@ A faturação [do Azure Security Center](../../security-center/index.yml) está 
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
-Os seguintes passos descrevem como configurar quanto tempo os dados de registo são mantidos no seu espaço de trabalho. A retenção de dados pode ser configurada de 30 a 730 dias (2 anos) para todos os espaços de trabalho, a menos que estejam a utilizar o nível de preços gratuitos. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre preços para uma retenção mais longa de dados. 
+Os seguintes passos descrevem como configurar quanto tempo os dados de registo são mantidos no seu espaço de trabalho. A retenção de dados ao nível do espaço de trabalho pode ser configurada de 30 a 730 dias (2 anos) para todos os espaços de trabalho, a menos que estejam a usar o nível de preços gratuitos. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre preços para uma retenção mais longa de dados. A retenção para tipos individuais de dados pode ser definida até 4 dias. 
 
-### <a name="default-retention"></a>Retenção padrão
+### <a name="workspace-level-default-retention"></a>Retenção padrão do nível do espaço de trabalho
 
 Para definir a retenção padrão para o seu espaço de trabalho, 
  
@@ -158,7 +158,7 @@ Tenha em atenção que a [API de remoção](/rest/api/loganalytics/workspacepurg
 
 ### <a name="retention-by-data-type"></a>Retenção por tipo de dados
 
-Também é possível especificar diferentes definições de retenção para tipos de dados individuais de 30 a 730 dias (exceto espaços de trabalho no antigo nível de preços gratuitos). Cada tipo de dados é um sub-recurso do espaço de trabalho. Por exemplo, a tabela SecurityEvent pode ser endereçada no [Gestor de Recursos da Azure](../../azure-resource-manager/management/overview.md) como:
+Também é possível especificar diferentes definições de retenção para tipos de dados individuais de 4 a 730 dias (exceto espaços de trabalho no nível de preços gratuitos) que substituem a retenção padrão do nível de trabalho. Cada tipo de dados é um sub-recurso do espaço de trabalho. Por exemplo, a tabela SecurityEvent pode ser endereçada no [Gestor de Recursos da Azure](../../azure-resource-manager/management/overview.md) como:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -350,7 +350,8 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution 
+| render columnchart
 ```
 
 A cláusula com `TimeGenerated` é apenas para garantir que a experiência de consulta no portal Azure olhará para trás para além do padrão 24 horas. Ao utilizar o tipo de dados de `StartTime` utilização, e representar os `EndTime` baldes de tempo para os quais os resultados são apresentados. 
@@ -364,7 +365,8 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType 
+| render columnchart
 ```
 
 Ou ver uma mesa por solução e tipo para o último mês,
@@ -661,4 +663,5 @@ Existem alguns limites adicionais de Log Analytics, alguns dos quais dependem do
 - Para configurar uma política eficaz de recolha de eventos, reveja [a política de filtragem do Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 - Altere a [configuração do contador de desempenho](data-sources-performance-counters.md).
 - Para modificar as definições de recolha de eventos, reveja [a configuração do registo de eventos](data-sources-windows-events.md).
+- Para modificar as definições de recolha de syslog, reveja [a configuração do syslog](data-sources-syslog.md).
 - Para modificar as definições de recolha de syslog, reveja [a configuração do syslog](data-sources-syslog.md).

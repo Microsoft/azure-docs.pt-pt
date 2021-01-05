@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 814158ad68e63760c1f2a1bce3eeff812de3c13e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938737"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882369"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrar serviços Azure com redes virtuais para isolamento de rede
 
 A integração da Rede Virtual (VNet) para um serviço Azure permite-lhe bloquear o acesso ao serviço apenas para a sua infraestrutura de rede virtual. A infraestrutura VNet também inclui redes virtuais e redes no local.
 
 A integração VNet proporciona aos serviços Azure os benefícios do isolamento da rede e pode ser realizada por um ou mais dos seguintes métodos:
-- [Implantar instâncias dedicadas do serviço numa rede virtual.](virtual-network-service-endpoints-overview.md) Os serviços podem então ser acedidos de forma privada dentro da rede virtual e a partir de redes no local.
+- [Implantar instâncias dedicadas do serviço numa rede virtual.](virtual-network-for-azure-services.md) Os serviços podem então ser acedidos de forma privada dentro da rede virtual e a partir de redes no local.
 - Utilizar [o Private Endpoint](../private-link/private-endpoint-overview.md) que o liga de forma privada e segura a um serviço alimentado pela [Azure Private Link](../private-link/private-link-overview.md). O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para a sua rede virtual.
 - Aceder ao serviço utilizando pontos finais públicos, alargando uma rede virtual ao serviço, através [de pontos finais de serviço.](virtual-network-service-endpoints-overview.md) Os pontos finais de serviço permitem que os recursos de serviço sejam seguros para a rede virtual.
 - Utilizar [tags de serviço](service-tags-overview.md) para permitir ou negar tráfego aos seus recursos Azure de e para os pontos finais IP públicos.
