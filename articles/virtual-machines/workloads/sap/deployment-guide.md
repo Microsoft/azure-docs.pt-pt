@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: ed30c271e4c2458a33784cbcfc682001b542f2b6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d57512d631685f1f8da7dcd22181bf4d4223937f
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964954"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807574"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
 
@@ -856,8 +856,8 @@ Os passos que toma para configurar o proxy no Windows são diferentes da forma c
 As configurações proxy devem ser configurada corretamente para que a conta do Sistema Local aceda à Internet. Se as definições de procuração não forem definidas pela Política de Grupo, pode configurar as definições para a conta do Sistema Local.
 
 1. Ir para **iniciar,** inserir **gpedit.msc** e, em seguida, selecionar **Enter**.
-1. Selecione **Computer Configuration**  >  **modelos administrativos de** configuração do computador Windows  >  **Components** Internet  >  **Explorer**. Certifique-se de que a definição **Faça as definições de procuração por máquina (em vez de por utilizador)** estar desativadas ou não configuradas.
-1. No **Painel de Controlo,** aceda às **Network and Sharing Center**  >  **opções de Internet** do Network and Sharing Center .
+1. Selecione   >  **modelos administrativos de** configuração do computador Windows  >  **Components** Internet  >  **Explorer**. Certifique-se de que a definição **Faça as definições de procuração por máquina (em vez de por utilizador)** estar desativadas ou não configuradas.
+1. No **Painel de Controlo,** aceda às   >  **opções de Internet** do Network and Sharing Center .
 1. No separador **'Ligações',** selecione o botão **de definições LAN.**
 1. Desmarque a caixa de verificação **Detetar definições automaticamente**.
 1. Selecione o **servidor proxy para a sua** caixa de verificação LAN e, em seguida, insira o endereço de procuração e a porta.
@@ -1070,8 +1070,14 @@ A nova extensão VM para SAP utiliza uma Identidade Gerida atribuída ao VM para
     Exemplo:
 
     ```azurecli
+    # Azure CLI on Linux
     spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
     rgId=$(az group show -g <resource-group-name> --query id --out tsv)
+    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
+
+    # Azure CLI on Windows/PowerShell
+    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
+    $rgId=az group show -g <resource-group-name> --query id --out tsv
     az role assignment create --assignee $spID --role 'Reader' --scope $rgId
     ```
 
@@ -1079,11 +1085,19 @@ A nova extensão VM para SAP utiliza uma Identidade Gerida atribuída ao VM para
     A extensão é atualmente suportada apenas no AzureCloud. Azure China 21Vianet, Governo Azure ou qualquer outro ambiente especial ainda não são apoiados.
 
     ```azurecli
-    # For Linux machines
+    # Azure CLI on Linux
+    ## For Linux machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
 
-    #For Windows machines
+    ## For Windows machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+
+    # Azure CLI on Windows/PowerShell
+    ## For Linux machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
+
+    ## For Windows machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
     ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e resolução de problemas
@@ -1496,7 +1510,7 @@ Siga os passos do capítulo [Configure a Extensão Azure para SAP][deployment-gu
 
 Se os erros não desaparecerem, [contacte o suporte][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contactar o Suporte
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Suporte de contato
 
 Erro inesperado ou não há solução conhecida. Recolha o ficheiro AzureEnhancedMonitoring_service.log localizado na pasta C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \drop (Windows) ou /var/log/azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) e contacte o suporte DA SAP para mais assistência.
 
@@ -1507,7 +1521,7 @@ Se planeia construir uma imagem de SO (que pode incluir software SAP), recomenda
 No entanto, se a sua imagem de SO generalizada e sisprepped já contiver a Extensão Azure para SAP, pode aplicar a seguinte solução para reconfigurar a extensão, na instância VM recentemente implantada:
 
 * No caso VM recentemente implantado, elimine o conteúdo das seguintes pastas:  
-  C:\Pacotes\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \RuntimeSettings C:\Packages\Plugins\Microsoft.AzureCAT.AzureEncedMonitoring.AzureCATExtensionHandler \\ \<version\> \Status \Status \Status \Status
+  C:\Pacotes\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \RuntimeSettings C:\Packages\Plugins\Microsoft.AzureCAT.AzureEncedMonitoring.AzureCATExtensionHandler \\ \<version\> \Status
 
 * Siga os passos do capítulo [Configure a Extensão Azure para SAP][deployment-guide-4.5] neste guia para instalar novamente a extensão.
 

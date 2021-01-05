@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522333"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807557"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Resolver problemas de conectividade do Ponto Final Privado do Azure
 
@@ -100,8 +100,24 @@ Reveja estes passos para se certificar de que todas as configurações habituais
     
        ![Regras de saída da NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
+1. A Máquina Virtual de Origem deve ter a rota para o next hop do Ponto Final Privado como InterfaceEndpoints nas Rotas Eficazes do NIC. 
+
+    a. Se não conseguir ver a Rota do Ponto Final Privada na Fonte VM, verifique se 
+     - O VM de Origem e o Ponto Final Privado pertencem ao mesmo VNET. Se sim, então precisa de apoio. 
+     - O VM de Origem e o Ponto Final Privado fazem parte de diferentes VNETs e, em seguida, verifique a conectividade IP entre os VNETS. Se houver conectividade IP e ainda não conseguir ver a rota, engate o suporte. 
+
 1. Se a ligação tiver resultados validados, o problema de conectividade pode estar relacionado com outros aspetos como segredos, fichas e senhas na camada de aplicação.
-   - Neste caso, reveja a configuração do recurso de ligação privada associado ao ponto final privado. Para mais informações, consulte o [guia de resolução de problemas da Azure Private Link](troubleshoot-private-link-connectivity.md).
+   - Neste caso, reveja a configuração do recurso de ligação privada associado ao ponto final privado. Para mais informações, consulte o [guia de resolução de problemas do Azure Private Link](troubleshoot-private-link-connectivity.md)
+   
+1. É sempre bom reduzir antes de levantar o bilhete de apoio. 
+
+    a. Se a Fonte estiver ligada ao Ponto Final Privado em Azure com problemas, então tente ligar 
+      - Para outra Máquina Virtual a partir de Instalações e verifique se tem conectividade IP com a Rede Virtual a partir de Instalações. 
+      - De uma máquina virtual na Rede Virtual até ao Ponto Final Privado.
+      
+    b. Se a Fonte é Azure e Private Endpoint está em rede virtual diferente, então tente ligar 
+      - Para o Ponto Final Privado de uma Fonte diferente. Ao fazê-lo, pode isolar quaisquer problemas específicos da Máquina Virtual. 
+      - Para qualquer Máquina Virtual que faça parte da mesma Rede Virtual da Private Endpoint.  
 
 1. Contacte a equipa [de Suporte Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se o seu problema ainda não estiver resolvido e ainda existir um problema de conectividade.
 

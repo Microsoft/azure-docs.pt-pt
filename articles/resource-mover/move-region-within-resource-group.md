@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528232"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797285"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Mover recursos através das regiões (do grupo de recursos)
 
@@ -58,9 +58,12 @@ Neste artigo, aprenda a mover recursos num grupo de recursos específicos para u
 
 Selecione os recursos que pretende mover. Você move recursos para uma região alvo na subscrição da região de origem. Se quiser alterar a subscrição, pode fazê-lo depois de os recursos serem transferidos.
 
+> [!NOTE]
+>  Não selecione discos associados ou a operação falhará. Os discos associados são automaticamente incluídos num movimento VM.
+
 1. No portal Azure, abra o grupo de recursos relevante.
 2. Na página do grupo de recursos, selecione os recursos que pretende mover.
-3. Selecione **Move**  >  **Mover-se para outra região**.
+3. Selecione   >  **Mover-se para outra região**.
 
     ![Seleção para transferir recursos para uma região diferente](./media/move-region-within-resource-group/select-move-region.png)
     

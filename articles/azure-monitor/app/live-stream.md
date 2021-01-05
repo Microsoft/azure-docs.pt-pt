@@ -4,12 +4,12 @@ description: Monitorize a sua aplicação web em tempo real com métricas person
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973590"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803583"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnóstico com latência de 1 segundo
 
@@ -36,6 +36,7 @@ As Métricas Ao Vivo são atualmente suportadas para ASP.NET, ASP.NET Core, Azur
    * [ASP.NET Core](./asp-net-core.md)- Métricas vivas é ativada por padrão.
    * [.NET/.NET Core Console/Worker](./worker-service.md)- As métricas ao vivo são ativadas por padrão.
    * [.NET Aplicações - Ativar a utilização do código](#enable-livemetrics-using-code-for-any-net-application).
+    * [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) - As Métricas Vivas são ativadas por padrão.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. No [portal Azure,](https://portal.azure.com)abra o recurso Application Insights para a sua aplicação e, em seguida, abra live stream.
@@ -180,7 +181,7 @@ No ficheiro applicationinsights.config, adicione o AuthenticationApiKey ao Quick
 </Add>
 ```
 
-### <a name="aspnet-core"></a>Núcleo de ASP.NET
+### <a name="aspnet-core"></a>ASP.NET Core
 
 Para ASP.NET aplicações [Core,](./asp-net-core.md) siga as instruções abaixo.
 
@@ -238,7 +239,7 @@ No entanto, se reconhecer e confiar em todos os servidores conectados, pode expe
 
 ## <a name="supported-features-table"></a>Tabela de funcionalidades suportadas
 
-| Idioma                         | Métricas Básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de amostra    | CPU dividido por processo |
+| Linguagem                         | Métricas Básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de amostra    | CPU dividido por processo |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET Framework                   | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+)  |
 | .NET Core (target=.NET Framework)| Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+)  |

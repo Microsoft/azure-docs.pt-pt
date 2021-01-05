@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 6f2c15518a12a99ca1390284165ad2d48156e06a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a53eb1004d68045781903b71d02c3416f494be2
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968677"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803821"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens de ouro em Azure
 
@@ -216,4 +216,4 @@ Para obter medidas para aplicar a encriptação do disco Azure, consulte [os cen
 - Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho, consulte [a Infraestrutura de Atualização do Chapéu Vermelho Azure.](./redhat-rhui.md)
 - Para saber mais sobre todas as imagens do Chapéu Vermelho em Azure, consulte a página de [documentação](./redhat-images.md).
 - Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte a página do [ciclo de vida da Red Hat Enterprise Linux.](https://access.redhat.com/support/policy/updates/errata)
-- Para obter documentação adicional sobre as imagens de ouro rhel, consulte a [documentação do Chapéu Vermelho.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure)
+- Para obter documentação adicional sobre as imagens de ouro rhel, consulte a [documentação do Chapéu Vermelho.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access)

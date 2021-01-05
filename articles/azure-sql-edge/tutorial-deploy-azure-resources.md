@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: d83745db6c720a2fdc2260a07a4e3e66b1a0771d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9578793c88c069b885f03dd682c47ae9f1f1b0a1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422217"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802631"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instale software e crie recursos para o tutorial
 
@@ -32,7 +32,7 @@ Neste tutorial em três partes, você vai criar um modelo de aprendizagem autom�
 5. Instale a versão mais recente do [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Os seguintes scripts exigem que o AZ PowerShell seja a versão mais recente (3.5.0, fev 2020).
 6. Confifiquei o ambiente para depurar, executar e testar a solução IoT Edge instalando [a ferramenta Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
 7. Instale o Docker.
-8. Descarregue o ficheiro [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) que será utilizado no tutorial. 
+8. Descarregue o ficheiro DACPAC que será utilizado no tutorial. 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Implementar recursos Azure usando o PowerShell Script
 

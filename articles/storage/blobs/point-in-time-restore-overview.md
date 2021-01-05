@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908800"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803872"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
@@ -43,7 +43,7 @@ A operação **Restore Blob Ranges** devolve um ID de restauro que identifica ex
 > As operações de leitura a partir do local secundário podem prosseguir durante a operação de restauro se a conta de armazenamento for geo-replicada.
 
 > [!CAUTION]
-> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de apagar um recipiente, elimine as bolhas individuais se desejar restaurá-las.
+> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de eliminar um recipiente inteiro, elimine as bolhas individuais se desejar restaurá-las mais tarde.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Pré-requisitos para restauro pontual
 
@@ -57,9 +57,12 @@ A restauração pontual requer que as seguintes funcionalidades de Armazenamento
 
 Quando ativar a restauração pontual para uma conta de armazenamento, especifique um período de retenção. As bolhas de bloqueio na sua conta de armazenamento podem ser restauradas durante o período de retenção.
 
-O período de retenção começa quando se permite a restauração pontual. Tenha em mente que não pode restaurar as bolhas num estado antes do início do período de retenção. Por exemplo, se for habilitado a restaurar o ponto a tempo no dia 1 de maio com uma retenção de 30 dias, então no dia 15 de maio pode restaurar até um máximo de 15 dias. No dia 1 de junho, pode restaurar os dados entre 1 e 30 dias.
+O período de retenção começa poucos minutos depois de permitir a restauração pontual. Tenha em mente que não pode restaurar as bolhas num estado antes do início do período de retenção. Por exemplo, se for habilitado a restaurar o ponto a tempo no dia 1 de maio com uma retenção de 30 dias, então no dia 15 de maio pode restaurar até um máximo de 15 dias. No dia 1 de junho, pode restaurar os dados entre 1 e 30 dias.
 
 O período de retenção para a restauração pontual deve ser pelo menos um dia a menos do que o período de retenção especificado para a eliminação suave. Por exemplo, se o período de retenção de eliminação suave for definido para 7 dias, então o período de retenção de restauração pontual pode ser entre 1 e 6 dias.
+
+> [!IMPORTANT]
+> O tempo que demora a restaurar um conjunto de dados baseia-se no número de operações de escrita e eliminação efetuadas durante o período de restauração. Por exemplo, uma conta com um milhão de objetos com 3.000 objetos adicionados por dia e 1.000 objetos apagados por dia exigirá aproximadamente duas horas para restaurar um ponto de 30 dias no passado. Um período de retenção e restauro superior a 90 dias no passado não seria recomendado para uma conta com esta taxa de variação.
 
 ### <a name="permissions-for-point-in-time-restore"></a>Permissões para restauro pontual
 

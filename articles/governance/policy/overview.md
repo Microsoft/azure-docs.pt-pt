@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097393"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803957"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -37,7 +37,7 @@ Para obter informações detalhadas sobre quando e como a avaliação da políti
 
 ### <a name="control-the-response-to-an-evaluation"></a>Controlar a resposta a uma avaliação
 
-As regras comerciais para o manuseamento de recursos não conformes variam muito entre as organizações. Exemplos de como uma organização quer que a plataforma responda a um recurso de não reclamação incluem:
+As regras comerciais para o manuseamento de recursos não conformes variam muito entre as organizações. Exemplos de como uma organização quer que a plataforma responda a um recurso não conforme incluem:
 
 - Negar a mudança de recursos
 - Registar a alteração para o recurso
@@ -148,7 +148,7 @@ Por exemplo, considere um cenário em que tem uma definição de iniciativa - **
 | Política | Nome do parâmetro |Tipo de parâmetro  |Nota |
 |---|---|---|---|
 | policyA | allowedLocations | matriz  |Este parâmetro espera uma lista de cadeias para um valor, uma vez que o tipo de parâmetro foi definido como uma matriz |
-| policyB | allowedSingleLocation |cadeia |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
+| policyB | allowedSingleLocation |string |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
 
 Neste cenário, quando define os parâmetros da iniciativa para **initiativeC**, tem três opções:
 

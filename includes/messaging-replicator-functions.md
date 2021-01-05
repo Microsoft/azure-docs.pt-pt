@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc6b7553d240de05404d24f828a5f7db14772f93
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 279a00a6146d756e6a518dbf86b88f471d170b3a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657508"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805611"
 ---
 ## <a name="what-is-a-replication-task"></a>O que é uma tarefa de replicação?
 
@@ -22,11 +22,11 @@ A maioria das tarefas de replicação irá encaminhar eventos inalterados e, no 
 
 As tarefas de replicação são geralmente apátridas, o que significa que não partilham efeitos estatais ou secundários através de execuções sequenciais ou paralelas de uma tarefa. Isso também se aplica ao loteamento e à corrente, que ambos podem ser implementados em cima do estado existente de um fluxo. 
 
-Isto torna as tarefas de replicação diferentes das tarefas de agregação, que são geralmente imponentes, e são o domínio de quadros e serviços de análise como [o Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction.md).
+Isto torna as tarefas de replicação diferentes das tarefas de agregação, que são geralmente imponentes, e são o domínio de quadros e serviços de análise como [o Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
 ## <a name="replication-applications-and-tasks-in-azure-functions"></a>Aplicações e tarefas de replicação em Funções Azure
 
-Em Funções Azure, uma tarefa de replicação é implementada usando um [gatilho](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md) que adquire uma ou mais mensagem de entrada de uma fonte configurada e uma [ligação de saída](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md#binding-direction) que reencaminha mensagens copiadas da fonte para um alvo configurado. 
+Em Funções Azure, uma tarefa de replicação é implementada usando um [gatilho](/azure/azure-functions/functions-triggers-bindings) que adquire uma ou mais mensagem de entrada de uma fonte configurada e uma [ligação de saída](/azure/azure-functions/functions-triggers-bindings#binding-direction) que reencaminha mensagens copiadas da fonte para um alvo configurado. 
 
 | Acionador  | Saída |
 |----------|--------|
@@ -57,17 +57,17 @@ Para tarefas simples de replicação que copiam mensagens entre Os Centros de Ev
 
 ### <a name="retry-policy"></a>Política de Repetição
 
-Para evitar a perda de dados durante o evento de disponibilidade em ambos os lados de uma função de replicação, é necessário configurar a política de reagem para ser robusto. Consulte a documentação do [Azure Functions sobre as retrações](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) para configurar a política de retíria. 
+Para evitar a perda de dados durante o evento de disponibilidade em ambos os lados de uma função de replicação, é necessário configurar a política de reagem para ser robusto. Consulte a documentação do [Azure Functions sobre as retrações](/azure/azure-functions/functions-bindings-error-pages) para configurar a política de retíria. 
 
 As definições de política escolhidas para o exemplo projetam no [repositório](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) de amostras configurar uma estratégia exponencial de backoff com intervalos de retry de 5 segundos a 15 minutos com infinitas retrações para evitar a perda de dados. 
 
-Para o Service Bus, reveja a secção "usar o [suporte de repreensão em cima da resiliência do gatilho"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) para entender a interação dos gatilhos e a contagem máxima de entrega definida para a fila.
+Para o Service Bus, reveja a secção "usar o [suporte de repreensão em cima da resiliência do gatilho"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) para entender a interação dos gatilhos e a contagem máxima de entrega definida para a fila.
 
 ### <a name="setting-up-a-replication-application-host"></a>Criação de um anfitrião de aplicação de replicação
 
 Uma aplicação de replicação é um anfitrião de execução para uma ou mais tarefas de replicação. 
 
-É uma aplicação Azure Functions que está configurada para executar no plano de consumo ou (recomendado) num plano Azure Functions Premium. Todas as aplicações de replicação devem ser executadas sob uma [identidade gerida atribuída pelo sistema ou pelo utilizador.](https://docs.microsoft.com/azure/app-service/overview-managed-identity.md) 
+É uma aplicação Azure Functions que está configurada para executar no plano de consumo ou (recomendado) num plano Azure Functions Premium. Todas as aplicações de replicação devem ser executadas sob uma [identidade gerida atribuída pelo sistema ou pelo utilizador.](/azure/app-service/overview-managed-identity) 
 
 Os modelos ligados do Azure Resource Manager (ARM) criam e configuram uma aplicação de replicação com:
 
@@ -80,9 +80,9 @@ As aplicações de replicação que devem aceder aos Centros de Eventos ligados 
 
 |       | Implementação | Visualizar  
 |-------|------------------|--------------|---------------|
-| **Plano de Consumo de Funções Azure** | [![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2FAconsumption%2Fazuredeploy.json)|[![Visualizar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)
-| **Plano Premium de Funções Azure** |[![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json) | [![Visualizar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json)
-| **Plano Premium de Funções Azure com VNet** | [![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)|[![Visualizar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)
+| **Plano de Consumo de Funções Azure** | [![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2FAconsumption%2Fazuredeploy.json)|[![Visualizar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)
+| **Plano Premium de Funções Azure** |[![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json) | [![Visualizar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json)
+| **Plano Premium de Funções Azure com VNet** | [![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)|[![Visualizar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)
 
 
 ### <a name="examples"></a>Exemplos
@@ -137,7 +137,7 @@ Para obter informações imediatas de diagnóstico, pode trabalhar com a ferrame
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implementações de funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies.md)
-* [Diagnóstico de Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-diagnostics.md)
-* [Opções de networking de funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-networking-options.md)
-* [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview.md)
+* [Implementações de funções Azure](/azure/azure-functions/functions-deployment-technologies)
+* [Diagnóstico de Funções Azure](/azure/azure-functions/functions-diagnostics)
+* [Opções de networking de funções Azure](/azure/azure-functions/functions-networking-options)
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)

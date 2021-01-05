@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145859"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804059"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligue raspberry Pi ao Azure IoT Hub (C)
 
@@ -99,7 +99,7 @@ Prepare o cartão microSD para a instalação da imagem Raspbian.
 
 1. Descarregue Raspbian.
 
-   1. [Baixar Raspbian Stretch com Desktop](https://www.raspberrypi.org/downloads/raspbian/) (o ficheiro .zip).
+   1. [Baixar Raspbian Stretch com Desktop](https://www.raspberrypi.org/software/) (o ficheiro .zip).
 
    2. Extraia a imagem Raspbian para uma pasta no seu computador.
 
@@ -125,7 +125,7 @@ Prepare o cartão microSD para a instalação da imagem Raspbian.
 
    ![O menu Preferências Raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
-3. No separador **Interfaces,** desloque **SPI** e **SSH** para **ativar**e, em seguida, clique em **OK**. Se não tem sensores físicos e quer usar dados de sensores simulados, este passo é opcional.
+3. No separador **Interfaces,** desloque **SPI** e **SSH** para **ativar** e, em seguida, clique em **OK**. Se não tem sensores físicos e quer usar dados de sensores simulados, este passo é opcional.
 
    ![Ativar SPI e SSH em Raspberry Pi](./media/iot-hub-raspberry-pi-kit-c-get-started/2-enable-spi-ssh-on-raspberry-pi.png)
 
@@ -203,7 +203,7 @@ Ligue pi utilizando o cabo MICRO USB e a fonte de alimentação. Utilize o cabo 
    ```
 
    > [!NOTE] 
-   > Se **não tiver um BME280 físico,** pode utilizar '---dados simulados' como parâmetro da linha de comando para simular dados de temperatura&humidade. `sudo ./setup.sh --simulated-data`
+   > Se **não tiver um BME280 físico,** pode utilizar '-dados simulados' como parâmetro da linha de comando para simular dados de temperatura&humidade. `sudo ./setup.sh --simulated-data`
    >
 
 ### <a name="build-and-run-the-sample-application"></a>Construa e execute a aplicação da amostra

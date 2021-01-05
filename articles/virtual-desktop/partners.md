@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a1b178450a1aa06db07d7b1ef525f7f781db9ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602823"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802716"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
 
@@ -62,7 +62,7 @@ Assim que estiver pronto para o lançamento, pode utilizar todos os scripts de f
 A Automai permite-lhe utilizar os mesmos scripts para testes de desempenho, testes funcionais, monitorização de desempenho e até mesmo automatização de processos robóticos, tudo numa plataforma.
 
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
-- [Vá ao site do parceiro.](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580)
+- [Vá ao site do parceiro.](https://www.automai.com/windows-virtual-desktop-performance-testing/)
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -406,7 +406,7 @@ O Workspot alarga o valor do Windows Virtual Desktop simplificando o processo de
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Vá ao site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Windows Virtual Desktop](overview.md).
 - [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

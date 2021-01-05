@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102911"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805606"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os seguintes cenários podem beneficiar muito da explosão:
@@ -47,7 +47,7 @@ Os exemplos a seguir mostram como a explosão funciona com várias combinações
     - MB/s provisionados: 25
     - Max burst MB/s: 170 
 - 2 Discos de dados P10 
-    - MB/s provisionados: 25
+    - MB/s provisionados: 100
     - Max burst MB/s: 170
 
  Quando o VM arrancar, recuperará dados do disco oss. Uma vez que o disco DE faz parte de um VM que está a começar, o disco de SO estará cheio de créditos rebentados. Estes créditos permitirão que o disco DE rebentasse o seu arranque em 170 MB/s segundo, como se vê abaixo:

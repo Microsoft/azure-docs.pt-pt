@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral da federação multi-site e mu
 ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 02057d505308902d780e20e095bc248d1eaa1a74
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7deb6fe04241225f1f97a204cc62b4aefad9f440
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657463"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804042"
 ---
-# <a name="multi-site-and-multi-region-federation"></a>Federação multi-local e multi-região
+# <a name="multi-site-and-multi-region-federation"></a>Federação de vários sites e várias regiões
 
 Muitas soluções sofisticadas exigem que os mesmos fluxos de eventos sejam disponibilizados para consumo em vários locais, ou exigem que os fluxos de eventos sejam recolhidos em vários locais e depois consolidados num local específico para consumo. Há também muitas vezes a necessidade de enriquecer ou reduzir fluxos de eventos ou fazer conversões de formato de evento, também para dentro de uma única região e solução.
 
@@ -148,9 +148,9 @@ A implementação dos padrões acima requer um ambiente de execução escalável
 
 Para aplicações de replicação imponente que precisam considerar relações entre eventos, criar eventos compósitos, enriquecer eventos ou reduzir eventos, criar agregações de dados e transformar cargas de eventos, o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) é a melhor opção de implementação.
 
-No Azure Stream Analytics, [cria-se empregos](../stream-analytics/stream-analytics-quick-create-portal.md) que integram [entradas](../stream-analytics/stream-analytics-add-inputs.md) e saídas e integra os [dados](../stream-analytics/stream-analytics-define-outputs.md) a partir das entradas através de [consultas](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) que produzem um resultado que é depois disponibilizado nas saídas.
+No Azure Stream Analytics, [cria-se empregos](../stream-analytics/stream-analytics-quick-create-portal.md) que integram [entradas](../stream-analytics/stream-analytics-add-inputs.md) e saídas e integra os [dados](../stream-analytics/stream-analytics-define-outputs.md) a partir das entradas através de [consultas](/stream-analytics-query/stream-analytics-query-language-reference) que produzem um resultado que é depois disponibilizado nas saídas.
 
-As consultas são baseadas na [linguagem de consulta SQL](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) e podem ser usadas para filtrar, classificar, agregar e juntar dados de streaming durante um período de tempo. Também pode estender este idioma SQL com funções definidas pelo utilizador [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) e [C# (UDFs)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). Pode ajustar facilmente as opções de encomenda de eventos e a duração das janelas de tempo ao realizar operações de agregação através de simples construções e/ou configurações linguísticas.
+As consultas são baseadas na [linguagem de consulta SQL](/stream-analytics-query/stream-analytics-query-language-reference) e podem ser usadas para filtrar, classificar, agregar e juntar dados de streaming durante um período de tempo. Também pode estender este idioma SQL com funções definidas pelo utilizador [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) e [C# (UDFs)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). Pode ajustar facilmente as opções de encomenda de eventos e a duração das janelas de tempo ao realizar operações de agregação através de simples construções e/ou configurações linguísticas.
 
 Cada trabalho tem uma ou várias saídas para os dados transformados, e você pode controlar o que acontece em resposta à informação que analisou. Pode, por exemplo:
 
@@ -191,7 +191,7 @@ Neste artigo, exploramos uma série de padrões de federação e explicamos o pa
 
 Em seguida, você pode querer ler como configurar uma aplicação de replicador com Azure Stream Analytics ou Azure Functions e, em seguida, como replicar fluxos de eventos entre Os Centros de Eventos e vários outros sistemas de eventos e mensagens:
 
-- [Padrões de tarefa de replicação de eventos][10]
+- [Padrões da tarefa de replicação de eventos][10]
 - [Dados do processo com a Azure Stream Analytics][9]
 - [Aplicações de replicador de eventos em Funções Azure][1]
 - [Replicação de eventos entre centros de eventos][2]

@@ -10,12 +10,13 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+adobe-target: true
+ms.openlocfilehash: 0334e259f75440cae25f1e165c0621c85f7c7705
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183146"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804008"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -25,7 +26,7 @@ Este guia fornece conceitos e instruções fundamentais para desenvolvedores jav
 
 ## <a name="deploying-your-app"></a>Implementação da sua app
 
-Pode utilizar [o Azure Web App Plugin para o Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar os seus ficheiros .war ou .jar. A implementação com iDEs populares também é suportada com o [Azure Toolkit para IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit para Eclipse](/azure/developer/java/toolkit-for-eclipse).
+Pode utilizar [o Azure Web App Plugin para o Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) para implementar os seus ficheiros .war ou .jar. A implementação com iDEs populares também é suportada com o [Azure Toolkit para IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit para Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Caso contrário, o seu método de implantação dependerá do seu tipo de arquivo:
 
@@ -429,7 +430,7 @@ Para configurar o Tomcat para utilizar a Conectividade da Base de Dados de Java 
 </appSettings>
 ```
 
-Ou definir as variáveis **Configuration** de ambiente na página  >  **Configurações de Configuração** do portal Azure.
+Ou definir as variáveis de ambiente na página  >  **Configurações de Configuração** do portal Azure.
 
 Em seguida, determine se a fonte de dados deve estar disponível para uma aplicação ou para todas as aplicações em execução na servidão Tomcat.
 
@@ -507,7 +508,7 @@ Para configurar o Tomcat para utilizar a Conectividade da Base de Dados de Java 
 </appSettings>
 ```
 
-Ou definir as variáveis **Configuration** de ambiente na página  >  **Configurações de Configuração** do portal Azure.
+Ou definir as variáveis de ambiente na página  >  **Configurações de Configuração** do portal Azure.
 
 Em seguida, determine se a fonte de dados deve estar disponível para uma aplicação ou para todas as aplicações em execução na servidão Tomcat.
 
@@ -541,7 +542,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
 
 #### <a name="shared-server-level-resources"></a>Recursos ao nível do servidor partilhados
 
-A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite a server.xml do Tomcat. Em primeiro lugar, faça o upload de um [script de arranque](faq-app-service-linux.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  **Startup Command**. Pode carregar o script de arranque utilizando [FTP](deploy-ftp.md).
+A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite a server.xml do Tomcat. Em primeiro lugar, faça o upload de um [script de arranque](faq-app-service-linux.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  . Pode carregar o script de arranque utilizando [FTP](deploy-ftp.md).
 
 O seu script de arranque fará uma [transformação de xsl](https://www.w3schools.com/xml/xsl_intro.asp) para o ficheiro server.xml e descolou o ficheiro xml resultante para `/usr/local/tomcat/conf/server.xml` . O script de arranque deve instalar libxslt via apk. O seu ficheiro xsl e o script de arranque podem ser carregados via FTP. Abaixo está um script de arranque exemplo.
 
@@ -678,7 +679,7 @@ Existem três passos principais ao [registar uma fonte de dados com o JBoss EAP]
     ```
 
 1. Utilizando um cliente FTP à sua escolha, faça o upload do seu controlador JDBC, `jboss-cli-commands.cli` `startup_script.sh` e a definição do módulo para `/site/deployments/tools/` .
-2. Configure o seu site para funcionar `startup_script.sh` quando o recipiente começar. No Portal Azure, navegue para o Comando de Arranque de **Configuration**  >  **Configurações Gerais** de Configuração  >  **Startup Command**. Desa um campo de comando de `/home/site/deployments/tools/startup_script.sh` arranque. **Guarde** as suas alterações.
+2. Configure o seu site para funcionar `startup_script.sh` quando o recipiente começar. No Portal Azure, navegue para o Comando de Arranque de   >  **Configurações Gerais** de Configuração  >  . Desa um campo de comando de `/home/site/deployments/tools/startup_script.sh` arranque. **Guarde** as suas alterações.
 
 Para confirmar que a fonte de dados foi adicionada ao servidor JBoss, SSH no seu webapp e executado `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Assim que estiver ligado ao JBoss, faça a `/subsystem=datasources:read-resource` impressão para imprimir uma lista das fontes de dados.
 

@@ -3,16 +3,16 @@ title: Quais são os modelos de aplicação no Azure IoT Central ? Microsoft Doc
 description: Os modelos de aplicação Azure IoT Central permitem-lhe saltar para o desenvolvimento da solução IoT.
 author: philmea
 ms.author: philmea
-ms.date: 10/25/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: dae2461336316defb6f2cfc63b775c67cf2196d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91813071"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797133"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicação?
 

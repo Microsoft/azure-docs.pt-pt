@@ -13,12 +13,12 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
-ms.openlocfilehash: 1d6a51e2e9c052be0c59435b287c5fdde459f55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334196"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802529"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligue raspberry Pi ao Azure IoT Hub (Node.js)
 
@@ -81,7 +81,7 @@ Os seguintes itens são opcionais:
 > [!NOTE]
 > Se não tiver os itens opcionais, pode utilizar dados de sensores simulados.
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -97,7 +97,7 @@ Prepare o cartão microSD para a instalação da imagem Raspbian.
 
 1. Descarregue Raspbian.
 
-   a. [Raspbian Buster com ambiente de trabalho](https://www.raspberrypi.org/downloads/raspbian/) (o ficheiro .zip).
+   a. [Raspbian Buster com ambiente de trabalho](https://www.raspberrypi.org/software/) (o ficheiro .zip).
 
    b. Extraia a imagem Raspbian para uma pasta no seu computador.
 
@@ -125,7 +125,7 @@ Prepare o cartão microSD para a instalação da imagem Raspbian.
 
    ![O menu Preferências Raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. No separador **Interfaces,** desloque **o I2C** e **o SSH** para **ativar**e, em seguida, clique em **OK**. Se não tem sensores físicos e quer usar dados de sensores simulados, este passo é opcional.
+4. No separador **Interfaces,** desloque **o I2C** e **o SSH** para **ativar** e, em seguida, clique em **OK**. Se não tem sensores físicos e quer usar dados de sensores simulados, este passo é opcional.
 
    ![Ativar I2C e SSH em Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 

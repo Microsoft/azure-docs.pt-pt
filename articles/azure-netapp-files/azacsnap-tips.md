@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: d73bfd19a4135d09e9e19fcbcfedd50dbc1f7067
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632811"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803192"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Dicas e truques para utilizar a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -132,7 +132,7 @@ Um instantâneo de volume de armazenamento pode ser restaurado para um novo volu
 
 Um instantâneo pode ser copiado de volta para a área de dados SAP HANA, mas SAP HANA não deve estar a funcionar quando uma cópia é feita ( `cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*` ).
 
-Para a Azure Large Instance, pode contactar a equipa de operações da Microsoft abrindo um pedido de serviço para restaurar uma imagem desejada a partir das imagens existentes. Pode abrir um pedido de serviço a partir do portal Azure: <https://portal.azure.com.>
+Para a Azure Large Instance, pode contactar a equipa de operações da Microsoft abrindo um pedido de serviço para restaurar uma imagem desejada a partir das imagens existentes. Pode abrir um pedido de serviço a partir do portal Azure: <https://portal.azure.com>
 
 Se decidir executar o failover de recuperação de `azacsnap -c restore --restore revertvolume` desastres, o comando no site DR disponibilizará automaticamente as imagens de volume mais recentes ( `/hana/data` `/hana/logbackups` e) instantâneas de volume para permitir uma recuperação do SAP HANA. Utilize este comando com cuidado, uma vez que quebra a replicação entre os locais de produção e DR.
 
@@ -249,7 +249,7 @@ Um instantâneo 'boot' pode ser recuperado da seguinte forma:
 
 1. O cliente terá de desligar o servidor.
 1. Depois de o Servidor ser desligado, o cliente terá de abrir um pedido de serviço que contenha o ID da Máquina e o Snapshot para restaurar.
-    > Os clientes podem abrir um pedido de serviço a partir do portal Azure: <https://portal.azure.com.>
+    > Os clientes podem abrir um pedido de serviço a partir do portal Azure: <https://portal.azure.com>
 1. A Microsoft restaurará o Sistema Operativo LUN utilizando o ID e Instantâneo da máquina especificados e, em seguida, iniciará o Servidor.
 1. O cliente terá então de confirmar que o Server é iniciado e saudável.
 

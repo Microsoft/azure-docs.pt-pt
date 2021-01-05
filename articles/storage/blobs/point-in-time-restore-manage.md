@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895728"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803923"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Execute uma restauração pontual em dados de blob de bloco
 
@@ -23,7 +23,7 @@ Pode utilizar o restauro pontual para restaurar um ou mais conjuntos de bolhas d
 Para saber mais sobre a restauração pontual, consulte [o restauro do ponto-a-tempo para as bolhas de blocos](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de apagar um recipiente, elimine as bolhas individuais se desejar restaurá-las.
+> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de eliminar um recipiente inteiro, elimine as bolhas individuais se desejar restaurá-las mais tarde.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Permitir e configurar o ponto-a-tempo restaurar
 
@@ -107,6 +107,8 @@ Apenas bolhas de blocos são restauradas. As bolhas de página e as bolhas de ap
 > Quando executa uma operação de restauro, o Azure Storage bloqueia as operações de dados nas bolhas das gamas que estão a ser restauradas durante a operação. As operações de leitura, escrita e eliminação estão bloqueadas na localização primária. Por esta razão, as operações como a listagem de contentores no portal Azure podem não funcionar como esperado enquanto a operação de restauro estiver em curso.
 >
 > As operações de leitura a partir do local secundário podem prosseguir durante a operação de restauro se a conta de armazenamento for geo-replicada.
+>
+> O tempo que demora a restaurar um conjunto de dados baseia-se no número de operações de escrita e eliminação efetuadas durante o período de restauração. Por exemplo, uma conta com um milhão de objetos com 3.000 objetos adicionados por dia e 1.000 objetos apagados por dia exigirá aproximadamente duas horas para restaurar um ponto de 30 dias no passado. Um período de retenção e restauro superior a 90 dias no passado não seria recomendado para uma conta com esta taxa de variação.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurar todos os contentores na conta
 

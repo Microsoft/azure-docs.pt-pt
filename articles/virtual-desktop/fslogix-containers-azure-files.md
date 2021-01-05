@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bd667bc7fce8f9fb10b852cae7a6c4ad198d75
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002394"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797201"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -47,11 +47,11 @@ A tabela a seguir mostra benefícios e limitações de tecnologias anteriores de
 
 | Tecnologia | Configurações modernas | Definições win32 | Definições de SO | Dados de utilizador | Suportado no servidor SKU | Armazenamento back-end em Azure | Armazenamento em back-end no local | Suporte de versão | Sinal subsequente a tempo |Notas|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil do utilizador (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Ganhar 7+ | Sim | |
-| **Perfil do utilizador roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Ganhar 7+ | Não | |
-| **Roaming do Estado da Empresa (ESR)** | Sim | Não | Sim | Não | Ver notas | Sim | Não | Ganhar 10 | Não | Funções no servidor SKU, mas sem interface de utilizador de suporte |
-| **Virtualização da experiência do utilizador (UE-V)** | Sim | Sim | Sim | Não | Sim | Não | Sim | Ganhar 7+ | Não |  |
-| **Ficheiros de nuvem OneDrive** | Não | Não | Não | Sim | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | Não | Não testado no servidor SKU. O armazenamento em back-end em Azure depende do cliente sincronizado. O armazenamento no prem precisa de um cliente sincronizado. |
+| **Discos de perfil do utilizador (UPD)** | Yes | Yes | Yes | Yes | Yes | No | Yes | Ganhar 7+ | Yes | |
+| **Perfil do utilizador roaming (RUP), modo de manutenção** | No | Yes | Yes | Yes | Yes| No | Yes | Ganhar 7+ | No | |
+| **Roaming do Estado da Empresa (ESR)** | Yes | No | Yes | No | Ver notas | Yes | No | Ganhar 10 | No | Funções no servidor SKU, mas sem interface de utilizador de suporte |
+| **Virtualização da experiência do utilizador (UE-V)** | Yes | Yes | Yes | No | Yes | No | Yes | Ganhar 7+ | No |  |
+| **Ficheiros de nuvem OneDrive** | No | No | No | Yes | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | No | Não testado no servidor SKU. O armazenamento em back-end em Azure depende do cliente sincronizado. O armazenamento no prem precisa de um cliente sincronizado. |
 
 #### <a name="performance"></a>Desempenho
 
@@ -87,7 +87,7 @@ Para garantir que o ambiente de ambiente de trabalho virtual do Windows segue as
 
 - A conta de armazenamento Azure Files deve estar na mesma região que os VMs anfitriões da sessão.
 - As permissões de Ficheiros Azure devem corresponder às permissões descritas nos [Requisitos - Profile Containers](/fslogix/fslogix-storage-config-ht).
-- Cada piscina hospedeira deve ser construída do mesmo tipo e tamanho VM com base na mesma imagem principal.
+- Cada vm da piscina hospedeira deve ser construída do mesmo tipo e tamanho VM com base na mesma imagem principal.
 - Cada grupo de anfitriões VM deve estar no mesmo grupo de recursos para ajudar a gestão, dimensionamento e atualização.
 - Para um melhor desempenho, a solução de armazenamento e o recipiente de perfil FSLogix devem estar na mesma localização do centro de dados.
 - A conta de armazenamento que contém a imagem principal deve estar na mesma região e na subscrição onde os VM estão a ser a provisionados.

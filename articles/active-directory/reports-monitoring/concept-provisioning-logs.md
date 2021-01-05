@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181208"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803532"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -44,6 +44,7 @@ Este tópico dá-lhe uma visão geral do relatório de provisionamento.
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 * Os proprietários de aplicações podem ver registos de aplicações que possuam
 * Utilizadores nas funções de Administrador de Segurança, Leitor de Segurança, Leitor de Relatórios, Administrador de Aplicações e Administrador de Aplicações em Nuvem
+* Utilizadores em uma função personalizada com a [permissão de provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Administradores Globais
 
 
@@ -56,12 +57,12 @@ O seu inquilino deve ter uma licença Azure AD Premium associada a ela para ver 
 Os registos de provisionamento fornecem respostas às seguintes questões:
 
 * Que grupos foram criados com sucesso no ServiceNow?
-* Que funções foram importadas da Amazon Web Services?
+* Que utilizadores foram removidos com sucesso da Adobe?
 * Que utilizadores foram criados sem sucesso no DropBox?
 
 Pode aceder aos registos de provisionamento selecionando **Registos de Provisionamento** na secção de **Monitorização** da lâmina do **Diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registos de provisionamento apareçam no portal.
 
-![Registos de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
+![Registos de aprovisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
 
 
 Um registo de provisionamento tem uma visão de lista padrão que mostra:
@@ -95,7 +96,7 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Data
+- Date
 - Estado
 - Ação
 
@@ -132,7 +133,7 @@ O filtro **Action** permite filtrar o:
 - Atualizar
 - Eliminar
 - Desativar
-- Outro
+- Outros
 
 Além disso, para os filtros da vista padrão, também pode definir os seguintes filtros:
 
@@ -219,7 +220,9 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 - Pode ver eventos ignorados para utilizadores que não estão no âmbito. Isto é esperado, especialmente quando o âmbito de sincronização é definido para todos os utilizadores e grupos. O nosso serviço irá avaliar todos os objetos do arrendatário, mesmo os que estão fora de alcance. 
 
-- Os registos de provisionamento estão atualmente indisponíveis na nuvem governamental. Se não conseguir aceder aos registos de provisionamento, utilize os registos de auditoria como uma solução temporária.  
+- Os registos de provisionamento estão atualmente indisponíveis na nuvem governamental. Se não conseguir aceder aos registos de provisionamento, utilize os registos de auditoria como uma solução temporária. 
+
+- Os registos de provisionamento não apresentam importações de funções (aplica-se à AWS, SalesForce e ZenDesk). Os registos relativos às importações de funções podem ser encontrados nos registos de auditoria. 
 
 ## <a name="error-codes"></a>Códigos de Erro
 

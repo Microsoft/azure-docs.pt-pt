@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968ca6fa293e7bcc01bae6f48164c48c19b8267b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501721"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803906"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Compreender papéis no Azure Ative Directory
 
@@ -44,7 +44,7 @@ Quando dizemos um sistema de controlo de acesso baseado em funções. significa 
 
 ## <a name="why-some-azure-ad-roles-are-for-other-services"></a>Por que alguns papéis de AD Azure são para outros serviços
 
-O Microsoft 365 possui uma série de sistemas de controlo de acesso baseados em funções que se desenvolveram de forma independente ao longo do tempo, cada um com o seu próprio portal de serviços. Para que seja conveniente gerir a identidade através da Microsoft 365 a partir do portal AD AZure, adicionámos algumas funções integradas específicas ao serviço, cada uma das quais concede acesso administrativo a um serviço Microsoft 365. Um exemplo desta adição é a função de Administrador de Câmbio no Azure AD. Esta função é equivalente ao grupo de [funções de Gestão](/exchange/organization-management-exchange-2013-help) da Organização no sistema de controlo de acesso baseado em papéis exchange, e pode gerir todos os aspetos do Exchange. Da mesma forma, adicionámos o papel de Administrador Intune, Administrador de Equipas, Administrador SharePoint, e assim por diante. As funções específicas do servidor são uma categoria de funções incorporadas AD AD na secção seguinte.
+O Microsoft 365 possui uma série de sistemas de controlo de acesso baseados em funções que se desenvolveram de forma independente ao longo do tempo, cada um com o seu próprio portal de serviços. Para que seja conveniente gerir a identidade através da Microsoft 365 a partir do portal AD AZure, adicionámos algumas funções integradas específicas ao serviço, cada uma das quais concede acesso administrativo a um serviço Microsoft 365. Um exemplo desta adição é a função de Administrador de Câmbio no Azure AD. Esta função é equivalente ao grupo de [funções de Gestão](/exchange/organization-management-exchange-2013-help) da Organização no sistema de controlo de acesso baseado em papéis exchange, e pode gerir todos os aspetos do Exchange. Da mesma forma, adicionámos o papel de Administrador Intune, Administrador de Equipas, Administrador SharePoint, e assim por diante. Funções específicas do serviço é uma categoria de funções incorporadas Azure na secção seguinte.
 
 ## <a name="categories-of-azure-ad-roles"></a>Categorias de funções AD Azure
 

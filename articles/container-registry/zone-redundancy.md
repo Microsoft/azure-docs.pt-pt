@@ -3,12 +3,12 @@ title: Registo redundante de zona para elevada disponibilidade
 description: Saiba como permitir a redundância da zona no Registo de Contentores Azure, criando um registo de contentores ou replicação numa zona de disponibilidade de Azure. O despedimento de zona é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 12/11/2020
-ms.openlocfilehash: f94d5a8d61c42e8833e21f035303be173c81764d
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1553beef47a3d493f066e47cd39751093d83fc24
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681815"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803515"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Permitir redundância de zona no Registo de Contentores de Azure para resiliência e elevada disponibilidade
 
@@ -25,7 +25,6 @@ O despedimento de zona é uma característica de **pré-visualização** do nív
 * A redundância da zona não pode ser desativada numa região.
 * [As tarefas ACR](container-registry-tasks-overview.md) ainda não suportam zonas de disponibilidade.
 * Atualmente suportado através de modelos Azure Resource Manager ou do portal Azure. O suporte do Azure CLI será ativado numa futura versão.
-* Atualmente, quando se desloca um registo de contentores redundantes para outro grupo de recursos, a definição de redundância da zona mostra como `Disabled` .
 
 ## <a name="about-zone-redundancy"></a>Sobre a redundância de zona
 
@@ -58,7 +57,7 @@ Para criar uma replicação redundante de zona:
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Se necessário, executar o [grupo az criar](/cli/az/group#az_group_create) comando para criar um grupo de recursos para o registo numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *eastus*.
+Se necessário, executar o [grupo az criar](/cli/azure/group) comando para criar um grupo de recursos para o registo numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *eastus*.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -164,7 +163,7 @@ Copie o seguinte conteúdo para um novo ficheiro e guarde-o utilizando um nome d
   }
 ```
 
-Executar o [grupo de implementação az](/cli/az/deployment#az_group_deployment_create) seguinte criar comando para criar o registo usando o ficheiro de modelo anterior. Quando indicado, fornecer:
+Executar o [grupo de implementação az](/cli/azure/deployment?view=azure-cli-latest) seguinte criar comando para criar o registo usando o ficheiro de modelo anterior. Quando indicado, fornecer:
 
 * um nome de registo único, ou implementar o modelo sem parâmetros e criará um nome único para si
 * uma localização para a réplica que suporta zonas de disponibilidade, como *westus2*

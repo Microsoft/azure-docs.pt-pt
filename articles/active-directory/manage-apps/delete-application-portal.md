@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 12/28/2020
 ms.author: kenwith
-ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649403"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802767"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Elimine uma aplicação do seu inquilino Azure Ative Directory (Azure AD)
 
@@ -51,8 +51,8 @@ Para eliminar uma aplicação do seu inquilino AZure AD:
 
 Quando terminar com esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação foi coberta por este arranque rápido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Completou a série de arranque rápido! Como próximo passo, leia sobre as melhores práticas na gestão de aplicações.
+Completou a série de arranque rápido! Em seguida, saiba sobre Single Sign-On (SSO), ver [O que é SSO?](what-is-single-sign-on.md) Ou ler sobre as melhores práticas na gestão de aplicações.
 > [!div class="nextstepaction"]
 > [Gestão de aplicações boas práticas](application-management-fundamentals.md)
