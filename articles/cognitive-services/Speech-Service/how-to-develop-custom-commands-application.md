@@ -1,7 +1,7 @@
 ---
 title: 'Como fazer: Desenvolver aplicações de comandos personalizados - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste como fazer, aprende-se a desenvolver e personalizar aplicações de Comandos Personalizados. Os Comandos Personalizados facilitam a construção de aplicações de comando de voz ricas otimizadas para experiências de interação de voz e é mais adequada para a conclusão de tarefas ou cenários de comando e controlo, particularmente bem combinados para dispositivos internet of things (IoT), dispositivos ambiente e sem cabeça.
+description: Aprenda a desenvolver e personalizar aplicações de Comandos Personalizados. Estas aplicações de comando de voz são mais adequadas para a conclusão de tarefas ou cenários de comando e controlo.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,218 +10,226 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: 98c0459e0b67102458169147b1d39e98e2b3e2b1
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632959"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835079"
 ---
 # <a name="develop-custom-commands-applications"></a>Desenvolver aplicações de comandos personalizados
 
-Neste como fazer, aprende-se a desenvolver e configurar aplicações de Comandos Personalizados. Os Comandos Personalizados facilitam a construção de aplicações de comando de voz ricas otimizadas para experiências de interação de voz e é mais adequada para a conclusão de tarefas ou cenários de comando e controlo, particularmente bem combinados para dispositivos internet of things (IoT), dispositivos ambiente e sem cabeça.
+Neste artigo de como fazer, aprende-se a desenvolver e configurar aplicações de Comandos Personalizados. A funcionalidade Comandos Personalizados ajuda-o a construir aplicações ricas de comando de voz que são otimizadas para experiências de interação de voz.first. A funcionalidade é mais adequada para a conclusão de tarefas ou cenários de comando e controlo. É particularmente adequado para dispositivos Internet of Things (IoT) e para dispositivos ambiente e sem cabeça.
 
-Neste artigo, cria-se uma aplicação que pode ligar e desligar uma TV, definir a temperatura e definir um alarme. Depois de criar estes comandos básicos, as seguintes opções para personalizar comandos são cobertas:
+Neste artigo, cria-se uma aplicação que pode ligar e desligar uma TV, definir a temperatura e definir um alarme. Depois de criar estes comandos básicos, aprenderá sobre as seguintes opções para personalizar comandos:
 
 * Adicionar parâmetros aos comandos
 * Adicionar configurações aos parâmetros de comando
 * Regras de interação de edifícios
 * Criação de modelos de geração de linguagem para respostas de fala
-* Usando a voz personalizada 
+* Usando ferramentas de voz personalizadas
 
-## <a name="create-application-with-simple-commands"></a>Criar uma aplicação com comandos simples
+## <a name="create-an-application-by-using-simple-commands"></a>Criar uma aplicação utilizando comandos simples
 
-Primeiro, comece por criar uma aplicação de Comandos Personalizados vazios. Para mais detalhes, consulte o [arranque rápido](quickstart-custom-commands-application.md). Desta vez, em vez de importar um projeto, cria-se um projeto em branco.
+Comece por criar uma aplicação de Comandos Personalizados vazios. Para mais detalhes, consulte o [arranque rápido](quickstart-custom-commands-application.md). Nesta aplicação, em vez de importar um projeto, cria-se um projeto em branco.
 
-1. Na caixa **Nome,** insira o nome do projeto como `Smart-Room-Lite` (ou outra coisa à sua escolha).
+1. Na caixa **Nome,** insira o nome do projeto *Smart-Room-Lite* (ou outro nome à sua escolha).
 1. Na lista **de línguas,** selecione **Inglês (Estados Unidos)**.
-1. Selecione ou crie um recurso LUIS à sua escolha.
+1. Selecione ou crie um recurso LUIS.
 
    > [!div class="mx-imgBorder"]
-   > ![Criar um projeto](media/custom-commands/create-new-project.png)
+   > ![Screenshot mostrando a janela do "Novo projeto".](media/custom-commands/create-new-project.png)
 
 ### <a name="update-luis-resources-optional"></a>Atualizar os recursos LUIS (opcional)
 
-Pode atualizar o recurso de autoria que selecionou na janela do **projeto Novo** e definir um recurso de previsão. O recurso de previsão é utilizado para reconhecimento quando a sua aplicação de Comandos Personalizados é publicada. Não precisa de um recurso de previsão durante as fases de desenvolvimento e teste.
+Pode atualizar o recurso de autoria que selecionou na janela do **novo projeto.** Também pode definir um recurso de previsão. 
 
-### <a name="add-turnon-command"></a>Adicionar comando TurnOn
+Um recurso de previsão é usado para reconhecimento quando a sua aplicação De Comandos Personalizados é publicada. Não precisa de um recurso de previsão durante as fases de desenvolvimento e teste.
 
-Na aplicação de Comandos Personalizados **Smart-Room-Lite** vazia que acabou de criar, adicione um simples comando que processa uma `turn on the tv` expressão, e responde com a mensagem `Ok, turning the tv on` .
+### <a name="add-a-turnon-command"></a>Adicione um comando TurnOn
 
-1. Crie um novo Comando selecionando **Novo comando** na parte superior do painel esquerdo. A nova janela **de comando** abre-se.
-1. Fornecer valor para o campo **Nome** como **TurnOn**.
+Na aplicação de Comandos Personalizados Smart-Room-Lite vazia que criou, adicione um comando. O comando processará uma `Turn on the tv` expressão, . Responderá com a `Ok, turning the tv on` mensagem.
+
+1. Crie um novo comando selecionando **Novo comando** na parte superior do painel esquerdo. A nova janela **de comando** abre-se.
+1. Para o campo **Nome,** forneça o valor `TurnOn` .
 1. Selecione **Criar**.
 
-O painel do meio lista as diferentes propriedades do comando. Configurar as seguintes propriedades do comando. Para obter explicação de todas as propriedades de configuração de um comando, vá a [referências](./custom-commands-references.md).
+O painel do meio lista as propriedades do comando. 
+
+A tabela seguinte explica as propriedades de configuração do comando. Para mais informações, consulte [conceitos e definições de Comandos Personalizados.](./custom-commands-references.md)
 
 | Configuração            | Descrição                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **Frases de exemplo** | Palavras de exemplo que o utilizador pode dizer para desencadear este Comando                                                                 |
-| **Parâmetros**       | Informações necessárias para completar o Comando                                                                                |
-| **Regras de conclusão** | As ações a tomar para cumprir o Comando. Por exemplo, para responder ao utilizador ou comunicar com outro serviço web. |
-| **Regras de interação**   | Regras adicionais para lidar com situações mais específicas ou complexas                                                              |
+| Frases de exemplo | Palavras de exemplo que o utilizador pode dizer para desencadear este comando.                                                                 |
+| Parâmetros       | Informação necessária para completar o comando.                                                                                |
+| Regras de conclusão | Ações a serem tomadas para cumprir o comando. Exemplos: responder ao utilizador ou comunicar com um serviço web. |
+| Regras de interação   | Outras regras para lidar com situações mais específicas ou complexas.                                                              |
 
 
 > [!div class="mx-imgBorder"]
-> ![Criar um comando](media/custom-commands/add-new-command.png)
+> ![Screenshot mostrando onde criar um comando.](media/custom-commands/add-new-command.png)
 
 #### <a name="add-example-sentences"></a>Adicionar frases de exemplo
 
-Vamos começar com a secção **de frases exemplo,** e fornecer um exemplo do que o utilizador pode dizer.
+Na secção **frases Exemplo,** fornece um exemplo do que o utilizador pode dizer.
 
-1. Selecione A secção **de frases** exemplo no painel central.
-1. No painel mais direito, adicione exemplos:
+1. No painel do meio, selecione **frases exemplo**.
+1. No painel à direita, adicione exemplos:
 
     ```
-    turn on the tv
+    Turn on the tv
     ```
 
-1.  **Selecione Guarde** na parte superior do painel.
+1.  Na parte superior do painel, **selecione Save**.
 
-Por enquanto, não temos parâmetros, por isso podemos passar para a secção **de regras de conclusão.**
+Ainda não tens parâmetros, por isso podes passar para a secção **de regras de conclusão.**
 
 #### <a name="add-a-completion-rule"></a>Adicione uma regra de conclusão
 
-Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao utilizador que está a ser tomada uma ação de cumprimento. Para ler mais sobre regras e regras de conclusão, vá a [referências.](./custom-commands-references.md)
+Em seguida, o comando precisa de uma regra de conclusão. Esta regra diz ao utilizador que está a ser tomada uma ação de cumprimento. 
 
-1. Selecione a regra de conclusão por defeito **Concluída** e edite-a da seguinte forma:
+Para obter mais informações sobre regras e regras de conclusão, consulte [conceitos e definições de Comandos Personalizados.](./custom-commands-references.md)
+
+1. Selecione a regra de conclusão padrão **Concluída**. Em seguida, editá-lo da seguinte forma:
 
     
     | Definição    | Valor sugerido                          | Descrição                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
-    | **Nome**       | ConfirmaçãoResponse                  | Um nome que descreve o propósito da regra          |
+    | **Nome**       | `ConfirmationResponse`                  | Um nome que descreve o propósito da regra          |
     | **Condições** | Nenhum                                     | Condições que determinam quando a regra pode ser executada    |
-    | **Ações**    | Envie resposta de fala > editor simples > Primeira variação > `Ok, turning the tv on` | A ação a tomar quando a condição de regra é verdadeira |
+    | **Ações**    | **Enviar resposta de**  >  discurso **Editor simples**  >  **Primeira variação** > `Ok, turning the tv on` | A ação a tomar quando a condição de regra é verdadeira |
 
    > [!div class="mx-imgBorder"]
-   > ![Criar uma resposta de discurso](media/custom-commands/create-speech-response-action.png)
+   > ![Screenshot mostrando onde criar uma resposta de fala.](media/custom-commands/create-speech-response-action.png)
 
 1. **Selecione Guardar** para guardar a ação.
 1. De volta à secção **de regras de Conclusão,** selecione **Guardar** para guardar todas as alterações. 
 
     > [!NOTE]
-    > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, pode eliminar a regra de conclusão por defeito existente e adicionar a sua própria regra.
+    > Não tens de usar a regra de conclusão padrão que vem com o comando. Pode eliminar a regra de conclusão por defeito e adicionar a sua própria regra.
 
-### <a name="add-settemperature-command"></a>Adicionar comando SetTemperature
+### <a name="add-a-settemperature-command"></a>Adicione um comando SetTemperature
 
-Agora, adicione mais um comando **SetTemperature** que levará uma única expressão, `set the temperature to 40 degrees` e responderá com a mensagem `Ok, setting temperature to 40 degrees` .
+Agora adicione mais um comando, `SetTemperature` . Este comando tomará uma única `Set the temperature to 40 degrees` expressão, e responderá com a mensagem `Ok, setting temperature to 40 degrees` .
 
-Siga os passos como ilustrado para o comando **TurnOn** para criar um novo comando usando a frase exemplo, "**definir a temperatura para 40 graus**".
+Para criar o novo comando, siga os passos utilizados para o `TurnOn` comando, mas use a frase exemplo `Set the temperature to 40 degrees` .
 
-Em seguida, edite as regras de conclusão **existentes:**
+Em seguida, edite as regras de conclusão **de Done** existentes da seguinte forma:
 
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
-| Name  | ConfirmaçãoResponse                  |
-| Condições | Nenhum                                     |
-| Ações    | Envie resposta de fala > editor simples > Primeira variação > `Ok, setting temperature to 40 degrees` |
+| **Nome**  | `ConfirmationResponse`                  |
+| **Condições** | Nenhum                                     |
+| **Ações**    | **Enviar resposta de**  >  discurso **Editor simples**  >  **Primeira variação** > `Ok, setting temperature to 40 degrees` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.
 
-### <a name="add-setalarm-command"></a>Adicionar comando SetAlarm
+### <a name="add-a-setalarm-command"></a>Adicione um comando SetAlarm
 
-Crie um novo **Comando SetAlarm** usando a frase exemplo",**acende um alarme para as 9 da manhã de amanhã**". Em seguida, edite as regras de conclusão **existentes:**
+Criar um novo `SetAlarm` comando. Use a frase exemplo `Set an alarm for 9 am tomorrow` . Em seguida, edite as regras de conclusão **de Done** existentes da seguinte forma:
 
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
-| Nome da Regra  | ConfirmaçãoResponse                  |
-| Condições | Nenhum                                     |
-| Ações    | Envie resposta à fala > editor simples > Primeira variação >`Ok, setting an alarm for 9 am tomorrow` |
+| **Nome**  | `ConfirmationResponse`                  |
+| **Condições** | Nenhum                                     |
+| **Ações**    | **Enviar resposta de**  >  discurso **Editor simples**  >  **Primeira variação** > `Ok, setting an alarm for 9 am tomorrow` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.
 
 ### <a name="try-it-out"></a>Experimente
 
-Teste o comportamento utilizando o painel de chat test. Selecione o ícone **do comboio** presente no topo do painel direito. Uma vez concluído o treino, selecione **Teste**. Experimente os seguintes exemplos de expressão por voz ou texto:
+Teste o comportamento da aplicação utilizando o painel de teste: 
 
-- Você escreve: definir a temperatura para 40 graus
+1. No canto superior direito do painel, selecione o ícone **Train.** 
+1. Quando o treino terminar, selecione **Teste**. 
+
+Experimente os seguintes exemplos de expressão utilizando voz ou texto:
+
+- Você escreve: *definir a temperatura para 40 graus*
 - Resposta esperada: Ok, ajustar a temperatura para 40 graus
-- Escreve: ligue a televisão
+- Escreve: *ligue a televisão*
 - Resposta esperada: Ok, ligar a televisão
-- Escreve: desemote um alarme para as 9:00 de amanhã
+- Escreve: *desemote um alarme para as 9:00 de amanhã*
 - Resposta esperada: Ok, a definir um alarme para as 9:00 de amanhã
 
 > [!div class="mx-imgBorder"]
-> ![Teste com web chat](media/custom-commands/create-basic-test-chat.png)
+> ![Screenshot mostrando o teste numa interface de chat web.](media/custom-commands/create-basic-test-chat.png)
 
 > [!TIP]
-> No painel de teste, pode selecionar **Dar informações** sobre como esta entrada de voz/texto foi processada.
+> No painel de teste, pode selecionar **Detalhes de Turn** para obter informações sobre como esta entrada de voz ou entrada de texto foi processada.
 
 ## <a name="add-parameters-to-commands"></a>Adicionar parâmetros aos comandos
 
-Nesta secção, aprende-se a adicionar parâmetros aos seus comandos. Os parâmetros são informações necessárias pelos comandos para completar uma tarefa. Em cenários complexos, os parâmetros também podem ser usados para definir condições que desencadeiam ações personalizadas.
+Nesta secção, aprende-se a adicionar parâmetros aos seus comandos. Os comandos requerem parâmetros para completar uma tarefa. Em cenários complexos, os parâmetros podem ser usados para definir condições que desencadeiam ações personalizadas.
 
-### <a name="configure-parameters-for-turnon-command"></a>Configurar parâmetros para o comando TurnOn
+### <a name="configure-parameters-for-a-turnon-command"></a>Configurar parâmetros para um comando TurnOn
 
-Comece por editar o comando **TurnOn** existente para ligar e desligar vários dispositivos.
+Comece por editar o comando existente `TurnOn` para ligar e desligar vários dispositivos.
 
-1. Agora que o comando irá agora lidar com cenários dentro e fora, rebatize o comando para **TurnOnOff**.
-   1. No painel esquerdo, selecione o comando **TurnOn** e, em seguida, selecione o botão elipse (...) ao lado do **comando Novo** na parte superior do painel.
+1. Agora que o comando irá lidar com cenários dentro e fora, rebatize o comando como *TurnOnOff*.
+   1. No painel à esquerda, selecione o comando **TurnOn.** Em seguida, ao lado do **novo comando** na parte superior do painel, selecione o botão elipse **(...**)
    
-   1. Selecione **Renomear**. Nas **janelas de comando do Renome,** **altere o Nome** para **TurnOnOff**.
+   1. Selecione **Renomear**. Na janela **de comando Do renomear,** altere o nome para *TurnOnOff*.
 
-1. Em seguida, adicione um novo parâmetro a este comando que representa se o utilizador quer ligar ou desligar o dispositivo.
-   1. **Selecione Adicione** presente na parte superior do painel central. A partir do drop-down, selecione **Parâmetro**.
-   1. No painel direito, na secção **Parâmetros,** adicione valor na caixa **Nome** como **OnOff**.
-   1. **Selecione Necessário**. Na resposta Add para uma janela **de parâmetros necessária,** selecione **Editor Simples**. Na **Primeira Variação**, adicione
-        ```
-        On or Off?
-        ```
+1. Adicione um novo parâmetro ao comando. O parâmetro representa se o utilizador quer ligar ou desligar o dispositivo.
+   1. No topo do painel do meio,  **selecione Adicionar**. A partir do menu suspenso, selecione **Parâmetro**.
+   1. No painel à direita, na secção **Parâmetros,** na caixa **Nome,** adicione `OnOff` .
+   1. **Selecione Necessário**. Na resposta Add para uma janela **de parâmetros necessária,** selecione **Editor Simples**. No campo **first variation,** adicionar *On or Off?*. .
    1. Selecione **Atualizar**.
 
        > [!div class="mx-imgBorder"]
-       > ![Criar resposta de parâmetros necessária](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Screenshot mostrando onde criar uma resposta de parâmetro necessária.](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Agora configuramos as propriedades dos parâmetros. Para obter explicação de todas as propriedades de configuração de um comando, vá a [referências](./custom-commands-references.md). Configure as propriedades do parâmetro da seguinte forma:
+   1. Configure as propriedades do parâmetro utilizando a tabela seguinte. Para obter informações sobre todas as propriedades de configuração de um comando, consulte [conceitos e definições de Comandos Personalizados.](./custom-commands-references.md)
       
 
        | Configuração      | Valor sugerido     | Descrição                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | Nome               | `OnOff`           | Um nome descritivo para parâmetro                                                                           |
-       | É Global          | descontrolado       | Caixa de verificação indicando se um valor para este parâmetro é aplicado globalmente a todos os Comandos na aplicação|
-       | Necessário           | verificado         | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando |
-       | Resposta para parâmetro requerido      |Editor simples > `On or Off?`      | Um pedido para pedir o valor deste parâmetro quando não se sabe |
-       | Tipo               | String          | O tipo de parâmetro, como Número, Cadeia, Hora da Data ou Geografia   |
-       | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cordas, isto limita as entradas a um conjunto de valores possíveis |
-       | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores possíveis e seus pseudónimos         |
+       | **Nome**               | `OnOff`           | Um nome descritivo para o parâmetro                                                                           |
+       | **É Global**          | Não selecionado       | Caixa de verificação indicando se um valor para este parâmetro é aplicado globalmente a todos os comandos da aplicação.|
+       | **Obrigatório**           | Selecionado         | Caixa de verificação indicando se é necessário um valor para este parâmetro antes do fim do comando. |
+       | **Resposta para parâmetro requerido**      |**Editor simples** > `On or Off?`      | Um pedido de pedido do valor deste parâmetro quando não é conhecido. |
+       | **Tipo**               | **String**          | Tipo de parâmetro, como Número, Cadeia, Hora da Data ou Geografia.   |
+       | **Configuração**      | **Aceite valores de entrada predefinidos de um catálogo interno** | Para as cordas, esta definição limita as entradas a um conjunto de valores possíveis. |
+       | **Valores de entrada predefinidos**     | `on`, `off`           | Conjunto de possíveis valores e seus pseudónimos.         |
        
         
-   1. Para adicionar valores de entrada predefinidos, **selecione Adicione uma entrada predefinida** e na janela New **Item,**  digite **o nome** conforme indicado na tabela acima. Neste caso, não estamos a usar pseudónimos, por isso podes deixá-lo em branco.
+   1. Para adicionar valores de entrada predefinidos, **selecione Adicione uma entrada predefinida**. Na janela **New Item,**  escreva *o nome* como indicado na tabela anterior. Neste caso, não estás a usar pseudónimos, por isso podes deixar este campo em branco.
    
       > [!div class="mx-imgBorder"]
-      > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
+      > ![Screenshot mostrando como criar um parâmetro.](media/custom-commands/create-on-off-parameter.png)
 
    1. **Selecione Guardar** para guardar todas as configurações do parâmetro.
  
-#### <a name="add-subjectdevice-parameter"></a>Adicionar o parâmetro SubjectDevice 
+#### <a name="add-a-subjectdevice-parameter"></a>Adicione um parâmetro SubjectDevice
 
-1. Em seguida, **selecione Adicione** novamente para adicionar um segundo parâmetro para representar o nome dos dispositivos que podem ser controlados usando este comando. Utilize a seguinte configuração.
+1. Para adicionar um segundo parâmetro para representar o nome dos dispositivos que podem ser controlados utilizando este comando, selecione **Adicionar**. Utilize a seguinte configuração.
 
 
     | Definição            | Valor sugerido       |
     | ------------------ | --------------------- |
-    | Name               | `SubjectDevice`         |
-    | É Global          | descontrolado             |
-    | Necessário           | verificado               |
-    | Resposta para parâmetro requerido     | Editor simples > `Which device do you want to control?`    | 
-    | Tipo               | String                |          |
-    | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
-    | Valores de entrada predefinidos | `tv`, `fan`               |
-    | Pseudónimos `tv`      | `television`, `telly`     |
+    | **Nome**               | `SubjectDevice`         |
+    | **É Global**          | Não selecionado             |
+    | **Obrigatório**           | Selecionado               |
+    | **Resposta para parâmetro requerido**     | **Editor simples** > `Which device do you want to control?`    | 
+    | **Tipo**               | **String**                |          |
+    | **Configuração**      | **Aceite valores de entrada predefinidos de um catálogo interno** | 
+    | **Valores de entrada predefinidos** | `tv`, `fan`               |
+    | **Pseudónimos** `tv`      | `television`, `telly`     |
 
-1. Selecione **Guardar**
+1. Selecione **Guardar**.
 
 #### <a name="modify-example-sentences"></a>Modificar frases de exemplo
 
-Para comandos com parâmetros, é útil adicionar frases de exemplo que cobrem todas as combinações possíveis. Por exemplo:
+Para comandos que usam parâmetros, é útil adicionar frases de exemplo que cobrem todas as combinações possíveis. Por exemplo:
 
-* Informação completa do parâmetro - `turn {OnOff} the {SubjectDevice}`
-* Informação parcial do parâmetro - `turn it {OnOff}`
-* Sem informação sobre parâmetros - `turn something`
+* Informação completa dos parâmetros: `turn {OnOff} the {SubjectDevice}`
+* Informação parcial do parâmetro: `turn it {OnOff}`
+* Sem informação sobre parâmetros: `turn something`
 
-Frases de exemplo com diferente grau de informação permitem que a aplicação de Comandos Personalizados resolva resoluções de um tiro e resoluções de várias voltas com informações parciais.
+As frases exemplo que utilizam diferentes graus de informação permitem que a aplicação de Comandos Personalizados resolva resoluções de um tiro e resoluções de várias voltas utilizando informações parciais.
 
-Com isso em mente, edite as frases de exemplo para usar os parâmetros como sugerido abaixo:
+Com essa informação em mente, edite as frases de exemplo para usar estes parâmetros sugeridos:
 
 ```
 turn {OnOff} the {SubjectDevice}
@@ -234,49 +242,52 @@ turn something
 Selecione **Guardar**.
 
 > [!TIP]
-> No Exemplo, o editor usa aparelhos encaracolados para se referir aos seus parâmetros. - `turn {OnOff} the {SubjectDevice}` Utilize o separador para a conclusão automática apoiado por parâmetros previamente criados.
+> No editor de frases-exemplo, use aparelhos encaracolados para se referir aos seus parâmetros. Por exemplo, `turn {OnOff} the {SubjectDevice}`.
+> Utilize um separador para a conclusão automática apoiado por parâmetros previamente criados.
 
 #### <a name="modify-completion-rules-to-include-parameters"></a>Modificar as regras de conclusão para incluir parâmetros
 
-Modificar a regra de conclusão existente **ConfirmaçãoResponse**.
+Modifique a regra de conclusão `ConfirmationResponse` existente.
 
 1. Na secção **Condições,** **selecione Adicionar uma condição**.
-1. Na janela **New Condition,** na lista **Tipo,** selecione **os parâmetros necessários**. Na lista de verificação abaixo, verifique o **OnOff** e **o SubjectDevice**.
-1. Deixe **isGlobal** como descontrolado.
+1. Na janela **New Condition,** na lista **Tipo,** selecione **os parâmetros necessários**. Na lista que se segue, selecione **OnOff** e **SubjectDevice**.
+1. Deixe **isGlobal** não selecionado.
 1. Selecione **Criar**.
-1. Na secção **Ações,** edite a ação de **resposta da fala enviar** por parte da ação e selecione o botão de edição. Desta vez, faça uso dos parâmetros **OnOff** e **SubjectDevice** recém-criados
+1. Na secção **Ações,** edite a ação **de resposta da fala Enviar** pairando sobre ela e selecionando o botão de edição. Desta vez, use os novos `OnOff` e `SubjectDevice` parâmetros:
 
     ```
     Ok, turning the {SubjectDevice} {OnOff}
     ```
 1. Selecione **Guardar**.
 
-Experimente as alterações selecionando o ícone **train** em cima do painel direito. Quando o treino terminar, selecione **Teste**. Aparecerá uma janela **de teste.** Experimente as seguintes interações.
+Experimente as alterações selecionando o ícone **Train** na parte superior do painel à direita. 
 
-- Entrada: desligue a televisão
+Quando o treino terminar, selecione **Teste**. Aparece uma janela **de teste.** Experimente as seguintes interações:
+
+- Entrada: *desligue a televisão*
 - Saída: Ok, desligar a televisão
-- Entrada: desligue a televisão
+- Entrada: *desligue a televisão*
 - Saída: Ok, desligar a televisão
-- Entrada: desligá-lo
+- Entrada: *desligá-lo*
 - Saída: Que dispositivo pretende controlar?
-- Entrada: a televisão
+- Entrada: *a televisão*
 - Saída: Ok, desligar a televisão
 
-### <a name="configure-parameters-for-settemperature-command"></a>Configurar parâmetros para o comando SetTemperature
+### <a name="configure-parameters-for-a-settemperature-command"></a>Configurar parâmetros para um comando SetTemperature
 
-Modificar o comando **SetTemperature** para lhe permitir definir a temperatura como direcionado pelo utilizador.
+Modifique o `SetTemperature` comando para lhe permitir definir a temperatura à medida que o utilizador dirige.
 
-Adicionar novo parâmetro **Temperatura** com a seguinte configuração
+Adicione um `Temperature` parâmetro. Utilize a seguinte configuração:
 
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
-| Name               | `Temperature`           |
-| Necessário           | verificado         |
-| Resposta para parâmetro requerido      | Editor simples > `What temperature would you like?`
-| Tipo               | Número          |
+| **Nome**               | `Temperature`           |
+| **Obrigatório**           | Selecionado         |
+| **Resposta para parâmetro requerido**      | **Editor simples** > `What temperature would you like?`
+| **Tipo**               | `Number`          |
 
 
-Edite as expressões de exemplo para os seguintes valores.
+Edite as expressões de exemplo para utilizar os seguintes valores.
 
 ```
 set the temperature to {Temperature} degrees
@@ -285,32 +296,32 @@ set the temperature
 change the temperature
 ```
 
-Editar as regras de conclusão existentes de acordo com a seguinte configuração.
+Editar as regras de conclusão existentes. Utilize a seguinte configuração.
 
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
-| Condições         | Parâmetro necessário > Temperatura           |
-| Ações           | Envie > de resposta à fala `Ok, setting temperature to {Temperature} degrees` |
+| **Condições**         | **Parâmetro**  >  necessário **Temperatura**           |
+| **Ações**           | **Enviar resposta de discurso** > `Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="configure-parameters-to-the-setalarm-command"></a>Configurar parâmetros para o comando SetAlarm
+### <a name="configure-parameters-for-a-setalarm-command"></a>Configurar parâmetros para um comando SetAlarm
 
-Adicione um parâmetro chamado **DateTime** com a seguinte configuração.
+Adicione um parâmetro chamado `DateTime` . Utilize a seguinte configuração.
 
    | Definição                           | Valor sugerido                     | 
    | --------------------------------- | ----------------------------------------|
-   | Name                              | `DateTime`                               |
-   | Necessário                          | verificado                                 |
-   | Resposta para parâmetro requerido   | Editor simples > `For what time?`            | 
-   | Tipo                              | DateTime                                |
-   | Predefinições de data                     | Se faltar a data de utilização hoje            |
-   | Incumprimentos do tempo                     | Se falta tempo, use o início do dia     |
+   | **Nome**                              | `DateTime`                               |
+   | **Obrigatório**                          | Selecionado                                 |
+   | **Resposta para parâmetro requerido**   | **Editor simples** > `For what time?`            | 
+   | **Tipo**                              | **DateTime**                                |
+   | **Predefinições de data**                     | Se faltar a data, use hoje.            |
+   | **Incumprimentos do tempo**                     | Se faltar a hora, use o início do dia.     |
 
 
 > [!NOTE]
-> Neste artigo, fizemos predominantemente uso de tipos de parâmetros de cadeia, número e datatime. Para a lista de todos os tipos de parâmetros suportados e suas propriedades, vá a [referências](./custom-commands-references.md).
+> Este artigo utiliza principalmente os tipos de parâmetros String, Number e DateTime. Para obter uma lista de todos os tipos de parâmetros suportados e suas propriedades, consulte [conceitos e definições de Comandos Personalizados.](./custom-commands-references.md)
 
 
-Editar palavras de exemplo para os seguintes valores.
+Editar as expressões de exemplo. Utilize os seguintes valores.
 
 ```
 set an alarm for {DateTime}
@@ -318,46 +329,46 @@ set alarm {DateTime}
 alarm for {DateTime}
 ```
 
-Editar as regras de conclusão existentes de acordo com a seguinte configuração.
+Editar as regras de conclusão existentes. Utilize a seguinte configuração.
 
    | Definição    | Valor sugerido                               |
    | ---------- | ------------------------------------------------------- |
-   | Ações    | Enviar resposta de discurso - `Ok, alarm set for {DateTime}`  |
+   | **Ações**    | **Enviar resposta de discurso** > `Ok, alarm set for {DateTime}`  |
 
-Teste os três comandos juntos usando expressões relacionadas com diferentes comandos. Note que pode alternar entre os diferentes comandos.
+Teste os três comandos juntos usando expressões relacionadas com diferentes comandos. (Pode alternar entre os diferentes comandos.)
 
-- Entrada: Definir um alarme
+- Entrada: *Definir um alarme*
 - Saída: Para que horas?
-- Entrada: Ligue a televisão
+- Entrada: *Ligue a televisão*
 - Saída: Ok, ligar a televisão
-- Entrada: Definir um alarme
+- Entrada: *Definir um alarme*
 - Saída: Para que horas?
-- Entrada: 17h
+- Entrada: *17h00*
 - Saída: Ok, alarme definido para 2020-05-01 17:00:00
 
-## <a name="add-configurations-to-commands-parameters"></a>Adicionar configurações aos parâmetros dos comandos
+## <a name="add-configurations-to-command-parameters"></a>Adicionar configurações aos parâmetros de comando
 
 Nesta secção, aprende-se mais sobre a configuração avançada dos parâmetros, incluindo:
 
- - Como os valores dos parâmetros podem pertencer a um conjunto definido externamente à aplicação de comandos personalizados
- - Como adicionar cláusulas de validação sobre o valor dos parâmetros
+ - Como os valores dos parâmetros podem pertencer a um conjunto definido fora da aplicação Comandos Personalizados.
+ - Como adicionar cláusulas de validação nos valores dos parâmetros.
 
-### <a name="configure-parameter-as-external-catalog-entity"></a>Configure o parâmetro como entidade de catálogo externo
+### <a name="configure-a-parameter-as-an-external-catalog-entity"></a>Configurar um parâmetro como entidade de catálogo externo
 
-Os Comandos Personalizados permitem configurar parâmetros do tipo de cordas para se referir a catálogos externos hospedados num ponto final web. Isto permite-lhe atualizar o catálogo externo de forma independente sem fazer edições para a aplicação Comandos Personalizados. Esta abordagem é útil nos casos em que as entradas no catálogo podem ser grandes em número.
+A funcionalidade Comandos Personalizados permite-lhe configurar parâmetros do tipo de corda para se referir a catálogos externos hospedados num ponto final web. Para que possa atualizar o catálogo externo de forma independente sem editar a aplicação Comandos Personalizados. Esta abordagem é útil nos casos em que as entradas no catálogo são numerosas.
 
-Reutilizar o parâmetro **SubjectDevice** a partir do comando **TurnOnOff.** A configuração atual para este parâmetro é **Aceitar entradas predefinidas do catálogo interno**. Isto refere-se à lista estática de dispositivos tal como definidos na configuração do parâmetro. Queremos transferir este conteúdo para uma fonte de dados externa que possa ser atualizada de forma independente.
+Reutilizar o `SubjectDevice` parâmetro do `TurnOnOff` comando. A configuração atual para este parâmetro é **Aceitar entradas predefinidas do catálogo interno**. Esta configuração refere-se a uma lista estática de dispositivos na configuração do parâmetro. Transloque este conteúdo para uma fonte de dados externa que possa ser atualizada de forma independente.
 
-Para isso, comece por adicionar um novo ponto final web. Vá à secção **de pontos finais** da Web no painel esquerdo e adicione um novo ponto final web com a seguinte configuração.
+Para mover o conteúdo, comece por adicionar um novo ponto final web. No painel à esquerda, vá para a secção **de pontos finais** da Web. Ali, adicione um novo ponto final da web. Utilize a seguinte configuração.
 
 | Definição | Valor sugerido |
 |----|----|
-| Name | `getDevices` |
-| URL | `https://aka.ms/speech/cc-sampledevices` |
-| Método | GET |
+| **Nome** | `getDevices` |
+| **URL** | `https://aka.ms/speech/cc-sampledevices` |
+| **Método** | **GET** |
 
 
-Se o valor sugerido para URL não funcionar para si, tem de configurar e hospedar um simples ponto final web que devolve um json constituído por uma lista dos dispositivos que podem ser controlados. O ponto final da web deve devolver um json formatado da seguinte forma:
+Se o valor sugerido para o URL não funcionar para si, configuure e acolhia um ponto final web que devolve um ficheiro JSON que consiste na lista dos dispositivos que podem ser controlados. O ponto final da web deve devolver um ficheiro JSON formatado da seguinte forma:
     
 ```json
 {
@@ -379,168 +390,172 @@ Se o valor sugerido para URL não funcionar para si, tem de configurar e hospeda
 
 ```
 
-Em seguida, vá à página de definições de parâmetros **SubjectDevice** e altere as propriedades para as seguintes.
+Em seguida, aceda à página de definições de parâmetros **SubjectDevice.** Configurar as seguintes propriedades.
 
 | Definição | Valor sugerido |
 | ----| ---- |
-| Configuração | Aceitar entradas pré-indefinidas de catálogo externo |                               
-| Ponto final do catálogo | obterDevices |
-| Método | GET |
+| **Configuração** | **Aceitar entradas pré-indefinidas de catálogo externo** |                               
+| **Ponto final do catálogo** | `getDevices` |
+| **Método** | **GET** |
 
-Em seguida, **selecione Save**.
+Em seguida, selecione **Guardar**.
 
 > [!IMPORTANT]
-> Não verá uma opção para configurar um parâmetro para aceitar entradas de um catálogo externo, a menos que tenha o ponto final web definido na secção **de ponto final** da Web no painel esquerdo.
+> Não verá uma opção para configurar um parâmetro para aceitar entradas de um catálogo externo, a menos que tenha o ponto final web definido na secção **de ponto final** da Web no painel à esquerda.
 
-Experimente-o selecionando **Train** e espere pela conclusão do treino. Uma vez concluído o treino, selecione **Teste** e experimente algumas interações.
+Experimente selecionando **Train.** Após o final do treino, selecione **Teste** e experimente algumas interações.
 
-* Entrada: ligar
+* Entrada: *ligar*
 * Saída: Que dispositivo pretende controlar?
-* Entrada: luzes
+* Entrada: *luzes*
 * Saída: Ok, acendendo as luzes
 
 > [!NOTE]
-> Note como pode controlar todos os dispositivos alojados no ponto final da web agora. Ainda precisa de treinar a aplicação para testar as novas alterações e voltar a publicar a aplicação.
+> Agora pode controlar todos os dispositivos alojados no ponto final da web. Mas ainda precisa de treinar a aplicação para testar as novas alterações e depois reeditar a aplicação.
 
 ### <a name="add-validation-to-parameters"></a>Adicionar validação aos parâmetros
 
-**As validações** são construções aplicáveis a certos tipos de parâmetros que lhe permitem configurar restrições no valor do parâmetro, e solicitar a correção se os valores não se enquadrarem nas restrições. Para a lista completa de tipos de parâmetros que alargam a construção de validação, vá a [referências](./custom-commands-references.md)
+*As validações* são construções que se aplicam a certos tipos de parâmetros que lhe permitem configurar restrições no valor do parâmetro. Pedem-lhe correções se os valores não se enquadrarem nos constrangimentos. Para obter uma lista de tipos de parâmetros que alargam a construção de validação, consulte [conceitos e definições de Comandos Personalizados](./custom-commands-references.md).
 
-Teste as validações utilizando o comando **SetTemperature.** Utilize os seguintes passos para adicionar uma validação para o parâmetro **temperatura.**
+Teste as validações utilizando o `SetTemperature` comando. Utilize os seguintes passos para adicionar uma validação para o `Temperature` parâmetro.
 
-1. Selecione o comando **SetTemperature** no painel esquerdo.
-1. Selecione  **Temperatura** no painel central.
-1. **Selecione Adicione uma validação** presente no painel direito.
-1. Na nova janela **de validação,** configurar a validação da seguinte forma e selecionar **Criar**.
+1. No painel à esquerda, selecione o comando **SetTemperature.**
+1. No painel central, selecione **Temperatura**.
+1. No painel à direita, **selecione Adicione uma validação**.
+1. Na nova janela **de validação,** configurar a validação como indicado na tabela seguinte. Em seguida, selecione **Criar**.
 
 
-    | Configuração de parâmetros | Valor sugerido | Descrição |
+    | Configuração do parâmetro | Valor sugerido | Descrição |
     | ---- | ---- | ---- |
-    | Valor Mínimo | `60` | Para os parâmetros número, o valor mínimo que este parâmetro pode assumir |
-    | Valor Máximo | `80` | Para os parâmetros número, o valor máximo que este parâmetro pode assumir |
-    | Resposta de falha |  Editor simples > Primeira Variação > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | A prompt para pedir um novo valor se a validação falhar |
+    | **Valor Min** | `60` | Para os parâmetros número, o valor mínimo que este parâmetro pode assumir |
+    | **Valor Máximo** | `80` | Para os parâmetros número, o valor máximo que este parâmetro pode assumir |
+    | **Resposta de falha** |  **Editor simples**  >  **Primeira variação** > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Um pedido para pedir um novo valor se a validação falhar |
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar uma validação de gama](media/custom-commands/add-validations-temperature.png)
+    > ![Screenshot mostrando como adicionar uma validação de alcance.](media/custom-commands/add-validations-temperature.png)
 
-Experimente-o selecionando o ícone **train** presente no topo do painel direito. Uma vez concluído o treino, selecione **Teste** e experimente algumas interações:
+Experimente selecionar o ícone **train** na parte superior do painel à direita. Após o final do treino, selecione **Teste**. Experimente algumas interações:
 
-- Entrada: Definir a temperatura para 72 graus
+- Entrada: *Definir a temperatura para 72 graus*
 - Saída: Ok, ajustar a temperatura para 72 graus
-- Entrada: Definir a temperatura para 45 graus
+- Entrada: *Definir a temperatura para 45 graus*
 - Saída: Desculpe, só posso definir temperatura entre 60 e 80 graus
-- Entrada: faça 72 graus em vez
+- Entrada: *faça 72 graus em vez*
 - Saída: Ok, ajustar a temperatura para 72 graus
 
 ## <a name="add-interaction-rules"></a>Adicionar regras de interação
 
-As regras de interação são *regras adicionais* para lidar com situações específicas ou complexas. Enquanto você é livre de autorizar suas próprias regras de interação personalizada, neste exemplo você faz uso de regras de interação para os seguintes cenários direcionados:
+As regras de interação são regras *adicionais* que lidam com situações específicas ou complexas. Embora seja livre de autorar as suas próprias regras de interação, neste exemplo utiliza regras de interação para os seguintes cenários:
 
 * Confirmando comandos
 * Adicionar uma correção de um passo aos comandos
 
-Para saber mais sobre regras de interação, aceda à secção [de referências.](./custom-commands-references.md)
+Para obter mais informações sobre regras de interação, consulte [conceitos e definições de Comandos Personalizados.](./custom-commands-references.md)
 
 ### <a name="add-confirmations-to-a-command"></a>Adicionar confirmações a um comando
 
-Para adicionar uma confirmação, utilize o comando **SetTemperature.** Para obter confirmação, cria regras de interação utilizando os seguintes passos.
+Para adicionar uma confirmação, use o `SetTemperature` comando. Para obter confirmação, crie regras de interação utilizando os seguintes passos:
 
-1. Selecione o **comando SetTemperature** no painel esquerdo.
-1. Adicione as regras de interação selecionando **Adicione** no painel central. Em seguida, selecione **regras de interação**  >  **Confirme o comando**.
+1. No painel à esquerda, selecione o comando **SetTemperature.**
+1. No painel central, adicione regras de interação selecionando **Add**. Em seguida, selecione **regras de interação**  >  **Confirme o comando**.
 
-    Esta ação adiciona três regras de interação que pedirão ao utilizador que confirme a data e hora do alarme e espera uma confirmação (sim/não) para a próxima volta.
+    Esta ação adiciona três regras de interação. As regras pedem ao utilizador que confirme a data e a hora do alarme. Esperam uma confirmação (sim ou não) para a próxima curva.
 
-    1. Modificar a regra de interação **do comando Confirmar** de acordo com a seguinte configuração:
-        1. **Nome** do nome para **confirmar a temperatura**.
-        1. Adicione uma nova condição como **parâmetros necessários**  >  **Temperatura**.
-        1. Adicione uma nova ação como resposta **de** fala Type  >  **Send**  >  **Tem a certeza de que pretende definir a temperatura como graus {Temperatura} ?**
-        1. Deixe o valor padrão de **Espera de confirmação do utilizador** na secção **Expectativas.**
+    1. Modificar a regra de interação **do comando Confirmar** utilizando a seguinte configuração:
+        1. Altere o nome para Confirmar a **temperatura**.
+        1. Adicione uma nova condição: **Parâmetros necessários**  >  **Temperatura**.
+        1. Adicione uma nova ação:  >  **Escreva Enviar a resposta** da fala Tem a certeza de que pretende definir a temperatura como graus  >  **{Temperatura} ?**
+        1. Na secção **Expectativas,** deixe o valor padrão de **Confirmação esperada do utilizador**.
       
          > [!div class="mx-imgBorder"]
-         > ![Criar resposta de parâmetros necessária](media/custom-speech-commands/add-validation-set-temperature.png)
+         > ![Screenshot mostrando como criar a resposta do parâmetro necessário.](media/custom-speech-commands/add-validation-set-temperature.png)
     
 
-    1. Modificar a regra **de interação de Confirmação conseguiu** lidar com uma confirmação bem sucedida (o utilizador disse que sim).
+    1. Modificar a regra **de interação de Confirmação para** lidar com uma confirmação bem sucedida (o utilizador disse que sim).
       
-          1. Modificar **Nome** para **a temperatura de confirmação conseguiu**.
-          1. Deixar a confirmação já existente foi uma condição **de sucesso.**
-          1. Adicione uma nova condição como  >  **parâmetros tipo exigidos**  >  **Temperatura**.
-          1. Deixe o valor padrão do **estado pós-execução** como regras de **conclusão executar**.
+          1. Alterar o nome para **temperatura de confirmação conseguiu**.
+          1. Deixar a **confirmação** existente foi uma condição de sucesso.
+          1. Adicione uma nova condição: **Tipo**  >  **parâmetros exigidos**  >  **Temperatura**.
+          1. Deixe o valor **de estado pós-execução** predefinido como **regras de conclusão executar**.
 
     1. Modifique a regra **de interação negada** por Confirmação para lidar com cenários quando a confirmação é negada (o utilizador disse não).
 
-          1. Modificar **Nome** para **a temperatura de confirmação negada**.
-          1. Deixe a **confirmação** já existente foi negada condição.
-          1. Adicione uma nova condição como  >  **parâmetros tipo exigidos**  >  **Temperatura**.
-          1. Adicione uma nova ação como **Tipo**  >  **Enviar resposta de fala** Sem  >  **problema. Que temperatura então?**
-          1. Deixe o valor predefinido do **estado de pós-execução** como **Esperar pela entrada do utilizador**.
+          1. Altere o nome para **temperatura de confirmação negada**.
+          1. Deixar a **confirmação** existente foi negada condição.
+          1. Adicione uma nova condição: **Tipo**  >  **parâmetros exigidos**  >  **Temperatura**.
+          1. Adicione uma nova ação:  >  **Digite Enviar resposta de fala** Sem  >  **problema. Que temperatura então?**
+          1. Altere o valor **de estado de pós-execução** predefinido **para esperar pela entrada do utilizador**.
 
 > [!IMPORTANT]
-> Neste artigo, usou a capacidade de confirmação incorporada. Também pode adicionar manualmente regras de interação uma a uma.
+> Neste artigo, utiliza-se a capacidade de confirmação incorporada. Também pode adicionar manualmente regras de interação uma a uma.
    
-Experimente as alterações selecionando **Train,** aguarde que o treino termine e selecione **Test**.
+Experimente as alterações selecionando **Train**. Quando o treino terminar, selecione **Teste**.
 
-- **Entrada**: Definir temperatura a 80 graus
+- **Entrada**: *Definir temperatura a 80 graus*
 - **Saída**: tem a certeza de que pretende definir a temperatura como 80 graus?
-- **Entrada**: Não
+- **Entrada**: *Não*
 - **Saída**: Sem problema. Que temperatura então?
-- **Entrada**: 72 graus
+- **Entrada**: *72 graus*
 - **Saída**: tem a certeza de que pretende definir a temperatura como 72 graus?
-- **Entrada**: Sim
-- **Saída**: OK, temperatura de fixação de 83 graus
+- **Entrada**: *Sim*
+- **Saída**: OK, temperatura de fixação de 72 graus
 
 ### <a name="implement-corrections-in-a-command"></a>Implementar correções num comando
 
-Nesta secção, configura-se uma correção de um passo, que é utilizada após a execução da ação de cumprimento. Também vê um exemplo de como uma correção é ativada por padrão no caso de o comando ainda não estar cumprido. Para adicionar uma correção quando o comando não estiver concluído, adicione o novo parâmetro **AlarmTone**.
+Nesta secção, vai configurar uma correção de um passo. Esta correção é utilizada após a execução da ação de cumprimento. Também verá um exemplo de como uma correção é ativada por padrão se o comando ainda não estiver cumprido. Para adicionar uma correção quando o comando não estiver terminado, adicione o novo parâmetro `AlarmTone` .
 
-Selecione o comando **SetAlarm** a partir do painel esquerdo e adicione o novo parâmetro **AlarmTone**.
+No painel esquerdo, selecione o comando **SetAlarm.** Em seguida, adicione o novo parâmetro **AlarmTone**.
         
-- **Nome**  >  **AlarmTone**
+- **Nome** > `AlarmTone`
 - **Tipo**  >  **Corda**
 - **Valor Predefinido**  >  **Sinos**
 - **Configuração**  >  **Aceitar valores de entrada predefinidos do catálogo interno**
-- **Valores de entrada predefinidos**  >  **Chimes,** **Jingle,** e **Echo** como entradas predefinidas individuais
+- **Valores de entrada predefinidos**  >  **Chimes,** **Jingle** e **Echo** (Estes valores são entradas predefinidas individuais.)
 
 
 Em seguida, atualize a resposta para o parâmetro **DateTime** **para Ready para definir o alarme com o tom como {AlarmTone}. Para que horas?** Em seguida, modifique a regra de conclusão da seguinte forma:
 
 1. Selecione a regra de conclusão existente **ConfirmationResponse**.
-1. No painel direito, paire sobre a ação existente e **selecione Editar.**
-1. Atualize a resposta da fala para **OK, definido de alarme para {DateTime}. O sinal de alarme é {AlarmTone}.**
+1. No painel à direita, paire sobre a ação existente e **selecione Editar.**
+1. Atualize a resposta da fala a `OK, alarm set for {DateTime}. The alarm tone is {AlarmTone}` .
 
 > [!IMPORTANT]
-> O tom de alarme poderia ser alterado sem qualquer configuração explícita num comando contínuo, por exemplo, quando o comando ainda não estava terminado. *Uma correção é ativada por padrão para todos os parâmetros de comando, independentemente do número de turno se o comando ainda estiver por cumprir.*
+> O tom de alarme pode mudar sem qualquer configuração explícita num comando em curso. Por exemplo, pode mudar quando o comando ainda não terminou. Uma correção é ativada *por padrão* para todos os parâmetros de comando, independentemente do número de turno, se o comando ainda estiver por cumprir.
 
-#### <a name="correction-when-command-is-completed"></a>Correção quando o comando estiver concluído
+#### <a name="implement-a-correction-when-a-command-is-finished"></a>Implementar uma correção quando um comando estiver terminado
 
-A plataforma Comandos Personalizados também fornece a capacidade para uma correção de um passo, mesmo quando o comando foi concluído. Esta funcionalidade não é ativada por defeito. Deve ser explicitamente configurado. Utilize os seguintes passos para configurar uma correção de um passo.
+A plataforma Comandos Personalizados permite uma correção de um passo mesmo quando o comando está terminado. Esta funcionalidade não é ativada por defeito. Deve ser explicitamente configurado. 
 
-1. No comando **SetAlarm,** adicione uma regra de interação do **comando anterior** do tipo Update para atualizar o alarme previamente definido. Mude o  nome predefinido da regra de interação para **atualizar o alarme anterior**.
-1. Deixar a condição **predefinida O comando anterior tem de ser atualizado** como está.
-1. Adicione uma nova condição como hora de data do parâmetro exigido do **tipo**  >    >  .
-1. Adicione uma nova ação como **Tipo**  >  **Enviar resposta de discurso** Simples  >  **editor** Atualizar o  >  **tempo de alarme anterior para {DateTime}.**
-1. Deixe o valor padrão do **estado de pós-execução** como **comando concluído**.
+Utilize os seguintes passos para configurar uma correção de um passo:
 
-Experimente as alterações selecionando **Train,** aguarde que o treino termine e selecione **Test**.
+1. No comando **SetAlarm,** adicione uma regra de interação do **comando anterior** do tipo Update para atualizar o alarme previamente definido. Rebatize a regra de interação como **alarme anterior de Atualização**.
+1. Deixe a condição predefinida: **O comando anterior tem de ser atualizado**.
+1. Adicione uma nova condição: **Tipo**  >  **de Data de Parâmetro Exigido**  >  .
+1. Adicione uma nova ação: **Tipo**  >  **Enviar resposta de discurso** Simples  >  **editor** Atualizar  >  **o tempo de alarme anterior para {DateTime}**.
+1. Deixe o valor **de estado pós-execução** predefinido como **comando concluído**.
 
-- **Entrada**: Desemote um alarme.
+Experimente as alterações selecionando **Train**. Aguarde que o treino termine e, em seguida, selecione **Test**.
+
+- **Entrada**: *Desemote um alarme.*
 - **Saída**: Pronto para definir o alarme com tom como Chimes. Para que horas?
-- **Entrada**: Defina um alarme com o tom como Jingle para amanhã às 9 h.
+- **Entrada**: *Defina um alarme com o tom como Jingle para amanhã às 9 h.*
 - **Saída**: OK, alarme definido para 2020-05-21 09:00:00. O tom de alarme é Jingle.
-- **Entrada**: Não, 8 da manhã.
+- **Entrada**: *Não, 8 da manhã.*
 - **Saída**: Atualização do tempo de alarme anterior para 2020-05-29 08:00.
 
 > [!NOTE]
-> Numa aplicação real, na secção **Ações** desta regra de correção, também terá de enviar uma atividade ao cliente ou chamar um ponto final HTTP para atualizar o tempo de alarme no seu sistema. Esta ação deve ser exclusivamente responsável pela atualização da hora de alarme e não de qualquer outro atributo do comando. Neste caso, seria o sinal de alarme.
+> Numa aplicação real, na secção **Ações** desta regra de correção, também terá de enviar uma atividade ao cliente ou chamar um ponto final HTTP para atualizar o tempo de alarme no seu sistema. Esta ação deve ser a única responsável pela atualização da hora de alarme. Não deve ser responsável por qualquer outro atributo do comando. Neste caso, esse atributo seria o tom de alarme.
 
-## <a name="add-language-generation-templates-for-speech-responses"></a>Adicionar modelos de geração de linguagem para respostas de voz
+## <a name="add-language-generation-templates-for-speech-responses"></a>Adicione modelos de geração de linguagem para respostas de fala
 
-Os modelos de geração de idiomas permitem-lhe personalizar as respostas enviadas ao cliente e introduzir variação nas respostas. A personalização da geração linguística pode ser alcançada por:
+Os modelos de geração linguística (LG) permitem-lhe personalizar as respostas enviadas ao cliente. Introduzem variação nas respostas. Pode alcançar a geração de linguagens utilizando:
 
-* Utilização de modelos de geração de linguagem
-* Utilização de expressões adaptativas
+* Modelos de geração de linguagem.
+* Expressões adaptativas.
 
-Os modelos de comandos personalizados são baseados nos [modelos LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)do BotFramework. Uma vez que os Comandos Personalizados criam um novo modelo LG quando necessário (isto é, para respostas de fala em parâmetros ou ações) não tem de especificar o nome do modelo LG. Então, em vez de definir o seu modelo como:
+Os modelos de comandos personalizados são baseados nos [modelos LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)do Quadro Bot. Como a funcionalidade Comandos Personalizados cria um novo modelo LG quando necessário (para respostas de fala em parâmetros ou ações), não tem de especificar o nome do modelo LG. 
+
+Então não precisa definir o seu modelo assim:
 
  ```
     # CompletionAction
@@ -549,38 +564,40 @@ Os modelos de comandos personalizados são baseados nos [modelos LG](/azure/bot-
     - Proceeding to turn {OnOff} {SubjectDevice}
  ```
 
-Basta definir o corpo do modelo sem o nome, da seguinte forma.
+Em vez disso, pode definir o corpo do modelo sem o nome, assim:
 
 > [!div class="mx-imgBorder"]
-> ![exemplo de editor de modelo](./media/custom-commands/template-editor-example.png)
+> ![Screenshot mostrando um exemplo de editor de modelo.](./media/custom-commands/template-editor-example.png)
 
 
-Esta alteração introduz variação nas respostas de fala enviadas ao cliente. Assim, para a mesma expressão, a resposta de discurso correspondente seria escolhida aleatoriamente das opções fornecidas.
+Esta alteração introduz variação nas respostas de fala que são enviadas ao cliente. Para uma expressão, a resposta de fala correspondente é escolhida aleatoriamente das opções fornecidas.
 
-Tirar partido dos modelos LG também permite definir respostas complexas de fala para comandos usando expressões adaptativas. Pode consultar o [formato dos modelos LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) para mais detalhes. Os Comandos Personalizados por predefinição suportam todas as capacidades com as seguintes diferenças menores:
+Ao tirar partido dos modelos LG, também pode definir respostas complexas de fala para comandos usando expressões adaptativas. Para obter mais informações, consulte o [formato dos modelos LG.](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) 
 
-* Nas entidades de modelos LG as entidades são representadas como ${entityName}. Em Comandos Personalizados não usamos entidades, mas os parâmetros podem ser usados como variáveis com qualquer uma destas representações ${parâmetroName} ou {parâmetroName}
-* A composição e expansão do modelo não são suportadas em Comandos Personalizados. Isto porque nunca edita o `.lg` ficheiro diretamente, mas apenas as respostas dos modelos criados automaticamente.
-* As funções personalizadas injetadas pela LG não são suportadas em Comandos Personalizados. As funções predefinidas ainda são suportadas.
-* As opções (estrita, substituirNull & lineBreakStyle) não são suportadas em Comandos Personalizados.
+Por predefinição, a funcionalidade Comandos Personalizados suporta todas as capacidades, com as seguintes pequenas diferenças:
 
-### <a name="add-template-responses-to-turnonoff-command"></a>Adicionar respostas de modelo ao comando TurnOnOff
+* Nos modelos LG, as entidades são representadas como `${entityName}` . A funcionalidade Comandos Personalizados não utiliza entidades. Mas pode usar parâmetros como variáveis com a `${parameterName}` representação ou a `{parameterName}` representação.
+* A funcionalidade Comandos Personalizados não suporta a composição e expansão do modelo, porque nunca edita diretamente o ficheiro *.lg.* Edita apenas as respostas de modelos criados automaticamente.
+* A função Comandos Personalizados não suporta funções personalizadas que a LG injeta. As funções predefinidas são suportadas.
+* A funcionalidade Comandos Personalizados não suporta opções, tais `strict` `replaceNull` como, e `lineBreakStyle` .
 
-Modificar o comando **TurnOnOff** para adicionar um novo parâmetro com a seguinte configuração:
+### <a name="add-template-responses-to-a-turnonoff-command"></a>Adicionar respostas de modelo a um comando TurnOnOff
+
+Modifique o `TurnOnOff` comando para adicionar um novo parâmetro. Utilize a seguinte configuração.
 
 | Definição            | Valor sugerido       | 
 | ------------------ | --------------------- | 
-| Name               | `SubjectContext`         | 
-| É Global          | descontrolado             | 
-| Necessário           | descontrolado               | 
-| Tipo               | String                |
-| Valor predefinido      | `all` |
-| Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
-| Valores de entrada predefinidos | `room`, `bathroom`, `all`|
+| **Nome**               | `SubjectContext`         | 
+| **É Global**          | Não selecionado             | 
+| **Obrigatório**           | Não selecionado               | 
+| **Tipo**               | **String**                |
+| **Valor predefinido**      | `all` |
+| **Configuração**      | **Aceitar valores de entrada predefinidos do catálogo interno** | 
+| **Valores de entrada predefinidos** | `room`, `bathroom`, `all`|
 
-#### <a name="modify-completion-rule"></a>Modifique a regra de conclusão
+#### <a name="modify-a-completion-rule"></a>Modificar uma regra de conclusão
 
-Editar a secção **Ações** da regra de conclusão existente **ConfirmationResponse**. No pop-up de **ação editar,** mude para Editor de **Modelo** e substitua o texto pelo seguinte exemplo.
+Editar a secção **Ações** da regra de conclusão existente **ConfirmationResponse**. Na janela **de ação editar,** mude para **Editor de Modelos.** Em seguida, substitua o texto pelo seguinte exemplo.
 
 ```
 - IF: @{SubjectContext == "all" && SubjectDevice == "lights"}
@@ -592,37 +609,38 @@ Editar a secção **Ações** da regra de conclusão existente **ConfirmationRes
     - Done, turning {OnOff} the {SubjectDevice}
 ```
 
-**Treine** e **teste** a sua aplicação da seguinte forma. Note a variação de respostas devido ao uso de múltiplas alternativas do valor do modelo, e também o uso de expressões adaptativas.
+Treine e teste a sua aplicação utilizando a seguinte entrada e saída. Reparem na variação das respostas. A variação é criada por múltiplas alternativas ao valor do modelo e também pelo uso de expressões adaptativas.
 
-* Entrada: ligue a televisão
+* Entrada: *ligue a televisão*
 * Saída: Ok, ligar a televisão
-* Entrada: ligue a televisão
+* Entrada: *ligue a televisão*
 * Saída: Feito, ligado na televisão
-* Entrada: apare pelas luzes
+* Entrada: *apare pelas luzes*
 * Saída: Ok, apagar todas as luzes
-* Entrada: desligue as luzes do quarto
+* Entrada: *desligue as luzes do quarto*
 * Saída: Ok, desligar as luzes do quarto
 
-## <a name="use-custom-voice"></a>Utilizar a Voz Personalizada
+## <a name="use-a-custom-voice"></a>Use uma voz personalizada
 
-Outra forma de personalizar as respostas de Comandos Personalizados é selecionar uma voz de saída personalizada. Utilize os seguintes passos para mudar a voz predefinida para uma voz personalizada.
+Outra forma de personalizar as respostas de Comandos Personalizados é selecionar uma voz de saída. Utilize os seguintes passos para mudar a voz predefinida para uma voz personalizada:
 
-1. Na sua aplicação de comandos personalizados, selecione **Definições** a partir do painel esquerdo.
-1. Selecione **Voz Personalizada** a partir do painel do meio.
-1. Selecione o costume ou a voz pública desejada da mesa.
+1. Na sua aplicação Comandos Personalizados, no painel à esquerda, selecione **Definições**.
+1. No painel do meio, selecione **Custom Voice**.
+1. Na tabela, selecione uma voz personalizada ou uma voz pública.
 1. Selecione **Guardar**.
 
 > [!div class="mx-imgBorder"]
-> ![Frases de amostra com parâmetros](media/custom-commands/select-custom-voice.png)
+> ![Screenshot mostrando frases e parâmetros da amostra.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Para **vozes públicas,** **os tipos neurais** só estão disponíveis para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neurais por região/ponto final.](./regions.md#standard-and-neural-voices)
-> - Para **vozes personalizadas,** podem ser criadas a partir da página do projeto Custom Voice. Ver [Começar com Voz Personalizada.](./how-to-custom-voice.md)
+> Para vozes públicas, os tipos neurais estão disponíveis apenas para regiões específicas. Para obter mais informações, consulte [as regiões apoiadas pelo serviço speech.](./regions.md#standard-and-neural-voices)
+>
+> Pode criar vozes personalizadas na página do projeto **Custom Voice.** Para mais informações, consulte [Começar com a Voz Personalizada.](./how-to-custom-voice.md)
 
 Agora a aplicação responderá na voz selecionada, em vez da voz predefinido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como integrar a [sua aplicação De Comandos Personalizados](how-to-custom-commands-setup-speech-sdk.md) com uma aplicação de cliente utilizando o Speech SDK.
-* [Confiem a implementação contínua](how-to-custom-commands-deploy-cicd.md) para a sua aplicação de Comandos Personalizados com Azure DevOps. 
+* Saiba como integrar a [sua aplicação De Comandos Personalizados](how-to-custom-commands-setup-speech-sdk.md) com uma aplicação de clientes utilizando o Speech SDK.
+* [Confiúva a implementação contínua](how-to-custom-commands-deploy-cicd.md) para a sua aplicação de Comandos Personalizados utilizando Azure DevOps. 
                       

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 209760b51e0f3ab931fa43ef88406f15c75ac079
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835667"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832544"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeie um Azure Ative Directory My Apps
 
@@ -54,10 +54,10 @@ Azure AD My Apps beneficia as empresas das seguintes formas:
 
 As minhas Apps são gratuitas e não requer licenças para usar a um nível básico. No entanto, o número de objetos no seu diretório e as funcionalidades adicionais que pretende implementar podem requerer licenças adicionais. Alguns cenários comuns de AD Azure que têm requisitos de licenciamento incluem as seguintes funcionalidades de segurança:
 
-* [Autenticação de vários fatores Azure Ad](../authentication/concept-mfa-howitworks.md)
+* [Multi-Factor Authentication do Azure AD](../authentication/concept-mfa-howitworks.md)
 * [Adesão baseada em grupo](../fundamentals/active-directory-manage-groups.md)
 * [Reposição personalizada de palavra-passe](../authentication/tutorial-enable-sspr.md)
-* [Proteção de Identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Consulte o [guia de licenciamento completo para Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -72,10 +72,10 @@ Complete os seguintes pré-requisitos antes de iniciar este projeto:
 
 A tabela a seguir descreve os principais casos de utilização para uma implementação my apps:
 
-| Área| Descrição |
+| Área| Description |
 | - | - |
-| Access| O portal My Apps está acessível a partir de dispositivos corporativos e pessoais dentro da rede corporativa. |
-|Access | O portal My Apps está acessível a partir de dispositivos corporativos fora da rede corporativa. |
+| Acesso| O portal My Apps está acessível a partir de dispositivos corporativos e pessoais dentro da rede corporativa. |
+|Acesso | O portal My Apps está acessível a partir de dispositivos corporativos fora da rede corporativa. |
 | Auditoria| Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias. |
 | Governação| O ciclo de vida das atribuições do utilizador a aplicações e grupos ligados à Azure AD é definido e monitorizado. |
 | Segurança| O acesso aos recursos é controlado através de atribuições de utilizador e grupo. Apenas os utilizadores autorizados podem gerir o acesso a recursos. |

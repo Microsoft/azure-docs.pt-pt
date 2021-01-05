@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862467"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832714"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente dados do Centro de Segurança
 
@@ -24,6 +24,7 @@ O Centro de Segurança Azure gera alertas e recomendações de segurança detalh
 - Todos os alertas de alta severidade são enviados para um Centro de Eventos Azure
 - Todos os resultados de severidade média ou superior a partir de análises de vulnerabilidade dos seus servidores SQL são enviados para um espaço de trabalho específico do Log Analytics
 - Recomendações específicas são entregues a um centro de eventos ou espaço de trabalho Log Analytics sempre que são geradas 
+- A pontuação segura de uma subscrição é enviada para um espaço de trabalho Log Analytics sempre que a pontuação para um controlo muda por 0.01 ou mais 
 
 Este artigo descreve como configurar a exportação contínua para espaços de trabalho Log Analytics ou Azure Event Hubs.
 
@@ -41,12 +42,22 @@ Este artigo descreve como configurar a exportação contínua para espaços de t
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **Proprietário** no grupo de recursos</li><li>Escreva permissões para o recurso alvo</li><li>Se estiver a utilizar as políticas de Azure 'DeployIfNotExist' descritas abaixo, também necessitará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Sim](./media/icons/yes-icon.png) China Gov (para o Centro de Eventos)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para o Centro de Eventos)|
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>Que tipos de dados podem ser exportados?
 
+A exportação contínua pode exportar os seguintes tipos de dados sempre que estes mudarem:
 
+- Alertas de segurança
+- Recomendações de segurança 
+- Conclusões de segurança que podem ser consideradas como recomendações de "sub", como resultados de scanners de avaliação de vulnerabilidades ou atualizações específicas do sistema. Pode selecioná-las com as suas recomendações de "pais", como "As atualizações do sistema devem ser instaladas nas suas máquinas".
+- Pontuação segura (por subscrição ou por controlo)
+- Dados de conformidade regulamentar
+
+> [!NOTE]
+> A exportação de dados de pontuação segura e de conformidade regulamentar é uma funcionalidade de pré-visualização e não está disponível nas nuvens governamentais. 
 
 ## <a name="set-up-a-continuous-export"></a>Criar uma exportação contínua 
 
@@ -67,7 +78,7 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
     Aqui vê-se as opções de exportação. Há um separador para cada alvo de exportação disponível. 
 
 1. Selecione o tipo de dados que pretende exportar e escolha entre os filtros de cada tipo (por exemplo, exportar apenas alertas de alta gravidade).
-1. Opcionalmente, se a sua seleção incluir uma destas quatro recomendações, pode incluir os resultados da avaliação da vulnerabilidade juntamente com eles:
+1. Opcionalmente, se a sua seleção incluir uma destas recomendações, pode incluir os resultados da avaliação da vulnerabilidade juntamente com eles:
     - Os resultados da Avaliação de Vulnerabilidades nas suas bases de dados SQL devem ser remediados
     - As conclusões da Avaliação de Vulnerabilidade nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)
     - As vulnerabilidades nas imagens do Registo de Contentores de Azure devem ser remediadas (alimentadas por Qualys)
@@ -216,6 +227,9 @@ N.º A exportação contínua é construída para o streaming de **eventos:**
 
 - **Os alertas recebidos** antes de permitir a exportação não serão exportados.
 - **As recomendações** são enviadas sempre que o estado de conformidade de um recurso muda. Por exemplo, quando um recurso passa de saudável para insalubre. Portanto, tal como nos alertas, as recomendações para recursos que não mudaram de estado, uma vez que permitiu exportar, não serão exportadas.
+- **A pontuação segura (pré-visualização)** por controlo de segurança ou subscrição é enviada quando a pontuação de um controlo de segurança muda em 0,01 ou mais. 
+- **O estado de conformidade regulamentar (pré-visualização)** é enviado quando o estado da conformidade do recurso muda.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>Por que motivo é que as recomendações são enviadas em intervalos diferentes?

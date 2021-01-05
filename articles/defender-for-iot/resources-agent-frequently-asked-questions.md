@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 9862519a2003eb373c43fef1b660986a8d830327
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094568"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835062"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Azure Defender para agente IoT frequentemente fez perguntas
 
 Este artigo fornece uma lista de perguntas e respostas frequentes sobre o Defensor para agente IoT.
-
 
 ## <a name="do-i-have-to-install-an-embedded-security-agent"></a>Tenho de instalar um agente de segurança incorporado?
 
@@ -42,7 +41,6 @@ O defensor do agente IoT fornece uma cobertura de ameaça de nível do dispositi
 
 O agente de segurança Defender for IoT é de código aberto e está disponível no GitHub em versões Windows e Linux de 32 bits e 64 bits: https://github.com/Azure/Azure-IoT-Security .
 
-
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quais são as dependências e pré-requisitos do agente?
 
 O Defender for IoT suporta uma grande variedade de plataformas. Consulte [as plataformas do Dispositivo Suportado](how-to-deploy-agent.md) para verificar o suporte aos seus dispositivos específicos.
@@ -57,7 +55,7 @@ A geração de dados do agente é impulsionada pela configuração do dispositiv
 
 ## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>As mensagens de agente usam quota de IoT Hub?
 
-Sim. Os dados transmitidos pelo agente são contados na sua quota IoT Hub.
+Yes. Os dados transmitidos pelo agente são contados na sua quota IoT Hub.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>O que se segue? Instalei um agente e não vejo atividades ou registos...
 
@@ -87,13 +85,11 @@ O agente não pode ser desligado.
 
 Se o agente deixar de comunicar ou não enviar mensagens de segurança, é gerado um alerta **silencioso.**
 
-
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como começar com o Defender para ioT, consulte os seguintes artigos:
 
 - Leia o Defender para a [visão geral do IoT](overview.md)
-- Verifique os [pré-requisitos](service-prerequisites.md) do Serviço
-- Saiba mais sobre como [começar](getting-started.md)
+- Verifique os [pré-requisitos do Sistema](quickstart-system-prerequisites.md)
+- Saiba mais sobre como [começar com o Defender para ioT](getting-started.md)
 - Compreenda [os alertas de segurança do Defender para ioT](concept-security-alerts.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 786fcd1a0c6d7df2c38a086a830a63f7179d7d40
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e3768ef233c60f1687bc804778c3dabf32666e1d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352512"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835164"
 ---
 # <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>Quickstart: A bordo Azure Defender para serviço IoT no IoT Hub
 
@@ -33,7 +33,7 @@ Este artigo fornece uma explicação de como ativar o serviço Defender for IoT 
   - Dois tipos de informação são armazenados por padrão no seu espaço de trabalho Log Analytics pelo Defender para IoT; **alertas** e **recomendações de** segurança.
   - Pode optar por adicionar armazenamento de um tipo de informação adicional, **eventos crus.** Note que armazenar **eventos crus** no Log Analytics tem custos adicionais de armazenamento.
 - Hub IoT (nível padrão)
-- Conheça todos os [pré-requisitos de serviço](service-prerequisites.md)
+- Conheça todos os [pré-requisitos do Sistema.](quickstart-system-prerequisites.md)
 
 ## <a name="enable-defender-for-iot-on-your-iot-hub"></a>Ativar o Defender para IoT no seu IoT Hub
 

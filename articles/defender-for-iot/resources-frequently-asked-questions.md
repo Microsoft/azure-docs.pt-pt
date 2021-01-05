@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089201"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835028"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Azure Defender para IoT frequentemente fez perguntas
 
@@ -62,10 +62,10 @@ Enquanto outras soluções fornecem um conjunto de capacidades que permitem aos 
 
 ## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Tenho de ser cliente do Azure IoT?
 
-Sim. Para implementações ligadas à nuvem, o Azure Defender para IoT depende da conectividade e infraestrutura Azure IoT.
+Yes. Para implementações ligadas à nuvem, o Azure Defender para IoT depende da conectividade e infraestrutura Azure IoT.
 ## <a name="can-i-create-my-own-alerts"></a>Posso criar os meus próprios alertas?
 
-Sim. Pode definir um alerta personalizado sobre um conjunto pré-determinado de comportamentos como endereço IP e portas abertas. Consulte [Criar alertas personalizados](quickstart-create-custom-alerts.md) para saber mais sobre alertas personalizados e como os fazer.
+Yes. Pode definir um alerta personalizado sobre um conjunto pré-determinado de comportamentos como endereço IP e portas abertas. Consulte [Criar alertas personalizados](quickstart-create-custom-alerts.md) para saber mais sobre alertas personalizados e como os fazer.
 
 ## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Onde posso ver os troncos? Posso personalizar registos?
 
@@ -79,15 +79,11 @@ Sim. Pode definir um alerta personalizado sobre um conjunto pré-determinado de 
 
 Os sensores e agentes continuam a executar e armazenar dados enquanto o dispositivo estiver em funcionamento. Os dados são armazenados na cache da mensagem de segurança de acordo com a configuração do tamanho. Quando o dispositivo recupera a conectividade, as mensagens de segurança retomam o envio.
 
-
-
-
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como começar com o Defender para ioT, consulte os seguintes artigos:
 
 - Leia o Defender para a [visão geral do IoT](overview.md)
-- Verifique os [pré-requisitos](service-prerequisites.md) do Serviço
-- Saiba mais sobre como [começar](getting-started.md)
+- Verifique os [pré-requisitos do Sistema](quickstart-system-prerequisites.md)
+- Saiba mais sobre como [começar com o Defender para ioT](getting-started.md)
 - Compreenda [os alertas de segurança do Defender para ioT](concept-security-alerts.md)

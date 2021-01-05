@@ -1,0 +1,205 @@
+---
+title: Criar e gerir utilizadores
+description: Criar e gerir os utilizadores de sensores e a consola de gestão no local. Os utilizadores podem ser atribuídos ao papel de administrador, analista de segurança ou utilizador apenas de leitura.
+author: shhazam-ms
+manager: rkarlin
+ms.author: shhazam
+ms.date: 12/21/2020
+ms.topic: article
+ms.service: azure
+ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97843338"
+---
+# <a name="about-defender-for-iot-console-users"></a>Sobre o Defender para utilizadores de consolas IoT
+
+Este artigo descreve como criar e gerir utilizadores de sensores e da consola de gestão no local. As funções do utilizador incluem administrador, analista de segurança ou utilizador apenas de leitura. Cada função está associada a uma gama de permissões a ferramentas para o sensor ou consola de gestão no local. As funções são concebidas para facilitar o acesso granular e seguro ao Azure Defender para IoT.
+
+As funcionalidades também estão disponíveis para acompanhar a atividade do utilizador e ativar o registo do Ative Directory.
+
+Por predefinição, cada consola de gestão de sensores e instalações é instalada com um *utilizador de ciberx e suporte.* Estes utilizadores têm acesso a ferramentas avançadas para resolução e configuração de problemas. Os utilizadores de administradores devem iniciar sessão com estas credenciais de utilizador, criar um utilizador administrativo e, em seguida, criar utilizadores adicionais para analistas de segurança e utilizadores apenas de leitura.
+
+## <a name="role-based-permissions"></a>Permissões baseadas em funções
+Estão disponíveis as seguintes funções de utilizador:
+
+- **Leia apenas:** Os utilizadores apenas para leitura executam tarefas como alertas de visualização e dispositivos no mapa do dispositivo. Estes utilizadores têm acesso às opções exibidas no **âmbito da Navegação.**
+
+- **Analista de** segurança : Os analistas de segurança têm permissões de utilizadores apenas de leitura. Também podem realizar ações em dispositivos, reconhecer alertas e usar ferramentas de investigação. Estes utilizadores têm acesso às opções exibidas no âmbito **da Navegação** e **Análise.**
+
+- **Administrador**: Os administradores têm acesso a todas as ferramentas, incluindo a definição de configurações do sistema, a criação e gestão de utilizadores, entre outras. Estes utilizadores têm acesso às opções exibidas em **Navegação,** **Análise** e **Administração.**
+
+### <a name="role-based-permissions-to-on-premises-management-console-tools"></a>Permissões baseadas em funções para ferramentas de consola de gestão de empresas no local
+
+Esta secção descreve permissões disponíveis para administradores, analistas de segurança e utilizadores apenas de leitura para a consola de gestão no local.  
+
+| Permissão | Só de leitura | Analista de segurança | Administrador |
+|--|--|--|--|
+| Ver e filtrar o mapa da empresa | ✓ | ✓ | ✓ |
+| Construir um site |  |  | ✓ |
+| Gerir um site (adicionar e editar zonas) |  |  | ✓ |
+| Inventário de dispositivos de visualização e filtro | ✓ | ✓ | ✓ |
+| Ver e gerir alertas: reconhecer, aprender e pin | ✓ | ✓ | ✓ |
+| Gerar relatórios |  | ✓ | ✓ |
+| Ver relatórios de avaliação de riscos |  | ✓ | ✓ |
+| Definir exclusões de alerta |  | ✓ | ✓ |
+| Ver ou definir grupos de acesso |  |  | ✓ |
+| Gerir as definições do sistema |  |  | ✓ |
+| Gerir utilizadores |  |  | ✓ |
+| Enviar dados de alerta aos parceiros |  |  | ✓ |
+| Gerir certificados |  |  | ✓ |
+| Tempo limite de sessão quando os utilizadores não estão ativos | 30 minutos | 30 minutos  | 30 minutos  |
+
+#### <a name="assign-users-to-access-groups"></a>Atribuir aos utilizadores o acesso a grupos
+
+Os administradores podem melhorar o controlo de acesso do utilizador no Defender para IoT, atribuindo os utilizadores a grupos de *acesso específicos*. Os grupos de acesso são atribuídos a zonas, locais, regiões e unidades de negócio onde está localizado um sensor. Ao atribuir os utilizadores a grupos de acesso, os administradores ganham controlo específico sobre onde os utilizadores gerem e analisam as deteções de dispositivos. 
+
+Trabalhar desta forma acomoda grandes organizações onde as permissões dos utilizadores podem ser complexas ou determinadas por uma política global de segurança organizacional. Para obter mais informações, consulte [Definir o controlo global de acesso.](how-to-define-global-user-access-control.md)
+
+### <a name="role-based-permissions-to-sensor-tools"></a>Permissões baseadas em funções para ferramentas sensoriais
+
+Esta secção descreve permissões disponíveis para administradores de sensores, analistas de segurança e utilizadores apenas de leitura.  
+
+| Permissão | Só de leitura | Analista de segurança | Administrador |
+|--|--|--|--|
+| Ver o dashboard | ✓ | ✓ | ✓ |
+| Vistas de zoom do mapa de controlo |  |  | ✓ |
+| Ver alertas | ✓ | ✓ | ✓ |
+| Gerir alertas: reconhecer, aprender e pin |  | ✓ | ✓ |
+| Ver eventos numa linha do tempo |  | ✓ | ✓ |
+| Dispositivos autorizados, dispositivos de digitalização conhecidos, dispositivos de programação |  | ✓ | ✓ |
+| Ver dados da investigação | ✓ | ✓ | ✓ |
+| Gerir as definições do sistema |  |  | ✓ |
+| Gerir utilizadores |  |  | ✓ |
+| Servidores DNS para pesquisa inversa |  |  | ✓ |
+| Enviar dados de alerta aos parceiros |  | ✓ | ✓ |
+| Criar comentários de alerta |  | ✓ | ✓ |
+| Ver programação mudar história | ✓ | ✓ | ✓ |
+| Criar regras de alerta personalizadas |  | ✓ | ✓ |
+| Gerir várias notificações simultaneamente |  | ✓ | ✓ |
+| Gerir certificados |  |  | ✓ |
+| Tempo limite de sessão quando os utilizadores não estão ativos | 30 minutos | 30 minutos | 30 minutos |
+
+## <a name="define-users"></a>Definir utilizadores
+
+Esta secção descreve como definir os utilizadores. Os utilizadores de Cyberx, suporte e administrador podem adicionar, remover e atualizar outras definições do utilizador.
+
+Para definir um utilizador:
+
+1. A partir do painel esquerdo para o sensor ou para a consola de gestão no local, selecione **Utilizadores**.
+2. Na janela **do Utilizador,** selecione **Criar Utilizador**.
+3. No painel **de utilização** Criar, defina os seguintes parâmetros:
+
+   - **Nome de utilizador**: Introduza um nome de utilizador.
+   - **Email**: Insira o endereço de e-mail do utilizador.
+   - **Primeiro nome:** Introduza o primeiro nome do utilizador.
+   - **Último Nome**: Introduza o apelido do utilizador.
+   - **Função**: Definir o papel do utilizador. Consulte [permissões baseadas em funções.](#role-based-permissions)
+   - **Grupo de Acesso**: Se estiver a criar um utilizador para a consola de gestão no local, defina o grupo de acesso do utilizador. Ver [Definir controlo global de acesso.](how-to-define-global-user-access-control.md)
+   - **Palavra-passe**: Selecione o tipo de utilizador da seguinte forma:
+     - **Utilizador Local**: Defina uma palavra-passe para o utilizador de um sensor ou de uma consola de gestão no local. A palavra-passe deve incluir pelo menos seis caracteres e deve incluir letras e números.
+     - **Utilizador do Diretório Ativo**: Pode permitir que os utilizadores entrem no sensor ou na consola de gestão utilizando credenciais de Ative Directory. Os grupos de Diretório Ativo definidos podem ser associados a níveis de permissão específicos. Por exemplo, configurar um grupo de Diretório Ativo específico e atribuir todos os utilizadores do grupo ao tipo de utilizador apenas de leitura.
+
+:::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/manage-user-views.png" alt-text="Gerencie os seus utilizadores.":::
+
+## <a name="user-session-timeout"></a>Tempo limite de sessão do utilizador
+
+Se os utilizadores não estiverem ativos no teclado ou no rato por um momento específico, são assinados fora da sessão e devem iniciar sessão novamente.
+
+Quando os utilizadores não trabalharam com o rato ou teclado da consola durante um período de 30 minutos, é forçado a uma sessão de sessão.
+
+Esta funcionalidade é ativada por padrão e por atualização, mas pode ser desativada. Além disso, os tempos de contagem da sessão podem ser atualizados. Os tempos de sessão são definidos em segundos. As definições são aplicadas por sensor e consola de gestão no local.
+
+Uma mensagem de tempo limite de sessão aparece na consola quando o tempo limite de inatividade passou.
+
+### <a name="control-inactivity-sign-out"></a>Controlo da inatividade
+
+Os utilizadores de administradores podem ativar e desativar a inatividade e ajustar os limiares de inatividade.
+
+Para aceder ao comando:
+
+1. Inscreva-se no CLI para a consola de gestão de sensores ou no local utilizando o Defender para obter credenciais administrativas IoT.
+
+2. Introduza `sudo nano /var/cyberx/properties/authentication`.
+
+```azurecli-interactive
+    infinity_session_expiration = true
+    session_expiration_default_seconds = 0
+    # half an hour in seconds (comment)
+    session_expiration_admin_seconds = 1800
+    # a day in seconds
+    session_expiration_security_analyst_seconds = 1800
+    # a week in seconds
+    session_expiration_read_only_users_seconds = 1800
+```
+
+Para desativar a funcionalidade, mude `infinity_session_expiration = true` para `infinity_session_expiration = false` .
+
+Para atualizar os períodos de contagem de assinaturas, ajuste o `= <number>` valor ao tempo necessário.
+
+
+## <a name="track-user-activity"></a>Acompanhar a atividade do utilizador 
+
+Pode rastrear a atividade do utilizador na linha temporal do evento em cada sensor. A linha de tempo exibe o evento ou o dispositivo afetado, e a hora e a data em que o utilizador realizou a atividade.
+
+Para visualizar a atividade do utilizador:
+
+1. Inscreva-se no sensor.
+1. Na linha temporal do evento, ative a opção **Operações de Utilização.** 
+
+    :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="Ver a atividade de um utilizador.":::
+
+## <a name="integrate-with-active-directory-servers"></a>Integre-se com servidores ative directory 
+
+Configure o sensor ou a consola de gestão no local para trabalhar com o Ative Directory. Isto permite que os utilizadores do Ative Directory acedam ao Defender para consolas IoT utilizando as suas credenciais de Ative Directory.
+
+São suportados dois tipos de autenticação baseada em LDAP:
+
+- **Autenticação completa**: Os dados do utilizador são recuperados a partir do servidor LDAP. Exemplos são o primeiro nome, apelido, e-mail e permissões do utilizador.
+
+- **Utilizador de confiança**: Apenas a palavra-passe do utilizador é recuperada. Outros detalhes do utilizador que são recuperados são baseados nos utilizadores definidos no sensor.
+
+### <a name="active-directory-and-defender-for-iot-permissions"></a>Diretório Ativo e Defender para permissões IoT
+
+Pode associar grupos de Diretório Ativo definidos aqui com níveis de permissão específicos. Por exemplo, configurar um grupo de Diretório Ativo específico e atribuir permissões RO a todos os utilizadores do grupo. Consulte [criar e gerir os utilizadores](how-to-create-and-manage-users.md) para obter mais detalhes.
+
+Para configurar o Diretório Ativo:
+
+1. A partir do painel esquerdo, selecione **Definições do Sistema**.
+
+    :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Veja as definições do sistema Ative Directory.":::
+
+2. No painel **de definições** do sistema, selecione **Ative Directory**.
+
+    :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edite as configurações do Ative Directory.":::
+
+3. Na caixa de diálogo de **configuração de configuração do diretório ativo de edição,** selecione **Ative Directory Integration Enabled**  >  **Save**. A caixa de diálogo de **configuração de diretório ativo** de edição expande-se e agora pode introduzir os parâmetros para configurar o Ative Directory.
+
+    :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Introduza os parâmetros para configurar o Ative Directory.":::
+
+    > [!NOTE]
+    > - Deve definir os parâmetros LDAP aqui exatamente como aparecem no Ative Directory.
+    > - Para todos os parâmetros do Diretório Ativo, utilize apenas minúsculas. Utilize minúsculas mesmo quando as configurações no Ative Directory utilizarem maiúsculas.
+    > - Não é possível configurar tanto lDAP como LDAPS para o mesmo domínio. No entanto, pode utilizar ambos para diferentes domínios ao mesmo tempo.
+
+4. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
+
+   | Parâmetro do servidor | Description |
+   |--|--|
+   | Controlador de domínio FQDN | Desaceie o nome de domínio totalmente qualificado (FQDN) exatamente como aparece no seu servidor LDAP. Por exemplo, introduza `host1.subdomain.domain.com`. |
+   | Porta controladora de domínio | Defina a porta na qual o seu LDAP está configurado. |
+   | Domínio primário | Desaça o nome de domínio (por exemplo) `subdomain.domain.com` e o tipo de ligação de acordo com a configuração LDAP. |
+   | Grupos de diretório ativo | Introduza os nomes de grupo definidos na configuração do Ative Directory no servidor LDAP. |
+   | Domínios fidedignos | Para adicionar um domínio de confiança, adicione o nome de domínio e o tipo de ligação de um domínio fidedigno. <br />Só é possível configurar domínios fidedignos para utilizadores definidos pelos utilizadores. |
+
+5. Selecione **Guardar**.
+
+6. Para adicionar um servidor de confiança, **selecione Adicionar Servidor** e configuure outro servidor.
+
+## <a name="see-also"></a>Veja também
+
+[Ative e crie o seu sensor](how-to-activate-and-set-up-your-sensor.md) 
+ [Ative e crie a sua consola](how-to-activate-and-set-up-your-on-premises-management-console.md) 
+ de gestão no local [Rastrear atividade de sensor](how-to-track-sensor-activity.md)

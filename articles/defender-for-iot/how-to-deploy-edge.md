@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339936"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832782"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
 
@@ -53,7 +53,7 @@ Utilize os seguintes passos para implantar um módulo de segurança Defender par
 
 1. Selecione **Internet of Things** e, em seguida, procure por Defender para **IoT** e selecione-o.
 
-   ![Selecione Defender para IoT](media/howto/edge-onboarding-8.png)
+   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Selecione Defender para IoT":::
 
 1. Clique em **Criar** para configurar a implementação.
 
@@ -175,7 +175,7 @@ Se encontrar um problema, os registos de contentores são a melhor forma de apre
 
 1. Verifique se os seguintes recipientes estão em funcionamento:
 
-   | Name | IMAGEM |
+   | Nome | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 74e0e8daa662f4dd49f1886972236b5b0a3b100a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3e48ed870bf405a82441678b5e8c01d199e7ebff
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348862"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835011"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de azureiotsecurity twin
 
@@ -65,10 +65,10 @@ Para verificar se existe um módulo de segurança gémeo para um dispositivo esp
 
 1. No seu Azure IoT Hub, selecione **dispositivos IoT** do menu **Explorers.**
 1. Introduza o ID do dispositivo ou selecione uma opção no campo do **dispositivo de consulta** e clique em **dispositivos de consulta**.
-    ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="Dispositivos de consulta":::
 1. Selecione o dispositivo ou clique duas vezes nele para abrir a página de detalhes do Dispositivo.
 1. Selecione o menu **de identidades do Módulo** e confirme a existência do módulo de insegurança **azureiot** na lista de identidades do módulo associadas ao dispositivo.
-    ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="Módulos associados a um dispositivo":::
 
 Para saber mais sobre a personalização das propriedades do Defender para gémeos módulos IoT, consulte [a configuração do Agente](how-to-agent-configuration.md).
 
