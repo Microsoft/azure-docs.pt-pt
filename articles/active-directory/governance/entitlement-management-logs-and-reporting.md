@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783828"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746648"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da AD Azure no Azure Monitor
 
@@ -44,7 +44,7 @@ Os registos de auditoria da Azure AD requer que tenha o Azure Monitor numa subsc
     ![Painel de definições de diagnóstico](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
 
 
-1. Depois de o registo ser enviado para o Azure Monitor, selecione **log analytics espaços de trabalho**e selecione o espaço de trabalho que contém os registos de auditoria AZure AD.
+1. Depois de o registo ser enviado para o Azure Monitor, selecione **log analytics espaços de trabalho** e selecione o espaço de trabalho que contém os registos de auditoria AZure AD.
 
 1. Selecione **Utilização e custos estimados** e clique em **Retenção de Dados.** Altere o slider para o número de dias que pretende manter os dados para satisfazer os seus requisitos de auditoria.
 
@@ -54,7 +54,7 @@ Os registos de auditoria da Azure AD requer que tenha o Azure Monitor numa subsc
     
     1. Selecione **Azure Ative Directory** e, em **seguida,** clique em Livros de Trabalho . 
     
-    1. Expandir a secção **Azure Ative Directory Troubleshooting**e clicar no **Intervalo de Data de Registo Arquivado**. 
+    1. Expandir a secção **Azure Ative Directory Troubleshooting** e clicar no **Intervalo de Data de Registo Arquivado**. 
 
 
 ## <a name="view-events-for-an-access-package"></a>Ver eventos para um pacote de acesso  
@@ -128,7 +128,7 @@ Para definir a atribuição de funções e criar uma consulta, faça os seguinte
 
     ![Adicionar uma atribuição de função](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 
-### <a name="install-azure-powershell-module"></a>Instalar módulo Azure PowerShell
+### <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
 
 Assim que tiver a atribuição de funções adequada, lance o PowerShell e [instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (se ainda não tiver), digitando:
 

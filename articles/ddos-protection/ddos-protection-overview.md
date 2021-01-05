@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: c3931cafb6c755c6119bf8deb4ecc6b58ea7bc51
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5e633b5e4b2ff2ce884bfaf99e3730968150cbed
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938448"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746376"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Descrição geral do Azure DDoS Protection Standard
 
@@ -33,8 +33,8 @@ A proteção Azure DDoS não armazena dados do cliente.
 ## <a name="features"></a>Funcionalidades
 
 - **Integração de plataformas nativas:** Integrado nativo no Azure. Inclui a configuração através do portal Azure. A DDoS Protection Standard compreende os seus recursos e a configuração dos recursos.
-- **Proteção chave na mão:** A configuração simplificada protege imediatamente todos os recursos numa rede virtual assim que o DDoS Protection Standard estiver ativado. Não é necessária qualquer intervenção ou definição de utilizador. A Norma de Proteção DDoS atenua instantaneamente e atenua automaticamente o ataque, uma vez detetado.
-- **Monitorização do tráfego sempre ligado:** Os seus padrões de tráfego de aplicações são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques DDoS. A mitigação é efetuada quando as políticas de proteção são ultrapassadas.
+- **Proteção chave na mão:** A configuração simplificada protege imediatamente todos os recursos numa rede virtual assim que o DDoS Protection Standard estiver ativado. Não é necessária qualquer intervenção ou definição de utilizador. 
+- **Monitorização do tráfego sempre ligado:** Os seus padrões de tráfego de aplicações são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques DDoS. A Norma de Proteção DDoS atenua instantaneamente e atenua automaticamente o ataque, uma vez detetado.
 - **Sintonização adaptativa:** O perfil de tráfego inteligente aprende o tráfego da sua aplicação ao longo do tempo e seleciona e atualiza o perfil que é o mais adequado para o seu serviço. O perfil ajusta-se à medida que o tráfego muda ao longo do tempo.
 - **Proteção em várias camadas:** Fornece proteção DDoS de pilha completa, quando usado com uma firewall de aplicação web, para obter proteção tanto na camada de rede (Camada 3 e 4, oferecida pela Azure DDoS Protection Standard) como na camada de aplicação (Camada 7, oferecida por um WAF). As ofertas da WAF incluem ofertas de gateway de aplicações Azure [GATEWAY WAF SKU,](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bem como ofertas de firewall de aplicações web de terceiros disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 - **Escala de mitigação extensiva:** Mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques DDoS conhecidos.
@@ -42,7 +42,7 @@ A proteção Azure DDoS não armazena dados do cliente.
 - **Métricas de ataque:** As métricas resumidas de cada ataque são acessíveis através do Monitor Azure.
 - **Alerta de ataque:** Os alertas podem ser configurados no início e na paragem de um ataque, e durante a duração do ataque, usando métricas de ataque incorporadas. Os alertas integram-se no seu software operacional como os registos do Microsoft Azure Monitor, Splunk, Azure Storage, Email e o portal Azure.
 - **DDoS Rapid Response**: Envolva a equipa de Resposta Rápida de Proteção DDoS (DRR) para ajuda na investigação e análise de ataques. Para saber mais, consulte [dDoS Rapid Response](ddos-rapid-response.md).
-- **Garantia de custos:** Créditos de serviço de transferência de dados e de aplicação para ataques DDoS documentados.
+- **Garantia de custos:** Receber crédito de serviço de transferência de dados e de aplicação para os custos de recursos incorridos em resultado de ataques DDoS documentados.
 
 ## <a name="pricing"></a>Preços
 

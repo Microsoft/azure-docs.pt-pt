@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001971"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746614"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -203,7 +203,7 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
    ![A screenshot mostra uma opção para saltar a instalação PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. Se precisar de o instalar mais **File** tarde, pode navegar para  >  Definições **de Preferência**  >  de Ficheiros , em seguida,**desmarque** **a configuração HDInsight: Ative a instalação Skip Pyspark** nas definições. 
+5. Se precisar de o instalar mais tarde, pode navegar para  >  Definições **de Preferência**  >  de Ficheiros , em seguida,**desmarque** **a configuração HDInsight: Ative a instalação Skip Pyspark** nas definições. 
     
     ![A screenshot mostra a opção de Ativar a Instalação Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
@@ -211,29 +211,31 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
    ![pyspark instalado com sucesso](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server**.
+7. Utilize o pedido de comando para executar **pip para instalar numpy == 1.19.3**, e, em seguida, recarregar novamente a janela VSCode.
+
+8. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server**.
 
    ![selecione intérprete para iniciar o servidor jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-8. Selecione a opção python abaixo.
+9. Selecione a opção python abaixo.
 
    ![escolher a opção abaixo](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window**.
+10. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window**.
 
-   ![janela de recarga](./media/hdinsight-for-vscode/reload-window.png)
+    ![janela de recarga](./media/hdinsight-for-vscode/reload-window.png)
 
-10. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
+11. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
-11. Selecione todo o código, clique com o direito no editor de scripts e selecione **Spark: PySpark Interactive / Synapse: Pyspark Interactive** para submeter a consulta. 
+12. Selecione todo o código, clique com o direito no editor de scripts e selecione **Spark: PySpark Interactive / Synapse: Pyspark Interactive** para submeter a consulta. 
 
     ![menu de contexto interativo pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark**, e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
+13. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark**, e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
 
     ![pyspark janela interativa python](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. Introduza **%%info** e, em seguida, pressione Shift+Enter para ver as informações de trabalho (opcional):
+14. Introduza **%%info** e, em seguida, pressione Shift+Enter para ver as informações de trabalho (opcional):
 
     ![pyspark interactive view informações de trabalho](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -266,7 +268,8 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
 
 > [!NOTE]
-> A versão >da Senhora Deputada =2020.5.78807 não é apoiada nesta extensão é uma [questão conhecida.](#known-issues)
+>
+> ["A versão ms-python >=2020.5.78807 não é suportada nesta extensão"](#issues-changed) foi resolvida. A mais recente versão ms-python pode ser usada por enquanto.
 
 ## <a name="submit-pyspark-batch-job"></a>Submeter trabalho de lote PySpark
 
@@ -348,7 +351,7 @@ Envie um ficheiro e note que a `.vscode` pasta é automaticamente adicionada à 
 
   **POST /lotes**
   
-  **Corpo do pedido**
+  **Corpo de pedido**
 
   | name | descrição | tipo |
   | --- | --- | --- |
@@ -486,13 +489,10 @@ Submeta um trabalho a um cluster HDInsight usando data lake storage gen2. É-lhe
 
 A partir da barra de menu, vá à **Paleta de** Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="issues-changed"></a>Problemas Alterados
 
-### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>ms-python >=versão 2020.5.78807 não é suportado nesta extensão 
+Para esta edição "ms-python >=versão 2020.5.78807 não é suportada nesta extensão" foi resolvida, a **versão mais recente da MS-Python** pode ser usada por enquanto.
 
-"Falhou em ligar-me ao caderno do Jupyter." é uma edição conhecida para a versão python >=2020.5.78807. Recomenda-se que os utilizadores utilizem a versão **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** da ms-python para evitar este problema.
-
-![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980042"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745968"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerir um catálogo de recursos na gestão de direitos Azure AD
 
@@ -69,7 +69,7 @@ Para incluir recursos num pacote de acesso, os recursos devem existir num catál
 
 1. Clique **em Adicionar recursos.**
 
-1. Clique num tipo de recurso: **Grupos e Equipas,** **Aplicações**ou **sites SharePoint**.
+1. Clique num tipo de recurso: **Grupos e Equipas,** **Aplicações** ou **sites SharePoint**.
 
     Se não vir um recurso que pretenda adicionar ou se não conseguir adicionar um recurso, certifique-se de que tem a função de diretório AD AD exigida e a função de gestão de direitos. Pode ser necessário que alguém com as funções necessárias adicione o recurso ao seu catálogo. Para obter mais informações, consulte [as funções necessárias para adicionar recursos a um catálogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -150,7 +150,7 @@ Pode apagar um catálogo, mas apenas se não tiver pacotes de acesso.
 
 1. No menu esquerdo, clique em **Catálogos** e, em seguida, abra o catálogo que pretende eliminar.
 
-1. No resumo **do**catálogo, clique em **Apagar**.
+1. No resumo **do** catálogo, clique em **Apagar**.
 
 1. Na caixa de mensagens que aparece, clique em **Sim**.
 

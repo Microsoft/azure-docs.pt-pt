@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 8715fd3d71a5f65695b045f8a32a1b88bcfdd308
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d9e575d68fe4fef607bdf443ece1ddd04f085533
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672547"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746461"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Ligação de saída RabbitMQ para visão geral das funções do Azure
 
 > [!NOTE]
-> As ligações RabbitMQ só são totalmente suportadas em planos **Windows Premium e Dedicados.** O consumo e o Linux não são atualmente apoiados.
+> As ligações RabbitMQ só são totalmente suportadas em planos **Premium e Dedicados.** O consumo não é suportado.
 
 Utilize a ligação de saída RabbitMQ para enviar mensagens para uma fila RabbitMQ.
 
@@ -31,7 +31,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 
 ```cs
 [FunctionName("RabbitMQOutput")]
-[return: RabbitMQ("outputQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]
+[return: RabbitMQ(QueueName = "outputQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -44,34 +44,35 @@ O exemplo a seguir mostra como utilizar a interface IAsyncCollector para enviar 
 ```cs
 [FunctionName("RabbitMQOutput")]
 public static async Task Run(
-[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] string rabbitMQEvent,
-[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<string> outputEvents,
+[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] string rabbitMQEvent,
+[RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<string> outputEvents,
 ILogger log)
 {
-    // processing:
-    var myProcessedEvent = DoSomething(rabbitMQEvent);
-    
      // send the message
-    await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    await outputEvents.AddAsync(JsonConvert.SerializeObject(rabbitMQEvent));
 }
 ```
 
 O exemplo a seguir mostra como enviar as mensagens como POCOs.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
-
-[FunctionName("RabbitMQOutput")]
-public static async Task Run(
-[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] TestClass rabbitMQEvent,
-[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<TestClass> outputPocObj,
-ILogger log)
-{
-    // send the message
-    await outputPocObj.Add(rabbitMQEvent);
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
+    public static class RabbitMQOutput{
+        [FunctionName("RabbitMQOutput")]
+        public static async Task Run(
+        [RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass rabbitMQEvent,
+        [RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<TestClass> outputPocObj,
+        ILogger log)
+        {
+            // send the message
+            await outputPocObj.AddAsync(rabbitMQEvent);
+        }
+    }
 }
 ```
 
@@ -107,7 +108,7 @@ Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 Aqui está o código do guião C:
 
-```csx
+```C#
 using System;
 using Microsoft.Extensions.Logging;
 
@@ -193,12 +194,14 @@ Aqui estão os dados vinculativos do *function.jsarquivado:*
 }
 ```
 
+Init *_\__ \_ .py:*
+
 ```python
 import azure.functions as func
 
-def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
-    msg.set(input_msg)
+    outputMessage.set(input_msg)
     return 'OK'
 ```
 
@@ -263,7 +266,7 @@ Consulte o [exemplo](#example) de ligação de saída para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `RabbitMQ` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para "RabbitMQ".|
 |**direção** | n/a | Deve ser definido para "fora". |
@@ -273,7 +276,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome de utilizador**|**Nome de utilizador**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém o nome de utilizador para aceder à fila. Por exemplo: UserNameSetting: "< UserNameFromSettings >"|
 |**palavra-passe**|**Palavra-passe**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém a palavra-passe para aceder à fila. Por exemplo: UserNameSetting: "< UserNameFromSettings >"|
 |**conexãoStringSetting**|**ConexãoStringSetting**|O nome da definição da aplicação que contém a cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que se especificar diretamente o fio de ligação e não através de uma definição de aplicação no local.settings.jsligado, o gatilho não funcionará. (Ex: Em *function.jssobre:* connectionStringSetting: "rabbitMQConnection" <br> Em *local.settings.jsem*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**porto**|**Porta**|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Incumprimentos para 0.|
+|**porto**|**Porta**|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Predefinições a 0 que aponta para a definição padrão da porta do cliente rabbitmq: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

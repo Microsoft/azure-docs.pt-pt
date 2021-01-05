@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cc48d26c217f52dfa52ac6cd3d7f18a806c93927
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129784"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740985"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Saída de Power BI da Azure Stream Analytics
 
@@ -80,9 +80,5 @@ Para o tamanho do lote de saída, consulte [os limites da API de repouso Power B
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI (pré-visualização)](powerbi-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
-* [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

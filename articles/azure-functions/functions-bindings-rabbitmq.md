@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672513"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746529"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Ligações RabbitMQ para visão geral das funções azure
 
 > [!NOTE]
-> As ligações RabbitMQ só são totalmente suportadas em planos **Windows Premium e Dedicados.** O consumo e o Linux não são atualmente apoiados.
+> As ligações RabbitMQ só são totalmente suportadas em planos **Premium e Dedicados.** O consumo não é suportado.
 
 As funções Azure integram-se com [o RabbitMQ](https://www.rabbitmq.com/) através [de gatilhos e encadernações](./functions-triggers-bindings.md). A extensão Azure Functions RabbitMQ permite-lhe enviar e receber mensagens usando a API RabbitMQ com Funções.
 
@@ -34,7 +34,7 @@ Para começar a desenvolver com esta extensão, certifique-se de que [primeiro c
 
 Trabalhar com o gatilho e as ligações requer que você refira o pacote apropriado. O pacote NuGet é utilizado para bibliotecas de classe .NET enquanto o pacote de extensão é utilizado para todos os outros tipos de aplicação.
 
-| Linguagem                                        | Adicione por...                                   | Observações 
+| Linguagem                                        | Adicione por...                                   | Observações
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 4.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registar o [pacote de extensão]          | Recomenda-se a utilização da [extensão Azure Tools] com Código de Estúdio Visual. |

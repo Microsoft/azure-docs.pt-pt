@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 12/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447567"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740917"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge Pro GPU
 
@@ -24,7 +24,7 @@ Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -72,8 +72,7 @@ Para criar uma partilha, faça o seguinte procedimento:
    
     f. Dependendo se criou uma participação na SMB ou numa participação da NFS, faça um dos seguintes passos: 
      
-    - **Partilha SMB**: Sob **todos os privilégios utilizador local,** selecione **Criar novo** ou **utilizar existente**. Se criar um utilizar local novo, introduza um nome de utilizador e uma palavra-passe e, em seguida, confirme a palavra-passe. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para as modificar.
-    Se selecionar a caixa **de verificação de operações de leitura apenas** para estes dados de partilha, pode especificar utilizadores apenas de leitura.
+    - **Partilha SMB**: Sob **todos os privilégios utilizador local,** selecione **Criar novo** ou **utilizar existente**. Se criar um utilizar local novo, introduza um nome de utilizador e uma palavra-passe e, em seguida, confirme a palavra-passe. Esta ação atribui as permissões ao utilizador local. Atualmente, não é suportada a modificação das permissões de nível de ação. Se selecionar a caixa **de verificação de operações de leitura apenas** para estes dados de partilha, pode especificar utilizadores apenas de leitura.
     
         ![Adicionar uma partilha SMB](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    

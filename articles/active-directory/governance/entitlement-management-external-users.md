@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fae7a62f062478c5fee45d172b88d0132f3a8f8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546136"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746665"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure
 

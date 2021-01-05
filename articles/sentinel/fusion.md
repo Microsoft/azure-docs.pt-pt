@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906282"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746189"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Deteção avançada de ataques em vários palcos em Azure Sentinel
 
 
 > [!IMPORTANT]
 > Algumas funcionalidades da Fusion em Azure Sentinel estão atualmente em **pré-visualização pública.**
-> Estas funcionalidades são fornecidas sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Estas funcionalidades são fornecidas sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao utilizar a tecnologia Fusion baseada na aprendizagem automática, o Azure Sentinel pode detetar automaticamente ataques de vários estágios, identificando combinações de comportamentos anómalos e atividades suspeitas que são observadas em várias fases da cadeia de morte. Com base nestas descobertas, a Azure Sentinel gera incidentes que de outra forma seriam difíceis de apanhar. Estes incidentes compreendem dois ou mais alertas ou atividades. Por design, estes incidentes são de baixo volume, alta fidelidade e alta gravidade.
 
@@ -38,18 +38,18 @@ Esta deteção é ativada por padrão em Azure Sentinel. Para verificar o estado
 
 1. Navegue para **Azure Sentinel**  >  **Configuration**  >  **Analytics**
 
-1. Selecione **as regras Ative**e, em seguida, localize **a Deteção avançada de ataques multiestatos** na coluna **NAME** filtrando a lista para o tipo de regra **de fusão.** Verifique se a coluna **STATUS** confirma se esta deteção está ativada ou desativada.
+1. Selecione **as regras Ative** e, em seguida, localize **a Deteção avançada de ataques multiestatos** na coluna **NAME** filtrando a lista para o tipo de regra **de fusão.** Verifique se a coluna **STATUS** confirma se esta deteção está ativada ou desativada.
 
     :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}":::
 
 1. Para alterar o estado, selecione esta entrada e na lâmina **avançada de deteção de ataques multiestage,** selecione **Editar**.
 
-1. Na lâmina do assistente de **criação regra,** a alteração de estado é selecionada automaticamente para si, por isso selecione **Seguinte: Revisão**e, em seguida, **Guarde**. 
+1. Na lâmina do assistente de **criação regra,** a alteração de estado é selecionada automaticamente para si, por isso selecione **Seguinte: Revisão** e, em seguida, **Guarde**. 
 
  Uma vez que o tipo de regra **de fusão** contém apenas uma regra que não pode ser modificada, os modelos de regra não são aplicáveis a este tipo de regra.
 
 > [!NOTE]
-> A Azure Sentinel utiliza atualmente 30 dias de dados históricos para treinar os sistemas de aprendizagem automática. Estes dados são sempre encriptados utilizando as chaves da Microsoft à medida que passam pelo pipeline de aprendizagem automática. No entanto, os dados de formação não são encriptados utilizando [as Chaves Geridas pelo Cliente (CMK)](customer-managed-keys.md) se tiver ativado a CMK no seu espaço de trabalho Azure Sentinel. Para excluir a Fusão, navegue para **Azure Sentinel**   \>  **Configuration**   \>  **Analytics Ative rules \> Advanced \> Multistage Attack Detection** e na coluna **Status,** selecione **Desativar.**
+> A Azure Sentinel utiliza atualmente 30 dias de dados históricos para treinar os sistemas de aprendizagem automática. Estes dados são sempre encriptados utilizando as chaves da Microsoft à medida que passam pelo pipeline de aprendizagem automática. No entanto, os dados de formação não são encriptados utilizando [as Chaves Geridas pelo Cliente (CMK)](customer-managed-keys.md) se tiver ativado a CMK no seu espaço de trabalho Azure Sentinel. Para excluir a Fusão, navegue para **Azure Sentinel** \> **Configuration** \> **Analytics Ative rules \> Advanced \> Multistage Attack Detection** e na coluna **Status,** selecione **Desativar.**
 
 ## <a name="attack-detection-scenarios"></a>Cenários de deteção de ataques
 
@@ -84,6 +84,70 @@ Este cenário encontra-se atualmente em **pré-visualização pública.**
 - **Evento de inscrição a partir de um endereço IP anónimo que conduz a múltiplas atividades de criação de VM**
 
 - **Evento de inscrição do utilizador com credenciais vazadas que conduzem a múltiplas atividades de criação de VM**
+
+## <a name="credential-harvesting-new-threat-classification"></a>Colheita credencial (classificação de novas ameaças)
+
+### <a name="malicious-credential-theft-tool-execution-following-suspicious-sign-in"></a>Execução de ferramenta de roubo de credencial maliciosa após sinal suspeito
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Acesso Credencial
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Dumping credencial de OS (T1003)
+
+**Fontes de conector de dados:** Azure Ative Directory Identity Protection, Microsoft Defender for Endpoint
+
+**Descrição:** Incidentes de fusão deste tipo indicam que uma ferramenta de roubo de credenciais conhecida foi executada na sequência de um sinal de AD Azure suspeito. Isto fornece uma indicação de alta confiança de que a conta de utilizador notada na descrição do alerta foi comprometida e pode ter usado com sucesso uma ferramenta como **Mimikatz** para recolher credenciais como chaves, palavras-passe de texto simples e/ou hashes de palavra-passe do sistema. As credenciais colhidas podem permitir que um intruso aceda a dados sensíveis, aumente os privilégios e/ou se mova lateralmente através da rede. As permutações de alertas de entrada de Ad Azure suspeitos com o alerta de ferramenta de roubo de credencial maliciosa são:
+
+- **Viagem impossível para locais atípicos que levam à execução de ferramentas de roubo de credenciais maliciosas**
+
+- **Evento de entrada de um local desconhecido que conduz à execução de ferramentas de roubo de credenciais maliciosas**
+
+- **Evento de entrada de um dispositivo infetado que conduz à execução de ferramentas de roubo de credenciais maliciosas**
+
+- **Evento de entrada a partir de um endereço IP anónimo que conduz à execução de ferramentas de roubo de credenciais maliciosas**
+
+- **Evento de entrada de utilizador com credenciais vazadas que conduzem à execução de ferramenta de roubo de credencial maliciosa**
+
+### <a name="suspected-credential-theft-activity-following-suspicious-sign-in"></a>Suspeita de atividade de roubo de credencial após sessão suspeita
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Acesso Credencial
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Credenciais de Lojas de Passwords (T1555), Dumping Credencial DE OS (T1003)
+
+**Fontes de conector de dados:** Azure Ative Directory Identity Protection, Microsoft Defender for Endpoint
+
+**Descrição:** Incidentes de fusão deste tipo indicam que a atividade associada a padrões de roubo credencial ocorreu na sequência de um sinal de AD Azure suspeito. Isto fornece uma indicação de alta confiança de que a conta de utilizador indicada na descrição do alerta foi comprometida e usada para roubar credenciais como chaves, palavras-passe de texto simples, hashes de palavra-passe, e assim por diante. As credenciais roubadas podem permitir que um intruso aceda a dados sensíveis, aumente os privilégios e/ou se mova lateralmente através da rede. As permutações de alertas suspeitos de ad AD com o alerta de atividade de roubo credencial são:
+
+- **Viagem impossível para locais atípicos que levam a suspeitas de atividade de roubo de credenciais**
+
+- **Evento de inscrição a partir de um local desconhecido que leva a suspeita de atividade de roubo de credenciais**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a suspeita de atividade de roubo de credenciais**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a suspeita de atividade de roubo de credenciais**
+
+- **Evento de inscrição de utilizador com credenciais vazadas que conduzam a suspeitas de atividade de roubo de credenciais**
+
+## <a name="crypto-mining-new-threat-classification"></a>Cripto-mineração (Classificação de nova ameaça)
+
+### <a name="crypto-mining-activity-following-suspicious-sign-in"></a>Atividade cripto-mineira após o sign-in suspeito
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Acesso Credencial
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Sequestro de Recursos (T1496)
+
+**Fontes de conector de dados:** Azure Ative Directory Identity Protection, Azure Defender (Azure Security Center)
+
+**Descrição:** Incidentes de fusão deste tipo indicam atividade cripto-mineração associada a um sinal suspeito de uma conta AD Azure. Isto fornece uma indicação de alta confiança de que a conta de utilizador indicada na descrição do alerta foi comprometida e foi usada para sequestrar recursos no seu ambiente para extrair criptomoeda. Isto pode passar fome os seus recursos de poder de computação e/ou resultar em faturas de utilização em nuvem significativamente mais altas do que o esperado. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de atividade de cripto-mineração são:  
+
+- **Viagem impossível para locais atípicos que conduzem à atividade cripto-mineira**
+
+- **Evento de inscrição a partir de um local desconhecido que leva à atividade cripto-mineração**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz à atividade de cripto-mineração**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz à atividade de cripto-mineração**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzem à atividade de cripto-mineração**
 
 ## <a name="data-exfiltration"></a>Transferência de dados não autorizada
 
@@ -368,6 +432,26 @@ Este cenário encontra-se atualmente em **pré-visualização pública.**
 **Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente MDATP), Palo Alto Networks 
 
 **Descrição:** Incidentes de fusão deste tipo indicam que os comandos da Interface de Gestão do Windows (WMI) foram executados remotamente num sistema, e na sequência disso, a atividade de entrada suspeita foi detetada pela Firewall das Redes Palo Alto. Isto fornece uma indicação de que um intruso pode ter tido acesso à sua rede e está a tentar mover-se lateralmente, aumentar privilégios e/ou executar cargas maliciosas. Como em todos os ataques de "viver fora da terra", esta atividade pode ser um uso legítimo da WMI. No entanto, a execução remota do comando do WMI, seguida de uma atividade de firewall de entrada suspeita, aumenta a confiança de que o WMI está a ser usado de forma maliciosa e deve ser investigado mais aprofundadamente. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais). Consulte também o Registo de Ameaça palo Alto correspondente ao [Tipo de Ameaça/Conteúdo](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de Fusão para mais detalhes de alerta.
+
+### <a name="suspicious-powershell-command-line-following-suspicious-sign-in"></a>Linha de comando Suspeito PowerShell após sindução suspeita
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Execução
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Intérprete de Comando e Scripting (T1059)
+
+**Fontes de conector de dados:** Azure Ative Directory Identity Protection, Microsoft Defender for Endpoint (anteriormente MDATP)
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um utilizador executou comandos PowerShell potencialmente maliciosos na sequência de um início de sação suspeito numa conta AD Azure. Isto fornece uma indicação de alta confiança de que a conta indicada na descrição do alerta foi comprometida e foram tomadas outras ações maliciosas. Os atacantes muitas vezes aproveitam o PowerShell para executar cargas maliciosas na memória sem deixar artefactos no disco, de modo a evitar a deteção por mecanismos de segurança baseados em discos, como scanners de vírus. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de comando suspeito da PowerShell são:
+
+- **Viagem impossível para locais atípicos que levam a uma linha de comando suspeita da PowerShell**
+
+- **Evento de inscrição a partir de um local desconhecido que leva a linha de comando suspeita powerShell**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a linha de comando suspeita powerShell**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a linha de comando suspeita powerShell**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzem a linha de comando suspeitas da PowerShell**
 
 ## <a name="malware-c2-or-download"></a>Malware C2 ou download
 

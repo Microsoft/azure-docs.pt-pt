@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 4979902853602073e6230ef7387d6c6596fe77da
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325928"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746580"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Visão geral da migração: SQL Server para SQL Server em VMs Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -24,7 +24,7 @@ Conheça as diferentes estratégias de migração para migrar o seu SQL Server p
 
 Pode migrar o SQL Server a funcionar no local ou em:
 
-- SQL Server nas Máquinas Virtuais  
+- SQL Server em Máquinas Virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de Base de Dados Relacional da Amazon (AWS RDS) 
 - Motor compute (Plataforma Google Cloud - GCP)
@@ -65,7 +65,7 @@ O quadro que se segue descreve diferenças nas duas estratégias de migração:
 | **Estratégia de migração** | **Descrição** | **Quando utilizar** |
 | --- | --- | --- |
 | **Mudança de & de elevador** | Utilize a estratégia de migração de elevação e mudança para mover todo o Servidor SQL físico ou virtual da sua localização atual para uma instância do SQL Server em Azure VM sem alterações no sistema operativo, ou versão SQL Server. Para completar uma migração de elevador e mudança, consulte [Azure Migrate.](../../../migrate/migrate-services-overview.md) <br /><br /> O servidor de origem permanece on-line e os pedidos de serviços enquanto o servidor de origem e destino sincronizam os dados permitindo uma migração quase perfeita. | Use para migrações individuais a muito largas, mesmo aplicáveis a cenários como a saída do data center. <br /><br /> Alterações mínimas a nenhuma das alterações de código necessárias às bases de dados ou aplicações SQL do utilizador, permitindo migrações globais mais rápidas. <br /><br />Não são necessárias medidas adicionais para a migração dos serviços de Business Intelligence, tais como [SSIS,](/sql/integration-services/sql-server-integration-services) [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports)e [SSAS.](/analysis-services/analysis-services-overview) |
-|**Migrate** | Utilize uma estratégia de migração quando pretender atualizar o servidor sql alvo e/ou a versão do sistema operativo. <br /> <br /> Selecione um Azure VM do Azure Marketplace ou uma imagem preparada do SQL Server que corresponda à versão source SQL Server. | Utilize quando houver um requisito ou desejo de usar funcionalidades disponíveis em versões mais recentes do SQL Server, ou se houver um requisito para atualizar as versões legacy SQL Server e/ou OS que já não estão no suporte.  <br /> <br /> Pode exigir algumas alterações de aplicação ou de base de dados de utilizador para suportar a atualização do SQL Server. <br /><br />Pode haver considerações adicionais para os serviços de [Inteligência Empresarial](#business-intelligence) migratórios se no âmbito da migração. |
+|**Migrar** | Utilize uma estratégia de migração quando pretender atualizar o servidor sql alvo e/ou a versão do sistema operativo. <br /> <br /> Selecione um Azure VM do Azure Marketplace ou uma imagem preparada do SQL Server que corresponda à versão source SQL Server. | Utilize quando houver um requisito ou desejo de usar funcionalidades disponíveis em versões mais recentes do SQL Server, ou se houver um requisito para atualizar as versões legacy SQL Server e/ou OS que já não estão no suporte.  <br /> <br /> Pode exigir algumas alterações de aplicação ou de base de dados de utilizador para suportar a atualização do SQL Server. <br /><br />Pode haver considerações adicionais para os serviços de [Inteligência Empresarial](#business-intelligence) migratórios se no âmbito da migração. |
 
 
 ## <a name="lift-and-shift"></a>Migração lift-and-shift  
@@ -77,7 +77,7 @@ A tabela a seguir detalha o método disponível para a estratégia de migração
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite de armazenamento Azure VM](../../../index.yml) |  O servidor SQL existente a ser movido como é para o exemplo do SQL Server num Azure VM. Pode escalar cargas de carga de migração de até 35.000 VMs. <br /><br /> Os servidores de origem permanecem on-line e os pedidos de manutenção durante a sincronização dos dados do servidor, minimizando o tempo de inatividade. <br /><br /> **Automação & scripts**: Scripts de recuperação do local de [Azure](../../../migrate/how-to-migrate-at-scale.md) e [exemplo de migração e planeamento em escala para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migrate  
+## <a name="migrate"></a>Migrar  
 
 Devido à facilidade de configuração, a abordagem de migração recomendada é fazer uma cópia de [segurança](/sql/t-sql/statements/backup-transact-sql) do SQL Server nativa localmente e, em seguida, copiar o ficheiro para Azure. Este método suporta bases de dados maiores (>1 TB) para todas as versões do SQL Server a partir de 2008 e cópias de dados maiores (>1 TB). No entanto, para as bases de dados a partir do SQL Server 2014, que são menores do que 1 TB, e que têm uma boa conectividade com o Azure, então a [cópia de segurança do SQL Server para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) é a melhor abordagem. 
 
@@ -127,6 +127,20 @@ Estes serviços incluem:
 
 Enquanto se prepara para migrar as bases de dados do SQL Server para o SQL Server em VMs Azure, certifique-se de considerar as versões do SQL Server que são suportadas. Para obter uma lista das versões atuais do SQL Server suportadas em VMs Azure, consulte [o SQL Server em VMs Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
+## <a name="migration-assets"></a>Ativos de migração 
+
+Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
+
+|Recurso  |Description  |
+|---------|---------|
+|[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
+|[Automação de recolha de dados perfmon usando Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Uma ferramenta que recolhe dados de realização para entender o desempenho de base que ajuda na recomendação do alvo de migração. Esta ferramenta que utiliza logman.exe para criar o comando que irá criar, iniciar, parar e eliminar contadores de desempenho definidos num servidor SQL remoto.|
+|[Implementação do servidor SQL em Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|Esta orientação em branco ajuda na revisão de várias opções para mover as cargas de trabalho do seu SQL Server para Azure, incluindo comparação de funcionalidades, alta disponibilidade e considerações de backup/armazenamento. |
+|[Servidor SQL no local para a máquina virtual Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|Este whitepaper descreve os passos para fazer backup e restaurar bases de dados do SQL Server para o SQL Server na máquina virtual Azure utilizando scripts de amostra.|
+|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Este whitepaper descreve os passos para configurar várias máquinas virtuais Azure numa configuração do Grupo SQL Sempre No Grupo de Disponibilidade.|
+|[Máquinas virtuais Azure que suportam Ultra SSD por Região](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Estes scripts PowerShell fornecem uma opção programática para recuperar a lista de regiões que suportam máquinas virtuais Azure que suportam Ultra SSDs.|
+
+Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

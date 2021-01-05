@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4ff270977449bb80f97073342dc0c726a3f2316
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80128530"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746240"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Processo de pedido e notificações de email na gestão de direitos da AD Azure
 
@@ -120,7 +120,7 @@ Tanto o aprovador como os aprovadores alternativos podem aprovar ou negar o pedi
 
 Quando um pedido de acesso é aprovado, e o seu acesso é aprovisionado, é enviada uma notificação por e-mail ao solicitador de que agora têm acesso ao pacote de acesso. Aqui está uma notificação por e-mail de amostra que é enviada a um solicitador quando lhes é concedido acesso a um pacote de acesso:
 
-![E-mail de pedido de pedido de pedido aprovado ou de acesso](./media/entitlement-management-process/requestor-email-approved.png)
+![E-mail de pedido aprovado ou de acesso](./media/entitlement-management-process/requestor-email-approved.png)
 
 Quando um pedido de acesso é negado, uma notificação por e-mail é enviada ao solicitador. Aqui está uma notificação por e-mail de amostra que é enviada a um solicitador quando o seu pedido de acesso é negado:
 
