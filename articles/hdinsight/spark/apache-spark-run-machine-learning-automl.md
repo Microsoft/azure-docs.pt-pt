@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
-ms.openlocfilehash: 6e472c65897fa57cdb1e0b09d94c62913e268040
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3397c57f793c6994847786ff8247e5ccfa453ec0
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087475"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821252"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Executar cargas de trabalho de aprendizagem automática da Azure Machine Learning com aprendizagem automática de máquinas em Apache Spark em HDInsight
 
-A Azure Machine Learning simplifica e acelera o edifício, formação e implementação de modelos de aprendizagem automática. No machine learning automatizado (AutoML), começa-se com dados de treino que têm uma característica-alvo definida e depois iteram através de combinações de algoritmos e seleções de recursos para selecionar automaticamente o melhor modelo para os seus dados com base nas pontuações de treino. O HDInsight permite que os clientes provisem clusters com centenas de nós. O autoML que funciona na Spark num cluster HDInsight permite que os utilizadores utilizem a capacidade de computação através destes nós para executar trabalhos de formação de formação de formação de formação em escala, e executar múltiplos trabalhos de formação em paralelo. Isto permite que os utilizadores executem experiências AutoML enquanto partilham o cálculo com as suas outras grandes cargas de trabalho de dados.
+A Azure Machine Learning simplifica e acelera o edifício, formação e implementação de modelos de aprendizagem automática. No machine learning automatizado (AutoML), começa-se com dados de treino que têm uma característica-alvo definida e depois iteram através de combinações de algoritmos e seleções de recursos para selecionar automaticamente o melhor modelo para os seus dados com base nas pontuações de treino. O HDInsight permite que os clientes provisem clusters com centenas de nós. O autoML que funciona na Spark num cluster HDInsight permite que os utilizadores utilizem a capacidade de computação através destes nós para executar trabalhos de formação em escala, e executar múltiplos trabalhos de formação em paralelo. Isto permite que os utilizadores executem experiências AutoML enquanto partilham o cálculo com as suas outras grandes cargas de trabalho de dados.
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instale a Azure Machine Learning num cluster HDInsight
 
@@ -24,7 +24,7 @@ Para tutoriais gerais de aprendizagem automática de máquinas, consulte [Tutori
 Todos os novos clusters HDInsight-Spark vêm pré-instalados com AzureML-AutoML SDK.
 
 > [!Note]
-> Os pacotes Azure Machine Learning são instalados no ambiente de Conda Python3. O caderno Jupyter instalado deve ser executado utilizando o núcleo PySpark3.
+> Os pacotes Azure Machine Learning são instalados no ambiente de Conda Python3. O Caderno Jupyter instalado deve ser executado utilizando o núcleo PySpark3.
 
 Também pode utilizar os cadernos Zeppelin para utilizar o AutoML.
 

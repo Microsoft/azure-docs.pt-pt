@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 421993ac4aaba551b6fcbd002783d44559ce377d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a2044e9bb0110eda666d12e29a715547381e2be
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995340"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822340"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Aplicações Debug Apache Spark em um cluster HDInsight com Azure Toolkit para IntelliJ através de SSH
 
@@ -65,7 +65,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 
 1. Selecione **Concluir**. Pode levar alguns minutos até que o projeto fique disponível. Cuidado com o canto inferior direito para progredir.
 
-1. Expanda o seu projeto e navegue para a amostra principal **de**  >  **main**  >  **scala**  >  do SRC.**sample** Clique **duas vezes SparkCore_WasbIOTest**.
+1. Expanda o seu projeto e navegue para a amostra principal **de**  >    >  **scala**  >  do SRC. Clique **duas vezes SparkCore_WasbIOTest**.
 
 ## <a name="perform-local-run"></a>Realizar corrida local
 
@@ -178,8 +178,8 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 * [Utilize o Azure Toolkit para o IntelliJ para depurar as aplicações apache spark remotamente através da VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utilize ferramentas HDInsight em Azure Toolkit para eclipse para criar aplicações Apache Spark](./apache-spark-eclipse-tool-plugin.md)
 * [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o caderno Jupyter no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels disponíveis para Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use pacotes externos com cadernos Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerir recursos

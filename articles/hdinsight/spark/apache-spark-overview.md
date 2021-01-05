@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 176b89c9fc80b198a8a639afdd14185ab0008aed
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e75661b54ce9a74013938d11ca7f13d9c3698c76
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029445"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822051"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
@@ -32,7 +32,7 @@ Os clusters do Spark no HDInsight oferecem um serviço Spark completamente gerid
 | Funcionalidade | Descrição |
 | --- | --- |
 | Criação fácil |Pode criar um cluster do Spark novo no HDInsight em apenas alguns minutos com o portal do Azure, o Azure PowerShell ou o SDK .NET do HDInsight. Ver [Começar com o cluster Apache Spark em HDInsight](apache-spark-jupyter-spark-sql-use-portal.md). |
-| Facilidade de utilização |O cluster de faíscas em HDInsight inclui cadernos Jupyter e Apache Zeppelin. Pode utilizar estes blocos de notas para o processamento e a visualização de dados interativos. Consulte [os cadernos Apache Zeppelin com dados de Faíscas](apache-spark-zeppelin-notebook.md) e Carga Apache [e execute consultas num cluster Apache Spark](apache-spark-load-data-run-query.md).|
+| Facilidade de utilização |O cluster de faíscas em HDInsight inclui cadernos Jupyter e Cadernos Apache Zeppelin. Pode utilizar estes blocos de notas para o processamento e a visualização de dados interativos. Consulte [os cadernos Apache Zeppelin com dados de Faíscas](apache-spark-zeppelin-notebook.md) e Carga Apache [e execute consultas num cluster Apache Spark](apache-spark-load-data-run-query.md).|
 | APIs REST |Os clusters de faíscas em HDInsight incluem [Apache Livy,](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)um servidor de trabalho spark baseado em REST para submeter e monitorizar remotamente trabalhos. Consulte [a API Apache Spark REST para submeter trabalhos remotos a um cluster HDInsight Spark](apache-spark-livy-rest-interface.md).|
 | Suporte para armazenamento Azure | Os clusters de faíscas em HDInsight podem usar a Azure Data Lake Storage Gen1/Gen2 como armazenamento primário ou armazenamento adicional. Para obter mais informações sobre data lake storage gen1, consulte [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md). Para obter mais informações sobre data lake storage gen2, consulte [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
 | Integração com os serviços do Azure |O cluster do Spark no HDInsight é fornecido com um conector para os Hubs de Eventos do Azure. Pode construir aplicações de streaming utilizando os Centros de Eventos. Incluindo Apache Kafka, que já está disponível como parte da Spark. |
@@ -50,7 +50,7 @@ Os clusters Apache Spark em HDInsight incluem os seguintes componentes que estã
 * [Spark Core](https://spark.apache.org/docs/latest/). Inclui o Spark Core, o Spark SQL, APIs de transmissão em fluxo do Spark, o GraphX e o MLlib.
 * [Anaconda](https://docs.continuum.io/anaconda/)
 * [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
-* [Caderno Jupyter](https://jupyter.org)
+* [Bloco de Notas do Jupyter](https://jupyter.org)
 * [Caderno Apache Zeppelin](http://zeppelin-project.org/)
 
 HDInsight Spark agrupa um [controlador ODBC](https://go.microsoft.com/fwlink/?LinkId=616229) para a conectividade a partir de ferramentas BI, como o Microsoft Power BI.

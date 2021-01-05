@@ -2,14 +2,14 @@
 title: Quotas e limites do serviço
 description: Saiba mais sobre as quotas, limites e restrições do Lote Azure padrão e como solicitar aumentos de quota
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 12/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f529d388cb883f635b6225801af5ce41b8c997a
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614524"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814640"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -33,7 +33,7 @@ Note-se também que as quotas não são valores garantidos. As quotas podem vari
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de núcleos no modo de serviço de lote
 
-A aplicação de quotas nucleares dedicadas está a ser melhorada, com as alterações a serem disponibilizadas por etapas e concluídas para todas as contas do Batch até ao final de dezembro de 2020.
+A aplicação de quotas nucleares dedicadas está a ser melhorada, com as alterações a serem disponibilizadas por etapas e concluídas para todas as contas do Batch até ao final de janeiro de 2021.
 
 Existem quotas principais para cada série VM suportada pelo Batch e são exibidas na página **Quotas** no portal. Os limites de quota da série VM podem ser atualizados com um pedido de apoio, conforme descrito abaixo.
 
@@ -70,7 +70,7 @@ Os limites do tamanho da piscina são definidos pelo serviço Batch. Ao contrár
 
 ## <a name="other-limits"></a>Outros limites
 
-Limites adicionais definidos pelo serviço Batch. Ao contrário das [quotas de recursos,](#resource-quotas)estes valores não podem ser alterados.
+Estes limites adicionais são definidos pelo serviço Batch. Ao contrário das [quotas de recursos,](#resource-quotas)estes valores não podem ser alterados.
 
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
@@ -80,6 +80,7 @@ Limites adicionais definidos pelo serviço Batch. Ao contrário das [quotas de r
 | Pacotes de aplicação por piscina | 10 |
 | Duração máxima da tarefa | 180 dias<sup>1</sup> |
 | [Montes](virtual-file-mount.md) por nó de computação | 10 |
+| Certificados por piscina | 12 |
 
 <sup>1</sup> A duração máxima de uma tarefa, a partir do momento em que é adicionada ao trabalho até ao momento em que termina, é de 180 dias. As tarefas concluídas persistem durante sete dias; os dados relativos a tarefas não concluídas no prazo máximo de vida não são acessíveis.
 
@@ -91,7 +92,7 @@ Para ver as suas quotas de conta Batch no [portal Azure:](https://portal.azure.c
 1. Selecione **Quotas** no menu da conta Batch.
 1. Ver as quotas atualmente aplicadas na conta Batch.
 
-:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Quotas de conta de lote":::
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Screenshot mostrando quotas de conta batch no portal Azure.":::
 
 ## <a name="increase-a-quota"></a>Aumentar uma quota
 
@@ -100,26 +101,26 @@ Pode solicitar um aumento de quota para a sua conta Batch ou para a sua subscri�
 1. Selecione o azulejo **de suporte Help +** no seu painel de instrumentos do portal ou o ponto de interrogação **(?**
 1. Selecione **Novo pedido de suporte**  >  **Básicos**.
 1. No **Básico:**
-   
+
     1. Tipo de **Emissão**  >  **Limites de serviço e subscrição (quotas)**
-   
+
     1. Selecione a sua subscrição.
-   
+
     1. **Tipo de quota**  >  **Lote**
-      
+
        Selecione **Seguinte**.
-    
+
 1. Em **Detalhes**:
-      
+
     1. Em **Fornecer detalhes**, especifique a localização, o tipo de quota e a conta Batch.
-    
-       ![Aumento da quota de lote][quota_increase]
+
+       :::image type="content" source="media/batch-quota-limit/quota-increase.png" alt-text="Screenshot do ecrã de detalhes da Quota ao solicitar um aumento de quota.":::
 
        Os tipos de quotas incluem:
 
        * **Por conta de lote**  
          Valores específicos de uma única conta batch, incluindo núcleos dedicados e de baixa prioridade, e número de empregos e piscinas.
-        
+
        * **Por região**  
          Valores aplicáveis a todas as contas do Batch numa região e que incluem o número de contas batch por região por subscrição.
 
@@ -130,11 +131,11 @@ Pode solicitar um aumento de quota para a sua conta Batch ou para a sua subscri�
        Selecione **Seguinte**.
 
 1. Nas **informações de contacto:**
-   
+
     1. Selecione um **método de contacto preferido.**
-   
+
     1. Verifique e introduza os dados de contacto necessários.
-   
+
        **Selecione Criar** para submeter o pedido de suporte.
 
 Assim que submeter o seu pedido de apoio, o suporte da Azure entrará em contacto consigo. Os pedidos de quota podem ser preenchidos dentro de poucos minutos ou até dois dias úteis.

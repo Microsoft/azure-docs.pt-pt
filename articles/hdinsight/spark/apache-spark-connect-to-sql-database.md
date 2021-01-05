@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97c326bd1d2f61ba3fb9d6e381f5a8711bd0ca1d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023981"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821201"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilize o cluster HDInsight Spark para ler e escrever dados para a Base de Dados Azure SQL
 
@@ -36,20 +36,20 @@ Saiba como ligar um cluster Apache Spark em Azure HDInsight com a Base de Dados 
 Comece por criar um Caderno Jupyter associado ao cluster Spark. Usa este caderno para executar os códigos usados neste artigo.
 
 1. A partir do [portal Azure,](https://portal.azure.com/)abra o seu aglomerado.
-1. Selecione **o caderno Jupyter** por baixo **dos tabliers cluster** no lado direito.  Se não vir **os dashboards do Cluster,** selecione **Overview** no menu esquerdo. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
+1. Selecione **o Caderno Jupyter** por baixo **dos painéis de cluster** no lado direito.  Se não vir **os dashboards do Cluster,** selecione **Overview** no menu esquerdo. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
 
-    ![Caderno jupyter em Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Caderno jupyter em Faísca")
+    ![Caderno Jupyter em Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Caderno jupyter na faísca")
 
    > [!NOTE]  
-   > Também pode aceder ao portátil Jupyter no cluster Spark, abrindo o seguinte URL no seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
+   > Também pode aceder ao Jupyter Notebook no cluster Spark, abrindo o seguinte URL no seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. No caderno Jupyter, a partir do canto superior direito, clique em **New** e, em seguida, clique em **Spark** para criar um caderno Scala. Os cadernos Jupyter no cluster HDInsight Spark também fornecem o kernel **PySpark** para aplicações Python2, e o kernel **PySpark3** para aplicações Python3. Para este artigo, criamos um caderno Scala.
+1. No Caderno Jupyter, a partir do canto superior direito, clique em **New** e, em seguida, clique em **Spark** para criar um caderno Scala. Os Cadernos Jupyter no cluster HDInsight Spark também fornecem o kernel **PySpark** para aplicações Python2, e o kernel **PySpark3** para aplicações Python3. Para este artigo, criamos um caderno Scala.
 
-    ![Kernels para o caderno jupyter em Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels para o caderno jupyter em Spark")
+    ![Kernels para Jupyter Notebook on Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels para Jupyter Notebook on Spark")
 
-    Para obter mais informações sobre os kernels, veja [Utilizar kernels de blocos de notas do Jupyter com clusters do Apache Spark no HDInsight](apache-spark-jupyter-notebook-kernels.md).
+    Para obter mais informações sobre os núcleos, consulte [use os núcleos do Caderno Jupyter com aglomerados Apache Spark em HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
    > [!NOTE]  
    > Neste artigo, usamos um núcleo spark (Scala) porque os dados de streaming da Spark para a Base de Dados SQL só são suportados em Scala e Java atualmente. Mesmo que ler e escrever em SQL possa ser feito usando Python, para consistência neste artigo, usamos Scala para as três operações.
@@ -64,7 +64,7 @@ Pode agora começar a criar a sua aplicação.
 
 Nesta secção, você lê dados de uma tabela (por exemplo, **SalesLT.Address)** que existe na base de dados AdventureWorks.
 
-1. Num novo caderno Jupyter, numa célula de código, cole o seguinte corte e substitua os valores do espaço reservado pelos valores da sua base de dados.
+1. Num novo Caderno Jupyter, numa célula de código, cole o seguinte corte e substitua os valores do espaço reservado pelos valores da sua base de dados.
 
     ```scala
     // Declare the values for your database
@@ -121,7 +121,7 @@ Nesta secção, você lê dados de uma tabela (por exemplo, **SalesLT.Address)**
 
 Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster para criar uma tabela na sua base de dados e povoá-la com dados. O ficheiro CSV da amostra **(HVAC.csv)** está disponível em todos os clusters HDInsight em `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv` .
 
-1. Num novo caderno Jupyter, numa célula de código, cole o seguinte corte e substitua os valores do espaço reservado pelos valores da sua base de dados.
+1. Num novo Caderno Jupyter, numa célula de código, cole o seguinte corte e substitua os valores do espaço reservado pelos valores da sua base de dados.
 
     ```scala
     // Declare the values for your database
@@ -192,7 +192,7 @@ Nesta secção, transmitimos dados para o `hvactable` que criou na secção ante
     TRUNCATE TABLE [dbo].[hvactable]
     ```
 
-1. Crie um novo caderno Jupyter no cluster HDInsight Spark. Numa célula de código, cole o seguinte corte e, em seguida, prima **SHIFT + ENTER**:
+1. Crie um novo Caderno Jupyter no cluster HDInsight Spark. Numa célula de código, cole o seguinte corte e, em seguida, prima **SHIFT + ENTER**:
 
     ```scala
     import org.apache.spark.sql._

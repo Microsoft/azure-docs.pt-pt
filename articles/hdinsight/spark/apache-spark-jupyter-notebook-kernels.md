@@ -1,6 +1,6 @@
 ---
-title: Kernels para o caderno Jupyter em clusters Spark em Azure HDInsight
-description: Conheça o PySpark, PySpark3 e Spark kernels para o caderno Jupyter disponível com clusters Spark em Azure HDInsight.
+title: Kernels para Jupyter Notebook em clusters spark em Azure HDInsight
+description: Conheça o PySpark, PySpark3 e Spark kernels para Jupyter Notebook disponível com clusters Spark em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084720"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822238"
 ---
-# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o caderno Jupyter em aglomerados Apache Spark em Azure HDInsight
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook em aglomerados Apache Spark em Azure HDInsight
 
-Os clusters HDInsight Spark fornecem núcleos que pode usar com o caderno Jupyter em [Apache Spark](./apache-spark-overview.md) para testar as suas aplicações. Um núcleo é um programa que executa e interpreta o seu código. Os três núcleos são:
+Os clusters HDInsight Spark fornecem núcleos que pode utilizar com o Caderno Jupyter em [Apache Spark](./apache-spark-overview.md) para testar as suas aplicações. Um núcleo é um programa que executa e interpreta o seu código. Os três núcleos são:
 
 - **PySpark** - para aplicações escritas em Python2.
 - **PySpark3** - para aplicações escritas em Python3.
@@ -33,26 +33,26 @@ Um aglomerado de Faíscas Apache em HDInsight. Para obter instruções, veja [Cr
 
 1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster Spark.  Consulte [lista e mostre os agrupamentos](../hdinsight-administer-use-portal-linux.md#showClusters) para obter as instruções. A **vista geral** abre.
 
-2. A partir da **vista geral,** na caixa **de dashboards cluster,** selecione **o caderno Jupyter**. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
+2. A partir da **vista geral,** na caixa **de dashboards cluster,** selecione **Jupyter Notebook**. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
 
-    ![Caderno jupyter em Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Caderno jupyter em Faísca")
+    ![Caderno Jupyter em Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Caderno jupyter na faísca")
   
    > [!NOTE]  
-   > Você também pode chegar ao portátil Jupyter no cluster Spark, abrindo o seguinte URL no seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
+   > Você também pode chegar ao Jupyter Notebook on Spark cluster abrindo o seguinte URL no seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Selecione **New**, e, em seguida, selecione **Pyspark,** **PySpark3**ou **Spark** para criar um caderno. Use o núcleo spark para aplicações Scala, kernel PySpark para aplicações Python2 e kernel PySpark3 para aplicações Python3.
+3. Selecione **New**, e, em seguida, selecione **Pyspark,** **PySpark3** ou **Spark** para criar um caderno. Use o núcleo spark para aplicações Scala, kernel PySpark para aplicações Python2 e kernel PySpark3 para aplicações Python3.
 
-    ![Kernels para o caderno jupyter em Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels para o caderno jupyter em Spark")
+    ![Kernels para Jupyter Notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels para Jupyter Notebook on Spark")
 
 4. Um caderno abre com o núcleo que selecionou.
 
 ## <a name="benefits-of-using-the-kernels"></a>Benefícios da utilização dos núcleos
 
-Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter em clusters Spark HDInsight.
+Aqui estão alguns benefícios de usar os novos núcleos com o Jupyter Notebook em clusters Spark HDInsight.
 
-- **Contextos predefinidos**. Com  **o PySpark,** **PySpark3**ou os kernels **Spark,** não precisa de definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com as suas aplicações. Estes contextos estão disponíveis por padrão. Estes contextos são:
+- **Contextos predefinidos**. Com  **o PySpark,** **PySpark3** ou os kernels **Spark,** não precisa de definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com as suas aplicações. Estes contextos estão disponíveis por padrão. Estes contextos são:
 
   - **sc** - para o contexto spark
   - **sqlContext** - para o contexto da Colmeia
@@ -70,7 +70,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter e
 
     A tabela que se segue lista as diferentes magias disponíveis através dos núcleos.
 
-   | Magia | Exemplo | Descrição |
+   | Magia | Exemplo | Description |
    | --- | --- | --- |
    | Ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
    | informações |`%%info` |Informações da sessão de saídas para o atual ponto final da Livy |
@@ -90,7 +90,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter e
 
 A `%%sql` magia suporta diferentes parâmetros que podes usar para controlar o tipo de saída que recebes quando fazes consultas. A tabela a seguir lista a saída.
 
-| Parâmetro | Exemplo | Descrição |
+| Parâmetro | Exemplo | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Utilize este parâmetro para persistir o resultado da consulta, no contexto python %%local, como um dataframe [pandas.](https://pandas.pydata.org/) O nome da variável dataframe é o nome variável que especifica. |
 | -q |`-q` |Utilize este parâmetro para desligar as visualizações para a célula. Se não quiser visualizar automaticamente o conteúdo de uma célula e apenas pretender capturá-lo como um dataframe, então use `-q -o <VARIABLE>` . Se quiser desligar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL, como uma `CREATE TABLE` declaração), utilize `-q` sem especificar um `-o` argumento. |
@@ -118,7 +118,7 @@ Qualquer que seja o núcleo que usar, deixando os cadernos em funcionamento cons
 
 ## <a name="where-are-the-notebooks-stored"></a>Onde estão os cadernos guardados?
 
-Se o seu cluster utilizar o Azure Storage como conta de armazenamento predefinido, os portátils Jupyter são guardados para a conta de armazenamento na pasta **/HdiNotebooks.**  Os cadernos, ficheiros de texto e pastas que cria a partir do Jupyter estão acessíveis a partir da conta de armazenamento.  Por exemplo, se utilizar o Jupyter para criar uma pasta **`myfolder`** e um **myfolder/mynotebook.ipynb,** pode aceder a esse portátil `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é verdade, ou seja, se você carregar um caderno diretamente para a sua conta de armazenamento `/HdiNotebooks/mynotebook1.ipynb` em , o caderno também é visível a partir de Jupyter.  Os cadernos permanecem na conta de armazenamento mesmo depois de o cluster ser eliminado.
+Se o seu cluster utilizar o Azure Storage como conta de armazenamento predefinido, os Cadernos Jupyter são guardados para a conta de armazenamento na pasta **/HdiNotebooks.**  Os cadernos, ficheiros de texto e pastas que cria a partir do Jupyter estão acessíveis a partir da conta de armazenamento.  Por exemplo, se utilizar o Jupyter para criar uma pasta **`myfolder`** e um **myfolder/mynotebook.ipynb,** pode aceder a esse portátil `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é verdade, ou seja, se você carregar um caderno diretamente para a sua conta de armazenamento `/HdiNotebooks/mynotebook1.ipynb` em , o caderno também é visível a partir de Jupyter.  Os cadernos permanecem na conta de armazenamento mesmo depois de o cluster ser eliminado.
 
 > [!NOTE]  
 > Os clusters HDInsight com Azure Data Lake Storage como o armazenamento padrão não armazenam cadernos em armazenamento associado.
@@ -135,7 +135,7 @@ Quer o cluster utilize o Azure Storage ou o Azure Data Lake Storage como conta d
 
 ## <a name="supported-browser"></a>Browser suportado
 
-Os cadernos Jupyter nos clusters Spark HDInsight são suportados apenas no Google Chrome.
+Os cadernos Jupyter em clusters Spark HDInsight são suportados apenas no Google Chrome.
 
 ## <a name="suggestions"></a>Sugestões
 
@@ -145,5 +145,5 @@ Os novos núcleos estão em evolução e irão amadurecer com o tempo. Assim, as
 
 - [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 - [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)
-- [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Use pacotes externos com cadernos Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

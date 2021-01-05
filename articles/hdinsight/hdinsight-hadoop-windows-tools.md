@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 770c73cb6f1309e64cd44c5a1b1570899108e4e7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539705"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821048"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop em HDInsight a partir de um PC windows
 
@@ -85,7 +85,7 @@ Os aglomerados apache spark em HDInsight incluem cadernos Apache Zeppelin e núc
 Se encontrar uma situação em que deve utilizar uma ferramenta ou tecnologia que só esteja disponível no Linux, considere as seguintes opções:
 
 * **A Bash on Ubuntu no Windows 10** fornece um subsistema Linux no Windows. A Bash permite-lhe executar diretamente os utilitários Linux sem ter de manter uma instalação linux dedicada. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](/windows/wsl/install-win10) para obter etapas de instalação.  Outras [conchas Unix](https://www.gnu.org/software/bash/) também funcionarão.
-* **O Docker for Windows** fornece acesso a muitas ferramentas baseadas no Linux e pode ser executado diretamente a partir do Windows. Por exemplo, podes usar o Docker para executar o cliente Beeline para a Hive diretamente a partir do Windows. Também pode usar o Docker para executar um bloco de notas jupyter local e ligar-se remotamente ao Spark on HDInsight. [Começa com o Docker para o Windows](https://docs.docker.com/docker-for-windows/)
+* **O Docker for Windows** fornece acesso a muitas ferramentas baseadas no Linux e pode ser executado diretamente a partir do Windows. Por exemplo, podes usar o Docker para executar o cliente Beeline para a Hive diretamente a partir do Windows. Também pode usar o Docker para executar um Bloco de Notas Jupyter local e ligar-se remotamente ao Spark on HDInsight. [Começa com o Docker para o Windows](https://docs.docker.com/docker-for-windows/)
 * **[O MobaXTerm](https://mobaxterm.mobatek.net/)** permite-lhe navegar graficamente no sistema de ficheiros de cluster sobre uma ligação SSH.
 
 ## <a name="cross-platform-tools"></a>Ferramentas de plataforma cruzada

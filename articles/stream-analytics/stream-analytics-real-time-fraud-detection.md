@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: 8e7a484ff968454f3c5b31422b87123dcee03726
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: b8744d86300287403ca390d93c70b25215bcac4f
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682943"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822136"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise dados fraudulentos de chamadas com Stream Analytics e visualize os resultados no painel Power BI
 
@@ -54,10 +54,10 @@ Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chama
 
    |**Definição**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |Name     | asaTutorialEventHub        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
+   |Nome     | asaTutorialEventHub        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
    |Subscrição     |   \<Your subscription\>      |   Selecione uma subscrição do Azure onde pretende criar o hub de eventos.      |
-   |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
-   |Localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
+   |O grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
+   |A localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
 
 4. Utilize opções predefinidos nas definições restantes e selecione **Review + create**. Em seguida, **selecione Criar** para iniciar a implementação.
 
@@ -141,8 +141,8 @@ Agora que tem um fluxo de eventos de chamada, pode criar uma tarefa do Stream An
    |---------|---------|---------|
    |Nome da tarefa     |  ASATutorial       |   Um nome exclusivo para identificar o espaço de nomes do hub de eventos.      |
    |Subscrição    |  \<Your subscription\>   |   Selecione uma subscrição do Azure onde pretende criar a tarefa.       |
-   |Grupo de recursos   |   MyASADemoRG      |   Selecione **Utilizar existente** e introduza um novo nome de grupo de recursos para a sua conta.      |
-   |Localização   |    E.U.A. Oeste 2     |      Localização onde a tarefa pode ser implementada. É recomendado colocar a tarefa e o hub de eventos na mesma região para obter o melhor desempenho e para que não pague a transferência de dados entre regiões.      |
+   |O grupo de recursos   |   MyASADemoRG      |   Selecione **Utilizar existente** e introduza um novo nome de grupo de recursos para a sua conta.      |
+   |A localização   |    E.U.A. Oeste 2     |      Localização onde a tarefa pode ser implementada. É recomendado colocar a tarefa e o hub de eventos na mesma região para obter o melhor desempenho e para que não pague a transferência de dados entre regiões.      |
    |Ambiente de alojamento    | Cloud        |     As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A Cloud permite-lhe implantar para a Azure Cloud, e o Edge permite-lhe implementar para um dispositivo IoT Edge.    |
    |Unidades de transmissão em fluxo     |    1       |      As unidades de transmissão em fluxo representam os recursos informáticos que são necessários para executar uma tarefa. Por predefinição, este valor está definido como 1. Para saber mais sobre o dimensionamento de unidades de transmissão em fluxo, veja o artigo [Compreender e ajustar as unidades de transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -283,17 +283,14 @@ Quando utilizar uma junção com dados de streaming, a junção deve fornecer al
 1. Cole a seguinte consulta no editor de consulta:
 
     ```SQL
-    SELECT  System.Timestamp as Time, 
-        CS1.CallingIMSI, 
-        CS1.CallingNum as CallingNum1, 
-        CS2.CallingNum as CallingNum2, 
-        CS1.SwitchNum as Switch1, 
-        CS2.SwitchNum as Switch2 
-    FROM CallStream CS1 TIMESTAMP BY CallRecTime 
-        JOIN CallStream CS2 TIMESTAMP BY CallRecTime 
-        ON CS1.CallingIMSI = CS2.CallingIMSI 
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
+    SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+    INTO "MyPBIoutput"
+    FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+    JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+    ON CS1.CallingIMSI = CS2.CallingIMSI
+    AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
     WHERE CS1.SwitchNum != CS2.SwitchNum
+    GROUP BY TumblingWindow(Duration(second, 1))
     ```
 
     Esta consulta é como qualquer unção SQL, exceto para a `DATEDIFF` função na junção. Esta versão `DATEDIFF` é específica para streaming Analytics, e deve aparecer na `ON...BETWEEN` cláusula. Os parâmetros são uma unidade de tempo (segundos neste exemplo) e os pseudónimos das duas fontes para a junção. Isto é diferente da função SQL `DATEDIFF` padrão.
@@ -339,7 +336,7 @@ Quando a aplicação estiver em execução no browser, siga estes passos para in
 
 3. Por fim, cole o **EmbedUrl** no campo de texto correspondente e selecione **Incorporar Dashboard**. Agora, pode ver o mesmo dashboard incorporado numa aplicação Web.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma tarefa simples do Stream Analytics, analisou os dados de entrada e apresentou os resultados num dashboard do Power BI. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 

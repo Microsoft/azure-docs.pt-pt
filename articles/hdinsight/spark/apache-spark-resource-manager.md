@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f7cac8ef41ff49f2d623e2b86dff271adcd71ff1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017037"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821422"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir recursos para o cluster Apache Spark em Azure HDInsight
 
@@ -56,9 +56,9 @@ Os três parâmetros de configuração podem ser configurados ao nível do clust
 
     ![Reiniciar serviços](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
-### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Altere os parâmetros para uma aplicação em execução no caderno Jupyter
+### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar os parâmetros para uma aplicação em execução no Caderno Jupyter
 
-Para aplicações em execução no bloco de notas Jupyter, pode utilizar a `%%configure` magia para fazer as alterações de configuração. Idealmente, deve fazer tais alterações no início da aplicação, antes de executar a sua primeira célula de código. Ao fazê-lo, a configuração é aplicada à sessão Livy, quando é criada. Se pretender alterar a configuração numa fase posterior da aplicação, deve utilizar o `-f` parâmetro. No entanto, ao fazê-lo, perdem-se todos os progressos no pedido.
+Para aplicações em execução no Bloco de Notas do Jupyter, pode utilizar a `%%configure` magia para fazer as alterações de configuração. Idealmente, deve fazer tais alterações no início da aplicação, antes de executar a sua primeira célula de código. Ao fazê-lo, a configuração é aplicada à sessão Livy, quando é criada. Se pretender alterar a configuração numa fase posterior da aplicação, deve utilizar o `-f` parâmetro. No entanto, ao fazê-lo, perdem-se todos os progressos no pedido.
 
 O seguinte corte mostra como alterar a configuração para uma aplicação em execução em Jupyter.
 
@@ -146,7 +146,7 @@ Lance a UI yarn como mostrado no início do artigo. Na tabela Métricas de Clust
 
     ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)
 
@@ -164,6 +164,6 @@ Lance a UI yarn como mostrado no início do artigo. Na tabela Métricas de Clust
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Utilize ferramentas HDInsight Plugin para IntelliJ IDEA para depurar as aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels disponíveis para Jupyter Notebook em aglomerado de faíscas apaches para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use pacotes externos com cadernos Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

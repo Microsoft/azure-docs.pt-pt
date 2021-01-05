@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084647"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822204"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster Apache Spark em HDInsight
 
@@ -75,13 +75,13 @@ Os clusters HDInsight Spark não suportam o conector Spark-Phoenix.
 
 Em vez disso, deve utilizar o conector Spark-HBase. Para obter as instruções, consulte [como utilizar Spark-HBase conector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
-## <a name="issues-related-to-jupyter-notebooks"></a>Questões relacionadas com cadernos Jupyter
+## <a name="issues-related-to-jupyter-notebooks"></a>Questões relacionadas com cadernos jupyter
 
-Seguem-se algumas questões conhecidas relacionadas com os cadernos jupyter.
+Seguem-se algumas questões conhecidas relacionadas com os Cadernos Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Cadernos com caracteres não ASCII em apelidos de ficheiros
 
-Não utilize caracteres não ASCII em ficheiros de portátil Jupyter. Se tentar fazer o upload de um ficheiro através do Jupyter UI, que tem um nome de ficheiro não ASCII, falha sem qualquer mensagem de erro. O Jupyter não te deixa carregar o ficheiro, mas também não lança um erro visível.
+Não utilize caracteres não ASCII em ficheiros Jupyter Notebook. Se tentar fazer o upload de um ficheiro através do Jupyter UI, que tem um nome de ficheiro não ASCII, falha sem qualquer mensagem de erro. O Jupyter não te deixa carregar o ficheiro, mas também não lança um erro visível.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar cadernos de tamanhos maiores
 
@@ -100,15 +100,15 @@ Para evitar que este erro aconteça no futuro, deve seguir algumas boas prática
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Startup inicial de blocos de notas demora mais do que o esperado
 
-A primeira declaração de código no caderno do Jupyter usando magia Spark pode demorar mais de um minuto.  
+A primeira declaração de código no Jupyter Notebook usando magia Spark pode demorar mais de um minuto.  
 
 **Explicação:**
 
 Isto acontece porque quando a primeira célula de código é executada. No fundo, esta configuração de sessão inicia e os contextos Spark, SQL e Hive são definidos. Depois de definidos estes contextos, a primeira declaração é executada e isso dá a impressão de que a declaração demorou muito tempo a ser concluída.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de caderneta jupyter na criação da sessão
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de Jupyter Notebook na criação da sessão
 
-Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no caderno Jupyter vão ficar para tentar criar a sessão.
+Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no Caderno Jupyter vão ficar parando para tentar criar a sessão.
 
 **Mitigações:**
 
@@ -119,7 +119,7 @@ Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no cader
 
 2. Reinicie o caderno que estava a tentar ligar. Recursos suficientes devem estar disponíveis para que crie uma sessão agora.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
@@ -140,8 +140,8 @@ Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no cader
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Utilize ferramentas HDInsight Plugin para IntelliJ IDEA para depurar as aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels disponíveis para Jupyter Notebook em aglomerado de faíscas apaches para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use pacotes externos com cadernos Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerir recursos

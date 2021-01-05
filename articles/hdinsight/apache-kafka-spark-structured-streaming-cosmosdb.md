@@ -1,6 +1,6 @@
 ---
 title: Apache Spark & Apache Kafka com Cosmos DB - Azure HDInsight
-description: Aprenda a usar o Apache Spark Structured Streaming para ler dados da Apache Kafka e, em seguida, armazene-os em Azure Cosmos DB. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
+description: Aprenda a usar o Apache Spark Structured Streaming para ler dados da Apache Kafka e, em seguida, armazene-os em Azure Cosmos DB. Neste exemplo, transmite dados usando um Caderno Jupyter de Spark on HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0f07cf563a3b1ce9d105fc5ca5c4f2869b13d2da
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842469"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821779"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Fluxo Estruturado de Faíscas Apache com Apache Kafka e Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Embora possa criar uma rede virtual Azure, Kafka e Spark agrupamentos manualment
     |Propriedade |Valor |
     |---|---|
     |Subscrição|Selecione a sua subscrição do Azure.|
-    |Grupo de recursos|Crie um grupo ou selecione um existente. Este grupo contém o cluster HDInsight.|
+    |O grupo de recursos|Crie um grupo ou selecione um existente. Este grupo contém o cluster HDInsight.|
     |Nome da conta do Cosmos DB|Este valor é usado como o nome da conta Cosmos DB. O nome só pode conter letras minúsculas, números e o caráter de hífen (-). Tem de ter entre 3 e 31 carateres.|
     |Nome do cluster base|Este valor é usado como o nome base para os clusters Spark e Kafka. Por exemplo, entrar em **myhdi** cria um cluster spark chamado __spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
     |Versão cluster|A versão do cluster HDInsight. Este exemplo é testado com HDInsight 3.6, e pode não funcionar com outros tipos de cluster.|
@@ -97,7 +97,7 @@ resourceGroupName='myresourcegroup'
 name='mycosmosaccount'
 
 # WARNING: If you change the databaseName or collectionName
-#          then you must update the values in the Jupyter notebook
+#          then you must update the values in the Jupyter Notebook
 databaseName='kafkadata'
 collectionName='kafkacollection'
 
@@ -134,7 +134,7 @@ O código para o exemplo descrito neste documento está disponível em [https://
 
 Utilize os seguintes passos para fazer o upload dos cadernos do projeto para o seu spark no cluster HDInsight:
 
-1. No seu browser, ligue ao bloco de notas Jupyter no cluster do Spark. No seguinte URL, substitua `CLUSTERNAME` pelo nome do seu cluster do __Spark__:
+1. No seu navegador web, ligue-se ao Bloco de Notas do Jupyter no seu cluster Spark. No seguinte URL, substitua `CLUSTERNAME` pelo nome do seu cluster do __Spark__:
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter

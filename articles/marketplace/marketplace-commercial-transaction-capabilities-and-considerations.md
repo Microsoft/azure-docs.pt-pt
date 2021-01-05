@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621268"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822391"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -90,7 +90,7 @@ Esta opção permite preços mais altos ou mais baixos do que a oferta publicame
 
 Cobramos uma taxa de serviço de loja padrão de 20% quando os clientes compram a sua oferta de transação no mercado comercial. Para mais informações sobre esta taxa, consulte a secção 5c do [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-Para certas ofertas transacionáveis que publica no mercado comercial, poderá beneficiar de uma taxa reduzida de serviço de loja de 10%. Para uma oferta de qualificação, deve ter sido designada pela Microsoft como Azure IP Co-sell incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Para certas ofertas transacionáveis que publica no mercado comercial, poderá beneficiar de uma taxa reduzida de serviço de loja de 10%. Para uma oferta de qualificação, deve ter sido designada pela Microsoft como Azure IP Co-sell incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado. Uma vez cumprida a elegibilidade, a taxa de serviço reduzida é atribuída a todas as transações com efeito no primeiro dia do mês seguinte até que o estatuto de Co-venda de IP Azure seja perdido. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 
 A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender saaS, VMs, apps geridas e quaisquer outras soluções de IaAS transacionáveis qualificadas disponibilizadas através do mercado comercial. As ofertas pagas do SaaS associadas a uma aplicação da Microsoft Teams ou a pelo menos dois add-ins microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas no Microsoft AppSource também recebem este desconto.
 

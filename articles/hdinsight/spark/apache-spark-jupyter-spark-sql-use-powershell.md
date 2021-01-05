@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: fd7300fd21d20476305dc5404158f255d533ffed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 14b6dd8f8db00469be49c2f57e12d3c15302f8a6
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539331"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822221"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando PowerShell
 
-Neste arranque rápido, você usa Azure PowerShell para criar um cluster Apache Spark em Azure HDInsight. Em seguida, você cria um caderno Jupyter, e usá-lo para executar consultas Spark SQL contra as mesas apache Hive. O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. A estrutura Apache Spark para Azure HDInsight permite uma análise rápida de dados e computação de cluster utilizando o processamento na memória. O bloco de notas Jupyter permite interagir com os seus dados, combinar código com texto de marcação e fazer visualizações simples.
+Neste arranque rápido, você usa Azure PowerShell para criar um cluster Apache Spark em Azure HDInsight. Em seguida, você cria um Caderno Jupyter, e usá-lo para executar consultas Spark SQL contra as mesas apache hive. O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. A estrutura Apache Spark para Azure HDInsight permite uma análise rápida de dados e computação de cluster utilizando o processamento na memória. O Jupyter Notebook permite interagir com os seus dados, combinar código com texto de marcação e fazer visualizações simples.
 
 [Visão geral: Apache Spark em Azure HDInsight](apache-spark-overview.md)  |  [Faísca](https://spark.apache.org/)  |  Apache [Colmeia](https://hive.apache.org/)  |  Apache [Caderno Jupyter](https://jupyter.org/)
 
@@ -48,7 +48,7 @@ Quando executar o script PowerShell, é-lhe solicitado que introduza os seguinte
 |Parâmetro|Valor|
 |------|------|
 |Nome do grupo de recursos do Azure | Indique um nome exclusivo para o grupo de recursos.|
-|Localização| Especifique a região do Azure, por exemplo "E.U.A. Central". |
+|A localização| Especifique a região do Azure, por exemplo "E.U.A. Central". |
 |Nome predefinido da conta de armazenamento | Indique um nome único para a conta de armazenamento. |
 |Nome do cluster | Forneça um nome único para o cluster HDInsight.|
 |Credenciais de início de sessão do cluster | Esta conta é utilizada para se ligar ao dashboard do cluster mais adiante no guia de início rápido.|
@@ -136,11 +136,11 @@ Quando executar o script PowerShell, é-lhe solicitado que introduza os seguinte
 
 Se tiver um problema com a criação de clusters HDInsight, pode ser que não tenha as permissões certas para o fazer. Para obter mais informações, veja [Access control requirements](../hdinsight-hadoop-customize-cluster-linux.md#access-control) (Requisitos do controlo de acesso).
 
-## <a name="create-a-jupyter-notebook"></a>Criar um bloco de notas do Jupyter
+## <a name="create-a-jupyter-notebook"></a>Criar um Bloco de Notas do Jupyter Notebook
 
 [Jupyter Notebook](https://jupyter.org/) é um ambiente de caderno interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples.
 
-1. No [portal Azure,](https://portal.azure.com)procure e selecione **clusters HDInsight** .
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **clusters HDInsight**.
    
    ![A screenshot mostra a pesquisa do portal Azure para H D Insight.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
    
@@ -148,7 +148,7 @@ Se tiver um problema com a criação de clusters HDInsight, pode ser que não te
    
    ![A screenshot mostra os clusters H D Insight com o cluster que criou.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
    
-1. Na página de **visão geral** do cluster, selecione **dashboards cluster** e, em seguida, selecione **Jupyter Notebook** . Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
+1. Na página de **visão geral** do cluster, selecione **dashboards cluster** e, em seguida, selecione **Jupyter Notebook**. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
 
    ![Open Jupyter Notebook para executar consulta interativa Spark SQL](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter Notebook para executar consulta interativa Spark SQL")
 
@@ -174,7 +174,7 @@ SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para 
     SHOW TABLES
     ```
 
-    Quando utilizar um Bloco de Notas Jupyter com o seu cluster Spark em HDInsight, obtém-se um predefinição `sqlContext` que pode utilizar para executar consultas de Hive utilizando o Spark SQL. `%%sql` indica ao Bloco de Notas do Jupyter que utilize o `sqlContext` predefinido para executar a consulta do Hive. A consulta devolve as primeiras dez linhas de uma tabela do Hive ( **hivesampletable** ) que vem em todos os clusters do HDInsight por predefinição. São necessários cerca de 30 segundos para receber os resultados. O resultado tem o seguinte aspeto:
+    Quando utilizar um Bloco de Notas Jupyter com o seu cluster Spark em HDInsight, obtém-se um predefinição `sqlContext` que pode utilizar para executar consultas de Hive utilizando o Spark SQL. `%%sql` indica ao Bloco de Notas do Jupyter que utilize o `sqlContext` predefinido para executar a consulta do Hive. A consulta devolve as primeiras dez linhas de uma tabela do Hive (**hivesampletable**) que vem em todos os clusters do HDInsight por predefinição. São necessários cerca de 30 segundos para receber os resultados. O resultado tem o seguinte aspeto:
 
     ![Consulta de Colmeia Apache em Faísca em HDInsight](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query.png "Consulta de colmeia em HDInsight Spark")
 
@@ -191,17 +191,17 @@ SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para 
 
     ![Saída de consulta de colmeia em HDInsight](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query-output.png "Saída de consulta de colmeia em HDInsight")
 
-1. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)** . Encerrar o bloco de notas liberta os recursos do cluster.
+1. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)**. Encerrar o bloco de notas liberta os recursos do cluster.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 O HDInsight permite guardar os seus dados no Armazenamento do Azure ou no Armazenamento do Azure Data Lake, pelo que pode eliminar um cluster em segurança quando este não estiver a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Se tenciona trabalhar imediatamente no tutorial listado nos [Passos seguintes](#next-steps), convém manter o cluster.
 
-Regresse ao portal do Azure e selecione **Eliminar** .
+Regresse ao portal do Azure e selecione **Eliminar**.
 
 ![Portal Azure elimina um cluster HDInsight](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 
-Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos** . Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
+Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
 
 ### <a name="piecemeal-clean-up-with-powershell-az-module"></a>Limpeza fragmentada com módulo PowerShell Az
 

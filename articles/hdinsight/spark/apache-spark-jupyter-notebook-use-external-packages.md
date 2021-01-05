@@ -1,6 +1,6 @@
 ---
 title: Use pacotes maven personalizados com Jupyter em Spark - Azure HDInsight
-description: Instruções passo a passo sobre como configurar os cadernos Jupyter disponíveis com clusters HDInsight Spark para usar pacotes Maven personalizados.
+description: Instruções passo a passo sobre como configurar cadernos Jupyter disponíveis com clusters HDInsight Spark para usar pacotes Maven personalizados.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82c61fe77e7bffea6a20e47c71561ab6dc86d12b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061721"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822255"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Use pacotes externos com cadernos Jupyter em aglomerados Apache Spark em HDInsight
 
@@ -21,7 +21,7 @@ Aprenda a configurar um [Caderno Jupyter](https://jupyter.org/) em aglomerado Ap
 
 Pode pesquisar no [repositório Maven](https://search.maven.org/) a lista completa de pacotes disponíveis. Também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, uma lista completa de pacotes com contribuições comunitárias está disponível nos [Pacotes Spark](https://spark-packages.org/).
 
-Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o caderno Jupyter.
+Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o Caderno Jupyter.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,13 +31,13 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
 
 * O [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Azure Storage ou data lake storage gen2, o URI será `wasbs://` `abfss://` ou, respectivamente, ver também, [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
-## <a name="use-external-packages-with-jupyter-notebooks"></a>Utilizar pacotes externos com blocos de notas do Jupyter
+## <a name="use-external-packages-with-jupyter-notebooks"></a>Use pacotes externos com cadernos Jupyter
 
 1. Navegue `https://CLUSTERNAME.azurehdinsight.net/jupyter` para onde está o nome do seu aglomerado de `CLUSTERNAME` faíscas.
 
-1. Crie um novo bloco de notas. Selecione **Novo**e, em seguida, selecione **Spark**.
+1. Crie um novo bloco de notas. Selecione **Novo** e, em seguida, selecione **Spark**.
 
-    ![Criar um novo caderno Spark Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Criar um novo bloco de notas do Jupyter")
+    ![Criar um novo Caderno Spark Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Criar um novo Caderno Jupyter")
 
 1. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Selecione o nome do portátil na parte superior e introduza um nome amigável.
 
@@ -57,9 +57,9 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
 
     a. Localize o pacote no Repositório De Maven. Para este artigo, [usamos spark-csv](https://mvnrepository.com/artifact/com.databricks/spark-csv).
 
-    b. A partir do repositório, reúna os valores para **GroupId,** **ArtifactId**e **Versão**. Certifique-se de que os valores que recolhe correspondem ao seu cluster. Neste caso, estamos a usar um pacote Scala 2.11 e Spark 1.5.0, mas poderá ter de selecionar diferentes versões para a versão adequada de Scala ou Spark no seu cluster. Você pode descobrir a versão Scala no seu cluster executando `scala.util.Properties.versionString` no kernel Spark Jupyter ou em Spark submit. Você pode descobrir a versão Spark no seu cluster correndo `sc.version` em cadernos Jupyter.
+    b. A partir do repositório, reúna os valores para **GroupId,** **ArtifactId** e **Versão**. Certifique-se de que os valores que recolhe correspondem ao seu cluster. Neste caso, estamos a usar um pacote Scala 2.11 e Spark 1.5.0, mas poderá ter de selecionar diferentes versões para a versão adequada de Scala ou Spark no seu cluster. Você pode descobrir a versão Scala no seu cluster executando `scala.util.Properties.versionString` no kernel Spark Jupyter ou em Spark submit. Você pode descobrir a versão Spark no seu cluster correndo `sc.version` em Cadernos Jupyter.
 
-    ![Use pacotes externos com caderno Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use pacotes externos com caderno Jupyter")
+    ![Use pacotes externos com Caderno Jupyter](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use pacotes externos com Caderno Jupyter")
 
     c. Concatenar os três valores, separados por um cólon **.**
 
@@ -93,7 +93,7 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
     df.select("Time").count()
     ```
 
-## <a name="see-also"></a><a name="seealso"></a>Consulte também
+## <a name="see-also"></a><a name="seealso"></a>Veja também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
@@ -111,11 +111,11 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 
-* [Use pacotes de python externos com cadernos Jupyter em aglomerados Apache Spark em HDInsight Linux](apache-spark-python-package-installation.md)
+* [Use pacotes de python externos com cadernos Jupyter em aglomerados apache spark em HDInsight Linux](apache-spark-python-package-installation.md)
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Utilize ferramentas HDInsight Plugin para IntelliJ IDEA para depurar as aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponíveis para Jupyter Notebook em aglomerado de faíscas apaches para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerir recursos

@@ -1,6 +1,6 @@
 ---
 title: Apache Spark streaming com Apache Kafka - Azure HDInsight
-description: Aprenda a usar o Apache Spark para transmitir dados para dentro ou para fora de Apache Kafka usando DStreams. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
+description: Aprenda a usar o Apache Spark para transmitir dados para dentro ou para fora de Apache Kafka usando DStreams. Neste exemplo, transmite dados usando um Caderno Jupyter de Spark on HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: e2f4bbe6157e1affa4975f6dcee2ad0f1d98a71b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a62b2d1ebee3bf933729ab82bc9e37a3db066b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086097"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821184"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark streaming exemplo (DStream) com Apache Kafka em HDInsight
 
@@ -54,7 +54,7 @@ Embora possa criar uma rede virtual Azure, Kafka e Spark agrupamentos manualment
     |Propriedade |Valor |
     |---|---|
     |Grupo de recursos|Crie um grupo ou selecione um existente.|
-    |Localização|Selecione uma localização geograficamente próxima de si.|
+    |A localização|Selecione uma localização geograficamente próxima de si.|
     |Nome do cluster base|Este valor é usado como o nome base para os clusters Spark e Kafka. Por exemplo, a entrada no **hdistreaming** cria um cluster spark chamado __spark-hdistreaming__ e um cluster Kafka chamado **kafka-hdistreaming**.|
     |Nome de Utilizador de Início de Sessão do Cluster|O nome de utilizador administrativo para os clusters Spark e Kafka.|
     |Palavra-passe de Início de Sessão do Cluster|A palavra-passe do utilizador administrativo para os clusters Spark e Kafka.|
@@ -63,7 +63,7 @@ Embora possa criar uma rede virtual Azure, Kafka e Spark agrupamentos manualment
 
     ![Parâmetros de implementação personalizados HDInsight](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-1. Leia os **Termos e Condições**e, em seguida, selecione **Concordo com os termos e condições acima indicados**.
+1. Leia os **Termos e Condições** e, em seguida, selecione **Concordo com os termos e condições acima indicados**.
 
 1. Finalmente, selecione **Comprar**. Leva cerca de 20 minutos para criar os aglomerados.
 

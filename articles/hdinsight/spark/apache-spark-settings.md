@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504938"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821150"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -130,7 +130,7 @@ Os clusters de faíscas em HDInsight incluem uma série de componentes por padr�
 |Núcleo de Faísca|Spark Core, Spark SQL, Spark streaming APIs, GraphX e Apache Spark MLlib.|
 |Anaconda|Um gestor de pacotes de python.|
 |Apache Livy|A Apache Spark REST API, usada para submeter trabalhos remotos a um cluster HDInsight Spark.|
-|Cadernos Jupyter e Apache Zeppelin|UI baseado em navegador interativo para interagir com o seu cluster Spark.|
+|Cadernos Jupyter e Cadernos Apache Zeppelin|UI baseado em navegador interativo para interagir com o seu cluster Spark.|
 |Controlador ODBC|Conecta clusters Spark em HDInsight a ferramentas de inteligência empresarial (BI), como o Microsoft Power BI e o Tableau.|
 
 Para aplicações em execução no Bloco de Notas do Jupyter, utilize o `%%configure` comando para escorrê-lo a partir do próprio caderno. Estas alterações de configuração serão aplicadas aos trabalhos spark executados a partir da sua instância de caderno. Faça tais alterações no início da aplicação, antes de executar a sua primeira célula de código. A configuração alterada é aplicada na sessão Livy quando é criada.

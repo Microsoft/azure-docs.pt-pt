@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4cfcc860e40415403952efeda13bac513a2c6347
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022256"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822153"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Spark com o Azure HDInsight
 
@@ -75,9 +75,9 @@ Os valores de configuração da faísca podem ser afinados ajuda a evitar uma ex
 
 Estas alterações são em todo o agrupamento, mas podem ser ultrapassadas quando se submete o trabalho de Spark.
 
-## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Como configuro uma aplicação Apache Spark através de um bloco de notas Jupyter em clusters?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Como posso configurar uma aplicação Apache Spark usando um Caderno Jupyter em clusters?
 
-Na primeira célula do caderno Jupyter, após a diretiva **%%configure,** especifique as configurações Spark em formato JSON válido. Alterar os valores reais conforme necessário:
+Na primeira célula do Caderno Jupyter, após a diretiva **%%configure,** especifique as configurações Spark em formato JSON válido. Alterar os valores reais conforme necessário:
 
 ![Adicionar uma configuração](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 

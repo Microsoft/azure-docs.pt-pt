@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 1094235f5bc5cc25cf6d8f3762dc242503952de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ec2db1799919eb395996b56d08b77e3be7ff5a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083802"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822374"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise os registos do site usando uma biblioteca de Python personalizada com aglomerado de faíscas Apache em HDInsight
 
@@ -25,7 +25,7 @@ Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar cl
 
 ## <a name="save-raw-data-as-an-rdd"></a>Guardar dados brutos como RDD
 
-Nesta secção, usamos o caderno [Jupyter](https://jupyter.org) associado a um cluster Apache Spark em HDInsight para executar trabalhos que processam os seus dados de amostras brutas e guardá-lo como uma tabela de Colmeia. Os dados da amostra são um ficheiro .csv (hvac.csv) disponível em todos os clusters por padrão.
+Nesta secção, usamos o [Jupyter](https://jupyter.org) Notebook associado a um cluster Apache Spark em HDInsight para executar trabalhos que processam os seus dados de amostras brutas e guardá-lo como uma tabela de Colmeia. Os dados da amostra são um ficheiro .csv (hvac.csv) disponível em todos os clusters por padrão.
 
 Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na secção seguinte ligaremos à tabela Hive usando ferramentas BI como Power BI e Tableau.
 
@@ -33,7 +33,7 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
 
 1. Crie um novo bloco de notas. Selecione **Novo**, e depois **PySpark**.
 
-    ![Criar um novo caderno Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de notas do Jupyter")
+    ![Criar um novo Caderno Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo Caderno Jupyter")
 
 1. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Selecione o nome do portátil na parte superior e introduza um nome amigável.
 
@@ -203,5 +203,5 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
 Explore os seguintes artigos:
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use pacotes externos com cadernos Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

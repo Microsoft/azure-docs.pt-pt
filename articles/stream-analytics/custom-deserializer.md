@@ -6,37 +6,36 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75443698"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822017"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Deserializadores personalizados .NET para Azure Stream Analytics
 
 A Azure Stream Analytics tem [suporte incorporado para três formatos de dados](stream-analytics-parsing-json.md): JSON, CSV e Avro. Com deserializadores .NET personalizados, pode ler dados de outros formatos, tais como [Protocol Buffer,](https://developers.google.com/protocol-buffers/) [Bond](https://github.com/Microsoft/bond) e outros formatos definidos pelo utilizador para trabalhos de nuvem e borda.
 
-Este tutorial demonstra como criar um deserializador personalizado .NET para um trabalho em nuvem Azure Stream Analytics usando o Visual Studio. 
+Este tutorial demonstra como criar um deserializador personalizado .NET para um trabalho em nuvem Azure Stream Analytics usando o Visual Studio. Para aprender a criar deserializadores .NET no Código do Estúdio Visual, consulte [Criar deserializadores .NET para trabalhos Azure Stream Analytics em Código de Estúdio Visual](visual-studio-code-custom-deserializer.md).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um deserializador personalizado para tampão de protocolo.
 > * Crie um trabalho Azure Stream Analytics no Visual Studio.
 > * Configure o seu trabalho stream Analytics para usar o deserializador personalizado.
-> * Execute o seu trabalho stream Analytics localmente para testar o deserializador personalizado.
+> * Execute o seu trabalho stream Analytics localmente para testar e depurar o deserializador personalizado.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) ou [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição expressa não é apoiada.
+* Instalar [Visual Studio 2019 (recomendado)](https://www.visualstudio.com/downloads/) ou [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição expressa não é apoiada. 
 
-* [Instale as ferramentas Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou atualize para a versão mais recente. As seguintes versões do Visual Studio são suportadas:
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Instale as ferramentas Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou atualize para a versão mais recente. 
 
 * Abra **o Cloud Explorer** no Estúdio Visual e inscreva-se na sua subscrição do Azure.
 
@@ -63,7 +62,7 @@ O contentor que criar será utilizado para armazenar ativos relacionados com o s
 
 ## <a name="configure-a-stream-analytics-job"></a>Configure um trabalho stream analytics
 
-1. Clique duas ** vezesJobConfig.jsem**. Utilize as configurações predefinidos, exceto as seguintes definições:
+1. Clique duas **vezesJobConfig.jsem**. Utilize as configurações predefinidos, exceto as seguintes definições:
 
    |Definição|Valor sugerido|
    |-------|---------------|
@@ -95,11 +94,11 @@ O contentor que criar será utilizado para armazenar ativos relacionados com o s
    SELECT * FROM Input
    ```
 
-4. Descarregue o [ficheiro de entrada protobuf de amostra](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). Na pasta **Entradas,** ** clique**Input.jsà direita e selecione Adicionar **Entrada Local**. Em seguida, clique duas vezes **local_Input.js** e configufique as seguintes definições:
+4. Descarregue o [ficheiro de entrada protobuf de amostra](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). Na pasta **Entradas,** **clique** Input.jsà direita e selecione Adicionar **Entrada Local**. Em seguida, clique duas vezes **local_Input.js** e configufique as seguintes definições:
 
    |Definição|Valor sugerido|
    |-------|---------------|
-   |Alias de Entrada|Input|
+   |Alias de Entrada|Entrada|
    |Tipo de Fonte|Fluxo de Dados|
    |Formato de Serialização de Eventos|Outros (Protobuf, XML, proprietário...)|
    |Nome da montagem do CSharp|ProtobufDeserializer.dll|
@@ -116,11 +115,13 @@ Implementou com sucesso um deserializador personalizado para o seu trabalho stre
 
 ## <a name="debug-your-deserializer"></a>Depurar o seu deserializador
 
-Pode depurar o seu deserializador .NET localmente da mesma forma que depurar código .NET standard. 
+Pode depurar o seu deserializador .NET localmente da mesma forma que depurar código .NET standard.
 
-1. Adicione pontos de rutura na sua função.
+1. Clique em direito no nome do projeto **ProtobufCloudDeserializer** e desaconte-o como projeto de arranque.
 
-2. Prima **F5** para iniciar a depuração. O programa irá parar nos seus pontos de interrupção, conforme esperado.
+2. Adicione pontos de rutura na sua função.
+
+3. Prima **F5** para iniciar a depuração. O programa irá parar nos seus pontos de interrupção, conforme esperado.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621608"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821490"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -202,7 +202,7 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
   - .png ficheiro
   - Deve incluir uma legenda
 - **Meios - Vídeos** (opcional): Pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram a sua oferta:
-  - Name
+  - Nome
   - URL: Deve ser hospedado apenas no YouTube ou Vimeo.
   - Miniatura: ficheiro de .png 1280 x 720
 
@@ -250,7 +250,7 @@ O exemplo a seguir mostra uma repartição de custos e pagamentos para demonstra
 | Microsoft paga-lhe 80% do custo da sua licença<br>`*` Para aplicações SaaS qualificadas, a Microsoft paga 90% do custo da sua licença| $80,00 por mês<br>``*`` $90,00 por mês |
 |||
 
-**`*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
+**`*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser satisfeita pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado. Uma vez cumprida a elegibilidade, a taxa de serviço reduzida é atribuída a todas as transações com efeito no primeiro dia do mês seguinte e continuará a ser aplicada até que o estatuto de Co-venda ip Azure IP seja perdido. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venda adicionais
 

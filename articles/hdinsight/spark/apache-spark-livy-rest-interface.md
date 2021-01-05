@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: fcb845904216fbe4cb05828877775ea2178c45e9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b5795172517ba2e707d66ebe486c51d31575bd0d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539161"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821881"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilizar a API REST do Apache Spark para submeter trabalhos remotos para um cluster do HDInsight Spark
 
@@ -88,7 +88,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 Livy fornece alta disponibilidade para empregos spark running no cluster. Aqui estão alguns exemplos.
 
 * Se o serviço Livy cair depois de ter enviado um trabalho remotamente a um cluster Spark, o trabalho continua a funcionar em segundo plano. Quando livy está de volta, restaura o estado do trabalho e relata-o de volta.
-* Os cadernos Jupyter para HDInsight são alimentados pela Livy no backend. Se um caderno estiver a executar um trabalho de Spark e o serviço Livy for reiniciado, o caderno continua a executar as células de código.
+* Os Cadernos Jupyter para HDInsight são alimentados pela Livy no backend. Se um caderno estiver a executar um trabalho de Spark e o serviço Livy for reiniciado, o caderno continua a executar as células de código.
 
 ## <a name="show-me-an-example"></a>Mostre-me um exemplo
 
@@ -126,7 +126,7 @@ Efetue os seguintes passos:
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Note como a última linha na saída diz **total:0** , o que sugere que não há lotes de execução.
+    Note como a última linha na saída diz **total:0**, o que sugere que não há lotes de execução.
 
 1. Vamos agora submeter um trabalho de lote. O seguinte corte utiliza um ficheiro de entrada (input.txt) para passar o nome do frasco e o nome da classe como parâmetros. Se estiver a executar estes passos a partir de um computador Windows, usar um ficheiro de entrada é a abordagem recomendada.
 
@@ -155,7 +155,7 @@ Efetue os seguintes passos:
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Repare como a última linha da saída diz **estado:a partir de** . Também diz, **id:0.** Aqui, **0** é a identificação do lote.
+    Repare como a última linha da saída diz **estado:a partir de**. Também diz, **id:0.** Aqui, **0** é a identificação do lote.
 
 1. Agora pode recuperar o estado deste lote específico utilizando o ID do lote.
 
@@ -177,7 +177,7 @@ Efetue os seguintes passos:
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    A produção mostra agora **o estado:sucesso** , o que sugere que o trabalho foi concluído com sucesso.
+    A produção mostra agora **o estado:sucesso**, o que sugere que o trabalho foi concluído com sucesso.
 
 1. Se quiser, pode agora apagar o lote.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b9568d03260a9d1ac0b6916e09f3d9ef4da34d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084533"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822170"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Apache Zeppelin com o cluster do Apache Spark no Azure HDInsight
 
@@ -89,7 +89,7 @@ Os clusters HDInsight Spark incluem cadernos [Apache Zeppelin.](https://zeppelin
 
     A **declaração de %sql** no início diz ao caderno para usar o intérprete Livy Scala.
 
-6. Selecione o ícone **'Gráfico de barras'** para alterar o visor.  **definições**, apareça depois de ter selecionado **o Gráfico de Barras,** permite-lhe escolher **Chaves**e **Valores**.  A imagem que se segue mostra a saída.
+6. Selecione o ícone **'Gráfico de barras'** para alterar o visor.  **definições**, apareça depois de ter selecionado **o Gráfico de Barras,** permite-lhe escolher **Chaves** e **Valores**.  A imagem que se segue mostra a saída.
 
     ![Executar uma declaração de Spark SQL usando o caderno1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Executar uma declaração de Spark SQL usando o caderno1")
 
@@ -115,13 +115,13 @@ Os clusters HDInsight Spark incluem cadernos [Apache Zeppelin.](https://zeppelin
 
 O caderno Zeppelin no cluster Apache Spark em HDInsight pode usar pacotes externos e colaborativos que não estão incluídos no cluster. Pesque o [repositório Maven](https://search.maven.org/) para obter a lista completa de pacotes disponíveis. Também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, uma lista completa de pacotes com contribuições comunitárias está disponível nos [Pacotes Spark](https://spark-packages.org/).
 
-Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o caderno Jupyter.
+Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o Caderno Jupyter.
 
 1. Abra as definições do intérprete. A partir do canto superior direito, selecione o nome de utilizador registado e, em seguida, selecione **Interpreter**.
 
     ![Intérprete de lançamento](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Saída de colmeia")
 
-2. Percorra para **livy2**e, em seguida, **selecione editar**.
+2. Percorra para **livy2** e, em seguida, **selecione editar**.
 
     ![Alterar definições de intérprete1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Alterar definições de intérprete1")
 
@@ -135,9 +135,9 @@ Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.or
 
     a. Localize o pacote no Repositório De Maven. Para este artigo, [usamos spark-csv.](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)
 
-    b. A partir do repositório, reúna os valores para **GroupId,** **ArtifactId**e **Versão**.
+    b. A partir do repositório, reúna os valores para **GroupId,** **ArtifactId** e **Versão**.
 
-    ![Use pacotes externos com caderno Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Use pacotes externos com caderno Jupyter")
+    ![Use pacotes externos com Caderno Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Use pacotes externos com Caderno Jupyter")
 
     c. Concatenar os três valores, separados por um cólon **.**
 
@@ -183,7 +183,7 @@ Neste caso, deve fazer os seguintes passos antes de começar a trabalhar a parti
 
     ![Intérprete de lançamento](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Saída de colmeia")
 
-2. Percorra para **livy2**e, em seguida, **selecione reiniciar**.
+2. Percorra para **livy2** e, em seguida, **selecione reiniciar**.
 
     ![Reiniciar o intérprete Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reiniciar o intérprete Zeppelin")
 
@@ -227,5 +227,5 @@ Para validar o serviço a partir de uma linha de comando, SSH para o nó de cabe
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponíveis para Jupyter Notebook em aglomerado de faíscas apaches para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)

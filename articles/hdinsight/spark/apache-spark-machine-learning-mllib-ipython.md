@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230420"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822187"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use Apache Spark MLlib para construir uma aplicação de machine learning e analisar um conjunto de dados
 
@@ -38,13 +38,13 @@ Em resumo, o processo de regressão logística produz uma *função logística.*
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Exemplo de análise preditiva sobre os dados da inspeção alimentar
 
-Neste exemplo, você usa Spark para fazer algumas análises preditivas sobre os dados da inspeção alimentar** (Food_Inspections1.csv). ** Dados adquiridos através do [portal de dados da Cidade de Chicago.](https://data.cityofchicago.org/) Este conjunto de dados contém informações sobre inspeções de estabelecimentos alimentares que foram realizadas em Chicago. Incluindo informações sobre cada estabelecimento, as violações encontradas (se houver), e os resultados da inspeção. O ficheiro de dados CSV já está disponível na conta de armazenamento associada ao cluster em **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+Neste exemplo, você usa Spark para fazer algumas análises preditivas sobre os dados da inspeção alimentar **(Food_Inspections1.csv).** Dados adquiridos através do [portal de dados da Cidade de Chicago.](https://data.cityofchicago.org/) Este conjunto de dados contém informações sobre inspeções de estabelecimentos alimentares que foram realizadas em Chicago. Incluindo informações sobre cada estabelecimento, as violações encontradas (se houver), e os resultados da inspeção. O ficheiro de dados CSV já está disponível na conta de armazenamento associada ao cluster em **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 Nos passos abaixo, desenvolve-se um modelo para ver o que é preciso para passar ou falhar uma inspeção alimentar.
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Crie uma app de aprendizagem automática Apache Spark MLlib
 
-1. Crie um bloco de notas do Jupyter com o kernel de PySpark. Para obter as instruções, consulte [Criar um ficheiro de caderno Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Crie um Caderno Jupyter utilizando o núcleo PySpark. Para obter as instruções, consulte [Criar um ficheiro de caderno Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Importe os tipos necessários para este pedido. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER**.
 
@@ -121,7 +121,7 @@ Utilize o contexto Spark para puxar os dados CSV crus para a memória como texto
     df.registerTempTable('CountResults')
     ```
 
-    As quatro colunas de interesse no dataframe são **identificação,** **nome,** **resultados**e **violações.**
+    As quatro colunas de interesse no dataframe são **identificação,** **nome,** **resultados** e **violações.**
 
 4. Executar o seguinte código para obter uma pequena amostra dos dados:
 
@@ -174,7 +174,7 @@ Vamos começar a ter uma noção do que o conjunto de dados contém.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    A `%%sql` magia seguida garante que a saída da consulta é `-o countResultsdf` persistiu localmente no servidor Jupyter (tipicamente o headnode do cluster). A saída é persistiu como um dataframe [de pandas](https://pandas.pydata.org/) com o nome especificado **CountResultsdf**. Para obter mais informações sobre a `%%sql` magia e outras magias disponíveis com o kernel PySpark, consulte [Kernels disponível em cadernos Jupyter com clusters Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    A `%%sql` magia seguida garante que a saída da consulta é `-o countResultsdf` persistiu localmente no servidor Jupyter (tipicamente o headnode do cluster). A saída é persistiu como um dataframe [de pandas](https://pandas.pydata.org/) com o nome especificado **CountResultsdf**. Para obter mais informações sobre a `%%sql` magia e outras magias disponíveis com o kernel PySpark, consulte [Kernels disponível em Cadernos Jupyter com aglomerados Apache Spark HDInsight.](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)
 
     O resultado é:
 
@@ -196,8 +196,8 @@ Vamos começar a ter uma noção do que o conjunto de dados contém.
 
     Para prever um resultado da inspeção alimentar, é preciso desenvolver um modelo baseado nas violações. Como a regressão logística é um método de classificação binária, faz sentido agrupar os dados dos resultados em duas categorias: **Fail** and **Pass**:
 
-   - Passe
-       - Passe
+   - Aprovação
+       - Aprovação
        - Passe c/ condições
    - Reprovado
        - Reprovado
@@ -252,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Avaliar o modelo utilizando outro conjunto de dados
 
-Pode usar o modelo que criou anteriormente para *prever* quais serão os resultados de novas inspeções. As previsões baseiam-se nas violações que foram observadas. Treinou este modelo no conjunto de dados **Food_Inspections1.csv. ** Pode utilizar um segundo conjunto de dados, **Food_Inspections2.csv, **para *avaliar* a força deste modelo nos novos dados. Este segundo conjunto de dados** (Food_Inspections2.csv) **encontra-se no recipiente de armazenamento predefinido associado ao cluster.
+Pode usar o modelo que criou anteriormente para *prever* quais serão os resultados de novas inspeções. As previsões baseiam-se nas violações que foram observadas. Treinou este modelo no conjunto de dados **Food_Inspections1.csv.** Pode utilizar um segundo conjunto de dados, **Food_Inspections2.csv,** para *avaliar* a força deste modelo nos novos dados. Este segundo conjunto de dados **(Food_Inspections2.csv)** encontra-se no recipiente de armazenamento predefinido associado ao cluster.
 
 1. Executar o seguinte código para criar um novo dataframe, **previsõesDf** que contém a previsão gerada pelo modelo. O snippet também cria uma tabela temporária chamada **Previsões** com base no dataframe.
 
@@ -313,7 +313,7 @@ Pode usar o modelo que criou anteriormente para *prever* quais serão os resulta
 
 Pode agora construir uma visualização final para ajudá-lo a raciocinar sobre os resultados deste teste.
 
-1. Começa-se por extrair as diferentes previsões e resultados da tabela temporária **de Previsões** criada anteriormente. As seguintes consultas separam a saída como *true_positive,* *false_positive,* *true_negative*e *false_negative.* Nas consultas abaixo, desativa a visualização utilizando `-q` e também guarda a saída (utilizando) como `-o` dataframes que podem ser usados com a `%%local` magia.
+1. Começa-se por extrair as diferentes previsões e resultados da tabela temporária **de Previsões** criada anteriormente. As seguintes consultas separam a saída como *true_positive,* *false_positive,* *true_negative* e *false_negative.* Nas consultas abaixo, desativa a visualização utilizando `-q` e também guarda a saída (utilizando) como `-o` dataframes que podem ser usados com a `%%local` magia.
 
     ```PySpark
     %%sql -q -o true_positive

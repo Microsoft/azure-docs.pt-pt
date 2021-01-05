@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 817b8976f5d014d990945816c2df1c7e8ed729fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084890"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822306"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
@@ -36,11 +36,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    > [!TIP]  
    > Em alternativa, também pode lançar o UI YARN a partir da UI Ambari. Para lançar o Ambari UI, selecione **Ambari casa** sob **painéis de cluster.** A partir da UI Ambari, navegue até **YARN**  >  **Quick Links** > o gestor de recursos ativo > Gestor de Recursos **UI**.
 
-2. Como iniciou o trabalho de Spark usando cadernos Jupyter, a aplicação tem o nome **de remotesparkmagics** (o nome para todas as aplicações partiu dos cadernos). Selecione o ID da aplicação contra o nome da aplicação para obter mais informações sobre o trabalho. Esta ação lança a visão da aplicação.
+2. Como iniciou o trabalho de Spark usando Os Cadernos Jupyter, a aplicação tem o nome **de remotesparkmagics** (o nome para todas as aplicações partiu dos cadernos). Selecione o ID da aplicação contra o nome da aplicação para obter mais informações sobre o trabalho. Esta ação lança a visão da aplicação.
 
     ![Servidor histórico de faíscas Encontrar ID da aplicação Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    Para estas aplicações que são lançadas a partir dos cadernos Jupyter, o estado está sempre **A CORRER** até sair do caderno.
+    Para estas aplicações que são lançadas a partir dos Cadernos Jupyter, o estado está sempre **A CORRER** até sair do caderno.
 
 3. A partir da vista da aplicação, pode aprofundar-se mais para descobrir os recipientes associados à aplicação e os registos (stdout/stderr). Também pode lançar o Spark UI clicando na ligação correspondente ao **URL de rastreio,** como mostrado abaixo.
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Na Spark UI, você pode aprofundar os trabalhos de Faísca que são gerados pela aplicação que você começou mais cedo.
 
-1. Para lançar o Spark UI, a partir da vista de aplicação, selecione o link contra o **URL de rastreio,** como mostrado na captura do ecrã acima. Você pode ver todos os trabalhos spark que são lançados pela aplicação em execução no caderno Jupyter.
+1. Para lançar o Spark UI, a partir da vista de aplicação, selecione o link contra o **URL de rastreio,** como mostrado na captura do ecrã acima. Você pode ver todos os trabalhos spark que são lançados pela aplicação em execução no Caderno Jupyter.
 
     ![Separador de empregos de servidor de histórico de faíscas](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 
@@ -104,7 +104,7 @@ Uma vez concluído o trabalho, a informação sobre o trabalho é persistiu no S
 
     ![Servidor de histórico de faíscas completou aplicações](./media/apache-spark-job-debugging/view-completed-applications.png "Lançar Spark History Server2")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Debug Apache Spark Jobs usando servidor de histórico de faíscas estendido](apache-azure-spark-history-server.md)

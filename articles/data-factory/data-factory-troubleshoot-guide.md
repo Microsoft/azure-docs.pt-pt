@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654597"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822289"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Resolver Problemas do Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explora métodos comuns de resolução de problemas para atividades de controlo externo na Azure Data Factory.
@@ -498,7 +499,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Mensagem:**`There are duplicate files in the resource folder.`
 
-- **Causa:** Vários ficheiros com o mesmo nome estão em diferentes sub-pastas de pastas.
+- **Causa:** Vários ficheiros com o mesmo nome estão em diferentes subpastas de pastasPath.
 
 - **Recomendação**: Atividades personalizadas achatam a estrutura da pasta em pastaPata. Se necessitar de preservar a estrutura da pasta, feche os ficheiros e extraia-os em Azure Batch utilizando um comando unzip.
    
@@ -545,7 +546,6 @@ A tabela a seguir aplica-se ao Azure Batch.
 - **Causa**: Houve um erro interno ao tentar ler o Diretor de Serviço ou instantaneamente a autenticação MSI.
 
 - **Recomendação**: Considere fornecer um principal de serviço, que tenha permissões para criar um cluster HDInsight na subscrição fornecida e tente novamente. Verifique se [as identidades de gestão estão corretamente configurada](../hdinsight/hdinsight-managed-identities.md).
-
 
 ### <a name="error-code-2300"></a>Código de erro: 2300
 
@@ -952,6 +952,16 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Recomendação**: Forneça uma conta de armazenamento Azure Blob como um armazenamento adicional para o serviço ligado a pedido hdInsight.
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Erro SSL quando o serviço ligado a ADF utilizando o cluster HDInsight ESP
+
+- **Mensagem:**`Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Causa**: O problema está provavelmente relacionado com a System Trust Store.
+
+- **Resolução**: Pode navegar para o caminho **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** e abrir DriverConfiguration64.exe para alterar a definição.
+
+    ![Descheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>Atividade Web
 
 ### <a name="error-code-2128"></a>Código de erro: 2128
@@ -975,7 +985,7 @@ Utilizar **o Fiddler** para criar uma sessão HTTP da aplicação web monitoriza
 
 1. Descarregue, instale e abra [o Violinista.](https://www.telerik.com/download/fiddler)
 
-1. Se a sua aplicação web **Tools** utilizar HTTPS, aceda a  >  **Opções de Violino de**  >  **Ferramentas HTTPS**.
+1. Se a sua aplicação web utilizar HTTPS, aceda a  >  **Opções de Violino de**  >  **Ferramentas HTTPS**.
 
    1. No separador HTTPS, selecione ambos **os CONNECTs de captura** e **desencriptar o tráfego HTTPS**.
 
@@ -983,9 +993,9 @@ Utilizar **o Fiddler** para criar uma sessão HTTP da aplicação web monitoriza
 
 1. Se a sua aplicação utilizar certificados TLS/SSL, adicione o certificado Fiddler ao seu dispositivo.
 
-   Ir para: **Opções** de Violino de  >  **Fiddler Options**  >  **Ferramentas HTTPS**  >  **Actions**  >  **Export Root Certificate to Desktop**.
+   Ir para: **Opções** de Violino de  >    >  **Ferramentas HTTPS**  >  **Actions**  >  **Export Root Certificate to Desktop**.
 
-1. Desligue a captura indo para o **File**  >  **Tráfego de Captura de Ficheiros**. Ou prima **F12**.
+1. Desligue a captura indo para o   >  **Tráfego de Captura de Ficheiros**. Ou prima **F12**.
 
 1. Limpe a cache do seu navegador para que todos os itens em cache sejam removidos e devem ser descarregados novamente.
 
@@ -1015,11 +1025,11 @@ Quando observa que a atividade está a correr muito mais tempo do que o normal, 
 
 **Mensagem de erro:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Causa:** A carga útil para cada execução de atividade inclui a configuração de atividade, as configurações de conjuntos de dados associados e os serviços ligados, se houver, e uma pequena porção de propriedades do sistema geradas por tipo de atividade. O limite deste tamanho de carga útil é de 896KB, tal como mencionado na secção [de limites da Data Factory.](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)
+**Causa:** A carga útil para cada execução de atividade inclui a configuração de atividade, as configurações de conjuntos de dados associados e as configurações de serviços ligados, se houver, e uma pequena porção de propriedades do sistema geradas por tipo de atividade. O limite deste tamanho de carga útil é de 896 KB, tal como mencionado na secção [de limites da Data Factory.](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)
 
 **Recomendação:** Você atinge este limite provavelmente porque você passa em um ou mais valores de parâmetros grandes de saída de atividade a montante ou externo, especialmente se você passar dados reais através de atividades no fluxo de controle. Verifique se consegue reduzir o tamanho dos grandes valores de parâmetros ou afinar a lógica do pipeline para evitar passar esses valores através das atividades e manuseá-lo dentro da atividade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 
@@ -1027,5 +1037,5 @@ Para obter mais ajuda para resolver problemas, experimente estes recursos:
 * [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&Uma página de perguntas](/answers/topics/azure-data-factory.html)

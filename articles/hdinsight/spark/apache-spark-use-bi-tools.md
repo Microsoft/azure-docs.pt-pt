@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f56bb5e3ed8c953b67f1e88fc16846accaed995
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195116"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821286"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analise os dados do Apache Spark utilizando o Power BI em HDInsight
 
 Neste tutorial, aprende-se a usar o Microsoft Power BI para visualizar dados num cluster Apache Spark em Azure HDInsight.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Utilizar o Power BI para ver dados do Spark
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O [Caderno Jupyter](https://jupyter.org/) que criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma `hvac` tabela. Esta tabela baseia-se no ficheiro CSV disponível em todos os clusters HDInsight Spark em `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv` . Utilize o seguinte procedimento para verificar os dados.
 
-1. No bloco de notas do Jupyter, cole o seguinte código e prima **SHIFT + ENTER**. O código verifica a existência das tabelas.
+1. A partir do Caderno Jupyter, cole o seguinte código e, em seguida, prima **SHIFT + ENTER**. O código verifica a existência das tabelas.
 
     ```PySpark
     %%sql
@@ -77,7 +77,7 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
 
     ![Obtenha dados no Power BI Desktop da HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtenha dados em Power BI da Apache Spark BI")
 
-3. Introduza `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark**e, em seguida, selecione **Connect**.
+3. Introduza `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark** e, em seguida, selecione **Connect**.
 
     ![Obtenha dados em Power BI da Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtenha dados em Power BI da Apache Spark BI")
 

@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 9ca5229200b39f0a3c68da152f4d89f842d021ca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2123098aafb414495f55d557ac1546819c25fdad
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95996462"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822068"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -312,6 +312,10 @@ Este comando:
 * Atribui 4 núcleos de CPU e 4 gigabytes (GB) de memória.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
+
+> [!NOTE]
+> Os recipientes suportam a entrada de áudio comprimido para o Speech SDK utilizando o GStreamer.
+> Para instalar o GStreamer num recipiente, siga as instruções do Linux para GStreamer in [Use codec comprimida com o SDK de fala](how-to-use-codec-compressed-audio-input-streams.md).
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analisar o sentimento sobre a saída fala-a-texto 

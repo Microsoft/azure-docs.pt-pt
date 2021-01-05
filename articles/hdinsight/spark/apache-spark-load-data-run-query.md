@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85c4298c0c83480c244cc12238c21160a4a4282e
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77198893"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822119"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
 Neste tutorial, você aprende a criar um dataframe a partir de um ficheiro csv, e como executar consultas interativas spark SQL contra um cluster [Apache Spark](https://spark.apache.org/) em Azure HDInsight. No Spark, um pacote de dados é uma coleção distribuída de dados organizados em colunas com nomes. Do ponto de vista conceptual, o pacote de dados equivale a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Criar um pacote de dados a partir de um ficheiro CSV
 > * Executar consultas no pacote de dados
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 
 Um cluster do Apache Spark no HDInsight. Ver [Criar um aglomerado de faíscas Apache.](./apache-spark-jupyter-spark-sql-use-portal.md)
 
-## <a name="create-a-jupyter-notebook"></a>Criar um bloco de notas do Jupyter
+## <a name="create-a-jupyter-notebook"></a>Criar um Bloco de Notas do Jupyter Notebook
 
 O Jupyter Notebook é um ambiente de bloco de notas interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples.
 
@@ -49,7 +49,7 @@ As aplicações podem criar dataframes diretamente a partir de ficheiros ou past
 
 ![Instantâneo de dados para consulta interativa Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para consulta interativa Spark SQL")
 
-1. Cole o seguinte código numa célula vazia do caderno Jupyter e, em seguida, prima **SHIFT + ENTER** para executar o código. O código importa os tipos necessários para este cenário:
+1. Cole o seguinte código numa célula vazia do Caderno Jupyter e, em seguida, prima **SHIFT + ENTER** para executar o código. O código importa os tipos necessários para este cenário:
 
     ```python
     from pyspark.sql import *
@@ -95,7 +95,7 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Com o HDInsight, os seus dados e os seus cadernos Jupyter são armazenados no Azure Storage ou no Azure Data Lake Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
+Com o HDInsight, os seus dados e cadernos Jupyter são armazenados no Azure Storage ou no Azure Data Lake Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
