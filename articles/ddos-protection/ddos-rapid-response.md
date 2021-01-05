@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 3655b117b641a6179bd6539aaf3f75af07f21a1a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992374"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814198"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDos resposta rápida
 
-Durante um acesso ativo, os clientes da Azure DDoS Protection Standard têm acesso à equipa DDoS Rapid Response (DRR), que pode ajudar na investigação de ataque durante um ataque, bem como na análise pós-ataque.
+Durante um acesso ativo, os clientes Azure DDoS Protection Standard têm acesso à equipa DDoS Rapid Response (DRR), que pode ajudar na investigação de ataque durante uma análise de ataque e pós-ataque.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Só deve ativar a DRR se:
 
 1. A partir do portal Azure enquanto cria um novo pedido de suporte, escolha **o Tipo de Emissão** como Técnico.
 2. Escolha **o Serviço** como **Proteção DDOS**.
-3. Escolha um recurso no menu de entrega de recursos. _Tem de selecionar um Plano DDoS que esteja ligado à rede virtual protegida pela DDoS Protection Standard para ativar a DRR._
+3. Escolha um recurso no menu suspenso de recursos. _Tem de selecionar um Plano DDoS que esteja ligado à rede virtual protegida pela DDoS Protection Standard para ativar a DRR._
 
     ![Escolha o recurso](./media/ddos-rapid-response/choose-resource.png)
 
@@ -49,12 +49,12 @@ Só deve ativar a DRR se:
 
 5. Complete detalhes adicionais e envie o pedido de apoio.
 
-A DRR segue o modelo de suporte Azure Rapid Response. Consulte [o âmbito de suporte e a capacidade de resposta](https://azure.microsoft.com/en-us/support/plans/response/) para obter mais informações sobre a Resposta Rápida..
+A DRR segue o modelo de suporte Azure Rapid Response. Consulte [o âmbito de suporte e a capacidade de resposta](https://azure.microsoft.com/en-us/support/plans/response/) para obter mais informações sobre a Resposta Rápida.
 
 Para saber mais, leia a [documentação Padrão de Proteção DDoS](./ddos-protection-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [testar através de simulações.](test-through-simulations.md)
-- Saiba [como visualizar e configurar a telemetria de proteção DDoS](telemetry-monitoring-alerting.md).
-- Saiba como [configurar relatórios de mitigação de ataques dDoS e registos de fluxo](reports-and-flow-logs.md).
+- Saiba [como visualizar e configurar a telemetria de proteção DDoS](telemetry.md).
+- Saiba como [visualizar e configurar a registo de diagnóstico do DDoS](diagnostic-logging.md).

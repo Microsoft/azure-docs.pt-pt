@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490062"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813620"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Agentes de fornecimento automático e extensões do Azure Security Center
 
@@ -30,6 +30,17 @@ Os dados são recolhidos utilizando:
 > À medida que o Centro de Segurança cresceu, os tipos de recursos que podem ser monitorizados também cresceram. O número de prorrogações também aumentou. O fornecimento automático expandiu-se para suportar tipos adicionais de recursos, aproveitando as capacidades da Azure Policy.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Página de definições de provisionamento automático do Centro de Segurança":::
+
+
+## <a name="availability"></a>Disponibilidade
+
+| Aspeto                  | Detalhes                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de libertação:          | **Característica**: O provisionamento automático está geralmente disponível (GA)<br>**Agente e extensões**: O agente Log Analytics para VMs Azure é GA, o agente da Microsoft Dependency está em pré-visualização, o Policy Add-on para Kubernetes é GA                |
+| Preços:                | Gratuito                                                                                                                                                                                                                         |
+| Destinos apoiados: | ![Yes](./media/icons/yes-icon.png) Máquinas Azure<br>![No](./media/icons/no-icon.png) Máquinas Azure Arc<br>![No](./media/icons/no-icon.png) Os acenos de Kubernetes<br>![No](./media/icons/no-icon.png) Conjuntos de Dimensionamento de Máquinas Virtuais |
+| Nuvens:                 | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) EUA Gov, China Gov, Outros Gov                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>Porquê usar o provisionamento automático?
@@ -200,7 +211,7 @@ Para instalar manualmente o agente Log Analytics:
     1. Selecione **Azure Defender em**, e **Guarde**.
 
        >[!NOTE]
-       >Se o espaço de trabalho já tiver uma solução **SecurityCenterFree** ativada, o preço será definido automaticamente. **Security** 
+       >Se o espaço de trabalho já tiver uma solução **SecurityCenterFree** ativada, o preço será definido automaticamente.  
 
 1. Para implementar agentes em novos VMs utilizando um modelo de Gestor de Recursos, instale o agente Log Analytics:
 

@@ -3,16 +3,14 @@ title: Conceitos - Atualizações e atualizações em nuvem privadas
 description: Conheça os principais processos e funcionalidades de upgrade na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316805"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809654"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e atualizações privadas de nuvem Azure VMware
-
-## <a name="overview"></a>Descrição geral
 
 Um dos principais benefícios das nuvens privadas Azure VMware Solution é que a plataforma é mantida para si. A manutenção da plataforma inclui atualizações automatizadas para um pacote de software validado VMware, ajudando a garantir que está a utilizar a versão mais recente do software de nuvem privada Azure VMware Solution validado.
 

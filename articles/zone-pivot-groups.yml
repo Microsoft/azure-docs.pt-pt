@@ -40,6 +40,22 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-cusvis
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-two
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -156,6 +172,20 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-formre
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-eleven
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -936,10 +966,22 @@ groups:
     title: Fluxo de utilizador
   - id: b2c-custom-policy
     title: Política personalizada
+- id: anomaly-detector-quickstart
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 metadata:
-  ms.openlocfilehash: 8c246dacc9a8b1f5370352489a156fa0ebc92742
-  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+  ms.openlocfilehash: a21332c679a839a86460ce83b43b5283245e6d35
+  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/15/2020
-  ms.locfileid: "97503731"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97814572"

@@ -1,21 +1,22 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: cognitive-services
-author: roy-har
-manager: diberry
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: roy-har
-ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.author: aahi
+ms.reviewer: roy-har
+ms.openlocfilehash: a021b7c5b26e1bca1e3f623ad762c2f3ee8d6020
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938465"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820510"
 ---
 Crie a aplicação de pizza.
 

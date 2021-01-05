@@ -36,8 +36,6 @@
       items:
         - name: Corrigir predições inseguras
           href: luis-tutorial-review-endpoint-utterances.md
-        - name: Conjuntos de dados de teste em lote
-          href: luis-tutorial-batch-testing.md
         - name: Adicionar padrões para melhorar as previsões
           href: luis-tutorial-pattern.md
     - name: Utilizar com o bot
@@ -93,8 +91,6 @@
       items:
         - name: Testes interativos
           href: luis-concept-test.md
-        - name: Testes em lote
-          href: luis-concept-batch-test.md
     - name: Gestão de dados
       items:
         - name: Alteração de dados
@@ -229,7 +225,7 @@
         - name: Configurar contentores
           href: luis-container-configuration.md
         - name: Utilizar instâncias de contentor
-          href: deploy-luis-on-container-instances.md
+          href: ../containers/azure-container-instance-recipe.md
         - name: Limitações de contentor
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'

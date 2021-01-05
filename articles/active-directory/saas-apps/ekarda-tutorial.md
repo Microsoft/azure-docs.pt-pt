@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d9e118620cb38e94cfc18d01d31888ac0a444bb7
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179332"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813433"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Azure Ative Directory integração única (SSO) com ekarda
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar ekarda com Azure Ative Directory (
 * Controlo em Azure AD que tem acesso a Ekarda.
 * Permita que os seus utilizadores sejam automaticamente inscritos na ekarda utilizando as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
-
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, veja [o que é um único sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,13 +39,12 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Ekarda apoia SSO iniciado pelo SP e iniciado pelo IDP.
 * A ekarda suporta o fornecimento de utilizadores just-in-time.
-* Depois de configurar ekarda, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-ekarda-from-the-gallery"></a>Adicione ekarda da galeria
 
 Para configurar a integração da Ekarda no Azure AD, adicione ekarda da galeria à sua lista de aplicações geridas pela SaaS:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory.**
 1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
@@ -55,11 +52,11 @@ Para configurar a integração da Ekarda no Azure AD, adicione ekarda da galeria
 1. Na secção Adicionar da secção **da galeria,** **escreva ekarda** na caixa de pesquisa.
 1. Selecione **ekarda** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ekarda"></a>Configurar e testar Azure AD único sinal para ekarda
+## <a name="configure-and-test-azure-ad-sso-for-ekarda"></a>Configurar e testar Azure AD SSO para ekarda
 
 Configure e teste Azure AD SSO com ekarda utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação ligada entre um utilizador Azure AD e o utilizador relacionado em ekarda.
 
-Para configurar e testar a Azure AD SSO com ekarda, complete os seguintes passos:
+Para configurar e testar a Azure AD SSO com ekarda, execute os seguintes passos:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) para permitir que os seus utilizadores utilizem esta funcionalidade.
 
@@ -73,7 +70,7 @@ Para configurar e testar a Azure AD SSO com ekarda, complete os seguintes passos
 
 Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no Portal do Azure.
 1. Na página de integração da aplicação **ekarda,** encontre a secção **Gerir** e selecione **um único sinal de s-on**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. Na **configuração single Sign-On com página SAML,** selecione o ícone de lápis para editar as definições básicas de **configuração SAML.**
@@ -95,7 +92,7 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
 1. Se pretender configurar a aplicação no modo iniciado pelo SP, selecione **Definir URLs adicionais** e fazê-lo:
 
-    * Na caixa de texto **URL de entrada de inscrição,** digite um URL que segue este padrão: `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL que segue este padrão:  `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
 
     > [!NOTE]
     > Os valores nos dois passos anteriores não são reais. Atualize-os com o identificador real, responda URL e valores de URL de assinatura. Contacte a [equipa de suporte do Cliente Ekarda](mailto:contact@ekarda.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -112,7 +109,7 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
 Nesta secção, utilizará o portal Azure para criar um utilizador de teste chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
@@ -129,19 +126,24 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na lista de candidaturas, selecione **ekarda**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![Screenshot da secção Gerir, com utilizadores e grupos em destaque.](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
-    ![Screenshot da secção de Utilizadores e grupos, com o utilizador Add em destaque.](common/add-assign-user.png)
-
 1. Na caixa de diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de utilizadores. Em seguida, escolha **Selecione** na parte inferior do ecrã.
-1. Se espera algum valor de função na afirmação SAML, selecione a função adequada para o utilizador a partir da lista na caixa de diálogo **Select Role.** Em seguida, escolha **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. Na caixa de diálogo **'Adicionar Atribuição',** selecione **Atribuir**.
 
 ## <a name="configure-ekarda-sso"></a>Configure ekarda SSO
 
-1. Numa janela diferente do navegador web, inscreva-se no site da empresa Ekarda como administrador.
+1. Para automatizar a configuração dentro do Ekarda, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar ekarda** irá direcioná-lo para a aplicação Ekarda. A partir daí, forneça as credenciais de administração para assinar em Ekarda. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se quiser configurar o ekarda manualmente, numa janela diferente do navegador web, inscreva-se no site da empresa Ekarda como administrador.
+
 1. **Selecione Admin**  >  **A minha conta**.
 
     ![Screenshot do site Ekarda UI com a minha conta em destaque no menu Admin.](./media/ekarda-tutorial/ekarda.png)
@@ -166,16 +168,20 @@ Nesta secção, um utilizador chamado B.Simon é criado em ekarda. A ekarda supo
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando selecionar o azulejo ekarda no portal My Apps, deverá ser automaticamente inscrito no site ekarda para o qual configura sSO. Para obter mais informações sobre o portal My Apps, consulte [Introdução ao portal My Apps](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para ekarda Assinar no URL onde pode iniciar o fluxo de login.
 
-* [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](./tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
-* [Experimente ekarda com Azure AD](https://aad.portal.azure.com/)
-* Utilize a [solução eCard da empresa da Ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) para providenciar qualquer número do seu pessoal para enviar eCards, marcados com o logótipo da sua empresa, aos seus clientes e colegas. Saiba mais sobre [o provisionamento da Ekarda como solução SSO](https://support.ekarda.com/#SSO-Implementation).
-* [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-* [Como proteger a Ekarda com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
+* Vá diretamente para o URL de inscrição de Ekarda e inicie o fluxo de login a partir daí.
+
+#### <a name="idp-initiated"></a>IDP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no ekarda para o qual configura o SSO
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo ekarda nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no ekarda para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Depois de configurar ekarda, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ccf742e5ff612816cae1056ef7bf0e64fc9dbb5b
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 3724a7d515197c1f969bb051fc201b82bee64c42
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616472"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813501"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de lançamento do serviço de visão personalizada
 
@@ -41,7 +41,7 @@ ms.locfileid: "94616472"
 
 - O Serviço de Visão Personalizada inseriu disponibilidade geral no Azure!
 - Adição de Formação Avançada com um novo backend de aprendizagem automática para um melhor desempenho, especialmente em conjuntos de dados desafiantes e classificação de grãos finos. Com treino avançado, você pode especificar um orçamento de tempo de computação para a formação e a Visão Personalizada irá identificar experimentalmente as melhores configurações de treino e aumento. Para iterações rápidas, pode continuar a utilizar o treino rápido existente.
-- Introduziu 3.0 APIs. Anunciada a depreciação das APIs pré-3.0 no dia 1 de outubro de 2019. Consulte os quickstarts da documentação para [.Net,](./quickstarts/image-classification.md) [Python,](./quickstarts/image-classification.md) [Node,](./quickstarts/image-classification.md) [Java](./quickstarts/image-classification.md)ou [Go](./quickstarts/image-classification.md) por exemplos sobre como começar.
+- Introduziu 3.0 APIs. Anunciada a depreciação das APIs pré-3.0 no dia 1 de outubro de 2019. Consulte a documentação [de início rápido](./quickstarts/image-classification.md) para exemplos sobre como começar.
 - Substituiu as "Iterações Predefinidos" por Publicar/Não publicar nas APIs 3.0.
 - Foram adicionados novos objetivos de exportação de modelos. A exportação de dockerfile foi atualizada para apoiar a ARM para Raspberry Pi 3. O apoio à exportação foi adicionado ao [Kit Vision AI Dev.](https://visionaidevkit.com/). .
 - Limite aumentado de Tags por projeto para 500 para nível S0. Limite aumentado de Imagens por projeto para 100.000 para nível S0.

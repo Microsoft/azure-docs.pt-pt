@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492255"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814504"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança Azure para Azure DDoS Protection Standard
 
@@ -38,7 +38,7 @@ Esta linha de base de segurança aplica orientações do Benchmark de [Seguranç
 
 Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar os registos para um espaço de trabalho log Analytics, hub de eventos Azure ou conta de armazenamento Azure para o arquivo. Os registos de atividade fornecem informações sobre as operações que foram realizadas na sua Cache Azure para instâncias Redis ao nível do plano de controlo. Utilizando dados de Registo de Atividades Azure, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para as suas instâncias de Proteção Azure DDoS.
 
-- [Como configurar alertas para métricas de proteção do DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Visualização e configuração do registo de diagnóstico dDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Como ativar definições de diagnóstico para registo de atividades azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar o
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho do Log Analytics. Realize consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights com base nos dados do Registo de Atividade que podem ter sido recolhidos para cofres dos Serviços de Recuperação.
 
-- [Informações sobre como aceder à telemetria, registos e análise de ataque para o serviço DDoS Protection Standard](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Informações sobre como aceder à telemetria, registos e análise de ataque para o serviço DDoS Protection Standard](../../ddos-protection/telemetry.md)
 
 - [Como ativar as definições de diagnóstico para registo de atividades Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -76,7 +76,7 @@ Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar o
 
 A bordo de um espaço de trabalho Log Analytics para Azure Sentinel, uma vez que fornece uma solução de resposta automatizada de orquestração de segurança (SOAR). Isto permite criar playbooks (soluções automatizadas) e ser usados para remediar problemas de segurança. Além disso, pode criar alertas de registo personalizados no seu espaço de trabalho Log Analytics utilizando o Azure Monitor.
 
-- [Como configurar alertas para métricas de DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [Como configurar alertas para métricas de DDoS](../../ddos-protection/alerts.md)
 
 - [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -142,7 +142,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, pode 
 
 - [Como registar a sua aplicação ao cliente (principal serviço) com a Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informações sobre Azure DDos Protection API](/rest/api/virtual-network/)
+- [Informações da Azure DDoS Protection API](/rest/api/virtual-network/)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -166,7 +166,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, pode 
 
 - [Implementar uma estação de trabalho segura e gerida pelo Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-- [Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planear a implementação da Multi-Factor Authentication do Azure AD com base na cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -384,7 +384,7 @@ Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subs
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos da Azure
 
-**Orientação**: Definir e implementar configurações de segurança padrão para a Proteção de DDos Azure com Azure Policy. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração dos cofres dos seus Serviços de Recuperação.
+**Orientação**: Definir e implementar configurações de segurança padrão para a proteção DDoS Azure com a Política Azure. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração dos cofres dos seus Serviços de Recuperação.
 
 - [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -524,7 +524,7 @@ Teste as suas suposições sobre como os seus serviços responderão a um ataque
 
 Selecione qualquer uma das métricas de proteção DDoS disponíveis para alertá-lo quando houver uma mitigação ativa durante um ataque, utilizando a configuração de alerta do Monitor Azure. Quando as condições são satisfeitas, o endereço especificado recebe um e-mail de alerta
 
-- [Alertas de configuração para métricas de proteção DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Alertas de configuração para métricas de proteção DDoS](../../ddos-protection/alerts.md)
 
 - [Como configurar a exportação contínua](../../security-center/continuous-export.md)
 

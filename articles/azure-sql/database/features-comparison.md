@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
-ms.openlocfilehash: c30cecf0b480a1765f04ee48a0fd66f4ddd52708
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/25/2020
+ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630331"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809518"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de características: Azure SQL Database e Azure SQL Managed Instance
 
@@ -51,7 +51,7 @@ A tabela que se segue lista as principais funcionalidades do SQL Server e fornec
 | [Colagem - servidor/instância](/sql/relational-databases/collations/set-or-change-the-server-collation) | Não, a colagem padrão do servidor `SQL_Latin1_General_CP1_CI_AS` é sempre usada. | Sim, pode ser definido quando o [caso é criado](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) e não pode ser atualizado mais tarde. |
 | [Índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [Nível premium, nível standard - S3 e acima, nível de finalidade geral, business critical e hiperscale](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Tempo comum de execução da linguagem - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sim, mas sem acesso ao sistema de ficheiros em `CREATE ASSEMBLY` comunicado - ver [diferenças clr](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [Credenciais](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sim, mas apenas [credenciais de base de dados.](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) | Sim, mas apenas **Azure Key Vault** e `SHARED ACCESS SIGNATURE` são apoiados ver [detalhes](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [Credenciais](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sim, mas apenas [credenciais de base de dados.](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) | Sim, mas apenas **Azure Key Vault** e `SHARED ACCESS SIGNATURE` são suportados - ver [detalhes](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
 | [Consultas de nomes de base de dados cruzadas/três partes](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não - ver [consultas elásticas](elastic-query-overview.md) | Sim, mais [consultas elásticas](elastic-query-overview.md) |
 | [Transações entre bases de dados](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Sim, dentro do caso. Consulte [as diferenças do servidor linked](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) para consultas de instância cruzada. |
 | [Correio da base de dados - DbMail](/sql/relational-databases/database-mail/database-mail) | No | Yes |
@@ -128,6 +128,7 @@ A plataforma Azure fornece uma série de capacidades PaaS que são adicionadas c
 | [Azure Resource Health](../../service-health/resource-health-overview.md) | Yes | No |
 | Retenção da cópia de segurança | Yes. 7 dias por defeito, máx. | Yes. 7 dias por defeito, máx. |
 | [Serviço de Migração de Dados (DMS)](/sql/dma/dma-overview) | Yes | Yes |
+| [Tarefas elásticas](elastic-jobs-overview.md) | Sim - ver [trabalhos elásticos (pré-visualização)](elastic-jobs-overview.md) | Não[(O Agente SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) pode ser utilizado em vez disso). |
 | Acesso ao sistema de ficheiros | N.º Utilize [o BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para aceder e carregar dados do Azure Blob Storage como alternativa. | N.º Utilize [o BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para aceder e carregar dados do Azure Blob Storage como alternativa. |
 | [Georrestauro](recovery-using-backups.md#geo-restore) | Yes | Yes |
 | [Arquitetura de hiperescala](service-tier-hyperscale.md) | Yes | No |
@@ -147,7 +148,7 @@ A plataforma Azure fornece uma série de capacidades PaaS que são adicionadas c
 | [Insights de Desempenho de Consulta (QPI)](query-performance-insight-use.md) | Sim | Não. Utilize relatórios incorporados no SQL Server Management Studio e no Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Parcial, permite o acesso restrito usando [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Sim, sql Managed Instance é injetado no VNet do cliente. Ver [sub-redes](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) e [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Ponto Final do Serviço da VNet | [Sim](vnet-service-endpoint-rule-overview.md) | No |
-| VNet Global de espreitar | Sim, usando [ip privado e pontos finais de serviço](vnet-service-endpoint-rule-overview.md) | Não, [a SQL Managed Instance não é suportada](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) devido à [restrição do balanceador de carga no espreguiçadamento global da VNet](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| VNet Global de espreitar | Sim, usando [ip privado e pontos finais de serviço](vnet-service-endpoint-rule-overview.md) | Sim, usando [o olhar da rede Virtual.](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) |
 
 ## <a name="tools"></a>Ferramentas
 
@@ -174,7 +175,7 @@ AZure SQL Database e Azure SQL Managed Instance suportam várias ferramentas de 
 
 Pode utilizar diferentes métodos de migração para mover os seus dados entre o SQL Server, a Base de Dados Azure SQL e a Azure SQL Managed Instance. Alguns métodos estão **online** e recolhem todas as alterações que são feitas na fonte enquanto está a fazer migração, enquanto nos métodos **offline** é necessário parar a sua carga de trabalho que está a modificar dados sobre a fonte enquanto a migração está em curso.
 
-| **Fonte** | **Base de Dados SQL do Azure** | **Instância Gerida do SQL no Azure** |
+| **Origem** | **Base de Dados SQL do Azure** | **Instância Gerida do SQL no Azure** |
 | --- | --- | --- |
 | SQL Server (on-prem, AzureVM, Amazon RDS) | **Online:** [Serviço de Migração de Dados (DMS)](/sql/dma/dma-overview), [Replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [ficheiro BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Online:** [Serviço de Migração de Dados (DMS)](/sql/dma/dma-overview), [Replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** Backup/restauro nativo, [ficheiro BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [replicação snapshot](../managed-instance/replication-transactional-overview.md) |
 | Base de dados individual | **Offline:** [ficheiro BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Offline:** [ficheiro BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |

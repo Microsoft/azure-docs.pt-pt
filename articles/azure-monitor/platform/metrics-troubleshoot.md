@@ -7,28 +7,16 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1a9286ff15834fafe4a69907836ce1abd17abca6
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168074"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814266"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
 
 Utilize este artigo se tiver problemas com a criação, personalização ou interpretação de gráficos no explorador de métricas Azure. Se é novo em métricas, aprenda [a começar com o explorador de métricas](metrics-getting-started.md) e as [funcionalidades avançadas do explorador de métricas.](metrics-charts.md) Também pode ver exemplos dos [gráficos](metric-chart-samples.md) métricos configurados.
-
-## <a name="cant-find-your-resource-to-select-it"></a>Não consegue encontrar o seu recurso para selecioná-lo
-
-Clicou no botão **Selecionar um recurso**, mas não vê o seu recurso na caixa de diálogo do selecionador de recursos.
-
-**Solução:** O explorador de métricas requer que selecione subscrições e grupos de recursos antes de listar os recursos disponíveis. Se não vir o seu recurso:
-
-1. Confirme que selecionou a subscrição correta na lista pendente **Subscrição**. Se a sua subscrição não estiver listada, clique nas **definições de Diretório + Subscrição** e adicione uma subscrição com o seu recurso.
-
-1. Confirme que selecionou o grupo de recursos correto.
-    > [!WARNING]
-    > Para obter o melhor desempenho, quando abrir pela primeira vez o explorador de métricas, a lista pendente **Grupo de recursos** não tem qualquer grupo de recursos previamente selecionado. Tem de escolher, pelo menos, um grupo antes de poder ver quaisquer recursos.
 
 ## <a name="chart-shows-no-data"></a>Gráfico não mostra dados
 
@@ -72,23 +60,23 @@ A recolha de métricas do **SO Convidado** requer a configuração da Extensão 
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Mensagem de "obtenção de erros" no painel de instrumentos
 
-Este problema pode ocorrer quando o dashboard foi criado com uma métrica que foi preterida e removida do Azure posteriormente. Para verificar se é o caso, abra o separador **Métricas** dos seus recursos e verifique as métricas disponíveis no selecionador de métricas. Se a métrica não for apresentada, foi removida do Azure. Normalmente, quando uma métrica é preterida, existe uma métrica nova e melhor que oferece uma perspetiva semelhante sobre o estado de funcionamento do recurso.
+Este problema pode ocorrer quando o dashboard foi criado com uma métrica que foi preterida e removida do Azure posteriormente. Para verificar se é esse o caso, abra o **separador Métricas** do seu recurso e verifique as métricas disponíveis no selecionador métrico. Se a métrica não for apresentada, foi removida do Azure. Normalmente, quando uma métrica é preterida, existe uma métrica nova e melhor que oferece uma perspetiva semelhante sobre o estado de funcionamento do recurso.
 
 **Solução:** Atualize o azulejo de falha escolhendo uma métrica alternativa para o seu gráfico no painel de instrumentos. Pode [analisar uma lista de métricas disponíveis para serviços do Azure](metrics-supported.md).
 
-## <a name="chart-shows-dashed-line"></a>Gráfico mostra linha tracejada
+## <a name="chart-shows-dashed-line"></a>O gráfico mostra uma linha tracejada
 
 Os gráficos de métricas azure usam o estilo de linha tracejado para indicar que há um valor em falta (também conhecido como "valor nulo") entre dois pontos de dados de grãos de tempo conhecidos. Por exemplo, se no seletor de tempo escolheu a granularidade de tempo de "1 minuto", mas a métrica foi reportada às 07:26, 07:27, 07:29 e 07:30 (note um intervalo de minutos entre segundo e terceiro pontos de dados), então uma linha tracejada ligará 07:27 e 07:29 e uma linha sólida ligará todos os outros pontos de dados. A linha tracejada desce para zero quando a métrica utiliza **a contagem** e a agregação de **soma.** Para as agregações **avg**, **min** ou **max,** a linha tracejada liga dois pontos de dados mais próximos conhecidos. Além disso, quando os dados estão em falta no lado mais à direita ou mais à esquerda do gráfico, a linha tracejada expande-se para a direção do ponto de dados em falta.
-  ![Screenshot que mostra como quando os dados estão em falta no lado mais direito ou no lado esquerdo da tabela, a linha tracejada expande-se para a direção do ponto de dados em falta.](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![Screenshot que mostra como quando os dados estão em falta no lado mais direito ou no lado esquerdo da tabela, a linha tracejada expande-se para a direção do ponto de dados em falta.](./media/metrics-troubleshoot/dashed-line.png)
 
-**Solução:** Este comportamento é por desígnio. É útil para identificar pontos de dados em falta. O gráfico de linha é uma escolha superior para visualizar tendências de métricas de alta densidade, mas pode ser difícil de interpretar para as métricas com valores escassos, especialmente quando os valores de coreização com grão de tempo é importante. A linha tracejada facilita a leitura destes gráficos, mas se o gráfico ainda não for claro, considere ver as métricas com um tipo de gráfico diferente. Por exemplo, um gráfico de enredo disperso para a mesma métrica mostra claramente cada vez que o grão apenas visualiza um ponto quando há um valor e salta completamente o ponto de dados quando o valor está em falta: ![ Screenshot que realça a opção de menu de gráfico scatter.](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Solução:** Este comportamento é por desígnio. É útil para identificar pontos de dados em falta. O gráfico de linha é uma escolha superior para visualizar tendências de métricas de alta densidade, mas pode ser difícil de interpretar para as métricas com valores escassos, especialmente quando os valores de coreização com grão de tempo é importante. A linha tracejada facilita a leitura destes gráficos, mas se o gráfico ainda não for claro, considere ver as métricas com um tipo de gráfico diferente. Por exemplo, um gráfico de enredo disperso para a mesma métrica mostra claramente cada vez que o grão apenas visualiza um ponto quando há um valor e salta completamente o ponto de dados quando o valor está em falta: ![ Screenshot que realça a opção de menu de gráfico scatter.](./media/metrics-troubleshoot/scatter-plot.png)
 
    > [!NOTE]
    > Se continuar a preferir um gráfico de linhas para a sua métrica, mover o rato sobre o gráfico pode ajudar a avaliar a granularidade do tempo ao destacar o ponto de dados no local do ponteiro do rato.
 
-## <a name="chart-shows-unexpected-drop-in-values"></a>Gráfico mostra queda inesperada de valores
+## <a name="chart-shows-unexpected-drop-in-values"></a>O gráfico mostra uma queda inesperada nos valores
 
-Em muitos casos, a queda percebida nas métricas resulta da falta de compreensão dos dados apresentados no gráfico. Pode deixar-se enganar por uma queda nas somas ou contagens quando o gráfico mostra os minutos mais recentes, uma vez que os últimos pontos de dados métricos não ainda não foram recebidos nem processados pelo Azure. Consoante o serviço, a latência das métricas de processamento pode ficar dentro de um intervalo de alguns minutos. Para gráficos que mostram um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais percetível: ![ Screenshot que mostra uma queda do valor ao longo dos últimos minutos.](./media/metrics-troubleshoot/drop-in-values.png)
+Em muitos casos, a queda percebida nas métricas resulta da falta de compreensão dos dados apresentados no gráfico. Pode deixar-se enganar por uma queda nas somas ou contagens quando o gráfico mostra os minutos mais recentes, uma vez que os últimos pontos de dados métricos não ainda não foram recebidos nem processados pelo Azure. Consoante o serviço, a latência das métricas de processamento pode ficar dentro de um intervalo de alguns minutos. Para gráficos que mostram um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais percetível: ![ Screenshot que mostra uma queda do valor ao longo dos últimos minutos.](./media/metrics-troubleshoot/unexpected-dip.png)
 
 **Solução:** Este comportamento é por desígnio. Acreditamos que é vantajoso mostrar os dados assim que os recebemos, mesmo quando são *parciais* ou *incompletos*. Tal permite-lhe tirar conclusões importantes mais cedo e iniciar imediatamente a investigação. Por exemplo, para uma métrica que mostra o número de falhas, ver um valor X parcial indica-nos que havia, pelo menos, X falhas num determinado minuto. Pode iniciar a investigação do problema imediatamente, ao invés de esperar para ver a quantidade exata de falhas que aconteceram nesse minuto, algo que pode não ser tão importante. O gráfico vai ser atualizado depois de recebermos todo o conjunto de dados, mas, nessa altura, também pode mostrar novos pontos de dados incompletos de minutos mais recentes.
 
@@ -98,7 +86,7 @@ As máquinas virtuais e os conjuntos de dimensionamento de máquinas virtuais t�
 
 Por predefinição, as métricas do SO convidado são armazenadas na conta de Armazenamento do Azure, que escolhe no separador **Definições de diagnóstico** do seu recurso. Se as métricas do SO convidado não forem recolhidas ou se o Explorador de Métricas não conseguir aceder às mesmas, apenas será apresentado o espaço de nomes de métricas do **Anfitrião de Máquinas Virtuais**:
 
-![imagem da métrica](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
+![imagem da métrica](./media/metrics-troubleshoot/vm.png)
 
 **Solução:** Se não vir **o guest OS (clássico)** espaço de nome e métricas no explorador de métricas:
 

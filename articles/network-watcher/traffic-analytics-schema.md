@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74666380"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809297"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema e agregação de dados em Análise de Tráfego
 
@@ -39,11 +39,11 @@ Traffic Analytics é uma solução baseada na nuvem que proporciona visibilidade
 5. FlowStartTime_t campo indica a primeira ocorrência de tal fluxo agregado (os mesmos quatro tuple) no intervalo de processamento do registo de fluxo entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
 6. Para qualquer recurso em AT, os fluxos indicados na UI são fluxos totais vistos pelo NSG, mas no Log Analytics o utilizador verá apenas o registo único e reduzido. Para ver todos os fluxos, utilize o campo blob_id, que pode ser referenciado a partir de Armazenamento. A contagem total de fluxo para esse registo corresponderá aos fluxos individuais observados na bolha.
 
-A consulta abaixo ajuda a olhar para todos os registos de fluxo saindo do local nos últimos 30 dias.
+A consulta abaixo ajuda-o a olhar para todas as sub-redes que interagem com iPs públicos não-Azure nos últimos 30 dias.
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 Para ver o caminho do blob para os fluxos na consulta acima mencionada, utilize a consulta abaixo:
 

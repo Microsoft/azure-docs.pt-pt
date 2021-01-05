@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010899"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809569"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total da faturação de um recipiente de bolhas
 
 Este script calcula o tamanho de um recipiente no armazenamento da Azure Blob com o propósito de estimar os custos de faturação. O guião totaliza o tamanho das bolhas no recipiente.
+
+> [!IMPORTANT]
+> O script de amostra fornecido neste artigo pode não calcular com precisão o tamanho da faturação para instantâneos blob.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 Segue-se a avaria:
+
 * 48 bytes de sobrecarga para cada recipiente inclui o último tempo modificado, permissões, configurações públicas e alguns metadados do sistema.
 
 * O nome do recipiente é armazenado como Unicode, por isso pegue no número de caracteres e multiplique por dois.

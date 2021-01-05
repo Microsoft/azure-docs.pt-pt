@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999458"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812801"
 ---
 * Os sistemas multitenantes que suportam toda a gama de planos de preços, exceto isolados.
 * O Ambiente de Serviço de Aplicações, que se implanta no seu VNet e suporta aplicações de planos de preços isolados.
@@ -33,7 +33,7 @@ Há algumas coisas que a Integração VNet não suporta, como:
 * Integração do Diretório Ativo.
 * O NetBIOS.
 
-A Integração VNet exigida pelo Gateway fornece acesso a recursos apenas no VNet alvo ou em redes ligadas ao VNet alvo com peering ou VPNs. A Integração VNet exigida pelo Gateway não permite o acesso aos recursos disponíveis em todas as ligações Azure ExpressRoute ou funciona com pontos finais de serviço.
+A Integração VNet exigida pelo Gateway fornece acesso a recursos apenas no VNet alvo ou em redes ligadas ao VNet alvo com peering ou VPNs. A Integração VNet exigida pelo Gateway não permite o acesso aos recursos disponíveis em todas as ligações Azure ExpressRoute ou trabalha com pontos finais de serviço.
 
 Independentemente da versão utilizada, a VNet Integration dá à sua aplicação acesso a recursos no seu VNet, mas não concede acesso privado à sua aplicação a partir do VNet. O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas a partir de uma rede privada, como por exemplo dentro de um Azure VNet. A Integração VNet destina-se apenas a fazer chamadas de saída da sua app para o seu VNet.
 

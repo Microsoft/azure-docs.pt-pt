@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652199"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814470"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -21,11 +21,11 @@ A Azure Data Lake Storage Gen2 suporta alta produção para análise intensiva d
 
 ![Desempenho da Gen2 de armazenamento de data lake](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 pode escalar para fornecer a produção necessária para todo o cenário de análise. Por padrão, uma conta Gen2 de armazenamento de dados fornece automaticamente o rendimento suficiente para satisfazer as necessidades de uma ampla categoria de casos de utilização. Para os casos em que os clientes entram no limite por defeito, a conta Descontamento Deseconstrução Gen2 pode ser configurada para fornecer mais produção através do contacto com o [Suporte Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 pode escalar para fornecer a produção necessária para todos os cenários de análise. Por padrão, uma conta Desconsitado de Armazenamento de Dados Gen2 fornece rendimento suficiente na sua configuração padrão para atender às necessidades de uma ampla categoria de casos de uso. Para os casos em que os clientes entram no limite por defeito, a conta Descontamento Deseconstrução Gen2 pode ser configurada para fornecer mais produção através do contacto com o [Suporte Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 
-Ao ingerir dados de um sistema de origem para data lake storage gen2, é importante considerar que o hardware de origem, hardware de rede de origem e conectividade de rede para data lake storage Gen2 pode ser o estrangulamento.  
+Ao ingerir dados de um sistema de origem para data lake storage gen2, é importante considerar que o hardware de origem, hardware de rede de origem ou conectividade de rede para data lake storage Gen2 pode ser o estrangulamento.  
 
 ![Diagrama que mostra os fatores a ter em conta ao ingerir dados de um sistema de origem para a Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -138,5 +138,5 @@ Além das diretrizes gerais acima, cada aplicação tem diferentes parâmetros d
 | [MapReduce em HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduzir.memória</li><li>Mapreduce.job.reduz</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalhadores</li><li>Número de casos de executor de bico</li><li>Número de instâncias executores de parafusos </li><li>Número de tarefas de bico</li><li>Número de tarefas de parafuso</li></ul>|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

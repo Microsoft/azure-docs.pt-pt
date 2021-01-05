@@ -6,30 +6,34 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 74135c0b36f533ebfbba6422bc79af47825a1a3b
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892235"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813229"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Conecte-se a um VM utilizando o Protocolo de Ambiente de Trabalho Remoto num Chromebook
+
 Esta secção mostra como um aluno pode ligar-se a um laboratório de sala de aula VM de um Chromebook usando RDP.
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Instale o Microsoft Remote Desktop num Chromebook
-1. Abra a App Store no seu Chromebook e procure o **Microsoft Remote Desktop** .
+
+1. Abra a App Store no seu Chromebook e procure o **Microsoft Remote Desktop**.
 
     ![Microsoft Remote Desktop](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
+    
 1. Instale a versão mais recente do Microsoft Remote Desktop. 
 
 ## <a name="access-the-vm-from-your-chromebook-using-rdp"></a>Aceda ao VM a partir do seu Chromebook utilizando RDP
+
 1. Abra o ficheiro **RDP** que é descarregado no seu computador com **o Microsoft Remote Desktop** instalado. Deve começar a ligar-se ao VM. 
 
     ![Ligar à VM](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Quando solicitado, insira a sua senha.
-    ![Screenshot que mostra o ecrã de Logon onde introduz o seu nome de utilizador e senha.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
+    ![Screenshot que mostra o ecrã de Logon onde introduz o seu nome de utilizador e senha.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 1. **Selecione Continue** se receber o seguinte aviso. 
 
@@ -38,6 +42,6 @@ Esta secção mostra como um aluno pode ligar-se a um laboratório de sala de au
 1. Deve ver o ambiente de trabalho do VM a que está a ligar.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre a ligação aos VMs Linux, consulte [as máquinas virtuais Connect to Linux](how-to-use-remote-desktop-linux-student.md)
 
+Para saber mais sobre a ligação aos VMs Linux, consulte [as máquinas virtuais Connect to Linux](how-to-use-remote-desktop-linux-student.md)
 

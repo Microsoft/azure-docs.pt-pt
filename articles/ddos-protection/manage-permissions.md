@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989416"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813875"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Gerir planos de proteção do DDoS: permissões e restrições
 
@@ -46,9 +46,9 @@ A criação de mais do que um plano não é necessária para a maioria das organ
 Para clientes que tenham várias subscrições, e que queiram garantir que um único plano seja implementado em todo o seu inquilino para controlo de custos, você pode usar a Azure Policy para restringir a [criação de planos Azure DDoS Protection Standard](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Esta política bloqueará a criação de quaisquer planos DDoS, a menos que a subscrição tenha sido previamente marcada como uma exceção. Esta política também mostrará uma lista de todas as subscrições que têm um plano DDoS implementado mas não devem, marcando-as como fora do cumprimento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a visualizar e configurar a telemetria para o seu plano de proteção DDoS, continue para os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Ver e configurar telemetria de proteção contra DDoS](telemetry-monitoring-alerting.md)
+> [Ver e configurar telemetria de proteção contra DDoS](telemetry.md)

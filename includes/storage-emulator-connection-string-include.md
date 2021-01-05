@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 12/28/2020
 ms.author: tamram
-ms.openlocfilehash: 37fba0101365e425110c2943264c8c0e8c511329
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 85cfe3b062d7d9ef3a7bdcf29ef7d2125f8f3ae4
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97582597"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812787"
 ---
 O emulador suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação da Chave Partilhada. Esta conta e chave são as únicas credenciais de Chave Partilhada permitidas para utilização com o emulador. A saber:
 
@@ -20,24 +20,27 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 
 > [!NOTE]
 > A chave de autenticação suportada pelo emulador destina-se apenas a testar a funcionalidade do código de autenticação do seu cliente. Não serve para qualquer propósito de segurança. Não é possível utilizar a sua conta de armazenamento de produção e a chave com o emulador. Não deve utilizar a conta de desenvolvimento com dados de produção.
-> 
+>
 > O emulador suporta a ligação apenas através de HTTP. No entanto, HTTPS é o protocolo recomendado para aceder a recursos numa conta de armazenamento Azure de produção.
-> 
+>
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Ligue-se à conta do emulador usando um atalho
-A forma mais fácil de ligar ao emulador da sua aplicação é configurar uma cadeia de ligação no ficheiro de configuração da sua aplicação que faz referência ao atalho `UseDevelopmentStorage=true` . Aqui está um exemplo de uma cadeia de ligação ao emulador num ficheiro *app.config:* 
+#### <a name="connect-to-the-emulator-account-using-the-shortcut"></a>Ligue-se à conta do emulador utilizando o atalho
 
-```xml
-<appSettings>
-  <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-</appSettings>
-```
-
-O equivalente a especificar totalmente o nome da conta, a chave da conta e os pontos finais de cada um dos serviços de emulador que pretende utilizar na cadeia de ligação. Isto é necessário para que a cadeia de ligação refira os pontos finais do emulador, que são diferentes dos de uma conta de armazenamento de produção. Por exemplo, o valor da sua cadeia de ligação será assim:
+A forma mais fácil de ligar ao emulador da sua aplicação é configurar uma cadeia de ligação no ficheiro de configuração da sua aplicação que faz referência ao atalho `UseDevelopmentStorage=true` . O atalho é equivalente ao fio de ligação completo do emulador, que especifica o nome da conta, a chave da conta e os pontos finais do emulador para cada um dos serviços de Armazenamento Azure:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
+TableEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
+
+O seguinte corte de código .NET mostra como pode utilizar o atalho a partir de um método que toma uma cadeia de ligação. Por exemplo, o [construtor BlobContainerClient (String, String)](/dotnet/api/azure.storage.blobs.blobcontainerclient.-ctor#Azure_Storage_Blobs_BlobContainerClient__ctor_System_String_System_String_) toma uma corda de ligação.
+
+```csharp
+BlobContainerClient blobContainerClient = new BlobContainerClient("UseDevelopmentStorage=true", "sample-container");
+blobContainerClient.CreateIfNotExists();
+```
+
+Certifique-se de que o emulador está em funcionamento antes de ligar para o código no corte.

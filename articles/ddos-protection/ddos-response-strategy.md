@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2b31a8aa8b126c228ac7e9c3ca182300c710b098
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992238"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814062"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Componentes de uma estratégia de resposta a DDoS
 
@@ -56,7 +56,7 @@ Recomendamos que utilize exercícios de simulação como parte normal da disponi
 
 ## <a name="alerts-during-an-attack"></a>Alertas durante um ataque
 
-A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualquer intervenção do utilizador. Para ser notificado quando há uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](telemetry-monitoring-alerting.md) sobre a métrica sob o **ataque DDoS ou não**. Pode optar por criar alertas para as outras métricas do DDoS para entender a escala do ataque, o tráfego a ser retirado e outros detalhes.
+A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualquer intervenção do utilizador. Para ser notificado quando há uma mitigação ativa para um IP público protegido, você pode [configurar alertas](alerts.md).
 
 ### <a name="when-to-contact-microsoft-support"></a>Quando entrar em contato com o suporte da Microsoft
 
@@ -74,6 +74,6 @@ Os clientes Azure DDoS Protection Standard têm acesso à equipa DDoS Rapid Resp
 
 Se suspeita que está sob um ataque DDoS, aumente pelos seus canais normais de apoio ao Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um plano de proteção DDoS](manage-ddos-protection.md).

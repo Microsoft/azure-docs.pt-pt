@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095913"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814334"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar uma falha na conta de armazenamento
 
@@ -38,6 +38,13 @@ Antes de poder efetuar uma falha de conta na sua conta de armazenamento, certifi
 
 Para obter mais informações sobre a redundância do Azure Storage, consulte [a redundância do Azure Storage](storage-redundancy.md).
 
+Tenha em mente que as seguintes funcionalidades e serviços não são suportados para a falha da conta:
+
+- O Azure File Sync não suporta o failover da conta de armazenamento. As contas de armazenamento que contêm partilhas de ficheiros do Azure e estão a ser utilizadas como pontos finais da cloud no Azure File Sync não devem efetuar a ativação pós-falha. Se a fizer, fará com que a sincronização deixe de funcionar e poderá também causar perdas de dados inesperadas em caso de ficheiros com novo escalão.
+- As contas de armazenamento da ADLS Gen2 (contas que têm espaço hierárquico habilitado) não são suportadas neste momento.
+- Uma conta de armazenamento que contenha bolhas de bloco premium não pode ser chumbada. As contas de armazenamento que suportam bolhas de bloco premium não suportam atualmente o geo-redundância.
+- Uma conta de armazenamento que contenha qualquer [política de imutabilidade worm](../blobs/storage-blob-immutable-storage.md) habilitada a contentores não pode ser chumbada. As políticas de retenção ou detenção por tempo desbloqueado/bloqueados impedem a sua insusitada falha, a fim de manter o cumprimento.
+
 ## <a name="initiate-the-failover"></a>Iniciar a falha
 
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -54,7 +61,7 @@ Para iniciar uma falha de conta a partir do portal Azure, siga estes passos:
 1. Selecione **Preparar ativação pós-falha**.
 1. Reveja o diálogo de confirmação. Quando estiver pronto, insira **Sim** para confirmar e iniciar a falha.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot mostrando geo-replicação e estado de failover":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot mostrando diálogo de confirmação para uma falha na conta":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

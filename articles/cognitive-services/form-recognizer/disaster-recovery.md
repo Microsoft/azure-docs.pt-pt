@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359817"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808264"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
-Quando cria um recurso de Reconhecimento de Formulários no portal Azure, especifica uma região. A partir daí, o seu recurso e todas as suas operações permanecem associados a essa região de servidores Azure em particular. É raro, mas não impossível, encontrar um problema de rede que atinge toda uma região. Se a sua solução precisar de estar sempre disponível, então deve desenhá-la para falhar noutra região ou dividir a carga de trabalho entre duas ou mais regiões. Ambas as abordagens requerem pelo menos dois recursos de Reconhecimento de Formulários em diferentes regiões e a capacidade de sincronizar [modelos personalizados](./quickstarts/curl-train-extract.md) entre regiões.
+Quando cria um recurso de Reconhecimento de Formulários no portal Azure, especifica uma região. A partir daí, o seu recurso e todas as suas operações permanecem associados a essa região de servidores Azure em particular. É raro, mas não impossível, encontrar um problema de rede que atinge toda uma região. Se a sua solução precisar de estar sempre disponível, então deve desenhá-la para falhar noutra região ou dividir a carga de trabalho entre duas ou mais regiões. Ambas as abordagens requerem pelo menos dois recursos de Reconhecimento de Formulários em diferentes regiões e a capacidade de sincronizar modelos personalizados entre regiões.
 
 A API copy permite este cenário permitindo-lhe copiar modelos personalizados a partir de uma conta de Reconhecimento de Formulário ou em outros, que podem existir em qualquer região geográfica suportada. Este guia mostra-lhe como utilizar a API Copy REST com cURL. Também pode utilizar um serviço de pedido HTTP como o Carteiro para emitir os pedidos.
 

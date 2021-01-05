@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608321"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814385"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -170,7 +170,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | galerias | grupo de recursos | 1-80 | Alfanuméricos e períodos.<br><br>Comece e termine com alfanumérico. |
 > | galerias / aplicações | galeria | 1-80 | Alfanuméricos, hífens e períodos.<br><br>Comece e termine com alfanumérico. |
 > | galerias / aplicações/versões | aplicação | Inteiro de 32 bits | Números e períodos. |
-> | galerias / imagens | galeria | 1-80 | Alfanuméricos, hífens e períodos.<br><br>Comece e termine com alfanumérico. |
+> | galerias / imagens | galeria | 1-80 | Alfanuméricos, sublinhados, hífens e períodos.<br><br>Comece e termine com alfanumérico. |
 > | galerias / imagens / versões | image | Inteiro de 32 bits | Números e períodos. |
 > | imagens | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | instantâneos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
@@ -537,7 +537,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | aglomerados | grupo de recursos | 4-63 | Alfanuméricos e hífens.<br><br>Comece e termine com alfanumérico. |
-> | áreas de trabalho | grupo de recursos | 4-63 | Alfanuméricos e hífens.<br><br>Comece e termine com alfanumérico. |
+> | áreas de trabalho | global | 4-63 | Alfanuméricos e hífens.<br><br>Comece e termine com alfanumérico. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
