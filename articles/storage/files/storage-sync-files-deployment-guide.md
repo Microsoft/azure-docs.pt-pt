@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2af8db1a6e8c774f1004b380c8aaaa06ba61d8c3
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629483"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862337"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -112,9 +112,9 @@ Para cada servidor que pretende utilizar com Azure File Sync, incluindo cada nó
 1. Abra o Gestor de Servidores.
 2. Clique **no Servidor Local:**  
     ![“Servidor Local” no lado esquerdo da IU do Gestor de Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
-3. No subpainel **Propriedades** , selecione a ligação para **Configuração de Segurança Avançada do IE**.  
+3. No subpainel **Propriedades**, selecione a ligação para **Configuração de Segurança Avançada do IE**.  
     ![Painel “Configuração de Segurança Avançada do IE”, na IU do Gestor de Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
-4. Na caixa de diálogo **de configuração de segurança melhorada** do Internet Explorer, selecione **Off** for **Administrators** and **Users** :  
+4. Na caixa de diálogo **de configuração de segurança melhorada** do Internet Explorer, selecione **Off** for **Administrators** and **Users**:  
     ![Janela pop-up da Configuração de Segurança Avançada do Internet Explorer com “Desativado” selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -157,10 +157,10 @@ Para implementar um Serviço de Sincronização de Armazenamento, vá ao [portal
 
 No painel que se abre, introduza as informações seguintes:
 
-- **Nome** : Nome único (por região) para o Serviço de Sincronização de Armazenamento.
-- **Subscrição** : A subscrição na qual pretende criar o Serviço de Sincronização de Armazenamento. Dependendo da estratégia de configuração da sua organização, poderá ter acesso a uma ou mais subscrições. Uma subscrição Azure é o recipiente mais básico para faturação para cada serviço em nuvem (como ficheiros Azure).
-- **Grupo de recursos** : Um grupo de recursos é um grupo lógico de recursos Azure, como uma conta de armazenamento ou um Serviço de Sincronização de Armazenamento. Pode criar um novo grupo de recursos ou utilizar um grupo de recursos existente para o Azure File Sync. (Recomendamos a utilização de grupos de recursos como contentores para isolar os recursos logicamente para a sua organização, como agrupar recursos de RH ou recursos para um projeto específico.)
-- **Localização** : A região em que pretende implantar O Azure File Sync. Só estão disponíveis nesta lista regiões apoiadas.
+- **Nome**: Nome único (por região) para o Serviço de Sincronização de Armazenamento.
+- **Subscrição**: A subscrição na qual pretende criar o Serviço de Sincronização de Armazenamento. Dependendo da estratégia de configuração da sua organização, poderá ter acesso a uma ou mais subscrições. Uma subscrição Azure é o recipiente mais básico para faturação para cada serviço em nuvem (como ficheiros Azure).
+- **Grupo de recursos**: Um grupo de recursos é um grupo lógico de recursos Azure, como uma conta de armazenamento ou um Serviço de Sincronização de Armazenamento. Pode criar um novo grupo de recursos ou utilizar um grupo de recursos existente para o Azure File Sync. (Recomendamos a utilização de grupos de recursos como contentores para isolar os recursos logicamente para a sua organização, como agrupar recursos de RH ou recursos para um projeto específico.)
+- **Localização**: A região em que pretende implantar O Azure File Sync. Só estão disponíveis nesta lista regiões apoiadas.
 
 Quando terminar, selecione **Criar** para implementar o Serviço de Sincronização de Armazenamento.
 
@@ -289,14 +289,14 @@ Também é possível diferenciar os administradores capazes de registar servidor
 * "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-O UI de Registo do Servidor deve abrir-se automaticamente após a instalação do agente Azure File Sync. Se isso não acontecer, pode abri-la manualmente na localização do ficheiro, em C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quando o UI de Registo do Servidor abrir, selecione Iniciar o início do Início do Início do **Início.**
+O UI de Registo do Servidor deve abrir-se automaticamente após a instalação do agente Azure File Sync. Se isso não acontecer, pode abri-la manualmente na localização do ficheiro, em C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quando o UI de Registo do Servidor abrir, selecione Iniciar o **início do Início** .
 
 Depois de iniciar sedutado, é solicitado para as seguintes informações:
 
 ![Uma captura de ecrã da IU do Registo do Servidor](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Assinatura Azure** : A subscrição que contém o Serviço de Sincronização de Armazenamento (ver [Implementar o Serviço de Sincronização de Armazenamento).](#deploy-the-storage-sync-service) 
-- **Grupo de Recursos** : O grupo de recursos que contém o Serviço de Sincronização de Armazenamento.
+- **Assinatura Azure**: A subscrição que contém o Serviço de Sincronização de Armazenamento (ver [Implementar o Serviço de Sincronização de Armazenamento).](#deploy-the-storage-sync-service) 
+- **Grupo de Recursos**: O grupo de recursos que contém o Serviço de Sincronização de Armazenamento.
 - **Serviço de Sincronização** de Armazenamento : O nome do Serviço de Sincronização de Armazenamento com o qual pretende registar-se.
 
 Depois de ter selecionado as informações apropriadas, **selecione Registar-se** para completar o registo do servidor. Como parte do processo de registo, é-lhe pedido que volte a iniciar sessão novamente.
@@ -322,16 +322,16 @@ Um ponto final em nuvem é um ponteiro para uma partilha de ficheiros Azure. Tod
 O administrador que cria o ponto final da nuvem deve ser um membro da função de gestão **Proprietário** para a conta de armazenamento que contém o ficheiro Azure partilhar o ponto final da nuvem está apontando. Isto pode ser configurado no Controlo **de Acesso (IAM)** no portal Azure para a conta de armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Para criar um grupo de sincronização, no [portal Azure,](https://portal.azure.com/)vá ao seu Serviço de Sincronização de Armazenamento e, em seguida, selecione **+ Sync group** :
+Para criar um grupo de sincronização, no [portal Azure,](https://portal.azure.com/)vá ao seu Serviço de Sincronização de Armazenamento e, em seguida, selecione **+ Sync group**:
 
 ![Criar um grupo de sincronização novo no portal do Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 No painel que se abre, introduza as informações seguintes para criar um grupo de sincronização com um ponto final da cloud:
 
-- **Sync nome de grupo** : O nome do grupo de sincronização a criar. Este nome tem de ser exclusivo no Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome que lhe pareça lógico.
-- **Subscrição** : A subscrição onde implementou o Serviço de Sincronização de Armazenamento em [Implementar o Serviço de Sincronização de Armazenamento](#deploy-the-storage-sync-service).
-- **Conta de armazenamento** : Se **selecionar Selecione a conta de armazenamento,** aparece outro painel no qual pode selecionar a conta de armazenamento que tem a parte de ficheiro Azure com a qual pretende sincronizar.
-- **Partilha de ficheiros Azure** : O nome da partilha de ficheiros Azure com a qual pretende sincronizar.
+- **Sync nome de grupo**: O nome do grupo de sincronização a criar. Este nome tem de ser exclusivo no Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome que lhe pareça lógico.
+- **Subscrição**: A subscrição onde implementou o Serviço de Sincronização de Armazenamento em [Implementar o Serviço de Sincronização de Armazenamento](#deploy-the-storage-sync-service).
+- **Conta de armazenamento**: Se **selecionar Selecione a conta de armazenamento,** aparece outro painel no qual pode selecionar a conta de armazenamento que tem a parte de ficheiro Azure com a qual pretende sincronizar.
+- **Partilha de ficheiros Azure**: O nome da partilha de ficheiros Azure com a qual pretende sincronizar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para criar o grupo de sincronização, execute o seguinte PowerShell. Lembre-se de substituir `<my-sync-group>` pelo nome desejado do grupo de sincronização.
@@ -412,13 +412,13 @@ Para adicionar um ponto final do servidor, vá ao grupo de sincronização recé
 
 ![Adicionar um ponto final de servidor novo no painel do grupo de sincronização](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-No painel **Adicionar ponto final de servidor** , introduza as informações seguintes para criar um ponto final de servidor:
+No painel **Adicionar ponto final de servidor**, introduza as informações seguintes para criar um ponto final de servidor:
 
-- **Servidor registado** : O nome do servidor ou cluster onde pretende criar o ponto final do servidor.
-- **Caminho** : O caminho do Servidor do Windows a ser sincronizado como parte do grupo de sincronização.
-- **Cloud Tiering** : Um interruptor para ativar ou desativar o nível da nuvem. Com o tiering de nuvem, os ficheiros pouco utilizados ou acedidos podem ser hierárquicos para ficheiros Azure.
-- **Volume Espaço Livre** : A quantidade de espaço livre para reservar no volume em que se encontra o ponto final do servidor. Por exemplo, se o espaço livre de volume estiver definido para 50% num volume que tenha um único ponto final do servidor, cerca de metade da quantidade de dados é tiered para Azure Files. Independentemente de o tiering de nuvem estar ativado, a sua partilha de ficheiros Azure tem sempre uma cópia completa dos dados do grupo de sincronização.
-- **Modo de descarregamento inicial** : Esta é uma seleção opcional, a começar pela versão 11 do agente, que pode ser útil quando existem ficheiros na partilha de ficheiros Azure, mas não no servidor. Tal situação pode existir, por exemplo, se criar um ponto final do servidor para adicionar outro servidor de filial a um grupo de sincronização ou quando recuperar um servidor falhado. Se o tiering da nuvem estiver ativado, o padrão é apenas recordar o espaço de nome, sem conteúdo de ficheiro inicialmente. Isto é útil se você acredita que os pedidos de acesso ao utilizador devem decidir que conteúdo de ficheiro é recolhido para o servidor. Se o tiering da nuvem for desativado, o padrão é que o espaço de identificação será descarregado primeiro e, em seguida, os ficheiros serão recolhidos com base no último tempo de marcação modificado até que a capacidade local seja atingida. No entanto, pode alterar o modo de descarregamento inicial apenas para o espaço de nome. Um terceiro modo só pode ser utilizado se o nível da nuvem for desativado para este ponto final do servidor. Este modo evita recordar primeiro o espaço de nome. Os ficheiros só aparecerão no servidor local se tiverem a oportunidade de descarregar totalmente. Este modo é útil se, por exemplo, uma aplicação requer que os ficheiros completos estejam presentes e não puder tolerar ficheiros hierárquicos no seu espaço de nome.
+- **Servidor registado**: O nome do servidor ou cluster onde pretende criar o ponto final do servidor.
+- **Caminho**: O caminho do Servidor do Windows a ser sincronizado como parte do grupo de sincronização.
+- **Cloud Tiering**: Um interruptor para ativar ou desativar o nível da nuvem. Com o tiering de nuvem, os ficheiros pouco utilizados ou acedidos podem ser hierárquicos para ficheiros Azure.
+- **Volume Espaço Livre**: A quantidade de espaço livre para reservar no volume em que se encontra o ponto final do servidor. Por exemplo, se o espaço livre de volume estiver definido para 50% num volume que tenha um único ponto final do servidor, cerca de metade da quantidade de dados é tiered para Azure Files. Independentemente de o tiering de nuvem estar ativado, a sua partilha de ficheiros Azure tem sempre uma cópia completa dos dados do grupo de sincronização.
+- **Modo de descarregamento inicial**: Esta é uma seleção opcional, a começar pela versão 11 do agente, que pode ser útil quando existem ficheiros na partilha de ficheiros Azure, mas não no servidor. Tal situação pode existir, por exemplo, se criar um ponto final do servidor para adicionar outro servidor de filial a um grupo de sincronização ou quando recuperar um servidor falhado. Se o tiering da nuvem estiver ativado, o padrão é apenas recordar o espaço de nome, sem conteúdo de ficheiro inicialmente. Isto é útil se você acredita que os pedidos de acesso ao utilizador devem decidir que conteúdo de ficheiro é recolhido para o servidor. Se o tiering da nuvem for desativado, o padrão é que o espaço de identificação será descarregado primeiro e, em seguida, os ficheiros serão recolhidos com base no último tempo de marcação modificado até que a capacidade local seja atingida. No entanto, pode alterar o modo de descarregamento inicial apenas para o espaço de nome. Um terceiro modo só pode ser utilizado se o nível da nuvem for desativado para este ponto final do servidor. Este modo evita recordar primeiro o espaço de nome. Os ficheiros só aparecerão no servidor local se tiverem a oportunidade de descarregar totalmente. Este modo é útil se, por exemplo, uma aplicação requer que os ficheiros completos estejam presentes e não puder tolerar ficheiros hierárquicos no seu espaço de nome.
 
 Para adicionar o ponto final do servidor, **selecione Criar**. Os seus ficheiros são agora mantidos sincronizados através da sua partilha de ficheiros Azure e do Windows Server. 
 
@@ -524,7 +524,7 @@ As etapas recomendadas para embarcar no Azure File Sync para o primeiro com zero
 Se não tiver armazenamento extra para o embarque inicial e quiser anexar as ações existentes, pode pré-sedição dos dados nas partilhas de ficheiros Azure. Esta abordagem é sugerida, se e somente se puder aceitar tempo de inatividade e garantir absolutamente nenhuma alteração de dados nas ações do servidor durante o processo inicial de embarque. 
  
 1. Certifique-se de que os dados em qualquer um dos servidores não podem ser alterados durante o processo de embarque.
-1. O ficheiro Azure pré-seed partilha com os dados do servidor utilizando qualquer ferramenta de transferência de dados sobre o SMB. Robocopia, por exemplo. YOu também pode usar AzCopy em vez de REST. Certifique-se de que utiliza o AzCopy com os interruptores apropriados para preservar os timetamps e atributos ACLs.
+1. O ficheiro Azure pré-seed partilha com os dados do servidor utilizando qualquer ferramenta de transferência de dados sobre o SMB. Robocopia, por exemplo. Também pode utilizar a AzCopy em vez de REST. Certifique-se de que utiliza o AzCopy com os interruptores apropriados para preservar os timetamps e atributos ACLs.
 1. Crie topologia de Sincronização de Ficheiros Azure com os pontos finais do servidor pretendidos apontando para as ações existentes.
 1. Deixe sincronizar o processo de reconciliação em todos os pontos finais. 
 1. Uma vez concluída a reconciliação, pode abrir ações para alterações.
@@ -581,7 +581,7 @@ Para que o novo limite produza efeitos, é necessário reencaminhar o cmdlet par
 
 Com a versão 11 do agente, um novo modo fica disponível num ponto final do servidor. Este modo permite que as empresas distribuídas globalmente tenham a cache do servidor numa região remota pré-povoada mesmo antes de os utilizadores locais acederem a quaisquer ficheiros. Quando ativado num ponto final do servidor, este modo fará com que este servidor revoe ficheiros que foram criados ou alterados na partilha de ficheiros Azure.
 
-### <a name="scenario"></a>Cenário
+### <a name="scenario"></a>Scenario
 
 Uma empresa globalmente distribuída tem sucursais nos EUA e na Índia. De manhã (hora dos EUA) os trabalhadores da informação criam uma nova pasta e novos ficheiros para um novo projeto e trabalham o dia todo nele. O Azure File Sync sincronizará pastas e ficheiros para a partilha de ficheiros Azure (ponto final da nuvem). Os trabalhadores da informação na Índia continuarão a trabalhar no projeto no seu timezone. Quando chegam de manhã, o servidor local Azure File Sync, na Índia, precisa de ter estes novos ficheiros disponíveis localmente, de modo a que a equipa da Índia possa trabalhar eficientemente a partir de uma cache local. Permitir este modo impede que o acesso inicial do ficheiro seja mais lento devido à recolha a pedido e permite que o servidor relembrá-lo de forma proactiva assim que estes foram alterados ou criados na partilha de ficheiros Azure.
 

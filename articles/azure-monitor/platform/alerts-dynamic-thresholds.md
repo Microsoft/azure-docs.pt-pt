@@ -4,13 +4,13 @@ description: Criar alertas com limiares dinâmicos baseados em aprendizagem auto
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012344"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862577"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Azure
 
@@ -39,7 +39,7 @@ Os Limiares Dinâmicos aprendem continuamente os dados da série métrica e tent
 Os limiares são selecionados de forma a que um desvio destes limiares indique uma anomalia no comportamento métrico.
 
 > [!NOTE]
-> A deteção de padrões sazonais está definida para uma hora, dia ou intervalo de semana. Isto significa que outros padrões como o padrão bi-dia ou semi-semanal podem não ser detetados.
+> Os Limiares Dinâmicos podem detetar a sazonalidade para padrões horários, diários ou semanais. Outros padrões como a sazonalidade bi-horária ou semi-semanal podem não ser detetados. Para detetar a sazonalidade semanal, são necessárias pelo menos três semanas de dados históricos. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que significa a definição de "Sensibilidade" nos Limiares Dinâmicos?
 

@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d0641129d641043f10cdb94d9e7f634fb35fbbef
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 41b627259d84539c868f95eb3cf33db5dbdab52c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033005"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862398"
 ---
 # <a name="introduction-to-azure-functions"></a>Introdução às Funções do Azure
 
-A azure Functions é uma solução sem servidor que lhe permite escrever menos código, manter menos infraestruturas e economizar em custos. Em vez de se preocupar em implementar e manter servidores, a infraestrutura de nuvem fornece todos os servidores atualizados necessários para manter as suas aplicações em funcionamento.
+A azure Functions é uma solução sem servidor que lhe permite escrever menos código, manter menos infraestruturas e economizar em custos. Em vez de se preocupar em implementar e manter servidores, a infraestrutura de nuvem fornece todos os recursos atualizados necessários para manter as suas aplicações em funcionamento.
 
 Concentras-te nos pedaços de código que mais te interessam, e o Azure Functions trata do resto.<br /><br />
 

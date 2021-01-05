@@ -2,22 +2,31 @@
 title: Recuperação de geo-desastre de autocarro da Azure Service Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres na Azure Service Bus
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: c07721c07923a40da9fe28e0e3116bfd6a52210f
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372528"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862364"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de geo-desastre de autocarro de serviço Azure
 
-Quando regiões ou centros de dados inteiros do Azure (se não forem [utilizadas zonas de disponibilidade)](../availability-zones/az-overview.md) experimentam tempo de inatividade, é fundamental que o processamento de dados continue a funcionar numa região ou centro de dados diferentes. Como tal, *a recuperação de geo-desastres* é uma característica importante para qualquer empresa. A Azure Service Bus suporta a recuperação de geo-desastres ao nível do espaço de nome.
+A resiliência contra falhas desastrosas dos recursos de processamento de dados é um requisito para muitas empresas e, em alguns casos, mesmo exigida pelos regulamentos do sector. 
 
-A funcionalidade de recuperação de geo-desastres está globalmente disponível para o Service Bus Premium SKU. 
+A Azure Service Bus já espalha o risco de falhas catastróficas de máquinas individuais ou mesmo de racks completos em clusters que abrangem múltiplos domínios de falha dentro de um datacenter e implementa mecanismos transparentes de deteção de falhas e falhas de falha, de modo a que o serviço continue a funcionar dentro dos níveis de serviço garantidos e tipicamente sem interrupções visíveis em caso de tais falhas. Se um espaço de nomes de Service Bus tiver sido criado com a opção ativa para [zonas de disponibilidade,](../availability-zones/az-overview.md)o risco é que o risco de paragem seja ainda mais distribuído por três instalações fisicamente separadas, e o serviço tem reservas de capacidade suficientes para lidar instantaneamente com a perda completa e catastrófica de toda a instalação. 
 
->[!NOTE]
-> Geo-Disaster a recuperação atualmente apenas garante que os metadados (Filas, Tópicos, Subscrições, Filtros) são copiados do espaço de nome primário para o espaço de nome secundário quando emparelhados.
+O modelo de cluster Azure Service Bus totalmente ativo com suporte de zona de disponibilidade é superior a qualquer produto corretor de mensagens no local em termos de resiliência contra falhas graves de hardware e até perda catastrófica de instalações inteiras do datacenter. Ainda assim, pode haver situações graves com destruição física generalizada que nem essas medidas podem defender-se suficientemente. 
+
+A funcionalidade de recuperação de geo-desastres de autocarro de serviço foi concebida para facilitar a recuperação de um desastre desta magnitude e abandonar uma região de Azure falhada para sempre e sem ter de alterar as configurações da sua aplicação. O abandono de uma região do Azure irá normalmente envolver vários serviços e esta funcionalidade visa principalmente ajudar a preservar a integridade da configuração da aplicação composta. A funcionalidade está globalmente disponível para o Service Bus Premium SKU. 
+
+A funcionalidade de recuperação Geo-Disaster garante que toda a configuração de um espaço de nome (Filas, Tópicos, Subscrições, Filtros) é continuamente replicada de um espaço de nome primário para um espaço de nome secundário quando emparelhado, e permite iniciar uma passagem de falha única do primário para o secundário a qualquer momento. O movimento de failover irá re-apontar o nome do pseudónimo escolhido para o espaço de nome para o espaço de nome secundário e, em seguida, quebrar o emparelhamento. O fracasso é quase instantâneo uma vez iniciado. 
+
+> [!IMPORTANT]
+> A funcionalidade permite a continuidade instantânea das operações com a mesma configuração, mas **não replica as mensagens mantidas em filas ou subscrições de tópicos ou filas de letras mortas**. Para preservar a semântica da fila, tal replicação exigirá não só a replicação de dados de mensagens, mas de todas as mudanças de estado no corretor. Para a maioria dos espaços de nomes de Service Bus, o tráfego de replicação necessário ultrapassaria em muito o tráfego de aplicações e com filas de alta produção, a maioria das mensagens continuaria a replicar-se para o secundário enquanto já estão a ser apagadas das primárias, causando tráfego excessivamente desperdiçado. Para as rotas de replicação de alta latência, que se aplicam a muitos emparelhamentos que escolheria para a recuperação de geo-desastres, também poderia ser impossível para o tráfego de replicação acompanhar de forma sustentável o tráfego de aplicações devido aos efeitos de estrangulamento induzidos pela latência.
+ 
+> [!TIP]
+> Para replicar o conteúdo de filas e subscrições de tópicos e operar espaços de nome correspondentes em configurações ativas/ativas para lidar com interrupções e desastres, não se apoie neste conjunto de recursos de recuperação de geo-desastres, mas siga a [orientação de replicação](service-bus-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
@@ -51,14 +60,14 @@ A seguinte secção é uma visão geral para configurar o emparelhamento entre o
 
 O processo de configuração é o seguinte -
 
-1. Provision a ***Primary*** Service Bus Premium Namespace.
+1. Provision a ***Primary** _ Service Bus Premium Namespace.
 
-2. Provisão de um ***espaço de*** nome premium de serviço secundário numa região diferente *da posição do espaço de nome primário.* Isto ajudará a permitir o isolamento de falhas em diferentes regiões do datacenter.
+2. Provisão de um _*_espaço de_*_ nome premium de serviço secundário numa região _different de onde o espaço de nome primário é a provisionado*. Isto ajudará a permitir o isolamento de falhas em diferentes regiões do datacenter.
 
-3. Crie emparelhamento entre o espaço de nome primário e o espaço de nome secundário para obter o ***pseudónimo***.
+3. Crie emparelhamento entre o espaço de nome primário e o espaço de nome secundário para obter o **pseudónimo*** _.
 
     >[!NOTE] 
-    > Se [emigrou o seu espaço de nome Azure Service Standard para Azure Service Bus Premium,](service-bus-migrate-standard-premium.md)então deve utilizar o pseudónimo pré-existente (ou seja, a sua cadeia de conexão de espaço de identificação Service Bus Standard) para criar a configuração de recuperação de desastres através da **API PS/CLI** ou **REST**.
+    > Se [emigrou o seu espaço de nome Azure Service Standard para Azure Service Bus Premium,](service-bus-migrate-standard-premium.md)então deve utilizar o pseudónimo pré-existente (ou seja, a sua cadeia de conexão de espaço de identificação Service Bus Standard) para criar a configuração de recuperação de desastres através da *_ PS/CLI** ou **REST API**.
     >
     >
     > Isto porque, durante a migração, o seu nome de conexão Azure Service Bus Standard/DNS em si torna-se um pseudónimo para o seu espaço de nome Azure Service Bus Premium.
@@ -68,7 +77,7 @@ O processo de configuração é o seguinte -
     > Se utilizar o Portal para configurar a configuração da recuperação de desastres, então o portal irá abstrair esta ressalva de si.
 
 
-4. Utilize o ***pseudónimo*** obtido no passo 3 para ligar as aplicações do seu cliente ao espaço de nome primário ativado pelo Geo-DR. Inicialmente, o pseudónimo aponta para o espaço de nome primário.
+4. Utilize o *_pseudónimo_** obtido no passo 3 para ligar as aplicações do seu cliente ao espaço de nome primário ativado pelo Geo-DR. Inicialmente, o pseudónimo aponta para o espaço de nome primário.
 
 5. [Opcional] Adicione alguma monitorização para detetar se é necessário um failover.
 
@@ -80,7 +89,7 @@ Uma falha é desencadeada manualmente pelo cliente (quer explicitamente através
 
 Depois que o failover é desencadeado -
 
-1. A cadeia de ligação ***alias*** é atualizada para apontar para o espaço de nomes Secondary Premium.
+1. A cadeia de ligação _*_alias_*_ é atualizada para apontar para o espaço de nomes Secondary Premium.
 
 2. Os clientes (remetentes e recetores) ligam-se automaticamente ao espaço de nome secundário.
 
@@ -170,7 +179,7 @@ Digamos que tem duas redes virtuais: VNET-1, VNET-2 e estes espaços primários 
 
 A vantagem desta abordagem é que o failover pode acontecer na camada de aplicação independente do espaço de nomes do Service Bus. Pondere os seguintes cenários: 
 
-**Falha apenas na aplicação:** Aqui, a aplicação não existirá no VNET-1, mas passará para vNET-2. Uma vez que ambos os pontos finais privados estão configurados tanto no VNET-1 como no VNET-2 para espaços de nome primário e secundário, a aplicação apenas funcionará. 
+_ *Falha apenas na aplicação:** Aqui, a aplicação não existirá no VNET-1, mas irá passar para VNET-2. Uma vez que ambos os pontos finais privados estão configurados tanto no VNET-1 como no VNET-2 para espaços de nome primário e secundário, a aplicação apenas funcionará. 
 
 **Serviço Bus só falha no espaço**: Aqui novamente, uma vez que ambos os pontos finais privados estão configurados em redes virtuais tanto para espaços de nome primário como secundário, a aplicação apenas funcionará. 
 

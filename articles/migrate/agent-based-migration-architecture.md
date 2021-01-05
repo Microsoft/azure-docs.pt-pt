@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753897"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861950"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes
 
@@ -92,14 +92,14 @@ Se estiver a replicar VMware VMs, pode utilizar o [Planejador de Implementação
 
 Utilize os valores desta tabela para descobrir se precisa de um servidor de processo adicional na sua implementação.
 
-- Se a sua taxa de variação diária (taxa de churn) for superior a 2 TB, implemente um servidor de processo adicional.
+- Se a taxa de variação diária (taxa de churn) for superior a 2 TB, implemente um servidor de processo adicional.
 - Se estiver a replicar mais de 200 máquinas, implante um aparelho de replicação adicional.
 
 **CPU** | **Memória** | **Caching de dados espaciais gratuitos** | **Taxa de churn** | **Limites de replicação**
 --- | --- | --- | --- | ---
 8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | < 100 máquinas 
 12 vCPUs (2 tomadas * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 máquinas.
-16 vCPUs (2 tomadas * 8 núcleos \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 máquinas.
+16 vCPUs (2 tomadas * 8 núcleos \@ 2,5 GHz) | 32 GB |  1 TB | 1 TB a 2 TB | 151-200 máquinas.
 
 ### <a name="sizing-scale-out-process-servers"></a>Servidores de processo de dimensionamento dimensionais
 
@@ -108,7 +108,7 @@ Se precisar de implementar um servidor de processo de escala, utilize esta tabel
 **Servidor de processo** | **Espaço gratuito para caching de dados** | **Taxa de churn** | **Limites de replicação**
 --- | --- | --- | --- 
 4 vCPUs (2 tomadas * 2 núcleos \@ 2,5 GHz), memória de 8 GB | 300 GB | 250 GB ou menos | Até 85 máquinas 
-8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz), memória de 12 GB | 600 GB | 251 GB a 1 TB    | 86-150 máquinas.
+8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz), memória de 12 GB | 600 GB | 251 GB a 1 TB | 86-150 máquinas.
 12 vCPUs (2 tomadas * 6 núcleos \@ 2,5 GHz), memória de 24 GB | 1 TB | 1-2 TB | 151-225 máquinas.
 
 ## <a name="throttle-upload-bandwidth"></a>O acelerador carrega a largura de banda.
