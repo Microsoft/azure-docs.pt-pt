@@ -1,19 +1,19 @@
 ---
 title: Solução Azure VMware by CloudSimple - Configurar fontes de identidade vCenter em Private Cloud
 description: Descreve como configurar o seu VCenter Private Cloud para autenticar com Diretório Ativo para administradores VMware acederem ao vCenter
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425742"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899155"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Criar fontes de identidade vCenter para utilizar o Ative Directory
 
@@ -58,7 +58,7 @@ Utilize as informações na tabela seguinte ao configurar o seu domínio Ative D
 |------------|-----------------|
 | **Nome** | Nome da fonte de identidade. |
 | **Base DN para utilizadores** | Nome distinto base para utilizadores. |
-| **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus dados pessoais (IP) nem mais, por favor, nem mais, por favor, nem mais, por favor, nem mais, por favor, |
+| **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus dados pessoais (IP) nem mais, por favor, |
 | **Pseudónimo de domínio** | O nome NetBIOS de domínio. Adicione o nome NetBIOS do domínio Ative Directory como pseudónimo da fonte de identidade se estiver a utilizar autenticações SSPI. |
 | **Base DN para grupos** | O nome distinto da base para grupos. |
 | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato `ldap://hostname:port` ou `ldaps://hostname:port` . A porta é tipicamente 389 para ligações LDAP e 636 para ligações LDAPS. Para as implementações do controlador multi-domínio do Ative Directory, a porta é tipicamente 3268 para LDAP e 3269 para LDAPS.<br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar `ldaps://` no URL LDAP primário ou secundário. |

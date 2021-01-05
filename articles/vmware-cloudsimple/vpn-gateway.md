@@ -1,19 +1,19 @@
 ---
 title: Solução Azure VMware by CloudSimple - Configurar uma porta de entrada VPN
 description: Descreve como configurar o gateway VPN ponto-a-local e o gateway VPN local-to-site e criar ligações entre a sua rede no local e a cloudSimple Private Cloud
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78f78bfbf885cbae7708a75cb54ce2d41e7b526c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872005"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899104"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurar gateways VPN na rede CloudSimple
 

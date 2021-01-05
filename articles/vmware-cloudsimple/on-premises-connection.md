@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Ligação no local usando ExpressRoute
 description: Descreve como solicitar uma ligação no local utilizando o ExpressRoute da rede da região CloudSimple
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77019626"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899240"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Ligue-se de instalações para CloudSimple usando ExpressRoute
 
@@ -54,7 +54,7 @@ Para estabelecer a ligação ExpressRoute, deve criar uma autorização no seu c
 
 3. Selecione o circuito ExpressRoute que pretende ligar à sua rede CloudSimple.
 
-4. Na página ExpressRoute, clique em **Autorizações, insira**um nome para a autorização e clique em **Guardar**.
+4. Na página ExpressRoute, clique em **Autorizações, insira** um nome para a autorização e clique em **Guardar**.
     [![Autorização do Circuito ExpressRoute](media/azure-expressroute-transit-authorizations.png)](media/azure-expressroute-transit-authorizations.png)
 
 5. Copie o ID do recurso e a chave de autorização clicando no ícone de cópia. Cole o ID e a chave num ficheiro de texto.

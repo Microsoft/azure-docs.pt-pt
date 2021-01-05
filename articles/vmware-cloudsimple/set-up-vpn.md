@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Configure VPN entre as instalações e a Nuvem Privada
 description: Descreve como configurar uma ligação VPN site-to-site ou ponto-a-local entre a sua rede no local e a sua CloudSimple Private Cloud
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b7a119b538ee07b961011bfa98d748f92cc76f0e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424676"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899223"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configure uma ligação VPN à sua CloudSimple Private Cloud
 
@@ -57,7 +57,7 @@ Exemplo abaixo mostra ligação importadora usando **Viscosity Client**.
 
 2. Abra a viscosidade no seu computador.
 
-3. Clique no **+** ícone e selecione **a ligação de importação**a partir de  >  **arquivo.**
+3. Clique no **+** ícone e selecione **a ligação de importação** a partir de  >  **arquivo.**
 
     ![Configuração VPN de importação a partir de ficheiro](media/import-p2s-vpn-config.png)
 
@@ -79,7 +79,7 @@ Uma ligação VPN ponto-a-local resolve os nomes DNS da primeira Nuvem Privada q
 
 1. Lançar [portal CloudSimple](access-cloudsimple-portal.md).
 
-2. Navegue **Resources**para  >  **Recursos Nuvens Privadas** e selecione a Nuvem Privada a que pretende ligar.
+2. Navegue para  >  **Recursos Nuvens Privadas** e selecione a Nuvem Privada a que pretende ligar.
 
 3. Na página **sumária** da Nuvem Privada, copie o endereço IP do servidor DNS da Nuvem Privada em **Informações Básicas**.
 

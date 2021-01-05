@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505891"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898730"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -185,6 +185,14 @@ Especifica o número máximo de processos de trabalhadores linguísticos, com um
 |Chave|Valor da amostra|
 |---|------------|
 |FUNÇÕES \_ CONTAGEM \_ DE PROCESSOS DE TRABALHADOR \_|2|
+
+## <a name="python_threadpool_thread_count"></a>CONTAGEM DE FIOS PYTHON \_ \_ \_ THREADPOOL
+
+Especifica o número máximo de fios que um trabalhador da língua Python usaria para executar invocações de funções, com um valor padrão `1` para a versão Python e `3.8` abaixo. Para a versão Python `3.9` e acima, o valor está definido para `None` . Note que esta definição não garante o número de fios que seriam definidos durante as execuções. A definição permite que a Python expanda o número de fios para o valor especificado. A definição aplica-se apenas às aplicações de funções Python. Além disso, a definição aplica-se à invocação de funções sincronizadas e não a coroutinas.
+
+|Chave|Valor da amostra|Valor máximo|
+|---|------------|---------|
+|CONTAGEM DE FIOS PYTHON \_ \_ \_ THREADPOOL|2|32|
 
 
 ## <a name="functions_worker_runtime"></a>FUNÇÕES \_ TEMPO \_ DE EXECUÇÃO DO TRABALHADOR

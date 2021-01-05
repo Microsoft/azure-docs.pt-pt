@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Use a Azure AD como fonte de identidade na Nuvem Privada
 description: Descreve como adicionar Azure AD como um fornecedor de identidade na cloudSimple Private Cloud para autenticar utilizadores que acedem ao CloudSimple a partir do Azure
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532533"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898611"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Use o Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud
 
@@ -74,7 +74,7 @@ Pode configurar opcionalmente outras funcionalidades AD Azure.  Estes não são 
 6.  Configure lDAP seguro seguro nos seus Serviços de Domínio do Diretório Ativo Azure, conforme descrito em [Configure secure LDAP (LDAPS) para um domínio gerido por Serviços de Domínio AD AD Azure](../active-directory-domain-services/tutorial-configure-ldaps.md).
     1. Faça o upload de um certificado para utilização por LDAP seguro, conforme descrito no tópico Azure, [obtenha um certificado para LDAP seguro](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  A CloudSimple recomenda a utilização de um certificado assinado emitido por uma autoridade de certificados para garantir que o vCenter pode confiar no certificado.
     2. Ativar lDAP seguro como descrito [Ativar lDAP seguro (LDAPS) para um domínio gerido por Serviços de Domínio AD AZure](../active-directory-domain-services/tutorial-configure-ldaps.md).
-    3. Guarde a parte pública do certificado (sem a chave privada) em formato .cer para utilização com vCenter enquanto configura a fonte de identidade.
+    3. Guarde a parte pública do certificado (sem a chave privada) em .cer formato para utilização com vCenter enquanto configura a fonte de identidade.
     4. Se for necessário aceder à Internet aos serviços de domínio Azure AD, ative a opção "Permitir o acesso seguro ao LDAP através da internet".
     5. Adicione a regra de segurança de entrada para os serviços de domínio Azure AD NSG para a porta TCP 636.
 
@@ -87,12 +87,12 @@ Pode configurar opcionalmente outras funcionalidades AD Azure.  Estes não são 
     |------------|-----------------|
     | **Nome** | Nome da fonte de identidade. |
     | **Base DN para utilizadores** | Nome distinto base para utilizadores.  Para Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
-    | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus dados pessoais (IP) nem mais, por favor, nem mais, por favor, nem mais, por favor, nem mais, por favor, |
+    | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus dados pessoais (IP) nem mais, por favor, |
     | **Pseudónimo de domínio** | *(opcional)* O nome NetBIOS de domínio. Adicione o nome NetBIOS do domínio Ative Directory como pseudónimo da fonte de identidade se estiver a utilizar autenticações SSPI. |
     | **Base DN para grupos** | O nome distinto da base para grupos. Para Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato  `ldaps://hostname:port` . A porta é tipicamente 636 para ligações LDAPS. <br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar  `ldaps://`   no URL LDAP primário ou secundário. |
+    | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato `ldaps://hostname:port`. A porta é tipicamente 636 para ligações LDAPS. <br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar `ldaps://` no URL LDAP primário ou secundário. |
     | **URL do servidor secundário** | Endereço de um servidor LDAP controlador de domínio secundário que é utilizado para falha. |
-    | **Escolha o certificado** | Se pretender utilizar LDAPS com o seu Servidor LDAP do Diretório Ativo ou fonte de identidade do Servidor OpenLDAP, um botão de certificado Escolha aparece depois de escrever  `ldaps://`   na caixa de texto URL. Não é necessária uma URL secundária. |
+    | **Escolha o certificado** | Se pretender utilizar LDAPS com o seu Servidor LDAP do Diretório Ativo ou fonte de identidade do Servidor OpenLDAP, um botão de certificado Escolha aparece depois de escrever `ldaps://` na caixa de texto URL. Não é necessária uma URL secundária. |
     | **Nome de Utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
     | **Palavra-passe** | Palavra-passe do utilizador que é especificado pelo Nome de Utilizador. |
 

@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution - DNS reencaminhando de nuvem privada para as instalações
 description: Descreve como ativar o seu servidor DNS private Cloud Simplificador para encaminhar o lookup de recursos no local
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 02/29/2020
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091254"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899206"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Ativar os servidores DNS private Cloud do Cloud para encaminhar a procura de DNS dos recursos no local para os seus servidores DNS
 

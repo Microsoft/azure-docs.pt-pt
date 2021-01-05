@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Otimize a sua CloudSimple Private Cloud para Oracle RAC
 description: Descreve como implantar um novo cluster e otimizar um VM para instalação e configuração de Clusters de Aplicação Real oracle (RAC)
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424692"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899274"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize a cloudSimple Private Cloud para instalar o Oracle RAC
 
@@ -174,7 +174,7 @@ as políticas vSAN definem as falhas de toleração e de tiragem de discos para 
 3. A partir do menu esquerdo, selecione **Políticas de Armazenamento VM** e, em seguida, selecione **Criar uma Política de armazenamento VM**.
 4. Introduza um nome significativo para a apólice e clique em **NEXT**.
 5. Na secção **estrutura política,** selecione **Ative as regras para o armazenamento vSAN** e clique em **SEGUINTE**.
-6. Na secção **disponibilidade vSAN,**  >  **Availability** selecione **Nenhum** para a tolerância a desastres do Site. Para falhas em tolerar, selecione a opção **RAID - Mirroring** para o FTT desejado.
+6. Na secção **disponibilidade vSAN,**  >   selecione **Nenhum** para a tolerância a desastres do Site. Para falhas em tolerar, selecione a opção **RAID - Mirroring** para o FTT desejado.
     ![configurações vSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. Na secção **Avançado,** selecione o número de riscas de disco por objeto. Para a reserva de espaço object, selecione **Thick Provisioned**. Selecione **Desativar a sê-lo.** Clique **em SEGUINTE**.
 8. Siga as instruções no ecrã para ver a lista de datastores vSAN compatíveis, reveja as definições e termine a configuração.

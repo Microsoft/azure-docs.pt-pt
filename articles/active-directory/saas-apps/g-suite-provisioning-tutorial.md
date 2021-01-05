@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 552322b9452d380dd5507fb579d7cc44e1a456fe
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763969"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898910"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -63,15 +63,15 @@ Antes de configurar o G Suite para o fornecimento automático do utilizador com 
 
 1. Inscreva-se na [consola G Suite Admin](https://admin.google.com/) com a sua conta de administrador e, em seguida, selecione **Security**. Se não vir a ligação, pode estar escondido no menu **Mais Controlos** na parte inferior do ecrã.
 
-    ![Segurança G Suite](./media/google-apps-provisioning-tutorial/gapps-security.png)
+    ![Segurança G Suite](./media/g-suite-provisioning-tutorial/gapps-security.png)
 
 2. Na página **'Segurança',** selecione **Referência API.**
 
-    ![G Suite API](./media/google-apps-provisioning-tutorial/gapps-api.png)
+    ![G Suite API](./media/g-suite-provisioning-tutorial/gapps-api.png)
 
 3. Selecione **Ativar o acesso à API**.
 
-    ![G Suite API Ativada](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
+    ![G Suite API Ativada](./media/g-suite-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
    > Para cada utilizador que pretende providenciar à Suíte G, o seu nome de utilizador em Azure AD **deve** estar ligado a um domínio personalizado. Por exemplo, os nomes de utilizador que se parecem bob@contoso.onmicrosoft.com não são aceites pela Suíte G. Por outro lado, bob@contoso.com é aceite. Pode alterar o domínio de um utilizador existente seguindo as instruções [aqui](../fundamentals/add-custom-domain.md).
@@ -80,15 +80,15 @@ Antes de configurar o G Suite para o fornecimento automático do utilizador com 
 
     a. Na [consola de administração G Suite](https://admin.google.com/), selecione **Domínios**.
 
-    ![Domínios G Suite](./media/google-apps-provisioning-tutorial/gapps-domains.png)
+    ![Domínios G Suite](./media/g-suite-provisioning-tutorial/gapps-domains.png)
 
     b. **Selecione Adicionar um domínio ou um pseudónimo de domínio**.
 
-    ![G Suite Adicionar Domínio](./media/google-apps-provisioning-tutorial/gapps-add-domain.png)
+    ![G Suite Adicionar Domínio](./media/g-suite-provisioning-tutorial/gapps-add-domain.png)
 
     c. **Selecione Adicione outro domínio** e, em seguida, escreva no nome do domínio que pretende adicionar.
 
-    ![G Suite Adicionar Outro](./media/google-apps-provisioning-tutorial/gapps-add-another.png)
+    ![G Suite Adicionar Outro](./media/g-suite-provisioning-tutorial/gapps-add-another.png)
 
     d. **Selecione Continue e verifique a propriedade do domínio**. Em seguida, siga os passos para verificar se é dono do nome de domínio. Para obter instruções completas sobre como verificar o seu domínio com o Google, consulte [Verifique a propriedade do seu site](https://support.google.com/webmasters/answer/35179).
 
@@ -96,11 +96,11 @@ Antes de configurar o G Suite para o fornecimento automático do utilizador com 
 
 5. Em seguida, determine qual a conta de administração que pretende utilizar para gerir o fornecimento do utilizador em Suíte G. Navegue para **funções de administração.**
 
-    ![G Suite Administrador](./media/google-apps-provisioning-tutorial/gapps-admin.png)
+    ![G Suite Administrador](./media/g-suite-provisioning-tutorial/gapps-admin.png)
 
 6. Para o papel de **Administrador** dessa conta, edite os **Privilégios** para esse papel. Certifique-se de que ativa todos os **Privilégios ADMIN API** para que esta conta possa ser utilizada para o provisionamento.
 
-    ![Privilégios G Suite Admin](./media/google-apps-provisioning-tutorial/gapps-admin-privileges.png)
+    ![Privilégios G Suite Admin](./media/g-suite-provisioning-tutorial/gapps-admin-privileges.png)
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione suíte G da galeria de aplicações AZure AD
 
@@ -126,9 +126,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**. Os utilizadores terão de iniciar sessão para portal.azure.com e não poderão utilizar aad.portal.azure.com
 
-    ![Painel Aplicações empresariais](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
+    ![Painel Aplicações empresariais](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
-    ![Painel Todas as aplicações](./media/google-apps-provisioning-tutorial/all-applications.png)
+    ![Painel Todas as aplicações](./media/g-suite-provisioning-tutorial/all-applications.png)
 
 2. Na lista de candidaturas, selecione **G Suite**.
 
@@ -138,7 +138,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
-      ![Começar a lâmina](./media/google-apps-provisioning-tutorial/get-started.png)
+      ![Começar a lâmina](./media/g-suite-provisioning-tutorial/get-started.png)
 
 4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
@@ -146,11 +146,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Na secção **Credenciais de Administração,** clique em **Authorize**. Você será redirecionado para uma caixa de diálogo de autorização do Google em uma nova janela do navegador.
 
-      ![G Suite autorizar](./media/google-apps-provisioning-tutorial/authorize-1.png)
+      ![G Suite autorizar](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
 6. Confirme que deseja dar permissão à Azure AD para esporar alterações no seu inquilino da Suite G. Selecione **Aceitar**.
 
-     ![G Suite Tenant Auth](./media/google-apps-provisioning-tutorial/gapps-auth.png)
+     ![G Suite Tenant Auth](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
 7. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à Suite G. Se a ligação falhar, certifique-se de que a sua conta G Suite tem permissões de Administração e tente novamente. Então tente o passo **autorizado** novamente.
 

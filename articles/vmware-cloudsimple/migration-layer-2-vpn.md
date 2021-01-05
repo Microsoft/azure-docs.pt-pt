@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Estique uma rede de camadas 2 no local para a Nuvem Privada
 description: Descreve como configurar uma VPN layer 2 entre NSX-T numa CloudSimple Private Cloud e um cliente NSX Edge autónomo no local
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427253"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899376"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
 
@@ -112,7 +112,7 @@ Os passos seguintes mostram como obter o ID do router lógico de Tier0 DR para o
 
     ![Selecione active-standby](media/l2vpn-fetch01.png)
 
-2. Selecione **Fabric**  >  **Bordas de Nós**  >  **de Tecidos**. Tome nota do endereço IP de gestão do VM de borda ativo (Edge VM1) identificado no passo anterior.
+2. Selecione   >  **Bordas de Nós**  >  **de Tecidos**. Tome nota do endereço IP de gestão do VM de borda ativo (Edge VM1) identificado no passo anterior.
 
     ![IP de gestão de notas](media/l2vpn-fetch02.png)
 
@@ -137,7 +137,7 @@ Os passos seguintes mostram como obter o ID do router lógico de Tier0 DR para o
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Pegue o ID de comutador lógico necessário para l2VPN
 
 1. Inscreva-se no NSX-T Manager `https://nsx-t-manager-ip-address` ().
-2. Selecione **Networking**  >  interruptores de**comutação**de rede  >  **Switches**  >  **<\Visão \> **geral do interruptor  >  **lógico**.
+2. Selecione   >  interruptores de **comutação** de rede  >    >  **<\Visão \>** geral do interruptor  >  **lógico**.
 3. Tome nota do UUID do interruptor lógico de alongamento, que é necessário ao configurar o L2VPN.
 
     ![obter saída de router lógica](media/l2vpn-fetch-switch01.png)
@@ -154,20 +154,20 @@ Para estabelecer uma VPN baseada em rotas IPsec entre o router NSX-T Tier0 e o c
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Anuncie a interface loopback IP para a rede de base
 
-1. Crie uma rota nula para a rede de interface loopback. Inscreva-se no NSX-T Manager e selecione rotas de **encaminhamento**de  >  **encaminhamento**de rede  >  **Routers**  >  **Fornecedor-LR**Rotas  >  **Routing**  >  **Estáticas**de encaminhamento . Clique em **Adicionar**. Para **a Rede**, insira o endereço IP da interface de backback. Para **Next Hops**, clique em **Adicionar**, especifique 'Nulo' para o próximo salto e mantenha o padrão de 1 para Admin Distance.
+1. Crie uma rota nula para a rede de interface loopback. Inscreva-se no NSX-T Manager e selecione rotas de **encaminhamento** de  >  **encaminhamento** de rede  >    >  **Fornecedor-LR** Rotas  >    >  **Estáticas** de encaminhamento . Clique em **Adicionar**. Para **a Rede**, insira o endereço IP da interface de backback. Para **Next Hops**, clique em **Adicionar**, especifique 'Nulo' para o próximo salto e mantenha o padrão de 1 para Admin Distance.
 
     ![Adicionar rota estática](media/l2vpn-routing-security01.png)
 
-2. Crie uma lista de prefixos IP. Inscreva-se no NSX-T **Networking**Manager e selecione  >  **Routing**  >  **listas**  >  de prefixos IP de encaminhamento de encaminhamento de rede de encaminhamento de rotas de**encaminhamento.**  >  **Routing**  >  **IP Prefix Lists** Clique em **Adicionar**. Insira um nome para identificar a lista. Para **Prefixos,** clique em **Adicionar** duas vezes. Na primeira linha, insira '0.0.0.0/0' para **rede** e 'Deny' para **ação**. Na segunda linha, **selecione Any** for **Network** and **Permit** for **Action**.
+2. Crie uma lista de prefixos IP. Inscreva-se no NSX-T Manager e selecione  >    >  **listas**  >  de prefixos IP de encaminhamento de encaminhamento de rede de encaminhamento de rotas de **encaminhamento.**  >    >   Clique em **Adicionar**. Insira um nome para identificar a lista. Para **Prefixos,** clique em **Adicionar** duas vezes. Na primeira linha, insira '0.0.0.0/0' para **rede** e 'Deny' para **ação**. Na segunda linha, **selecione Any** for **Network** and **Permit** for **Action**.
 3. Anexe a lista de prefixos IP a ambos os vizinhos BGP (TOR). A anexação da lista de prefixos IP ao vizinho BGP impede que a rota predefinida seja publicitada em BGP aos interruptores TOR. No entanto, qualquer outra rota que inclua a rota nula irá anunciar o endereço IP da interface loopback para os interruptores TOR.
 
     ![Criar lista de prefixos IP](media/l2vpn-routing-security02.png)
 
-4. Inscreva-se no NSX-T **Networking**Manager e selecione  >  Routers de**encaminhamento**de rede  >  **Routers**  >  **Fornecedor-LR**  >  **Encaminhamento**  >  **BGP**  >  **BGP Neighbors**. Selecione o primeiro vizinho. Clique **em**  >  **Editar Famílias de Endereços.** Para a família IPv4, edite a coluna **'Filtro Out'** e selecione a lista de prefixos IP que criou. Clique em **Guardar**. Repita este passo para o segundo vizinho.
+4. Inscreva-se no NSX-T Manager e selecione  >  Routers de **encaminhamento** de rede  >    >  **Fornecedor-LR**  >  **Encaminhamento**  >    >  **BGP Neighbors**. Selecione o primeiro vizinho. Clique **em**  >  **Editar Famílias de Endereços.** Para a família IPv4, edite a coluna **'Filtro Out'** e selecione a lista de prefixos IP que criou. Clique em **Guardar**. Repita este passo para o segundo vizinho.
 
     ![Anexar lista de prefixos IP 1 ](media/l2vpn-routing-security03.png) ![ Anexar lista de prefixos IP 2](media/l2vpn-routing-security04.png)
 
-5. Redistribua a rota estática nula em BGP. Para anunciar a rota da interface loopback para a base, você deve redistribuir a rota estática nula em BGP. Inscreva-se no NSX-T **Networking**Manager e selecione  >  Routers de**encaminhamento**de rede  >  **Routers**  >  **Fornecedor-LR**  >  **Routeing**  >  **Routes Redistribution**  >  **Neighbors**. Selecione **Provider-LR-Route_Redistribution** e clique em **Editar**. Selecione a caixa de verificação **estática** e clique **em Guardar**.
+5. Redistribua a rota estática nula em BGP. Para anunciar a rota da interface loopback para a base, você deve redistribuir a rota estática nula em BGP. Inscreva-se no NSX-T Manager e selecione  >  Routers de **encaminhamento** de rede  >    >  **Fornecedor-LR**  >  **Routeing**  >  **Routes Redistribution**  >  **Neighbors**. Selecione **Provider-LR-Route_Redistribution** e clique em **Editar**. Selecione a caixa de verificação **estática** e clique **em Guardar**.
 
     ![Redistribuir rota estática nulo em BGP](media/l2vpn-routing-security05.png)
 

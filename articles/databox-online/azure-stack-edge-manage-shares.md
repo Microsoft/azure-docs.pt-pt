@@ -1,27 +1,27 @@
 ---
-title: Gestão de ações Azure Stack Edge Pro / Microsoft Docs
-description: Descreve como usar o portal Azure para gerir ações no seu Azure Stack Edge Pro.
+title: Azure Stack Edge Pro - Gestão de ações da FPGA Microsoft Docs
+description: Descreve como usar o portal Azure para gerir ações no seu Azure Stack Edge Pro - FPGA.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444585"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898382"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir ações no Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Utilize o portal Azure para gerir ações no Azure Stack Edge Pro FPGA 
 
-Este artigo descreve como gerir ações no seu Azure Stack Edge Pro. Pode gerir o Azure Stack Edge Pro através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
+Este artigo descreve como gerir ações no seu dispositivo Azure Stack Edge Pro FPGA. Pode gerir o dispositivo Azure Stack Edge Pro FPGA através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
 
 ## <a name="about-shares"></a>Sobre as partilhas
 
-Para transferir dados para o Azure, precisa de criar ações no seu Azure Stack Edge Pro. As ações que adiciona no dispositivo Azure Stack Edge Pro podem ser ações locais ou partilhas que empurram os dados para a nuvem.
+Para transferir dados para o Azure, precisa de criar ações no seu Azure Stack Edge Pro FPGA. As ações que adiciona no dispositivo Azure Stack Edge Pro podem ser ações locais ou partilhas que empurram os dados para a nuvem.
 
  - **Ações locais**: Utilize estas ações quando pretender que os dados sejam tratados localmente no dispositivo.
  - **Ações**: Utilize estas ações quando pretender que os dados do dispositivo sejam automaticamente empurrados para a sua conta de armazenamento na nuvem. Todas as funções de cloud, tais como **as teclas de armazenamento** **Refresh** e Sync, aplicam-se às ações.
@@ -39,7 +39,7 @@ Neste artigo, vai aprender a:
 
 Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. **Selecione + Adicione a partilha** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para o **gateway de armazenamento cloud**. Vá a **Partilhas** e, em seguida, **selecione + Adicione a partilha** na barra de comando.
 
     ![Selecione adicionar a partilha](media/azure-stack-edge-manage-shares/add-share-1.png)
 
@@ -72,7 +72,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 ## <a name="add-a-local-share"></a>Adicione uma parte local
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. **Selecione + Adicione a partilha** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o gateway de armazenamento cloud > Shares**. **Selecione + Adicione a partilha** na barra de comando.
 
    ![Selecione adicionar a partilha 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
@@ -96,15 +96,13 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
    ![Ver atualizações Partilhar lâmina](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
-    Selecione a partilha para ver o ponto de montagem local para os módulos de computação Edge para esta partilha.
 
-   ![Ver detalhes de partilha local](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Monte uma parte
 
 Se criou uma parte antes de configurar o computamento no seu dispositivo Azure Stack Edge Pro, terá de montar a partilha. Tome os seguintes passos para montar uma parte.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. Na lista das ações, selecione a parte que pretende montar. A coluna **usada para cálculo** mostrará o estado de **desativado** para a parte selecionada.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o gateway de armazenamento cloud > Shares**. Na lista das ações, selecione a parte que pretende montar. A coluna **usada para cálculo** mostrará o estado de **desativado** para a parte selecionada.
 
    ![Selecione partilha 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
@@ -122,13 +120,13 @@ Se criou uma parte antes de configurar o computamento no seu dispositivo Azure S
 
 5. Selecione a partilha novamente para ver o ponto de montagem local para a partilha. O módulo de computação Edge utiliza este ponto de montagem local para a partilha.
 
-   ![Ponto de montagem local para a parte](media/azure-stack-edge-manage-shares/share-mountpoint.png)
+   ![Ponto de montagem local para a parte](media/azure-stack-edge-manage-shares/share-mountpoint.png) 
 
 ## <a name="unmount-a-share"></a>Desmonte uma parte
 
 Faça os seguintes passos no portal Azure para desmontar uma parte.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o gateway de armazenamento cloud > Shares**.
 
    ![Selecione partilha 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
@@ -148,13 +146,13 @@ Faça os seguintes passos no portal Azure para desmontar uma parte.
 
 Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
-1. Na lista de partilhas, selecione e clique na partilha que pretende eliminar.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o gateway de armazenamento cloud > Shares**. Na lista de partilhas, selecione e clique na partilha que pretende eliminar.
 
    ![Selecione share 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Clique em **Eliminar**.
+2. Selecione **Eliminar**.
 
-   ![Clicar em eliminar](media/azure-stack-edge-manage-shares/delete-share-2.png)
+   ![Selecione eliminar](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
 3. Quando lhe for pedida a confirmação, clique em **Sim**.
 
@@ -173,15 +171,15 @@ A funcionalidade de atualização permite-lhe refrescar o conteúdo de uma parti
 
 Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
-1. No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o gateway de armazenamento cloud > Shares**. Selecione e clique na partilha que pretende atualizar.
 
    ![Selecione partilha 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
-2. Clique em **Atualizar**.
+2. Selecione **os dados de Atualização**.
 
-   ![Clicar em atualizar](media/azure-stack-edge-manage-shares/refresh-share-2.png)
+   ![Selecione refresh](media/azure-stack-edge-manage-shares/refresh-share-2.png)
  
-3. Quando lhe for pedida a confirmação, clique em **Sim**. É iniciada uma tarefa para atualizar os conteúdos da partilha no local.
+3. Quando solicitado para confirmação, selecione **Sim**. É iniciada uma tarefa para atualizar os conteúdos da partilha no local.
 
    ![Confirmar atualização](media/azure-stack-edge-manage-shares/refresh-share-3.png)
 
@@ -199,7 +197,7 @@ Se as chaves da conta de armazenamento tiverem sido rodadas, terá de sincroniza
 
 Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso ao armazenamento.
 
-1. Aceda a **Descrição Geral** no seu recurso. Na lista de partilhas, escolha e clique numa partilha associada à conta de armazenamento que precisa de sincronizar.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o gateway de armazenamento cloud > Shares**. Na lista de partilhas, escolha e clique numa partilha associada à conta de armazenamento que precisa de sincronizar.
 
     ![Selecione partilhar com conta de armazenamento relevante](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 
