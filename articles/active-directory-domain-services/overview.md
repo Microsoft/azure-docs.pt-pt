@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2020
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 99a207810f51949b0da0e78b1cb0e0a7f8bc95e3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027344"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861511"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>O que é o Azure Active Directory Domain Services?
 
@@ -41,7 +41,7 @@ Num ambiente híbrido com um ambiente AD DS no local, [o Azure AD Connect][azure
 
 ![Sincronização em Serviços de Domínio AD AD Azure com AZure AD e AD DS no local usando AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-O Azure AD DS replica informações de identidade da Azure AD, pelo que funciona com inquilinos da AD AZure que são apenas cloud, ou sincronizados com um ambiente de DS AD (ambiente AD DS. O mesmo conjunto de funcionalidades AD DS Azure existe para ambos os ambientes.
+A Azure AD DS replica informações de identidade da Azure AD, por isso trabalha com inquilinos AD AZure que são apenas cloud, ou sincronizados com um ambiente AD DS no local. O mesmo conjunto de funcionalidades AD DS Azure existe para ambos os ambientes.
 
 * Se tiver um ambiente AD DS existente no local, pode sincronizar as informações da conta do utilizador para fornecer uma identidade consistente para os utilizadores. Para saber mais, veja [como os objetos e credenciais são sincronizados num domínio gerido.][synchronization]
 * Para ambientes apenas em nuvem, você não precisa de um ambiente tradicional no local AD DS para usar os serviços de identidade centralizados de Azure AD DS.

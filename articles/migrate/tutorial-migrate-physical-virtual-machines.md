@@ -5,14 +5,14 @@ author: rahulg1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: af1c321e5c537fbd3af770cb392c538e6056e075
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bd560a6ef4a3b4ab5eb4632e7741c764f6e314e1
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752877"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854932"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para Azure
 
@@ -25,7 +25,7 @@ Este artigo mostra-lhe como migrar máquinas como servidores físicos para Azure
 - Migrar VMs em nuvens públicas como Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
 
-Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, ficará a saber como:
+Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Prepare-se para utilizar o Azure com a Azure Migrate:Migração do servidor.
@@ -109,7 +109,7 @@ Prepare-se para a colocação do aparelho da seguinte forma:
 - Prepara-se uma máquina para hospedar o aparelho de replicação. [Reveja](migrate-replication-appliance.md#appliance-requirements) os requisitos da máquina.
 - O aparelho de replicação utiliza o MySQL. Reveja as [opções](migrate-replication-appliance.md#mysql-installation) de instalação do MySQL no aparelho.
 - Reveja os URLs Azure necessários para que o aparelho de replicação aceda a nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais.](migrate-replication-appliance.md#azure-government-url-access)
-- Reveja os requisitos de acesso [porta] (migração-replicação-aparelho.md#porta-acesso) para o aparelho de replicação.
+- Reveja os requisitos de acesso à [porta](migrate-replication-appliance.md#port-access) para o aparelho de replicação.
 
 > [!NOTE]
 > O aparelho de replicação não deve ser instalado numa máquina de origem que pretende replicar ou no aparelho de deteção e avaliação Azure Migrate que possa ter instalado anteriormente.
@@ -125,7 +125,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
 
     ![Detetar VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. In **Discover machines**  >  **Are your machines virtualized?** **Not virtualized/Other**
+3. In **Discover machines**  >  **Are your machines virtualized?** 
 4. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
 5. **Selecione Confirme que a região-alvo para a migração é o nome da região.**
 6. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano.
@@ -133,7 +133,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
     - Não é possível alterar a região alvo deste projeto depois de clicar neste botão.
     - Todas as migrações subsequentes são para esta região.
 
-7. Na **Install a replication appliance** **instalação de um novo aparelho de replicação?**
+7. Na  **instalação de um novo aparelho de replicação?**
 9. Em **Transferir e instalar o software do aparelho de replicação,** descarregue o instalador do aparelho e a chave de registo. É necessário fazer a chave para registar o aparelho. A chave é válida por cinco dias após o download.
 
     ![Fornecedor de descarregamento](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
@@ -211,14 +211,14 @@ Agora, selecione máquinas para migração.
 
     ![Screenshot do ecrã Azure Migrate - Servidores mostrando o botão Replicar selecionado em Azure Migrate: Migração de servidores sob ferramentas de migração.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. Em **Replicar,**> **As definições de**  >  **Origem são virtualizadas?** **Not virtualized/Other**
+2. Em **Replicar,**> **As definições de**  >  **Origem são virtualizadas?** 
 3. No **aparelho no local,** selecione o nome do aparelho Azure Migrate que instalou.
 4. No **Process Server,** selecione o nome do aparelho de replicação.
 6. Nas **credenciais do Guest**, selecione a conta falsa criada anteriormente durante a instalação do [instalador de replicação](#download-the-replication-appliance-installer) para instalar manualmente o serviço Mobility (a instalação push não está suportada). Em seguida, clique **em Seguinte: Máquinas virtuais**.   
 
     ![Screenshot do separador Definições De Origem no ecrã Replica com o campo de credenciais do Convidado em destaque.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. Em **Máquinas Virtuais,** nas **No, I'll specify the migration settings manually** **definições de migração de importação a partir de uma avaliação?**
+7. Em **Máquinas Virtuais,** nas  **definições de migração de importação a partir de uma avaliação?**
 8. Verifique cada VM que deseja migrar. Em seguida, clique em **Seguinte: Definições de destino**.
 
     ![Selecione VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)

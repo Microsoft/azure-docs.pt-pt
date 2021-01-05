@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 96c0242414c67d97fc324977b1259f63c27c3a26
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e8d0afab14d02ffe16db535f173456b55ab53d69
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696817"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860939"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -66,7 +66,7 @@ Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Proteger por defeito
 
-O Balancer de Carga Padrão é construído no modelo de segurança da rede de confiança zero no seu núcleo. O Balancer de Carga Padrão é seguro por predefinição e faz parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  Isto significa que os balanceadores de carga padrão e os endereços IP públicos padrão estão fechados para fluxos de entrada, a menos que sejam abertos por Grupos de Segurança de Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa sub-rede ou NIC do seu recurso de máquina virtual, o tráfego não pode chegar a este recurso. Para saber mais sobre os NSGs e como aplicá-los para o seu cenário, consulte [os Grupos de Segurança da Rede.](../virtual-network/network-security-groups-overview.md)
+O Balancer de Carga Padrão é construído no modelo de segurança da rede de confiança zero no seu núcleo. O Balancer de Carga Padrão é seguro por predefinição e parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  Isto significa que os balanceadores de carga padrão e os endereços IP públicos padrão estão fechados para fluxos de entrada, a menos que sejam abertos por Grupos de Segurança de Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa sub-rede ou NIC do seu recurso de máquina virtual, o tráfego não pode chegar a este recurso. Para saber mais sobre os NSGs e como aplicá-los para o seu cenário, consulte [os Grupos de Segurança da Rede.](../virtual-network/network-security-groups-overview.md)
 O Balancer de Carga Básica está aberto à internet por padrão. Além disso, o Balancer de Carga não armazena os dados do cliente.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 130cd643856b38471eac6d6869cdc1ed8b0bcd2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499157"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857380"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Preparar e implementar um modelo de Voz Personalizada
 
@@ -67,7 +67,7 @@ Depois de o seu ponto final ser implantado, o nome do ponto final aparece como u
 
 ## <a name="view-logging-data"></a>Ver dados de registo
 
-Os dados de registo estão disponíveis para download em **Detalhes endpoint.**  >  **Details**
+Os dados de registo estão disponíveis para exportação se for à página do ponto final em **Implementações**.
 > [!NOTE]
 >Os dados de registo estão disponíveis durante 30 dias no armazenamento da Microsoft. Será removido depois. Se uma conta de armazenamento do cliente estiver ligada à subscrição dos Serviços Cognitivos, os dados de registo não serão automaticamente eliminados.
 

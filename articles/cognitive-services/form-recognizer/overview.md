@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353685"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845527"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -108,23 +108,21 @@ O modelo cartões de visita permite-lhe extrair informações como o nome da pes
 
 Utilize a [ferramenta Sample Form Recogniser](https://fott.azurewebsites.net/) ou siga um quickstart para começar a extrair dados dos seus formulários. Recomendamos que utilize o serviço gratuito quando estiver a aprender a tecnologia. Lembre-se que o número de páginas gratuitas está limitado a 500 por mês.
 
-* [Iniciações rápidas da biblioteca do cliente](./quickstarts/client-library.md) (todos os idiomas, múltiplos cenários)
+* [Biblioteca cliente / REST API quickstart](./quickstarts/client-library.md) (todos os idiomas, múltiplos cenários)
 * Inícios rápidos da Web UI
   * [Treine com rótulos - ferramenta de rotulagem de amostra](quickstarts/label-tool.md)
-* REST quickstarts
+* Amostras DE REPOUSO (GitHub)
  * Extrair texto, marcas de seleção e estrutura de mesa a partir de documentos
-    * [Dados de layout de extrato - Python](quickstarts/python-layout.md)
+    * [Dados de layout de extrato - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Treine modelos personalizados e extrair dados de formulário
-    * [Comboio sem etiquetas - cURL](quickstarts/curl-train-extract.md)
-    * [Comboio sem etiquetas - Python](quickstarts/python-train-extract.md)
-    * [Comboio com etiquetas - Python](quickstarts/python-labeled-data.md)
+    * [Comboio sem etiquetas - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Comboio com etiquetas - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Extrair dados das faturas
-    * [Extrair dados da fatura - Python](quickstarts/python-invoices.md)
+    * [Extrair dados da fatura - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Extrair dados dos recibos de venda
-    * [Dados de recibos de extração - cURL](quickstarts/curl-receipts.md)
-    * [Dados de recibos de extração - Python](quickstarts/python-receipts.md)
+    * [Dados de recibos de extração - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Extrair dados de cartões de visita
-    * [Extrair dados do cartão de visita - Python](quickstarts/python-business-cards.md)
+    * [Extrair dados do cartão de visita - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>Rever as APIs rest
 
@@ -162,4 +160,4 @@ Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Complete um [quickstart da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.
+Complete um [quickstart](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.

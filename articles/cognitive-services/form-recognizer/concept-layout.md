@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353702"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845559"
 ---
 # <a name="form-recognizer-layout-service"></a>Serviço de Layout do Reconhecimento de Formulários
 
@@ -89,10 +89,9 @@ Layout também extrai marcas de seleção de documentos. As marcas de seleção 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Experimente a sua própria extração de layout usando o [Formulário Recogniser Sample UI](https://fott-preview.azurewebsites.net/)
-- Complete um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a extrair layouts no idioma à sua escolha.
-- Ou, siga os [dados do Layout de Extrato](./QuickStarts/python-layout.md) rápido para implementar a extração de dados de layout usando Python e a API REST.
+- Complete um [quickstart de Reconhecimento de Formulário](quickstarts/client-library.md) para começar a extrair layouts na linguagem à sua escolha.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)

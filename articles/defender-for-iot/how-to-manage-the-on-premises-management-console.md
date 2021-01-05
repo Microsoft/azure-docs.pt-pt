@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841998"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861435"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerir a consola de gestão no local
 
@@ -298,6 +298,26 @@ Para repor a sua palavra-passe:
 
 > [!NOTE]
 > O sensor está ligado à subscrição a que estava originalmente ligado. Só pode recuperar a palavra-passe utilizando a mesma subscrição a que está anexada.
+
+## <a name="update-the-software-version"></a>Atualizar a versão do software
+
+O procedimento a seguir descreve como atualizar a versão de software de consola de gestão de informação no local. O processo de atualização demora cerca de 30 minutos.
+
+1. Aceda ao [portal do Azure](https://portal.azure.com/).
+
+1. Vá ao Defender para ioT.
+
+1. Aceda à página **'Atualizações'.**
+
+1. Selecione uma versão da secção de consola de gestão no local.
+
+1. Selecione **Baixar** e guardar o ficheiro.
+
+1. Inicie sessão na consola de gestão no local e selecione **Definições** do Sistema a partir do menu lateral.
+
+1. No painel **'Atualização** da versão', selecione **Update**.
+
+1. Selecione o ficheiro que descarregou na página Defender para **IoT Updates.**
 
 ## <a name="see-also"></a>Veja também
 

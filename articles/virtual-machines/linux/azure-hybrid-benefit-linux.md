@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631370"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858812"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Como o Azure Hybrid Benefit se aplica às máquinas virtuais Linux
 
@@ -172,7 +172,7 @@ Para obter mais informações sobre a conformidade com a subscrição da Red Hat
 
 ### <a name="suse"></a>SUSE
 
-Para utilizar o Azure Hybrid Benefit para os seus VMs SLES, tem primeiro de estar registado no [Programa SUSE Public Cloud](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). Depois de ter adquirido subscrições SUSE, tem de registar os seus VMs que utilizam essas subscrições na sua própria fonte de atualizações. Utilize o SUSE Customer Center, o servidor de Ferramentas de Gestão de Subscrição ou o SUSE Manager para este registo.
+Para utilizar o Azure Hybrid Benefit para os seus VMs SLES e para obter informações sobre a mudança do SLES PAYG para BYOS ou passar de SLES BYOS para PAYG, consulte [a SUSE Linux Enterprise e a Azure Hybrid Benefit.](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 *P: Posso usar um tipo de licença `RHEL_BYOS` com uma imagem SLES, ou vice-versa?*
@@ -210,6 +210,10 @@ A: Não, não pode. Os casos reservados não estão atualmente no âmbito do Azu
 *P: Posso utilizar o Azure Hybrid Benefit numa máquina virtual implantada para o SQL Server em imagens RHEL?*
 
 A: Não, não pode. Não há nenhum plano para apoiar estas máquinas virtuais.
+
+*P: Posso utilizar o Azure Hybrid Benefit na minha assinatura RHEL Virtual Data Center?*
+
+A: Não, não pode. A VDC não é suportada em Azure, incluindo a AHB.  
  
 
 ## <a name="common-problems"></a>Problemas comuns

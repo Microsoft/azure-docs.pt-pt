@@ -4,16 +4,16 @@ description: Saiba como ativar a autenticação baseada na identidade sobre o Bl
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: deed7c3dce2d7da1940a8a4871efac7453e2cf60
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 340455450cd6a18adfd8d0843fee423f82f10a45
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033685"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858404"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
@@ -22,8 +22,7 @@ Ficheiros Azure [](storage-files-introduction.md)   suporta a autenticação b
 Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia de planeamento](storage-files-planning.md) antes de ler a seguinte série de artigos.
 
 > [!NOTE]
-> A Azure Files suporta a autenticação Kerberos com Azure AD DS com encriptação RC4-HMAC. A encriptação AES Kerberos ainda não está suportada.
-> A Azure Files suporta a autenticação para Azure AD DS com sincronização completa com Azure AD. Se tiver ativado a sincronização de âmbito em Azure AD DS que apenas sincroniza um conjunto limitado de identidades do Azure AD, a autenticação e a autorização não são suportadas.
+> A Azure Files suporta a autenticação Kerberos com Azure AD DS com encriptação RC4-HMAC e AES 256. A Azure Files suporta a autenticação para Azure AD DS com sincronização completa com Azure AD. Se tiver ativado a sincronização de âmbito em Azure AD DS que apenas sincroniza um conjunto limitado de identidades do Azure AD, a autenticação e a autorização não são suportadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +58,7 @@ Antes de ativar a Azure AD sobre AMB para ações de ficheiros Azure, certifique
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação Azure Files com Azure AD DS está disponível em [todas as regiões Azure Public e Gov](https://azure.microsoft.com/global-infrastructure/locations/).
+A autenticação Azure Files com Azure AD DS está disponível em [todas as regiões Azure Public, Gov e China.](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="overview-of-the-workflow"></a>Visão geral do fluxo de trabalho
 

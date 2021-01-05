@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972657"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854864"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões apoiadas por serviços de fala
 
@@ -44,11 +44,13 @@ O serviço de Discurso está disponível nestas regiões para **reconhecimento d
 
 Se utilizar o [SDK de fala,](speech-sdk.md)as regiões são especificadas pelo **identificador da Região** (por exemplo, como parâmetro para `SpeechConfig.FromSubscription` ). Certifique-se de que a região está a corresponder à região da sua subscrição.
 
+Se planeia treinar um modelo personalizado com dados áudio, utilize uma das [regiões com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para um treino mais rápido. Pode utilizar a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para copiar o modelo totalmente treinado para outra região mais tarde.
+
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
 As regiões disponíveis para **reconhecimento de intenções** através do SDK de discurso são as seguintes:
 
-| Região global | Region           | Identificador da região |
+| Região global | Região           | Identificador da região |
 | ------------- | ---------------- | -------------------- |
 | Ásia          | Ásia Leste        | `eastasia`           |
 | Ásia          | Sudeste Asiático   | `southeastasia`      |
@@ -67,17 +69,21 @@ Trata-se de um subconjunto das regiões editoriais apoiado pelo [serviço de Com
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-O [Speech SDK](speech-sdk.md) suporta capacidades **de assistente** de voz nestas regiões:
+O [Speech SDK](speech-sdk.md) suporta capacidades **de assistente** de voz através do Discurso de Linha [Direta](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) nestas regiões:
 
-| Region         | Identificador da região |
-| -------------- | -------------------- |
-| E.U.A. Oeste        | `westus`             |
-| E.U.A. Oeste 2      | `westus2`            |
-| E.U.A. Leste        | `eastus`             |
-| E.U.A. Leste 2      | `eastus2`            |
-| Europa Ocidental    | `westeurope`         |
-| Europa do Norte   | `northeurope`        |
-| Sudeste Asiático | `southeastasia`      |
+| Região global | Região           | Identificador da região    |
+| ------------- | ---------------- | -------------------- |
+| América do Norte | E.U.A. Oeste          | `westus`             |
+| América do Norte | E.U.A. Oeste 2        | `westus2`            |
+| América do Norte | E.U.A. Leste          | `eastus`             |
+| América do Norte | E.U.A. Leste 2        | `eastus2`            |
+| América do Norte | E.U.A. Centro-Oeste  | `westcentralus`      |
+| América do Norte | E.U.A. Centro-Sul | `southcentralus`     |
+| Europa        | Europa Ocidental      | `westeurope`         |
+| Europa        | Europa do Norte     | `northeurope`        |
+| Ásia          | Ásia Leste        | `eastasia`           |
+| Ásia          | Sudeste Asiático   | `southeastasia`      |
+| Índia         | Índia Central    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Reconhecimento de Orador
 

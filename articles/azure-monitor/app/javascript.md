@@ -4,12 +4,12 @@ description: Obtenha a visualização da página e as contagens de sessão, dado
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559884"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858557"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -170,7 +170,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Name | Predefinição | Descrição |
+| Nome | Predefinição | Descrição |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Obrigatório**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
@@ -339,7 +339,7 @@ Quebrando alterações na versão SDK V2:
 - Para permitir melhores assinaturas de API, algumas das chamadas API, tais como trackPageView e trackException, foram atualizadas. A execução no Internet Explorer 8 e versões anteriores do navegador não são suportadas.
 - O envelope de telemetria tem nome de campo e alterações de estrutura devido a atualizações de esquemas de dados.
 - Mudou-se `context.operation` `context.telemetryTrace` para. Alguns campos também foram `operation.id` alterados .  -->  `telemetryTrace.traceID`
-  - Para atualizar manualmente o ID do visão de página atual (por exemplo, em aplicações DE SPA), utilize `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
+  - Para atualizar manualmente o ID do visão de página atual (por exemplo, em aplicações DE SPA), utilize `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` .
     > [!NOTE]
     > Para manter o vestígio único, onde já `Util.newId()` utilizou, utilize agora `Util.generateW3CId()` . Ambos acabam por ser a identificação da operação.
 

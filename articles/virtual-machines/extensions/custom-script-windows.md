@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 8d11ff6eaab8ed6a13c3c2aa1b712cc57e7825ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960976"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861786"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -61,7 +61,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de firewall
 * Existe um período de 90 minutos permitido para a execução do script. Um período mais longo resultará numa falha de aprovisionamento da extensão.
 * Não coloque reinícios no script. Essa ação causará problemas com outras extensões que sejam instaladas. Após o reinício, a extensão não continuará.
 * Se tiver um script que irá causar um reboot, em seguida, instalar aplicações e executar scripts, você pode agendar o reboot usando uma Tarefa Agendada do Windows, ou usar ferramentas como extensões DSC, Chef ou Puppet.
-* Não é aconselhável executar um script que irá causar uma paragem ou atualização do Agente VM. Isto pode permitir a extensão em um estado de transição, levando a um tempo limite.
+* Não é aconselhável executar um script que irá causar uma paragem ou atualização do Agente VM. Isto pode deixar a extensão num estado de transição, levando a um tempo limite.
 * A extensão apenas executará um script de uma vez. Se quiser executar um script a cada arranque, tem de utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Se quiser agendar a execução de um script, deve utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se quiser atualizações de estado mais frequentes de um script em execução, terá de criar a sua própria solução.
@@ -125,7 +125,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |
 | tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |

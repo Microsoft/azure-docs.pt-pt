@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566542"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845636"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -48,16 +48,14 @@ Para trabalhar através do cenário, irá interagir com componentes da aplicaç�
 
 Aqui estão os componentes implementados pela aplicação de amostra do cenário de construção *AdtSampleApp:*
 * Autenticação do dispositivo 
-* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) de utilização da SDK (encontrados em *CommandLoop.cs* )
+* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) de utilização da SDK (encontrados em *CommandLoop.cs*)
 * Interface de consola para chamar a AZure Digital Twins API
 * *SampleClientApp* - Uma solução de amostra Azure Digital Twins
 * *SampleFunctionsApp* - Uma app Azure Functions que atualiza o seu gráfico Azure Digital Twins como resultado da telemetria dos eventos IoT Hub e Azure Digital Twins
 
-O projeto da amostra contém também um componente de autorização interativo. Sempre que iniciar o projeto, abre-se uma janela do navegador, levando-o a iniciar sessão com a sua conta Azure.
-
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Instantiate o gráfico gémeo pré-criado
 
-Em primeiro lugar, utilizará a solução *AdtSampleApp* do projeto de amostra para construir a peça Azure Digital Twins do cenário de ponta a ponta **(secção A** ):
+Em primeiro lugar, utilizará a solução *AdtSampleApp* do projeto de amostra para construir a peça Azure Digital Twins do cenário de ponta a ponta **(secção A**):
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Um excerto do cenário de construção completo da secção A, a instância Azure Digital Twins":::
 
@@ -74,7 +72,7 @@ Uma janela da consola abrir-se-á, procederá à autenticação e esperará por 
 SetupBuildingScenario
 ```
 
-A saída deste comando é uma série de mensagens de confirmação, uma vez que três [**gémeos digitais**](concepts-twins-graph.md) são criados e conectados no seu exemplo Azure Digital Twins: um piso chamado *piso 1* , uma sala chamada *sala21* , e um sensor de temperatura chamado *termóstato67*. Estes gémeos digitais representam as entidades que existiriam num ambiente real.
+A saída deste comando é uma série de mensagens de confirmação, uma vez que três [**gémeos digitais**](concepts-twins-graph.md) são criados e conectados no seu exemplo Azure Digital Twins: um piso chamado *piso 1*, uma sala chamada *sala21*, e um sensor de temperatura chamado *termóstato67*. Estes gémeos digitais representam as entidades que existiriam num ambiente real.
 
 Estão ligados através de relações ao gráfico [**gémeo**](concepts-twins-graph.md)seguinte. O gráfico gémeo representa o ambiente como um todo, incluindo a forma como as entidades interagem e se relacionam entre si.
 
@@ -101,7 +99,7 @@ Depois disto, pode parar de dirigir o projeto. Mantenha a solução aberta no Vi
 ## <a name="set-up-the-sample-function-app"></a>Configurar a aplicação de função da amostra
 
 O próximo passo é criar uma [app Azure Functions](../azure-functions/functions-overview.md) que será usada ao longo deste tutorial para processar dados. A aplicação de função, *SampleFunctionsApp,* contém duas funções:
-* *ProcessHubToDTEvents* : processa a entrada de dados do IoT Hub e atualiza as Gémeas Digitais Azure em conformidade
+* *ProcessHubToDTEvents*: processa a entrada de dados do IoT Hub e atualiza as Gémeas Digitais Azure em conformidade
 * *ProcessDTRoutedData:* processa dados de gémeos digitais e atualiza as gémeas-mãe em Azure Digital Twins em conformidade
 
 Nesta secção, publicará a aplicação de função pré-escrita e garantirá que a aplicação de função pode aceder a Azure Digital Twins atribuindo-lhe uma identidade de Azure Ative Directory (Azure AD). O preenchimento destes passos permitirá que o resto do tutorial utilize as funções dentro da aplicação de função. 
@@ -134,7 +132,7 @@ Para um alvo específico, escolha **Azure Function App (Windows)** e acerte *em 
 
 Na página *de instância funções,* escolha a sua subscrição. Isto deve povoar uma caixa com os *grupos de recursos* na sua subscrição.
 
-Selecione o grupo de recursos do seu caso e hit *+ Crie uma nova Função Azure...*.
+Selecione o grupo de recursos do seu caso e bata *+* para criar uma nova Função Azure.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicar função Azure em Visual Studio: Instância de funções (antes da aplicação de função)":::
 
@@ -238,12 +236,12 @@ Isto irá trazer para cima a página *de Subscrição de Eventos* Criar.
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portal Azure: criar subscrição de eventos":::
 
 Preencha os campos da seguinte forma (não são mencionados os campos preenchidos por defeito):
-* *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome** : Dê um nome à subscrição do seu evento.
-* *DETALHES TÓPICOS*  >  **Nome do tópico do sistema** : Dê um nome para usar para o tópico do sistema. 
-* *TIPOS DE EVENTOS*  >  **Filtrar para tipos de eventos** : Selecione *a telemetria* do dispositivo a partir das opções do menu.
-* *DETALHES DO PONTO FINAL*  >  **Tipo ponto final** : Selecione *Azure Function* a partir das opções do menu.
-* *DETALHES DO PONTO FINAL*  >  **Ponto final** : Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *Select Azure Function:* :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Subscrição do evento do portal Azure: selecione a função Azure" border="false":::
-    - Preencha a sua **Subscrição** , **Grupo de Recursos** , **Função app** e **Função** ( *ProcessHubToDTEvents* ). Alguns destes podem preencher automaticamente após a seleção da subscrição.
+* *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome**: Dê um nome à subscrição do seu evento.
+* *DETALHES TÓPICOS*  >  **Nome do tópico do sistema**: Dê um nome para usar para o tópico do sistema. 
+* *TIPOS DE EVENTOS*  >  **Filtrar para tipos de eventos**: Selecione *a telemetria* do dispositivo a partir das opções do menu.
+* *DETALHES DO PONTO FINAL*  >  **Tipo ponto final**: Selecione *Azure Function* a partir das opções do menu.
+* *DETALHES DO PONTO FINAL*  >  **Ponto final**: Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *Select Azure Function:* :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Subscrição do evento do portal Azure: selecione a função Azure" border="false":::
+    - Preencha a sua **Subscrição**, **Grupo de Recursos**, **Função app** e **Função** (*ProcessHubToDTEvents*). Alguns destes podem preencher automaticamente após a seleção da subscrição.
     - Hit **Confirm Selection**.
 
 De volta à página *de Subscrição de Eventos Create,* hit **Create**.
@@ -278,12 +276,12 @@ az iot hub device-identity connection-string show --device-id thermostat67 --hub
 
 Irá ligar estes valores ao código do simulador do dispositivo no seu projeto local para ligar o simulador a este hub IoT e ao dispositivo do hub IoT.
 
-Numa nova janela do Estúdio Visual, abra (da pasta de solução descarregada) _Device Simulator > **DeviceSimulator.sln**_.
+Numa nova janela do Estúdio Visual, abra (da pasta de solução descarregada) o Simulador de _Dispositivos > **DeviceSimulator.sln**_.
 
 >[!NOTE]
-> Deverá agora ter duas janelas do Estúdio Visual, uma com _**DeviceSimulator.sln**_ e outra de anterior com _**AdtE2ESample.sln**_.
+> Deverá agora ter duas janelas do Estúdio Visual, uma com _**DeviceSimulator.sln**_ e outra de anterior com _**a AdtE2ESample.sln**_.
 
-A partir do painel *Solution Explorer* nesta nova janela do Estúdio Visual, selecione _DeviceSimulator/AzureIoTHub.cs **AzureIoTHub.cs**_ para abri-lo na janela de edição. Altere os seguintes valores de cadeia de ligação para os valores acima recolhidos:
+A partir do painel *Solution Explorer* nesta nova janela do Estúdio Visual, selecione _DeviceSimulator/AzureIoTHub.cs_ para abri-lo na janela de edição. Altere os seguintes valores de cadeia de ligação para os valores acima recolhidos:
 
 ```csharp
 iotHubConnectionString = <your-hub-connection-string>
@@ -400,10 +398,10 @@ No [portal Azure,](https://portal.azure.com/)navegue para o tópico da grelha de
 Os passos para criar esta subscrição do evento são semelhantes ao de quando subscreveu a primeira função Azure ao IoT Hub no início deste tutorial. Desta vez, não precisa de especificar a *Telemetria do Dispositivo* como o tipo de evento para ouvir, e irá ligar-se a uma função Azure diferente.
 
 Na página *'Criar Subscrição de* Eventos', preencha os campos da seguinte forma (os campos preenchidos por predefinição não são mencionados):
-* *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome** : Dê um nome à subscrição do seu evento.
-* *DETALHES DO PONTO FINAL*  >  **Tipo ponto final** : Selecione *Azure Function* a partir das opções do menu.
-* *DETALHES DO PONTO FINAL*  >  **Ponto final** : Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *de função Select Azure:*
-    - Preencha a sua **Subscrição** , **Grupo de Recursos** , **Função app** e **Função** *(ProcessDTRoutedData).* Alguns destes podem preencher automaticamente após a seleção da subscrição.
+* *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome**: Dê um nome à subscrição do seu evento.
+* *DETALHES DO PONTO FINAL*  >  **Tipo ponto final**: Selecione *Azure Function* a partir das opções do menu.
+* *DETALHES DO PONTO FINAL*  >  **Ponto final**: Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *de função Select Azure:*
+    - Preencha a sua **Subscrição**, **Grupo de Recursos**, **Função app** e **Função** *(ProcessDTRoutedData).* Alguns destes podem preencher automaticamente após a seleção da subscrição.
     - Hit **Confirm Selection**.
 
 De volta à página *de Subscrição de Eventos Create,* hit **Create**.
@@ -442,7 +440,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 

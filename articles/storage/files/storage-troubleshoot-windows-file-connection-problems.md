@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492051"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858693"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
 
@@ -203,7 +203,7 @@ Uma pega de ficheiro está a impedir que um ficheiro/diretório seja modificado 
 
 Se todos os clientes SMB tiverem fechado as suas pegas abertas num ficheiro/diretório e o problema continuar a ocorrer, pode forçar a fechar uma pega de ficheiro.
 
-### <a name="solution-1"></a>Solução 1
+### <a name="solution-1"></a>Solução 1
 Para forçar o fecho de uma pega de ficheiro, utilize o [cmdlet Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell. 
 
 > [!Note]  
@@ -244,7 +244,7 @@ LeaseState            : Leased
 LeaseStatus           : Locked
 ```
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 Para remover um contrato de arrendamento de um ficheiro, pode libertar o contrato de arrendamento ou quebrar o contrato de arrendamento. Para liberar o arrendamento, você precisa do LeaseId do arrendamento, que você define quando você cria o arrendamento. Você não precisa do LeaseId para quebrar o arrendamento.
 
 O exemplo a seguir mostra como quebrar o contrato de arrendamento para o ficheiro indicado na causa 2 (este exemplo continua com as variáveis PowerShell da causa 2):
@@ -406,6 +406,8 @@ O cmdlet executa estas verificações abaixo em sequência e fornece orientaçã
 5. CheckSidHasAadUser: Verifique se o utilizador com sessão registada no utilizador AD está sincronizado com a Azure AD. Se quiser analisar se um utilizador específico de AD está sincronizado com AZure AD, pode especificar o -UserName e -Domain nos parâmetros de entrada. 
 6. CheckGetKerberosTicket: Tente obter um bilhete Kerberos para ligar à conta de armazenamento. Se não houver um token Kerberos válido, execute o klist obter cifs/storage-account-name.file.core.windows.net cmdlet e examinar o código de erro para causar a falha de recuperação do bilhete.
 7. CheckStorageAccountDomainJoined: Verifique se a autenticação AD foi ativada e se as propriedades de AD da conta estão povoadas. Caso contrário, consulte [as](./storage-files-identity-ad-ds-enable.md) instruções aqui para ativar a autenticação AD DS nos Ficheiros Azure. 
+8. CheckUserRbacAssignment: Verifique se o utilizador AD tem a atribuição adequada da função RBAC para fornecer permissão de nível de partilha para aceder a Ficheiros Azure. Caso contrário, consulte [a](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) instrução aqui para configurar a permissão do nível de partilha. (Suportado na versão AzFilesHybrid v0.2.3+
+9. CheckUserFileAccess: Verifique se o utilizador de AD tem a permissão de diretório/ficheiro adequado (ACLs windows) para aceder a Ficheiros Azure. Caso contrário, consulte [a](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) instrução aqui para configurar a permissão de nível de diretório/arquivo. (Suportado na versão AzFilesHybrid v0.2.3+
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Não é possível configurar permissões de diretório/nível de ficheiro (ACLs windows) com o Windows File Explorer
 

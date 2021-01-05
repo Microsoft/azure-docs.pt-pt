@@ -6,18 +6,18 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397557"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854915"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configure o Serviço de Aplicações com Gateway de Aplicações
 
-Uma vez que o serviço de aplicações é um serviço multi-inquilino em vez de uma implementação dedicada, utiliza o cabeçalho do anfitrião no pedido de entrada para resolver o pedido para o ponto final correto do serviço de aplicações. Normalmente, o nome DNS da aplicação, que por sua vez é o nome DNS associado ao gateway de aplicação que faz frente ao serviço da aplicação, é diferente do nome de domínio do serviço de aplicações backend. Portanto, o cabeçalho do anfitrião no pedido original recebido pelo gateway de aplicação não é o mesmo que o nome de anfitrião do serviço de backend. Por isso, a menos que o cabeçalho do anfitrião no pedido da porta de entrada de aplicação para o backend seja alterado para o nome de anfitrião do serviço de backend, os backends multi-inquilinos não são capazes de resolver o pedido para o ponto final correto.
+Como o serviço de aplicações é um serviço multi-inquilino em vez de uma implementação dedicada, utiliza o cabeçalho de anfitrião no pedido recebido para resolver o pedido para o ponto final de serviço da aplicação correto. Normalmente, o nome DNS da aplicação, que por sua vez é o nome DNS associado ao gateway de aplicação que faz frente ao serviço da aplicação, é diferente do nome de domínio do serviço de aplicações backend. Portanto, o cabeçalho do anfitrião no pedido original recebido pelo gateway de aplicação não é o mesmo que o nome de anfitrião do serviço de backend. Por isso, a menos que o cabeçalho do anfitrião no pedido da porta de entrada de aplicação para o backend seja alterado para o nome de anfitrião do serviço de backend, os backends multi-inquilinos não são capazes de resolver o pedido para o ponto final correto.
 
 O Application Gateway fornece um interruptor chamado `Pick host name from backend target` que substitui o cabeçalho do anfitrião no pedido com o nome de anfitrião do back-end quando o pedido é encaminhado do Gateway de Aplicação para o backend. Esta capacidade permite suporte para extremidades traseiras multi-arrendatários, como o serviço de aplicações Azure e a gestão da API. 
 
@@ -38,7 +38,7 @@ Neste artigo, vai aprender a:
 
 2. Em **piscinas backend,** selecione a piscina de backend.
 
-4. Sob **o tipo Target** , selecione **Serviços de Aplicação.**
+4. Sob **o tipo Target**, selecione **Serviços de Aplicação.**
 
 5. No **Target** selecione o seu Serviço de Aplicações.
 
@@ -46,15 +46,15 @@ Neste artigo, vai aprender a:
    
    > [!NOTE]
    > O dropdown apenas povoa os serviços de aplicações que estão na mesma subscrição que o seu Gateway de aplicações. Se pretender utilizar um serviço de aplicações que esteja numa subscrição diferente daquela em que está o Gateway de Aplicação, em vez de escolher **os Serviços** de Aplicações no **dropdown dos Targets,** escolha o endereço IP ou opção **de nome de anfitrião** e insira o nome de anfitrião (exemplo. azurewebsites.net) do serviço de aplicações.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="edit-http-settings-for-app-service"></a>Editar definições HTTP para Serviço de Aplicações
 
-1. Em **DEFINIÇÕES HTTP** , selecione a definição HTTP existente.
+1. Em **DEFINIÇÕES HTTP**, selecione a definição HTTP existente.
 
 2. Under **Override com novo nome de anfitrião,** selecione **Sim**.
 3. No **nome do anfitrião,** selecione **O nome do anfitrião do alvo backend**.
-4. Selecione **Save** (Guardar).
+4. Selecione **Guardar**.
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Escolha o nome do anfitrião a partir das definições de backend http":::
 

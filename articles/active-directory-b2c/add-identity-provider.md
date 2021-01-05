@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 12/07/2020
+ms.date: 01/04/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a5e8914b170f972304098bf9b4d0022164d30777
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: e336fe8d8042657329936ed59058ed91109692fc
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669096"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861848"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Adicione um fornecedor de identidade ao seu inquilino Azure Ative Directory B2C
 
@@ -45,7 +45,7 @@ Normalmente, usa apenas um fornecedor de identidade nas suas aplicações, mas t
 * [LinkedIn](identity-provider-linkedin.md)
 * [Conta Microsoft](identity-provider-microsoft-account.md)
 * [QQ](identity-provider-qq.md)
-* [Salesforce](identity-provider-salesforce.md)
+* [Salesforce](identity-provider-salesforce-saml.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

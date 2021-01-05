@@ -3,12 +3,12 @@ title: Backup Center - FAQ
 description: Este artigo responde frequentemente a perguntas sobre backup Center
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: c5b23a32b60f651cd3ff91819155d83a7465491a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5befa39411c22253bfccc689d8b5c5967a8cd759
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173813"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858625"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Backup Center - Perguntas frequentes
 
@@ -30,11 +30,13 @@ O Backup Center destina-se a fornecer informações em tempo real. Pode haver al
 
 ### <a name="do-i-need-to-configure-anything-to-see-data-in-backup-center"></a>Preciso de configurar alguma coisa para ver os dados no Backup Center?
 
-Não. O Centro de Reserva sai pronto para fora da caixa. No entanto, para visualizar [relatórios de backup](./configure-reports.md) no Centro de Backup, é necessário configurar relatórios para os seus cofres.
+N.º O Centro de Reserva sai pronto para fora da caixa. No entanto, para visualizar [relatórios de backup](./configure-reports.md) no Centro de Backup, é necessário configurar relatórios para os seus cofres.
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Preciso de alguma autorização especial para usar o Backup Center?
 
-O Backup Center, como tal, não precisa de novas permissões. Desde que tenha o nível certo de acesso rbac do Azure para os recursos que está a gerir, pode usar o Backup Center para estes recursos. Por exemplo, para visualizar informações sobre as suas cópias de segurança, precisará do acesso do **Reader** aos seus cofres. Para configurar backup e executar outras ações relacionadas com backup, você precisará de **funções de Backup Contributor** ou **Backup Operator.** Saiba mais sobre [os papéis do Azure para a Azure Backup](./backup-rbac-rs-vault.md).
+O Backup Center, como tal, não precisa de novas permissões. Desde que tenha o nível certo de acesso rbac do Azure para os recursos que está a gerir, pode usar o Backup Center para estes recursos. Por exemplo, para visualizar informações sobre as suas cópias de segurança, precisará do acesso do **Reader** aos seus cofres. Para configurar backup e executar outras ações relacionadas com backup, você precisará de **funções de Backup Contributor** ou **Backup Operator.** Saiba mais sobre [os papéis do Azure para a Azure Backup](./backup-rbac-rs-vault.md). 
+
+Se estiver a utilizar [relatórios de backup](./configure-reports.md) no Backup Center, necessitará de acesso ao espaço de trabalho log Analytics para o qual o seu cofre(s) está a enviar dados para visualizar relatórios para estes cofres.
 
 ## <a name="pricing"></a>Preços
 

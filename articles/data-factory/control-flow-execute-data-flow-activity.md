@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
-ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095088"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858790"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
 
@@ -38,6 +38,8 @@ Utilize a atividade do Fluxo de Dados para transformar e mover dados através de
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -57,13 +59,13 @@ Utilize a atividade do Fluxo de Dados para transformar e mover dados através de
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-fluxo de dados | A referência ao Fluxo de Dados a ser executado | DataFlowReference | Sim
-integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | Não
-compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | Não
-compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | Não
+fluxo de dados | A referência ao Fluxo de Dados a ser executado | DataFlowReference | Yes
+integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | No
+compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | No
+compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | No
 staging.linkedService | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, especifique a conta de armazenamento utilizada para a paragem da PolyBase.<br/><br/>Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Aprenda também as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Só se o fluxo de dados ler ou escrever para um Azure Synapse Analytics
 staging.folderPath | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de bolhas utilizada para a paragem da PolyBase | String | Só se o fluxo de dados ler ou escrever para a Azure Synapse Analytics
-traceLevel | Definir o nível de registo da execução da atividade do fluxo de dados | Tudo bem, grosseiro, nenhum | Não
+traceLevel | Definir o nível de registo da execução da atividade do fluxo de dados | Tudo bem, grosseiro, nenhum | No
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -95,6 +97,14 @@ Se estiver a utilizar um Azure Synapse Analytics como pia ou fonte, deve escolhe
 Se não necessitar de todas as execuções do pipeline das suas atividades de fluxo de dados para registar totalmente todos os registos de telemetria verbose, pode configurar opcionalmente o seu nível de registo para "Básico" ou "Nenhum". Ao executar os fluxos de dados no modo "Verbose" (padrão), está a solicitar à ADF que faça login totalmente a cada nível de partição durante a transformação dos dados. Esta pode ser uma operação dispendiosa, por isso apenas permitir verbose quando a resolução de problemas pode melhorar o seu fluxo global de dados e desempenho do pipeline. O modo "Básico" só registará durações de transformação enquanto "Nenhum" fornecerá apenas um resumo das durações.
 
 ![Nível de registo](media/data-flow/logging.png "Definir nível de registo")
+
+## <a name="sink-properties"></a>Propriedades de pia
+
+A funcionalidade de agrupamento nos fluxos de dados permite-lhe definir a ordem de execução dos seus lavatórios, bem como agrupar pias usando o mesmo número de grupo. Para ajudar a gerir grupos, pode pedir à ADF para executar pias, no mesmo grupo, em paralelo. Também pode definir o grupo de pia para continuar mesmo depois de um dos lavatórios encontrar um erro.
+
+O comportamento padrão dos sumidouros de fluxo de dados é executar cada pia sequencialmente, de forma em série, e falhar o fluxo de dados quando um erro é encontrado na pia. Além disso, todos os lavatórios estão em incumprimento do mesmo grupo, a menos que você entre nas propriedades de fluxo de dados e desecorde diferentes prioridades para os lavatórios.
+
+![Propriedades de pia](media/data-flow/sink-properties.png "Definir propriedades de pia")
 
 ## <a name="parameterizing-data-flows"></a>Parametrizar fluxos de dados
 

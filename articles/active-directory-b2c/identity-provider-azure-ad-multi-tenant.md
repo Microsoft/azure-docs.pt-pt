@@ -8,34 +8,35 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/04/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71e3bf429c7b8d3f4f8fe205c05b0701732fdef9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c9ac92f836e1d0c1210bb16b5c1d6e232fd5c22e
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653814"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858472"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+::: zone pivot="b2c-user-flow"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
 
 ::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Este artigo mostra-lhe como permitir a inscrição para utilizadores que usam o ponto final de multi-inquilino para O Diretório Ativo Azure (Azure AD). Isto permite que os utilizadores de vários inquilinos da AZure AD assinem usando o Azure AD B2C, sem que tenha de configurar um fornecedor de identidade para cada inquilino. No entanto, os membros convidados de qualquer um destes inquilinos **não** poderão assinar. Para isso, é necessário [configurar individualmente cada inquilino.](identity-provider-azure-ad-single-tenant.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
-Este artigo mostra-lhe como permitir a inscrição para utilizadores que usam o ponto final de multi-inquilino para O Diretório Ativo Azure (Azure AD). Isto permite que os utilizadores de vários inquilinos da AZure AD assinem usando o Azure AD B2C, sem que tenha de configurar um fornecedor de identidade para cada inquilino. No entanto, os membros convidados de qualquer um destes inquilinos **não** poderão assinar. Para isso, é necessário [configurar individualmente cada inquilino.](identity-provider-azure-ad-single-tenant.md)
-
 
 ## <a name="register-an-application"></a>Registar uma aplicação
 
@@ -71,41 +72,6 @@ Se quiser obter as `family_name` `given_name` reclamações da Azure AD, pode co
 1. Para o **tipo Token**, selecione **ID**.
 1. Selecione as reclamações opcionais a adicionar `family_name` e `given_name` .
 1. Clique em **Adicionar**.
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="configure-azure-ad-as-an-identity-provider"></a>Configure Azure AD como fornecedor de identidade
-
-1. Certifique-se de que está a usar o diretório que contém o inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
-1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-1. Selecione **os fornecedores de identidade** e, em seguida, selecione novo fornecedor **OpenID Connect**.
-1. Insira um **nome**. Por exemplo, *insira Contoso Azure AD*.
-1. Para **o url metadados,** introduza o seguinte URL substituindo `{tenant}` pelo nome de domínio do seu inquilino AZure AD:
-
-    ```
-    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
-    ```
-
-    Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
-    Por exemplo, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
-
-1. Para **identificação do cliente,** introduza o ID da aplicação que gravou anteriormente.
-1. Para **segredo do Cliente,** insira o segredo do cliente que gravou anteriormente.
-1. Para o **Âmbito,** insira o `openid profile` .
-1. Deixe os valores predefinidos para **o tipo de resposta,** **modo de resposta** e **sugestão de domínio**.
-1. No âmbito **do mapeamento de reclamações do fornecedor de identidade,** selecione as seguintes reclamações:
-
-    - **ID do utilizador**: *oid*
-    - **Nome do visor**: *nome*
-    - **Nome próprio**: *given_name*
-    - **Apelido**: *family_name*
-    - **E-mail**: *preferred_username*
-
-1. Selecione **Guardar**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política
 
@@ -243,24 +209,6 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
     Atualize o valor do **TechnicalProfileReferenceD** para o **ID** do perfil técnico que criou anteriormente. Por exemplo, `Common-AAD`.
 
 3. Guarde o ficheiro *TrustFrameworkExtensions.xml* e faça o upload novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Azure AD a um fluxo de utilizador 
-
-1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade Azure AD.
-1. Sob os **fornecedores de identidade social,** selecione **Contoso Azure AD**.
-1. Selecione **Guardar**.
-1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador executar**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o ficheiro do partido que conta
 

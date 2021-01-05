@@ -2,20 +2,22 @@
 title: Unidades de Exemplo BareMetal em Azure
 description: Saiba como identificar e interagir com unidades de Exemplo BareMetal através do portal Azure.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829250"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861026"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gerir Instâncias Bare-metal através do portal do Azure
  
 Este artigo mostra como o [portal Azure](https://portal.azure.com/) exibe [Instâncias BareMetal](baremetal-overview-architecture.md). Este artigo também mostra as atividades que pode fazer no portal Azure com as suas unidades de Exemplo BareMetal implantadas. 
  
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
-Um fornecedor de recursos Azure para a BareMetal Instances fornece visibilidade das instâncias no portal Azure, atualmente em pré-visualização pública. Por predefinição, a subscrição Azure que utiliza para implementações bareMetal Instance regista o fornecedor de recursos *BareMetalInfrastructure.* Se não vir as suas unidades Desnudas Desmedidas, tem de registar o fornecedor de recursos com a sua subscrição. Existem duas formas de registar o fornecedor de recursos BareMetal Instance:
+Um fornecedor de recursos Azure para a BareMetal Instances fornece visibilidade das instâncias no portal Azure, atualmente em pré-visualização pública. Por predefinição, a subscrição Azure que utiliza para implementações bareMetal Instance regista o fornecedor de recursos *BareMetalInfrastructure.* Se não vir as suas unidades Desnudas Desmedidas, tem de registar o fornecedor de recursos com a sua subscrição. 
+
+Existem duas formas de registar o fornecedor de recursos BareMetal Instance:
  
 * [CLI do Azure](#azure-cli)
  
@@ -85,15 +87,15 @@ Os atributos na imagem não parecem muito diferentes dos atributos da máquina v
 À direita, verá o nome da unidade, sistema operativo (OS), endereço IP e SKU que mostra o número de fios e memória do CPU. Você também verá a versão power state e hardware (revisão do carimbo BareMetal Instance). O estado de alimentação indica se a unidade de hardware está ligado ou desligado. Os detalhes do sistema operativo, no entanto, não indicam se está em funcionamento.
  
 As possíveis revisões de hardware são:
+
+* Revisão 3 (Rev 3)
+
+* Revisão 4 (Rev 4)
  
-* Revisão 3
- 
-* Revisão 4
- 
-* Revisão 4.2
+* Revisão 4.2 (Rev. 4.2)
  
 >[!NOTE]
->A Revisão 4.2 é a mais recente infraestrutura baremetal remarcada utilizando a arquitetura Revisão 4. Tem melhorias significativas na latência da rede entre as unidades de instância Azure VMs e BareMetal implantadas na Revisão de 4 selos ou linhas. Para obter mais informações sobre as diferentes revisões, consulte [a Infraestrutura BareMetal em Azure.](baremetal-overview-architecture.md)
+>Rev 4.2 é a mais recente infraestrutura baremetal rebranded usando a arquitetura rev 4 existente. O Rev 4 proporciona uma maior proximidade com os anfitriões da máquina virtual Azure (VM). Tem melhorias significativas na latência da rede entre as unidades de instância Azure VMs e BareMetal implantadas em selos ou linhas Rev 4. Pode aceder e gerir as suas instâncias BareMetal através do portal Azure. Para mais informações, consulte [a Infraestruturas BareMetal em Azure.](baremetal-overview-architecture.md)
  
 Além disso, no lado direito, encontrará o nome do Grupo de [Colocação de Proximidade Azure,](../../../virtual-machines/linux/co-location.md) que é criado automaticamente para cada unidade de Instância BareMetal implantada. Faça referência ao Grupo de Colocação de Proximidade quando implementar os VMs Azure que acolhem a camada de aplicação. Quando utilizar o Grupo de Colocação de Proximidade associado à unidade BareMetal Instance, certifique-se de que os VMs Azure são implantados perto da unidade BareMetal Instance.
  

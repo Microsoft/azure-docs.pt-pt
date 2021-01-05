@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911720"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845595"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
 
@@ -72,12 +72,9 @@ Se adicionar o seguinte conteúdo ao organismo de pedido, a API irá treinar com
 
 Agora que aprendeu a construir um conjunto de dados de treino, siga um quickstart para treinar um modelo personalizado de Reconhecimento de Formulários e comece a usá-lo nos seus formulários.
 
-* [Treine um modelo e extraia dados de formulário usando a biblioteca do cliente](./quickstarts/client-library.md)
-* [Treine um modelo e extraia dados de formulários usando o cURL](./quickstarts/curl-train-extract.md)
-* [Treine um modelo e extraia dados de formulário usando a API REST e a Python](./quickstarts/python-train-extract.md)
+* [Treine um modelo e extraia dados de formulário usando a biblioteca do cliente ou REST API](./quickstarts/client-library.md)
 * [Treine com etiquetas usando a ferramenta de rotulagem da amostra](./quickstarts/label-tool.md)
-* [Preparar com etiquetas através da API REST e do Python](./quickstarts/python-labeled-data.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

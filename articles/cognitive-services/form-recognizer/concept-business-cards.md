@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498865"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845616"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartões de visita
 
@@ -374,7 +374,7 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida: O nó "readResults" c
 }
 ```
 
-Siga os dados do [cartão de visita Extrato](./QuickStarts/python-business-cards.md) rapidamente para implementar a extração de dados do cartão de visita utilizando a Python e a API REST.
+Siga o [quickstart quickstart](./QuickStarts/client-library.md) para implementar a extração de dados do cartão de visita utilizando python e a API REST.
 
 ## <a name="customer-scenarios"></a>Cenários do Cliente  
 
@@ -385,11 +385,11 @@ Os dados extraídos com a API do Cartão de Visita podem ser utilizados para exe
 * Mantenha-se a saber das pistas de vendas.  
 * Extrair informações de contacto a granel a partir de imagens de cartão de visita existentes. 
 
-A API do Cartão De Visita também alimenta a [funcionalidade de Processamento de Cartões de Visita AIBuilder.](/ai-builder/prebuilt-business-card)
+A API do Cartão De Visita também alimenta a [funcionalidade de Processamento de Cartões de Visita AI Builder.](/ai-builder/prebuilt-business-card)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Siga o [quickstart dos Cartões de Visita API Python](./quickstarts/python-business-cards.md) para começar a reconhecer cartões de visita.
+- Siga o [quickstart](./quickstarts/client-library.md) para começar a reconhecer cartões de visita.
 
 ## <a name="see-also"></a>Veja também
 

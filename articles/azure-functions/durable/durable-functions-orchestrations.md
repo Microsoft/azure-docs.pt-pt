@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88750202"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845422"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duradouras
 
@@ -124,7 +124,7 @@ Uma vez concluído o ponto de verificação, a função do orquestrador é livre
 
 Após a conclusão, a história da função mostrada anteriormente parece algo com a seguinte tabela no Armazenamento de Mesa Azure (abreviada para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Name             | Resultado                                                    | Estado |
+| PartitionKey (InstanceId)                     | EventType             | CarimboDeDataEHora               | Entrada | Nome             | Resultado                                                    | Estado |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | Execução Começada      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrquestradorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -293,7 +293,7 @@ Não é possível passar vários parâmetros para uma função de atividade dire
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Em .NET também pode utilizar [objetos ValueTuples.](/dotnet/csharp/tuples) A amostra a seguir está a utilizar novas funcionalidades de [ValueTuples adicionadas](/dotnet/csharp/tuples) com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+Em .NET também pode utilizar objetos [ValueTuple.](/dotnet/csharp/tuples) A amostra a seguir está a utilizar novas funcionalidades de [ValueTuple adicionadas](/dotnet/csharp/tuples) com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

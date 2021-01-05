@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: fc54d2ba3ca4e7a150a1602c671b99f58197bc44
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657299"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857346"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Resolver problemas relacionados com os alertas de métricas do Azure Monitor 
 
@@ -265,6 +265,23 @@ Recomendamos a escolha de uma *granularidade agregada (Período)* maior do que a
 -   Regra de alerta métrico que monitoriza múltiplas dimensões – Quando uma nova combinação de valor de dimensão é adicionada
 -   Regra de alerta métrico que monitoriza múltiplos recursos – Quando um novo recurso é adicionado ao âmbito
 -   Regra de alerta métrico que monitoriza uma métrica que não é emitida continuamente (métrica escassa) – Quando a métrica é emitida após um período superior a 24 horas em que não foi emitida
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>As fronteiras dos Limiares Dinâmicos não parecem encaixar nos dados
+
+Se o comportamento de uma métrica mudou recentemente, as alterações não se refletirão necessariamente nas fronteiras do Limiar Dinâmico (limites superiores e inferiores) imediatamente, uma vez que são calculadas com base em dados métricos dos últimos 10 dias. Ao ver as fronteiras do Limiar Dinâmico para uma determinada métrica, certifique-se de olhar para a tendência métrica na última semana, e não apenas para as últimas horas ou dias.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>Porque é que a sazonalidade semanal não é detetada pelos Limiares Dinâmicos?
+
+Para identificar a sazonalidade semanal, o modelo Dynamic Thresholds requer pelo menos três semanas de dados históricos. Uma vez disponibilizados dados históricos suficientes, qualquer sazonalidade semanal que exista nos dados métricos será identificada e o modelo será ajustado em conformidade. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Os Limiares Dinâmicos mostram um limite inferior negativo para uma métrica, mesmo que a métrica tenha sempre valores positivos
+
+Quando uma métrica apresenta grande flutuação, os Limiares Dinâmicos construirão um modelo mais amplo em torno dos valores métricos, o que pode resultar em que a borda inferior seja inferior a zero. Especificamente, isto pode acontecer nos seguintes casos:
+1. A sensibilidade está definida para baixo 
+2. Os valores medianos estão perto de zero
+3. A métrica exibe um comportamento irregular com elevada variação (há picos ou mergulhos nos dados)
+
+Quando o limite inferior tem um valor negativo, isto significa que é plausível que a métrica atinja um valor zero dado o comportamento irregular da métrica. Pode considerar escolher uma sensibilidade mais elevada ou uma *granularidade* de agregação maior (Período) para tornar o modelo menos sensível, ou usar os *dados ignore antes* da opção de excluir uma recente irregulação dos dados históricos utilizados para construir o modelo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

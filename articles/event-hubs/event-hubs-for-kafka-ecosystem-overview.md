@@ -3,12 +3,12 @@ title: Use o centro de eventos da aplicação Apache Kafka - Azure Event Hubs ! 
 description: Este artigo fornece informações sobre o suporte da Apache Kafka pela Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369595"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861334"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final compatível com as APIs de produtor e consumidor apache kafka ® que podem ser usadas pela maioria das aplicações de clientes Apache Kafka existentes como alternativa à gestão do seu próprio cluster Apache Kafka. O Event Hubs apoia os clientes APIs de produtor e consumidor da Apache Kafka na versão 1.0 ou superior.
@@ -70,7 +70,7 @@ sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginMo
 sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 ```
 
-#### <a name="shared-access-signature-sas"></a>Assinatura de acesso compartilhado (SAS)
+#### <a name="shared-access-signature-sas"></a>Assinatura de Acesso Partilhado (SAS)
 O Event Hubs também fornece as **Assinaturas de Acesso Compartilhado (SAS)** para acesso delegado aos Centros de Eventos para recursos kafka. Autorizar o acesso utilizando o mecanismo baseado em fichas OAuth 2.0 proporciona uma segurança superior e facilidade de utilização sobre o SAS. As funções incorporadas também podem eliminar a necessidade de autorização baseada em ACL, que tem de ser mantida e gerida pelo utilizador. Pode utilizar esta funcionalidade com os seus clientes Kafka especificando **SASL_SSL** para o protocolo e **a PLAIN** para o mecanismo. 
 
 ```properties
@@ -118,9 +118,7 @@ A carga útil de qualquer evento event Hub é um byte stream e o conteúdo pode 
 
 ### <a name="log-compaction"></a>Compaction de registo
 
-A compactação de log Apache Kafka é uma característica que permite despejar todos, menos o último registo de cada chave de uma partição, que efetivamente transforma um tópico Apache Kafka numa loja de valor-chave onde o último valor acrescentado se sobrepõe à anterior. O padrão de loja de valor-chave, mesmo com atualizações frequentes, é muito melhor suportado por serviços de base de dados como [o Azure Cosmos DB](../cosmos-db/introduction.md).
-
-A função de compactação de registos é utilizada pelas estruturas do cliente Kafka Connect e Kafka Streams.
+A compactação de log Apache Kafka é uma característica que permite despejar todos, menos o último registo de cada chave de uma partição, que efetivamente transforma um tópico Apache Kafka numa loja de valor-chave onde o último valor acrescentado se sobrepõe à anterior. Esta funcionalidade não é atualmente implementada pelo Azure Event Hubs. O padrão de loja de valor-chave, mesmo com atualizações frequentes, é muito melhor suportado por serviços de base de dados como [o Azure Cosmos DB](../cosmos-db/introduction.md). Consulte o tópico [de Projeção de Registo](event-hubs-federation-overview.md#log-projections) na orientação da federação de Centros de Eventos para obter mais detalhes. 
 
 ### <a name="kafka-streams"></a>Riachos Kafka
 

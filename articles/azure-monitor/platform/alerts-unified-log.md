@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317559"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857431"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
@@ -64,7 +64,7 @@ Tal como na análise de registos, o intervalo de tempo limita os dados de consul
 
 Por exemplo, uma consulta digitaliza 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo que o texto contenha **há pouco(1d)**. O intervalo de tempo e a filtragem do tempo de consulta precisam de coincidir. No caso do exemplo, alterar o intervalo de tempo de consulta **de**  /  **Override** period para um dia, funcionaria como esperado.
 
-### <a name="measure"></a>Medir
+### <a name="measure"></a>Medida
 
 Os alertas de registo transformam o registo em valores numéricos que podem ser avaliados. Pode medir duas coisas diferentes:
 
@@ -120,6 +120,8 @@ Nos espaços de trabalho e insights de aplicação, é suportado apenas no tipo 
 ### <a name="split-by-alert-dimensions"></a>Dividido por dimensões de alerta
 
 Divida os alertas por número ou colunas de cordas em alertas separados, agrupando-se em combinações únicas. Ao criar alertas centrados em recursos à escala (âmbito de grupo de subscrição ou recursos), pode dividir-se pela coluna ID de recursos Azure. A divisão na coluna de identificação de recursos Azure alterará o alvo do alerta para o recurso especificado.
+
+Recomenda-se a divisão por coluna de identificação de recursos Azure quando se pretende monitorizar a mesma condição em vários recursos Azure. Por exemplo, monitorizar todas as máquinas virtuais para utilização do CPU acima de 80%. Pode também decidir não dividir quando pretender uma condição sobre múltiplos recursos no âmbito, como a monitorização de que pelo menos cinco máquinas no âmbito do grupo de recursos tenham o uso da CPU acima de 80%.
 
 Nos espaços de trabalho e insights de aplicação, é suportado apenas no tipo **de medida de medição métrica.** O campo chama-se **Aggregate On**. Está limitado a três colunas. Ter mais de três grupos por colunas na consulta pode levar a resultados inesperados. Em todos os outros tipos de recursos, é configurado em Split por secção de **dimensões** da circunstância (limitada a seis divisões).
 

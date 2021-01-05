@@ -2,13 +2,13 @@
 title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/04/2021
+ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919987"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861418"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -19,7 +19,7 @@ O Gestor de Recursos fornece as seguintes funções para obter valores de recurs
 * [pickZones](#pickzones)
 * [fornecedores](#providers)
 * [referência](#reference)
-* [grupo de recursos](#resourcegroup)
+* [resourceGroup](#resourcegroup)
 * [recursosId](#resourceid)
 * [subscrição](#subscription)
 * [subscriçãoResourceId](#subscriptionresourceid)
@@ -39,10 +39,10 @@ Devolve o ID de recurso para um [recurso de extensão](../management/extension-r
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Yes |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -175,15 +175,15 @@ As definições políticas incorporadas são recursos ao nível dos inquilinos. 
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-A sintaxe para esta função varia em função do nome das operações da lista. Cada implementação devolve valores para o tipo de recurso que suporta uma operação de lista. O nome da operação deve começar por `list` . Alguns usos comuns são `listKeys` `listKeyValue` , e `listSecrets` .
+A sintaxe para esta função varia em função do nome das operações da lista. Cada implementação devolve valores para o tipo de recurso que suporta uma operação de lista. O nome da operação deve começar `list` e pode ter um sufixo. Alguns usos comuns `list` `listKeys` `listKeyValue` são, e `listSecrets` .
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Identificador único para o recurso. |
-| apiVersion |Sim |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
-| funçõesValues |Não |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
+| recursoName ou identificador de recursos |Yes |string |Identificador único para o recurso. |
+| apiVersion |Yes |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
+| funçõesValues |No |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -440,11 +440,11 @@ Determina se um tipo de recurso suporta zonas para uma região.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace | Sim | string | O espaço de nome do fornecedor de recursos para o tipo de recurso para verificar o suporte da zona. |
-| resourceType | Sim | string | O tipo de recurso para verificar o suporte da zona. |
-| localização | Sim | string | A região para verificar o apoio da zona. |
-| númeroOfZones | Não | número inteiro | O número de zonas lógicas para regressar. A predefinição é 1. O número deve ser um número inteiro positivo de 1 a 3.  Utilize 1 para recursos de zona única. No que diz a favor de recursos multi-zonas, o valor deve ser inferior ou igual ao número de zonas apoiadas. |
-| offset | Não | número inteiro | A compensação da zona lógica inicial. A função retorna um erro se o offset plus numberOfZones exceder o número de zonas suportadas. |
+| providerNamespace | Yes | string | O espaço de nome do fornecedor de recursos para o tipo de recurso para verificar o suporte da zona. |
+| resourceType | Yes | string | O tipo de recurso para verificar o suporte da zona. |
+| localização | Yes | string | A região para verificar o apoio da zona. |
+| númeroOfZones | No | número inteiro | O número de zonas lógicas para regressar. A predefinição é 1. O número deve ser um número inteiro positivo de 1 a 3.  Utilize 1 para recursos de zona única. No que diz a favor de recursos multi-zonas, o valor deve ser inferior ou igual ao número de zonas apoiadas. |
+| offset | No | número inteiro | A compensação da zona lógica inicial. A função retorna um erro se o offset plus numberOfZones exceder o número de zonas suportadas. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -549,8 +549,8 @@ Devolve informações sobre um fornecedor de recursos e os seus tipos de recurso
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |string |Espaço de nome do fornecedor |
-| resourceType |Não |string |O tipo de recurso dentro do espaço de nome especificado. |
+| providerNamespace |Yes |string |Espaço de nome do fornecedor |
+| resourceType |No |string |O tipo de recurso dentro do espaço de nome especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -637,9 +637,9 @@ Devolve um objeto que representa o estado de execução de um recurso.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
-| apiVersion |Não |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
-| 'Cheio' |Não |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
+| recursoName ou identificador de recursos |Yes |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
+| apiVersion |No |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
+| 'Cheio' |No |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1109,11 +1109,11 @@ Devolve o identificador único de um recurso. Utilize esta função quando o nom
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
-| resourceGroupName |Não |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
+| resourceGroupName |No |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1412,10 +1412,10 @@ Devolve o identificador único para um recurso implantado ao nível da subscriç
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1544,9 +1544,9 @@ Devolve o identificador único para um recurso implantado ao nível do inquilino
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744046"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861398"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support
 Este artigo fornece informações sobre suporte de ciclo de vida prolongado para as imagens da Red Hat Enterprise:
@@ -38,6 +38,12 @@ A partir de 30 de novembro de 2020, a Red Hat Enterprise Linux 6 chegará ao fim
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Qual é o custo adicional para a utilização do Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On?
 Os custos relacionados com o suporte de ciclo de vida prolongado podem ser encontrados com o [formulário ELS](https://aka.ms/els-form)
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-how-can-i-add-extended-lifecycle-support-to-this-vm"></a>Usei um VM usando uma imagem personalizada. Como posso adicionar suporte de ciclo de vida prolongado a este VM?
+Tens de contactar diretamente a Red Hat e obter apoio diretamente deles.
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-can-i-convert-this-vm-to-a-payg-vm"></a>Usei um VM usando uma imagem personalizada. Posso converter este VM num VM PAYG?
+Não, não pode. A conversão não é suportada atualmente no Azure.
 
 
 ## <a name="next-steps"></a>Passos seguintes

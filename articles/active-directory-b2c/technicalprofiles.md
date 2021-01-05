@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99ed7d3ad81202ab6fe67bf52888bbdbf0b28d2a
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387093"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861870"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -52,7 +52,7 @@ Todos os tipos de perfis técnicos partilham o mesmo conceito. Envia reclamaçõ
 ![Diagrama que ilustra o fluxo de perfil técnico](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Gestão única de sessão de sessão de sessão (SSO)** - Restaura o estado de sessão do perfil técnico, utilizando a gestão da [sessão SSO](custom-policy-reference-sso.md).
-1. **Transformação de reclamações** de entrada - Antes do perfil técnico ser iniciado, o Azure AD B2C executa a entrada [transformação de sinistros]. (claimstransformations.md).
+1. **A transformação de reclamações de entrada** - Antes do início do perfil técnico, o Azure AD B2C executa [a transformação de sinistros de](claimstransformations.md)entrada .
 1. **Reclamações de entrada** - As reclamações são recolhidas no saco de reclamações que são utilizados para o perfil técnico.
 1. **Execução de perfil técnico** - O perfil técnico troca as reclamações com a parte configurada. Por exemplo:
     - Redirecione o utilizador para o fornecedor de identidade para completar a inscrição. Após o sucesso da sessão, o utilizador regressa e a execução do perfil técnico continua.
@@ -86,7 +86,7 @@ O elemento **TécnicoProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 |---------|---------|---------|
-| Id | Sim | Um identificador único do perfil técnico. O perfil técnico pode ser referenciado utilizando este identificador a partir de outros elementos do ficheiro de política. Por exemplo, **OrquestrationSteps** e **ValidationTechnicalProfile**. |
+| Id | Yes | Um identificador único do perfil técnico. O perfil técnico pode ser referenciado utilizando este identificador a partir de outros elementos do ficheiro de política. Por exemplo, **OrquestrationSteps** e **ValidationTechnicalProfile**. |
 
 O **Ficheiro Técnico** contém os seguintes elementos:
 
@@ -120,8 +120,8 @@ O **Protocolo** especifica o protocolo a utilizar para a comunicação com a out
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1` `OAuth2` , , ou `SAML2` `OpenIdConnect` `Proprietary` `None` . |
-| Processador | Não | Quando o nome do protocolo estiver definido para `Proprietary` , especifique o nome totalmente qualificado do conjunto que é utilizado pela Azure AD B2C para determinar o manipulador de protocolo. |
+| Nome | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1` `OAuth2` , , ou `SAML2` `OpenIdConnect` `Proprietary` `None` . |
+| Processador | No | Quando o nome do protocolo estiver definido para `Proprietary` , especifique o nome totalmente qualificado do conjunto que é utilizado pela Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
 
@@ -137,7 +137,7 @@ O **elemento item** do elemento **metadados** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Chave | Sim | A chave dos metadados. Consulte cada [tipo de perfil técnico,](#type-of-technical-profiles)para obter a lista de itens de metadados. |
+| Chave | Yes | A chave dos metadados. Consulte cada [tipo de perfil técnico,](#type-of-technical-profiles)para obter a lista de itens de metadados. |
 
 O exemplo a seguir ilustra a utilização de metadados relevantes para [o perfil técnico da OAuth2](oauth2-technical-profile.md#metadata).
 
@@ -191,8 +191,8 @@ O elemento **chave** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Não | Um identificador único de um determinado par de chaves referenciado a partir de outros elementos no ficheiro de política. |
-| StorageReferenceId | Sim | Um identificador de um recipiente chave de armazenamento referenciado a partir de outros elementos do ficheiro de política. |
+| Id | No | Um identificador único de um determinado par de chaves referenciado a partir de outros elementos no ficheiro de política. |
+| StorageReferenceId | Yes | Um identificador de um recipiente chave de armazenamento referenciado a partir de outros elementos do ficheiro de política. |
 
 ## <a name="input-claims-transformations"></a>Input reclama transformações
 
@@ -212,7 +212,7 @@ O elemento **InputClaimsTransformation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de uma transformação de sinistros já definida no ficheiro de política ou no ficheiro de política dos pais. |
+| ReferenceId | Yes | Um identificador de uma transformação de sinistros já definida no ficheiro de política ou no ficheiro de política dos pais. |
 
 Os seguintes perfis técnicos referem-se à transformação do **CreateOtherMailsFromEmail.** A transformação de sinistros acrescenta o valor da `email` reclamação à `otherMails` recolha, antes de persistir os dados no diretório.
 
@@ -251,9 +251,9 @@ O elemento **InputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sim | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| PadrãoValue | Não | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
-| PartnerClaimType | Não | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
+| ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
+| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
+| PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
 
 ## <a name="display-claims"></a>Apresentar reclamações
 
@@ -279,9 +279,9 @@ O elemento **DisplayClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Não | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| DisplayControlReferenceId | Não | O identificador de um controlo de [exibição](display-controls.md) já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| Necessário | Não | Indica se a reclamação do visor é necessária. |
+| ClaimTypeReferenceId | No | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
+| DisplayControlReferenceId | No | O identificador de um controlo de [exibição](display-controls.md) já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
+| Necessário | No | Indica se a reclamação do visor é necessária. |
 
 O exemplo a seguir ilustra a utilização de reclamações de visualização e controlos de visualização com um perfil técnico autoafirmado.
 
@@ -325,9 +325,9 @@ O elemento **PersistedClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sim | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| PadrãoValue | Não | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
-| PartnerClaimType | Não | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
+| ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
+| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
+| PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
 
 No exemplo seguinte, o perfil técnico **AAD-UserWriteUsingLogonEmail** ou o [pacote inicial](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), que cria uma nova conta local, persiste na sequência de alegações:
 
@@ -356,10 +356,10 @@ O elemento **OutputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sim | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| PadrãoValue | Não | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
-|AlwaysUseDefaultValue |Não |Forçar o uso do valor padrão.  |
-| PartnerClaimType | Não | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
+| ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
+| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
+|AlwaysUseDefaultValue |No |Forçar o uso do valor padrão.  |
+| PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
 
 ## <a name="output-claims-transformations"></a>Produção reclama transformações
 
@@ -379,7 +379,7 @@ O elemento **OutputClaimsTransformation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de uma transformação de sinistros já definida no ficheiro de política ou no ficheiro de política dos pais. |
+| ReferenceId | Yes | Um identificador de uma transformação de sinistros já definida no ficheiro de política ou no ficheiro de política dos pais. |
 
 O perfil técnico que se segue refere a assertAccountEnabledIsTrue alega a transformação para avaliar se a conta está ativada ou não após a leitura `accountEnabled` do pedido do diretório.    
 
@@ -422,7 +422,7 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro de política dos pais. |
+| ReferenceId | Yes | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro de política dos pais. |
 
 ## <a name="subjectnaminginfo"></a>Nomeação de AssuntosInfo
 
@@ -430,7 +430,7 @@ O **SubjectNamingInfo** define o nome do sujeito usado em fichas numa [política
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimType | Sim | Um identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política. |
+| ClaimType | Yes | Um identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política. |
 
 ## <a name="include-technical-profile"></a>Incluir perfil técnico
 
@@ -440,7 +440,7 @@ O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro de política dos pais. |
+| ReferenceId | Yes | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro de política dos pais. |
 
 
 O exemplo a seguir ilustra a utilização da inclusão:
@@ -549,7 +549,7 @@ A referência do elemento **useTechnicalProfileForSessionManagement** ao [perfil
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro de política dos pais. |
+| ReferenceId | Yes | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro de política dos pais. |
 
 ## <a name="enabled-for-user-journeys"></a>Habilitado para viagens de utilizador
 

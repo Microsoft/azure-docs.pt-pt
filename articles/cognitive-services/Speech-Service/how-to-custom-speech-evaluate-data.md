@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025655"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857363"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e melhorar a precisão da Voz Personalizada
 
@@ -23,7 +23,7 @@ Neste artigo, aprende-se a medir quantitativamente e a melhorar a precisão dos 
 
 ## <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão da Voz Personalizada
 
-A norma da indústria para medir a precisão do modelo é *a Taxa de Erro de Texto* (WER). O WER conta o número de palavras incorretas identificadas durante o reconhecimento e, em seguida, divide-se pelo número total de palavras fornecidas na transcrição com rótulo humano (mostrada abaixo como N). Finalmente, este número é multiplicado em 100% para calcular o WER.
+A norma da indústria para medir a precisão do modelo é [a Taxa de Erro de Texto](https://en.wikipedia.org/wiki/Word_error_rate) (WER). O WER conta o número de palavras incorretas identificadas durante o reconhecimento e, em seguida, divide-se pelo número total de palavras fornecidas na transcrição com rótulo humano (mostrada abaixo como N). Finalmente, este número é multiplicado em 100% para calcular o WER.
 
 ![Fórmula WER](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -36,6 +36,8 @@ As palavras incorretamente identificadas enquadram-se em três categorias:
 Eis um exemplo:
 
 ![Exemplo de palavras mal identificadas](./media/custom-speech/custom-speech-dis-words.png)
+
+Se quiser replicar medições de WER localmente, pode utilizar o sclite da [SCTK](https://github.com/usnistgov/SCTK).
 
 ## <a name="resolve-errors-and-improve-wer"></a>Resolver erros e melhorar o WER
 
@@ -68,7 +70,7 @@ Uma vez concluído o teste, indicado pela alteração de estado para *'Sucesso',
 
 Os cenários de reconhecimento da fala variam consoante a qualidade do áudio e a linguagem (vocabulário e estilo de fala). A tabela seguinte analisa quatro cenários comuns:
 
-| Cenário | Qualidade áudio | Vocabulário | Estilo de fala |
+| Scenario | Qualidade áudio | Vocabulário | Estilo de fala |
 |----------|---------------|------------|----------------|
 | Call-center | Baixo, 8 kHz, pode ser 2 humanos em 1 canal de áudio, poderia ser comprimido | Estreito, único para domínio e produtos | Conversação, vagamente estruturada |
 | Assistente de voz (como Cortana, ou uma janela drive-through) | Alto, 16 kHz | Entidade pesada (títulos de música, produtos, locais) | Palavras e frases claramente ditas |
@@ -77,7 +79,7 @@ Os cenários de reconhecimento da fala variam consoante a qualidade do áudio e 
 
 Diferentes cenários produzem diferentes resultados de qualidade. A tabela seguinte examina como o conteúdo destes quatro cenários é classificado na taxa de erro de [palavras (WER)](how-to-custom-speech-evaluate-data.md). A tabela mostra quais os tipos de erros mais comuns em cada cenário.
 
-| Cenário | Qualidade de Reconhecimento de Voz | Erros de inserção | Erros de Eliminação | Erros de substituição |
+| Scenario | Qualidade de Reconhecimento de Voz | Erros de inserção | Erros de Eliminação | Erros de substituição |
 |----------|----------------------------|------------------|-----------------|---------------------|
 | Call-center | Médio (< 30% WER) | Baixo, exceto quando outras pessoas falam no fundo | Pode ser alto. Os call centers podem ser barulhentos, e os alto-falantes sobrepostos podem confundir o modelo | Média. Produtos e nomes de pessoas podem causar estes erros |
 | Assistente de voz | Alto (pode ser < 10% WER) | Baixo | Baixo | Médio, devido a títulos de música, nomes de produtos ou locais |
@@ -96,7 +98,7 @@ As secções seguintes descrevem como cada tipo de dados adicionais de treino po
 
 ### <a name="add-related-text-sentences"></a>Adicionar frases de texto relacionadas
 
-Frases de texto relacionadas adicionais podem reduzir principalmente os erros de substituição relacionados com o reconhecimento errado de palavras comuns e palavras específicas do domínio, mostrando-as em contexto. Palavras específicas do domínio podem ser palavras incomuns ou inventadas, mas a sua pronúncia deve ser simples de ser reconhecida.
+Quando treina um novo modelo personalizado, comece por adicionar texto relacionado para melhorar o reconhecimento de palavras e frases específicas do domínio. As frases de texto relacionadas podem reduzir principalmente os erros de substituição relacionados com o reconhecimento errado das palavras comuns e das palavras específicas do domínio, mostrando-as em contexto. Palavras específicas do domínio podem ser palavras incomuns ou inventadas, mas a sua pronúncia deve ser simples de ser reconhecida.
 
 > [!NOTE]
 > Evite frases de texto relacionadas que incluam ruídos como caracteres irreconhecíveis ou palavras.
@@ -111,6 +113,12 @@ Considere estes detalhes:
 * Evite amostras que incluam erros de transcrição, mas inclua uma diversidade de qualidade áudio.
 * Evite frases que não estejam relacionadas com o seu domínio problemático. Frases não relacionadas podem prejudicar o seu modelo.
 * Quando a qualidade das transcrições varia, pode duplicar frases excepcionalmente boas (como excelentes transcrições que incluem frases-chave) para aumentar o seu peso.
+* O serviço Desemação utilizará automaticamente as transcrições para melhorar o reconhecimento de palavras e frases específicas do domínio, como se fossem adicionadas como texto relacionado.
+* O treino com áudio trará mais benefícios se o áudio também for difícil de entender para os humanos. Na maioria dos casos, deve começar a treinar usando apenas texto relacionado.
+* Pode levar vários dias para uma operação de treino ser concluída. Para melhorar a velocidade de formação, certifique-se de criar a sua subscrição de serviço De Discurso numa [região com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treino.
+
+> [!NOTE]
+> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio.
 
 ### <a name="add-new-words-with-pronunciation"></a>Adicione novas palavras com pronúncia
 
@@ -123,14 +131,14 @@ Palavras que são inventadas ou altamente especializadas podem ter pronúncias �
 
 A tabela que se segue mostra cenários de reconhecimento de voz e lista materiais de origem a considerar nas três categorias de conteúdos de formação acima listadas.
 
-| Cenário | Frases de texto relacionadas | Transcrições com rótulo humano + áudio + | Novas palavras com pronúncia |
+| Scenario | Frases de texto relacionadas | Transcrições com rótulo humano + áudio + | Novas palavras com pronúncia |
 |----------|------------------------|------------------------------|------------------------------|
 | Call-center             | documentos de marketing, website, análises de produtos relacionadas com a atividade do call center | call center chama transcrita por humanos | termos que têm pronúncias ambíguas (ver Xbox acima) |
 | Assistente de voz         | lista de frases usando todas as combinações de comandos e entidades | gravar vozes falando comandos em dispositivo, e transcrever em texto | nomes (filmes, canções, produtos) que têm pronúncias únicas |
 | Ditado               | entrada escrita, como mensagens instantâneas ou e-mails | semelhante a acima | semelhante a acima |
 | Legendas fechadas em vídeo | Scripts de séries de TV, filmes, conteúdos de marketing, resumos de vídeo | transcrições exatas de vídeos | semelhante a acima |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar e implementar um modelo](how-to-custom-speech-train-model.md)
 

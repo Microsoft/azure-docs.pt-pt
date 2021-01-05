@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 01/04/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 042139a39c28ee4944a7f3f766fc61b163629843
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 57e3a059a5dd846250ba162513ef118e084c4b87
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574399"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861588"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores no portal Azure Ative Directory
 
@@ -26,20 +26,20 @@ O Azure Ative Directory (Azure AD) suporta operações de importação de utiliz
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para descarregar a lista de utilizadores do centro de administração Admin AD Azure, tem de ser assinado com um utilizador atribuído a uma ou mais funções de administrador de nível de organização em Azure AD (O Administrador do Utilizador é a função mínima necessária). O convidado convidado e desenvolvedor de aplicações não são considerados funções de administrador.
+Para transferir a lista de utilizadores a partir do centro de administração do Azure AD, tem de iniciar sessão com um utilizador atribuído a uma ou mais funções de administrador ao nível da organização no Azure AD (Administrador de Utilizadores é a função mínima necessária). Emitente de convites e programador de aplicações não são considerados funções de administrador.
 
 ## <a name="to-download-a-list-of-users"></a>Para baixar uma lista de utilizadores
 
 1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta de administrador do Utilizador na organização.
-2. Navegue para o Azure Ative Directory > Utilizadores. Em seguida, selecione os utilizadores que deseja incluir no download, assinalando a caixa na coluna esquerda ao lado de cada utilizador. Nota: Neste momento, não há forma de selecionar todos os utilizadores para exportação. Cada um deve ser selecionado individualmente.
+2. Navegue até Azure Active Directory > Utilizadores. Em seguida, selecione os utilizadores que quer incluir na transferência ao selecionar a caixa na coluna esquerda junto a cada utilizador. Nota: neste momento, não existe forma de selecionar todos os utilizadores para exportação. É necessário selecionar cada um individualmente.
 3. Em Azure AD, **selecione Utilizadores**  >  **Descarregue utilizadores**.
-4. Na página de **utilizadores do Download,** selecione **Começar** a receber um ficheiro CSV listando propriedades de perfil de utilizador. Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da operação Em Massa. O ficheiro contém a razão de cada erro.
+4. Na página de **utilizadores do Download,** selecione **Começar** a receber um ficheiro CSV listando propriedades de perfil de utilizador. Se existirem erros, pode transferir e ver o ficheiro de resultados na página Resultados da operação em massa. O ficheiro contém o motivo de cada erro.
 
    ![Selecione onde deseja a lista dos utilizadores que pretende descarregar](./media/users-bulk-download/bulk-download.png)
 
-   O ficheiro de descarregamento conterá a lista filtrada dos utilizadores.
+   O ficheiro de transferência irá conter a lista filtrada de utilizadores.
 
-   Os seguintes atributos do utilizador estão incluídos:
+   Estão incluídos os seguintes atributos de utilizador:
 
    - userPrincipalName
    - displayName
@@ -51,22 +51,21 @@ Para descarregar a lista de utilizadores do centro de administração Admin AD A
    - jobTitle
    - departamento
    - accountEnabled
-   - utilizaçãoLocalização
+   - usageLocation
    - streetAddress
    - state
    - país
-   - físicoDeliveryOfficeName
+   - physicalDeliveryOfficeName
    - city
-   - código postal
-   - número de telefone
+   - postalCode
+   - telephoneNumber
    - dispositivo móvel
-   - autenticaçãoPhoneNumber
-   - autenticaçãoAlternativePhoneNumber
-   - autenticaçãoEmail
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
    - alternateEmailAddress
    - ageGroup
-   - consentimentoProvidedForMinor
-   - legalAgeGroupClassificação
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
 
 ## <a name="check-status"></a>Verificar o estado
 

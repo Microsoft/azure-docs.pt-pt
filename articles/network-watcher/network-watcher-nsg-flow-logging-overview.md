@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399252"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858506"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Considerações da conta de armazenamento:** 
 
 - Localização: A conta de armazenamento utilizada deve estar na mesma região que o NSG.
+- Nível de desempenho: Atualmente, apenas as contas de armazenamento de nível padrão são suportadas.
 - Rotação da chave de auto-gestão: Se alterar/rodar as teclas de acesso à sua conta de armazenamento, os Registos de Fluxo NSG deixarão de funcionar. Para corrigir este problema, tem de desativar e, em seguida, voltar a ativar os Registos de Fluxo NSG.
 
 **Custos de registo do fluxo**: A exploração de fluxo NSG é faturada no volume de registos produzidos. O elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. O preço do registo do NSG Flow não inclui os custos subjacentes de armazenamento. A utilização da função de política de retenção com a NSG Flow Logging significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se não necessitar da função de política de retenção, recomendamos que desemote este valor para 0. Para mais informações, consulte [o Preço do Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os Preços de Armazenamento [Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que se habilita que os registos de fluxo NSG em todos os NSGs aplicados na sub-rede ou interface de rede do recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede. 
 
 Poucos cenários comuns:
-1. **Múltiplos NSG num NIC**: No caso de vários NSGs estarem ligados a um NIC, a exploração de fluxo deve ser ativada em todos eles
+1. **Múltiplos NICs num VM**: No caso de vários NICs estarem ligados a uma máquina virtual, a exploração de fluxo deve ser ativada em todos eles
 1. **Ter NSG tanto no NÍVEL NIC como no Nível de Sub-rede**: No caso de o NSG estar configurado no NIC, bem como no nível de sub-rede, deve então ser ativado o registo de fluxo em ambos os NSGs. 
 
 **Fornecimento de armazenamento**: O armazenamento deve ser a provisionado em sintonia com o volume esperado do Registo de Fluxo.

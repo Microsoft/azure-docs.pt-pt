@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009335"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845549"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -106,7 +106,7 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
    Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Aceda a `http://localhost:3000`.
 
 > [!NOTE]
-> Também pode rotular documentos e modelos de comboio usando a API do Reconhecimento de Formulários REST. Para treinar e analisar com a API REST, consulte [Train com etiquetas utilizando a API REST e a Python.](./python-labeled-data.md)
+> Também pode rotular documentos e modelos de comboio usando a API do Reconhecimento de Formulários REST. Para treinar e analisar com a API REST, consulte [Train com etiquetas utilizando a API REST e a Python.](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 ## <a name="set-up-input-data"></a>Configurar dados de entrada
 
@@ -137,7 +137,9 @@ Preencha os campos com os seguintes valores:
 
 * **Nome do visor** - O nome do visor da ligação.
 * **Descrição** - A descrição do seu projeto.
-* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Defina o tempo de expiração para algum tempo depois de usar o serviço. Certifique-se de que as permissões **de Ler,** **Escrever,** **Eliminar** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Recuperação de URL SAS":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
@@ -223,7 +225,7 @@ Siga os passos acima para rotular pelo menos cinco dos seus formulários.
 
 ### <a name="specify-tag-value-types"></a>Especifique tipos de valor de etiqueta
 
-Opcionalmente, pode definir o tipo de dados esperado para cada tag. Abra o menu de contexto à direita de uma etiqueta e selecione um tipo no menu. Esta funcionalidade permite ao algoritmo de deteção fazer certos pressupostos que melhorarão a precisão da deteção de texto. Também garante que os valores detetados serão devolvidos num formato padronizado na saída final do JSON. 
+Opcionalmente, pode definir o tipo de dados esperado para cada tag. Abra o menu de contexto à direita de uma etiqueta e selecione um tipo no menu. Esta funcionalidade permite ao algoritmo de deteção fazer certos pressupostos que melhorarão a precisão da deteção de texto. Também garante que os valores detetados serão devolvidos num formato padronizado na saída final do JSON. As informações do tipo de valor são guardadas no *fields.jsficheiro* no mesmo caminho que os ficheiros da sua etiqueta.
 
 > [!div class="mx-imgBorder"]
 > ![Seleção do tipo de valor com ferramenta de rotulagem de amostra](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Os seguintes tipos de valor e variações são atualmente suportados:
 
 Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seguida, clique no botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
 
-* **ID modelo** - O ID do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copie esta cadeia para um local seguro; você vai precisar se você quiser fazer chamadas de previsão através da [API REST](./curl-train-extract.md) ou [biblioteca de clientes](./client-library.md).
+* **ID modelo** - O ID do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copie esta cadeia para um local seguro; você vai precisar se você quiser fazer chamadas de previsão através da [API REST](./client-library.md?pivots=programming-language-rest-api) ou [biblioteca de clientes](./client-library.md).
 * **Precisão média** - Precisão média do modelo. Pode melhorar a precisão do modelo rotulando formas adicionais e treinando novamente para criar um novo modelo. Recomendamos começar por rotular cinco formas e adicionar mais formas conforme necessário.
 * A lista de etiquetas e a precisão estimada por etiqueta.
 
@@ -276,7 +278,7 @@ Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seg
 Após o final do treino, examine o valor **de precisão média.** Se for baixo, deve adicionar mais documentos de entrada e repetir os passos acima. Os documentos que já rotulou permanecerão no índice do projeto.
 
 > [!TIP]
-> Também pode executar o processo de treino com uma chamada de API REST. Para aprender a fazê-lo, consulte [Train com rótulos usando Python.](./python-labeled-data.md)
+> Também pode executar o processo de treino com uma chamada de API REST. Para aprender a fazê-lo, consulte [Train com rótulos usando Python.](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 ## <a name="compose-trained-models"></a>Compor modelos treinados
 
@@ -299,7 +301,7 @@ Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone M
 Clique no ícone Predict (lâmpada) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Prever** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
 
 > [!TIP]
-> Também pode executar a API de Análise com uma chamada REST. Para aprender a fazê-lo, consulte [Train com rótulos usando Python.](./python-labeled-data.md)
+> Também pode executar a API de Análise com uma chamada REST. Para aprender a fazê-lo, consulte [Train com rótulos usando Python.](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 ## <a name="improve-results"></a>Melhorar os resultados
 
@@ -326,7 +328,7 @@ Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Projec
 Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra do Form Recogniser para treinar um modelo com dados etiquetados manualmente. Se quiser construir a sua própria utilidade para rotular dados de treino, use as APIs REST que lidam com a formação de dados rotulados.
 
 > [!div class="nextstepaction"]
-> [Treine com rótulos usando Python](./python-labeled-data.md)
+> [Treine com rótulos usando Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [O que é o Reconhecedor de Formato?](../overview.md)
-* [Formas Recogniser biblioteca cliente quickstarts](client-library.md)
+* [Forma Reconhecimentor quickstart](client-library.md)

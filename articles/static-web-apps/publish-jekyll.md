@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000226"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862027"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site jekyll para a Azure Static Web Apps Preview
 
@@ -118,7 +118,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Para o _Branch_ selecione **master**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Detalhes preenchidos":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informação completa do GitHub":::
 
 ### <a name="build"></a>Compilar
 
@@ -150,7 +150,7 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
     ```yml
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -171,9 +171,9 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Na janela _'Visão Geral'_ do portal Azure, clique no link _URL_ para abrir a aplicação implementada.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Aplicação implantada":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

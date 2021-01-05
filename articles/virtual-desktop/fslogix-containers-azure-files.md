@@ -3,15 +3,15 @@ title: Ficheiros de contentores de perfis FSLogix do Windows Virtual Desktop - A
 description: Este artigo descreve os contentores de perfil FSLogix dentro dos ficheiros Windows Virtual Desktop e Azure.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3bd667bc7fce8f9fb10b852cae7a6c4ad198d75
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: ef7f19d835f4fef1a911da01015321b2dda67682
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797201"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861877"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -70,7 +70,7 @@ Os clusters S2D requerem um sistema operativo remendado, atualizado e mantido em
 Em 19 de novembro de 2018, [a Microsoft adquiriu a FSLogix.](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/) A FSLogix aborda muitos desafios de contentores de perfil. Entre eles estão:
 
 - **Desempenho:** Os [recipientes de perfil FSLogix](/fslogix/configure-profile-container-tutorial/) são de alto desempenho e resolvem problemas de desempenho que bloquearam historicamente o modo de troca em cache.
-- **OneDrive:** Sem recipientes de perfil FSLogix, o OneDrive for Business não é suportado em ambientes RDSH ou VDI não persistentes. [As melhores práticas da OneDrive para negócios e FSLogix](/fslogix/overview/) descrevem como interagem. Para obter mais informações, consulte [utilizar o cliente sincronizado em ambientes de trabalho virtuais.](/deployoffice/rds-onedrive-business-vdi/)
+- **OneDrive:** Sem recipientes de perfil FSLogix, o OneDrive for Business não é suportado em ambientes RDSH ou VDI não persistentes. A [página de suporte do OneDrive VDI](/onedrive/sync-vdi-support) dir-lhe-á como interagem. Para obter mais informações, consulte [utilizar o cliente sincronizado em ambientes de trabalho virtuais.](/deployoffice/rds-onedrive-business-vdi/)
 - **Pastas adicionais:** A FSLogix fornece a capacidade de alargar os perfis do utilizador para incluir pastas adicionais.
 
 Desde a aquisição, a Microsoft começou a substituir as soluções de perfil de utilizador existentes, como a UPD, por contentores de perfil FSLogix.

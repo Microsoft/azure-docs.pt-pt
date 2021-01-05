@@ -3,12 +3,12 @@ title: Padrões de tarefa de replicação de eventos - Azure Event Hubs Microsof
 description: Este artigo fornece orientações detalhadas para implementar padrões específicos de tarefas de replicação de eventos
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803991"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861373"
 ---
 # <a name="event-replication-tasks-patterns"></a>Padrões de tarefas de replicação de eventos
 
@@ -20,7 +20,7 @@ Neste artigo, detalhamos a orientação de implementação de vários dos padrõ
 
 O padrão de replicação copia eventos de um Event Hub para o outro, ou de um Event Hub para outro destino como uma fila de ônibus de serviço. Os eventos são reencaminhados sem fazer qualquer modificação na carga útil do evento.
 
-A implementação deste padrão é coberta pela replicação do [Evento entre os Centros de Eventos](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) e a [replicação do Evento entre os Centros de Eventos e as amostras de Service Bus.](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
+A implementação deste padrão é coberta pela replicação do Evento entre os Centros de [Eventos](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) e [a replicação do Evento entre os Centros](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) de Eventos e as amostras de Service Bus e o tutorial [De Utilização Apache Kafka MirrorMaker com Centros](event-hubs-kafka-mirror-maker-tutorial.md) de Eventos para o caso específico de replicação de dados de um corretor Apache Kafka em Centros de Eventos.
 
 ### <a name="streams-and-order-preservation"></a>Riachos e preservação da ordem
 

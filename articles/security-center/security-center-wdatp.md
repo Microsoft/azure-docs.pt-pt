@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296816"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854847"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -42,10 +42,10 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de libertação:                  | Geralmente disponível (GA)                                                                                                                                                                                                                                                                                      |
 | Preços:                        | Requer [Azure Defender para servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plataformas suportadas:            | ![Yes](./media/icons/yes-icon.png) Máquinas Azure executando Janelas<br>![Yes](./media/icons/yes-icon.png) Máquinas Azure Arc executando janelas|
-| Versões suportadas do Windows:  | O Defender for Endpoint está integrado no Windows 10 1703 (e mais recente) e no Windows Server 2019.<br>O Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1.<br>A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC. |
-| Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**                         |
-| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais.<br>![No](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov                                                        |
+| Plataformas suportadas:            | Máquinas Azure executando Janelas<br>Máquinas Azure Arc executando janelas|
+| Versões suportadas do Windows:  |  • Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC<br> • Sem suporte para Windows Server 2019, Windows 10 1703 (e mais recente) ou Linux|
+| Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
+| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov<br>![No](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 

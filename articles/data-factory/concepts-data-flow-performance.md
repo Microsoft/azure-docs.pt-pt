@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022365"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858591"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -169,7 +169,7 @@ Pode ler na Base de Dados Azure SQL utilizando uma tabela ou uma consulta SQL. S
 
 ### <a name="azure-synapse-analytics-sources"></a>Fontes azure Synapse Analytics
 
-Ao utilizar o Azure Synapse Analytics, existe uma definição chamada **Enable staging** nas opções de origem. Isto permite que a ADF leia a partir de Synapse ```Polybase``` usando, o que melhora consideravelmente o desempenho da leitura. Ativar ```Polybase``` requer que especifique um Azure Blob Storage ou Azure Data Lake Storage gen2 localização de localização nas definições de atividade de fluxo de dados.
+Ao utilizar o Azure Synapse Analytics, existe uma definição chamada **Enable staging** nas opções de origem. Isto permite que a ADF leia a partir de Synapse ```Staging``` usando, o que melhora consideravelmente o desempenho da leitura. Ativar ```Staging``` requer que especifique um Azure Blob Storage ou Azure Data Lake Storage gen2 localização de localização nas definições de atividade de fluxo de dados.
 
 ![Ativar o teste](media/data-flow/enable-staging.png "Ativar o teste")
 
@@ -216,9 +216,9 @@ Agende um redimensionamento da sua fonte e afunde o Azure SQL DB e o DW antes do
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics afunda
 
-Ao escrever para a Azure Synapse Analytics, certifique-se de que **a encenação enable** está definida como verdadeira. Isto permite que a ADF escreva utilizando [o PolyBase](/sql/relational-databases/polybase/polybase-guide) que efetivamente carrega os dados a granel. Você precisará de fazer referência a uma conta de armazenamento do Lago de Dados Azure gen2 ou Azure Blob Para a realização dos dados quando utilizar o PolyBase.
+Ao escrever para a Azure Synapse Analytics, certifique-se de que **a encenação enable** está definida como verdadeira. Isto permite que a ADF escreva usando [o SQL Copy Command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) que efetivamente carrega os dados a granel. Você precisará de fazer referência a uma conta de armazenamento do Lago de Dados Azure gen2 ou Azure Blob Para a realização dos dados ao utilizar a Staging.
 
-Além da PolyBase, as mesmas boas práticas aplicam-se ao Azure Synapse Analytics como Base de Dados Azure SQL.
+Além da Encenação, as mesmas boas práticas aplicam-se ao Azure Synapse Analytics como Base de Dados Azure SQL.
 
 ### <a name="file-based-sinks"></a>Pias baseadas em ficheiros 
 
@@ -309,6 +309,14 @@ Gerir os postos de trabalho sequencialmente levará provavelmente mais tempo a e
 ### <a name="overloading-a-single-data-flow"></a>Sobrecarga de um único fluxo de dados
 
 Se colocar toda a sua lógica dentro de um único fluxo de dados, a ADF executará todo o trabalho numa única instância spark. Embora isto possa parecer uma forma de reduzir custos, mistura diferentes fluxos lógicos e pode ser difícil de monitorizar e depurar. Se um componente falhar, todas as outras partes do trabalho também falharão. A equipa da Azure Data Factory recomenda a organização de fluxos de dados por fluxos independentes de lógica empresarial. Se o fluxo de dados se tornar demasiado grande, dividi-lo em componentes separados facilitará a monitorização e a depuragem. Embora não exista um limite rígido para o número de transformações num fluxo de dados, ter demasiadas tornará o complexo de trabalho.
+
+### <a name="execute-sinks-in-parallel"></a>Executar pias em paralelo
+
+O comportamento padrão dos sumidouros de fluxo de dados é executar cada pia sequencialmente, de forma em série, e falhar o fluxo de dados quando um erro é encontrado na pia. Além disso, todos os lavatórios estão em incumprimento do mesmo grupo, a menos que você entre nas propriedades de fluxo de dados e desecorde diferentes prioridades para os lavatórios.
+
+Os fluxos de dados permitem-lhe agrupar os sumidouros em grupos a partir do separador de propriedades de fluxo de dados no designer de UI. Ambos podem definir a ordem de execução dos seus lavatórios, bem como agrupar pias usando o mesmo número de grupo. Para ajudar a gerir grupos, pode pedir à ADF para executar pias no mesmo grupo, para correr em paralelo.
+
+No gasoduto execute a atividade de fluxo de dados sob a secção "Propriedades do Lavatório" é uma opção para ligar o carregamento paralelo do lavatório. Quando ativa "correr em paralelo", está a instruir os fluxos de dados a escrever em pias ligadas ao mesmo tempo e não de forma sequencial. Para utilizar a opção paralela, os lavatórios devem ser agrupados e ligados ao mesmo fluxo através de um Novo Ramo ou Divisão Condicional.
 
 ## <a name="next-steps"></a>Passos seguintes
 

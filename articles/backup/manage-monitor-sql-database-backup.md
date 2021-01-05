@@ -3,12 +3,12 @@ title: Gerir e monitorizar os DBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021508"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858743"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -20,7 +20,7 @@ Se ainda não tiver configurado cópias de segurança para as bases de dados do 
 
 O Azure Backup mostra todas as operações programadas e a pedido sob **trabalhos de Backup** no portal, exceto as cópias de segurança programadas, uma vez que podem ser muito frequentes. Os trabalhos que você vê neste portal incluem descoberta e registo de bases de dados, configurar backup, e backup e restaurar operações.
 
-![O portal de empregos de reserva](./media/backup-azure-sql-database/jobs-list.png)
+![O portal de empregos de reserva](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 Para mais informações sobre os cenários de monitorização, vá à [Monitorização no portal Azure](backup-azure-monitoring-built-in-monitor.md) e monitorização utilizando o [Monitor Azure](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -36,13 +36,9 @@ Para monitorizar os alertas de backup da base de dados:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No painel de abóbada, selecione **Alertas e Eventos**.
+2. No painel de **instrumentos** do cofre, selecione Alertas de Reserva .
 
-   ![Selecione alertas e eventos](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. Em **Alertas e Eventos**, selecione **Alertas de Cópia de Segurança**.
-
-   ![Selecione alertas de backup](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Selecione alertas de backup](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>Parar a proteção para uma base de dados do SQL Server
 
@@ -83,7 +79,7 @@ Para parar a proteção de uma base de dados:
 >
 >Para obter mais informações sobre a opção de eliminar dados, consulte as FAQ abaixo:
 >
->- [Se eu apagar uma base de dados de um caso autoprotegido, o que acontecerá com as cópias de segurança?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Se eliminar uma base de dados de uma instância autoprotegida, o que acontecerá com as cópias de segurança?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 >- [Se eu parar a operação de backup de uma base de dados autoprotegido, qual será o seu comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
