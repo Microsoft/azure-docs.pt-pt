@@ -16,13 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-- devx-track-azurecli
-ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3ddc8c78bac47ed85266037341328585e3c7cb1c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845174"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825131"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -52,7 +51,7 @@ Pode conceder permissões das [seguintes](#iot-hub-permissions) formas:
   | serviço | **Permissões de ServiceConnect** |
   | dispositivo | **Permissões de DeviceConnect** |
   | registryRead | **Permissões registrodidas** |
-  | registryReadWrite | **RegistosRead** e **RegistoDesesesite** |
+  | registryReadWrite | **RegistosRead** e **RegistoDesite** |
 
 * **Credenciais de segurança por dispositivo.** Cada Hub IoT contém um [registo de identidade](iot-hub-devguide-identity-registry.md) Para cada dispositivo neste registo de identidade, pode configurar credenciais de segurança que concedem permissões **deviceConnect** miradas aos pontos finais do dispositivo correspondentes.
 

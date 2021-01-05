@@ -8,12 +8,12 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, chapéu vermelho, cli, arquivo azul
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: db87e61166da87300a5e1fb8433a42f3f47cf832
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fe80698b71ae0ba808991d79b423d49abfacdf7c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493829"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825916"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Criar um StorageClass dos Ficheiros do Azure no Azure Red Hat OpenShift 4
 
@@ -25,7 +25,7 @@ Neste artigo, você vai criar uma StorageClass para Azure Red Hat OpenShift 4 qu
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Implemente um cluster Azure Red Hat OpenShift 4 na sua subscrição, consulte [Criar um cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md)
 
@@ -52,14 +52,14 @@ az storage account create \
 ## <a name="set-permissions"></a>Definir permissões
 ### <a name="set-resource-group-permissions"></a>Definir permissões de grupo de recursos
 
-O principal do serviço ARO requer a permissão de 'listKeys' no novo grupo de recursos de conta de armazenamento Azure. Atribua o papel de "Contribuinte" para o conseguir. 
+O principal do serviço ARO requer a permissão de 'listKeys' no novo grupo de recursos de conta de armazenamento Azure. Atribua o papel de "Contribuinte" para o conseguir.
 
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
-ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –-query servicePrincipalProfile.clientId -o tsv)
+ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create –-role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
+az role assignment create --role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### <a name="set-aro-cluster-permissions"></a>Definir permissões de cluster ARO
@@ -90,7 +90,7 @@ metadata:
 provisioner: kubernetes.io/azure-file
 parameters:
   location: $LOCATION
-  skuName: Standard_LRS 
+  skuName: Standard_LRS
   storageAccount: $AZURE_STORAGE_ACCOUNT_NAME
   resourceGroup: $AZURE_FILES_RESOURCE_GROUP
 reclaimPolicy: Delete
@@ -131,7 +131,7 @@ oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 oc exec $POD -- bash -c "cat /data/test.txt"
 azure file storage
 ```
-O ficheiro test.txt também será visível através do Explorador de Armazenamento no portal Azure. 
+O ficheiro test.txt também será visível através do Explorador de Armazenamento no portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

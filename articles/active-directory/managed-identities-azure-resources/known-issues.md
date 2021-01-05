@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: has-adal-ref
+ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460939"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825807"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>PERGUNTAS Frequentes e questões conhecidas com identidades geridas para recursos da Azure
 
@@ -43,7 +43,7 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>As identidades geridas têm um objeto de aplicação de apoio?
 
-Não. Identidades geridas e Registos de Aplicações AD Azure não são a mesma coisa no diretório. 
+N.º Identidades geridas e Registos de Aplicações AD Azure não são a mesma coisa no diretório. 
 
 As inscrições da aplicação têm dois componentes: Um Objeto de Aplicação + Um Objeto Principal de Serviço. As identidades geridas para os recursos Azure têm apenas um desses componentes: Um Objeto Principal de Serviço. 
 
@@ -72,13 +72,13 @@ O limite de segurança da identidade é o recurso ao qual está ligado. Por exem
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>As identidades geridas serão recriadas automaticamente se eu mudar uma subscrição para outro diretório?
 
-Não. Se mover uma subscrição para outro diretório, terá de reuscuá-los manualmente e conceder novamente atribuições de funções ao Azure.
+N.º Se mover uma subscrição para outro diretório, terá de reuscuá-los manualmente e conceder novamente atribuições de funções ao Azure.
 - Para identidades geridas atribuídas pelo sistema: desativar e reativar. 
 - Para as identidades geridas atribuídas pelo utilizador: eliminar, recriar e ligá-las novamente aos recursos necessários (por exemplo, máquinas virtuais)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Posso usar uma identidade gerida para aceder a um recurso num diretório/inquilino diferente?
 
-Não. As identidades geridas não suportam atualmente cenários de diretórios cruzados. 
+N.º As identidades geridas não suportam atualmente cenários de diretórios cruzados. 
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quais as permissões do Azure RBAC necessárias para gerir a identidade num recurso? 
 

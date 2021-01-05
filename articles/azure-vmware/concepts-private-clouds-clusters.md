@@ -3,12 +3,12 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware Solution e clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967385"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825086"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
@@ -48,18 +48,8 @@ Os anfitriões usados para construir ou escalar aglomerados vêm de uma piscina 
 
 ## <a name="vmware-software-versions"></a>Versões de software VMware
 
-As versões de software atuais do software VMware utilizado nos clusters de nuvem privada Azure VMware Solution são:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Software              |    Versão   |
-| :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T                 |      2.5     |
-
-Para qualquer novo cluster numa nuvem privada, a versão de software corresponde ao que está atualmente em execução. Para qualquer nova nuvem privada numa subscrição, a versão mais recente da stack de software é instalada.
-
-Pode encontrar as políticas e processos gerais de upgrade para o software da plataforma Azure VMware Solution descrito em [atualizações e atualizações de nuvem privada .](concepts-upgrades.md)
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Manutenção do anfitrião e gestão do ciclo de vida
 

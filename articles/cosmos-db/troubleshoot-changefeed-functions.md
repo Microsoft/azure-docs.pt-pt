@@ -4,16 +4,16 @@ description: Questões comuns, soluções alternativas e passos de diagnóstico,
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340537"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825614"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e resolver problemas ao utilizar o gatilho de funções Azure para o Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -85,16 +85,18 @@ O conceito de "mudança" é uma operação num documento. Os cenários mais comu
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Faltam algumas mudanças no meu Gatilho.
 
-Se descobrir que algumas das alterações que aconteceram no seu contentor Azure Cosmos não estão a ser captadas pela Função Azure, há um primeiro passo de investigação que precisa de ser realizado.
+Se descobrir que algumas das alterações que ocorreram no seu contentor Azure Cosmos não estão a ser captadas pela Função Azure ou faltam algumas alterações no destino quando as estiver a copiar, siga os passos abaixo.
 
 Quando a sua Função Azure recebe as alterações, muitas vezes processa-as e pode, opcionalmente, enviar o resultado para outro destino. Quando estiver a investigar alterações em falta, certifique-se **de que mede quais as alterações que estão a ser recebidas no ponto de ingestão** (quando a Função Azure começa), não no destino.
 
 Se faltarem algumas alterações no destino, isto pode significar que se trata de algum erro ocorrido durante a execução da Função Azure após a recebidação das alterações.
 
-Neste cenário, o melhor caminho a seguir é adicionar `try/catch` blocos no seu código e dentro dos ciclos que podem estar a processar as alterações, detetar qualquer falha num determinado subconjunto de itens e manuseá-los em conformidade (enviá-los para outro armazenamento para posterior análise ou nova análise). 
+Neste cenário, o melhor caminho a seguir é adicionar `try/catch` blocos no seu código e dentro dos ciclos que podem estar a processar as alterações, detetar qualquer falha num determinado subconjunto de itens e manuseá-los em conformidade (enviá-los para outro armazenamento para posterior análise ou nova análise).
 
 > [!NOTE]
 > Por predefinição, o acionador das Funções do Azure do Cosmos DB não repetirá nenhum lote de alterações se existir alguma exceção não processada durante a execução do código. Isto significa que a razão pela qual as alterações não chegaram ao destino é porque não está a conseguir processá-las.
+
+Se o destino for outro recipiente Cosmos e estiver a realizar operações upsert para copiar os itens, **verifique se a Definição da Chave de Partição no recipiente monitorizado e de destino é a mesma.** As operações de upsert podem estar a guardar vários itens de origem como um no destino devido a esta diferença de configuração.
 
 Se descobrir que algumas alterações não foram recebidas pelo seu gatilho, o cenário mais comum é que existe **outra Função Azure em funcionamento**. Pode ser outra Função Azure implantada em Azure ou uma Função Azure que funciona localmente numa máquina de um desenvolvedor que tem **exatamente a mesma configuração** (os mesmos recipientes monitorizados e de locação), e esta Função Azure está a roubar um subconjunto das alterações que esperaria que a sua Função Azure processasse.
 

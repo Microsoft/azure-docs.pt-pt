@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 66b14e435b777595e23fcf5a98d4820f36d21a1a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742035"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825199"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use Apache Kafka em HDInsight com Azure IoT Hub
 
@@ -35,7 +35,7 @@ Para obter mais informações sobre a API connect, consulte [https://kafka.apach
 
 * Um nó de borda no aglomerado de Kafka. Para obter mais informações, consulte os nós de borda de utilização com o documento [HDInsight.](../hdinsight-apps-use-edge-node.md)
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Um hub E dispositivo Azure IoT. Para este artigo, considere utilizar o [simulador online Connect Raspberry Pi para o Azure IoT Hub](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
@@ -125,7 +125,7 @@ Desde a sua ligação SSH até ao nó de borda, utilize os seguintes passos para
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|O mesmo que acima.|
     |N/D|`consumer.max.poll.records=10`|Adicione ao fim do ficheiro. Esta alteração é para evitar intervalos de tempo no conector da pia, limitando-o a 10 registos de cada vez. Para obter mais informações, veja [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-1. Para guardar o ficheiro, utilize __Ctrl + X,__ __Y,__ e, em seguida, __Insira__ .
+1. Para guardar o ficheiro, utilize __Ctrl + X,__ __Y,__ e, em seguida, __Insira__.
 
 1. Para criar os tópicos utilizados pelo conector, utilize os seguintes comandos:
 
@@ -151,8 +151,8 @@ Para recuperar as informações do hub IoT utilizadas pelo conector, utilize os 
 
    * __A partir do [portal Azure,](https://portal.azure.com/)__ utilize os seguintes passos:
 
-     1. Navegue para o seu Hub IoT e __selecione Endpoints__ .
-     2. A partir __de pontos finais incorporados,__ selecione __Eventos__ .
+     1. Navegue para o seu Hub IoT e __selecione Endpoints__.
+     2. A partir __de pontos finais incorporados,__ selecione __Eventos__.
      3. A partir de __Propriedades,__ copie o valor dos seguintes campos:
 
          * __Nome compatível com Hub de Evento__
@@ -176,11 +176,11 @@ Para recuperar as informações do hub IoT utilizadas pelo conector, utilize os 
        "Partitions": 2
        ```
 
-2. Obtenha a __política de acesso compartilhado__ e __a chave__ . Para este exemplo, utilize a chave __de serviço.__ Para obter esta informação, utilize um dos seguintes métodos:
+2. Obtenha a __política de acesso compartilhado__ e __a chave__. Para este exemplo, utilize a chave __de serviço.__ Para obter esta informação, utilize um dos seguintes métodos:
 
     * __A partir do [portal Azure,](https://portal.azure.com/)__ utilize os seguintes passos:
 
-        1. Selecione __políticas de acesso partilhado__ e, em seguida, selecione o __serviço__ .
+        1. Selecione __políticas de acesso partilhado__ e, em seguida, selecione o __serviço__.
         2. Copie o valor __da chave primária.__
         3. Copie o valor da chave de __ligação- principal.__
 
@@ -233,7 +233,7 @@ Para configurar a fonte para trabalhar com o seu Hub IoT, execute as seguintes a
 
     Para obter uma configuração de exemplo, consulte [o Conector de Fonte de Ligação Kafka para O Hub IoT de Azure](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-1. Para guardar alterações, utilize __Ctrl + X,__ __Y__ , e, em seguida, __Insira__ .
+1. Para guardar alterações, utilize __Ctrl + X,__ __Y__, e, em seguida, __Insira__.
 
 Para obter mais informações sobre a configuração da fonte do conector, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
@@ -262,7 +262,7 @@ Para configurar a ligação da pia para trabalhar com o seu Hub IoT, execute as 
 
     Para obter uma configuração de exemplo, consulte [o Conector de Pia Kafka Connect para Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-1. Para guardar alterações, utilize __Ctrl + X,__ __Y__ , e, em seguida, __Insira__ .
+1. Para guardar alterações, utilize __Ctrl + X,__ __Y__, e, em seguida, __Insira__.
 
 Para obter mais informações sobre a configuração da pia do conector, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 

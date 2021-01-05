@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dca248d217f4fb90d41c0a98a42b5eda4783913f
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007159"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825219"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações personalizadas da Apache Hadoop no Azure HDInsight
 

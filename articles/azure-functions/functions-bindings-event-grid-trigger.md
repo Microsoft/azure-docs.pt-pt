@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0e3ba9aa4eac30c3387bdf6c2890a1172ebef544
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
+ms.openlocfilehash: adec2a85373d33d08fe9aa16895d03229e40f475
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094731"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825817"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -336,7 +336,7 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsficheiro.* Não existem parâmetros ou propriedades de construtores para definir no `EventGridTrigger` atributo.
 
-|function.jsna propriedade |Descrição|
+|function.jsna propriedade |Description|
 |---------|---------|
 | **tipo** | Necessário - deve ser definido para `eventGridTrigger` . |
 | **direção** | Necessário - deve ser definido para `in` . |

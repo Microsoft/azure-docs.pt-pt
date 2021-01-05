@@ -4,13 +4,13 @@ description: Neste tutorial do Azure Kubernetes Service (AKS), irá aprender a d
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc
+ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746996"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825694"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Para alterar manualmente o número de pods na implementação do *azure-vote-front* com o comando [kubectl scale][kubectl-scale]. O exemplo seguinte aumenta o número de pods de front-end para *5* :
+Para alterar manualmente o número de pods na implementação do *azure-vote-front* com o comando [kubectl scale][kubectl-scale]. O exemplo seguinte aumenta o número de pods de front-end para *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo seguinte utiliza o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implementação *azure-vote-front* . Se a utilização média do CPU em todas as cápsulas exceder 50% da sua utilização solicitada, o autoscaler aumenta as cápsulas até um máximo de *10* instâncias. É então definido um mínimo de *3* instâncias para a implantação:
+O exemplo seguinte utiliza o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implementação *azure-vote-front*. Se a utilização média do CPU em todas as cápsulas exceder 50% da sua utilização solicitada, o autoscaler aumenta as cápsulas até um máximo de *10* instâncias. É então definido um mínimo de *3* instâncias para a implantação:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -150,7 +150,7 @@ Após alguns minutos, com carga mínima na aplicação do Azure Vote, o número 
 
 Se criou o seu cluster Kubernetes usando os comandos no tutorial anterior, tem dois nós. Pode ajustar o número de nós manualmente, se pretender mais ou menos cargas de trabalho do contentor no seu cluster.
 
-O exemplo seguinte aumenta o número de nós para três no cluster do Kubernetes denominado *myAKSCluster* . O comando demora poucos minutos a concluir.
+O exemplo seguinte aumenta o número de nós para três no cluster do Kubernetes denominado *myAKSCluster*. O comando demora poucos minutos a concluir.
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3

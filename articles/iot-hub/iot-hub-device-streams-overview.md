@@ -11,13 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-- devx-track-azurecli
-ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792468"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825170"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Streams de dispositivos do hub IoT (pré-visualização)
 
@@ -129,9 +128,9 @@ Pode configurar o Azure Monitor para recolher os [registos de recursos para os f
 
 Siga os passos abaixo para criar uma definição de diagnóstico para enviar registos de streams de dispositivos para o seu Hub IoT para Registos monitores Azure:
 
-1. No portal Azure, navegue para o seu hub IoT. No painel esquerdo, em **Monitorização,** selecione **Definições de Diagnóstico** . Em seguida, **selecione Adicionar a definição de diagnóstico** .
+1. No portal Azure, navegue para o seu hub IoT. No painel esquerdo, em **Monitorização,** selecione **Definições de Diagnóstico**. Em seguida, **selecione Adicionar a definição de diagnóstico**.
 
-2. Forneça um nome para a definição de diagnóstico e selecione **DeviceStreams** da lista de registos. Em seguida, selecione **Enviar para registar analíticos** . Você será guiado para escolher um espaço de trabalho log analytics existente ou criar um novo.
+2. Forneça um nome para a definição de diagnóstico e selecione **DeviceStreams** da lista de registos. Em seguida, selecione **Enviar para registar analíticos**. Você será guiado para escolher um espaço de trabalho log analytics existente ou criar um novo.
 
     :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Ativar os registos de fluxos de dispositivos":::
 

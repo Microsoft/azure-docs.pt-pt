@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
-ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 6cabc340c0be347165a3e506703a6277f7eb1cea
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.custom: references_regions
+ms.openlocfilehash: 3e2905019244279129528c177a76291cb7d75e11
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503938"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825773"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
