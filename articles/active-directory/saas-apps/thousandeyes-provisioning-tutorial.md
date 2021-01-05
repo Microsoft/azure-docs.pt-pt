@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ff55528013ac89be48454c25e1fc86deac2bca6f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 885ee993748a0a571f396cc0dc28f2c0c1a4a0c3
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357237"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792522"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar MilEyes para o provisionamento automático do utilizador
 
@@ -55,15 +55,22 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configure o fornecimento automático de conta de utilizador à ThousandEyes em Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)consulte a secção **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
+
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Se já configurado MilEyes para um único sign-on, procure o seu exemplo de ThousandEyes usando o campo de pesquisa. Caso contrário, **selecione Add** e procure **mileyes** na galeria de aplicações. Selecione ThousandEyes dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
+    ![O link MilEyes na lista de Aplicações](common/all-applications.png)
+    
 3. Selecione a sua instância de ThousandEyes e, em seguida, selecione o **separador Provisioning.**
+
+    ![Separador Aprovisionamento](common/provisioning.png)
 
 4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![O screenshot mostra o separador Provisioning for ThousandEyes com o Modo de Provisionamento selecionado para o Modo de Provisionamento.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+![O screenshot mostra o separador Provisioning for ThousandEyes com o Modo de Provisionamento selecionado para o Modo de Provisionamento.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    
 
 5. Na secção **Credenciais Admin,**  insira o Token do Portador da **OAuth** gerado pela conta da ThousandEyes (pode encontrar e ou gerar um símbolo na sua secção **de Perfil da** conta MilEyes).
 
@@ -71,27 +78,54 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 6. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação MilEyes. Se a ligação falhar, certifique-se de que a sua conta MilEyes tem permissões de Administração e tente novamente o passo 5.
 
-7. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo **de e-mail de notificação** e verifique a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha."
+7. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
 8. Clique em **Guardar**.
 
 9. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users to ThousandEyes**.
 
-10. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de AZure AD a ThousandEyes. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em ThousandEyes para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
+10. Reveja os atributos do utilizador que são sincronizados de AZure AD a ThousandEyes na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em Parsable para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que a API Parsable suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-11. Para ativar o serviço de prestação de Ad Azure para ThousandEyes, altere o **Estado de Provisionamento** para **On** na secção **Definições**
+     |Atributo|Tipo|Suportado para filtragem|
+     |---|---|---|
+     |externalId|String|&check;|
+     |userName|String|&check;|
+     |active|Booleano|
+     |displayName|String|
+     |emails[type eq "work"].value|String|
+     |nome.formatado|String|
 
-12. Clique em **Guardar**.
 
-Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos a MilEyes na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento, que descrevem todas as ações realizadas pelo serviço de fornecimento.
+11. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
+12. Para ativar o serviço de prestação de Ad Azure para ThousandEyes, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+
+    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
+
+13. Defina os utilizadores e/ou grupos que deseja prestar à ThousandEyes, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
+
+14. Quando estiver pronto para aprovisionar, clique em **Guardar**.
+
+    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
+
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
+
+## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
+Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
+
+1. Utilize os [registos de aprovisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)

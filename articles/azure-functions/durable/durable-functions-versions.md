@@ -3,14 +3,14 @@ title: Visão geral das funções duradouras - Funções Azure
 description: Saiba mais sobre as versões Funções Duradouras.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/23/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d10bab06428295bbc8c5319bd47787d7b1fb34
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719415"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763375"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das funções duradouras
 
@@ -50,6 +50,8 @@ Instale a versão mais recente de 2.x da extensão de ligações duráveis no se
 
 Funções Duradouras 2.x está disponível na versão 2.x do pacote de [extensão Azure Functions](../functions-bindings-register.md#extension-bundles).
 
+O suporte python em Funções Duradouras requer Funções Duráveis 2.x.
+
 Para atualizar a versão do pacote de extensão no seu projeto, abra host.jse atualize a `extensionBundle` secção para utilizar a versão 2.x ( `[2.*, 3.0.0)` ).
 
 ```json
@@ -61,6 +63,9 @@ Para atualizar a versão do pacote de extensão no seu projeto, abra host.jse at
     }
 }
 ```
+
+> [!NOTE]
+> Se o Código do Estúdio Visual não estiver a exibir os modelos corretos depois de alterar a versão do pacote de extensão, recarregue a janela executando o *comando de Janela de Recarga* (<kbd>Ctrl+R</kbd> no Windows e Linux, <kbd>Comando+R</kbd> no macOS).
 
 #### <a name="net"></a>.NET
 

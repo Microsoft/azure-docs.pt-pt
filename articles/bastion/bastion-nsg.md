@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: afb751e08faea6dabde72b192d246b48735cff53
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938707"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795381"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
@@ -40,7 +40,8 @@ _ **Tráfego ingresso:**
 
    * **Tráfego ingresso da internet pública:** O Bastião Azure criará um IP público que necessita do porto 443 habilitado no IP público para o tráfego de entrada. A porta 3389/22 NÃO é obrigada a ser aberta na AzureBastionSubnet.
    * **Tráfego ingresso do avião de controlo Azure Bastion:** Para a conectividade do plano de controlo, ative a porta 443 de entrada a partir da etiqueta de serviço **GatewayManager.** Isto permite que o avião de controlo, isto é, o Gateway Manager possa falar com Azure Bastion.
-   * **Tráfego ingresso do Equilibrador de Carga Azure:** Para as sondas de saúde, ative a porta 443 a partir da etiqueta de serviço **AzureLoadBalancer.** Isto permite ao Azure Load Balancer detetar conectividade 
+   * **Tráfego ingresso do avião de dados de Azure Bastion:** Para a comunicação de planos de dados entre os componentes subjacentes do Azure Bastion, ative as portas 8080, 5701 a entrar da etiqueta de serviço **VirtualNetwork** para a etiqueta de serviço **VirtualNetwork.** Isto permite que os componentes de Azure Bastion falem uns com os outros.
+   * **Tráfego ingresso do Equilibrador de Carga Azure:** Para as sondas de saúde, ative a porta 443 a partir da etiqueta de serviço **AzureLoadBalancer.** Isto permite ao Azure Load Balancer detetar conectividade
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="A screenshot mostra regras de segurança de entrada para a conectividade Azure Bastion.":::
@@ -48,7 +49,9 @@ _ **Tráfego ingresso:**
 * **Tráfego de Egress:**
 
    * **Tráfego Egress para alvo VMs:** Azure Bastion atingirá os VMs alvo em IP privado. Os NSGs precisam de permitir o tráfego de saída para outras sub-redes VM alvo para as portas 3389 e 22.
+   * **Avião de dados do Tráfego Egress para Azure Bastion:** Para a comunicação de planos de dados entre os componentes subjacentes do Azure Bastion, ative as portas 8080, 5701 saídas da etiqueta de serviço **VirtualNetwork** para a etiqueta de serviço **VirtualNetwork.** Isto permite que os componentes de Azure Bastion falem uns com os outros.
    * **Tráfego Egress para outros pontos finais públicos em Azure:** O Azure Bastion precisa de ser capaz de se ligar a vários pontos finais públicos dentro de Azure (por exemplo, para armazenar registos de diagnósticos e registos de medição). Por esta razão, a Azure Bastion precisa de uma saída para a marca de serviço 443 para **a AzureCloud.**
+   * **Tráfego de Egress para a Internet:** O Azure Bastion precisa de ser capaz de comunicar com a Internet para validação de sessão e certificado. Por esta razão, recomendamos permitir a entrada do porto 80 para a **Internet.**
 
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="A screenshot mostra regras de segurança de saída para a conectividade Azure Bastion.":::

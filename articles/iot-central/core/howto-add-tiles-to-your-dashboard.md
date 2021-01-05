@@ -3,15 +3,15 @@ title: Configure para o seu painel Azure IoT Central / Microsoft Docs
 description: Como construtor, aprenda a configurar o painel de aplicações Azure IoT Central padrão com azulejos.
 author: TheJasonAndrew
 ms.author: v-anjaso
-ms.date: 11/06/2020
+ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94492041"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797014"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
 
@@ -22,15 +22,15 @@ O **Dashboard** é a primeira página que vê quando se liga a uma aplicação I
 
 ## <a name="add-tiles"></a>Adicionar mosaico
 
-A imagem que se segue mostra o painel de instrumentos numa aplicação criada a partir do modelo de **aplicação Personalizado.** Para personalizar o painel de instrumentos atual, **selecione Editar,** para adicionar um dashboard personalizado pessoal ou partilhado, selecione **New** :
+A imagem que se segue mostra o painel de instrumentos numa aplicação criada a partir do modelo de **aplicação Personalizado.** Para personalizar o painel de instrumentos atual, **selecione Editar,** para adicionar um dashboard personalizado pessoal ou partilhado, selecione **New**:
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
-Depois de selecionar **Editar** ou **Novo,** o painel de instrumentos está no modo *de edição.* Pode utilizar as ferramentas no painel do painel do **painel do painel editar** para adicionar azulejos ao tablier e personalizar e remover os azulejos no próprio painel de instrumentos. Por exemplo, para adicionar um azulejo de **telemetria** para mostrar a temperatura atual reportada por um ou mais dispositivos:
+Depois de selecionar **Editar** ou **Novo,** o painel de instrumentos está no modo *de edição.* Pode utilizar as ferramentas no painel do **painel editar** para adicionar azulejos ao tablier e personalizar e remover os azulejos no próprio painel de instrumentos. Por exemplo, para adicionar um azulejo de **telemetria** para mostrar a temperatura atual reportada por um ou mais dispositivos:
 
 1. Selecione um **Grupo de Dispositivos** e, em seguida, escolha os seus dispositivos no **dropdown dos Dispositivos** para mostrar no azulejo. Agora vê a telemetria, propriedades e comandos disponíveis dos dispositivos.
 
-1. Se necessário, utilize o dropdown para selecionar um valor de telemetria para mostrar no azulejo. Pode adicionar mais itens ao azulejo outro selecionando **+ Telemetria** , **+ Propriedade,** ou **+ Cloud Property**.
+1. Se necessário, utilize o dropdown para selecionar um valor de telemetria para mostrar no azulejo. Pode adicionar mais itens ao azulejo outro selecionando **+ Telemetria**, **+ Propriedade,** ou **+ Cloud Property**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicione um azulejo de telemetria de temperatura ao tablier":::
 

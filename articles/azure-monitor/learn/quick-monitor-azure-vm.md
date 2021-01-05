@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bf38291e26c46d26bbf8cb110d18e9526fb3f777
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186767"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797184"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Quickstart: Monitorize uma máquina virtual Azure com monitor Azure
 [O Azure Monitor](../overview.md) começa a recolher dados de máquinas virtuais Azure no momento em que são criados. Neste arranque rápido, você vai fazer uma breve caminhada através dos dados que são automaticamente recolhidos para um Azure VM e como vê-lo no portal Azure. Em seguida, irá ativar [o Azure Monitor para VMs](../insights/vminsights-overview.md) para o seu VM, o que permitirá aos agentes do VM recolher e analisar dados do sistema operativo convidado, incluindo processos e suas dependências.
@@ -30,7 +30,7 @@ Complete [Monitor um recurso Azure com O Monitor Azure](quick-monitor-azure-reso
 Enquanto as métricas e registos de atividade serão recolhidos para o VM anfitrião, você precisa de um agente e alguma configuração para recolher e analisar dados de monitorização do sistema operativo do hóspede e suas cargas de trabalho. O Azure Monitor para VMs instala estes agentes e fornece funcionalidades poderosas adicionais para monitorizar as suas máquinas virtuais.
 
 1. Vá ao menu da sua máquina virtual.
-2. Clique em **'Insights'** a partir do azulejo na página **'Vista Geral',** ou clique em Insights a partir do menu **'Monitorização'.** **Insights**
+2. Clique em **'Insights'** a partir do azulejo na página **'Vista Geral',** ou clique em Insights a partir do menu **'Monitorização'.** 
 
     ![Página geral](media/quick-monitor-azure-vm/overview-insights.png)
 
@@ -73,7 +73,7 @@ Quando cria um novo espaço de trabalho log Analytics, tem de ser configurado pa
 
 ### <a name="data-collection-from-linux-vm"></a>Recolha de dados da VM do Linux
 
-1. Selecione **Syslog**.  
+1. Selecione **Dados** e, em seguida, selecione **Syslog**.
 
 2. Adicione um registo de eventos digitando o nome do registo.  Escreva **Syslog** e, em seguida, selecione o sinal de mais **+** .  
 

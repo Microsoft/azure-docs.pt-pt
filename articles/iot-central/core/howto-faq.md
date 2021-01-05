@@ -3,16 +3,16 @@ title: Azure IoT Central frequentemente fez perguntas Microsoft Docs
 description: Azure IoT Central frequentemente fez perguntas (FAQ) e respostas
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: acabaf843f8acfe7bc0b5e9456dee09bde74bef7
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126725"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796045"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Perguntas frequentes para ioT Central
 
@@ -38,11 +38,11 @@ Quando um operador desbloqueia um dispositivo, o estado retorna ao seu valor ant
 
 Se o estado do dispositivo estiver **à espera de aprovação** na página dispositivos, significa que a opção **de aprovação automática** está **desativada:**
 
-:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot mostrando dispositivo bloqueado":::
+:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Imagem de imagem mostrando a aplicação com opção de aprovação automática desativada.":::
 
 Um operador deve aprovar explicitamente um dispositivo antes de começar a enviar dados. Os dispositivos não registados manualmente na página **dispositivos,** mas ligados a credenciais válidas terão o estado do dispositivo **à espera de aprovação**. Os operadores podem aprovar estes dispositivos a partir da página **dispositivos** utilizando o botão **Aprovar:**
 
-:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot mostrando dispositivo bloqueado":::
+:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot mostrando como aprovar um dispositivo":::
 
 **Como posso associar um dispositivo a um modelo de dispositivo?**
 

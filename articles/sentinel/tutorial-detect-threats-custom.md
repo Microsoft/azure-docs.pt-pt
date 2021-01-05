@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5d856339632e0033e997e5c1665fab623fda9cd2
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401649"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795654"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Criar regras de análise personalizadas para detetar ameaças
 
@@ -28,28 +28,37 @@ Uma vez que tenha [conectado as suas fontes](quickstart-onboard.md) de dados ao 
 Este tutorial ajuda-o a detetar ameaças com o Azure Sentinel.
 > [!div class="checklist"]
 > * Criar regras de análise
+> * Definir como os eventos e alertas são processados
+> * Definir como os alertas e incidentes são gerados
 > * Automatizar respostas de ameaças
 
-## <a name="create-custom-analytics-rules"></a>Criar regras de análise personalizadas
+## <a name="create-a-custom-analytics-rule-with-a-scheduled-query"></a>Crie uma regra de análise personalizada com uma consulta programada
 
-Pode criar regras de análise personalizadas para ajudá-lo a procurar os tipos de ameaças e anomalias que são suspeitas no seu ambiente. A regra garante que é notificado imediatamente, para que possa triagem, investigação e remediar as ameaças.
+Pode criar regras de análise personalizadas para ajudá-lo a descobrir ameaças e comportamentos anómalos que estão presentes no seu ambiente. A regra garante que é notificado imediatamente, para que possa triagem, investigação e remediar as ameaças.
 
 1. No portal Azure sob O Azure Sentinel, **selecione Analytics**.
 
 1. Na barra de menu superior, selecione **+Criar** e **selecione a regra de consulta agendada.** Isto abre o **assistente de regras de Analytics**.
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query.png" alt-text="Criar consulta agendada":::
+    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Criar consulta agendada" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
 
 1. No separador **Geral,** forneça um **nome** único e uma **descrição.** No campo **tático,** pode escolher entre categorias de ataques para classificar a regra. Desaperte o alerta **severidade** conforme necessário. Quando cria a regra, o seu **Estado** é **Ativado** por padrão, o que significa que será executado imediatamente após terminar de criá-la. Se não quiser que seja executado imediatamente, selecione **Desativado**, e a regra será adicionada ao separador **regras Ative** e pode ativá-la a partir daí quando precisar.
 
-    ![Comece a criar uma regra de análise personalizada](media/tutorial-detect-threats-custom/general-tab.png)
+    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Comece a criar uma regra de análise personalizada":::
 
-1. No separador lógica de **regras Definida,** pode escrever uma consulta diretamente no campo **de consulta regra,** ou criar a consulta no Log Analytics e, em seguida, copiá-la e colá-la lá.
- 
-   ![Criar consulta em Azure Sentinel](media/tutorial-detect-threats-custom/settings-tab.png)
+## <a name="define-the-rule-query-logic-and-configure-settings"></a>Defina a lógica de consulta de regras e configurar as definições
 
-   - Consulte a área **de pré-visualização** de Resultados para a direita, onde o Azure Sentinel mostra o número de resultados (eventos de registo) que a consulta irá gerar, alterando o voo à medida que escreve e configura a sua consulta. O gráfico mostra o número de resultados durante o período de tempo definido, que é determinado pelas definições na secção **de agendamento de consultas.**
-    - Se vir que a sua consulta desencadearia alertas demasiado ou demasiado frequentes, pode definir uma linha de base na secção **limiar de alerta.**
+1. No separador lógica de **regras Definida,** pode escrever uma consulta diretamente no campo **de consulta regra,** ou criar a consulta no Log Analytics e, em seguida, copiá-la e colá-la lá. As consultas são escritas na Linguagem de Consulta Kusto (KQL). Saiba mais sobre [conceitos](/azure/data-explorer/kusto/concepts/) e [consultas KQL,](/azure/data-explorer/kusto/query/)e consulte este guia de referência [rápido](/azure/data-explorer/kql-quick-reference)e útil.
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1.png" alt-text="Lógica e configuração da regra de consulta de configuração" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1.png":::
+
+   - Na área de **simulação de Resultados** à direita, selecione **Teste com dados atuais** e O Azure Sentinel irá mostrar-lhe um gráfico dos resultados (eventos de log) que a consulta teria gerado ao longo das últimas 50 vezes que teria executado, de acordo com o calendário atualmente definido. Se modificar a consulta, selecione **Teste com os dados atuais** novamente para atualizar o gráfico. O gráfico mostra o número de resultados durante o período de tempo definido, que é determinado pelas definições na secção **de agendamento de consultas.**
+  
+      Aqui está o que a simulação de resultados pode parecer para a consulta na imagem acima. O lado esquerdo é a vista padrão, e o lado direito é o que se vê quando se paira sobre um ponto no tempo no gráfico.
+
+     :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Imagens de simulação de resultados":::
+
+   - Se vir que a sua consulta desencadearia alertas demasiado ou demasiado frequentes, pode definir uma linha de base na secção **limiar de alerta** (ver abaixo).
 
       Aqui está uma consulta de amostra que o alertaria quando um número anómalo de recursos é criado na Atividade Azure.
 
@@ -65,56 +74,66 @@ Pode criar regras de análise personalizadas para ajudá-lo a procurar os tipos 
         >
         > - A utilização de funções ADX para criar consultas do Azure Data Explorer dentro da janela de consulta Log Analytics **não é suportada**.
 
-    1. Utilize a secção **de entidades** do Mapa para ligar parâmetros dos resultados da sua consulta a entidades reconhecidas pelo Azure Sentinel. Estas entidades formam a base para uma análise mais aprofundada, incluindo o agrupamento de alertas em incidentes no **separador de definições de Incidentes.**
+1. Utilize a secção **de entidades** do Mapa para ligar parâmetros dos resultados da sua consulta a entidades reconhecidas pelo Azure Sentinel. Estas entidades formam a base para uma análise mais aprofundada, incluindo o agrupamento de alertas em incidentes no **separador de definições de Incidentes.** 
+
+    Saiba mais sobre [entidades](identify-threats-with-entity-behavior-analytics.md#entities-in-azure-sentinel) em Azure Sentinel.
   
-    1. Na secção **de agendamento de consultas,** definir os seguintes parâmetros:
+1. Na secção **de agendamento de consultas,** definir os seguintes parâmetros:
 
-       1. **Desacomo se questione** para controlar a frequência com que a consulta é executada - com a frequência de cada 5 minutos ou com frequência como uma vez por dia.
+    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Definir horário de consulta e agrupamento de eventos" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2.png":::
 
-       1. Defina **os dados do Lookup do último** para determinar o período de tempo dos dados abrangidos pela consulta - por exemplo, pode consultar os últimos 10 minutos de dados, ou as últimas 6 horas de dados.
+    1. **Desacomo se questione** para controlar a frequência com que a consulta é executada - com a frequência de cada 5 minutos ou com frequência como uma vez por dia.
 
-          > [!NOTE]
-          > **Intervalos de consulta e período de retrocesso**
-          > - Estas duas configurações são independentes uma da outra, até um ponto. Pode executar uma consulta num curto intervalo que cubra um período de tempo mais longo do que o intervalo (na verdade, tendo consultas sobrepostas), mas não pode executar uma consulta num intervalo superior ao período de cobertura, caso contrário terá lacunas na cobertura geral da consulta.
-          >
-          > **Atraso na ingestão**
-          > - Para ter em conta **a latência** que pode ocorrer entre a geração de um evento na fonte e a sua ingestão no Azure Sentinel, e para garantir uma cobertura completa sem duplicação de dados, o Azure Sentinel executa regras de análise programadas com um **atraso de cinco minutos** em função da hora programada.
+    1. Defina **os dados do Lookup do último** para determinar o período de tempo dos dados abrangidos pela consulta - por exemplo, pode consultar os últimos 10 minutos de dados, ou as últimas 6 horas de dados.
 
-    1. Utilize a secção **de limiar de alerta** para definir uma linha de base. Por exemplo, **desacordo O alerta de Geração quando** o número de resultados de consulta é maior do **que** e introduza o número 1000 se quiser que a regra gere um alerta apenas se a consulta devolver mais de 1000 resultados cada vez que for executado. Este é um campo obrigatório, por isso, se não quiser definir uma linha de base – ou seja, se quiser que o seu alerta registe todos os eventos – introduza 0 no campo de números.
+        > [!NOTE]
+        > **Intervalos de consulta e período de retrocesso**
+        > - Estas duas configurações são independentes uma da outra, até um ponto. Pode executar uma consulta num curto intervalo que cubra um período de tempo mais longo do que o intervalo (na verdade, tendo consultas sobrepostas), mas não pode executar uma consulta num intervalo superior ao período de cobertura, caso contrário terá lacunas na cobertura geral da consulta.
+        >
+        > - Pode definir um período de reversão de até 14 dias.
+        >
+        > **Atraso na ingestão**
+        > - Para ter em conta **a latência** que pode ocorrer entre a geração de um evento na fonte e a sua ingestão no Azure Sentinel, e para garantir uma cobertura completa sem duplicação de dados, o Azure Sentinel executa regras de análise programadas com um **atraso de cinco minutos** em função da hora programada.
+
+1. Utilize a secção **de limiar de alerta** para definir uma linha de base. Por exemplo, **desacordo O alerta de Geração quando** o número de resultados de consulta é maior do **que** e introduza o número 1000 se quiser que a regra gere um alerta apenas se a consulta devolver mais de 1000 resultados cada vez que for executado. Este é um campo obrigatório, por isso, se não quiser definir uma linha de base – ou seja, se quiser que o seu alerta registe todos os eventos – introduza 0 no campo de números.
     
-    1. No **âmbito do agrupamento event,** escolha uma de duas formas de lidar com o agrupamento de **eventos** em **alertas:** 
+1. No **âmbito do agrupamento event,** escolha uma de duas formas de lidar com o agrupamento de **eventos** em **alertas:** 
 
-       - **Agrupe todos os eventos num único alerta** (a definição predefinida). A regra gera um único alerta cada vez que executa, desde que a consulta retorne mais resultados do que o limiar de **alerta** especificado acima. O alerta inclui um resumo de todos os eventos devolvidos nos resultados. 
+    - **Agrupe todos os eventos num único alerta** (a definição predefinida). A regra gera um único alerta cada vez que executa, desde que a consulta retorne mais resultados do que o limiar de **alerta** especificado acima. O alerta inclui um resumo de todos os eventos devolvidos nos resultados. 
 
-       - **Desencadeie um alerta para cada evento.** A regra gera um alerta único para cada evento devolvido pela consulta. Isto é útil se quiser que os eventos sejam exibidos individualmente, ou se pretender agrupar os mesmos por determinados parâmetros - por utilizador, nome de anfitrião ou outra coisa qualquer. Pode definir estes parâmetros na consulta.
+    - **Acionar um alerta para cada evento**. A regra gera um alerta único para cada evento devolvido pela consulta. Isto é útil se quiser que os eventos sejam exibidos individualmente, ou se pretender agrupar os mesmos por determinados parâmetros - por utilizador, nome de anfitrião ou outra coisa qualquer. Pode definir estes parâmetros na consulta.
     
-       Atualmente, o número de alertas que uma regra pode gerar está limitado a 20. Se, numa regra específica, **o agrupamento de eventos** estiver definido para **desencadear um alerta para cada evento**, e a consulta da regra retorna mais de 20 eventos, cada um dos primeiros 19 eventos gerará um alerta único, e o 20º alerta irá resumir todo o conjunto de eventos devolvidos. Por outras palavras, o vigésimo alerta é o que teria sido gerado no âmbito do **Grupo todos os eventos numa única** opção de alerta.
+    Atualmente, o número de alertas que uma regra pode gerar está limitado a 20. Se, numa regra específica, **o agrupamento de eventos** estiver definido para **desencadear um alerta para cada evento**, e a consulta da regra retorna mais de 20 eventos, cada um dos primeiros 19 eventos gerará um alerta único, e o 20º alerta irá resumir todo o conjunto de eventos devolvidos. Por outras palavras, o vigésimo alerta é o que teria sido gerado no âmbito do **Grupo todos os eventos numa única** opção de alerta.
 
-       > [!NOTE]
-       > Qual é a diferença entre **Eventos** e **Alertas?**
+    > [!NOTE]
+    > Qual é a diferença entre **eventos** e **alertas?**
+    >
+    > - Um **evento** é uma descrição de uma única ocorrência. Por exemplo, uma única entrada num ficheiro de registo pode contar como um evento. Neste contexto, um evento refere-se a um único resultado devolvido por uma consulta numa regra de análise.
+    >
+    > - Um **alerta** é uma coleção de eventos que, juntos, são significativos do ponto de vista da segurança. Um alerta poderia conter um único evento se o evento tivesse implicações significativas em segurança - um login administrativo de um país estrangeiro fora do horário de expediente, por exemplo.
        >
-       > - Um **evento** é uma descrição de uma única ocorrência. Por exemplo, uma única entrada num ficheiro de registo pode contar como um evento. Neste contexto, um evento refere-se a um único resultado devolvido por uma consulta numa regra de análise.
-       >
-       > - Um **alerta** é uma coleção de eventos que, juntos, são significativos do ponto de vista da segurança. Um alerta poderia conter um único evento se o evento tivesse implicações significativas em segurança - um login administrativo de um país estrangeiro fora do horário de expediente, por exemplo.
-       >
-       > - A propósito, o que são **incidentes?** A lógica interna de Azure Sentinel cria **incidentes** a partir de **alertas** ou grupos de alertas. A fila dos incidentes é o ponto focal do trabalho dos analistas - triagem, investigação e reparação.
-       > 
-       > O Azure Sentinel ingere eventos crus de algumas fontes de dados, e já processados alertas de outras pessoas. É importante notar com qual está a lidar a qualquer momento.
+    > - A propósito, o que são **incidentes?** A lógica interna de Azure Sentinel cria **incidentes** a partir de **alertas** ou grupos de alertas. A fila dos incidentes é o ponto focal do trabalho dos analistas - triagem, investigação e reparação.
+    > 
+    > O Azure Sentinel ingere eventos crus de algumas fontes de dados, e já processados alertas de outras pessoas. É importante notar com qual está a lidar a qualquer momento.
 
-       > [!IMPORTANT]
-       > O agrupamento de eventos está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+    > [!IMPORTANT]
+    > O agrupamento de eventos está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
     
-    1. Na secção **Supressão,** pode rodar a **consulta stop running após o alerta for gerada** definição **Se,** uma vez que recebe um alerta, pretender suspender o funcionamento desta regra por um período de tempo superior ao intervalo de consulta. Se ligar isto, deve definir **parar de fazer a consulta durante** o tempo que a consulta deve parar de funcionar, até 24 horas.
+1. Na secção **Supressão,** pode rodar a **consulta stop running após o alerta for gerada** definição **Se,** uma vez que recebe um alerta, pretender suspender o funcionamento desta regra por um período de tempo superior ao intervalo de consulta. Se ligar isto, deve definir **parar de fazer a consulta durante** o tempo que a consulta deve parar de funcionar, até 24 horas.
 
-1. No separador **Definições de Incidentes,** pode escolher se e como o Azure Sentinel transforma alertas em incidentes acionáveis. Se este separador for deixado em paz, o Azure Sentinel criará um único incidente separado de cada alerta. Pode optar por não ter incidentes criados, ou agrupar vários alertas num único incidente, alterando as definições neste separador.
+## <a name="configure-the-incident-creation-settings"></a>Configurar as definições de criação de incidentes
 
-   > [!IMPORTANT]
-   > O separador de definições de incidentes encontra-se atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-    
-    1. Na secção Definições de **Incidentes,** **Crie incidentes a partir de alertas desencadeados por esta regra de análise** é definido por padrão para **Enabled**, o que significa que O Azure Sentinel criará um único incidente separado de cada alerta desencadeado pela regra.
+No separador **Definições de Incidentes,** pode escolher se e como o Azure Sentinel transforma alertas em incidentes acionáveis. Se este separador for deixado em paz, o Azure Sentinel criará um único incidente separado de cada alerta. Pode optar por não ter incidentes criados, ou agrupar vários alertas num único incidente, alterando as definições neste separador.
+
+> [!IMPORTANT]
+> O separador de definições de incidentes encontra-se atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+:::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Defina as definições de agrupamento de incidentes e alerta":::
+
+1. Na secção Definições de **Incidentes,** **Crie incidentes a partir de alertas desencadeados por esta regra de análise** é definido por padrão para **Enabled**, o que significa que O Azure Sentinel criará um único incidente separado de cada alerta desencadeado pela regra.
        - Se não quiser que esta regra resulte na criação de incidentes (por exemplo, se esta regra for apenas para recolher informações para análise posterior), desabro quanto a **Deficientes**.
 
-    1. Na secção **de agrupamento de alertas,** se pretender que um único incidente seja gerado a partir de um grupo de até 150 alertas semelhantes ou recorrentes (ver nota), detete **os alertas relacionados com o Grupo, desencadeados por esta regra de análise, em incidentes** a **Enabled,** e definir os seguintes parâmetros.
+1. Na secção **de agrupamento de alertas,** se pretender que um único incidente seja gerado a partir de um grupo de até 150 alertas semelhantes ou recorrentes (ver nota), detete **os alertas relacionados com o Grupo, desencadeados por esta regra de análise, em incidentes** a **Enabled,** e definir os seguintes parâmetros.
 
     - **Limitar o grupo aos alertas criados dentro do prazo selecionado**: Determine o prazo dentro do qual os alertas semelhantes ou recorrentes serão agrupados. Todos os alertas correspondentes dentro deste prazo gerarão colectivamente um incidente ou um conjunto de incidentes (dependendo das definições de agrupamento abaixo). Alertas fora deste período de tempo gerarão um incidente separado ou conjunto de incidentes.
 
@@ -131,19 +150,26 @@ Pode criar regras de análise personalizadas para ajudá-lo a procurar os tipos 
         > [!NOTE]
         > Até 150 alertas podem ser agrupados num único incidente. Se mais de 150 alertas forem gerados por uma regra que os agrupará num único incidente, um novo incidente será gerado com os mesmos detalhes do incidente que o original, e os alertas em excesso serão agrupados no novo incidente.
 
+## <a name="set-automated-responses-and-create-the-rule"></a>Desateia respostas automatizadas e criaa a regra
+
 1. No separador **respostas automatizadas,** selecione quaisquer livros de reprodução que pretenda executar automaticamente quando um alerta é gerado pela regra personalizada. Para obter mais informações sobre a criação e automatização de livros, consulte [Responder às ameaças](tutorial-respond-threats-playbook.md).
 
+    :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Definir as definições de resposta automatizada":::
+
 1. Selecione **Rever e criar** para rever todas as definições da sua nova regra de alerta e, em seguida, selecione Criar para **rubricar a sua regra de alerta**.
+
+    :::image type="content" source="media/tutorial-detect-threats-custom/review-and-create-tab.png" alt-text="Reveja todas as definições e crie a regra":::
+
+## <a name="view-the-rule-and-its-output"></a>Ver a regra e a sua saída
   
 1. Após a criação do alerta, uma regra personalizada é adicionada à tabela de acordo com **as regras Ative**. A partir desta lista pode ativar, desativar ou eliminar cada regra.
 
 1. Para ver os resultados das regras de alerta que cria, vá à página **Incidentes,** onde pode triagem, investigação de [incidentes](tutorial-investigate-cases.md)e remediar as ameaças.
 
-
 > [!NOTE]
 > Os alertas gerados no Azure Sentinel estão disponíveis através da [Microsoft Graph Security](/graph/security-concept-overview). Para obter mais informações, consulte a documentação de [alertas de segurança do gráfico da Microsoft](/graph/api/resources/security-api-overview).
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="issue-no-events-appear-in-query-results"></a>Problema: Não aparecem eventos nos resultados da consulta
 

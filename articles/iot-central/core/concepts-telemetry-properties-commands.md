@@ -3,17 +3,17 @@ title: Telemetria, propriedade e cargas de comando no Azure IoT Central Microsof
 description: Os modelos do dispositivo Azure IoT Central permitem especificar a telemetria, propriedades e comandos de um dispositivo que deve implementar. Compreenda o formato dos dados que um dispositivo pode trocar com a IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121755"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795348"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
 

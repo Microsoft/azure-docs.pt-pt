@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919646"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796062"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -91,7 +91,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
         Selecione **Seguinte**.
 1. Selecione o conjunto de dados recém-criado assim que aparecer. Também é possível visualizar uma pré-visualização do conjunto de dados e estatísticas da amostra. 
 
-1. No **formulário de execução Configure,** insira um nome único de experiência.
+1. No formulário **de execução configurar,** selecione **Criar novo** e introduza **tutorial-automl-deploy** para o nome da experiência.
 
 1. Selecione uma coluna-alvo; esta é a coluna sobre a qual gostaria de fazer previsões.
 
@@ -164,7 +164,7 @@ Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 **Selecione Finish** para executar a sua experiência. O processo de preparação da experimentação pode demorar até 10 minutos. As tarefas de preparação podem demorar mais 2 ou 3 minutos para cada pipeline concluir a execução.
 
 > [!NOTE]
-> Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação numa pontuação final de métricas recomendadas dos modelos, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
+> Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação na pontuação final das métricas de um modelo recomendado, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
 
 ### <a name="view-experiment-details"></a>Ver detalhes da experimentação
 
@@ -172,11 +172,11 @@ O ecrã **'Detalhes'** abre-se para o separador **Detalhes.** Este ecrã mostra-
 
 O separador **Modelos** contém uma lista dos modelos criados encomendados pela pontuação de métrica. Por predefinição, o modelo com a classificação mais alta com base na métrica escolhida está no topo da lista. À medida que a tarefa de preparação experimenta mais modelos, estes são adicionados à lista. Utilize-a para obter uma comparação rápida das métricas dos modelos produzidos até agora.
 
-[![Executar o painel de detalhes](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Detalhe de execução](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>Ver detalhes da execução de treino
 
-Desa cosar em qualquer um dos modelos concluídos para ver detalhes de treino, como [Learn more about charts](how-to-understand-automated-ml.md)um resumo do modelo no separador **Modelo** ou gráficos de métrica de desempenho no separador **Métricas.**
+Desa cosar em qualquer um dos modelos concluídos para ver detalhes de treino, como [](how-to-understand-automated-ml.md)um resumo do modelo no separador **Modelo** ou gráficos de métrica de desempenho no separador **Métricas.**
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -216,10 +216,10 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 1. Selecione **Implementar**. A conclusão da implementação pode demorar cerca de 20 minutos.
     Assim que a implementação for iniciada, o separador **Resumo do modelo** é apresentado. Veja o progresso da implementação na secção **Estado da implementação**. 
 
-Agora, tem um serviço Web operacional para gerar predições! Pode testar as predições ao consultar o serviço no [Suporte do Azure Machine Learning integrado no Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Agora, tem um serviço Web operacional para gerar predições! Pode testar as predições ao consultar o serviço no [Suporte do Azure Machine Learning integrado no Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como consumir um serviço web.](./how-to-consume-web-service.md)
+* [Saiba como consumir um serviço web.](how-to-consume-web-service.md)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
 * [Saiba mais sobre machine learning automatizado](concept-automated-ml.md) e aprendizagem automática Azure.

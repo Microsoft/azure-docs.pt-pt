@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791890"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795993"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
 Este tópico explica como ver e compreender as recomendações no Azure Security Center para ajudá-lo a proteger os seus recursos Azure.
@@ -42,7 +42,11 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
 
 1. A partir do menu do Centro de Segurança, abra a página **recomendações** para ver as recomendações aplicáveis ao seu ambiente. As recomendações são agrupadas nos controlos de segurança.
 
-      ![Recomendações agrupadas pelo controlo de segurança](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recomendações agrupadas pelo controlo de segurança" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. Para encontrar recomendações específicas do tipo de recurso, gravidade, ambiente ou outros critérios que sejam importantes para si, utilize os filtros opcionais acima da lista de recomendações.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filtros para refinar a lista de recomendações do Centro de Segurança Azure":::
 
 1. Expanda um controlo e selecione uma recomendação específica para ver a página de detalhes da recomendação.
 
@@ -60,7 +64,7 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
         - **Recursos pouco saudáveis** – Recursos que ainda são impactados pela questão identificada.
         - **Recursos não aplicáveis** – Recursos para os quais a recomendação não pode dar uma resposta definitiva. O separador não aplicável também inclui razões para cada recurso. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Página de detalhes de recomendação.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Não recursos aplicáveis com razões.":::
     1. Botões de ação para remediar a recomendação ou desencadear uma aplicação lógica.
 
 ## <a name="preview-recommendations"></a>Recomendações de pré-visualização
@@ -71,7 +75,7 @@ Devem continuar a ser remediados sempre que possível, para que quando o períod
 
 Um exemplo de uma recomendação de pré-visualização:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Página de detalhes de recomendação.":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
  
 ## <a name="next-steps"></a>Passos seguintes
 

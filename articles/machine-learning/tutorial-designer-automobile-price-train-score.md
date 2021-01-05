@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575980"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796113"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever o preço de um automóvel com o estruturador
 
@@ -272,7 +272,7 @@ Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de ga
     > [!NOTE]
     > Experiências grupo semelhantes oleodutos funciona juntos. Se executar um oleoduto várias vezes, pode selecionar a mesma experiência para execuções sucessivas.
 
-    1. Introduza um nome descritivo para **Novo Nome da Experiência**.
+    1. Para **novos nomes experimentais,** insira **Tutorial-CarPrices**.
 
     1. Selecione **Submeter**.
     
@@ -306,7 +306,7 @@ As seguintes estatísticas são mostradas para o seu modelo:
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Para o coeficiente de determinação, quanto mais próximo o seu valor for de um (1.0), melhor serão as previsões.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Salte esta secção se quiser continuar com a parte 2 do tutorial, [implantando modelos](tutorial-designer-automobile-price-deploy.md).
 

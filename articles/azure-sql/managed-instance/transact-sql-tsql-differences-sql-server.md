@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368703"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796300"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,6 +69,7 @@ Limitações:
 
 - Com uma SQL Managed Instance, pode fazer backup de uma base de dados de casos para uma cópia de segurança com até 32 listras, o que é suficiente para bases de dados até 4 TB se for utilizada compressão de backup.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados encriptada com encriptação de dados transparentes gerida pelo serviço (TDE). O TDE gerido pelo serviço obriga a que as cópias de segurança sejam encriptadas com uma chave TDE interna. A chave não pode ser exportada, por isso não podes restaurar a reserva. Utilize cópias de segurança automáticas e restauro pontual ou utilize [o TDE gerido pelo cliente (BYOK).](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) Também pode desativar a encriptação na base de dados.
+- As cópias de segurança nativas tomadas numa Instância Gerida não podem ser restauradas num Servidor SQL. Isto porque o Caso Gerido tem uma versão de base de dados interna mais elevada em comparação com qualquer versão do SQL Server.
 - O tamanho máximo de listra de backup utilizando o `BACKUP` comando em SQL Managed Instance é de 195 GB, que é o tamanho máximo de blob. Aumente o número de listras no comando de backup para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
 
     > [!TIP]

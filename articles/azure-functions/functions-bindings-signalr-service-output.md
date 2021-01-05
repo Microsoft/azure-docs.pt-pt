@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998911"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763290"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Ligação de saída do Serviço SignalR para funções Azure
 
@@ -728,7 +728,7 @@ public SignalRGroupAction removeFromGroup(
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `SignalRConnectionInfo` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**| n/a | Deve ser definido para `signalRConnectionInfo` .|
 |**direção**| n/a | Deve ser definido para `in` .|
@@ -741,7 +741,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `SignalR` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**| n/a | Deve ser definido para `signalR` .|
 |**direção**| n/a | Deve ser definido para `out` .|
@@ -753,4 +753,5 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Manuseie as mensagens do Serviço SignalR (ligação do gatilho)](./functions-bindings-signalr-service-trigger.md)
 - [Devolva o URL do ponto final de serviço e o token de acesso (Ligação de entrada)](./functions-bindings-signalr-service-input.md)

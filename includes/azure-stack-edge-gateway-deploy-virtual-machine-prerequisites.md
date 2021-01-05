@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2443765ecc9116193cefbc729ced25fa5657e59
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419414"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763438"
 ---
 Antes de poder implantar VMs no seu dispositivo Azure Stack Edge, tem de configurar o seu cliente para se ligar ao dispositivo através do Azure Resource Manager sobre a Azure PowerShell. Para etapas detalhadas, aceda ao [Connect to Azure Resource Manager no seu dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
 
@@ -34,13 +34,15 @@ Certifique-se de que os seguintes passos podem ser utilizados para aceder ao dis
 
     Ativar o cálculo na interface de rede. O Azure Stack Edge criará e gerirá um interruptor virtual correspondente a essa interface de rede. Não introduza IPs específicos para Kubernetes neste momento. Pode levar vários minutos para ativar o cálculo.
 
-    <!--If you decide to use another network interface for compute, make sure that you:
-    
-    - Delete all the VMs that you have deployed using Azure Resource Manager.
-    
-    - Delete all virtual network interfaces and the virtual network associated with this network interface. 
-    
-    - You can now enable another network interface for compute.-->
+    > [!NOTE]
+    > Se criar VMs GPU, selecione uma interface de rede ligada à Internet. Isto permite-lhe instalar a extensão GPU no seu dispositivo.
 
-<!--1. You may also need to configure TLS 1.2 on your client machine if running older versions of AzCopy.--> 
 
+1. Ativar o papel de VM a partir do portal Azure. Este passo cria uma subscrição única para o seu dispositivo que é usada para criar VMs através das APIs locais do dispositivo. 
+
+    1. Para ativar o papel de VM, no portal Azure, aceda ao recurso Azure Stack Edge para o seu dispositivo Azure Stack Edge. Vá ao **Edge compute > Máquinas Virtuais**.
+
+        ![Adicionar imagem VM 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+
+    1. Selecione **Máquinas Virtuais** para ir à página **'Vista Geral'.** **Ativar a** gestão virtual da nuvem de máquina.
+        ![Adicionar imagem VM 2](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)

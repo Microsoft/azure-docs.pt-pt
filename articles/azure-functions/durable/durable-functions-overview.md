@@ -3,29 +3,31 @@ title: Visão geral das funções duradouras - Azure
 description: Introdução à extensão de Funções Duradouras para Funções Azure.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89669244"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763579"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
 *Funções Duradouras* é uma extensão de [Funções Azure](../functions-overview.md) que permite escrever funções imponentes num ambiente de computação sem servidor. A extensão permite definir fluxos de trabalho imponentes escrevendo [*funções orquestradoras*](durable-functions-orchestrations.md) e entidades imponentes, [*escrevendo funções de entidade*](durable-functions-entities.md) utilizando o modelo de programação Azure Functions. Nos bastidores, a extensão gere o estado, os postos de controlo e o recomeço para si, permitindo-lhe focar-se na sua lógica de negócio.
 
-## <a name="supported-languages"></a><a name="language-support"></a>Línguas apoiadas
+## <a name="supported-languages"></a><a name="language-support"></a>Linguagens suportadas
 
 Funções Duradouras suportam atualmente os seguintes idiomas:
 
 * **C.**: ambas [as bibliotecas de classes pré-recompensadas](../functions-dotnet-class-library.md) e [o script C#](../functions-reference-csharp.md).
 * **JavaScript**: suportado apenas para a versão 2.x do tempo de execução das Funções Azure. Requer a versão 1.7.0 da extensão funções duradouras, ou uma versão posterior. 
-* **Python**: requer a versão 1.8.5 da extensão funções duráveis, ou uma versão posterior. O suporte para funções duradouras está atualmente em pré-visualização pública.
+* **Python**: requer a versão 2.3.1 da extensão de Funções Duráveis, ou uma versão posterior. O suporte para funções duradouras está atualmente em pré-visualização pública.
 * **F#**: bibliotecas de classes pré-recompensadas e script F#. F# O script só é suportado para a versão 1.x do tempo de execução das Funções Azure.
 * **PowerShell**: o suporte para Funções Duradouras está atualmente em visualização pública. Suportado apenas para a versão 3.x do tempo de funcionamento das Funções Azure e PowerShell 7. Requer a versão 2.2.2 da extensão funções duradouras, ou uma versão posterior. Apenas os seguintes padrões são suportados atualmente: [Acorrentamento de funções,](#chaining) [Fan-out/fan-in,](#fan-in-out) [APIs Async HTTP](#async-http).
+
+Para aceder às funcionalidades e atualizações mais recentes, recomenda-se que utilize as versões mais recentes da extensão de Funções Duradouras e as bibliotecas de Funções Duráveis específicas da linguagem. Saiba mais sobre [as versões Funções Duradouras.](durable-functions-versions.md)
 
 As Funções Duradouras têm como objetivo apoiar todas as [línguas Azure Functions](../supported-languages.md). Consulte a [lista de problemas de funções duradouras](https://github.com/Azure/azure-functions-durable-extension/issues) para obter o mais recente estado de trabalho para suportar idiomas adicionais.
 
@@ -556,7 +558,7 @@ A interação humana não é suportada no PowerShell.
 
 ### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Padrão #6: Agregador (entidades imponentes)
 
-O sexto padrão é sobre agregar dados de eventos durante um período de tempo numa única *entidade*endereçada. Neste padrão, os dados agregados podem vir de múltiplas fontes, podem ser entregues em lotes, ou podem ser dispersos por longos períodos de tempo. O agregador poderá ter de tomar medidas sobre os dados dos eventos à medida que chega, e os clientes externos podem precisar de consultar os dados agregados.
+O sexto padrão é sobre agregar dados de eventos durante um período de tempo numa única *entidade* endereçada. Neste padrão, os dados agregados podem vir de múltiplas fontes, podem ser entregues em lotes, ou podem ser dispersos por longos períodos de tempo. O agregador poderá ter de tomar medidas sobre os dados dos eventos à medida que chega, e os clientes externos podem precisar de consultar os dados agregados.
 
 ![Diagrama agregador](./media/durable-functions-concepts/aggregator.png)
 
@@ -708,7 +710,7 @@ Você pode começar com Funções Duráveis em menos de 10 minutos completando u
 
 Nestes arranques rápidos, você cria localmente e testa uma função durável "olá mundo". Em seguida, publique o código de função no Azure. A função que cria orquestra e acorrenta em conjunto chama a outras funções.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 O seguinte vídeo destaca os benefícios das Funções Duradouras:
 

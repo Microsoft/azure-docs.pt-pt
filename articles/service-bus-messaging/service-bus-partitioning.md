@@ -4,12 +4,12 @@ description: Descreve como dividir filas e tópicos do Service Bus usando vário
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930437"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796640"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -29,8 +29,9 @@ Quando um cliente quer receber uma mensagem de uma fila dividida, ou de uma subs
 A operação de espreitar uma entidade não dividida devolve sempre a mensagem mais antiga, mas não numa entidade dividida. Em vez disso, devolve a mensagem mais antiga numa das divisórias cujo corretor de mensagens respondeu primeiro. Não há garantias de que a mensagem devolvida seja a mais antiga em todas as divisórias. 
 
 Não há custo adicional ao enviar uma mensagem ou receber uma mensagem de uma fila ou tópico dividido.
->[!NOTE]
-> A operação de espreitar devolve a mensagem mais antiga da partão com base no seu SequenceNumber. Para entidades partionadas, o número da sequência é emitido em relação à partição. Para obter mais informações, consulte [sequenciação de mensagens e semdas de tempo](../service-bus-messaging/message-sequencing.md).
+
+> [!NOTE]
+> A operação de espreitar devolve a mensagem mais antiga da partição com base no seu número de sequência. Para entidades divididas, o número da sequência é emitido em relação à partição. Para obter mais informações, consulte [sequenciação de mensagens e semdas de tempo](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Permitir a partilha
 
@@ -134,7 +135,7 @@ A Service Bus suporta o encaminhamento automático de mensagens de, para ou entr
 
 * A regra de adicionar ou remover é agora suportada com entidades divididas. Diferentes de entidades não divididas, estas operações não são suportadas no âmbito de operações. 
 * A AMQP é agora suportada para o envio e receção de mensagens de e para uma entidade dividida.
-* A AMQP está agora suportada para as seguintes operações: [Envio de Lote,](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch) [Receber,](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch) [Receber por Número de Sequência](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [Espreitar](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), Renovar [mensagem,](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync)Cancelar [Renew Lock](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock) [mensagem agendada](/dotnet/api/microsoft.azure.servicebus.queueclient.cancelscheduledmessageasync), [Adicionar Regra,](/dotnet/api/microsoft.azure.servicebus.ruledescription)Remover [Regra, Remover Regra,](/dotnet/api/microsoft.azure.servicebus.ruledescription) [Renovar a Sessão,](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock) [Definir Estado de Sessão,](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate) [Obter Estado de Sessão](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate)e [Sessões enumeradas](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
+* A AMQP está agora suportada para as seguintes operações: [Envio de Lote,](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch) [Receber,](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch) [Receber por Número de Sequência](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [Espreitar](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), Renovar [mensagem,](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync)Cancelar [](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock) [mensagem agendada](/dotnet/api/microsoft.azure.servicebus.queueclient.cancelscheduledmessageasync), [Adicionar Regra,](/dotnet/api/microsoft.azure.servicebus.ruledescription)Remover [Regra, Remover Regra,](/dotnet/api/microsoft.azure.servicebus.ruledescription) [Renovar a Sessão,](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock) [Definir Estado de Sessão,](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate) [Obter Estado de Sessão](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate)e [Sessões enumeradas](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
 
 ## <a name="partitioned-entities-limitations"></a>Limitações de entidades divididas
 

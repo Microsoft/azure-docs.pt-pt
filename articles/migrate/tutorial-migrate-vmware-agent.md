@@ -7,19 +7,19 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 0c3b86fc823e4b563dc747a5604fcb2e04995fed
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 480051680ea98b82627a9a2b3ea004d9472f7124
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752656"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797099"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
-Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferramenta [Azure Migrate:Server Migration,](migrate-services-overview.md#azure-migrate-server-migration-tool) com migração baseada em agentes.  Também pode migrar VMware VMs usando migração baseada em agentes. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
+Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferramenta [Azure Migrate:Server Migration,](migrate-services-overview.md#azure-migrate-server-migration-tool) com migração baseada em agentes.  Também pode migrar VMware VMs usando migração sem agentes. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
 
 
- Neste tutorial, ficará a saber como:
+ Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
 > * Preparem-se para a migração baseada em agentes. Crie uma conta VMware para que a Azure Migrate possa descobrir máquinas para migração. Crie uma conta para que o agente de serviço de Mobilidade possa instalar nas máquinas que pretende migrar e preparar uma máquina para funcionar como o aparelho de replicação.
@@ -150,16 +150,16 @@ Descarregue o modelo da seguinte forma:
 
     ![Detetar VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
-4. Em **Como pretende migrar?** **Using agent-based replication**
+3. In **Discover machines**  >  **Are your machines virtualized?** 
+4. Em **Como pretende migrar?** 
 5. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
 6. **Selecione Confirme que a região-alvo para a migração é o nome da região.**
 7. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano. Não é possível alterar a região alvo deste projeto depois de clicar neste botão, e todas as migrações subsequentes são para esta região.
 
     ![Criar cofre dos Serviços de Recuperação](./media/tutorial-migrate-vmware-agent/create-resources.png)
 
-8. Na **Install a replication appliance** **instalação de um novo aparelho de replicação?**
-9. Clique **em Baixar**. Isto descarrega um modelo OVF.
+8. Na  **instalação de um novo aparelho de replicação?**
+9. Clique em **Transferir**. Isto descarrega um modelo OVF.
     ![Baixar OVA](./media/tutorial-migrate-vmware-agent/download-ova.png)
 10. Observe o nome do grupo de recursos e do cofre dos Serviços de Recuperação. Precisa destes durante a colocação do aparelho.
 
@@ -211,7 +211,7 @@ Termine de configurar e registar o aparelho de replicação.
 12. Selecione **Finalizar configuração** para concluir o registo.
 
 
-Após a inscrição do aparelho de replicação, a Avaliação do Servidor Azure Migrate liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs. Pode ver VMs **Manage** descobertos em  >  **itens Geridos** gestão, no separador **Outro.**
+Após a inscrição do aparelho de replicação, a Avaliação do Servidor Azure Migrate liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs. Pode ver VMs descobertos em  >  **itens Geridos** gestão, no separador **Outro.**
 
 
 

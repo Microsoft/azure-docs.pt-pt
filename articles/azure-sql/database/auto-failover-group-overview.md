@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988549"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792505"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ Se a sua aplicação utilizar a SQL Managed Instance como o nível de dados, sig
 
 ### <a name="creating-the-secondary-instance"></a>Criando a instância secundária
 
-Para garantir a conectividade não interrompida à primeira sql Gestd Instance após o fracasso, tanto as instâncias primárias como secundárias devem estar na mesma zona de DNS. Garantirá que o mesmo certificado de vários domínios (SAN) possa ser utilizado para autenticar as ligações do cliente a qualquer uma das duas instâncias do grupo de failover. Quando a sua aplicação estiver pronta para implantação de produção, crie uma instância gerida de SQL secundária numa região diferente e certifique-se de que partilha a zona de DNS com a primeira SQL Managed Instance. Pode fazê-lo especificando o parâmetro opcional `DNS Zone Partner` utilizando o portal Azure, PowerShell ou a API REST.
+Para garantir a conectividade não interrompida à primeira sql Gestd Instance após o fracasso, tanto as instâncias primárias como secundárias devem estar na mesma zona de DNS. Garantirá que o mesmo certificado de vários domínios (SAN) possa ser utilizado para autenticar as ligações do cliente a qualquer uma das duas instâncias do grupo de failover. Quando a sua aplicação estiver pronta para implantação de produção, crie uma instância gerida de SQL secundária numa região diferente e certifique-se de que partilha a zona de DNS com a primeira SQL Managed Instance. Pode fazê-lo especificando o parâmetro opcional durante a criação. Se estiver a utilizar o PowerShell ou a API REST, o nome do parâmetro opcional é `DNS Zone Partner` , e o nome do campo opcional correspondente no portal Azure é Primeira Instância Gerida.
 
 > [!IMPORTANT]
 > A primeira instância gerida criada na sub-rede determina a zona de DNS para todas as instâncias subsequentes na mesma sub-rede. Isto significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas dns.
@@ -485,7 +485,7 @@ Tal como discutido anteriormente, os grupos de auto-failover e a geo-replicaçã
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para tutoriais detalhados, consulte
   - [Adicione a Base de Dados SQL a um grupo de failover](failover-group-add-single-database-tutorial.md)

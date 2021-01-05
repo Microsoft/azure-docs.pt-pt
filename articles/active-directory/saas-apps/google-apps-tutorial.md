@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 9a5cb1e589481bb424507d08879da8cc1b14ff1c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0dd66e246e5e172ad359f5e6e953b360e6e74ebd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92448202"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)
 
@@ -82,7 +82,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Conector Google Cloud (G Suite) suporta **SSO** iniciado SP
 
-* O Conector Google Cloud (G Suite) suporta o fornecimento [ **automatizado** de utilizadores](./google-apps-provisioning-tutorial.md)
+* O Conector Google Cloud (G Suite) suporta o fornecimento [ **automatizado** de utilizadores](g-suite-provisioning-tutorial.md)
 * Assim que configurar o Conector Google Cloud (G Suite) pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>Adicionar conector Google Cloud (G Suite) da galeria
@@ -191,7 +191,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use o único sinal de Azure, concedendo acesso ao Conector Google Cloud (G Suite).
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Google Cloud (G Suite) Connector**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -242,7 +242,7 @@ Nesta secção, você permitirá que B.Simon use o único sinal de Azure, conced
 
 O objetivo desta secção é [criar um utilizador no Conector Google Cloud (G Suite)](https://support.google.com/a/answer/33310?hl=en) chamado B.Simon. Depois de o utilizador ter sido criado manualmente no Conector Google Cloud (G Suite), o utilizador poderá agora iniciar sessão com as suas credenciais de login microsoft 365.
 
-O Conector Google Cloud (G Suite) também suporta o fornecimento automático do utilizador. Para configurar o fornecimento automático do utilizador, tem primeiro de configurar o [Conector Google Cloud (G Suite) para o fornecimento automático do utilizador](./google-apps-provisioning-tutorial.md).
+O Conector Google Cloud (G Suite) também suporta o fornecimento automático do utilizador. Para configurar o fornecimento automático do utilizador, tem primeiro de configurar o [Conector Google Cloud (G Suite) para o fornecimento automático do utilizador](g-suite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Certifique-se de que o seu utilizador já existe no Conector Google Cloud (G Suite) se o provisionamento no AD Azure não tiver sido ligado antes de testar o Single Sign-on.
@@ -264,7 +264,7 @@ Quando clicar no azulejo do Conector Google Cloud (G Suite) no Painel de Acesso,
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
-- [Configurar o Provisionamento do Utilizador](./google-apps-provisioning-tutorial.md)
+- [Configurar o Provisionamento do Utilizador](g-suite-provisioning-tutorial.md)
 
 - [Experimente o Conector Google Cloud (G Suite) com Azure AD](https://aad.portal.azure.com/)
 

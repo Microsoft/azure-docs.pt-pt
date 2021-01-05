@@ -3,14 +3,14 @@ title: Crie a sua primeira função durável em Azure usando Python
 description: Crie e publique uma Função Azure Durável em Python utilizando o Código do Estúdio Visual.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0cc321563de645aeb1d204b67b0ab72053d79c7e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012634"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763562"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Crie a sua primeira função durável em Python
 
@@ -40,7 +40,7 @@ Para concluir este tutorial:
 
 Nesta secção, você usa Código de Estúdio Visual para criar um projeto local de Funções Azure. 
 
-1. No Código do Estúdio Visual, prima F1 (ou Ctrl/Cmd+Shift+P) para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Create New Project...` .
+1. No Código do Estúdio Visual, prima F1 (ou <kbd>Ctrl/Cmd+Shift+P)</kbd>para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Create New Project...` .
 
     ![Criar função](media/quickstart-python-vscode/functions-create-project.png)
 
@@ -60,18 +60,33 @@ O Código do Estúdio Visual instala as Ferramentas Centrais de Funções Azure,
 
 Um ficheiro requirements.txt também é criado na pasta raiz. Especifica os pacotes Python necessários para executar a sua aplicação de função.
 
+## <a name="update-azure-functions-extension-bundles-version"></a>Atualizar versão de pacotes de extensão de funções Azure Functions
+
+As funções Python Azure requerem a versão 2.x dos pacotes de [extensão Azure Functions](../functions-bindings-register.md#access-extensions-in-non-net-languages). Os pacotes de extensão são configurados em *host.jsem*.
+
+1. Abra *host.jsno* projeto. Atualize o pacote de extensão `version` para `[2.*, 3.0.0)` . Isto especifica uma gama de versão superior ou igual a 2.0, e inferior a 3.0.
+
+    ```json
+    "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+    }
+    ```
+
+1. O código VS deve ser recarregado antes de refletir a versão atualizada do pacote de extensão. Na paleta de comando, procure o *Comando developer: Reload Window* e execute-o.
+
 ## <a name="install-azure-functions-durable-from-pypi"></a>Instalar funções azure-duráveis a partir de PyPI
 
 Quando criou o projeto, a extensão do Código Azure Functions VS criou automaticamente um ambiente virtual com a versão Python selecionada. Irá ativar o ambiente virtual num terminal e instalar algumas dependências exigidas pelas Funções Azure e Funções Duradouras.
 
-1. Abra `requirements.txt` no editor e altere o seu conteúdo para o seguinte:
+1. Abra *requirements.txt* no editor e altere o seu conteúdo para o seguinte:
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b6
+    azure-functions-durable>=1.0.0b12
     ```
 
-1. Abra o terminal integrado do editor na pasta atual ( `` Ctrl-Shift-` `` ).
+1. Abra o terminal integrado do editor na pasta atual<kbd>(Ctrl+Shift+'</kbd>).
 
 1. No terminal integrado, ative o ambiente virtual na pasta atual:
 
@@ -203,7 +218,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
     }
     ```
 
-1. Para parar de depurar, prima **Shift + F5** em Código VS.
+1. Para parar de depurar, prima <kbd>Shift+F5</kbd> em Código VS.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 

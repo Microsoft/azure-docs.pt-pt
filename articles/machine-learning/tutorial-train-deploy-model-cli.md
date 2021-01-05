@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 119f1eaa838b404a3dbdc22f692f559816810dde
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578693"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796249"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implemente um modelo a partir do CLI
 
@@ -47,7 +47,7 @@ Saiba como tomar as seguintes ações:
 
 Para este tutorial, descarregue o [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) projeto. Os ficheiros do `examples/cli-train-deploy` diretório são usados pelos passos deste tutorial.
 
-Para obter uma cópia local dos ficheiros, faça o download de [um arquivo .zip,](https://github.com/microsoft/MLOps/archive/master.zip)ou use o seguinte comando Git para clonar o repositório:
+Para obter uma cópia local dos ficheiros, faça o download de [um .zip arquivo,](https://github.com/microsoft/MLOps/archive/master.zip)ou use o seguinte comando Git para clonar o repositório:
 
 ```azurecli-interactive
 git clone https://github.com/microsoft/MLOps.git
@@ -307,10 +307,10 @@ Para obter mais informações sobre ficheiros de configuração de execução, c
 Para iniciar uma corrida de treino no alvo do `cpu-cluster` cálculo, utilize o seguinte comando:
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-Este comando especifica um nome para a experiência ( `myexperiment` ). A experiência armazena informações sobre esta corrida no espaço de trabalho.
+Este comando especifica um nome para a experiência ( `tutorial-cli` ). A experiência armazena informações sobre esta corrida no espaço de trabalho.
 
 O `-c mnist` parâmetro especifica o `.azureml/mnist.runconfig` ficheiro.
 
@@ -327,7 +327,7 @@ Este texto é registado a partir do script de treino e apresenta a precisão do 
 
 Se inspecionar o script de treino, notará que também utiliza o valor alfa quando armazena o modelo treinado para `outputs/sklearn_mnist_model.pkl` .
 
-O modelo foi guardado para o `./outputs` diretório no alvo do cálculo onde foi treinado. Neste caso, o Azure Machine Learning Compute na nuvem Azure. O processo de formação envia automaticamente o conteúdo do `./outputs` diretório a partir do alvo do cálculo onde ocorre formação para o seu espaço de trabalho Azure Machine Learning. É armazenado como parte da experiência ( `myexperiment` neste exemplo).
+O modelo foi guardado para o `./outputs` diretório no alvo do cálculo onde foi treinado. Neste caso, o Azure Machine Learning Compute na nuvem Azure. O processo de formação envia automaticamente o conteúdo do `./outputs` diretório a partir do alvo do cálculo onde ocorre formação para o seu espaço de trabalho Azure Machine Learning. É armazenado como parte da experiência ( `tutorial-cli` neste exemplo).
 
 ## <a name="register-the-model"></a>Registar o modelo
 
@@ -345,13 +345,13 @@ A saída deste comando é semelhante à seguinte JSON:
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }
@@ -436,7 +436,7 @@ az ml service run -n myservice -d @testdata.json
 
 A resposta do comando é semelhante a `[ 3 ]` .
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!IMPORTANT]
 > Os recursos que criou podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do Azure Machine Learning.

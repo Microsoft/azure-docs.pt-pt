@@ -3,21 +3,19 @@ title: Conceitos arquitetónicos em Azure IoT Central Microsoft Docs
 description: Este artigo introduz conceitos-chave relacionados com a arquitetura da Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/27/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985972"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796725"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
-
-
 
 Este artigo fornece uma visão geral da arquitetura Central Microsoft Azure IoT.
 
@@ -170,6 +168,6 @@ Um administrador pode personalizar o UI da aplicação aplicando temas personali
 
 Um operador pode criar dashboards de aplicação personalizados. Pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre a arquitetura da Azure IoT Central, o próximo passo sugerido é aprender sobre a [conectividade do dispositivo](concepts-get-connected.md) no Azure IoT Central.
