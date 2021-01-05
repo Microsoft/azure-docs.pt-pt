@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447334"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739591"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure 
 
@@ -31,6 +31,8 @@ Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de 
 ## <a name="limitations"></a>Limitações
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+Por predefinição, a criação de um espaço de trabalho também cria um Registo de Contentores Azure (ACR).  Uma vez que a ACR não suporta atualmente caracteres unicode em nomes de grupos de recursos, utilize um grupo de recursos que não contenha estes caracteres.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -138,7 +140,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
    | Conta de armazenamento | A conta de armazenamento predefinido para o espaço de trabalho. Por padrão, um novo é criado. |
    | Cofre de Chaves | O Cofre da Chave Azure usado pelo espaço de trabalho. Por padrão, um novo é criado. |
    | Application Insights | A aplicação insights exemplo para o espaço de trabalho. Por padrão, um novo é criado. |
-   | Container Registry | O Registo do Contentor Azure para o espaço de trabalho. Por padrão, um novo _não_ é inicialmente criado para o espaço de trabalho. Em vez disso, é criado uma vez que você precisa quando se cria uma imagem Docker durante o treino ou implantação. |
+   | Registo de Contentor | O Registo do Contentor Azure para o espaço de trabalho. Por padrão, um novo _não_ é inicialmente criado para o espaço de trabalho. Em vez disso, é criado uma vez que você precisa quando se cria uma imagem Docker durante o treino ou implantação. |
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure o seu espaço de trabalho.":::
 
@@ -155,7 +157,9 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
  
 ---
 
-### <a name="networking"></a>Rede  
+
+
+### <a name="networking"></a>Redes  
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-network-security-overview.md)
@@ -189,7 +193,7 @@ Quando cria um ponto final privado, é criada uma nova Zona Privada de DNS chama
 
 1. No [portal Azure,](https://portal.azure.com)selecione o grupo de recursos que contém o espaço de trabalho. Em seguida, selecione o recurso Private DNS Zone nomeado __privatelink.api.azureml.ms__
 2. Nas __Definições__, selecione __links de rede virtual__.
-3. Selecione __Adicionar__. A partir da página __de link de rede virtual Add,__ forneça um nome __link__ único e, em seguida, selecione a __rede Virtual__ a ser adicionada. Selecione __OK__ para adicionar a ligação de rede.
+3. Selecione __Add__ (Adicionar). A partir da página __de link de rede virtual Add,__ forneça um nome __link__ único e, em seguida, selecione a __rede Virtual__ a ser adicionada. Selecione __OK__ para adicionar a ligação de rede.
 
 Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../private-link/private-endpoint-dns.md).
 
@@ -368,6 +372,16 @@ No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte sup
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
+
+* **Browsers suportados no estúdio Azure Machine Learning**: Recomendamos que utilize o navegador mais atualizado que seja compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
+  * Microsoft Edge (O novo Microsoft Edge, versão mais recente. Não o legado da Microsoft Edge)
+  * Safari (versão mais recente, apenas Mac)
+  * Chrome (versão mais recente)
+  * Firefox (versão mais recente)
+
+* **Portal Azure:** 
+  * Se for diretamente para o seu espaço de trabalho a partir de um link de partilha do SDK ou do portal Azure, não pode ver a página **geral** padrão que tem informações de subscrição na extensão. Neste cenário, também não pode mudar para outro espaço de trabalho. Para ver outro espaço de trabalho, vá diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procure o nome do espaço de trabalho.
+  * Todos os ativos (Datasets, Experiments, Computes, e assim por diante) estão disponíveis apenas no [estúdio Azure Machine Learning](https://ml.azure.com). Não *estão* disponíveis no portal Azure.
 
 ### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
 

@@ -1,7 +1,7 @@
 ---
-title: Resolução de problemas Implementação de serviço web remoto
+title: Resolução de problemas de implementação de modelo remoto
 titleSuffix: Azure Machine Learning
-description: Aprenda a trabalhar, resolver e resolver problemas com os erros comuns de implantação do Docker com o Serviço Azure Kubernetes e as Instâncias de Contentores Azure.
+description: Aprenda a trabalhar, resolver e resolver problemas com alguns erros comuns de implementação do Docker com o Serviço Azure Kubernetes e as Instâncias de Contentores Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031509"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740628"
 ---
-# <a name="troubleshoot-model-deployment"></a>Implementação de modelo de resolução de problemas
+# <a name="troubleshooting-remote-model-deployment"></a>Resolução de problemas de implementação de modelo remoto 
 
-Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comuns de implementação do Docker remoto com o Azure Container Instances (ACI) e o Serviço Azure Kubernetes (AKS) utilizando a Azure Machine Learning.
+Aprenda a resolver problemas e a resolver, ou a contornar, erros comuns que poderá encontrar ao implementar um modelo para Azure Container Instances (ACI) e Azure Kubernetes Service (AKS) utilizando a Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,9 +34,9 @@ Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comu
 Quando se implementa um modelo para computação não local no Azure Machine Learning, acontecem as seguintes coisas:
 
 1. O Dockerfile especificado no seu objeto Ambientes no seu InferenceConfig é enviado para a nuvem, juntamente com o conteúdo do seu diretório de origem
-1. Se uma imagem previamente construída não estiver disponível no seu registo de contentores, uma nova imagem do Docker é construída na nuvem e armazenada no registo padrão do seu espaço de trabalho.
+1. Se uma imagem previamente construída não estiver disponível no registo do seu contentor, uma nova imagem do Docker é construída na nuvem e armazenada no registo padrão do contentor do seu espaço de trabalho.
 1. A imagem do Docker do seu registo de contentores é transferida para o seu alvo de computação.
-1. A loja Blob padrão do Workspace está montada no seu alvo de computação, dando-lhe acesso a modelos registados
+1. A loja Blob padrão do seu espaço de trabalho está montada no seu alvo de computação, dando-lhe acesso a modelos registados
 1. O seu servidor web é inicializado executando a função do seu script de entrada `init()`
 1. Quando o seu modelo implantado recebe um pedido, a sua `run()` função lida com esse pedido
 
@@ -177,6 +177,16 @@ Para obter mais informações sobre a definição `autoscale_target_utilization`
 Um código de estado 504 indica que o pedido está esgotado. O tempo limite de tempo padrão é de 1 minuto.
 
 Pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.py para remover chamadas desnecessárias. Se estas ações não corrigirem o problema, utilize as informações deste artigo para depurar o ficheiro score.py. O código pode estar num estado não responsivo ou num ciclo infinito.
+
+## <a name="other-error-messages"></a>Outras mensagens de erro
+
+Tome estas ações para os seguintes erros:
+
+|Erro  | Resolução  |
+|---------|---------|
+|Falha na construção de imagem ao implementar o serviço web     |  Adicione "pynacl==1.2.1" como uma dependência de pip ao ficheiro Conda para configuração de imagem       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere o SKU para VMs utilizados na sua implantação para um que tenha mais memória. |
+|Falha da FPGA     |  Não poderá implementar modelos em FPGAs até que tenha solicitado e aprovado para a quota FPGA. Para solicitar o acesso, preencha o formulário de pedido de quota: https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>Depuragem avançada
 

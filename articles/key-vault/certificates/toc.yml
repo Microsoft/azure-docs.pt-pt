@@ -21,6 +21,8 @@
       href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
+    - name: Java
+      href: quick-create-java.md
 - name: Amostras
   items:
     - name: Exemplos de Código do Key Vault

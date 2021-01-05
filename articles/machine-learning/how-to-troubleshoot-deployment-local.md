@@ -1,7 +1,7 @@
 ---
-title: Implementação de serviço web de resolução de problemas localmente
+title: Resolução de problemas da implantação de modelos locais
 titleSuffix: Azure Machine Learning
-description: Aprenda a trabalhar, resolver e resolver problemas com os erros comuns de funcionamento do Azure Machine Learning Docker localmente.
+description: Experimente uma implementação de modelo local como um primeiro passo para resolver erros de implementação do modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 01a5f600acf9542c5adabcdf2523a42ca44233af
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680496"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740645"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>Implementação de modelo de resolução de problemas localmente
+# <a name="troubleshooting-with-a-local-model-deployment"></a>Resolução de problemas com uma implantação de modelo local
 
-Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comuns de implementação do serviço web Azure Machine Learning Docker localmente.
+Experimente uma implementação de modelo local como um primeiro passo na resolução de problemas para a Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS).  A utilização de um serviço web local facilita a localização e a correção de erros comuns de implementação do serviço web Azure Machine Learning Docker.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,8 +33,6 @@ Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comu
     Para verificar a instalação do Docker, utilize o comando `docker run hello-world` a partir de um terminal ou de um pedido de comando. Para obter informações sobre a instalação do Docker, ou sobre os erros do Docker, consulte a [Documentação](https://docs.docker.com/)do Docker .
 
 ## <a name="debug-locally"></a>Debug localmente
-
-Se tiver problemas ao implementar um modelo para ACI ou AKS, implemente-o como um serviço web local. A utilização de um serviço Web local facilita a resolução de problemas.
 
 Pode encontrar uma amostra [de um caderno de implementação local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) no repo  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar um exemplo runnable.
 

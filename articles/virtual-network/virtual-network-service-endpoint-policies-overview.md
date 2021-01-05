@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400760"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739302"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas do ponto final de serviço de rede virtual do Armazenamento do Microsoft Azure
 
@@ -122,7 +122,7 @@ As redes virtuais e as contas de Armazenamento Azure podem estar nas mesmas ou d
 - As redes virtuais devem existir na mesma região que a política de ponto final de serviço.
 - Apenas pode aplicar a política de ponto final de serviço a uma sub-rede se os pontos finais de serviço estiverem configurados para os serviços do Azure listados na política.
 - Não pode utilizar políticas de ponto final de serviço para tráfego da sua rede no local para os serviços do Azure.
-- Os serviços geridos pela Azure não apoiam atualmente as políticas endpoint. Isto inclui serviços geridos implantados nas sub-redes partilhadas (por *exemplo, Azure HDInsight, Azure Batch, Azure ADDS, Azure Application Gateway, Azure VPN Gateway, Azure*SQ MIL) ou nas sub-redess dedicadas (por *exemplo, Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQ MIL, serviços geridos clássicos).*
+- Os serviços geridos pela Azure não apoiam atualmente as políticas endpoint. Isto inclui serviços geridos implantados nas sub-redes partilhadas (por *exemplo, Azure Batch, Azure ADDS, Azure Application Gateway, Azure VPN Gateway, Azure* Firewall) ou nas sub-redes dedicadas (por *exemplo, Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL MI, serviços geridos clássicos).*
 
  > [!WARNING]
  > Os serviços do Azure implementados na sua rede virtual, como o Azure HDInsight, acedem a outros serviços do Azure, como o Armazenamento do Azure, por motivos de requisitos de infraestrutura. Restringir a política de ponto final a recursos específicos pode interromper o acesso aos recursos de infraestrutura dos serviços do Azure implementados na rede virtual.

@@ -3,12 +3,12 @@ title: Modos de implementação
 description: Descreve como especificar se deve utilizar um modo de implementação completo ou incremental com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 45eee255cec06925095ed0696c669b5c205f8b56
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184047"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724413"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
@@ -33,7 +33,7 @@ Se implementar para [mais de um grupo de recursos num modelo,](./deploy-to-resou
 
 Existem algumas diferenças na forma como os tipos de recursos lidam com as eliminações completas do modo. Os recursos dos pais são automaticamente eliminados quando não estão num modelo que é implantado em modo completo. Alguns recursos infantis não são automaticamente eliminados quando não estão no modelo. No entanto, estes recursos para crianças são eliminados se o recurso dos pais for eliminado.
 
-Por exemplo, se o seu grupo de recursos contiver uma zona DE DNS (tipo de recurso Microsoft.Network/dnsZones) e um registo CNAME (Microsoft.Network/dnsZones/CNAME tipo de recurso), a zona DNS é o recurso-mãe para o registo CNAME. Se implementar com o modo completo e não incluir a zona DNS no seu modelo, a zona DE DNS e o registo CNAME são ambos eliminados. Se incluir a zona DNS no seu modelo, mas não incluir o registo CNAME, o CNAME não é eliminado.
+Por exemplo, se o seu grupo de recursos contiver uma zona DE DNS `Microsoft.Network/dnsZones` (tipo de recurso) e um registo CNAME `Microsoft.Network/dnsZones/CNAME` (tipo de recurso), a zona DE DNS é o recurso principal para o registo CNAME. Se implementar com o modo completo e não incluir a zona DNS no seu modelo, a zona DE DNS e o registo CNAME são ambos eliminados. Se incluir a zona DNS no seu modelo, mas não incluir o registo CNAME, o CNAME não é eliminado.
 
 Para obter uma lista de como os tipos de recursos lidam com a eliminação, consulte [a Eliminação dos recursos Azure para implementações completas do modo](complete-mode-deletion.md).
 
@@ -113,19 +113,19 @@ O exemplo a seguir mostra um modelo ligado definido para o modo de implementaç�
 ```json
 "resources": [
   {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "properties": {
-          "mode": "Incremental",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2017-05-10",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
           <nested-template-or-external-template>
-      }
+    }
   }
 ]
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](template-syntax.md)
-* Para saber mais sobre a implementação de recursos, consulte [implementar uma aplicação com o modelo Azure Resource Manager](deploy-powershell.md).
+* Para saber sobre a criação de modelos de Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para saber sobre a implantação de recursos, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
 * Para visualizar as operações de um fornecedor de recursos, consulte [a AZure REST API](/rest/api/).

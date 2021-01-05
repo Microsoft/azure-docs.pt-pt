@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 12/16/2020
 ms.custom: generated
-ms.openlocfilehash: c9638ce3509ba181e9f716b3bb427128e50c80ac
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9318ea9d811f2fd490ed6e796b9719c5c482d513
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652896"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707644"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -121,7 +121,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.DevTestLab](#microsoftdevtestlab) |
 | [Microsoft.LabServices](#microsoftlabservices) |
 | [Microsoft.VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migrar** |
 | [Microsoft.Migrate](#microsoftmigrate) |
 | [Microsoft.OffAzure](#microsoftoffazure) |
 | **Monitorizar** |
@@ -4651,13 +4651,13 @@ Serviço Azure: [Power BI Incorporado](/azure/power-bi-embedded/)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.PowerBIDedicated/register/action | Registra fornecedor de recursos dedicados Power BI. |
-> | Microsoft.PowerBIDedicated/capacities/read | Recupera a informação da capacidade dedicada do Power BI especificado. |
-> | Microsoft.PowerBIDedicated/capacities/write | Cria ou atualiza a capacidade dedicada do Power BI especificado. |
-> | Microsoft.PowerBIDedicated/capacities/delete | Elimina a capacidade dedicada ao Power BI. |
+> | Microsoft.PowerBIDedicated/capacities/read | Recupera a informação da capacidade de POWER BI especificada. |
+> | Microsoft.PowerBIDedicated/capacities/write | Cria ou atualiza a capacidade de Power BI especificada. |
+> | Microsoft.PowerBIDedicated/capacities/delete | Elimina a capacidade power bi. |
 > | Microsoft.PowerBIDedicated/capacities/suspender/ação | Suspende a capacidade. |
 > | Microsoft.PowerBIDedicated/capacities/currículo/ação | Retoma a Capacidade. |
 > | Microsoft.PowerBIDedicated/capacities/skus/read | Recuperar informações SKU disponíveis para a capacidade |
-> | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Verifica que o nome de capacidade dedicada power BI é válido e não está em uso. |
+> | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Verifica se o nome de capacidade do Power BI é válido e não está a ser utilizado. |
 > | Microsoft.PowerBIDedicated/locations/operationresults/read | Recupera as informações do resultado da operação especificado. |
 > | Microsoft.PowerBIDedicated/locations/operationstatuses/read | Recupera as informações do estado de funcionamento especificado. |
 > | Microsoft.PowerBIDedicated/operations/read | Recupera a informação das operações |
@@ -7066,7 +7066,7 @@ Serviço Azure: [Azure DevOps](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Excluir Projeto |
 > | Microsoft.VisualStudio/Project/Read | Projeto ler |
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -9498,7 +9498,7 @@ Serviço Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 

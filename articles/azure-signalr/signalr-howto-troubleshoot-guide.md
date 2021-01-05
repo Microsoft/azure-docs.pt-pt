@@ -1,17 +1,17 @@
 ---
 title: Troubleshooting guide (Guia de resolução de problemas) do Azure SignalR Service
 description: Saiba como resolver problemas comuns
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 505176758e1dbba1d6bf262554568edd8a197a4d
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607428"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707678"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de resolução de problemas para problemas comuns do Serviço Azure SignalR
 
@@ -63,6 +63,8 @@ services.MapAzureSignalR(GetType().FullName, options =>
             });
 ```
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="tls-12-required"></a>TLS 1.2 necessário
 
 ### <a name="possible-errors"></a>Possíveis erros:
@@ -104,11 +106,15 @@ Adicione o seguinte código ao seu Arranque:
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="400-bad-request-returned-for-client-requests"></a>400 Mau Pedido devolvido para pedidos de clientes
 
 ### <a name="root-cause"></a>Causa raiz
 
 Verifique se o seu pedido de cliente tem `hub` várias cadeias de consultas. `hub` é um parâmetro de consulta preservado e 400 lançarão se o serviço detetar mais de um `hub` na consulta.
+
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="401-unauthorized-returned-for-client-requests"></a>401 Unauthorized returned for client requests (Erro 401 não autorizado devolvido para pedidos de cliente)
 
@@ -128,6 +134,8 @@ Por questões de segurança, o alargamento da TTL não é encorajado. Sugerimos 
 
 Consulte [aqui](#restart_connection) como reiniciar as ligações com o cliente.
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-client-requests"></a>404 returned for client requests (404 devolvido para pedidos de cliente)
 
 Para uma ligação persistente signalR, primeiro `/negotiate` ao serviço Azure SignalR e depois estabelece a ligação real ao serviço Azure SignalR.
@@ -138,9 +146,13 @@ Para uma ligação persistente signalR, primeiro `/negotiate` ao serviço Azure 
 * Verifique o URL do pedido quando ocorrer 404. Se o URL estiver direcionado para a sua aplicação web, e similar `{your_web_app}/hubs/{hubName}` a, verifique se o cliente `SkipNegotiation` está `true` . Ao utilizar o Azure SignalR, o cliente recebe URL de redirecionamento quando negoceia pela primeira vez com o servidor de aplicações. O cliente **NÃO** deve faltar à negociação quando utilizar o Azure SignalR.
 * Outros 404 podem acontecer quando o pedido de ligação é tratado mais de **5** segundos depois `/negotiate` de ser chamado. Verifique a data do pedido do cliente e abra-nos um problema se o pedido ao serviço tiver uma resposta lenta.
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-aspnet-signalrs-reconnect-request"></a>404 devolvidos para ASP.NET pedido de reconexão da SignalR
 
 Para ASP.NET SignalR, quando a ligação do [cliente cai,](#client_connection_drop)volta a ligar-se utilizando o mesmo `connectionId` durante três vezes antes de parar a ligação. `/reconnect` pode ajudar se a ligação for abandonada devido a problemas intermitentes de rede que `/reconnect` podem restabelecer a ligação persistente com sucesso. Noutras circunstâncias, por exemplo, a ligação ao cliente é abandonada devido à ligação do servidor rotato ser abandonada, ou o Serviço SignalR tem alguns erros internos como o reinício/falha/implementação, a ligação já não existe, assim `/reconnect` derresto `404` . É o comportamento esperado para `/reconnect` e depois de três vezes tentar novamente a ligação parar. Sugerimos que a [lógica de reinício da ligação](#restart_connection) quando a ligação parar.
+
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (Pedidos demasiados) devolvidos para pedidos de clientes
 
@@ -155,6 +167,8 @@ As ligações incluem ligações de cliente e servidor. consulte [aqui](./signal
 ### <a name="too-many-negotiate-requests-at-the-same-time"></a>Demasiados pedidos de negociação ao mesmo tempo.
 
 Sugerimos um atraso aleatório antes de voltar a ligar, por favor, consulte [aqui](#restart_connection) amostras de repetição.
+
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 Erro ao negociar: O Serviço Azure SignalR ainda não está ligado, tente novamente mais tarde.
 
@@ -215,6 +229,8 @@ Ao utilizar a versão SDK >`1.0.0` =, pode ativar vestígios adicionando o segui
 
 <a name="client_connection_drop"></a>
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="client-connection-drops"></a>Gotas de ligação ao cliente
 
 Quando o cliente está ligado ao Azure SignalR, a ligação persistente entre o cliente e o Azure SignalR pode por vezes cair por razões diferentes. Esta secção descreve várias possibilidades que causam a queda de tal ligação e fornece algumas orientações sobre como identificar a causa raiz.
@@ -240,6 +256,7 @@ As ligações com o cliente podem cair em várias circunstâncias:
 2. Verifique o registo de eventos do lado do servidor da aplicação para ver se o servidor da aplicação reiniciou
 3. Crie um problema para nós fornecendo o prazo, e envie-nos o nome do recurso
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="client-connection-increases-constantly"></a>A ligação ao cliente aumenta constantemente
 
@@ -295,6 +312,8 @@ Este problema ocorre frequentemente quando alguém estabelece a ligação do cli
 
 <a name="server_connection_drop"></a>
 
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="server-connection-drops"></a>Gotas de ligação do servidor
 
 Quando o servidor de aplicações começa, em segundo plano, o Azure SDK começa a iniciar ligações de servidor ao remoto Azure SignalR. Conforme descrito em [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR liga tráfegos de clientes a estas ligações de servidor. Uma vez que uma ligação do servidor é largada, todas as ligações do cliente que serve também serão fechadas.
@@ -320,6 +339,8 @@ A ligação de serviço do servidor é fechada por **ASRS****(Um** zure **S** ig
 1. Abra o registo do servidor do servidor de aplicações para ver se algo anormal ocorreu
 2. Verifique o registo de eventos do lado do servidor da aplicação para ver se o servidor da aplicação reiniciou
 3. Crie um problema para nós fornecendo o prazo, e envie-nos o nome do recurso
+
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="tips"></a>Sugestões
 
@@ -352,6 +373,8 @@ Tome ASP.NET Core um, por exemplo (ASP.NET um é semelhante):
     * [ASP.NET Cliente C#](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
     * [ASP.NET JavaScript Cliente](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+
+[Ter problemas ou feedback sobre a resolução de problemas? Deixe-nos saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>Passos seguintes
 

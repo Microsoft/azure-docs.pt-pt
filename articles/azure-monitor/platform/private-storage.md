@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0a2439f0ed18cf93691a1d0389e049b1b7993d93
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095309"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732070"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilização de contas de armazenamento geridas pelo cliente no Azure Monitor Log Analytics
 
@@ -32,11 +32,11 @@ Tipos de dados suportados:
 * Registos do IIS
 
 ## <a name="using-private-links"></a>Utilização de links privados
-As contas de armazenamento geridas pelo cliente são necessárias em alguns casos de utilização, quando ligações privadas são usadas para ligar aos recursos do Azure Monitor. Um desses casos é a ingestão de registos personalizados ou registos IIS. Estes tipos de dados são primeiro enviados como bolhas para uma conta de armazenamento Azure intermediário e só depois ingeridos num espaço de trabalho. Da mesma forma, algumas soluções do Azure Monitor podem usar contas de armazenamento para armazenar ficheiros grandes, como ficheiros de despejo watson, que são usados pela solução Azure Security Center. 
+As contas de armazenamento geridas pelo cliente são necessárias em alguns casos de utilização, quando ligações privadas são usadas para ligar aos recursos do Azure Monitor. Um desses casos é a ingestão de registos personalizados ou registos IIS. Estes tipos de dados são primeiro enviados como bolhas para uma conta de armazenamento Azure intermediário e só depois ingeridos num espaço de trabalho. Da mesma forma, algumas soluções do Azure Monitor podem usar contas de armazenamento para armazenar ficheiros grandes, como o Azure Security Center (ASC) que poderá necessitar de carregar ficheiros. 
 
 ##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Cenários de Ligação Privada que requerem um armazenamento gerido pelo cliente
 * Ingestão de registos personalizados e registos IIS
-* Permitindo que a solução ASC recolha ficheiros de despejo watson
+* Permitindo que a solução ASC faça o upload de ficheiros
 
 ### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Como utilizar uma conta de armazenamento gerida pelo cliente sobre um Link Privado
 ##### <a name="workspace-requirements"></a>Requisitos do espaço de trabalho
@@ -45,13 +45,14 @@ Ao ligar-se ao Azure Monitor através de uma ligação privada, os agentes do Lo
 Para que a conta de armazenamento se conecte com sucesso ao seu link privado, deve:
 * Esteja localizado no seu VNet ou numa rede espreitada e ligado ao seu VNet por um link privado. Isto permite que os agentes do seu VNet enviem registos para a conta de armazenamento.
 * Localiza-se na mesma região que o espaço de trabalho a que está ligado.
-* Permitir ao Monitor Azure aceder à conta de armazenamento. Se optou por permitir apenas que as redes selecionadas acedam à sua conta de armazenamento, também deverá permitir esta exceção: "permitir que serviços confiáveis da Microsoft acedam a esta conta de armazenamento". Isto permite que o Log Analytics leia os registos ingeridos nesta conta de armazenamento.
+* Permitir ao Monitor Azure aceder à conta de armazenamento. Se optar por permitir apenas que redes selecionadas acedam à sua conta de armazenamento, deverá selecionar a exceção: "Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento".
+![Imagem de serviços de MS fidedindo de conta de armazenamento](./media/private-storage/storage-trust.png)
 * Se o seu espaço de trabalho também lidar com o tráfego de outras redes, deverá configurar a conta de armazenamento para permitir a entrada de tráfego proveniente das redes/internet relevantes.
 
 ##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Ligue a sua conta de armazenamento a um espaço de trabalho Log Analytics
 Pode ligar a sua conta de armazenamento ao espaço de trabalho através do [Azure CLI](/cli/azure/monitor/log-analytics/workspace/linked-storage) ou [REST API](/rest/api/loganalytics/linkedstorageaccounts). Valores de Dados AplicávelSourceType:
 * CustomLogs – para utilizar o armazenamento para registos personalizados e registos IIS durante a ingestão.
-* AzureWatson – use o armazenamento para ficheiros de despejo watson carregados pela solução ASC (Azure Security Center). Para obter mais informações sobre a gestão da retenção, substituição de uma conta de armazenamento ligada e monitorização da sua atividade de conta de armazenamento, consulte [Gerir contas de armazenamento ligadas.](#managing-linked-storage-accounts) 
+* AzureWatson – utilize o armazenamento para ficheiros carregados pela solução ASC (Azure Security Center). Para obter mais informações sobre a gestão da retenção, substituição de uma conta de armazenamento ligada e monitorização da sua atividade de conta de armazenamento, consulte [Gerir contas de armazenamento ligadas.](#managing-linked-storage-accounts) 
 
 ## <a name="encrypting-data-with-cmk"></a>Encriptação de dados com CMK
 O Azure Storage encripta todos os dados em repouso numa conta de armazenamento. Por predefinição, encripta dados com teclas geridas pela Microsoft (MMK). No entanto, o Azure Storage permitirá, em vez disso, utilizar uma chave gerida pelo Cliente (CMK) a partir do cofre da Chave Azure para encriptar os seus dados de armazenamento. Pode importar as suas próprias chaves para o Cofre da Chave Azure, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves.

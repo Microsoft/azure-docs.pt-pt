@@ -1,17 +1,17 @@
 ---
 title: Afinação de desempenho - Tempestade com Azure Data Lake Storage Gen1
 description: Compreenda os fatores que devem ser considerados quando ajusta o desempenho de uma topologia da Tempestade Azure, incluindo a resolução de problemas em questões comuns.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 95619c75d332ec1bf68af97fc3dddbc67b6706ed
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101652"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725042"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para storm on HDInsight e Azure Data Lake Storage Gen1
 
@@ -74,7 +74,7 @@ Pode modificar as seguintes definições para sintonizar o bico.
 
 - **Memória máxima por processo de trabalhador: trabalhador.childopts**. Esta definição permite especificar parâmetros adicionais de linha de comando para os trabalhadores java. A definição mais usada aqui é XmX, que determina a memória máxima atribuída à pilha de um JVM.
 
-- **Bico máximo pendente: topology.max.spout.pendente**. Esta definição determina o número de tuples que podem ser voo (ainda não reconhecidos em todos os nós na topologia) por linha de bico em qualquer momento.
+- **Bico máximo pendente: topologia.max.bico.pendente**. Esta definição determina o número de tuples que podem ser voo (ainda não reconhecidos em todos os nós na topologia) por linha de bico em qualquer momento.
 
   Um bom cálculo a fazer é estimar o tamanho de cada uma das suas tuples. Então descubra a quantidade de memória que um fio de bico tem. A memória total atribuída a um fio, dividido por este valor, deve dar-lhe o limite superior para o parâmetro pendente do bico máximo.
 
@@ -126,7 +126,7 @@ Se atingir os limites de largura de banda fornecidos pela Data Lake Storage Gen1
 
 Para verificar se está a ser estrangulado, ative o registo de depurar do lado do cliente:
 
-1. Em **Ambari**  >  **Storm**  >  **Config**Advanced  >  **storm-worker-log4j**, change root ** &lt; level="info" &gt; ** to root ** &lt; level="debug". &gt; ** Reinicie todos os nós/serviço para que a configuração entre em vigor.
+1. Em **Ambari**  >  **Storm**  >  **Config** Advanced  >  **storm-worker-log4j**, change root **&lt; level="info" &gt;** to root **&lt; level="debug". &gt;** Reinicie todos os nós/serviço para que a configuração entre em vigor.
 2. Monitorize os registos de topologia da tempestade nos nós dos trabalhadores (em /var/log/storm/worker-artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /worker.log) para as exceções de estrangulamento da Gen1 de armazenamento de dados.
 
 ## <a name="next-steps"></a>Passos seguintes

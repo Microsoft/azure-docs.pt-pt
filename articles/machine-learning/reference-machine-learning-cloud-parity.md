@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305745"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725025"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning paridade de nuvem soberana
 
@@ -56,7 +56,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA                   | SIM                | SIM         |
 | Apoio R e Python                                                       | GA                   | SIM                | SIM         |
 | Suporte de Rede Virtual                                                    | Pré-visualização pública       | NO                 | NO          |
-| **Instância de computação** |   |  | | 
+| **Instância computacional** |   |  | | 
 | Casos de computação gerido para cadernos integrados                         | GA                   | SIM                | SIM         |
 | Jupyter, Integração jupyterLab                                            | GA                   | SIM                | SIM         |
 | Suporte de Rede Virtual (VNet)                                             | Pré-visualização pública       | SIM                | SIM         |
@@ -92,7 +92,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Rotulagem assistida ML (classificação de imagem e deteção de objetos)           | Pré-visualização pública       | SIM                | SIM         |
 | **ML responsável** |   | | |
 | Explicabilidade na UI                                                       | Pré-visualização pública       | NO                 | NO          |
-| Kit de ferramentas whiteNoise de privacidade diferencial                                    | OSS                  | NO                 | NO          |
+| Kit de ferramentas SmartNoise de privacidade diferencial                                    | OSS                  | NO                 | NO          |
 | tags personalizados em Azure Machine Learning para implementar folhas de dados              | GA                   | NO                 | NO          |
 | Integração AzureML da Justiça                                               | Pré-visualização pública       | NO                 | NO          |
 | SDK de interpretação                                                      | GA                   | SIM                | SIM         |
@@ -104,7 +104,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | **Inferência** |   | | |
 | Inferenculação de lote                                                          | GA                   | SIM                | SIM         |
 | Borda da Caixa de Dados com FPGA                                                    | Pré-visualização pública       | NO                 | NO          |
-| **Outros** |   | | |
+| **Outro** |   | | |
 | Open Datasets                                                              | Pré-visualização pública       | SIM                | SIM         |
 | Pesquisa Cognitiva Personalizada                                                    | Pré-visualização pública       | SIM                | SIM         |
 | Muitos Modelos                                                                | Pré-visualização pública       | NO                 | NO          |
@@ -112,7 +112,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 
 ### <a name="azure-government-scenarios"></a>Cenários do Governo de Azure
 
-| Cenário                                                    | US-Virginia | US-Arizona| Limitações  |
+| Scenario                                                    | US-Virginia | US-Arizona| Limitações  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configuração geral de segurança** |   | | |
 | Comunicação de rede privada entre serviços                                     | NO | NO | Nenhuma ligação privada atualmente | 
@@ -169,7 +169,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA               | SIM       | N/D        |
 | Apoio R e Python                                                       | GA               | SIM       | N/D        |
 | Suporte de Rede Virtual                                                    | Pré-visualização pública   | NO        | N/D        |
-| **Instância de computação** |    | | |
+| **Instância computacional** |    | | |
 | Casos de computação gerido para cadernos integrados                         | GA               | NO        | N/D        |
 | Jupyter, Integração jupyterLab                                            | GA               | SIM       | N/D        |
 | Suporte de Rede Virtual (VNet)                                             | Pré-visualização pública   | SIM       | N/D        |
@@ -205,7 +205,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Rotulagem assistida ML (classificação de imagem e deteção de objetos)           | Pré-visualização pública   | SIM       | N/D        |
 | **ML responsável** |    | | |
 | Explicabilidade na UI                                                       | Pré-visualização pública   | NO        | N/D        |
-| Kit de ferramentas whiteNoise de privacidade diferencial                                    | OSS              | NO        | N/D        |
+| Kit de ferramentas SmartNoise de privacidade diferencial                                    | OSS              | NO        | N/D        |
 | tags personalizados em Azure Machine Learning para implementar folhas de dados              | GA               | NO        | N/D        |
 | Integração AzureML da Justiça                                               | Pré-visualização pública   | NO        | N/D        |
 | SDK de interpretação                                                      | GA               | SIM       | N/D        |
@@ -217,7 +217,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | **Inferência** |   | | |
 | Inferenculação de lote                                                          | GA               | SIM       | N/D        |
 | Borda da Caixa de Dados com FPGA                                                    | Pré-visualização pública   | NO        | N/D        |
-| **Outros** |    | | |
+| **Outro** |    | | |
 | Open Datasets                                                              | Pré-visualização pública   | SIM       | N/D        |
 | Pesquisa Cognitiva Personalizada                                                    | Pré-visualização pública   | SIM       | N/D        |
 | Muitos Modelos                                                                | Pré-visualização pública   | NO        | N/D        |

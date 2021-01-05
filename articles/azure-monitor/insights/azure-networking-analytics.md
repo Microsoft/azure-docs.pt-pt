@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563114"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707695"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização da rede Azure no Azure Monitor
 
@@ -104,6 +104,21 @@ O separador "ver métricas detalhadas" abrirá o livro pré-povoado resumindo os
 
 [![Screenshot do livro de aplicação Gateway](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Novas capacidades com o livro de insights da rede Azure Monitor
+
+> [!NOTE]
+> Não existem custos adicionais associados ao livro de trabalho da Azure Monitor Insights. Log Analytics workspace continuará a ser cobrado de acordo com o uso.
+
+O livro de Web Insights permite-lhe tirar partido das mais recentes capacidades do Azure Monitor e do Log Analytics, incluindo:
+
+* Consola centralizada para monitorização e resolução de problemas com dados [métricos](../insights/network-insights-overview.md#resource-health-and-metrics) e de registo.
+
+* Tela flexível para apoiar a criação de [visualizações personalizadas](../platform/workbooks-overview.md#visualizations)e ricas.
+
+* Capacidade de consumir e [partilhar modelos de livros](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade mais ampla.
+
+Para obter mais informações sobre as capacidades da nova solução de livro, consulte [a visão geral dos livros de trabalho](../platform/workbooks-overview.md)
+
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrar da solução de análise Azure Gateway para os livros de trabalho do Azure Monitor
 
 > [!NOTE]
@@ -119,21 +134,6 @@ O separador "ver métricas detalhadas" abrirá o livro pré-povoado resumindo os
 3. Depois de poder ver todas as suas informações métricas e de registo, para limpar a solução de análise Azure Gateway a partir do seu espaço de trabalho, pode eliminar a solução da página de recursos da solução.
 
 [![Screenshot da opção de eliminação para solução de análise Azure Application Gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
-
-### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Novas capacidades com o livro de insights da rede Azure Monitor
-
-> [!NOTE]
-> Não existem custos adicionais associados ao livro de trabalho da Azure Monitor Insights. Log Analytics workspace continuará a ser cobrado de acordo com o uso.
-
-O livro de Web Insights permite-lhe tirar partido das mais recentes capacidades do Azure Monitor e do Log Analytics, incluindo:
-
-* Consola centralizada para monitorização e resolução de problemas com dados [métricos](../insights/network-insights-overview.md#resource-health-and-metrics) e de registo.
-
-* Tela flexível para apoiar a criação de [visualizações personalizadas](../platform/workbooks-overview.md#visualizations)e ricas.
-
-* Capacidade de consumir e [partilhar modelos de livros](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade mais ampla.
-
-Para obter mais informações sobre as capacidades da nova solução de livro, consulte [a visão geral dos livros de trabalho](../platform/workbooks-overview.md)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solução de análise do Grupo de Segurança da Rede Azure no Azure Monitor
 

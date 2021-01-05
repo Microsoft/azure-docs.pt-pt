@@ -2,13 +2,13 @@
 title: Implementar múltiplas instâncias de recursos
 description: Utilize a operação de cópia e as matrizes num modelo de Gestor de Recursos Azure (modelo ARM) para implementar o tipo de recurso muitas vezes.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/21/2020
+ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672836"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724498"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recursos em modelos ARM
 
@@ -189,43 +189,6 @@ Por exemplo, para implementar em série contas de armazenamento duas de cada vez
 
 A `mode` propriedade também aceita **paralelo,** que é o valor padrão.
 
-## <a name="depend-on-resources-in-a-loop"></a>Dependa dos recursos em loop
-
-Especifica que um recurso é implantado após outro recurso utilizando o `dependsOn` elemento. Para implementar um recurso que dependa da recolha de recursos em loop, forneça o nome do ciclo de cópia no elemento dependOn. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Note que o elemento de cópia tem o nome definido `storagecopy` e o elemento dependon para a máquina virtual também está definido para `storagecopy` .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
-
 ## <a name="iteration-for-a-child-resource"></a>Iteração para um recurso infantil
 
 Não pode usar um ciclo de cópia para um recurso para crianças. Para criar mais de um exemplo de um recurso que normalmente define como aninhado dentro de outro recurso, deve, em vez disso, criar esse recurso como um recurso de alto nível. Define a relação com o recurso dos pais através das propriedades do tipo e nome.
@@ -281,16 +244,15 @@ O exemplo a seguir mostra a implementação:
 
 Os exemplos a seguir mostram cenários comuns para a criação de mais de um caso de recurso ou propriedade.
 
-|Modelo  |Descrição  |
+|Modelo  |Description  |
 |---------|---------|
 |[Armazenamento de cópias](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa mais de uma conta de armazenamento com um número de índice no nome. |
 |[Armazenamento de cópias em série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implementa várias contas de armazenamento uma de cada vez. O nome inclui o número do índice. |
 |[Armazenamento de cópia com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implementa várias contas de armazenamento. O nome inclui um valor de uma matriz. |
-|[Implementação de VM com um número variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa vários discos de dados com uma máquina virtual. |
-|[Múltiplas regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa várias regras de segurança num grupo de segurança de rede. Constrói as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetros NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Para definir dependências de recursos que são criados num ciclo de cópia, consulte [Definir a ordem para implantar recursos em modelos ARM](define-resource-dependency.md).
 * Para passar por um tutorial, consulte [Tutorial: Crie múltiplas instâncias de recursos com modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para um módulo Microsoft Learn que cubra a cópia de recursos, consulte [Gerir implementações complexas em nuvem utilizando funcionalidades avançadas do modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para outras utilizações do elemento de cópia, consulte:
