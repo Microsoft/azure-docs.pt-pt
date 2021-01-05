@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447363"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762928"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro usando Azure CLI e Python
 
@@ -27,7 +27,7 @@ Este tutorial descreve como criar e gerir um VM no seu dispositivo Azure Stack E
 
 O fluxo de trabalho de implantação é ilustrado no diagrama seguinte.
 
-![Fluxo de trabalho de implantação VM](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![Fluxo de trabalho de implantação VM](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 O resumo de alto nível do fluxo de trabalho de implantação é o seguinte:
 
@@ -43,7 +43,7 @@ O resumo de alto nível do fluxo de trabalho de implantação é o seguinte:
 10. Criar uma VNet
 11. Criar um VNIC utilizando o ID da sub-rede VNet
 
-Para obter uma explicação detalhada do diagrama do fluxo de trabalho, consulte [implementar VMs no seu dispositivo Azure Stack Edge Pro utilizando a Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Para obter informações sobre como ligar-se ao Azure Resource Manager, consulte [Connect to Azure Resource Manager utilizando a Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+Para obter uma explicação detalhada do diagrama do fluxo de trabalho, consulte [implementar VMs no seu dispositivo Azure Stack Edge Pro utilizando a Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). Para obter informações sobre como ligar-se ao Azure Resource Manager, consulte [Connect to Azure Resource Manager utilizando a Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

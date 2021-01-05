@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2645842130b83fe7b4cfb33b9389b19a1306506d
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452754"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756029"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -21,7 +21,7 @@ ms.locfileid: "96452754"
 
 Neste tutorial, você acede e obtém segredos do seu cofre de chaves Azure usando o controlador Secrets Store Container Storage Interface (CSI) para montar os segredos em cápsulas Kubernetes.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um principal de serviço ou utilize identidades geridas.
@@ -81,7 +81,7 @@ Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId** e **nodeResourceGroup** para posterior utilização. Se o cluster ASK não foi criado com identidades geridas ativadas, o **principalid** e **clienteId** será nulo. 
+1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId** e **nodeResourceGroup** para posterior utilização. Se o cluster AKS não foi criado com identidades geridas ativadas, o **principalid** e **clienteid** será nulo. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup

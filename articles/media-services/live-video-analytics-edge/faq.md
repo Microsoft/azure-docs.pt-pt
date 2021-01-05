@@ -1,72 +1,71 @@
 ---
-title: Análise de vídeo ao vivo nas FAQs IoT Edge - Azure
-description: Este tópico dá respostas ao Live Video Analytics nas FAQs IoT Edge.
+title: Vídeo ao vivo analytics em IoT Edge FAQ - Azure
+description: Este artigo responde a perguntas comumente sobre live video analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 521cd0e4f5fc8232a000e10520298a979ba1c14c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: f9ef26b9b64bd8a0bad7c83960f2d235ed6461cb
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401581"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762882"
 ---
-# <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (PERGUNTAS Frequentes)
+# <a name="live-video-analytics-on-iot-edge-faq"></a>Análise de vídeo ao vivo em IoT Edge FAQ
 
-Este tópico dá respostas ao Live Video Analytics nas FAQs IoT Edge.
+Este artigo responde a perguntas comumente sobre live video analytics em Azure IoT Edge.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-are-the-system-variables-that-can-be-used-in-graph-topology-definition"></a>Quais são as variáveis do sistema que podem ser usadas na definição de topologia de gráficos?
+**Que variáveis de sistema posso usar na definição de topologia do gráfico?**
 
-|Variável   |Descrição|
-|---|---|
-|[Sistema.DataTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Representa um instante na hora utc, tipicamente expresso como data e hora do dia (representação básica yMddTHHmmssZ).|
-|System.PreciseDateTime|Representa uma instância de data UTC em formato compatível com ficheiros ISO8601 com milissegundos (representação básica yMddTHHmmss.fffZ).|
-|Nome System.GraphTopology   |Representa uma topologia de gráficos de mídia, detém a planta de um gráfico.|
-|Nome system.graphInstance|  Representa uma instância de gráfico de mídia, detém valores de parâmetros e faz referência à topologia.|
+| Variável   |  Descrição  | 
+| --- | --- | 
+| [Sistema.DataTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | Representa um instante na hora utc, tipicamente expresso como data e hora do dia no seguinte formato:<br>*yMddTHHmmssZ* | 
+| System.PreciseDateTime | Representa uma data-tempo universal coordenada (UTC) num formato compatível com ficheiros ISO8601 com milissegundos, no seguinte formato:<br>*yMddTHHmmss.fffZ* | 
+| Nome System.GraphTopology   | Representa uma topologia de gráficos de mídia, e detém a planta de um gráfico. | 
+| Nome system.graphInstance |    Representa uma instância de gráfico de mídia, detém valores de parâmetros, e faz referência à topologia. | 
 
 ## <a name="configuration-and-deployment"></a>Configuração e implantação
 
-### <a name="can-i-deploy-the-media-edge-module-to-a-windows-10-device"></a>Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
+**Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?**
 
-Sim. Consulte o artigo sobre [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
+Yes. Para mais informações, consulte [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Captura a partir de câmara IP e definições de RTSP
 
-### <a name="do-i-need-to-use-a-special-sdk-on-my-device-to-send-in-a-video-stream"></a>Preciso de utilizar um SDK especial no meu dispositivo para enviar uma transmissão de fluxo de vídeo?
+**Preciso de utilizar um SDK especial no meu dispositivo para enviar uma transmissão de fluxo de vídeo?**
 
-Não. Live Video Analytics on IoT Edge suporta a captura de meios usando o protocolo de streaming de vídeo RTSP (que é suportado na maioria das câmaras IP).
+Não, live video analytics on IoT Edge suporta a captura de meios através da utilização de RTSP (Protocolo de Streaming em Tempo Real) para streaming de vídeo, que é suportado na maioria das câmaras IP.
 
-### <a name="can-i-push-media-to-live-video-analytics-on-iot-edge-using-rtmp-or-smooth-like-a-media-services-live-event"></a>Posso pressionar os meios de comunicação para live video analytics no IoT Edge usando RTMP ou Smooth (como um Evento ao Vivo dos Serviços de Media)?
+**Posso pressionar os meios de comunicação para o Live Video Analytics no IoT Edge utilizando Real-Time Protocolo de Mensagens (RTMP) ou Protocolo de Streaming Suave (como um Evento Ao Vivo dos Serviços de Media)?**
 
-* Não. O Live Video Analytics só suporta o RTSP para capturar vídeos a partir de câmaras IP.
-* Qualquer câmara que suporte o streaming RTSP sobre o TCP/HTTP deve funcionar. 
+Não, o Live Video Analytics suporta apenas o RTSP para capturar vídeos a partir de câmaras IP. Qualquer câmara que suporte o streaming RTSP sobre o TCP/HTTP deve funcionar. 
 
-### <a name="can-i-reset-or-update-the-rtsp-source-url-on-a-graph-instance"></a>Posso reiniciar ou atualizar o URL da origem RTSP numa instância de gráfico?
+**Posso reiniciar ou atualizar o URL de origem RTSP numa instância de gráfico?**
 
-Sim, quando a instância do gráfico está em estado inativo.  
+Sim, quando a instância do gráfico está em estado *inativo.*  
 
-### <a name="is-there-a-rtsp-simulator-available-to-use-during-testing-and-development"></a>Existe um simulador RTSP disponível para ser utilizado durante o teste e desenvolvimento?
+**Um simulador RTSP está disponível para ser utilizado durante o teste e desenvolvimento?**
 
-Sim. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é proporcionado como a melhor solução e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
+Sim, um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) está disponível para uso nos quickstarts e tutoriais para suportar o processo de aprendizagem. Este módulo é fornecido como o melhor esforço e pode nem sempre estar disponível. Recomendamos vivamente que *não* utilize o simulador por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de planear uma implantação de produção.
 
-### <a name="do-you-support-onvif-discovery-of-ip-cameras-at-the-edge"></a>É suportada a deteção ONVIF de câmaras IP no Edge?
+**É suportada a deteção ONVIF de câmaras IP no Edge?**
 
-Não, não existe suporte para a deteção ONVIF de dispositivos no Edge.
+Não, não suportamos a descoberta de dispositivos no limite do Open Network Video Interface Forum (ONVIF).
 
 ## <a name="streaming-and-playback"></a>Streaming e reprodução
 
-### <a name="can-assets-recorded-to-ams-from-the-edge-be-played-back-using-media-services-streaming-technologies-like-hls-or-dash"></a>Os ativos registados na AMS a partir da borda podem ser reproduzidos utilizando tecnologias de streaming de Media Services como o HLS ou o DASH?
+**Posso reproduzir os ativos registados na Azure Media Services a partir do limite, utilizando tecnologias de streaming como o HLS ou o DASH?**
 
-Sim. Os ativos registados podem ser transmitidos como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um Streaming Endpoint criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um manifesto HLS ou DASH para streaming para qualquer estrutura de jogador capaz. Para obter detalhes sobre a criação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
+Yes. Pode transmitir ativos registados como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um ponto final de streaming criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um apple HTTP Live Streaming (HLS) ou a Um Streaming Adaptativo Dinâmico sobre HTTP (DASH, também conhecido como MPEG-DASH) manifesto para streaming para qualquer estrutura de jogador capaz. Para obter mais informações sobre a criação e publicação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
 
-### <a name="can-i-use-the-standard-content-protection-and-drm-features-of-media-services-on-an-archived-asset"></a>Posso utilizar a proteção padrão de conteúdos e as funcionalidades de DRM dos Serviços de Mídia num ativo arquivado?
+**Posso utilizar a proteção padrão de conteúdos e as funcionalidades de DRM dos Serviços de Mídia num ativo arquivado?**
 
-Sim. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e drm estão disponíveis para utilização nos ativos registados a partir de um gráfico de mídia.
+Yes. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e gestão de direitos digitais (DRM) estão disponíveis para utilização em ativos que são registados a partir de um gráfico de mídia.
 
-### <a name="what-players-can-i-use-to-view-content-from-the-recorded-assets"></a>Que jogadores posso usar para ver conteúdo dos ativos gravados?
+**Que jogadores posso usar para ver conteúdo dos ativos gravados?**
 
-Todos os jogadores padrão que suportam a versão 3 (HLS) do Apple HTTP Live Streaming (HLS) ou a versão 4 são suportados. Além disso, qualquer jogador que seja capaz de cumprir a reprodução MPEG-DASH também é suportado.
+Todos os jogadores padrão que suportam a versão 3 ou a versão 4 do HLS em conformidade são suportados. Além disso, qualquer jogador que seja capaz de cumprir a reprodução MPEG-DASH também é suportado.
 
 Os jogadores recomendados para testes incluem:
 
@@ -77,26 +76,26 @@ Os jogadores recomendados para testes incluem:
 * [Jogador shaka](https://github.com/google/shaka-player)
 * [ExoPlayer](https://github.com/google/ExoPlayer)
 * [Apple nativo HTTP Live Streaming](https://developer.apple.com/streaming/)
-* Edge, Chrome ou Safari construído em leitor de vídeo HTML5
+* Leitor de vídeo Edge, Chrome ou Safari incorporado HTML5
 * Jogadores comerciais que suportam reprodução HLS ou DASH
 
-### <a name="what-are-the-limits-on-streaming-a-media-graph-asset"></a>Quais são os limites para o streaming de um ativo gráfico de mídia?
+**Quais são os limites para o streaming de um ativo gráfico de mídia?**
 
-O streaming de um ativo vivo ou gravado a partir de um gráfico de mídia utiliza a mesma infraestrutura de alta escala e ponto final de streaming que os Media Services suportam para streaming on-demand e live para Media & Entertainment, OTT e clientes de transmissão. Isto significa que pode, de forma rápida e fácil, permitir que o Azure CDN, Verizon ou Akamai entregue o seu conteúdo a um público tão pequeno como alguns espectadores, ou até milhões, dependendo do seu cenário.
+O streaming de um ativo vivo ou gravado a partir de um gráfico de mídia utiliza a mesma infraestrutura de alta escala e ponto final de streaming que os Media Services suportam para streaming on-demand e live para Media & Entertainment, Over the Top (OTT) e clientes de transmissão. Isto significa que pode, de forma rápida e fácil, ativar a Rede de Entrega de Conteúdos Azure, a Verizon ou a Akamai para entregar o seu conteúdo a um público tão pequeno como alguns espectadores ou até milhões, dependendo do seu cenário.
 
-Os conteúdos podem ser entregues usando o Apple HTTP Live Streaming (HLS) ou o MPEG-DASH.
+Pode entregar conteúdo utilizando o Apple HLS ou o MPEG-DASH.
 
 ## <a name="design-your-ai-model"></a>Desenhe o seu modelo de IA 
 
-### <a name="i-have-multiple-ai-models-wrapped-in-a-docker-container-how-should-i-use-them-with-live-video-analytics"></a>Tenho vários modelos de IA embrulhados num contentor de estivadores. Como devo usá-los com video analytics ao vivo? 
+**Tenho vários modelos de IA embrulhados num contentor do Docker. Como devo usá-los com video analytics ao vivo?** 
 
-As soluções são diferentes dependendo do protocolo de comunicação utilizado pelo servidor de inferenculação para comunicar com o Live Video Analytics. Abaixo estão algumas formas de fazer isto.
+As soluções variam consoante o protocolo de comunicação que é utilizado pelo servidor de inferencing para comunicar com o Live Video Analytics. As seguintes secções descrevem como cada protocolo funciona.
 
-#### <a name="http-protocol"></a>Protocolo HTTP:
+*Utilize o protocolo HTTP*:
 
 * Recipiente único (único lvaExtension):  
 
-   No seu servidor de inferenculação, pode utilizar uma única porta, mas diferentes pontos finais para diferentes modelos de IA. Por exemplo, para uma amostra python pode utilizar `route` s diferentes por modelo como: 
+   No seu servidor de inferenculação, pode utilizar uma única porta, mas diferentes pontos finais para diferentes modelos de IA. Por exemplo, para uma amostra python você pode usar `route` diferentes s por modelo, como mostrado aqui: 
 
    ```
    @app.route('/score/face_detection', methods=['POST']) 
@@ -109,149 +108,144 @@ As soluções são diferentes dependendo do protocolo de comunicação utilizado
    … 
    ```
 
-   E, em seguida, na sua implementação live video analytics, quando instantaneamente gráficos, deite o URL do servidor de inferência para cada instância como: 
+   E então, na sua implementação live video analytics, quando instantaneamente gráficos, deite o URL do servidor de inferência para cada instância, como mostrado aqui: 
 
    1º caso: URL do servidor de inferência=`http://lvaExtension:44000/score/face_detection`<br/>
    2º caso: URL do servidor de inferência=`http://lvaExtension:44000/score/vehicle_detection`  
+   
     > [!NOTE]
-    > Em alternativa, também pode expor os seus modelos de IA em diferentes portas e chamá-los quando os instantanear gráficos.  
+    > Em alternativa, pode expor os seus modelos de IA em diferentes portas e chamá-los quando os fizer gráficos instantâneos.  
 
 * Vários contentores: 
 
-   Cada recipiente é implantado com um nome diferente. Atualmente, no conjunto de documentação live video analytics, mostramos-lhe como implementar uma extensão com o nome: **LvaExtension**. Agora pode desenvolver dois recipientes diferentes. Cada recipiente tem a mesma interface HTTP (ou seja, o mesmo `/score` ponto final). Desdobre estes dois recipientes com nomes diferentes e certifique-se de que ambos estão a ouvir em **diferentes portas.** 
+   Cada recipiente é implantado com um nome diferente. Anteriormente, no conjunto de documentação live video analytics, mostramos-lhe como implementar uma extensão chamada *LvaExtension*. Agora pode desenvolver dois recipientes diferentes, cada um com a mesma interface HTTP, o que significa que têm o mesmo `/score` ponto final. Desdobre estes dois recipientes com nomes diferentes e certifique-se de que ambos estão a ouvir em *diferentes portas*. 
 
-   Por exemplo, um recipiente com o nome `lvaExtension1` está a ouvir a `44000` porta, outro recipiente com o nome `lvaExtension2` está a ouvir a `44001` porta. 
+   Por exemplo, um contentor chamado `lvaExtension1` está a ouvir o `44000` porto, e um segundo recipiente com o nome `lvaExtension2` está a ouvir o `44001` porto. 
 
-   Na sua topologia live video analytics, você instantaneamente dois gráficos com URLs de inferência diferentes como: 
+   Na sua topologia live video analytics, você instantaneamente dois gráficos com URLs de inferência diferentes, como mostrado aqui: 
 
    Primeira instância: URL do servidor de inferência = `http://lvaExtension1:44001/score`    
    Segunda instância: URL do servidor de inferência = `http://lvaExtension2:44001/score`
    
-#### <a name="grpc-protocol"></a>Protocolo GRPC: 
+*Utilize o protocolo gRPC:* 
 
-Com o módulo Live Video Analytics 1.0, quando se utiliza um protocolo gRPC, a única forma seria se o servidor gRPC expôs diferentes modelos de IA através de diferentes portas. [Neste exemplo,](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json)há uma única porta, 44000 que está expondo todos os modelos yolo. Em teoria, o servidor yolo gRPC poderia ser reescrito para expor alguns modelos a 44000, outros a 45000, ... 
+* Com o módulo Live Video Analytics 1.0, quando utiliza um protocolo de chamada remota de uso geral (gRPC), a única maneira de o fazer é se o servidor gRPC expor diferentes modelos de IA através de diferentes portas. [Neste exemplo de código](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), uma única porta, 44000, expõe todos os modelos yolo. Em teoria, o servidor yolo gRPC poderia ser reescrito para expor alguns modelos na porta 44000 e outros na porta 45000. 
 
-Com o módulo Live Video Analytics 2.0, uma nova propriedade é adicionada ao nó de extensão gRPC. Esta propriedade é chamada **extensãoConfiguration** que é uma cadeia opcional que pode ser usada como parte do contrato gRPC. Quando tiver vários modelos de IA embalados num único servidor de inferência, não precisará de expor um nó para cada modelo de IA. Em vez disso, para uma instância de gráfico, o fornecedor de extensão (você) pode definir como selecionar os diferentes modelos de IA usando a propriedade **de extensãoConfiguration** e durante a execução, Live Video Analytics passará esta cadeia para o servidor de inferencing que pode usá-lo para invocar o modelo de IA desejado. 
+* Com o módulo Live Video Analytics 2.0, uma nova propriedade é adicionada ao nó de extensão gRPC. Esta propriedade, **extensãoConfiguration,** é uma cadeia opcional que pode ser usada como parte do contrato gRPC. Quando tem vários modelos de IA embalados num único servidor de inferência, não precisa de expor um nó para cada modelo de IA. Em vez disso, para uma instância de gráfico, você, como fornecedor de extensão, pode definir como selecionar os diferentes modelos de IA utilizando a **propriedade extensionConfiguration.** Durante a execução, o Live Video Analytics passa esta cadeia para o servidor de inferenculação, que pode usá-lo para invocar o modelo de IA desejado. 
 
-### <a name="i-am-building-a-grpc-server-around-an-ai-model-and-want-to-be-able-to-support-being-used-by-multiple-camerasgraph-instances-how-should-i-build-my-server"></a>Estou a construir um servidor gRPC em torno de um modelo de IA, e quero ser capaz de suportar ser usado por várias câmaras/instâncias de gráfico. Como devo construir o meu servidor? 
+**Estou a construir um servidor gRPC em torno de um modelo de IA, e quero ser capaz de suportar a sua utilização através de várias câmaras ou instâncias de gráficos. Como devo construir o meu servidor?** 
 
- Em primeiro lugar, certifique-se de que o seu servidor consegue lidar com mais do que um pedido de cada vez. Ou certifique-se de que o seu servidor funciona em fios paralelos. 
+ Em primeiro lugar, certifique-se de que o seu servidor consegue lidar com mais do que um pedido de cada vez ou trabalhar em linhas paralelas. 
 
-Por exemplo, numa das [amostras GRPC](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/lvaextension/server/server.py)do Live Video Analytics, existe um número padrão de canais paralelos definidos. Veja: 
+Por exemplo, um número padrão de canais paralelos foi definido na seguinte [amostra de Vídeo Ao Vivo Analytics gRPC](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/lvaextension/server/server.py): 
 
 ```
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 
 ```
 
-Na instantânea do servidor gRPC acima, o servidor pode abrir apenas três canais por câmara (assim por instância de topologia de gráfico) de cada vez. Não deve tentar ligar mais de três instâncias ao servidor. Se tentar abrir mais de três canais, os pedidos estarão pendentes até que uma existente caia.  
+Na instantânea do servidor GRPC anterior, o servidor pode abrir apenas três canais de cada vez por câmara, ou por instância de topologia de gráficos. Não tente ligar mais de três instâncias ao servidor. Se tentar abrir mais de três canais, os pedidos estarão pendentes até que um canal existente caia.  
 
-Acima da implementação do servidor gRPC é usada nas nossas amostras Python. Os desenvolvedores podem implementar os seus próprios servidores ou na implementação acima padrão pode aumentar o número de trabalhador definido para o número de câmaras usadas para obter feed de vídeo. 
+A implementação anterior do servidor gRPC é usada nas nossas amostras Python. Como desenvolvedor, pode implementar o seu próprio servidor ou utilizar a implementação predefinida anterior para aumentar o número de trabalhadores, que definiu para o número de câmaras a utilizar para feeds de vídeo. 
 
-Para configurar e utilizar várias câmaras, os desenvolvedores podem instantaneamente várias situações de topologia de gráficos onde cada instância aponta para o mesmo ou diferente servidor de inferência (por exemplo, servidor mencionado no parágrafo acima). 
+Para configurar e utilizar várias câmaras, pode instantaneamente várias instâncias de topologia de gráficos, cada uma apontando para o mesmo ou um servidor de inferência diferente (por exemplo, o servidor mencionado no parágrafo anterior). 
 
-### <a name="i-want-to-be-able-to-receive-multiple-frames-from-upstream-before-i-make-an-inferencing-decision-how-can-i-enable-that"></a>Quero poder receber vários quadros a montante antes de tomar uma decisão infernante. Como posso permitir isso? 
+**Quero poder receber vários quadros a montante antes de tomar uma decisão infernante. Como posso permitir isso?** 
 
-As [amostras predefinidos](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis) atuais funcionam no modo "apátrida". Estas amostras não mantêm o estado das chamadas anteriores e mesmo quem ligou (o que significa que várias instâncias de topologia podem chamar o mesmo servidor de inferência, e o servidor não será capaz de distinguir quem está a ligar e o estado por chamada) 
+As [nossas atuais amostras padrão](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis) funcionam num modo *apátrida.* Não mantêm o estado das chamadas anteriores, nem mesmo quem ligou. Isto significa que várias instâncias de topologia podem chamar o mesmo servidor de inferência, mas o servidor não consegue distinguir quem está a ligar ou o estado por chamada. 
 
-#### <a name="http-protocol"></a>Protocolo HTTP
+*Utilize o protocolo HTTP*:
 
-Ao utilizar o protocolo HTTP: 
-
-Para manter o estado, cada chamador (instância de topologia de gráfico) chamará o servidor de inferencing com o parâmetro http consulta exclusivo do chamador. Por exemplo, endereço URL do servidor de inferência para  
+Para manter o estado, cada chamada, ou instância de topologia de gráfico, chama o servidor de inferencing usando o parâmetro de consulta HTTP que é único para quem telefona. Por exemplo, os endereços URL do servidor de inferência para cada instância são mostrados aqui:  
 
 1ª instância topologia= `http://lvaExtension:44000/score?id=1`<br/>
 2ª instância de topologia= `http://lvaExtension:44000/score?id=2`
 
 … 
 
-No lado do servidor, a rota de pontuação saberá quem está a ligar. Se iD=1, então pode manter o estado separadamente para esse chamador (instância topologia de gráfico). Em seguida, pode manter os quadros de vídeo recebidos num tampão (por exemplo, matriz ou dicionário com Tecla DateTime, e valor é o quadro) e, em seguida, pode definir o servidor para processar (inferir) depois de x frames serem recebidos. 
+No lado do servidor, a rota de pontuação sabe quem está a ligar. Se iD=1, então pode manter o estado separadamente para que o chamador ou a instância de topologia de gráficos. Em seguida, pode guardar as molduras de vídeo recebidas num tampão. Por exemplo, use uma matriz ou um dicionário com uma chave DateTime, e o valor é o quadro. Em seguida, pode definir o servidor para processar (inferir) depois de *x* número de quadros serem recebidos. 
 
-#### <a name="grpc-protocol"></a>Protocolo GRPC 
+*Utilize o protocolo gRPC:* 
 
-Ao utilizar o protocolo gRPC: 
+Com uma extensão gRPC, cada sessão é para um único feed de câmara, por isso não há necessidade de fornecer um ID. Agora, com a extensãoConfiguration propriedade, você pode armazenar os quadros de vídeo em um tampão e definir o servidor para processar (inferir) depois de *x* número de quadros serem recebidos. 
 
-Com uma extensão gRPC, cada sessão destina-se a um único feed de câmara, pelo que não há necessidade de fornecer um ID. Assim, agora com a extensãoConfiguration propriedade, você pode armazenar os quadros de vídeo em um tampão e definir o servidor para processar (inferir) depois de x frames serem recebidos. 
+**Todos os ProcessMediaStreams de um determinado recipiente funcionam no mesmo modelo de IA?** 
 
-### <a name="do-all-processmediastreams-on-a-particular-container-run-the-same-ai-model"></a>Todos os ProcessMediaStreams de um determinado recipiente funcionam no mesmo modelo de IA? 
-
-Não.  
-
-As chamadas de início/paragem do utilizador final numa instância de gráfico constituem uma sessão, ou talvez haja uma câmara desligada/reconectada. O objetivo é persistir uma sessão se a câmara estiver a transmitir vídeo. 
+N.º Iniciar ou parar chamadas do utilizador final numa instância de gráfico constitui uma sessão, ou talvez haja uma câmara desligada ou reconectar-se. O objetivo é persistir uma sessão se a câmara estiver a transmitir vídeo. 
 
 * Duas câmaras que enviam vídeo para processamento criam duas sessões. 
-* Uma câmara que vai para um gráfico que tem dois nós gRPCExtension cria duas sessões. 
+* Uma câmara que vai para um gráfico que tem dois nós de extensão gRPC cria duas sessões. 
 
-Cada sessão é uma ligação duplex completa entre o Live Video Analytics e o servidor gRPC e cada sessão pode ter um modelo/pipeline diferente. 
-
-> [!NOTE]
-> Em caso de desconexão/reconexão da câmara (com a câmara a ficar offline por um período além dos limites de tolerância), o Live Video Analytics abrirá uma nova sessão com o servidor gRPC. Não existe qualquer requisito para que o servidor rastree o estado através destas sessões. 
-
-Live Video Analytics também acrescentou suporte de múltiplas extensões gRPC para uma única câmara em uma instância de gráfico. Poderá utilizar estas extensões gRPC para efetuar o processamento de IA sequencialmente ou em paralelo ou até mesmo ter uma combinação de ambas. 
+Cada sessão é uma ligação duplex completa entre o Live Video Analytics e o servidor gRPC, e cada sessão pode ter um modelo ou pipeline diferente. 
 
 > [!NOTE]
-> Ter múltiplas extensões executadas em paralelo irá afetar os seus recursos de hardware e terá de manter esta mente ao escolher o hardware que irá atender às suas necessidades computacionais. 
+> Em caso de desconexão ou reconexão da câmara, com a câmara a ficar offline por um período além dos limites de tolerância, o Live Video Analytics abrirá uma nova sessão com o servidor gRPC. Não há necessidade de o servidor rastrear o estado através destas sessões. 
 
-### <a name="what-is-the-max--of-simultaneous-processmediastreams"></a>Qual é o máximo de ProcessMediaStreams simultâneos? 
+Live Video Analytics também adiciona suporte para múltiplas extensões gRPC para uma única câmara em uma instância de gráfico. Pode utilizar estas extensões gRPC para efetuar o processamento de IA sequencialmente, paralelamente, ou como uma combinação de ambos. 
 
-Não há limite que o Live Video Analytics se aplique.  
+> [!NOTE]
+> Ter múltiplas extensões executadas em paralelo irá afetar os seus recursos de hardware. Tenha isto em mente enquanto escolhe o hardware que se adequa às suas necessidades computacionais. 
 
-### <a name="how-should-i-decide-if-my-inferencing-server-should-use-cpu-or-gpu-or-any-other-hardware-accelerator"></a>Como devo decidir se o meu servidor de inferenculação deve usar CPU ou GPU ou qualquer outro acelerador de hardware? 
+**Qual é o número máximo de ProcessMediaStreams simultâneos?** 
 
-Isto depende completamente da complexidade do modelo de IA e da forma como o desenvolvedor quer utilizar o CPU e os aceleradores de hardware. Ao desenvolver o modelo de IA, os desenvolvedores podem especificar quais os recursos que devem ser usados pelo modelo para executar que ações. 
+O Live Video Analytics não aplica limites a este número.  
 
-### <a name="how-do-i-store-images-with-bounding-boxes-post-processing"></a>Como guardo imagens com caixas de delimitação pós-processamento? 
+**Como posso decidir se o meu servidor de inferencing deve usar CPU ou GPU ou qualquer outro acelerador de hardware?** 
 
-Hoje, estamos a fornecer coordenadas de caixa limitadas apenas como mensagens de inferência. Os desenvolvedores podem construir um streamer MJPEG personalizado que pode usar estas mensagens e sobrepor as caixas de delimitação sobre os quadros de vídeo.  
+A sua decisão depende da complexidade do modelo de IA desenvolvido e da forma como pretende utilizar o CPU e os aceleradores de hardware. À medida que está a desenvolver o modelo de IA, pode especificar que recursos o modelo deve usar e que ações deve realizar. 
+
+**Como guardo imagens com caixas de delimitação pós-processamento?** 
+
+Hoje, estamos a fornecer coordenadas de caixa limitadas apenas como mensagens de inferência. Você pode construir um streamer MJPEG personalizado que pode usar estas mensagens e sobrepor as caixas de delimitação nos quadros de vídeo.  
 
 ## <a name="grpc-compatibility"></a>compatibilidade gRPC 
 
-### <a name="how-will-i-know-what-the-mandatory-fields-for-the-media-stream-descriptor-are"></a>Como saberei quais são os campos obrigatórios para o descritor de fluxos de mídia? 
+**Como saberei quais são os campos obrigatórios para o descritor de fluxos de mídia?** 
 
-Qualquer valor de campo que não seja fornecido será dado um predefinido [conforme especificado por gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
+Qualquer campo a que não forneça um valor é dado um [valor padrão, conforme especificado pelo gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
 
-Live Video Analytics usa a versão **proto3** da linguagem tampão do protocolo. Todos os dados do tampão de protocolo utilizados pelos contratos live video analytics estão disponíveis nos ficheiros tampão do protocolo [definidos aqui.](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) 
+Live Video Analytics utiliza a versão *proto3* da linguagem tampão protocolar. Todos os dados do tampão do protocolo utilizados pelos contratos live video analytics estão disponíveis nos [ficheiros tampão](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc)do protocolo . 
 
-### <a name="how-should-i-ensure-that-i-am-using-the-latest-protocol-buffer-files"></a>Como devo assegurar-me de que estou a usar os mais recentes ficheiros-tampão de protocolo? 
+**Como posso garantir que estou a usar os últimos ficheiros de tampão de protocolo?** 
 
-Os ficheiros-tampão de protocolo mais recentes podem ser [obtidos aqui.](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) Sempre que atualizarmos os ficheiros do contrato, eles aparecerão neste local. Embora não exista um plano imediato para atualizar os ficheiros do protocolo, procure o nome do pacote no topo dos ficheiros para conhecer a versão. Deve ler-se: 
+Pode obter os mais recentes ficheiros-tampão de protocolo no site de [ficheiros contratuais](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). Sempre que atualizarmos os ficheiros do contrato, eles estarão neste local. Não há um plano imediato para atualizar os ficheiros do protocolo, por isso procure o nome do pacote no topo dos ficheiros para saber a versão. Deve ler-se: 
 
 ```
 microsoft.azure.media.live_video_analytics.extensibility.grpc.v1 
 ```
 
-Quaisquer atualizações a estes ficheiros incrementarão o "valor V" no final do nome. 
+Quaisquer atualizações a estes ficheiros irão incrementar o "valor V" no final do nome. 
 
 > [!NOTE]
-> Uma vez que o Live Video Analytics utiliza a versão proto3 do idioma, os campos são opcionais, o que o torna compatível para trás e para a frente. 
+> Como o Live Video Analytics utiliza a versão proto3 do idioma, os campos são opcionais, e a versão é compatível para trás e para a frente. 
 
-### <a name="what-grpc-features-are-available-for-me-to-use-with-live-video-analytics-which-features-are-mandatory-and-which-ones-are-optional"></a>Que funcionalidades gRPC estão disponíveis para eu usar com o Live Video Analytics? Quais as características obrigatórias e quais são opcionais? 
+**Que funcionalidades gRPC estão disponíveis para eu usar com o Live Video Analytics? Quais as características obrigatórias e quais são opcionais?** 
 
-Quaisquer funcionalidades gRPC do lado do servidor podem ser utilizadas desde que o contrato de protobof esteja cumprido. 
+Pode utilizar quaisquer funcionalidades gRPC do lado do servidor, desde que o contrato de Buffers protocolar (Protobuf) esteja cumprido. 
 
 ## <a name="monitoring-and-metrics"></a>Monitorização e métricas
 
-### <a name="can-i-monitor-the-media-graph-on-the-edge-using-event-grid"></a>Posso monitorizar o gráfico de mídia na borda usando a Grade de Eventos?
+**Posso monitorizar o gráfico mediático no limite utilizando a Grelha de Eventos do Azure?**
 
-Sim. Pode consumir as métricas prometheus e publicá-las na grelha de eventos. 
+Yes. Pode consumir métricas prometheus e publicá-las na sua grelha de eventos. 
 
-### <a name="can-i-use-azure-monitor-to-view-the-health-metrics-and-performance-of-my-media-graphs-in-the-cloud-or-on-the-edge"></a>Posso usar o Azure Monitor para ver a saúde, as métricas e o desempenho dos meus gráficos mediáticos na nuvem ou no limite?
+**Posso usar o Azure Monitor para ver a saúde, as métricas e o desempenho dos meus gráficos mediáticos na nuvem ou no limite?**
 
-Sim. Esta ação é suportada. Saiba mais sobre [como utilizar as Métricas do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Sim, apoiamos esta abordagem. Para saber mais, consulte [a visão geral do Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
-### <a name="are-there-any-tools-to-make-it-easier-to-monitor-the-media-services-iot-edge-module"></a>Existem ferramentas para facilitar a monitorização do módulo IoT Edge dos Serviços de Comunicação Social?
+**Existem ferramentas para facilitar a monitorização do módulo IoT Edge dos Serviços de Comunicação Social?**
 
-O Código do Estúdio Visual suporta a extensão "Azure IoT Tools" que lhe permite monitorizar facilmente os pontos finais do módulo LVAEdge. Pode utilizar esta ferramenta para começar rapidamente a monitorizar o ponto final incorporado do IoT Hub para "eventos" e ver as mensagens de inferência que são encaminhadas do dispositivo de borda para a nuvem. 
+O Código do Estúdio Visual suporta a extensão Azure IoT Tools, com a qual pode monitorizar facilmente os pontos finais do módulo LVAEdge. Pode utilizar esta ferramenta para começar rapidamente a monitorizar o seu ponto final incorporado no hub IoT para "eventos" e ver as mensagens de inferência que são encaminhadas do dispositivo de borda para a nuvem. 
 
-Além disso, pode utilizar esta extensão para editar o Módulo Twin para o módulo LVAEdge para modificar as definições de gráfico de mídia.
+Além disso, pode utilizar esta extensão para editar o módulo twin para o módulo LVAEdge para modificar as definições de gráfico de mídia.
 
 Para obter mais informações, consulte o artigo [de monitorização e registo.](monitoring-logging.md)
 
 ## <a name="billing-and-availability"></a>Faturação e disponibilidade
 
-### <a name="how-is-live-video-analytics-on-iot-edge-billed"></a>Como é que o Live Video Analytics no IoT Edge é cobrado?
+**Como é que o Live Video Analytics no IoT Edge é cobrado?**
 
-Consulte [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) para mais detalhes.
+Para obter detalhes de faturação, consulte [os preços dos Serviços de Comunicação Social.](https://azure.microsoft.com/pricing/details/media-services/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+[Quickstart: Começa com o Live Video Analytics no IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

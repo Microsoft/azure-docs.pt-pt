@@ -4,14 +4,14 @@ description: Explica como configurar configurações adicionais para a cache com
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
-ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497204"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760508"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurar configurações adicionais de cache Azure HPC
 
@@ -29,7 +29,7 @@ Para ver as definições, abra a página **de Configuração** do cache no porta
 ## <a name="adjust-mtu-value"></a>Ajuste o valor mtu
 <!-- linked from troubleshoot-nas article -->
 
-Pode selecionar o tamanho máximo da unidade de transmissão para a cache utilizando o tamanho **mtu**do menu suspenso.
+Pode selecionar o tamanho máximo da unidade de transmissão para a cache utilizando o tamanho **mtu** do menu suspenso.
 
 O valor predefinido é de 1500 bytes, mas pode alterá-lo para 1400.
 
@@ -43,7 +43,7 @@ Se não pretender alterar as definições de MTU noutros componentes do sistema,
 Saiba mais sobre as definições de MTU em redes virtuais Azure lendo [afinação de desempenho TCP/IP para VMs Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
 ## <a name="configure-root-squash"></a>Configure abóbora de raiz
-<!-- linked from troubleshoot -->
+<!-- linked from troubleshoot and from access policies -->
 
 A definição **de abóbora de raiz Enable** controla a forma como o Azure HPC Cache trata os pedidos do utilizador raiz nas máquinas do cliente.
 
@@ -53,7 +53,10 @@ Se a abóbora raiz for desativada, um pedido do utilizador raiz do cliente (UID 
 
 A definição de abóboras de raiz na cache pode ajudar a compensar a regulação necessária ``no_root_squash`` nos sistemas NAS que são utilizados como alvos de armazenamento. (Ler mais sobre [os pré-requisitos do alvo de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Também pode melhorar a segurança quando usado com alvos de armazenamento Azure Blob.
 
-A definição **predefinida**é Sim . (Caches criados antes de abril de 2020 podem ter a definição padrão **Nº**.)
+A definição **predefinida** é Sim . (Caches criados antes de abril de 2020 podem ter a definição padrão **Nº**.)
+
+> [!TIP]
+> Também pode definir abóboras de raiz para exportações específicas de armazenamento, personalizando as [polícias de acesso ao cliente.](access-policies.md#root-squash)
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Ver instantâneos para alvos de armazenamento de bolhas
 

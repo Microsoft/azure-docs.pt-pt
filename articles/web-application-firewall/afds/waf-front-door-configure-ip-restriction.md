@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563516"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746767"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configure uma regra de restrição IP com uma firewall de aplicação web para a porta frontal Azure
 
 Este artigo mostra-lhe como configurar as regras de restrição IP numa Firewall de Aplicação Web (WAF) para Azure Front Door utilizando o portal Azure, Azure CLI, Azure PowerShell ou um modelo de Gestor de Recursos Azure.
 
-Uma regra de controlo de acesso baseada em endereços IP é uma regra personalizada da WAF que permite controlar o acesso às suas aplicações web. Fá-lo especificando uma lista de endereços IP ou intervalos de endereços IP no formato Classless Inter-Domain Encaminhamento (CIDR).
+Uma regra de controlo de acesso baseada em endereços IP é uma regra personalizada da WAF que permite controlar o acesso às suas aplicações web. Fá-lo especificando uma lista de endereços IP ou intervalos de endereços IP no formato Classless Inter-Domain Encaminhamento (CIDR). Existem dois tipos de variáveis de correspondência na correspondência de endereço IP, **RemoteAddr** e **SocketAddr**. RemoteAddr é o IP do cliente original que é normalmente enviado através do cabeçalho de pedido X-Forwarded.Para. SocketAddr é o endereço IP de origem que a WAF vê. Se o seu utilizador estiver por detrás de um proxy, o SocketAddr é frequentemente o endereço do servidor proxy.
 
 Por predefinição, a sua aplicação web está acessível a partir da Internet. Se pretender limitar o acesso aos clientes a partir de uma lista de endereços IP ou intervalos de endereços IP conhecidos, poderá criar uma regra de correspondência IP que contenha a lista de endereços IP como valores correspondentes e que o operador defina para "Não" (a negação é verdadeira) e a ação para **Bloquear.** Após a aplicação de uma regra de restrição de IP, os pedidos originários de endereços fora desta lista permitida recebem uma resposta 403 Proibida.
 
@@ -30,7 +30,7 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-1. No portal Azure, **selecione Criar um recurso** , digitar firewall de  **aplicação Web** na caixa de pesquisa e, em seguida, selecione Web Application Firewall **(WAF)**.
+1. No portal Azure, **selecione Criar um recurso**, digitar firewall de  **aplicação Web** na caixa de pesquisa e, em seguida, selecione Web Application Firewall **(WAF)**.
 2. Selecione **Criar**.
 3. Na página **de política da CREATE,** utilize os seguintes valores para completar o **separador Básicos:**
    
@@ -64,10 +64,10 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
 
    :::image type="content" source="../media/waf-front-door-configure-ip-restriction/custom-rule.png" alt-text="Regra personalizada":::
 
-   Selecione **Adicionar**.
+   Selecione **Add** (Adicionar).
 6. Selecione **Seguinte: Associação**.
 7. **Selecione Adicionar anfitrião frontend**.
-8. Para **o anfitrião Frontend** , selecione o anfitrião frontend e selecione **Add**.
+8. Para **o anfitrião Frontend**, selecione o anfitrião frontend e selecione **Add**.
 9. Selecione **Rever + criar**.
 10. Depois de passar a sua validação de política, **selecione Criar**.
 
@@ -190,7 +190,7 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
 
 ### <a name="define-an-ip-match-condition"></a>Definir uma condição de correspondência IP
 Utilize o comando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) para definir uma condição de correspondência IP.
-No exemplo seguinte, substitua *o ip-address-range-1* , *ip-address-range-2* com a sua própria gama.    
+No exemplo seguinte, substitua *o ip-address-range-1*, *ip-address-range-2* com a sua própria gama.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -225,7 +225,7 @@ Encontre o nome do grupo de recursos que contém o perfil da porta frontal Azure
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Ligue uma política da WAF a um anfitrião frontal da Porta frontal Azure
 
-Ligue um objeto de política WAF a um anfitrião frontal existente e atualize as propriedades da Porta Frontal Azure. Em primeiro lugar, recupere o objeto da porta frontal Azure utilizando [o Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Em seguida, deite a propriedade **WebApplicationFirewallPolicyLink** para o ID de recursos de *$IPAllowPolicyExamplePS* , criado no passo anterior, utilizando o comando [Set-AzFrontDoor.](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)
+Ligue um objeto de política WAF a um anfitrião frontal existente e atualize as propriedades da Porta Frontal Azure. Em primeiro lugar, recupere o objeto da porta frontal Azure utilizando [o Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Em seguida, deite a propriedade **WebApplicationFirewallPolicyLink** para o ID de recursos de *$IPAllowPolicyExamplePS*, criado no passo anterior, utilizando o comando [Set-AzFrontDoor.](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)
 
 ```azurepowershell
   $FrontDoorObjectExample = Get-AzFrontDoor `

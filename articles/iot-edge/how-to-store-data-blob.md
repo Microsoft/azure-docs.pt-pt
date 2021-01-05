@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e1031df9f305015048de7f708123a51875776e1b
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219739"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760593"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
 
@@ -81,7 +81,7 @@ O nome desta definição é `deviceToCloudUploadProperties` . Se estiver a utili
 | ----- | ----- | ---- |
 | uploadOn | TRUE, false | Definido por `false` defeito. Se quiser ligar a função, desa um campo para `true` . <br><br> Variável ambiental: `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, O Mais Velho Primeiro | Permite-lhe escolher a ordem em que os dados são copiados para a Azure. Definido por `OldestFirst` defeito. A ordem é determinada pelo último tempo modificado da Blob. <br><br> Variável ambiental: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` é uma cadeia de ligação que lhe permite especificar a conta de armazenamento para a qual pretende que os seus dados sejam carregados. `Azure Storage Account Name` `Azure Storage Account Key` Especificar, . `End point suffix` . Adicione o sufixo EndpointS adequado do Azure onde os dados serão carregados, varia para Global Azure, Government Azure e Microsoft Azure Stack. <br><br> Pode optar por especificar a cadeia de ligação SAS do Azure Storage Sas aqui. Mas tem que atualizar esta propriedade quando expirar. <br><br> Variável ambiental: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` é uma cadeia de ligação que lhe permite especificar a conta de armazenamento para a qual pretende que os seus dados sejam carregados. `Azure Storage Account Name` `Azure Storage Account Key` Especificar, . `End point suffix` . Adicione o sufixo EndpointS adequado do Azure onde os dados serão carregados, varia para Global Azure, Government Azure e Microsoft Azure Stack. <br><br> Pode optar por especificar a cadeia de ligação SAS do Azure Storage Sas aqui. Mas tem que atualizar esta propriedade quando expirar. As permissões SAS podem incluir criar acesso para recipientes e criar, escrever e adicionar acesso a bolhas.  <br><br> Variável ambiental: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite especificar os nomes dos recipientes que pretende enviar para Azure. Este módulo permite especificar os nomes dos recipientes de origem e alvo. Se não especificar o nome do recipiente-alvo, atribuirá automaticamente o nome do recipiente como `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . Pode criar cordas de modelo para o nome do recipiente-alvo, verificar a coluna de valores possíveis. <br>* %h -> IoT Hub Name (3-50 caracteres). <br>* %d -> IoT Edge Device ID (1 a 129 caracteres). <br>* %m -> Nome do módulo (1 a 64 caracteres). <br>* %c -> Nome do Recipiente de Origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do recipiente é de 63 caracteres, ao mesmo tempo que atribui automaticamente o nome do recipiente-alvo se o tamanho do recipiente exceder 63 caracteres, cortará cada secção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) a 15 caracteres. <br><br> Variável ambiental: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | excluirAfterUpload | TRUE, false | Definido por `false` defeito. Quando estiver `true` programado, eliminará automaticamente os dados quando o upload para o armazenamento na nuvem estiver terminado. <br><br> **ATENÇÃO**: Se estiver a utilizar bolhas de apêndice, esta definição eliminará as bolhas de apêndice do armazenamento local após um upload bem sucedido, e quaisquer futuras operações do Bloco de Apêndice para essas bolhas falharão. Utilize esta definição com cuidado, não o ative se a sua aplicação não for frequente as operações de apêndice ou não suportar operações de apêndice contínuos<br><br> Variável ambiental: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` . |
 

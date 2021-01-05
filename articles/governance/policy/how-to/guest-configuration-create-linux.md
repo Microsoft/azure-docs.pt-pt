@@ -4,12 +4,12 @@ description: Saiba como criar uma política de configuração de hóspedes Azure
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302709"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755876"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -329,10 +329,15 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 
-Para lançar uma atualização da definição de política, existem três domínios que requerem atenção.
+Se quiser lançar uma atualização da política, faça a alteração tanto para o pacote de Configuração do Convidado como para os detalhes da definição de Política Azure.
 
 > [!NOTE]
 > A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
+
+Primeiro, ao correr `New-GuestConfigurationPackage` , especifique um nome para o pacote que o torna único a partir de versões anteriores. Pode incluir um número de versão no nome, como `PackageName_1.0.0` .
+O número neste exemplo é utilizado apenas para tornar a embalagem única, não para especificar que a embalagem deve ser considerada mais nova ou mais antiga do que outras embalagens.
+
+Em segundo lugar, atualize os parâmetros utilizados com o `New-GuestConfigurationPolicy` cmdlet seguindo cada uma das explicações abaixo.
 
 - **Versão**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
 - **conteúdoUri**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
@@ -389,7 +394,7 @@ A política de acesso ao Cofre-Chave deve permitir ao fornecedor de recursos com
 
 Após a publicação do seu conteúdo, apedie uma etiqueta com nome `GuestConfigPolicyCertificateValidation` e valor a todas as `enabled` máquinas virtuais onde deve ser necessária a assinatura de código. Consulte as [amostras tags](../samples/built-in-policies.md#tags) de como as etiquetas podem ser entregues em escala usando a Política Azure. Uma vez que esta etiqueta está em vigor, a definição de política gerada através do `New-GuestConfigurationPolicy` cmdlet permite o requisito através da extensão de Configuração do Convidado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

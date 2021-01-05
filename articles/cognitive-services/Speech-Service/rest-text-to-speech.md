@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: references_regions
+ms.openlocfilehash: bfdea5f2e2bd20a35ee948e99b3be9bf55038b13
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020165"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760661"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -34,7 +35,7 @@ Antes de utilizar esta API, compreenda:
 * A API DE REPOUSO text-to-speech requer um cabeçalho de autorização. Isto significa que você precisa completar uma troca simbólica para aceder ao serviço. Para obter mais informações, veja [Autenticação](#authentication).
 
 > [!TIP]
-> Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do governo Azure para os pontos finais da nuvem governamental (FairFax).
+> Consulte a [documentação do governo Azure](/azure/azure-government/compare-azure-government-global-azure) para os pontos finais da nuvem governamental (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -44,7 +45,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 
 ### <a name="regions-and-endpoints"></a>Regiões e pontos finais
 
-| Region | Ponto final |
+| Região | Ponto final |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -66,11 +67,14 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 | E.U.A. Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
+> [!TIP]
+> [As vozes na pré-visualização](language-support.md#neural-voices-in-preview) só estão disponíveis nestas três regiões: Leste dos EUA, Europa Ocidental e Sudeste Asiático.
+
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Descrição | Obrigatório / Opcional |
+| Cabeçalho | Description | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 
@@ -98,46 +102,78 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 ```json
 [
+  {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+      
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-        "ShortName": "ar-EG-Hoda",
-        "Gender": "Female",
-        "Locale": "ar-EG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
-        "ShortName": "ar-SA-Naayf",
-        "Gender": "Male",
-        "Locale": "ar-SA",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
-        "ShortName": "bg-BG-Ivan",
-        "Gender": "Male",
-        "Locale": "bg-BG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
-        "ShortName": "ca-ES-HerenaRUS",
-        "Gender": "Female",
-        "Locale": "ca-ES",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
-        "ShortName": "zh-CN-XiaoxiaoNeural",
-        "Gender": "Female",
-        "Locale": "zh-CN",
-        "SampleRateHertz": "24000",
-        "VoiceType": "Neural"
-    },
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
+    "DisplayName": "Aria",
+    "LocalName": "Aria",
+    "ShortName": "en-US-AriaNeural",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "StyleList": [
+      "chat",
+      "customerservice",
+      "newscast-casual",
+      "newscast-formal",
+      "cheerful",
+      "empathetic"
+    ],
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "GA"
+  },
+  
+  ...
+    
+     {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
+    "DisplayName": "Orla",
+    "LocalName": "Orla",
+    "ShortName": "ga-IE-OrlaNeural",
+    "Gender": "Female",
+    "Locale": "ga-IE",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "Preview"
+  },
+  
+  ...
+    
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
+    "DisplayName": "Yunxi",
+    "LocalName": "云希",
+    "ShortName": "zh-CN-YunxiNeural",
+    "Gender": "Male",
+    "Locale": "zh-CN",
+    "StyleList": [
+      "Calm",
+      "Fearful",
+      "Cheerful",
+      "Disgruntled",
+      "Serious",
+      "Angry",
+      "Sad",
+      "Depressed",
+      "Embarrassed"
+    ],
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "Preview"
+  },
 
     ...
 ]
@@ -170,7 +206,7 @@ Estas regiões são apoiadas por texto-a-voz utilizando a API REST. Certifique-s
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Descrição | Obrigatório / Opcional |
+| Cabeçalho | Description | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
@@ -208,23 +244,17 @@ Este pedido HTTP utiliza SSML para especificar a voz e o idioma. Se o compriment
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
 
-X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+X-Microsoft-OutputFormat: raw-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-AriaRUS'>
+    name='en-US-AriaNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
-
-Consulte os nossos quickstarts para exemplos específicos da linguagem:
-
-* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
-* [Node.js](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Códigos de estado HTTP
 
@@ -235,7 +265,6 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 | 200 | OK | O pedido foi bem sucedido; o corpo de resposta é um ficheiro áudio. |
 | 400 | Pedido Incorreto | Falta um parâmetro necessário, vazio ou nulo. Ou, o valor passado para um parâmetro necessário ou opcional é inválido. Uma questão comum é um cabeçalho que é demasiado longo. |
 | 401 | Não autorizado | O pedido não está autorizado. Verifique se a chave de subscrição ou o token são válidos e na região correta. |
-| 413 | Entidade de pedido muito grande | A entrada SSML é superior a 1024 caracteres. |
 | 415 | Tipo de mídia não suportado | É possível que o erro `Content-Type` tenha sido fornecido. `Content-Type` deve ser definido para `application/ssml+xml` . |
 | 429 | Muitos pedidos | Excedeu a quota ou taxa de pedidos permitidos para a sua subscrição. |
 | 502 | Bad Gateway    | Problema do lado da rede ou do servidor. Pode também indicar cabeçalhos inválidos. |
@@ -245,5 +274,5 @@ Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntese assíncronea para áudio de forma longa](./long-audio-api.md)
+- [Síntese assíncronea para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 72079cc399eea249bce4d285e2c3c4fbf9304708
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319033"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760610"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Track Azure Databricks ML experimenta com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -43,7 +43,7 @@ Veja [track experiment runs e crie pontos finais com MLflow e Azure Machine Lear
 
 O MLflow Tracking com Azure Machine Learning permite-lhe armazenar as métricas e artefactos registados a partir dos seus Dados Azure e encontra-se em ambos os seus: 
 
-* Área de trabalho do Azure Databricks.
+* Espaço de trabalho Azure Databricks.
 * Área de trabalho do Azure Machine Learning
 
 Depois de criar o seu espaço de trabalho e cluster Azure Databricks, 
@@ -180,8 +180,8 @@ Quando estiver pronto para criar um ponto final para os seus modelos ML. Pode de
 Pode aproveitar o [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) API para implementar um modelo no seu espaço de trabalho Azure Machine Learning. Se registou apenas o modelo no espaço de trabalho Azure Databricks, conforme descrito nos modelos de registo com secção [MLflow,](#register-models-with-mlflow) especifique o `model_name` parâmetro para registar o modelo no espaço de trabalho Azure Machine Learning. 
 
 As execuções Azure Databricks podem ser implantadas nos seguintes pontos finais, 
-* [Instância de Contentor do Azure](how-to-use-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-use-mlflow.md#deploy-to-aks)
+* [Caso do contentor de Azure](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
+* [Azure Kubernetes Service](how-to-deploy-models-with-mlflow.md#deploy-to-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>Implementar modelos para pontos finais ADB para pontuação de lotes 
 
@@ -224,7 +224,7 @@ Se não planeia utilizar as métricas e artefactos registados no seu espaço de 
 
 1. Selecione **Eliminar grupo de recursos**.
 
-1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
+1. Introduza o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 

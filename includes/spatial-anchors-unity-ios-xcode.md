@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: d969b1639dbb39b920c985964abe1239f068d740
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 81d2804d99896200ea6f68592ea168112e172c20
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185348"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762619"
 ---
 Selecione **Build**. No painel que abre, selecione uma pasta para exportar o projeto Xcode para.
 
@@ -30,9 +30,9 @@ open ./Unity-iPhone.xcodeproj
 
 Selecione o nó **raiz Unidade-iPhone** para visualizar as definições do projeto e, em seguida, selecione o separador **Geral.**
 
-Ao **assinar,** certifique-se de que **a assinatura é ativada automaticamente.** Se não estiver, ative-o e, em seguida, reinicie as definições de construção selecionando **Ativar Automático** no painel que aparece.
+Em **Informação de Implantação**, certifique-se de que o alvo de implantação está definido para **iOS 11.0**.
 
-Em **Informações de Implantação**, certifique-se de que **o alvo de implantação** está definido para **11.0**.
+Selecione o **separador 'Assinatura & Capacidades'** e certifique-se de que **a assinatura é gerida automaticamente.** Se não estiver, ative-o e, em seguida, reinicie as definições de construção selecionando **Ativar Automático** no painel que aparece.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Implemente a aplicação para o seu dispositivo iOS
 

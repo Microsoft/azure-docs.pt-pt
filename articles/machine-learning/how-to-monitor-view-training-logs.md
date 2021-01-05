@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0dd5f6a48175bad35b37155c8ff881e352922ca7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674480"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756063"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -121,11 +121,11 @@ Os ficheiros de registo são um recurso essencial para depurar as cargas de trab
 As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que verá nesta secção.
 
 > [!NOTE]
-> Informação que o utilizador deve notar mesmo que skimming Não verá necessariamente todos os ficheiros para cada execução. Por exemplo, o 20_image_build_log*.txt só aparece quando uma nova imagem é construída (por exemplo, quando muda de ambiente).
+> Não verá necessariamente todos os ficheiros para cada execução. Por exemplo, o 20_image_build_log*.txt só aparece quando uma nova imagem é construída (por exemplo, quando muda de ambiente).
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` pasta
 
-|Ficheiro  |Descrição  |
+|Ficheiro  |Description  |
 |---------|---------|
 |20_image_build_log.txt     | Registo de construção de imagem estivador para o ambiente de treino, opcional, um por corrida. Só é aplicável na atualização do seu Ambiente. Caso contrário, a AML reutilizará a imagem em cache. Se for bem sucedido, contém detalhes do registo de imagem para a imagem correspondente.         |
 |55_azureml execução-<node_id>.txt     | stdout/stderr log da ferramenta hospedeira, um por nó. Puxa a imagem para calcular o alvo. Note que este registo só aparece depois de ter garantido recursos de computação.         |
@@ -138,7 +138,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 #### <a name="logs--azureml-folder"></a>`logs > azureml` pasta
 
-|Ficheiro  |Descrição  |
+|Ficheiro  |Description  |
 |---------|---------|
 |110_azureml.log      |         |
 |job_prep_azureml.log     |   registo do sistema para a preparação do trabalho        |
@@ -148,7 +148,7 @@ As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que ve
 
 Quando o sidecar estiver ativado, os scripts de preparação de emprego e de lançamento de emprego serão executados dentro do contentor sidecar.  Há uma pasta para cada nó. 
 
-|Ficheiro  |Descrição  |
+|Ficheiro  |Description  |
 |---------|---------|
 |start_cms.txt     |  Registo de processo que começa quando o Contentor Sidecar começa       |
 |prep_cmd.txt      |   Log for ContextManagers introduzidos quando `job_prep.py` é executado (alguns destes serão transmitidos `azureml-logs/65-job_prep` para)       |

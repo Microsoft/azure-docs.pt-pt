@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187260"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760339"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre produção provisão e sem servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,7 +25,7 @@ A Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [pro
 | Critérios | Débito aprovisionado | Sem servidor |
 | --- | --- | --- |
 | Estado | Disponível em Geral | Em pré-visualização |
-| Mais adequado para | Cargas de trabalho críticas à missão que requerem um desempenho previsível | Cargas de trabalho não críticas pequenas a médias com tráfego leve e intermitente |
+| Mais adequado para | Cargas de trabalho críticas à missão que requerem um desempenho previsível | Cargas de trabalho pequenas a médias com tráfego leve e intermitente que é difícil de prever |
 | Como funciona | Para cada um dos seus contentores, fornece alguma quantidade de produção expressa nas [Unidades de Pedido](request-units.md) por segundo. A cada segundo, este número de Unidades de Pedido está disponível para as suas operações de base de dados. A produção a provisionada pode ser atualizada manualmente ou ajustada automaticamente com [autoescala](provision-throughput-autoscale.md). | Execute as suas operações de base de dados contra os seus contentores sem ter de providenciar qualquer capacidade. |
 | Geo-distribuição | Disponível (número ilimitado de regiões de Azure) | Indisponível (as contas sem servidor só podem ser executadas em 1 região do Azure) |
 | Armazenamento máximo por contentor | Ilimitado | 50 GB |

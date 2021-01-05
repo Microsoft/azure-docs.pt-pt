@@ -4,14 +4,14 @@ description: Como criar caminhos voltados para o cliente para armazenamento com 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339681"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760545"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o espaço de nome agregado
 
@@ -21,13 +21,13 @@ Leia [Planeie o espaço de nome agregado](hpc-cache-namespace.md) para saber mai
 
 A página **Namespace** no portal Azure mostra os caminhos que os clientes usam para aceder aos seus dados através da cache. Utilize esta página para criar, remover ou alterar os caminhos do espaço de nome. Também pode configurar caminhos de espaço de nome utilizando o Azure CLI.
 
-Todos os caminhos existentes virados para o cliente estão listados na página **Namespace.** Se um alvo de armazenamento não tiver quaisquer caminhos, não aparece na tabela.
+Todos os caminhos virados para o cliente que foram definidos para esta cache estão listados na página **Namespace.** Alvos de armazenamento que não têm nenhum caminho de espaço de nome definidos mas não aparecem na tabela.
 
-Pode separar as colunas de tabela clicando nas setas e entender melhor o espaço de nome agregado da sua cache.
+Pode classificar as colunas de mesa para entender melhor o espaço de nome agregado da sua cache. Clique nas setas dos cabeçalhos da coluna para separar os caminhos.
 
-![screenshot da página do espaço de nome do portal com dois caminhos em uma mesa. Cabeçalhos de coluna: Caminho do espaço de identificação, alvo de armazenamento, trajetória de exportação e subdiretório de exportação. Os itens na primeira coluna são links clicáveis. Botões superiores: Adicionar caminho de espaço de nome, refrescar, eliminar](media/namespace-page.png)
+[![screenshot da página do espaço de nome do portal com dois caminhos em uma mesa. Cabeçalhos de coluna: Caminho do espaço de nome, alvo de armazenamento, trajetória de exportação e subdiretório de exportação e política de acesso ao Cliente. Os nomes do caminho na primeira coluna são links clicáveis. Botões superiores: Adicionar caminho de espaço de nome, refrescar, eliminar ](media/namespace-page.png)](media/namespace-page.png#lightbox)
 
-## <a name="add-or-edit-client-facing-namespace-paths"></a>Adicione ou edite caminhos de espaço de nome virados para o cliente
+## <a name="add-or-edit-namespace-paths"></a>Adicionar ou editar caminhos de espaço de nome
 
 Deve criar pelo menos um caminho de espaço de nome antes que os clientes possam aceder ao alvo de armazenamento. (Leia [o Monte da Cache Azure HPC](hpc-cache-mount.md) para saber mais sobre o acesso ao cliente.)
 
@@ -43,15 +43,17 @@ A partir do portal Azure, carregue a página de definições **do Namespace.** P
 
 * **Adicione um novo caminho:** Clique no botão **+ Adicionar** na parte superior e preencha as informações no painel de edição.
 
-  * Selecione o alvo de armazenamento da lista de drop-down. (Nesta imagem, o alvo de armazenamento de bolhas não pode ser selecionado porque já tem um caminho de espaço de nome.)
+  ![Screenshot dos campos de edição de espaço de nome adicionar com um alvo de armazenamento de bolhas selecionado. Os caminhos de exportação e subdiretiva são definidos para/e não editáveis.](media/namespace-add-blob.png)
 
-    ![Screenshot dos novos campos de edição de espaço de nome com o seletor de alvo de armazenamento exposto](media/namespace-select-storage-target.png)
+  * Entre no caminho que os clientes utilizarão para aceder a este alvo de armazenamento.
+
+  * Selecione qual a política de acesso a utilizar para este caminho. Saiba mais sobre a personalização do acesso ao cliente nas [políticas de acesso ao cliente.](access-policies.md)
+
+  * Selecione o alvo de armazenamento da lista de drop-down. Se um alvo de armazenamento de bolhas já tiver um caminho de espaço de nome, não pode ser selecionado.
 
   * Para um objetivo de armazenamento Azure Blob, os caminhos de exportação e subdiretórios são automaticamente definidos para ``/`` .
 
-* **Alterar um caminho existente:** Clique no caminho do espaço de nome. O painel de edição abre e pode modificar o caminho.
-
-  ![Screenshot da página do espaço de nome depois de clicar num caminho de espaço de nome Blob - os campos de edição aparecem num painel à direita](media/edit-namespace-blob.png)
+* **Alterar um caminho existente:** Clique no caminho do espaço de nome. O painel de edição abre. Pode modificar o caminho e a política de acesso, mas não pode mudar para um alvo de armazenamento diferente.
 
 * **Excluir um caminho de espaço de nome:** Selecione a caixa de verificação à esquerda do caminho e clique no botão **Eliminar.**
 
@@ -81,7 +83,7 @@ Esta lista mostra o número máximo de caminhos de espaço de nome por configura
 
   * Cache 3 TB - 10 caminhos de espaço de nome
   * Cache 6 TB - 10 caminhos de espaço de nome
-  * Cache 23 TB - 20 caminhos de espaço de nome
+  * 12 Cache TB - 20 caminhos de espaço de nome
 
 * Até 4 GB/s de produção:
 
@@ -109,13 +111,15 @@ Preencha estes valores para cada caminho do espaço de nome:
 
 * **Caminho do espaço de** nome - O caminho do ficheiro virado para o cliente.
 
+* **Política de acesso** ao cliente - Selecione qual a política de acesso a utilizar para este caminho. Saiba mais sobre a personalização do acesso ao cliente nas [políticas de acesso ao cliente.](access-policies.md)
+
 * **Alvo de armazenamento** - Se criar um novo caminho de espaço de nome, selecione um alvo de armazenamento a partir do menu suspenso.
 
 * **Caminho de exportação** - Insira o caminho para a exportação da NFS. Certifique-se de que digita corretamente o nome de exportação - o portal valida a sintaxe para este campo, mas não verifica a exportação até submeter a alteração.
 
 * **Subdiretório de exportação** - Se quiser que este caminho monte um subdiretório específico da exportação, insira-o aqui. Se não, deixe este campo em branco.
 
-![screenshot da página do espaço de nome portal com a página de atualização aberta à direita](media/update-namespace-nfs.png)
+![screenshot da página do espaço de nome do portal com a página de edição aberta à direita. O formulário de edição mostra definições para um caminho de espaço de nome alvo de armazenamento nfs](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

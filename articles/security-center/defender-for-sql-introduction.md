@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: e9a2259f1e15a94ad1f2a9eabf7d3a2f3ed419f1
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 16f903e34c64214d54fc01fa621f561f1786de08
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387807"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755995"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
@@ -41,7 +41,7 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
     - [Piscina SQL dedicada em Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 - **O Azure Defender para servidores SQL em máquinas** alarga as proteções para os seus SqL Servers nativos do Azure para suportar totalmente ambientes híbridos e proteger servidores SQL (todas as versões suportadas) hospedados em Azure, outros ambientes em nuvem e até mesmo máquinas no local:
-    - [SQL Server nas Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+    - [SQL Server em Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - Servidores SQL no local:
         - [SQL Server preparado para Azure Arc (pré-visualização)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
         - [SQL Server em funcionamento em máquinas Windows sem Arco Azure](../azure-monitor/platform/agent-windows.md)
@@ -53,7 +53,9 @@ Estes dois planos incluem funcionalidade para identificar e mitigar potenciais v
 
 - [Avaliação de vulnerabilidade](../azure-sql/database/sql-vulnerability-assessment.md) - O serviço de digitalização para descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados. As análises fornecem uma visão geral do estado de segurança das suas máquinas SQL e detalhes de quaisquer conclusões de segurança.
 
-- [Proteção avançada de ameaças](../azure-sql/database/threat-detection-overview.md) - O serviço de deteção que monitoriza continuamente os seus servidores SQL para ameaças como injeção de SQL, ataques de força bruta e abuso de privilégios. Este serviço fornece alertas de segurança orientados para a ação no Centro de Segurança Azure com detalhes da atividade suspeita, orientações sobre como mitigar as ameaças e opções para continuar as suas investigações com a Azure Sentinel.
+- [Proteção avançada de ameaças](../azure-sql/database/threat-detection-overview.md) - O serviço de deteção que monitoriza continuamente os seus servidores SQL para ameaças como injeção de SQL, ataques de força bruta e abuso de privilégios. Este serviço fornece alertas de segurança orientados para a ação no Centro de Segurança Azure com detalhes da atividade suspeita, orientações sobre como mitigar as ameaças e opções para continuar as suas investigações com a Azure Sentinel. 
+    > [!TIP]
+    > Veja a lista de alertas de segurança para servidores SQL [na página de referência dos alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-sql-provide"></a>Que tipo de alertas o Azure Defender para o SQL fornece?
@@ -68,14 +70,9 @@ Os alertas incluem detalhes do incidente que os desencadeou, bem como recomenda�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre Azure Defender para a SQL.
 
 > [!div class="nextstepaction"]
 > [Verifique os seus servidores SQL para vulnerabilidades com o Azure Defender](defender-for-sql-usage.md)
-
-Para obter material relacionado, consulte os seguintes artigos: 
-
-- [Como ativar o Azure Defender para servidores de base de dados SQL](../azure-sql/database/azure-defender-for-sql.md)
-- [A lista de alertas de segurança para servidores SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

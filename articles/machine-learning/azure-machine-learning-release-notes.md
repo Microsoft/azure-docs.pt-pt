@@ -9,18 +9,16 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 4998469fa353fef9e8a91d078349150d9f739ac2
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779418"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760117"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-
-Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
 
 ## <a name="2020-12-07"></a>2020-12-07
 
@@ -854,7 +852,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  |
+| Ferramenta baseada na web  |     Description  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1366,7 +1364,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | 
+| Ferramenta baseada na web | Description | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1785,14 +1783,14 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     mydata = all_datasets['my-data']
     ```
 
-    + Introduzir `parition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yyyy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
+    + Introduzir `parition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
         ```py
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']
         ```
 
-    + Introduzir `partition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yyyy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
+    + Introduzir `partition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
     + `to_csv_files` e `to_parquet_files` métodos foram adicionados a `TabularDataset` . Estes métodos permitem a conversão entre a `TabularDataset` e a `FileDataset` convertendo os dados em ficheiros do formato especificado.
     + Inicie automaticamente o registo de imagem base ao guardar um Dockerfile gerado pelo Modelo.pacote().
     + "gpu_support" já não é necessário; A AML deteta e utiliza automaticamente a extensão do estivador nvidia quando está disponível. Será removido numa futura libertação.

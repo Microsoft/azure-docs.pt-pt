@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617056"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762967"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -137,6 +137,11 @@ Tanto os Microsoft Speech SDK como os REST APIs suportam estas vozes, cada uma d
 O texto-a-discurso neural é um novo tipo de síntese da fala alimentada por redes neuronais profundas. Quando se usa uma voz neural, o discurso sintetizado é quase indistinguível das gravações humanas.
 
 As vozes neurais podem ser usadas para tornar as interações com chatbots e assistentes de voz mais naturais e envolventes, converter textos digitais como e-books em audiolivros e melhorar os sistemas de navegação no carro. Com a prosódia natural humana e a clara articulação das palavras, as vozes neurais reduzem significativamente a fadiga auditiva quando os utilizadores interagem com os sistemas de IA.
+
+> [!NOTE]
+> As vozes neurais são criadas a partir de amostras que usam uma taxa de amostra de 24 khz.
+> Todas as vozes podem aumentar ou reduzir para outras taxas de amostra ao sintetizar.
+
 
 | Linguagem | Região | Sexo | Nome de voz | Suporte de estilo |
 |---|---|---|---|---|
@@ -294,6 +299,11 @@ Para aprender como pode configurar e ajustar vozes neurais, tais como Estilos de
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
+> [!NOTE]
+> Com duas exceções, as vozes padrão são criadas a partir de amostras que usam uma taxa de amostra de 16 khz.
+> As vozes **en-US-AriaRUS** e **en-US-GuyRUS** também são criadas a partir de amostras que usam uma taxa de amostra de 24 khz.
+> Todas as vozes podem aumentar ou reduzir para outras taxas de amostra ao sintetizar.
+
 | Linguagem | Local (BCP-47) | Sexo | Nome de voz |
 |--|--|--|--|
 | Árabe (árabe) | `ar-EG` | Mulheres | `ar-EG-Hoda`|
@@ -325,7 +335,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 | Inglês (Reino Unido) | `en-GB` | Mulheres | `en-GB-Susan`|
 | Inglês (Estados Unidos) | `en-US` | Homens | `en-US-BenjaminRUS`|
 | Inglês (Estados Unidos) | `en-US` | Homens | `en-US-GuyRUS`|
-| Inglês (Estados Unidos) | `en-US` | Mulheres | `en-US-JessaRUS`|
+| Inglês (Estados Unidos) | `en-US` | Mulheres | `en-US-AriaRUS`|
 | Inglês (Estados Unidos) | `en-US` | Mulheres | `en-US-ZiraRUS`|
 | Finlandês (Finlândia) | `fi-FI` | Mulheres | `fi-FI-HeidiRUS`|
 | Francês (Canadá) | `fr-CA` | Mulheres | `fr-CA-Caroline`|

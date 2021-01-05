@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673992"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760406"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Gatilho RabbitMQ para visão geral das funções azure
 
 > [!NOTE]
-> As ligações RabbitMQ só são totalmente suportadas em planos **Windows Premium e Dedicados.** O consumo e o Linux não são atualmente apoiados.
+> As ligações RabbitMQ só são totalmente suportadas em planos **Premium e Dedicados.** O consumo não é suportado.
 
 Utilize o gatilho RabbitMQ para responder a mensagens de uma fila RabbitMQ.
 
@@ -43,18 +43,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 O exemplo a seguir mostra como ler a mensagem como um POCO.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -82,7 +87,7 @@ Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 Aqui está o código do guião C:
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -206,7 +211,7 @@ Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `RabbitMQTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "RabbitMQTrigger".|
 |**direção** | n/a | Deve ser definido para "dentro".|
@@ -216,7 +221,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nomeamento de utilizadorNameSetting**|**Nomeagem de utilizador**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém o nome de utilizador para aceder à fila. Por exemplo: UserNameSetting: "%< UserNameFromSettings >%"|
 |**passwordSetting**|**Passwordsetting**|(ignorado se utilizar o ConnectionStringSetting) <br>Nome da definição da aplicação que contém a palavra-passe para aceder à fila. Por exemplo: PasswordSetting: "%< PasswordFromSettings >%"|
 |**conexãoStringSetting**|**ConexãoStringSetting**|O nome da definição da aplicação que contém a cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que se especificar diretamente o fio de ligação e não através de uma definição de aplicação no local.settings.jsligado, o gatilho não funcionará. (Ex: Em *function.jssobre:* connectionStringSetting: "rabbitMQConnection" <br> Em *local.settings.jsem*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**porto**|**Porta**|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Incumprimentos para 0.|
+|**porto**|**Porta**|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Predefinições a 0 que aponta para a definição padrão da porta do cliente rabbitmq: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -275,12 +280,12 @@ Esta secção descreve as definições de configuração global disponíveis par
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |prefetchCount|30|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar e está em cache.|
 |nome de fila|n/a| Nome da fila para receber mensagens de.|
 |conexãoStragem|n/a|A cadeia de ligação da fila da mensagem RabbitMQ. Por favor, note que a cadeia de ligação é especificada diretamente aqui e não através de uma configuração de aplicação.|
-|porta|0|(ignorado se utilizar o ConnectionStringSetting) Recebe ou define o Porto usado. Incumprimentos para 0.|
+|porta|0|(ignorado se utilizar a ligaçãoStragem) Recebe ou define o Porto usado. Predefinições a 0 que aponta para a definição padrão da porta do cliente rabbitmq: 5672.|
 
 ## <a name="local-testing"></a>Testes locais
 
@@ -303,11 +308,26 @@ Se estiver a testar localmente sem uma cadeia de ligação, deverá definir a de
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
-|nome hospedeiro|n/a|(ignorado se utilizar o ConnectStringSetting) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
-|userName|n/a|(ignorado se utilizar o ConnectionStringSetting) <br>Nome para aceder à fila |
-|palavra-passe|n/a|(ignorado se utilizar o ConnectionStringSetting) <br>Senha para aceder à fila|
+|nome hospedeiro|n/a|(ignorado se utilizar a ligaçãoStragem) <br>Nome anfitrião da fila (Ex: 10.26.45.210)|
+|userName|n/a|(ignorado se utilizar a ligaçãoStragem) <br>Nome para aceder à fila |
+|palavra-passe|n/a|(ignorado se utilizar a ligaçãoStragem) <br>Senha para aceder à fila|
+
+
+## <a name="enable-runtime-scaling"></a>Ativar o escalonamento do tempo de execução
+
+Para que o gatilho RabbitMQ se dimensione para várias instâncias, a definição **de monitorização da escala de tempo** de execução deve ser ativada. 
+
+No portal, esta definição pode ser encontrada nas  >  **definições de tempo de execução da função** de configuração para a sua aplicação de função.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+No CLI, pode ativar **a monitorização da escala de tempo de execução** utilizando o seguinte comando:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Monitorização do ponto final RabbitMQ
 Para monitorizar as suas filas e trocas por um determinado ponto final RabbitMQ:
