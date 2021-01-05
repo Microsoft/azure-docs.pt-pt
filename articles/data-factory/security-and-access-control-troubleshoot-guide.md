@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505159"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895653"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -116,7 +116,7 @@ O problema pode ser causado pelo VM em que está a tentar instalar o IR auto-hos
 
 #### <a name="resolution"></a>Resolução
 
-**Solução 1**
+**Solução 1**
  
 Para resolver a questão, faça o seguinte:
 
@@ -144,13 +144,23 @@ Para resolver a questão, faça o seguinte:
 1. Adicione novamente a tecla de autenticação IV no tempo de execução da integração.
 
 
-**Solução 2**
+**Solução 2**
 
 Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
 
 Tente permitir o acesso à rede pública na interface do utilizador, como mostra a seguinte imagem:
 
 ![Screenshot do controlo "Ativado" para "Permitir o acesso à rede pública" no painel de networking.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>O tempo de funcionamento do gasoduto varia quando se baseia em diferentes IR
+
+#### <a name="symptoms"></a>Sintomas
+
+Simplesmente a rebadagem do Serviço Linked no conjunto de dados realiza as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de dados é baseado no tempo de execução de integração da rede virtual gerido, leva mais de 2 minutos, em média, para completar o funcionado, mas leva aproximadamente 20 segundos para ser concluído quando baseado no Tempo de Execução de Integração Padrão.
+
+#### <a name="cause"></a>Causa
+
+Verificando os detalhes das correções do gasoduto, pode ver que o gasoduto lento está a funcionar no Ir Managed VNet (Rede Virtual) enquanto o normal está a funcionar no Azure IR. Por design, o Managed VNet IR demora mais tempo na fila do que o Azure IR, uma vez que não estamos a reservar um nó de computação por fábrica de dados, pelo que existe um aquecimento de cerca de 2 minutos para cada atividade de cópia iniciar, e ocorre principalmente na adesão da VNet em vez do Azure IR.
 
 ## <a name="next-steps"></a>Passos seguintes
 

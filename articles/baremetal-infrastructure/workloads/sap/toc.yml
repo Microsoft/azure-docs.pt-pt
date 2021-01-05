@@ -1,0 +1,16 @@
+- name: Infraestrutura Bare-metal do Azure
+  href: ../../index.yml
+- name: Descrição geral
+  items:
+    - name: Acerca da Infraestrutura Bare-metal
+      href: baremetal-overview-architecture.md
+    - name: Conhecer os termos
+      href: ../../know-baremetal-terms.md
+- name: Guias de procedimentos
+  items:
+    - name: Gerir unidades da Instância Bare-metal no Azure
+      href: baremetal-infrastructure-portal.md
+- name: Referência
+  items:
+    - name: Tipos de carga de trabalho de Bare-metal
+      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740917"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897639"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge Pro GPU
 
@@ -43,7 +43,7 @@ Antes de adicionar ações ao Azure Stack Edge Pro, certifique-se de que:
 
 Para criar uma partilha, faça o seguinte procedimento:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Azure Stack Edge e, em seguida, vá à **Visão Geral**. O seu dispositivo deve estar online.
+1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Azure Stack Edge e, em seguida, vá à **Visão Geral**. O seu dispositivo deve estar online. Selecione **Porta de armazenamento em nuvem**.
 
    ![Dispositivo online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Para criar uma partilha, faça o seguinte procedimento:
 
    ![Adicionar uma partilha](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. No painel **de partilha Add,** faça o seguinte procedimento:
+3. No painel **de partilha Add,** siga estes passos:
 
     a. Na caixa **Nome,** forneça um nome único para a sua parte.  
     O nome da partilha só pode ter letras, algarismos e hífenes. Deve ter entre 3 a 63 caracteres e começar com uma letra ou um numeral. Os hífenes devem ser precedidos e seguidos por uma letra ou um numeral.

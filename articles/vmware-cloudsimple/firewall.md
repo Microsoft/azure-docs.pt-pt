@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Configurar tabelas e regras de firewall
 description: Descreve como configurar tabelas e regras de firewall Private Cloud para restringir o tráfego em sub-redes e VLANs.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32dcfb0c6cd26b5f34afad328db8f383fa1c2a6f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846873"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895636"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para Nuvens Privadas
 
@@ -72,7 +72,7 @@ As regras de firewall determinam como a firewall trata tipos específicos de tr�
 
 Depois de definir uma tabela de firewall, pode especificar as sub-redes que estão sujeitas às regras da tabela.
 
-1. Na **Network**  >  página **'Tabelas de Firewall'** de rede, selecione uma tabela de firewall.
+1. Na   >  página **'Tabelas de Firewall'** de rede, selecione uma tabela de firewall.
 2. Abra o **separador VLANs/Sub-rede anexado.**
 3. Clique **em Anexar a uma VLAN/Sub-rede**.
 4. Selecione a Nuvem Privada e VLAN. O nome da sub-rede associada e o bloco CIDR são mostrados.

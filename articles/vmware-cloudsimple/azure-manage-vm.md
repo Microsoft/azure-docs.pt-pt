@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Gerir VMs de nuvem privada em Azure
 description: Descreve como gerir os CloudSimple Private Cloud VMs no portal Azure, incluindo a adição de discos, alteração da capacidade de VM e a adição de interfaces de rede
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082074"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895194"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerencie as suas máquinas virtuais CloudSimple Cloud em Azure
 

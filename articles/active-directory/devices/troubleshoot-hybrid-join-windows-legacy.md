@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 057ff064264485a9aea6fc2b31fe57ce37c805ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079024"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895619"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior 
 
@@ -32,7 +32,7 @@ Para windows 10 ou Windows Server 2016, consulte [o Azure Ative Directory híbri
 
 Este artigo pressupõe que [configuraste dispositivos híbridos Azure Ative Directory](hybrid-azuread-join-plan.md) para suportar os seguintes cenários:
 
-- Acesso Condicional baseado em dispositivos
+- Acesso Condicional com base em dispositivos
 
 Este artigo fornece-lhe orientações de resolução de problemas sobre como resolver potenciais problemas.  
 
@@ -44,6 +44,7 @@ Este artigo fornece-lhe orientações de resolução de problemas sobre como res
 - Também pode obter várias entradas para um dispositivo no separador informações do utilizador devido a uma reinstalação do sistema operativo ou a um re-registo manual.
 - O registo inicial/união de dispositivos está configurado para efetuar uma tentativa de iniciar sedus ou bloquear/desbloquear. Pode haver um atraso de 5 minutos desencadeado por uma tarefa de agendamento de tarefas. 
 - Certifique-se de que [o KB4284842](https://support.microsoft.com/help/4284842) está instalado, no caso do Windows 7 SP1 ou do Windows Server 2008 R2 SP1. Esta atualização evita futuras falhas de autenticação devido à perda de acesso do cliente a chaves protegidas após a alteração da palavra-passe.
+- A junção Híbrida AD pode falhar depois de um utilizador ter a sua UPN alterada, quebrando o processo de autenticação SSO sem emenda. Durante o processo de junção poderá ver que ainda está a enviar a antiga UPN para Azure AD, a menos que os cookies da sessão do navegador sejam limpos ou o utilizador explicitamente se inscreva e remova a UPN antiga.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Passo 1: Recuperar o estado de registo 
 
@@ -65,7 +66,7 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
 
 - Um FS AD mal configurado ou problemas de Ad ou Rede Azure
 
-    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Screenshot do Workplace Join for Windows dialog box. O texto informa que ocorreu um erro durante a autenticação da conta." border="false":::
     
    - Autoworkplace.exe é incapaz de autenticar silenciosamente com Azure AD ou AD FS. Isto pode ser causado por falta ou configuração errada AD FS (para domínios federados) ou falta ou configuração errada Azure AD Sem Emenda Sign-On (para domínios geridos) ou problemas de rede. 
    - Pode ser que a autenticação multi-factor (MFA) esteja ativada/configurada para o utilizador e a WIAORMULTIAUTHN não esteja configurada no servidor AD FS. 
@@ -76,7 +77,7 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
    - A sua organização utiliza o Azure AD Seamless Single Sign-On `https://autologon.microsoftazuread-sso.com` ou não está presente nas `https://aadg.windows.net.nsatc.net` definições intranet do dispositivo e **permite que as atualizações para a barra de estado via script** não estejam ativadas para a zona Intranet.
 - Não está inscrito como utilizador de domínio
 
-   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot do Workplace Join for Windows dialog box. O texto informa que ocorreu um erro durante a verificação da conta." border="false":::
 
    Existem algumas razões diferentes para que isto possa ocorrer:
 
@@ -84,11 +85,11 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
    - O cliente não é capaz de se ligar a um controlador de domínio.    
 - Foi alcançada uma quota
 
-    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Screenshot do Workplace Join for Windows dialog box. O texto relata um erro porque o utilizador atingiu o número máximo de dispositivos associados." border="false":::
 
 - O serviço não responde 
 
-    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Screenshot do Workplace Join for Windows dialog box. O texto relata que ocorreu um erro porque o servidor não respondeu." border="false":::
 
 Também pode encontrar as informações de estado no registo do evento em: **Aplicações e Serviços Log\Microsoft-Workplace Join**
   
@@ -97,7 +98,7 @@ Também pode encontrar as informações de estado no registo do evento em: **Apl
 - O seu computador não está ligado à rede interna da sua organização ou a uma VPN com uma ligação ao controlador de domínio AD no local.
 - Está ligado ao seu computador com uma conta de computador local. 
 - Problemas de configuração do serviço: 
-   - O servidor AD FS não foi configurado para suportar **WIAORMULTIAUTHN** . 
+   - O servidor AD FS não foi configurado para suportar **WIAORMULTIAUTHN**. 
    - A floresta do seu computador não tem nenhum objeto de Ponto de Ligação de Serviço que indique o seu nome de domínio verificado em Azure AD 
    - Ou se o seu domínio for gerido, então o SSO sem emenda não foi configurado ou funcionando.
    - Um utilizador atingiu o limite dos dispositivos. 

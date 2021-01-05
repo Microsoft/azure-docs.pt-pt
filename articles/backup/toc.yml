@@ -94,6 +94,8 @@
       href: backup-architecture.md
     - name: Documentação de orientação e melhores práticas
       href: guidance-best-practices.md
+    - name: Glossário de termos
+      href: azure-backup-glossary.md
 - name: Guias de procedimentos
   items:
     - name: Cofres
@@ -164,6 +166,8 @@
               href: backup-azure-manage-vms.md
             - name: Gerir pontos de recuperação
               href: manage-recovery-points.md
+            - name: Modificar a política de cópias de segurança com a CLI do Azure
+              href: modify-vm-policy-cli.md
     - name: Cópia de segurança da base de dados do SQL Server na VM do Azure
       items:
         - name: Descrição geral

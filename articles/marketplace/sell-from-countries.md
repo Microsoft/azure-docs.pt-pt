@@ -8,17 +8,17 @@ ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: fd33ebebf35e0407f7ce39c609ee372a7d1d4a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: 48a0c3484b6cbeac4d71d3fbf383bb1c14466a9d
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250509"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897336"
 ---
 # <a name="supported-publisher-countries-and-regions"></a>Países e regiões editores apoiados
 
-Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua residência num dos seguintes países ou regiões.
+Para publicar uma oferta ao mercado comercial da Microsoft, a sua empresa deve residir legalmente num dos seguintes países ou regiões:
 
 - Afeganistão
 - Ilhas Åland
@@ -115,7 +115,7 @@ Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua resid
 - Guiné-Bissau
 - Guiana
 - Haiti
-- Ilha Heard e Ilhas McDonald
+- Ilhas Heard e McDonald
 - Honduras
 - R.A.E. de Hong Kong
 - Hungria
@@ -134,7 +134,6 @@ Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua resid
 - Cazaquistão
 - Quénia
 - Quiribáti
-- Coreia
 - Kosovo
 - Koweit
 - Quirguistão
@@ -201,12 +200,12 @@ Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua resid
 - Rússia
 - Ruanda
 - Reunião
-- Rio Saba
-- São Barthélemy
+- Saba
+- São Bartolomeu
 - São Cristóvão e Neves
 - Santa Lúcia
 - São Martinho (Saint Martin)
-- São Pedro e Miquelon
+- São Pedro e Miquelão
 - São Vicente e Granadinas
 - Samoa
 - São Marino
@@ -216,14 +215,15 @@ Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua resid
 - Seicheles
 - Serra Leoa
 - Singapura
-- Sint Eustatius
+- Santo Eustáquio
 - São Martinho (Sint Maarten)
 - Eslováquia
 - Eslovénia
 - Ilhas Salomão
 - Somália
 - África do Sul
-- Ilhas da Geórgia do Sul e Sandwich do Sul
+- Ilhas Geórgia do Sul e Sandwich do Sul
+- Coreia do Sul (República da Coreia)
 - Sudão do Sul
 - Espanha
 - Sri Lanca
@@ -248,7 +248,7 @@ Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua resid
 - Turquemenistão
 - Ilhas Turcas e Caicos
 - Tuvalu
-- Ilhas Menores Distantes dos EUA
+- Ilhas Desondo dos EUA
 - Ilhas Virgens Americanas
 - Uganda
 - Ucrânia

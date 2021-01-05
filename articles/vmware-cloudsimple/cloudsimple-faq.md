@@ -1,19 +1,19 @@
 ---
 title: FAQ - Azure VMware Solution by CloudSimple
 description: Estas perguntas frequentes para Azure VMware Solution by CloudSimple incluem conectividade, networking, segurança, armazenamento, integração Azure, entre outros.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140892"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895568"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Perguntas frequentes sobre VMware Solution by CloudSimple
 
@@ -121,7 +121,7 @@ Todas as infraestruturas CloudSimple são monitorizadas continuamente pela plata
 O CloudSimple oferece armazenamento VMware vSAN com todas as Cloud Privadas.  Cada vSphere é criado com a sua própria loja de dados vSAN.  Para mais detalhes, consulte [os componentes Private Cloud VMware - armazenamento vSAN](vmware-components.md#vsan-storage).
 
 **A encriptação dos dados é suportada?**
-Sim.  Pode configurar o armazenamento vSAN na sua Nuvem Privada para utilizar um servidor de gestão de chaves (KMS) que seja implantado no local ou no Azure para encriptar dados armazenados em vSAN.
+Yes.  Pode configurar o armazenamento vSAN na sua Nuvem Privada para utilizar um servidor de gestão de chaves (KMS) que seja implantado no local ou no Azure para encriptar dados armazenados em vSAN.
 
 **Como são tratados os discos falhados?**
 
@@ -150,7 +150,7 @@ O CloudSimple não realiza atualizações ou atualizações de aplicações inst
 
 **Que serviços da Azure são apoiados?**
 
-O CloudSimple fornece uma ligação Azure ExpressRoute à sua subscrição no Azure.  Todos os serviços em execução na sua subscrição podem ligar-se à sua Cloud Privada.  Alguns exemplos:
+O CloudSimple fornece uma ligação Azure ExpressRoute à sua subscrição no Azure.  Todos os serviços em execução na sua subscrição podem ligar-se à sua Cloud Privada.  Os exemplos incluem:
 
 * **Azure Ative Directory** como fonte de identidade para o seu CloudSimple vCenter.
 * **Armazenamento Azure** para armazenar backups, imagens e outros dados da sua Nuvem Privada.

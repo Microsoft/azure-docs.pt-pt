@@ -6,14 +6,14 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fa8f9ad2d15730d2a0a2c1a722aa3970bbc8f173
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e80b1446142786cbd77245a2b6696cac1bb9272
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033991"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897098"
 ---
-# <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
+# <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte da migração do VMware
 
 Este artigo resume as configurações e limitações de suporte para vMware VMs migratórios com [Azure Migrate: Migração do servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) . Se procura informações sobre a avaliação de VMware VMs para migração para Azure, reveja a matriz de suporte de [avaliação](migrate-support-matrix-vmware.md).
 
@@ -59,7 +59,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 **Linux VMs em Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure.<br/><br/> Para o Linux, a Azure Migrate faz as alterações automaticamente para estes sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operativos, es faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Bota Linux** | Se o arranque estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se /boot é parte da raiz (/) partição, então a partição '/' deve estar no disco DE, e não abranger outros discos.
 **Bota UEFI** | Suportado. Os VMs baseados na UEFI serão migrados para a geração Azure 2 VMs. 
-**Tamanho do disco** | 2 Disco TB OS (bota BIOS); 4 Disco TB OS (bota UEFI); 32 TB para discos de dados.
+**Tamanho do disco** | 2 Disco de SO TB;  32 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes encriptados** | VMs com discos/volumes encriptados não são suportados para migração.
 **Aglomerado de disco compartilhado** | Não suportado.
@@ -122,7 +122,7 @@ A tabela resume o suporte VMware VM para VMware VMs que pretende migrar usando m
 **Bota UEFI** | Suportado. Os VMs baseados na UEFI serão migrados para a geração Azure 2 VMs. 
 **UEFI - Arranque seguro**         | Não apoiado para a migração.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
-**Tamanho do disco** | 2 Disco TB OS (bota BIOS); 4 Disco TB OS (bota UEFI); 8 TB para discos de dados.
+**Tamanho do disco** | 2 Disco de SO TB; 32 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
 **Discos/volumes encriptados** | VMs com discos/volumes encriptados não são suportados para migração.
 **Aglomerado de disco compartilhado** | Não suportado.

@@ -419,9 +419,9 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Utilizar blocos de notas com o Apache Spark
               items:
-                - name: Utilizar um bloco de notas Jupyter local
+                - name: Utilizar um Jupyter Notebook local
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Kernel de bloco de notas Jupyter
+                - name: Utilizar kernels do Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Utilizar pacotes externos com o Jupyter através de magia de células
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
@@ -437,7 +437,7 @@
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Resolução de problemas
           items:
-            - name: Não é possível criar bloco de notas do Jupyter
+            - name: Não consigo criar um Jupyter Notebook
               href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Exceção OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md

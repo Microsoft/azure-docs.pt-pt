@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cf1d8f89de61a548f6c542d6d8a73fde93675e95
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167850"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895415"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -299,87 +299,7 @@ Da mesma forma, pode definir a `status_code` mensagem e `headers` para a mensage
 
 ## <a name="scaling-and-performance"></a>Escala e Performance
 
-É importante entender como as suas funções funcionam e como esse desempenho afeta a forma como a sua aplicação de função é dimensionada. Isto é particularmente importante quando se desenham aplicações altamente performantes. Seguem-se vários fatores a ter em conta ao conceber, escrever e configurar as suas aplicações de funções.
-
-### <a name="horizontal-scaling"></a>Dimensionamento horizontal
-Por predefinição, o Azure Functions monitoriza automaticamente a carga da sua aplicação e cria casos adicionais de anfitrião para Python, conforme necessário. As funções utilizam limiares incorporados para diferentes tipos de gatilhos para decidir quando adicionar casos, como a idade das mensagens e o tamanho da fila para o QueueTrigger. Estes limiares não são configuráveis pelo utilizador. Para mais informações, consulte [como funcionam os planos De Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
-
-### <a name="improving-throughput-performance"></a>Melhorar o desempenho da produção
-
-Uma chave para melhorar o desempenho é compreender como a sua aplicação utiliza recursos e ser capaz de configurar a sua aplicação de função em conformidade.
-
-#### <a name="understanding-your-workload"></a>Compreender a sua carga de trabalho
-
-As configurações predefinidas são adequadas para a maioria das aplicações Azure Functions. No entanto, pode melhorar o desempenho da produção das suas aplicações utilizando configurações com base no seu perfil de carga de trabalho. O primeiro passo é compreender o tipo de carga de trabalho que está a correr.
-
-| | Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
-|--| -- | -- |
-|**Características da aplicação de função**| <ul><li>A aplicação precisa de lidar com muitas invocações simultâneas.</li> <li> A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de disco.</li> </ul>| <ul><li>A aplicação faz cálculos de longa duração, como o redimensionamento de imagens.</li> <li>A aplicação faz a transformação de dados.</li> </ul> |
-|**Exemplos**| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de aprendizagem automática</li><ul>|
-
-
-> [!NOTE]
->  Como as funções reais funcionam a carga de trabalho são, na maioria das vezes, uma mistura de I/S e CPU ligados, recomendamos perfilar a carga de trabalho sob cargas de produção realistas.
-
-
-#### <a name="performance-specific-configurations"></a>Configurações específicas do desempenho
-
-Depois de compreender o perfil de carga de trabalho da sua aplicação de função, as seguintes são as configurações que pode utilizar para melhorar o desempenho de produção das suas funções.
-
-##### <a name="async"></a>Async
-
-Como [Python é um tempo de execução de um único fio,](https://wiki.python.org/moin/GlobalInterpreterLock)uma instância hospedeira para Python pode processar apenas uma invocação de função de cada vez. Para aplicações que processam um grande número de eventos de E/S e/ou está ligado a I/O, você pode melhorar o desempenho significativamente executando funções assíncroneamente.
-
-Para executar uma função assíncronea, utilize a `async def` declaração, que executa a função com [assício](https://docs.python.org/3/library/asyncio.html) diretamente:
-
-```python
-async def main():
-    await some_nonblocking_socket_io_op()
-```
-Aqui está um exemplo de uma função com gatilho HTTP que utiliza [cliente aiohttp](https://pypi.org/project/aiohttp/) http:
-
-```python
-import aiohttp
-
-import azure.functions as func
-
-async def main(req: func.HttpRequest) -> func.HttpResponse:
-    async with aiohttp.ClientSession() as client:
-        async with client.get("PUT_YOUR_URL_HERE") as response:
-            return func.HttpResponse(await response.text())
-
-    return func.HttpResponse(body='NotFound', status_code=404)
-```
-
-
-Uma função sem a `async` palavra-chave é executada automaticamente numa piscina de roscas assincio:
-
-```python
-# Runs in an asyncio thread-pool
-
-def main():
-    some_blocking_socket_io()
-```
-
-Para obter o pleno benefício de executar assíncroneamente, a operação/biblioteca de E/S que é utilizada no seu código também precisa de ter async implementado. A utilização de operações de E/S sincronizadas em funções definidas como assíncronos **pode prejudicar** o desempenho geral.
-
-Aqui estão alguns exemplos de bibliotecas de clientes que implementaram o padrão async:
-- [aiohttp](https://pypi.org/project/aiohttp/) - Http cliente/servidor para assíncio 
-- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - Primitivos de alto nível assínc/aguardados prontos para trabalhar com ligação à rede
-- [Janus Queue](https://pypi.org/project/janus/) - Fila segura em linha para Python
-- [pyzmq](https://pypi.org/project/pyzmq/) - Ligações python para ZeroMQ
- 
-
-##### <a name="use-multiple-language-worker-processes"></a>Use vários processos de trabalho de língua
-
-Por padrão, cada instância de anfitrião de Funções tem um único processo de trabalho de língua. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) As Funções Azure tentam então distribuir uniformemente invocações de funções simultâneas por estes trabalhadores.
-
-Para as aplicações ligadas ao CPU, deve definir o número de trabalhadores linguísticos como ou superiores ao número de núcleos disponíveis por aplicação de função. Para saber mais, consulte [a instância disponível SKUs](functions-premium-plan.md#available-instance-skus). 
-
-As aplicações ligadas à I/O também podem beneficiar do aumento do número de processos de trabalhadores para além do número de núcleos disponíveis. Tenha em mente que definir o número de trabalhadores demasiado elevado pode ter impacto no desempenho global devido ao aumento do número de interruptores de contexto necessários. 
-
-O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções criam ao escalonar a sua aplicação para satisfazer a procura.
-
+Para o escalonamento e as melhores práticas de desempenho para aplicações de função Python, consulte a escala python e o [artigo de desempenho](python-scale-performance-reference.md).
 
 ## <a name="context"></a>Contexto
 
@@ -446,7 +366,7 @@ A Azure Functions suporta as seguintes versões Python:
 
 | Versão de funções | <sup>*</sup>Versões python |
 | ----- | ----- |
-| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 3.x | 3,8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Distribuição oficial do CPython
@@ -695,7 +615,7 @@ Para obter uma lista de bibliotecas de sistema pré-instaladas em imagens do tra
 |  Tempo de execução das funções  | Versão debian | Versões python |
 |------------|------------|------------|
 | Versão 2.x | Esticar  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
 
 ## <a name="cross-origin-resource-sharing"></a>Partilha de recursos de várias origens
 

@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c9b624a1efc72bebec8547e8ecf9f3bf9fc99863
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680654"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895024"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key Vault para Linux
 
@@ -38,6 +38,21 @@ A extensão Key Vault VM suporta estas distribuições Linux:
   - Caso do Cofre com certificado. Ver [Criar um cofre de chaves](../../key-vault/general/quick-create-portal.md)
   - VM/VMSS deve ter atribuído [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md)
   - A Política de Acesso ao Cofre-Chave deve ser definida com segredos `get` e `list` permissão para vM/VMSS identidade gerida para recuperar a parte de um certificado secreto. Ver [como autenticar para o cofre](../../key-vault/general/authentication.md) de chaves e atribuir uma política de acesso ao cofre de [chaves](../../key-vault/general/assign-access-policy-cli.md).
+  -  A VMSS deve ter a seguinte definição de identidade: ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+ - A extensão AKV deve ter esta definição: `
+                 "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -138,6 +153,17 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Pedido de dependência de extensão
+A extensão VM do Cofre-Chave suporta a ordem de extensão se configurada. Por defeito, a extensão informa que começou com sucesso assim que começou a sondagem. No entanto, pode ser configurado para esperar até que tenha descarregado com sucesso a lista completa de certificados antes de reportar um início bem sucedido. Se outras extensões dependerem de ter o conjunto completo de certificados instalados antes de iniciarem, então permitirá que esta extensão declare uma dependência da extensão do Cofre de Chaves. Isto evitará que as extensões comecem até que todos os certificados de que dependem tenham sido instalados. A extensão tentará novamente o download inicial indefinidamente e permanecerá em `Transitioning` estado.
+
+Para ligar isto, ligue o seguinte:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> [Nota] A utilização desta funcionalidade não é compatível com um modelo ARM que cria uma identidade atribuída ao sistema e atualiza uma política de acesso do Cofre de Chaves com essa identidade. Ao fazê-lo, a política de acesso ao cofre não poderá ser atualizada até que todas as extensões tenham começado. Em vez disso, deve utilizar uma *identidade MSI atribuída a* um único utilizador e pré-ACL os seus cofres com essa identidade antes de ser implantado.
 
 ## <a name="azure-powershell-deployment"></a>Implantação Azure PowerShell
 > [!WARNING]
@@ -223,7 +249,7 @@ Por favor, esteja ciente das seguintes restrições/requisitos:
   Não, a extensão VM do cofre não tem limite no número de Certificados observados.
 
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure PowerShell.
 

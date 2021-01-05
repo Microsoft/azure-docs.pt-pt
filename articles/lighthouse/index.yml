@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 12/03/2020
-  ms.openlocfilehash: 02b9ed9bb6146a73da26083718176447a7402f2a
-  ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+  ms.date: 12/17/2020
+  ms.openlocfilehash: 46a3f48c4f9548e24709a0d56fe4c750ae9a76a8
+  ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96602330"
+  ms.lasthandoff: 12/19/2020
+  ms.locfileid: "97693954"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -41,12 +41,14 @@ landingContent:
     links:
     - text: Práticas de segurança recomendadas
       url: ./concepts/recommended-security-practices.md
+    - text: Inquilinos, funções e utilizadores
+      url: ./concepts/tenants-users-roles.md
     - text: Considerações sobre o programa do Fornecedor de Soluções Cloud
       url: ./concepts/cloud-solution-provider.md
     - text: Cenários empresariais
       url: ./concepts/enterprise.md
-    - text: Inquilinos, funções e utilizadores
-      url: ./concepts/tenants-users-roles.md
+    - text: Cenários de ISV
+      url: ./concepts/isv-scenarios.md
 - title: Ofertas do Marketplace
   linkLists:
   - linkListType: how-to-guide

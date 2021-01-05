@@ -54,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: Definições de origem
           href: concept-upstream.md
+    - name: Disponibilidade
+      items:
+        - name: Encerre corretamente o seu servidor de aplicações.
+          href: server-graceful-shutdown.md
+    - name: Segurança
+      items:
+        - name: Autorização
+          items:
+            - name: Autorizar o acesso com o Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+        - name: Autenticação
+          items:
+            - name: Autenticar a partir de uma aplicação
+              href: authenticate-application.md
+            - name: Autenticar com uma identidade gerida
+              href: authenticate-managed-identity.md
     - name: Elevada disponibilidade
       items:
         - name: Resiliência e recuperação após desastre

@@ -95,6 +95,10 @@
           href: diagnostic-services.md
         - name: Transmitir em fluxo registos em tempo real
           href: spring-cloud-howto-log-streaming.md
+        - name: Application Insights com o Agente In-Process do Java
+          href: spring-cloud-howto-application-insights.md
+        - name: Métricas do Disjuntor Automático Resilience4J
+          href: spring-cloud-howto-circuit-breaker-metrics.md
     - name: Proteger
       items:
         - name: Ativar a identidade gerida atribuída pelo sistema

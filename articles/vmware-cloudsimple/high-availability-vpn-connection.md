@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Configure alta disponibilidade de entrada no local para gateway VPN CloudSimple
 description: Descreve como configurar uma ligação de alta disponibilidade do seu ambiente no local para um gateway VPN CloudSimple habilitado para alta disponibilidade
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025270"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895704"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configure uma ligação de alta disponibilidade desde as instalações até ao gateway VPN cloudSimple
 
@@ -147,7 +147,7 @@ Para que a VPN local funcione, deve permitir o UDP 500/4500 e ESP (protocolo IP 
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. Criar interfaces de túneis primários e secundários
 
-Inscreva-se na firewall de Palo Alto, selecione **o**  >  Túnel de**Interfaces de**Rede  >  **Tunnel**  >  **Adicionar,** configurar os seguintes campos e clicar **EM OK**.
+Inscreva-se na firewall de Palo Alto, selecione **o**  >  Túnel de **Interfaces de** Rede  >    >  **Adicionar,** configurar os seguintes campos e clicar **EM OK**.
 
 * Nome da interface. O primeiro campo é autopovoado com palavra-chave 'túnel'. No campo adjacente, introduza qualquer número entre 1 e 9999. Esta interface será usada como uma interface de túnel primário para transportar o tráfego site-a-local entre o datacenter no local e a Nuvem Privada.
 * Um comentário. Introduza comentários para facilitar a identificação do propósito do túnel
@@ -162,7 +162,7 @@ Como esta configuração é para uma VPN de alta disponibilidade, são necessár
 
 As rotas são necessárias para que as sub-redes no local cheguem às sub-redes de nuvem privada CloudSimple.
 
-Selecione Routers virtuais **de rede**  >  **Virtual Routers**  >  *predefinidos*  >  **Rotas Estáticas**  >  **Adicionar,** configurar os seguintes campos e clicar **EM**.
+Selecione Routers virtuais **de rede**  >    >  *predefinidos*  >  **Rotas Estáticas**  >  **Adicionar,** configurar os seguintes campos e clicar **EM**.
 
 * O nome. Insira qualquer nome para uma identificação fácil da finalidade da rota.
 * Destino, destino. Especificar as sub-redes de nuvem privada CloudSimple a serem alcançadas através de interfaces de túneis S2S a partir do local
@@ -224,7 +224,7 @@ Repita os passos anteriores para criar o gateway secundário do IKE.
 
 ### <a name="5-define-ipsec-crypto-profiles"></a>5. Definir perfis de cripto IPSEC
 
-Selecione **Perfis**  >  **de Rede expandir perfis**de rede  >  **IPSEC Crypto**  >  **Add**, configurar os seguintes campos e clicar **EM OK**.
+Selecione **Perfis**  >  **de Rede expandir perfis** de rede  >  **IPSEC Crypto**  >  **Add**, configurar os seguintes campos e clicar **EM OK**.
 
 * O nome. Insira um nome para o perfil cripto IPsec.
 * Protocolo IPsec. Selecione **ESP**.
@@ -247,7 +247,7 @@ Selecione **Network**  >  **Expand Network Profiles**  >  **Monitor**  >  **Add*
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. Criar túneis IPsec primários e secundários.
 
-Selecione **Network**  >  **Túneis IPsec de**rede  >  **Adicionar,** configurar os seguintes campos e clicar **EM OK**.
+Selecione   >  **Túneis IPsec de** rede  >  **Adicionar,** configurar os seguintes campos e clicar **EM OK**.
 
 Separador geral:
 

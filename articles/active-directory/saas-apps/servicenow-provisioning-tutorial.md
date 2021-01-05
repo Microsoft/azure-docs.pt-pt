@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350709"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897305"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para o fornecimento automático de utilizadores
 
@@ -50,7 +50,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 1. Identifique o nome da sua instância ServiceNow. Pode encontrar o nome da instância no URL que utiliza para aceder ao ServiceNow. No exemplo abaixo, o nome da instância é dev35214.
 
-   ![Instância de ServiçoNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Instância de ServiçoNow](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Obtenha credenciais para um administrador no ServiceNow. Navegue para o perfil do utilizador no ServiceNow e verifique se o utilizador tem a função de administrador. 
 
@@ -94,7 +94,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Na secção **Credenciais de Administração,** insira as suas credenciais de administração ServiceNow e o nome de utilizador. Clique em **'Testar' Ligação** para garantir que o Azure AD pode ligar-se ao ServiceNow. Se a ligação falhar, certifique-se de que a sua conta ServiceNow tem permissões de Administração e tente novamente.
 
-    ![A screenshot mostra a página de Fornecimento de Serviço, onde pode introduzir Credenciais de Administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra a página de Fornecimento de Serviço, onde pode introduzir Credenciais de Administrador.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
@@ -142,11 +142,16 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   Este erro indica um problema de comunicação com a instância ServiceNow. Verifique duas vezes se as seguintes definições são *desativadas* no ServiceNow:
+   Este erro indica um problema de comunicação com a instância ServiceNow. 
    
-   1. Selecione **System Security**  >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada**.
+   Se tiver problemas de ligação de teste tente fazer as seguintes definições como **desativadas** no ServiceNow:
+   
+   1. Selecione   >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada**.
    2. Selecione **System Properties**  >  **Web Services** Require basic authorization for incoming SOAP  >  **requests**.
 
+   ![Autorizar pedido de SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   Se resolver os seus problemas, contacte o suporte do ServiceNow e peça-lhes que liguem a depuração SOAP para ajudar a resolver problemas. 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)

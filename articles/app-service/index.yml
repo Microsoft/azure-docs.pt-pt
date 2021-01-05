@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 3fc31095ec0d8e1ecdbe44c0751c55164d20e088
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 8ace1c6bb530fcc93d06f48bcef0d1ccfdf82306
+  ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88080033"
+  ms.lasthandoff: 12/22/2020
+  ms.locfileid: "97724430"
 landingContent:
 - title: Acerca do Serviço de Aplicações
   linkLists:
@@ -56,6 +56,8 @@ landingContent:
       url: configure-ssl-bindings.md
     - text: Executar a aplicação em ambientes de teste
       url: deploy-staging-slots.md
+    - text: Aceder de forma segura ao armazenamento e ao Microsoft Graph
+      url: scenario-secure-app-overview.md
   - linkListType: how-to-guide
     links:
     - text: Ativar registos de diagnóstico

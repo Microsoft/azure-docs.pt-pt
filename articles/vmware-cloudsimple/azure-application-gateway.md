@@ -1,19 +1,19 @@
 ---
 title: Use gateway de aplicação Azure com máquinas virtuais VMware
 description: Descreve como usar o gateway de aplicações Azure para gerir o tráfego web de entrada para servidores web em execução em máquinas virtuais VMware ganham o ambiente CloudSimple Private Cloud
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14fdc4e2b2b1dfca8194077acc0453808611946
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82185698"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897948"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Utilize gateway de aplicação Azure com máquinas virtuais VMware no ambiente CloudSimple Private Cloud
 
@@ -71,7 +71,7 @@ As instruções detalhadas para tal estão disponíveis na [Criar um gateway de 
 
 1. Crie uma rede virtual no seu grupo de subscrição e recursos.
 2. Crie uma sub-rede (a ser usada como sub-rede dedicada) dentro da sua rede virtual.
-3. Crie um Gateway de aplicação padrão (opcionalmente ativar o WAF): A partir da página inicial do portal Azure, clique em **Gateway**de Aplicação de Rede de Recursos  >  **Networking**  >  a partir do lado superior esquerdo da página.**Application Gateway** Selecione o SKU padrão e o tamanho e forneça informações de subscrição, grupo de recursos e localização da Azure. Se necessário, crie um novo IP público para este gateway de aplicações e forneça detalhes sobre a rede virtual e a sub-rede dedicada para o gateway de aplicações.
+3. Crie um Gateway de aplicação padrão (opcionalmente ativar o WAF): A partir da página inicial do portal Azure, clique em **Gateway** de Aplicação de Rede de Recursos  >    >  a partir do lado superior esquerdo da página. Selecione o SKU padrão e o tamanho e forneça informações de subscrição, grupo de recursos e localização da Azure. Se necessário, crie um novo IP público para este gateway de aplicações e forneça detalhes sobre a rede virtual e a sub-rede dedicada para o gateway de aplicações.
 4. Adicione uma piscina de backend com máquinas virtuais e adicione-a ao seu gateway de aplicações.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. Crie e configura uma piscina VM do servidor web na sua Nuvem Privada

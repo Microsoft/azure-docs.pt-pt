@@ -42,8 +42,14 @@
       href: hpc-cache-mount.md
     - name: Gerir a cache
       href: hpc-cache-manage.md
-    - name: Configurar definições opcionais
-      href: configuration.md
+    - name: Utilizar definições opcionais
+      items:
+        - name: Configurar definições opcionais
+          href: configuration.md
+        - name: Personalizar políticas de acesso
+          href: access-policies.md
+        - name: Configurar serviços de diretório
+          href: directory-services.md
 - name: Referência
   items:
     - name: CLI do Azure

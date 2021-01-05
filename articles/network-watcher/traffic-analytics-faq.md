@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518469"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895228"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -122,11 +122,11 @@ Sim, estes NSGs podem estar em regiões diferentes do seu espaço de trabalho Lo
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Vários NSGs podem ser configurados dentro de um único espaço de trabalho?
 
-Sim.
+Yes.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um espaço de trabalho existente?
 
-Sim. Se selecionar um espaço de trabalho existente, certifique-se de que foi migrado para a nova linguagem de consulta. Se não quiser atualizar o espaço de trabalho, tem de criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [o upgrade de registos do Azure Monitor para nova pesquisa de registos](../azure-monitor/log-query/log-query-overview.md).
+Yes. Se selecionar um espaço de trabalho existente, certifique-se de que foi migrado para a nova linguagem de consulta. Se não quiser atualizar o espaço de trabalho, tem de criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [o upgrade de registos do Azure Monitor para nova pesquisa de registos](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento Azure pode estar numa subscrição e o meu espaço de trabalho Log Analytics está numa subscrição diferente?
 
@@ -134,7 +134,7 @@ Sim, a sua conta de Armazenamento Azure pode estar numa subscrição, e o seu es
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar registos crus numa subscrição diferente?
 
-Sim. Pode configurar registos de fluxo NSG para ser enviado para uma conta de armazenamento localizada numa subscrição diferente, desde que tenha os privilégios adequados, e que a conta de armazenamento esteja localizada na mesma região que o NSG. A NSG e a conta de armazenamento de destino também devem partilhar o mesmo Azure Ative Directory Tenanty.
+Yes. Pode configurar registos de fluxo NSG para ser enviado para uma conta de armazenamento localizada numa subscrição diferente, desde que tenha os privilégios adequados, e que a conta de armazenamento esteja localizada na mesma região que o NSG. A NSG e a conta de armazenamento de destino também devem partilhar o mesmo Azure Ative Directory Tenanty.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro de "Não encontrado"?
 
@@ -142,7 +142,7 @@ Selecione uma região apoiada. Se selecionar uma região não suportada, receber
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>E se eu estiver a obter o estado, "Falhou em carregar", na página de registos de fluxo da NSG?
 
-O fornecedor Microsoft.Insights deve estar registado para que a exploração de fluxo funcione corretamente. Se não tiver a certeza se o fornecedor Microsoft.Insights está registado para a sua subscrição, substitua *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxx-xxxx-xxxx-xxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* no seguinte comando, e execute os seguintes comandos da PowerShell:
+O fornecedor Microsoft.Insights deve estar registado para que a exploração de fluxo funcione corretamente. Se não tiver a certeza se o fornecedor Microsoft.Insights está registado para a sua subscrição, substitua *xxx-xxx-xxx-xxx* no seguinte comando, e execute os seguintes comandos da PowerShell:
 
 ```powershell-interactive
 **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx

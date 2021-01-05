@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 075f113975e5f340493fe33584d8072190be77c8
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753608"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896486"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
 
@@ -42,8 +42,8 @@ Depois de rever as limitações, compreender os passos envolvidos na implementa�
 
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseada em agente**
 --- | --- | --- | ---
-**Implementar a aplicação do Azure Migrate** | Um aparelho leve que funciona com um VMware VM.<br/><br/> O aparelho é utilizado para descobrir e avaliar máquinas e migrar máquinas utilizando uma migração sem agentes. | Obrigatório.<br/><br/> Se já montou o aparelho para avaliação, pode utilizar o mesmo aparelho para migração sem agentes. | Não é necessário.<br/><br/> Se tiver configurado um aparelho para avaliação, pode deixá-lo no lugar ou removê-lo se tiver terminado a avaliação.
-**Utilize a ferramenta de avaliação do servidor** | Avaliar máquinas com a ferramenta Azure Migrate:Server Assessment. | Podes avaliar as máquinas antes de as migrares, mas não tens de o fazer. | A avaliação é opcional | A avaliação é opcional.
+**Implementar a aplicação do Azure Migrate** | Um aparelho leve que funciona com um VMware VM.<br/><br/> O aparelho é utilizado para descobrir e avaliar máquinas e migrar máquinas utilizando uma migração sem agentes. | Obrigatório.<br/><br/> Se já montou o aparelho para avaliação, pode utilizar o mesmo aparelho para migração sem agentes. | Não necessárias.<br/><br/> Se tiver configurado um aparelho para avaliação, pode deixá-lo no lugar ou removê-lo se tiver terminado a avaliação.
+**Utilize a ferramenta de avaliação do servidor** | Avaliar máquinas com a ferramenta Azure Migrate:Server Assessment. | Podes avaliar as máquinas antes de as migrares, mas não tens de o fazer. | A avaliação é opcional.
 **Utilize a ferramenta de migração do servidor** | Adicione a ferramenta de migração do servidor Azure Migrate no projeto Azure Migrate. | Necessário | Necessário
 **Preparar VMware para migração** | Configurar as definições nos servidores VMware e VMs. | Necessário | Necessário
 **Instalar o serviço de Mobilidade em VMs** | O serviço de mobilidade funciona em cada VM que pretende replicar | não é necessário | Necessário

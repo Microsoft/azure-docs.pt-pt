@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b61ce696c28a2c72a2cd3d0eb2d2fde0022dbb01
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906119"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897744"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -134,7 +134,7 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 
    ![Recurso do Sistema de Ficheiros de Rede do Cliente](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Monte um recipiente utilizando o comando [de montagem.](/windows-server/administration/windows-commands/mount)
+2. Abra uma janela **de solicitação de comando** (cmd.exe). Em seguida, monte um recipiente utilizando o comando [de montagem.](/windows-server/administration/windows-commands/mount)
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -162,6 +162,6 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 |`Access denied by server while mounting`|Confirme que o cliente está a ser executado numa sub-rede suportada. Consulte as localizações da [rede suportada.](network-file-system-protocol-support.md#supported-network-connections)|
 |`No such file or directory`| Confirme que o contentor que está a montar foi criado depois de verificar que a funcionalidade estava registada. Ver [Passo 2: Verifique se a função está registada](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando de montagem e os seus parâmetros diretamente para o terminal. Se copiar e colar qualquer parte deste comando no terminal a partir de outra aplicação, os carateres ocultos nas informações coladas poderão ser a causa deste erro.|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)](network-file-system-protocol-support.md)

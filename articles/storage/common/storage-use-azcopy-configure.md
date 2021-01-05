@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132215"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897863"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
@@ -28,13 +28,13 @@ O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blo
 
 ## <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
-Para configurar as definições de procuração para AzCopy, defina a `https_proxy` variável ambiental. Se executar o AzCopy no Windows, o AzCopy detetará automaticamente as definições de proxy, para que não tenha de utilizar esta definição no Windows. Se optar por utilizar esta definição no Windows, sobrepor-se-á à deteção automática.
+Para configurar as definições de procuração para AzCopy, defina a `HTTPS_PROXY` variável ambiental. Se executar o AzCopy no Windows, o AzCopy detetará automaticamente as definições de proxy, para que não tenha de utilizar esta definição no Windows. Se optar por utilizar esta definição no Windows, sobrepor-se-á à deteção automática.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | Numa utilização rápida de comando: `set https_proxy=<proxy IP>:<proxy port>`<br> Na utilização do PowerShell: `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | Numa utilização rápida de comando: `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> Na utilização do PowerShell: `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 Atualmente, a AzCopy não suporta proxies que requerem autenticação com NTLM ou Kerberos.
 
@@ -213,7 +213,7 @@ Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor 
 
 Por predefinição, o nível de registo AzCopy está definido para `INFO` . Se quiser reduzir a verbosidade do log para economizar espaço no disco, substitua esta definição utilizando a ``--log-level`` opção. 
 
-Os níveis de registo disponíveis são: `NONE` , , , , , , e `DEBUG` `INFO` `WARNING` `ERROR` `PANIC` `FATAL` .
+Os níveis de registo disponíveis são: `NONE` `DEBUG` , , e `INFO` `WARNING` `ERROR` `PANIC` `FATAL` .
 
 ## <a name="remove-plan-and-log-files"></a>Remover plano e registar ficheiros
 

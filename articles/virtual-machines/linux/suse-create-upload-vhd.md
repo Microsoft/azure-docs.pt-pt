@@ -1,19 +1,19 @@
 ---
 title: Criar e carregar um SUSE Linux VHD em Azure
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo SUSE Linux.
-author: gbowerman
+author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/12/2018
-ms.author: guybo
-ms.openlocfilehash: 6a8c60c51842ae67c12101189a4e265b775bcb77
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/01/2020
+ms.author: danis
+ms.openlocfilehash: 36af60082c575dfb19e71710fbdd8e3bf181bf96
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498460"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896230"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -30,7 +30,7 @@ Este artigo pressupõe que já instalou um sistema operativo SUSE ou openSUSE Li
 ## <a name="use-suse-studio"></a>Use estúdio SUSE
 [O SUSE Studio](https://studioexpress.opensuse.org/) pode facilmente criar e gerir o seu SLES e abrir imagens SUSE para Azure e Hyper-V. Esta é a abordagem recomendada para personalizar o seu próprio SLES e abrir imagens SUSE.
 
-Como alternativa à construção do seu próprio VHD, a SUSE também publica imagens BYOS (Bring Your Own Subscription) para SLES na [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
+Como alternativa à construção do seu próprio VHD, a SUSE também publica imagens BYOS (Bring Your Own Subscription) para SLES na [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Prepare o servidor de empresa SUSE Linux para o Azure
 1. No painel central do Hyper-V Manager, selecione a máquina virtual.
@@ -46,6 +46,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 
     ```console
     # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
+    # sudo zypper refresh
     # sudo zypper install python-azure-agent
     # sudo zypper install cloud-init
     ```
@@ -65,8 +66,8 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 7. Atualizar a configuração waagent e cloud-init
 
     ```console
-    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    # sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    # sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 
     # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
     # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
@@ -103,23 +104,53 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 
 13. Certifique-se de que o servidor SSH está instalado e configurado para começar na hora de arranque. Este é geralmente o padrão.
 
-14. Não crie espaço de troca no disco SO.
-    
-    O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos local que é ligado ao VM após o provisionamento no Azure. Note que o disco de recursos local é um disco *temporário* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modificar os seguintes parâmetros em /etc/waagent.conf adequadamente:
+14. Configuração de troca
+ 
+    Não crie espaço de troca no disco do sistema operativo.
 
-    ```config-conf
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    Anteriormente, o Agente Azure Linux foi utilizado automaticamente para configurar o espaço de troca utilizando o disco de recursos local que é ligado à máquina virtual após a colocação da máquina virtual no Azure. No entanto, isto é agora tratado por cloud-init, **não deve** utilizar o Agente Linux para formatar o disco de recursos criar o ficheiro swap, modificar os seguintes parâmetros de `/etc/waagent.conf` forma adequada:
+
+    ```console
+    # sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
+
+    Se quiser montar, formatar e criar troca, pode:
+    * Passe isto como um config de nuvem cada vez que criar um VM.
+    * Utilize uma diretiva em nuvem cozida na imagem que o fará sempre que o VM for criado:
+
+        ```console
+        cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+        #cloud-config
+        # Generated by Azure cloud image build
+        disk_setup:
+          ephemeral0:
+            table_type: mbr
+            layout: [66, [33, 82]]
+            overwrite: True
+        fs_setup:
+          - device: ephemeral0.1
+            filesystem: ext4
+          - device: ephemeral0.2
+            filesystem: swap
+        mounts:
+          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+        EOF
+        ```
 
 15. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
 
     ```console
-    # sudo waagent -force -deprovision
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    
+
     # export HISTSIZE=0
+
     # logout
     ```
 16. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
@@ -130,7 +161,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Na concha, executar o `zypper lr` comando' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado-- não são necessários ajustamentos (note que os números da versão podem variar):
 
-   | # | Alias                 | Name                  | Ativado | Atualizar
+   | # | Alias                 | Nome                  | Ativado | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Sim     | Sim
    | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim

@@ -27,6 +27,8 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Criar um runbook de Python
       href: learn/automation-tutorial-runbook-textual-python2.md
+    - name: Criar um runbook de Python 3
+      href: learn/automation-tutorial-runbook-textual-python-3.md
 - name: Conceitos
   items:
     - name: Descrição geral da autenticação da conta de Automatização
@@ -96,6 +98,8 @@
           href: shared-resources/variables.md
         - name: Gerir pacotes do Python 2
           href: python-packages.md
+        - name: Gerir pacotes do Python 3
+          href: python-3-packages.md
         - name: Resolver problemas dos recursos partilhados
           href: troubleshoot/shared-resources.md
     - name: Automatização de processos

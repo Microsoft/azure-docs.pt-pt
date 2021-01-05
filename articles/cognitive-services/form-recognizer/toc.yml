@@ -7,45 +7,13 @@
       href: overview.md
     - name: Novidades
       href: whats-new.md
-- name: Guias de Início Rápido
+- name: Introdução ao Reconhecedor de Formato
   expaned: true
   items:
-    - name: Utilizar a biblioteca de cliente
+    - name: Utilizar a biblioteca de cliente ou a API REST
       href: quickstarts/client-library.md
     - name: Utilização da ferramenta de etiquetagem de exemplo
-      items:
-        - name: Preparar modelo personalizado com etiquetas
-          href: quickstarts/label-tool.md
-    - name: Utilizar a API REST
-      items:
-        - name: Preparar e utilizar o modelo personalizado sem etiquetas
-          items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
-            - name: Python
-              href: quickstarts/python-train-extract.md
-        - name: Preparar e utilizar o modelo personalizado com etiquetas
-          items:
-            - name: Python
-              href: quickstarts/python-labeled-data.md
-        - name: Utilizar o modelo de recibos pré-criado
-          items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
-            - name: Python
-              href: quickstarts/python-receipts.md
-        - name: Utilizar um modelo de cartão de visita pré-criado
-          items:
-            - name: Python
-              href: quickstarts/python-business-cards.md
-        - name: Utilizar o modelo de fatura pré-criado
-          items:
-            - name: Python
-              href: quickstarts/python-invoices.md
-        - name: Obter informações de esquema de texto
-          items:
-            - name: Python
-              href: quickstarts/python-layout.md
+      href: quickstarts/label-tool.md
 - name: Tutoriais
   items:
     - name: Utilizar o Reconhecedor de Formato com o Cognitive Search
@@ -77,7 +45,8 @@
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Utilizar instâncias de contentor
-          href: deploy-form-recognizer-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Documentação sobre contentores dos Serviços Cognitivos
           href: ../containers/index.yml
     - name: Fazer a cópia de segurança e recuperar modelos

@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Configurar vCenter em Nuvem Privada para a automação vRealize
 description: Descreve como configurar um servidor VMware vCenter na cloudSimple Private Cloud como ponto final para VMware vRealize Automation
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77024845"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895058"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurar o vCenter na sua Nuvem Privada para VMware vRealize Automation
 
@@ -46,12 +46,12 @@ Complete estas tarefas antes de configurar o servidor vCenter:
 
 1. Inscreva-se no servidor vRealize Automation IaaS como administrador iaaS que o Suporte CloudSimple criou para si.
 2. Implementar um agente vSphere para o ponto final vRealize Automation.
-    1. Vá a https:// url vra:5480/instalador, onde *vra-url* é o URL que você usa para aceder à uI administração vRealize Automation.*vra-url*
+    1. Vá a https:// url vra:5480/instalador, onde *vra-url* é o URL que você usa para aceder à uI administração vRealize Automation.
     2. Clique no **Instalador IaaS** para descarregar o instalador.<br>
-    A convenção de nomeação para o ficheiro do instalador é setup_*vra-url* @5480.exe .
+    A convenção de nomeação para o ficheiro do instalador é setup_ *vra-url* @5480.exe .
     3. Execute o instalador. No ecrã de Boas-Vindas, clique em **Seguinte**.
     4. Aceite o EULA e clique em **Seguinte**.
-    5. Forneça a informação de inscrição, clique em **Aceitar Certificado**e, em seguida, clique em **Seguinte**.
+    5. Forneça a informação de inscrição, clique em **Aceitar Certificado** e, em seguida, clique em **Seguinte**.
     ![credenciais vRA](media/configure-vra-endpoint-login.png)
     6. Selecione **Agentes de Instalação** e **Procuração Personalizados** e clique em **Seguinte**.
     ![vRA tipo de instalação](media/configure-vra-endpoint-install-type.png)
@@ -70,7 +70,7 @@ Complete estas tarefas antes de configurar o servidor vCenter:
 
 1. Vá a https://*vra-url*/vcac e inscreva-se como **ConfigurationAdmin**.
 2. **Selecione**  >  **Pontos finais de**  >  **pontos finais de infraestrutura**.
-3. Selecione **New**  >  **New Virtual**  >  **vSphere**.
+3. Selecione   >  **New Virtual**  >  **vSphere**.
 4. Introduza o nome do ponto final vSphere especificado no procedimento anterior.
 5. Para **endereço**, insira o URL do servidor vCenter private cloud no formato https://*vcenter-fqdn*/sdk, onde *vcenter-fqdn* é o nome do servidor vCenter.
 6. Introduza as credenciais para o utilizador administrativo vRealize Automation IaaS que o CloudSimple Support criou para si.

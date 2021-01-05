@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905269"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680665"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Criar uma aplicação Web com o Azure Maps
       url: quick-demo-map-app.md
+    - text: Criar uma aplicação Android com o Azure Maps
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Escolher o melhor escalão de preço para a conta do Maps
@@ -130,12 +132,26 @@ landingContent:
       url: /javascript/api/azure-maps-spatial-io/
 - title: Programar com o SDK Android
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Carregar dados GeoJSON no mapa
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Introdução ao controlo de mapa Android
       url: how-to-use-android-map-control-library.md
-    - text: Apresentar informações de metadados de uma funcionalidade
-      url: display-feature-information-android.md
+    - text: Criar uma origem de dados
+      url: create-data-source-android-sdk.md
+    - text: Adicionar uma camada de bolha
+      url: map-add-bubble-layer-android.md
+    - text: Adicionar uma camada de símbolo
+      url: how-to-add-symbol-to-android-map.md
+    - text: Adicionar uma camada de linhas
+      url: android-map-add-line-layer.md
+    - text: Adicionar uma camada de polígonos
+      url: how-to-add-shapes-to-android-map.md
+    - text: Utilizar expressões de estilo com base em dados
+      url: data-driven-style-expressions-android-sdk.md
     - text: Adicionar uma camada de mosaico a um mapa
       url: how-to-add-tile-layer-android-map.md
     - text: Adicionar formas a um mapa

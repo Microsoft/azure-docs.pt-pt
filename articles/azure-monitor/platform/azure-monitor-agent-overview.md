@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315588"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895534"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente do Azure Monitor (pré-visualização)
 O agente Azure Monitor (AMA) recolhe dados de monitorização do sistema operativo convidado de máquinas virtuais e entrega-os ao Azure Monitor. Estes artigos fornecem uma visão geral do agente Azure Monitor, incluindo como instalá-lo e como configurar a recolha de dados.
@@ -54,7 +54,7 @@ As seguintes limitações aplicam-se durante a visualização pública do Agente
 
 - O agente Azure Monitor não suporta soluções e insights como o Azure Monitor para VMs e o Azure Security Center. O único cenário atualmente suportado é a recolha de dados utilizando as regras de recolha de dados que configura. 
 - As regras de recolha de dados devem ser criadas na mesma região que qualquer espaço de trabalho Log Analytics utilizado como destino.
-- As máquinas virtuais Azure e os servidores ativados do Azure Arc são atualmente suportados. Conjuntos de escala de máquinas virtuais, Serviço Azure Kubernetes e outros tipos de recursos computativos não são suportados atualmente.
+- Máquinas virtuais Azure, conjuntos de escala de máquinas virtuais e servidores ativados a Azure Arc são atualmente suportados. O Serviço Azure Kubernetes e outros tipos de recursos computativos não são suportados atualmente.
 - A máquina virtual deve ter acesso aos seguintes pontos finais HTTPS:
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com
@@ -95,7 +95,7 @@ O agente Azure Monitor não necessita de chaves, mas requer uma [identidade geri
 O agente Azure Monitor suporta tags de serviço Azure (são necessárias tags AzureMonitor e AzureResourceManager) mas ainda não funciona com Azure Monitor Private Link Scopes ou proxies diretos.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Instale o agente Azure Monitor](azure-monitor-agent-install.md) em máquinas virtuais Windows e Linux.
 - [Crie uma regra de recolha](data-collection-rule-azure-monitor-agent.md) de dados para recolher dados do agente e enviá-lo para o Azure Monitor.

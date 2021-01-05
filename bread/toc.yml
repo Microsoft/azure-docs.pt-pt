@@ -277,6 +277,9 @@
     - name: Utilizador do Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
+    - name: Infraestrutura Bare-metal
+      tocHref: /azure/baremetal-infrastructure/
+      topicHref: /azure/baremetal-infrastructure/
     - name: Cópia de segurança
       tocHref: /azure/backup/
       topicHref: /azure/backup/

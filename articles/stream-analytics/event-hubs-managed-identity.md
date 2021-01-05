@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: c65833e5bf581c6326bf9362c7e5fc00a985d301
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 01/04/2021
+ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355114"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895143"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder ao Event Hub a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -20,6 +20,9 @@ O Azure Stream Analytics suporta a autenticação de identidade gerida tanto par
 Uma identidade gerida é uma aplicação gerida registada no Azure Ative Directory que representa um determinado trabalho de Stream Analytics. A aplicação gerida é usada para autenticar um recurso direcionado, incluindo Os Centros de Eventos que estão por trás de uma firewall ou rede virtual (VNet). Para obter mais informações sobre como contornar firewalls, consulte [Permitir o acesso aos espaços de nomes do Azure Event Hubs através de pontos finais privados.](../event-hubs/private-link-service.md#trusted-microsoft-services)
 
 Este artigo mostra-lhe como ativar a Identidade Gerida para uma entrada ou saída de um stream analytics através do portal Azure.Antes de ativar a Identidade Gerida, tem primeiro de ter um trabalho stream Analytics e recurso Desatado do Centro de Eventos.
+
+### <a name="limitation"></a>Limitação
+Durante a pré-visualização, a entrada de amostragem dos Centros de Eventos no portal Azure não funcionará quando utilizar o modo de autenticação de identidade gerida.
 
 ## <a name="create-a-managedidentity"></a>Criar uma identidade gerida  
 
@@ -53,7 +56,7 @@ Para que o trabalho do Stream Analytics aceda ao seu Centro de Eventos utilizand
    |---------|-----|
    |Função|Proprietário de dados Azure Event Hubs|
    |Atribuir acesso a|Utilizador, grupo ou principal de serviço|
-   |Selecione|Insira o nome do seu trabalho stream Analytics|
+   |Selecionar|Insira o nome do seu trabalho stream Analytics|
 
    :::image type="content" source="media/event-hubs-managed-identity/add-role-assignment.png" alt-text="Adicionar atribuição de função":::
 

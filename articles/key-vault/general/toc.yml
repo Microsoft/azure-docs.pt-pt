@@ -86,7 +86,7 @@
       href: overview-vnet-service-endpoints.md
 - name: Guias de procedimentos
   items:
-    - name: Autenticar
+    - name: Autenticar e Autorizar
       items:
         - name: Autenticar para o Key Vault
           href: authentication.md
@@ -104,10 +104,6 @@
           href: rbac-migration.md
         - name: Resolver problemas de acesso
           href: troubleshooting-access-issues.md
-    - name: Ativar a eliminação recuperável e a remoção da proteção
-      href: key-vault-recovery.md
-    - name: Ativar registo
-      href: howto-logging.md
     - name: Programar
       items:
         - name: Guia do Programador do Azure Key Vault
@@ -118,21 +114,31 @@
           href: vs-key-vault-add-connected-service.md
     - name: Monitorizar e governar
       items:
-        - name: Configurar a monitorização e os alertas para o Azure Key Vault
+        - name: Notificações do Event Grid
+          items:
+            - name: Receber notificações através do Logic Apps
+              href: event-grid-logicapps.md
+            - name: Receber notificações através da Automatização do Azure
+              href: event-grid-tutorial.md
+        - name: Ativar registo
+          href: howto-logging.md
+        - name: Configurar a monitorização e os alertas para o Azure Key Vault com o Azure Monitor
           href: alert.md
+        - name: Gestão de recuperação com eliminação recuperável e proteção contra remoções
+          href: key-vault-recovery.md
         - name: Integrar o Azure Key Vault no Azure Policy
           href: azure-policy.md
-        - name: Receber notificações através do Azure Event Grid e do Logic Apps
-          href: event-grid-logicapps.md
-        - name: Receber notificações através do Azure Event Grid e da Automatização do Azure
-          href: event-grid-tutorial.md
         - name: Fazer a cópia de segurança de Objetos Individuais do Key Vault
           href: backup.md
     - name: Proteger
       items:
-        - name: Integrar no Serviço Azure Private Link
-          href: private-link-service.md
-        - name: Aceder ao Key Vault protegido por uma firewall - Azure Key Vault
+        - name: Azure Private Link
+          items:
+            - name: Integrar no Serviço Azure Private Link
+              href: private-link-service.md
+            - name: Diagnosticar Problemas do Private Link
+              href: private-link-diagnostics.md
+        - name: Aceder ao Key Vault protegido por uma firewall
           href: access-behind-firewall.md
     - name: Mover o Key Vault
       items:
@@ -142,10 +148,6 @@
           href: move-subscription.md
         - name: Mover o Key Vault para Outra Região
           href: move-region.md
-    - name: Redes
-      items:
-        - name: Diagnosticar Problemas do Private Link
-          href: private-link-diagnostics.md
 - name: Referência
   items:
     - name: Novidades

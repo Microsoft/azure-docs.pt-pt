@@ -297,6 +297,9 @@
         - name: Integração no Git
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+        - name: Como resolver problemas de ambientes
+          displayName: 'troubleshoot, envrionment, debug, image'
+          href: how-to-troubleshoot-environments.md
     - name: Trabalhar com dados
       items:
         - name: Etiquetar dados
@@ -354,14 +357,6 @@
         - name: Otimizar hiperparâmetros
           displayName: 'parameter, hyperparameter, hyperdrive'
           href: how-to-tune-hyperparameters.md
-        - name: Trabalhar com o MLflow
-          items:
-            - name: Controlar experiências com o MLflow
-              displayName: 'log, monitor, deploy, metrics,  model registry, register'
-              href: how-to-use-mlflow.md
-            - name: Controlar as execuções do Azure Databricks com o MLflow
-              displayName: 'log, monitor, deploy, metrics, databricks'
-              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -404,6 +399,17 @@
           href: how-to-use-secrets-in-runs.md
         - name: Aprendizagem por reforço
           href: how-to-use-reinforcement-learning.md
+    - name: Trabalhar com o MLflow
+      items:
+        - name: Controlar experiências com o MLflow
+          displayName: 'log, monitor, metrics, model registry, register'
+          href: how-to-use-mlflow.md
+        - name: Controlar as execuções do Azure Databricks com o MLflow
+          displayName: 'log, monitor, deploy, metrics, databricks'
+          href: how-to-use-mlflow-azure-databricks.md
+        - name: Implementar modelos do MLflow
+          displayName: 'log, monitor, deploy, metrics, databricks'
+          href: how-to-deploy-models-with-mlflow.md
     - name: Aprendizagem automática automatizada
       displayName: 'automl, auto ml'
       items:
@@ -468,9 +474,9 @@
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: Inferência de FPGA
               href: how-to-deploy-fpga-web-service.md
-        - name: Resolução de problemas e depuração
+        - name: Resolução de problemas de implementação
           href: how-to-troubleshoot-deployment.md
-        - name: Resolução de problemas e depuração (local)
+        - name: Resolver problemas da implementação (local)
           href: how-to-troubleshoot-deployment-local.md
         - name: Consumir serviços Web
           displayName: create client consume request response synchronous
@@ -536,12 +542,12 @@
             - name: Executar código Python
               displayName: 'feature extraction, feature engineering'
               href: how-to-designer-python.md
-        - name: Depurar e resolver problemas de pipelines
+        - name: Resolver problemas de pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Registar dados de pipeline no Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Depurar e resolver problemas de execução paralela
+        - name: Resolver problemas de ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
     - name: Pipelines do Azure para CI/CD
@@ -601,11 +607,10 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: Limites do serviço
+      href: resource-limits-quotas-capacity.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Problemas conhecidos
-      displayName: 'bugs, errors, troubleshoot'
-      href: resource-known-issues.md
     - name: Fórum de utilizadores
       href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow

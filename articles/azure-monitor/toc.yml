@@ -544,18 +544,40 @@
           href: platform/alerts-resource-move.md
         - name: Gestão de Serviços de TI
           items:
-            - name: Conector da Gestão de Serviços de TI
+            - name: Descrição Geral do Conector do ITSM
               href: platform/itsmc-overview.md
-            - name: Ligações da Gestão de Serviços de TI
-              href: platform/itsmc-connections.md
-            - name: Definição do Conector de Gestão de Serviços de TI
+            - name: Configuração de Parceiros do Conector do ITSM
+              items:
+                - name: Descrição geral
+                  href: platform/itsmc-connections.md
+                - name: ServiceNow
+                  href: platform/itsmc-connections-servicenow.md
+                - name: System Center Service Manager
+                  items:
+                    - name: Configuração
+                      href: platform/itsmc-connections-scsm.md
+                    - name: Criar aplicação Web do Service Manager
+                      href: platform/itsmc-service-manager-script.md
+                - name: Cherwell
+                  href: platform/itsmc-connections-cherwell.md
+                - name: Provance
+                  href: platform/itsmc-connections-provance.md
+            - name: Configuração do Azure do Conector do ITSM
               href: platform/itsmc-definition.md
-            - name: Criar aplicação Web do Service Manager
-              href: platform/itsmc-service-manager-script.md
+            - name: Dados Sincronizados Do Seu Produto de ITSM
+              href: platform/itsmc-synced-data.md
             - name: Resolver problemas do Conector do ITSM
               href: platform/itsmc-resync-servicenow.md
             - name: Integrar com a Exportação Segura
-              href: platform/it-service-management-connector-secure-webhook-connections.md
+              items:
+                - name: Descrição geral
+                  href: platform/it-service-management-connector-secure-webhook-connections.md
+                - name: Configuração do Azure da Exportação Segura
+                  href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
+                - name: BMC
+                  href: platform/itsmc-secure-webhook-connections-bmc.md
+                - name: ServiceNow
+                  href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: Migrar regras de alerta clássicas
           items:
             - name: Acerca dos alertas clássicos
@@ -790,6 +812,8 @@
               href: app/snapshot-debugger.md
             - name: Ativar o Snapshot Debugger para um Serviço de Aplicações
               href: app/snapshot-debugger-appservice.md
+            - name: Ativar o Snapshot Debugger para uma Aplicação de Funções
+              href: app/snapshot-debugger-function-app.md
             - name: Ativar o Snapshot Debugger para outros ambientes
               href: app/snapshot-debugger-vm.md
             - name: Atualizar o Snapshot Debugger

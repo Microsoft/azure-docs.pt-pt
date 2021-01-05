@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680209"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897121"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager em Linux
 
@@ -23,6 +23,8 @@ ms.locfileid: "97680209"
 
 
 Este artigo fornece uma visão geral sobre a ferramenta de migração suportada pela plataforma, como migrar recursos do Azure Service Manager (ASM) aka Classic para Resource Manager (ARM) e detalhes como conectar recursos dos dois modelos de implementação que coexistem na sua subscrição utilizando gateways de rede virtual para site. Pode ler mais sobre [funcionalidades e benefícios do Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+
+A ASM suporta dois produtos computativos diferentes, Azure Virtual Machines (clássico) aka IaaS VMs & [Azure Cloud Services (clássico)](https://docs.microsoft.com/azure/cloud-services/) aka PaaS VMs ou Web/Worker Roles. Este documento fala apenas sobre a migração de Máquinas Virtuais Azure (clássicas).
 
 ## <a name="goal-for-migration"></a>Objetivo para a migração
 O Gestor de Recursos permite a implementação de aplicações complexas através de modelos, configura máquinas virtuais utilizando extensões VM e incorpora a gestão e marcação de acesso. O Azure Resource Manager inclui uma implementação paralela e escalável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo de implementação também fornece gestão do ciclo de vida do cálculo, rede e armazenamento de forma independente. Finalmente, há um foco em permitir a segurança por padrão com a aplicação de máquinas virtuais numa rede virtual.

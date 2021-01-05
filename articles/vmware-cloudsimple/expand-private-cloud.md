@@ -1,19 +1,19 @@
 ---
 title: Expandir Solução VMware Azure por CloudSimple Private Cloud
 description: Descreve como expandir uma Nuvem Privada CloudSimple existente para adicionar capacidade num cluster existente ou novo
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c469ea3f104e71eb80010d4a5cd421eab6184fcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025304"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895863"
 ---
 # <a name="expand-a-cloudsimple-private-cloud"></a>Expandir uma nuvem Simple Nuvem
 

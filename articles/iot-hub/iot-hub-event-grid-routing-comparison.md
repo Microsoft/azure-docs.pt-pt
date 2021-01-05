@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f0853261e770b2cba9a243ae66b0b0d766fcd92
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024692"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897710"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Compare o encaminhamento de mensagens e a grelha de eventos para ioT Hub
 
@@ -32,7 +32,7 @@ Embora tanto o encaminhamento de mensagens como a Grade de Eventos permitam a co
 
 | Funcionalidade | Encaminhamento de mensagens IoT Hub | Integração do IoT Hub com Grade de Eventos |
 | ------- | --------------- | ---------- |
-| **Mensagens e eventos do dispositivo** | Sim, o encaminhamento de mensagens pode ser usado para dados de telemetria, reportar alterações gémeas do dispositivo, eventos de ciclo de vida do dispositivo (ex. quando os dispositivos são criados, eliminados, conectados e desligados do IoT Hub) e eventos digitais de mudança de gémeos. | Sim, a Grade de Eventos pode ser usada para dados de telemetria e eventos de ciclo de vida do dispositivo. Mas a grelha de eventos não pode ser usada para eventos de mudança de dois dispositivos e eventos de mudança de gémeos digitais. |
+| **Mensagens e eventos do dispositivo** | Sim, o encaminhamento de mensagens pode ser usado para dados de telemetria, alterações gémeas do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de gémeos digitais. | Sim, a Grelha de Eventos pode ser utilizada para dados de telemetria e eventos de dispositivos como dispositivo criado/eliminado/conectado/desligado. Mas a grelha de eventos não pode ser usada para eventos de mudança de dois dispositivos e eventos de mudança de gémeos digitais. |
 | **Ordenação** | Sim, a ordem dos acontecimentos mantém-se.  | Não, a ordem dos acontecimentos não está garantida. | 
 | **Filtragem** | Filtragem rica nas propriedades da aplicação de mensagens, propriedades do sistema de mensagens, corpo de mensagens, etiquetas gémeas do dispositivo e propriedades gémeas do dispositivo. A filtragem não é aplicada a eventos digitais de mudança de gémeos. Por exemplo, consulte [a Sinaxe de Encaminhamento de Mensagens](iot-hub-devguide-routing-query-syntax.md)de Mensagem . | Filtragem com base no tipo de evento, tipo de sujeito e atributos em cada evento. Por exemplo, consulte [os eventos de filtragem de filtros em Subscrições de Grelha de Eventos.](../event-grid/event-filtering.md) Ao subscrever eventos de telemetria, pode aplicar filtros adicionais nos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o twin do dispositivo no seu Hub IoT, antes de publicar na Grelha de Eventos. Veja [como filtrar eventos.](../iot-hub/iot-hub-event-grid.md#filter-events) |
 | **Pontos Finais** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos do Service Bus</li></ul><br>Os SKUs do Hub IoT (S1, S2 e S3) estão limitados a 10 pontos finais personalizados. 100 rotas podem ser criadas por IoT Hub. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de Filas</li> <li>Power Automate</li> <li>Serviços de terceiros através do WebHooks</li></ul><br>São suportados 500 pontos finais por IoT Hub. Para obter a lista mais atualizada de pontos finais, consulte os manipuladores de [eventos Event Grid](../event-grid/overview.md#event-handlers). |
@@ -73,7 +73,7 @@ O encaminhamento de mensagens IoT Hub e a integração do IoT Hub com a Grade de
 
    A Event Grid não garante que os pontos finais recebam eventos da mesma ordem que ocorreram. Para os casos em que a ordem absoluta das mensagens é significativa e/ou em que um consumidor necessita de um identificador único de confiança para mensagens, recomendamos a utilização do encaminhamento de mensagens. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o encaminhamento de mensagens IoT Hub](iot-hub-devguide-messages-d2c.md) e os [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
 * Saiba mais sobre o [Azure Event Grid](../event-grid/overview.md).

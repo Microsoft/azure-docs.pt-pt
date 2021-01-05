@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169142"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895976"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Inscreva-se nos utilizadores e chame uma API protegida a partir de uma aplicação Blazor WebAssembly
 
-Neste tutorial, você constrói uma aplicação Blazor WebAssembly que assina nos utilizadores e obtém dados do Microsoft Graph utilizando a plataforma de identidade da Microsoft e registando a sua aplicação no Azure Ative Directory (Azure AD).
-
-Também temos um [tutorial para o Blazor Server.](tutorial-blazor-server.md) 
+Neste tutorial, você constrói uma aplicação Blazor WebAssembly que assina nos utilizadores e obtém dados do Microsoft Graph utilizando a plataforma de identidade da Microsoft e registando a sua aplicação no Azure Ative Directory (Azure AD). 
 
 Neste tutorial:
 
@@ -27,6 +25,10 @@ Neste tutorial:
 >
 > * Criar uma nova aplicação Blazor WebAssembly configurada para utilizar o Azure Ative Directory (Azure AD) para [autenticação e autorização](authentication-vs-authorization.md) utilizando a plataforma de identidade microsoft
 > * Recupere dados de uma API web protegida, neste caso [Microsoft Graph](/graph/overview)
+
+Este tutorial utiliza .NET Core 3.1. Os docs .NET contêm instruções sobre [como proteger uma aplicação Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) utilizando ASP.NET Core 5.0. 
+
+Também temos um [tutorial para o Blazor Server.](tutorial-blazor-server.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +42,7 @@ Todas as aplicações que utilizem o Azure Ative Directory (Azure AD) para auten
 - Para **tipos de conta suportada**, selecione Contas **apenas neste diretório organizacional**.
 - Deixe o **URI de redirecionamento** descer definido para **Web** e insira `https://localhost:5001/authentication/login-callback` . A porta padrão para uma aplicação em execução em Kestrel é 5001. Se a aplicação estiver disponível numa porta diferente, especifique o número da porta em vez de `5001` .
 
-Uma vez **Authentication** registado, na  >  **concessão Autenticação Implícita,** selecione as caixas de verificação para **fichas de acesso** e **fichas de identificação**, e, em seguida, selecione o botão **Guardar.**
+Uma vez registado, na  >  **concessão Autenticação Implícita,** selecione as caixas de verificação para **fichas de acesso** e **fichas de identificação**, e, em seguida, selecione o botão **Guardar.**
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Crie a aplicação utilizando o .NET Core CLI
 
@@ -74,9 +76,11 @@ No seu navegador, navegue para `https://localhost:5001` , e faça login usando u
 
 Os componentes deste modelo que permitem logins com AZure AD utilizando a plataforma de identidade da Microsoft são explicados no [ASP.NET doc sobre este tópico](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Recuperar dados do Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Recuperar dados de uma API protegida (Microsoft Graph)
 
-[O Microsoft Graph](/graph/overview) oferece uma gama de APIs que fornecem acesso aos dados do Microsoft 365 dos utilizadores no seu inquilino. Ao utilizar a plataforma de identidade da Microsoft como fornecedor de identidade para a sua aplicação, tem acesso mais fácil a estas informações, uma vez que o Microsoft Graph suporta diretamente os tokens emitidos pela plataforma de identidade da Microsoft. Nesta secção, o código de adicionar pode exibir o assinado nos e-mails do utilizador na página "Fetch data" da aplicação.
+[O Microsoft Graph](/graph/overview) contém APIs que fornecem acesso aos dados do Microsoft 365 para os seus utilizadores, e suporta os tokens emitidos pela plataforma de identidade microsoft, o que faz com que seja uma boa API protegida para usar como exemplo. Nesta secção, adicione código para ligar para o Microsoft Graph e exibir os e-mails do utilizador na página "Fetch data" da aplicação.
+
+Esta secção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser utilizado para outras APIs protegidas que pretende chamar. No entanto, se pretender ligar para o Microsoft Graph a partir da sua aplicação, pode utilizar o SDK gráfico para reduzir a placa de caldeira. Os docs .NET contêm instruções sobre [como utilizar o Gráfico SDK](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Antes de começar, faça login na sua app uma vez que irá fazer alterações nas permissões necessárias, e o seu token atual não funcionará. Se ainda não o fez, volte a executar a sua aplicação e selecione **Iniciar sessão** antes de atualizar o código abaixo.
 

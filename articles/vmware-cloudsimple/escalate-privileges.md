@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Escalate CloudSimple privileges
 description: Descreve como escalar as permissões CloudSimple para executar funções administrativas no VCenter Private Cloud
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d481717a79856583d23f61107678d2ecd1af68d6
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025338"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895732"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Escalate CloudSimple privilégios para desempenhar funções administrativas em Private Cloud vCenter
 
