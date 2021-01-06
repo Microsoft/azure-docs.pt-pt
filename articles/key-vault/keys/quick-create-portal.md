@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 41f3d60d91b7418d6e9733b8351d4830b31dbace
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 419fe72d400177ce9fa3d9811d7dfa06e74c0810
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81424196"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935058"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando o portal Azure
 
@@ -31,7 +31,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vault"></a>Criar um cofre
 
 1. A partir do menu do portal Azure, ou na página **Inicial,** selecione **Criar um recurso**.
-2. Na caixa Pesquisar, introduza **Key Vault**.
+2. Na caixa de busca, introduza **o Cofre de Chaves**.
 3. Na lista de resultados, selecione **Key Vault**.
 4. Na secção Key Vault, selecione **Criar**.
 5. Na secção **Criar cofre de chaves**, forneça as seguintes informações:
@@ -67,7 +67,7 @@ Uma vez que recebe a mensagem de que a chave foi criada com sucesso, pode clicar
 ![Propriedades principais](../media/keys/quick-create-portal/current-version-hidden.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos e tutoriais do Key Vault têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não for necessário, elimine o grupo de recursos, que elimina o Key Vault e todos os recursos relacionados. Para eliminar o grupo de recursos através do portal:
@@ -83,4 +83,4 @@ Neste arranque rápido, criaste um Cofre-Chave e guardou uma chave nele. Para sa
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

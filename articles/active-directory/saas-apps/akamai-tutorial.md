@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9e5d12bcea1bd7a587568c30b49c8c4ee95f8362
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319005"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
 
@@ -53,7 +53,7 @@ A parceria Microsoft e Akamai EAA permite a flexibilidade para satisfazer os req
 
 #### <a name="integration-scenario-1"></a>Cenário de integração 1
 
-A Akamai EAA é configurada como uma única aplicação no Azure AD. A Administra pode configurar a Política de CA sobre a Aplicação e uma vez que as condições estejam satisfeitas os utilizadores podem ter acesso ao Portal EAA da Akamai.
+A Akamai EAA é configurada como uma única aplicação no Azure AD. A Administra pode configurar a política de Acesso Condicional na Aplicação e assim que as condições estiverem preenchidas os utilizadores podem ter acesso ao Portal EAA da Akamai.
 
 **Prós:**
 
@@ -63,13 +63,13 @@ A Akamai EAA é configurada como uma única aplicação no Azure AD. A Administr
 
 * Os utilizadores acabam por ter dois portais de aplicações
 
-* Cobertura única da Política Comum de CA para todas as aplicações.
+* Cobertura única da política de acesso condicional comum para todas as aplicações.
 
 ![Cenário de integração 1](./media/header-akamai-tutorial/scenario1.png)
 
 #### <a name="integration-scenario-2"></a>Cenário de Integração 2
 
-A Aplicação Akamai EAA é configurada individualmente no Portal AD Azure. A Administra pode configurar individualmente a política de CA sobre as aplicações e uma vez que as condições estejam preenchidas os utilizadores podem ser redirecionados diretamente para a aplicação específica.
+A Aplicação Akamai EAA é configurada individualmente no Portal AD Azure. A Administra pode configurar a política de acesso condicional individual na(s) Aplicação(s) e uma vez que as condições são satisfeitas os utilizadores podem ser redirecionados diretamente para a aplicação específica.
 
 **Prós:**
 
@@ -175,7 +175,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Akamai.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Akamai.**
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -196,7 +196,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 **Configuração do IDP AKAMAI EAA**
 
 1. Inscreva-se na consola **de acesso à aplicação da Empresa Akamai.**
-1. Na **consola Akamai EAA**, selecione **Identity**  >  **Fornecedores de Identidade** de Identidade e clique em **Adicionar Fornecedor de Identidade**.
+1. Na **consola Akamai EAA**, selecione   >  **Fornecedores de Identidade** de Identidade e clique em **Adicionar Fornecedor de Identidade**.
 
     ![Screenshot da janela de fornecedores de identidade da consola Akamai EAA. Selecione Fornecedores de Identidade no menu Identidade e selecione Adicionar Fornecedor de Identidade.](./media/header-akamai-tutorial/configure01.png)
 
@@ -496,7 +496,7 @@ Atribuir o Fornecedor de Identidade
 
     ![Screenshot dos grupos de consolas Akamai EAA na janela do DIRETÓRIO SUPERDEMOLIVE. O Grupo EAA com 1 Utilizador está listado em Grupos.](./media/header-akamai-tutorial/eaagroup.png)
 
-1. Adicione o Diretório ao Fornecedor **Identity**de Identidade clicando em  >  **Fornecedores de Identidade** de Identidade e clique no separador **Diretório** e clique no **diretório de atribuição**.
+1. Adicione o Diretório ao Fornecedor de Identidade clicando em  >  **Fornecedores de Identidade** de Identidade e clique no separador **Diretório** e clique no **diretório de atribuição**.
 
     ![Screenshot do separador De diretórios de consolas Da Akamai EAA para Azure AD SSO, mostrando superdemo.live na lista de diretórios atualmente atribuídos.](./media/header-akamai-tutorial/assigndirectory.png)
 
@@ -513,7 +513,7 @@ Atribuir o Fornecedor de Identidade
 
 1. O nome do logotipo do utilizador será:`HTTP/corpapps.login.go.akamai-access.com`
 
-    ![Screenshot mostrando EAADelegation Properties com o primeiro nome definido para "EAADelegation" e user logon name set to HTTP/corpapps.login.go.akamai-access.com.](./media/header-akamai-tutorial/eaadelegation.png)
+    ![Screenshot mostrando propriedades dedelegação EAA com o primeiro nome definido para "EAADelegation" e nome de logotipo do utilizador definido para HTTP/corpapps.login.go.akamai-access.com.](./media/header-akamai-tutorial/eaadelegation.png)
 
 #### <a name="step-2-configure-the-spn-for-this-account"></a>Passo 2: Configurar o SPN para esta conta
 
@@ -521,7 +521,7 @@ Atribuir o Fornecedor de Identidade
 
 2. setspn -s **Http/corpapps.login.go.akamai-access.com eaadelegation**
 
-    ![Screenshot de um Aviso de Comando de Administrador mostrando os resultados do conjunto de comandos Http/corpapps.login.go.akamai-access.com eaadelegation.](./media/header-akamai-tutorial/spn.png)
+    ![Screenshot de um aviso de comando do administrador mostrando os resultados do conjunto de comandos Http/corpapps.login.go.akamai-access.com eaadelegation.](./media/header-akamai-tutorial/spn.png)
 
 #### <a name="step-3-configure-delegation"></a>Passo 3: Delegação de Configuração
 
@@ -555,7 +555,7 @@ Atribuir o Fornecedor de Identidade
 
 #### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>Passo 5: Import Keytab na consola AKAMAI EAA
 
-1. Clique **System**em  >  **Keytabs de**Sistema .
+1. Clique em  >  **Keytabs de** Sistema .
 
     ![Screenshot da consola Akamai EAA mostrando Keytabs sendo selecionados a partir do menu System.](./media/header-akamai-tutorial/keytabs.png)
 

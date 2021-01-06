@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4579fa3c6dd1e34072a31747fda5113a5ac1be2a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fa90cbf1e467416010ae0ba83e9344a84ce52e21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517434"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936503"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler ZSCloud para fornecimento automático de utilizadores
 
@@ -76,6 +76,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 > [!TIP]
 > Também pode querer ativar o sign-on único baseado em SAML para zscaler ZSCloud. Se o fizer, siga as instruções no [tutorial de assinatura único Zscaler ZSCloud](zscaler-zsCloud-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, mas as duas funcionalidades complementam-se mutuamente.
 
+> [!NOTE]
+> Quando os utilizadores e grupos são provisionados ou des provisionados, recomendamos reiniciar periodicamente o provisionamento para garantir que os membros do grupo sejam corretamente atualizados. Fazer um reinício forçará o nosso serviço a reavaliar todos os grupos e a atualizar os membros. 
+
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Zscaler ZSCloud:**
 
     ![Aplicações Empresariais](common/enterprise-applications.png)
@@ -94,7 +97,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Na secção **Credenciais Admin,** insira o URL do **inquilino** e **o Token Secreto** da sua conta Zscaler ZSCloud, conforme descrito no passo seguinte.
 
-6. Para obter o URL do **inquilino** e **o Token Secreto,** **aceda**às  >  **Definições de Autenticação** administrativa no portal Zscaler ZSCloud e selecione **SAML** em **Tipo de Autenticação**:
+6. Para obter o URL do **inquilino** e **o Token Secreto,** **aceda** às  >  **Definições de Autenticação** administrativa no portal Zscaler ZSCloud e selecione **SAML** em **Tipo de Autenticação**:
 
     ![Definições de autenticação Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 

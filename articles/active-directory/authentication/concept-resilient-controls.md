@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861294"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937098"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -38,8 +38,8 @@ Este documento fornece orientações sobre estratégias que uma organização de
 Há quatro principais takeaways neste documento:
 
 * Evite o bloqueio do administrador utilizando contas de acesso de emergência.
-* Implementar MFA utilizando o Acesso Condicional (CA) em vez de por utilizador MFA.
-* Atenuar o bloqueio do utilizador utilizando vários controlos de Acesso Condicional (CA).
+* Implementar MFA usando o Acesso Condicional em vez de por utilizador MFA.
+* Atenuar o bloqueio do utilizador utilizando vários controlos de acesso condicional.
 * Atenuar o bloqueio do utilizador fornecendo vários métodos de autenticação ou equivalentes para cada utilizador.
 
 ## <a name="before-a-disruption"></a>Antes de uma rutura
@@ -138,9 +138,9 @@ Esta norma de nomeação para as políticas de contingência será a seguinte:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-O exemplo a seguir: **Exemplo A - Política de Contingência CA para restaurar o Acesso a aplicações de colaboração críticas da missão,** é uma contingência corporativa típica. Neste cenário, a organização normalmente requer MFA para todo o acesso Online e SharePoint, e a disrupção neste caso é o provedor MFA para o cliente tem uma paragem (seja Azure AD MFA, fornecedor de MFA no local ou MFA de terceiros). Esta política atenua esta paralisação, permitindo aos utilizadores específicos o acesso a estas aplicações a partir de dispositivos Windows fidedignos apenas quando estes estiverem a aceder à aplicação a partir da sua rede corporativa confiável. Excluirá igualmente as contas de emergência e os administradores centrais destas restrições. Os utilizadores visados terão então acesso ao Exchange Online e ao SharePoint Online, enquanto outros utilizadores ainda não terão acesso às apps devido à paralisação. Este exemplo requer um nome de localização de rede **CorpNetwork** e um grupo de segurança **ContingênciaAccess** com os utilizadores-alvo, um grupo chamado **CoreAdmins** com os administradores principais, e um grupo chamado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para proporcionar o acesso desejado. 
+O exemplo a seguir: **Exemplo A - Política de Acesso Condicional de Contingência para restaurar o Acesso a aplicações de colaboração críticas da missão,** é uma contingência corporativa típica. Neste cenário, a organização normalmente requer MFA para todo o acesso Online e SharePoint, e a disrupção neste caso é o provedor MFA para o cliente tem uma paragem (seja Azure AD MFA, fornecedor de MFA no local ou MFA de terceiros). Esta política atenua esta paralisação, permitindo aos utilizadores específicos o acesso a estas aplicações a partir de dispositivos Windows fidedignos apenas quando estes estiverem a aceder à aplicação a partir da sua rede corporativa confiável. Excluirá igualmente as contas de emergência e os administradores centrais destas restrições. Os utilizadores visados terão então acesso ao Exchange Online e ao SharePoint Online, enquanto outros utilizadores ainda não terão acesso às apps devido à paralisação. Este exemplo requer um nome de localização de rede **CorpNetwork** e um grupo de segurança **ContingênciaAccess** com os utilizadores-alvo, um grupo chamado **CoreAdmins** com os administradores principais, e um grupo chamado **EmergencyAccess** com as contas de acesso de emergência. A contingência requer quatro políticas para proporcionar o acesso desejado. 
 
-**Exemplo A - Políticas de contingência ca para restaurar o acesso a aplicações de colaboração críticas da missão:**
+**Exemplo A - Políticas de acesso condicional de contingência para restaurar o acesso a aplicações de colaboração críticas da missão:**
 
 * Política 1: Exigir dispositivos de união de domínios para troca e SharePoint
   * Nome: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure Ad Join
@@ -180,9 +180,9 @@ Ordem de ativação:
 5. Ativar a Política 4: Verifique se todos os utilizadores não podem obter o Exchange Online a partir das aplicações de correio nativas em dispositivos móveis.
 6. Desative a política de MFA existente para SharePoint Online e Exchange Online.
 
-Neste próximo exemplo, **as políticas de Contingência CA para permitir o acesso móvel ao Salesforce,** o acesso de uma aplicação empresarial é restaurado. Neste cenário, o cliente normalmente exige aos seus colaboradores de vendas acesso à Salesforce (configurado para um único sinal com Azure AD) a partir de dispositivos móveis para serem autorizados apenas a partir de dispositivos compatíveis. A disrupção neste caso é que há um problema com a avaliação da conformidade do dispositivo e a paralisação está a acontecer num momento sensível em que a equipa de vendas precisa de acesso à Salesforce para fechar negócios. Estas políticas de contingência vão permitir aos utilizadores críticos o acesso à Salesforce a partir de um dispositivo móvel para que possam continuar a fechar negócios e não perturbar o negócio. Neste exemplo, **a SalesforceContingency** contém todos os colaboradores de Vendas que precisam de manter o acesso e **a SalesAdmins** contém administradores necessários da Salesforce.
+Neste próximo exemplo, **As políticas de Acesso Condicional de Contingência para permitir o acesso móvel ao Salesforce,** o acesso de uma aplicação empresarial é restaurado. Neste cenário, o cliente normalmente exige aos seus colaboradores de vendas acesso à Salesforce (configurado para um único sinal com Azure AD) a partir de dispositivos móveis para serem autorizados apenas a partir de dispositivos compatíveis. A disrupção neste caso é que há um problema com a avaliação da conformidade do dispositivo e a paralisação está a acontecer num momento sensível em que a equipa de vendas precisa de acesso à Salesforce para fechar negócios. Estas políticas de contingência vão permitir aos utilizadores críticos o acesso à Salesforce a partir de um dispositivo móvel para que possam continuar a fechar negócios e não perturbar o negócio. Neste exemplo, **a SalesforceContingency** contém todos os colaboradores de Vendas que precisam de manter o acesso e **a SalesAdmins** contém administradores necessários da Salesforce.
 
-**Exemplo B - Políticas de CA de contingência:**
+**Exemplo B - Políticas de Acesso Condicional de Contingência:**
 
 * Política 1: Bloquear todos os que não estão na equipa salesContinência
   * Nome: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Bloquear Todos os utilizadores exceto salesforceContingency
@@ -282,7 +282,7 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
 >[!NOTE]
  > Configurar [IPs fidedignos](./howto-mfa-mfasettings.md) para Azure AD MFA só está disponível com [licenças Azure AD Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
 * [Gerir contas administrativas de acesso de emergência em Azure AD](../roles/security-emergency-access.md)

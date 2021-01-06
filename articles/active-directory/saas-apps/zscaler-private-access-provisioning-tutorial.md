@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14708ddcc5c0e06ee58f5e9db5945c4e9f1a1d08
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351576"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937149"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configurar zscaler acesso privado (ZPA) para fornecimento automático de utilizadores
 
@@ -115,6 +115,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 > [!TIP]
 > Pode também optar por ativar o sign-on único baseado em SAML para zscaler private access (ZPA) seguindo as instruções fornecidas no [tutorial de acesso privado Zscaler (ZPA) único.](./zscalerprivateaccess-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
+
+> [!NOTE]
+> Quando os utilizadores e grupos são provisionados ou des provisionados, recomendamos reiniciar periodicamente o provisionamento para garantir que os membros do grupo sejam corretamente atualizados. Fazer um reinício forçará o nosso serviço a reavaliar todos os grupos e a atualizar os membros.  
 
 > [!NOTE]
 > Para saber mais sobre o ponto final scim do Zscaler Private Access, consulte [isto](https://www.zscaler.com/partners/microsoft).

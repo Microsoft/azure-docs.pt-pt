@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3cea28fa278bb699a7fb5aaa0c79bf1e71f59ac1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e3570a716eccf131cf19192454bfbc1008a6306e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940502"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935041"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando Azure PowerShell
 
@@ -94,4 +94,4 @@ Neste quickstart criou um Cofre-Chave e guardou um certificado nele. Para saber 
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Consulte a referência para os [cmdlets Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

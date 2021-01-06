@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093094"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936452"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -44,7 +44,7 @@ Os principais benefícios de dar aos seus dispositivos uma identidade AD Azure:
 
 * Aumentar a produtividade – Com a Azure AD, os seus utilizadores podem fazer [um sso sem emenda (SSO)](./azuread-join-sso.md) para os seus recursos no local e na nuvem, o que lhes permite ser produtivos onde quer que estejam.
 
-* Aumentar a segurança – Os dispositivos AD Azure permitem-lhe aplicar [políticas de Acesso Condicional (CA)](../conditional-access/require-managed-devices.md) a recursos baseados na identidade do dispositivo ou utilizador. As políticas da CA podem oferecer proteção extra utilizando [a Proteção de Identidade Azure AD](../identity-protection/overview-identity-protection.md). A junção de um dispositivo ao Azure AD é um pré-requisito para aumentar a sua segurança com uma estratégia [de autenticação sem palavras-passe.](../authentication/concept-authentication-passwordless.md)
+* Aumentar a segurança – Os dispositivos AD Azure permitem-lhe aplicar [políticas de Acesso Condicional](../conditional-access/require-managed-devices.md) a recursos baseados na identidade do dispositivo ou utilizador. As políticas de acesso condicional podem oferecer proteção extra utilizando [a Proteção de Identidade Azure AD](../identity-protection/overview-identity-protection.md). A junção de um dispositivo ao Azure AD é um pré-requisito para aumentar a sua segurança com uma estratégia [de autenticação sem palavras-passe.](../authentication/concept-authentication-passwordless.md)
 
 * Melhorar a experiência do utilizador – Com identidades de dispositivos em Azure AD, pode fornecer aos seus utilizadores um fácil acesso aos recursos baseados na nuvem da sua organização a partir de dispositivos pessoais e corporativos. Os administradores podem ativar [o Roaming do Estado da Empresa](enterprise-state-roaming-overview.md) para uma experiência unificada em todos os dispositivos Windows.
 
@@ -66,7 +66,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 
-| Função| Description |
+| Função| Descrição |
 | - | - |
 | Administrador do dispositivo| Um representante da equipa de dispositivos que pode verificar se o plano irá satisfazer os requisitos do dispositivo da sua organização. |
 | Administrador de rede| Um representante da equipa de rede que pode certificar-se de que cumpre os requisitos da rede. |
@@ -129,7 +129,7 @@ Acesso Condicional <br>(Requera dispositivos híbridos AZure AD)| | | ![Marque e
 
 Os dispositivos registados são frequentemente geridos com [o Microsoft Intune.](/mem/intune/enrollment/device-enrollment) Os dispositivos estão matriculados no Intune de várias formas, dependendo do sistema operativo. 
 
-Os dispositivos registados Azure AD fornecem suporte para Bring Your Own Devices (BYOD) e dispositivos corporativos para SSO para cloud resources. O acesso aos recursos baseia-se nas políticas Azure AD [CA](../conditional-access/require-managed-devices.md) aplicadas ao dispositivo e ao utilizador.
+Os dispositivos registados Azure AD fornecem suporte para Bring Your Own Devices (BYOD) e dispositivos corporativos para SSO para cloud resources. O acesso aos recursos baseia-se nas políticas de [acesso condicional](../conditional-access/require-managed-devices.md) Azure AD aplicadas ao dispositivo e ao utilizador.
 
 ### <a name="registering-devices"></a>Registar dispositivos
 

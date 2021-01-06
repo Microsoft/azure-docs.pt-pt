@@ -1,17 +1,17 @@
 ---
-title: Visão geral para pré-visualização de apps da lógica Azure
+title: Descrição geral da Pré-visualização do Azure Logic Apps
 description: A Azure Logic Apps Preview é uma solução em nuvem para construir fluxos de trabalho automatizados e apátridas que integram apps, dados, serviços e sistemas com código mínimo para cenários de nível empresarial.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924425"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936129"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -148,7 +148,7 @@ A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por ex
 
 Quando criar o novo tipo de aplicação lógica no portal Azure ou implementar a partir do Código do Estúdio Visual, tem de escolher um plano de hospedagem, seja [o App Service ou o Premium,](../azure-functions/functions-scale.md)para que a sua aplicação lógica possa ser utilizada. Este plano determina o modelo de preços que se aplica à execução da sua aplicação lógica. Se selecionar o plano de Serviço de Aplicações, também deve escolher um [nível de preços.](../app-service/overview-hosting-plans.md)
 
-*Fluxos de* trabalho estatais utilizam [armazenamento externo,](../azure-functions/functions-scale.md#storage-account-requirements)por isso o [preço do Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/) aplica-se às transações de armazenamento que o tempo de pré-visualização de apps Azure Logic executa. Por exemplo, as filas são usadas para agendamento, enquanto mesas e bolhas são usadas para armazenar estados de fluxo de trabalho.
+*Fluxos de* trabalho estatais utilizam [armazenamento externo,](../azure-functions/storage-considerations.md#storage-account-requirements)por isso o [preço do Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/) aplica-se às transações de armazenamento que o tempo de pré-visualização de apps Azure Logic executa. Por exemplo, as filas são usadas para agendamento, enquanto mesas e bolhas são usadas para armazenar estados de fluxo de trabalho.
 
 > [!NOTE]
 > Durante a pré-visualização pública, executar aplicações lógicas no Serviço de Aplicações não incorre em custos *adicionais* em cima do seu plano selecionado.

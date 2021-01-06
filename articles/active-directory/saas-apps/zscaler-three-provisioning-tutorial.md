@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8526556c00327df7e933130e7a54d23eade19f8a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c16c02a870edb1a777b63da6fea57fc02136d643
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519712"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936605"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler Três para fornecimento automático de utilizadores
 
@@ -75,6 +75,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 > [!TIP]
 > Também pode querer ativar o sign-on único baseado em SAML para zscaler três. Se o fizer, siga as instruções no [tutorial de inscrição de Zscaler Three](zscaler-three-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, mas as duas funcionalidades complementam-se mutuamente.
 
+> [!NOTE]
+> Quando os utilizadores e grupos são provisionados ou des provisionados, recomendamos reiniciar periodicamente o provisionamento para garantir que os membros do grupo sejam corretamente atualizados. Fazer um reinício forçará o nosso serviço a reavaliar todos os grupos e a atualizar os membros. 
+
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Zscaler Três**:
 
     ![Aplicações Empresariais](common/enterprise-applications.png)
@@ -93,7 +96,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Na secção **Credenciais Admin,** insira o URL do **Inquilino** e **o Token Secreto** da sua conta Zscaler Three, conforme descrito no passo seguinte.
 
-6. Para obter o **URL do inquilino** e o **Token Secreto,** **aceda**às  >  **Definições de Autenticação** administrativa no portal Zscaler Three e selecione **SAML** sob **Tipo de Autenticação**:
+6. Para obter o **URL do inquilino** e o **Token Secreto,** **aceda** às  >  **Definições de Autenticação** administrativa no portal Zscaler Three e selecione **SAML** sob **Tipo de Autenticação**:
 
     ![Três definições de autenticação Zscaler](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 

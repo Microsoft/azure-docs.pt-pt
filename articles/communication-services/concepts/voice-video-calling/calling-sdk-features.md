@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680733"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936061"
 ---
 # <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
 
@@ -58,7 +58,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Marcação de uma chamada de grupo como participante da PSTN                                                                    | ✔️   | ✔️            | ✔️   
 | Geral           | Teste o seu microfone, altifalante e câmara com um serviço de testes de áudio (disponível através do telefone 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Javascript chamando suporte à biblioteca do cliente por OS e browser
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>JavaScript chamando suporte à biblioteca de clientes por OS e browser
 
 A tabela a seguir representa o conjunto de navegadores e versões suportadas que estão atualmente disponíveis.
 
@@ -96,8 +96,8 @@ Os Serviços de Comunicação que ligam para a biblioteca de clientes suportam a
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|# de fluxos de saída que podem ser enviados simultaneamente |1 vídeo + 1 partilha de ecrã | 1 vídeo + 1 partilha de ecrã|
-|# de fluxos de entrada que podem ser renderizados simultaneamente |1 vídeo + 1 partilha de ecrã| 6 vídeo + 1 partilha de ecrã |
+|**# de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 partilha de ecrã | 1 vídeo + 1 partilha de ecrã|
+|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 partilha de ecrã| 6 vídeo + 1 partilha de ecrã |
 
 
 ## <a name="next-steps"></a>Passos seguintes

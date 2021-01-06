@@ -3,14 +3,14 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547853"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934483"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviços da Azure, quotas e constrangimentos
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 
@@ -132,7 +132,7 @@ Para a base de dados Azure para limites pós-SQL, consulte [limitações na Base
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-Para obter mais informações, consulte [a comparação de planos de hospedagem de funções.](../../azure-functions/functions-scale.md#hosting-plans-comparison)
+Para obter mais informações, consulte [a comparação de planos de hospedagem de funções.](../../azure-functions/functions-scale.md)
 
 ## <a name="azure-kubernetes-service-limits"></a>Limites de serviço Azure Kubernetes
 

@@ -3,15 +3,15 @@ title: Gerir servidor - Azure CLI - Base de Dados Azure para PostgreSQL
 description: Saiba como gerir uma Base de Dados Azure para servidor PostgreSQL a partir do Azure CLI.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490123"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935806"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Gerir uma base de dados de Azure para servidor single postgresQL utilizando o Azure CLI
 
@@ -33,19 +33,19 @@ Selecione a subscrição específica sob a sua conta usando o comando [conjunto 
 az account set --subscription <subscription id>
 ```
 
-Se ainda não criou um corte, consulte este [quickstart](quickstart-create-server-database-azure-cli.md) para criar um.
+Se ainda não criou um servidor, consulte este [quickstart](quickstart-create-server-database-azure-cli.md) para criar um.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="scale-compute-and-storage"></a>Cálculo e armazenamento em escala
 
-Pode aumentar o seu nível de preços, calcular e armazenar facilmente utilizando o seguinte comando. Pode ver toda a operação do servidor que pode executar [a visão geral do servidor de postgres az](/cli/azure/mysql/server)
+Pode aumentar o seu nível de preços, calcular e armazenar facilmente usando o seguinte comando. Pode ver toda a operação do servidor que pode executar [a visão geral do servidor de postgres az](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
 ```
 
-Aqui estão os detalhes dos argumentos acima:
+Aqui estão os detalhes para os argumentos acima:
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
@@ -60,7 +60,7 @@ storage-size | 6144 | A capacidade de armazenamento do servidor (a unidade é me
 
 
 ## <a name="manage-postgresql-databases-on-a-server"></a>Gerir bases de dados PostgreSQL num servidor.
-Pode utilizar qualquer um destes comandos para criar, eliminar, listar e visualizar propriedades de base de dados de uma base de dados no seu servidor
+Pode utilizar qualquer um destes comandos para criar, eliminar, listar e visualizar propriedades da base de dados de uma base de dados no seu servidor
 
 | Cmdlet | Utilização| Descrição |
 | --- | ---| --- |

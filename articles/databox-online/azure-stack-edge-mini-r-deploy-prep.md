@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 03b4ed41b3110825d4e4797f2c5f733152504919
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913792"
+ms.locfileid: "97935412"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutorial: Prepare-se para implantar O Azure Stack Edge Mini R
 
@@ -89,7 +89,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 1. Utilize as suas credenciais Microsoft Azure para iniciar súb9 no portal Azure neste URL: [https://portal.azure.com](https://portal.azure.com) .
 
 
-2. No painel esquerdo, selecione **+ Crie um recurso**. Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**. 
+2. No painel esquerdo, selecione **+ Criar um recurso**. Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**. 
 
 3. Escolha a subscrição que pretende utilizar para o dispositivo Azure Stack Edge Pro. Selecione o país para onde pretende enviar este dispositivo físico. Selecione **dispositivos Show**.
 
@@ -101,7 +101,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     [![Criar um recurso 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
 
 
-6. No **separador Básicos, insira** ou selecione os seguintes detalhes do **Projeto.**
+5. No **separador Básicos, insira** ou selecione os seguintes detalhes do **Projeto.**
     
     |Definição  |Valor  |
     |---------|---------|
@@ -109,7 +109,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     |Grupo de recursos  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre os [Grupos de Recursos do Azure](../azure-resource-manager/management/overview.md).     |
 
 
-7. Introduza ou selecione os **seguintes detalhes da Instância**.
+6. Introduza ou selecione os **seguintes detalhes da Instância**.
 
     |Definição  |Valor  |
     |---------|---------|
@@ -119,25 +119,25 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     ![Criar um recurso 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-8. Selecione **Seguinte: Endereço de envio**.
+7. Selecione **Seguinte: Endereço de envio**.
 
     - Se já tem um dispositivo, selecione a caixa de combinação para **eu já ter um dispositivo**.
 
-        ![Criar um recurso 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![Criar um recurso 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
     - Se este for o novo dispositivo que está a encomendar, insira o nome de contacto, a empresa, o endereço para enviar o dispositivo e as informações de contacto.
 
-        ![Criar um recurso 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![Criar um recurso 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-9. Selecione **Seguinte: Tags**. Opcionalmente fornecer etiquetas para categorizar recursos e consolidar a faturação. Selecione **Seguinte: Rever + criar**.
+8. Selecione **Seguinte: Tags**. Opcionalmente fornecer etiquetas para categorizar recursos e consolidar a faturação. Selecione **Seguinte: Rever + criar**.
 
-10. No **separador 'Rever +' criar,** rever os **detalhes de Preços,** **Termos de utilização** e os detalhes do seu recurso. Selecione a caixa de combinação para **eu ter revisto os termos de privacidade**.
+9. No **separador 'Rever +' criar,** rever os **detalhes de Preços,** **Termos de utilização** e os detalhes do seu recurso. Selecione a caixa de combinação para **eu ter revisto os termos de privacidade**.
 
     ![Criar um recurso 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
     Também é notificado de que durante a criação de recursos, uma Identidade de Serviço Gerido (MSI) está ativada que permite autenticar os serviços na nuvem. Esta identidade existe enquanto o recurso existir.
 
-8. Selecione **Criar**.
+10. Selecione **Criar**.
 
     A criação do recurso demora alguns minutos. Também é criado um MSI que permite que o dispositivo Azure Stack Edge comunique com o fornecedor de recursos em Azure.
     
@@ -153,19 +153,19 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave de ativação. Esta chave é utilizada para ativar e ligar o seu dispositivo Azure Stack Edge Mini R com o recurso. Pode obter esta chave agora enquanto está no portal do Azure.
 
-1. Selecione o recurso que criou. Selecione **Overview** e, em seguida, selecione **a configuração do dispositivo**.
+1. Selecione o recurso criado e **selecione Overview**.
 
-    ![Selecione configuração do dispositivo](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![Selecione configuração do dispositivo](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
 2. No azulejo **Ativar,** forneça um nome para o Cofre da Chave Azure ou aceite o nome predefinido. O nome do cofre pode estar entre 3 e 24 caracteres. 
 
     É criado um cofre-chave para cada recurso Azure Stack Edge que é ativado com o seu dispositivo. O cofre permite-lhe armazenar e aceder a segredos. Por exemplo, a Chave de Integridade do Canal (CIK) para o serviço está armazenada no cofre da chave.
 
-    Uma vez especificado um nome de cofre de chave, **selecione Gerar a tecla** para criar uma chave de ativação. 
+    Uma vez especificado um nome de cofre chave, **selecione Gerar a chave de ativação** para criar uma chave de ativação.
 
     [![Obter a chave de ativação](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
-    Aguarde alguns minutos à medida que a chave do cofre e da chave de ativação são criadas. Selecione o ícone de cópia para copiar a chave e guarde-a para posterior utilização.
+    Aguarde alguns minutos enquanto a chave do cofre e da chave de ativação são criadas. Selecione o ícone de cópia para copiar a chave e guarde-a para posterior utilização.
 
 > [!IMPORTANT]
 > - A chave de ativação expira três dias após a sua geração.

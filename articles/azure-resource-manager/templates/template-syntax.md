@@ -3,12 +3,12 @@ title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e propriedades dos modelos Azure Resource Manager (modelos ARM) usando a sintaxe declarativa JSON.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653134"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934701"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Understand the structure and syntax of ARM templates (Compreender a estrutura e a sintaxe dos modelos do Resource Manager)
 
@@ -35,7 +35,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| $schema |Yes |Localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito da implementação e do seu editor de JSON.<br><br>Se estiver a utilizar [o Código VS com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Yes |Localização do ficheiro de esquema de notação de objetos JavaScript (JSON) que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito da implementação e do seu editor de JSON.<br><br>Se estiver a utilizar [o Código do Estúdio Visual com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | parte de conteúdoVersão |Yes |Versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado. |
 | apiProfile |No | Uma versão API que serve como uma coleção de versões API para tipos de recursos. Utilize este valor para evitar ter de especificar versões API para cada recurso no modelo. Quando especifica uma versão de perfil API e não especifica uma versão API para o tipo de recurso, o Gestor de Recursos utiliza a versão API para esse tipo de recurso que é definido no perfil.<br><br>A propriedade de perfil API é especialmente útil ao implementar um modelo para diferentes ambientes, como Azure Stack e Global Azure. Utilize a versão de perfil API para se certificar de que o seu modelo utiliza automaticamente versões suportadas em ambos os ambientes. Para obter uma lista das versões de perfil da API atuais e as versões API de recursos definidas no perfil, consulte o [Perfil da API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [as versões Track utilizando perfis API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parâmetros](#parameters) |No |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
@@ -98,13 +98,13 @@ A cadeia segura utiliza o mesmo formato que o string, e o objeto seguro utiliza 
 
 Para os inteiros passados como parâmetros inline, a gama de valores pode ser limitada pela ferramenta SDK ou linha de comando que utiliza para implantação. Por exemplo, quando se utiliza o PowerShell para implantar um modelo, os tipos inteiros podem variar entre -2147483648 e 2147483647. Para evitar esta limitação, especifique grandes valores inteiros num [ficheiro de parâmetros](parameter-files.md). Os tipos de recursos aplicam os seus próprios limites para propriedades inteiros.
 
-Ao especificar valores booleanos e inteiros no seu modelo, não rodeie o valor com aspas. Valores de cadeia de início e fim com marcas duplas de aspas.
+Ao especificar valores booleanos e inteiros no seu modelo, não rodeie o valor com aspas. Valores de cadeia de início e fim com aspas duplas `"string value"` ().
 
-Os objetos começam com uma cinta esquerda e terminam com uma cinta direita. As matrizes começam com um suporte esquerdo e terminam com um suporte direito.
+Os objetos começam com uma cinta esquerda `{` e terminam com uma cinta direita ( `}` ). As matrizes começam com um suporte esquerdo `[` () e terminam com um suporte direito `]` ().
 
 ## <a name="parameters"></a>Parâmetros
 
-Na secção de parâmetros do modelo, especifique os valores que pode introduzir ao implementar os recursos. Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros utilizando objetos que contêm múltiplas propriedades.
+Na `parameters` secção do modelo, especifique quais os valores que pode inserir ao utilizar os recursos. Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros utilizando objetos que contêm múltiplas propriedades.
 
 As propriedades disponíveis para um parâmetro são:
 
@@ -141,7 +141,7 @@ Por exemplo, como utilizar parâmetros, consulte [parâmetros nos modelos ARM](t
 
 ## <a name="variables"></a>Variáveis
 
-Na secção de variáveis, constrói valores que podem ser usados em todo o seu modelo. Não é preciso definir variáveis, mas muitas vezes simplificam o seu modelo reduzindo expressões complexas. O formato de cada variável corresponde a um dos tipos de [dados.](#data-types)
+Na `variables` secção, constrói valores que podem ser utilizados em todo o seu modelo. Não é preciso definir variáveis, mas muitas vezes simplificam o seu modelo reduzindo expressões complexas. O formato de cada variável corresponde a um dos tipos de [dados.](#data-types)
 
 O exemplo a seguir mostra as opções disponíveis para a definição de uma variável:
 
@@ -211,7 +211,7 @@ Ao definir uma função de utilizador, existem algumas restrições:
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
 | espaço de nomes |Yes |Espaço de nome para as funções personalizadas. Utilize para evitar o nome de conflitos com funções de modelo. |
-| nome da função |Yes |Nome da função personalizada. Ao ligar para a função, combine o nome da função com o espaço de nome. Por exemplo, para chamar uma função chamada nome único no namespace contoso, use `"[contoso.uniqueName()]"` . |
+| nome da função |Yes |Nome da função personalizada. Ao ligar para a função, combine o nome da função com o espaço de nome. Por exemplo, para chamar uma função nomeada `uniqueName` no namespace contoso, use `"[contoso.uniqueName()]"` . |
 | nome de parâmetro |No |Nome do parâmetro a utilizar na função personalizada. |
 | parâmetro-valor |No |Tipo do valor do parâmetro. Os tipos e valores permitidos são **cordas,** **securestring**, **int,** **bool,** **object,** **secureObject**, e **array**. |
 | tipo de saída |Yes |Tipo do valor de saída. Os valores de saída suportam os mesmos tipos que os parâmetros de entrada da função. |
@@ -221,7 +221,7 @@ Por exemplo, como utilizar funções personalizadas, consulte [funções definid
 
 ## <a name="resources"></a>Recursos
 
-Na secção de recursos, define-se os recursos que são implantados ou atualizados.
+Na `resources` secção, define-se os recursos que são implementados ou atualizados.
 
 Define recursos com a seguinte estrutura:
 
@@ -282,7 +282,7 @@ Define recursos com a seguinte estrutura:
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
 | condição | No | Valor booleano que indica se o recurso será aprovisionado durante esta implantação. Quando `true` , o recurso é criado durante a implantação. Quando `false` , o recurso é ignorado para esta implantação. Ver [condição.](conditional-resource-deployment.md) |
-| tipo |Yes |Tipo de recurso. Este valor é uma combinação do espaço de nome do fornecedor de recursos e do tipo de recursos (tais como **Microsoft.Storage/storageAccounts).** Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). Para um recurso infantil, o formato do tipo depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
+| tipo |Yes |Tipo de recurso. Este valor é uma combinação do espaço de nome do fornecedor de recursos e do tipo de recurso (tal `Microsoft.Storage/storageAccounts` como). Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). Para um recurso infantil, o formato do tipo depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
 | apiVersion |Yes |Versão da API REST para a criação do recurso. Ao criar um novo modelo, desloque este valor para a versão mais recente do recurso que está a implementar. Enquanto o modelo funcionar conforme necessário, continue a utilizar a mesma versão API. Ao continuar a utilizar a mesma versão API, minimiza o risco de uma nova versão API alterar o funcionamento do seu modelo. Considere atualizar a versão API apenas quando pretender utilizar uma nova funcionalidade que é introduzida numa versão posterior. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
 | name |Yes |Nome do recurso. O nome deve seguir as restrições de componentes URI definidas no RFC3986. Os serviços da Azure que expõem o nome de recursos a partes externas validam o nome para garantir que não é uma tentativa de falsificação de outra identidade. Para um recurso infantil, o formato do nome depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
 | comentários |No |As suas notas para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos.](template-syntax.md#comments) |
@@ -298,7 +298,7 @@ Define recursos com a seguinte estrutura:
 
 ## <a name="outputs"></a>Saídas
 
-Na secção Saídas, especifique os valores que são devolvidos da implementação. Normalmente, devolve-se valores dos recursos que foram implantados.
+Na `outputs` secção, especifique os valores que são devolvidos da implantação. Normalmente, devolve-se valores dos recursos que foram implantados.
 
 O exemplo a seguir mostra a estrutura de uma definição de saída:
 
@@ -351,7 +351,7 @@ Para comentários inline, você pode usar ou `//` `/* ... */` mas esta sintaxe n
   ],
 ```
 
-No Código do Estúdio Visual, a [extensão Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) pode detetar automaticamente um modelo ARM e alterar o modo de idioma. Se vir **o Modelo do Gestor de Recursos Azure** no canto inferior direito do Código VS, pode utilizar os comentários inline. Os comentários inline já não são marcados como inválidos.
+No Código do Estúdio Visual, a [extensão Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) pode detetar automaticamente um modelo ARM e alterar o modo de idioma. Se vir **o Modelo do Gestor de Recursos Azure** no canto inferior direito do Código do Estúdio Visual, pode utilizar os comentários inline. Os comentários inline já não são marcados como inválidos.
 
 ![Modo modelo de gestor de recursos do código de estúdio visual Azure](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -369,7 +369,7 @@ Pode adicionar um `metadata` objeto em qualquer lugar do seu modelo. O Gestor de
   },
 ```
 
-Para **parâmetros,** adicione um `metadata` objeto com uma `description` propriedade.
+Para `parameters` , adicionar um objeto com uma `metadata` `description` propriedade.
 
 ```json
 "parameters": {
@@ -385,7 +385,7 @@ Ao implementar o modelo através do portal, o texto que fornece na descrição �
 
 ![Mostrar ponta de parâmetro](./media/template-syntax/show-parameter-tip.png)
 
-Para **obter recursos,** adicione um `comments` elemento ou um objeto de metadados. O exemplo a seguir mostra tanto um elemento de comentários como um objeto de metadados.
+Para `resources` , adicionar um elemento ou um `comments` `metadata` objeto. O exemplo a seguir mostra tanto um elemento como `comments` um `metadata` objeto.
 
 ```json
 "resources": [
@@ -411,7 +411,7 @@ Para **obter recursos,** adicione um `comments` elemento ou um objeto de metadad
 ]
 ```
 
-Para **as saídas,** adicione um objeto de metadados ao valor de saída.
+Para `outputs` , adicionar um objeto ao valor de `metadata` saída.
 
 ```json
 "outputs": {
@@ -424,11 +424,11 @@ Para **as saídas,** adicione um objeto de metadados ao valor de saída.
   },
 ```
 
-Não é possível adicionar um objeto de metadados às funções definidas pelo utilizador.
+Não é possível adicionar um `metadata` objeto a funções definidas pelo utilizador.
 
 ## <a name="multi-line-strings"></a>Cordas multi-linha
 
-Pode partir uma corda em várias linhas. Por exemplo, consulte a propriedade de localização e um dos comentários no exemplo JSON a seguir.
+Pode partir uma corda em várias linhas. Por exemplo, consulte a `location` propriedade e um dos comentários no exemplo JSON a seguir.
 
 ```json
 {
@@ -448,7 +448,8 @@ Pode partir uma corda em várias linhas. Por exemplo, consulte a propriedade de 
   ],
 ```
 
-Para implementar modelos com cordas multi-linhas utilizando o CLI Azure com a versão 2.3.0 ou mais antiga, deve utilizar o `--handle-extended-json-format` interruptor.
+> [!NOTE]
+> Para implementar modelos com cordas multi-linhas utilizando o CLI Azure com a versão 2.3.0 ou mais antiga, deve utilizar o `--handle-extended-json-format` interruptor.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837543"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935772"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Proteger o registo de informações de segurança
 
@@ -26,7 +26,7 @@ Garantir quando e como os utilizadores se registam para autenticação multi-fac
 
 A seguinte política aplica-se a todos os utilizadores selecionados, que tentam registar-se utilizando a experiência de registo combinado, e bloqueiam o acesso a menos que estejam a ligar-se a partir de um local marcado como rede fidedigna.
 
-1. No **portal Azure,** navegue pelo **Azure Ative Directory**  >  **Security**  >  **Security Conditional Access**.
+1. No **portal Azure,** navegue pelo **Azure Ative Directory**  >    >  **Security Conditional Access**.
 1. Selecione **Nova política**.
 1. Em Nome, Insira um Nome para esta política. Por exemplo, **Registo combinado de informações de segurança em redes fidedignas**.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**, e selecione os utilizadores e grupos a que pretende que esta política se aplique.
@@ -35,7 +35,7 @@ A seguinte política aplica-se a todos os utilizadores selecionados, que tentam 
    > Os utilizadores devem estar habilitados para o [registo combinado.](../authentication/howto-registration-mfa-sspr-combined.md)
 
 1. No **âmbito de aplicações ou ações cloud**, selecione as **ações do Utilizador,** consulte **as informações de segurança do Registo**.
-1. Em **Conditions**  >  **Locais de Condições**.
+1. Em   >  **Locais de Condições**.
    1. Configurar **Sim.**
    1. Incluir **qualquer localização.**
    1. Excluir **todos os locais fidedignos.**
@@ -61,7 +61,7 @@ Alguns podem optar por utilizar o estado do dispositivo em vez da localização 
 
 > [!WARNING]
 > Se utilizar o estado do dispositivo como condição na sua política, isso poderá ter impacto nos utilizadores convidados no diretório. [O modo apenas de relatório](concept-conditional-access-report-only.md) pode ajudar a determinar o impacto das decisões políticas.
-> Note que o modo apenas de relatório não é aplicável às políticas de CA com âmbito "Ações do Utilizador".
+> Note que o modo apenas de relatório não é aplicável para políticas de acesso condicional com âmbito de "Ações do utilizador".
 
 ## <a name="next-steps"></a>Passos seguintes
 

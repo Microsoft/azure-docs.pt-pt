@@ -1,26 +1,26 @@
 ---
 title: Configurar ambiente de desenvolvimento para scripts de implantação em modelos Microsoft Docs
-description: configurar ambiente de desenvolvimento para scripts de implementação em modelos Azure Resource Manager.
+description: Configure o ambiente de desenvolvimento para scripts de implementação em modelos de Gestor de Recursos Azure (modelos ARM).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734186"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936401"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurar ambiente de desenvolvimento para scripts de implantação em modelos
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurar ambiente de desenvolvimento para scripts de implantação em modelos ARM
 
 Aprenda a criar um ambiente de desenvolvimento para desenvolver e testar scripts de implementação com uma imagem de script de implementação. Pode criar a instância do [recipiente Azure](../../container-instances/container-instances-overview.md) ou utilizar [o Docker.](https://docs.docker.com/get-docker/) Ambos estão cobertos neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver um script de implementação, pode criar um ficheiro **hello.ps1** com o seguinte conteúdo:
+Se não tiver um script de implementação, pode criar um ficheiro _hello.ps1_ com o seguinte conteúdo:
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ Para escrever os seus scripts no seu computador, precisa de criar uma conta de a
 
 ### <a name="create-an-azure-container-instance"></a>Criar uma instância de recipiente Azure
 
-O modelo ARM a seguir cria uma instância de contentor e uma partilha de ficheiros e, em seguida, monta a partilha de ficheiros na imagem do recipiente.
+O modelo seguinte do Gestor de Recursos Azure (modelo ARM) cria uma instância de contentor e uma partilha de ficheiros e, em seguida, monta a partilha de ficheiros na imagem do recipiente.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,12 +153,13 @@ O modelo ARM a seguir cria uma instância de contentor e uma partilha de ficheir
   ]
 }
 ```
-O valor predefinido para a trajetória de montagem é **implementaçãoScript**.  Este é o caminho no caso do recipiente onde é montado na partilha de ficheiros.
 
-A imagem do recipiente predefinido especificada no modelo é **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.   Consulte uma lista de [versões Azure PowerShell suportadas](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões Azure CLI suportadas](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+O valor predefinido para o caminho de montagem é `deploymentScript` . Este é o caminho no caso do recipiente onde é montado na partilha de ficheiros.
+
+A imagem do recipiente predefinido especificada no modelo é `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` . Consulte uma lista de [versões Azure PowerShell suportadas](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões Azure CLI suportadas](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR) . Leva cerca de um mês para certificar uma imagem CLI para o script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se for utilizada uma versão não suportada, a lista de mensagens de erro lista as versões suportadas.
+  > O script de implementação utiliza as imagens CLI disponíveis do Microsoft Container Registry (MCR). Leva cerca de um mês para certificar uma imagem CLI para o script de implementação. Não utilize as versões CLI que foram lançadas dentro de 30 dias. Para encontrar as datas de lançamento das imagens, consulte [as notas de lançamento do Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se for utilizada uma versão não suportada, a mensagem de erro lista as versões suportadas.
 
 O gabarito suspende a instância do recipiente em 1800 segundos. Tem 30 minutos antes da instância do contentor entrar em estado terminal e a sessão termina.
 
@@ -196,7 +197,7 @@ Também pode fazer o upload do ficheiro utilizando o portal Azure e o Azure CLI.
 
 1. A partir do portal Azure, abra o grupo de recursos onde implantou a instância do contentor e a conta de armazenamento.
 1. Abra o grupo de contentores. O nome do grupo do recipiente predefinido é o nome do projeto com **cg** anexado. Verá que a instância do contentor está no estado **de Marcha.**
-1. Selecione **Recipientes** do menu esquerdo. Verá uma instância de contentor.  O nome da instância do recipiente é o nome do projeto com **o recipiente** anexado.
+1. Selecione **Recipientes** do menu esquerdo. Verá uma instância de contentor. O nome da instância do recipiente é o nome do projeto com **o recipiente** anexado.
 
     ![instância de ligação de script de implantação](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ Também é necessário configurar a partilha de ficheiros para montar o diretór
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Substitua **&lt; a carta do anfitrião>** e o nome do **&lt; diretório de anfitriões>** por uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
+    Substitua **&lt; a carta do anfitrião>** e o nome do **&lt; diretório de anfitriões>** por uma pasta existente na unidade partilhada. Mapeia a pasta para a pasta _/dados_ no recipiente. Por exemplo, para mapear _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ Também é necessário configurar a partilha de ficheiros para montar o diretór
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. A imagem que se segue mostra como executar um script PowerShell, dado que tem um ficheiro helloworld.ps1 na unidade partilhada.
+1. A imagem que se segue mostra como executar um script PowerShell, dado que tem um ficheiro _helloworld.ps1_ na unidade partilhada.
 
     ![Modelo de implementação de modelo de gestor de recursos estivador cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use scripts de implementação em modelos de Gestor de Recursos Azure](./template-tutorial-deployment-script.md)
+> [Tutorial: Use scripts de implementação em modelos ARM](./template-tutorial-deployment-script.md)

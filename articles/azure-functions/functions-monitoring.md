@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033039"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936843"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -113,7 +113,7 @@ Uma vez que as funções também se integram com o Azure Monitor, também pode u
 
 _Esta funcionalidade está em pré-visualização._ 
 
-O [controlador de escala Azure Functions](./functions-scale.md#runtime-scaling) monitoriza as instâncias do anfitrião Azure Functions em que a sua aplicação é executada. Este controlador toma decisões sobre quando adicionar ou remover casos com base no desempenho atual. Pode ter o controlador de escala a emitir registos para o Application Insights para entender melhor as decisões que o controlador de escala está a tomar para a sua aplicação de função. Também pode armazenar os registos gerados no armazenamento Blob para análise por outro serviço. 
+O [controlador de escala Azure Functions](./event-driven-scaling.md#runtime-scaling) monitoriza as instâncias do anfitrião Azure Functions em que a sua aplicação é executada. Este controlador toma decisões sobre quando adicionar ou remover casos com base no desempenho atual. Pode ter o controlador de escala a emitir registos para o Application Insights para entender melhor as decisões que o controlador de escala está a tomar para a sua aplicação de função. Também pode armazenar os registos gerados no armazenamento Blob para análise por outro serviço. 
 
 Para ativar esta funcionalidade, adicione uma definição de aplicação nomeada `SCALE_CONTROLLER_LOGGING_ENABLED` para as definições da aplicação da sua função. Para saber como, consulte [os registos do controlador de escala Configure](configure-monitoring.md#configure-scale-controller-logs).
 

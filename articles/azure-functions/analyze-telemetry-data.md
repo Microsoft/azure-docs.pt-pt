@@ -4,12 +4,12 @@ description: Saiba como visualizar e consultar dados de telemetria Azure Functio
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027735"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937302"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar telemetria de funções Azure em Insights de Aplicação 
 
@@ -108,7 +108,7 @@ O tempo de execução fornece os `customDimensions.LogLevel` `customDimensions.C
 
 ## <a name="consumption-plan-specific-metrics"></a>Métricas específicas do plano de consumo
 
-Ao executar um [plano de consumo,](functions-scale.md#consumption-plan)o *custo* de execução de uma única função é medido em *GB-segundos*. O custo de execução é calculado combinando o seu uso de memória com o seu tempo de execução. Para saber mais, consulte [os custos do plano de consumo estimado.](functions-consumption-costs.md)
+Ao executar um [plano de consumo,](consumption-plan.md)o *custo* de execução de uma única função é medido em *GB-segundos*. O custo de execução é calculado combinando o seu uso de memória com o seu tempo de execução. Para saber mais, consulte [os custos do plano de consumo estimado.](functions-consumption-costs.md)
 
 As seguintes consultas de telemetria são específicas para métricas que impactam o custo de funcionamento das funções no plano de Consumo.
 

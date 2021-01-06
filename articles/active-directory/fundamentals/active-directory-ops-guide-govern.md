@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370972"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935755"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guia de referência de operações de governação do Diretório Ativo Azure
 
@@ -56,10 +56,10 @@ Ao rever a sua lista, poderá descobrir que precisa de atribuir um proprietário
 
 Existem alterações que requerem considerações especiais durante os testes, desde técnicas simples como a elaboração de um subconjunto-alvo dos utilizadores até à implementação de uma alteração num inquilino de teste paralelo. Se não implementou uma estratégia de teste, deve definir uma abordagem de teste com base nas diretrizes do quadro abaixo:
 
-| Cenário| Recomendação |
+| Scenario| Recomendação |
 |-|-|
 |Alteração do tipo de autenticação de federado para PHS/PTA ou vice-versa| Utilize [o roll-out encenado](../hybrid/how-to-connect-staged-rollout.md) para testar o impacto da alteração do tipo de autenticação.|
-|Elaborando uma nova política de acesso condicional (CA) ou Política de Proteção de Identidade|Crie uma nova Política de CA e atribua aos utilizadores de teste.|
+|Elaborando uma nova política de acesso condicional (CA) ou Política de Proteção de Identidade|Crie uma nova política de Acesso Condicional e atribua aos utilizadores de teste.|
 |Embarque num ambiente de teste de uma aplicação|Adicione a aplicação a um ambiente de produção, esconda-a do painel MyApps e atribua-a aos utilizadores de teste durante a fase de garantia de qualidade (QA).|
 |Alteração das regras de sincronização|Execute as alterações num teste Azure AD Connect com a mesma configuração que está atualmente em produção, também conhecida como modo de encenação, e analise os Resultados do CSExport. Se estiver satisfeito, troque para a produção quando estiver pronto.|
 |Mudança de marca|Teste em um inquilino de teste separado.|

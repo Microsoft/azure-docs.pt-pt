@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6ae20c55a16b12f7543af3f08d96400a8e5f20c9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185186"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934922"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Quickstart: Azure Key Vault certificate client library for Python
 
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux
@@ -200,7 +200,7 @@ Pode verificar se o certificado é eliminado com o certificado de comando Azure 
 
 Uma vez eliminado, um certificado permanece em estado de aussitado mas recuperável por um tempo. Se voltar a executar o código, utilize um nome de certificado diferente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se também quiser experimentar [segredos](../secrets/quick-create-python.md) e [chaves,](../keys/quick-create-python.md)pode reutilizar o Key Vault criado neste artigo.
 
@@ -215,5 +215,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Descrição geral do cofre de chave do Azure](../general/overview.md)
 - [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia de desenvolvedores do Azure Key Vault](../general/developers-guide.md)
-- [As melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Visão geral da segurança do Cofre de Chaves](../general/security-overview.md)
 - [Autenticar com cofre de chaves](../general/authentication.md)

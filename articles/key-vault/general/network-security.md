@@ -10,16 +10,18 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3639237a0dc34c521fd3fa52631fdb19c26ec284
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015558"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936350"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls de cofre de chaves Azure e redes virtuais
 
 Este artigo irá fornecer-lhe orientações sobre como configurar a firewall Azure Key Vault. Este documento cobrirá detalhadamente as diferentes configurações para a firewall do Cofre de Chaves e fornecerá instruções passo a passo sobre como configurar o Cofre de Chaves Azure para trabalhar com outras aplicações e serviços Azure.
+
+Para obter mais informações, consulte [os pontos finais do serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md).
 
 ## <a name="firewall-settings"></a>Definições de firewall
 
@@ -71,7 +73,7 @@ Para entender como configurar uma ligação de ligação privada no seu cofre de
 > [!NOTE]
 > Esteja atento às seguintes limitações de configuração:
 > * São permitidas regras de rede virtual no máximo 127 e 127 regras IPv4. 
-> * As regras da rede IP só são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (tal como definido no RFC 1918) não são permitidos nas regras de IP. As redes privadas incluem endereços **172.16-31** que começam com **10.** **192.168.** 
+> * As regras da rede IP só são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (tal como definido no RFC 1918) não são permitidos nas regras de IP. As redes privadas incluem endereços que começam com **10.**  
 > * Apenas os endereços IPv4 são suportados neste momento.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
@@ -167,10 +169,10 @@ Eis como configurar firewalls key vault e redes virtuais usando PowerShell:
 
 ## <a name="references"></a>Referências
 * Referência do modelo do arm: [referência do modelo do braço do cofre da chave](/azure/templates/Microsoft.KeyVault/vaults) azul
-* Comandos Azure CLI: [regra da rede az keyvault](/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Comandos Azure CLI: [regra da rede az keyvault](/cli/azure/keyvault/network-rule)
 * Cmdlets Azure PowerShell: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Pontos finais de serviço de rede virtual para Key Vault](overview-vnet-service-endpoints.md)
-* [Proteja o cofre da chave](secure-your-key-vault.md)
+* [Visão geral da segurança do Cofre de Chaves Azure](security-overview.md)

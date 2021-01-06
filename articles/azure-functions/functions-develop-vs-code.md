@@ -4,12 +4,12 @@ description: Aprenda a desenvolver e testar funções Azure utilizando a extens�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168457"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936979"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
 
@@ -255,7 +255,7 @@ Os seguintes passos publicam o seu projeto para uma nova app de função criada 
     | ------ | ----- | ----------- |
     | Selecione app de função em Azure | Criar nova aplicação de funções em Azure | Na próxima posição, escreva um nome globalmente único que identifique a sua nova aplicação de função e, em seguida, selecione Enter. Os carateres válidos para um nome de aplicação de funções são `a-z`, `0-9` e `-`. |
     | Selecione um SISTEMA | Windows | A aplicação de função é executado no Windows. |
-    | Selecione um plano de hospedagem | Plano de consumo | É utilizado um alojamento sem [servidor.](functions-scale.md#consumption-plan) |
+    | Selecione um plano de hospedagem | Plano de consumo | É utilizado um alojamento sem [servidor.](consumption-plan.md) |
     | Selecione um tempo de execução para a sua nova aplicação | A sua linguagem de projeto | O tempo de execução deve coincidir com o projeto que vai publicar. |
     | Selecione um grupo de recursos para novos recursos | Criar novo grupo de recursos | Na próxima introdução, escreva um nome de grupo de recursos, `myResourceGroup` tipo, e, em seguida, selecione insira. Também pode selecionar um grupo de recursos existente. |
     | Selecione uma conta de armazenamento | Criar nova conta de armazenamento | Na próxima chamada, escreva um nome globalmente único para a nova conta de armazenamento utilizada pela sua aplicação de função e, em seguida, selecione Enter. Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Também pode selecionar uma conta existente. |
@@ -396,7 +396,7 @@ Para saber mais sobre a monitorização utilizando o Application Insights, consu
 
 Por predefinição, todos os projetos C# são criados como [projetos de biblioteca de classes compiladas C](functions-dotnet-class-library.md)# . Se preferir trabalhar com projetos de script C# em vez disso, deve selecionar o script C# como o idioma predefinido nas definições de extensão de Funções Azure:
 
-1. Selecione **File**  >  **Definições de Preferências de**  >  **Ficheiros**.
+1. Selecione   >  **Definições de Preferências de**  >  **Ficheiros**.
 
 1. Ir para **as definições do utilizador**  >  **Extensões**  >  **Funções Azure**.
 
@@ -408,7 +408,7 @@ Depois de completar estes passos, as chamadas feitas para as Ferramentas Core su
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com as suas aplicações de função em Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes comandos Azure Functions estão disponíveis:
 
-|Comando de Funções Azure  | Description  |
+|Comando de Funções Azure  | Descrição  |
 |---------|---------|
 |**Adicionar novas definições**  |  Cria uma nova definição de aplicação em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings). Também poderá ter de [descarregar esta definição para as suas definições locais](#download-settings-from-azure). |
 | **Configure Fonte de Implantação** | Liga a sua aplicação de função em Azure a um repositório local de Git. Para saber mais, consulte [a implementação contínua para Funções Azure](functions-continuous-deployment.md). |

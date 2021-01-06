@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724702"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934599"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 
@@ -25,8 +25,8 @@ ms.locfileid: "97724702"
 Uma vez que tenha começado a usar o cofre chave para armazenar os seus segredos de produção, é importante monitorizar a saúde do seu cofre chave para garantir que o seu serviço funciona como pretendido. À medida que começa a escalar o seu serviço, o número de pedidos enviados para o seu cofre-chave aumentará. Isto tem um potencial para aumentar a latência dos seus pedidos e, em casos extremos, fazer com que os seus pedidos sejam estrangulados, o que irá afetar o desempenho do seu serviço. Também precisa de ser alertado se o cofre da chave estiver a enviar um número incomum de códigos de erro, para que possa ser rapidamente notificado de qualquer política de acesso ou problemas de configuração de firewall. Este documento abordará os seguintes tópicos:
 
 + Métricas básicas do cofre de chaves para monitorizar
-+ Como configurar métricas e criar um dashboard 
-+ Como criar alertas em limiares especificados 
++ Como configurar métricas e criar um dashboard
++ Como criar alertas em limiares especificados
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas básicas do cofre de chaves para monitorizar
 

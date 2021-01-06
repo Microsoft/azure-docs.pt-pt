@@ -3,12 +3,12 @@ title: Integre as Funções Azure com uma rede virtual Azure
 description: Um tutorial passo a passo que mostra como ligar uma função a uma rede virtual Azure
 ms.topic: article
 ms.date: 4/23/2020
-ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387528"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937033"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar Funções com uma rede virtual do Azure
 
@@ -60,9 +60,9 @@ Em seguida, crie um VM pré-configurado que executa o WordPress dentro de uma re
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha `myResourceGroup` , ou o grupo de recursos que criou com a sua aplicação de função. A utilização do mesmo grupo de recursos para a aplicação de função, o WordPress VM e o plano de hospedagem facilitam a limpeza dos recursos quando termina este tutorial. |
     | **Nome da máquina virtual** | VNET-Wordpress | O nome VM tem de ser único no grupo de recursos |
-    | **[Região](https://azure.microsoft.com/regions/)** | (Europa) Europa Ocidental | Escolha uma região perto de si ou perto das funções que acedam ao VM. |
+    | **[Region](https://azure.microsoft.com/regions/)** | (Europa) Europa Ocidental | Escolha uma região perto de si ou perto das funções que acedam ao VM. |
     | **Tamanho** | B1s | Escolha **o tamanho de Alterar** e, em seguida, selecione a imagem padrão B1s, que tem 1 vCPU e 1 GB de memória. |
-    | **Tipo de autenticação** | Palavra-passe | Para utilizar a autenticação de palavra-passe, também deve especificar um **nome de utilizador**, uma **palavra-passe**segura e, em seguida, **confirmar a palavra-passe**. Para este tutorial, não precisará de se inscrever no VM a menos que precise de resolver problemas. |
+    | **Tipo de autenticação** | Palavra-passe | Para utilizar a autenticação de palavra-passe, também deve especificar um **nome de utilizador**, uma **palavra-passe** segura e, em seguida, **confirmar a palavra-passe**. Para este tutorial, não precisará de se inscrever no VM a menos que precise de resolver problemas. |
 
 1. Escolha o **separador de Rede** e em configurar redes virtuais selecione **Criar novo**.
 
@@ -105,7 +105,7 @@ Com um site WordPress a funcionar num VM numa rede virtual, pode agora ligar a s
 
 1. Na página **de Integração VNET,** selecione **Add VNet**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Escolha o networking na aplicação de função":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adicione a pré-visualização da Integração VNet":::
 
 1. No **Estado da Funcionalidade de Rede,** utilize as definições na tabela abaixo da imagem:
 
@@ -129,7 +129,7 @@ Com a Integração VNet ativada, pode criar um proxy na sua app de função para
 
 1. Na sua aplicação de função, selecione  **Proxies** a partir do menu esquerdo e, em seguida, **selecione Adicionar**. Utilize as definições de procuração na tabela abaixo da imagem:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Escolha o networking na aplicação de função":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definir as definições de procuração":::
 
     | Definição  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
@@ -160,4 +160,4 @@ As funções em execução num plano Premium partilham a mesma infraestrutura su
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as opções de networking em Funções](./functions-networking-options.md)
 
-[Plano Premium]: functions-scale.md#premium-plan
+[Plano Premium]: functions-premium-plan.md

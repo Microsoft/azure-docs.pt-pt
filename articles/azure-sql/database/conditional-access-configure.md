@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: eae7d0a34d6bd76dae5998f05f9d64e0d40f7d9b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c18d235977f1256a10e813fa8e02aa3590366fe1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321616"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936418"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso Condicional com Base de Dados Azure SQL e Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ ms.locfileid: "93321616"
 
 [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suportam o Acesso Condicional da Microsoft.
 
-Os passos a seguir mostram como configurar a Base de Dados Azure SQL, SQL Managed Instance ou Azure Synapse para impor uma política de Acesso Condicional (CA).  
+Os passos a seguir mostram como configurar a Base de Dados Azure SQL, SQL Managed Instance ou Azure Synapse para impor uma política de acesso condicional.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,10 +41,10 @@ Os passos a seguir mostram como configurar a Base de Dados Azure SQL, SQL Manage
    ![Lâmina de acesso condicional](./media/conditional-access-configure/conditional-access-blade.png)
 
 2. Na lâmina **De Acesso Condicional,** clique em **Nova política,** forneça um nome e, em seguida, clique nas **regras de Configuração**.  
-3. Em **Atribuições** , selecione **Utilizadores e grupos,** verifique **selecione utilizadores e grupos** e, em seguida, selecione o utilizador ou grupo para acesso condicional. Clique **em Selecionar** e, em seguida, clique em **Fazer** para aceitar a sua seleção.  
+3. Em **Atribuições**, selecione **Utilizadores e grupos,** verifique **selecione utilizadores e grupos** e, em seguida, selecione o utilizador ou grupo para acesso condicional. Clique **em Selecionar** e, em seguida, clique em **Fazer** para aceitar a sua seleção.  
    ![selecione utilizadores e grupos](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Selecione **aplicativos Cloud** , clique **em Selecionar apps**. Vê todas as aplicações disponíveis para Acesso Condicional. Selecione **Azure SQL Database** , no clique inferior **Selecione** e, em seguida, clique em **Fazer**.  
+4. Selecione **aplicativos Cloud**, clique **em Selecionar apps**. Vê todas as aplicações disponíveis para Acesso Condicional. Selecione **Azure SQL Database**, no clique inferior **Selecione** e, em seguida, clique em **Fazer**.  
    ![selecionar Base de Dados SQL](./media/conditional-access-configure/select-sql-database.png)  
    Se não conseguir encontrar **a Base de Dados Azure SQL** listada na terceira imagem seguinte, complete os seguintes passos:
    - Conecte-se à sua base de dados na Base de Dados Azure SQL utilizando SSMS com uma conta de administração AD Azure.  

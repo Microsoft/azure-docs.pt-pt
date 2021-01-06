@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287714"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934565"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 
 1.  No [portal Azure,](https://portal.azure.com)navegue para o recurso Key Vault. 
 
-1.  Em **Definições** , selecione **políticas de acesso** e, em seguida, selecione Adicionar Política de **Acesso** :
+1.  Em **Definições**, selecione **políticas de acesso** e, em seguida, selecione Adicionar Política de **Acesso**:
 
     ![Selecione políticas de Acesso, selecionando a atribuição de funções de adicionar](../media/authentication/assign-policy-portal-01.png)
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 
     ![Especificar permissões de política de acesso](../media/authentication/assign-policy-portal-02.png)
 
-1. Em **Select principal** , escolha o link não **selecionado** para abrir o painel de seleção **principal.** Introduza o nome da aplicação ou do principal de serviço no campo de pesquisa, selecione o resultado apropriado e, em seguida, escolha **Selecione**.
+1. Em **Select principal**, escolha o link não **selecionado** para abrir o painel de seleção **principal.** Introduza o nome da aplicação ou do principal de serviço no campo de pesquisa, selecione o resultado apropriado e, em seguida, escolha **Selecione**.
 
     ![Selecionando o principal de serviço para a política de acesso](../media/authentication/assign-policy-portal-03.png)
 
@@ -54,7 +54,6 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Segurança do Cofre Azure Key: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
+- [Segurança do Cofre Azure Key: Gestão de identidade e acesso](security-overview.md#identity-management)
 - [Prenda o cofre da chave.](secure-your-key-vault.md)
 - [Guia de desenvolvedores do Azure Key Vault](developers-guide.md)
-- [As melhores práticas do Azure Key Vault](best-practices.md)

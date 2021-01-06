@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas das Funções Azure que precisa pa
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 54bfd770fba9a1766396d66c0c263111c233c9c2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167884"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936741"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do programador das Funções do Azure
 Nas Funções Azure, funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente do idioma ou ligação que utilizar. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou ligação, não se esqueça de ler este resumo que se aplica a todos eles.
@@ -69,7 +69,7 @@ As aplicações de função podem ser da autoria e publicadas utilizando uma var
 O editor de Funções incorporado no portal Azure permite-lhe atualizar o seu código e a sua *function.jsno* ficheiro diretamente inline. Isto é recomendado apenas para pequenas alterações ou provas de conceito - a melhor prática é usar uma ferramenta de desenvolvimento local como o Código VS.
 
 ## <a name="parallel-execution"></a>Execução paralela
-Quando vários eventos de desencadeamento ocorrem mais rapidamente do que um tempo de funcionamento de uma única função pode processá-los, o tempo de execução pode invocar a função várias vezes em paralelo.  Se uma aplicação de função estiver a utilizar o [plano de hospedagem Consumption,](functions-scale.md#how-the-consumption-and-premium-plans-work)a aplicação de função poderá ser reduzida automaticamente.  Cada instância da aplicação de função, quer a aplicação seja executada no plano de hospedagem de Consumo ou num plano regular [de hospedagem do Serviço de Aplicações,](../app-service/overview-hosting-plans.md)pode processar invocações de funções simultâneas em paralelo utilizando vários fios.  O número máximo de invocações de funções simultâneas em cada instância de aplicação de função varia em função com base no tipo de gatilho utilizado, bem como nos recursos utilizados por outras funções dentro da aplicação de função.
+Quando vários eventos de desencadeamento ocorrem mais rapidamente do que um tempo de funcionamento de uma única função pode processá-los, o tempo de execução pode invocar a função várias vezes em paralelo.  Se uma aplicação de função estiver a utilizar o [plano de hospedagem Consumption,](event-driven-scaling.md)a aplicação de função poderá ser reduzida automaticamente.  Cada instância da aplicação de função, quer a aplicação seja executada no plano de hospedagem de Consumo ou num plano regular [de hospedagem do Serviço de Aplicações,](../app-service/overview-hosting-plans.md)pode processar invocações de funções simultâneas em paralelo utilizando vários fios.  O número máximo de invocações de funções simultâneas em cada instância de aplicação de função varia em função com base no tipo de gatilho utilizado, bem como nos recursos utilizados por outras funções dentro da aplicação de função.
 
 ## <a name="functions-runtime-versioning"></a>Versão de tempo de execução de funções
 

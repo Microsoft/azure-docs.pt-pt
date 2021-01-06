@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c884ad6850b8f94baa7c658d685651c3241be33f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184659"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935691"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configurar computação no dispositivo GPU Azure Stack Edge Pro
 
@@ -45,40 +45,38 @@ Antes de configurar um papel de computação no seu dispositivo Azure Stack Edge
 
 Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso IoT Hub através do portal Azure.
 
-1. No portal Azure do seu recurso Azure Stack Edge, vá ao **Overview**. No painel direito, no azulejo **compute,** **selecione Começar**.
+1. No portal Azure do seu recurso Azure Stack Edge, vá ao **Overview** e selecione **IoT Edge**.
 
-    ![Começar com o computo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Começar com o computo](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
 
-2. No azulejo **computacional Configure Edge,** selecione **Configure compute**.
+2. No **serviço Enable IoT Edge**, selecione **Add**.
 
-    ![Configure computação](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configure computação](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
 
-3. Na lâmina de **computação Configure Edge,** insira o seguinte:
-
+3. Na lâmina de **computação Configure Edge,** insira as seguintes informações:
    
-    |Campo  |Valor  |
-    |---------|---------|
-    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Name     |Insira um nome para o seu recurso IoT Hub.         |
+   |Campo  |Valor  |
+   |---------|---------|
+   |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+   |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
-    ![Começar com o compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+   ![Começar com o compute 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
 
-4. Selecione **Criar**. A criação de recursos IoT Hub demora vários minutos. Após a criação do recurso IoT Hub, as atualizações de azulejos **de computação Configure** para mostrar a configuração do cálculo. 
+4. Quando terminar as definições, selecione **Review + Create**. Reveja as definições do seu recurso IoT Hub e selecione **Criar**.
 
-    ![Começar com o computo 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+   A criação de recursos para um recurso IoT Hub demora vários minutos. Após a criação do recurso, a **Visão Geral** indica que o serviço IoT Edge está agora em execução.
 
-5. Para confirmar que a função de computação Edge foi configurada, selecione **Ver Computação** no azulejo **do cálculo Configure.**
-    
-    ![Começar com o compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+   ![Começar com o computo 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
 
-    > [!NOTE]
-    > Se o diálogo **Configure Compute** for fechado antes de o IoT Hub estar associado ao dispositivo Azure Stack Edge Pro, o Hub IoT é criado mas não é mostrado na configuração do cálculo. 
-    
-Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. Um IoT Edge Runtime também está a ser executado neste dispositivo IoT Edge. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge.
+5. Para confirmar que a função de computação Edge foi configurada, selecione **Properties**.
 
-Pode levar 20 a 30 minutos para configurar o cálculo, uma vez que nos bastidores, máquinas virtuais e cluster Kubernetes estão sendo criados. 
+   ![Começar com o compute 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
 
-Depois de configurar com sucesso o computação no portal Azure, existe um cluster Kubernetes e um utilizador padrão associado ao espaço de nome IoT (um espaço de nome do sistema controlado por Azure Stack Edge Pro). 
+   Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. Um IoT Edge Runtime também está a ser executado neste dispositivo IoT Edge. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge.
+
+Pode levar 20 a 30 minutos para configurar o cálculo porque, nos bastidores, estão a ser criadas máquinas virtuais e um cluster Kubernetes.
+
+Depois de configurar com sucesso o computação no portal Azure, existe um cluster Kubernetes e um utilizador padrão associado ao espaço de nome IoT (um espaço de nome do sistema controlado por Azure Stack Edge Pro).
 
 ## <a name="get-kubernetes-endpoints"></a>Obter pontos finais de Kubernetes
 
@@ -89,7 +87,7 @@ Para configurar um cliente para aceder ao cluster Kubernetes, você precisará d
 
     ![Página do dispositivo na UI local](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
-3. Salve a corda do ponto final. Você usará isto mais tarde ao configurar um cliente para aceder ao cluster Kubernetes via kubectl.
+3. Salve a corda do ponto final. Utilizará esta cadeia de ponto final mais tarde ao configurar um cliente para aceder ao cluster Kubernetes através de kubectl.
 
 4. Enquanto estiver na internet local, pode:
 
@@ -97,7 +95,7 @@ Para configurar um cliente para aceder ao cluster Kubernetes, você precisará d
 
         ![Página do dispositivo no UI local 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-        Se lhe for fornecida uma chave da Microsoft (os utilizadores selecionados podem tê-lo), então pode utilizar este ficheiro config.
+        Se lhe for fornecida uma chave da Microsoft (os utilizadores selecionados podem ter uma chave), então pode utilizar este ficheiro config.
 
         ![Página do dispositivo no UI local 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 

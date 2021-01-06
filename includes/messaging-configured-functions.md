@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9cc19548f0b969421974afe3e274fc5334590cb0
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805615"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935205"
 ---
 As Funções Azure permitem criar tarefas de replicação apenas de configuração que se apoiem num ponto de entrada pré-construído. As [amostras de replicação baseadas na configuração para funções Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) ilustram como alavancar [os ajudantes pré-construídos](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) no seu próprio código ou evitar manusear completamente o código e apenas usar a configuração.
 
@@ -166,7 +166,7 @@ Se pretender encaminhar eventos para uma fila de autocarros de serviço, adicion
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "queueName": "queue-b",
             "name": "output" 
         }
     ...
@@ -190,7 +190,7 @@ Se pretender encaminhar eventos para um Tópico de Autocarro de Serviço, adicio
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "topicName": "topic-b",
             "name": "output" 
         }
     ...

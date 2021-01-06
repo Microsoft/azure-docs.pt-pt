@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835079"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935823"
 ---
 # <a name="develop-custom-commands-applications"></a>Desenvolver aplicações de comandos personalizados
 
@@ -178,7 +178,7 @@ Comece por editar o comando existente `TurnOn` para ligar e desligar vários dis
    1. Selecione **Atualizar**.
 
        > [!div class="mx-imgBorder"]
-       > ![Screenshot mostrando onde criar uma resposta de parâmetro necessária.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Screenshot que mostra a secção 'Adicionar resposta para um parâmetro necessário' com o separador 'Editor simples' selecionado.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Configure as propriedades do parâmetro utilizando a tabela seguinte. Para obter informações sobre todas as propriedades de configuração de um comando, consulte [conceitos e definições de Comandos Personalizados.](./custom-commands-references.md)
       

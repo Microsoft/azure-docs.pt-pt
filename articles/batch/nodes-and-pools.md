@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243074"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934650"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -64,6 +64,9 @@ Quando criar uma piscina batch, especifique a configuração da máquina virtual
 
 Existem dois tipos de configurações de piscina disponíveis no Lote.
 
+> [!IMPORTANT]
+> As piscinas devem ser configuradas utilizando a "Configuração virtual da máquina" e não a "Configuração dos Serviços de Nuvem". Todas as funcionalidades do Lote são suportadas por piscinas de 'Configuração de Máquina Virtual' e novas funcionalidades estão a ser adicionadas. As piscinas 'Cloud Services Configuration' não suportam todas as funcionalidades e não estão previstas novas capacidades.
+
 ### <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
 
 A **Configuração da Máquina Virtual** especifica que a piscina é composta por máquinas virtuais Azure. Estas VMs podem ser criadas a partir de imagens do Linux ou do Windows.
@@ -101,7 +104,7 @@ Quando criar uma piscina, pode especificar quais os tipos de nós que deseja e o
 - **Nós dedicados.** Os nós de computação dedicados estão reservados para as suas cargas de trabalho. São mais dispendiosos do que os nós de baixa prioridade, mas é garantido que nunca serão substituídos.
 - **Nós de baixa prioridade.** Os nós de baixa prioridade tiram partido da capacidade excedente do Azure para executar as cargas de trabalho do Batch. Os nós de baixa prioridade são mais baratos por hora do que os nós dedicados, e permitem cargas de trabalho que requerem uma potência computacional significativa. Para obter mais informações, veja [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Utilizar VMs de baixa prioridade com o Batch).
 
-Os nós de baixa prioridade podem ser preempedidos quando a Azure tiver uma capacidade excedentária insuficiente. Se um nó for substituído enquanto está a executar tarefas, estas são colocadas novamente na fila e executadas assim que esteja disponível um nó de computação. Os nós de baixa prioridade são uma boa opção para cargas de trabalho em que o tempo de conclusão do trabalho é flexível e este pode ser distribuído por muitos nós. Antes de decidir usar nós de baixa prioridade para o seu cenário, certifique-se de que qualquer trabalho perdido devido à antecipação será mínimo e fácil de recriar.
+Os nós de baixa prioridade podem ser preempedidos quando a Azure tiver uma capacidade excedentária insuficiente. Se um nó for substituído enquanto está a executar tarefas, estas são colocadas novamente na fila e executadas assim que esteja disponível um nó de computação. Os nós de baixa prioridade são uma boa opção para cargas de trabalho em que o tempo de conclusão do trabalho é flexível e este pode ser distribuído por muitos nós. Antes de decidir se vai utilizar nós de baixa prioridade no seu cenário, confirme que eventuais trabalhos perdidos devido à interrupção são mínimos e fáceis de recriar.
 
 Pode ter nós de computação de baixa prioridade e dedicados no mesmo conjunto. Cada tipo de nó tem a sua própria definição de alvo, para a qual pode especificar o número de nós pretendido.
 
@@ -199,6 +202,6 @@ Quando um certificado é associado a um conjunto, o serviço Batch instala o cer
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

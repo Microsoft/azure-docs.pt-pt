@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 8706ac588f2cc868805de7126140a1edd4b8c735
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6bf21205c028eaff08eef91757424f8b52764ada
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445547"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936146"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Tutorial: Configurar um único sign-on (SSO) entre o Azure Ative Directory e o F5
 
@@ -180,7 +180,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a F5.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **F5**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -195,7 +195,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 1. Clique em **Acesso Condicional.**
 1. Clique em **Nova Política.**
-1. Pode agora ver a sua App F5 como um recurso para a Política ca e aplicar qualquer acesso condicional, incluindo Multifactor Auth, controlo de acesso baseado no dispositivo ou Política de Proteção de Identidade.
+1. Pode agora ver a sua App F5 como um recurso para a política de acesso condicional e aplicar qualquer acesso condicional, incluindo Multifactor Auth, controlo de acesso baseado no dispositivo ou Política de Proteção de Identidade.
 
 ## <a name="configure-f5-sso"></a>Configurar F5 SSO
 
@@ -209,7 +209,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Abra uma nova janela do navegador web e inscreva-se no seu site da empresa F5 (Header Based) como administrador e execute os seguintes passos:
 
-1. Navegue para **a Gestão de Certificados > Sistema > Gestão de Certificados de Tráfego > Lista de Certificados SSL**. **Selecione Importar** do canto direito. Especifique um **Nome de Certificado** (será referenciado mais tarde no config). Na **Fonte**de Certificado , selecione Upload File especificar o certificado descarregado do Azure enquanto configura o Sinal Único DE SAML. Clique **em Importar.**
+1. Navegue para **a Gestão de Certificados > Sistema > Gestão de Certificados de Tráfego > Lista de Certificados SSL**. **Selecione Importar** do canto direito. Especifique um **Nome de Certificado** (será referenciado mais tarde no config). Na **Fonte** de Certificado , selecione Upload File especificar o certificado descarregado do Azure enquanto configura o Sinal Único DE SAML. Clique **em Importar.**
 
     ![A screenshot mostra a Lista de Certificados S S L onde seleciona o nome do certificado e a fonte de certificado.](./media/headerf5-tutorial/configure12.png)
  
@@ -230,7 +230,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![A screenshot mostra a página De Propriedades do Fornecedor de Serviços.](./media/headerf5-tutorial/configure03.png) 
 
-1. Neste exemplo estamos a criar um novo Servidor Virtual como 192.168.30.20 com a porta 443. Especifique o endereço IP do Servidor Virtual no **Endereço destino**. Selecione o **Perfil SSL do**Cliente, selecione Criar novo. Especifique o certificado de inscrição previamente carregado (o certificado wild card neste exemplo) e a chave associada, e, em seguida, clique em **Guardar & Next**.
+1. Neste exemplo estamos a criar um novo Servidor Virtual como 192.168.30.20 com a porta 443. Especifique o endereço IP do Servidor Virtual no **Endereço destino**. Selecione o **Perfil SSL do** Cliente, selecione Criar novo. Especifique o certificado de inscrição previamente carregado (o certificado wild card neste exemplo) e a chave associada, e, em seguida, clique em **Guardar & Next**.
 
     >[!NOTE]
     >neste exemplo, o nosso webserver Interno está a funcionar na porta 888 e queremos publicá-lo com 443.
@@ -355,9 +355,9 @@ Esta secção destina-se a ser utilizada se não puder utilizar a configuração
 
     f. **Fonte de correspondência = %{session.server.landinguri}** 
 
-    exemplo, **Valor correspondente = /**_
+    exemplo, **Valor correspondente = /** _
 
-    h. Clique em _*atualização**
+    h. Clique em _ *atualização**
 
     i. Clique **em OK**
 
@@ -413,7 +413,7 @@ Esta secção destina-se a ser utilizada se não puder utilizar a configuração
 
 1. Atribua o perfil de acesso ao Servidor Virtual para que f5 BIG-IP APM aplique as definições de perfil no tráfego de entrada e execute a política de acesso previamente definida.
 
-    a. Clique **nos**  >  **principais**  >  **servidores virtuais de**tráfego local.
+    a. Clique **nos**  >  **principais**  >  **servidores virtuais de** tráfego local.
 
     ![A screenshot mostra a página lista de servidores virtuais.](./media/headerf5-tutorial/configure40.png)
  

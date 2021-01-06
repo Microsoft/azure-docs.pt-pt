@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1cbe5f986ca36ecc3b45cf4bb7ecffa7067a27bd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896434"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936622"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Quickstart: set and retrieve a secret from Azure Key Vault using a ARM template
 
@@ -24,7 +24,7 @@ ms.locfileid: "92896434"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Para completar este artigo:
 
 * O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permissões. O procedimento a seguir obtém o ID do objeto (GUID).
 
-    1. Executar o seguinte comando Azure PowerShell ou Azure CLI selecione **Experimente-o** e, em seguida, cole o script no painel de conchas. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta** .
+    1. Executar o seguinte comando Azure PowerShell ou Azure CLI selecione **Experimente-o** e, em seguida, cole o script no painel de conchas. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta**.
 
         # <a name="cli"></a>[CLI](#tab/CLI)
         ```azurecli-interactive
@@ -82,16 +82,16 @@ Mais amostras de modelo de azure key vault podem ser encontradas em [modelos Azu
 
     A menos que seja especificado, use o valor padrão para criar o cofre chave e um segredo.
 
-    * **Subscrição** : selecione uma subscrição do Azure.
-    * **Grupo de recursos** : selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK** .
-    * **Localização** : selecione uma localização. Por exemplo, **E.U.A. Central** .
-    * **Key Vault Name** : insira um nome para o cofre de chaves, que deve ser globalmente único dentro do espaço de nome .vault.azure.net. Precisa do nome na secção seguinte quando validar a implementação.
+    * **Subscrição**: selecione uma subscrição do Azure.
+    * **Grupo de recursos**: selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK**.
+    * **Localização**: selecione uma localização. Por exemplo, **E.U.A. Central**.
+    * **Key Vault Name**: insira um nome para o cofre de chaves, que deve ser globalmente único dentro do espaço de nome .vault.azure.net. Precisa do nome na secção seguinte quando validar a implementação.
     * **Id do inquilino:** a função do modelo recupera automaticamente o ID do seu inquilino. Não altere o valor predefinido.
     * **ID do utilizador de anúncios:** introduza o seu ID do objeto de utilizador Azure que recuperou dos [Pré-requisitos](#prerequisites).
     * **Nome Secreto:** insira um nome para o segredo que guarda no cofre da chave. Por exemplo, **palavra-passe.**
     * **Valor Secreto:** insira o valor secreto. Se armazenar uma palavra-passe, recomenda-se a utilização da palavra-passe gerada que criou nos Pré-requisitos.
-    * **Aceito os termos e condições acima apresentados** : selecione.
-3. Selecione **Comprar** . Depois de o cofre da chave ter sido implantado com sucesso, recebe uma notificação:
+    * **Aceito os termos e condições acima apresentados**: selecione.
+3. Selecione **Comprar**. Depois de o cofre da chave ter sido implantado com sucesso, recebe uma notificação:
 
     ![Modelo ARM, integração do Cofre chave, implementar notificação do portal](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -162,4 +162,4 @@ Neste arranque rápido, criou um cofre chave e um segredo usando um modelo ARM, 
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

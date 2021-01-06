@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451820"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934973"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de dados partilhada Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor e o motor de piscina SQL sem servidor.
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas. Atualmente, as bases de dados e as tabelas Parquet que são criadas nas piscinas Apache Spark são automaticamente partilhadas com o motor de piscina SQL sem servidor.
 
-Uma base de dados criada com uma obra Spark tornar-se-á visível com o mesmo nome para todas as piscinas spark atuais e futuras no espaço de trabalho, incluindo o motor de piscina SQL sem servidor.
+Uma base de dados criada com uma obra Spark tornar-se-á visível com o mesmo nome para todas as piscinas spark atuais e futuras no espaço de trabalho, incluindo o motor de piscina SQL sem servidor. Não é possível adicionar objetos personalizados (tabelas externas, vistas, procedimentos) diretamente nesta base de dados replicada utilizando a piscina SQL sem servidor.
 
 A base de dados padrão Spark, chamada `default` , também será visível no contexto da piscina SQL sem servidor como uma base de dados chamada `default` .
 

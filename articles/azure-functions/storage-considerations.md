@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções Azure
 description: Saiba mais sobre os requisitos de armazenamento das Funções Azure e sobre a encriptação de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107248"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936163"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções Azure
 
@@ -18,8 +18,8 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 |Serviço de armazenamento  | Utilização de funções  |
 |---------|---------|
 | [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as chaves de estado e de função de encadernação.  <br/>Também utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md). |
-| [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros usada para armazenar e executar o código de aplicação da sua função num [Plano de Consumo](functions-scale.md#consumption-plan) e Plano [Premium.](functions-scale.md#premium-plan) |
-| [Armazenamento de Filas do Azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md).   |
+| [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros usada para armazenar e executar o código de aplicação da sua função num [Plano de Consumo](consumption-plan.md) e Plano [Premium.](functions-premium-plan.md) |
+| [Armazenamento da fila Azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md).   |
 | [Armazenamento de tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
@@ -32,6 +32,8 @@ Ao criar uma aplicação de função, deve criar ou ligar para uma conta de Arma
 Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
 Embora possa utilizar uma conta de armazenamento existente com a sua aplicação de função, deve certificar-se de que cumpre estes requisitos. As contas de armazenamento criadas como parte da aplicação de função criam fluxo no portal Azure são garantidas para satisfazer estes requisitos de conta de armazenamento. No portal, as contas não suportadas são filtradas ao escolher uma conta de armazenamento existente enquanto criam uma aplicação de função. Neste fluxo, só é permitido escolher as contas de armazenamento existentes na mesma região que a app de função que está a criar. Para saber mais, consulte a [localização da conta de Armazenamento.](#storage-account-location)
+
+<!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## <a name="storage-account-guidance"></a>Orientação da conta de armazenamento
 
@@ -59,7 +61,15 @@ O fio de ligação da conta de armazenamento deve ser atualizado quando regenera
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-## <a name="mount-file-shares-linux"></a>Monte ações de ficheiros (Linux)
+### <a name="in-region-data-residency"></a>Residência de dados na região
+
+Quando todos os dados do cliente devem permanecer numa única região, a conta de armazenamento associada à aplicação de função deve ser uma com [redundância na região](../storage/common/storage-redundancy.md). Uma conta de armazenamento redundante na região também deve ser utilizada com [funções Azure Durable](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+
+Outros dados de clientes geridos pela plataforma só são armazenados na região quando hospedados num Ambiente de Serviço de Aplicações (ASE) equilibrado internamente. Para saber mais, consulte [a redundância da zona ASE.](../app-service/environment/zone-redundancy.md#in-region-data-residency)
+
+## <a name="mount-file-shares"></a>Monte ações de arquivo
+
+_Esta funcionalidade só se encontra disponível quando se encontra disponível no Linux._ 
 
 Pode montar as partilhas de Ficheiros Azure existentes nas suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) comando para montar uma parte existente na sua aplicação de função Linux. 
 

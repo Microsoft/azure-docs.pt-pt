@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: ca5f237585f74225a04091b5694dbfad12864332
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 555709776c88dd3003e400bbcefe2ec1cfa0f4af
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656041"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934174"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -68,9 +68,9 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 ## <a name="language-analyzer-list"></a>Lista de analisadores de idiomas 
  Abaixo está a lista de línguas suportadas juntamente com nomes de analisadores lucene e Microsoft.  
 
-| Linguagem | Nome do analisador da Microsoft | Nome do analisador lucene |  |
-|--|--|--|--|
-| Árabe | ar.microsoft | ar.lucene |  |
+| Linguagem | Nome do analisador da Microsoft | Nome do analisador lucene |
+|--|--|--|
+| Árabe | ar.microsoft | ar.lucene |
 | Arménio |  | hy.lucene |  |
 | Bangla | bn.microsoft |  |  |
 | Basco |  | eu.lucene |  |

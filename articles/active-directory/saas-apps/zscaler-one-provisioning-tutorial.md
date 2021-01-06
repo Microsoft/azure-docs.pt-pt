@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f6725045064b74079e00ca5bbe1d560f3b19f3ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006222"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937134"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler One para fornecimento automático de utilizadores
 
@@ -78,6 +78,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 > [!TIP]
 > Também pode ativar o sign-on único baseado em SAML para Zscaler One. Siga as instruções no [Zscaler Um único tutorial de inscrição](zscaler-One-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
+> [!NOTE]
+> Quando os utilizadores e grupos são provisionados ou des provisionados, recomendamos reiniciar periodicamente o provisionamento para garantir que os membros do grupo sejam corretamente atualizados. Fazer um reinício forçará o nosso serviço a reavaliar todos os grupos e a atualizar os membros.  
+
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para zscaler one em Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zscaler One**.
@@ -98,7 +101,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **credenciais de administrador,** preencha as caixas DE URL e **Token Secreto** do **Arrendatário** com as definições para a sua conta Zscaler One, conforme descrito no Passo 6.
 
-6. Para obter o URL do inquilino **Administration** e o token secreto, vá às  >  **Definições de Autenticação** da Administração no portal Zscaler One UI. No **tipo de autenticação,** selecione **SAML**.
+6. Para obter o URL do inquilino e o token secreto, vá às  >  **Definições de Autenticação** da Administração no portal Zscaler One UI. No **tipo de autenticação,** selecione **SAML**.
 
     ![Definições de autenticação Zscaler One](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 

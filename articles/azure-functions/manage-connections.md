@@ -4,12 +4,12 @@ description: Saiba como evitar problemas de desempenho em Funções Azure utiliz
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 53848e6273cf59439d44b431652981b18bdd5ba6
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755961"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936707"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações em Funções Azure
 
@@ -19,7 +19,7 @@ As funções numa aplicação de função partilham recursos. Entre esses recurs
 
 O número de ligações disponíveis é limitado em parte porque uma aplicação de função funciona num [ambiente de caixa de areia.](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) Uma das restrições que a caixa de areia impõe no seu código é um limite para o número de ligações de saída, que atualmente é de 600 ligações ativas (1.200 no total) por exemplo. Quando se atinge este limite, o tempo de execução das funções escreve a seguinte mensagem para os registos: `Host thresholds exceeded: Connections` . Para mais informações, consulte os limites de [serviço funções.](functions-scale.md#service-limits)
 
-Este limite é por exemplo. Quando o [controlador de escala adiciona instâncias de aplicação](functions-scale.md#how-the-consumption-and-premium-plans-work) de função para lidar com mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não há limite de ligação global, e você pode ter muito mais de 600 conexões ativas em todos os casos ativos.
+Este limite é por exemplo. Quando o [controlador de escala adiciona instâncias de aplicação](event-driven-scaling.md) de função para lidar com mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não há limite de ligação global, e você pode ter muito mais de 600 conexões ativas em todos os casos ativos.
 
 Ao resolver problemas, certifique-se de que ativou o Application Insights para a sua aplicação de função. O Application Insights permite-lhe visualizar métricas para as suas aplicações de função como execuções. Para obter mais informações, consulte [a telemetria em Insights de Aplicação](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 

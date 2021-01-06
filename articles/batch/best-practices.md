@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694176"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934293"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -24,6 +24,9 @@ Este artigo discute uma coleção de boas práticas e dicas úteis para usar efi
 ### <a name="pool-configuration-and-naming"></a>Configuração da piscina e nomeação
 
 - **Modo de atribuição de piscinas** Ao criar uma conta Batch, pode escolher entre dois modos de atribuição de piscinas: **serviço de lote** ou **subscrição do utilizador.** Na maioria dos casos, deve utilizar o modo de serviço Predefinido Batch, no qual os pools são atribuídos nos bastidores em subscrições geridas pelo Batch. No modo de subscrição de utilizador alternativo, as VMs do Batch e outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. As contas de subscrição do utilizador são usadas principalmente para permitir um subconjunto importante, mas pequeno, de cenários. Pode ler mais sobre o modo de subscrição do utilizador na [configuração adicional para o modo de subscrição do utilizador](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **'cloudServiceConfiguration' ou 'virtualMachineConfiguration'.**
+    "Configuração virtual da Máquina" deve ser utilizada. Todas as funcionalidades do Lote são suportadas por piscinas 'virtualMachineConfiguration'. Nem todas as funcionalidades são suportadas por piscinas 'cloudServiceConfiguration' e não estão a ser planeadas novas capacidades.
 
 - **Considere o tempo de trabalho e de execução de tarefas ao determinar o trabalho para o mapeamento da piscina.**
     Se tiver empregos constituídos principalmente por tarefas de curto prazo, e as contagens totais de tarefas previstas forem reduzidas, de modo que o tempo de execução global esperado do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de atribuição dos nós diminuirá o tempo de funcionação do trabalho.

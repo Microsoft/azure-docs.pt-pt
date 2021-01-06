@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/04/2021
+ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916257"
+ms.locfileid: "97935908"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -94,7 +94,7 @@ Algumas das melhorias do formato token v2 estão disponíveis para aplicações 
 
 | Reivindicação JWT     | Nome                            | Descrição | Notas |
 |---------------|---------------------------------|-------------|-------|
-|`aud`          | Audiência | Sempre presente em JWTs, mas em fichas de acesso v1 pode ser emitida de várias maneiras, o que pode ser difícil de codificar quando executa a validação de token.  Utilize as [propriedades adicionais para esta alegação](#additional-properties-of-optional-claims) para garantir que está sempre definida para um GUID em fichas de acesso v1. | v1 JWT só fichas de acesso|
+|`aud`          | Audiência | Sempre presente em JWTs, mas em fichas de acesso v1 pode ser emitida de várias maneiras - qualquer appID URI, com ou sem um corte de fuga, bem como o ID do cliente do recurso. Esta aleatoriedade pode ser difícil de codificar quando se realiza a validação simbólica.  Utilize as [propriedades adicionais para esta alegação](#additional-properties-of-optional-claims) para garantir que está sempre definida para o ID do cliente do recurso em fichas de acesso v1. | v1 JWT só fichas de acesso|
 |`preferred_username` | Nome de utilizador preferido        | Fornece a reclamação de nome de utilizador preferido dentro de fichas v1. Isto facilita que as aplicações forneçam dicas de nome de utilizador e mostrem nomes de exibição legívels por humanos, independentemente do seu tipo de símbolo.  Recomenda-se que utilize esta alegação opcional em vez de usar, por `upn` exemplo, ou `unique_name` . | v1 Fichas de ID e fichas de acesso |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de créditos opcionais
@@ -108,8 +108,8 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto que as marcas de haxixe são `#` substituídas por sublinhados ( `_` ), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com`|
-| `aud`          |                          | Nos tokens de acesso v1, este é usado para alterar o formato da `aud` reclamação.  Isto não tem qualquer efeito em fichas v2 ou fichas de identificação, onde a `aud` reclamação é sempre a identificação do cliente. Utilize isto para garantir que a sua API pode realizar mais facilmente a validação do público. Tal como todas as reclamações opcionais que afetam o token de acesso, o recurso no pedido deve definir esta reclamação opcional, uma vez que os recursos são os donos do token de acesso.|
-|                | `use_guid`               | Emite o ID do cliente do recurso (API) no formato GUID como `aud` a reclamação em vez de um URI appid ou GUID. Assim, se o ID do cliente de um recurso `bb0a297b-6a42-4a55-ac40-09a501456577` for, qualquer app que solicite um token de acesso para esse recurso receberá um token de acesso `aud` com: `bb0a297b-6a42-4a55-ac40-09a501456577` .|
+| `aud`          |                          | Nos tokens de acesso v1, este é usado para alterar o formato da `aud` reclamação.  Isto não tem qualquer efeito em fichas v2 ou em qualquer uma das fichas de identificação de qualquer das versões, onde a `aud` reclamação é sempre a identificação do cliente. Utilize esta configuração para garantir que a sua API pode realizar mais facilmente a validação do público. Tal como todas as reclamações opcionais que afetam o token de acesso, o recurso no pedido deve definir esta reclamação opcional, uma vez que os recursos são os donos do token de acesso.|
+|                | `use_guid`               | Emite o ID do cliente do recurso (API) no formato GUID como a `aud` reclamação sempre em vez de ser dependente do tempo de execução. Por exemplo, se um recurso definir esta bandeira, e o seu ID do cliente `bb0a297b-6a42-4a55-ac40-09a501456577` é, qualquer app que solicite um token de acesso para esse recurso receberá um token de acesso `aud` com: `bb0a297b-6a42-4a55-ac40-09a501456577` . . </br></br> Sem este conjunto de reclamações, uma API poderia obter fichas com uma `aud` reivindicação de `api://MyApi.com` , ou qualquer outro valor definido como uma app `api://MyApi.com/` `api://myapi.com/AdditionalRegisteredField` ID URI para essa API, bem como o ID do cliente do recurso. |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 

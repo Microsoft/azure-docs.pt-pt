@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630773"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935361"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro R
 
-Este é o primeiro tutorial na série de tutoriais de implementação que são necessários para implantar completamente Azure Stack Edge Pro R. Este tutorial descreve como preparar o portal Azure para implementar um recurso Azure Stack Edge. O tutorial utiliza um dispositivo Azure Stack Edge Pro R de 1 nó enviado com uma fonte de alimentação ininterrupta (UPS).
+Este tutorial é o primeiro da série de tutoriais de implementação que são necessários para implementar completamente Azure Stack Edge Pro R. Este tutorial descreve como preparar o portal Azure para implementar um recurso Azure Stack Edge. O tutorial utiliza um dispositivo Azure Stack Edge Pro R de 1 nó enviado com uma fonte de alimentação ininterrupta (UPS).
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ Para implementar Azure Stack Edge Pro R, consulte os seguintes tutoriais na sequ
 | --- | --- |
 | **Preparação** |Estes passos devem ser concluídos em preparação para a próxima implantação. |
 | **[Lista de verificação de configuração de implementação](#deployment-configuration-checklist)** |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |
-| **[Pré-requisitos de implantação](#prerequisites)** |Estes validam o ambiente como estando preparado para a implementação. |
+| **[Pré-requisitos de implantação](#prerequisites)** |Estes pré-requisitos validam o ambiente está pronto para ser implantado. |
 |  | |
 |**Tutoriais de implantação** |Estes tutoriais são necessários para implementar o seu dispositivo Azure Stack Edge Pro R em produção. |
 |**[1. Prepare o portal Azure para o dispositivo](azure-stack-edge-pro-r-deploy-prep.md)** |Crie e configuure o seu recurso Azure Stack Edge antes de instalar um dispositivo físico Azure Stack Box Edge. |
@@ -47,7 +47,7 @@ Para implementar Azure Stack Edge Pro R, consulte os seguintes tutoriais na sequ
 |**[5. Configurações do dispositivo de configuração](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Atribua um nome do dispositivo e domínio DNS, configuure o servidor de atualização e o tempo do dispositivo. |
 |**[6. Configurar as definições de segurança](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)** |Configure certificados, VPN, encriptação em repouso para o seu dispositivo. Utilize certificados gerados pelo dispositivo ou traga os seus próprios certificados.   |
 |**[7. Ativar o dispositivo](azure-stack-edge-pro-r-deploy-activate.md)** |Utilize a chave de ativação do serviço para ativar o dispositivo. O dispositivo está pronto para configurar ações SMB ou NFS ou ligar via REST. |
-|**[8. Cálculo de configuração](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure o papel de computação no seu dispositivo. Isto também criará um cluster Kubernetes. |
+|**[8. Cálculo de configuração](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure o papel de computação no seu dispositivo. Um cluster Kubernetes também é criado. |
 
 Agora, pode começar a configurar o portal do Azure.
 
@@ -109,7 +109,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     
     |Definição  |Valor  |
     |---------|---------|
-    |Subscrição    |Isto é automaticamente povoado com base na seleção anterior. A subscrição está associada à sua conta de faturação. |
+    |Subscrição    |A subscrição é automaticamente povoada com base na seleção anterior. A subscrição está associada à sua conta de faturação. |
     |Grupo de recursos  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre os [Grupos de Recursos do Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Introduza ou selecione os **seguintes detalhes da Instância**.
@@ -117,7 +117,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     |Definição  |Valor  |
     |---------|---------|
     |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 carateres que contêm letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |
-    |Região     |Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Se utilizar o Governo de Azure, todas as regiões governamentais estão disponíveis, como mostra as regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/regions/)<br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
+    |Region     |Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Se utilizar o Governo de Azure, todas as regiões governamentais estão disponíveis, como mostra as regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/regions/)<br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
 
     ![Criar um recurso 4](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
 
@@ -150,7 +150,7 @@ Depois de o recurso ser criado e implementado com sucesso, é notificado. Seleci
 
 Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-mail) com detalhes de envio.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 Se encontrar problemas durante o processo de encomenda, consulte [problemas de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -158,20 +158,17 @@ Se encontrar problemas durante o processo de encomenda, consulte [problemas de o
 
 Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave de ativação. Esta chave é utilizada para ativar e ligar o seu dispositivo Azure Stack Edge Pro ao recurso. Pode obter esta chave agora enquanto está no portal do Azure.
 
-1. Selecione o recurso que criou. Selecione **Overview** e, em seguida, selecione **a configuração do dispositivo**.
+1. Selecione o recurso que criou e **selecione Overview**.
 
-    ![Selecione configuração do dispositivo](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. No painel direito, forneça um nome para o Cofre da Chave Azure ou aceite o nome predefinido. O nome do cofre pode estar entre 3 e 24 caracteres.
 
-2. No azulejo **Ativar,** forneça um nome para o Cofre da Chave Azure ou aceite o nome predefinido. O nome do cofre pode estar entre 3 e 24 caracteres. 
+   É criado um cofre-chave para cada recurso Azure Stack Edge que é ativado com o seu dispositivo. O cofre permite armazenar e aceder a segredos, por exemplo, a Chave de Integridade do Canal (CIK) para o serviço está armazenada no cofre da chave.
 
-    É criado um cofre-chave para cada recurso Azure Stack Edge que é ativado com o seu dispositivo. O cofre permite armazenar e aceder a segredos, por exemplo, a Chave de Integridade do Canal (CIK) para o serviço está armazenada no cofre da chave. 
+   Uma vez especificado um nome de cofre chave, **selecione Gerar a chave de ativação** para criar uma chave de ativação.
 
-    Uma vez especificado um nome de cofre de chave, **selecione Gerar a tecla** para criar uma chave de ativação. 
+   ![Obter a chave de ativação](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Obter a chave de ativação](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Aguarde alguns minutos à medida que a chave do cofre e da chave de ativação são criadas. Selecione o ícone de cópia para copiar a chave e guarde-a para posterior utilização.
-
+   Aguarde alguns minutos enquanto a chave do cofre e da chave de ativação são criadas. Selecione o ícone de cópia para copiar a chave e guarde-a para posterior utilização.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - A chave de ativação expira três dias após a sua geração.

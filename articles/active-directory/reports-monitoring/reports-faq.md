@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107435"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935092"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes em torno de relatórios do Azure Ative Directory
 
@@ -143,8 +143,8 @@ Este artigo inclui respostas a perguntas frequentes sobre relatórios do Azure A
 
 **A:** O estado de acesso condicional pode ter os seguintes valores:
 
-* **Não Aplicado**: Isto significa que não havia nenhuma política de CA com o utilizador e app no âmbito. 
-* **Sucesso**: Isto significa que houve uma política de CA com o utilizador e app no âmbito e as políticas de CA foram satisfeitas com sucesso. 
+* **Não Aplicado**: Isto significa que não havia nenhuma política de Acesso Condicional com o utilizador e app no âmbito. 
+* **Sucesso**: Isto significa que havia uma política de acesso condicional com o utilizador e app no âmbito e as políticas de Acesso Condicional foram satisfeitas com sucesso. 
 * **Falha**: A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
     
 **P: Quais são todos os valores possíveis para o resultado da política de acesso condicional?**
@@ -158,7 +158,7 @@ Este artigo inclui respostas a perguntas frequentes sobre relatórios do Azure A
     
 **P: O nome da política no relatório de todos os relatórios de inscrição não corresponde ao nome da política em CA. Porquê?**
 
-**A:** O nome da política no relatório de inscrição baseia-se no nome da política da AC no momento da inscrição. Isto pode ser inconsistente com o nome da política na AC se atualizar o nome da apólice mais tarde, isto é, após a inscrição.
+**A:** O nome da política no relatório de inscrição baseia-se no nome da política de acesso condicional no momento da inscrição. Isto pode ser inconsistente com o nome da política na AC se atualizar o nome da apólice mais tarde, isto é, após a inscrição.
 
 **P: A minha inscrição foi bloqueada devido a uma política de acesso condicional, mas o relatório de atividades de inscrição mostra que o sinal foi bem sucedido. Porquê?**
 

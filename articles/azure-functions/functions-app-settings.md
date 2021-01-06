@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898730"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937115"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -256,7 +256,7 @@ Apenas para consumo & Planos Premium. O caminho do ficheiro para o código e con
 O número máximo de casos a que a aplicação de função pode escalar. O padrão não é limite.
 
 > [!IMPORTANT]
-> Esta definição está em pré-visualização.  Foi adicionada uma propriedade de aplicativo para a escala máxima da [função](./functions-scale.md#limit-scale-out) e é a forma recomendada de limitar a escala.
+> Esta definição está em pré-visualização.  Foi adicionada uma propriedade de aplicativo para a escala máxima da [função](./event-driven-scaling.md#limit-scale-out) e é a forma recomendada de limitar a escala.
 
 |Chave|Valor da amostra|
 |---|------------|

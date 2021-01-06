@@ -1,20 +1,29 @@
 ---
-title: Integre Apache Kafka Connect em Azure Event Hubs (Preview) com Debezium para captura de dados de mudança
+title: Integre Apache Kafka Connect em Azure Event Hubs com Debezium para captura de dados de mudança
 description: Este artigo fornece informações sobre como usar Debezium com Azure Event Hubs para Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
-ms.date: 08/11/2020
-ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 01/06/2021
+ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505414"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935177"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integre o suporte do Apache Kafka Connect nos hubs de eventos Azure (Preview) com Debezium para captura de dados de mudança
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>Integre o suporte do Apache Kafka Connect nos hubs de eventos Azure com Debezium para captura de dados de mudança
 
 **Change Data Capture (CDC)** é uma técnica usada para rastrear alterações ao nível da linha nas tabelas de bases de dados em resposta à criação, atualização e eliminação de operações. [Debezium](https://debezium.io/) é uma plataforma distribuída que se baseia em cima das funcionalidades de Captura de Dados de Mudança disponíveis em diferentes bases de dados (por exemplo, [descodagem lógica em PostgreSQL).](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html) Fornece um conjunto de [conectores Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) que tocam em alterações ao nível da linha na tabela de bases de dados e convertem-nos em fluxos de eventos que são depois enviados para [Apache Kafka](https://kafka.apache.org/).
+
+> [!WARNING]
+> A utilização da estrutura Apache Kafka Connect, bem como da plataforma Debezium e dos seus conectores não são **elegíveis para suporte ao produto através do Microsoft Azure**.
+>
+> Apache Kafka Connect assume que a sua configuração dinâmica deve ser realizada em tópicos compactados com retenção ilimitada. O Azure Event Hubs [não implementa a compactação como recurso de corretor](event-hubs-federation-overview.md#log-projections) e impõe sempre um limite de retenção baseado no tempo em eventos retidos, baseando-se no princípio de que o Azure Event Hubs é um motor de streaming de eventos em tempo real e não uma loja de dados ou configuração a longo prazo.
+>
+> Embora o projeto Apache Kafka possa estar confortável em misturar estes papéis, a Azure acredita que essa informação é melhor gerida numa base de dados ou numa loja de configuração adequada.
+>
+> Muitos cenários apache Kafka Connect serão funcionais, mas estas diferenças conceptuais entre os modelos de retenção de Apache Kafka e Azure Event Hubs podem fazer com que certas configurações não funcionem como esperado. 
 
 Este tutorial explica-lhe como configurar um sistema baseado na captura de dados de mudança em Azure usando [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), [Azure DB para PostgreSQL](../postgresql/overview.md) e Debezium. Utilizará o [conector Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificações de base de dados de postgresQL a tópicos kafka em Azure Event Hubs
 

@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007098"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936214"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
@@ -45,6 +45,12 @@ O Serviço de Aplicações também pode hospedar aplicações web de forma nativ
 ### <a name="built-in-languages-and-frameworks"></a>Línguas e quadros incorporados
 
 O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
+
+Os tempos de execução desatualizados são periodicamente removidos das lâminas de criação e configuração de aplicações web no Portal. Estes tempos de execução são escondidos do Portal quando são depreciados pela organização de manutenção ou se constatam que têm vulnerabilidades significativas. Estas opções estão escondidas para guiar os clientes para os tempos mais recentes onde serão os mais bem sucedidos. 
+
+Quando um tempo de execução desatualizado é escondido do Portal, qualquer um dos seus sites existentes usando essa versão continuará a ser executado. Se um tempo de execução for totalmente removido da plataforma do Serviço de Aplicações, o seu(s) proprietário de subscrição Azure receberá um aviso de e-mail antes da remoção.
+
+Se precisar de criar outra aplicação web com uma versão desatualizada que já não seja mostrada no Portal consulte os guias de configuração de idiomas para obter instruções sobre como obter a versão de tempo de execução do seu site. Pode utilizar o CLI Azure para criar outro site com o mesmo tempo de funcionamento. Em alternativa, pode utilizar o botão **Modelo de Exportação** na lâmina da aplicação web no Portal para exportar um modelo ARM do site. Pode reutilizar este modelo para implantar um novo site com o mesmo tempo de funcionação e configuração.
 
 ### <a name="limitations"></a>Limitações
 

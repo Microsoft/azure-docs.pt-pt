@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: f270f74f97a9b9306d7b23dacec12c38f418dbd1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fb85920b04e3cd457dc36d1ba1fd0f18dcd7abb6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921817"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937064"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -20,11 +20,11 @@ Neste tutorial, cria e implementa o seu código para Azure Functions como um rec
 As Funções Azure suportam qualquer idioma ou tempo de execução utilizando [manipuladores personalizados](functions-custom-handlers.md). Para algumas línguas, como a linguagem de programação R utilizada neste tutorial, é necessário instalar o tempo de funcionamento ou bibliotecas adicionais como dependências que requerem a utilização de um recipiente personalizado.
 ::: zone-end
 
-A implementação do seu código de função num recipiente Linux personalizado requer [um plano Premium](functions-premium-plan.md#features) ou um plano de hospedagem dedicado [(Serviço de Aplicações).](functions-scale.md#app-service-plan) Completar este tutorial incorre em custos de alguns dólares americanos na sua conta Azure, que pode minimizar através da [limpeza de recursos](#clean-up-resources) quando terminar.
+A implementação do seu código de função num recipiente Linux personalizado requer [um plano Premium](functions-premium-plan.md) ou um plano de hospedagem dedicado [(Serviço de Aplicações).](dedicated-plan.md) Completar este tutorial incorre em custos de alguns dólares americanos na sua conta Azure, que pode minimizar através da [limpeza de recursos](#clean-up-resources) quando terminar.
 
 Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > [!div class="checklist"]
@@ -410,7 +410,7 @@ Uma aplicação de função no Azure gere a execução das suas funções no seu
     ```
     ::: zone-end
     
-    O parâmetro *de designação-imagem-contentor* especifica a imagem a utilizar para a aplicação de função. Pode utilizar o comando de demonstração do recipiente de [config do az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para visualizar informações sobre a imagem utilizada para a implantação. Também pode utilizar o comando conjunto de conjunto de conjunto de conjuntos de [config do az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantar a partir de uma imagem diferente.
+    O parâmetro *de designação-imagem-contentor* especifica a imagem a utilizar para a aplicação de função. Pode utilizar o comando de demonstração do recipiente de [config do az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para visualizar informações sobre a imagem utilizada para a implantação. Também pode utilizar o comando conjunto de conjuntos de [config do az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantar a partir de uma imagem diferente.
 
 1. Exiba o fio de ligação para a conta de armazenamento que criou utilizando o comando [de série de ligação de ligação da conta az.](/cli/azure/storage/account) `<storage-name>`Substitua-o pelo nome da conta de armazenamento que criou acima:
 

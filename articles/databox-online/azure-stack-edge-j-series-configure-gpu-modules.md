@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891466"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935565"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configure e execute um módulo em GPU no dispositivo Azure Stack Edge Pro
 
@@ -26,49 +26,62 @@ Este artigo descreve como configurar e executar um módulo na GPU no seu disposi
 
 Antes de começar, certifique-se de que:
 
-1. Tem acesso a um dispositivo GPU ativado por 1 nó Azure Stack Edge Pro. Este dispositivo é ativado com um recurso em Azure.  
+1. Tem acesso a um dispositivo GPU ativado por 1 nó Azure Stack Edge Pro. Este dispositivo está ativado com um recurso no Azure.  
 
-## <a name="configure-module-to-use-gpu"></a>Módulo de configuração para utilizar GPU
+## <a name="configure-module-to-use-gpu"></a>Configurar o módulo para utilizar a GPU
 
-Para configurar um módulo para utilizar a GPU no seu dispositivo Azure Stack Edge Pro para executar um módulo, siga estes passos.
+Para configurar um módulo para utilizar a GPU no seu dispositivo Azure Stack Edge Pro para executar um módulo,<!--Can it be simplified? "To configure a module to be run by the GPU on your Azure Stack Edge Pro device,"?--> seguir estes passos.
 
-1. No portal Azure, aceda ao recurso associado ao seu dispositivo. 
+1. No portal Azure, aceda ao recurso associado ao seu dispositivo.
 
-2. Vá ao **Edge compute > Começar**. No azulejo **computacional Configure Edge,** selecione Configure.
+2. Em **Visão Geral**, selecione **IoT Edge**.
 
     ![Módulo de configuração para utilizar GPU 1](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-1.png)
 
-3. Na lâmina de **computação Configure Edge:**
+3. No **serviço Enable IoT Edge**, selecione **Add**.
 
-    1. Para **IoT Hub,** escolha **Criar novo**.
-    2. Forneça um nome para o recurso IoT Hub que pretende criar para o seu dispositivo. Para utilizar um nível livre, selecione um recurso existente. 
-    3. Tome nota do dispositivo IoT Edge e do dispositivo IoT Gateway que são criados com o recurso IoT Hub. Utilizará esta informação nos passos posteriores.
+   ![Módulo de configuração para utilizar GPU 2](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
 
-    ![Módulo de configuração para utilizar GPU 2](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
+4. No **serviço Create IoT Edge,** introduza as definições para o seu recurso IoT Hub:
 
-4. Leva vários minutos para criar o recurso IoT Hub. Após a criação do recurso, no azulejo **computacional Configure Edge,** selecione **Ver config** para ver os detalhes do recurso IoT Hub.
+   |Campo   |Valor    |
+   |--------|---------|
+   |Subscrição      | Subscrição utilizada pelo recurso Azure Stack Edge. |
+   |Grupo de recursos    | Grupo de recursos utilizado pelo recurso Azure Stack Edge. |
+   |IoT Hub           | Escolha entre **criar novo** ou **utilizar existente.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+   |Name              | Se não quiser utilizar o nome padrão fornecido para um novo recurso IoT Hub, insira um nome diferente. |
 
-    ![Módulo de configuração para utilizar GPU 4](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-4.png)
+   Quando terminar as definições, selecione **Review + Create**. Reveja as definições do seu recurso IoT Hub e selecione **Criar**.
 
-5. Aceda à **gestão automática de dispositivos > IoT Edge**.
+   ![Começar com o compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-    ![Módulo de configuração para utilizar GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
+   A criação de recursos para um recurso IoT Hub demora vários minutos. Após a criação do recurso, a **Visão Geral** indica que o serviço IoT Edge está agora em execução.
 
-    No painel direito, vê o dispositivo IoT Edge associado ao seu dispositivo Azure Stack Edge Pro. Isto corresponde ao dispositivo IoT Edge que criou no passo anterior ao criar o recurso IoT Hub. 
-    
-6. Selecione este dispositivo IoT Edge.
+   ![Começar com o computo 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+
+5. Para confirmar que a função de computação Edge foi configurada, selecione **Properties**.
+
+   ![Começar com o compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+6. Em **Properties**, selecione o link para **o dispositivo IoT Edge**.
+
+   ![Módulo de configuração para utilizar GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
+
+   No painel direito, vê o dispositivo IoT Edge associado ao seu dispositivo Azure Stack Edge Pro. Este dispositivo corresponde ao dispositivo IoT Edge que criou ao criar o recurso IoT Hub.
+ 
+7. Selecione este dispositivo IoT Edge.
 
    ![Módulo de configuração para utilizar GPU 7](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-3.png)
 
-7.  Selecione **Definir módulos**.
+8. Selecione **Definir módulos**.
 
-    ![Módulo de configuração para utilizar GPU 8](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-4.png)
+   ![Módulo de configuração para utilizar GPU 8](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-4.png)
 
-8. **Selecione + Adicione** e, em seguida, selecione + módulo **IoT Edge**. 
+9. **Selecione + Adicione** e, em seguida, selecione + módulo **IoT Edge**. 
 
     ![Módulo de configuração para utilizar GPU 9](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-5.png)
 
-9. No separador **Módulo de Borda IoT:**
+10. No separador **Módulo de Borda IoT:**
 
     1. Forneça o **URI de imagem.** Você usará o módulo Nvidia publicamente disponível **Digits** aqui. 
     
@@ -78,32 +91,32 @@ Para configurar um módulo para utilizar a GPU no seu dispositivo Azure Stack Ed
     
     ![Módulo de configuração para utilizar GPU 10](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-6.png)
 
-10. No separador **de variáveis Ambiente,** forneça o Nome da variável e o valor correspondente. 
+11. No separador **de variáveis Ambiente,** forneça o Nome da variável e o valor correspondente. 
 
     1. Para que o módulo atual utilize uma GPU neste dispositivo, utilize o NVIDIA_VISIBLE_DEVICES. 
 
-    2. Desa um valor para 0 ou 1. Isto garante que, pelo menos, uma GPU é utilizada pelo dispositivo para este módulo. Quando define o valor para 0, 1, isso implica que ambas as GPUs do seu dispositivo estão a ser utilizadas por este módulo.
+    2. Desa um valor para 0 ou 1. Um valor de 0 ou 1 garante que pelo menos uma GPU é utilizada pelo dispositivo para este módulo. Quando define o valor para 0, 1, isso implica que ambas as GPUs do seu dispositivo estão a ser utilizadas por este módulo.
 
-        ![Módulo de configuração para utilizar GPU 11](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-7.png)
+       ![Módulo de configuração para utilizar GPU 11](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-7.png)
 
-        Para obter mais informações sobre variáveis ambientais que você pode usar com o GPU da Nvidia, vá para o [tempo de funcionação do contentor nVidia](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
+       Para obter mais informações sobre variáveis ambientais que você pode usar com o GPU da Nvidia, vá para o [tempo de funcionação do contentor nVidia](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > Uma GPU só pode ser mapeada para um módulo. No entanto, um módulo pode usar um, ambos ou nenhum GPUs. 
+    > Uma GPU só pode ser mapeada para um módulo. No entanto, um módulo pode usar um, ambos ou nenhum GPUs.
 
-11. Insira um nome para o seu módulo. Neste ponto pode optar por fornecer ao recipiente criar opção e modificar as definições gémeas do módulo ou, se for feito, selecione **Adicionar**. 
+12. Insira um nome para o seu módulo. Neste ponto pode optar por fornecer ao recipiente criar opção e modificar as definições gémeas do módulo ou, se for feito, selecione **Adicionar**. 
 
     ![Módulo de configuração para utilizar GPU 12](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-8.png)
 
-12. Certifique-se de que o módulo está em execução e selecione **Review + Create**.    
+13. Certifique-se de que o módulo está em execução e selecione **Review + Create**.
 
     ![Módulo de configuração para utilizar GPU 13](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-9.png)
 
-13. No **separador 'Rever + Criar',** as opções de implantação selecionadas são apresentadas. Reveja as opções e **selecione Criar**.
+14. No **separador 'Rever + Criar',** as opções de implantação selecionadas são apresentadas. Reveja as opções e **selecione Criar**.
     
     ![Módulo de configuração para utilizar GPU 14](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-10.png)
 
-14. Tome nota do estado de **funcionação** do módulo. 
+15. Tome nota do estado de **funcionação** do módulo.
     
     ![Módulo de configuração para utilizar GPU 15](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-11.png)
 

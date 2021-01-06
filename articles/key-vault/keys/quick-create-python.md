@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7d1e4018382d26e4df289838ffbb03f1c87505e6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784614"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935024"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
@@ -29,7 +29,7 @@ Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os pas
 
 Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli) numa janela do terminal Linux.
 
-## <a name="set-up-your-local-environment"></a>Configurar o seu ambiente local
+## <a name="set-up-your-local-environment"></a>Configurar o ambiente local
 
 Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar o Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para obter mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](/java/api/overview/azure/identity-readme).
 
@@ -86,7 +86,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux
@@ -134,7 +134,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Executar o código
 
-Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_keys.py* . Em seguida, executar o código com o seguinte comando:
+Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_keys.py*. Em seguida, executar o código com o seguinte comando:
 
 ```terminal
 python kv_keys.py
@@ -198,7 +198,7 @@ Uma vez eliminada, uma chave permanece em estado apagado, mas recuperável por u
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se também quiser experimentar certificados e [segredos,](../certificates/quick-create-python.md) pode reutilizar o Key Vault criado neste artigo. [secrets](../secrets/quick-create-python.md)
+Se também quiser experimentar certificados e [segredos,](../certificates/quick-create-python.md) pode reutilizar o Key Vault criado neste artigo. [](../secrets/quick-create-python.md)
 
 Caso contrário, quando terminar com os recursos criados neste artigo, utilize o seguinte comando para eliminar o grupo de recursos e todos os seus recursos contidos:
 
@@ -211,5 +211,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Descrição geral do cofre de chave do Azure](../general/overview.md)
 - [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia de desenvolvedores do Azure Key Vault](../general/developers-guide.md)
-- [As melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Visão geral da segurança do Cofre de Chaves](../general/security-overview.md)
 - [Autenticar com cofre de chaves](../general/authentication.md)

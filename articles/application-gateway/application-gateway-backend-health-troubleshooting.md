@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397903"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934905"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de saúde na resolução de problemas de saúde no Gateway de Aplicação
 ==================================================
@@ -21,6 +21,9 @@ ms.locfileid: "93397903"
 --------
 
 Por predefinição, o Azure Application Gateway sonda servidores backend para verificar o seu estado de saúde e para verificar se estão prontos para atender pedidos. Os utilizadores também podem criar sondas personalizadas para mencionar o nome do anfitrião, o caminho a ser sondado e os códigos de estado a serem aceites como Saudáveis. Em cada caso, se o servidor backend não responder com sucesso, o Gateway de Aplicação marca o servidor como Insalubre e deixa de encaminhar pedidos para o servidor. Depois de o servidor começar a responder com sucesso, o Application Gateway volta a encaminhar os pedidos.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a saúde backend
 
@@ -373,7 +376,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
     f.  **Selecione Guardar** e verifique se pode ver o backend como Saudável. Em alternativa, pode fazê-lo através [do PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Verifique se o seu UDR tem uma rota predefinido (0.0.0.0/0) com o próximo salto não definido como **Internet** :
+1.  Verifique se o seu UDR tem uma rota predefinido (0.0.0.0/0) com o próximo salto não definido como **Internet**:
     
     a.  Siga os passos 1a e 1b para determinar a sua sub-rede.
 
@@ -381,7 +384,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
     c.  Verifique se existem rotas predefinidos (0.0.0.0/0) com o próximo salto não definido como **Internet**. Se a definição for **ou Aparelho Virtual** ou Gateway de Rede **Virtual,** certifique-se de que o seu aparelho virtual ou o dispositivo no local podem encaminhar corretamente o pacote de volta para o destino da Internet sem modificar o pacote.
 
-    d.  Caso contrário, altere o próximo salto para a **Internet** , selecione **Save** , e verifique a saúde do backend.
+    d.  Caso contrário, altere o próximo salto para a **Internet**, selecione **Save**, e verifique a saúde do backend.
 
 1.  Rota padrão anunciada pela ligação ExpressRoute/VPN à rede virtual sobre o BGP:
 

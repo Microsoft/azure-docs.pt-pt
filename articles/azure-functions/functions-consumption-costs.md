@@ -3,12 +3,12 @@ title: Estimativa dos custos do plano de consumo em Funções Azure
 description: Saiba como estimar melhor os custos que poderá incorrer ao executar a sua aplicação de função num plano de Consumo em Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168121"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934888"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
 
@@ -16,9 +16,9 @@ Existem atualmente três tipos de planos de hospedagem para uma app que funciona
 
 | Planear | Descrição |
 | ---- | ----------- |
-| [**Consumo**](functions-scale.md#consumption-plan) | Só é cobrado pelo tempo que a sua aplicação de função for executado. Este plano inclui uma página de[preços] [de subvenção gratuita]por subscrição.|
-| [**Premium**](functions-scale.md#premium-plan) | Fornece-lhe as mesmas funcionalidades e mecanismo de escala que o plano de Consumo, mas com um desempenho melhorado e acesso VNET. O custo baseia-se no seu nível de preços escolhido. Para saber mais, consulte [o plano Azure Functions Premium.](functions-premium-plan.md) |
-| [**Dedicado (Serviço de Aplicações)**](functions-scale.md#app-service-plan) <br/>(nível básico ou superior) | Quando precisar de correr em VMs dedicados ou isoladamente, use imagens personalizadas ou queira utilizar a sua capacidade de plano de serviço de aplicações em excesso. Utiliza [faturação regular do plano de aplicações.](https://azure.microsoft.com/pricing/details/app-service/) O custo baseia-se no seu nível de preços escolhido.|
+| [**Consumo**](consumption-plan.md) | Só é cobrado pelo tempo que a sua aplicação de função for executado. Este plano inclui uma página de[preços] [de subvenção gratuita]por subscrição.|
+| [**Premium**](functions-premium-plan.md) | Fornece-lhe as mesmas funcionalidades e mecanismo de escala que o plano de Consumo, mas com um desempenho melhorado e acesso VNET. O custo baseia-se no seu nível de preços escolhido. Para saber mais, consulte [o plano Azure Functions Premium.](functions-premium-plan.md) |
+| [**Dedicado (Serviço de Aplicações)**](dedicated-plan.md) <br/>(nível básico ou superior) | Quando precisar de correr em VMs dedicados ou isoladamente, use imagens personalizadas ou queira utilizar a sua capacidade de plano de serviço de aplicações em excesso. Utiliza [faturação regular do plano de aplicações.](https://azure.microsoft.com/pricing/details/app-service/) O custo baseia-se no seu nível de preços escolhido.|
 
 Escolheu o plano que melhor suporta o desempenho da sua função e os requisitos de custos. Para saber mais, consulte [a escala e hospedagem de Funções Azure.](functions-scale.md)
 
@@ -75,7 +75,7 @@ Utilize [o explorador de métricas Azure Monitor](../azure-monitor/platform/metr
 
 1. No topo do [portal Azure] em **serviços de pesquisa, recursos e docs**  procure `monitor` e selecione **Monitor** em **Serviços**.
 
-1. À esquerda, selecione **Métricas**  >  **Selecione um recurso**e, em seguida, use as definições abaixo da imagem para escolher a sua aplicação de função.
+1. À esquerda, selecione **Métricas**  >  **Selecione um recurso** e, em seguida, use as definições abaixo da imagem para escolher a sua aplicação de função.
 
     ![Selecione o seu recurso de aplicação de função](media/functions-consumption-costing/select-a-resource.png)
 
@@ -101,7 +101,7 @@ O gráfico resultante contém os totais para ambas as métricas de execução no
 
 Como o número de unidades de execução é muito maior do que a contagem de execução, o gráfico apenas mostra unidades de execução.
 
-Este gráfico mostra um total de 1,11 mil milhões `Function Execution Units` consumidos num período de duas horas, medido em MB-milissegundos. Para converter em GB-segundos, divida por 1024000. Neste exemplo, a aplicação de função consumiu `1110000000 / 1024000 = 1083.98` GB-segundos. Pode pegar neste valor e multiplicar-se pelo preço atual do tempo de execução na página de preços da [página de preços das Funções][pricing page], o que lhe dá o custo destas duas horas, assumindo que já utilizou quaisquer subsídios gratuitos de tempo de execução. 
+Este gráfico mostra um total de 1,11 mil milhões `Function Execution Units` consumidos num período de duas horas, medido em MB-milissegundos. Para converter em GB-segundos, divida por 1024000. Neste exemplo, a aplicação de função consumiu `1110000000 / 1024000 = 1083.98` GB-segundos. Pode pegar neste valor e multiplicar-se pelo preço atual do tempo de execução na página de preços da [página de preços das Funções][], o que lhe dá o custo destas duas horas, assumindo que já utilizou quaisquer subsídios gratuitos de tempo de execução. 
 
 #### <a name="azure-cli"></a>CLI do Azure
 

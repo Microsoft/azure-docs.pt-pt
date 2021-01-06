@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182513"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937047"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
@@ -67,7 +67,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
     | _Subscrição_ | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
     | [_Grupo de recursos_](../azure-resource-manager/management/overview.md) | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  A utilização do mesmo grupo de recursos facilita a limpeza dos recursos quando termina este tutorial. |
     | _Nome da máquina virtual_ | myVM | O nome VM tem de ser único no grupo de recursos |
-    | [_Região_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
+    | [_Region_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
     | _Portas de entrada públicas_ | Nenhum | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
 
 1. Escolha o _separador 'Rede'_ e selecione **Criar novo** para configurar uma nova rede virtual.
@@ -130,7 +130,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
 
 ## <a name="create-an-azure-functions-app"></a>Criar uma aplicação de Funções do Azure
 
-O próximo passo é criar uma aplicação de função em Azure utilizando o [plano de Consumo.](functions-scale.md#consumption-plan) Coloque o seu código de função neste recurso mais tarde no tutorial.
+O próximo passo é criar uma aplicação de função em Azure utilizando o [plano de Consumo.](consumption-plan.md) Coloque o seu código de função neste recurso mais tarde no tutorial.
 
 1. No portal, escolha **Adicionar** no topo da vista do grupo de recursos.
 1. Selecione App de **Função de > Compute**
@@ -149,7 +149,7 @@ O próximo passo é criar uma aplicação de função em Azure utilizando o [pla
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](./functions-scale.md#storage-account-requirements) |
+    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](storage-considerations.md#storage-account-requirements) |
     | _Sistema operativo_ | Sistema operativo preferido | Um sistema operativo é pré-selecionado para si com base na seleção da sua pilha de tempo de execução, mas pode alterar a definição se necessário. |
     | _Planear_ | Consumo | O [plano de hospedagem](./functions-scale.md) dita como a aplicação de função é dimensionada e os recursos disponíveis para cada instância. |
 1. Selecione **Review + Criar** para rever as seleções de configuração da aplicação.

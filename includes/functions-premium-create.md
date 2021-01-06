@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: functions
 author: jeffhollan
 ms.service: azure-functions
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eaea46044f0da4766fda051655d57caee9d98b6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85121574"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937024"
 ---
 1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
-1. Na **nova** página, selecione App de Função **computacional**  >  **Function App**.
+1. Na **nova** página, selecione App de Função **computacional**  >  .
 
 1. Na página **Basics,** utilize as definições da aplicação de função conforme especificado no quadro seguinte:
 
@@ -36,7 +36,7 @@ ms.locfileid: "85121574"
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements) |
+    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](../articles/azure-functions/storage-considerations.md#storage-account-requirements) |
     |**Sistema operativo**| Sistema operativo preferido | Um sistema operativo é pré-selecionado para si com base na seleção da sua pilha de tempo de execução, mas pode alterar a definição se necessário. Python só é apoiado em Linux. |
     | **[Planear](../articles/azure-functions/functions-scale.md)** | Premium | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. Selecione **Premium**. Por padrão, é criado um novo plano de Serviço de Aplicações. O **Sku padrão e o tamanho** é **EP1,** onde EP significa _prémio elástico_. Para saber mais, consulte a [lista de SKUs Premium.](../articles/azure-functions/functions-premium-plan.md#available-instance-skus)<br/>Ao executar funções JavaScript num plano Premium, deve escolher um caso que tenha menos vCPUs. Para obter mais informações, consulte [Escolha os planos Premium de núcleo único.](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions)  |
 

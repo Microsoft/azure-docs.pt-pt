@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021007"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936880"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -21,9 +21,9 @@ Os modelos de hospedagem têm diferentes níveis de isolamento de rede disponív
 Pode hospedar aplicações de função de várias maneiras:
 
 * Pode escolher entre opções de plano que funcionam numa infraestrutura multitenante, com vários níveis de conectividade de rede virtual e opções de escala:
-    * O [plano de consumo](functions-scale.md#consumption-plan) escala dinamicamente em resposta à carga e oferece opções mínimas de isolamento de rede.
-    * O [plano Premium](functions-scale.md#premium-plan) também escala dinamicamente e oferece um isolamento de rede mais abrangente.
-    * O plano Azure [App Service](functions-scale.md#app-service-plan) funciona a uma escala fixa e oferece isolamento de rede semelhante ao plano Premium.
+    * O [plano de consumo](consumption-plan.md) escala dinamicamente em resposta à carga e oferece opções mínimas de isolamento de rede.
+    * O [plano Premium](functions-premium-plan.md) também escala dinamicamente e oferece um isolamento de rede mais abrangente.
+    * O plano Azure [App Service](dedicated-plan.md) funciona a uma escala fixa e oferece isolamento de rede semelhante ao plano Premium.
 * Pode executar funções num [Ambiente de Serviço de Aplicações.](../app-service/environment/intro.md) Este método implementa a sua função na sua rede virtual e oferece controlo e isolamento completos da rede.
 
 ## <a name="matrix-of-networking-features"></a>Matriz de funcionalidades de networking
@@ -34,7 +34,7 @@ Pode hospedar aplicações de função de várias maneiras:
 
 Pode utilizar as restrições de acesso para definir uma lista de endereços IP encomendados por prioridade que sejam permitidos ou impedidos de aceder à sua aplicação. A lista pode incluir endereços IPv4 e IPv6, ou sub-redes de rede virtuais específicas utilizando [pontos finais de serviço](#use-service-endpoints). Quando há uma ou mais entradas, existe um "negar tudo" implícito no final da lista. As restrições ip funcionam com todas as opções de hospedagem de funções.
 
-As restrições de acesso estão disponíveis no Serviço [premium,](functions-premium-plan.md) [consumo](functions-scale.md#consumption-plan)e [aplicação.](functions-scale.md#app-service-plan)
+As restrições de acesso estão disponíveis no Serviço [premium,](functions-premium-plan.md) [consumo](consumption-plan.md)e [aplicação.](dedicated-plan.md)
 
 > [!NOTE]
 > Com as restrições de rede em vigor, só pode ser implantado a partir da sua rede virtual, ou quando tiver colocado o endereço IP da máquina que está a utilizar para aceder ao portal Azure na lista de Destinatários Seguros. No entanto, ainda é possível gerir a função utilizando o portal.
@@ -128,7 +128,7 @@ Atualmente, pode utilizar funções de gatilho não-HTTP a partir de uma rede vi
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano premium com gatilhos de rede virtual
 
-Quando executar um plano Premium, pode ligar funções de gatilho não-HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de gatilho de rede virtual para a sua aplicação de função. A definição **de monitorização da escala de tempo** de execução encontra-se no portal [Azure](https://portal.azure.com) nas definições de tempo de funcionamento da função **de configuração**  >  **Function runtime settings**.
+Quando executar um plano Premium, pode ligar funções de gatilho não-HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de gatilho de rede virtual para a sua aplicação de função. A definição **de monitorização da escala de tempo** de execução encontra-se no portal [Azure](https://portal.azure.com) nas definições de tempo de funcionamento da função **de configuração**  >  .
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

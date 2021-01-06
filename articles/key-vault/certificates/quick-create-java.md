@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Biblioteca de clientes Azure Key Vault Certificate para Java
-description: Fornece um quickstart para a biblioteca de clientes Azure Key Vault Certificate para Java.
+title: Quickstart para a biblioteca de clientes do Certificado de Cofre de Chaves Azure - Java
+description: Conheça a biblioteca do cliente do Azure Key Vault Certificate para Java com os passos neste arranque rápido.
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
@@ -8,19 +8,19 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 1890c2a3d4043d43dd890f06942dbe704e3f7689
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733522"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936044"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-java"></a>Quickstart: Azure Key Vault Certificate client library for Java
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Quickstart: Azure Key Vault Certificate client library for Java (Certificados)
 Começa com a biblioteca de clientes do Azure Key Vault Certificate para a Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
 Recursos adicionais:
 
-* [Código fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
+* [Código de origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
 * [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java/keyvault.html)
 * [Documentação do produto](index.yml)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
@@ -126,7 +126,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445188"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936248"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -41,7 +41,7 @@ As permissões individuais de chaves, segredos e certificados devem ser utilizad
 
 Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 
-- [As melhores práticas do Azure Key Vault](best-practices.md)
+- [Visão geral da segurança do Cofre de Chaves Azure](security-overview.md)
 - [Limites de serviço Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Funções incorporadas do Azure para operações de plano de dados key vault (pré-visualização)
@@ -224,7 +224,7 @@ Para obter mais informações sobre como criar funções personalizadas, consult
 
 -   Funitências latência: no desempenho esperado atual, levará até 10 minutos (600 segundos) após a alteração das atribuições de funções para que o papel seja aplicado
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 - [Visão geral do Azure RBAC](../../role-based-access-control/overview.md)
 - [Tutorial de Papéis Personalizados](../../role-based-access-control/tutorial-custom-role-cli.md)

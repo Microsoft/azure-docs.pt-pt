@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049388"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935891"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo de relatório de acesso condicional?
 
@@ -30,7 +30,7 @@ O modo apenas de relatório é um novo estado de política de acesso condicional
 - Os clientes com uma subscrição do Azure Monitor podem monitorizar o impacto das suas políticas de Acesso Condicional utilizando o livro de insights de acesso condicional.
 
 > [!WARNING]
-> As políticas no modo apenas de relatórios que exijam dispositivos compatíveis podem levar os utilizadores de Mac, iOS e Android a selecionarem um certificado de dispositivo durante a avaliação da política, mesmo que a conformidade com o dispositivo não seja aplicada. Estas indicações podem repetir-se até que o dispositivo fique em conformidade. Para evitar que os utilizadores finais recebam solicitações durante a entrada, exclua as plataformas de dispositivos Mac, iOS e Android de políticas apenas de relatórios que realizem verificações de conformidade com dispositivos. Note que o modo apenas de relatório não é aplicável às políticas de CA com âmbito "Ações do Utilizador".
+> As políticas no modo apenas de relatórios que exijam dispositivos compatíveis podem levar os utilizadores de Mac, iOS e Android a selecionarem um certificado de dispositivo durante a avaliação da política, mesmo que a conformidade com o dispositivo não seja aplicada. Estas indicações podem repetir-se até que o dispositivo fique em conformidade. Para evitar que os utilizadores finais recebam solicitações durante a entrada, exclua as plataformas de dispositivos Mac, iOS e Android de políticas apenas de relatórios que realizem verificações de conformidade com dispositivos. Note que o modo apenas de relatório não é aplicável para políticas de acesso condicional com âmbito de "Ações do utilizador".
 
 ![Separador apenas de relatório no registo de login Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

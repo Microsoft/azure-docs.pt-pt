@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746034"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936996"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
 
@@ -27,7 +27,7 @@ Com manipuladores personalizados, pode utilizar [gatilhos e entradas e encaderna
 
 Começa com os manipuladores personalizados da Azure Functions com [quickstarts em Go e Rust.](create-first-function-vs-code-other.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O diagrama seguinte mostra a relação entre o anfitrião Funções e um servidor web implementado como um manipulador personalizado.
 
@@ -407,7 +407,7 @@ Ao definir a `message` saída igual aos dados de encomenda que vieram do pedido,
 Para funções desencadeadas por HTTP sem encadernações ou saídas adicionais, poderá querer que o seu manipulador trabalhe diretamente com o pedido e resposta HTTP em vez do pedido de [pedido](#request-payload) personalizado e das cargas de [resposta](#response-payload) personalizadas. Este comportamento pode ser configurado em *host.jsna* utilização da `enableForwardingHttpRequest` definição.
 
 > [!IMPORTANT]
-> O principal objetivo da funcionalidade de manipuladores personalizados é ativar idiomas e tempos de execução que não têm atualmente suporte de primeira classe em Funções Azure. Embora possa ser possível executar aplicações web usando manipuladores personalizados, a Azure Functions não é um proxy padrão reverso. Algumas funcionalidades, como o streaming de resposta, HTTP/2 e WebSockets não estão disponíveis. Alguns componentes do pedido HTTP, tais como certos cabeçalhos e rotas, podem ser restringidos. A sua aplicação também pode experimentar [um arranque a frio](functions-scale.md#cold-start)excessivo.
+> O principal objetivo da funcionalidade de manipuladores personalizados é ativar idiomas e tempos de execução que não têm atualmente suporte de primeira classe em Funções Azure. Embora possa ser possível executar aplicações web usando manipuladores personalizados, a Azure Functions não é um proxy padrão reverso. Algumas funcionalidades, como o streaming de resposta, HTTP/2 e WebSockets não estão disponíveis. Alguns componentes do pedido HTTP, tais como certos cabeçalhos e rotas, podem ser restringidos. A sua aplicação também pode experimentar [um arranque a frio](event-driven-scaling.md#cold-start)excessivo.
 >
 > Para resolver estas circunstâncias, considere executar as suas aplicações web no [Azure App Service](../app-service/overview.md).
 

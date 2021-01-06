@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422540"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936792"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -80,7 +80,7 @@ $TriggerMetadata.sys
 | Nome metóddio | O nome da Função que foi desencadeada     | string   |
 | Rio RandGuid   | um guia único para esta execução da função | string   |
 
-Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` for contém o , , , , entre `QueueTrigger` `InsertionTime` `Id` `DequeueCount` outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, aceda à [documentação oficial para os gatilhos da fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com que está a trabalhar para ver o que vem dentro dos metadados do gatilho.
+Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` for contém o , entre `QueueTrigger` `InsertionTime` `Id` `DequeueCount` outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, aceda à [documentação oficial para os gatilhos da fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com que está a trabalhar para ver o que vem dentro dos metadados do gatilho.
 
 ## <a name="bindings"></a>Enlaces
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
-| Nome | Tipo | Posição | Description |
+| Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
@@ -418,7 +418,7 @@ Utilize os seguintes passos para alterar a versão PowerShell utilizada pela sua
 
 1. No [portal Azure,](https://portal.azure.com)navegue pela sua aplicação de função.
 
-1. Em **Definições** , escolha **Configuração**. No separador **Definições Gerais,** localize a **versão PowerShell**. 
+1. Em **Definições**, escolha **Configuração**. No separador **Definições Gerais,** localize a **versão PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Escolha a versão PowerShell utilizada pela aplicação de função"::: 
 
@@ -470,7 +470,7 @@ Quando atualiza o ficheiro requirements.psd1, os módulos atualizados são insta
 
 As seguintes definições de aplicação podem ser usadas para alterar a forma como as dependências geridas são descarregadas e instaladas. A atualização da sua aplicação começa dentro `MDMaxBackgroundUpgradePeriod` de , e o processo de atualização completa dentro de aproximadamente o `MDNewSnapshotCheckPeriod` .
 
-| Definição de aplicativo de função              | Valor predefinido             | Description                                         |
+| Definição de aplicativo de função              | Valor predefinido             | Descrição                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalhador PowerShell inicia a verificação de atualizações de módulos na PowerShell Gallery no início do processo e em todas as `MDMaxBackgroundUpgradePeriod` seguintes. Quando uma nova versão do módulo está disponível na PowerShell Gallery, é instalada no sistema de ficheiros e disponibilizada aos trabalhadores do PowerShell. Diminuir este valor permite que a sua aplicação de função obtenha versões de módulos mais recentes mais cedo, mas também aumenta o uso de recursos da aplicação (rede I/O, CPU, armazenamento). O aumento deste valor diminui o uso de recursos da app, mas também pode atrasar a entrega de novas versões de módulos à sua app. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois de serem instaladas novas versões de módulos no sistema de ficheiros, todos os processos de trabalhadores powerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade da sua aplicação, uma vez que pode interromper a execução da função atual. Até que todos os processos do trabalhador powerShell sejam reiniciados, as invocações de função podem usar as versões antigas ou novas do módulo. Reiniciar todos os trabalhadores da PowerShell completos dentro `MDNewSnapshotCheckPeriod` de . Aumentar este valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões antigas ou novas do módulo não deterministicamente. |
@@ -525,7 +525,7 @@ Vários módulos são comumente usados pelo trabalhador da língua PowerShell. E
 A lista atual de módulos é a seguinte:
 
 * [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo utilizado para trabalhar com arquivos, `.zip` `.nupkg` como, e outros.
-* **ThreadJob** : Uma implementação baseada em linha das APIs de trabalho powerShell.
+* **ThreadJob**: Uma implementação baseada em linha das APIs de trabalho powerShell.
 
 Por predefinição, as Funções utilizam a versão mais recente destes módulos. Para utilizar uma versão específica do módulo, coloque essa versão específica na `Modules` pasta da sua aplicação de função.
 
@@ -649,11 +649,11 @@ Quando trabalhar com funções PowerShell, esteja ciente das considerações nas
 
 ### <a name="cold-start"></a>Início a Frio
 
-Ao desenvolver Funções Azure no [modelo de hospedagem sem servidor,](functions-scale.md#consumption-plan)o frio é uma realidade. *Início a frio* refere-se ao período de tempo que a sua aplicação de função leva a começar a funcionar para processar um pedido. O arranque a frio acontece com mais frequência no plano de Consumo porque a sua aplicação de função é desligada durante períodos de inatividade.
+Ao desenvolver Funções Azure no [modelo de hospedagem sem servidor,](consumption-plan.md)o frio é uma realidade. *Início a frio* refere-se ao período de tempo que a sua aplicação de função leva a começar a funcionar para processar um pedido. O arranque a frio acontece com mais frequência no plano de Consumo porque a sua aplicação de função é desligada durante períodos de inatividade.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Módulos de pacote em vez de usar `Install-Module`
 
-O teu guião é executado em todas as invocações. Evite usar `Install-Module` no seu script. Em vez disso, utilize `Save-Module` antes de publicar para que a sua função não tenha de perder tempo a descarregar o módulo. Se os arranques frios estiverem a afetar as suas funções, considere implementar a sua aplicação de função num [plano de Serviço de Aplicações](functions-scale.md#app-service-plan) definido para sempre *num* [plano Premium.](functions-scale.md#premium-plan)
+O teu guião é executado em todas as invocações. Evite usar `Install-Module` no seu script. Em vez disso, utilize `Save-Module` antes de publicar para que a sua função não tenha de perder tempo a descarregar o módulo. Se os arranques frios estiverem a afetar as suas funções, considere implementar a sua aplicação de função num [plano de Serviço de Aplicações](dedicated-plan.md) definido para sempre *num* [plano Premium.](functions-premium-plan.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

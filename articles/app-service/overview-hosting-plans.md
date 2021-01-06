@@ -6,16 +6,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a29d81be9b750d89230a180b8a7c786466d99bb8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183010"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936435"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
-No Serviço de Aplicações (Aplicações Web, Apps API ou Aplicações Móveis), uma aplicação funciona sempre num _plano de Serviço de Aplicações._ Além disso, [a Azure Functions](../azure-functions/functions-scale.md#app-service-plan) também tem a opção de executar um _plano de Serviço de Aplicações._ Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Estes recursos computacional são análogos à fazenda de [_servidores_](https://wikipedia.org/wiki/Server_farm) no alojamento web convencional. Uma ou mais aplicações podem ser configuradas para funcionar nos mesmos recursos informáticos (ou no mesmo plano de Serviço de Aplicações).
+No Serviço de Aplicações (Aplicações Web, Apps API ou Aplicações Móveis), uma aplicação funciona sempre num _plano de Serviço de Aplicações._ Além disso, [a Azure Functions](../azure-functions/dedicated-plan.md) também tem a opção de executar um _plano de Serviço de Aplicações._ Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Estes recursos computacional são análogos à fazenda de [_servidores_](https://wikipedia.org/wiki/Server_farm) no alojamento web convencional. Uma ou mais aplicações podem ser configuradas para funcionar nos mesmos recursos informáticos (ou no mesmo plano de Serviço de Aplicações).
 
 Quando se cria um plano de Serviço de Aplicações numa determinada região (por exemplo, Europa Ocidental), é criado um conjunto de recursos computacionares para esse plano naquela região. Quaisquer que sejam as aplicações que você colocou neste plano de Serviço de Aplicações executam estes recursos computacional como definido pelo seu plano de Serviço de Aplicações. Cada Plano do Serviço de Aplicações define o seguinte:
 

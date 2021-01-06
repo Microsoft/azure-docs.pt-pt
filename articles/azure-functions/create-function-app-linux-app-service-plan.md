@@ -3,16 +3,16 @@ title: Criar uma aplicação de função no Linux a partir do portal Azure
 description: Saiba como criar a sua primeira Função Azure no Linux utilizando o portal Azure.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 20390239ed58e42749e9a3bae472a2f3f6324bb2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 34a93795b5e041ccef8e9576f97092e16c429444
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181259"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937183"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar uma aplicação de função no Linux num plano de Serviço de Aplicações Azure
 
-As Funções do Azure permitem-lhe alojar as suas funções no Linux num contentor predefinido do Serviço de Aplicações do Azure. Este artigo percorre a forma de utilizar o [portal Azure](https://portal.azure.com) para criar uma aplicação de função hospedada em Linux que funciona num [plano de Serviço de Aplicações.](functions-scale.md#app-service-plan) Também pode [trazer o seu próprio contentor personalizado](functions-create-function-linux-custom-image.md).
+As Funções do Azure permitem-lhe alojar as suas funções no Linux num contentor predefinido do Serviço de Aplicações do Azure. Este artigo percorre a forma de utilizar o [portal Azure](https://portal.azure.com) para criar uma aplicação de função hospedada em Linux que funciona num [plano de Serviço de Aplicações.](dedicated-plan.md) Também pode [trazer o seu próprio contentor personalizado](functions-create-function-linux-custom-image.md).
 
 ![Criar uma aplicação de função no portal do Azure](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
@@ -28,7 +28,7 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
 
 1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
-1. Na **nova** página, selecione App de Função **computacional**  >  **Function App**.
+1. Na **nova** página, selecione App de Função **computacional**  >  .
 
     :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-flow.png" alt-text="Criar uma aplicação de funções no portal do Azure":::
 
@@ -46,11 +46,11 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
 
     :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Página básica":::
 
-1. Selecione **Seguinte : Hospedagem**. Na página **'Hospedagem',** insira as seguintes definições.
+1. Selecione **Seguinte: Alojamento**. Na página **'Hospedagem',** insira as seguintes definições.
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](../azure-functions/functions-scale.md#storage-account-requirements) |
+    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](../azure-functions/storage-considerations.md#storage-account-requirements) |
     |**Sistema operativo**| **Linux** | Um sistema operativo é pré-selecionado para si com base na seleção da sua pilha de tempo de execução, mas pode alterar a definição se necessário. |
     | **[Planear](../azure-functions/functions-scale.md)** | **Consumo (Sem servidor)** | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No **Plano de Consumo** predefinido, os recursos são adicionados dinamicamente, conforme necessário por parte das suas funções. Neste hospedagem [sem servidor,](https://azure.microsoft.com/overview/serverless-computing/) paga-se apenas pelo tempo que as suas funções são executadas. Quando executa num plano do Serviço de Aplicações, tem de gerir o [dimensionamento da sua aplicação de funções](../azure-functions/functions-scale.md).  |
 
@@ -119,7 +119,7 @@ Esta secção mostra-lhe como criar uma função na sua nova aplicação de fun�
 
    ![Visualizador de registo de funções no portal do Azure.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

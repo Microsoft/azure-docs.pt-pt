@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81428956"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936333"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mundos de segurança Azure Key Vault e fronteiras geográficas
 
@@ -43,6 +43,3 @@ No artigo de região, por exemplo, o separador **Americas** contém OS EUA, CENT
 >Uma exceção é que os EUA DOD EAST e US DOD CENTRAL têm os seus próprios mundos de segurança. 
 
 Da mesma forma, no **que** dizê-lo, a EUROPA DO NORTE e a Europa Ocidental ambos mapeiam para a região europeia. O mesmo acontece também com a **guia da Ásia-Pacífico.**
-
-
-

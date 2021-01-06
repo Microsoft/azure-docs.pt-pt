@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f9c11c0671db882edd9a72bca8d11c7326edee43
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589802"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936894"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
 
@@ -28,8 +28,8 @@ Uma implantação de funções Azure consiste tipicamente nestes recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Um aplicativo de função                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
+| Um aplicativo de função                                                                     | Necessário    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Necessário    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
 | Um componente [de Insights de Aplicação](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -175,7 +175,7 @@ Estas propriedades estão especificadas na `appSettings` coleção do `siteConfi
 
 ## <a name="deploy-on-consumption-plan"></a>Implantação no plano de consumo
 
-O plano de consumo atribui automaticamente a potência de computação quando o seu código está em funcionamento, escala-se conforme necessário para manusear a carga e, em seguida, escala quando o código não está em funcionamento. Não tens de pagar por VMs ociosos, e não tens de reservar capacidade antecipadamente. Para saber mais, consulte [a escala e hospedagem de Funções Azure.](functions-scale.md#consumption-plan)
+O plano de consumo atribui automaticamente a potência de computação quando o seu código está em funcionamento, escala-se conforme necessário para manusear a carga e, em seguida, escala quando o código não está em funcionamento. Não tens de pagar por VMs ociosos, e não tens de reservar capacidade antecipadamente. Para saber mais, consulte [a escala e hospedagem de Funções Azure.](consumption-plan.md)
 
 Para obter uma amostra do modelo do Gestor de Recursos Azure, consulte [a aplicação funções no plano de consumo.]
 

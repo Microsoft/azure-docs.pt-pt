@@ -3,12 +3,12 @@ title: Variáveis em modelos
 description: Descreve como definir variáveis num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353464"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934667"
 ---
 # <a name="variables-in-arm-template"></a>Variáveis no modelo ARM
 
@@ -28,7 +28,7 @@ O exemplo a seguir mostra uma definição variável. Cria um valor de cadeia par
 },
 ```
 
-Não é possível utilizar a função [de referência](template-functions-resource.md#reference) ou qualquer das funções da [lista](template-functions-resource.md#list) na secção de variáveis. Estas funções obtêm o estado de funcionamento de um recurso, e não podem ser executadas antes da implementação quando as variáveis são resolvidas.
+Não é possível utilizar a função [de referência](template-functions-resource.md#reference) ou qualquer das funções da [lista](template-functions-resource.md#list) na `variables` secção. Estas funções obtêm o estado de funcionamento de um recurso, e não podem ser executadas antes da implementação quando as variáveis são resolvidas.
 
 ## <a name="use-variable"></a>Utilizar variável
 
@@ -63,7 +63,7 @@ Pode definir variáveis que possuam valores relacionados para configurar um ambi
 },
 ```
 
-Nos parâmetros, cria-se um valor que indica quais os valores de configuração a utilizar.
+Em `parameters` , criar um valor que indique quais os valores de configuração a utilizar.
 
 ```json
 "parameters": {

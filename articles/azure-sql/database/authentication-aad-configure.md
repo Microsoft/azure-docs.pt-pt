@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2c7db937905baed94c6fe81adeb44c8b3f5be52b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454493"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936078"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -395,7 +395,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 > [!NOTE]
-> Este comando requer que o SQL aceda a Azure AD (o "fornecedor externo") em nome do utilizador com início. Por vezes, surgirão circunstâncias que fazem com que a Azure AD devolva uma exceção ao SQL. Nestes casos, o utilizador verá o erro SQL 33134, que deve conter a mensagem de erro específica da AD Azure. Na maior parte das vezes, o erro dirá que o acesso é negado, ou que o utilizador deve inscrever-se no MFA para aceder ao recurso, ou que o acesso entre aplicações de primeira parte deve ser tratado através da pré-autorização. Nos dois primeiros casos, o problema é geralmente causado por políticas de acesso condicional que são definidas no inquilino Azure AD do utilizador: impedem o utilizador de aceder ao fornecedor externo. Atualizar as políticas da AC para permitir o acesso à aplicação '0000002-0000-0000-c0000-000000000000000000000) (o ID de aplicação da AZure AD Graph API) deve resolver a questão. No caso de o erro dizer que o acesso entre aplicações de primeira parte deve ser tratado através da pré-autorização, a questão é porque o utilizador é inscrito como diretor de serviço. O comando deve ter sucesso se for executado por um utilizador.
+> Este comando requer que o SQL aceda a Azure AD (o "fornecedor externo") em nome do utilizador com início. Por vezes, surgirão circunstâncias que fazem com que a Azure AD devolva uma exceção ao SQL. Nestes casos, o utilizador verá o erro SQL 33134, que deve conter a mensagem de erro específica da AD Azure. Na maior parte das vezes, o erro dirá que o acesso é negado, ou que o utilizador deve inscrever-se no MFA para aceder ao recurso, ou que o acesso entre aplicações de primeira parte deve ser tratado através da pré-autorização. Nos dois primeiros casos, o problema é geralmente causado por políticas de acesso condicional que são definidas no inquilino Azure AD do utilizador: impedem o utilizador de aceder ao fornecedor externo. A atualização das políticas de acesso condicional para permitir o acesso à aplicação '0000002-0000-0000-c0000-0000000000000000000) (o ID de aplicação da AZure AD Graph API) deve resolver a questão. No caso de o erro dizer que o acesso entre aplicações de primeira parte deve ser tratado através da pré-autorização, a questão é porque o utilizador é inscrito como diretor de serviço. O comando deve ter sucesso se for executado por um utilizador.
 
 > [!TIP]
 > Não é possível criar diretamente um utilizador a partir de um Diretório Ativo Azure que não seja o Diretório Ativo Azure que esteja associado à sua subscrição Azure. No entanto, os membros de outros Diretórios Ativos que são utilizadores importados no Diretório Ativo associado (conhecido como utilizadores externos) podem ser adicionados a um grupo de Diretório Ativo no diretório ativo do inquilino. Ao criar um utilizador de base de dados contido para esse grupo de AD, os utilizadores do Diretório Ativo externo podem ter acesso à Base de Dados SQL.

@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168105"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936962"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -25,7 +25,7 @@ A tabela seguinte descreve os métodos de implantação disponíveis para o seu 
 | -- | -- | -- |
 | Baseado em ferramentas | &bull;&nbsp;[Publicação visual &nbsp; studio &nbsp; code &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação do Estúdio Visual](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação de Ferramentas Centrais](functions-run-local.md#publish) | Implementações durante o desenvolvimento e outras implementações de ad-hock. As implementações são geridas localmente pela ferramenta. | 
 | Serviço de Aplicações gerido| &bull;&nbsp;[Centro de Implantação &nbsp; &nbsp; (CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[&nbsp;Implantações de contentores](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Implantação contínua (CI/CD) do controlo de origem ou de um registo de contentores. As implementações são geridas pela plataforma de Serviço de Aplicações (Kudu).|
-| Gasodutos externos|&bull;&nbsp;[Oleodutos DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Ações do GitHub](functions-how-to-github-actions.md) | Os oleodutos de produção e DevOps que incluem validação adicional, testes e outras ações são executados como parte de uma implementação automatizada. As implementações são geridas pelo gasoduto. |
+| Gasodutos externos|&bull;&nbsp;[Gasodutos Azure](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Ações do GitHub](functions-how-to-github-actions.md) | Os oleodutos de produção e DevOps que incluem validação adicional, testes e outras ações são executados como parte de uma implementação automatizada. As implementações são geridas pelo gasoduto. |
 
 Embora as implementações específicas de funções utilizem a melhor tecnologia com base no seu contexto, a maioria dos métodos de implementação baseia-se na [implementação de zíperes](#zip-deploy).
 
@@ -33,9 +33,9 @@ Embora as implementações específicas de funções utilizem a melhor tecnologi
 
 A Azure Functions suporta o desenvolvimento local de plataformas cruzadas e hospedagem no Windows e Linux. Atualmente, três planos de hospedagem estão disponíveis:
 
-+ [Consumo](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
-+ [Dedicado (Serviço de Aplicações)](functions-scale.md#app-service-plan)
++ [Consumo](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dedicado (Serviço de Aplicações)](dedicated-plan.md)
 
 Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantação estão disponíveis para cada sabor das Funções Azure. O gráfico que se segue mostra quais as tecnologias de implantação suportadas para cada combinação de sistema operativo e plano de hospedagem:
 
@@ -96,7 +96,7 @@ As aplicações de função Linux que estão a decorrer no plano de Consumo não
 
 ##### <a name="dedicated-and-premium-plans"></a>Planos dedicados e premium
 
-As aplicações de função que funcionam no Linux no [plano Dedicado (Serviço de Aplicações)](functions-scale.md#app-service-plan) e o [plano Premium](functions-scale.md#premium-plan) também têm um site SCM/Kudu limitado.
+As aplicações de função que funcionam no Linux no [plano Dedicado (Serviço de Aplicações)](dedicated-plan.md) e o [plano Premium](functions-premium-plan.md) também têm um site SCM/Kudu limitado.
 
 ## <a name="deployment-technology-details"></a>Detalhes da tecnologia de implantação
 

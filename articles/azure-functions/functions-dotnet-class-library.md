@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções Azure usando C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 9e11d013b6e7473f290ba1ccb54857034491d116
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672670"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936928"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
 
@@ -138,7 +138,7 @@ public static class BindingExpressionsExample
 
 O processo de construção cria uma *function.jsno* ficheiro numa pasta de função na pasta de construção. Como já foi notado anteriormente, este ficheiro não deve ser editado diretamente. Não é possível alterar a configuração de encadernação ou desativar a função editando este ficheiro. 
 
-O objetivo deste ficheiro é fornecer informações ao controlador de escala para utilizar para [as decisões de escalonamento do plano de consumo.](functions-scale.md#how-the-consumption-and-premium-plans-work) Por esta razão, o ficheiro tem apenas informações de gatilho, não entradas ou encadernações de saída.
+O objetivo deste ficheiro é fornecer informações ao controlador de escala para utilizar para [as decisões de escalonamento do plano de consumo.](event-driven-scaling.md) Por esta razão, o ficheiro tem apenas informações de gatilho, não entradas ou encadernações de saída.
 
 O *function.js* gerado no ficheiro inclui uma `configurationSource` propriedade que diz ao tempo de execução para usar atributos .NET para encadernações, em vez *defunction.jsna* configuração. Eis um exemplo:
 
@@ -208,7 +208,7 @@ Se instalar as Ferramentas Core utilizando npm, isso não afeta a versão Core T
 
 ## <a name="readytorun"></a>ReadyToRun
 
-Pode compilar a sua aplicação de função como [binários ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun é uma forma de compilação antecipada que pode melhorar o desempenho do arranque para ajudar a reduzir o impacto do [arranque a frio](functions-scale.md#cold-start) ao executar um plano de [consumo.](functions-scale.md#consumption-plan)
+Pode compilar a sua aplicação de função como [binários ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun é uma forma de compilação antecipada que pode melhorar o desempenho do arranque para ajudar a reduzir o impacto do [arranque a frio](event-driven-scaling.md#cold-start) ao executar um plano de [consumo.](consumption-plan.md)
 
 O ReadyToRun está disponível em .NET 3.0 e requer [a versão 3.0 do tempo de funcionamento das Funções Azure](functions-versions.md).
 

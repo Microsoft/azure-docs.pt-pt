@@ -1,20 +1,20 @@
 ---
 title: Recursos infantis em modelos
-description: Descreve como definir o nome e o tipo de recursos para crianças num modelo de Gestor de Recursos Azure.
+description: Descreve como definir o nome e o tipo para recursos infantis num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97721948"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934310"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis
 
 Os recursos infantis são recursos que existem apenas no contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). O recurso de extensão é uma criança da máquina virtual.
 
-Cada recurso dos pais aceita apenas certos tipos de recursos como recursos infantis. O tipo de recurso para o recurso da criança inclui o tipo de recurso para o recurso principal. Por exemplo, **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos infantis da **Microsoft.Web/sites**. Os tipos de recursos aceites são especificados no esquema de [modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso principal.
+Cada recurso dos pais aceita apenas certos tipos de recursos como recursos infantis. O tipo de recurso para o recurso da criança inclui o tipo de recurso para o recurso principal. Por exemplo, `Microsoft.Web/sites/config` e ambos são recursos `Microsoft.Web/sites/extensions` infantis do `Microsoft.Web/sites` . Os tipos de recursos aceites são especificados no esquema de [modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso principal.
 
 Num modelo de Gestor de Recursos Azure (modelo ARM), pode especificar o recurso da criança dentro do recurso principal ou fora do recurso principal. O exemplo a seguir mostra o recurso da criança incluído na propriedade dos recursos do recurso principal.
 
@@ -89,7 +89,7 @@ O exemplo a seguir mostra uma rede virtual e com uma sub-rede. Note que a sub-re
 ]
 ```
 
-O tipo completo de recursos ainda é **Microsoft.Network/virtualNetworks/subnets**. Não fornece **Microsoft.Network/virtualNetworks/** porque é assumido do tipo de recurso principal.
+O tipo completo de recursos ainda `Microsoft.Network/virtualNetworks/subnets` está. Não `Microsoft.Network/virtualNetworks/` forneces porque é assumido do tipo de recursos dos pais.
 
 O nome do recurso para crianças está definido para **Subnet1,** mas o nome completo inclui o nome principal. Não **forneces o VNet1** porque é assumido pelo recurso dos pais.
 
@@ -102,7 +102,7 @@ Quando definido fora do recurso principal, você forma o tipo e com cortes para 
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definidas ao nível da raiz. Note que a sub-rede não está incluída no conjunto de recursos da rede virtual. O nome está definido para **VNet1/Subnet1** e o tipo está definido para **Microsoft.Network/virtualNetworks/subnetworks**/ . O recurso da criança é marcado como dependente do recurso principal porque o recurso principal deve existir antes de o recurso da criança poder ser implantado.
+O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definidas ao nível da raiz. Note que a sub-rede não está incluída no conjunto de recursos da rede virtual. O nome está definido para **VNet1/Subnet1** e o tipo está definido para `Microsoft.Network/virtualNetworks/subnets` . O recurso da criança é marcado como dependente do recurso principal porque o recurso principal deve existir antes de o recurso da criança poder ser implantado.
 
 ```json
 "resources": [
@@ -136,6 +136,6 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definid
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para aprender a criar modelos ARM, consulte [os modelos de autoria](template-syntax.md).
+* Para aprender a criar modelos ARM, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 
 * Para saber mais sobre o formato do nome do recurso ao fazer referência ao recurso, consulte a [função de referência](template-functions-resource.md#reference).

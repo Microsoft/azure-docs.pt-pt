@@ -1,14 +1,14 @@
 ---
 title: Regras de acesso a firewall
-description: Configure as regras de acesso a um registo de contentores Azure por trás de uma firewall, permitindo o acesso à API ("whitelisting") API e nomes de domínio de ponto final de dados ou intervalos de endereço IP específicos de serviço.
+description: Configure as regras de acesso a um registo de contentores Azure por trás de uma firewall, permitindo o acesso à API REST e aos nomes de domínio de ponto final de dados ou intervalos de endereços IP específicos do serviço.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148517"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935993"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure regras para aceder a um registo de contentores Azure atrás de uma firewall
 
@@ -115,7 +115,7 @@ Procure a região específica, como **Storage.AustraliaCentral.**
 
 Numa rede virtual Azure, utilize regras de segurança de rede para filtrar o tráfego de um recurso como uma máquina virtual para um registo de contentores. Para simplificar a criação das regras da rede Azure, utilize a etiqueta de [serviço](../virtual-network/network-security-groups-overview.md#service-tags) **AzureContainerRegistry** . Uma etiqueta de serviço representa um grupo de prefixos de endereço IP para aceder a um serviço Azure globalmente ou por região de Azure. A etiqueta é automaticamente atualizada quando os endereços mudam. 
 
-Por exemplo, crie uma regra de grupo de segurança de rede de saída com destino **AzureContainerRegistry** para permitir o tráfego a um registo de contentores Azure. Para permitir o acesso à etiqueta de serviço apenas numa região específica, especifique a região no seguinte formato: **AzureContainerRegistry**. [nome*da região].*
+Por exemplo, crie uma regra de grupo de segurança de rede de saída com destino **AzureContainerRegistry** para permitir o tráfego a um registo de contentores Azure. Para permitir o acesso à etiqueta de serviço apenas numa região específica, especifique a região no seguinte formato: **AzureContainerRegistry**. [nome *da região].*
 
 ## <a name="enable-dedicated-data-endpoints"></a>Ativar pontos finais de dados dedicados 
 
@@ -131,7 +131,7 @@ Pode ativar pontos finais de dados dedicados utilizando o portal Azure ou o CLI 
 Para ativar os pontos finais de dados utilizando o portal:
 
 1. Navegue para o seu registo de contentores.
-1. **Selecione acesso**público em rede  >  **Public access**.
+1. **Selecione acesso** público em rede  >  .
 1. Selecione a caixa de verificação **de ponto final de dados dedicada a Ativa.**
 1. Selecione **Guardar**.
 
@@ -143,7 +143,7 @@ Os pontos finais de dados ou pontos finais aparecem no portal.
 
 Para ativar os pontos finais de dados utilizando o Azure CLI, utilize a versão Azure CLI 2.4.0 ou superior. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-O seguinte comando [de atualização az acr][az-acr-update] permite pontos finais de dados dedicados num *mioctório*de registo . 
+O seguinte comando [de atualização az acr][az-acr-update] permite pontos finais de dados dedicados num *mioctório* de registo . 
 
 ```azurecli
 az acr update --name myregistry --data-endpoint-enabled

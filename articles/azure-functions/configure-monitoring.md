@@ -4,12 +4,12 @@ description: Saiba como ligar a sua aplicação de função a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825748"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937285"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar a monitorização para as funções do Azure
 
@@ -197,7 +197,7 @@ Para saber mais, consulte [a Amostragem em Insights de Aplicação.](../azure-mo
 
 _Esta funcionalidade está em pré-visualização._ 
 
-Pode ter o controlador de [escala Azure Functions](./functions-scale.md#runtime-scaling) emite registos para insights de aplicação ou para armazenamento blob para entender melhor as decisões que o controlador de escala está a tomar para a sua aplicação de função.
+Pode ter o controlador de [escala Azure Functions](./event-driven-scaling.md#runtime-scaling) emite registos para insights de aplicação ou para armazenamento blob para entender melhor as decisões que o controlador de escala está a tomar para a sua aplicação de função.
 
 Para ativar esta funcionalidade, adicione uma definição de aplicação nomeada `SCALE_CONTROLLER_LOGGING_ENABLED` para as definições da aplicação da sua função. O valor desta definição deve ser do `<DESTINATION>:<VERBOSITY>` formato, com base no seguinte:
 
