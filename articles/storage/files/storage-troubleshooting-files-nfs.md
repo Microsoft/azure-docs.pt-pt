@@ -8,16 +8,32 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708893"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916461"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Resolução de problemas Azure NFS ações de ficheiros
 
 Este artigo enumera alguns problemas comuns relacionados com as ações de ficheiros Azure NFS. Fornece potenciais causas e soluções quando estes problemas são encontrados.
+
+## <a name="chgrp-filename-failed-invalid-argument-22"></a>chgrp "filename" falhou: Argumento inválido (22)
+
+### <a name="cause-1-idmapping-is-not-disabled"></a>Causa 1: o idmapping não é desativado
+Os Ficheiros Azure não permite uid/GID alfanumérico. Portanto, o idmapping deve ser desativado. 
+
+### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Causa 2: o idmapping foi desativado, mas foi reativado depois de encontrar o nome de ficheiro/dir mau
+Mesmo que o idmapping tenha sido corretamente desativado, as definições para desativar o idmapping são ultrapassadas em alguns casos. Por exemplo, quando os Ficheiros Azure encontram um mau nome de ficheiro, envia de volta um erro. Ao ver este código de erro em particular, o cliente NFS v 4.1 Linux decide voltar a permitir o idmapping e os pedidos futuros são enviados novamente com UID/GID alfanumérico. Para obter uma lista de caracteres não suportados em Ficheiros Azure, consulte este [artigo](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). O cólon é um dos personagens não apoiados. 
+
+### <a name="workaround"></a>Solução
+Verifique se o idmapping está desativado e nada está a reativar e, em seguida, executar o seguinte:
+
+- Desmonte a parte
+- Desativar o id-mapping com # echo Y > /sys/module/nfs/parâmetros/nfs4_disable_idmapping
+- Monte a parte de volta
+- Se correr rsync, executar rsync com argumento "-- numérico-ids" do diretório que não têm nenhum mau nome dir/arquivo.
 
 ## <a name="unable-to-create-an-nfs-share"></a>Incapaz de criar uma quota NFS
 
@@ -52,7 +68,7 @@ O NFS só está disponível nas contas de armazenamento com a seguinte configura
 - Nível - Premium
 - Tipo de Conta - Arquivamento de Ficheiros
 - Redundância - LRS
-- Regiões - Leste dos EUA, Leste dos EUA 2, Reino Unido Sul, Ásia do Sul
+- Regiões - [Lista de regiões apoiadas](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Solução
 
@@ -90,7 +106,7 @@ O diagrama que se segue mostra conectividade utilizando pontos finais públicos.
     - A rede virtual que espreita com redes virtuais hospedadas no ponto final privado dá acesso à NFS de partilha aos clientes em redes virtuais.
     - Os pontos finais privados podem ser usados com ExpressRoute, ponto a local e VPNs site-to-site.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagrama de conectividade de ponto final público." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagrama de conectividade privada de ponto final." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Causa 2: A transferência segura necessária está ativada
 
@@ -100,7 +116,7 @@ A dupla encriptação ainda não é suportada para ações NFS. O Azure fornece 
 
 Desative a transferência segura necessária na lâmina de configuração da sua conta de armazenamento.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagrama de conectividade de ponto final público.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot da lâmina de configuração da conta de armazenamento, desativando a transferência segura necessária.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Causa 3: o pacote comum nfs não está instalado
 Antes de executar o comando de montagem, instale a embalagem executando o comando específico distro a partir de baixo.

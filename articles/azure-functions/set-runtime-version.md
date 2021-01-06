@@ -3,20 +3,24 @@ title: Como direcionar as versões de tempo de execução do Azure Functions
 description: O Azure Functions suporta várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de uma aplicação de função hospedada no Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: a7d86ef26d50d60389ae09bf3245ed97fea2c3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bf7849888033b2bbb7e9b9669ee3eae4de10e9
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88926580"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916529"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar as versões de tempo de execução do Azure Functions
 
 Uma aplicação de função executa numa versão específica do tempo de execução das Funções Azure. Existem três versões principais: [1.x, 2.x e 3.x](functions-versions.md). Por predefinição, as aplicações de função são criadas na versão 3.x do tempo de execução. Este artigo explica como configurar uma aplicação de função no Azure para executar na versão que escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste funções Azure localmente](functions-run-local.md).
 
+A forma como direciona manualmente uma versão específica depende se está a executar o Windows ou o Linux.
+
 ## <a name="automatic-and-manual-version-updates"></a>Atualizações automáticas e manuais da versão
 
-As Funções Azure permitem-lhe direcionar uma versão específica do tempo de execução utilizando a definição de `FUNCTIONS_EXTENSION_VERSION` aplicação numa aplicação de função. A aplicação de função é mantida na versão principal especificada até que você explicitamente opte por mudar para uma nova versão. Se especificar apenas a versão principal, a aplicação de função é automaticamente atualizada para novas versões menores do tempo de execução quando ficam disponíveis. As novas versões menores não devem introduzir mudanças de rutura. 
+_Esta secção não se aplica ao executar a sua aplicação de função [no Linux](#manual-version-updates-on-linux)._
+
+O Azure Functions permite-lhe direcionar uma versão específica do tempo de execução no Windows utilizando a definição de `FUNCTIONS_EXTENSION_VERSION` aplicação numa aplicação de função. A aplicação de função é mantida na versão principal especificada até que você explicitamente opte por mudar para uma nova versão. Se especificar apenas a versão principal, a aplicação de função é automaticamente atualizada para novas versões menores do tempo de execução quando ficam disponíveis. As novas versões menores não devem introduzir mudanças de rutura. 
 
 Se especificar uma versão menor (por exemplo, "2.0.12345"), a aplicação de função é fixada a essa versão específica até que a altere explicitamente. Versões menores mais antigas são regularmente removidas do ambiente de produção. Depois de isto ocorrer, a sua aplicação de função é executado na versão mais recente em vez da versão definida em `FUNCTIONS_EXTENSION_VERSION` . Por isso, deve resolver rapidamente quaisquer problemas com a sua app de função que exijam uma versão menor específica, para que possa, em vez disso, direcionar a versão principal. As remoçãos de versão menores são anunciadas nos [anúncios do Serviço de Aplicações](https://github.com/Azure/app-service-announcements/issues).
 
@@ -36,6 +40,8 @@ A tabela a seguir mostra os `FUNCTIONS_EXTENSION_VERSION` valores de cada versã
 Uma alteração na versão de tempo de execução faz com que uma aplicação de função reinicie.
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Ver e atualizar a versão atual do tempo de execução
+
+_Esta secção não se aplica ao executar a sua aplicação de função [no Linux](#manual-version-updates-on-linux)._
 
 Pode alterar a versão de tempo de execução utilizada pela sua aplicação de função. Devido ao potencial de rutura de alterações, só pode alterar a versão de tempo de execução antes de ter criado quaisquer funções na sua aplicação de função. 
 
@@ -97,7 +103,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 
 `<FUNCTION_APP>`Substitua-o pelo nome da sua aplicação de função. Substitua também `<RESOURCE_GROUP>` o nome do grupo de recursos para a sua aplicação de função. Além disso, `<VERSION>` substitua-a por uma versão específica, ou `~3` , ou `~2` `~1` .
 
-Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
+Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior.  Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -120,6 +126,65 @@ Como antes, `<FUNCTION_APP>` substitua-o pelo nome da sua aplicação de funçã
 ---
 
 A aplicação de função reinicia após a alteração da definição da aplicação.
+
+## <a name="manual-version-updates-on-linux"></a>Atualizações de versão manual no Linux
+
+Para fixar uma aplicação de função Linux a uma versão específica do anfitrião, especifica o URL de imagem no campo 'LinuxFxVersion' no site config. Por exemplo: se quisermos fixar uma aplicação de função nó 10 para dizer a versão anfitriã 3.0.13142 -
+
+Para **o serviço de aplicações linux/aplicativos premium elásticos** - Definir para `LinuxFxVersion` `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice` .
+
+Para **aplicações de consumo de linux** - Definir `LinuxFxVersion` para `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10` .
+
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli-linux)
+
+Pode ver e definir `LinuxFxVersion` o Azure CLI.  
+
+Utilizando o CLI Azure, veja a versão atual do tempo de execução com o comando de exibição de [config do az functionapp.](/cli/azure/functionapp/config)
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+Neste código, `<function_app>` substitua-o pelo nome da sua aplicação de função. Substitua também `<my_resource_group>` o nome do grupo de recursos para a sua aplicação de função. 
+
+Vê-se `linuxFxVersion` a seguinte saída, que foi truncada para clareza:
+
+```output
+{
+  ...
+
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+Pode atualizar a `linuxFxVersion` definição na aplicação de função com o comando [de definição de config do az functionapp.](/cli/azure/functionapp/config)
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+`<FUNCTION_APP>`Substitua-o pelo nome da sua aplicação de função. Substitua também `<RESOURCE_GROUP>` o nome do grupo de recursos para a sua aplicação de função. Além disso, `<LINUX_FX_VERSION>` substitua-o pelos valores acima explicados.
+
+Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior.  Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
+
+
+Da mesma forma, a aplicação de função reinicia após a alteração ser feita para o site config.
+
+> [!NOTE]
+> Note que a definição `LinuxFxVersion` para url de imagem diretamente para aplicações de consumo irá optá-las fora de espaços reservados e outras otimizações de início a frio.
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,17 +1,17 @@
 ---
 title: Criar e carregar um Linux VHD baseado em CentOS
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Linux baseado no CentOS.
-author: gbowerman
+author: danielsollondon
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 11/25/2019
-ms.author: guybo
-ms.openlocfilehash: aefad880d788502ece0e3ba246a06a7529a3cab9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/01/2020
+ms.author: danis
+ms.openlocfilehash: 74883e04170165c66fa389051a94cf349c3395cf
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499701"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916410"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Prepare a CentOS-based virtual machine for Azure (Preparar uma máquina virtual baseada em CentOS para o Azure)
 
@@ -29,10 +29,10 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
 
 * Consulte também [as notas de instalação do General Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre a preparação do Linux para o Azure.
 * O formato VHDX não é suportado em Azure, apenas **VHD fixo**.  Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o cmdlet converte-vhd. Se estiver a utilizar a VirtualBox, isto significa selecionar **o tamanho fixo** em oposição ao padrão atribuído dinamicamente ao criar o disco.
-* Ao instalar o sistema Linux *recomenda-se* que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM idêntico para resolução de problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados.
-* É necessário suporte kernel para a montagem de sistemas de ficheiros UDF. No início da boot on Azure, a configuração de provisionamento é passada para o Linux VM através de meios formatados pela UDF que estão ligados ao hóspede. O agente Azure Linux deve ser capaz de montar o sistema de ficheiros UDF para ler a sua configuração e provisão do VM.
+* Ao instalar o sistema Linux *recomenda-se* que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM idêntico para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados.
+* **É necessário suporte kernel para a montagem de sistemas de ficheiros UDF.** No início da boot on Azure, a configuração de provisionamento é passada para o Linux VM através de meios formatados pela UDF que estão ligados ao hóspede. O agente Azure Linux deve ser capaz de montar o sistema de ficheiros UDF para ler a sua configuração e provisão do VM.
 * As versões de kernel Linux abaixo de 2.6.37 não suportam UMA em Hiper-V com tamanhos VM maiores. Esta questão afeta principalmente as distribuições mais antigas utilizando o núcleo a montante do chapéu vermelho 2.6.32, e foi fixada em RHEL 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2.6.37, ou núcleos baseados em RHEL com mais de 2.6.32-504 devem definir o parâmetro de arranque `numa=off` na linha de comando do núcleo em grub.conf. Para mais informações consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
-* Não configuure uma partição de troca no disco OS. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários.  Mais informações sobre isso podem ser encontradas nos degraus abaixo.
+* Não configuure uma partição de troca no disco OS. Mais informações sobre isso podem ser encontradas nos degraus abaixo.
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1MB. Ao converter de um disco cru para VHD deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1MB antes da conversão. Consulte [as notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ## <a name="centos-6x"></a>CentOS 6.x
@@ -212,7 +212,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
 16. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
 
     ```bash
-    sudo waagent -force -deprovision
+    sudo waagent -force -deprovision+user
     export HISTSIZE=0
     logout
     ```
@@ -356,34 +356,106 @@ Preparar uma máquina virtual CentOS 7 para O Azure é muito semelhante ao CentO
     sudo dracut -f -v
     ```
 
-11. Instale o Agente Azure Linux e dependências:
+11. Instale o agente Azure Linux e dependências para extensões Azure VM:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
     sudo systemctl enable waagent
     ```
 
-12. Não crie espaço de troca no disco SO.
-
-    O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos local que é ligado ao VM após o provisionamento no Azure. Note que o disco de recursos local é um disco *temporário* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modificar adequadamente os seguintes `/etc/waagent.conf` parâmetros:
+12. Instale cloud-init para lidar com o provisionamento
 
     ```console
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
+
+    # Configure waagent for cloud-init
+    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+
+
+    echo "Adding mounts and disk_setup to init stage"
+    sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
+    sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+
+    echo "Allow only Azure datasource, disable fetching network setting via IMDS"
+    cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
+    datasource_list: [ Azure ]
+    datasource:
+    Azure:
+        apply_network_config: False
+    EOF
+
+    if [[ -f /mnt/resource/swapfile ]]; then
+    echo Removing swapfile - RHEL uses a swapfile by default
+    swapoff /mnt/resource/swapfile
+    rm /mnt/resource/swapfile -f
+    fi
+
+    echo "Add console log file"
+    cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
+
+    # This tells cloud-init to redirect its stdout and stderr to
+    # 'tee -a /var/log/cloud-init-output.log' so the user can see output
+    # there without needing to look on the console.
+    output: {all: '| tee -a /var/log/cloud-init-output.log'}
+    EOF
+
     ```
 
-13. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
 
-    ```bash
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
+13. Configuração de troca Não crie espaço de troca no disco do sistema operativo.
+
+    Anteriormente, o Agente Azure Linux foi utilizado automaticamente para configurar o espaço de troca utilizando o disco de recursos local que é ligado à máquina virtual após a colocação da máquina virtual no Azure. No entanto, isto é agora tratado por cloud-init, **não deve** utilizar o Agente Linux para formatar o disco de recursos criar o ficheiro swap, modificar os seguintes parâmetros de `/etc/waagent.conf` forma adequada:
+
+    ```console
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
-14. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
+    Se quiser montar, formatar e criar troca, pode:
+    * Passe isto como um config nuvem-init cada vez que você criar um VM
+    * Utilize uma diretiva em nuvem cozida na imagem que o fará sempre que o VM for criado:
+
+        ```console
+        cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+        #cloud-config
+        # Generated by Azure cloud image build
+        disk_setup:
+          ephemeral0:
+            table_type: mbr
+            layout: [66, [33, 82]]
+            overwrite: True
+        fs_setup:
+          - device: ephemeral0.1
+            filesystem: ext4
+          - device: ephemeral0.2
+            filesystem: swap
+        mounts:
+          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+        EOF
+        ```
+
+14. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
+
+    ```console
+    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+    # skip the deprovision step
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+
+
+    # export HISTSIZE=0
+
+    # logout
+    ```
+
+15. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

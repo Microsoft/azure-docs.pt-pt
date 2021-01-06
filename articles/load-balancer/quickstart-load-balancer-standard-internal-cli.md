@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fd85021da36d0e5ef32ce3f42c72b83016d38749
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 15060a367bba2d50d7054730321f7f20d4c25e46
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901356"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916682"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio usando Azure CLI
 
@@ -54,6 +54,8 @@ Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group#az_gr
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção. Para obter mais informações sobre skus, consulte **[SKUs do Balancer de Carga Azure](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos padrão do balanceador de carga criados para o arranque rápido." border="false":::
+
 ## <a name="configure-virtual-network---standard"></a>Configure rede virtual - Standard
 
 Antes de implementar VMs e implementar o seu balanceador de carga, crie os recursos de rede virtual de suporte.
@@ -84,7 +86,7 @@ Criar uma rede virtual utilizando [a rede az vnet criar:](/cli/azure/network/vne
 Utilize [a rede az public-ip criar](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público para o anfitrião do bastião:
 
 * Crie um endereço IP público redundante de zona padrão chamado **myBastionIP**.
-* Em **CCreateIntLBQS-rg **.
+* Em **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -99,7 +101,7 @@ Utilize [a sub-rede vnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-
 * Denominado **AzureBastionSubnet**.
 * Prefixo de endereço de **10.1.1.0/24**.
 * Na rede virtual **myVNet.**
-* No grupo de recursos **CreateIntLBQS-rg **.
+* No grupo de recursos **CreateIntLBQS-rg.**
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +116,7 @@ az network vnet subnet create \
 Utilize [o bastião da rede Az](/cli/azure/network/bastion#az-network-bastion-create) para criar um hospedeiro de bastião:
 
 * Chamado **myBastionHost.**
-* Em **CreateIntLBQS-rg **.
+* Em **CreateIntLBQS-rg**.
 * Associado ao IP público **myBastionIP**.
 * Associado à rede virtual **myVNet.**
 * Na localização **leste.**
@@ -348,6 +350,8 @@ Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-co
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção. Para obter mais informações sobre o SKUS, consulte **[skus do balançador de carga Azure.](skus.md)**
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos básicos do balanceador de carga criados em arranque rápido." border="false":::
 
 ## <a name="configure-virtual-network---basic"></a>Configure rede virtual - Básico
 

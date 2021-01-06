@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema do JSON que é publicado num URL webhook
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901441"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916643"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, você pode configurar pontos finais webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para ações pós-processamento ou personalizadas. Este artigo mostra como é a carga útil do HTTP POST para um webhook.
@@ -40,6 +40,7 @@ A carga útil JSON contida na operação POST difere com base no campo data.cont
 > se a sua condição (nas suas regras de ação, webhooks, aplicação lógica ou qualquer outra configuração) se basear na propriedade **"Descrição"** para alertas de registo de atividade, poderá ter de modificá-la para se basear na propriedade **"Activity Log Event Description".**
 >
 > Para preencher a nova propriedade **"Descrição",** pode adicionar uma descrição na definição de regra de alerta.
+> ![Alertas de registo de atividades disparadas](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>Common
 

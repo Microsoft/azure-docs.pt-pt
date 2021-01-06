@@ -1,5 +1,5 @@
 ---
-title: O que é o Azure Machine Learning?
+title: O que é Azure Machine Learning
 description: O Azure Machine Learning é uma solução integrada de ciência de dados para cientistas de dados e MLops para modelar e implementar aplicações ML à escala de nuvem.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 85080c018749f9aab716eff0a4527363da987007
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 53e6d6e67a90cd1f39aed7f9cd7c2368282b2d1f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620482"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916597"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -118,7 +118,7 @@ A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e ta
 + __Redes Virtuais Azure__. Para mais informações, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 + __Gasodutos Azure__. Para obter mais informações, consulte [Train e implemente modelos de machine learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Troncos de repositório de Git.__ Para mais informações, consulte [a integração de Git.](concept-train-model-git-integration.md)
-+ __MLFlow__. Para obter mais informações, consulte [mLflow para rastrear métricas e implementar modelos](how-to-use-mlflow.md) 
++ __MLFlow__. Para obter mais informações, consulte [mLflow para rastrear métricas](how-to-use-mlflow.md)  e [implementar modelos Mlflow como um serviço web](how-to-deploy-mlflow-models.md) 
 + __Kubeflow.__ Para obter mais informações, consulte [os gasodutos de fluxo de trabalho de ponta a ponta.](https://www.kubeflow.org/docs/azure/)
 
 ### <a name="secure-communications"></a>Comunicações seguras

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 2668f969076fd2b9960995fec44350d61b405740
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: a6f4b0a503e942b79dff28212863831055892246
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809437"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916563"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Teste de lote com um conjunto de expressões de exemplo
 
@@ -175,10 +175,10 @@ Lembre-se de adicionar a sua chave LUIS `Apim-Subscription-Id` no cabeçalho, e 
 Inicie um teste de lote utilizando um ID de versão de aplicação ou uma ranhura de publicação. Envie um pedido **DEM** para um dos seguintes formatos de ponto final. Inclua o seu ficheiro de lote no corpo do pedido.
 
 Slot de publicação
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 ID versão da aplicação
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
 Estes pontos finais irão devolver um ID de operação que utilizará para verificar o estado e obter resultados. 
 
@@ -188,20 +188,20 @@ Estes pontos finais irão devolver um ID de operação que utilizará para verif
 Utilize o ID de operação a partir do teste de lote que começou a obter o seu estado a partir dos seguintes formatos de ponto final: 
 
 Slot de publicação
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ID versão da aplicação
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### <a name="get-the-results-from-a-batch-test"></a>Obtenha os resultados de um teste de lote
 
 Utilize o ID de operação a partir do teste de lote que começou a obter os seus resultados a partir dos seguintes formatos de ponto final: 
 
 Slot de publicação
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 ID versão da aplicação
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### <a name="batch-file-of-utterances"></a>Arquivo de lote de expressões
