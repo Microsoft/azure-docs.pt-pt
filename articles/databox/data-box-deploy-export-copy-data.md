@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335218"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680885"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copiar dados do Azure Data Box via SMB (Pré-visualização)
+# <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>Tutorial: copiar dados do Azure Data Box via SMB
 
 Este tutorial descreve como ligar e copiar dados do Data Box para um servidor no local com a IU da Web local. O dispositivo Data Box contém os dados exportados da sua conta de Armazenamento do Microsoft Azure.
 
@@ -27,8 +27,6 @@ Neste tutorial, ficará a saber como:
 > * Pré-requisitos
 > * Ligar ao Data Box
 > * Copiar dados do Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +54,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     
     ![Obter credenciais de partilha, aceder à partilha e copiar dados](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
-3. Para aceder às partilhas associadas à conta de armazenamento ( *exportbvtdataset2* no exemplo seguinte) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
+3. Para aceder às partilhas associadas à conta de armazenamento (*exportbvtdataset2* no exemplo seguinte) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -73,7 +71,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     The command completed successfully.
     ```
 
-5. Prima Windows + R. Na janela **Executar** , especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
+5. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros e introduzir o IP do dispositivo](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 

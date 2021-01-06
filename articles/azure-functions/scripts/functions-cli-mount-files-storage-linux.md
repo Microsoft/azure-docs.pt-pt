@@ -4,12 +4,12 @@ description: Crie uma aplicação de função Python sem servidor e monte uma pa
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bdcaeaca7c063f0532167077bba63f7e52a3d491
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 89cf1422c70a49497a1bc43e42248612e0c8dd83
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565063"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930910"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Monte uma partilha de ficheiros para uma aplicação de função Python usando O Azure CLI
 
@@ -26,7 +26,7 @@ Este script de amostra de Azure Functions cria uma aplicação de função e cri
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este script cria uma aplicação Azure Function utilizando o [plano de consumo.](../functions-scale.md#consumption-plan)
+Este script cria uma aplicação Azure Function utilizando o [plano de consumo.](../consumption-plan.md)
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/functions-cli-mount-files-storage-linux/functions-cli-mount-files-storage-linux.sh "Create an Azure Function on a Consumption plan")]
 

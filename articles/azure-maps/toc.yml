@@ -306,6 +306,8 @@
       items:
         - name: Serviço de dados
           href: /rest/api/maps/data
+        - name: Serviço de elevação
+          href: /rest/api/maps/elevation
         - name: Serviço de localização geográfica
           href: /rest/api/maps/geolocation
         - name: Serviços de mobilidade

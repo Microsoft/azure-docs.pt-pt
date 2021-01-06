@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854993"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931743"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
 
@@ -51,7 +51,7 @@ A extensão de tarefa durável implementa um algoritmo de back-off exponencial a
 O máximo de atraso nas sondagens é configurável através da `maxQueuePollingInterval` propriedade nahost.jsem [ arquivo](../functions-host-json.md#durabletask). Definir esta propriedade a um valor mais elevado pode resultar em latências de processamento de mensagens mais elevadas. As latências mais elevadas só seriam esperadas após períodos de inatividade. A fixação desta propriedade a um valor mais baixo pode resultar em custos de armazenamento mais elevados devido ao aumento das transações de armazenamento.
 
 > [!NOTE]
-> Ao executar os planos Azure Functions Consumption and Premium, o [Controlador de Escala de Funções Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) irá sondar cada fila de controlo e de produto de trabalho uma vez a cada 10 segundos. Esta sondagem adicional é necessária para determinar quando ativar instâncias de aplicações de função e tomar decisões de escala. No momento da escrita, este intervalo de 10 segundos é constante e não pode ser configurado.
+> Ao executar os planos Azure Functions Consumption and Premium, o [Controlador de Escala de Funções Azure](../event-driven-scaling.md) irá sondar cada fila de controlo e de produto de trabalho uma vez a cada 10 segundos. Esta sondagem adicional é necessária para determinar quando ativar instâncias de aplicações de função e tomar decisões de escala. No momento da escrita, este intervalo de 10 segundos é constante e não pode ser configurado.
 
 ### <a name="orchestration-start-delays"></a>Atrasos no início da orquestração
 As instâncias de orquestração começam colocando uma `ExecutionStarted` mensagem numa das filas de controlo do centro de tarefas. Sob certas condições, pode observar atrasos de vários segundos entre quando uma orquestração está programada para ser executada e quando realmente começa a funcionar. Durante este intervalo de tempo, a instância de orquestração permanece no `Pending` estado. Há duas causas potenciais deste atraso:
@@ -138,7 +138,7 @@ De um modo geral, as funções de orquestrador destinam-se a ser leves e não de
 
 ## <a name="auto-scale"></a>Escala automática
 
-Tal como acontece com todas as Funções Azure em execução nos planos Consumption e Elastic Premium, as Funções Duradouras suportam a escala automática através do controlador de [escala Azure Functions](../functions-scale.md#runtime-scaling). O Controlador de Escala monitoriza a latência de todas as filas através da emissão periódica de comandos _de espreitar._ Com base nas latências das mensagens espreitadas, o Controlador de Escala decidirá se adiciona ou remove VMs.
+Tal como acontece com todas as Funções Azure em execução nos planos Consumption e Elastic Premium, as Funções Duradouras suportam a escala automática através do controlador de [escala Azure Functions](../event-driven-scaling.md#runtime-scaling). O Controlador de Escala monitoriza a latência de todas as filas através da emissão periódica de comandos _de espreitar._ Com base nas latências das mensagens espreitadas, o Controlador de Escala decidirá se adiciona ou remove VMs.
 
 Se o Controlador de Escala determinar que as latências da fila de controlo são demasiado elevadas, adicionará instâncias VM até que a latência da mensagem diminua para um nível aceitável ou atinja a contagem de partição da fila de controlo. Da mesma forma, o Controlador de Escala adicionará continuamente instâncias VM se as latências de fila de artigos de trabalho forem elevadas, independentemente da contagem de divisórias.
 
@@ -264,7 +264,7 @@ Ao planear utilizar Funções Duradouras para uma aplicação de produção, é 
 
 A tabela seguinte mostra os números *máximos* de produção esperados para os cenários previamente descritos. "Instance" refere-se a uma única instância de uma função orquestradora que funciona num único pequeno[(A1](../../virtual-machines/sizes-previous-gen.md)) VM em Azure App Service. Em todos os casos, presume-se que as [sessões prolongadas](#orchestrator-function-replay) estão habilitados. Os resultados reais podem variar dependendo do trabalho de CPU ou I/S realizado pelo código de função.
 
-| Cenário | Débito máximo |
+| Scenario | Débito máximo |
 |-|-|
 | Execução de atividade sequencial | 5 atividades por segundo, por exemplo |
 | Execução paralela da atividade (fan-out) | 100 atividades por segundo, por exemplo |

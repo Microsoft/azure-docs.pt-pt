@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746308"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932440"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -333,9 +333,9 @@ Grupos sincronizados a partir de diretório ativo no local não podem ter um pro
 > [!NOTE]
 > Recomendamos definir políticas empresariais que definam como os grupos são criados para garantir uma clara propriedade do grupo e responsabilidade para uma revisão regular da adesão. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Rever a adesão a grupos de exclusão nas políticas da AC 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Rever a adesão a grupos de exclusão em políticas de acesso condicional 
 
-Há momentos em que as políticas de Acesso Condicional (CA) concebidas para manter a sua rede segura não devem ser aplicadas a todos os utilizadores. Por exemplo, uma política de CA que apenas permite que os utilizadores assinem enquanto estão na rede corporativa pode não se aplicar à equipa de Vendas, que viaja extensivamente. Nesse caso, os membros da equipa sales seriam colocados num grupo e esse grupo seria excluído da política da AC. 
+Há alturas em que as políticas de Acesso Condicional concebidas para manter a sua rede segura não devem ser aplicadas a todos os utilizadores. Por exemplo, uma política de Acesso Condicional que apenas permite que os utilizadores assinem enquanto estão na rede corporativa pode não se aplicar à equipa de Vendas, que viaja extensivamente. Nesse caso, os membros da equipa sales seriam colocados num grupo e esse grupo seria excluído da política de acesso condicional. 
 
 Rever regularmente uma adesão a um grupo, uma vez que a exclusão representa um risco potencial se os membros errados forem excluídos da exigência.
 
@@ -419,7 +419,7 @@ Depois de ter preparado uma estratégia e um plano para rever o acesso aos recur
 
 Para reduzir o risco de acesso à estagnação, os administradores podem permitir revisões periódicas de utilizadores que tenham atribuições ativas a um pacote de acesso. Siga as instruções no link abaixo:
 
-| Artigos de procedimentos| Description |
+| Artigos de procedimentos| Descrição |
 | - | - |
 | [Criar comentários de acesso](entitlement-management-access-reviews-create.md)| Ativar comentários sobre pacote de acesso. |
 | [Realizar comentários de acesso](entitlement-management-access-reviews-review-access.md)| Execute comentários de acesso a outros utilizadores que estejam atribuídos a um Pacote de Acesso. |
@@ -433,7 +433,7 @@ Para reduzir o risco de acesso à estagnação, os administradores podem permiti
 
 As necessidades de acesso a grupos e aplicações para funcionários e hóspedes provavelmente mudam ao longo do tempo. Para reduzir o risco associado a atribuições de acessos à porta, os administradores podem criar revisões de acesso para membros do grupo ou acesso a aplicações. Siga as instruções no link abaixo:
 
-| Artigos de procedimentos| Description |
+| Artigos de procedimentos| Descrição |
 | - | - |
 | [Criar comentários de acesso](create-access-review.md)| Crie uma ou mais avaliações de acesso para membros do grupo ou acesso a aplicações. |
 | [Realizar comentários de acesso](perform-access-review.md)| Realize uma revisão de acesso para membros de um grupo ou utilizadores com acesso a uma aplicação. |
@@ -450,7 +450,7 @@ Para reduzir o risco associado a atribuições de papéis antigos, deve rever re
 
 Siga as instruções nas ligações abaixo:
 
-| Artigos de procedimentos | Description |
+| Artigos de procedimentos | Descrição |
 | - | - |
  [Criar comentários de acesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas da Azure AD em PIM |
 | [Autorreveja o seu acesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
@@ -465,7 +465,7 @@ Para reduzir o risco associado a atribuições de funções velhas, deve rever r
 
 Siga as instruções nas ligações abaixo:
 
-| Artigos de procedimentos| Description |
+| Artigos de procedimentos| Descrição |
 | - | -|
 | [Criar comentários de acesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas de recursos Azure em PIM |
 | [Autorreveja o seu acesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |

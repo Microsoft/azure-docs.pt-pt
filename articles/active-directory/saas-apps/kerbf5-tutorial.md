@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009165"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933120"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
 
@@ -195,7 +195,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 1. Clique em **Acesso Condicional.**
 1. Clique em **Nova Política.**
-1. Pode agora ver a sua App F5 como um recurso para a Política ca e aplicar qualquer acesso condicional, incluindo Multifactor Auth, controlo de acesso baseado no dispositivo ou Política de Proteção de Identidade.
+1. Pode agora ver a sua App F5 como um recurso para a política de acesso condicional e aplicar qualquer acesso condicional, incluindo Multifactor Auth, controlo de acesso baseado no dispositivo ou Política de Proteção de Identidade.
 
 ## <a name="configure-f5-sso"></a>Configurar F5 SSO
 

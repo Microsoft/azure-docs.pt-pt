@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação das Funções do Azure
-summary: As Funções do Azure são um serviço de computação sem servidor lhe que lhe permite executar código acionado por eventos sem ter de aprovisionar ou gerir explicitamente uma infraestrutura. As suas capacidades de "computação a pedido" permitem a integração simplificada e a funcionalidade de suporte pontual. Também pode utilizar este serviço para fornecer APIs Web, responder a alterações de base de dados, processar fluxos de dados de IoT e gerir filas de mensagens.
+summary: As Funções do Azure são um serviço cloud disponível a pedido que fornece todos os recursos e infraestrutura continuamente atualizados de que precisa para executar as suas aplicações. Concentre-se nas partes de código mais importantes para si e as Funções do Azure tratam do resto. Pode utilizar as Funções do Azure para criar APIs Web, responder a alterações de base de dados, processar fluxos de IoT, gerir filas de mensagens e muito mais.
 metadata:
   title: Documentação das Funções do Azure
-  description: As Funções do Azure são um serviço de computação sem servidor lhe que lhe permite executar código acionado por eventos sem ter de aprovisionar ou gerir explicitamente uma infraestrutura. As suas capacidades de "computação a pedido" permitem a integração simplificada e a funcionalidade de suporte pontual. Também pode utilizar este serviço para fornecer APIs Web, responder a alterações de base de dados, processar fluxos de dados de IoT e gerir filas de mensagens.
+  description: As Funções do Azure são um serviço cloud disponível a pedido que fornece todos os recursos e infraestrutura continuamente atualizados de que precisa para executar as suas aplicações. Concentre-se nas partes de código mais importantes para si e as Funções do Azure tratam do resto. Pode utilizar as Funções do Azure para criar APIs Web, responder a alterações de base de dados, processar fluxos de IoT, gerir filas de mensagens e muito mais.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
-  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+  ms.openlocfilehash: 74acabf21252acfd79520d7f24ff79503734a235
+  ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/15/2020
-  ms.locfileid: "97505295"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97901526"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:

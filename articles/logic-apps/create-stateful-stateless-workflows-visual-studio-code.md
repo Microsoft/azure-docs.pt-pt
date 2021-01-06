@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: be8d00d795c19399d494db21578e9a7ba8dd9711
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632065"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934021"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -598,7 +598,7 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    ![Screenshot que mostra a página geral do fluxo de trabalho com estado de execução e histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Estado de execução | Description |
+   | Estado de execução | Descrição |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
    | **Cancelado** | A corrida foi desencadeada e iniciada, mas recebeu um pedido de cancelamento. |
@@ -622,7 +622,7 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    Aqui estão os possíveis estatutos que cada passo no fluxo de trabalho pode ter:
 
-   | Estado de ação | Ícone | Description |
+   | Estado de ação | Ícone | Descrição |
    |---------------|------|-------------|
    | Abortada | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
    | Cancelada | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava em andamento, mas recebeu um pedido de cancelamento. |
@@ -742,7 +742,7 @@ Pode publicar a sua aplicação lógica como um novo recurso, que cria automatic
 
       ![Screenshot que mostra o painel "Azure: Logic Apps (Preview)" e um pedido para fornecer um nome para a nova aplicação lógica para criar.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Selecione um plano de hospedagem para a sua nova aplicação lógica, seja [**o Plano de Serviço de Aplicações**](../azure-functions/functions-scale.md#app-service-plan) ou [**Premium.**](../azure-functions/functions-scale.md#premium-plan) Este exemplo seleciona **o Plano de Serviço de Aplicações.**
+   1. Selecione um plano de hospedagem para a sua nova aplicação lógica, seja [**o Plano de Serviço de Aplicações**](../azure-functions/dedicated-plan.md) ou [**Premium.**](../azure-functions/functions-premium-plan.md) Este exemplo seleciona **o Plano de Serviço de Aplicações.**
 
       ![Screenshot que mostra o painel "Azure: Logic Apps (Preview)" e um pedido para selecionar "App Service Plan" ou "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 

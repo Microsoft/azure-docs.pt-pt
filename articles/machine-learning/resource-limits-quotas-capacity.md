@@ -10,16 +10,16 @@ ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/21/2020
-ms.openlocfilehash: 132c4b223b99f7110cd4553bb0dd93f1e58f4cdd
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: b675e72df4f128d0ce096b3ac398fab63c20557e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733388"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930808"
 ---
 # <a name="service-limits-in-azure-machine-learning"></a>Limites de serviço na Aprendizagem automática Azure
 
-Esta secção enumera quotas básicas e limiares de estrangulamento no Azure Machine Learning.
+Esta secção enumera quotas básicas e limiares de estrangulamento no Azure Machine Learning. Para saber como aumentar as quotas de recursos, consulte ["Gerir e aumentar quotas de recursos"](how-to-manage-quotas.md)
 
 ## <a name="workspaces"></a>Áreas de trabalho
 | Limite | Valor |
@@ -33,7 +33,7 @@ Esta secção enumera quotas básicas e limiares de estrangulamento no Azure Mac
 | RunId/ParentRunId | 256 caracteres |
 | DataContainerId | 261 caracteres |
 | DisplayName |256 caracteres|
-| Description |5.000 caracteres|
+| Descrição |5.000 caracteres|
 | Número de imóveis |50 |
 | Duração da chave de propriedade |100 caracteres |
 | Duração do valor da propriedade |1.000 caracteres |
@@ -73,3 +73,5 @@ Alguns limites podem ser aumentados para espaços de trabalho individuais [conta
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Configure o seu ambiente de aprendizagem de máquinas Azure](how-to-configure-environment.md)
+- Saiba como aumentar as quotas de recursos em ["Gerir e aumentar quotas de recursos".](how-to-manage-quotas.md)
+

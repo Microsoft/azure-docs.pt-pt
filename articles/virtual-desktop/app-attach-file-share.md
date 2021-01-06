@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425971"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930791"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurar uma partilha de ficheiros para o anexo de aplicações MSIX (pré-visualização)
 
@@ -64,6 +64,12 @@ Aqui estão outras coisas que recomendamos que faça para otimizar o desempenho 
 O processo de configuração da partilha de ficheiros anexar a aplicação MSIX é em grande parte o mesmo [que o processo de configuração das partilhas de ficheiros de perfil FSLogix](create-host-pools-user-profile.md). No entanto, terá de atribuir aos utilizadores diferentes permissões. O anexo de aplicações MSIX requer permissões apenas de leitura para aceder à partilha de ficheiros.
 
 Se estiver a armazenar as suas aplicações MSIX em Ficheiros Azure, então para os anfitriões da sessão, terá de atribuir todas as VMs do anfitrião da sessão, tanto o controlo de acesso baseado na função de armazenamento (RBAC) como a partilha de ficheiros new technology file System (NTFS) na partilha.
+
+| Objeto azul                      | Papel necessário                                     | Função de função                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Anfitrião de sessão (objetos de computador VM)| Contribuinte de Partilhas SMB de Dados de Ficheiros de Armazenamento          | Ler e executar, ler, listar conteúdos de pastas  |
+| Administradores em Partilha de Ficheiros              | Contribuinte Elevado de Partilhas SMB de Dados de Ficheiros de Armazenamento | Controlo total                                  |
+| Utilizadores na Partilha de Ficheiros               | Contribuinte de Partilhas SMB de Dados de Ficheiros de Armazenamento          | Ler e executar, ler, listar conteúdos de pastas  |
 
 Para atribuir permissões vMs do anfitrião da sessão para a conta de armazenamento e partilha de ficheiros:
 

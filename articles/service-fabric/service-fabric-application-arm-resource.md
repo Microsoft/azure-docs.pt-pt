@@ -3,12 +3,12 @@ title: Implementar e atualizar com o Azure Resource Manager
 description: Saiba como implementar aplicações e serviços num cluster de Tecidos de Serviço utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681674"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930842"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Gestor de Recursos Azure
 
@@ -50,13 +50,12 @@ O seguinte corte mostra os diferentes tipos de recursos que podem ser geridos at
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Adicione uma nova aplicação ao seu modelo de Gestor de Recursos
 
 1. Prepare o modelo de Gestor de Recursos do seu cluster para a implementação. Consulte [Criar um cluster de tecido de serviço utilizando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre este.
 2. Pense em algumas das aplicações que planeia implementar no cluster. Há alguma que esteja sempre a funcionar que outras aplicações possam ter dependências? Planeia implementar qualquer candidatura de governação de clusters ou de configuração? Este tipo de aplicações são melhor geridas através de um modelo de Gestor de Recursos, como discutido acima. 
-3. Depois de ter descoberto quais as aplicações que pretende ser implementada desta forma, as aplicações têm de ser embaladas, fechadas e colocadas numa partilha de ficheiros. A partilha precisa de ser acessível através de um ponto final REST para o Azure Resource Manager consumir durante a implementação.
-4. No seu modelo de Gestor de Recursos, abaixo da declaração do cluster, descreva as propriedades de cada aplicação. Estas propriedades incluem réplica ou contagem de instâncias e quaisquer cadeias de dependência entre recursos (outras aplicações ou serviços). Para obter uma lista de propriedades completas, consulte o [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Note que isto não substitui os manifestos de Aplicação ou Serviço, mas descreve parte do que está neles como parte do modelo de Gestor de Recursos do cluster. Aqui está um modelo de amostra que inclui a implementação de um serviço apátrida *Service1* e um serviço stateful *Service2* como parte da *Aplicação1*:
+3. Depois de ter descoberto quais as aplicações que pretende ser implementada desta forma, as aplicações têm de ser embaladas, fechadas e colocadas numa parte de armazenamento. A partilha precisa de ser acessível através de um ponto final REST para o Azure Resource Manager consumir durante a implementação. Consulte [criar uma conta de armazenamento](service-fabric-concept-resource-model.md#create-a-storage-account) para obter detalhes.
+4. No seu modelo de Gestor de Recursos, abaixo da declaração do cluster, descreva as propriedades de cada aplicação. Estas propriedades incluem réplica ou contagem de instâncias e quaisquer cadeias de dependência entre recursos (outras aplicações ou serviços). Note que isto não substitui os manifestos de Aplicação ou Serviço, mas descreve parte do que está neles como parte do modelo de Gestor de Recursos do cluster. Aqui está um modelo de amostra que inclui a implementação de um serviço apátrida *Service1* e um serviço stateful *Service2* como parte da *Aplicação1*:
 
    ```json
    {
@@ -244,7 +243,7 @@ O seguinte corte mostra os diferentes tipos de recursos que podem ser geridos at
    ```
 
    > [!NOTE] 
-   > A *apiversão* deve ser definida para `"2019-03-01"` . Este modelo também pode ser implementado independentemente do cluster, desde que o cluster já tenha sido implantado.
+   > Consulte a referência do Service Fabric [Azure Resource Manager](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) para encontrar utilização e detalhes sobre as propriedades individuais do modelo.
 
 5. Desdobre-se! 
 
@@ -266,7 +265,7 @@ Se o seu cluster já está em funcionamento e algumas aplicações que gostaria 
 > [!NOTE]
 > Para permitir que uma atualização de cluster ignore aplicações não saudáveis, o cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as configurações estão na [documentação da Política de Upgrade do Cluster API dos Tecidos](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)de Serviço .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize o [Tecido de Serviço CLI](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) para implementar outras aplicações no seu cluster. 
 * [Atualize o seu cluster de tecido de serviço](service-fabric-cluster-upgrade.md)

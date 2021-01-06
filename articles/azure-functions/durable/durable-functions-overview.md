@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763579"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931726"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
@@ -697,7 +697,7 @@ A fim de fornecer garantias de execução fiáveis e de longa duração, as fun�
 
 ## <a name="billing"></a>Faturação
 
-As funções duradouras são faturadas da mesma forma que as Funções Azure. Para obter mais informações, consulte [os preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano](../functions-scale.md#consumption-plan)de consumo de funções Azure, existem alguns comportamentos de faturação a ter em conta. Para obter mais informações sobre estes comportamentos, consulte o artigo [de faturação de Funções Duradouras.](durable-functions-billing.md)
+As funções duradouras são faturadas da mesma forma que as Funções Azure. Para obter mais informações, consulte [os preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano](../consumption-plan.md)de consumo de funções Azure, existem alguns comportamentos de faturação a ter em conta. Para obter mais informações sobre estes comportamentos, consulte o artigo [de faturação de Funções Duradouras.](durable-functions-billing.md)
 
 ## <a name="jump-right-in"></a>Salta para dentro
 
@@ -710,7 +710,7 @@ Você pode começar com Funções Duráveis em menos de 10 minutos completando u
 
 Nestes arranques rápidos, você cria localmente e testa uma função durável "olá mundo". Em seguida, publique o código de função no Azure. A função que cria orquestra e acorrenta em conjunto chama a outras funções.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 O seguinte vídeo destaca os benefícios das Funções Duradouras:
 

@@ -1113,6 +1113,16 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Configurar os Serviços Cognitivos para o Azure Synapse
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: Catálogo de Dados e Governação
+  items:
+    - name: Guias de Início Rápido
+      items:
+        - name: Ligar uma Conta do Azure Purview
+          href: ./catalog-and-governance/quickstart-connect-azure-purview.md
+    - name: Guias de procedimentos
+      items:
+        - name: 'Descobrir, ligar e explorar dados no Azure Synapse Analytics com o Azure Purview'
+          href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: Procedimentos
   items:
     - name: Planear e gerir custos

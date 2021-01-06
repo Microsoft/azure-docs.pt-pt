@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b346a23ccde6abd0f76982a4d19e00e28e8511a7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655277"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930876"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar a chave gerida pelo cliente Azure Sentinel
 
@@ -63,7 +63,7 @@ Para provisão cmk, siga estes passos:
     > [!NOTE]
     >  O Cofre da Chave Azure deve ser configurado como recuperável para proteger a sua chave e o acesso.
 
-1.  [Ligue as opções de recuperação:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [Ligue as opções de recuperação:](../key-vault/general/key-vault-recovery.md)
 
     -   Certifique-se de que [o Soft Delete](../key-vault/general/soft-delete-overview.md) está ligado.
 
@@ -129,7 +129,7 @@ Pode desativar a versão anterior da chave após 24 horas, ou depois dos registo
 
 Se utilizar a mesma tecla no Azure Sentinel e no Log Analytics, é necessário realizar uma rotação de teclas, tem de atualizar explicitamente o recurso de cluster em Log Analytics com a nova versão chave Azure Key Vault. Para obter mais informações, consulte [a rotação CMK do Monitor Azure](../azure-monitor/platform/customer-managed-keys.md#key-rotation).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a configurar uma chave gerida pelo cliente no Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

@@ -205,8 +205,16 @@
           href: partner-center-portal/create-iot-edge-module-asset.md
     - name: Ofertas do Serviço Gerido
       items:
+        - name: Planear uma oferta de Serviço Gerido
+          href: plan-managed-service-offer.md
         - name: Criar uma oferta de Serviço Gerido
-          href: partner-center-portal/create-new-managed-service-offer.md
+          href: create-managed-service-offer.md
+        - name: Configurar a listagem de Serviço Gerido
+          href: create-managed-service-offer-listing.md
+        - name: Adicionar uma audiência de pré-visualização
+          href: create-managed-service-offer-preview.md
+        - name: Criar planos
+          href: create-managed-service-offer-plans.md
     - name: Ofertas da aplicação Power BI
       items:
         - name: Planear uma oferta da aplicação Power BI

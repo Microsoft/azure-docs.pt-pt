@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401734"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930825"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -35,7 +35,7 @@ A topologia recomendada para o tipo de nó primário requer os recursos descrito
 >[!NOTE]
 > A escala de máquina virtual definida como propriedade de grupo de colocação única deve ser definida como verdadeira, uma vez que o Service Fabric não suporta um único conjunto de escala de máquina virtual que se estende por zonas.
 
- ![Arquitetura da zona de disponibilidade de tecido de serviço Azure][sf-architecture]
+ ![Diagrama que mostra a arquitetura da Zona de Disponibilidade de Tecido de Serviço Azure.][sf-architecture]
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 ### <a name="public-ip-and-load-balancer-resource"></a>Recurso público de equilibrador de IP e carga

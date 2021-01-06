@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355398"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932695"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -249,10 +249,10 @@ Content-type: application/json
 
 | Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como a _ *Claim to receive** na configuração do conector API e **atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
+| versão                                            | String            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | String            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como a _ *Claim to receive** na configuração do conector API e **atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -271,10 +271,10 @@ Content-type: application/json
 
 | Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | String | Sim      | A versão da API.                                                    |
-| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | String | Yes      | A versão da API.                                                    |
+| ação      | String | Yes      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | String | Yes      | A mensagem a apresentar ao utilizador.                                            |
+| code        | String | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
@@ -297,11 +297,11 @@ Content-type: application/json
 
 | Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | String  | Sim      | A versão da API.                                                    |
-| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
-| status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | String  | Yes      | A versão da API.                                                    |
+| ação      | String  | Yes      | O valor deve `ValidationError` ser.                                           |
+| status      | Número inteiro | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| userMessage | String  | Yes      | A mensagem a apresentar ao utilizador.                                            |
+| code        | String  | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de erro de validação**
 
@@ -319,7 +319,7 @@ Certifique-se de que:
 * O **URL endpoint** do conector API aponta para o ponto final API correto.
 * A sua API verifica explicitamente os valores nulos dos créditos recebidos.
 * A sua API responde o mais rapidamente possível para garantir uma experiência fluida do utilizador.
-    * Se utilizar uma função sem servidor ou um serviço web escalável, utilize um plano de hospedagem que mantenha a API "acordada" ou "quente". Para funções Azure, recomenda-se a utilização do [plano Premium](../../azure-functions/functions-scale.md#premium-plan). 
+    * Se utilizar uma função sem servidor ou um serviço web escalável, utilize um plano de hospedagem que mantenha a API "acordada" ou "quente". Para funções Azure, recomenda-se a utilização do [plano Premium](../../azure-functions/functions-premium-plan.md). 
 
 
 ### <a name="use-logging"></a>Utilizar registos madeireiros

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3213df378bc3b8403ebd11f899d722106de67a65
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6735b3377650c900a7b7d18933180991a6a2c9fd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882029"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930893"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -317,7 +317,7 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `BlobTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `blobTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. As exceções são anotados na secção [de utilização.](#usage) |
@@ -463,7 +463,7 @@ Se todas as 5 tentativas falharem, a Azure Functions adiciona uma mensagem a uma
 
 O gatilho blob utiliza uma fila internamente, pelo que o número máximo de invocações de função simultânea é controlado pela [configuração](functions-host-json.md#queues)de filas em host.jsem . As definições predefinitórias limitam a concordância a 24 invocações. Este limite aplica-se separadamente a cada função que utiliza um gatilho de bolha.
 
-[O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita uma aplicação de função numa máquina virtual (VM) a 1,5 GB de memória. A memória é utilizada por cada instância de execução simultânea e pelo tempo de funcionamento das funções em si. Se uma função com o gatilho de bolhas colocar toda a bolha na memória, a memória máxima utilizada por essa função apenas para bolhas é de 24 * tamanho máximo de bolha. Por exemplo, uma aplicação de função com três funções acionadas por bolhas e as definições predefinidas teria uma concordância máxima por VM de 3*24 = 72 invocações de função.
+[O plano de consumo](event-driven-scaling.md) limita uma aplicação de função numa máquina virtual (VM) a 1,5 GB de memória. A memória é utilizada por cada instância de execução simultânea e pelo tempo de funcionamento das funções em si. Se uma função com o gatilho de bolhas colocar toda a bolha na memória, a memória máxima utilizada por essa função apenas para bolhas é de 24 * tamanho máximo de bolha. Por exemplo, uma aplicação de função com três funções acionadas por bolhas e as definições predefinidas teria uma concordância máxima por VM de 3*24 = 72 invocações de função.
 
 As funções JavaScript e Java carregam toda a bolha na memória, e as funções C# fazem-no se se ligar a `string` , ou `Byte[]` . .
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 6e561a0e05cf1a0870d85369867caba6c4d6bf12
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862443"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932423"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -3733,7 +3733,7 @@ Para obter mais informações sobre a listagem da sua aplicação na galeria de 
 
 **Tipo:** Nova **categoria de serviço de recurso:** Outra **capacidade do produto:** Diretório
 
-Novas orientações passo a passo sobre como implantar o Azure Ative Directory (Azure AD), incluindo reset de senha de autosserviço (SSPR), único sign-on (SSO), Acesso Condicional (CA), procuração de aplicativos, fornecimento de utilizador, Serviços de Federação de Diretórios Ativos (ADFS) para Autenticação Pass-through (PTA) e ADFS para password hash sync (PHS).
+Novas orientações passo a passo sobre como implantar o Azure Ative Directory (Azure AD), incluindo reset de senha de autosserviço (SSPR), único sign-on (SSO), Acesso Condicional, Procuração de Aplicações, Fornecimento de Utilizador, Serviços de Federação de Diretórios Ativos (ADFS) para Autenticação Pass-through (PTA) e ADFS para a sincronização de hash de password (PHS).
 
 Para ver os guias de implantação, aceda aos [Guias de Implementação de Identidade](./active-directory-deployment-plans.md) repo no GitHub. Para fornecer feedback sobre os guias de implantação, utilize o [formulário de Feedback do Plano de Implementação](https://aka.ms/deploymentplanfeedback). Se tiver alguma dúvida sobre os guias de implantação, contacte-nos na [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 

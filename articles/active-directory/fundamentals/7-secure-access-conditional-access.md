@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c34135a59521eca361c59a1c82854469626616
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8dd570a31813ef12ee8a007c84facb8aa5e7aca4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744098"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933137"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Gerir o acesso externo com políticas de Acesso Condicional 
 
-[O Acesso Condicional](../conditional-access/overview.md) é a ferramenta que o Azure AD utiliza para reunir sinais, impor políticas e determinar se um utilizador deve ter acesso aos recursos. Para obter informações detalhadas sobre como criar e utilizar políticas de acesso condicional (políticas de CA), consulte [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md). 
+[O Acesso Condicional](../conditional-access/overview.md) é a ferramenta que o Azure AD utiliza para reunir sinais, impor políticas e determinar se um utilizador deve ter acesso aos recursos. Para obter informações detalhadas sobre como criar e utilizar políticas de acesso condicional (políticas de acesso condicional), consulte [Planear uma implementação de Acesso Condicional.](../conditional-access/plan-conditional-access.md) 
 
 ![Diagrama de sinais e decisões de acesso condicional](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-Este artigo discute a aplicação de políticas de CA a utilizadores externos e assume que não tem acesso à funcionalidade [de Gestão de Direitos.](../governance/entitlement-management-overview.md) As políticas da AC podem ser e são usadas juntamente com a Gestão de Direitos.
+Este artigo discute a aplicação de políticas de Acesso Condicional a utilizadores externos e assume que não tem acesso à funcionalidade [de Gestão de Direitos.](../governance/entitlement-management-overview.md) As políticas de acesso condicional podem ser e são usadas juntamente com a Gestão de Direitos.
 
 No início deste conjunto de documentos, [criou um plano de segurança](3-secure-access-plan.md) que delineou:
 
@@ -36,27 +36,27 @@ No início deste conjunto de documentos, [criou um plano de segurança](3-secure
 
 * Requisitos de inscrição para utilizadores externos.
 
-Você usará esse plano para criar as suas políticas de CA para acesso externo. 
+Utilizará esse plano para criar as suas políticas de Acesso Condicional para acesso externo. 
 
 > [!IMPORTANT]
 > Crie algumas contas de teste de utilizador externos para que possa testar as políticas que cria antes de as aplicar a todos os utilizadores externos.
 
 ## <a name="conditional-access-policies-for-external-access"></a>Políticas de acesso condicional para acesso externo
 
-Seguem-se as melhores práticas relacionadas com o acesso externo às políticas de CA.
+Seguem-se as melhores práticas relacionadas com o acesso externo com políticas de Acesso Condicional.
 
-* Se não puder utilizar organizações conectadas em Gestão de Direitos, crie um grupo de segurança AZure AD ou um grupo Microsoft 365 para cada organização parceira com quem trabalha. Atribua todos os utilizadores desse parceiro ao grupo. Em seguida, pode utilizar esses grupos nas políticas da AC.
+* Se não puder utilizar organizações conectadas em Gestão de Direitos, crie um grupo de segurança AZure AD ou um grupo Microsoft 365 para cada organização parceira com quem trabalha. Atribua todos os utilizadores desse parceiro ao grupo. Em seguida, pode utilizar esses grupos em políticas de Acesso Condicional.
 
-* Crie o máximo de políticas de CA possível. Para aplicações que tenham as mesmas necessidades de acesso, adicione-as todas à mesma política.  
+* Crie o máximo de políticas de acesso condicional possível. Para aplicações que tenham as mesmas necessidades de acesso, adicione-as todas à mesma política.  
 ‎ 
    > [!NOTE]
-   > As políticas de CA podem aplicar-se a um máximo de 250 candidaturas. Se mais de 250 Apps tiverem as mesmas necessidades de acesso, crie políticas duplicadas. A política A aplicar-se-á às aplicações 1-250, a política B aplicar-se-á às aplicações 251-500, etc.
+   > As políticas de Acesso Condicional podem aplicar-se a um máximo de 250 aplicações. Se mais de 250 Apps tiverem as mesmas necessidades de acesso, crie políticas duplicadas. A política A aplicar-se-á às aplicações 1-250, a política B aplicar-se-á às aplicações 251-500, etc.
 
 * Nomeie claramente políticas específicas do acesso externo a uma convenção de nomeação. Uma convenção de nomeação é *ExternalAccess_actiontaken_AppGroup.* Por exemplo, ExternalAccess_Block_FinanceApps.
 
 ## <a name="block-all-external-users-from-resources"></a>Bloquear todos os utilizadores externos dos recursos
 
-Pode bloquear que utilizadores externos acedam a conjuntos específicos de recursos com políticas de CA. Assim que determinar o conjunto de recursos a que quer bloquear o acesso, crie uma política.
+Pode bloquear o acesso de utilizadores externos a conjuntos específicos de recursos com políticas de Acesso Condicional. Assim que determinar o conjunto de recursos a que quer bloquear o acesso, crie uma política.
 
 Criar uma política que bloqueie o acesso dos utilizadores externos a um conjunto de aplicações:
 

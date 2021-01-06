@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f753010eb994c9f3c286ad6eca6392ca7b643075
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086471"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932916"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Como configurar a madeira e a conectividade com o gatilho das Funções Azure para o Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,7 +57,7 @@ Existem dois modos de ligação - Modo direto e modo Gateway. Para saber mais so
 
 ### <a name="changing-the-connection-mode-and-protocol"></a>Alterar o modo de ligação e o protocolo
 
-Existem duas definições de configuração chave disponíveis para configurar a política de ligação do cliente - o **modo de ligação** e o **protocolo de ligação** . Pode alterar o modo de ligação predefinido e o protocolo utilizado pelo gatilho Azure Functions para Cosmos DB e todas as [ligações DB do Cosmos Azure](../azure-functions/functions-bindings-cosmosdb-v2-output.md)). Para alterar as definições predefinidas, é necessário localizar o `host.json` ficheiro no seu projeto Azure Functions ou app Azure Functions e adicionar a seguinte [definição extra](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
+Existem duas definições de configuração chave disponíveis para configurar a política de ligação do cliente - o **modo de ligação** e o **protocolo de ligação**. Pode alterar o modo de ligação predefinido e o protocolo utilizado pelo gatilho Azure Functions para Cosmos DB e todas as [ligações DB do Cosmos Azure](../azure-functions/functions-bindings-cosmosdb-v2-output.md)). Para alterar as definições predefinidas, é necessário localizar o `host.json` ficheiro no seu projeto Azure Functions ou app Azure Functions e adicionar a seguinte [definição extra](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
 
 ```js
 {
@@ -82,7 +82,7 @@ Se o seu projeto Azure Functions estiver a trabalhar com o tempo de execução A
 ```
 
 > [!NOTE]
-> Ao trabalhar com o plano de hospedagem do plano de consumo de funções Azure, cada instância tem um limite na quantidade de Ligações de Tomada que pode manter. Ao trabalhar com o modo Direct /TCP, por design são criadas mais ligações e podem atingir o limite do [Plano de Consumo,](../azure-functions/manage-connections.md#connection-limit)caso em que pode utilizar o modo Gateway ou executar as suas Funções Azure no [Modo de Serviço de Aplicações](../azure-functions/functions-scale.md#app-service-plan).
+> Ao hospedar a sua aplicação de função num plano de consumo, cada instância tem um limite na quantidade de Ligações de Tomada que pode manter. Ao trabalhar com o modo Direct /TCP, por design são criadas mais ligações e podem atingir o limite do [plano de consumo,](../azure-functions/manage-connections.md#connection-limit)caso em que pode utilizar o modo Gateway ou, em vez disso, hospedar a sua aplicação de função num [plano Premium](../azure-functions/functions-premium-plan.md) ou num plano [dedicado (Serviço de Aplicações).](../azure-functions/dedicated-plan.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
