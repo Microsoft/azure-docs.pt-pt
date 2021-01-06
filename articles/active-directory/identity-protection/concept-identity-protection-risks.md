@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180647"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954490"
 ---
 # <a name="what-is-risk"></a>O que é o risco?
 
@@ -63,6 +63,9 @@ Estes riscos podem ser calculados em tempo real ou calculados offline usando as 
 | Regras suspeitas de manipulação de caixas de entrada | Offline | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta deteção perfis do seu ambiente e dispara alertas quando regras suspeitas que apagam ou movem mensagens ou pastas são definidas na caixa de entrada de um utilizador. Esta deteção pode indicar que a conta do utilizador está comprometida, que as mensagens estão a ser intencionalmente ocultadas e que a caixa de correio está a ser usada para distribuir spam ou malware na sua organização. |
 | Spray de senha | Offline | Um ataque de spray de palavra-passe é onde vários nomes de utilizadores são atacados usando senhas comuns de forma bruta unificada para obter acesso não autorizado. Esta deteção de risco é desencadeada quando um ataque de spray de palavra-passe foi realizado. |
 | Deslocação impossível | Offline | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Esta deteção identifica duas atividades do utilizador (é uma única ou múltipla sessões) originárias de locais geograficamente distantes num período de tempo mais curto do que o tempo que o utilizador levaria a viajar do primeiro para o segundo, indicando que um utilizador diferente está a usar as mesmas credenciais. |
+| Novo país | Offline | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Esta deteção considera locais de atividade passados para determinar locais novos e pouco frequentes. O motor de deteção de anomalias armazena informações sobre locais anteriores utilizados pelos utilizadores na organização. |
+| Atividade a partir de endereço IP anónimo | Offline | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). Esta deteção identifica que os utilizadores estavam ativos a partir de um endereço IP que foi identificado como um endereço IP de procuração anónimo. |
+| Reencaminhamento de caixa de entrada suspeito | Offline | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Esta deteção procura regras suspeitas de encaminhamento de e-mails, por exemplo, se um utilizador criar uma regra de caixa de entrada que reencade uma cópia de todos os e-mails para um endereço externo. |
 
 ### <a name="other-risk-detections"></a>Outras deteções de risco
 

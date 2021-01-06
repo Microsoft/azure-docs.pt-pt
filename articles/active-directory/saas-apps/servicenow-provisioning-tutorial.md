@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897305"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955472"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para o fornecimento automático de utilizadores
 
@@ -152,6 +152,11 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
    ![Autorizar pedido de SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
 
    Se resolver os seus problemas, contacte o suporte do ServiceNow e peça-lhes que liguem a depuração SOAP para ajudar a resolver problemas. 
+
+* **Gamas IP** 
+
+   O serviço de prestação de AD Azure opera atualmente ao abrigo de uma determinada gama de IP. Assim, se necessário, pode restringir outras gamas de IP e adicionar estes intervalos IP específicos à lista de admissões da sua aplicação para permitir o fluxo de tráfego do serviço de fornecimento de Azure AD à sua aplicação. Consulte a documentação em [Gamas IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460480"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954282"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Painel de clientes na análise do mercado comercial
 
@@ -137,14 +137,14 @@ Tenha em atenção o seguinte:
 - Os dados podem ser extraídos para um . CSV ou . . Ficheiro TSV se a contagem dos registos for inferior a 1.000.
 - Se o número de registos for superior a 1.000, os dados exportados serão colocados de forma assíncronea numa página de downloads durante os próximos 30 dias.
 - Aplique filtros na tabela para exibir apenas os dados em que está interessado. Filtrar dados por nome da Empresa, ID do Cliente, ID de Assinatura de Mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País/Estado/Estado/Cidade/Zip, Linguagem do Cliente, e assim por diante.
-- Quando uma oferta é comprada por um cliente protegido, as informações em **Dados Detalhados do Cliente** serão mascaradas (**********************************************************************************
+- Quando uma oferta é comprada por um cliente protegido, as informações em **Dados Detalhados do Cliente** serão mascaradas (*
 - Os detalhes da dimensão do cliente, tais como nome da empresa, nome do cliente e e-mail do cliente estão a nível de ID da organização, não no nível de transação do Azure Marketplace ou do Microsoft AppSource.
 
 _**Quadro 1: Dicionário de termos de dados**_
 
 | Nome da coluna | Nome do atributo | Definição |
 | ------------ | ------------- | ------------- |
-| Id de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. ID foi anteriormente a Azure Subscription GUID. |
+| Id de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. Para ofertas de infraestruturas, esta é a assinatura Azure do cliente GUID. Para as ofertas da SaaS, isto é mostrado como zeros uma vez que as compras da SaaS não requerem uma subscrição do Azure. |
 | DataAcquida | Data Adquirida | Na primeira data em que o cliente comprou qualquer oferta que tenha publicado. |
 | DateLost | Data Perdida | Na última data em que o cliente cancelou a última de todas as ofertas previamente adquiridas. |
 | Nome do provedor | Nome do provedor | O nome do fornecedor envolvido na relação entre a Microsoft e o cliente. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Solução Cloud (CSP), este será o CSP. |
@@ -157,7 +157,7 @@ _**Quadro 1: Dicionário de termos de dados**_
 | Código Postal do Cliente | Código Postal do Cliente | O código postal fornecido pelo cliente. O código pode ser diferente do código postal fornecido na subscrição Azure de um cliente. |
 | Comunidade de ClientesCultura | Linguagem de comunicação do cliente | O idioma preferido pelo cliente para comunicação. |
 | Região do País de Clientes | País/Região do Cliente | O nome país/região fornecido pelo cliente. O país/região poderia ser diferente do país/região na subscrição Azure de um cliente. |
-| AzureLicenseType | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como _o canal._ Os valores possíveis são:<ul><li>Provedor de solução cloud</li><li>Enterprise</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
+| AzureLicenseType | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como _o canal._ Os valores possíveis são:<ul><li>Provedor de solução cloud</li><li>Grandes Empresas</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
 | Promocionais | É Contacto Promocional Opt In | O valor irá informá-lo se o cliente optou proativamente pelo contacto promocional das editoras. Neste momento, não estamos a apresentar a opção aos clientes, por isso indicámos "Não" em todo o tabuleiro. Depois desta funcionalidade ser implementada, começaremos a atualizar em conformidade. |
 | Estado do Cliente | Estado do Cliente | O estado de residência fornecido pelo cliente. O Estado pode ser diferente do estado fornecido na assinatura Azure de um cliente. |
 | CommerceRootCustomer | Cliente raiz de comércio | Um ID de conta de faturação pode ser associado a vários IDs de cliente.<br>Uma combinação de um ID de conta de faturação e um ID do cliente pode ser associada a várias subscrições de marketplace comercial.<br>O Cliente Raiz de Comércio significa o nome do cliente da subscrição. |

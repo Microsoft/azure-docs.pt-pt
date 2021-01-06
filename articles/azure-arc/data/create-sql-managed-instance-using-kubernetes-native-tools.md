@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2902274cfff11ac256459abd4fe0378146ee067b
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: dde2794e459e9375a231b7792bc1bd5ab21561bf
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280183"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955234"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Criar exemplo gerido pelo Azure SQL utilizando ferramentas Kubernetes
 
@@ -34,7 +34,7 @@ Para criar um exemplo gerido pela SQL, é necessário criar um segredo kubernete
 
 ## <a name="create-a-yaml-file"></a>Criar um ficheiro yaml
 
-Pode utilizar o ficheiro [yaml do modelo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/sqlmi.yaml) como ponto de partida para criar o seu próprio ficheiro yaml de instância gerida por SQL personalizado.  Faça o download deste ficheiro para o seu computador local e abra-o num editor de texto.  É útil usar um editor de texto como [o VS Code](https://code.visualstudio.com/download) que suporta o realce de sintaxe e o lintamento para ficheiros yaml.
+Pode utilizar o ficheiro [yaml do modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) como ponto de partida para criar o seu próprio ficheiro yaml de instância gerida por SQL personalizado.  Faça o download deste ficheiro para o seu computador local e abra-o num editor de texto.  É útil usar um editor de texto como [o VS Code](https://code.visualstudio.com/download) que suporta o realce de sintaxe e o lintamento para ficheiros yaml.
 
 Este é um ficheiro yaml exemplo:
 

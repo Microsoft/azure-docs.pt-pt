@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940609"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955370"
 ---
 # <a name="offline-deployment-overview"></a>Visão geral da implementação offline
 
@@ -22,7 +22,7 @@ Tipicamente, as imagens de contentores utilizadas na criação do controlador de
 
 Como são fornecidas atualizações mensais para serviços de dados habilitados a Azure Arc e há um grande número de imagens de contentores, o melhor é realizar este processo de puxar, marcar e empurrar as imagens do contentor para um registo de contentores privados usando um script.  O script pode ser automatizado ou executado manualmente.
 
-Um [guião de amostra](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) pode ser encontrado no repositório Azure Arc GitHub.
+Um [guião de amostra](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) pode ser encontrado no repositório Azure Arc GitHub.
 
 > [!NOTE]
 > Este script requer a instalação de python e o [Docker CLI](https://docs.docker.com/install/).

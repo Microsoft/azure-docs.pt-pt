@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895643"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954146"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Quickstart: Criar um endereço IP público utilizando o portal Azure
 
@@ -36,7 +36,8 @@ Utilize os seguintes passos para criar um endereço IP público redundante de zo
     | ---                     | ---                         |
     | Versão IP              | Selecione IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Nome                    | Insira *o myStandardZRPublicIP*          |
+    | Tier (se mostrado*)                  | Selecione **Regional**         |
+    | Name                    | Insira *o myStandardZRPublicIP*          |
     | Atribuição de endereços IP   | Note que isto será bloqueado como "Estática"                                        |
     | Tempo de inatividade (minutos)  | Deixe o valor a 4        |
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
@@ -46,6 +47,8 @@ Utilize os seguintes passos para criar um endereço IP público redundante de zo
     | Zona de Disponibilidade       | Selecione **Zona-Redundante** ou escolha zona específica (ver nota abaixo) |
 
 Note que estas são apenas seleções válidas em regiões com [Zonas de Disponibilidade.](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)  (Também pode selecionar uma zona específica nestas regiões, embora não seja resiliente à falha zonal.)
+
+\* = O nível diz respeito à funcionalidade [Balancer de Carga cross-region,](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) atualmente em Pré-visualização.
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 
@@ -61,7 +64,7 @@ Utilize os seguintes passos para criar um endereço IP público estático básic
     | ---                     | ---                         |
     | Versão IP              | Selecione IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Nome                    | Insira *myBasicPublicIP*          |
+    | Name                    | Insira *myBasicPublicIP*          |
     | Atribuição de endereços IP   | Escolha **Estática** (ver nota abaixo)                                     |
     | Tempo de inatividade (minutos)  | Deixe o valor a 4        |
     | Etiqueta de nome DNS          | Deixe o valor em branco    |

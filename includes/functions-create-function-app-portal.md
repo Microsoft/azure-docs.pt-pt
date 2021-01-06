@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 439b312050f657566026a36c145e7b6dd5cc9bad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 754ca10e72ca2274607e954748bfa8cb5286c6ab
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83116442"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954532"
 ---
 1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
-1. Na **nova** página, selecione App de Função **computacional**  >  **Function App**.
+1. Na **nova** página, selecione App de Função **computacional**  >  .
 
 1. Na página **Basics,** utilize as definições da aplicação de função conforme especificado na tabela seguinte.
 
@@ -31,13 +31,13 @@ ms.locfileid: "83116442"
     |**Versão**| Número da versão | Escolha a versão do seu tempo de execução instalado.  |
     |**Região**| Região preferida | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 
-    ![Noções básicas](./media/functions-create-function-app-portal/function-app-create-basics.png)
+    ![Informações básicas](./media/functions-create-function-app-portal/function-app-create-basics.png)
 
-1. Selecione **Seguinte : Hospedagem**. Na página **'Hospedagem',** insira as seguintes definições.
+1. Selecione **Seguinte: Alojamento**. Na página **'Hospedagem',** insira as seguintes definições.
 
     | Definição      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements) |
+    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](../articles/azure-functions/storage-considerations.md#storage-account-requirements) |
     |**Sistema operativo**| Sistema operativo preferido | Um sistema operativo é pré-selecionado para si com base na seleção da sua pilha de tempo de execução, mas pode alterar a definição se necessário. |
     | **[Planear](../articles/azure-functions/functions-scale.md)** | **Consumo (Sem servidor)** | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No **Plano de Consumo** predefinido, os recursos são adicionados dinamicamente, conforme necessário por parte das suas funções. Neste hospedagem [sem servidor,](https://azure.microsoft.com/overview/serverless-computing/) paga-se apenas pelo tempo que as suas funções são executadas. Quando executa num plano do Serviço de Aplicações, tem de gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |
 

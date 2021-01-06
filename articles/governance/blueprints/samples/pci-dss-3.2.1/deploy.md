@@ -3,12 +3,12 @@ title: Implantar amostra de planta PCI-DSS v3.2.1
 description: Implementar etapas para a amostra de segurança de dados da indústria de cartões de pagamento v3.2.1, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b1d635a073dc19e41a7ba73e130d6028daca99
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649215"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955676"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementar a amostra de planta PCI-DSS v3.2.1
 
@@ -52,7 +52,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
@@ -93,7 +93,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização \] Auditoria PCI v3.2.1:2018 controla e implementa extensões VM específicas para apoiar requisitos de auditoria|Atribuição de Política|Lista de Tipos de Recursos | Definição de diagnóstico de auditoria para tipos de recursos selecionados. O valor predefinido é que todos os recursos são selecionados| 
+|PCI v3.2.1:2018|Atribuição de Política|Lista de Tipos de Recursos | Definição de diagnóstico de auditoria para tipos de recursos selecionados. O valor predefinido é que todos os recursos são selecionados| 
 |Localizações permitidas|Atribuição de Política|Lista de locais permitidos|A lista de localizações do centro de dados permitiu que qualquer recurso fosse implantado. Esta lista é personalizável para as localizações Azure desejadas em todo o mundo. Selecione os locais que deseja permitir.| 
 |Locais permitidos para grupos de recursos|Atribuição de Política |Localização permitida |Esta política permite-lhe restringir as localizações em que a sua organização pode criar grupos de recursos. Utilize para impor os requisitos de conformidade geográfica.| 
 |Implementar auditorias em servidores SQL|Atribuição de Política|Dias de retenção|Retenção de dados em número de dias. O valor predefinido é de 180, mas o PCI requer 365.| 

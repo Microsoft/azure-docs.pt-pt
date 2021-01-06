@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: da4c5f7891b518f4e6393f3fb4e153d464f4f2a2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697565"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955540"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -41,7 +41,7 @@ As várias configurações standard de balançadores de carga fornecem as seguin
 | Estado da sonda de estado de funcionamento | Balanceador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do seu ponto final de aplicação de acordo com as definições de configuração. Esta métrica proporciona uma vista filtrada agregada ou por ponto final de cada ponto final no conjunto do balanceador de carga. Pode ver como o Balanceador de Carga vê o estado de funcionamento da sua aplicação, conforme indicado pela configuração da sonda de estado de funcionamento. |  Média |
 | Pacotes SYN (sincronização) | Balanceador de carga público e interno | O Balanceador de Carga Standard não termina as ligações do Protocolo de Controlo de Transmissão (TCP) nem interage com os fluxos de pacotes TCP ou UDP. Os fluxos e os respetivos handshakes estão sempre entre a origem e a instância da VM. Para resolver melhor os problemas relacionados com o protocolo TCP, pode utilizar os contadores de pacotes SYN para compreender quantas tentativas de ligação TCP são feitas. A métrica reporta o número de pacotes SYN de TCP que foram recebidos.| Média |
 | Ligações SNAT | Balanceador de carga público |O Balanceador de Carga Standard reporta o número de fluxos de saída mascarados para o front-end do endereço IP público. As portas de tradução de endereços de rede de origem (SNAT) são um recurso renovável. Esta métrica pode dar uma indicação de quão fortemente a sua aplicação está a depender do SNAT para os fluxos de saída originados. Os contadores de fluxos SNAT de saída bem-sucedidos e falhados são reportados e podem ser utilizados para resolver problemas e compreender o estado de funcionamento dos fluxos de saída.| Média |
-| Portas SNAT atribuídas | Balanceador de carga público | O Balanceador de Carga Padrão informa o número de portas SNAT atribuídas por instância de backend | A média. |
+| Portas SNAT atribuídas | Balanceador de carga público | O Balanceador de Carga Padrão informa o número de portas SNAT atribuídas por instância de backend | Média. |
 | Portas SNAT usadas | Balanceador de carga público | O Balancer de Carga Padrão informa o número de portas SNAT que são utilizadas por instância backend. | Média | 
 | Contadores de bytes |  Balanceador de carga público e interno | O Balanceador de Carga Standard reporta os dados processados por front-end. Pode notar que os bytes não são distribuídos igualmente pelas instâncias de back-end. Isto é esperado, uma vez que o algoritmo do Balanceador de Carga da Azure é baseado em fluxos | Média |
 | Contadores de pacotes |  Balanceador de carga público e interno | O Balanceador de Carga Standard reporta os pacotes processados por front-end.| Média |
@@ -231,7 +231,14 @@ O gráfico permite que os clientes resolvam a implementação por conta própria
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Estado da saúde dos recursos
 
-O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto através da **saúde dos recursos** existentes no **âmbito do Serviço de > Saúde** do Serviço de Monitorização .
+O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto através da **saúde dos recursos** existentes no **âmbito do Serviço de > Saúde** do Serviço de Monitorização . É avaliado de **dois em dois minutos** medindo a disponibilidade do caminho de dados que determina se os seus pontos finais de equilíbrio de carga frontal estão disponíveis.
+
+| Estado da saúde dos recursos | Description |
+| --- | --- |
+| Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
+| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
+| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
+| Desconhecido | O estado de saúde dos recursos para o seu recurso balanceador de carga padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do Data Path nos últimos 10 minutos. Este estado deve ser transitório e refletirá o estado correto assim que os dados forem recebidos. |
 
 Para ver a saúde dos seus recursos públicos standard balancer:
 1. Selecione **Monitor**  >  **Service Health**.
@@ -254,12 +261,6 @@ Para ver a saúde dos seus recursos públicos standard balancer:
  
 A descrição genérica do estado de saúde dos recursos está disponível na documentação do [RHC](../service-health/resource-health-overview.md). Para os estatutos específicos do Balançador de Carga Azure estão listados na tabela abaixo: 
 
-| Estado da saúde dos recursos | Description |
-| --- | --- |
-| Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
-| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade de Datapath reportou menos de 90% mas superior a 25% de saúde durante pelo menos dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia de disponibilidade do Caminho de Dados para resolver problemas] para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
-| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia de disponibilidade do Caminho de Dados para resolver problemas] para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
-| Desconhecido | O estado de saúde dos recursos para o seu recurso balanceador de carga padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do Data Path nos últimos 10 minutos. Este estado deve ser transitório e refletirá o estado correto assim que os dados forem recebidos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

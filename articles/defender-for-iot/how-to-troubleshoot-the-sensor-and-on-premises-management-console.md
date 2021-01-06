@@ -1,20 +1,20 @@
 ---
-title: Resolução de problemas da consola de gestão de sensores e no local
+title: Resolver problemas do sensor e da consola de gestão no local
 description: Resolva os problemas do seu sensor e da consola de gestão no local para eliminar quaisquer problemas que possa estar a ter.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843005"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955438"
 ---
-# <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Resolução de problemas da consola de gestão de sensores e no local
+# <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Resolver problemas do sensor e da consola de gestão no local
 
 Este artigo descreve ferramentas básicas de resolução de problemas para o sensor e a consola de gestão no local. Além dos itens descritos aqui, pode verificar a saúde do seu sistema das seguintes formas:
 
@@ -28,22 +28,33 @@ Este artigo descreve ferramentas básicas de resolução de problemas para o sen
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>Investigue a falha da palavra-passe no início do início do s-in
 
-Quando estiver a iniciar sessão num sensor de seta pré-configurado pela primeira vez, terá de realizar a seguinte recuperação da palavra-passe:
+Ao iniciar sessão num sensor de seta pré-configurado pela primeira vez, terá de realizar a recuperação da palavra-passe.
 
-1. No ecrã de entrada de IoT do Defender, selecione a opção **Recuperação de Palavras-Passe.** 
+Para recuperar a sua palavra-passe:
 
-   O ecrã **de recuperação de palavras-passe** abre. Ali, é-lhe solicitado que selecione o utilizador e a subscrição, e é-lhe dado um identificador único.
+1. No ecrã de entrada de IoT do Defender, selecione  **a recuperação da palavra-passe**. O ecrã **de recuperação da palavra-passe** abre.
 
-1. Aceda à página Defender para **Sites e sensores** IoT e selecione o **separador Recuperar a minha palavra-passe.**
+1. Selecione **CyberX** ou **Support**, e copie o identificador único.
 
-1. Introduza o identificador único que recebeu no ecrã **de Recuperação de Passwords** e selecione **Recuperar**. O `password_recovery.zip` ficheiro foi descarregado.
+1. Navegue até ao portal Azure e selecione **Sites e Sensores.**  
 
-   > [!NOTE]
-   > Não altere o ficheiro de ativação. É um ficheiro assinado e não funcionará se o adulterares.
+1. Selecione o **separador palavra-passe da consola de gestão recuperar no local.**
 
-1. No ecrã **de recuperação de palavras-passe,** faça o upload do `password_recovery.zip` ficheiro e selecione **Next**.
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selecione o botão de gestão de recuperação no local para descarregar o ficheiro de recuperação.":::
 
-Em seguida, recebe a sua senha gerada pelo sistema para a sua consola de gestão. 
+1. Introduza o identificador único que recebeu no ecrã de recuperação da **Palavra-passe** e selecione **Recuperar**. O `password_recovery.zip` ficheiro foi descarregado.
+
+    > [!NOTE]
+    > Não altere o ficheiro de recuperação da palavra-passe. É um ficheiro assinado e não funcionará se o adulterares.
+
+1. No ecrã de recuperação da **palavra-passe,** selecione **Upload**. A janela **do Ficheiro de Recuperação de Passwords do Upload** será aberta.
+
+1. **Selecione Procurar** para localizar o seu `password_recovery.zip` ficheiro ou arrastar o para a `password_recovery.zip` janela.
+
+1. Selecione **Next**, e o seu utilizador, e a palavra-passe gerada pelo sistema para a sua consola de gestão aparecerá então.
+
+    > [!NOTE]
+    > Quando iniciar sôs o seu sôm numa consola de gestão sensorial ou no local pela primeira vez, estará ligado à subscrição a que o ligou. Se precisar de redefinir a palavra-passe para o utilizador CyberX ou Support, terá de selecionar essa subscrição. Para obter mais informações sobre a recuperação de uma palavra-passe do utilizador CyberX ou Suporte, consulte [redefinir a palavra-passe de um utilizador para a consola de gestão de sensores ou no local](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
 
 ### <a name="investigate-a-lack-of-traffic"></a>Investigar a falta de trânsito
 
@@ -65,35 +76,35 @@ Para verificar o desempenho do sistema:
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot de um painel de amostras."::: 
 
-2. A partir do menu lateral, selecione **Dispositivos**.
+1. A partir do menu lateral, selecione **Dispositivos**.
 
-3. Na janela **dispositivos,** certifique-se de que os dispositivos estão a ser descobertos.
+1. Na janela **dispositivos,** certifique-se de que os dispositivos estão a ser descobertos.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Certifique-se de que os dispositivos são descobertos.":::
 
-4. A partir do menu lateral, selecione **Data Mining**.
+1. A partir do menu lateral, selecione **Data Mining**.
 
-5. Na janela **Data Mining,** selecione **ALL** e gere um relatório.
+1. Na janela **Data Mining,** selecione **ALL** e gere um relatório.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Gere um novo relatório utilizando a mineração de dados.":::
 
-6. Certifique-se de que o relatório contém dados.
+1. Certifique-se de que o relatório contém dados.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Certifique-se de que o relatório contém dados.":::
 
-7. A partir do menu lateral, selecione **Trends & Statistics**.
+1. A partir do menu lateral, selecione **Trends & Statistics**.
 
-8. Na janela **Trends & Statistics,** **selecione Add Widget**.
+1. Na janela **Trends & Statistics,** **selecione Add Widget**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Adicione um widget selecionando-o.":::
 
-9. Adicione um widget e certifique-se de que mostra dados.
+1. Adicione um widget e certifique-se de que mostra dados.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Certifique-se de que o widget está a mostrar dados.":::
 
-10. A partir do menu lateral, **selecione Alertas**. A janela **alerta** aparece.
+1. A partir do menu lateral, **selecione Alertas**. A janela **alerta** aparece.
 
-11. Certifique-se de que os alertas foram criados.
+1. Certifique-se de que os alertas foram criados.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Certifique-se de que foram criados alertas.":::
 
@@ -154,9 +165,9 @@ Para corrigir a configuração:
 
 1. Clique com o botão direito no ícone de nuvem no mapa do dispositivo e selecione **Endereços IP de exportação**. Copie as gamas públicas que são privadas e adicione-as à lista de sub-redes. Para obter mais informações, consulte [as sub-redes Configure](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Gere um novo relatório de mineração de dados para ligações à Internet.
+1. Gere um novo relatório de mineração de dados para ligações à Internet.
 
-3. No relatório de mineração de dados, selecione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para introduzir o modo de administrador e eliminar os endereços IP dos seus dispositivos ICS.
+1. No relatório de mineração de dados, selecione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para introduzir o modo de administrador e eliminar os endereços IP dos seus dispositivos ICS.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>Ajuste a qualidade de serviço do sensor
 
@@ -179,7 +190,7 @@ Para ajustar a qualidade do serviço:
    > [!NOTE]
    > Para um aparelho físico, utilize a interface em1.
 
-2. Para limpar a limitação da interface, insira `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
+1. Para limpar a limitação da interface, insira `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Ferramentas de resolução de problemas de consola de gestão no local
 
@@ -203,7 +214,7 @@ Para ajustar a qualidade do serviço:
 
 1. Inscreva-se como Defensor para utilizador IoT. 
 
-2. Verifique os valores predefinidos:
+1. Verifique os valores predefinidos:
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ Para ajustar a qualidade do serviço:
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Editar as definições predefinidos:
+1. Editar as definições predefinidos:
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Editar as definições das seguintes linhas:
+1. Editar as definições das seguintes linhas:
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Guarde as alterações. Não é necessário qualquer reinício.
+1. Guarde as alterações. Não é necessário qualquer reinício.
 
 ## <a name="export-information-for-troubleshooting"></a>Informações sobre exportação para resolução de problemas
 
@@ -239,13 +250,13 @@ Para exportar registos:
 
 1. No painel esquerdo, selecione **Definições do Sistema**.
 
-2. Selecione **Exportar Registos**.
+1. Selecione **Exportar Registos**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Exporte um registo para suporte ao sistema.":::
 
-3. Na caixa Nome de **Ficheiro,** insira o nome do ficheiro que pretende utilizar para a exportação de registos. O padrão é a data atual.
+1. Na caixa Nome de **Ficheiro,** insira o nome do ficheiro que pretende utilizar para a exportação de registos. O padrão é a data atual.
 
-4. Para definir que dados pretende exportar, selecione as categorias de dados:  
+1. Para definir que dados pretende exportar, selecione as categorias de dados:  
 
     | Categoria de exportação | Description |
     |--|--|
@@ -261,21 +272,21 @@ Para exportar registos:
     | **Registos de aplicações web** | Selecione esta opção para obter informações sobre todos os pedidos enviados a partir da interface web da aplicação. |
     | **Backup do sistema** | Selecione esta opção para exportar uma cópia de segurança de todos os dados do sistema para investigar o estado exato do sistema. |
     | **Estatísticas de dissecação** | Selecione esta opção para permitir uma inspeção avançada das estatísticas do protocolo. |
-    | **Registos de dados** | Selecione esta opção para exportar registos a partir da base de dados do sistema. A investigação de registos do sistema ajuda na identificação de problemas do sistema. |
+    | **Registos de dados** | Selecione esta opção para exportar registos a partir da base de dados do sistema. Investigar registos do sistema ajuda a identificar problemas do sistema. |
     | **Configuração** | Selecione esta opção para exportar informações sobre todos os parâmetros configuráveis para se certificar de que tudo foi configurado corretamente. |
 
-5. Para selecionar todas as opções, **selecione All** Next to **Choose Categories**.
+1. Para selecionar todas as opções, **selecione All** Next to **Choose Categories**.
 
-6. Selecione **Exportar Registos**.
+1. Selecione **Exportar Registos**.
 
 Os registos exportados são adicionados à lista **de Registos Arquivados.** Envie o OTP à equipa de apoio numa mensagem e meio separados dos registos exportados. A equipa de suporte só poderá extrair registos exportados utilizando o OTP único que é usado para encriptar os registos.
 
 A lista de registos arquivados pode conter até cinco itens. Se o número de itens da lista for além desse número, o item mais antigo é eliminado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Ver alertas](how-to-view-alerts.md)
 
-- [Configurar monitorização do MIB SNMP](how-to-set-up-snmp-mib-monitoring.md)
+- [Configurar a monitorização MIB do SNMP](how-to-set-up-snmp-mib-monitoring.md)
 
 - [Compreender eventos de desconexão de sensores](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)

@@ -1,5 +1,5 @@
 ---
-title: Endereços IP públicos em Azure
+title: Endereços IP públicos do Azure
 titlesuffix: Azure Virtual Network
 description: Saiba mais sobre os endereços IP públicos no Azure.
 services: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169940"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955591"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -55,6 +55,7 @@ Endereços IP públicos standard SKU:
 - Seguro por defeito e fechado ao tráfego de entrada. Permitir a lista de tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga público padrão ou Gateways de aplicação. Para obter mais informações sobre o balanceador de carga Standard, consulte [o Balanceador de Carga Standard Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Pode ser redundante de zona (advertizado de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Os IPs redundantes da zona só podem ser criados em regiões onde vivem [3 zonas de disponibilidade.](https://docs.microsoft.com/azure/availability-zones/az-region)** Os IPs criados antes de as zonas serem ao vivo não serão redundantes.
+- Pode ser usado como iPs de frontend para [balançadores de carga cross-region (funcionalidade de pré-visualização).](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
  
 > [!NOTE]
 > A comunicação de entrada com um recurso Standard SKU falha até criar e associar um [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada pretendido.

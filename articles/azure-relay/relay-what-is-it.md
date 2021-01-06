@@ -3,12 +3,12 @@ title: O que é o Azure Relay? | Microsoft Docs
 description: Este artigo fornece uma descrição geral do serviço Azure Relay, que permite desenvolver aplicações na cloud que consomem serviços no local em execução na rede empresarial sem abrir uma ligação de firewall ou efetuar alterações intrusivas à infraestrutura de rede.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322651"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955387"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Azure Relay?
 O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma porta na sua firewall ou fazer alterações intrusivas na sua infraestrutura de rede corporativa. 
@@ -17,7 +17,7 @@ O serviço de reencaminhamento suporta os seguintes cenários entre serviços no
 
 - Comunicação unidirecional tradicional, pedido/resposta e ponto a ponto 
 - Distribuição de eventos no âmbito da Internet para permitir cenários de publicação/subscrição 
-- Comunicação de sockets bidirecional e não registada nos limites de rede.
+- Comunicação bidirecional e desaferida de tomadas através dos limites da rede
 
 O Azure Relay difere das tecnologias de integração ao nível da rede, como a VPN. O Azure Relay pode ser específico de um ponto final de aplicação única num computador. A tecnologia VPN é bastante mais intrusiva, uma vez que depende da alteração do ambiente de rede. 
 
@@ -56,7 +56,7 @@ Tanto as Ligações Híbridas como o Reencaminhamento do WCF permitem ligações
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Javascript/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Standards-Based Open Protocol (Protocolo Aberto Baseado em Normas)** | |x |
 | **Modelos de programação RPC** | |x |
 

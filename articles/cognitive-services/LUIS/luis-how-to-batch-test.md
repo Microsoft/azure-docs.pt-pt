@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: a6f4b0a503e942b79dff28212863831055892246
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916563"
+ms.locfileid: "97955217"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Teste de lote com um conjunto de expressões de exemplo
 
@@ -168,7 +168,7 @@ As duas secções do gráfico em verde correspondem à previsão esperada.
 
 O LUIS permite-lhe testar o lote utilizando o portal LUIS e a API REST. Os pontos finais da API REST estão listados abaixo. Para obter informações sobre os testes de lote utilizando o portal LUIS, consulte [Tutorial: conjuntos de dados de teste de lote](luis-tutorial-batch-testing.md). Utilize os URLs completos abaixo, substituindo os valores do espaço reservado pela sua própria chave de previsão LUIS e ponto final. 
 
-Lembre-se de adicionar a sua chave LUIS `Apim-Subscription-Id` no cabeçalho, e definir `Content-Type` para `application/json` .
+Lembre-se de adicionar a sua chave LUIS `Ocp-Apim-Subscription-Key` no cabeçalho, e definir `Content-Type` para `application/json` .
 
 ### <a name="start-a-batch-test"></a>Iniciar um teste de lote
 

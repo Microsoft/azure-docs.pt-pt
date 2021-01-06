@@ -3,18 +3,18 @@ title: PCI-DSS v3.2.1 controlos de amostras de plantas
 description: Controlo do mapeamento da norma de segurança de dados da indústria de cartões de pagamento v3.2.1 amostra de planta para Azure Policy e Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: c634e8cc64f6376251e2cd07725c5c5a643b27c7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 7391b32b23f6f0fb8b337a8178b83cffd7dba69b
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931432"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955693"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controlo da amostra de planta PCI-DSS v3.2.1
 
 O artigo seguinte detalha como o Azure Blueprints PCI-DSS v3.2.1 blueprint mapas de amostras para os controlos PCI-DSS v3.2.1. Para obter mais informações sobre os controlos, consulte [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-Os seguintes mapeamentos são para os controlos **PCI-DSS v3.2.1:2018.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos PCI de pré-visualização v3.2.1:2018 e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
+Os seguintes mapeamentos são para os controlos **PCI-DSS v3.2.1:2018.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a iniciativa política incorporada **PCI v3.2.1:2018.**
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
@@ -61,7 +61,7 @@ Ter apenas um proprietário de assinatura Azure não permite despedimento admini
 - Deve haver mais de um proprietário atribuído à sua subscrição
 - Um máximo de 3 proprietários deve ser designado para a sua subscrição 
 
-## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a e 8.3.1.b Gestão de Direitos de Acesso Privilegiados
+## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a e 8.3.1.b Gestão dos Direitos de Acesso Privilegiados
 
 Este projeto ajuda-o a restringir e a controlar os direitos de acesso privilegiados, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com o proprietário, escrever e/ou ler permissões e contas de funcionários com permissões de proprietário e/ou de escrever permissões que não têm autenticação de vários fatores ativadas. O controlo de acesso baseado em funções Azure (Azure RBAC) ajuda a gerir quem tem acesso aos recursos Azure. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL. A utilização da autenticação do Azure Ative Directory simplifica a gestão de permissões e centraliza a gestão de identidade dos utilizadores de bases de dados e de outros Microsoft  
 services.

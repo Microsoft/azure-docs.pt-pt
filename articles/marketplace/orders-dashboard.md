@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450762"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955030"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
 Este artigo fornece informações sobre o dashboard encomendas no Partner Center. Este dashboard exibe informações sobre as suas encomendas, incluindo tendências de crescimento, apresentadas num formato gráfico e transferível.
 
-Para aceder ao dashboard de Encomendas no Centro de Parceiros, no **Mercado Comercial,** selecione **[Ordens de Análise](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Orders**.
+Para aceder ao dashboard de Encomendas no Centro de Parceiros, no **Mercado Comercial,** selecione **[Ordens de Análise](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  .
 
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./analytics-faq.md)
@@ -109,17 +109,16 @@ A tabela de detalhes da Ordem apresenta uma lista numerada das 1.000 principais 
 - Os dados podem ser extraídos para um . CSV ou . . Ficheiro TSV se a contagem dos registos for inferior a 1.000.
 - Se os registos forem mais de 1.000, os dados exportados serão colocados de forma assíncronea numa página de downloads durante os próximos 30 dias.
 - Aplique filtros na tabela **de detalhes** da Ordem para exibir apenas os dados que lhe interessam. Filtrar por País/Região, Tipo de licença Azure, tipo de licença de mercado comercial, tipo de oferta, estado de encomenda, trilhos gratuitos, ID de assinatura de mercado comercial, ID do cliente e nome da Empresa.
-- Como o SaaS oferece adquirido através do Azure Marketplace ou do Microsoft AppSource, não requer uma subscrição Azure, o ID de subscrição do Marketplace aparecerá no formulário 0000000-0000-0000-0000-00000000000000000000000 na secção **de dados de encomendas detalhadas.**
-- Quando uma encomenda é comprada por um cliente protegido, as informações em **Dados Detalhados de Encomendas** são mascaradas (********************************************************************************
+- Quando uma encomenda é comprada por um cliente protegido, as informações em **Dados Detalhados de Encomendas** são mascaradas (*
 
 **_Quadro 1: Dicionário de termos de dados_* _
 
 | Nome da coluna | Nome do atributo | Definição |
 | ------------ | ------------- | ------------- |
-| Id de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. ID foi anteriormente a Azure Subscription GUID. |
+| Id de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. Para ofertas de infraestruturas, esta é a assinatura Azure do cliente GUID. Para as ofertas da SaaS, isto é mostrado como zeros uma vez que as compras da SaaS não requerem uma subscrição do Azure. |
 | MêsStartDate | Data de Início do Mês | A Data de Início do Mês representa o mês de Compra. |
 | Tipo de Oferta | Tipo de Oferta | O tipo de oferta de mercado comercial. |
-| Tipo de Licença Azure | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como Canal. Os valores possíveis são:<ul><li>Provedor de solução cloud</li><li>Enterprise</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
+| Tipo de Licença Azure | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como Canal. Os valores possíveis são:<ul><li>Provedor de solução cloud</li><li>Grandes Empresas</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
 | Tipo de Licença de Mercado | Tipo de Licença de Mercado | O método de faturação da oferta de mercado comercial. Os diferentes valores são:<ul><li>Faturado através de Azure</li><li>Traga a sua própria licença</li><li>Gratuito</li><li>Microsoft como Revendedor</li></ul> |
 | SKU | SKU | O plano associado à oferta |
 | País do Cliente | País/Região do Cliente | O nome país/região fornecido pelo cliente. O país/região poderia ser diferente do país/região na subscrição Azure de um cliente. |

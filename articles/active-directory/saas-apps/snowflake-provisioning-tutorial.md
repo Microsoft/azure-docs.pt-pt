@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181429"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955523"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configure Snowflake para o fornecimento automático de utilizadores
 
@@ -159,6 +159,12 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 ## <a name="connector-limitations"></a>Limitações do conector
 
 * Os tokens do SCIM gerados pelo floco de neve expiram em 6 meses. Esteja ciente de que estes devem ser atualizados antes de expirarem para permitir que as sincronizações de provisionamento continuem a funcionar. 
+
+## <a name="troubleshooting-tips"></a>Sugestões de Resolução de Problemas
+
+* **Gamas IP** 
+
+   O serviço de prestação de AD Azure opera atualmente ao abrigo de uma determinada gama de IP. Assim, se necessário, pode restringir outras gamas de IP e adicionar estes intervalos IP específicos à lista de admissões da sua aplicação para permitir o fluxo de tráfego do serviço de fornecimento de Azure AD à sua aplicação. Consulte a documentação em [Gamas IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## <a name="change-log"></a>Alterar Registo
 

@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ce906ad62b51956cb85f854846740fa09e06895d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97664988"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955654"
 ---
 Event Hub organiza sequências de eventos em uma ou mais divisórias. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Uma partição pode ser considerada como um "registo de consolidação".
 
@@ -21,11 +21,11 @@ As partições contêm dados de eventos que contenham o corpo do evento, um saco
 
 ![Diagrama que mostra a mais antiga a mais recente sequência de eventos.](./media/event-hubs-partitions/partition.png)
 
-O Event Hubs é projetado para ajudar no processamento de grandes volumes de eventos, e a partição ajuda com isso de duas maneiras:
+O Event Hubs é projetado para ajudar no processamento de grandes volumes de eventos, e a partilha ajuda com isso de duas maneiras:
 
 Em primeiro lugar, embora o Event Hubs seja um serviço PaaS, há uma realidade física por baixo, e manter um registo que preserva a ordem dos eventos requer que estes eventos sejam mantidos juntos no armazenamento subjacente e nas suas réplicas e isso resulta num teto de produção para tal log. A partição permite que vários troncos paralelos sejam usados para o mesmo Centro de Eventos e, portanto, multiplicando a capacidade de produção bruta disponível.
 
-Em segundo lugar, as suas próprias aplicações devem ser capazes de acompanhar o processamento do volume de eventos que estão sendo enviados para um Centro de Eventos. Isso pode ser bastante complexo e requer uma capacidade de processamento paralela substancial, escalonada e paralela. A razão para as divisórias é a mesma que acima: A capacidade de um único processo para lidar com eventos é limitada, e por isso você precisa de vários processos, e divisórias são como a sua solução alimenta esses processos e ainda garante que cada evento tem um proprietário de processamento claro. 
+Em segundo lugar, as suas próprias aplicações devem ser capazes de acompanhar o processamento do volume de eventos que estão sendo enviados para um Centro de Eventos. Pode ser complexo e requer uma capacidade de processamento paralela substancial, escalonada e paralela. A razão para as divisórias é a mesma que acima: A capacidade de um único processo para lidar com eventos é limitada, e por isso você precisa de vários processos, e divisórias são como a sua solução alimenta esses processos e ainda garante que cada evento tem um proprietário de processamento claro. 
 
 O Event Hubs retém eventos para um tempo de retenção configurado que se aplica em todas as divisórias. Os eventos são automaticamente removidos quando o período de retenção foi atingido. Se especificar um período de retenção de um dia, o evento ficará indisponível exatamente 24 horas após a sua aceitação. Não é possível eliminar explicitamente os acontecimentos. 
 
@@ -51,7 +51,7 @@ Especificar uma chave de partição permite manter os eventos relacionados junto
 
 Uma sequência de eventos identificados por uma chave de partição é um *fluxo*. Uma divisória é uma loja de troncos multiplexed para muitos desses fluxos. 
 
-A contagem de divisórias de um Centro de Eventos pode ser aumentada após a criação do Event Hub, mas a distribuição de fluxos através de divisórias mudará quando for feita como o mapeamento das chaves de partição para as divisórias muda, pelo que deve esforçar-se por evitar tais alterações se a ordem relativa dos eventos for importante na sua aplicação.
+A contagem de divisórias para um centro de eventos num [cluster dedicado de Clusters de Eventos](../articles/event-hubs/event-hubs-dedicated-overview.md) pode ser [aumentada](../articles/event-hubs/dynamically-add-partitions.md) após a criação do centro de eventos, mas a distribuição de fluxos através de divisórias mudará quando for feita como o mapeamento das chaves de partição para as divisórias muda, por isso deve esforçar-se para evitar tais alterações se a ordem relativa dos eventos for importante na sua aplicação.
 
 Definir o número de divisórias ao valor máximo permitido é tentador, mas tenha sempre em mente que os fluxos do seu evento precisam de ser estruturados de modo a que possa realmente tirar partido de múltiplas divisórias. Se você precisa de preservação absoluta da ordem em todos os eventos ou apenas um punhado de substreams, você pode não ser capaz de aproveitar muitas divisórias. Além disso, muitas divisórias tornam o lado do processamento mais complexo. 
 

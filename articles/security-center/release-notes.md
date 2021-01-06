@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2020
+ms.date: 01/07/2021
 ms.author: memildin
-ms.openlocfilehash: f0015177332aa07ed65f9d0345a11bfdad170104
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 4e4ee8690822c6caf4a7c5bd69387ea00d6d00a8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862613"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955455"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -29,6 +29,30 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 
 > [!TIP]
 > Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>A avaliação da vulnerabilidade para máquinas no local e multi-nuvens está geralmente disponível
+
+Em outubro, anunciou uma pré-visualização para digitalizar servidores Azure Arc habilitados com [Azure Defender para](defender-for-servers-introduction.md)o scanner integrado de avaliação de vulnerabilidade dos servidores (alimentado por Qualys).
+
+Está disponível agora. 
+
+Quando tiver ativado o Azure Arc nas suas máquinas não-Azure, o Security Center oferecer-se-á para implementar o scanner integrado de vulnerabilidade neles - manual e à escala.
+
+Com esta atualização, pode libertar o poder do **Azure Defender para os servidores** consolidarem o seu programa de gestão de vulnerabilidades em todos os seus ativos Azure e não-Azure.
+
+Principais capacidades:
+
+- Monitorização do estado de provisionamento do scanner VA (avaliação de vulnerabilidade) nas máquinas Azure Arc
+- Provisionando o agente VA integrado às máquinas de Windows e Arú azul desprotegidas (manual e à escala)
+- Receber e analisar vulnerabilidades detetadas de agentes implantados (manualmente e à escala)
+- Experiência unificada para VMs Azure e máquinas Azure Arc
+
+[Saiba mais sobre a implementação do scanner de vulnerabilidade integrado nas suas máquinas híbridas.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
+
+[Saiba mais sobre os servidores ativados do Azure Arc](../azure-arc/servers/index.yml).
 
 
 ## <a name="december-2020"></a>Dezembro de 2020
@@ -796,118 +820,3 @@ Pode ignorar com segurança estas políticas e não haverá impacto no seu ambie
 
 1. **Pré-visualização única** – Para juntar apenas esta pré-visualização privada. Mencione explicitamente "ASC Continuous Scan" como a pré-visualização que gostaria de aderir.
 1. **Programa em curso** – A ser adicionado a esta e futuras antestreias privadas. Você precisará completar um acordo de perfil e privacidade.
-
-
-## <a name="july-2020"></a>Julho de 2020
-
-As atualizações em julho incluem:
-- [Avaliação de vulnerabilidade para máquinas virtuais já está disponível para imagens não-marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
-- [Proteção contra ameaças para o Azure Storage expandido para incluir ficheiros Azure e Azure Data Lake Storage Gen2 (pré-visualização)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
-- [Oito novas recomendações para permitir funcionalidades de proteção de ameaças](#eight-new-recommendations-to-enable-threat-protection-features)
-- [Melhorias na segurança do contentor - digitalização mais rápida do registo e documentação atualizada](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Controlos de aplicações adaptativos atualizados com uma nova recomendação e suporte para wildcards nas regras de caminho](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
-- [Seis políticas para a segurança avançada de dados SQL depreciadas](#six-policies-for-sql-advanced-data-security-deprecated)
-
-
-
-
-### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>Avaliação de vulnerabilidade para máquinas virtuais já está disponível para imagens não-marketplace
-
-Ao implementar uma solução de avaliação de vulnerabilidades, o Security Center efetuou previamente uma verificação de validação antes de ser implementado. O cheque foi para confirmar um mercado SKU da máquina virtual de destino. 
-
-A partir desta atualização, a verificação foi removida e agora pode implementar ferramentas de avaliação de vulnerabilidades para máquinas 'personalizadas' Windows e Linux. As imagens personalizadas são aquelas que modificou a partir das predefinições do mercado.
-
-Embora agora possa implementar a extensão integrada de avaliação de vulnerabilidade (alimentada por Qualys) em muitas mais máquinas, o suporte só está disponível se estiver a utilizar um SISTEMA listado no [Deploy o scanner integrado de vulnerabilidade para VMs de nível padrão](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
-
-Saiba mais sobre o [scanner de vulnerabilidade integrado para máquinas virtuais (requer Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
-
-Saiba mais sobre a utilização da sua própria solução de avaliação de vulnerabilidades licenciada em privado a partir da Qualys ou Rapid7 na [implementação de uma solução de digitalização de vulnerabilidade de parceiros.](deploy-vulnerability-assessment-vm.md)
-
-
-### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Proteção contra ameaças para o Azure Storage expandido para incluir ficheiros Azure e Azure Data Lake Storage Gen2 (pré-visualização)
-
-A proteção contra ameaças para o Armazenamento Azure deteta atividade potencialmente prejudicial nas suas contas de Armazenamento Azure. O Centro de Segurança exibe alertas quando deteta tentativas de aceder ou explorar as suas contas de armazenamento. 
-
-Os seus dados podem ser protegidos quer sejam armazenados como recipientes blob, partilhas de ficheiros ou lagos de dados.
-
-
-
-
-### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>Oito novas recomendações para permitir funcionalidades de proteção de ameaças
-
-Foram adicionadas oito novas recomendações para fornecer uma forma simples de permitir as funcionalidades de proteção de ameaças do Azure Security Center para os seguintes tipos de recursos: máquinas virtuais, planos de Serviço de Aplicações, servidores de base de dados Azure SQL, servidores SQL em máquinas, contas de armazenamento Azure, clusters de serviço Azure Kubernetes, registos de registos de contentores Azure e cofres da Azure Vault.
-
-As novas recomendações são:
-
-- **A segurança avançada dos dados deve ser ativada nos servidores da Base de Dados Azure SQL**
-- **A segurança avançada dos dados deve ser ativada em servidores SQL em máquinas**
-- **Proteção avançada de ameaças deve ser ativada nos planos do Azure App Service**
-- **A proteção avançada de ameaças deve ser ativada nos registos do Registo de Contentores de Azure**
-- **Proteção avançada de ameaças deve ser ativada em cofres Azure Key Vault**
-- **A proteção avançada de ameaças deve ser ativada nos clusters de serviços Azure Kubernetes**
-- **A proteção avançada de ameaças deve ser ativada nas contas de armazenamento do Azure**
-- **A proteção avançada de ameaças deve ser ativada em máquinas virtuais**
-
-Estas novas recomendações pertencem ao controlo de segurança **Enable Azure Defender.**
-
-As recomendações também incluem a capacidade de correção rápida. 
-
-> [!IMPORTANT]
-> A reparação de qualquer destas recomendações resultará em encargos para a proteção dos recursos relevantes. Estas taxas começarão imediatamente se tiver recursos relacionados na subscrição atual. Ou no futuro, se os adicionar mais tarde.
-> 
-> Por exemplo, se não tiver nenhum cluster de Serviço Azure Kubernetes na sua subscrição e ativar a proteção contra ameaças, não serão incorridos quaisquer encargos. Se, no futuro, adicionar um cluster na mesma subscrição, será automaticamente protegido e os encargos começarão nessa altura.
-
-Saiba mais sobre cada um destes na página de referência das [recomendações de segurança](recommendations-reference.md).
-
-Saiba mais sobre [a proteção contra ameaças no Centro de Segurança Azure.](azure-defender.md)
-
-
-
-
-### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Melhorias na segurança do contentor - digitalização mais rápida do registo e documentação atualizada
-
-Como parte dos investimentos contínuos no domínio de segurança do contentor, temos o prazer de partilhar uma melhoria significativa de desempenho nas imagens dinâmicas do Security Center de imagens de contentores armazenadas no Registo de Contentores Azure. Os exames normalmente completam-se em aproximadamente dois minutos. Em alguns casos, podem levar até 15 minutos.
-
-Para melhorar a clareza e orientação sobre as capacidades de segurança do Azure Security Center, também refrescamos as páginas de documentação de segurança do contentor. 
-
-Saiba mais sobre a segurança do contentor do Security Center nos seguintes artigos:
-
-- [Visão geral das funcionalidades de segurança do centro de segurança](container-security.md)
-- [Detalhes da integração com o Registo de Contentores Azure](defender-for-container-registries-introduction.md)
-- [Detalhes da integração com o Serviço Azure Kubernetes](defender-for-kubernetes-introduction.md)
-- [Como digitalizar os seus registos e endurecer os seus anfitriões Docker](container-security.md)
-- [Alertas de segurança das funcionalidades de proteção contra ameaças para os clusters de serviços Azure Kubernetes](alerts-reference.md#alerts-akscluster)
-- [Alertas de segurança das funcionalidades de proteção contra ameaças para os anfitriões do Serviço Azure Kubernetes](alerts-reference.md#alerts-containerhost)
-- [Recomendações de segurança para contentores](recommendations-reference.md#recs-containers)
-
-
-
-### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Controlos de aplicações adaptativos atualizados com uma nova recomendação e suporte para wildcards nas regras de caminho
-
-A funcionalidade de controlos de aplicações adaptativas recebeu duas atualizações significativas:
-
-* Uma nova recomendação identifica um comportamento potencialmente legítimo que não foi permitido anteriormente. A nova recomendação, **as regras Allowlist na sua política de controlo de aplicações adaptativas devem ser atualizadas,** leva-o a adicionar novas regras à política existente para reduzir o número de falsos positivos nos alertas de violação de controlos de aplicações adaptativos.
-
-* As regras do caminho agora suportam wildcards. A partir desta atualização, pode configurar as regras de caminho permitidas usando wildcards. Há dois cenários apoiados:
-
-    * Usando um wildcard no final de um caminho para permitir todos os executáveis dentro desta pasta e sub-pastas
-
-    * Utilizar um wildcard no meio de um caminho para permitir um nome executável conhecido com um nome de pasta em mudança (por exemplo, pastas pessoais de utilizador com nomes de pastas geradas automaticamente, executáveis, etc.).
-
-
-[Saiba mais sobre controlos de aplicações adaptativos.](security-center-adaptive-application.md)
-
-
-
-### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Seis políticas para a segurança avançada de dados SQL depreciadas
-
-Estão a ser depreciadas seis políticas relacionadas com a segurança avançada dos dados para máquinas SQL:
-
-- Os tipos avançados de proteção contra ameaças devem ser definidos como 'All' em definições avançadas de segurança de dados de casos de SQL
-- Os tipos avançados de proteção de ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL
-- As definições avançadas de segurança de dados para a ocorrência gerida pelo SQL devem conter um endereço de e-mail para receber alertas de segurança
-- As definições avançadas de segurança de dados para o servidor SQL devem conter um endereço de e-mail para receber alertas de segurança
-- As notificações por e-mail aos administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados de casos DE SQL
-- As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados do servidor SQL
-
-Saiba mais sobre [políticas incorporadas.](./policy-reference.md)

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033345"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955404"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
@@ -47,15 +47,18 @@ No seu [blogue, em outubro de 2018,](https://techcommunity.microsoft.com/t5/Azur
 
 A Proteção de Identidade identifica os riscos nas seguintes classificações:
 
-| Tipo de deteção de risco | Descrição |
+| Tipo de deteção de risco | Description |
 | --- | --- |
-| Viagem atípica | Inscreva-se a partir de uma localização atípica com base nas recentes insusagens do utilizador. |
 | Endereço IP anónimo | Inscreva-se a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores). |
-| Propriedades de inícios de sessão desconhecidos | Inscreva-se com propriedades que não vimos recentemente para o utilizador dado. |
+| Viagem atípica | Inscreva-se a partir de uma localização atípica com base nas recentes insusagens do utilizador. |
 | Endereço IP ligado a malware | Inscreva-se a partir de um endereço IP ligado a malware. |
+| Propriedades de inícios de sessão desconhecidos | Inscreva-se com propriedades que não vimos recentemente para o utilizador dado. |
 | Credenciais vazadas | Indica que as credenciais válidas do utilizador foram vazadas. |
 | Spray de senha | Indica que vários nomes de utilizadores estão a ser atacados usando senhas comuns de forma unificada e bruta. |
 | Inteligência de ameaça Azure AD | Fontes internas e externas da Microsoft identificaram um padrão de ataque conhecido. |
+| Novo país | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
+| Atividade a partir de endereço IP anónimo | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
+| Reencaminhamento de caixa de entrada suspeito | Esta deteção é descoberta pela [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
 
 Mais detalhes sobre estes riscos e como/quando são calculados podem ser encontrados no artigo, [O que é o risco](concept-identity-protection-risks.md).
 
@@ -104,15 +107,15 @@ Os administradores de acesso condicional também podem criar políticas que fato
 
 | Funcionalidade | Detalhes  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | Não | Não |Sim | 
-| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | Não |  Não |Sim |
-| Relatórios de segurança | Descrição geral |  Não | Não |Sim |
+| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | No |Yes | 
+| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  No |Yes |
+| Relatórios de segurança | Descrição Geral |  No | No |Yes |
 | Relatórios de segurança | Utilizadores de risco  | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Acesso completo|
 | Relatórios de segurança | Inícios de sessão de risco  | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Acesso completo|
-| Relatórios de segurança | Deteções de riscos   | Não | Informação limitada. Sem detalhes na gaveta.| Acesso completo|
-| Notificações | Utilizadores em risco detetados alertas  | Não | Não |Sim |
-| Notificações | Digestão semanal| Não | Não | Sim | 
-| | Política de registo na MFA | Não | Não | Sim |
+| Relatórios de segurança | Deteções de riscos   | No | Informação limitada. Sem detalhes na gaveta.| Acesso completo|
+| Notificações | Utilizadores em risco detetados alertas  | No | No |Yes |
+| Notificações | Digestão semanal| No | No | Yes | 
+| | Política de registo na MFA | No | No | Yes |
 
 Mais informações sobre estes relatórios ricos podem ser encontradas no artigo, [Como: Investigar o risco](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 

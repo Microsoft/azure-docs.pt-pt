@@ -4,15 +4,15 @@ description: Criar e gerir os utilizadores de sensores e a consola de gestão no
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843338"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955107"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre o Defender para utilizadores de consolas IoT
 
@@ -20,7 +20,7 @@ Este artigo descreve como criar e gerir utilizadores de sensores e da consola de
 
 As funcionalidades também estão disponíveis para acompanhar a atividade do utilizador e ativar o registo do Ative Directory.
 
-Por predefinição, cada consola de gestão de sensores e instalações é instalada com um *utilizador de ciberx e suporte.* Estes utilizadores têm acesso a ferramentas avançadas para resolução e configuração de problemas. Os utilizadores de administradores devem iniciar sessão com estas credenciais de utilizador, criar um utilizador administrativo e, em seguida, criar utilizadores adicionais para analistas de segurança e utilizadores apenas de leitura.
+Por predefinição, cada consola de gestão de sensores e instalações é instalada com um *utilizador de ciberx e suporte.* Estes utilizadores têm acesso a ferramentas avançadas para resolução e configuração de problemas. Os utilizadores de administradores devem iniciar sessão com estas credenciais de utilizador, criar um utilizador administrativo e, em seguida, criar utilizadores extra para analistas de segurança e utilizadores apenas de leitura.
 
 ## <a name="role-based-permissions"></a>Permissões baseadas em funções
 Estão disponíveis as seguintes funções de utilizador:
@@ -89,8 +89,8 @@ Esta secção descreve como definir os utilizadores. Os utilizadores de Cyberx, 
 Para definir um utilizador:
 
 1. A partir do painel esquerdo para o sensor ou para a consola de gestão no local, selecione **Utilizadores**.
-2. Na janela **do Utilizador,** selecione **Criar Utilizador**.
-3. No painel **de utilização** Criar, defina os seguintes parâmetros:
+1. Na janela **do Utilizador,** selecione **Criar Utilizador**.
+1. No painel **de utilização** Criar, defina os seguintes parâmetros:
 
    - **Nome de utilizador**: Introduza um nome de utilizador.
    - **Email**: Insira o endereço de e-mail do utilizador.
@@ -122,7 +122,7 @@ Para aceder ao comando:
 
 1. Inscreva-se no CLI para a consola de gestão de sensores ou no local utilizando o Defender para obter credenciais administrativas IoT.
 
-2. Introduza `sudo nano /var/cyberx/properties/authentication`.
+1. Introduza `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ Para aceder ao comando:
 Para desativar a funcionalidade, mude `infinity_session_expiration = true` para `infinity_session_expiration = false` .
 
 Para atualizar os períodos de contagem de assinaturas, ajuste o `= <number>` valor ao tempo necessário.
-
 
 ## <a name="track-user-activity"></a>Acompanhar a atividade do utilizador 
 
@@ -171,11 +170,11 @@ Para configurar o Diretório Ativo:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Veja as definições do sistema Ative Directory.":::
 
-2. No painel **de definições** do sistema, selecione **Ative Directory**.
+1. No painel **de definições** do sistema, selecione **Ative Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edite as configurações do Ative Directory.":::
 
-3. Na caixa de diálogo de **configuração de configuração do diretório ativo de edição,** selecione **Ative Directory Integration Enabled**  >  **Save**. A caixa de diálogo de **configuração de diretório ativo** de edição expande-se e agora pode introduzir os parâmetros para configurar o Ative Directory.
+1. Na caixa de diálogo de **configuração de configuração do diretório ativo de edição,** selecione **Ative Directory Integration Enabled**  >  **Save**. A caixa de diálogo de **configuração de diretório ativo** de edição expande-se e agora pode introduzir os parâmetros para configurar o Ative Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Introduza os parâmetros para configurar o Ative Directory.":::
 
@@ -184,7 +183,7 @@ Para configurar o Diretório Ativo:
     > - Para todos os parâmetros do Diretório Ativo, utilize apenas minúsculas. Utilize minúsculas mesmo quando as configurações no Ative Directory utilizarem maiúsculas.
     > - Não é possível configurar tanto lDAP como LDAPS para o mesmo domínio. No entanto, pode utilizar ambos para diferentes domínios ao mesmo tempo.
 
-4. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
+1. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
 
    | Parâmetro do servidor | Description |
    |--|--|
@@ -194,11 +193,81 @@ Para configurar o Diretório Ativo:
    | Grupos de diretório ativo | Introduza os nomes de grupo definidos na configuração do Ative Directory no servidor LDAP. |
    | Domínios fidedignos | Para adicionar um domínio de confiança, adicione o nome de domínio e o tipo de ligação de um domínio fidedigno. <br />Só é possível configurar domínios fidedignos para utilizadores definidos pelos utilizadores. |
 
-5. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
-6. Para adicionar um servidor de confiança, **selecione Adicionar Servidor** e configuure outro servidor.
+1. Para adicionar um servidor de confiança, **selecione Adicionar Servidor** e configuure outro servidor.
 
-## <a name="see-also"></a>Veja também
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Repor a palavra-passe de um utilizador para o sensor ou consola de gestão no local
+
+### <a name="cyberx-or-support-user"></a>Utilizador de CyberX ou Suporte
+
+Apenas o utilizador **CyberX** e **Suporte** tem acesso à funcionalidade **de recuperação de passwords.** Se o utilizador **CyberX** ou **Support** se esqueceu da sua palavra-passe, pode ser reposta a palavra-passe através da opção **de recuperação** de passwords na página de entrada do Defender para ioT.
+
+Para redefinir a palavra-passe para um utilizador CyberX ou Support:
+
+1. No ecrã de entrada de IoT do Defender, selecione  **a recuperação da palavra-passe**. O ecrã **de recuperação da palavra-passe** abre.
+
+1. Selecione **CyberX** ou **Support**, e copie o identificador único.
+
+1. Navegue até ao portal Azure e selecione **Sites e Sensores.**  
+
+1. Selecione o ícone do Filtro de **Subscrição** :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  a partir da barra de ferramentas superior e selecione a subscrição a que o seu sensor está ligado.
+
+1. Selecione o **separador palavra-passe da consola de gestão recuperar no local.**
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selecione o botão de gestão de recuperação no local para descarregar o ficheiro de recuperação.":::
+
+1. Introduza o identificador único que recebeu no ecrã de recuperação da **Palavra-passe** e selecione **Recuperar**. O `password_recovery.zip` ficheiro foi descarregado.
+
+    > [!NOTE]
+    > Não altere o ficheiro de recuperação da palavra-passe. É um ficheiro assinado e não funcionará se o adulterares.
+
+1. No ecrã de recuperação da **palavra-passe,** selecione **Upload**. A janela **do Ficheiro de Recuperação de Passwords do Upload** será aberta.
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Faça upload do seu ficheiro de recuperação para obter uma nova senha.":::
+
+1. **Selecione Procurar** para localizar o seu `password_recovery.zip` ficheiro ou arrastar o para a `password_recovery.zip` janela.
+
+    > [!NOTE]
+    > Pode aparecer uma mensagem de erro indicando que o ficheiro é inválido. Para corrigir esta mensagem de erro, certifique-se de que selecionou a subscrição certa antes de descarregar `password_recovery.zip` e descarregá-la novamente.  
+
+1. Selecione **Next**, e o seu utilizador, e a palavra-passe gerada pelo sistema para a sua consola de gestão aparecerá então.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>Administrador, analista de segurança e só utilizador de leitura
+
+Leia apenas e os analistas de Segurança não podem redefinir a sua própria palavra-passe e precisam de contactar um utilizador com as funções de Administrador, Suporte ou CyberX, a fim de redefinir a sua palavra-passe. Um utilizador do Administrador deve contactar o utilizador **CyberX** ou **Support** para redefinir a sua palavra-passe.
+
+Para redefinir a palavra-passe de um utilizador no Sensor:
+
+1. Um administrador, suporte ou utilizador da função CyberX deve iniciar sposição no sensor.
+
+1. Selecione **Utilizadores** do painel à esquerda.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Selecione a opção de utilizador a partir do painel lateral esquerdo.":::
+
+1. Localize o utilizador e **selecione Editar** a partir do menu de retirada **de Ações.**
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="selecione editar a partir do menu de ações dropdown.":::
+
+1. Introduza a nova palavra-passe nos campos **'Nova Palavra-passe'** e confirme novos campos **de palavra-passe.**
+
+1. Selecione **Atualizar**.
+
+Para redefinir a palavra-passe de um utilizador na consola de gestão no local:
+
+1. Um administrador, suporte ou utilizador da função CyberX deve iniciar sposição no sensor.
+
+1. Selecione **Utilizadores** do painel à esquerda.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="No painel esquerdo selecione a opção do utilizador.":::
+
+1. Localize o seu utilizador e selecione o ícone de edição :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
+
+1. Introduza a nova palavra-passe nos campos **'Nova Palavra-passe'** e confirme novos campos **de palavra-passe.**
+
+1. Selecione **Atualizar**.
+
+## <a name="see-also"></a>Ver também
 
 [Ative e crie o seu sensor](how-to-activate-and-set-up-your-sensor.md) 
  [Ative e crie a sua consola](how-to-activate-and-set-up-your-on-premises-management-console.md) 

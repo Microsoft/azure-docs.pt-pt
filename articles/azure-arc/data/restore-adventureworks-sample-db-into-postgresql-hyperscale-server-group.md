@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b51c5ca2295671a30fa6c0aee8d313c4c333900
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1ee779be118fcafd0efa2bd2718ece1c34c50d1
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938967"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954333"
 ---
 # <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Restaurar a base de dados de amostras AdventureWorks para Azure Arc ativada em Hiperescala PósgreSQL
 
@@ -30,7 +30,7 @@ Este documento descreve um processo simples para obter a base de dados de amostr
 
 ## <a name="download-the-adventureworks-backup-file"></a>Descarregue o ficheiro de backup adventureWorks
 
-Descarregue o ficheiro AdventureWorks .sql no seu recipiente do grupo de servidores PostgreSQL Hyperscale. Neste exemplo, usaremos o `kubectl exec` comando para executar remotamente um comando no contentor do grupo de servidores PostgreSQL Hyperscale para descarregar o ficheiro no recipiente. Pode descarregar este ficheiro a partir de qualquer local acessível por `curl` . Utilize este mesmo método se tiver outros ficheiros de back-up de base de dados que pretende puxar no recipiente do grupo de servidores de hiperescala PostgreSQL. Uma vez que está no recipiente do grupo de servidores de hiperescala PostgreSQL, é fácil criar a base de dados, o esquema e povoar os dados.
+Descarregue o ficheiro adventureWorks .sql no seu recipiente do grupo de servidores PostgreSQL Hyperscale. Neste exemplo, usaremos o `kubectl exec` comando para executar remotamente um comando no contentor do grupo de servidores PostgreSQL Hyperscale para descarregar o ficheiro no recipiente. Pode descarregar este ficheiro a partir de qualquer local acessível por `curl` . Utilize este mesmo método se tiver outros ficheiros de back-up de base de dados que pretende puxar no recipiente do grupo de servidores de hiperescala PostgreSQL. Uma vez que está no recipiente do grupo de servidores de hiperescala PostgreSQL, é fácil criar a base de dados, o esquema e povoar os dados.
 
 Executar um comando como este para descarregar os ficheiros substitua o valor do nome do pod e nome do espaço antes de o executar:
 
@@ -41,10 +41,10 @@ Executar um comando como este para descarregar os ficheiros substitua o valor do
 >  Utilize o nome do nó de pod do nó coordenador do grupo de servidores Postgres Hyperscale. O seu nome é <server group name> -0.  Se não tiver certeza do nome da cápsula, executar o comando `kubectl get pod`
 
 ```console
-kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 
 #Example:
-#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
 ## <a name="step-2-restore-the-adventureworks-database"></a>Passo 2: Restaurar a base de dados AdventureWorks

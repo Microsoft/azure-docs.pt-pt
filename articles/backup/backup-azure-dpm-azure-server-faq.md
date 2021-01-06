@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Microso
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: cd974181c78586f915dad6cc6ed39d9255a1456b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1663a842b7e00c611543451d4caef96b5b5a913f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172576"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954996"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server e DPM - FAQ
 
@@ -23,11 +23,11 @@ Sim.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registar o servidor em vários cofres?
 
-Não. Um servidor DPM ou Azure Backup pode ser registado em apenas um cofre.
+N.º Um servidor DPM ou Azure Backup pode ser registado em apenas um cofre.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Posso usar o DPM para fazer o back up apps em Azure Stack?
 
-Não. Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup não suporta o uso de DPM para apoiar aplicações em Azure Stack.
+N.º Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup não suporta o uso de DPM para apoiar aplicações em Azure Stack.
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se instalei o agente Azure Backup para proteger os meus ficheiros e pastas, posso instalar o System Center DPM para fazer cópias de segurança no local para o Azure?
 
@@ -56,6 +56,10 @@ Não precisa de licença separada para proteção VMware/Hiper-V.
 
 - Se for cliente do System Center, utilize o Gestor de Proteção de Dados do Centro de Sistema (DPM) para proteger vMware VMs.
 - Se não for cliente do System Center, pode utilizar o Azure Backup Server (pay-as-you-go) para proteger VMware VMs.
+
+### <a name="can-i-restore-a-backup-of-a-hyper-v-or-vmware-vm-stored-in-azure-to-azure-as-an-azure-vm"></a>Posso restaurar uma cópia de segurança de um VM De Hiper-V ou VMware, armazenado em Azure, para Azure como um VM Azure?
+
+Não, isto não é possível. Só pode restaurar para um hospedeiro no local.
 
 ## <a name="sharepoint"></a>SharePoint
 

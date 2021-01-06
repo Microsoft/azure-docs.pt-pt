@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96002800"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955421"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -153,7 +153,7 @@ Para obter instruções passo a passo e mais informações sobre a criação de 
 ## <a name="partitions"></a>Partições
 
 ### <a name="how-many-partitions-do-i-need"></a>Quantas partições são necessárias?
-O número de divisórias é especificado na criação e deve estar entre 1 e 32. A contagem de divisórias não é mutável, por isso deve considerar a escala a longo prazo ao definir a contagem de divisórias. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Para obter mais informações sobre divisórias, consulte [As Partições.](event-hubs-features.md#partitions)
+O número de divisórias é especificado na criação e deve estar entre 1 e 32. A contagem de divisórias não é mutável em todos os níveis, exceto no [nível dedicado,](event-hubs-dedicated-overview.md)por isso deve considerar a escala a longo prazo ao definir a contagem de divisórias. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Para obter mais informações sobre divisórias, consulte [As Partições.](event-hubs-features.md#partitions)
 
 Talvez queira defini-lo como o valor mais alto possível, que é 32, no momento da criação. Lembre-se que ter mais de uma partição resultará em eventos enviados para múltiplas divisórias sem reter a ordem, a menos que você configuure os remetentes para enviar apenas para uma única partição das 32 deixando as restantes 31 divisórias redundantes. No primeiro caso, terás de ler eventos em todas as 32 divisórias. Neste último caso, não há um custo adicional óbvio para além da configuração extra que tem de fazer no Host do Processador de Eventos.
 

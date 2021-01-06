@@ -3,17 +3,17 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617362"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955013"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -25,6 +25,44 @@ Atualizações de Ambiente de Trabalho Virtual do Windows regularmente. Este art
 - Correções de erros
 
 Este artigo é atualizado mensalmente. Certifique-se de voltar aqui muitas vezes para acompanhar novas atualizações.
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+Eis o que mudou em dezembro de 2020: 
+
+### <a name="azure-monitor-for-windows-virtual-desktop"></a>Monitor Azure para o Windows Virtual Desktop
+
+A pré-visualização pública do Azure Monitor para o Windows Virtual Desktop já se encontra disponível. Esta nova funcionalidade inclui um painel robusto construído em cima de livros de trabalho do Monitor Azure para ajudar os profissionais de TI a compreender os seus ambientes de desktop virtual do Windows. Confira [o anúncio no nosso blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587) para mais detalhes. 
+
+### <a name="azure-resource-manager-template-change"></a>Alteração do modelo do gestor de recursos Azure 
+
+Na última atualização, removemos todos os parâmetros de endereço IP públicos do modelo do Gestor de Recursos Azure para criar e aprovisionar piscinas hospedeiras. Recomendamos vivamente que evite utilizar IPs públicos para Windows Virtual Desktop para manter a sua implementação segura. Se a sua implantação dependesse de IPs públicos, terá de o reconfigurar para utilizar iPs privados, caso contrário, a sua implantação não funcionará corretamente.
+
+### <a name="msix-app-attach-public-preview"></a>App MSIX anexa pré-visualização pública 
+
+O anexo de aplicações MSIX é outro serviço que iniciou a sua pré-visualização pública este mês. O anexo de aplicações MSIX é um serviço que apresenta dinamicamente aplicações MSIX para os VMs do anfitrião do Windows Virtual Desktop Session. Confira [o anúncio no nosso blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) para mais detalhes. 
+
+### <a name="screen-capture-protection"></a>Proteção de captura de ecrã 
+
+Este mês também marcou o início da pré-visualização pública para proteção de captura de ecrãs. Pode utilizar esta funcionalidade para evitar que informações sensíveis sejam capturadas nos pontos finais do cliente. Dê uma tentativa à proteção de captura de ecrã, indo para [esta página](https://aka.ms/WVDScreenCaptureProtection).  
+
+### <a name="built-in-roles"></a>Funções incorporadas
+
+Adicionámos novas funções incorporadas para o Windows Virtual Desktop para permissões de administração. Para obter mais informações, consulte [as funções incorporadas para o Windows Virtual Desktop](rbac.md). 
+
+### <a name="application-group-limit-increase"></a>Aumento do limite do grupo de aplicação
+
+Aumentámos o limite do grupo de candidaturas por padrão por inquilino do Azure Ative Directory para 200 grupos.
+
+### <a name="client-updates-for-december-2020"></a>Atualizações de clientes para dezembro de 2020
+
+Lançamos novas versões dos seguintes clientes: 
+
+- Android
+- macOS
+- Windows
+
+Para obter mais informações sobre as atualizações do cliente, consulte [as atualizações do Cliente.](whats-new.md#client-updates)
 
 ## <a name="november-2020"></a>Novembro de 2020
 

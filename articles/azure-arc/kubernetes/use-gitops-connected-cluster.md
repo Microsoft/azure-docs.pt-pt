@@ -1,5 +1,5 @@
 ---
-title: Implementar configurações usando GitOps em Arc ativado cluster Kubernetes (Preview)
+title: Implementar configurações com o GitOps em clusters do Kubernetes preparados para o Azure Arc (Pré-visualização)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,14 +8,14 @@ author: mlearned
 ms.author: mlearned
 description: Utilize GitOps para configurar um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, contentores
-ms.openlocfilehash: 85771824a6cecd10346937220e400028a4570377
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653457"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955336"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações usando GitOps em Arc ativado cluster Kubernetes (Preview)
+# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações com o GitOps em clusters do Kubernetes preparados para o Azure Arc (Pré-visualização)
 
 GitOps, no que diz respeito a Kubernetes, é a prática de declarar o estado desejado da configuração de Kubernetes (implementações, espaços de nome, etc.) num repositório de Git seguido de uma colocação baseada em sondagens e puxar estas configurações para o cluster usando um operador. Este documento abrange a configuração de tais fluxos de trabalho em agrupamentos de Kubernetes habilitados pelo Arco Azure.
 
@@ -150,7 +150,7 @@ Para personalizar a configuração, aqui estão mais parâmetros que pode utiliz
 
 `--helm-operator-chart-version` : *Versão de* gráfico opcional para o operador Helm (se ativado). Predefinição: '1.2.0'.
 
-`--operator-namespace` : *Nome opcional* para o espaço de nome do operador. Predefinição: 'predefinição'
+`--operator-namespace` : *Nome opcional* para o espaço de nome do operador. Predefinição: 'predefinição'. Max 23 caracteres.
 
 `--operator-params` : *Parâmetros opcionais* para o operador. Deve ser dado dentro de cotações únicas. Por exemplo, ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
 
@@ -169,12 +169,6 @@ Opções suportadas em --params do operador
 | --git-e-mail  | E-mail para usar para git cometer. |
 
 * Se não estiverem definidos '--git-user' ou '-git-email' (o que significa que não quer que o Flux escreva para o repo), então --git-readonly será automaticamente definido (se ainda não o tiver definido).
-
-* Se ativar o Operador de Operações é verdadeiro, então as cordas DeinstanceName + operador não podem exceder 47 caracteres combinados.  Se não cumprir este limite, terá o seguinte erro:
-
-   ```console
-   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-   ```
 
 Para mais informações, consulte [a documentação do Flux.](https://aka.ms/FluxcdReadme)
 
@@ -251,7 +245,7 @@ Enquanto o processo de provisionamento acontece, o `sourceControlConfiguration` 
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Aplicar a configuração de um repositório privado de Git
 
-Se você está usando um git repo privado, então você precisa configurar a chave pública SSH no seu repo. Você pode configurar a chave pública no repo Git ou no utilizador Git que tem acesso ao repo. A chave pública SSH será a que fornece ou a que o Flux gera.
+Se você está usando um git repo privado, então você precisa configurar a chave pública SSH no seu repo. Você pode configurar a chave pública quer no repo git específico ou no utilizador Git que tem acesso ao repo. A chave pública SSH será a que fornece ou a que o Flux gera.
 
 **Obtenha a sua própria chave pública**
 
@@ -260,7 +254,7 @@ Se gerou as suas próprias chaves SSH, então já tem as chaves privadas e públ
 **Obtenha a chave pública usando Azure CLI (útil se o Fluxo gerar as teclas)**
 
 ```console
-$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```

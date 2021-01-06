@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696324"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955625"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Problemas de saúde, problemas de saúde, frontend e disponibilidade de backend 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Problemas de saúde de recursos e problemas de disponibilidade de entrada 
 
 Este artigo é um guia para investigar questões que impactam a disponibilidade do seu frontend de carga IP e recursos de backend. 
+
+O Controlo de Saúde de Recursos (RHC) para o Balanceador de Carga é utilizado para determinar a saúde do seu equilibrador de carga. Analisa a métrica de disponibilidade do caminho de dados ao longo de um intervalo **de 2 minutos** para determinar se os pontos finais de equilíbrio de carga, as combinações IP e frontend com regras de equilíbrio de carga, estão disponíveis.
+
+A tabela abaixo descreve a lógica RHC utilizada para determinar o estado de saúde do seu equilibrador de carga.
+
+| Estado da saúde dos recursos | Description |
+| --- | --- |
+| Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
+| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. 
+| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. |
+| Desconhecido | O estado de saúde dos recursos para o seu recurso balanceador de carga padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do Data Path nos últimos 10 minutos. Este estado deve ser transitório e refletirá o estado correto assim que os dados forem recebidos. |
+
 
 ## <a name="about-the-metrics-well-use"></a>Sobre as métricas que usaremos
 As duas métricas a utilizar são *a disponibilidade de caminhos de dados* e o estado da sonda de *saúde* e é importante compreender o seu significado para obter insights corretos. 

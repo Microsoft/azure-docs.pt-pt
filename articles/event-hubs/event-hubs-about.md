@@ -3,12 +3,12 @@ title: O que são os Hubs de Eventos do Azure? - um serviço de ingestão de Big
 description: Saiba mais sobre Hubs de Eventos do Azure, um serviço de fluxo de Macrodados que ingere milhões de eventos por segundo.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 6669760bceee558a058878fbb89342aedda80117
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0124f023eab6638c986beb2305b1c4c375b47ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927906"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954350"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - Uma plataforma de streaming de big data e serviço de ingestão de eventos
 O Azure Event Hubs é uma plataforma de streaming de dados e serviço de ingestão de eventos. Pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches.
@@ -52,10 +52,9 @@ Com os Hubs de Eventos, pode começar com fluxos de dados em megabytes e aumenta
 
 ## <a name="rich-ecosystem"></a>Ecossistema avançado
 
-[Os centros de eventos para ecossistemas Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem que os clientes e aplicações [apache Kafka (1.0 e posterior)](https://kafka.apache.org/) falem com os Centros de Eventos. Não precisas de configurar, configurar e gerir os teus próprios clusters Kafka.
+Com um amplo ecossistema baseado no protocolo AMQP 1.0 padrão da indústria e disponível em vários idiomas [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java,](https://github.com/Azure/azure-sdk-for-java/) [Python,](https://github.com/Azure/azure-sdk-for-python/) [JavaScript,](https://github.com/Azure/azure-sdk-for-js/)pode facilmente começar a processar os seus streams a partir de Centros de Eventos. Todas as linguagens de cliente suportadas oferecem integração de nível baixo. O ecossistema também lhe proporciona uma integração perfeita com serviços Azure Stream Analytics e Azure Functions e assim permite-lhe construir arquiteturas sem servidor.
 
-Com um amplo ecossistema disponível em vários idiomas [.NET,](https://github.com/Azure/azure-sdk-for-net/) [Java,](https://github.com/Azure/azure-sdk-for-java/) [Python,](https://github.com/Azure/azure-sdk-for-python/) [JavaScript,](https://github.com/Azure/azure-sdk-for-js/)pode facilmente começar a processar os seus streams a partir de Centros de Eventos. Todas as linguagens de cliente suportadas oferecem integração de nível baixo. O ecossistema também lhe proporciona uma integração perfeita com serviços Azure Stream Analytics e Azure Functions e assim permite-lhe construir arquiteturas sem servidor.
-
+[Os centros de eventos para os ecossistemas Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem ainda que os clientes e aplicações [apache Kafka (1.0 e posterior)](https://kafka.apache.org/) falem com os Centros de Eventos. Você não precisa configurar, configurar, e gerir seus próprios clusters Kafka e Zookeeper ou usar alguma oferta Kafka-as-a-Service não nativa de Azure.
 ## <a name="key-architecture-components"></a>Principais componentes da arquitetura
 Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
 

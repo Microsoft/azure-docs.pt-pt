@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857380"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955200"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Preparar e implementar um modelo de Voz Personalizada
 
@@ -48,6 +48,11 @@ A tabela **Training** apresenta uma nova entrada que corresponde ao novo modelo.
 
 Consulte o [como avaliar](how-to-custom-speech-evaluate-data.md) e melhorar a precisão do modelo de discurso personalizado. Se optar por testar a precisão, é importante selecionar um conjunto de dados acústico que seja diferente daquele que usou com o seu modelo para obter uma noção realista do desempenho do modelo.
 
+> [!NOTE]
+> Tanto os modelos base como os modelos personalizados podem ser utilizados até uma determinada data (ver [ciclo de vida do modelo).](custom-speech-overview.md#model-lifecycle) O Speech Studio mostra esta data na coluna **Expiração** para cada modelo e ponto final. Após essa data, o pedido para um ponto final ou para a transcrição do lote pode falhar ou voltar ao modelo base.
+>
+> Retreine o seu modelo utilizando o modelo base mais recente para beneficiar de melhorias de precisão e evitar que o seu modelo expire.
+
 ## <a name="deploy-a-custom-model"></a>Implementar um modelo personalizado
 
 Depois de fazer o upload e inspecionar dados, avaliar a precisão e treinar um modelo personalizado, pode implementar um ponto final personalizado para utilizar com as suas apps, ferramentas e produtos. 
@@ -63,7 +68,7 @@ Em seguida, **selecione Adicionar ponto final** e introduza um **Nome** e **Desc
 
 Em seguida, **selecione Criar**. Esta ação devolve-o à página **de Implementação.** A tabela agora inclui uma entrada que corresponde ao seu ponto final personalizado. O estado do ponto final mostra o seu estado atual. Pode levar até 30 minutos para instantaneaizar um novo ponto final usando os seus modelos personalizados. Quando o estado da implantação muda para **Concluir,** o ponto final está pronto a ser utilizado.
 
-Depois de o seu ponto final ser implantado, o nome do ponto final aparece como um link. Selecione o link para ver informações específicas do seu ponto final, como a chave de ponto final, URL de ponto final e código de amostra.
+Depois de o seu ponto final ser implantado, o nome do ponto final aparece como um link. Selecione o link para ver informações específicas do seu ponto final, como a chave de ponto final, URL de ponto final e código de amostra. Tome nota da data de validade e atualize o modelo do ponto final antes dessa data para garantir um serviço ininterrupto.
 
 ## <a name="view-logging-data"></a>Ver dados de registo
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761673"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955251"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Criar um grupo de servidores de hiperescala PostgreSQL usando ferramentas Kubernetes
 
@@ -28,13 +28,13 @@ Para criar um grupo de servidores de hiperescala PostgreSQL utilizando ferrament
 
 [Instale a ferramenta kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para criar um grupo de servidores de hiperescala PostgreSQL, é necessário criar um segredo de Kubernetes para armazenar o seu login e palavra-passe do administrador de postgresql e uma fonte personalizada do grupo de servidores PostgreSQL Hyperscale com base nas definições de recursos personalizados postgresql-12 ou postgresql-11.
 
 ## <a name="create-a-yaml-file"></a>Criar um ficheiro yaml
 
-Pode utilizar o ficheiro [yaml do modelo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) como ponto de partida para criar o seu próprio ficheiro yaml do grupo de servidores pós-escala pós-SQL.  Faça o download deste ficheiro para o seu computador local e abra-o num editor de texto.  É útil usar um editor de texto como [o VS Code](https://code.visualstudio.com/download) que suporta o realce de sintaxe e o lintamento para ficheiros yaml.
+Pode utilizar o ficheiro [yaml do modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) como ponto de partida para criar o seu próprio ficheiro yaml do grupo de servidores pós-escala pós-SQL.  Faça o download deste ficheiro para o seu computador local e abra-o num editor de texto.  É útil usar um editor de texto como [o VS Code](https://code.visualstudio.com/download) que suporta o realce de sintaxe e o lintamento para ficheiros yaml.
 
 Este é um ficheiro yaml exemplo:
 
