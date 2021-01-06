@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 0d7259972693b9ca12e0801007cbd3c0af45ca1c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512040"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937336"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial
 
@@ -828,7 +828,7 @@ Response body:
   "quantity": "20", // purchased amount of seats
   "action": "ChangePlan", // Can be ChangePlan, ChangeQuantity or Reinstate
   "timeStamp": "2018-12-01T00:00:00", // UTC
-  "status": "InProgress", // Possible values: NotStarted, InProgress, Failed, Succeed, Conflict (new quantity / plan is the same as existing)
+  "status": "InProgress", // Possible values: NotStarted, InProgress, Failed, Succeeded, Conflict (new quantity / plan is the same as existing)
   "errorStatusCode": "",
   "errorMessage": ""
 }

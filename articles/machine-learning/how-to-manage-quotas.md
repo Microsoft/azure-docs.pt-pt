@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1b43a1ceb1f9e098e4932b405553ae8f33e27262
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034042"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937353"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir e aumentar quotas para recursos com Azure Machine Learning
 
@@ -29,7 +29,7 @@ O Azure utiliza limites e quotas para evitar excedentes orçamentais devido a fr
 > + Solicitando aumentos de quota.
 > + Ponto final privado e quotas de DNS.
 
-Juntamente com a gestão de quotas, você pode aprender a [planear e gerir custos para a Azure Machine Learning.](concept-plan-manage-cost.md)
+Juntamente com a gestão de quotas, pode aprender a [planear e gerir custos para a Azure Machine Learning](concept-plan-manage-cost.md) ou aprender sobre os limites de serviço na [Azure Machine Learning.](resource-limits-quotas-capacity.md)
 
 ## <a name="special-considerations"></a>Considerações especiais
 
@@ -53,7 +53,9 @@ Nesta secção, você aprende sobre o padrão e limites máximos de quota para o
 + Storage do Azure
 
 > [!IMPORTANT]
-> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [os limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md) para toda a Azure.
+> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte  [os limites de serviço na Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Ativos de aprendizagem automática Azure
 Os seguintes limites para os ativos aplicam-se numa base por espaço de trabalho. 
@@ -210,3 +212,4 @@ Para solicitar um subsídio para estes cenários, utilize as seguintes etapas:
 ## <a name="next-steps"></a>Passos seguintes
 
 + [Planear e gerir os custos para a Azure Machine Learning](concept-plan-manage-cost.md)
++ [Limites de serviço na Aprendizagem automática Azure](resource-limits-quotas-capacity.md)

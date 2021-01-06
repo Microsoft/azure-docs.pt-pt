@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 624409be4d7e2cfba37dbe16e083904766ae1389
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c0cb4527349b09ed8e794cc55dee6f9e54f8a7d4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309666"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937370"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recolha ficheiros de registo de gasodutos de aprendizagem automática em Application Insights para alertas e depurações
 
@@ -134,7 +134,7 @@ custom_dimensions = {
 }
 
 # Assumes AzureLogHandler was already registered above
-logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
+logger.info("I will be sent to Application Insights with Custom Dimensions", extra= {"custom_dimensions":custom_dimensions})
 ```
 
 ## <a name="opencensus-python-logging-considerations"></a>Considerações de registo de madeira openCensus Python
