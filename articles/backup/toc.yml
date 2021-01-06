@@ -75,7 +75,7 @@
         - name: FAQ - Cofres dos Serviços de Recuperação
           href: backup-azure-backup-faq.md
         - name: FAQ - Centro de Cópias de Segurança
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: FAQ - Cópia de segurança de VMs do Azure
           href: backup-azure-vm-backup-faq.md
         - name: FAQ - Agente MARS

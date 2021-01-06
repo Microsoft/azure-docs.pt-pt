@@ -1090,6 +1090,8 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
+        - name: Azure Data Explorer (pré-visualização)
+          href: insights/data-explorer.md
         - name: Redes
           href: insights/network-insights-overview.md
         - name: Cofre de Chaves
