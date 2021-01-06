@@ -93,6 +93,8 @@
       href: manage.md
     - name: Conjuntos de dimensionamento de máquinas virtuais
       items:
+        - name: Atualizar ou eliminar o Balanceador de Carga do Azure utilizado pelo Conjunto de Dimensionamento de Máquinas Virtuais
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Utilizar com um Balanceador de Carga do Azure existente - Portal
           href: configure-vm-scale-set-portal.md
         - name: Utilizar com um Balanceador de Carga do Azure existente - PowerShell

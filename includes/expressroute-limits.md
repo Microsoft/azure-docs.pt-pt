@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: include
 ms.date: 07/25/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12c0acd5211a6fbcfd1e2861a3109b57fc67dbcf
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89147801"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930561"
 ---
 | Recurso | Limite |
 | --- | --- |
