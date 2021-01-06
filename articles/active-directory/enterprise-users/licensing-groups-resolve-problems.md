@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3dce8bb51299eb78bd2958eebf7a69594318a4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546476"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900710"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Ative Directory
 
@@ -68,7 +68,6 @@ Para ver quais utilizadores e grupos estão a consumir licenças, selecione um p
 
 Considere o seguinte exemplo. Um utilizador tem uma licença para o Office 365 Enterprise *E1* atribuído diretamente, com todos os planos habilitados. O utilizador foi adicionado a um grupo que tem o produto *E3* do Office 365 Enterprise atribuído ao mesmo. O produto E3 contém planos de serviço que não se podem sobrepor aos planos incluídos na E1, pelo que a atribuição da licença de grupo falha com o erro dos "planos de serviço conflituosos". Neste exemplo, os planos de serviço contraditórios são:
 
-- SharePoint Online (Plano 2) entra em conflito com o SharePoint Online (Plano 1).
 - Exchange Online (Plano 2) entra em conflito com o Exchange Online (Plano 1).
 
 Para resolver este conflito, é preciso desativar dois dos planos. Pode desativar a licença E1 que está diretamente atribuída ao utilizador. Ou, você precisa modificar toda a atribuição de licença de grupo e desativar os planos na licença E3. Em alternativa, poderá decidir remover a licença E1 do utilizador se for redundante no contexto da licença E3.
@@ -87,7 +86,7 @@ Para resolver este problema, é necessário certificar-se de que o plano necess�
 
 ## <a name="usage-location-isnt-allowed"></a>Localização de utilização não é permitida
 
-**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido às leis e regulamentos locais. Antes de poder atribuir uma licença a um utilizador, tem de especificar a propriedade **de localização de Utilização** para o utilizador. Pode especificar a localização na secção De edição de perfil do **utilizador**  >  **Profile**  >  **Edit** no portal Azure.
+**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido às leis e regulamentos locais. Antes de poder atribuir uma licença a um utilizador, tem de especificar a propriedade **de localização de Utilização** para o utilizador. Pode especificar a localização na secção De edição de perfil do **utilizador**  >    >   no portal Azure.
 
 Quando a Azure AD tenta atribuir uma licença de grupo a um utilizador cuja localização de utilização não é suportada, falha e regista um erro no utilizador.
 

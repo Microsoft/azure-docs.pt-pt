@@ -3,15 +3,15 @@ title: Gerir grupos de recursos - Azure CLI
 description: Utilize o Azure CLI para gerir os seus grupos de recursos através do Azure Resource Manager. Mostra como criar, listar e eliminar grupos de recursos.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4a9a4ed4ebba7f6f2470bb9e7000a899ebc26323
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185815"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900285"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerir grupos de recursos do Azure Resource Manager utilizando o Azure CLI
 
@@ -84,14 +84,14 @@ Pode mover os recursos do grupo para outro grupo de recursos. Para mais informa�
 
 ## <a name="lock-resource-groups"></a>Bloquear grupos de recursos
 
-O bloqueio impede que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos, tais como subscrição do Azure, grupo de recursos ou recursos. 
+O bloqueio impede que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos, tais como subscrição do Azure, grupo de recursos ou recursos.
 
 O seguinte script bloqueia um grupo de recursos para que o grupo de recursos não possa ser eliminado.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName
 ```
 
 O seguinte script obtém todas as fechaduras para um grupo de recursos:
@@ -99,7 +99,7 @@ O seguinte script obtém todas as fechaduras para um grupo de recursos:
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock list --resource-group $resourceGroupName  
+az lock list --resource-group $resourceGroupName
 ```
 
 O seguinte script elimina uma fechadura:
@@ -125,13 +125,88 @@ Depois de configurar o seu grupo de recursos com sucesso, pode querer visualizar
 - Automatizar futuras implementações da solução porque o modelo contém toda a infraestrutura completa.
 - Aprenda a sintaxe do modelo olhando para a Notação de Objeto JavaScript (JSON) que representa a sua solução.
 
+Para exportar todos os recursos num grupo de recursos, utilize [a exportação do grupo AZ](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) e forneça o nome do grupo de recursos.
+
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group export --name $resourceGroupName  
+az group export --name $resourceGroupName
 ```
 
-O script apresenta o modelo na consola.  Copie o JSON e guarde como um ficheiro.
+O script apresenta o modelo na consola. Copie o JSON e guarde como um ficheiro.
+
+Em vez de exportar todos os recursos do grupo de recursos, pode selecionar quais os recursos para exportar.
+
+Para exportar um recurso, passe o ID de recurso.
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+storageAccount=$(az resource show --resource-group $resourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv) &&
+az group export --resource-group $resourceGroupName --resource-ids $storageAccount
+```
+
+Para exportar mais do que um recurso, passe os IDs de recursos separados pelo espaço. Para exportar todos os recursos, não especifique este argumento ou fornecimento "*".
+
+```azurecli-interactive
+az group export --resource-group <resource-group-name> --resource-ids $storageAccount1 $storageAccount2
+```
+
+Ao exportar o modelo, pode especificar se os parâmetros são usados no modelo. Por predefinição, os parâmetros para nomes de recursos estão incluídos, mas não têm um valor padrão. Tem de passar o valor do parâmetro durante a implantação.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "type": "String"
+  }
+}
+```
+
+No recurso, o parâmetro é usado para o nome.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+Se utilizar o `--include-parameter-default-value` parâmetro ao exportar o modelo, o parâmetro do modelo inclui um valor padrão definido para o valor atual. Pode utilizar esse valor predefinido ou substituir o valor predefinido ao passar num valor diferente.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+Se utilizar o `--skip-resource-name-params` parâmetro ao exportar o modelo, os parâmetros para nomes de recursos não estão incluídos no modelo. Em vez disso, o nome do recurso é definido diretamente no recurso para o seu valor atual. Não é possível personalizar o nome durante a implantação.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
 
 A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](../../data-factory/copy-clone-data-factory.md)
 

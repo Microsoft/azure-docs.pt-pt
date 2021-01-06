@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Treine um modelo usando ML automatizado'
-description: Tutorial sobre como treinar um modelo de machine learning sem código em Azure Synapse usando Apache Spark e ML automatizado.
+title: 'Tutorial: Treine um modelo utilizando machine learning automatizado'
+description: Tutorial sobre como treinar um modelo de aprendizagem automática sem código no Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,123 +9,113 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4967d5305b4b438f3baa6fca078d7b3169612590
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e219531a88787f19197a2e8c2a80040497c6dc1e
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093405"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901424"
 ---
-# <a name="tutorial-train-a-machine-learning-model-code-free-in-azure-synapse-with-apache-spark-and-automated-ml"></a>Tutorial: Treine um modelo de aprendizagem automática sem código em Azure Synapse com Apache Spark e ML automatizado
+# <a name="tutorial-train-a-machine-learning-model-without-code"></a>Tutorial: Treine um modelo de aprendizagem automática sem código
 
-Saiba como enriquecer facilmente os seus dados em tabelas Spark com novos modelos de machine learning que treina utilizando [ML automatizado em Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  Um utilizador em Synapse pode simplesmente selecionar uma tabela Spark no espaço de trabalho Azure Synapse para usar como conjunto de dados de formação para construir modelos de aprendizagem automática numa experiência sem código.
+Pode enriquecer os seus dados em tabelas Spark com novos modelos de machine learning que treina utilizando [machine learning automatizado.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) No Azure Synapse Analytics, pode selecionar uma tabela Spark no espaço de trabalho para usar como conjunto de dados de formação para a construção de modelos de aprendizagem automática, e pode fazê-lo numa experiência sem código.
 
-Neste tutorial, irá aprender a:
-
-> [!div class="checklist"]
-> - Modelos de aprendizagem automática de comboios usando uma experiência sem código no estúdio Azure Synapse que usa ML automatizado em Azure Machine Learning. O tipo de modelo que treina depende do problema que está a tentar resolver.
+Neste tutorial, você aprende a treinar modelos de machine learning usando uma experiência sem código no estúdio Azure Synapse Analytics. Utiliza machine learning automatizado em Azure Machine Learning, em vez de codificar a experiência manualmente. O tipo de modelo que treina depende do problema que está a tentar resolver.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Espaço de trabalho Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento ADLS Gen2 configurada como o armazenamento padrão. Tem de ser o colaborador de dados da **Blob** de Armazenamento do sistema de ficheiros ADLS Gen2 com o que trabalha.
-- Piscina de faíscas no seu espaço de trabalho Azure Synapse Analytics. Para mais detalhes, consulte [Criar uma piscina de faíscas em Azure Synapse.](../quickstart-create-sql-pool-studio.md)
-- Serviço de aprendizagem automática Azure no seu espaço de trabalho Azure Synapse Analytics. Para mais detalhes, consulte [criar um serviço ligado à Aprendizagem automática Azure em Azure Synapse](quickstart-integrate-azure-machine-learning.md).
+- Um [espaço de trabalho Azure Synapse Analytics](../get-started-create-workspace.md). Certifique-se de que tem a seguinte conta de armazenamento, configurada como o armazenamento padrão: Azure Data Lake Storage Gen2. Para o sistema de ficheiros Data Lake Storage Gen2 com o qual trabalha, certifique-se de que é o **contribuinte de dados da blob de armazenamento.**
+- Uma piscina Apache Spark no seu espaço de trabalho Azure Synapse Analytics. Para mais detalhes, consulte [Quickstart: Crie uma piscina SQL dedicada utilizando o estúdio Azure Synapse Analytics](../quickstart-create-sql-pool-studio.md).
+- Um serviço de aprendizagem automática Azure no seu espaço de trabalho Azure Synapse Analytics. Para mais detalhes, consulte [Quickstart: Crie um novo serviço ligado à Azure Machine Learning em Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/)
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-spark-table-for-training-dataset"></a>Criar uma tabela Spark para conjunto de dados de treino
 
-Vai precisar de uma mesa spark para este tutorial. O seguinte caderno criará uma mesa Spark.
+Para este tutorial, precisa de uma mesa de faíscas. O seguinte caderno cria um.
 
-1. Descarregue o caderno [Create-Spark-Table-NYCTaxi-Data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149229)
+1. Descarregue o portátil [Create-Spark-Table-NYCTaxi-Data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149229).
 
-1. Importe o caderno para o Azure Synapse Studio.
-![Caderno de Importação](media/tutorial-automl-wizard/tutorial-automl-wizard-00a.png)
+1. Importe o caderno para o estúdio Azure Synapse Analytics.
+![Screenshot da Azure Synapse Analytics, com a opção Import em destaque.](media/tutorial-automl-wizard/tutorial-automl-wizard-00a.png)
 
-1. Selecione a piscina Spark que pretende utilizar e clique `Run all` em . Executar este caderno obterá dados de táxi de Nova Iorque a partir de conjunto de dados abertos e economizará na sua base de dados padrão Spark.
-![Executar tudo](media/tutorial-automl-wizard/tutorial-automl-wizard-00b.png)
+1. Selecione a piscina Spark que pretende utilizar e selecione **Executar tudo**. Isto obtém dados de táxi de Nova Iorque a partir do conjunto de dados aberto, e guarda-os para a sua base de dados padrão Spark.
+![Screenshot de Azure Synapse Analytics, com a base de dados Run all e Spark em destaque.](media/tutorial-automl-wizard/tutorial-automl-wizard-00b.png)
 
-1. Após a execução do portátil, uma nova tabela Spark será criada na base de dados padrão spark. Vá ao Data Hub e encontre a tabela com o qual `nyc_taxi` .
-![Mesa de Faísca](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
+1. Depois de concluída a execução do portátil, vê uma nova tabela Spark sob a base de dados padrão do Spark. A partir de **Data,** encontre a tabela com o nome **nyc_taxi**.
+![Screenshot do separador Azure Synapse Analytics Data, com nova tabela em destaque.](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
 
-## <a name="launch-automated-ml-wizard-to-train-a-model"></a>Lançar assistente de ML automatizado para treinar um modelo
+## <a name="launch-automated-machine-learning-wizard"></a>Lançar assistente automatizado de aprendizagem automática
 
-Clique à direita na tabela Spark criada no passo anterior. Selecione "Machine Learning-> Enrich with new model" para abrir o assistente.
-![Lançar assistente ML automatizado](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+Eis como:
 
-Aparecerá um painel de configuração e ser-lhe-á pedido que forneça detalhes de configuração para criar uma experiência ML automatizada executada em Azure Machine Learning. Esta corrida irá formar vários modelos e o melhor modelo de uma corrida bem sucedida será registado no registo do modelo Azure Machine Learning:
+1. Clique com o botão direito na tabela Spark que criou no passo anterior. Para abrir o assistente, selecione **Machine Learning** Enrich com  >  **novo modelo**.
+![Screenshot da tabela Spark, com Machine Learning e Enrich com novo modelo em destaque.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
-![Configurar passo de corrida1](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
+1. Em seguida, pode fornecer os seus detalhes de configuração para criar uma experiência automatizada de aprendizagem automática de máquinas executada em Azure Machine Learning. Esta corrida treina vários modelos, e o melhor modelo de uma corrida bem sucedida está registado no registo do modelo Azure Machine Learning.
 
-- **Espaço de trabalho Azure Machine Learning**: É necessário um espaço de trabalho para a criação da experiência automatizada do ML. Também precisa de ligar o seu espaço de trabalho Azure Synapse ao espaço de trabalho Azure Machine Learning utilizando um [serviço ligado.](quickstart-integrate-azure-machine-learning.md) Uma vez que tenha todos os pré-requisitos, pode especificar o espaço de trabalho Azure Machine Learning que pretende utilizar para esta execução automática de ML.
+   ![Screenshot de Enrich com novas especificações de configuração do modelo.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
 
-- **Nome da experiência**: Especificar o nome da experiência. Quando submete uma execução automática de ML, fornece um nome de experiência. A informação para a execução é armazenada no âmbito dessa experiência no espaço de trabalho Azure Machine Learning. Esta experiência criará uma nova experiência por padrão e está a gerar um nome proposto, mas também pode fornecer o nome de uma experiência existente.
+    - **Espaço de trabalho Azure Machine Learning**: É necessário um espaço de trabalho para a aprendizagem automática de máquinas Azure para criar uma experiência automatizada de aprendizagem automática. Também precisa de ligar o seu espaço de trabalho Azure Synapse Analytics ao espaço de trabalho Azure Machine Learning utilizando um [serviço ligado.](quickstart-integrate-azure-machine-learning.md) Depois de ter cumprido todos os pré-requisitos, pode especificar o espaço de trabalho Azure Machine Learning que pretende utilizar para esta execução automatizada.
 
-- **Melhor modelo**: Especifique o nome do melhor modelo da execução automática de ML. O melhor modelo será dado este nome e guardado no registo do modelo Azure Machine Learning automaticamente após esta execução. Uma execução automática de ML criará muitos modelos de aprendizagem automática. Com base na métrica primária que irá selecionar num passo posterior, estes modelos podem ser comparados e o melhor modelo pode ser selecionado.
+    - **Nome da experiência**: Especificar o nome da experiência. Quando submete uma corrida automatizada de aprendizagem automática, fornece um nome de experiência. A informação para a execução é armazenada no âmbito dessa experiência no espaço de trabalho Azure Machine Learning. Esta experiência cria uma nova experiência por padrão e gera um nome proposto, mas também pode fornecer o nome de uma experiência existente.
 
-- **Coluna-alvo**: Isto é o que o modelo é treinado para prever. Escolha a coluna que pretende prever.
+    - **Melhor modelo**: Especifique o nome do melhor modelo da execução automatizada. O melhor modelo é dado este nome e guardado no registo do modelo Azure Machine Learning automaticamente após esta execução. Uma corrida automatizada de aprendizagem automática cria muitos modelos de aprendizagem automática. Com base na métrica primária que seleciona num passo posterior, estes modelos podem ser comparados e o melhor modelo pode ser selecionado.
 
-- **Piscina de** faíscas : A piscina Spark que você deseja usar para a corrida automatizada de experiências ML. Os cálculos serão executados na piscina que especifica.
+    - **Coluna-alvo**: Isto é o que o modelo é treinado para prever. Escolha a coluna que pretende prever. (Neste tutorial, selecionamos a coluna numérica `fareAmount` como coluna-alvo.)
 
-- **Detalhes da configuração** da faísca : Além da piscina Spark, você também tem a opção de fornecer detalhes de configuração da sessão.
+    - **Piscina de** faíscas : A piscina Spark que você deseja usar para a corrida automatizada de experiências. Os cálculos são executados na piscina que você especifica.
 
-Neste tutorial, selecionamos a coluna numérica `fareAmount` como coluna alvo.
+    - **Detalhes da configuração** da faísca : Além da piscina Spark, você também tem a opção de fornecer detalhes de configuração da sessão.
 
-Clique em "Continuar".
+1. Selecione **Continuar**.
 
 ## <a name="choose-task-type"></a>Escolha o tipo de tarefa
 
-Selecione o tipo de modelo de aprendizagem automática para a experiência com base na pergunta que está a tentar responder. Uma vez que selecionamos `fareAmount` como coluna-alvo, e é um valor numérico, vamos selecionar *Regressão.*
+Selecione o tipo de modelo de aprendizagem automática para a experiência, com base na pergunta que está a tentar responder. Porque `fareAmount` é a coluna alvo, e é um valor numérico, selecione **Regressão** aqui. Em seguida, selecione **Continuar**.
 
-Clique em "Continuar" para configurar definições adicionais.
-
-![Seleção do tipo de tarefa](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+![Screenshot de Enrich com novo modelo, com Regressão em destaque.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
 
 ## <a name="additional-configurations"></a>Configurações adicionais
 
-Se selecionar o tipo *de Classificação* ou *Regressão,* as configurações adicionais são:
+Se selecionar **Regressão** ou **Classificação** como o seu tipo de modelo na secção anterior, estão disponíveis as seguintes configurações:
 
-- **Métrica primária**: A métrica usada para medir o quão bem o modelo está a correr. Esta é a métrica que será usada para comparar diferentes modelos criados na execução automática de ML, e determinar qual o modelo que melhor desempenhou.
+- **Métrica primária**: A métrica usada para medir o quão bem o modelo está a correr. Esta é a métrica usada para comparar diferentes modelos criados na execução automatizada, e determinar qual o modelo que melhor desempenhou.
 
-- Tempo de **formação (horas)**: O máximo de tempo, em horas, para uma experiência para correr e treinar modelos. Note que também pode fornecer valores inferiores a 1. Por exemplo, `0.5`.
+- Tempo de **formação (horas)**: O máximo de tempo, em horas, para uma experiência para correr e treinar modelos. Note que também pode fornecer valores inferiores a 1 (por `0.5` exemplo).
 
-- **Iterações máximas simultâneas**: Representa o número máximo de iterações que seriam executadas em paralelo.
+- **Iterações máximas simultâneas**: Representa o número máximo de iterações executadas em paralelo.
 
-- **Compatibilidade do modelo ONNX**: Se ativado, os modelos treinados por ML automatizado serão convertidos para o formato ONNX. Isto é particularmente relevante se quiser utilizar o modelo para pontuar nas piscinas Azure Synapse SQL.
+- **Compatibilidade do modelo ONNX**: Se ativar esta opção, os modelos treinados por machine learning automatizados são convertidos para o formato ONNX. Isto é particularmente relevante se quiser utilizar o modelo para pontuar nas piscinas Azure Synapse Analytics SQL.
 
 Todas estas definições têm um valor predefinido que pode personalizar.
-![configurações adicionais](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
+![Screenshot de Enrich com configurações adicionais do novo modelo.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
 
-> Note que se selecionar "Previsão de séries de tempo", são necessárias mais configurações. A previsão também não suporta a compatibilidade do modelo ONNX.
+Depois de todas as configurações necessárias, pode iniciar a sua execução automatizada. Pode escolher **Criar run**, que inicia a sua execução diretamente, sem código. Alternativamente, se preferir o código, pode selecionar **Abrir no bloco de notas.** Esta opção permite-lhe ver o código que cria a execução e executar o caderno.
 
-Uma vez feitas todas as configurações necessárias, pode iniciar uma execução automática de ML.
+>[!NOTE]
+>Se selecionar **a previsão da série time** como o seu tipo de modelo na secção anterior, deve esporar configurações adicionais. A previsão também não suporta a compatibilidade do modelo ONNX.
 
-Há duas maneiras de iniciar uma corrida automática de ML em Azure Azure Synapse. Para uma experiência sem código, pode optar por **criar executar** diretamente. Se preferir o código, pode selecionar **Open no portátil**, o que lhe permite ver o código que cria a execução e executar o caderno.
+### <a name="create-run-directly"></a>Criar correr diretamente
 
-### <a name="create-run-directly"></a>Criar Executar diretamente
-
-Clique em "Start Run" para iniciar a execução automática de ML diretamente. Haverá uma notificação que indica que a execução automatizada da ML está a começar.
-
-Após o início da execução automatizada de ML com sucesso, verá outra notificação bem sucedida. Também pode clicar no botão de notificação para verificar o estado da submissão.
-Azure Machine Learning clicando no link na notificação bem sucedida.
-![Notificação bem sucedida](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
+Para iniciar a sua aprendizagem automática de máquinas, selecione **Start Run**. Vê uma notificação que indica que a execução está a começar. Depois vê outra notificação que indica sucesso. Também pode verificar o estado em Azure Machine Learning selecionando o link na notificação.
+![Screenshot de notificação bem sucedida.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
 
 ### <a name="create-run-with-notebook"></a>Criar correr com caderno
 
-Selecione *Abrir no Caderno* para gerar um caderno. Clique *em Executar tudo* para executar o caderno.
-Isto também lhe dá a oportunidade de adicionar configurações adicionais à sua execução automatizada de ML.
+Para gerar um caderno, selecione **Abrir No Caderno.** Em seguida, **selecione Executar tudo**. Isto também lhe dá a oportunidade de adicionar configurações adicionais à sua aprendizagem automática de máquinas.
 
-![Caderno Aberto](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
+![Screenshot de Notebook, com Run tudo em destaque.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
-Após a execução do caderno ter sido submetida com sucesso, haverá um link para a experiência realizada no espaço de trabalho Azure Machine Learning na saída do caderno. Pode clicar no link para monitorizar a sua execução automática de ML em Azure Machine Learning.
-![Notebook executar tudo ](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png) )
+Depois de ter submetido com sucesso a execução, vê um link para a experiência executada no espaço de trabalho Azure Machine Learning na saída do portátil. Selecione o link para monitorizar a sua execução automatizada em Azure Machine Learning.
+![Screenshot de Azure Synapse Analytics com link realçado. ](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png) )
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Modelo de machine learning pontuação em Azure Synapse dedicada SQL Pools](tutorial-sql-pool-model-scoring-wizard.md).
-- [Quickstart: Criar um novo serviço Azure Machine Learning ligado em Azure Synapse](quickstart-integrate-azure-machine-learning.md)
+- [Tutorial: Assistente de pontuação de modelo de machine learning (pré-visualização) para piscinas SQL dedicadas](tutorial-sql-pool-model-scoring-wizard.md)
+- [Quickstart: Criar um novo serviço de aprendizagem automática Azure em Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md)
 - [Capacidades de aprendizagem automática em Azure Synapse Analytics](what-is-machine-learning.md)

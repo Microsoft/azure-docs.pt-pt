@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660428"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900166"
 ---
 # <a name="azure-data-box-limits"></a>Limites da Caixa de Dados Azure
 
@@ -43,7 +43,7 @@ As ressalvas da Caixa de Dados para uma ordem de importação incluem:
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 
-## <a name="for-export-order"></a>Para encomenda de exportação
+### <a name="for-export-order"></a>Para encomenda de exportação
 
 As ressalvas da Caixa de Dados para uma encomenda de exportação incluem:
 

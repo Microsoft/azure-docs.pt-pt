@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14564b0591ef0146131b3f9324556b613e25daac
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905368"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901237"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar quadros front-end e bibliotecas com pré-visualização de aplicações web estáticas Azure
 
@@ -24,7 +24,7 @@ A tabela que se segue enumera as definições para uma série de quadros e bibli
 
 A intenção das colunas de mesa é explicada pelos seguintes itens:
 
-- **Localização do artefacto da aplicação**: Lista o valor para `app_artifact_location` , que é a pasta para [versões construídas de ficheiros de aplicações](github-actions-workflow.md#build-and-deploy).
+- **Localização de saída**: Lista o valor para `output_location` , que é a pasta para [versões construídas de ficheiros de aplicações](github-actions-workflow.md#build-and-deploy).
 
 - **Comando de construção personalizado**: Quando a estrutura requer um comando diferente de `npm run build` `npm run azure:build` ou, pode definir um [comando de construção personalizado](github-actions-workflow.md#custom-build-commands).
 

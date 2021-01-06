@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783798"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900659"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -61,22 +61,25 @@ Se não tiver um papel que conceda permissões de camada de gestão, o Storage E
 Se quiser aceder a recipientes ou filas de bolhas, pode anexar esses recursos utilizando as suas credenciais Azure.
 
 1. Abra o diálogo 'Ligar'.
-2. Selecione "Adicionar um recurso via Azure Ative Directory (Azure AD). Clique em Seguinte.
-3. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Clique em Seguinte.
-4. Selecione o tipo de recurso, introduza o URL no recurso e introduza um nome de exibição único para a ligação. Clique em Seguinte. Clique em Ligar.
+2. Selecione "Adicionar um recurso via Azure Ative Directory (Azure AD)". Selecione Seguinte.
+3. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Selecione Seguinte.
+4. Selecione o tipo de recurso, introduza o URL no recurso e introduza um nome de exibição único para a ligação. Selecione Seguinte e, em seguida, Conecte-se.
 
 Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri)
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
 Existem vários papéis incorporados Azure que podem fornecer as permissões necessárias para usar o Storage Explorer. Alguns desses papéis são:
-- [Proprietário](../../role-based-access-control/built-in-roles.md#owner): Gerir tudo, incluindo acesso a recursos. **Nota:** esta função lhe dará acesso à chave.
-- [Contribuinte](../../role-based-access-control/built-in-roles.md#contributor): Gerir tudo, excluindo o acesso aos recursos. **Nota:** esta função lhe dará acesso à chave.
-- [Leitor:](../../role-based-access-control/built-in-roles.md#reader)Leia e enuse os recursos.
-- [Contribuidor da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): Gestão completa das contas de armazenamento. **Nota:** esta função lhe dará acesso à chave.
-- [Armazenamento Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Acesso total aos recipientes e dados da bolha de armazenamento Azure.
-- [Armazenamento Contribuinte de Dados Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure.
-- [Armazenamento Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Leia e enuncie os recipientes e bolhas de armazenamento Azure.
+- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): Gerir tudo, incluindo acesso a recursos.
+- [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor): Gerir tudo, excluindo o acesso aos recursos.
+- [Leitor:](/azure/role-based-access-control/built-in-roles#reader)Leia e enuse os recursos.
+- [Contribuidor da Conta de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Gestão completa das contas de armazenamento.
+- [Armazenamento Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Acesso total aos recipientes e dados da bolha de armazenamento Azure.
+- [Armazenamento Contribuinte de Dados Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure.
+- [Armazenamento Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e enuncie os recipientes e bolhas de armazenamento Azure.
+
+> [!NOTE]
+> As funções de Proprietário, Contribuinte e Contribuinte de Conta de Armazenamento concedem acesso à chave da conta.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado auto-assinado na cadeia de certificados (e erros semelhantes)
 
@@ -88,7 +91,7 @@ Erros de certificado ocorrem normalmente numa das seguintes situações:
 Quando o Storage Explorer vê um certificado auto-assinado ou não fidedquirou, já não sabe se a mensagem HTTPS recebida foi alterada. Se tiver uma cópia do certificado auto-assinado, pode instruir o Explorador de Armazenamento a confiar nele seguindo estes passos:
 
 1. Obtenha uma cópia codificada X.509 (.cer) do certificado.
-2. Vá para **editar**  >  **certificados SSL**  >  **Certificados de Importação** , e, em seguida, use o apanhador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
+2. Vá para **editar**  >  **certificados SSL**  >  **Certificados de Importação**, e, em seguida, use o selecionador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
 
 Esta questão também pode ocorrer se existirem vários certificados (raiz e intermédio). Para corrigir este erro, ambos os certificados devem ser adicionados.
 
@@ -98,12 +101,12 @@ Se não tem certeza de onde vem o certificado, siga estes passos para encontrá-
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Qualquer uma das versões luminosas deve ser suficiente.
     * Mac e Linux: Deve ser incluído com o seu sistema operativo.
 2. Abrir o sl.
-    * Janelas: Abra o diretório de instalação, selecione **/bin/** , e, em seguida, clique duas vezes **openssl.exe** .
+    * Janelas: Abra o diretório de instalação, selecione **/bin/**, e, em seguida, clique duas vezes **openssl.exe**.
     * Mac e Linux: Fugir `openssl` de um terminal.
-3. Execute o `s_client -showcerts -connect microsoft.com:443`.
+3. Execute `s_client -showcerts -connect microsoft.com:443`.
 4. Procure certificados autoassinados. Se não tem a certeza de quais certificados são auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e `("i:")` emitente sejam os mesmos.
 5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` até um novo ficheiro `-----END CERTIFICATE-----` .cer.
-6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados** . Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
+6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados**. Em seguida, utilize o selecionador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
 
 Se não conseguir encontrar nenhum certificado auto-assinado seguindo estes passos, contacte-nos através da ferramenta de feedback. Também pode abrir o Storage Explorer a partir da linha de comando utilizando a `--ignore-certificate-errors` bandeira. Quando aberto com esta bandeira, o Storage Explorer ignora erros de certificado.
 
@@ -113,10 +116,10 @@ Se não conseguir encontrar nenhum certificado auto-assinado seguindo estes pass
 
 As caixas de diálogo de sinal em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretório Ativo (AD FS) solicitam ao Storage Explorer que execute um redirecionamento, que não é suportado pela Electron. Para contornar este problema, pode tentar utilizar o Fluxo de Código do Dispositivo para iniciar sôm. Para tal, siga estes passos:
 
-1. Na barra de ferramentas verticais esquerda, abra **as definições** . No Painel de Definições, aceda ao S **indicador** para a  >  **aplicação .** Ativar **o sinal de fluxo do código do dispositivo de utilização** .
+1. Na barra de ferramentas verticais esquerda, abra **as definições**. No Painel de Definições, aceda ao S **indicador** para a  >  **aplicação .** Ativar **o sinal de fluxo do código do dispositivo de utilização**.
 2. Abra a caixa de diálogo **Connect** (quer através do ícone de ficha na barra vertical do lado esquerdo, quer selecionando **a Conta Adicionar** no painel de contas).
 3. Escolha o ambiente a que pretende entrar.
-4. **Selecione iniciar sção** .
+4. **Selecione iniciar sção**.
 5. Siga as instruções no painel seguinte.
 
 Se não conseguir iniciar scontabilidade na conta que pretende utilizar porque o seu navegador padrão já está inscrito numa conta diferente, faça uma das seguintes:
@@ -175,7 +178,7 @@ Se não conseguir recuperar as suas subscrições depois de iniciar sessão com 
 
 Se não conseguir remover uma conta ou um recurso de armazenamento anexado através da UI, pode eliminar manualmente todos os recursos anexados eliminando as seguintes pastas:
 
-* Janelas: `%AppData%/StorageExplorer`
+* Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
@@ -187,50 +190,66 @@ Se não conseguir remover uma conta ou um recurso de armazenamento anexado atrav
 
 ## <a name="proxy-issues"></a>Questões de procuração
 
-Em primeiro lugar, certifique-se de que as seguintes informações que introduziu estão corretas:
+O Storage Explorer suporta a ligação aos recursos de armazenamento Azure através de um servidor proxy. Se tiver algum problema de ligação ao Azure via proxy, aqui ficam algumas sugestões.
 
-* O URL de procuração e o número da porta
-* Nome de utilizador e senha se o representante os exigir
+> [!NOTE]
+> O Storage Explorer só suporta a autenticação básica com servidores proxy. Outros métodos de autenticação, como o NTLM, não são suportados.
 
 > [!NOTE]
 > O Storage Explorer não suporta ficheiros proxy auto-config para configurar configurações de procuração.
 
-### <a name="common-solutions"></a>Soluções comuns
+### <a name="verify-storage-explorer-proxy-settings"></a>Verifique as definições de procuração do Explorador de Armazenamento
 
-Se ainda estiver a passar por problemas, experimente os seguintes métodos de resolução de problemas:
+A **definição de configuração proxy → Proxy → → Proxy** determina de que fonte o Explorador de Armazenamento obtém a configuração de procuração.
 
-* Se conseguir ligar-se à internet sem utilizar o seu representante, verifique se o Storage Explorer funciona sem configurações de procuração ativadas. Se for esse o caso, pode haver um problema com as definições de procuração. Trabalhe com o seu administrador para identificar os problemas.
-* Verifique se outras aplicações que utilizam o servidor proxy funcionam como esperado.
-* Verifique se pode ligar-se ao portal para o ambiente Azure que está a tentar utilizar.
-* Verifique se pode receber respostas dos seus pontos finais de serviço. Introduza um dos urLs do seu ponto final no seu browser. Se conseguir ligar, deve receber InvalidQueryParameterValue ou uma resposta XML semelhante.
-* Se alguém também estiver a usar o Storage Explorer com o seu servidor proxy, verifique se pode ligar.a. Se puderem, poderá ter de contactar o administrador do seu servidor proxy.
+Se selecionar "Use variáveis ambientais", certifique-se de definir as `HTTPS_PROXY` variáveis ou `HTTP_PROXY` ambientais (as variáveis ambientais são sensíveis ao caso, por isso certifique-se de definir as variáveis corretas). Se estas variáveis forem indefinidas ou inválidas, o Storage Explorer não utilizará um representante. Reinicie o Storage Explorer depois de modificar quaisquer variáveis ambientais.
+
+Se selecionar "Use as definições de procuração de aplicativos", certifique-se de que as definições de procuração na aplicação estão corretas.
+
+### <a name="steps-for-diagnosing-issues"></a>Passos para diagnosticar problemas
+
+Se ainda estiver a passar por problemas, experimente estes métodos de resolução de problemas:
+
+1. Se conseguir ligar-se à internet sem utilizar o seu representante, verifique se o Storage Explorer funciona sem configurações de procuração ativadas. Se o Storage Explorer se ligar com sucesso, pode haver um problema com o seu servidor proxy. Trabalhe com o seu administrador para identificar os problemas.
+2. Verifique se outras aplicações que utilizam o servidor proxy funcionam como esperado.
+3. Verifique se pode ligar-se ao portal para o ambiente Azure que está a tentar utilizar.
+4. Verifique se pode receber respostas dos seus pontos finais de serviço. Introduza um dos urLs do seu ponto final no seu browser. Se conseguir ligar, deve receber uma `InvalidQueryParameterValue` resposta XML ou semelhante.
+5. Verifique se alguém que usa o Storage Explorer com o mesmo servidor proxy pode ligar-se. Se puderem, poderá ter de contactar o administrador do seu servidor proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Ferramentas para diagnosticar problemas
 
-Se tiver ferramentas de networking, como o Fiddler para Windows, pode diagnosticar os problemas da seguinte forma:
+Uma ferramenta de networking, como o Fiddler, pode ajudá-lo a diagnosticar problemas.
 
-* Se tiver de trabalhar através do seu representante, poderá ter de configurar a sua ferramenta de rede para se ligar através do representante.
-* Verifique o número de porta utilizado pela sua ferramenta de rede.
-* Introduza o URL de anfitrião local e o número de porta da ferramenta de rede como configurações de procuração no Storage Explorer. Quando o faz corretamente, a sua ferramenta de networking começa a registar pedidos de rede feitos pelo Storage Explorer para os pontos finais de gestão e serviço. Por exemplo, `https://cawablobgrs.blob.core.windows.net/` insira o seu ponto final blob num browser, e receberá uma resposta que se assemelha ao seguinte:
+1. Configure a sua ferramenta de rede como um servidor proxy em execução no anfitrião local. Se tiver de continuar a trabalhar por trás de um representante real, poderá ter de configurar a sua ferramenta de rede para se ligar através do representante.
+2. Verifique o número de porta utilizado pela sua ferramenta de rede.
+3. Configure as definições de procuração do Storage Explorer para utilizar o hospedeiro local e o número de porta da ferramenta de rede (como "localhost:8888").
+ 
+Quando definido corretamente, a sua ferramenta de rede registará pedidos de rede feitos pelo Storage Explorer para os pontos finais de gestão e serviço.
+ 
+Se a sua ferramenta de rede não parecer estar a registar o tráfego do Storage Explorer, tente testar a sua ferramenta com uma aplicação diferente. Por exemplo, insira o URL do ponto final para um dos seus recursos de armazenamento `https://contoso.blob.core.windows.net/` (como) num navegador web, e receberá uma resposta semelhante a:
 
   ![Exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  Esta resposta sugere que o recurso existe, mesmo que não possa aceder-lhe.
+  A resposta sugere que o recurso existe, mesmo que não possa aceder-lhe.
+
+Se a sua ferramenta de rede apenas mostrar tráfego de outras aplicações, poderá ter de ajustar as definições de procuração no Storage Explorer. Caso contrário, necessitaste de ajustar as definições da tua ferramenta.
 
 ### <a name="contact-proxy-server-admin"></a>Administração de servidor de procuração de contacto
 
-Se as definições de procuração estiverem corretas, poderá ter de contactar o administrador do seu servidor proxy para:
+Se as definições de procuração estiverem corretas, poderá ter de contactar o administrador do servidor proxy para:
 
 * Certifique-se de que o seu representante não bloqueia o tráfego para a gestão da Azure ou pontos finais de recursos.
-* Verifique o protocolo de autenticação utilizado pelo seu servidor proxy. O Storage Explorer não suporta atualmente os proxies NTLM.
+* Verifique o protocolo de autenticação utilizado pelo seu servidor proxy. O Storage Explorer suporta apenas protocolos básicos de autenticação. O Storage Explorer não suporta proxies NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Incapaz de Recuperar Crianças"
 
-Se estiver ligado ao Azure através de um representante, verifique se as definições do seu representante estão corretas. Se lhe for concedido acesso a um recurso do proprietário da subscrição ou da conta, verifique se leu ou enumera permissões para esse recurso.
+Se estiver ligado ao Azure através de um representante, verifique se as definições do seu representante estão corretas.
+
+Se o proprietário de uma subscrição ou conta lhe tiver dado acesso a um recurso, verifique se leu ou enumera permissões para esse recurso.
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>A cadeia de ligação não tem configurações completas
 
-Se receber esta mensagem de erro, é possível que não tenha as permissões necessárias para obter as chaves da sua conta de armazenamento. Para confirmar que este é o caso, vá ao portal e localize a sua conta de armazenamento. Pode fazê-lo clicando no nó para a sua conta de armazenamento e selecionando **Open in Portal** . Depois, vai para a lâmina das **Chaves de Acesso.** Se não tiver permissões para ver as chaves, verá uma mensagem "Não tem acesso". Para contornar este problema, pode obter a chave de conta de outra pessoa e anexar através do nome e da chave, ou pode pedir a alguém um SAS na conta de armazenamento e usá-la para anexar a conta de armazenamento.
+Se receber esta mensagem de erro, é possível que não tenha as permissões necessárias para obter as chaves da sua conta de armazenamento. Para confirmar que este é o caso, vá ao portal e localize a sua conta de armazenamento. Pode fazê-lo clicando no nó para a sua conta de armazenamento e selecionando **Open in Portal**. Depois, vai para a lâmina das **Chaves de Acesso.** Se não tiver permissões para ver as chaves, verá uma mensagem "Não tem acesso". Para contornar este problema, pode obter a chave de conta de outra pessoa e anexar através do nome e da chave, ou pode pedir a alguém um SAS na conta de armazenamento e usá-la para anexar a conta de armazenamento.
 
 Se vir as chaves da conta, preencha um problema no GitHub para que possamos ajudá-lo a resolver o problema.
 
@@ -238,8 +257,8 @@ Se vir as chaves da conta, preencha um problema no GitHub para que possamos ajud
 
 Se receber esta mensagem de erro quando tentar adicionar uma ligação personalizada, os dados de ligação armazenados no gestor de credenciais locais podem ser corrompidos. Para contornar esta questão, tente eliminar as suas ligações locais corrompidas e, em seguida, adicioná-las novamente:
 
-1. Iniciar o Explorador de Armazenamento. A partir do **Help** menu, aceda a  >  **Ferramentas de Desenvolvimento Help Toggle** .
-2. Na janela aberta, no **separador Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://** .
+1. Iniciar o Explorador de Armazenamento. A partir do menu, aceda a  >  **Ferramentas de Desenvolvimento Help Toggle**.
+2. Na janela aberta, no **separador Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://**.
 3. Dependendo do tipo de ligação com que está a ter problemas, procure a sua chave e, em seguida, copie o seu valor num editor de texto. O valor é uma variedade de nomes de conexão personalizados, como o seguinte:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -265,13 +284,13 @@ Depois de analisar todas as suas ligações, para todos os nomes de ligações q
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. No menu **Iniciar,** procure **o Gestor credencial** e abra-o.
-2. Ir para as **credenciais do Windows** .
+2. Ir para as **credenciais do Windows**.
 3. Sob **as Credenciais Genéricas,** procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Elimine estas entradas e reensiem as ligações.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Abra o holofote (Barra de espaço Command+Space) e procure **acesso ao Keychain** .
+1. Abra o holofote (Barra de espaço Command+Space) e procure **acesso ao Keychain**.
 2. Procure por entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Elimine estas entradas e reensiem as ligações.
 
@@ -297,7 +316,7 @@ Se estiver a ligar-se a um serviço através de um URL SAS e experimentar um err
 Se se ligar acidentalmente utilizando um URL SAS inválido e agora não puder separar-se, siga estes passos:
 
 1. Quando estiver a executar o Storage Explorer, prima F12 para abrir a janela Ferramentas do Desenvolvedor.
-2. No **separador Aplicação,** selecione **File:// de Armazenamento Local** na árvore à  >  **file://** esquerda.
+2. No **separador Aplicação,** selecione **File:// de Armazenamento Local** na árvore à  >   esquerda.
 3. Encontre a chave associada ao tipo de serviço do problemático SAS URI. Por exemplo, se o MAU SAS URI for para um recipiente de bolhas, procure a chave chamada `StorageExplorer_AddStorageServiceSAS_v1_blob` .
 4. O valor da chave deve ser uma matriz JSON. Encontre o objeto associado ao URI mau e, em seguida, elimine-o.
 5. Prima Ctrl+R para recarregar o Explorador de Armazenamento.
@@ -314,11 +333,11 @@ O Storage Explorer requer a utilização de um gestor de passwords, que poderá 
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-### <a name="targz-file"></a>.tar.gz Arquivo
+### <a name="targz-file"></a>Arquivo .tar.gz
 
 Também pode descarregar a aplicação como um ficheiro .tar.gz, mas terá de instalar dependências manualmente.
 
-O Storage Explorer, conforme fornecido no download .tar.gz, é suportado apenas para as seguintes versões de Ubuntu. O Storage Explorer pode funcionar em outras distribuições do Linux, mas não são oficialmente suportados.
+O Storage Explorer, tal como fornecido no .tar.gz download é suportado apenas para as seguintes versões de Ubuntu. O Storage Explorer pode funcionar em outras distribuições do Linux, mas não são oficialmente suportados.
 
 - Ubuntu 20.04 x64
 - Ubuntu 18.04 x64
@@ -331,7 +350,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Descarregue o ficheiro Storage Explorer .tar.gz.
+1. Descarregue o ficheiro .tar.gz do Storage Explorer.
 2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
@@ -344,7 +363,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Descarregue o ficheiro Storage Explorer .tar.gz.
+1. Descarregue o ficheiro .tar.gz do Storage Explorer.
 2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
@@ -357,7 +376,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Descarregue o ficheiro Storage Explorer .tar.gz.
+1. Descarregue o ficheiro .tar.gz do Storage Explorer.
 2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \

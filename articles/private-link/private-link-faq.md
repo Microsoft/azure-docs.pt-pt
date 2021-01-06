@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544212"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901543"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link frequentemente fez perguntas (FAQ)
 
@@ -38,16 +38,16 @@ Um serviço private link recebe ligações de vários pontos finais privados. Um
 ## <a name="private-endpoint"></a>Ponto Final Privado 
  
 ### <a name="can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services"></a>Posso criar vários Pontos Finais Privados no mesmo VNet? Podem ligar-se a diferentes Serviços? 
-Sim. Pode ter vários pontos finais privados na mesma VNet ou sub-rede. Podem ligar-se a diferentes serviços.  
+Yes. Pode ter vários pontos finais privados na mesma VNet ou sub-rede. Podem ligar-se a diferentes serviços.  
  
 ### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Preciso de uma sub-rede dedicada para pontos finais privados? 
-Não. Não precisa de uma sub-rede dedicada para pontos finais privados. Pode escolher um IP de ponto final privado a partir de qualquer sub-rede do VNet onde o seu serviço é implantado.  
+N.º Não precisa de uma sub-rede dedicada para pontos finais privados. Pode escolher um IP de ponto final privado a partir de qualquer sub-rede do VNet onde o seu serviço é implantado.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>O Private Endpoint pode ligar-se ao serviço private link através dos inquilinos do Azure Ative Directory? 
-Sim. Os pontos finais privados podem ligar-se aos serviços de Private Link ou Azure PaaS através de inquilinos da AD.  
+### <a name="can-a-private-endpoint-connect-to-private-link-services-across-azure-active-directory-tenants"></a>Um ponto final privado pode ligar-se aos serviços de Ligação Privada através dos inquilinos do Azure Ative Directory? 
+Yes. Os pontos finais privados podem ligar-se a serviços de Ligação Privada ou a um Azure PaaS através dos inquilinos do Azure Ative Directory. Os pontos finais privados que se conectam entre inquilinos requerem uma aprovação manual do pedido. 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>O ponto final privado pode ligar-se aos recursos do Azure PaaS em todas as regiões de Azure?
-Sim. Os pontos finais privados podem ligar-se aos recursos do Azure PaaS em todas as regiões de Azure.
+Yes. Os pontos finais privados podem ligar-se aos recursos do Azure PaaS em todas as regiões de Azure.
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Posso modificar a minha Interface de Rede de Pontos Finais (NIC) ?
 Quando um ponto final privado é criado, um NIC apenas de leitura é atribuído. Isto não pode ser modificado e permanecerá para o ciclo de vida do ponto final privado.
@@ -64,7 +64,7 @@ Pode escalar o seu serviço Private Link de várias maneiras:
 - Adicione o novo serviço de Ligação Privada ao Balanceador de Carga Padrão. Permitimos até oito serviços de Ligação Privada por balançador de carga.   
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Posso ligar o meu serviço a vários Pontos Finais Privados?
-Sim. Um serviço de Ligação Privada pode receber ligações de vários Pontos Finais Privados. No entanto, um Ponto Final Privado só pode ligar-se a um serviço de Ligação Privada.  
+Yes. Um serviço de Ligação Privada pode receber ligações de vários Pontos Finais Privados. No entanto, um Ponto Final Privado só pode ligar-se a um serviço de Ligação Privada.  
  
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Como devo controlar a exposição do meu serviço private link?
 Pode controlar a exposição utilizando a configuração de visibilidade no serviço Private Link. A visibilidade suporta três configurações:
@@ -74,13 +74,13 @@ Pode controlar a exposição utilizando a configuração de visibilidade no serv
 - **Todos** podem localizar o serviço. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Posso criar um serviço de Ligação Privada com um equilibrador de carga básico? 
-Não. O serviço private Link sobre um balanceador de carga básico não é suportado.
+N.º O serviço private Link sobre um balanceador de carga básico não é suportado.
  
 ### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>É necessária uma sub-rede dedicada para o serviço Private Link? 
-Não. O serviço private Link não requer uma sub-rede dedicada. Pode escolher qualquer sub-rede no seu VNet onde o seu serviço está implantado.   
+N.º O serviço private Link não requer uma sub-rede dedicada. Pode escolher qualquer sub-rede no seu VNet onde o seu serviço está implantado.   
 
 ### <a name="im-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sou um prestador de serviços que usa a Azure Private Link. Preciso de ter a certeza de que todos os meus clientes têm espaço IP único e não se sobrepõem ao meu espaço IP? 
-Não. O Azure Private Link fornece esta funcionalidade para si. Não é obrigado a ter espaço de endereço não sobreposto com o espaço de endereço do seu cliente. 
+N.º O Azure Private Link fornece esta funcionalidade para si. Não é obrigado a ter espaço de endereço não sobreposto com o espaço de endereço do seu cliente. 
 
 ##  <a name="next-steps"></a>Passos seguintes
 

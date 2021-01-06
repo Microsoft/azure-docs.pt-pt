@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368048"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900421"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Resolver erros de replicação de VMs do Azure para Azure
 
@@ -191,6 +191,9 @@ Para verificar se o VM utiliza uma definição de DNS personalizada:
 
 Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor DNS não estiver acessível, torne-o acessível falhando no servidor DNS ou criando a linha de site entre a rede DR e o DNS.
 
+> [!NOTE]
+> Se utilizar pontos finais privados, certifique-se de que os VMs podem resolver os registos privados de DNS.
+
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-erro.":::
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Edição 2: A configuração da recuperação do local falhou (151196)
@@ -278,17 +281,17 @@ Para tornar o estado de replicação do VM saudável novamente, pode optar por p
 
 #### <a name="to-protect-the-disks"></a>Para proteger os discos
 
-1. Aceda a **itens replicados**  >  _VM discos_de nome  >  **Disks**.
+1. Aceda a **itens replicados**  >  _VM discos_ de nome  >  .
 1. Selecione o disco desprotegido e, em seguida, **selecione Ativar a replicação**:
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-erro.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Ativar a replicação nos discos VM.":::
 
 #### <a name="to-dismiss-the-warning"></a>Para rejeitar o aviso
 
 1. Aceda aos **itens replicados**  >  _nome VM_.
 1. Selecione o aviso na secção **'Vista Geral'** e, em seguida, selecione **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-erro.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Dispense o aviso de disco novo.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>VM removido do cofre concluído com informação (código de erro 150225)
 
@@ -300,7 +303,7 @@ Pode ignorar este aviso se nunca mais pretender proteger esta máquina virtual. 
 > Se não fizer a limpeza:
 >
 > - Quando ativar a replicação através do cofre dos Serviços de Recuperação, a máquina virtual não será listada.
-> - Se tentar proteger o VM utilizando a **recuperação**de  >  **desastres de configurações**de máquinas  >  **Disaster Recovery**virtuais, a operação falhará com a mensagem **A replicação não pode ser ativada devido às ligações existentes de recursos existentes no VM**.
+> - Se tentar proteger o VM utilizando a **recuperação** de  >  **desastres de configurações** de máquinas  >  virtuais, a operação falhará com a mensagem **A replicação não pode ser ativada devido às ligações existentes de recursos existentes no VM**.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
@@ -309,10 +312,10 @@ Pode ignorar este aviso se nunca mais pretender proteger esta máquina virtual. 
 
 1. Retire o bloqueio do grupo de recursos VM ou VM. Por exemplo, na seguinte imagem, o bloqueio de recursos no VM nomeado `MoveDemo` deve ser eliminado:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-erro.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Retire o cadeado do VM.":::
 
 1. Descarregue o script para [remover uma configuração de recuperação do site.](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
-1. Executar o guião, _Cleanup-stale-asr-config-Azure-VM.ps1. _ Forneça o **ID de subscrição,** **o VM Resource Group**e o nome **VM** como parâmetros.
+1. Executar o guião, _Cleanup-stale-asr-config-Azure-VM.ps1._ Forneça o **ID de subscrição,** **o VM Resource Group** e o nome **VM** como parâmetros.
 1. Se te pedirem credenciais do Azure, fornece-as. Em seguida, verifique se o script funciona sem falhas.
 
 ## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>Replicação não ativada em VM com recursos antigos (código de erro 150226)
@@ -334,10 +337,10 @@ Uma configuração velha pode ocorrer num VM Azure se tiver ativado a replicaç�
 
 1. Retire o bloqueio do grupo de recursos VM ou VM. Por exemplo, na seguinte imagem, o bloqueio de recursos no VM nomeado `MoveDemo` deve ser eliminado:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-erro.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Retire o cadeado do VM.":::
 
 1. Descarregue o script para [remover uma configuração de recuperação do site.](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
-1. Executar o guião, _Cleanup-stale-asr-config-Azure-VM.ps1. _ Forneça o **ID de subscrição,** **o VM Resource Group**e o nome **VM** como parâmetros.
+1. Executar o guião, _Cleanup-stale-asr-config-Azure-VM.ps1._ Forneça o **ID de subscrição,** **o VM Resource Group** e o nome **VM** como parâmetros.
 1. Se te pedirem credenciais do Azure, fornece-as. Em seguida, verifique se o script funciona sem falhas.
 
 ## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>Não é possível selecionar VM ou grupo de recursos para permitir o trabalho de replicação
@@ -346,7 +349,7 @@ Uma configuração velha pode ocorrer num VM Azure se tiver ativado a replicaç�
 
 A recuperação do local exige atualmente que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se não forem, não conseguirá encontrar a máquina virtual ou o grupo de recursos quando tentar aplicar proteção.
 
-Como uma solução alternativa, pode permitir a replicação a partir do VM em vez do cofre dos Serviços de Recuperação. Vá à Recuperação de **Desastres de Propriedades Source VM**  >  **Properties**  >  **Disaster Recovery** e ative a replicação.
+Como uma solução alternativa, pode permitir a replicação a partir do VM em vez do cofre dos Serviços de Recuperação. Vá à Recuperação de **Desastres de Propriedades Source VM**  >    >   e ative a replicação.
 
 ### <a name="issue-2-the-resource-group-isnt-part-of-the-selected-subscription"></a>Edição 2: O grupo de recursos não faz parte da subscrição selecionada
 
@@ -367,10 +370,10 @@ Pode não ver o VM que pretende ativar para a replicação se existir uma config
 
 1. Retire a fechadura, se houver, do grupo de recursos VM ou VM. Por exemplo, na seguinte imagem, o bloqueio de recursos no VM nomeado `MoveDemo` deve ser eliminado:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-erro.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Retire o cadeado do VM.":::
 
 1. Descarregue o script para [remover uma configuração de recuperação do site.](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
-1. Executar o guião, _Cleanup-stale-asr-config-Azure-VM.ps1. _ Forneça o **ID de subscrição,** **o VM Resource Group**e o nome **VM** como parâmetros.
+1. Executar o guião, _Cleanup-stale-asr-config-Azure-VM.ps1._ Forneça o **ID de subscrição,** **o VM Resource Group** e o nome **VM** como parâmetros.
 1. Se te pedirem credenciais do Azure, fornece-as. Em seguida, verifique se o script funciona sem falhas.
 
 ## <a name="unable-to-select-a-vm-for-protection"></a>Não é possível selecionar um VM para proteção
@@ -381,7 +384,7 @@ A máquina virtual tem uma extensão instalada num estado falhado ou sem respost
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Aceda a **extensões de configurações de configurações de**  >  **Settings**  >  **máquinas virtuais** e verifique se há extensões num estado falhado. Desinstale qualquer extensão falhada e tente novamente proteger a máquina virtual.
+Aceda a **extensões de configurações de configurações de**  >    >  **máquinas virtuais** e verifique se há extensões num estado falhado. Desinstale qualquer extensão falhada e tente novamente proteger a máquina virtual.
 
 ## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>O estado de provisionamento de VM não é válido (código de erro 150019)
 
@@ -404,17 +407,17 @@ Para permitir a replicação no VM, o seu estado de provisionamento tem de ser *
 
 Durante a configuração de recuperação de desastres, se o VM de origem fizer parte de uma rede virtual, e outro VM da mesma rede virtual já estiver mapeado com uma rede no grupo de recursos-alvo, a caixa de lista de retirada de rede está indisponível (parece escurecida) por padrão.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-erro.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Lista de seleção de rede indisponível.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Edição 2: Protegeste previamente o VM e depois desativaste a replicação
 
-A desativação da replicação de um VM não apaga o mapeamento da rede. O mapeamento deve ser eliminado do cofre dos Serviços de Recuperação onde o VM foi protegido. Selecione o **cofre dos Serviços de Recuperação** e vá para **gerir**a  >  **infraestrutura de recuperação do local**para o  >  Mapeamento da rede de**máquinas virtuais Azure**  >  **Network Mapping**.
+A desativação da replicação de um VM não apaga o mapeamento da rede. O mapeamento deve ser eliminado do cofre dos Serviços de Recuperação onde o VM foi protegido. Selecione o **cofre dos Serviços de Recuperação** e vá para **gerir** a  >  **infraestrutura de recuperação do local** para o  >  Mapeamento da rede de **máquinas virtuais Azure**  >  .
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-erro.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Apague o mapeamento da rede.":::
 
 A rede-alvo que foi configurada durante a configuração da recuperação de desastres pode ser alterada após a configuração inicial, e após a proteção do VM. Para modificar o **mapeamento da rede,** selecione o nome da rede:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-erro.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modificar o mapeamento da rede.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ ou VSS (código de erro 151025)
@@ -437,7 +440,7 @@ Desactore o Serviço de Cópia de Sombra do Sistema COM+ para o modo de arranque
 1. Abra a consola serviços no Windows.
 1. Certifique-se de que o serviço de cópia de sombra do sistema COM+ e do volume não estão definidos para **desativar** como o seu **Tipo de Arranque**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-erro.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Verifique o tipo de arranque de COM plus System Application e Volume Shadow Copy Service.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamanho do disco gerido não suportado (código de erro 150172)
 
@@ -459,11 +462,11 @@ Certifique-se de que o tamanho do disco está dentro do intervalo de tamanho sup
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-Os ficheiros de configuração linux Grand Unified Bootloader (GRUB)_(/boot/grub/menu.lst_, _/boot/grub.cfg_, _/boot/grub2/grub.cfg,_ ou _/etc/default/grub_) podem especificar os nomes reais do dispositivo em vez de valores de identificador universalmente únicos (UUID) para os `root` parâmetros e `resume` parâmetros. A recuperação do site requer UUIDs porque os nomes do dispositivo podem mudar. Após o reinício, um VM pode não ter o mesmo nome no failover, resultando em problemas.
+Os ficheiros de configuração linux Grand Unified Bootloader (GRUB)_(/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_, ou _/etc/default/grub_) podem especificar os nomes reais do dispositivo em vez de valores de identificador universalmente únicos (UUID) para os `root` `resume` parâmetros e parâmetros. A recuperação do site requer UUIDs porque os nomes do dispositivo podem mudar. Após o reinício, um VM pode não ter o mesmo nome no failover, resultando em problemas.
 
 Os exemplos a seguir são as linhas dos ficheiros GRUB onde os nomes dos dispositivos aparecem em vez dos UUIDs necessários:
 
-- Arquivo _/boot/grub2/grub.cfg_:
+- Arquivo _/bota/grub2/grub.cfg:_
 
   `linux /boot/vmlinuz-3.12.49-11-default root=/dev/sda2  ${extra_cmdline} resume=/dev/sda1 splash=silent quiet showopts`
 
@@ -496,7 +499,7 @@ Substitua cada nome do dispositivo pelo UUID correspondente:
 
 Os ficheiros de configuração GRUB _(/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_, ou _/etc/default/grub_) podem conter os parâmetros `rd.lvm.lv` ou `rd_LVM_LV` . Estes parâmetros identificam os dispositivos Lógicos Volume Manager (LVM) que devem ser descobertos no momento do arranque. Se estes dispositivos LVM não existirem, o sistema protegido em si não será iniciado e ficará preso no processo de arranque. O mesmo problema também será visto com o VM de failover. Aqui estão alguns exemplos:
 
-- Arquivo: _/boot/grub2/grub.cfg_ on RHEL7:
+- Arquivo: _/boot/grub2/grub.cfg_ no RHEL7:
 
   `linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap rhgb quiet LANG=en_US.UTF-8`
 

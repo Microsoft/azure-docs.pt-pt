@@ -3,12 +3,12 @@ title: Atualizar um cluster para usar o nome comum do certificado
 description: Saiba como converter um certificado de cluster de tecido de serviço Azure de declarações baseadas em impressões digitais para nomes comuns.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495206"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900795"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Converter certificados de agrupamento de declarações baseadas em impressão digital para nomes comuns
 
@@ -63,8 +63,11 @@ Existem vários estados de partida válidos para uma conversão. O invariante é
 #### <a name="valid-starting-states"></a>Estados de partida válidos
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, onde `GoalCert` tem uma data posterior à `NotAfter` da `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, onde `GoalCert` tem uma data posterior à `NotAfter` da `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, onde `GoalCert` tem uma data posterior à `NotBefore` da `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, onde `GoalCert` tem uma data posterior à `NotBefore` da `OldCert1`
+
+> [!NOTE]
+> Antes da versão 7.2.445 (7.2 CU4), o Service Fabric selecionou o certificado de validade mais distante (o certificado com a propriedade 'NotAfter' mais distante), pelo que os estados de partida acima anteriores a 7.2 CU4 exigem que o GoalCert tenha uma `NotAfter` data posterior ao do que `OldCert1`
 
 Se o seu cluster não estiver num dos estados válidos previamente descritos, consulte informações sobre a obtenção desse estado na secção no final deste artigo.
 
@@ -217,11 +220,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | Estado de partida | Upgrade 1 | Upgrade 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` e `GoalCert` tem uma data posterior do `NotAfter` que `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` e `OldCert1` tem uma data posterior do `NotAfter` que `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, onde `OldCert1` tem uma data posterior `NotAfter` que `GoalCert` | Upgrade para `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, onde `OldCert1` tem uma data posterior `NotAfter` que `GoalCert` | Upgrade para `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` e `GoalCert` tem uma data posterior do `NotBefore` que `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` e `OldCert1` tem uma data posterior do `NotBefore` que `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, onde `OldCert1` tem uma data posterior `NotBefore` que `GoalCert` | Upgrade para `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, onde `OldCert1` tem uma data posterior `NotBefore` que `GoalCert` | Upgrade para `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Remover um de `OldCert1` ou para chegar ao `OldCert2` estado `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continue a partir do novo estado inicial |
+
+> [!NOTE]
+> Para um cluster numa versão anterior à versão 7.2.445 (7.2 CU4), `NotBefore` `NotAfter` substitua-o nos estados acima referidos.
 
 Para obter instruções sobre como realizar qualquer uma destas atualizações, consulte [Gerir os certificados num cluster de tecidos de serviço Azure](service-fabric-cluster-security-update-certs-azure.md).
 

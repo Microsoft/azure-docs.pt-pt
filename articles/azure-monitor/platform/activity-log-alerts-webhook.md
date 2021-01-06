@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema do JSON que é publicado num URL webhook
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522792"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901441"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, você pode configurar pontos finais webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para ações pós-processamento ou personalizadas. Este artigo mostra como é a carga útil do HTTP POST para um webhook.
@@ -27,6 +27,19 @@ O webhook pode opcionalmente usar a autorização baseada em fichas para a auten
 
 ## <a name="payload-schema"></a>Esquema de carga útil
 A carga útil JSON contida na operação POST difere com base no campo data.context.activityLog.eventSource da carga útil.
+
+> [!NOTE]
+> Atualmente, a descrição que faz parte do evento de registo de atividade é copiada para a propriedade **"Descrição de Alerta"** disparada.
+>
+> Para alinhar a carga de Registo de Atividade com outros tipos de alerta, a partir de 1 de abril de 2021, a propriedade de alerta de incêndio **"Descrição"** conterá a descrição da regra de alerta.
+>
+> Na preparação para esta mudança, criámos um novo imóvel **"Descrição do Evento de Registo de Atividade"** para o Alerta de Incêndio de Registo de Atividade. Este novo imóvel será preenchido com a propriedade **"Descrição"** que já está disponível para uso. Isto significa que o novo campo **"Descrição do Evento de Registo de Atividades"** conterá a descrição que faz parte do evento de registo de atividade.
+>
+> Por favor, reveja as suas regras de alerta, regras de ação, webhooks, aplicação lógica ou quaisquer outras configurações onde possa estar a usar a propriedade **"Descrição"** a partir do alerta disparado e substitua-a por uma propriedade **"Activity Log Event Description".**
+>
+> se a sua condição (nas suas regras de ação, webhooks, aplicação lógica ou qualquer outra configuração) se basear na propriedade **"Descrição"** para alertas de registo de atividade, poderá ter de modificá-la para se basear na propriedade **"Activity Log Event Description".**
+>
+> Para preencher a nova propriedade **"Descrição",** pode adicionar uma descrição na definição de regra de alerta.
 
 ### <a name="common"></a>Common
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 552322b9452d380dd5507fb579d7cc44e1a456fe
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: c3f61c3fe688a0b7533902fb0caa19b67f883482
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898910"
+ms.locfileid: "97901594"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -24,13 +24,6 @@ Este tutorial descreve os passos necessários para realizar tanto na Suíte G co
 
 > [!NOTE]
 > Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
-
-> [!NOTE]
-> O conector G Suite foi recentemente atualizado em outubro de 2019. As alterações introduzidas no conector G Suite incluem:
->
-> * Suporte adicional para utilizador e atributos adicionais do utilizador da Suite G.
-> * Os nomes-alvo da Suíte G atualizado correspondem ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
-> * Mapeamentos de atributos predefinidos atualizados.
 
 > [!NOTE]
 > Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
@@ -276,7 +269,13 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 
 1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
 2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
-3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
+3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Change log
+
+* 10/17/2020 - Suporte adicional para utilizador e atributos adicionais do g suite e do grupo.
+* 10/17/2020 - Nomes-alvo da Suíte G atualizados atribuem nomes para corresponder ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
+* 10/17/2020 - Mapeamentos de atributos predefinidos atualizados.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

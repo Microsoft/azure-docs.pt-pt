@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b680c275b92340cc7efba187769cb17602b08b45
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 365c9a990f16e9077450ae15f6677ab716fc45ba
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973291"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900455"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do agente Azure AD Connect Health
 
@@ -283,6 +283,17 @@ Depois de instalar o agente apropriado *setup.exe* ficheiro, pode registar o age
     Register-AzureADConnectHealthSyncAgent
 
 ```
+
+> [!NOTE]
+> Para se registar contra nuvens soberanas, utilize as seguintes linhas de comando:
+>
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
+>
+
 
 Estes comandos aceitam `Credential` como parâmetro para completar o registo não interativamente ou para completar o registo numa máquina que executa o Server Core. Tenha em mente que:
 * Podes capturar `Credential` numa variável PowerShell que passou como parâmetro.

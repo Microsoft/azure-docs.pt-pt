@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: serviço de aplicativos azure, web app, linux, janelas, estivador, recipiente
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: b3507e22c691f3e3ca9f9e6562a313e95e42f080
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558611"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900200"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Azure App Service usando um recipiente personalizado
 
 ::: zone pivot="container-windows"  
 
-O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um recipiente personalizado do Windows no Serviço de Aplicações (Preview) permite-lhe fazer alterações de SO de que a sua aplicação necessita, pelo que é fácil migrar no local uma aplicação que requer um sistema operativo personalizado e configuração de software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](../container-registry/index.yml), e, em seguida, execute-a no Serviço de Aplicações.
+O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um contentor personalizado do Windows no Serviço de Aplicações permite efetuar as alterações ao SO de que a aplicação precisa, pelo que é fácil migrar uma aplicação no local que requer uma configuração personalizada do SO e software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](../container-registry/index.yml), e, em seguida, execute-a no Serviço de Aplicações.
 
 ![Mostra a aplicação web a funcionar num recipiente Windows.](media/tutorial-custom-container/app-running.png)
 
@@ -102,7 +102,7 @@ No Explorador de Soluções, clique com o botão direito do rato no projeto **Cu
 
 ### <a name="create-registry-and-publish"></a>Criar registo e publicar
 
-No assistente de publicação, selecione **Registo de Contentores**  >  **Crie a Nova Publicação do Registo de Contentores Azure**  >  **Publish**.
+No assistente de publicação, selecione **Registo de Contentores**  >  **Crie a Nova Publicação do Registo de Contentores Azure**  >  .
 
 :::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot do assistente de publicação que mostra o registo do contentor, crie o registo do novo azure e o botão Publicar selecionado.":::
 
@@ -133,7 +133,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-A partir do menu esquerdo, **selecione Criar uma** Web App de recursos para  >  **Web**  >  **contentores.**
+A partir do menu esquerdo, **selecione Criar uma** Web App de recursos para  >    >  **contentores.**
 
 ### <a name="configure-app-basics"></a>Configurar o básico da aplicação
 
@@ -213,7 +213,7 @@ Os registos transmitidos têm o seguinte aspeto:
 
 O Azure App Service utiliza a tecnologia de contentores Docker para acolher imagens incorporadas e imagens personalizadas. Para ver uma lista de imagens incorporadas, execute o comando Azure CLI, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Se essas imagens não satisfizerem as suas necessidades, pode construir e implementar uma imagem personalizada.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Construa uma imagem personalizada se nenhuma imagem incorporada satisfaz as suas necessidades
@@ -526,7 +526,7 @@ Nesta secção, faz uma alteração ao código da aplicação web, reconstrói o
     az webapp restart --name <app_name> --resource-group AppSvc-DockerTutorial-rg
     ```
 
-    Substitua `<app_name>` pelo nome da sua aplicação Web. Após o reinício, o Serviço de Aplicações retira a imagem atualizada do registo do contentor.
+    Substitua `<app_name>` pelo nome da aplicação Web. Após o reinício, o Serviço de Aplicações retira a imagem atualizada do registo do contentor.
 
 1. Verifique se a atualização foi implementada navegando para `http://<app-name>.azurewebsites.net` .
 
@@ -591,13 +591,13 @@ service ssh start
 
 ### <a name="open-ssh-connection-to-container"></a>Abrir a ligação SSH ao contentor
 
-1. Navegue e `https://<app-name>.scm.azurewebsites.net/webssh/host` inscreva-se na sua conta Azure. Substitua `<app-name>` pelo nome da sua aplicação Web.
+1. Navegue e `https://<app-name>.scm.azurewebsites.net/webssh/host` inscreva-se na sua conta Azure. Substitua `<app-name>` pelo nome da aplicação Web.
 
 1. Uma vez assinado, é redirecionado para uma página informativa para a aplicação web. Selecione **SSH** no topo da página para abrir a concha e utilizar comandos.
 
     Por exemplo, pode examinar os processos que estão a decorrer no seu interior utilizando o `top` comando.
     
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os recursos que criou neste artigo podem incorrer em custos contínuos. para limpar os recursos, basta eliminar o grupo de recursos que os contém:
 

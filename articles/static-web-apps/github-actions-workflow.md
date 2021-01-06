@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173667"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901203"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
@@ -63,7 +63,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -132,7 +132,7 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
@@ -140,7 +140,7 @@ with:
 |---|---|---|
 | `app_location` | Localização do seu código de inscrição.<br><br>Por exemplo, insira `/` se o código fonte da sua aplicação estiver na raiz do repositório, ou se o seu código de `/app` aplicação estiver num diretório chamado `app` . | Yes |
 | `api_location` | Localização do seu código Azure Functions.<br><br>Por exemplo, insira `/api` se o seu código de aplicação estiver numa pasta chamada `api` . Se nenhuma aplicação Azure Functions for detetada na pasta, a construção não falha, o fluxo de trabalho assume que não quer uma API. | No |
-| `app_artifact_location` | Localização do diretório de saída de construção relativamente ao `app_location` .<br><br>Por exemplo, se o código fonte da sua aplicação estiver localizado em `/app` , e o script de construção descosões de saídas para a `/app/build` pasta, então definido `build` como o `app_artifact_location` valor. | No |
+| `output_location` | Localização do diretório de saída de construção relativamente ao `app_location` .<br><br>Por exemplo, se o código fonte da sua aplicação estiver localizado em `/app` , e o script de construção descosões de saídas para a `/app/build` pasta, então definido `build` como o `output_location` valor. | No |
 
 Os `repo_token` `action` valores , e `azure_static_web_apps_api_token` valores são definidos para si por Azure Static Web Apps não devem ser alterados manualmente.
 
@@ -163,7 +163,7 @@ Pode personalizar o fluxo de trabalho para procurar o [routes.jsem](routes.md) q
 |---------------------|-------------|
 | `routes_location` | Define o local do diretório onde se encontra a _routes.jsno_ ficheiro. Esta localização é relativa à raiz do repositório. |
 
- Ser explícito sobre a localização do seu _routes.jsem_ ficheiro é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `app_artifact_location` por padrão.
+ Ser explícito sobre a localização do seu _routes.jsem_ ficheiro é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `output_location` por padrão.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
@@ -189,7 +189,7 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0

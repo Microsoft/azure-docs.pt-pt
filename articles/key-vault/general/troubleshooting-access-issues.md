@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616393"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901220"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
 
@@ -32,10 +32,10 @@ Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar co
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Não posso modificar a política de acesso, como pode ser ativada?
 O utilizador precisa de ter permissões AAD suficientes para modificar a política de acesso. Neste caso, o utilizador teria de ter um papel de contribuinte mais elevado.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Estou a ver um erro da "Política Unkwown". O que significa?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>Estou a ver um erro de "Política Desconhecida". O que significa?
 Existem duas possibilidades diferentes de ver a política de acesso na secção Desconhecida:
 * Pode haver um utilizador anterior que tenha tido acesso e por alguma razão que o utilizador não exista.
-* Se a política de acesso for adicionada via powershell e a política de acesso for adicionada para a aplicação objectid em vez do preço de serviço
+* Se a política de acesso for adicionada via powershell e a política de acesso for adicionada para a aplicação objectid em vez do principal serviço.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Como posso atribuir controlo de acesso por objeto de cofre chave? 
 

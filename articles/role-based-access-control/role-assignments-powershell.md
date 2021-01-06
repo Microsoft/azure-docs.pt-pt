@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 11/25/2020
 ms.author: rolyon
-ms.openlocfilehash: c4082f7fc535807ec996034ba695549a51969a99
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eadba7d778a632896529f3c7c53886619d96444
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182415"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901475"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure
 
@@ -28,6 +28,7 @@ Para adicionar ou remover atribuições de funções, você deve ter:
 
 - `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 - [PowerShell em Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
+- A conta que utiliza para executar o comando PowerShell deve ter a permissão do Microsoft `Directory.Read.All` Graph.
 
 ## <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
 
@@ -234,7 +235,7 @@ CanDelegate        : False
 
 #### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Adicionar atribuição de função para um grupo num âmbito específico de recursos de rede virtual
 
-Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao grupo *Pharma Sales Admins* com ID aaaaaaa-aaaaa-aaaaa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa *pharma-sales-project-network*
+Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao grupo *Pharma Sales Admins* com ID aaaa-aaaaa-aaaaa-aaaaa 
 
 ```azurepowershell
 PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa `

@@ -4,12 +4,12 @@ description: Saiba mais sobre a gestão de certificados num cluster de Tecido de
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653669"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901271"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestão de certificados em clusters de tecidos de serviço
 
@@ -109,9 +109,12 @@ Nota: O IETF [RFC 3647](https://tools.ietf.org/html/rfc3647) define formalmente 
 
 Vimos anteriormente que o Azure Key Vault suporta a rotação automática do certificado: a política de certificados associados define o ponto no tempo, seja por dias antes da expiração ou percentagem do tempo total, quando o certificado é rodado no cofre. O agente de provisionamento deve ser invocado após este momento e, antes do termo do certificado agora anterior, para distribuir este novo certificado a todos os nós do agrupamento. O Tecido de Serviço ajudará a elevar os avisos sanitários quando a data de validade de um certificado (e que está atualmente a ser utilizado no cluster) ocorrer mais cedo do que um intervalo pré-determinado. Um agente de provisionamento automático (isto é, a extensão KeyVault VM), configurado para observar o certificado do cofre, irá periodicamente sondar o cofre, detetar a rotação e recuperar e instalar o novo certificado. O fornecimento feito através da funcionalidade "segredos" VM/VMSS exigirá que um operador autorizado atualize o VM/VMSS com o KeyVault URI em versão correspondente ao novo certificado.
 
-Em qualquer dos casos, o certificado rotativo é agora a provisionado a todos os nós, e descrevemos o mecanismo que o Service Fabric emprega para detetar rotações; vamos examinar o que acontece a seguir - assumindo a rotação aplicada ao certificado de cluster declarado pelo nome comum do sujeito (todos aplicáveis a partir da hora desta escrita, e versão de execução do tecido de serviço 7.1.409):
-  - para novas ligações dentro, bem como no cluster, o tempo de execução do Tecido de Serviço encontrará e selecionará o certificado de correspondência com a data de validade mais distante (a propriedade 'NotAfter' do certificado, muitas vezes abreviada como 'na')
+Em qualquer dos casos, o certificado rotativo é agora a provisionado a todos os nós, e descrevemos o mecanismo que o Service Fabric emprega para detetar rotações; vamos examinar o que acontece a seguir - assumindo a rotação aplicada ao certificado de cluster declarado pelo nome comum sujeito
+  - para novas ligações dentro, bem como no cluster, o tempo de execução do Tecido de Serviço encontrará e selecionará o certificado de correspondência mais recentemente emitido (maior valor da propriedade 'Não Antes'). Note que esta é uma alteração das versões anteriores do tempo de execução do Tecido de Serviço.
   - as ligações existentes serão mantidas vivas/autorizadas a expirar naturalmente ou de outra forma; um manipulador interno terá sido notificado de que um novo jogo existe
+
+> [!NOTE] 
+> Antes da versão 7.2.445 (7.2 CU4), o Service Fabric selecionou o certificado de caducidade mais distante (o certificado com a propriedade 'NotAfter' mais distante)
 
 Isto traduz-se nas seguintes observações importantes:
   - O certificado de renovação pode ser ignorado se a sua data de validade for mais cedo do que a do certificado atualmente em uso.
@@ -134,8 +137,11 @@ Descrevemos mecanismos, restrições, delineamos regras e definições intrincad
 
 A sequência é totalmente scriptável/automatizada e permite uma implantação inicial sem toque do utilizador de um cluster configurado para a auto-inscrição do certificado. Passos detalhados são fornecidos abaixo. Usaremos uma mistura de cmdlets PowerShell e fragmentos de modelos json. A mesma funcionalidade é alcançável com todos os meios suportados de interagir com o Azure.
 
-[!NOTE] Este exemplo pressupõe que já exista um certificado no cofre; A inscrição e renovação de um certificado gerido pela KeyVault requer medidas manuais pré-requisitos, conforme descrito anteriormente neste artigo. Para ambientes de produção, utilize certificados geridos pelo KeyVault - um script de amostra específico para um PKI interno da Microsoft está incluído abaixo.
-A cadeca automática de certificados só faz sentido para os certificados emitidos pela AC; A utilização de certificados auto-assinados, incluindo os gerados ao implantar um cluster de Tecidos de Serviço no portal Azure, é absurdo, mas ainda possível para implementações locais/desenvolvedoras, declarando que a impressão digital do emitente é a mesma que o certificado de folha.
+> [!NOTE]
+> Este exemplo pressupõe que já exista um certificado no cofre; A inscrição e renovação de um certificado gerido pela KeyVault requer medidas manuais pré-requisitos, conforme descrito anteriormente neste artigo. Para ambientes de produção, utilize certificados geridos pelo KeyVault - um script de amostra específico para um PKI interno da Microsoft está incluído abaixo.
+
+> [!NOTE]
+> A cadeca automática de certificados só faz sentido para os certificados emitidos pela AC; A utilização de certificados auto-assinados, incluindo os gerados ao implantar um cluster de Tecidos de Serviço no portal Azure, é absurdo, mas ainda possível para implementações locais/desenvolvedoras, declarando que a impressão digital do emitente é a mesma que o certificado de folha.
 
 ### <a name="starting-point"></a>Ponto de partida
 Para a brevidade, assumiremos o seguinte estado inicial:

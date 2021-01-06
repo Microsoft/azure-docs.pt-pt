@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 129809a83bcebdcf80b05a7300dd9acf862e5886
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669232"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900404"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Salesforce utilizando o Azure Ative Directory B2C
 
@@ -48,10 +48,12 @@ Para utilizar uma conta Salesforce no Azure Ative Directory B2C (Azure AD B2C), 
     1. **Nome API** 
     1. **E-mail de contato** - O e-mail de contacto para a Salesforce
 1. Em **API (Ativar definições de OAuth)**, selecione **Ative OAuth Settings**
-1. Em **URL callback,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
-1. Nos **OAuth Scopes Selecionados,** selecione **Aceda as suas informações básicas (id, perfil, e-mail, endereço, telefone)** e **permita o acesso ao seu identificador único (openid)**.
-1. **Selecione Requer secret for Web Server Flow**.
-1. Selecione **Configurar ID Token** e, em seguida, selecione **Inclua Reclamações Padrão**.
+    1. Em **URL callback,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . `your-tenant-name`Substitua-o pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
+    1. Nos **OAuth Scopes Selecionados,** selecione **Aceda as suas informações básicas (id, perfil, e-mail, endereço, telefone)** e **permita o acesso ao seu identificador único (openid)**.
+    1. **Selecione Requer secret for Web Server Flow**.
+1. **Selecione Configurar ID Token** 
+    1. Desacorda o **Token Valid durante** 5 minutos.
+    1. **Selecione Inclua reclamações padrão**.
 1. Clique em **Guardar**.
 1. Copiar os valores da Chave do **Consumidor** e **do Segredo do Consumidor.** Você precisará de ambos para configurar a Salesforce como um fornecedor de identidade no seu inquilino. **O segredo do cliente** é uma importante credencial de segurança.
 
@@ -63,10 +65,10 @@ Para utilizar uma conta Salesforce no Azure Ative Directory B2C (Azure AD B2C), 
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Selecione **os fornecedores de identidade** e, em seguida, selecione novo fornecedor **OpenID Connect**.
 1. Insira um **nome**. Por exemplo, insira *a Salesforce*.
-1. Para **o url metadados,** introduza o seguinte URL substituindo-o `{org}` pela sua organização Salesforce:
+1. Para **o url de metadados,** introduza o URL do documento de [configuração de ligação OpenID da Salesforce](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). Para uma caixa de areia, login.salesforce.com é substituído por test.salesforce.com. Para uma comunidade, login.salesforce.com é substituído pela URL da comunidade, como username.force.com/.well-known/openid-configuration. O URL deve ser HTTPS.
 
     ```
-    https://{org}.my.salesforce.com/.well-known/openid-configuration
+    https://login.salesforce.com/.well-known/openid-configuration
     ```
 
 1. Para **identificação do cliente,** introduza o ID da aplicação que gravou anteriormente.
@@ -80,7 +82,7 @@ Para utilizar uma conta Salesforce no Azure Ative Directory B2C (Azure AD B2C), 
     - **Nome do visor**: *nome*
     - **Nome próprio**: *given_name*
     - **Apelido**: *family_name*
-    - **E-mail**: *preferred_username*
+    - **E-mail**: *e-mail*
 
 1. Selecione **Guardar**.
 ::: zone-end
@@ -121,8 +123,7 @@ Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao 
           <DisplayName>Salesforce</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <!-- Update the {org} below to your Salesforce organization -->
-            <Item Key="METADATA">https://{org}.my.salesforce.com/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.salesforce.com/.well-known/openid-configuration</Item>
             <Item Key="response_types">code</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid id profile email</Item>
@@ -154,7 +155,7 @@ Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao 
     </ClaimsProvider>
     ```
 
-4. Desaça **a METADADATA** URI `{org}` com a sua organização Salesforce.
+4. O **METADATA** está definido para o URL do documento de [configuração de ligação OpenID da Salesforce.](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm) Para uma caixa de areia, login.salesforce.com é substituído por test.salesforce.com. Para uma comunidade, login.salesforce.com é substituído pela URL da comunidade, como username.force.com/.well-known/openid-configuration. O URL deve ser HTTPS.
 5. **Desa** esta client_id ao ID do pedido a partir do registo do pedido.
 6. Guarde o ficheiro.
 

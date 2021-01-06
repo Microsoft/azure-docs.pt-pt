@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957542"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900506"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral das imagens do Red Hat Enterprise Linux
 
@@ -22,7 +22,7 @@ Este artigo descreve imagens disponíveis da Red Hat Enterprise Linux (RHEL) no 
 Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte o ciclo de [vida da Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata). Para obter detalhes sobre os preços, consulte [a calculadora de preços da Azure.](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
 
 >[!IMPORTANT]
-> As imagens RHEL atualmente disponíveis no suporte do Azure Marketplace ou trazem os modelos de licenciamento de bring-your-your-own -subscription (BYOS) ou pay-as-you-go. O [Azure Hybrid Use Benefit](../../windows/hybrid-use-benefit-licensing.md) e a troca dinâmica entre BYOS e o licenciamento pay-as-you-go não são suportados. Para mudar o modo de licenciamento, tem de recolocar o VM a partir da imagem correspondente.
+> As imagens RHEL atualmente disponíveis no suporte do Azure Marketplace ou trazem os modelos de licenciamento de bring-your-your-own -subscription (BYOS) ou pay-as-you-go. A comutação dinâmica entre BYOS e o licenciamento pay-as-you-go pode ser feita através do [Azure Hybrid Use Benefit](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > Para qualquer problema relacionado com imagens RHEL no Azure Marketplace, preencha um bilhete de suporte com a Microsoft.

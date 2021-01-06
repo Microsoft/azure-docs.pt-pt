@@ -3,12 +3,12 @@ title: Autenticação baseada em certificado X.509 num Cluster de Tecidos de Ser
 description: Saiba mais sobre a autenticação baseada em certificados em clusters de Tecidos de Serviço e como detetar, mitigar e corrigir problemas relacionados com certificados.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574773"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901254"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>X.509 Autenticação baseada em certificados em clusters de tecido de serviço
 
@@ -170,7 +170,10 @@ Os certificados de tipo nó também podem ser declarados por nome comum sujeito,
   </NodeTypes>
 ```
 
-Para qualquer tipo de declaração, um nó de Tecido de Serviço lerá a configuração no arranque, localizará e carregará os certificados especificados e classifica-os em ordem descendente do seu atributo NotAfter; os certificados caducados são ignorados, e o primeiro elemento da lista é selecionado como credencial do cliente para qualquer ligação de Tecido de Serviço tentada por este nó. (Com efeito, o Service Fabric favorece o certificado de caducidade mais distante.)
+Para qualquer tipo de declaração, um nó de Tecido de Serviço irá ler a configuração no arranque, localizar e carregar os certificados especificados e serdená-los por ordem descendente do seu atributo NãoBefor; os certificados caducados são ignorados, e o primeiro elemento da lista é selecionado como credencial do cliente para qualquer ligação de Tecido de Serviço tentada por este nó. (Em vigor, o Service Fabric favorece o certificado mais recentemente emitido.)
+
+> [!NOTE]
+> Antes da versão 7.2.445 (7.2 CU4), o Service Fabric selecionou o certificado de caducidade mais distante (o certificado com a propriedade 'NotAfter' mais distante)
 
 Note que, para declarações de apresentação baseadas em nome comum, um certificado é considerado uma correspondência se o seu nome comum é igual ao campo X509FindValue (ou X509FindValueSecondary) da declaração como uma comparação de cordas sensível a casos e exatos. Isto contrasta com as regras de validação, que suportam a correspondência de wildcard, bem como comparações de cordas insensíveis a casos.  
 

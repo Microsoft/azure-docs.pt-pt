@@ -2,13 +2,13 @@
 title: Alertas de registo do Azure Monitor para contentores Microsoft Docs
 description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU do Azure Monitor para recipientes.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: e9b0e01ca4c0ccb24d0d1b04a4d17ec06db253b6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 01/05/2021
+ms.openlocfilehash: 131f5ebc0f72afce381b4b82d6fe50a5d5e37123
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966256"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901509"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de registo do Azure Monitor para contentores
 
@@ -224,7 +224,7 @@ KubePodInventory
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterName
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
@@ -244,7 +244,7 @@ KubePodInventory
 ```
 
 >[!NOTE]
->Para alertar em determinadas fases do pod, tais como *Pendentes*, Falhados ou *Desconhecidos,* modificar a última linha da consulta. *Unknown* Por exemplo, para alertar sobre a utilização *do FailedCount:* <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Para alertar em determinadas fases do pod, tais como *Pendentes*, Falhados ou *Desconhecidos,* modificar a última linha da consulta.  Por exemplo, para alertar sobre a utilização *do FailedCount:* <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
 A seguinte consulta devolve discos de nós de cluster que excedem 90% de espaço livre usado. Para obter o ID do cluster, primeiro executar a seguinte consulta e copiar o valor da `ClusterId` propriedade:
 

@@ -4,16 +4,16 @@ description: Aprenda a alterar os níveis de desempenho dos discos geridos exist
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8a21a78bf27847b41c0af7bc4361f7c6c8071949
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: f67113b2e2afa16456321b0ee2a94ce80fab4d81
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96016534"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900965"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Mude o seu nível de desempenho utilizando o módulo Azure PowerShell ou o Azure CLI
 

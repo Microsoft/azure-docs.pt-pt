@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813790"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900365"
 ---
 # <a name="test-through-simulations"></a>Testar através de simulações
 
@@ -42,9 +42,9 @@ Estabelecemos uma parceria com [a BreakingPoint Cloud](https://www.ixiacom.com/p
     |---------      |---------                                          |
     |Endereço IP alvo           | Insira um dos seus endereços IP públicos que pretende testar.                     |
     |Número da Porta   | Insira _443_.                       |
-    |Perfil DDos | Selecione **O Dilúvio DE SINA TCP**.|
-    |Tamanho do teste       | Selecione **200K pps, 100 Mbps e 8 IPs de origem.**                                  |
-    |Duração do teste | Selecione **10 Minutos**.|
+    |Perfil DDos | Os valores possíveis incluem **inundação de DNS**, **Inundação NTPv2,** **Inundação SSDP,** **Inundação SIN TCP,** **Inundação UDP 64B,** **Inundação UDP 128B,** **Inundação UDP 256B, Inundação** **UDP 512B, Inundação** **UDP 1024B,** **Inundação UDP 1514B,** **Fragmentação UDP** **UDP Memcached**.|
+    |Tamanho do teste       | Os valores possíveis incluem **100K pps, 50 Mbps e 4 IPs de origem**, **200K pps, 100 Mbps e 8 IPs de origem**, **400K pps, 200Mbps e 16 IPs de origem**, **800K pps, 400 Mbps e 32 IPs de origem**.                                  |
+    |Duração do teste | Os valores possíveis incluem **10 Minutos**, **15 Minutos**, **20 Minutos**, **25 Minutos**, **30 Minutos**.|
 
 Deve agora parecer assim:
 
