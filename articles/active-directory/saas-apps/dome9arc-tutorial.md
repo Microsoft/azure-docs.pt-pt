@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 0dee0b84b249446755d5124a8477e993e13e52b0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 29157b7230ec0e1bef612d6f4ea7c3f6a6cd104d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454716"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914543"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Check Point CloudGuard Dome9 Arc
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Check Point CloudGuard Dome9 Arc c
 * Controlo em Azure AD que tem acesso a Check Point CloudGuard Dome9 Arc.
 * Ativar os seus utilizadores a serem automaticamente inscritos no Check Point CloudGuard Dome9 Arc com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,18 +46,18 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 Para configurar a integração do Check Point CloudGuard Dome9 Arc em AD Azure, é necessário adicionar Check Point CloudGuard Dome9 Arc da galeria à sua lista de aplicações geridas para o SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **escreva Check Point CloudGuard Dome9 Arc** na caixa de pesquisa.
 1. Selecione **Check Point CloudGuard Dome9 Arc** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-check-point-cloudguard-dome9-arc"></a>Configurar e testar a Azure AD um único sinal para Check Point CloudGuard Dome9 Arc
+## <a name="configure-and-test-azure-ad-sso-for-check-point-cloudguard-dome9-arc"></a>Configure e teste Azure AD SSO para check point CloudGuard Dome9 Arc
 
 Configure e teste Azure AD SSO com Check Point CloudGuard Dome9 Arc usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Check Point CloudGuard Dome9 Arc.
 
-Para configurar e testar O SSO Azure AD com Check Point CloudGuard Dome9 Arc, complete os seguintes blocos de construção:
+Para configurar e testar O SSO Azure AD com Check Point CloudGuard Dome9 Arc, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -72,17 +70,15 @@ Para configurar e testar O SSO Azure AD com Check Point CloudGuard Dome9 Arc, co
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Check Point CloudGuard Dome9 Arc,** encontre a secção **'Gerir'** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **Check Point CloudGuard Dome9 Arc,** encontre a secção **'Gerir'** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier,** digite um URL: `https://secure.dome9.com/`
-
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
@@ -102,7 +98,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | membros de | user.assignedroles |
 
     >[!NOTE]
-    >Clique [aqui](./apptio-tutorial.md) para saber como criar papéis em Azure AD.
+    >Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) para saber como criar papéis em Azure AD.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -128,18 +124,12 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Check Point CloudGuard Dome9 Arc.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Check Point CloudGuard Dome9 Arc**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se tiver configurado as funções como explicado no acima, pode selecioná-lo a partir do Dropdown de **função Select.**
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-check-point-cloudguard-dome9-arc-sso"></a>Configurar ponto de verificação CloudGuard Dome9 Arc SSO
@@ -211,16 +201,21 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Check Point CloudG
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo do Arco CloudGuard Dome9 no Painel de Acesso, deverá ser automaticamente inscrito no Arco CloudGuard Dome9 do Ponto de Verificação para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Check Point CloudGuard Dome9 Arc Sign no URL onde pode iniciar o fluxo de login.  
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Vá ao Teste de Ponto CloudGuard Dome9 Arc Sign-on URL diretamente e inicie o fluxo de login a partir daí.
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Check Point CloudGuard Dome9 Arc para o qual configura o SSO 
 
-- [Experimente check point CloudGuard Dome9 Arc com Azure AD](https://aad.portal.azure.com/)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo do 'Check Point CloudGuard Dome9' nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Arco CloudGuard Dome9 para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+Assim que configurar o Check Point CloudGuard Dome9 Arc, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

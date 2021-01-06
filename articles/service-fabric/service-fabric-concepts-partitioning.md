@@ -1,18 +1,21 @@
 ---
 title: Serviços de tecido de partilha
-description: Descreve como fazer serviços de tecido de partição. As divisórias permitem o armazenamento de dados nas máquinas locais para que os dados e o cálculo possam ser dimensionados em conjunto.
+description: Saiba como dividir serviços de tecido apátrida e stateful
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005433"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915900"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
-Este artigo fornece uma introdução aos conceitos básicos de serviços fiáveis de tecido de serviço azure. O código fonte utilizado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Este artigo fornece uma introdução aos conceitos básicos de serviços fiáveis de tecido de serviço azure. A partilha permite o armazenamento de dados nas máquinas locais para que os dados e o cálculo possam ser dimensionados em conjunto.
+
+> [!TIP]
+> Uma [amostra completa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) do código neste artigo está disponível no GitHub.
 
 ## <a name="partitioning"></a>Criação de partições
 A partilha não é exclusiva do Service Fabric. Na verdade, é um padrão central de construção de serviços escaláveis. Num sentido mais lato, podemos pensar na divisão como um conceito de divisão do estado (dados) e calcular em unidades de acesso mais pequenas para melhorar a escalabilidade e o desempenho. Uma forma bem conhecida de partição é a partição de [dados,][wikipartition]também conhecida como fragmento.
@@ -348,14 +351,14 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     
     ![Imagem de navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-Todo o código fonte da amostra está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+A solução completa do código utilizado neste artigo está disponível aqui: https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions .
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter informações sobre os conceitos de Tecido de Serviço, consulte o seguinte:
+Saiba mais sobre os serviços de Service Fabric:
 
+* [Conecte-se e comunique-se com serviços em Tecido de Serviço](service-fabric-connect-and-communicate-with-services.md)
 * [Disponibilidade de serviços de tecido de serviço](service-fabric-availability-services.md)
 * [Escalabilidade dos serviços de tecido de serviço](service-fabric-concepts-scalability.md)
-* [Planeamento de capacidade para aplicações de Tecido de Serviço](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

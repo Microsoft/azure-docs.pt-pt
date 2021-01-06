@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8d6e10b025b9e9524982b1558beacfab1970eb59
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f9f37bc27c54971c15db457abf157e04cc5d60e8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216441"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914676"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual do Windows em Azure
 
@@ -37,7 +37,7 @@ Também pode abrir o Cloud Shell num separador de navegador indo para [https://s
 
 Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure.
 
-Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -113,10 +113,10 @@ Para agendar uma nova implementação de atualização para o VM, selecione **a 
 | **Nome** |Introduza um nome único para identificar a implementação da atualização. |
 |**Sistema operativo**| Selecione **Linux** ou **Windows**.|
 | **Grupos a atualizar** |Para os VMs alojados no Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags. Esta consulta constrói um grupo dinâmico de VMs azure-hosted para incluir na sua implementação. </br></br>Para VMs não hospedados no Azure, selecione uma pesquisa guardada existente. Com esta pesquisa, pode selecionar um grupo destes VMs para incluir na implementação. </br></br> Para saber mais, consulte [Grupos Dinâmicos.](../../automation/update-management/configure-groups.md)|
-| **Máquinas a atualizar** |Selecione **Pesquisa Save**, **Grupo importado**ou **Máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais da lista de drop-down. A prontidão de cada máquina é mostrada na coluna de **PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
+| **Máquinas a atualizar** |Selecione **Pesquisa Save**, **Grupo importado** ou **Máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais da lista de drop-down. A prontidão de cada máquina é mostrada na coluna de **PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
 |**Classificações de atualizações**|Escolha todas as classificações de atualização necessárias.|
 |**Incluir/excluir atualizações**|Selecione esta opção para abrir o painel **Incluir/Excluir.** As atualizações a incluir e as que serão excluídas estão em separado. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Atualização.](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
-|**Definições de agenda**|Escolha a hora de começar e selecione **uma vez** ou **recorrente**.|
+|**Definições da agenda**|Escolha a hora de começar e selecione **uma vez** ou **recorrente**.|
 | **Pré-scripts + Post-scripts**|Escolha os scripts para executar antes e depois da sua implantação.|
 | **Janela de manutenção** | Introduza o número de minutos definidos para atualizações. Os valores válidos variam entre 30 e 360 minutos. |
 | **Reiniciar o controlo**| Selecione como as reinicializações são manuseadas. As seleções disponíveis são:<ul><li>**Reiniciar se necessário**</li><li>**Reiniciar sempre**</li><li>**Nunca reiniciar**</li><li>**Apenas reiniciar**</li></ul>**Reiniciar se necessário** é a seleção predefinida. Se selecionar **Apenas reiniciar,** as atualizações não estão instaladas.|

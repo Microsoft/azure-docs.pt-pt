@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 01/05/2021
 ms.author: radeltch
-ms.openlocfilehash: 13644872fca06ad8fc5806326736aea23e504520
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: a152735d21a347262ce6485e6110f9e040a0071a
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608661"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916240"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server 
 
@@ -362,11 +362,13 @@ Configure e prepare o seu SO fazendo os seguintes passos:
     # Add the following entries in the configuration file
     ipv6.conf.all.disable_ipv6 = 1
     net.ipv4.tcp_max_syn_backlog = 16348
-    net.ipv4.ip_local_port_range = 40000 65300
     net.ipv4.conf.all.rp_filter = 0
     sunrpc.tcp_slot_table_entries = 128
     vm.swappiness=10
     </code></pre>
+
+> [!TIP]
+> Evite configurar net.ipv4.ip_local_port_range e net.ipv4.ip_local_reserved_ports explicitamente nos ficheiros de configuração sysctl para permitir que o Agente anfitrião SAP gere as gamas de portas. Para mais detalhes consulte a nota [SAP 2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 4. **[A]** Ajuste as definições sunrpc, como recomendado nas [aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure].  
 
@@ -558,7 +560,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
      * Para **componentes adicionais para instalação:** insira **2, 3**
      * Para o caminho de instalação: prima Enter (predefinições para /hana/shared)
      * Para **o nome do anfitrião local**: prima Insira para aceitar o padrão
-     * Em **Baixo deseja adicionar anfitriões ao sistema?** **y**
+     * Em **Baixo deseja adicionar anfitriões ao sistema?** 
      * Para **nomes de anfitriões separados em vírgula para adicionar:** insira **hanadb2, hanadb3**
      * Para **o nome do utilizador raiz** [raiz]: prima Introduzir para aceitar o padrão
      * Para **a palavra-passe do utilizador raiz**: introduza a palavra-passe do utilizador raiz

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f3fcad14ae0c448ee2a41cddf56f5ea64c8e08d2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589768"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Diretório Ativo Azure com Andromeda
 
@@ -26,9 +26,6 @@ A integração de Andromeda com a Ad Azure proporciona-lhe os seguintes benefíc
 * Pode controlar em Azure AD que tem acesso a Andromeda.
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos em Andromeda (Sign-On Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,59 +45,39 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 Para configurar a integração de Andromeda em Azure AD, você precisa adicionar Andromeda da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar Andromeda da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar da secção **da galeria,** **digite Andromeda** na caixa de pesquisa.
+1. Selecione **Andromeda** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-andromeda"></a>Configure e teste Azure AD SSO para Andromeda
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Configure e teste Azure AD SSO com Andromeda usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Andromeda.
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+Para configurar e testar a Azure AD SSO com a Andromeda, execute os seguintes passos:
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+2. **[Configure a Andromeda SSO](#configure-andromeda-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
+    1. **[Create Andromeda test user](#create-andromeda-test-user)** - para ter uma contraparte de Britta Simon em Andromeda que está ligada à representação AZure AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-4. Na caixa de pesquisa, **digite Andromeda,** selecione **Andromeda** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![Andromeda na lista de resultados](common/search-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+1. No portal Azure, na página de integração da aplicação **Andromeda,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-Nesta secção, você configura e testa Azure AD single sign-on com Andromeda com base em um utilizador de teste chamado **Britta Simon**.
-Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Andromeda.
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-Para configurar e testar o Azure AD com Andromeda, tem de completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único da Andromeda](#configure-andromeda-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Andromeda test user](#create-andromeda-test-user)** - para ter uma contraparte de Britta Simon em Andromeda que está ligada à representação AZure AD do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD com Andromeda, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Andromeda,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
-
-4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
-
-    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
+1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<tenantURL>.ngcxpress.com/`
 
@@ -124,32 +101,32 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos: 
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------ | -----------|
-    | papel | Papel específico da aplicação |
-    | tipo | Tipo de Aplicação |
-    | empresa | CompanyName |
+    | papel        | Papel específico da aplicação |
+    | tipo        | Tipo de Aplicação |
+    | empresa       | CompanyName |
 
     > [!NOTE]
-    > Não há valores reais. Estes valores são apenas para fins de demonstração, por favor use os seus papéis de organização.
+    > A Andromeda espera funções para os utilizadores destacados para a aplicação. Por favor, crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
 
-    1. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
+    a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-        ![A Screenshot mostra as reclamações do Utilizador com opções para adicionar uma nova reclamação e guardar.](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com opções para adicionar uma nova reclamação e guardar.](common/new-save-attribute.png)
 
-        ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir valores descritos I neste passo.](common/new-attribute-details.png)
+    ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir valores descritos I neste passo.](common/new-attribute-details.png)
 
-    1. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
+    b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
-    1. Deixe o **Espaço Namespace** em branco.
+    c. Deixe o **Espaço Namespace** em branco.
 
-    1. Selecione Fonte como **Atributo**.
+    d. Selecione Fonte como **Atributo**.
 
-    1. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
+    e. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
-    1. Clique **em Ok**
+    f. Clique **em Ok**
 
-    1. Clique em **Guardar**.
+    exemplo, Clique em **Guardar**.
 
 8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -159,13 +136,32 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    1. URL de Inicio de Sessão
 
-    1. Identificador de Azure Ad
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    1. Logout URL
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-### <a name="configure-andromeda-single-sign-on"></a>Configurar Andromeda Single Sign-On
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Andromeda.
+
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **Andromeda**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se tiver configurado as funções como explicado no acima, pode selecioná-lo a partir do Dropdown de **função Select.**
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+### <a name="configure-andromeda-sso"></a>Configurar Andromeda SSO
 
 1. Inscreva-se no site da empresa Andromeda como administrador.
 
@@ -181,90 +177,47 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     ![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    1. Verifique **ativar sSO com SAML**.
+    a. Verifique **ativar sSO com SAML**.
 
-    1. Na secção **de Informação de Andromeda,** copie o valor **de identidade SP** e cole-o na caixa de texto **identifier** da secção **de Configuração Básica SAML.**
+    b. Na secção **de Informação de Andromeda,** copie o valor **de identidade SP** e cole-o na caixa de texto **identifier** da secção **de Configuração Básica SAML.**
 
-    1. Copie o valor **url do consumidor** e cole-o na caixa de texto URL de **resposta** da secção **de configuração básica do SAML.**
+    c. Copie o valor **url do consumidor** e cole-o na caixa de texto URL de **resposta** da secção **de configuração básica do SAML.**
 
-    1. Copie o valor URL do **logon** e **cole-o na** caixa de texto URL de url de assinatura da secção **de configuração básica do SAML.**
+    d. Copie o valor URL do **logon** e **cole-o na** caixa de texto URL de url de assinatura da secção **de configuração básica do SAML.**
 
-    1. Na secção **SAML Identity Provider,** digite o seu Nome IDP.
+    e. Na secção **SAML Identity Provider,** digite o seu Nome IDP.
 
-    1. Na caixa de texto **Single Sign On End Point,** cole o valor do URL de **login** que, copiou a partir do portal Azure.
+    f. Na caixa de texto **Single Sign On End Point,** cole o valor do URL de **login** que, copiou a partir do portal Azure.
 
-    1. Abra o **certificado codificado Base64** descarregado do portal Azure em bloco de notas, cole-o na caixa de texto **do Certificado X 509.**
+    exemplo, Abra o **certificado codificado Base64** descarregado do portal Azure em bloco de notas, cole-o na caixa de texto **do Certificado X 509.**
+    
+    h. Mapear os seguintes atributos com o respetivo valor para facilitar o login SSO a partir do Azure AD. O atributo **ID do utilizador** é necessário para iniciar sessão. Para provisionamento, são necessários **emails,** **empresas,** **UserType** e **Role.** Nesta secção, definimos atributos de mapeamento (nome e valores) que se relacionam com os definidos dentro do portal Azure
 
-    1. Mapear os seguintes atributos com o respetivo valor para facilitar o login SSO a partir do Azure AD. O atributo **ID do utilizador** é necessário para iniciar sessão. Para provisionamento, são necessários **emails,** **empresas,** **UserType** e **Role.** Nesta secção, definimos atributos de mapeamento (nome e valores) que se relacionam com os definidos dentro do portal Azure
+    ![Attbmap andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
-        ![Attbmap andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    i. Clique em **Guardar**.
 
-    1. Clique em **Guardar**.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-
-    b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Andromeda.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Andromeda**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de candidaturas, selecione **Andromeda**.
-
-    ![O link Andromeda na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
 ### <a name="create-andromeda-test-user"></a>Criar utilizador de teste Andromeda
 
 Nesta secção, um utilizador chamado Britta Simon é criado em Andromeda. A Andromeda suporta o provisionamento do utilizador just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir em Andromeda, um novo é criado após a autenticação. Se precisar de criar um utilizador manualmente, contacte a equipa de [suporte do Cliente Andromeda.](https://www.ngcsoftware.com/support/)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo Andromeda no Painel de Acesso, deverá ser automaticamente inscrito no Andromeda para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Andromeda Assinar em URL onde pode iniciar o fluxo de login.  
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Vá diretamente ao URL de assinatura de Andromeda e inicie o fluxo de login a partir daí.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Andromeda para o qual configura o SSO 
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo andrómeo nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Andromeda para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado Andromeda, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

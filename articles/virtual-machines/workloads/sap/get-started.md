@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/04/2021
+ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d56ed0cdae9046cb7d76f7d74545309ee6292ecd
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f74e6435af9084b0c8f222c33dc922fe678bc4c7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883100"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914524"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -83,6 +83,7 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 01/05/2021: Alterações na [escala SAP HANA com nó de espera em VMs Azure com ANF em escala SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e [SAP HANA com nó de espera em VMs Azure com ANF na RHEL,](./sap-hana-scale-out-standby-netapp-files-rhel.md)revisão da configuração recomendada para permitir que o Agente Anfitrião SAP gere a gama portuária local  
 - 01/04/2021: Adicione novas regiões de Azure apoiadas pelo HLI [no que é SAP HANA em Azure (Grandes Instâncias)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - 12/29/2020: Adicionar recomendações de arquitetura para regiões específicas do Azure em [configurações de carga de trabalho SAP com Zonas de Disponibilidade Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: Adicionar novas certificações às SKUs de Grandes Instâncias HANA em [SKUs disponíveis para HLI](./hana-available-skus.md)

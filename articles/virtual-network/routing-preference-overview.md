@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: c1c2c5f27143be7fc10269c948bee9d5465d565a
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530447"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912704"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?
 
@@ -72,11 +72,6 @@ Para armazenamento, os pontos finais primários utilizam sempre a rede global da
 ## <a name="pricing"></a>Preços
 A diferença de preços entre ambas as opções reflete-se nos preços de transferência de dados da internet. O preço de transferência de dados **da rede global da Microsoft** é o mesmo que o preço atual da saída da Internet. Visite [a página de preços da largura de banda Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações mais recentes sobre os preços. 
 
-## <a name="availability"></a>Disponibilidade
-
-O apoio de encaminhamento Preferencial está disponível nas seguintes regiões para serviços como máquina virtual e equilibrador de carga virado para a Internet que usam um IP público para a saída da Internet - Europa do Norte, Europa Ocidental, França Sul, Reino Unido, Leste dos EUA, Norte-Americano Central, Eua Ocidental, Centro Ocidental dos EUA, Sudeste Asiático, Alemanha Ocidental, Suíça Ocidental, Japão Leste e Japão Ocidental.
-
-O apoio de encaminhamento preferencial para a conta de armazenamento está disponível nas seguintes regiões de Azure - Norte Central EUA, Centro-Oeste dos EUA, Eua Oriental, Eua Ocidental, Norte da Europa, França Sul, Alemanha West Central, Suíça Oeste, Sudeste Asiático, Japão Leste e Japão Ocidental.
 ## <a name="limitations"></a>Limitações
 
 * A preferência de encaminhamento só é compatível com o SKU padrão do endereço IP público. O SKU básico do endereço IP público não é suportado.

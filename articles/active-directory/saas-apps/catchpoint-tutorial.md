@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 8ff7f6468b5556b56c5c2aeaba6107cac48d1ed4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 940915186176efcb39be03efe6673c138132ebd6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456454"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916308"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutorial: Azure Ative Directory integração única com Catchpoint
 
@@ -25,8 +25,6 @@ Neste tutorial, aprende-se a integrar o Catchpoint com o Azure Ative Directory (
 * Controle o acesso do utilizador ao Catchpoint a partir do Azure AD.
 * Ativar o registo automático do Catchpoint para utilizadores com contas AZure AD.
 * Gerencie as suas contas num local central: o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,20 +39,19 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * O Catchpoint suporta sSO iniciado pelo SP e iniciado pelo IDP.
 * O Catchpoint suporta o fornecimento do utilizador just-in-time (JIT).
-* Depois de configurar o Catchpoint, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão é uma extensão do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-catchpoint-from-the-gallery"></a>Adicione Catchpoint da galeria
 
 Para configurar a integração do Catchpoint no Azure AD, adicione o Catchpoint à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta de trabalho, escola ou Microsoft pessoal.
+1. Inscreva-se no portal Azure com uma conta de trabalho, escola ou Microsoft pessoal.
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory.**
 1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **digite Catchpoint** na caixa de pesquisa.
 1. Selecione **Catchpoint** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-catchpoint"></a>Configurar e testar Azure AD único sinal para catchpoint
+## <a name="configure-and-test-azure-ad-sso-for-catchpoint"></a>Configure e teste Azure AD SSO para catchpoint
 
 Para que o SSO funcione, é necessário ligar um utilizador Azure AD a um utilizador em Catchpoint. Para este tutorial, vamos configurar um utilizador de teste chamado **B.Simon.** 
 
@@ -71,10 +68,10 @@ Complete as seguintes secções:
 
 Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no Portal do Azure.
 1. Na página de integração da aplicação **Catchpoint,** encontre a secção **'Gerir'** e selecione **um único sinal de sação.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração single Sign-On com** a página SAML, selecione o ícone da caneta para editar as **definições básicas de configuração SAML.**
+1. Na **configuração single Sign-On com página SAML,** selecione o ícone de lápis para editar as definições básicas de **configuração SAML.**
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -104,7 +101,7 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
     | espaço de nomes | user.assignedrole |
 
     > [!NOTE]
-    > A `namespace` reclamação precisa de ser mapeada com o nome da conta. Este nome de conta deve ser criado com um papel na Azure AD a ser repercutido na resposta SAML. Para obter mais informações sobre papéis em Azure AD, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md).
+    > A `namespace` reclamação precisa de ser mapeada com o nome da conta. Este nome de conta deve ser criado com um papel na Azure AD a ser repercutido na resposta SAML. Para obter mais informações sobre papéis em Azure AD, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
 1. Vá ao set Up Single Sign-On com a página **SAML.** Na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)**. Selecione **Baixar** para guardar o certificado para o seu computador.
 
@@ -118,7 +115,7 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
 Nesta secção, utiliza-se o portal Azure para criar um utilizador de teste AD Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
@@ -133,15 +130,9 @@ Nesta secção, você permite que B.Simon utilize o Azure single sign-on, conced
 1. No portal Azure, selecione **Aplicações empresariais**  >  **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Catchpoint**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-1. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
-
-    ![O link "Adicionar utilizador"](common/add-assign-user.png)
-
+1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 1. Na caixa de diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de utilizadores. Clique em **Selecionar** na parte inferior do ecrã.
-1. Se espera um valor de função na afirmação DE SAML, procure na caixa de diálogo **Select Role** e escolha o papel do utilizador na lista. Clique no botão **Selecione** na parte inferior do ecrã.
+1. Se tiver configurado as funções como explicado no acima, pode selecioná-lo a partir do Dropdown de **função Select.**
 1. Na caixa de diálogo **'Adicionar Atribuição',** selecione **Atribuir**.
 
 ## <a name="configure-catchpoint-sso"></a>Configurar catchpoint SSO
@@ -173,23 +164,26 @@ O Catchpoint suporta o provisionamento do utilizador just-in-time, o que é ativ
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando selecionar o azulejo do Catchpoint no portal My Apps, deverá ser automaticamente inscrito na aplicação Catchpoint com SSO configurado. Para obter mais informações sobre o portal My Apps, consulte [iniciar sôr-se e iniciar aplicações a partir do portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Catchpoint Sign no URL onde pode iniciar o fluxo de login.  
+
+* Vá diretamente ao URL de inscrição do Catchpoint e inicie o fluxo de login a partir daí.
+
+#### <a name="idp-initiated"></a>IDP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Catchpoint para o qual configura o SSO 
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo do Catchpoint nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Catchpoint para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 > [!NOTE]
 > Quando tiver assinado a aplicação Catchpoint através da página de login, depois de fornecer **Credenciais de Ponto de Acesso,** insira o valor de **Espaço Nome** válido no campo **Credenciais da Empresa (SSO)** e selecione **Login**.
 > 
 > ![Configuração do ponto de captura](./media/catchpoint-tutorial/loginimage.png)
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Passos seguintes
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](./tutorial-list.md)
-
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente catchpoint com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Depois de configurar o Catchpoint, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão é uma extensão do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

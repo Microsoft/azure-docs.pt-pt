@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5917de03468b86b67520c0b4f04dfd732377a021
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366297"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915713"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acesso Condicional: Exigir MFA para administradores
 
@@ -31,6 +31,7 @@ A Microsoft recomenda que exija MFA nas seguintes funções no mínimo:
 * Administrador global
 * Administrador da Helpdesk
 * Administrador de palavras-passe
+* Administrador privilegiado
 * Administrador de segurança
 * Administrador do SharePoint
 * Administrador de utilizadores
@@ -51,7 +52,7 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 As seguintes etapas ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas realizem a autenticação de vários fatores.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -72,8 +73,8 @@ As seguintes etapas ajudarão a criar uma política de acesso condicional para e
 
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**e selecione **'Feito'.**
-1. Em **Condições As**  >  **aplicações do Cliente**, altere o **Configurar** para Sim e em **Selecione as aplicações do cliente esta política será aplicável para** deixar todos os predefinidos selecionados e selecionar **Feito**. **Yes**
+1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem** e selecione **'Feito'.**
+1. Em **Condições As**  >  **aplicações do Cliente**, altere o **Configurar** para Sim e em **Selecione as aplicações do cliente esta política será aplicável para** deixar todos os predefinidos selecionados e selecionar **Feito**. 
 1. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar para ativar a sua política.

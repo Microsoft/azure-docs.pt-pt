@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570999"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914965"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Puxe as definições para configuração de aplicativos com gasodutos Azure
 
@@ -60,7 +60,7 @@ Atribua a função adequada de Configuração de Aplicação à ligação de ser
 
 Esta secção abrangerá como utilizar a tarefa de Configuração de Aplicação Azure num pipeline de construção de Azure DevOps.
 
-1. Navegue para a página **Pipelines** do gasoduto de construção clicando em  >  **Pipelines Pipelines**. Para obter documentação sobre o gasoduto, consulte [Criar o seu primeiro oleoduto.](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
+1. Navegue para a página do gasoduto de construção clicando em  >  **Pipelines Pipelines**. Para obter documentação sobre o gasoduto, consulte [Criar o seu primeiro oleoduto.](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
       - Se estiver a criar um novo oleoduto de construção, clique em **Novo oleoduto,** selecione o repositório para o seu oleoduto. Selecione **o assistente** do Show no lado direito do pipeline e procure a tarefa de Configuração da **Aplicação Azure.**
       - Se estiver a utilizar um pipeline de construção existente, **selecione Editar** para editar o pipeline. No separador **Tarefas,** procure a Tarefa de Configuração da **Aplicação Azure.**
 1. Configure os parâmetros necessários para a tarefa de retirar os valores-chave da loja de Configuração de Aplicações. As descrições dos parâmetros estão disponíveis na secção **parâmetros** abaixo e nas pontas das ferramentas junto a cada parâmetro.
@@ -103,6 +103,9 @@ Por exemplo, se uma tarefa subsequente executa um script PowerShell, pode consum
 echo "$env:myBuildSetting"
 ```
 E o valor será impresso na consola.
+
+> [!NOTE]
+> As referências do Cofre de Chaves Azure dentro da Configuração da Aplicação serão resolvidas e definidas como [variáveis secretas.](/azure/devops/pipelines/process/variables#secret-variables) Nos oleodutos Azure, as variáveis secretas são mascaradas do tronco. Não são passadas para tarefas como variáveis ambientais e devem, em vez disso, ser aprovadas como inputs. 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

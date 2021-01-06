@@ -4,12 +4,12 @@ description: Visão geral do modelo de comunicação dos Serviços Fiáveis, inc
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574331"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912619"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar as APIs de comunicação de Serviços Fiáveis
 A Azure Service Fabric como plataforma é completamente agnóstica sobre a comunicação entre serviços. Todos os protocolos e pilhas são aceitáveis, da UDP ao HTTP. Cabe ao promotor de serviços escolher como os serviços devem comunicar. A estrutura de aplicação reliable Services fornece pilhas de comunicação incorporadas, bem como APIs que você pode usar para construir seus componentes de comunicação personalizados.
@@ -288,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-A fábrica de clientes é a principal responsável pela criação de clientes de comunicação. Para clientes que não mantêm uma ligação persistente, como um cliente HTTP, a fábrica só precisa de criar e devolver o cliente. Outros protocolos que mantenham uma ligação persistente, como alguns protocolos binários, também devem ser validados pela fábrica para determinar se a ligação precisa de ser recriada.  
+A fábrica de clientes é a principal responsável pela criação de clientes de comunicação. Para clientes que não mantêm uma ligação persistente, como um cliente HTTP, a fábrica só precisa de criar e devolver o cliente. Outros protocolos que mantenham uma ligação persistente, como alguns protocolos binários, também devem ser validados `ValidateClient(string endpoint, MyCommunicationClient client)` pela fábrica para determinar se a ligação precisa de ser recriada.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

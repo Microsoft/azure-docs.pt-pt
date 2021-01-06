@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87077542"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913736"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -60,25 +60,24 @@ Pode implementar um conjunto de dimensionamento com uma imagem do Windows Server
 1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Digite *myVMSSResourceGroup* para o nome e, em seguida, selecione **OK** . 
 1. Digite *o myScaleSet* como o nome do seu conjunto de escala.
 1. Na **Região,** selecione uma região próxima da sua área.
-1. Deixe o valor predefinido dos **VMs do ScaleSet** para **o modo de orquestração**.
 1. Selecione uma imagem de mercado para **imagem**. Neste exemplo, escolhemos *o Ubuntu Server 18.04 LTS*.
 1. Introduza o seu nome de utilizador pretendido e selecione o tipo de autenticação que preferir.
    - A **Palavra-passe** tem de ter, pelo menos, 12 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Para obter mais informações, veja [requisitos de nome de utilizador e palavra-passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - Se selecionar uma imagem de disco de SO Linux, em vez disso, pode escolher **Chave pública SSH**. Forneça apenas a chave pública, como *~/.ssh/id_rsa.pub*. Pode utilizar o Azure Cloud Shell no portal para [criar e utilizar chaves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
    
-    ![Criar um conjunto de dimensionamento de máquinas virtuais](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="Os programas de imagem criam opções para conjuntos de escala no portal Azure.":::
 
 1. Selecione **Seguinte** para mover as outras páginas. 
 1. Deixe as predefinições para as páginas **Exemplo** e **Discos.**
 1. Na página **'Rede',** em **equilíbrio de carga**, selecione **Sim** para colocar as instâncias definidas na balança atrás de um equilibrador de carga. 
 1. Nas **opções de equilíbrio de carga**, selecione o **equilibrador de carga Azure**.
 1. Em **Selecione um equilibrador de carga**, selecione o *myLoadBalancer* que criou anteriormente.
-1. Para **selecionar uma piscina de backend**, selecione **Criar novo,** digite *myBackendPool*e, em seguida, selecione **Criar**.
+1. Para **selecionar uma piscina de backend**, selecione **Criar novo,** digite *myBackendPool* e, em seguida, selecione **Criar**.
 1. Quando terminar, selecione **Rever + criar**. 
 1. Depois de passar na validação, selecione **Criar** para implementar o conjunto de escala.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não for necessário, elimine o grupo de recursos, o conjunto de dimensionamento, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos para o conjunto de escalas e, em seguida, **selecione Delete**.
 
 

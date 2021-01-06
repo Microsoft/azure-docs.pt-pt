@@ -2,13 +2,13 @@
 title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: cf209071074fd4546ce64336b2b3b91fbcd4cb3b
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.date: 1/5/2021
+ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901458"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913163"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 

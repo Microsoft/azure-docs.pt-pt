@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 106b95d7d3f67504cc213b5ce4f23a767a486770
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c1f102182a9f91d2f8038947b6009fff1af1a508
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92444501"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914268"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-heybuddy"></a>Tutorial: Azure Ative Directory integração única (SSO) com HeyBuddy
 
@@ -26,7 +26,6 @@ Neste tutorial, você vai aprender a integrar HeyBuddy com Azure Ative Directory
 * Ative os seus utilizadores a serem automaticamente inscritos no HeyBuddy com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,16 +39,17 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * HeyBuddy suporta **SP** iniciado SSO
-
-
 * HeyBuddy suporta **provisão de** utilizadores just in time
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 
 ## <a name="adding-heybuddy-from-the-gallery"></a>Adicionando HeyBuddy da galeria
 
 Para configurar a integração do HeyBuddy no AD Azure, precisa adicionar HeyBuddy da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -57,11 +57,11 @@ Para configurar a integração do HeyBuddy no AD Azure, precisa adicionar HeyBud
 1. Selecione **HeyBuddy** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-heybuddy"></a>Configurar e testar Azure AD single sign-on para HeyBuddy
+## <a name="configure-and-test-azure-ad-sso-for-heybuddy"></a>Configure e teste Azure AD SSO para HeyBuddy
 
 Configure e teste Azure AD SSO com HeyBuddy usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no HeyBuddy.
 
-Para configurar e testar o Azure AD SSO com o HeyBuddy, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com a HeyBuddy, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -74,9 +74,9 @@ Para configurar e testar o Azure AD SSO com o HeyBuddy, complete os seguintes bl
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **HeyBuddy,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **HeyBuddy,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -84,10 +84,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `YourCompanyInstanceofHeyBuddy`
-
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e o Identificador de Sign-On reais (ID da Entidade). O `Entity ID` url no Sinal é gerado automaticamente para cada organização. Contacte [a equipa de suporte do Cliente HeyBuddy](mailto:support@heybuddy.com) para obter estes valores.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. O `Entity ID` url no Sinal é gerado automaticamente para cada organização. Contacte [a equipa de suporte do Cliente HeyBuddy](mailto:support@heybuddy.com) para obter estes valores.
 
 1. A aplicação HeyBuddy espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -101,7 +99,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | | |
     
     > [!NOTE]
-    > Consulte este [link](../develop/active-directory-enterprise-app-role-management.md) sobre como configurar e configurar as funções para a aplicação.
+    > Consulte este [link](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) sobre como configurar e configurar as funções para a aplicação.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -123,18 +121,12 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao HeyBuddy.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **HeyBuddy**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se tiver configurado as funções como explicado no acima, pode selecioná-lo a partir do Dropdown de **função Select.**
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-heybuddy-sso"></a>Configurar HeyBuddy SSO
@@ -150,16 +142,15 @@ Nesta secção, um utilizador chamado Britta Simon é criado no HeyBuddy. O HeyB
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo HeyBuddy no Painel de Acesso, deverá ser automaticamente inscrito no HeyBuddy para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de assinatura heyBuddy, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Vá diretamente ao URL de inscrição do HeyBuddy e inicie o fluxo de login a partir daí.
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo HeyBuddy nas Minhas Apps, este irá redirecionar para o URL de sign-on heyBuddy. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [Experimente HeyBuddy com Azure AD](https://aad.portal.azure.com/)
+Uma vez configurado HeyBuddy, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

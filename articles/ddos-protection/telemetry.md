@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a54404dafaf1093a2e2acbde88187739bd6c9f06
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 86e4a111be7585373ecf4c2fe9508f2bfca7de16
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827415"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915084"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Ver e configurar telemetria de proteção contra DDoS
 
@@ -37,7 +37,7 @@ Neste tutorial, irá aprender a:
 As [seguintes métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) estão disponíveis para a Norma de Proteção DDoS Azure. Estas métricas também são exportáveis através de configurações de diagnóstico (ver [e configurar registo de diagnóstico DDoS).](diagnostic-logging.md)
 
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Description |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de Agregação | Descrição |
 | --- | --- | --- | --- | --- |
 | ByteCount | Byte Count | de palavras | Total | Número total de Bytes transmitidos dentro do período de tempo |
 | BytesDroppedDDoS | Bytes de entrada deixaram cair DDoS | BytesPerSecond | Máximo | Bytes de entrada deixaram cair DDoS| 
@@ -70,7 +70,7 @@ As [seguintes métricas](https://docs.microsoft.com/azure/azure-monitor/platform
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de poder completar os passos neste tutorial, tem primeiro de criar um [plano de proteção Azure DDoS Standard](manage-ddos-protection.md) e o DDoS Protection Standard deve ser ativado numa rede virtual.
-- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure e Gateway Azure VPN. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  
+- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  
 
 ## <a name="view-ddos-protection-telemetry"></a>Ver telemetria de proteção DDoS
 
@@ -111,4 +111,4 @@ Neste tutorial, ficou a saber como:
 Para aprender a configurar relatórios de mitigação de ataques e registos de fluxo, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Visualização e configuração do registo de diagnóstico dDoS](diagnostic-logging.md)
+> [Ver e configurar o registo de diagnósticos do DDoS](diagnostic-logging.md)

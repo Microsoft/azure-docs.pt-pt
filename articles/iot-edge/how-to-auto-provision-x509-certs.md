@@ -9,12 +9,13 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 761b031916dd9ead71f5be6a6887208a1f200f58
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 385a67e117bf0cf9508b81d014e3accac4725744
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966139"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914914"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e providenciar um dispositivo IoT Edge utilizando certificados X.509
 
@@ -43,7 +44,7 @@ O certificado de identidade do dispositivo é um certificado de folha que se lig
 
 Os certificados de identidade do dispositivo são utilizados apenas para o fornecimento do dispositivo IoT Edge e para autenticar o dispositivo com o Azure IoT Hub. Não estão a assinar certificados, ao contrário dos certificados de CA que o dispositivo IoT Edge apresenta a módulos ou dispositivos de folha para verificação. Para obter mais informações, consulte [o certificado Azure IoT Edge .](iot-edge-certs.md)
 
-Depois de criar o certificado de identidade do dispositivo, deverá ter dois ficheiros: um ficheiro .cer ou .pem que contenha a parte pública do certificado, e um ficheiro .cer ou .pem com a chave privada do certificado. Se planeia utilizar a inscrição em grupo em DPS, também precisa da parte pública de um certificado de CA intermédio ou raiz na mesma cadeia de certificados de confiança.
+Depois de criar o certificado de identidade do dispositivo, deverá ter dois ficheiros: um ficheiro .cer ou .pem que contenha a parte pública do certificado e um ficheiro .cer ou .pem com a chave privada do certificado. Se planeia utilizar a inscrição em grupo em DPS, também precisa da parte pública de um certificado de CA intermédio ou raiz na mesma cadeia de certificados de confiança.
 
 Precisa dos seguintes ficheiros para configurar o provisionamento automático com X.509:
 
@@ -93,7 +94,7 @@ Para obter mais informações sobre as inscrições no Serviço de Provisionamen
 
    * **Mecanismo**: Selecione **X.509**.
 
-   * **Certificado Primário .pem ou ficheiro .cer**: Faça o upload do ficheiro público a partir do certificado de identidade do dispositivo. Se utilizar os scripts para gerar um certificado de teste, escolha o seguinte ficheiro:
+   * **Certificado Primário .pem ou .cer ficheiro**: Faça o upload do ficheiro público a partir do certificado de identidade do dispositivo. Se utilizar os scripts para gerar um certificado de teste, escolha o seguinte ficheiro:
 
       `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
@@ -176,7 +177,7 @@ Para obter mais informações sobre as inscrições no Serviço de Provisionamen
 
 1. **Selecione Adicionar grupo de inscrições** e, em seguida, completar os seguintes passos para configurar a inscrição:
 
-   * **Nome do**grupo : Forneça um nome memorável para esta inscrição em grupo.
+   * **Nome do** grupo : Forneça um nome memorável para esta inscrição em grupo.
 
    * **Tipo de atestado**: Selecione **Certificado**.
 
@@ -205,7 +206,7 @@ Para obter mais informações sobre as inscrições no Serviço de Provisionamen
 
 Agora que existe uma inscrição para este dispositivo, o tempo de execução IoT Edge pode automaticamente abastecer o dispositivo durante a instalação. Continue até à secção seguinte para configurar o seu dispositivo IoT Edge.
 
-## <a name="install-the-iot-edge-runtime"></a>Instale o tempo de execução IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do IoT Edge
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Os seus componentes funcionam em contentores e permitem-lhe colocar recipientes adicionais no dispositivo para que possa executar código na borda.
 

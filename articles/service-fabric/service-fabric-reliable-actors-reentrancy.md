@@ -4,12 +4,12 @@ description: Introdução à reentrância para Service Fabric Reliable Actors, u
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2356db0eee82a133afad6aa95299ced0595db32
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9578b676e46d21fe5d30de92ad59c852a8b05f70
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576065"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915883"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de atores fiáveis
 O tempo de execução dos Atores Fidedigdos, por padrão, permite a reentrada lógica baseada no contexto de chamadas. Isto permite que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, o ator A envia uma mensagem ao Ator B, que envia uma mensagem ao Ator C. Como parte do processamento da mensagem, se o Ator C chamar o Ator A, a mensagem é reentrante, por isso será permitida. Quaisquer outras mensagens que façam parte de um contexto de chamada diferente serão bloqueadas no Ator A até que termine o processamento.
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre a reentrada na documentação de referência da [API do Ator](/previous-versions/azure/dn971626(v=azure.100))
+* Saiba mais sobre a reentrância na documentação de referência da [API do Ator)](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)

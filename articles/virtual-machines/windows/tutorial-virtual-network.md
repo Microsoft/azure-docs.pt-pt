@@ -10,16 +10,16 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84da38fe71446c54f17c4d4329c7294c5e5176d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22993e8a1513ae34b3752ebd80c60761467f396e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800199"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912670"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
-As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial assumem que os VMs estão a hospedar uma aplicação web com uma base de dados back-end, no entanto uma aplicação não é implementada no tutorial. Neste tutorial, ficará a saber como:
+As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial assumem que os VMs estão a hospedar uma aplicação web com uma base de dados back-end, no entanto uma aplicação não é implementada no tutorial. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma rede virtual e uma sub-rede
@@ -127,7 +127,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1). Vai utilizar estas credenciais para ligar à VM nos passos adicionais:
+Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true). Vai utilizar estas credenciais para ligar à VM nos passos adicionais:
 
 ```azurepowershell-interactive
 $cred = Get-Credential

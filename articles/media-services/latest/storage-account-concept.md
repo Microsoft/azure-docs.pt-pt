@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291199"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916325"
 ---
 # <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
@@ -54,6 +54,9 @@ Para proteger os seus ativos em repouso, os ativos devem ser encriptados pela en
 |[Encriptação do lado do cliente do armazenamento](../../storage/common/storage-client-side-encryption.md)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado.|
 
 <sup>1</sup> Nos Serviços de Media v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para retrocompatibilidade quando os seus ativos foram criados com os Media Services v2, o que significa que a V3 funciona com ativos encriptados de armazenamento existentes, mas não permite a criação de novos.
+
+## <a name="double-encryption"></a>Encriptação dupla
+Os Serviços de Comunicação Social suportam a dupla encriptação.  Para saber mais sobre a dupla encriptação, consulte [a encriptação dupla Azure.](https://docs.microsoft.com/azure/security/fundamentals/double-encryption)
 
 ## <a name="storage-account-errors"></a>Erros da conta de armazenamento
 

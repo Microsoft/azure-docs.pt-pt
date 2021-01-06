@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831935"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915560"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Resolver problemas do Azure Bastion
 
@@ -81,7 +81,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Tela preta no portal Azure
 
-**Q:** Quando tento ligar-me usando o Azure Bastion, recebo uma tela preta no portal Azure.
+**Q:** Quando tento ligar-me usando O Bastião Azure, não consigo enganar o VM alvo e tenho uma tela preta no portal Azure.
 
 **A:** Isto acontece quando existe um problema de conectividade de rede entre o seu navegador web e O Azure Bastion (a firewall da Internet do seu cliente pode estar bloqueando o tráfego de WebSockets ou similares), ou entre o Bastião Azure e o seu VM alvo. A maioria dos casos inclui um NSG aplicado quer à AzureBastionSubnet, quer à sub-rede VM alvo que está a bloquear o tráfego RDP/SSH na sua rede virtual. Permita o tráfego webSockets na firewall da internet do seu cliente e verifique os NSGs na sub-rede VM do seu alvo.
 

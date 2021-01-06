@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 052758079d8d413f7b0fead2a5abf3b47b9a691e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0656000a1d6449306e8afe538f846c55c79a31a2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511336"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915291"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -44,7 +44,7 @@ O único impacto será visto na Política Azure, onde o número de recursos em c
 
 ### <a name="35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
-**Data estimada para a alteração:** dezembro de 2020
+**Data estimada para a alteração:** janeiro de 2021
 
 A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
 

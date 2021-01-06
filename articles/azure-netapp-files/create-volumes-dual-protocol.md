@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e74b729f837c8e6ebe86514a01b6c8bdddc616e4
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881094"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915006"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -133,7 +133,10 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     * Outra máquina no domínio que contém o certificado raiz  
 
 3. Exportar o certificado de CA raiz.  
-    Os certificados Root CA podem ser exportados das Autoridades de Certificação de Raiz Pessoais ou Fidedignas.   
+    Os certificados Root CA podem ser exportados do diretório das Autoridades de Certificação de Raízes Pessoais ou Fidedignas, conforme indicado nos seguintes exemplos:   
+    ![screenshot que mostra certificados pessoais](../media/azure-netapp-files/personal-certificates.png)   
+    ![screenshot que mostra autoridades de certificação de raiz confiáveis](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Certifique-se de que o certificado é exportado na Base-64 codificada X.509 (. Formato CER) : 
 
     ![Assistente de Exportação de Certificados](../media/azure-netapp-files/certificate-export-wizard.png)

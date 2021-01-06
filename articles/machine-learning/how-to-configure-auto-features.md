@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694005"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915866"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>A participação de dados na aprendizagem automática de máquinas
 
@@ -46,7 +46,7 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Description|
+|Configuração de exibição | Descrição|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados](#data-guardrails) e [as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
@@ -61,16 +61,13 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de exibição &nbsp;| Description |
+|Etapas de exibição &nbsp;| Descrição |
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação** _ |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |_*Imputar valores em falta**_ |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
 |_*Gerar mais funcionalidades**_ |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> _For tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, Semana, Dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas por dia)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
 |**Transformar e codificar** _|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
 |_ *Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
-|**Codificações de alvos**|Para características categóricas, este passo mapeia cada categoria com um valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada em frequências e a validação cruzada k-fold são aplicadas para reduzir a sobremontagem do mapeamento e do ruído causados por categorias de dados escassas.|
-|**Codificação do alvo de texto**|Para a entrada de texto, um modelo linear empilhado com saco de palavras é usado para gerar a probabilidade de cada classe.|
-|**Peso da evidência (Ai)**|Calcula o Ai como uma medida de correlação das colunas categóricas para a coluna-alvo. O Ai é calculado como o registo da relação entre probabilidades de classe vs. fora de classe. Este passo produz uma coluna de recurso numérico por classe e elimina a necessidade de imputar explicitamente os valores em falta e o tratamento mais estranho.|
 |**Distância cluster**|Treina um modelo de agrupamento de meios K em todas as colunas numéricas. Produz *k* novas funcionalidades (uma nova característica numérica por cluster) que contêm a distância de cada amostra ao centroíid de cada cluster.|
 
 ## <a name="data-guardrails"></a>Guarda-dados
@@ -123,7 +120,7 @@ As personalizações suportadas incluem:
 |--|--|
 |**Atualização do propósito da coluna**|Sobrepor o tipo de função detetada automaticamente para a coluna especificada.|
 |**Atualização do parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente suporta *o Imputer* (médio, mais frequente e mediano) e *o HashOneHotEncoder*.|
-|**Colunas de queda** |Especifica as colunas a deixar de serem apresentando.|
+|**Remover colunas** |Especifica as colunas a deixar de serem apresentando.|
 |**Transformadores de blocos**| Especifica os transformadores de blocos a utilizar no processo de aposição.|
 
 Crie o `FeaturizationConfig` objeto utilizando chamadas API:

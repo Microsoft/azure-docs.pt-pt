@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2617308d342be19f74e1f3145a1137fadb04d073
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065256"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914693"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implementar máquinas virtuais de elevada disponibilidade com o Azure PowerShell
 
 Neste tutorial, aprende-se a aumentar a disponibilidade e fiabilidade das suas Máquinas Virtuais (VMs) utilizando conjuntos de disponibilidade. Disponibilidade Os conjuntos certificam-se de que os VMs que implementa no Azure são distribuídos por múltiplos nós de hardware isolados, num cluster. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um conjunto de disponibilidade
@@ -75,7 +75,7 @@ Os VMs devem ser criados dentro do conjunto de disponibilidade para se certifica
 
 Quando criar um VM com [New-AzVM,](/powershell/module/az.compute/new-azvm)utilize o `-AvailabilitySetName` parâmetro para especificar o nome do conjunto de disponibilidade.
 
-Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

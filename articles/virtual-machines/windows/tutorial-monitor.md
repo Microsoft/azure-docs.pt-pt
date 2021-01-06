@@ -10,18 +10,18 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a71599ba095924c01b0cd29cedbee273012979f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323575"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912836"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual do Windows em Azure
 
 A monitorização do Azure utiliza agentes para recolher dados de boot e desempenho a partir de VMs Azure, armazenar estes dados no armazenamento Azure, e torná-lo acessível através do portal, o módulo Azure PowerShell e Azure CLI. A monitorização avançada é entregue com o Azure Monitor para VMs, recolhendo métricas de desempenho, descobrendo componentes de aplicação instalados no VM, e inclui gráficos de desempenho e mapa de dependência.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
@@ -39,7 +39,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior dir
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure. Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure. Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -107,7 +107,7 @@ O Azure Monitor para VMs inclui um conjunto de gráficos de desempenho que visam
 
 2. Na página VM, na secção **De Monitorização,** selecione **Insights (pré-visualização)**.
 
-3. Selecione o **separador Desempenho.**
+3. Selecione o separador **Desempenho**.
 
 Esta página inclui não só gráficos de utilização de desempenho, mas também uma tabela que mostra cada disco lógico descoberto, a sua capacidade, utilização e média total por cada medida.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d8893daaf73a15cdc0baf8eeb339e794f6f1da64
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498477"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913452"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
 
@@ -296,7 +296,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como gerir alertas no Centro de Segurança Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registos de registos](../../azure-monitor/learn/tutorial-response.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -602,7 +602,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
+* [Registo da análise de Armazenamento do Azure](../../storage/common/storage-analytics-logging.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -900,7 +900,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Informação sobre a criação de modelos ARM](../windows/ps-template.md)
 
-* [Como carregar um VM VHD personalizado para Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Como carregar um VM VHD personalizado para Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509568"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916257"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -66,7 +66,7 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 | `ztdid`                    | ID de implementação de toque zero | JWT | | A identidade do dispositivo utilizada para [o Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | O e-mail endereçada para este utilizador, se o utilizador tiver um.  | JWT | MSA, Azure AD | Este valor é incluído por padrão se o utilizador for um hóspede no inquilino.  Para os utilizadores geridos (os utilizadores dentro do arrendatário), este deve ser solicitado através desta reclamação opcional ou, apenas em v2.0, com o âmbito OpenID.  Para os utilizadores geridos, o endereço de e-mail deve ser definido no [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Estado da conta dos utilizadores no inquilino | JWT | | Se o utilizador for membro do arrendatário, o valor é `0` . Se são um hóspede, o valor `1` é. |
-| `groups`| Formatação opcional para reclamações em grupo |JWT| |Utilizado em conjunto com o GrupoMembershipClas definindo no manifesto de [aplicação,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reclamações do Grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre reclamações em grupo, consulte [Como configurar as reclamações do grupo](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Formatação opcional para reclamações em grupo |JWT| |Utilizado com a definição groupMembershipClas no manifesto de [aplicação,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reclamações do Grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre reclamações em grupo, consulte [Como configurar as reclamações do grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT  |           | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para identificar exclusivamente informações do utilizador (por exemplo, como chave de base de dados). Em vez disso, utilize o ID do objeto de utilizador `oid` como uma chave de base de dados. Os utilizadores que iniciam sessão com um [ID de login alternativo](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados o seu Nome Principal do Utilizador (UPN). Em vez disso, utilize as seguintes reclamações de iD para visualizar o estado de inscrição ao utilizador: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. Embora esta alegação seja automaticamente incluída, pode especirá-la como uma reivindicação opcional para anexar propriedades adicionais para modificar o seu comportamento no caso do utilizador convidado.  |
 | `idtyp`                    | Tipo token   | Fichas de acesso JWT | Especial: apenas em fichas de acesso só para aplicações |  Valor é `app` quando o token é um símbolo apenas de aplicação. Esta é a forma mais precisa de uma API determinar se um token é um token de aplicação ou um token app+user.|
 
@@ -85,7 +85,17 @@ Estas reclamações estão sempre incluídas em fichas AD v1.0 Azure, mas não i
 | `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída.   |  Baseado nas [definições de IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
 | `family_name` | Apelido                       | Fornece o sobrenome, apelido ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Suportado em MSA e Azure AD. Requer o `profile` alcance.   |
 | `given_name`  | Nome próprio                      | Fornece o primeiro nome ou "dado" do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o `profile` alcance. |
-| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para identificar exclusivamente informações do utilizador (por exemplo, como chave de base de dados). Em vez disso, utilize o ID do objeto de utilizador `oid` como uma chave de base de dados. Os utilizadores que iniciam sessão com um [ID de login alternativo](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados o seu Nome Principal do Utilizador (UPN). Em vez disso, utilize as seguintes reclamações de iD para visualizar o estado de inscrição ao utilizador: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configuração da reclamação. Requer o `profile` alcance.|
+| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para identificar exclusivamente informações do utilizador (por exemplo, como chave de base de dados). Em vez disso, utilize o ID do objeto de utilizador `oid` como uma chave de base de dados. Os utilizadores que iniciam sessão com um [ID de login alternativo](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados o seu Nome Principal do Utilizador (UPN). Em vez disso, utilize a seguinte `preferred_username` alegação para visualizar o estado de inscrição no utilizador. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configuração da reclamação. Requer o `profile` alcance.|
+
+
+**Quadro 4: v1.0 apenas pedidos opcionais**
+
+Algumas das melhorias do formato token v2 estão disponíveis para aplicações que utilizam o formato de token V1, uma vez que ajudam a melhorar a segurança e a fiabilidade. Estes não produzirão efeitos para os tokens de ID solicitados a partir do ponto final v2, nem tokens de acesso para APIs que utilizem o formato token v2. 
+
+| Reivindicação JWT     | Nome                            | Descrição | Notas |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Audiência | Sempre presente em JWTs, mas em fichas de acesso v1 pode ser emitida de várias maneiras, o que pode ser difícil de codificar quando executa a validação de token.  Utilize as [propriedades adicionais para esta alegação](#additional-properties-of-optional-claims) para garantir que está sempre definida para um GUID em fichas de acesso v1. | v1 JWT só fichas de acesso|
+|`preferred_username` | Nome de utilizador preferido        | Fornece a reclamação de nome de utilizador preferido dentro de fichas v1. Isto facilita que as aplicações forneçam dicas de nome de utilizador e mostrem nomes de exibição legívels por humanos, independentemente do seu tipo de símbolo.  Recomenda-se que utilize esta alegação opcional em vez de usar, por `upn` exemplo, ou `unique_name` . | v1 Fichas de ID e fichas de acesso |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de créditos opcionais
 
@@ -97,7 +107,9 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto que as marcas de haxixe são `#` substituídas por sublinhados ( `_` ), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto que as marcas de haxixe são `#` substituídas por sublinhados ( `_` ), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | Nos tokens de acesso v1, este é usado para alterar o formato da `aud` reclamação.  Isto não tem qualquer efeito em fichas v2 ou fichas de identificação, onde a `aud` reclamação é sempre a identificação do cliente. Utilize isto para garantir que a sua API pode realizar mais facilmente a validação do público. Tal como todas as reclamações opcionais que afetam o token de acesso, o recurso no pedido deve definir esta reclamação opcional, uma vez que os recursos são os donos do token de acesso.|
+|                | `use_guid`               | Emite o ID do cliente do recurso (API) no formato GUID como `aud` a reclamação em vez de um URI appid ou GUID. Assim, se o ID do cliente de um recurso `bb0a297b-6a42-4a55-ac40-09a501456577` for, qualquer app que solicite um token de acesso para esse recurso receberá um token de acesso `aud` com: `bb0a297b-6a42-4a55-ac40-09a501456577` .|
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 
@@ -137,7 +149,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 1. **Selecione Adicionar reclamação opcional**.
 1. Selecione o tipo de símbolo que deseja configurar.
 1. Selecione as reclamações opcionais a adicionar.
-1. Selecione **Adicionar**.
+1. Selecione **Add** (Adicionar).
 
 > [!NOTE]
 > A lâmina de **configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente. Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/configure-user-input.md) 

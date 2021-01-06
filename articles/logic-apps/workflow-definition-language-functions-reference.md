@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825857"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914489"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia
 
@@ -103,7 +103,7 @@ Para trabalhar com coleções, geralmente matrizes, cordas e, por vezes, dicion�
 
 | Função de recolha | Tarefa |
 | ------------------- | ---- |
-| [contém](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
 | [vazio](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. |
 | [primeiro](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devolva o primeiro item de uma coleção. |
 | [intersecção](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Devolva uma coleção que tenha *apenas* os itens comuns em todas as coleções especificadas. |
@@ -2072,7 +2072,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Suponha que queira formatar o `17.35` número. Este exemplo forma o número para a cadeia "$17.35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Exemplo 4*
@@ -2080,7 +2080,7 @@ formatNumber(17.36, 'C2')
 Suponha que queira formatar o `17.35` número. Este exemplo forma o número para a cadeia "17,35 kr".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2719,15 +2719,11 @@ lastIndexOf('<text>', '<searchText>')
 
 Se o valor da cadeia ou do sub-adiscão estiver vazio, ocorre o seguinte comportamento:
 
-* Se o valor da corda estiver vazio, `-1` é devolvido:
+* Se o valor da corda estiver vazio, a função retorna `-1` .
 
-* Se os valores de corda e sub-adstring estiverem vazios, `0` é devolvido.
+* Se os valores de cadeia e sub-adstring estiverem vazios, a função retorna `0` .
 
-* Se apenas o valor de sub-adamento estiver vazio, o maior dos dois valores seguintes é devolvido:
-
-  * `0`
-
-  * O comprimento da corda, menos 1.
+* Se apenas o valor de sub-adiscagem estiver vazio, a função devolve o comprimento da corda menos 1.
 
 *Exemplos*
 

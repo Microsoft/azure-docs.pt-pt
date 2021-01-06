@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 10/19/2020
-ms.openlocfilehash: e28942a77a1d695a17f3231901f337695e602c64
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 1/5/2021
+ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825556"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914166"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um SAS URI para uma imagem VM
 
@@ -63,7 +63,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 2. Crie um ficheiro PowerShell (extensão de ficheiro.ps1), copie no seguinte código e guarde-o localmente.
 
     ```azurecli-interactive
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <container-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
 3. Edite o ficheiro para utilizar os seguintes valores de parâmetro. Fornecer datas no formato de datatác, como 2020-04-01T00:00:00Z.
@@ -76,7 +76,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
     Aqui está um exemplo de valores parâmetros adequados (no momento desta escrita):
 
     ```azurecli-interactive
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name <container-name> -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
     ```
 
 1. Guarde as alterações.

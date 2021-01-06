@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352546"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915628"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Secure and isolate Azure HDInsight clusters com Private Link (pré-visualização)
 
@@ -29,7 +29,7 @@ Por predefinição, o HDInsight RP utiliza uma ligação *de entrada* ao cluster
 
 Os equilibradores básicos de carga utilizados na arquitetura de rede virtual padrão fornecem automaticamente NAT público (tradução de endereço de rede) para aceder às dependências de saída necessárias, como o HDInsight RP. Se quiser restringir a conectividade de saída à internet pública, pode [configurar uma firewall](./hdinsight-restrict-outbound-traffic.md), mas não é um requisito.
 
-Configurar `resourceProviderConnection` a saída também permite aceder a recursos específicos do cluster, como a Azure Data Lake Storage Gen2 ou metástases externas, utilizando pontos finais privados. Usar pontos finais privados para estes recursos não é mandetory, mas se planeia ter pontos finais privados para estes recursos, tem de configurar os pontos finais privados e as entradas de DNS `before` que cria o cluster HDInsight. Recomendamos que crie e forneça todas as bases de dados sql externas de que necessita, como Apache Ranger, Ambari, Oozie e Hive metastões, no tempo de criação do cluster. A exigência é que todos estes recursos sejam acessíveis a partir do interior da sub-rede do cluster, quer através do seu próprio ponto final privado, quer através do seu próprio ponto final privado.
+Configurar `resourceProviderConnection` a saída também permite aceder a recursos específicos do cluster, como a Azure Data Lake Storage Gen2 ou metástases externas, utilizando pontos finais privados. A utilização de pontos finais privados para estes recursos não é obrigatória, mas se planeia ter pontos finais privados para estes recursos, tem de configurar os pontos finais privados e as entradas de DNS `before` que cria o cluster HDInsight. Recomendamos que crie e forneça todas as bases de dados sql externas de que necessita, como Apache Ranger, Ambari, Oozie e Hive metastões, no tempo de criação do cluster. A exigência é que todos estes recursos sejam acessíveis a partir do interior da sub-rede do cluster, quer através do seu próprio ponto final privado, quer através do seu próprio ponto final privado.
 
 A utilização de pontos finais privados para a Azure Key Vault não é suportada. Se estiver a utilizar o Cofre da Chave Azure para a encriptação CMK em repouso, o ponto final do Cofre da Chave Azure deve estar acessível a partir da sub-rede HDInsight sem ponto final privado.
 

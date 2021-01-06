@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 085ba4d9d4e78acec4505ddb0e9e89d4e0b5c4a3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ed9d41a84e455241ed3cfc41b905a671f2a2d499
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881485"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912959"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Modelos ML de treinamento e pista com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -211,7 +211,7 @@ run.get_metrics()
 
 Registe e rastreia os seus modelos com o registo do [modelo Azure Machine Learning](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) que suporta o registo do modelo MLflow. Os modelos Azure Machine Learning estão alinhados com o esquema do modelo MLflow, facilitando a exportação e importação destes modelos através de diferentes fluxos de trabalho. Os metadados relacionados com o MLflow, tais como, o ID executado também está marcado com o modelo registado para rastreabilidade. Os utilizadores podem submeter ensaios de formação, registar e implementar modelos produzidos a partir de execuções MLflow. 
 
-Se pretender implantar e registar o seu modelo pronto de produção num só passo, consulte [implementar e registar os modelos MLflow](how-to-deploy-models-with-mlflow.md).
+Se pretender implantar e registar o seu modelo pronto de produção num só passo, consulte [implementar e registar os modelos MLflow](how-to-deploy-mlflow-models.md).
 
 Para registar e ver um modelo a partir de uma corrida, utilize os seguintes passos:
 
@@ -260,7 +260,7 @@ O [fluxo ML com os cadernos Azure ML](https://github.com/Azure/MachineLearningNo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implementar modelos com MLflow](how-to-deploy-models-with-mlflow.md).
+* [Implementar modelos com MLflow](how-to-deploy-mlflow-models.md).
 * Monitorize os seus modelos de produção para [a deriva de dados.](./how-to-enable-data-collection.md)
 * [Track Azure Databricks funciona com MLflow](how-to-use-mlflow-azure-databricks.md).
 * [Gerencie os seus modelos.](concept-model-management-and-deployment.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675951"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914115"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integração de código aberto com projetos de Aprendizagem automática Azure
 
@@ -101,4 +101,4 @@ Machine Learning Operations (MLOps), comumente pensado como DevOps para machine 
 
 Utilizando práticas de DevOps como integração contínua (CI) e implementação contínua (CD), pode automatizar o ciclo de vida de aprendizagem automática de ponta a ponta e capturar dados de governação à sua volta. Pode definir o seu [pipeline de aprendizagem automática de CI/CD nas ações do GitHub](./how-to-github-actions-machine-learning.md) para executar tarefas de formação e implantação de machine learning do Azure Machine Learning. 
 
-A captura de dependências de software, métricas, metadados, dados e modelação são uma parte importante do processo de MLOps, a fim de construir oleodutos transparentes, reprodutíveis e auditáveis. Para esta tarefa, pode [utilizar o MLFlow em Machine Learning Azure,](how-to-use-mlflow.md) bem como ao [treinar modelos de aprendizagem automática em Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+A captura de dependências de software, métricas, metadados, dados e modelação são uma parte importante do processo de MLOps, a fim de construir oleodutos transparentes, reprodutíveis e auditáveis. Para esta tarefa, pode [utilizar o MLFlow em Machine Learning Azure,](how-to-use-mlflow.md) bem como ao [treinar modelos de aprendizagem automática em Azure Databricks](./how-to-use-mlflow-azure-databricks.md). Também pode [implementar os modelos MLflow como um serviço web Azure](how-to-deploy-mlflow-models.md). 

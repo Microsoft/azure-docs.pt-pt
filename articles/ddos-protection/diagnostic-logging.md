@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: dd350cc5fa0c3b30b4f0d57938348a8328af311a
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827398"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915169"
 ---
-# <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualização e configuração do registo de diagnóstico dDoS
+# <a name="view-and-configure-ddos-diagnostic-logging"></a>Ver e configurar o registo de diagnósticos do DDoS
 
 A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. O alerta pode ser configurado para qualquer uma das métricas do Monitor Azure expostas pela Proteção DDoS. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
 
@@ -40,7 +40,7 @@ Neste tutorial, irá aprender a:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de poder completar os passos neste tutorial, tem primeiro de criar um [plano de proteção Azure DDoS Standard](manage-ddos-protection.md) e o DDoS Protection Standard deve ser ativado numa rede virtual.
-- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure e Gateway Azure VPN. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)    
+- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)    
 
 ## <a name="configure-ddos-diagnostic-logs"></a>Configurar registos de diagnóstico DDoS
 
@@ -67,32 +67,32 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 # <a name="ddosprotectionnotifications"></a>[DDoSProtectionNotificações](#tab/DDoSProtectionNotifications)
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | **TimeGenerated** | A data e a hora na UTC quando a notificação foi criada. |
 | **ResourceId** | Identificação de recursos do seu endereço IP público. |
 | **Categoria** | Para notificações, esta `DDoSProtectionNotifications` será.|
 | **Grupo de Recursos** | O grupo de recursos que contém o seu endereço IP público e rede virtual. |
-| **SubscriptionId** | O seu ID de subscrição do plano de proteção DDoS. |
+| **SubscriçãoId** | O seu ID de subscrição do plano de proteção DDoS. |
 | **Recurso** | O nome do seu endereço IP público. |
 | **Tipo de recursos** | Isto será `PUBLICIPADDRESS` sempre. |
-| **OperationName** | Para notificações, esta `DDoSProtectionNotifications` será.  |
+| **Operação Nome** | Para notificações, esta `DDoSProtectionNotifications` será.  |
 | **Mensagem** | Detalhes do ataque. |
 | **Tipo** | Tipo de notificação. Os valores possíveis `MitigationStarted` incluem. `MitigationStopped`. |
 | **PublicIpAddress** | O seu endereço IP público. |
 
 # <a name="ddosmitigationflowlogs"></a>[DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | **TimeGenerated** | A data e a hora na UTC quando o registo de fluxo foi criado. |
 | **ResourceId** | Identificação de recursos do seu endereço IP público. |
 | **Categoria** | Para os registos de fluxo, este será `DDoSMitigationFlowLogs` .|
 | **Grupo de Recursos** | O grupo de recursos que contém o seu endereço IP público e rede virtual. |
-| **SubscriptionId** | O seu ID de subscrição do plano de proteção DDoS. |
+| **SubscriçãoId** | O seu ID de subscrição do plano de proteção DDoS. |
 | **Recurso** | O nome do seu endereço IP público. |
 | **Tipo de recursos** | Isto será `PUBLICIPADDRESS` sempre. |
-| **OperationName** | Para os registos de fluxo, este será `DDoSMitigationFlowLogs` . |
+| **Operação Nome** | Para os registos de fluxo, este será `DDoSMitigationFlowLogs` . |
 | **Mensagem** | Detalhes do ataque. |
 | **FontePublicIpAddress** | O endereço IP público do cliente que gera tráfego para o seu endereço IP público. |
 | **FontePort** | Número de porta que varia de 0 a 65535. |
@@ -102,16 +102,16 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 # <a name="ddosmitigationreports"></a>[DDoSMitigationReports](#tab/DDoSMitigationReports)
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | **TimeGenerated** | A data e a hora na UTC quando o relatório foi criado. |
 | **ResourceId** | Identificação de recursos do seu endereço IP público. |
 | **Categoria** | Para notificações, esta `DDoSProtectionNotifications` será.|
 | **Grupo de Recursos** | O grupo de recursos que contém o seu endereço IP público e rede virtual. |
-| **SubscriptionId** | O seu ID de subscrição do plano de proteção DDoS. |
+| **SubscriçãoId** | O seu ID de subscrição do plano de proteção DDoS. |
 | **Recurso** | O nome do seu endereço IP público. |
 | **Tipo de recursos** | Isto será `PUBLICIPADDRESS` sempre. |
-| **OperationName** | Para relatórios de mitigação, isto `DDoSMitigationReports` será. |
+| **Operação Nome** | Para relatórios de mitigação, isto `DDoSMitigationReports` será. |
 | **Logotipo** | Os valores possíveis `Incremental` incluem, `PostMitigation` . .|
 | **MitigaçãoPeriodStart** | A data e a hora na UTC quando a mitigação começou.  |
 | **MitigaçãoPeriodEnd** | A data e a hora na UTC quando a mitigação terminou. |
@@ -163,4 +163,4 @@ Neste tutorial, ficou a saber como:
 Para aprender a configurar alertas de ataque, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver e configurar alertas de proteção DDoS](alerts.md)
+> [Ver e configurar os alertas da proteção contra DDoS](alerts.md)

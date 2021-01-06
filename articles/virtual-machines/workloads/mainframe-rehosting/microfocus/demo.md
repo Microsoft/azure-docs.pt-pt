@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2cac7a8310482305467a1cb3ed3127eb18ae416
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95976198"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915781"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar Micro Focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure
 
@@ -28,7 +28,7 @@ Os CICs representam o Sistema de Controlo de Informação do Cliente, a platafor
 
 - [Edição Expresso SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-editions-express). Faça o download e instale-o no Enterprise Developer VM. O Enterprise Server requer uma base de dados para a gestão das regiões do CICS, e a aplicação BankDemo também utiliza uma base de dados do SQL Server chamada BANKDEMO. Esta demonstração pressupõe que está a utilizar o SQL Server Express para ambas as bases de dados. Ao instalar, selecione a instalação básica.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). O SSMS é utilizado para gerir as bases de dados e executar um script T-SQL. Faça o download e instale-o no Enterprise Developer VM.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) (SSMS). O SSMS é utilizado para gerir as bases de dados e executar um script T-SQL. Faça o download e instale-o no Enterprise Developer VM.
 
 - [Visual Studio 2019](https://azure.microsoft.com/downloads/) com o mais recente pacote de serviços ou [Visual Studio Community,](https://visualstudio.microsoft.com/vs/community/)que você pode baixar gratuitamente.
 

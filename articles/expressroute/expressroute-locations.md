@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/10/2020
+ms.date: 01/05/2021
 ms.author: duau
-ms.openlocfilehash: dab480012ced3a8fc50fd5f4295272c0eccc4307
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: c68d9654c673b75742205853ec186caa5d6a3ce5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831861"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916155"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -105,7 +105,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **du datamena** |Suportado |Suportado | Dubai2 |
 | **eir** |Suportado |Suportado |Dublin|
 | **[Comunicações Globais Epsilon](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Suportado |Suportado |Singapura, Singapura2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Atlanta, Berlim, Camberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milão, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Seul, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC, Zurique |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Atlanta, Berlim, Camberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milão, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Seul, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC, Zurique |
 | **Emirados Árabes Unidos** |Suportado |Suportado |Rio Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Londres |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Suportado |Suportado |Taipé|

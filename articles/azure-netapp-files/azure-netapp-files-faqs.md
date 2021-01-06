@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854704"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913503"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -137,6 +137,16 @@ Pode especificar se a conta raiz pode aceder ao volume ou não utilizando a pol�
 Sim, pode. No entanto, o caminho do ficheiro deve ser utilizado numa subscrição diferente ou numa região diferente.   
 
 Por exemplo, cria-se um volume chamado `vol1` . E depois cria-se outro volume também chamado `vol1` de um pool de capacidade diferente, mas na mesma subscrição e região. Neste caso, a utilização do mesmo nome de volume `vol1` causará um erro. Para utilizar o mesmo caminho de arquivo, o nome deve estar numa região ou subscrição diferente.
+
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Quando tento aceder aos volumes de NFS através de um cliente Windows, porque é que o cliente demora muito tempo a pesquisar pastas e sub-dobradores?
+
+Certifique-se de que `CaseSensitiveLookup` está ativado no cliente do Windows para acelerar a procura de pastas e sub-dobradores:
+
+1. Utilize o seguinte comando PowerShell para ativar o CaseSensitiveLookup:   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Monte o volume no servidor Windows.   
+    Exemplo:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>FAQs sobre o SMB
 

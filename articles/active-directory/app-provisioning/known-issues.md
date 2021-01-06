@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509551"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914353"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
 Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplicações. Pode fornecer feedback sobre o serviço de fornecimento de aplicações no UserVoice, ver [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). Assistimos atentamente ao UserVoice para que possamos melhorar o serviço. 
@@ -82,6 +82,10 @@ O [tempo](./application-provisioning-when-will-provisioning-finish-specific-user
 **Alterações que não se movem da app-alvo para Azure AD**
 
 O serviço de fornecimento de aplicações não está ciente das alterações feitas em aplicações externas. Portanto, não são tomadas medidas para recuar. O serviço de fornecimento de aplicações baseia-se em alterações feitas no Azure AD. 
+
+**Mudar de sincronização para sincronização não funcionando**
+
+Depois de alterar o âmbito de 'Sync All' para 'Sync Assigned', certifique-se de que também efetua um reinício para garantir que a alteração entra em vigor. Pode fazer o recomeço da UI.
 
 **Ciclo de provisionamento continua até à conclusão**
 
