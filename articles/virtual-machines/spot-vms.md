@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963368"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963798"
 ---
 # <a name="use-spot-vms-in-azure"></a>Use VMs spot em Azure
 
@@ -58,7 +58,7 @@ Os VM spot podem ser implantados em qualquer região, exceto microsoft Azure Chi
 Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) são atualmente suportados:
 
 -   Contrato Enterprise
--   Pay as you go
+-   Pay-as-you-go
 -   Patrocinado
 - Para Provedor de Serviços cloud (CSP), contacte o seu parceiro
 
@@ -81,7 +81,7 @@ Você pode ver preços históricos e taxas de despejo por tamanho em uma região
 
 **Tabela:**
 
-:::image type="content" source="./media/spot-table.png" alt-text="Screenshot das opções da região com a diferença de preços e taxas de despejo como um gráfico.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Screenshot das opções da região com a diferença de preços e taxas de despejo como tabela.":::
 
 
 
@@ -110,6 +110,11 @@ Você pode ver preços históricos e taxas de despejo por tamanho em uma região
 **Q:** Onde posso fazer perguntas?
 
 **A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](/answers/topics/azure-spot.html). 
+
+
+**Q:** Como posso mudar o preço máximo por um VM spot?
+
+**A:** Antes de alterar o preço máximo, tem de negociar o VM. Em seguida, pode alterar o preço máximo no portal, a partir da secção **de Configuração** para o VM. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Utilize o [CLI,](./linux/spot-cli.md) [portal,](spot-portal.md) [modelo ARM](./linux/spot-template.md)ou [PowerShell](./windows/spot-powershell.md) para implantar VMs spot.

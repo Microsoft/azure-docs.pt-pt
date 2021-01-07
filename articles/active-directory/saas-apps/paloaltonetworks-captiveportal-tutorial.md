@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 66e363b43bf9028e3075efa0f5a1f54e6bda190d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0e16cb3d24f9dd33b156bca72ce1c99e7aae957a
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92512710"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963609"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Diretório Ativo Azure com o Portal Cativo das Redes Palo Alto
 
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações do **Palo Alto Networks Captive Portal,** encontre a secção **Gerir** e selecione um único sinal **de saúde.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -105,7 +105,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Portal Cativo das Redes Palo Alto.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Palo Alto Networks Captive Portal**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
@@ -123,7 +123,7 @@ Em seguida, instale um único sinal no Portal Cativo das Redes Palo Alto:
 
     ![O separador de dispositivos do site palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-3. No menu, selecione **O Fornecedor de Identidade SAML**e, em seguida, selecione **Import**.
+3. No menu, selecione **O Fornecedor de Identidade SAML** e, em seguida, selecione **Import**.
 
     ![O botão De Importação](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
@@ -148,10 +148,11 @@ Em seguida, crie um utilizador chamado *Britta Simon* em Palo Alto Networks Capt
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO
 
-Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo do Portal Cativo das Redes Palo Alto no Painel de Acesso, deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Portal Cativo das Redes Palo Alto nas Minhas Apps, deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-## <a name="next-steps"></a>Passos Seguintes
+
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o Portal Cativo palo Alto Networks, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

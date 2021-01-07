@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854949"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963592"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a aplicação numa rede virtual do Azure
 
@@ -130,6 +130,12 @@ O plano de Serviço de Aplicações VNet Integration UI mostra-lhe todas as inte
 
 * **Rede sincronizada**: A operação de rede de sincronização é utilizada apenas para a função de Integração VNet dependente de gateways. A realização de uma operação de rede de sincronização garante que os seus certificados e informações de rede estão sincronizados. Se adicionar ou alterar o DNS do seu VNet, efetue uma operação de rede de sincronização. Esta operação reinicia quaisquer aplicações que utilizem este VNet. Esta operação não funcionará se estiver a utilizar uma app e um vnet pertencentes a diferentes subscrições.
 * **Adicionar rotas**: Adicionar rotas conduz o tráfego de saída para o seu VNet.
+
+O IP privado atribuído ao caso é exposto através da variável ambiental, **WEBSITE_PRIVATE_IP**. A UI da consola Kudu também mostra a lista de variáveis ambientais disponíveis para a Web App. Este IP é atribuído a partir do intervalo de endereços da sub-rede integrada. Para a Integração Regional de VNet, o valor de WEBSITE_PRIVATE_IP é um IP a partir do intervalo de endereços da sub-rede delegada, e para a integração VNet exigida pelo Gateway, o valor é um IP a partir da gama de endereços do conjunto de endereços ponto-a-local configurado no Gateway de Rede Virtual. Este é o IP que será usado pela Web App para se conectar aos recursos através da Rede Virtual. 
+
+> [!NOTE]
+> O valor do WEBSITE_PRIVATE_IP vai mudar. No entanto, será um IP dentro do intervalo de endereços da sub-rede de integração ou da gama de endereços ponto a local, pelo que terá de permitir o acesso a partir de toda a gama de endereços.
+>
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Encaminhamento de integração VNet exigido pela Porta de entrada
 As rotas definidas no seu VNet são usadas para direcionar o tráfego para o seu VNet a partir da sua aplicação. Para enviar tráfego adicional de saída para o VNet, adicione os blocos de endereços aqui. Esta capacidade funciona apenas com a integração VNet exigida por gateways. As tabelas de rotas não afetam o tráfego da sua aplicação quando utiliza a Integração VNet exigida pelo gateway da forma que fazem com a Integração Regional de VNet.

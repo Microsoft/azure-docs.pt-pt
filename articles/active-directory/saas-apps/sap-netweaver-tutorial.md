@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: a282e1be019c697ad15d86df56ad191043ab4ae9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b6b8dab3472473082562f1e4c0216886191e4a59
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935851"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962810"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com SAP NetWeaver
 
@@ -138,7 +138,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração da aplicação **SAP NetWeaver,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. Na **configuração single Sign-On com página SAML,** clique no ícone de lápis para **configuração SAML básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -206,7 +206,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-sap-netweaver-using-saml"></a>Configure o SAP NetWeaver usando o SAML
@@ -339,7 +339,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     ![Configure OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
     > [!NOTE]
-    > Mensagem `soft state status is not supported` – pode ser ignorada, como nenhum problema. Para mais detalhes, consulte [aqui](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+    > Mensagem `soft state status is not supported` – pode ser ignorada, como nenhum problema. Para mais detalhes, consulte [aqui.](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
 
 ### <a name="create-a-service-user-for-the-oauth-20-client"></a>Criar um utilizador de serviço para o Cliente OAuth 2.0
 
@@ -348,7 +348,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 2. Ao registar um Cliente OAuth utilizamos o `SAML Bearer Grant type` .
 
     >[!NOTE]
-    >Para mais detalhes, consulte o OAuth 2.0 Registo do Cliente para o Tipo de Concessão do Portador SAML [aqui](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type)
+    >Para mais detalhes, consulte o Registo do Cliente OAuth 2.0 para o Tipo de Concessão do Portador SAML [aqui](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type).
 
 3. tcod: SU01 / criar o utilizador CLIENT1 como `System type` e atribuir senha, guarde-a como necessário para fornecer a credencial ao programador API, que deve queimá-la com o nome de utilizador para o código de chamada. Nenhum perfil ou função deve ser atribuído.
 

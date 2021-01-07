@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a0b76c21ee76731f78ecd7f482472908fe93a9ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72072feebfcf8dba249d2045a399e09714177698
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513335"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963694"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: Azure Ative Directy integração única (SSO) com Palo Alto Networks - GlobalProtect
 
@@ -70,7 +70,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página **palo Alto Networks - GlobalProtect** application integration, encontre a secção **Gerir** e selecione um único sinal **de saúde**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Palo Alto Networks - GlobalProtect.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Palo Alto Networks - GlobalProtect**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
@@ -145,12 +145,12 @@ Nesta secção, um utilizador chamado B.Simon é criado em Palo Alto Networks - 
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Palo Alto Networks - GlobalProtect Sign-on URL onde pode iniciar o fluxo de login. 
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Palo Alto Networks - GlobalProtect Sign-on URL onde pode iniciar o fluxo de login. 
 
-2. Vá diretamente à Palo Alto Networks - GlobalProtect Sign-on URL e inicie o fluxo de login a partir daí.
+* Vá diretamente à Palo Alto Networks - GlobalProtect Sign-on URL e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar nas Redes Palo Alto - Azulejo GlobalProtect no Painel de Acesso, deverá ser automaticamente inscrito nas Redes Palo Alto - GlobalProtect para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar nas Redes Palo Alto - Azulejo GlobalProtect nas Minhas Apps, deverá ser automaticamente inscrito nas Redes Palo Alto - GlobalProtect para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado Palo Alto Networks - GlobalProtect pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

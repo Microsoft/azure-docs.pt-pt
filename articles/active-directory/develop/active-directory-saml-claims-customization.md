@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936799"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963507"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -54,7 +54,7 @@ Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a plataf
 
 A partir do dropdown do **formato do identificador de nome Escolher,** pode selecionar uma das seguintes opções.
 
-| Formato NameID | Descrição |
+| Formato NameID | Description |
 |---------------|-------------|
 | **Predefinição** | A plataforma de identidade da Microsoft utilizará o formato de origem padrão. |
 | **Persistente** | A plataforma de identidade da Microsoft utilizará o Persistente como formato NameID. |
@@ -135,7 +135,7 @@ Pode utilizar as seguintes funções para transformar reclamações.
 | **StartWith()** | Produz um atributo ou constante se a entrada começar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se quiser emitir uma reclamação em que o valor é o ID do funcionário do utilizador se o país/região começar com "EUA", caso contrário, pretender obter um atributo de extensão. Para tal, configurar os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.country<br/>*Valor*: "EUA"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **Extrato() - Após a correspondência** | Devolve o sub-adc de sub-2 depois de corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon", o valor correspondente é "Finance_", então a produção da reclamação é "BSimon". |
 | **Extrato() - Antes de combinar** | Devolve o sub-adc de sub-adcões até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "BSimon_US", o valor correspondente é "_US", então a produção da reclamação é "BSimon". |
-| **Extrato() - Entre a correspondência** | Devolve o sub-adc de sub-adcões até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon_US", o primeiro valor de correspondência é "Finance_", o segundo valor correspondente é "_US", então a produção da reclamação é "BSimon". |
+| **Extrato() - Entre a correspondência** | Devolve o sub-adc de sub-adcões até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon_US", o primeiro valor correspondente é \_ "Finanças", o segundo valor correspondente é " \_ EUA", então a produção da reclamação é "BSimon". |
 | **ExtractAlpha() - Prefixo** | Devolve a parte alfabética do prefixo da corda.<br/>Por exemplo, se o valor da entrada for "BSimon_123", então devolve "BSimon". |
 | **ExtractAlpha() - Sufixo** | Devolve a parte alfabética do sufixo da corda.<br/>Por exemplo, se o valor da entrada for "123_Simon", então devolve "Simão". |
 | **Extractnumeric() - Prefixo** | Devolve a parte numérica prefixo da corda.<br/>Por exemplo, se o valor da entrada for "123_BSimon", então devolve "123". |

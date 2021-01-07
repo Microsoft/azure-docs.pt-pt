@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 072abffcc74b8b060d98c07d1f310413c7b323ef
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: fc0f148da518c718dafaab082f9598ccd4372a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954945"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963815"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -140,15 +140,15 @@ Utilize o seguinte procedimento para criar grupos de ação:
             Por exemplo:
             1) Alerta 1 com 3 Itens de configuração: A, B, C - criará 3 itens de trabalho.
             2) Alerta 2 com 1 Item de Configuração: A - criará 1 item de trabalho.
-
-        * Se limpar a caixa **de verificação "Criar itens de trabalho individuais para cada item de configuração",** o conector ITSM criará um único item de trabalho para cada regra de alerta e anexará a todos os itens de configuração impactados. Será criado um novo item de trabalho se o anterior for fechado.
-        >[!NOTE]
+       >[!NOTE]
         > Neste caso, alguns dos alertas disparados não gerarão novos itens de trabalho na ferramenta ITSM.
 
-            For example:
-            1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
-            2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
-            3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
+        * Se limpar a caixa **de verificação "Criar itens de trabalho individuais para cada item de configuração",** o conector ITSM criará um único item de trabalho para cada regra de alerta e anexará a todos os itens de configuração impactados. Será criado um novo item de trabalho se o anterior for fechado.
+
+            Por exemplo:
+             1) Alerta 1 com 3 Itens de configuração: A, B, C - criará 1 item de trabalho.
+             2) Alerta 2 para a mesma regra de alerta que a fase 1 com 1 Item de configuração: D - será fundido ao item de trabalho na fase 1.
+             3) Alerta 3 para uma regra de alerta diferente com 1 Item de Configuração: E - criará 1 item de trabalho.
 
        ![Screenshot que mostra a janela itsm Incident.](media/itsmc-overview/itsm-action-configuration.png)
 

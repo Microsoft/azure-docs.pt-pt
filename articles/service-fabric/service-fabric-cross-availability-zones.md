@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930825"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962436"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -344,7 +344,7 @@ O modelo completo da amostra está presente [aqui.](https://github.com/Azure-Sam
 Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os seguintes três valores no recurso conjunto de escala de máquina virtual.
 
 * O primeiro valor é a propriedade **zonas,** que especifica as Zonas de Disponibilidade presentes no conjunto de escala de máquina virtual.
-* O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira.
+* O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira. **O conjunto de escalas que se estende por 3 AZ's pode escalar até 300 VMs mesmo com "singlePlacementGroup = true".**
 * O terceiro valor é "zoneBalance" e é opcional, o que garante um equilíbrio estrito da zona se definido como verdadeiro. Leia sobre [a zonaBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * As sobreposições FaultDomain e UpgradeDomain não são necessárias para serem configuradas.
 

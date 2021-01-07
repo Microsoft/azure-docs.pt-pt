@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 12eba5a0de85f97dba9c220ed71679bdd35d7482
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442961"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963337"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Atualmente, os modelos core ASP.NET criam APIs web Azure Ative (Azure AD) que assinam em utilizadores dentro da sua organização ou em qualquer organização. Não assinam utilizadores com contas pessoais. No entanto, pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft utilizando o [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) substituindo o código em *Startup.cs* :
+ Atualmente, os modelos core ASP.NET criam APIs web Azure Ative (Azure AD) que assinam em utilizadores dentro da sua organização ou em qualquer organização. Não assinam utilizadores com contas pessoais. No entanto, pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft utilizando o [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) substituindo o código em *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` em todos os outros casos (para [fichas de acesso](access-tokens.md)v1.0).
 > Para mais informações, consulte o [código fonte](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)microsoft.Identity.Web .
 
-O corte de código anterior é extraído do tutorial incremental da [API web ASP.NET.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28) O detalhe da **AddMicrosoftIdentityWebApiAuthentication** está disponível em [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Este método chama [AddMicrosoftWebAPI,](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58)que por si só instrui o middleware sobre como validar o token. Para mais detalhes consulte o seu [código fonte.](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122)
+O corte de código anterior é extraído do tutorial incremental da [API web ASP.NET.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28) O detalhe da **AddMicrosoftIdentityWebApiAuthentication** está disponível em [Microsoft.Identity.Web](microsoft-identity-web.md). Este método chama [AddMicrosoftIdentityWebAPI,](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true)que por si só instrui o middleware sobre como validar o token.
 
 ## <a name="token-validation"></a>Validação token
 
@@ -191,7 +191,7 @@ Também pode haver validações especiais. Por exemplo, é possível validar que
 
 ### <a name="validators"></a>Validadores
 
-Os passos de validação são capturados em validadores, que são fornecidos pelas [Extensões do Microsoft IdentityModel para](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) biblioteca de código aberto .NET. Os validadores são definidos no ficheiro de origem da biblioteca [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
+Os passos de validação são capturados em validadores, que são fornecidos pelas [Extensões do Microsoft IdentityModel para](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) biblioteca de código aberto .NET. Os validadores são definidos no ficheiro de origem da biblioteca [Microsoft.IdentityModel.Tokens/Validadores.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
 Esta tabela descreve os validadores:
 

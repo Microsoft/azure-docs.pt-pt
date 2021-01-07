@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 555c41a9d53b27119299e5e9dca7c9e392fc5e25
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 4be8c8a6163fe0400b37a3f2e1884ff389c00518
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955489"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963711"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -160,7 +160,7 @@ O nível de compatibilidade refere-se a comportamentos específicos de libertaç
 
 ## <a name="your-data-is-secure"></a>Os dados estão seguros
 
-O Azure Analysis Services proporciona segurança para os seus dados confidenciais a diversos níveis. Como um serviço Azure, os Serviços de Análise fornecem o nível **básico** de ataques de negação de serviço distribuídos (DDoS) automaticamente ativados como parte da plataforma Azure. Para saber mais, consulte [a visão geral da Norma de Proteção DDoS do Azure](../ddos-protection/ddos-protection-overview.md). 
+O Azure Analysis Services proporciona segurança para os seus dados confidenciais a diversos níveis. Como serviço Azure, os Serviços de Análise fornecem a proteção de nível **básico** de ataques de negação de serviço distribuídos (DDoS) automaticamente ativados como parte da plataforma Azure. Para saber mais, consulte [a visão geral da Norma de Proteção DDoS do Azure](../ddos-protection/ddos-protection-overview.md). 
 
 Ao nível do servidor, os Serviços de Análise fornecem firewall, autenticação Azure, funções de administrador de servidor e Server-Side Encriptação. Ao nível do modelo de dados, as funções do utilizador, a segurança ao nível da linha e do nível de objetos garantem que os seus dados são seguros e são vistos apenas pelos utilizadores que os devem ver.
 
