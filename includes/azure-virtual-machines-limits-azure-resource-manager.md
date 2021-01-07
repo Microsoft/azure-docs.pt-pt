@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 45c959bc3cb71a965f254867798ae32d86ba1e70
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cd3ff3fce80e66d7cd61636b4416cb2fc28f5e77
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612608"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956508"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -19,6 +19,7 @@ ms.locfileid: "97612608"
 | VM por série, como Dv2 e F, núcleos por [subscrição](https://azure.microsoft.com/pricing/) |20<sup>1</sup> por região. Suporte de contato para aumentar o limite. |
 | [Conjuntos de disponibilidade](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por subscrição |2.500 por região. |
 | Máquinas virtuais por conjunto de disponibilidade | 200 |
+| [Grupos de colocação de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) por [grupo de recursos](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
 | Certificados por conjunto de disponibilidade | 199<sup>2</sup> |
 | Certificados por subscrição |Ilimitado<sup>3</sup> |
 

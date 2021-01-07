@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: eddee6bc0fdcd636b7b9ffb81b121052499251b2
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 97b8f889bf625ac36917debe2cc2848cb1a97e37
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745744"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956451"
 ---
 [Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
@@ -74,7 +74,7 @@ Em seguida, adicione a seguinte `quickstart` função para lidar com o trabalho 
 
 Adicione o seguinte código ao fim da sua `quickstart` função para listar os recursos disponíveis, criar um recurso de amostra, listar os seus recursos próprios e, em seguida, eliminar o recurso da amostra. Definirá estas funções nos próximos passos.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource-nodejs"></a>Criar um recurso de Serviços Cognitivos (Node.js)
 
 Para criar e subscrever um novo recurso de Serviços Cognitivos, utilize a função **Criar.** Esta função adiciona um novo recurso faturado ao grupo de recursos em que passa. Quando criar o seu novo recurso, terá de conhecer o "tipo" de serviço que pretende utilizar, juntamente com o seu nível de preços (ou SKU) e uma localização Azure. A seguinte função pega em todos estes argumentos e cria um recurso.
 
@@ -114,7 +114,7 @@ Em seguida, na janela da consola, execute a aplicação com o `node` comando.
 node index.js
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Documentação de referência da Azure Management SDK](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
 * [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
