@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: Escolher um tamanho de VM para os nós de computação
           href: batch-pool-vm-sizes.md
+        - name: Mover do Serviço Cloud para os conjuntos de Máquina Virtual
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configurar o acesso aos nós de computação
           href: pool-endpoint-configuration.md
         - name: Criar um conjunto com o Shared Image Gallery

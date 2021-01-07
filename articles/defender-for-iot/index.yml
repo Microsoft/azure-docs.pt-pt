@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 65bdc8c54e8cee2ee1b63d21a172ba870162d070
-  ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+  ms.openlocfilehash: 89bab2cde338cdabe47f70ee084aa5365b1f1877
+  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/04/2021
-  ms.locfileid: "97860824"
+  ms.lasthandoff: 01/06/2021
+  ms.locfileid: "97935976"
 landingContent:
 - title: Introdução ao Azure Defender para IoT
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
       url: architecture.md
     - text: Descrição Geral da Configuração
       url: getting-started.md
+    - text: Novidades?
+      url: release-notes.md
 - title: Configurar e Integrar - Solução sem agente
   linkLists:
   - linkListType: how-to-guide
@@ -78,11 +80,9 @@ landingContent:
   linkLists:
   - linkListType: video
     links:
-    - text: Compreender o Azure Defender para IoT
+    - text: Realizar
       url: https://myignite.microsoft.com/sessions/973175b0-2a2d-4b41-99f8-051e42ac575a
   - linkListType: reference
     links:
     - text: Perguntas mais frequentes
       url: resources-frequently-asked-questions.md
-    - text: Custos associados e preços
-      url: concept-pricing.md

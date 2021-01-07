@@ -141,8 +141,16 @@
     - name: Comparar versões de runtime
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
-    - name: Plano Premium
-      href: functions-premium-plan.md
+    - name: Alojamento e dimensionamento
+      items:
+        - name: Plano de consumo
+          href: consumption-plan.md
+        - name: Plano Premium
+          href: functions-premium-plan.md
+        - name: Plano dedicado
+          href: dedicated-plan.md
+        - name: Dimensionamento com base em eventos
+          href: event-driven-scaling.md
     - name: Implementações
       href: functions-deployment-technologies.md
     - name: Eventos e mensagens
@@ -261,6 +269,8 @@
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plano de Consumo em Linux
                   href: create-first-function-cli-python.md
+                - name: Plano Premium
+                  href: create-premium-plan-function-app-portal.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Acionador do Azure Cosmos DB
