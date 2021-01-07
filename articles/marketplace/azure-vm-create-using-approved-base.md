@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/06/2021
+ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590800"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976865"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Como criar uma máquina virtual usando uma base aprovada
 
@@ -40,15 +40,11 @@ A Azure oferece uma gama de distribuições linux aprovadas. Para obter uma list
 2. Selecione **Máquinas virtuais**.
 3. **Selecione + Adicione** para abrir o ecrã de máquina **virtual.**
 4. Selecione a imagem da lista de dropdown ou **selecione Navegue em todas as imagens públicas e privadas** para pesquisar ou navegar em todas as imagens de máquinas virtuais disponíveis.
-5. Se quiser criar **o Gen 1** VM, vá ao separador **Discos** e desloque a opção **'Use Managed Disk'** para **NO,** de modo a que possa obter o VHD do seu VM na conta de armazenamento especificada
-
-   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Selecione o disco não gerido.":::
-   
-6. Para criar um **Gen 2** VM, vá ao separador **Advanced** e selecione a opção **Gen 2.**
+5. Para criar um **Gen 2** VM, vá ao separador **Advanced** e selecione a opção **Gen 2.**
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Selecione Gen 1 ou Gen 2.":::
 
-7. Selecione o tamanho do VM para implementar.
+6. Selecione o tamanho do VM para implementar.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Selecione um tamanho VM recomendado para a imagem selecionada.":::
 
@@ -56,7 +52,6 @@ A Azure oferece uma gama de distribuições linux aprovadas. Para obter uma list
 8. Selecione **Review + crie** para rever as suas escolhas. Quando aparecer a mensagem **de validação,** selecione  **Criar**.
 
 O Azure começa a aturar a máquina virtual especificada. Acompanhe o seu progresso selecionando o separador **Máquinas Virtuais** no menu esquerdo. Depois de criado, o estado da Máquina Virtual muda para **executar**.
-
 
 ## <a name="configure-the-vm"></a>Configurar a VM
 
@@ -80,7 +75,7 @@ Consulte a seguinte documentação para ligar ao seu [Windows](../virtual-machin
 
 [!INCLUDE [Discussion of addition security checks](includes/size-connect-generalize.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Passo seguinte recomendado: [Teste a sua imagem em VM](azure-vm-image-test.md) para garantir que satisfaz os requisitos de publicação do Azure Marketplace. Isto é opcional.
 - Se não testar a sua imagem em VM, continue com [Generate the SAS URI](azure-vm-get-sas-uri.md).

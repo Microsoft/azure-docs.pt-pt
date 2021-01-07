@@ -4,15 +4,15 @@ description: Este guia descreve métodos horizon usados comumente.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
+ms.date: 1/7/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3266517b9ddc8fc7ac7b06a137286c05ea9a28fa
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841758"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976920"
 ---
 # <a name="horizon-api"></a>Horizonte API 
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre o trabalho com a Horizon e a Plataforma Cybe
 
 - Para o Horizonte Open Development Environment (ODE) SDK, contacte o seu representante cyberX.
 - Para obter informações de apoio e resolução de problemas, contacte <support@cyberx-labs.com> .
-- Para aceder ao Cyberx User Guide a partir da Consola CyberX, selecione :::image type="icon" source="media/references-horizon-api//image3.png"::: e, em seguida, selecione **Baixar o Manual do Utilizador**.
+- Para aceder ao Cyberx User Guide a partir da Consola CyberX, selecione :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: e, em seguida, selecione **Baixar o Manual do Utilizador**.
 
 ## `horizon::protocol::BaseParser`
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b53c0002af3680567aabf0955f6bb4e0d99c2ab1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3ff8406a3634fa946ab8ce7aca694bbc57d556a5
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093439"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976406"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para a continuidade do negócio e recuperação de desastres no Serviço Azure Kubernetes (AKS)
 
@@ -119,10 +119,7 @@ A estratégia típica é fornecer um ponto de armazenamento comum onde as aplica
 
 ![Replicação assíncronea baseada em infraestruturas](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Se utilizar discos geridos Azure, pode escolher soluções de replicação e DR como estas:
-
-* [Velero em Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Backup](../backup/backup-overview.md)
+Se utilizar discos geridos Azure, existem algumas opções que pode utilizar para lidar com a replicação e recuperação de desastres. [Velero em Azure][velero] e [Kasten][kasten] são soluções de apoio nativas de Kubernetes, mas não são apoiadas.
 
 ### <a name="application-based-asynchronous-replication"></a>Replicação assíncronea baseada em aplicações
 
@@ -130,7 +127,7 @@ Kubernetes não fornece atualmente nenhuma implementação nativa para replicaç
 
 ![Replicação assíncronea baseada em aplicações](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo centra-se nas considerações de continuidade de negócios e recuperação de desastres para clusters AKS. Para obter mais informações sobre as operações de cluster em AKS, consulte estes artigos sobre as melhores práticas:
 
@@ -140,3 +137,6 @@ Este artigo centra-se nas considerações de continuidade de negócios e recuper
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+
+[velero]: https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md
+[kasten]: https://www.kasten.io/

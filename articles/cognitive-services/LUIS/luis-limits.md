@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018808"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976797"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo e chaves LUIS
 O LUIS tem várias áreas limite. O primeiro é o limite do [modelo](#model-limits), que controla intenções, entidades e características no LUIS. A segunda área são [os limites de quota baseados](#key-limits) no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o website da LUIS. Uma quarta área é a [região mundial de mapeamento](luis-reference-regions.md) entre o site de autoria LUIS e as APIs [do ponto final](luis-glossary.md#endpoint) luis.
@@ -30,7 +30,7 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | Entidades externas | sem limites |
 | [Intenções][intents]|500 por aplicação: 499 intenções personalizadas e a intenção necessária _de Nenhuma._<br>A aplicação [baseada em despachos](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, criança: 20.000 itens. O nome canónico é *padrão de caracteres max. Os valores do synonym não têm restrição de comprimento. |
-| [entidades de aprendizagem automática + funções](./luis-concept-entity-types.md):<br> composto,<br>simples,<br>papel de entidade|Um limite de 100 entidades-mãe ou 330 entidades, qualquer que seja o limite que o utilizador atinge primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um composto com uma entidade simples, que tem 2 funções: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>As subentidades podem ser aninhadas até 5 níveis.|
+| [entidades de aprendizagem automática + funções](./luis-concept-entity-types.md):<br> composto,<br>simples,<br>papel de entidade|Um limite de 100 entidades-mãe ou 330 entidades, qualquer que seja o limite que o utilizador atinge primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um composto com uma entidade simples, que tem 2 funções: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>As subentidades podem ser aninhadas até 5 níveis, com um máximo de 10 crianças por nível.|
 |Modelo como recurso| Número máximo de modelos que podem ser usados como uma característica para um modelo específico para ser de 10 modelos. O número máximo de listas de frases utilizadas como recurso para um modelo específico ser de 10 listas de frases.|
 | [Pré-visualização - Entidades de lista dinâmica](./luis-migration-api-v3.md)|2 listas de ~1k por pedido de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 Padrão.quaisquer entidades por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|

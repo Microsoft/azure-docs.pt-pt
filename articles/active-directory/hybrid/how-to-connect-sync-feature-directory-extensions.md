@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172372"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976882"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync: Extensões de diretório
 Pode utilizar extensões de diretório para estender o esquema no Azure Ative Directory (Azure AD) com os seus próprios atributos a partir do Ative Directory. Esta funcionalidade permite-lhe construir aplicações LOB consumindo atributos que continua a gerir no local. Estes atributos podem ser consumidos através [de extensões.](/graph/extensibility-overview
@@ -46,7 +46,7 @@ A instalação apresenta os seguintes atributos, que são candidatos válidos:
 
 
 >[!NOTE]
-> Embora o Azure AD Connect suporte a sincronização de atributos de Diretório Ativo multi-valorizados ao Azure AD como extensões de diretório multi-valorizadas, não existe atualmente forma de recuperar/consumir os dados carregados em atributos de extensão de diretório multi-valor.
+> Depois de Azure AD Connect ligar o atributo Ative Directory multi-valorado ao Azure AD como uma extensão de atributo multi-valorizada, é possível incluir o atributo à alegação SAML. Mas, não é possível consumir estes dados através da chamada da API.
 
 A lista de atributos é lida a partir da cache de esquema que é criada durante a instalação do Azure AD Connect. Se tiver estendido o esquema do Ative Directory com atributos adicionais, deve [atualizar o esquema](how-to-connect-installation-wizard.md#refresh-directory-schema) antes que estes novos atributos sejam visíveis.
 
@@ -96,7 +96,7 @@ Um dos cenários mais úteis é utilizar estes atributos em grupos dinâmicos de
 
    ![Screenshot com membros no grupo dinâmico](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup4.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

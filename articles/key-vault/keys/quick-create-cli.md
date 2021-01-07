@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3906de9cd94b4db3e675c2b822df2f061040c586
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 8da5e86362f41322102c3b5316df5743e0c2458f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935296"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977005"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando Azure CLI
 
@@ -59,7 +59,7 @@ Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer o
 
 Para adicionar uma chave ao cofre, só precisa dar alguns passos adicionais. Esta chave pode ser utilizada por uma aplicação. 
 
-Digite os comandos abaixo para criar um **chamado ExemploKey** :
+Digite os comandos abaixo para criar uma chave chamada **ExemploKey** :
 
 ```azurecli
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software
@@ -85,7 +85,7 @@ Quando já não forem necessários, pode utilizar o comando [az group delete](/c
 az group delete --name ContosoResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart criou um Cofre-Chave e guardou uma chave nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 

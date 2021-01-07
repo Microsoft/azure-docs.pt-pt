@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861786"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976848"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -50,6 +50,8 @@ Pode configurar a extensão para utilizar as suas credenciais de armazenamento A
 ### <a name="internet-connectivity"></a>Conectividade da Internet
 
 Se precisar de descarregar um script externo, como no GitHub ou no Azure Storage, então é necessário abrir firewall adicional e portas do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/network-security-groups-overview.md#service-tags)
+
+Note que a extensão CustomScript não tem qualquer forma de contornar a validação do certificado. Por isso, se está a descarregar de um local seguro com, por exemplo. um certificado auto-assinado, pode acabar por ter erros como *"O certificado remoto é inválido de acordo com o procedimento de validação".* Certifique-se de que o certificado está corretamente instalado na loja *"Trusted Root Certification Authorities"* na Máquina Virtual.
 
 Se o seu script estiver num servidor local, poderá ainda necessitar de firewall adicional e as portas do Grupo de Segurança de Rede precisam de ser abertas.
 
@@ -123,7 +125,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |

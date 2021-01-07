@@ -1,18 +1,18 @@
 ---
-title: Trabalhe com o mapa do dispositivo sensor
+title: Trabalhar com o mapa de dispositivos do sensor
 description: O Mapa do Dispositivo fornece uma representação gráfica dos dispositivos de rede detetados. Use o mapa para analisar e gerir informações do dispositivo, fatias de rede e gerar relatórios.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843861"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976763"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigar deteções de sensores no Mapa do Dispositivo
 
@@ -36,7 +36,7 @@ As seguintes ferramentas são usadas para trabalhar no mapa.
 
 A sua função de utilizador determina quais as ferramentas disponíveis na janela do Mapa do Dispositivo. Consulte [criar e gerir os utilizadores](how-to-create-and-manage-users.md) para obter detalhes sobre as funções dos utilizadores.
 
-| Símbolo | Description |
+| Símbolo | Descrição |
 |---|---|
 | :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::| Procure por endereço IP ou endereço MAC para um dispositivo específico. Insira o endereço IP ou MAC na caixa de texto. O mapa apresenta o dispositivo que procurou com dispositivos ligados ao mesmo. |
 | Destaque de grupo e filtros <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="Screenshot dos destaques e filtros do grupo."::: | Filtre ou realce o mapa com base em grupos de dispositivos padrão e personalizados. |
@@ -59,7 +59,7 @@ Cada sub-rede é apresentada como uma única entidade no mapa do dispositivo, in
 
 A figura abaixo mostra uma sub-rede de TI colapsada com 27 elementos de rede de TI.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="sub-rede de TI colapsada com 27 elementos de rede de TI":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="sub-rede de TI colapsada com 27 elementos de rede de TI":::
 
 Para permitir o colapso da capacidade das redes de TI:
 
@@ -118,9 +118,9 @@ Ver grupos por:
 
 Estão disponíveis os seguintes grupos predefinidos:
 
-| Nome do grupo | Description |
+| Nome do grupo | Descrição |
 |--|--|
-| **Aplicações conhecidas ou portas não-standrad (padrão)** | Dispositivos que utilizem portas reservadas, como tCP. Dispositivos que utilizem portas ou portas não standard que não tenham sido designados um pseudónimo. |
+| **Aplicações conhecidas ou portas não padrão (padrão)** | Dispositivos que utilizem portas reservadas, como tCP. Dispositivos que utilizem portas ou portas não standard que não tenham sido designados um pseudónimo. |
 | **Protocolos OT (padrão)** | Dispositivos que lidam com o tráfego de OT. |
 | **Autorização (predefinição)** | Dispositivos que foram descobertos na rede durante o processo de aprendizagem ou foram oficialmente adicionados à rede |
 | **Filtros de inventário de dispositivos** | Dispositivos agrupados de acordo com os filtros economizam na tabela de Inventário de Dispositivos. |
@@ -226,7 +226,7 @@ O ícone do tipo do dispositivo é mostrado com dispositivos ligados.
 
 A visão detalhada apresenta dispositivos e etiquetas e indicadores de dispositivos com as seguintes informações:
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Vista detalhada":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Vista detalhada":::
 
 ### <a name="control-the-zoom-view"></a>Controlar a vista de zoom
 
@@ -236,7 +236,7 @@ A vista do mapa apresentada depende do nível de zoom do mapa. Alternar entre as
 
 ### <a name="enable-simplified-zoom-views"></a>Permitir vistas de zoom simplificadas
 
-Os administradores que pretendam que os analistas de segurança e os utilizadores de RO acedam aos pontos de vista do Brid e do dispositivo e da ligação do tipo, devem permitir a opção de visualização simplificada.
+Os administradores que pretendam que os analistas de segurança e os utilizadores de RO acedam às vistas de bird-eye e dispositivo e de ligação tipo, devem permitir a opção de visualização simplificada.
 
 Para permitir vistas de mapa simplificadas:
 
@@ -266,7 +266,7 @@ Uma vasta gama de ferramentas estão disponíveis para saber mais sobre disposit
 
 Podem aparecer nos dispositivos do mapa os seguintes rótulos e indicadores:
 
-| Etiqueta do dispositivo | Description |
+| Etiqueta do dispositivo | Descrição |
 |--|--|
 | :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="Nome do anfitrião IP"::: | Nome do anfitrião do endereço IP e endereço IP ou endereços de sub-rede |
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Número de alertas"::: | Número de alertas associados ao dispositivo |
@@ -312,24 +312,24 @@ As seguintes informações podem ser atualizadas manualmente. As informações i
 
   - Camada purdue
 
-  - Description
+  - Descrição
 
 | Item | Descrição |
 |--|--|
 | Informações Básicas | A informação básica necessária. |
-| Nome | O nome do dispositivo. <br /> Por predefinição, o sensor descobre o nome do dispositivo tal como definido na rede. Por exemplo, um nome definido no servidor DNS. <br /> Se não forem definidos tais nomes, o endereço IP do dispositivo aparece neste campo. <br /> Pode alterar manualmente o nome de um dispositivo. Dê aos seus dispositivos nomes significativos que reflitam a sua funcionalidade. |
+| Name | O nome do dispositivo. <br /> Por predefinição, o sensor descobre o nome do dispositivo tal como definido na rede. Por exemplo, um nome definido no servidor DNS. <br /> Se não forem definidos tais nomes, o endereço IP do dispositivo aparece neste campo. <br /> Pode alterar manualmente o nome de um dispositivo. Dê aos seus dispositivos nomes significativos que reflitam a sua funcionalidade. |
 | Tipo | O tipo de dispositivo detetado pelo sensor. <br /> Para obter mais informações, consulte [os tipos de dispositivos](#view-device-types). |
 | Fornecedor | O fornecedor de dispositivos. |
 | Sistema Operativo | O dispositivo OS. |
 | Camada purdue | A camada Purdue identificada pelo sensor para este dispositivo, incluindo: <br /> - Automático <br /> - Controlo de Processos <br /> - Supervisão <br /> - Enterprise |
-| Description | Um campo de texto gratuito. <br /> Adicione mais informações sobre o dispositivo. |
+| Descrição | Um campo de texto gratuito. <br /> Adicione mais informações sobre o dispositivo. |
 | Atributos | Qualquer informação adicional que tenha sido descoberta sobre o dispositivo durante o período de aprendizagem e que não pertença a outras categorias, aparece na secção de atributos. <br /> A informação é RO. |
 | Definições | Pode alterar manualmente as definições do dispositivo para evitar falsos positivos: <br /> - **Dispositivo autorizado**: Durante o período de aprendizagem, todos os dispositivos descobertos na rede são identificados como dispositivos autorizados. Quando um dispositivo é descoberto após o período de aprendizagem, aparece como um dispositivo não autorizado por defeito. Pode alterar esta definição manualmente. <br /> - **Conhecido como Scanner**: Ative esta opção se souber que este dispositivo é conhecido como scanner e não há necessidade de o alertar sobre o mesmo. <br /> - **Dispositivo de programação**: Ative esta opção se souber que este dispositivo é conhecido como um dispositivo de programação e não há necessidade de o alertar sobre o mesmo. |
 | Grupos personalizados | Os grupos personalizados no mapa do dispositivo no qual este dispositivo participa. |
 | Estado | A segurança e o estado de autorização do dispositivo: <br /> - O estado é `Secured` quando não há alertas <br /> - Quando há alertas sobre o dispositivo, o número de alertas é apresentado <br /> - O estado `Unauthorized` é apresentado para dispositivos adicionados à rede após o período de aprendizagem. Pode definir manualmente o dispositivo como `Authorized Device` nas definições <br /> - Caso o endereço deste dispositivo seja definido como um endereço dinâmico, `DHCP` é adicionado ao estado. |
 
 
-| Rede | Description |
+| Rede | Descrição |
 |--|--|
 | Interfaces | As interfaces do dispositivo. Um campo RO. |
 | Protocolos | Os protocolos usados pelo dispositivo. Um campo RO. |
@@ -488,7 +488,7 @@ Esta secção descreve como visualizar ficheiros de programação e comparar ver
 
 :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="janela de linha do tempo de programação":::
 
-|Tipo de linha do tempo de programação | Description |
+|Tipo de linha do tempo de programação | Descrição |
 |--|--|
 | Dispositivo programado | Fornece detalhes sobre o dispositivo que foi programado, incluindo o nome de anfitrião e arquivo. |
 | Eventos Recentes | Apresenta os 50 eventos mais recentes detetados pelo sensor. <br />Para destacar um evento, paire sobre ele e clique na estrela. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> Os últimos 50 eventos podem ser vistos. |
@@ -543,7 +543,7 @@ Para comparar:
 
 Além de rever detalhes na Linha do Tempo de Programação, pode aceder a informações de programação na janela Propriedades do Dispositivo e no Inventário do Dispositivo.
 
-| Tipo de Dispositivo | Description |
+| Tipo de Dispositivo | Descrição |
 |--|--|
 | Propriedades do dispositivo | A janela de propriedades do dispositivo fornece informações sobre o último evento de programação detetado no dispositivo\. :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="As propriedades do seu dispositivo"::: |
 | O inventário do dispositivo | O inventário do dispositivo indica se o dispositivo é um dispositivo de programação\. :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="O inventário dos dispositivos"::: |
@@ -604,7 +604,7 @@ Para fundir dispositivos:
 
    :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="caixa de diálogo de atributos":::
 
-4. Selecione **Guardar**.
+4. Selecione **Save** (Guardar).
 
 ### <a name="authorize-and-unauthorize-devices"></a>Autorizar e não autorizar dispositivos
 
@@ -706,6 +706,6 @@ Para exportar:
 
 1. Selecione uma opção de exportação.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Investigar deteções de sensores num Inventário de Dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

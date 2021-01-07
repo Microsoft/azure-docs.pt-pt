@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919743"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976831"
 ---
-# <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
+# <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
 Utilizando o Azure Ative Directory (Azure AD), pode designar administradores limitados para gerir tarefas de identidade em funções menos privilegiadas. Os administradores podem ser designados para fins como adicionar ou alterar utilizadores, atribuir funções administrativas, redefinir palavras-passe do utilizador, gerir licenças de utilizador e gerir nomes de domínio. As [permissões do utilizador predefinidas](../fundamentals/users-default-permissions.md) só podem ser alteradas nas definições do utilizador em Azure AD.
 
@@ -436,7 +436,7 @@ Os utilizadores com esta função têm acesso global apenas à leitura sobre fun
 Em | Pode fazer
 --- | ---
 [Centro de segurança Microsoft 365](https://protection.office.com) | Ver políticas relacionadas com segurança em todos os serviços da Microsoft 365<br>Ver ameaças de segurança e alertas<br>Ver relatórios
-Centro de Proteção de Identidade | Leia todos os relatórios de segurança e definições de informações para funcionalidades de segurança<br><ul><li>Anti-correio publicitário não-correio publicitário não-correio publicitário não-<li>Encriptação<li>Prevenção de perda de dados<li>Anti-malware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de correio
+Centro de Proteção de Identidade | Leia todos os relatórios de segurança e definições de informações para funcionalidades de segurança<br><ul><li>Anti-correio publicitário não-<li>Encriptação<li>Prevenção de perda de dados<li>Anti-malware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de correio
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Tem acesso apenas de leitura a todas as informações surgidas na Azure AD Privileged Identity Management: Políticas e relatórios para atribuições de funções AD AZure e revisões de segurança.<br>**Não é possível** inscrever-se na Azure AD Privileged Identity Management ou fazer quaisquer alterações à sua. No portal de Gestão de Identidade Privilegiada ou via PowerShell, alguém nesta função pode ativar funções adicionais (por exemplo, Administrador Global ou Administrador de Função Privilegiada), se o utilizador for elegível para eles.
 [Escritório 365 Centro de Conformidade & de Segurança](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Ver as políticas de segurança<br>Ver e investigar ameaças à segurança<br>Ver relatórios
 Windows Defender ATP e EDR | Ver e investigar alertas. Quando liga o controlo de acesso baseado em funções no Windows Defender ATP, os utilizadores com permissões apenas de leitura, como a função de leitor de Segurança Ad Ad Azure, perdem acesso até serem atribuídos a uma função ATP do Windows Defender.
@@ -1434,6 +1434,14 @@ Não utilizar - não destinado a uso geral.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.diretório/aplicações/appRoles/update | Gerir as funções da aplicação e solicitar permissões delegadas para aplicações. |
+| microsoft.diretório/aplicações/audiência/atualização | Atualizar o público em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/autenticação/atualização | Atualizar a autenticação em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/básico/atualização | Atualizar propriedades básicas em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/credenciais/atualização | Atualizar credenciais em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/proprietários/atualização | Atualizar os proprietários em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/permissões/atualização | Atualizar permissões expostas e permissões necessárias em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/políticas/atualização | Atualizar aplicações.apólices propriedade em Azure Ative Directory. |
 | microsoft.diretório/contactos/básico/atualização | Atualizar propriedades básicas em contactos no Azure Ative Directory. |
 | microsoft.diretório/contactos/criar | Criar contactos no Diretório Ativo Azure. |
 | microsoft.diretório/contactos/excluir | Eliminar contactos no Diretório Ativo Azure. |
@@ -1467,6 +1475,14 @@ Não utilizar - não destinado a uso geral.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.diretório/aplicações/appRoles/update | Gerir as funções da aplicação e solicitar permissões delegadas para aplicações. |
+| microsoft.diretório/aplicações/audiência/atualização | Atualizar o público em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/autenticação/atualização | Atualizar a autenticação em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/básico/atualização | Atualizar propriedades básicas em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/credenciais/atualização | Atualizar credenciais em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/proprietários/atualização | Atualizar os proprietários em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/permissões/atualização | Atualizar permissões expostas e permissões necessárias em todos os tipos de aplicações. |
+| microsoft.diretório/aplicações/políticas/atualização | Atualizar aplicações.apólices propriedade em Azure Ative Directory. |
 | microsoft.diretório/contactos/básico/atualização | Atualizar propriedades básicas em contactos no Azure Ative Directory. |
 | microsoft.diretório/contactos/criar | Criar contactos no Diretório Ativo Azure. |
 | microsoft.diretório/contactos/excluir | Eliminar contactos no Diretório Ativo Azure. |
@@ -2006,7 +2022,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Adicionar ou remover atribuições de funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

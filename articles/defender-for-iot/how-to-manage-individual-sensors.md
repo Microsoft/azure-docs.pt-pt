@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/22/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 87bc3b172fdbd99130dbb36cceb5f3d16fc39dbd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841988"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976950"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -120,7 +120,7 @@ Para atualizar um certificado:
 Para alterar a definição de validação:
 
 1. Ativar ou desativar a validação do certificado de **ativação.**
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 Se a opção estiver ativada e a validação falhar, a comunicação entre a consola de gestão e o sensor é interrompida e é apresentado um erro de validação na consola.
 
@@ -248,7 +248,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo do nome do **sensor Editar,** insira um nome.
 
-1. Selecione **Guardar**. O novo nome é aplicado.
+1. Selecione **Save** (Guardar). O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Mude o nome de um sensor ligado à nuvem
 
@@ -291,7 +291,7 @@ Para alterar a configuração:
     | Hostname (Nome do anfitrião) | O nome de hospedeiro do sensor |
     | Proxy | Hospedeiro proxy e nome do porto |
 
-4. Selecione **Guardar**.
+4. Selecione **Save** (Guardar).
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar os fusos horários no sensor
 
@@ -427,8 +427,6 @@ Pode encaminhar alertas para terceiros para fornecer detalhes sobre:
 
 - Falhas remotas de backup
 
-:::image type="content" source="media/how-to-work-with-system-notifications/image81.png" alt-text="Screenshot da vista do Correio do Estado do Sistema de Gestão.] (media/image80.png) ! [Screenshot da visualização do correio de estado do sistema de gestão":::
-
 Estas informações são enviadas quando cria uma regra de encaminhamento para notificações do sistema.
 
 > [!NOTE]
@@ -457,7 +455,7 @@ Para aceder às propriedades do sistema:
 
 3. Selecione Propriedades do **Sistema** na secção **Geral.**
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Pesquisa e pacotes de inteligência de ameaça](how-to-work-with-threat-intelligence-packages.md)
 

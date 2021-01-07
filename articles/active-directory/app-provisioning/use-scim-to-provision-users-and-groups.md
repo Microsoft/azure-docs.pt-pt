@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 90debef39b3e657bf96221dfaf5fa762d332a364
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584498"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976525"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -1217,7 +1217,7 @@ Etapas no fluxo de concessão de código OAuth:
 > [!NOTE]
 > Embora não seja possível configurar o OAuth na aplicação não-galeria hoje em dia, pode gerar manualmente um token de acesso a partir do seu servidor de autorização e inserir isso no campo simbólico secreto da aplicação não-galeria. Isto permite-lhe verificar a compatibilidade do seu servidor SCIM com o cliente Azure AD SCIM antes de embarcar na galeria de aplicações, que suporta a concessão de código OAuth.  
 
-**Fichas portadoras de OAuth de longa duração:** Se a sua aplicação não suportar o fluxo de concessão de código de autorização OAuth, também pode gerar um token portador de OAuth de longa duração do que aquele que um administrador pode usar para configurar a integração do provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar. Este token deve ser inferior a 1KB de tamanho.  
+**Fichas portadoras de OAuth de longa duração:** Se a sua aplicação não suportar o fluxo de concessão de código de autorização OAuth, também pode gerar um token portador de OAuth de longa duração do que aquele que um administrador pode usar para configurar a integração do provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar.
 
 Para métodos adicionais de autenticação e autorização, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

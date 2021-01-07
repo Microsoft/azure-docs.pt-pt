@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108506"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976508"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
 
@@ -51,7 +51,7 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 - O foco é agora colocado no campo da palavra-passe após a verificação do e-mail.
 - Removido `autofocus` do controlo da caixa de verificação. 
 - Suporte adicionado para um controlo de visualização para verificação de números de telefone.
-- Agora pode adicionar o `data-preload="true"` atributo [nas suas tags HTML](personalizar-se-ui-com-html.md#guidelines-for
+- Agora pode adicionar o `data-preload="true"` atributo [nas suas tags HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Carregue os ficheiros CSS ligados ao mesmo tempo que o seu modelo HTML para que não 'cintilar' entre carregar os ficheiros.
   - Controle a ordem na qual as suas `script` etiquetas são recolhidas e executadas antes da carga da página.
 - O campo de e-mail é agora `type=email` e os teclados móveis fornecerão as sugestões corretas.
@@ -176,6 +176,6 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 - Versão inicial
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter detalhes sobre como personalizar a interface do utilizador das suas aplicações em políticas personalizadas, consulte [Personalizar a interface do utilizador da sua aplicação utilizando uma política personalizada.](customize-ui-with-html.md)

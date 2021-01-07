@@ -1,5 +1,5 @@
 ---
-title: Controlar o tráfego que é monitorizado
+title: Controlar que tráfego é monitorizado
 description: Os sensores executam automaticamente a deteção de pacotes profundos para tráfego de TI e OT e resolvem informações sobre dispositivos de rede, tais como atributos de dispositivos e comportamento de rede. Várias ferramentas estão disponíveis para controlar o tipo de tráfego que cada sensor deteta.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 08afba8ade30775a49492f337bb5337320b9e282
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843428"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977090"
 ---
-# <a name="control-what-traffic-is-monitored"></a>Controlar o tráfego que é monitorizado
+# <a name="control-what-traffic-is-monitored"></a>Controlar que tráfego é monitorizado
 
 Os sensores executam automaticamente a deteção de pacotes profundos para tráfego de TI e OT e resolvem informações sobre dispositivos de rede, tais como atributos e comportamento do dispositivo. Várias ferramentas estão disponíveis para controlar o tipo de tráfego que cada sensor deteta.
 
@@ -90,7 +90,7 @@ Para configurar sub-redes:
 
 10. Para exportar sub-redes configuradas, selecione **Export**. A tabela de sub-redes é descarregada para a sua estação de trabalho.
 
-11. Selecione **Guardar**.
+11. Selecione **Save** (Guardar).
 
 ### <a name="importing-information"></a>Informação de importação 
 
@@ -182,7 +182,7 @@ Para definir uma gama de endereços DHCP:
     > [!NOTE]
     > As gamas que importa de um ficheiro CSV substituem as definições de gama existentes.
 
-6. Selecione **Guardar**.
+6. Selecione **Save** (Guardar).
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurar servidores DNS para resolução de procura inversa
 
@@ -228,7 +228,7 @@ Ao utilizar um ativo de teste, verifique se as definições definidas funcionam 
 
 3. Introduza um endereço no **Endereço de Procura** para o teste de procura inversa do DNS para a caixa de diálogo do **servidor.**
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="Screenshot que mostra a área do endereço de procura.":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Screenshot que mostra a área do endereço de procura.":::
 
 4. Selecione **Teste**.
 
@@ -277,7 +277,7 @@ Para configurar uma varredura automática:
 
 7. Para remover um intervalo, selecione :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: ao lado do alcance.
 
-8. Selecione **Guardar**. A caixa de diálogo **de configuração de configuração editar** fecha-se e o número de intervalos aparece no painel **de verificação de gamas.**
+8. Selecione **Save** (Guardar). A caixa de diálogo **de configuração de configuração editar** fecha-se e o número de intervalos aparece no painel **de verificação de gamas.**
 
 Para efetuar uma varredura manual:
 
@@ -295,7 +295,7 @@ Para visualizar os resultados da verificação:
 
 1. Quando a verificação estiver concluída, no painel **de Ações,** selecione **Ver Resultados da Verificação**. O ficheiro CSV com os resultados da varredura é descarregado para o seu computador.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Investigar deteções de sensores num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Investigue as deteções de sensores no mapa do dispositivo](how-to-work-with-the-sensor-device-map.md)

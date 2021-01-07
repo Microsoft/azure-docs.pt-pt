@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955107"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977018"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre o Defender para utilizadores de consolas IoT
 
@@ -185,7 +185,7 @@ Para configurar o Diretório Ativo:
 
 1. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
 
-   | Parâmetro do servidor | Description |
+   | Parâmetro do servidor | Descrição |
    |--|--|
    | Controlador de domínio FQDN | Desaceie o nome de domínio totalmente qualificado (FQDN) exatamente como aparece no seu servidor LDAP. Por exemplo, introduza `host1.subdomain.domain.com`. |
    | Porta controladora de domínio | Defina a porta na qual o seu LDAP está configurado. |
@@ -223,8 +223,6 @@ Para redefinir a palavra-passe para um utilizador CyberX ou Support:
     > Não altere o ficheiro de recuperação da palavra-passe. É um ficheiro assinado e não funcionará se o adulterares.
 
 1. No ecrã de recuperação da **palavra-passe,** selecione **Upload**. A janela **do Ficheiro de Recuperação de Passwords do Upload** será aberta.
-
-   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Faça upload do seu ficheiro de recuperação para obter uma nova senha.":::
 
 1. **Selecione Procurar** para localizar o seu `password_recovery.zip` ficheiro ou arrastar o para a `password_recovery.zip` janela.
 
