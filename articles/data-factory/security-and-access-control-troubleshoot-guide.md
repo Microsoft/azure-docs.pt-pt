@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3b7b405e34b6ca82da593507ad6103d360c5df1e
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895653"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968590"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -151,16 +151,6 @@ Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](htt
 Tente permitir o acesso à rede pública na interface do utilizador, como mostra a seguinte imagem:
 
 ![Screenshot do controlo "Ativado" para "Permitir o acesso à rede pública" no painel de networking.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
-
-### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>O tempo de funcionamento do gasoduto varia quando se baseia em diferentes IR
-
-#### <a name="symptoms"></a>Sintomas
-
-Simplesmente a rebadagem do Serviço Linked no conjunto de dados realiza as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de dados é baseado no tempo de execução de integração da rede virtual gerido, leva mais de 2 minutos, em média, para completar o funcionado, mas leva aproximadamente 20 segundos para ser concluído quando baseado no Tempo de Execução de Integração Padrão.
-
-#### <a name="cause"></a>Causa
-
-Verificando os detalhes das correções do gasoduto, pode ver que o gasoduto lento está a funcionar no Ir Managed VNet (Rede Virtual) enquanto o normal está a funcionar no Azure IR. Por design, o Managed VNet IR demora mais tempo na fila do que o Azure IR, uma vez que não estamos a reservar um nó de computação por fábrica de dados, pelo que existe um aquecimento de cerca de 2 minutos para cada atividade de cópia iniciar, e ocorre principalmente na adesão da VNet em vez do Azure IR.
 
 ## <a name="next-steps"></a>Passos seguintes
 

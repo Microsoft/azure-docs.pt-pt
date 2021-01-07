@@ -9,26 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 3beb4e7831ce17a46f6daaa1258f284a0caefe8e
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: f516f51c2e059526b4e678f2779ef0ad059c74e7
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855141"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Diretório Ativo Azure com Floco de Neve
 
-Neste tutorial, você aprende a integrar o Floco de Neve com o Azure Ative Directory (Azure AD).
-A integração do Floco de Neve com a AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar Snowflake com Azure Ative Directory (Azure AD). Quando integrar o Floco de Neve com AZure AD, pode:
 
-* Podes controlar em Azure AD que tem acesso ao Floco de Neve.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Snowflake (Sign-On Único) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Controlo em Azure AD que tem acesso a Snowflake.
+* Permita que os seus utilizadores sejam automaticamente inscritos no Snowflake com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,71 +44,47 @@ Neste tutorial, irá configurar e testar o Azure AD num único sinal de teste.
 
 Para configurar a integração do Snowflake em Azure AD, você precisa adicionar Snowflake da galeria à sua lista de aplicações geridas saaS.
 
-**Adicione Floco de Neve da galeria:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Add da secção **da galeria,** **digite Floco de Neve** na caixa de pesquisa.
+1. Selecione **Snowflake** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso-for-snowflake"></a>Configure e teste Azure AD SSO para floco de neve
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com Floco de Neve usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Snowflake.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar o Azure AD SSO com floco de neve, complete os seguintes blocos de construção:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o Snowflake SSO](#configure-snowflake-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create Snowflake test user](#create-snowflake-test-user)** - para ter uma contraparte de B.Simon em Snowflake que está ligada à representação AZure AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, **digite Snowflake,** selecione **Snowflake** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+1. No portal Azure, na página de integração da aplicação **Snowflake,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-     ![Floco de neve na lista de resultados](common/search-new-app-snowflake.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, irá configurar e testar um único sinal de Azure AD com Snowflake com base num utilizador de teste chamado **Britta Simon**.
-Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Snowflake.
-
-Para configurar e testar um único sinal de Azure AD com Floco de Neve, você precisa completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o único sign-on](#configure-snowflake-single-sign-on)** do floco de neve - para configurar as definições de Sign-On única no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Snowflake test user](#create-snowflake-test-user)** - para ter uma contraparte de Britta Simon em Snowflake que está ligada à representação AZure AD do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD single sign-on com Snowflake, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Snowflake,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **De Configuração Básica SAML,** execute os seguintes passos, se desejar configurar a aplicação no modo iniciado pelo **IDP:**
-
-    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
-    c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado sp:
+1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado sp:
 
-    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
-
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
     
-    Na caixa de texto **URL logout,** digite um URL utilizando o seguinte padrão:  `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
+    b. Na caixa de texto **URL logout,** digite um URL utilizando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Snowflake](https://support.snowflake.net/s/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -125,20 +97,39 @@ Para configurar o Azure AD single sign-on com Snowflake, execute os seguintes pa
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
 
-    b. Identificador Azure Ad
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    c. Logout URL
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-### <a name="configure-snowflake-single-sign-on"></a>Configure snowflake Single Sign-On
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Snowflake.
+
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Snowflake**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+## <a name="configure-snowflake-sso"></a>Configure Snowflake SSO
 
 1. Numa janela diferente do navegador web, faça login em Snowflake como Administrador de Segurança.
 
 1. **Altere a Função** para **ACCOUNTADMIN,** clicando no **perfil** no lado superior direito da página.
 
     > [!NOTE]
-    > Isto é separado do contexto que selecionou no canto superior direito sob o seu Nome de Utilizador
+    > Isto é separado do contexto selecionado no canto superior direito sob o seu Nome de Utilizador.
     
     ![O administrador do Floco de Neve](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
@@ -157,56 +148,6 @@ Para configurar o Azure AD single sign-on com Snowflake, execute os seguintes pa
    alter account set sso_login_page = TRUE;
    ```
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Snowflake.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Snowflake**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, escreva e selecione **Snowflake**.
-
-    ![O link Snowflake na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
 ### <a name="create-snowflake-test-user"></a>Criar utilizador de teste snowflake
 
@@ -229,16 +170,23 @@ Para permitir que os utilizadores de Azure AD entrem em Snowflake, devem ser a p
     CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo snowflake no Painel de Acesso, deverá ser automaticamente inscrito no Floco de Neve para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Snowflake Sign no URL onde pode iniciar o fluxo de login.  
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Vá diretamente ao URL de assinatura snowflake e inicie o fluxo de login a partir daí.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Floco de Neve para o qual configura o SSO 
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo snowflake nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Snowflake para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado Snowflake, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

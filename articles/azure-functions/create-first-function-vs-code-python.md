@@ -4,12 +4,12 @@ description: Aprenda a criar uma função Python e, em seguida, publique o proje
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 4d37acfddeb5f5b6220e7082e729a7d6e6dfe66b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9e4ddc479b0adcb88e846b92e6603dfdf3c99baa
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542427"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967995"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Quickstart: Criar uma função em Azure com Python usando Código de Estúdio Visual
 
@@ -27,8 +27,7 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-+ [Node.js](https://nodejs.org/), exigido pelo Windows para a npm. Apenas [versões LTS e De Manutenção LTS](https://nodejs.org/about/releases/). Utilize o `node --version` comando para verificar a sua versão.
-    Não é necessário para o desenvolvimento local em macOS e Linux.
++ A versão 3.x [das Ferramentas Principais do Azure Functions.](functions-run-local.md#install-the-azure-functions-core-tools)
 
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Azure Functions (x64).
 
@@ -53,17 +52,17 @@ Nesta secção, você usa Visual Studio Code para criar um projeto local de Fun�
 
 1. Fornecer as seguintes informações nas instruções:
 
-    + **Selecione um idioma para o seu projeto de função** : Escolha `Python` .
+    + **Selecione um idioma para o seu projeto de função**: Escolha `Python` .
 
-    + **Selecione um pseudónimo Python para criar um ambiente virtual** : Escolha a localização do seu intérprete Python. Se a localização não for mostrada, escreva em todo o caminho para o binário Python.  
+    + **Selecione um pseudónimo Python para criar um ambiente virtual**: Escolha a localização do seu intérprete Python. Se a localização não for mostrada, escreva em todo o caminho para o binário Python.  
 
-    + **Selecione um modelo para a primeira função do seu projeto** : Escolha `HTTP trigger` .
+    + **Selecione um modelo para a primeira função do seu projeto**: Escolha `HTTP trigger` .
 
-    + **Fornecer um nome de função** : `HttpExample` Digite .
+    + **Fornecer um nome de função**: `HttpExample` Digite .
 
-    + **Nível de autorização** : `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Nível de autorização**: `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Selecione como pretende abrir o seu projeto** : Escolha `Add to workspace` .
+    + **Selecione como pretende abrir o seu projeto**: Escolha `Add to workspace` .
 
 1. Utilizando esta informação, o Visual Studio Code gera um projeto Azure Functions com um gatilho HTTP. Pode ver os ficheiros de projeto locais no Explorer. Para saber mais sobre ficheiros que são criados, consulte [os ficheiros do projeto Gerados.](functions-develop-vs-code.md#generated-project-files)
 
@@ -82,21 +81,21 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na sua 
 
 1. Escolha o ícone Azure na barra de Atividade, em seguida, na área **Azure: Funções,** escolha o **botão Implementar para funcionar...** botão.
 
-    ![Publique o seu projeto na Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publicar o projeto no Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
 1. Fornecer as seguintes informações nas instruções:
 
-    + **Selecione pasta** : Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
+    + **Selecione pasta**: Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
 
-    + **Selecione subscrição** : Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
+    + **Selecione subscrição**: Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
 
-    + **Selecione App de função em Azure** : Escolha `+ Create new Function App` . (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
+    + **Selecione App de função em Azure**: Escolha `+ Create new Function App` . (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
 
-    + **Introduza um nome globalmente único para a aplicação de função** : Escreva um nome que seja válido num caminho URL. O nome que digita é validado para se certificar de que é único em Funções Azure. 
+    + **Introduza um nome globalmente único para a aplicação de função**: Escreva um nome que seja válido num caminho URL. O nome que digita é validado para se certificar de que é único em Funções Azure. 
 
-    + **Selecione um tempo de execução** : Escolha a versão de Python que tem vindo a executar localmente. Pode utilizar o `python --version` comando para verificar a sua versão.
+    + **Selecione um tempo de execução**: Escolha a versão de Python que tem vindo a executar localmente. Pode utilizar o `python --version` comando para verificar a sua versão.
 
-    + **Selecione uma localização para novos recursos** : Para um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de si.
+    + **Selecione uma localização para novos recursos**: Para um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de si.
 
 1. Quando concluídos, os seguintes recursos Azure são criados na sua subscrição, utilizando nomes baseados no nome da aplicação da sua função:
 

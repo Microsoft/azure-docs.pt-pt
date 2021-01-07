@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952153"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967916"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gerir computação no seu Azure Stack Edge Pro
 
@@ -38,7 +38,7 @@ Os eventos são coisas que acontecem no ambiente cloud ou no dispositivo em rela
 
 Dê os seguintes passos no portal Azure para criar um gatilho.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Edge compute > Trigger**. **Selecione + Adicione** o gatilho na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **IoT Edge > Triggers**. **Selecione + Adicione** o gatilho na barra de comando.
 
     ![Selecione adicionar gatilho](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
@@ -68,15 +68,15 @@ Tome os seguintes passos no portal Azure para eliminar um gatilho.
 
 1. Na lista de gatilhos, selecione o gatilho que pretende eliminar.
 
-    ![Selecione o gatilho](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Selecione o gatilho](media/azure-stack-edge-manage-compute/delete-trigger-1.png)
 
 2. Clique com o botão direito e, em seguida, **selecione Delete**.
 
-    ![Selecione eliminar](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Selecione eliminar](media/azure-stack-edge-manage-compute/delete-trigger-2.png)
 
 3. Quando lhe for pedida a confirmação, clique em **Sim**.
 
-    ![Confirmar eliminação](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Confirmar eliminação](media/azure-stack-edge-manage-compute/delete-trigger-3.png)
 
 A lista de atualizações de gatilhos para refletir a eliminação.
 
@@ -88,11 +88,11 @@ Utilize o portal Azure para visualizar a configuração do cálculo, remova uma 
 
 Tome os seguintes passos no portal Azure para ver a configuração do cálculo do seu dispositivo.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **o Edge compute > Modules**. Selecione **Ver o cálculo** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **IoT Edge > Visão Geral**. 
 
     ![Selecione Ver computação](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
-2. Tome nota da configuração do cálculo no seu dispositivo. Quando configuraste o cálculo, criaste um recurso IoT Hub. Sob este recurso IoT Hub, um dispositivo IoT e um dispositivo IoT Edge estão configurados. Apenas os módulos Linux são suportados para funcionar no dispositivo IoT Edge.
+2. Vá à página **Propriedades.** Tome nota da configuração do cálculo no seu dispositivo. Quando configuraste o cálculo, criaste um recurso IoT Hub. Sob este recurso IoT Hub, um dispositivo IoT e um dispositivo IoT Edge estão configurados. Apenas os módulos Linux são suportados para funcionar no dispositivo IoT Edge.
 
     ![Ver configuração](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
@@ -101,7 +101,7 @@ Tome os seguintes passos no portal Azure para ver a configuração do cálculo d
 
 Tome os seguintes passos no portal Azure para remover a configuração de computação Edge existente para o seu dispositivo.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Edge compute > Começar**a trabalhar . **Selecione Remover o cálculo** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **IoT Edge > Visão Geral**. **Selecione Remover** na barra de comando.
 
     ![Selecione Remover computação](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
@@ -119,7 +119,7 @@ Se o seu dispositivo IoT e as teclas do dispositivo IoT Edge foram rotativas, en
 
 Tome os seguintes passos no portal Azure para sincronizar as teclas de acesso do seu dispositivo.
 
-1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Edge compute > Começar**a trabalhar . Selecione **A configuração De Atualização** na barra de comando.
+1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **IoT Edge > Visão Geral**. Selecione **A configuração De Atualização** na barra de comando.
 
     ![Selecione configuração de Refresh](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 

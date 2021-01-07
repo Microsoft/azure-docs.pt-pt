@@ -9,26 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: c53b7fed17ba4ef2000b905b202286338cd461ed
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b60ab21bb1e8f5270512d3f1e77aeab2baedc31
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442966"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Diretório Ativo Azure com o HubSpot
 
-Neste tutorial, aprende-se a integrar o HubSpot com o Azure Ative Directory (Azure AD).
+Neste tutorial, você vai aprender a integrar o HubSpot com o Azure Ative Directory (Azure AD). Quando integrar o HubSpot com AZure AD, pode:
 
-Integrar o HubSpot com a Azure AD dá-lhe os seguintes benefícios:
-
-* Você pode usar Azure AD para controlar quem tem acesso ao HubSpot.
-* Os utilizadores podem ser automaticamente inscritos no HubSpot com as suas contas AD Azure (súm numa única sação).
-* Pode gerir as suas contas num local central, o portal Azure.
-
-Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [um único sinal de acesso às aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
+* Controlo em Azure AD que tem acesso ao HubSpot.
+* Ative os seus utilizadores a serem automaticamente inscritos no HubSpot com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,29 +42,18 @@ O HubSpot suporta as seguintes funcionalidades:
 * **Sinal único iniciado pela SP**
 * **Sinal único iniciado pelo IDP**
 
-## <a name="add-hubspot-in-the-azure-portal"></a>Adicione o HubSpot no portal Azure
+## <a name="adding-hubspot-from-the-gallery"></a>Adicionar HubSpot da galeria
 
-Para integrar o HubSpot com a Azure AD, tem de adicionar o HubSpot à sua lista de aplicações geridas para o SaaS.
+Para configurar a integração do HubSpot no Azure AD, precisa de adicionar o HubSpot da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **da galeria,** **digite HubSpot** na caixa de pesquisa.
+1. Selecione **o HubSpot** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No menu esquerdo, selecione **Azure Ative Directory**.
-
-    ![A opção Azure Ative Directory](common/select-azuread.png)
-
-1. Selecione **aplicações da Empresa**  >  **Todas as aplicações**.
-
-    ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
-
-1. Para adicionar uma aplicação, selecione **Nova aplicação**.
-
-    ![A nova opção de aplicação](common/add-new-app.png)
-
-1. Na caixa de pesquisa, insira **o HubSpot.** Nos resultados da pesquisa, selecione **HubSpot**e, em seguida, **selecione Adicionar**.
-
-    ![HubSpot na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+## <a name="configure-and-test-azure-ad-sso-for-hubspot"></a>Configure e teste Azure AD SSO para HubSpot
 
 Nesta secção, configura e testa o Azure AD com o HubSpot com base num utilizador de teste chamado **Britta Simon.** Para um único sinal de sação a funcionar, deve estabelecer uma relação ligada entre um utilizador AZure AD e o utilizador relacionado no HubSpot.
 
@@ -85,19 +70,11 @@ Para configurar e testar o Azure AD com o HubSpot, deve completar os seguintes b
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, configurar o Azure AD com o HubSpot no portal Azure.
+1. No portal Azure, na página de integração de aplicações **do HubSpot,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
+1. Na página **de método de inscrição única,** selecione **SAML**.
+1. Na **configuração single Sign-On com página SAML,** clique no ícone de lápis para **configuração SAML básica** para editar as definições.
 
-1. No [portal Azure,](https://portal.azure.com/)no painel de integração de aplicações **HubSpot,** selecione **Single sign-on**.
-
-    ![Configurar a opção de inscrição única](common/select-sso.png)
-
-1. No painel **de método de inscrição,** selecione o modo **SAML** ou **SAML/WS-Fed** para ativar um único sinal de súmido.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. No painel **de configuração básico do SAML,** para configurar o *modo iniciado pelo IDP,* complete os seguintes passos:
 
@@ -164,53 +141,27 @@ Nesta secção, configurar o Azure AD com o HubSpot no portal Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Azure.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
-
-    ![As opções dos Utilizadores e de Todos os utilizadores](common/users.png)
-
-1. Selecione **Novo utilizador**.
-
-    ![A nova opção de utilizador](common/new-user.png)
-
-1. No painel de **utilização,** complete os seguintes passos:
-
-    1. Na caixa **Nome,** **insira BrittaSimon**.
-  
-    1. Na caixa **do nome do utilizador,** **introduza brittasimon \@ \<your-company-domain> . \<extension\> ** Por exemplo, ** \@ brittasimon contoso.com**.
-
-    1. Selecione a caixa **de verificação de senha show.** Anota o valor que é apresentado na **caixa de palavra-passe.**
-
-    1. Selecione **Criar**.
-
-    ![O painel de utilizador](common/user-properties.png)
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+    1. No campo **Nome**, introduza `B.Simon`.  
+    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, concedes acesso à Britta Simon ao HubSpot para que ela possa usar o Azure single sign-on.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao HubSpot.
 
-1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **HubSpot**.
-
-    ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
-
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **HubSpot**.
-
-    ![HubSpot na lista de aplicações](common/all-applications.png)
-
-1. No menu, selecione **Utilizadores e grupos.**
-
-    ![A opção Utilizadores e grupos](common/users-groups-blade.png)
-
-1. Selecione **Adicionar utilizador**. Em seguida, no painel de **atribuição Adicionar,** selecione **Utilizadores e grupos**.
-
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
-
-1. No painel **de Utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores. Escolha **Selecionar**.
-
-1. Se estiver à espera de um valor de função na afirmação SAML, no painel **de funções Select,** selecione a função relevante para o utilizador da lista. Escolha **Selecionar**.
-
-1. No painel **de atribuição de adição,** selecione **Atribuir**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ### <a name="create-a-hubspot-test-user"></a>Criar um utilizador de teste HubSpot
 
@@ -249,14 +200,21 @@ Para a disponibilização de uma conta de utilizador no HubSpot:
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Depois de configurar um único sôs-on, quando selecionar o **HubSpot** no portal My Apps, é automaticamente inscrito no HubSpot. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o HubSpot Sign on URL onde pode iniciar o fluxo de login.  
+
+* Vá diretamente ao URL de login do HubSpot e inicie o fluxo de login a partir daí.
+
+#### <a name="idp-initiated"></a>IDP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no HubSpot para o qual configura o SSO 
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo hubSpot nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no HubSpot para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais, reveja estes artigos:
-
-- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](./tutorial-list.md)
-- [Inscrição única para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md)
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado o HubSpot, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

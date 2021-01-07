@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: e6591762ed6a7e2b462a209730276f3198d86ae8
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821473"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967128"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos Conectores do Azure Data Factory
 
@@ -458,34 +458,15 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Causa**: Azure Synapse Analytics hit issue consultando a tabela externa no Azure Storage.
 
 - **Resolução**: Faça a mesma consulta em SSMS e verifique se vê o mesmo resultado. Se sim, abra um bilhete de suporte para a Azure Synapse Analytics e forneça o seu servidor Esporão Azure Synapse e o nome da base de dados para uma nova resolução de problemas.
-            
-
-### <a name="low-performance-when-load-data-into-azure-sql"></a>Baixo desempenho quando os dados de carga em Azure SQL
-
-- **Sintomas**: Copiar dados para o Azure SQL torna-se lento.
-
-- **Causa**: A causa principal do problema é maioritariamente desencadeada pelo estrangulamento do lado Azure SQL. Seguem-se algumas causas possíveis:
-
-    - O nível Azure DB não é alto o suficiente.
-
-    - O uso do DTU da Azure DB está perto de 100%. Pode [monitorizar o desempenho](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e considerar atualizar o nível DB.
-
-    - Os índices não estão definidos corretamente. Remova todos os índices antes da carga dos dados e recrie-os após a conclusão da carga.
-
-    - WriteBatchSize não é grande o suficiente para caber o tamanho da linha de esquema. Tente ampliar a propriedade para a questão.
-
-    - Em vez de inserção a granel, o procedimento armazenado está a ser utilizado, o que se espera que tenha um desempenho pior. 
-
-- **Resolução**: Consulte o TSG para o [desempenho da atividade da cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>O nível de desempenho é baixo e leva a falha de cópia
 
-- **Sintomas**: Abaixo a mensagem de erro ocorreu ao copiar dados em Azure SQL: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **Sintomas**: Abaixo a mensagem de erro ocorreu ao copiar dados na Base de Dados Azure SQL: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **Causa**: Está a ser utilizado o Azure SQL s1, que atingiu os limites de IO neste caso.
+- **Causa**: Está a ser utilizada a Base de Dados Azure SQL S1, que atingiu os limites de IO neste caso.
 
-- **Resolução**: Atualize o nível de desempenho do Azure SQL para corrigir o problema. 
+- **Resolução**: Atualizar o nível de desempenho da Base de Dados Azure SQL para corrigir o problema. 
 
 
 ### <a name="sql-table-cannot-be-found"></a>A Mesa SQL não pode ser encontrada 
@@ -619,31 +600,6 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Causa**: O servidor dinâmico é instável ou inacessível ou a rede está a ter problemas.
 
 - **Recomendação**: Verifique a conectividade da rede ou verifique o registo do servidor dinâmico para obter mais detalhes. Suporte de dinâmica de contato para mais ajuda.
-
-
-## <a name="excel-format"></a>Formato Excel
-
-### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tempo limite ou desempenho lento ao analisar grande ficheiro Excel
-
-- **Sintomas:**
-
-    - Quando criar o conjunto de dados do Excel e importar esquemas a partir de conexão/loja, dados de pré-visualização, lista ou tabelas de atualização, poderá atingir o erro de tempo limite se o ficheiro excel for grande em tamanho.
-
-    - Quando utilizar a atividade de cópia para copiar dados de um grande ficheiro Excel (>= 100 MB) para outras lojas de dados, poderá experimentar um desempenho lento ou um problema OOM.
-
-- **Causa:** 
-
-    - Para operações como a importação de esquemas, pré-visualização de dados e listagem de folhas de cálculo no conjunto de dados excel, o tempo limite é de 100 s e estático. Para um grande ficheiro Excel, estas operações podem não terminar dentro do valor de tempo limite.
-
-    - A atividade de cópia ADF lê toda a memória do ficheiro Excel e depois localiza a folha de cálculo e as células especificadas para ler dados. Este comportamento deve-se às utilizações subjacentes da SDK ADF.
-
-- **Resolução:** 
-
-    - Para importar esquemas, pode gerar um ficheiro de amostra menor, que é um subconjunto de ficheiro original, e escolher "esquema de importação a partir de ficheiro de amostra" em vez de "esquema de importação de conexão/loja".
-
-    - Para a listar a folha de cálculo, na folha de cálculo, pode clicar em "Editar" e inserir o nome/índice da folha.
-
-    - Para copiar um grande ficheiro excel (>100 MB) noutra loja, pode utilizar a fonte Do Fluxo de Dados Excel que o streaming desportivo lê e executa melhor.
     
 
 ## <a name="ftp"></a>FTP

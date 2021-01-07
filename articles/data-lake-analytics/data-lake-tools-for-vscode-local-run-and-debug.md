@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: ef32372cbaa70f7bca609c2ed1db118f33237e2b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 194fe3494915be9f6784e1596e647885634817ad
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "92216203"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969015"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Executar U-SQL e depurar localmente no Código do Estúdio Visual
 Este artigo descreve como executar trabalhos U-SQL numa máquina de desenvolvimento local para acelerar as fases de codificação precoce ou depurar código localmente no Código do Estúdio Visual. Para obter instruções sobre a ferramenta Azure Data Lake Tool para código de estúdio visual, consulte [Azure Data Lake Tools para Código de Estúdio Visual](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -68,7 +68,7 @@ Para o utilizador pela primeira vez:
   ![lembrete instala Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
 3. Instale C# para Código de Estúdio Visual, conforme sugerido na caixa de mensagens se não for instalado. Clique **em Instalar** para continuar e, em seguida, reiniciar o VSCode.
 
-    ![Lembrete para instalar C #](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
+![Lembrete para instalar C #](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
 Siga os passos abaixo para realizar o depurg local:
   

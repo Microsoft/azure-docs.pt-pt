@@ -3,12 +3,12 @@ title: Criar uma função PowerShell utilizando código de estúdio visual - Fun
 description: Aprenda a criar uma função PowerShell e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure utilizando a extensão de Funções Azure no Código do Estúdio Visual.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 5d85c0362daa9dc3b42ed0cc1329329ffa598bee
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ad129d8faec5725a6e76f14577e6a0e9deae8d86
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637052"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968012"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função PowerShell em Azure utilizando o Código do Estúdio Visual
 
@@ -26,8 +26,7 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-+ [Node.js](https://nodejs.org/), exigido pelo Windows para a npm. Apenas [versões LTS e De Manutenção LTS](https://nodejs.org/about/releases/). Utilize o `node --version` comando para verificar a sua versão.
-    Não é necessário para o desenvolvimento local em macOS e Linux.
++ A versão 3.x [das Ferramentas Principais do Azure Functions.](functions-run-local.md#install-the-azure-functions-core-tools)
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
@@ -54,15 +53,15 @@ Nesta secção, utiliza o Código do Estúdio Visual para criar um projeto local
 
 1. Fornecer as seguintes informações nas instruções:
 
-    + **Selecione um idioma para o seu projeto de função** : Escolha `PowerShell` .
+    + **Selecione um idioma para o seu projeto de função**: Escolha `PowerShell` .
 
-    + **Selecione um modelo para a primeira função do seu projeto** : Escolha `HTTP trigger` .
+    + **Selecione um modelo para a primeira função do seu projeto**: Escolha `HTTP trigger` .
 
-    + **Fornecer um nome de função** : `HttpExample` Digite .
+    + **Fornecer um nome de função**: `HttpExample` Digite .
 
-    + **Nível de autorização** : `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Nível de autorização**: `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Selecione como pretende abrir o seu projeto** : Escolha `Add to workspace` .
+    + **Selecione como pretende abrir o seu projeto**: Escolha `Add to workspace` .
 
 1. Utilizando esta informação, o Visual Studio Code gera um projeto Azure Functions com um gatilho HTTP. Pode ver os ficheiros de projeto locais no Explorer. Para saber mais sobre ficheiros que são criados, consulte [os ficheiros do projeto Gerados.](functions-develop-vs-code.md#generated-project-files) 
 

@@ -3,12 +3,12 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço Azure Backup apoia as máquinas Azure Virtual e como seguir as melhores práticas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325235"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968998"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
 
@@ -121,6 +121,7 @@ Quando está a configurar cópias de segurança da VM, sugerimos que siga estas 
 - Se estiver a restaurar os VMs de um único cofre, recomendamos vivamente que utilize [diferentes contas de armazenamento v2](../storage/common/storage-account-upgrade.md) para garantir que a conta de armazenamento do alvo não seja estrangulada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restaurados, utilize 10 contas de armazenamento diferentes.
 - Para a cópia de segurança dos VM que estão a utilizar armazenamento premium com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço livre de 50% não é um requisito para backups depois que o primeiro backup está completo
 - O limite ao número de discos por conta de armazenamento é relativo à frequência de acesso aos discos pelas aplicações que estão a ser executadas numa VM IaaS (infraestrutura como serviço). Como prática geral, se 5 a 10 discos ou mais estiverem presentes numa única conta de armazenamento, equilibre a carga ao mover alguns discos, de modo a separar as contas de armazenamento.
+- Para restaurar os VMs com discos geridos utilizando o PowerShell, forneça o parâmetro adicional **_TargetResourceGroupName_* _ para especificar o grupo de recursos para o qual os discos geridos serão restaurados, [Saiba mais aqui.](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks)
 
 ## <a name="backup-costs"></a>Custos de backup
 
@@ -130,7 +131,7 @@ A faturação só começa quando o primeiro reforço bem sucedido terminar. Nest
 
 A faturação de um VM especificado só para se a proteção for interrompida e todos os dados de backup forem eliminados. Quando a proteção para e não existem trabalhos de backup ativos, o tamanho da última cópia de segurança VM bem sucedida torna-se o tamanho de instância protegido usado para a fatura mensal.
 
-O cálculo do tamanho de instâncias protegidas baseia-se no tamanho *real* do VM. O tamanho do VM é a soma de todos os dados no VM, excluindo o armazenamento temporário. Os preços baseiam-se nos dados reais armazenados nos discos de dados, não no tamanho máximo suportado para cada disco de dados que está ligado ao VM.
+O cálculo do tamanho de instância protegida baseia-se no tamanho _atual* do VM. O tamanho do VM é a soma de todos os dados no VM, excluindo o armazenamento temporário. Os preços baseiam-se nos dados reais armazenados nos discos de dados, não no tamanho máximo suportado para cada disco de dados que está ligado ao VM.
 
 Da mesma forma, a conta de armazenamento de backup baseia-se na quantidade de dados armazenados no Azure Backup, que é a soma dos dados reais em cada ponto de recuperação.
 

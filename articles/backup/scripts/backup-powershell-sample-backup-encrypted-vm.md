@@ -4,16 +4,16 @@ description: Neste artigo, aprenda a usar uma amostra do Azure PowerShell Script
 ms.topic: sample
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6e3af44284acdc96f6f0197c4153c6f7538570d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73dc119e8db34aed04ce8926bfa85f557027c8e2
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069512"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967332"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer o back up de uma máquina virtual Azure encriptada com PowerShell
 
-Este script cria um cofre de Serviços de Recuperação com armazenamento geo-redundante (GRS) para uma máquina virtual Azure encriptada. A política de proteção por defeito é aplicada ao cofre. A política gera uma cópia de segurança diária para a máquina virtual e mantém cada backup durante 30 dias. O script também aciona o ponto de recuperação inicial da máquina virtual e mantém esse ponto de recuperação durante 365 dias.
+Este script cria um cofre de Serviços de Recuperação com armazenamento geo-redundante (GRS) para uma máquina virtual Azure encriptada. A política de proteção por defeito é aplicada ao cofre. A política gera uma cópia de segurança diária para a máquina virtual e mantém cada backup durante 365 dias. O script também aciona o ponto de recuperação inicial da máquina virtual e mantém esse ponto de recuperação durante 30 dias.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

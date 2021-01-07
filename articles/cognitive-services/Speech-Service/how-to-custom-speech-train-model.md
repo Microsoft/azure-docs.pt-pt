@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955200"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968471"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Preparar e implementar um modelo de Voz Personalizada
 
@@ -35,12 +35,12 @@ Se estiver a encontrar problemas de reconhecimento com um modelo base, pode usar
 
 O primeiro passo para treinar um modelo é carregar dados de treino. Consulte [Preparar e testar os seus dados](./how-to-custom-speech-test-and-train.md) para obter instruções passo a passo para preparar transcrições com rótulo humano e textos relacionados (expressões e pronúncias). Depois de fazer o upload dos dados de treino, siga estas instruções para começar a treinar o seu modelo:
 
-1. Inscreva-se no [portal de Discurso Personalizado](https://speech.microsoft.com/customspeech).
+1. Inscreva-se no [portal de Discurso Personalizado](https://speech.microsoft.com/customspeech). Se planeia formar um modelo com conjuntos de dados de transcrição com rótulo áudio + humano, escolha uma subscrição de Discurso numa [região com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treino.
 2. Vá à **Fala-a-texto**  >  **Discurso Personalizado**  >  **[nome do projeto]**  >  **Formação**.
 3. Selecione **modelo de comboio**.
 4. Dê ao seu treino um **nome** e **descrição.**
 5. Na lista de **modelos Scenario e Baseline,** selecione o cenário que melhor se adequa ao seu domínio. Se não tem certeza de qual o cenário a escolher, selecione **General**. O modelo de base é o ponto de partida para o treino. O modelo mais recente é geralmente a melhor escolha.
-6. Na página **de dados de formação Select,** escolha um ou mais conjuntos de dados de transcrição com rótulo humano que pretende utilizar para o treino.
+6. Na página **de dados de formação Select,** escolha um ou mais conjuntos de dados de texto relacionados ou conjuntos de dados de transcrição com rótulo humano que pretende utilizar para a formação. Quando treina um novo modelo, comece com texto relacionado; formação com transcrição áudio + etiqueta humana pode demorar muito mais tempo (até [vários dias).](how-to-custom-speech-evaluate-data.md#improve-model-recognition)
 7. Após o treino estar completo, pode fazer testes de precisão no modelo recém-treinado. Este passo é opcional.
 8. Selecione **Criar** para construir o seu modelo personalizado.
 

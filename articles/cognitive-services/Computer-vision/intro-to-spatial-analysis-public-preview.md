@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 158a5e5f859749ec2ca20bfa4783fe32cc17ee0e
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 402ee6d5efdd489914cb7d283c7c46d4f7d175f6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964614"
+ms.locfileid: "97968063"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Introdução à análise espacial da Visão Computacional
 
-A análise espacial da Visão Computacional é uma nova característica da Azure Cognitive Services Computer Vision que ajuda as organizações a maximizar o valor dos seus espaços físicos, compreendendo os movimentos e a presença das pessoas dentro de uma determinada área. Permite-lhe ingerir vídeos de CCTV ou câmaras de vigilância, executar operações de IA para extrair insights dos streams de vídeo e gerar eventos para serem usados por outros sistemas. Com a entrada de um fluxo de câmara, uma operação de IA pode fazer coisas como contar o número de pessoas que entram num espaço ou medir o cumprimento com máscara facial e diretrizes de distanciamento social.
+A análise espacial da Visão Computacional é uma nova característica da Azure Cognitive Services Computer Vision que ajuda as organizações a maximizar o valor dos seus espaços físicos, compreendendo os movimentos e a presença das pessoas dentro de uma determinada área. Permite-lhe ingerir vídeos de CCTV ou câmaras de vigilância, executar habilidades de IA para extrair insights dos streams de vídeo e gerar eventos para serem usados por outros sistemas. Com a entrada de um fluxo de câmara, uma habilidade de IA pode fazer coisas como contar o número de pessoas que entram num espaço ou medir o cumprimento das diretrizes de distanciamento social.
 
 ## <a name="the-basics-of-spatial-analysis"></a>Os fundamentos da análise espacial
 
@@ -30,10 +30,9 @@ Hoje as operações centrais da análise espacial são todas construídas sobre 
 | Termo | Definição |
 |------|------------|
 | Deteção de Pessoas | Este componente responde à pergunta "onde estão as pessoas nesta imagem"? Encontra humanos numa imagem e passa uma caixa de limites que indica a localização de cada pessoa para o componente de rastreio das pessoas. |
-| Rastreio de pessoas | Este componente liga as deteções das pessoas ao longo do tempo à medida que as pessoas se movem em frente a uma câmara. Usa a lógica temporal sobre como as pessoas normalmente se movem e informações básicas sobre a aparência geral das pessoas para fazer isso. Não rastreia pessoas através de várias câmaras. Se uma pessoa existir o campo de visão de uma câmara por mais de um minuto e, em seguida, reentrar na vista da câmara, o sistema irá perceber isso como uma nova pessoa. People Tracking não identifica indivíduos exclusivamente através das câmaras. Não utiliza reconhecimento facial ou rastreio de marcha. |
-| Deteção de máscaras faciais | Este componente deteta a localização do rosto de uma pessoa no campo de visão da câmara e identifica a presença de uma máscara facial. Para tal, a operação da IA digitaliza imagens a partir de vídeo; quando um rosto é detetado, o serviço fornece uma caixa de delimitação em torno do rosto. Utilizando capacidades de deteção de objetos, identifica a presença de máscaras faciais dentro da caixa de delimitação. A deteção da máscara facial não envolve distinguir um rosto de outro rosto, prever ou classificar atributos faciais ou realizar reconhecimento facial. |
-| Região de Interesse | Esta é uma zona ou linha definida no vídeo de entrada como parte da configuração. Quando uma pessoa interage com a região do vídeo, o sistema gera um evento. Por exemplo, para a operação PersonCrossingLine, uma linha é definida no vídeo. Quando uma pessoa cruza essa linha, um evento é gerado. |
-| Evento | Um evento é a produção primária da análise espacial. Cada operação emite um evento específico periodicamente (ex. uma vez por minuto) ou quando ocorre um gatilho específico. O evento inclui informações sobre o que ocorreu no vídeo de entrada, mas não inclui imagens ou vídeos. Por exemplo, a operação PeopleCount pode emitir um evento que contenha a contagem atualizada sempre que a contagem de pessoas muda (gatilho) ou uma vez a cada minuto (periodicamente). |
+| Rastreio de pessoas | Este componente liga as deteções das pessoas ao longo do tempo à medida que as pessoas se movem em frente a uma câmara. Usa a lógica temporal sobre como as pessoas normalmente se movem e informações básicas sobre a aparência geral das pessoas para fazer isso. Não pode localizar pessoas através de várias câmaras ou reidentificar alguém que desapareceu por mais de um minuto. O Rastreio de Pessoas não utiliza marcadores biométricos como reconhecimento facial ou rastreio de marcha. |
+| Região de Interesse | Esta é uma zona ou linha definida no vídeo de entrada como parte da configuração. Quando uma pessoa interage com a região do vídeo, o sistema gera um evento. Por exemplo, para a habilidade PersonCrossingLine, uma linha é definida no vídeo. Quando uma pessoa cruza essa linha, um evento é gerado. |
+| Evento | Um evento é a produção primária da análise espacial. Cada habilidade emite um evento específico periodicamente (ex. uma vez por minuto) ou quando ocorre um gatilho específico. O evento inclui informações sobre o que ocorreu no vídeo de entrada, mas não inclui imagens ou vídeos. Por exemplo, a habilidade Do PeopleCount pode emitir um evento que contenha a contagem atualizada sempre que a contagem de pessoas muda (gatilho) ou uma vez a cada minuto (periodicamente). |
 
 ## <a name="example-use-cases-for-spatial-analysis"></a>Exemplo usar casos para análise espacial
 
@@ -44,8 +43,6 @@ Seguem-se os casos de uso de exemplo que tínhamos em mente à medida que desenh
 **Shopper Analysis** - Uma mercearia usa câmaras apontadas aos expositores de produtos para medir o impacto das mudanças de merchandising no tráfego da loja. O sistema permite ao gerente da loja identificar quais os novos produtos que mais mudam para o envolvimento.
 
 **Gestão de Filas** - As câmaras apontadas para as filas de checkout fornecem alertas aos gestores quando o tempo de espera se torna demasiado longo, permitindo-lhes abrir mais linhas. Os dados históricos sobre o abandono da fila dão uma ideia do comportamento dos consumidores.
-
-**Face Mask Compliance** – As lojas de retalho podem usar câmaras que apontam para as frentes da loja para verificar se os clientes que entram na loja estão a usar máscaras faciais para manter a conformidade com a segurança e analisar estatísticas agregadas para obter informações sobre as tendências de utilização da máscara. 
 
 **Construção Ocupação & Análise** - Um edifício de escritórios usa câmaras focadas nas entradas de espaços-chave para medir a pegada e como as pessoas usam o local de trabalho. Os insights permitem ao gestor do edifício ajustar o serviço e o layout para melhor servir os ocupantes.
 

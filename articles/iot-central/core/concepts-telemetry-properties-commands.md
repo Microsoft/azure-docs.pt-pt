@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795348"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969066"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
 
@@ -721,7 +721,7 @@ A IoT Central espera uma resposta do dispositivo para atualizações de propried
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202`  ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |
-| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não foi válida ou teve um erro |
+| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou tinha um erro |
 | `'ac': 5xx` | Erro | O dispositivo sofreu um erro inesperado ao processar a alteração solicitada. |
 
 `av` é o número de versão enviado para o dispositivo.
@@ -828,9 +828,6 @@ O dispositivo deve enviar a seguinte carga JSON para a IoT Central depois de pro
 ```
 
 ## <a name="commands"></a>Comandos
-
-> [!NOTE]
-> Na UI web IoT Central, pode selecionar a opção **Queue se offline** para um comando. Esta definição não está incluída se exportar um modelo ou interface a partir do modelo do dispositivo.
 
 O seguinte corte de um modelo de dispositivo mostra a definição de um comando que não tem parâmetros e que não espera que o dispositivo devolva nada:
 
@@ -999,6 +996,91 @@ Quando o dispositivo tiver terminado de processar o pedido, deverá enviar um im
   }
 }
 ```
+
+### <a name="offline-commands"></a>Comandos offline
+
+Na UI web IoT Central, pode selecionar a opção **Queue se offline** para um comando. Os comandos offline são notificações unidirecionais para o dispositivo a partir da sua solução que são entregues assim que um dispositivo se conecta. Os comandos offline podem ter parâmetros de pedido, mas não devolvem uma resposta.
+
+A **definição offline** não está incluída se exportar um modelo ou interface a partir do modelo do dispositivo. Não se pode dizer, olhando para um modelo ou interface JSON exportado, que um comando é um comando offline.
+
+Os comandos offline utilizam [mensagens nuvem-dispositivo IoT Hub](../../iot-hub/iot-hub-devguide-messages-c2d.md) para enviar o comando e a carga útil para o dispositivo.
+
+O seguinte corte de um modelo de dispositivo mostra a definição de um comando. O comando tem um parâmetro de objeto com um campo de data e uma enumeração:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 2,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Se ativar a **fila se** a opção offline no modelo de dispositivo UI para o comando no corte anterior, então a mensagem que o dispositivo recebe inclui as seguintes propriedades:
+
+| Nome da propriedade | Valor de exemplo |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
 
 ## <a name="next-steps"></a>Passos seguintes
 

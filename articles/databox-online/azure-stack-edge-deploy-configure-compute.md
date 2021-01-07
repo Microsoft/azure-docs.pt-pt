@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951626"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968724"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transforme os dados com Azure Stack Edge Pro
 
@@ -22,7 +22,7 @@ Este tutorial descreve como configurar um papel computacional no seu dispositivo
 
 Este procedimento pode demorar cerca de 10 a 15 minutos para ser concluído.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -42,30 +42,35 @@ Antes de configurar um papel de computação no seu dispositivo Azure Stack Edge
 
 Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso IoT Hub.
 
-1. No portal Azure do seu recurso Azure Stack Edge, vá ao Overview. No painel direito, no azulejo **compute,** **selecione Começar**.
+1. No portal Azure do seu recurso Azure Stack Edge, vá ao **Overview**. No painel direito, selecione **IoT Edge**.
 
     ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute/configure-compute-1.png)
 
-2. No azulejo **computacional Configure Edge,** selecione **Configure compute**.
-3. Na lâmina de **computação Configure Edge,** insira o seguinte:
+1. No **azulejo Enable IoT Edge,** selecione **Adicionar**. Isto permite o serviço IoT Edge que permite implantar módulos IoT Edge localmente no seu dispositivo.
+
+    ![Começar com o compute 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+
+1. Na lâmina **de serviço Create IoT Edge,** insira o seguinte:
 
    
     |Campo  |Valor  |
     |---------|---------|
+    |Subscrição     |Selecione uma subscrição para o seu recurso IoT Hub. Pode utilizar a mesma subscrição que a utilizada pelo recurso Azure Stack Edge.         |
+    |Grupo de recursos     |Selecione um grupo de recursos para o seu recurso IoT Hub. Pode utilizar o mesmo grupo de recursos que o utilizado pelo recurso Azure Stack Edge.         |
     |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
+    |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
-    ![Começar com o compute 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
-
-4. Selecione **Criar**. A criação de recursos IoT Hub demora alguns minutos. Após a criação do recurso IoT Hub, as atualizações de azulejos **de computação Configure** para mostrar a configuração do cálculo. Para confirmar que a função de computação Edge foi configurada, selecione **Ver Computação** no azulejo **do cálculo Configure.**
-    
     ![Começar com o computo 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
-    > [!NOTE]
-    > Se o diálogo **Configure Compute** for fechado antes de o IoT Hub estar associado ao dispositivo Azure Stack Edge Pro, o Hub IoT é criado mas não é mostrado na configuração do cálculo. 
-    
-    Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. Um IoT Edge Runtime também está a ser executado neste dispositivo IoT Edge. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge.
+4. Selecione **Rever + Criar**. A criação de recursos IoT Hub demora alguns minutos. Após a criação do recurso IoT Hub, o **Overview** atualiza-se para indicar que o serviço IoT Edge está em execução. 
 
+    ![Começar com o compute 4](./media/azure-stack-edge-deploy-configure-compute/configure-compute-4.png)    
+    
+    Quando o serviço IoT Edge está configurado no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. Um IoT Edge Runtime também está a ser executado neste dispositivo IoT Edge. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge.
+
+    Para confirmar que a função de computação Edge foi configurada, selecione **o serviço IoT Edge > Properties** e veja o dispositivo IoT e o dispositivo IoT Edge.
+
+    ![Começar com o compute 5](./media/azure-stack-edge-deploy-configure-compute/configure-compute-5.png) 
 
 ## <a name="add-shares"></a>Adicionar ações
 
@@ -73,8 +78,8 @@ Para a simples implementação neste tutorial, você precisará de duas ações:
 
 1. Adicione uma partilha Edge no dispositivo fazendo os seguintes passos:
 
-    1. No seu recurso Azure Stack Edge, vá ao **Edge compute > Começar**.
-    2. No azulejo **(s) add share,s,** selecione **Adicionar**.
+    1. No seu recurso Azure Stack Edge, vá a **IoT Edge > Shares**.
+    2. A partir da barra de comando, selecione **+ Adicionar a partilha**.
     3. Na lâmina **de partilha Add,** forneça o nome da partilha e selecione o tipo de partilha.
     4. Para montar a partilha Edge, selecione a caixa de verificação para **utilizar a partilha com o cálculo Edge**.
     5. Selecione a **conta de Armazenamento**, Serviço de **Armazenamento**, um utilizador existente e, em seguida, selecione **Criar**.
@@ -94,7 +99,7 @@ Para a simples implementação neste tutorial, você precisará de duas ações:
     ![Adicione uma parte local edge](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-2.png)
 
   
-3. **Selecione Adicionar ações para** ver a lista atualizada de ações.
+3. Vá ao **IoT Edge > Shares** para ver a lista atualizada de ações.
 
     ![Lista atualizada de partilhas](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-3.png) 
  
@@ -105,7 +110,7 @@ Pode adicionar um módulo personalizado ou pré-construído. Não existem módul
 
 Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que criou no [Develop a C# module para o seu Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado retira ficheiros de uma partilha local edge no dispositivo Edge e move-os para uma partilha edge (cloud) no dispositivo. A partilha em nuvem empurra então os ficheiros para a conta de armazenamento Azure que está associada à partilha da nuvem.
 
-1. Vá ao **Edge compute > Começar**. No azulejo dos **módulos Add,** selecione o tipo de cenário como **simples**. Selecione **Adicionar**.
+1. Vá a **IoT Edge > Módulos**. A partir da barra de comando do dispositivo, selecione **+ Adicionar módulo**.
 2. No **Configure e adicione** a lâmina do módulo, insira os seguintes valores:
 
     
@@ -122,7 +127,7 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
 
     ![Adicionar e configurar módulo](./media/azure-stack-edge-deploy-configure-compute/add-module-1.png)
 
-3. Selecione **Adicionar**. O módulo é adicionado. As atualizações do azulejo do **módulo Add** para indicar que o módulo está implantado. 
+3. Selecione **Adicionar**. O módulo é adicionado. O **IoT Edge >** atualizações da página de visão geral para indicar que o módulo está implantado. 
 
     ![Módulo implantado](./media/azure-stack-edge-deploy-configure-compute/add-module-2.png)
 

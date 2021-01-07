@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 12/30/2020
+ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827483"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967043"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Criar um ambiente de serviço de integração (ISE) com a API REST do Logic Apps
 
@@ -121,7 +121,7 @@ Aqui está a sintaxe corporal de pedido, que descreve as propriedades a utilizar
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
+      // Include `certificates` object to enable self-signed certificate and the certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -185,6 +185,7 @@ Este corpo de pedido de exemplo mostra os valores da amostra:
    }
 }
 ```
+
 ## <a name="add-custom-root-certificates"></a>Adicionar certificados de raiz personalizados
 
 Você usa frequentemente um ISE para ligar a serviços personalizados na sua rede virtual ou no local. Estes serviços personalizados são muitas vezes protegidos por um certificado emitido pela autoridade de certificados de raiz personalizado, como uma Autoridade de Certificados empresariais ou um certificado auto-assinado. Para obter mais informações sobre a utilização de certificados auto-assinados, consulte [acesso seguro e dados - Acesso a chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Para que o seu ISE se conecte com sucesso a estes serviços através da Transport Layer Security (TLS), o seu ISE precisa de acesso a estes certificados de raiz. Para atualizar o seu ISE com um certificado de raiz de confiança personalizado, faça este `PATCH` pedido HTTPS:
