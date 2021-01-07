@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893293"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964597"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Avisos Apache HBase em Azure HDInsight
 
-Este artigo descreve vários avisos que o ajudam a otimizar o desempenho do Apache HBase em Azure HDInsight. 
+Este artigo descreve vários avisos para ajudá-lo a otimizar o desempenho do Apache HBase em Azure HDInsight. 
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>Otimize a HBase para ler os dados mais recentemente escritos
 
-Quando utilizar o Apache HBase em Azure HDInsight, pode otimizar a configuração do HBase para o cenário em que a sua aplicação lê os dados mais recentemente escritos. Para um alto desempenho, é ideal que as leituras HBase sejam servidas a partir de memstore, em vez do armazenamento remoto.
+Se o seu caso de utilização envolver a leitura dos dados mais recentemente escritos da HBase, este aviso pode ajudá-lo. Para um alto desempenho, é ideal que as leituras HBase sejam servidas a partir de memstore, em vez do armazenamento remoto.
 
-O aviso de consulta indica que para uma determinada família de colunas em uma tabela tem > 75% leituras que estão a ser servidas da memstore. Este indicador sugere que mesmo que um flush aconteça na memstore o ficheiro recente precisa de ser acedido e que precisa de estar em cache. Os dados são escritos pela primeira vez para memstore o sistema acede aos dados recentes lá. Existe a possibilidade de que os fios internos do flusher HBase detetem que uma determinada região atingiu o tamanho de 128M (padrão) e pode desencadear um flush. Este cenário acontece mesmo com os dados mais recentes que foram escritos quando a memstore tinha cerca de 128M de tamanho. Portanto, uma leitura posterior desses registos recentes pode exigir uma leitura de ficheiro em vez de memstore. Assim, é melhor otimizar que mesmo os dados recentes que são recentemente lavados podem residir na cache.
+O aviso de consulta indica que para uma determinada família de colunas numa tabela > 75% lê-se que estão a ser servidos na memstore. Este indicador sugere que mesmo que um flush aconteça na memstore o ficheiro recente precisa de ser acedido e que precisa de estar em cache. Os dados são escritos pela primeira vez para memstore o sistema acede aos dados recentes lá. Existe a possibilidade de que os fios internos do flusher HBase detetem que uma determinada região atingiu o tamanho de 128M (padrão) e pode desencadear um flush. Este cenário acontece mesmo com os dados mais recentes que foram escritos quando a memstore tinha cerca de 128M de tamanho. Portanto, uma leitura posterior desses registos recentes pode exigir uma leitura de ficheiro em vez de memstore. Assim, é melhor otimizar que mesmo os dados recentes que são recentemente lavados podem residir na cache.
 
 Para otimizar os dados recentes em cache, considere as seguintes definições de configuração:
 
@@ -33,9 +33,9 @@ Para otimizar os dados recentes em cache, considere as seguintes definições de
 
 3. Se seguir o passo 2 e definir compactionThreshold, em seguida, mude `hbase.hstore.compaction.max` para um valor mais elevado, por `100` exemplo, e aumente o valor do config `hbase.hstore.blockingStoreFiles` para um valor mais elevado, por `300` exemplo.
 
-4. Se tiver a certeza de que precisa de ler apenas nos dados recentes, desajuste `hbase.rs.cachecompactedblocksonwrite` a configuração para **ON**. Esta configuração diz ao sistema que mesmo que a compactação aconteça, os dados permanecem em cache. As configurações também podem ser definidas ao nível da família. 
+4. Se tiver a certeza de que precisa de ler apenas os dados recentes, desajuste `hbase.rs.cachecompactedblocksonwrite` a configuração para **ON**. Esta configuração diz ao sistema que mesmo que a compactação aconteça, os dados permanecem em cache. As configurações também podem ser definidas ao nível da família. 
 
-   Na Membrana HBase, executar o seguinte comando:
+   Na Membrana HBase, executar o seguinte comando para definir `hbase.rs.cachecompactedblocksonwrite` config:
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Para otimizar os dados recentes em cache, considere as seguintes definições de
 
 5. Cache de bloco pode ser desligado para uma dada família em uma mesa. Certifique-se de que está **ligado** para famílias que têm os dados mais recentes. Por defeito, o cache do bloco é ligado para todas as famílias numa mesa. Caso tenha desativado a cache do bloco para uma família e precise de o ligar, utilize o comando alter da base hbase.
 
-   Estas configurações ajudam a garantir que os dados estão em cache e que os dados recentes não são submetidos a compactação. Se um TTL for possível no seu cenário, considere usar a compactação com datas. Para mais informações, consulte [o Guia de Referência Apache HBase: Compactação Tiered Date](https://hbase.apache.org/book.html#ops.date.tiered)  
+   Estas configurações ajudam a garantir que os dados estão disponíveis em cache e que os dados recentes não são submetidos a compactação. Se um TTL for possível no seu cenário, considere usar a compactação com datas. Para mais informações, consulte [o Guia de Referência Apache HBase: Compactação Tiered Date](https://hbase.apache.org/book.html#ops.date.tiered)  
 
 ## <a name="optimize-the-flush-queue"></a>Otimizar a fila de descarga
 
-O otimizar o aviso de fila de descarga indica que as descargas HBase podem necessitar de afinação. Os carregadores de descarga podem não ser suficientemente altos como configurados.
+Este aviso indica que as descargas HBase podem necessitar de sintonização. A configuração atual para os manipuladores de descarga pode não ser suficientemente alta para manusear com tráfego de escrita que pode levar a um abrandamento das descargas .
 
 Na uI do servidor da região, note se a fila de descarga cresce para além de 100. Este limiar indica que as descargas são lentas e pode ter de sintonizar a   `hbase.hstore.flusher.count` configuração. Por predefinição, o valor é 2. Certifique-se de que os fios de descarga máximo não aumentam para além de 6.
 
-Além disso, veja se tem uma recomendação para a contagem de regiões. Se assim for, tente primeiro a afinação da região para ver se isso ajuda em descargas mais rápidas. Sintonizar os fios do autoclismo pode ajudar de várias maneiras como 
+Além disso, veja se tem uma recomendação para a contagem de regiões. Se sim, sugerimos que experimente a afinação da região para ver se isso ajuda em descargas mais rápidas. Caso contrário, afinação dos fios do autoclismo pode ajudá-lo.
 
 ## <a name="region-count-tuning"></a>Afinação da contagem da região
 
@@ -65,7 +65,7 @@ Como um cenário de exemplo:
 
 - Com estas configurações em vigor, o número de regiões é de 100. A memstore global de 4 GB está agora dividida em 100 regiões. Assim, efetivamente cada região recebe apenas 40 MB para memstore. Quando as escritas são uniformes, o sistema faz descargas frequentes e menor tamanho da encomenda < 40 MB. Ter muitos fios de descarga pode aumentar a velocidade de descarga `hbase.hstore.flusher.count` .
 
-O aviso significa que seria bom reconsiderar o número de regiões por servidor, o tamanho da pilha e a configuração global do tamanho da memstore, juntamente com a sintonização dos fios de descarga, de modo a evitar que tais atualizações sejam bloqueadas.
+O aviso significa que seria bom reconsiderar o número de regiões por servidor, o tamanho da pilha e a configuração global do tamanho da memstore, juntamente com a sintonização de linhas de descarga para evitar que as atualizações sejam bloqueadas.
 
 ## <a name="compaction-queue-tuning"></a>Afinação da fila de compactação
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7a52d3971e4ec0cb8ec104a57ba7fb4057c23b72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077308"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964648"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar um aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como utilizar o WAN Virtual para ligar aos seus recursos 
 
 Os passos deste artigo ajudam-no a criar um aparelho virtual **Barracuda CloudGen WAN** Network no centro virtual WAN. Para completar este exercício, tem de ter um Dispositivo barracuda cloud premise (CPE) e uma licença para o aparelho Barracuda CloudGen WAN que você implanta no centro antes de começar.
 
-Para documentação de implementação da **Cisco SD-WAN** dentro da Azure Virtual WAN, envie um e-mail para a Cisco no seguinte endereço de e-mail: vwan_public_preview@external.cisco.com
+Para documentação de implementação da **Cisco SD-WAN** dentro do Azure Virtual WAN - Consulte [Cisco Cloud OnRamp para Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). Para registar a sua conta e obter as licenças cisco SD-WAN necessárias, envie um e-mail para a Cisco no seguinte endereço de e-mail: vwan_public_preview@external.cisco.com
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,7 +49,7 @@ Um hub é uma rede virtual que pode conter gateways para o site-para-site, Expre
 1. Localize o WAN virtual que criou. Na página **VIRTUAL WAN,** na secção **Conectividade,** selecione **Hubs**.
 1. Na página **Hubs,** selecione +New Hub para abrir a página **do hub virtual Create.**
 
-   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Informações básicas":::
 1. No **separador 'Criar** página de centro virtual **Basics',** complete os seguintes campos:
 
    **Detalhes do projeto**
@@ -66,14 +66,14 @@ Neste passo, irá criar um Aparelho Virtual de Rede no centro. O procedimento pa
 
 1. Localize o hub WAN virtual que criou no passo anterior e abra-o.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Hub virtual":::
 1. Encontre o azulejo virtual da rede e selecione o link **Criar.**
-1. Na lâmina do **aparelho virtual de rede,** selecione **Barracuda CloudGen WAN**e, em seguida, selecione o botão **Criar.**
+1. Na lâmina do **aparelho virtual de rede,** selecione **Barracuda CloudGen WAN** e, em seguida, selecione o botão **Criar.**
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Selecione NVA":::
 1. Isto irá levá-lo à oferta do Azure Marketplace para o gateway Barracuda CloudGen WAN. Leia os termos e, em seguida, selecione o botão **Criar** quando estiver pronto.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Básicos barracuda NVA":::
 1. Na página **Basics,** terá de fornecer as seguintes informações:
 
    * **Subscrição** - Escolha a subscrição utilizada para implantar o WAN virtual e o hub.
@@ -83,7 +83,7 @@ Neste passo, irá criar um Aparelho Virtual de Rede no centro. O procedimento pa
    * **Grupo de Recursos Geridos** - Este é o nome do Grupo de Recursos Geridos no qual a Barracuda irá mobilizar recursos que são geridos por eles. O nome deve ser pré-povoado para isto.
 1. Selecione o **seguinte: Botão de gateway CloudGen WAN.**
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Noções básicas":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="CloudGen WAN Gateway":::
 1. Forneça aqui as seguintes informações:
 
    * **Virtual WAN Hub** - O centro virtual WAN em que pretende implantar este NVA.

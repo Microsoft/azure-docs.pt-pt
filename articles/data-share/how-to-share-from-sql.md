@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593744"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964172"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -295,7 +295,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -341,7 +341,7 @@ O desempenho do instantâneo SQL é impactado por uma série de fatores. É semp
 * Localização das lojas de dados de origem e alvo. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Falha de instantâneo SQL de resolução de problemas
-A causa mais comum de falha instantânea é que a Data Share não tem permissão para a fonte ou loja de dados alvo. Para conceder permissão de Partilha de Dados à base de dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW), deve executar o script SQL fornecido ao ligar à base de dados SQL utilizando a autenticação do Azure Ative Directory. Para resolver problemas adicionais de falha de instantâneo SQL, consulte a [falha do instantâneo de resolução de problemas](data-share-troubleshoot.md#snapshot-failed).
+A causa mais comum de falha instantânea é que a Data Share não tem permissão para a fonte ou loja de dados alvo. Para conceder permissão de Partilha de Dados à base de dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW), deve executar o script SQL fornecido ao ligar à base de dados SQL utilizando a autenticação do Azure Ative Directory. Para resolver problemas adicionais de falha de instantâneo SQL, consulte a [falha do instantâneo de resolução de problemas](data-share-troubleshoot.md#snapshots).
 
 ## <a name="next-steps"></a>Passos seguintes
 Aprendeu a partilhar e a receber dados de fontes SQL utilizando o serviço Azure Data Share. Para saber mais sobre a partilha de outras fontes de dados, continue a [apoiar as lojas de dados.](supported-data-stores.md)

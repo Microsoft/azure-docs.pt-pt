@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683493"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963968"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Use scripts de implementação para criar um certificado auto-assinado
 
@@ -32,7 +32,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Editar o modelo
 > * Implementar o modelo
 > * Depurar o roteiro falhado
-> * Limpar recursos
+> * Limpar os recursos
 
 Para um módulo Microsoft Learn que cubra scripts de implementação, consulte [os modelos ARM de extensão utilizando scripts de implementação](/learn/modules/extend-resource-manager-template-deployment-scripts/).
 
@@ -329,19 +329,19 @@ O roteiro de implantação adiciona um certificado ao cofre da chave. Configure 
 
     ![Recursos de script de implementação de modelo de gestor de recursos](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Ambos os ficheiros têm o sufixo **azscripts.** Um é uma conta de armazenamento e o outro é um caso de contentor.
+    Ambos os ficheiros têm o sufixo _azscripts._ Um é uma conta de armazenamento e o outro é um caso de contentor.
 
     Selecione **Mostrar tipos ocultos** para listar o `deploymentScripts` recurso.
 
-1. Selecione a conta de armazenamento com o sufixo de **azscripts.**
-1. Selecione o **azulejo de partilha de fichas.** Verá uma pasta **de azscripts.** A pasta contém os ficheiros de execução do script de implementação.
-1. Selecione **azscripts**. Verá duas pastas **azscriptinput** e **azscriptout .** A pasta de entrada contém um ficheiro de script powerShell do sistema e os ficheiros de script de implementação do utilizador. A pasta de saída contém um _executionresult.jsligado_ e o ficheiro de saída do script. Pode ver a mensagem de erro _executionresult.jsligado_. O ficheiro de saída não está lá porque a execução falhou.
+1. Selecione a conta de armazenamento com o sufixo de _azscripts._
+1. Selecione o **azulejo de partilha de fichas.** Verá uma pasta _de azscripts_ que contém os ficheiros de execução do script de implementação.
+1. Selecione _azscripts_. Verá duas pastas _azscriptinput_ e _azscriptout ._ A pasta de entrada contém um ficheiro de script powerShell do sistema e os ficheiros de script de implementação do utilizador. A pasta de saída contém um _executionresult.jsligado_ e o ficheiro de saída do script. Pode ver a mensagem de erro _executionresult.jsligado_. O ficheiro de saída não está lá porque a execução falhou.
 
 Retire a `Write-Output1` linha e reimplante o gabarito.
 
 Quando a segunda implantação for executado com sucesso, os recursos de script de implantação serão removidos pelo serviço de script, porque a `cleanupPreference` propriedade está definida para **OnSuccess**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
@@ -350,7 +350,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 3. Selecione o nome do grupo de recursos.  Você verá um total de seis recursos no grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar um script de implementação em modelos ARM. Para saber como implementar recursos do Azure com base em condições, veja:
 

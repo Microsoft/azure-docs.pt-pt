@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 3d1b8481aa4d4a81c95643727c1eff2a4a22da2f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9b6ea9491575236a3ef84d660ead8022d13e01ef
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426260"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964133"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
@@ -28,7 +28,7 @@ A série Eav4 e a série Easv4 utilizam o processador EPYC<sup>TM</sup> 7452 da 
 [Suporte de geração VM](generation-2.md): Gerações 1 e 2<br>
 <br>
 
-Os tamanhos da série Eav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar SSD premium. Os tamanhos da série Eav4 são ideais para aplicações empresariais intensivas em memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar o SSD premium, utilize os tamanhos da série Easv4. Os preços e os contadores de faturação para os tamanhos Easv4 são os mesmos que a série Eav3.
+Os tamanhos da série Eav4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2,35Ghz que pode alcançar uma frequência máxima aumentada de 3,35GHz. Os tamanhos da série Eav4 são ideais para aplicações empresariais intensivas em memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar o SSD premium, utilize os tamanhos da série Easv4. Os preços e os contadores de faturação para os tamanhos Easv4 são os mesmos que a série Eav3.
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | NICs máximos | Largura de banda de rede esperada (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|-----|

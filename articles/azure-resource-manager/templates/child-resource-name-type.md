@@ -3,12 +3,12 @@ title: Recursos infantis em modelos
 description: Descreve como definir o nome e o tipo para recursos infantis num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934310"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963917"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis
 
@@ -137,5 +137,4 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definid
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a criar modelos ARM, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
-
 * Para saber mais sobre o formato do nome do recurso ao fazer referência ao recurso, consulte a [função de referência](template-functions-resource.md#reference).

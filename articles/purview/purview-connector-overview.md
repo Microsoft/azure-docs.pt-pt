@@ -7,11 +7,11 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 26efa840bacd3ee542816cf861cf2ef586b0582f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 01/07/2021
 ms.locfileid: "96780217"
 ---
 # <a name="supported-data-stores"></a>Arquivos de dados suportados
@@ -22,17 +22,16 @@ A Purview suporta as seguintes lojas de dados. Clique em cada loja de dados para
 
 |**Categoria**|  **Loja de Dados**  |**Extração de metadados**|**Digitalização completa**|**Digitalização incremental**|**Digitalização de âmbito**|**Classificação**|**Linhagem**|
 |---|---|---|---|---|---|---|---|
-| Azure | [Armazenamento de Blobs do Azure](register-scan-azure-blob-storage-source.md)| Sim| Sim| Sim| Sim| Sim| Sim|
-||[Azure Cosmos DB](register-scan-azure-cosmos-database.md)|Sim| Sim| Sim| Sim| Sim| Sim|
-||[Azure Data Explorer](register-scan-azure-data-explorer.md)|Sim| Sim| Sim| Sim| Sim| Sim|
-||[Armazenamento do Azure Data Lake Ger1](register-scan-adls-gen1.md)|Sim| Sim| Sim| Sim| Sim| Sim|
-||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md) (Armazenamento do Azure Data Lake Gen2)|Sim| Sim| Sim| Sim| Sim| Sim|
-||[Base de Dados SQL do Azure](register-scan-azure-sql-database.md)|Sim| Sim| Não| Sim| Sim| Sim|
-||[Instância Gerida da Base de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md)|Sim| Sim| Não| Sim| Sim| Sim|
-||[Azure Synapse Analytics (anteriormente SQL DW)](register-scan-azure-synapse-analytics.md)|Sim| Sim| Não| Sim| Sim| Sim|
-|Base de Dados|[SQL Server](register-scan-on-premises-sql-server.md)|Sim| Sim| Não| Sim| Sim| Sim|
-||[Teradata (Pré-visualização)](register-scan-teradata-source.md)|Sim| Sim| Não| Não| Não| Sim|
-|Power BI|[Power BI](register-scan-power-bi-tenant.md)|Sim| Sim| Não| Não| Não| Sim|
+| Azure | [Armazenamento de Blobs do Azure](register-scan-azure-blob-storage-source.md)| Yes| Yes| Yes| Yes| Yes| Yes|
+||[BD do Cosmos para o Azure](register-scan-azure-cosmos-database.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure Data Explorer](register-scan-azure-data-explorer.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Armazenamento do Azure Data Lake Ger1](register-scan-adls-gen1.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md) (Armazenamento do Azure Data Lake Gen2)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Base de Dados SQL do Azure](register-scan-azure-sql-database.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[Instância Gerida da Base de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[Azure Synapse Analytics (anteriormente SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
+|Base de Dados|[SQL Server](register-scan-on-premises-sql-server.md)|Yes| Yes| No| Yes| Yes| Yes|
+|Power BI|[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Sim|
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 023dc877158c7074f46945893d40291e94ab2f09
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629561"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964438"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Como criar planos para uma oferta de máquina virtual
 
@@ -42,7 +42,7 @@ Na caixa de diálogo do **Novo plano,** insira um **ID de plano** único para ca
 > [!NOTE]
 > O ID do plano não pode ser alterado depois de selecionar **Criar**.
 
-Insira um **nome de Plano**. Os clientes vêem este nome quando estão a decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único que aponte claramente as diferenças entre os planos. Por exemplo, pode introduzir **o Windows Server** com planos *Pay-as-you-go* , *BYOL,* *Advanced* e *Enterprise.*
+Insira um **nome de Plano**. Os clientes vêem este nome quando estão a decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único que aponte claramente as diferenças entre os planos. Por exemplo, pode introduzir **o Windows Server** com planos *Pay-as-you-go*, *BYOL,* *Advanced* e *Enterprise.*
 
 Selecione **Criar**. Isto abre a página **de configuração do Plano.**
 
@@ -118,7 +118,7 @@ Quando remover um mercado, os clientes desse mercado que estão a utilizar imple
 
 ### <a name="pricing"></a>Preços
 
-Para o **modelo Licença** , selecione o plano **de faturação mensal baseado em uso** para configurar os preços para este plano, ou traga a sua própria **licença** para permitir que os clientes utilizem este plano com a sua licença existente.
+Para o **modelo Licença**, selecione o plano **de faturação mensal baseado em uso** para configurar os preços para este plano, ou traga a sua própria **licença** para permitir que os clientes utilizem este plano com a sua licença existente.
 
 Para um plano de faturação mensal baseado na utilização, utilize uma das seguintes três opções de entrada de preços:
 
@@ -141,7 +141,7 @@ Pode desenhar cada plano para ser visível para todos ou apenas para um público
 
 **Público:** O seu plano pode ser visto por todos.
 
-**Privado** : Torne o seu plano visível apenas para um público pré-selecionado. Depois de publicado como um plano privado, pode atualizar o público ou mudá-lo para público. Depois de tornar um plano público, deve permanecer público. Não pode ser mudado para um plano privado.
+**Privado**: Torne o seu plano visível apenas para um público pré-selecionado. Depois de publicado como um plano privado, pode atualizar o público ou mudá-lo para público. Depois de tornar um plano público, deve permanecer público. Não pode ser mudado para um plano privado.
 
 Atribua ao público que terá acesso a este plano privado usando **iDs de assinatura Azure.** Opcionalmente, inclua uma **descrição** de cada ID de subscrição Azure que designa. Adicione até 10 IDs de subscrição manualmente ou até 20.000 se estiver a importar uma folha de cálculo CSV. Os IDs de assinatura Azure são representados como GUIDs e todas as letras devem ser minúsculas.
 
@@ -191,7 +191,7 @@ Gerar uma máquina virtual define o hardware virtual que utiliza. Com base nas n
 
 1. Ao criar uma nova oferta, selecione um **tipo de Geração** e insira os detalhes solicitados:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Uma vista da caixa de entrega da Geração.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Uma vista da secção de detalhes da Geração no Partner Center.":::
 
 2. Para adicionar mais uma geração a um plano, **selecione Adicionar geração**...
 
@@ -203,9 +203,7 @@ Gerar uma máquina virtual define o hardware virtual que utiliza. Com base nas n
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. Para atualizar um VM existente que tenha uma Geração 1 já publicada, edite detalhes nesta página **de configuração Técnica:**
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Uma visão da página de configuração técnica do plano.":::
+3. Para atualizar um VM existente que tenha uma Geração 1 já publicada, edite detalhes na página **de configuração Técnica.**
 
 Para saber mais sobre as diferenças entre as capacidades da Geração 1 e da Geração 2, consulte [Suporte para a geração 2 VMs em Azure.](../virtual-machines/generation-2.md)
 
@@ -215,10 +213,10 @@ Forneça uma versão em disco e a assinatura de acesso partilhado (SAS) URI para
 
 Estes dois campos necessários são mostrados na imagem anterior acima:
 
-- **Versão em disco** : A versão da imagem que está a fornecer.
-- **Ligação OS VHD** : A localização na sua conta de armazenamento Azure para o sistema operativo VHD. Para aprender a obter um SAS URI, consulte [obter a assinatura de acesso partilhado URI para a sua imagem VM](azure-vm-get-sas-uri.md).
+- **Versão em disco**: A versão da imagem que está a fornecer.
+- **Ligação OS VHD**: A localização na sua conta de armazenamento Azure para o sistema operativo VHD. Para aprender a obter um SAS URI, consulte [obter a assinatura de acesso partilhado URI para a sua imagem VM](azure-vm-get-sas-uri.md).
 
-Os discos de dados (select **Add data disk (máximo 16)** ) são também URIs de assinatura de acesso partilhado VHD que são armazenados nas suas contas de armazenamento Azure. Adicione apenas uma imagem por submissão num plano.
+Os discos de dados (select **Add data disk (máximo 16)**) são também URIs de assinatura de acesso partilhado VHD que são armazenados nas suas contas de armazenamento Azure. Adicione apenas uma imagem por submissão num plano.
 
 Independentemente do sistema operativo que utilize, adicione apenas o número mínimo de discos de dados que a solução necessita. Durante a implementação, os clientes não podem remover discos que fazem parte de uma imagem, mas podem sempre adicionar discos durante ou após a implementação.
 
@@ -226,4 +224,4 @@ Independentemente do sistema operativo que utilize, adicione apenas o número m�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Revender através de CSPs](azure-vm-create-resell-csp.md)
+- [Revenda através de CSP](azure-vm-create-resell-csp.md)

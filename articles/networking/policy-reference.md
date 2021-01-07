@@ -1,0 +1,31 @@
+---
+title: Definições políticas incorporadas para serviços de networking Azure
+description: Lista definições de políticas incorporadas para serviços de networking Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 11/19/2020
+ms.topic: reference
+author: KumudD
+ms.author: kumud
+ms.service: virtual-network
+ms.custom: subject-policy-reference
+ms.openlocfilehash: 378d29785b3b19a42fe5d7895edcb0336ea92a8f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965887"
+---
+# <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Definições incorporadas da Política Azure para serviços de networking Azure
+
+Esta página é um índice de definições políticas incorporadas da [Azure Policy](../governance/policy/overview.md) para serviços de networking Azure. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
+
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
+
+## <a name="azure-networking-services"></a>Serviços de networking Azure
+
+[!INCLUDE [azure-policy-reference-rp-network](../../includes/policy/reference/byrp/microsoft.network.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+- Reveja a [estrutura de definição do Azure Policy](../governance/policy/concepts/definition-structure.md).
+- Veja [Compreender os efeitos do Policy](../governance/policy/concepts/effects.md).

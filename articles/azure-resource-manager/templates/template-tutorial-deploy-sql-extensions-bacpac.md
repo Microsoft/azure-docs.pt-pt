@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2d50903f464c03157ee393787af6ddfdad975aed
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1bd9f7408baf40791c31626ea9e87a73c65b999c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588051"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964002"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar ficheiros BACPAC SQL com modelos ARM
 
@@ -55,7 +55,7 @@ O ficheiro BACPAC deve ser armazenado numa conta de Armazenamento Azure antes de
 * Faça o upload do ficheiro BACPAC para o recipiente.
 * Exiba a chave da conta de armazenamento e o URL blob.
 
-1. Selecione **Experimente-o** para abrir a casca. Em seguida, cole o seguinte script PowerShell na janela da concha.
+1. Selecione **Experimente-o** para abrir a Azure Cloud Shell. Em seguida, cole o seguinte script PowerShell na janela da concha.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"

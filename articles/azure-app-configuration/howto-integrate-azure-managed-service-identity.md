@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d6b3d60a44725869d68dd9f1158d2279f3cf3e86
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929757"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963985"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
@@ -72,7 +72,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. Em **Subscrição,** selecione a sua subscrição Azure. Selecione o recurso Serviço de Aplicações para a sua aplicação.
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
     ![Adicionar uma identidade gerida](./media/add-managed-identity.png)
 
@@ -102,7 +102,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     using Azure.Identity;
     ```
 
-1. Se pretender aceder apenas aos valores armazenados diretamente na Configuração da Aplicação, atualize o `CreateWebHostBuilder` método substituindo o `config.AddAzureAppConfiguration()` método.
+1. Se pretender aceder apenas aos valores armazenados diretamente na Configuração da Aplicação, atualize o `CreateWebHostBuilder` método substituindo o `config.AddAzureAppConfiguration()` método (isto encontra-se na `Microsoft.Azure.AppConfiguration.AspNetCore` embalagem).
 
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.

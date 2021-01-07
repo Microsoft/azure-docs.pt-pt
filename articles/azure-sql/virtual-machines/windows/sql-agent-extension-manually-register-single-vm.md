@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505635"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964529"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -188,6 +188,9 @@ $sqlvm.SqlManagementType
 ## <a name="upgrade-to-full"></a>Upgrade para completo  
 
 Os VMs do SERVIDOR SQL que registaram a extensão em modo *leve* podem atualizar-se para _a totalidade_ utilizando o portal Azure CLI ou Azure PowerShell. OS VMs do SQL Server no modo _NoAgent_ podem ser atualizados para _a totalidade_ depois de o SISTEMA ser atualizado para o Windows 2008 R2 e acima. Não é possível desclassificar - para tal, terá de [desagrear](#unregister-from-extension) o SQL Server VM a partir da extensão do Agente IAAS SQL. Ao fazê-lo, removerá o _recurso_ **de máquina virtual SQL,** mas não eliminará a máquina virtual real. 
+
+> [!NOTE]
+> Quando atualizar o modo de gestão para a extensão SQL IaaS para a totalidade, reiniciará o serviço SQL Server. Em alguns casos, o reinício pode fazer com que os nomes principais do serviço (SPNs) associados ao serviço SQL Server mudem para a conta de utilizador errada. Se tiver problemas de conectividade depois de atualizar o modo de gestão para o pleno, [não registar e voltar a registar as suas SPNs](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 
 ### <a name="azure-portal"></a>Portal do Azure

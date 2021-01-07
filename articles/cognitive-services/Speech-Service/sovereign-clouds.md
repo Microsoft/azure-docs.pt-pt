@@ -3,77 +3,168 @@ title: Nuvens Soberanas - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar nuvens soberanas
 services: cognitive-services
-author: cbasoglu
-manager: xdh
+author: alexeyo26
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/14/2020
-ms.author: cbasoglu
-ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.date: 12/26/2020
+ms.author: alexeyo
+ms.openlocfilehash: a1c3fcf868af76865eec9fa2be4f0fdb58074867
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78228093"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964461"
 ---
-# <a name="speech-services-with-sovereign-clouds"></a>Serviços de fala com nuvens soberanas
+# <a name="speech-services-in-sovereign-clouds"></a>Serviços de fala em nuvens soberanas
 
 ## <a name="azure-government-united-states"></a>Governo de Azure (Estados Unidos)
 
-Apenas os governos federais, estaduais, locais e tribais dos EUA e os seus parceiros têm acesso a este caso dedicado com operações controladas por cidadãos americanos selecionados.
-- Regiões: Eua Gov Virginia
-- SR em SpeechSDK:*config. FromHost ("wss://virginia.stt.speech.azure.us", \<your-key\> ");*
-- TTS em SpeechSDK: *config. FromHost("https://virginia.tts.speech.azure.us", []() \<your-key\> ");*
-- Fichas de autenticação: https []() ://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- Portal Azure: https://portal.azure.us  
-- Portal da fala personalizada: https://virginia.cris.azure.us/Home/CustomSpeech
-- SKUs disponíveis: S0
-- Características suportadas:
-  - Conversão de Voz em Texto
-  - Discurso personalizado (adaptação acústica/linguística)
-  - Conversão de Texto em Voz
-  - Tradutor de Fala
-- Funcionalidades não suportadas
+Disponível apenas para entidades governamentais dos EUA e seus parceiros. Veja mais informações sobre o Governo Azure [aqui](../../azure-government/documentation-government-welcome.md) e [aqui.](../../azure-government/compare-azure-government-global-azure.md)
+
+- **Portal Azure:**
+  - [https://portal.azure.us/](https://portal.azure.us/)
+- **Regiões:**
+  - US Gov - Arizona
+  - US Gov - Virginia
+- **Níveis de preços disponíveis:**
+  - Grátis (F0) e Standard (S0). Veja mais detalhes [aqui](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+- **Características suportadas:**
+  - Conversão de voz em texto
+    - Discurso personalizado (Modelo Acústico (AM) e Adaptação do Modelo de Linguagem (LM)
+      - [Speech Studio](https://speech.azure.us/)
+  - Conversão de texto em voz
+  - Tradutor de fala
+- **Características não suportadas:**
+  - Voz neural
   - Voz Personalizada
-  - Vozes neurais para texto-a-discurso
-- Locais apoiados: Locais para as seguintes línguas são apoiados.
+- **Línguas apoiadas:**
   - Árabe (ar-*)
   - Chinês (zh-*)
   - Inglês (en-*)
   - Francês (fr-*)
   - Alemão (de-*)
-  - Hindi
-  - Coreano
-  - Russo
+  - Hindi (hi-IN)
+  - Coreano (ko-KR)
+  - Russo (ru-RU)
   - Espanhol (es-*)
 
-## <a name="microsoft-azure-china"></a>Microsoft Azure China
+### <a name="endpoint-information"></a>Informações sobre ponto final
 
-Localizado na China, um centro de dados Azure com acesso direto à China Mobile, China Telecom, China Unicom e outra rede de espinha dorsal de grandes transportadoras, para que os utilizadores chineses forneçam experiência de acesso à rede local de alta velocidade e estável.
-- Regiões: China East 2 (Xangai)
-- SR em SpeechSDK: *config. FromHost("wss://chinaeast2.stt.speech.azure.cn", \<your-key\> ");*
-- TTS em SpeechSDK:  *config. FromHost("https://chinaeast2.tts.speech.azure.cn", []() \<your-key\> ");*
-- Fichas de autenticação: https []() ://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
-- Portal Azure: https://portal.azure.cn
-- Portal da fala personalizada: https://speech.azure.cn/CustomSpeech
-- SKUs disponíveis: S0
-- Características suportadas:
-  - Conversão de Voz em Texto
-  - Discurso personalizado (adaptação acústica/linguística)
-  - Conversão de Texto em Voz
-  - Tradutor de Fala
-- Funcionalidades não suportadas
+Esta secção contém informações sobre os serviços de voz para a utilização com [O SDK de voz,](speech-sdk.md) [a API de voz para texto](rest-speech-to-text.md)e a [API DE REPOUSO text-to-speech](rest-text-to-speech.md).
+
+#### <a name="speech-services-rest-api"></a>Serviços de Fala REST API
+
+Serviços de Fala REST Os pontos finais da API no Governo Azure têm o seguinte formato:
+
+|  REST Tipo/operação API | Formato endpoint |
+|--|--|
+| Ficha de acesso | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/sts/v1.0/issueToken`
+| [A API DE REPOUSO de expressão em texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
+| [API DE REPOUSO de voz para texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
+| [API REST de conversão de texto em voz](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.us/<URL_PATH>` |
+
+`<REGION_IDENTIFIER>`Substitua-a pelo identificador correspondente à região da sua subscrição a partir desta tabela:
+
+|                     | Identificador da região |
+|--|--|
+| **US Gov - Arizona**  | `usgovarizona` |
+| **US Gov - Virginia** | `usgovvirginia` |
+
+#### <a name="speech-sdk"></a>API de Voz
+
+Para o Discurso SDK em nuvens soberanas, você precisa usar a instantânea "do anfitrião" da `SpeechConfig` classe ou `--host` opção de Speech [CLI](spx-overview.md). (Também pode usar instantâneo "do ponto final" e `--endpoint` Opção CLI da fala).
+
+`SpeechConfig` a classe deve ser instantânea assim:
+```csharp
+var config = SpeechConfig.FromHost(usGovHost, subscriptionKey);
+```
+O CLI da fala deve ser usado assim (note a `--host` opção):
+```dos
+spx recognize --host "usGovHost" --file myaudio.wav
+```
+`subscriptionKey`Substitua-a pela tecla de recursos da Fala. `usGovHost`Substitua-a pela expressão correspondente à oferta de serviço exigida e à região da sua subscrição a partir desta tabela:
+
+|  Oferta de região / serviço | Expressão do anfitrião |
+|--|--|
+| **US Gov - Arizona** | |
+| Conversão de voz em texto | `wss://usgovarizona.stt.speech.azure.us` |
+| Conversão de Texto em Voz | `https://usgovarizona.tts.speech.azure.us` |
+| **US Gov - Virginia** | |
+| Conversão de voz em texto | `wss://usgovvirginia.stt.speech.azure.us` |
+| Conversão de Texto em Voz | `https://usgovvirginia.tts.speech.azure.us` |
+
+
+## <a name="azure-china"></a>Azure China
+
+Disponível para organizações com presença comercial na China. Veja mais informações sobre a Azure China [aqui.](/azure/china/overview-operations) 
+
+
+- **Portal Azure:**
+  - [https://portal.azure.cn/](https://portal.azure.cn/)
+- **Regiões:**
+  - China Leste 2
+- **Níveis de preços disponíveis:**
+  - Grátis (F0) e Standard (S0). Veja mais detalhes [aqui](https://www.azure.cn/pricing/details/cognitive-services/index.html)
+- **Características suportadas:**
+  - Conversão de voz em texto
+    - Discurso personalizado (Modelo Acústico (AM) e Adaptação do Modelo de Linguagem (LM)
+      - [Speech Studio](https://speech.azure.cn/)
+  - Conversão de texto em voz
+  - Tradutor de fala
+- **Características não suportadas:**
+  - Voz neural
   - Voz Personalizada
-  - Vozes neurais para texto-a-discurso
-- Locais apoiados: Locais para as seguintes línguas são apoiados.
+- **Línguas apoiadas:**
   - Árabe (ar-*)
   - Chinês (zh-*)
   - Inglês (en-*)
   - Francês (fr-*)
   - Alemão (de-*)
-  - Hindi
-  - Coreano
-  - Russo
+  - Hindi (hi-IN)
+  - Coreano (ko-KR)
+  - Russo (ru-RU)
   - Espanhol (es-*)
 
+### <a name="endpoint-information"></a>Informações sobre ponto final
+
+Esta secção contém informações sobre os serviços de voz para a utilização com [O SDK de voz,](speech-sdk.md) [a API de voz para texto](rest-speech-to-text.md)e a [API DE REPOUSO text-to-speech](rest-text-to-speech.md).
+
+#### <a name="speech-services-rest-api"></a>Serviços de Fala REST API
+
+Serviços de Fala REST Os pontos finais da API na Azure China têm o seguinte formato:
+
+|  REST Tipo/operação API | Formato endpoint |
+|--|--|
+| Ficha de acesso | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken`
+| [A API DE REPOUSO de expressão em texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
+| [API DE REPOUSO de voz para texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
+| [API REST de conversão de texto em voz](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.cn/<URL_PATH>` |
+
+`<REGION_IDENTIFIER>`Substitua-a pelo identificador correspondente à região da sua subscrição a partir desta tabela:
+
+|                     | Identificador da região |
+|--|--|
+| **China Leste 2**  | `chinaeast2` |
+
+#### <a name="speech-sdk"></a>API de Voz
+
+Para o Discurso SDK em nuvens soberanas, você precisa usar a instantânea "do anfitrião" da `SpeechConfig` classe ou `--host` opção de Speech [CLI](spx-overview.md). (Também pode usar instantâneo "do ponto final" e `--endpoint` Opção CLI da fala).
+
+`SpeechConfig` a classe deve ser instantânea assim:
+```csharp
+var config = SpeechConfig.FromHost(azCnHost, subscriptionKey);
+```
+O CLI da fala deve ser usado assim (note a `--host` opção):
+```dos
+spx recognize --host "azCnHost" --file myaudio.wav
+```
+`subscriptionKey`Substitua-a pela tecla de recursos da Fala. `azCnHost`Substitua-a pela expressão correspondente à oferta de serviço exigida e à região da sua subscrição a partir desta tabela:
+
+|  Oferta de região / serviço | Expressão do anfitrião |
+|--|--|
+| **China Leste 2** | |
+| Conversão de voz em texto | `wss://chinaeast2.stt.speech.azure.cn` |
+| Conversão de Texto em Voz | `https://chinaeast2.tts.speech.azure.cn` |

@@ -3,16 +3,16 @@ title: Saídas em modelos
 description: Descreve como definir valores de saída num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934735"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964019"
 ---
 # <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
-Este artigo descreve como definir os valores de saída no seu modelo de Gestor de Recursos Azure (modelo ARM). Utiliza-se saídas quando precisa de devolver os valores dos recursos implantados.
+Este artigo descreve como definir os valores de saída no seu modelo de Gestor de Recursos Azure (modelo ARM). `outputs`Utiliza-se quando é necessário devolver os valores dos recursos mobilizados.
 
 O formato de cada valor de saída deve corresponder a um dos tipos de [dados](template-syntax.md#data-types).
 
@@ -31,7 +31,7 @@ O exemplo a seguir mostra como devolver o ID do recurso para um endereço IP pú
 
 ## <a name="conditional-output"></a>Saída condicional
 
-Na secção saídas, pode devolver um valor condicionalmente. Normalmente, usa-se a condição nas saídas quando se implanta um recurso [condicionalmente.](conditional-resource-deployment.md) O exemplo a seguir mostra como devolver condicionalmente o ID do recurso para um endereço IP público com base na implementação de um novo:
+Na `outputs` secção, pode devolver um valor condicionalmente. Normalmente, `condition` usa-se quando se implanta um recurso `outputs` [condicionalmente.](conditional-resource-deployment.md) O exemplo a seguir mostra como devolver condicionalmente o ID do recurso para um endereço IP público com base na implementação de um novo:
 
 ```json
 "outputs": {
@@ -112,7 +112,7 @@ az deployment group show \
 
 Os exemplos que se seguem demonstram cenários para a utilização de saídas.
 
-|Modelo  |Descrição  |
+|Modelo  |Description  |
 |---------|---------|
 |[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis e saídas complexas desses valores. Não mobiliza recursos. |
 |[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e produz o ID do recurso. |

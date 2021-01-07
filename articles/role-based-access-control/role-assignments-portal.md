@@ -10,16 +10,16 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1aebb80fcba6c21ccce63772195af80b94092bde
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7c58641f0039982f05be14d0f24ba89c62273d4b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368323"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964308"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicionar ou remover atribuições de funções do Azure com o portal do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando o portal Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando o portal Azure.
 
 Se precisar de atribuir funções de administrador no Azure Ative Directory, consulte [Ver e atribuir funções de administrador no Azure Ative Directory](../active-directory/roles/manage-roles-portal.md).
 
@@ -49,17 +49,17 @@ Para ser o mais eficaz com a página access control (IAM), ajuda a seguir estes 
 
 No Azure RBAC, para conceder acesso a um recurso Azure, adiciona-se uma atribuição de funções. Siga estes passos para atribuir um papel.
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito a que pretende conceder acesso. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito a que pretende conceder acesso. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos** ou um recurso.
 
 1. Clique no recurso específico para esse âmbito.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **atribuições de funções** para ver as atribuições de funções neste âmbito.
 
     ![Separador de atribuições de controlo de acesso (IAM) e atribuições de funções](./media/role-assignments-portal/role-assignments.png)
 
-1. Clique **em Adicionar**Adicionar a atribuição de  >  **função**.
+1. Clique **em Adicionar** Adicionar a atribuição de  >  **função**.
 
    Se não tiver permissões para atribuir funções, a opção de atribuição de funções Add será desativada.
 
@@ -93,7 +93,7 @@ Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lh
 
     ![Separador de atribuições de controlo de acesso (IAM) e atribuições de funções](./media/role-assignments-portal/role-assignments.png)
 
-1. Clique **em Adicionar**Adicionar a atribuição de  >  **função**.
+1. Clique **em Adicionar** Adicionar a atribuição de  >  **função**.
 
    Se não tiver permissões para atribuir funções, a opção de atribuição de funções Add será desativada.
 
@@ -140,7 +140,7 @@ Siga estes passos para atribuir um papel a uma identidade gerida atribuída pelo
 
 1. Clique **em Adicionar atribuição de função (Pré-visualização)**.
 
-1. Utilize as listas de drop-down para selecionar o conjunto de recursos a que a atribuição de funções se aplica, tais como **Subscrição,** **Grupo de Recursos**ou recurso.
+1. Utilize as listas de drop-down para selecionar o conjunto de recursos a que a atribuição de funções se aplica, tais como **Subscrição,** **Grupo de Recursos** ou recurso.
 
     Se não tiver a atribuição de funções, escreva permissões para o âmbito selecionado, será exibida uma mensagem inline. 
 
@@ -168,7 +168,7 @@ Siga estes passos para atribuir uma função a uma identidade gerida atribuída 
 
 1. Clique **em Adicionar atribuição de função (Pré-visualização)**.
 
-1. Utilize as listas de drop-down para selecionar o conjunto de recursos a que a atribuição de funções se aplica, tais como **Subscrição,** **Grupo de Recursos**ou recurso.
+1. Utilize as listas de drop-down para selecionar o conjunto de recursos a que a atribuição de funções se aplica, tais como **Subscrição,** **Grupo de Recursos** ou recurso.
 
     Se não tiver a atribuição de funções, escreva permissões para o âmbito selecionado, será exibida uma mensagem inline. 
 

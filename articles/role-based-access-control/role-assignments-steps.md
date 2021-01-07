@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648281"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964257"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve os passos de alto nível para adicionar uma atribuição de papel utilizando o [portal Azure](role-assignments-portal.md) [, Azure PowerShell,](role-assignments-powershell.md) [Azure CLI,](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve os passos de alto nível para adicionar uma atribuição de papel utilizando o [portal Azure](role-assignments-portal.md) [, Azure PowerShell,](role-assignments-powershell.md) [Azure CLI,](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Passo 1: Determinar quem precisa de acesso
 
@@ -90,6 +90,6 @@ Confira os seguintes artigos para obter etapas detalhadas sobre como adicionar a
 - [Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure](role-assignments-cli.md)
 - [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Conceder acesso a um utilizador aos recursos do Azure através do portal Azure](quickstart-assign-role-user-portal.md)
