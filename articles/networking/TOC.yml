@@ -51,6 +51,11 @@
               href: azure-network-latency.md
             - name: Preferência de encaminhamento de internet no Azure
               href: ../virtual-network/routing-preference-overview.md
+        - name: Segurança
+          items:
+            - name: Controlos de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
         - name: Redes virtuais
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Balanceamento de carga de rede
@@ -135,6 +140,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: REST
       href: 'https://msdn.microsoft.com/library/mt163658.aspx'
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Modelos de autor

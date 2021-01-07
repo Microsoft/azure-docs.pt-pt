@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 320895ac02293f46f1e6c03718b50800cc405be8
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 0acfc87af9d833724d5222fcb1794d0dc37628aa
+  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88262896"
+  ms.lasthandoff: 01/06/2021
+  ms.locfileid: "97935313"
 landingContent:
 - title: Chaves
   linkLists:
@@ -64,10 +64,10 @@ landingContent:
       url: ../general/overview.md
     - text: Conceitos básicos
       url: ../general/basic-concepts.md
+    - text: Descrição geral da segurança
+      url: ../general/security-overview.md
     - text: Descrição geral da eliminação recuperável
       url: ../general/soft-delete-overview.md
-    - text: Descrição geral da segurança
-      url: ../general/overview-security.md
 - title: Microsoft Learn
   linkLists:
   - linkListType: learn

@@ -3,6 +3,8 @@
 - name: Descrição geral
   href: overview.md
   items:
+    - name: Novidades?
+      href: release-notes.md
     - name: Arquitetura de soluções
       href: architecture.md
 - name: Guias de Início Rápido

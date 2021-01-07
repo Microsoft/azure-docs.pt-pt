@@ -3,16 +3,16 @@ title: Descrição geral do exemplo de esquema ISM PROTECTED da Administração 
 description: Descrição geral do exemplo de esquema ISM PROTECTED da Administração Australiana. Este exemplo de esquema ajuda os clientes a avaliar controlos ISM PROTECTED específicos.
 ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 4e6b1db0d2f4ecff13068c8e673f2237740ffec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f18c7a34bdf39ebbc2031b187d033c999165a9
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038699"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955574"
 ---
 # <a name="overview-of-the-australian-government-ism-protected-blueprint-sample"></a>Descrição geral do exemplo de esquema ISM PROTECTED da Administração Australiana
 
-O exemplo de esquema de Governação ISM fornece um conjunto de princípios de proteção de governação através do [Azure Policy](../../../policy/overview.md) que ajuda a obter o atestado ISM PROTECTED (versão de fevereiro de 2020). Este Esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure que necessite de acreditação ou conformidade com a arquitetura ISM. A secção de mapeamento de controlo fornece detalhes sobre as políticas incluídas nesta iniciativa e sobre como estas políticas ajudam a cumprir vários controlos definidos pela arquitetura ISM. Quando atribuídos a uma arquitetura, os recursos serão avaliados pelo Azure Policy para determinar a não conformidade face às políticas atribuídas.
+O exemplo de esquema de Governação ISM fornece um conjunto de princípios de proteção de governação através do [Azure Policy](../../../policy/overview.md) que ajuda a obter o atestado ISM PROTECTED (versão de fevereiro de 2020). Este Esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure que necessite de acreditação ou conformidade com a arquitetura ISM. 
 
 ## <a name="control-mapping"></a>Mapeamento de controlo
 
