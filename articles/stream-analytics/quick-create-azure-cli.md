@@ -3,25 +3,25 @@ title: Quickstart - Crie um trabalho Azure Stream Analytics utilizando o Azure C
 description: Este quickstart mostra como usar o CLI Azure para criar um trabalho Azure Stream Analytics.
 services: stream-analytics
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 48ef9cc48f48cec92ae57774e5d89e300ee43385
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a3cc4c3d6936a51ca2010209ce23e4d82c9333eb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485387"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016345"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
 
 Neste arranque rápido, utiliza-se o CLI Azure para definir um trabalho stream Analytics que filtra mensagens de sensor em tempo real com uma leitura de temperatura superior a 27. O seu trabalho stream Analytics irá ler dados do IoT Hub, transformar os dados e escrever os dados de volta para um recipiente no armazenamento de bolhas. Os dados de entrada utilizados neste quickstart são gerados por um simulador online Raspberry Pi.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -246,7 +246,7 @@ az group delete \
     --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você implementou um simples trabalho stream Analytics usando Azure CLI. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 

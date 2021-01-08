@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507715"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015891"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
@@ -71,7 +71,7 @@ Se quiser descarregar uma versão completa da app que constrói neste tutorial, 
 
 ## <a name="register-your-application"></a>Registar a aplicação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -853,7 +853,7 @@ A primeira vez que um utilizador entra na sua aplicação, será solicitado pela
 
 Depois de iniciar sposição, a aplicação apresentará os dados devolvidos a partir do ponto final do Microsoft `/me` Graph.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a construção de aplicações móveis que chamem APIs web protegidas na nossa série de cenários multi-partes.
 

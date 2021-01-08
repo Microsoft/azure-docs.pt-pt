@@ -3,16 +3,15 @@ title: Monitorize e gera os trabalhos de Azure Stream Analytics com a PowerShell
 description: Este artigo descreve como usar a Azure PowerShell e os cmdlets para monitorizar e gerir os trabalhos do Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 4d41e8231f5bd186408ea511c0f096a6a5f26c83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6b404516c513dea0888974ffb4fa3d8d43db6c44
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123647"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015203"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorize e gere os trabalhos do Stream Analytics com cmdlets Azure PowerShell
 Aprenda a monitorizar e gerir os recursos stream Analytics com cmdlets Azure PowerShell e scripts powershell que executam tarefas básicas de Stream Analytics.
@@ -544,7 +543,7 @@ Este comando PowerShell testa o estado de ligação da saída no StreamingJob.
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

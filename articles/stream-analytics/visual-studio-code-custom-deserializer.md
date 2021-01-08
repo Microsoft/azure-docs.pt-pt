@@ -3,16 +3,15 @@ title: Crie desserializantes personalizados .NET para trabalhos em nuvem Azure S
 description: Este tutorial demonstra como criar um deserializador personalizado .NET para um trabalho em nuvem Azure Stream Analytics usando o Código do Estúdio Visual.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
-ms.openlocfilehash: 0f041910d1b02cc6d1fd48bfd773711c3361c0f5
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822508"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013928"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Crie desserializadores personalizados .NET para Azure Stream Analytics em Código de Estúdio Visual
 
@@ -70,7 +69,7 @@ Pode criar, testar e depurar um deserializador personalizado .NET para um trabal
 
    |Definição|Valor sugerido|
    |-------|---------------|
-   |Nome|Entrada|
+   |Name|Input|
    |Subscrição|< o seu > de subscrição|
    |Conta de Armazenamento|< a sua conta de armazenamento >|
    |Contentor|< o seu recipiente de armazenamento >|
@@ -130,7 +129,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a implementar um deserializador personalizado .NET para a serialização da entrada de tampão protocolar. Para saber mais sobre a criação de deserializadores personalizados, continue ao seguinte artigo:
 

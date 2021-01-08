@@ -1,18 +1,17 @@
 ---
 title: Saída DB do Azure Cosmos da Azure Stream Analytics
 description: Este artigo descreve como obter dados de Azure Stream Analytics para Azure Cosmos DB.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491737"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016582"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Saída DB do Azure Cosmos da Azure Stream Analytics
 
@@ -26,7 +25,7 @@ A produção de DB Azure Cosmos da Stream Analytics não está atualmente dispon
 
 A tabela seguinte descreve as propriedades para criar uma saída DB Azure Cosmos.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída | Um pseudónimo para remeter esta saída na sua consulta Stream Analytics. |
 | Sink | Azure Cosmos DB. |
@@ -34,7 +33,7 @@ A tabela seguinte descreve as propriedades para criar uma saída DB Azure Cosmos
 | ID da Conta | O nome ou ponto final URI da conta DB da Azure Cosmos. |
 | Chave da conta | A chave de acesso partilhada para a conta DB da Azure Cosmos. |
 | Base de Dados | O nome da base de dados Azure Cosmos DB. |
-| Nome do contentor | O nome do recipiente a ser usado, que deve existir em Cosmos DB. Exemplo:  <br /><ul><li> _MyContainer_ : Deve existir um recipiente chamado "MyContainer".</li>|
+| Nome do contentor | O nome do recipiente a ser usado, que deve existir em Cosmos DB. Exemplo:  <br /><ul><li> _MyContainer_: Deve existir um recipiente chamado "MyContainer".</li>|
 | ID do documento |Opcional. O nome do campo em eventos de saída que são usados para especificar a chave primária em que inserem ou atualizar operações são baseadas.
 
 ## <a name="partitioning"></a>Criação de partições
@@ -45,7 +44,7 @@ A chave de partição baseia-se na cláusula PARTITION BY na consulta. O número
 
 Para obter o tamanho máximo da mensagem, consulte [os limites de DB Azure Cosmos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). O tamanho do lote e a frequência de escrita são ajustados dinamicamente com base nas respostas DB do Azure Cosmos. Não existem limitações pré-determinadas da Stream Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)

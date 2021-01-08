@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e6b4175f4f47c9dd378bec84da2575c079a2079f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591791"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -89,11 +89,11 @@ Na Amazon Web Services (AWS), atribua o valor do nome de **utilizador** em Azure
 
 Para configurar e testar o Azure AD com a Amazon Web Services (AWS), execute os seguintes passos:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Amazon Web Services (AWS) SSO](#configure-amazon-web-services-aws-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configurar um único sinal na sua aplicação Amazon Web Services (AWS).
 
@@ -107,7 +107,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique no ícone de **lápis** para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome  | Atributo de origem  | Espaço de Nomes |
+    | Name  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
@@ -143,11 +143,14 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     exemplo, Clique em **Guardar**.
 
+    >[!NOTE]
+    >Para mais informações sobre papéis em Azure AD, consulte [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+
 7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML da Federação** e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configurar os Serviços Web da Amazon (AWS) Sign-On únicos
+### <a name="configure-amazon-web-services-aws-sso"></a>Configure Amazon Web Services (AWS) SSO
 
 1. Numa janela de navegador diferente, inscreva-se no site da empresa Amazon Web Services (AWS) como administrador.
 
@@ -231,7 +234,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![A imagem mostra onde a conta I D aparece na janela A W S.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Agora assine no [portal Azure](https://portal.azure.com/) e navegue para **grupos.**
+1. Agora assine no portal Azure e navegue para **grupos.**
 
 1. Crie novos grupos com o mesmo nome que o IAM Roles criados anteriormente e anotar os **IDs** de objeto destes novos grupos.
 
@@ -347,11 +350,11 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
     > [!Note]
     > Por favor, note que precisa de refrescar a sua sessão no portal Azure para ver novas funções.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, você testa a sua configuração de sinal de Ad Ad única Azure usando as Minhas Apps.
 
-Quando clicar no azulejo amazon Web Services (AWS) no Painel de Acesso, deverá obter a página de aplicação da Amazon Web Services (AWS) com opção de selecionar o papel.
+Quando clicar no azulejo amazon Web Services (AWS) nas Minhas Apps, deverá obter a página de aplicação da Amazon Web Services (AWS) com opção de selecionar o papel.
 
 ![Teste um único sinal-on1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
@@ -359,9 +362,9 @@ Também pode verificar a resposta da SAML para ver as funções serem passadas c
 
 ![Teste de sinal único 2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 

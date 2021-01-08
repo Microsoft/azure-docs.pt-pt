@@ -1,19 +1,18 @@
 ---
 title: Resolução de problemas Azure Stream Análises
 description: Este artigo descreve técnicas para resolver problemas nas suas consultas em trabalhos Azure Stream Analytics.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491312"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015135"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Resolução de problemas Azure Stream Análises
 
@@ -79,10 +78,10 @@ Em seguida, pode reescrever a consulta desta forma:
 
 Agora começa o trabalho de novo, e deixa-o funcionar por alguns minutos. Em seguida, consultar a temperatura1 e a temperatura2 com o Visual Studio Cloud Explorer para produzir as seguintes tabelas:
 
-**temp1 table** 
+ 
  tabela ![ temporária1 SELECIONE EM consulta de stream de tabela1](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**temp2 table** 
+ 
  tabela ![ temporária2 SELECIONE EM consulta de stream de tabela temp2](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Como pode ver, a temperatura1 e a temperatura2 têm dados, e a coluna de nomes é povoada corretamente em temperatura2. No entanto, como ainda não há dados na produção, algo está errado:
@@ -107,7 +106,7 @@ Desta vez, os dados na saída são formatados e povoados como esperado.
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

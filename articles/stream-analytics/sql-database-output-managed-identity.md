@@ -1,17 +1,17 @@
 ---
 title: Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics - Azure Stream Analytics
 description: Este artigo descreve como usar identidades geridas para autenticar o seu trabalho Azure Stream Analytics para Azure SQL Database ou Azure Synapse Analytics output.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: ee617b50d85f611e130ec5533239c8924efecc6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352189"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014150"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -179,7 +179,7 @@ Certifique-se de que criou uma tabela na sua base de dados Azure Synapse com o e
 
 A Identidade Gerida criada para um trabalho stream Analytics só é eliminada quando o trabalho é eliminado. Não há como apagar a Identidade Gerida sem apagar o trabalho. Se já não pretender utilizar a Identidade Gerida, pode alterar o método de autenticação para a saída. A Identidade Gerida continuará a existir até que o trabalho seja eliminado, e será utilizado se decidir voltar a utilizar a autenticação identidade gerida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Saída Azure Stream Analytics para Azure SQL Database](stream-analytics-sql-output-perf.md)

@@ -1,19 +1,18 @@
 ---
 title: Construa uma solução IoT utilizando o Azure Stream Analytics
 description: Tutorial de início para a solução IoT stream Analytics de um cenário de portagem
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130804"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016155"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Construa uma solução IoT utilizando o Stream Analytics
 
@@ -134,7 +133,7 @@ Existem vários recursos que podem ser facilmente implantados num grupo de recur
 
 9. Selecione **Comprar** para implementar o modelo de amostra.
 
-10. Após alguns momentos, uma notificação parece confirmar que a **Implementação foi bem sucedida** .
+10. Após alguns momentos, uma notificação parece confirmar que a **Implementação foi bem sucedida**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Reveja os recursos do Azure Stream Analytics TollApp
 
@@ -176,20 +175,20 @@ Existem vários recursos que podem ser facilmente implantados num grupo de recur
 ## <a name="start-the-tollapp-streaming-job"></a>Inicie o trabalho de streaming do TollApp
 Siga estes passos para iniciar o trabalho de streaming:
 
-1. Na página **geral** do trabalho, selecione **Iniciar** .
+1. Na página **geral** do trabalho, selecione **Iniciar**.
 
-2. No painel **de trabalho Iniciar,** selecione **Agora** .
+2. No painel **de trabalho Iniciar,** selecione **Agora**.
 
 3. Após alguns momentos, uma vez que o trabalho está em execução, na página **geral** do trabalho de streaming, veja o gráfico **de monitorização.** O gráfico deve mostrar vários milhares de eventos de entrada, e dezenas de eventos de saída.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Reveja os dados de saída do CosmosDB
 1. Localize o grupo de recursos que contém os recursos do TollApp.
 
-2. Selecione a Conta DB Azure Cosmos com o nome padrão **tollapp \<random\> -cosmos** .
+2. Selecione a Conta DB Azure Cosmos com o nome padrão **tollapp \<random\> -cosmos**.
 
 3. Selecione o título **do Data Explorer** para abrir a página Data Explorer.
 
-4. Expandir as **portagensAppDatabase**  >  **TollAppCollection**  >  **Documents** .
+4. Expandir as **portagensAppDatabase**  >  **TollAppCollection**  >  **Documents**.
 
 5. Na lista de ids, vários docs são mostrados uma vez que a saída está disponível.
 
@@ -214,7 +213,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Para atualizar a sintaxe de trabalho de streaming do TollApp:
 
-1. Na página **geral** do trabalho, selecione **Stop** .
+1. Na página **geral** do trabalho, selecione **Stop**.
 
 2. Espere alguns momentos para a notificação de que o trabalho parou.
 
@@ -224,9 +223,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. **Selecione Guardar** para guardar a consulta. Confirme **Sim** para guardar as alterações.
 
-6. Na página **geral** do trabalho, selecione **Iniciar** .
+6. Na página **geral** do trabalho, selecione **Iniciar**.
 
-7. No painel **de trabalho Iniciar,** selecione **Agora** .
+7. No painel **de trabalho Iniciar,** selecione **Agora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Reveja o tempo total na saída
 Repita os passos na secção anterior para rever os dados de saída do CosmosDB a partir do trabalho de streaming. Reveja os documentos mais recentes da JSON.
@@ -301,9 +300,9 @@ Para aumentar o trabalho de streaming para mais unidades de streaming:
 
 2. Atualize a sintaxe de consulta na página **< > Consulta** e guarde as alterações.
 
-3. Sob o título CONFIGURE no trabalho de streaming, selecione **Scale** .
+3. Sob o título CONFIGURE no trabalho de streaming, selecione **Scale**.
 
-4. Deslize o deslizador das **unidades** de streaming de 1 para 6. As unidades de streaming definem a quantidade de poder de computação que o trabalho pode receber. Selecione **Guardar** .
+4. Deslize o deslizador das **unidades** de streaming de 1 para 6. As unidades de streaming definem a quantidade de poder de computação que o trabalho pode receber. Selecione **Save** (Guardar).
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho através de mais recursos computacional e consegue uma melhor produção, dividindo o trabalho através dos recursos utilizando a coluna designada na cláusula PARTITION BY.
 
@@ -319,7 +318,7 @@ Também pode aceder **aos Registos** de Atividade a partir da área de **Defini�
 
 2. Localize o grupo de recursos que contém oito recursos relacionados com o modelo TollApp.
 
-3. Selecione **Eliminar grupo de recursos** . Digite o nome do grupo de recursos para confirmar a eliminação.
+3. Selecione **Eliminar grupo de recursos**. Digite o nome do grupo de recursos para confirmar a eliminação.
 
 ## <a name="conclusion"></a>Conclusão
 Esta solução apresentou-o ao serviço Azure Stream Analytics. Demonstrou como configurar entradas e saídas para o trabalho stream Analytics. Utilizando o cenário de Dados de Portagem, a solução explicou tipos comuns de problemas que surgem no espaço de dados em movimento e como podem ser resolvidos com consultas simples semelhantes a SQL no Azure Stream Analytics. A solução descreveu as construções de extensão SQL para trabalhar com dados temporais. Mostrou como juntar fluxos de dados, como enriquecer o fluxo de dados com dados de referência estáticos, e como escalar uma consulta para alcançar uma produção mais elevada.

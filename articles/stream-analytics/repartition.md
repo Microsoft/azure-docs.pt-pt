@@ -2,17 +2,17 @@
 title: Use repartição para otimizar os empregos Azure Stream Analytics
 description: Este artigo descreve como usar a repartição para otimizar os trabalhos do Azure Stream Analytics que não podem ser paralelos.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72f81a0eac81acdca71c8ed81695789c417898ca
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75732387"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014200"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use a repartição para otimizar o processamento com a Azure Stream Analytics
 
@@ -67,7 +67,7 @@ SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
 Para obter mais informações, consulte [a saída Azure Stream Analytics para a Base de Dados Azure SQL](stream-analytics-sql-output-perf.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Começa com o Azure Stream Analytics](stream-analytics-introduction.md)
 * [Paralelização de consulta de alavancagem em Azure Stream Analytics](stream-analytics-parallelization.md)

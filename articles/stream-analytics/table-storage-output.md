@@ -1,18 +1,17 @@
 ---
 title: Saída de armazenamento de mesa da Azure Stream Analytics
 description: Este artigo descreve o armazenamento da tabela Azure como uma saída para o Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 558ddf065d33a552034c5b129ea70bc144c494ca
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127353"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013894"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Saída de armazenamento de mesa da Azure Stream Analytics
 
@@ -20,7 +19,7 @@ ms.locfileid: "93127353"
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de tabela.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para este armazenamento de mesa. |
 | Conta de armazenamento |O nome da conta de armazenamento para onde está a enviar a sua produção. |
@@ -38,7 +37,7 @@ A chave de partição é qualquer coluna de saída. O número de autores de saí
 
 Para obter o tamanho máximo da mensagem, consulte [os limites de armazenamento do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). O padrão é de 100 entidades por transação única, mas pode configugá-lo a um valor menor, conforme necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)

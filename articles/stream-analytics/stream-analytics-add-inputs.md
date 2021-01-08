@@ -3,16 +3,15 @@ title: Compreenda as entradas para a Azure Stream Analytics
 description: Este artigo descreve o conceito de entradas num trabalho do Azure Stream Analytics, comparando a entrada de streaming com a entrada de dados de referência.
 author: jseb225
 ms.author: krishmam
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: b344e9e24d15189b805f586227c7253395e8448e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c62bb2aad266d577a5f4c6f6343d6ed3f4f1979
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022069"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016206"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Compreenda as entradas para a Azure Stream Analytics
 
@@ -41,6 +40,6 @@ O Stream Analytics também suporta a entrada conhecida como *dados de referênci
 
 Para obter mais informações sobre entradas de dados de referência, consulte [utilizando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

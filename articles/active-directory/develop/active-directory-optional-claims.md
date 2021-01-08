@@ -12,12 +12,12 @@ ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935908"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014877"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -136,7 +136,7 @@ Este objeto OpcionalClaims faz com que o sinal de identificação devolvido ao c
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou manifesto de aplicação.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com). 
+1. Vá ao <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure.</a> 
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gerir**, selecione **Registos de aplicações**.
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
@@ -149,7 +149,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 1. **Selecione Adicionar reclamação opcional**.
 1. Selecione o tipo de símbolo que deseja configurar.
 1. Selecione as reclamações opcionais a adicionar.
-1. Selecione **Add** (Adicionar).
+1. Selecione **Adicionar**.
 
 > [!NOTE]
 > A lâmina de **configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente. Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/configure-user-input.md) 
@@ -245,7 +245,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
 **Configurar reivindicações opcionais de grupos através da UI:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gerir**, selecione **Registos de aplicações**.
@@ -254,11 +254,11 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 1. Selecione **Adicionar grupos reivindicação**.
 1. Selecione os tipos de grupo para devolver **(Grupos de segurança,** ou **funções de diretório**, **Todos os grupos** e/ou **grupos designados para a aplicação).** Os **Grupos atribuídos à opção de candidatura** incluem apenas grupos atribuídos à aplicação. A opção **All Groups** inclui **SecurityGroup,** **DirectyRole** e **DistributionList,** mas não **grupos atribuídos à aplicação.** 
 1. Opcional: selecione as propriedades específicas do tipo token para modificar o valor de reivindicação dos grupos para conter nos atributos do grupo de instalações ou para alterar o tipo de reclamação para uma função.
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 **Configurar pedidos opcionais de grupos através do manifesto de aplicação:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Procure e selecione **Azure Active Directory**.
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
@@ -389,7 +389,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 **Configuração de UI:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 
 1. Procure e selecione **Azure Active Directory**.
@@ -412,7 +412,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 **Configuração manifesta:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Procure e selecione **Azure Active Directory**.
 1. Encontre a aplicação que pretende configurar reclamações opcionais para a lista e selecione-a.
@@ -448,7 +448,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 391febcf8852147aedf5ef61d2442b2f50b4c9ae
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673592"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014744"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar uma aplicação de página única JavaScript de subvenção implícita para fluxo de código de auth
 
@@ -30,7 +30,7 @@ MSAL.js 2.x melhora em MSAL.js 1.x, suportando o fluxo de código de autorizaç�
 Para atualizar a sua aplicação para MSAL.js 2.x e o fluxo de código de auth, existem três passos primários:
 
 1. Mude o seu registo de [aplicações](#switch-redirect-uris-to-spa-platform) redirecionando URI(s) da plataforma **Web** para a plataforma **de aplicações de página única.**
-1. Atualize o seu [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x** .
+1. Atualize o seu [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x**.
 1. Desativar a [subvenção implícita](#disable-implicit-grant-settings) no registo da sua aplicação quando todas as aplicações que partilham o registo tiverem sido atualizadas para MSAL.js 2.x e o fluxo de código auth.
 
 As seguintes secções descrevem cada passo em detalhes adicionais.
@@ -41,18 +41,18 @@ Se quiser continuar a utilizar o registo de aplicações existente para as suas 
 
 Siga estes passos para registos de aplicações que estão atualmente configurados com URIs de redirecionamento de plataforma **Web:**
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione o seu inquilino **Azure Ative Directory.**
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal Azure</a> e selecione o seu inquilino **Azure Ative Directory.**
 1. Nas **inscrições da App,** selecione a sua candidatura e, em seguida, **autenticação.**
 1. No azulejo da plataforma **Web** em **Redirecionar URIs,** selecione o banner de aviso indicando que deve migrar os uris.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
-1. Selecione *apenas* os URIs de redirecionamento cujas aplicações utilizarão MSAL.js 2.x e, em seguida, selecione **Configure** .
+1. Selecione *apenas* os URIs de redirecionamento cujas aplicações utilizarão MSAL.js 2.x e, em seguida, selecione **Configure**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Selecione redirecionar o painel URI no painel DE SPA no portal Azure":::
 
 Estes URIs de redireccionamento devem agora aparecer no azulejo da plataforma **de aplicação de página única,** mostrando que o suporte do CORS com o fluxo de código de autorização e pkce está ativado para estes URIs.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Azulejo de aplicação de uma página no registo de aplicações no portal Azure":::
 
 Também pode [criar um novo registo de aplicações](scenario-spa-app-registration.md) em vez de atualizar os URIs redirecionados no seu registo existente.
 
@@ -88,7 +88,7 @@ Quando desmarque as definições implícitas de subvenção no registo da aplica
 
 **Não** desative o fluxo de subvenção implícito antes de atualizar todas as suas aplicações para MSAL.js 2.x e a [PublicClientApplication][msal-js-publicclientapplication].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos implícitos e de código de auth, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 

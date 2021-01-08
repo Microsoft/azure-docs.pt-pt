@@ -1,18 +1,17 @@
 ---
 title: Utilize dados de referência da Base de Dados SQL num trabalho de Azure Stream Analytics
 description: Este artigo descreve como usar uma Base de Dados SQL como entrada de dados de referência para um trabalho de Azure Stream Analytics no portal Azure e no Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 7e2826221bd9d15472467c4dd8676d3d0538e0d6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e7d16de8a7a5c6f5353d64e25580b19845ce96c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326578"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016410"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utilize dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics
 
@@ -121,7 +120,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 Abra **JobConfig.js** para especificar a conta de armazenamento para armazenar instantâneos de referência SQL.
 
-   ![A configuração de configuração de configuração de trabalho de streaming analytics é mostrada com valores predefinidos. As Definições Globais de Armazenamento estão em destaque.](./media/sql-reference-data/stream-analytics-job-config.png)
+   ![A configuração de trabalho de streaming analytics é mostrada com valores predefinidos. As Definições Globais de Armazenamento estão em destaque.](./media/sql-reference-data/stream-analytics-job-config.png)
 
 ### <a name="test-locally-and-deploy-to-azure"></a>Teste local e implemente para Azure
 
@@ -227,7 +226,7 @@ O Azure Stream Analytics funcionará com qualquer tipo de Base de Dados Azure SQ
 
 O Stream Analytics garante exatamente um processamento de eventos e pelo menos uma entrega de eventos. Nos casos em que as questões transitórias afetam o seu trabalho, uma pequena quantidade de repetição é necessária para restaurar o estado. Para ativar a repetição, é necessário ter estas imagens armazenadas numa conta de Armazenamento Azure. Para obter mais informações sobre a repetição do checkpoint, consulte [Checkpoint e reproduzir conceitos em trabalhos Azure Stream Analytics](stream-analytics-concepts-checkpoint-replay.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilização de dados de referência para procuras no Stream Analytics](stream-analytics-use-reference-data.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)

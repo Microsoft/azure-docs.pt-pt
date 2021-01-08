@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c4c98ad377100c35b0c364607bfd3803d07a95a7
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169499"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015934"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Como: Ativar sSO cross-app no Android usando o MSAL
 
@@ -119,7 +119,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Depois de gerar um hash de assinatura com *tecla,* use o portal Azure para gerar o URI de redirecionamento:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione a sua aplicação Android em **registos de Aplicações.**
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> e selecione a sua aplicação Android em **registos de Aplicações.**
 1. Selecione **Autenticação**  >  **Adicione uma plataforma**  >  **Android**.
 1. No **painel de configuração** da sua aplicação Android que abre, insira o **hash Signature** que gerou anteriormente e um nome **pacote.**
 1. Selecione o **botão Configurar.**
@@ -233,6 +233,6 @@ Os seguintes navegadores foram testados para ver se redirecionam corretamente pa
 <sup>2</sup> O navegador incorporado da Huawei é o Navegador Huawei.<br/>
 <sup>3</sup> O navegador predefinido não pode ser alterado dentro da definição do dispositivo Oppo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [O modo de dispositivo partilhado para dispositivos Android](msal-android-shared-devices.md) permite configurar um dispositivo Android para que possa ser facilmente partilhado por vários colaboradores.

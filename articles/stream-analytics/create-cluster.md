@@ -3,17 +3,16 @@ title: Criar um Azure Stream Analytics Cluster quickstart
 description: Aprenda a criar um cluster Azure Stream Analytics.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: a7be204c30d242be991fb9a57d239b69342ace97
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb36af5b3f1e142405b24ade16516d0268b4ab2f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947475"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016563"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Quickstart: Criar um cluster Azure Stream Analytics dedicado usando o portal Azure
 
@@ -60,7 +59,7 @@ Pode eliminar o seu cluster Stream Analytics se não pretender executar quaisque
 
 1. Vá ao **resumo** do seu agrupamento. **Selecione Eliminar** e seguir as instruções para eliminar o seu cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar um cluster Azure Stream Analytics. Avance para o próximo artigo para aprender a executar um trabalho stream Analytics no seu cluster:
 

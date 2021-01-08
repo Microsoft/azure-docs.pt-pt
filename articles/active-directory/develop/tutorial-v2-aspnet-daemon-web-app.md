@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509432"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015951"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - Um inquilino do Azure AD. Para mais informações, consulte [Como obter um inquilino AZure AD.](quickstart-create-new-tenant.md)
 - Uma ou mais contas de utilizador no seu inquilino AZure AD. Esta amostra não funciona com uma conta microsoft. Se se inscreveu no [portal Azure](https://portal.azure.com) com uma conta microsoft e nunca criou uma conta de utilizador no seu diretório, faça-o agora.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 A aplicação foi construída como uma aplicação MVC ASP.NET. Utiliza o middleware OWIN OpenID Connect para iniciar sílsi nos utilizadores.
 
@@ -93,7 +93,7 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 
 ### <a name="choose-the-azure-ad-tenant"></a>Escolha o inquilino AZure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 
 
@@ -111,7 +111,7 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 1. Em **Gestão**, **selecione Autenticação**.
 1. Desatado **URL de logout** para `https://localhost:44316/Account/EndSession` .
 1. Na secção **de concessão implícita,** selecione **Tokens de acesso** e **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 1. Em **Gerir**, selecione **Certificados e segredos**.
 1. Na secção **de segredos** do Cliente, selecione **Novo segredo de cliente.** 
 1. Introduza uma descrição chave (por exemplo, **app secret).**
@@ -203,7 +203,7 @@ Este projeto tem aplicativos web e projetos web API. Para os implementar nos web
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Criar e publicar dotnet-web-daemon-v2 para um site da Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Selecione **Criar um recurso** no canto superior esquerdo.
 1. Selecione **Web**  >  **Web App** e, em seguida, dê ao seu site um nome. Por exemplo, diga-lhe **dotnet-web-daemon-v2-contoso.azurewebsites.net.**
 1. Selecione as informações para **Subscrição,** **Grupo de Recursos** e Plano de Serviço de **Aplicação e localização.** **O SO** é **Windows**, e **publicar** é **código.**
@@ -218,13 +218,13 @@ Este projeto tem aplicativos web e projetos web API. Para os implementar nos web
 1. Selecione **Configurar**.
 1. No separador **'Ligação',** atualize o URL de destino para que utilize "https". Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` . Selecione **Seguinte**.
 1. No separador **Definições,** certifique-se de que **ativar a autenticação organizacional.**
-1. Selecione **Guardar**. Selecione **Publicar** no ecrã principal.
+1. Selecione **Save** (Guardar). Selecione **Publicar** no ecrã principal.
 
 O Visual Studio publicará o projeto e abrirá automaticamente um navegador para o URL do projeto. Se vir a página web padrão do projeto, a publicação foi bem sucedida.
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Atualizar o registo de pedido de inquilino Azure AD para dotnet-web-daemon-v2
 
-1. Volte para o [portal Azure.](https://portal.azure.com)
+1. Volte para o <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure.</a>
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**.
 1. Selecione a aplicação **dotnet-web-daemon-v2.**
 1. Na página **autenticação** para a sua aplicação, atualize os campos URL do **Logoto** com o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
@@ -247,7 +247,7 @@ Se encontrar um bug no MSAL.NET, por favor levante a questão sobre [MSAL.NET Pr
 
 Para fornecer uma recomendação, aceda à [página Voz](https://feedback.azure.com/forums/169401-azure-active-directory)do Utilizador .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a construção de aplicações daemon que usam a plataforma de identidade da Microsoft para aceder a APIs web protegidas:
 

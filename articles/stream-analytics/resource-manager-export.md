@@ -2,17 +2,17 @@
 title: Exporte um azure stream analytics job Azure Resource Manager modelo
 description: Este artigo descreve como exportar um modelo de Gestor de Recursos Azure para o seu trabalho Azure Stream Analytics.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 2afebe61c4b2998692c823e66d8fc73584ec1dc2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125653"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015424"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exporte um azure stream analytics job Azure Resource Manager modelo
 
@@ -24,7 +24,7 @@ Pode recolocar um trabalho Azure Stream Analytics exportando o modelo Azure Reso
 
 Antes de poder exportar um modelo, tem primeiro de abrir um trabalho de Stream Analytics existente no Código do Estúdio Visual. 
 
-Para exportar um emprego para um projeto local, localize o trabalho que deseja exportar no **Stream Analytics Explorer** no portal Azure. Na página **'Consulta',** selecione **Abrir no Estúdio Visual** . Em seguida, selecione **Visual Studio Code** .
+Para exportar um emprego para um projeto local, localize o trabalho que deseja exportar no **Stream Analytics Explorer** no portal Azure. Na página **'Consulta',** selecione **Abrir no Estúdio Visual**. Em seguida, selecione **Visual Studio Code**.
 
 ![Open Stream Analytics trabalho em Código de Estúdio Visual](./media/resource-manager-export/open-job-vs-code.png)
 
@@ -66,7 +66,7 @@ Se não tiver a Azure PowerShell configurada, siga os passos no [módulo Install
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Teste Azure Stream Analytics empregos localmente com entrada ao vivo usando Código de Estúdio Visual](visual-studio-code-local-run-live-input.md)
 

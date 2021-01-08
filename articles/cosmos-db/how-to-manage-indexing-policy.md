@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341319"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015696"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ Em Azure Cosmos DB, os dados são indexados seguindo [as políticas de indexaç�
 
 Eis alguns exemplos de políticas de indexação mostradas no [seu formato JSON](index-policy.md#include-exclude-paths), que é como são expostas no portal Azure. Os mesmos parâmetros podem ser definidos através do CLI Azure ou de qualquer SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de opt-out para excluir seletivamente alguns caminhos de propriedade
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>Política de opt-out para excluir seletivamente alguns caminhos de propriedade
 
 ```json
     {
@@ -146,7 +146,7 @@ Esta política de indexação é equivalente à abaixo da que define manualmente
 > [!NOTE]
 > É geralmente recomendado usar uma política de indexação **de opt-out** para permitir que a Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo de dados.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usando um índice espacial apenas num caminho de propriedade específico
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>Usando um índice espacial apenas num caminho de propriedade específico
 
 ```json
 {
@@ -176,7 +176,7 @@ Esta política de indexação é equivalente à abaixo da que define manualmente
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação compósita
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>Exemplos de política de indexação compósita
 
 Além de incluir ou excluir caminhos para propriedades individuais, também pode especificar um índice composto. Se você gostaria de realizar uma consulta que tenha uma `ORDER BY` cláusula para várias propriedades, é necessário um [índice composto](index-policy.md#composite-indexes) nessas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que tenham um filtro múltiplo ou um filtro e uma cláusula ORDER BY.
 
@@ -759,7 +759,7 @@ container_client.read(populate_quota_info = True,
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre a indexação nos seguintes artigos:
 

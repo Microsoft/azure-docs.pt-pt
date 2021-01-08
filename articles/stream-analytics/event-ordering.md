@@ -1,18 +1,17 @@
 ---
 title: Configurar políticas de encomendas de eventos para Azure Stream Analytics
 description: Este artigo descreve como configurar até mesmo encomendar definições no Stream Analytics
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f7ec6f32b48a93a29210311c7ba6747eb2e2d066
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130668"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014300"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurar políticas de encomendas de eventos para Azure Stream Analytics
 
@@ -79,8 +78,8 @@ Esta mensagem para informá-lo de que pelo menos uma divisória na sua entrada e
 ## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Por que vejo um atraso de 5 segundos, mesmo quando a minha política de chegada tardia está definida para 0?
 Isto acontece quando há uma partição de entrada que nunca recebeu qualquer entrada. Pode verificar as métricas de entrada por partição para validar este comportamento. 
 
-Quando uma partição não tem dados para mais do que o limiar de chegada tardio configurado, a análise de fluxo avança o tempo de aplicação como explicado na secção de considerações de encomenda de eventos. Isto requer a hora estimada de chegada. Se a partição nunca teve dados, a análise do fluxo estima a hora de chegada como *hora local - 5 segundos* . Devido a estas divisórias que nunca tiveram dados poderiam mostrar um atraso de 5 segundos.  
+Quando uma partição não tem dados para mais do que o limiar de chegada tardio configurado, a análise de fluxo avança o tempo de aplicação como explicado na secção de considerações de encomenda de eventos. Isto requer a hora estimada de chegada. Se a partição nunca teve dados, a análise do fluxo estima a hora de chegada como *hora local - 5 segundos*. Devido a estas divisórias que nunca tiveram dados poderiam mostrar um atraso de 5 segundos.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Considerações de processamento de tempo](stream-analytics-time-handling.md)
 * [Métricas disponíveis em Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

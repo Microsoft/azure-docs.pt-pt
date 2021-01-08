@@ -3,17 +3,16 @@ title: Monitorize e gere os empregos do Azure Stream Analytics programáticament
 description: Este artigo descreve como monitorizar programáticamente os trabalhos do Stream Analytics criados através de REST APIs, Azure SDK ou PowerShell.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c746e409964b4625a4c9921d9f02ca0c9730a35
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: dda1b6b652870440e7228e6640bb555f4c2e4a63
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123451"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015081"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programáticamente um monitor de trabalho stream Analytics
 
@@ -172,7 +171,7 @@ O código seguinte permite a monitorização de um trabalho stream analytics **e
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

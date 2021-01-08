@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 6834f9cc8202f49f53c20f3941945bba4a4b2efd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b4b38112e32a55739ea14d5ff06e327819171557
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026751"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014557"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realize deteção de intrusão de rede com o Network Watcher e ferramentas open source
 
@@ -26,7 +26,7 @@ As capturas de pacotes são um componente chave para implementar sistemas de det
 
 Uma dessas ferramentas de código aberto é a Suricata, um motor IDS que utiliza regras para monitorizar o tráfego da rede e aciona alertas sempre que ocorram eventos suspeitos. A Suricata oferece um motor multi-roscado, o que significa que pode realizar análises de tráfego de rede com maior rapidez e eficiência. Para mais detalhes sobre a Suricata e as suas capacidades, visite o seu website em https://suricata-ids.org/ .
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Este artigo explica como configurar o seu ambiente para realizar a deteção de intrusões de rede usando o Network Watcher, Suricata e a Pilha Elástica. O Network Watcher fornece-lhe as capturas de pacotes utilizadas para realizar a deteção de intrusões na rede. Suricata processa os pacotes captura e dispara alertas com base em pacotes que correspondem ao seu conjunto de ameaças. Estes alertas são armazenados num ficheiro de registo na sua máquina local. Utilizando a Pilha Elástica, os registos gerados pela Suricata podem ser indexados e utilizados para criar um dashboard Kibana, proporcionando-lhe uma representação visual dos registos e um meio para obter rapidamente insights sobre potenciais vulnerabilidades de rede.  
 

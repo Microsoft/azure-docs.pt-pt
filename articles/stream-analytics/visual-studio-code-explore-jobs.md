@@ -2,16 +2,16 @@
 title: Explore os trabalhos do Azure Stream Analytics no Código do Estúdio Visual
 description: Este artigo mostra-lhe como exportar um trabalho da Azure Stream Analytics para um projeto local, enumerar empregos e ver entidades de emprego.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1c0650820a419275ade6095344033b6d81a568
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891980"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013877"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explore a Azure Stream Analytics com Código de Estúdio Visual (Pré-visualização)
 
@@ -42,6 +42,6 @@ Você pode usar a vista de trabalho para interagir com os trabalhos da Azure Str
 
    ![Vista de emprego aberta no portal](./media/vscode-explore-jobs/open-job-view.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Crie um trabalho em nuvem Azure Stream Analytics em Código de Estúdio Visual (Pré-visualização)](quick-create-visual-studio-code.md)

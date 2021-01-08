@@ -1,17 +1,17 @@
 ---
 title: Desenvolver e depurar Azure Stream Analytics empregos localmente
 description: Aprenda a desenvolver e testar os trabalhos do Azure Stream Analytics no seu computador local antes de os executar no portal Azure.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sujie
+author: su-jie
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 797577ce976f71f41ece0d103bd0145775d48b56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18df480dab90d9ab127bb96971fc19cdc5a361ce
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885580"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016478"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Desenvolver e depurar Azure Stream Analytics empregos localmente
 
@@ -29,7 +29,7 @@ Os ambientes da tabela seguinte apoiam o desenvolvimento local:
 |[Visual Studio 2019](stream-analytics-tools-for-visual-studio-install.md) |Stream Analytics Tools faz parte do desenvolvimento do Azure e do armazenamento de dados e processamento de cargas de trabalho no Estúdio Visual. Pode utilizar o Visual Studio para escrever funções e desserializantes definidos pelo utilizador. Para saber mais, consulte [Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md).|
 |[Pedido de comando ou terminal](stream-analytics-tools-for-visual-studio-cicd.md)|O pacote Azure Stream Analytics CI/CD NuGet fornece ferramentas para a construção de projetos de estúdio visual, testes locais numa máquina arbitrária. O pacote Azure Stream Analytics CI/CD npm fornece ferramentas para construções de projetos de Código de Estúdio Visual (que gera um modelo de Gestor de Recursos Azure) numa máquina arbitrária.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Teste Stream Analytics consultas localmente com dados de amostra usando Código de Estúdio Visual](visual-studio-code-local-run.md)
 * [Teste Stream Analytics consulta localmente contra entrada de transmissão ao vivo usando Código de Estúdio Visual](visual-studio-code-local-run-live-input.md)

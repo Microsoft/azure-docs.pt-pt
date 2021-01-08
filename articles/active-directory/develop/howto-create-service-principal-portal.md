@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366161"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014948"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -53,7 +53,7 @@ Na sua subscrição Azure, a sua conta deve ter `Microsoft.Authorization/*/Write
 
 Para verificar as permissões de subscrição:
 
-1. Procure e selecione **Subscrições**ou selecione **Subscrições** na página **inicial.**
+1. Procure e selecione **Subscrições** ou selecione **Subscrições** na página **inicial.**
 
    ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -75,7 +75,7 @@ Para verificar as permissões de subscrição:
 
 Vamos saltar diretamente para criar a identidade. Se tiver algum problema, verifique as [permissões necessárias](#permissions-required-for-registering-an-app) para se certificar de que a sua conta pode criar a identidade.
 
-1. Inscreva-se na sua Conta Azure através do [portal Azure](https://portal.azure.com).
+1. Inscreva-se na sua Conta Azure através do <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Selecione **Azure Active Directory**.
 1. Selecione **Registos de aplicações**.
 1. Selecione **Novo registo**.
@@ -135,7 +135,7 @@ Existem dois tipos de autenticação disponível para os principais serviços: a
 
 ### <a name="option-1-upload-a-certificate"></a>Opção 1: Carregar um certificado
 
-Pode usar um certificado existente se tiver um.  Opcionalmente, pode criar um certificado auto-assinado *apenas*para fins de teste . Para criar um certificado auto-assinado, abra o PowerShell e [execute o Certificado New-SelfSigned](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar o certificado na loja de certificados do utilizador no seu computador:
+Pode usar um certificado existente se tiver um.  Opcionalmente, pode criar um certificado auto-assinado *apenas* para fins de teste . Para criar um certificado auto-assinado, abra o PowerShell e [execute o Certificado New-SelfSigned](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar o certificado na loja de certificados do utilizador no seu computador:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -181,12 +181,12 @@ Se optar por não utilizar um certificado, pode criar um novo segredo de aplica�
 ## <a name="configure-access-policies-on-resources"></a>Configure políticas de acesso aos recursos
 Tenha em mente que poderá ter de configurar permissões adicionais sobre recursos a que a sua aplicação necessita de aceder. Por exemplo, também deve [atualizar as políticas de acesso de um cofre chave](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar acesso à sua aplicação a chaves, segredos ou certificados.
 
-1. No [portal Azure,](https://portal.azure.com)navegue para o cofre e selecione **as políticas de acesso**.
+1. No <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure,</a>navegue para o cofre e selecione **as políticas de acesso**.
 1. **Selecione Adicionar a política de acesso,** em seguida, selecione as permissões de chave, segredo e certificado que pretende conceder à sua candidatura.  Selecione o principal de serviço que criou anteriormente.
 1. **Selecione Adicionar** para adicionar a política de acesso e, em seguida, **guardar** para cometer as suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como utilizar o [Azure PowerShell para criar um principal de serviço.](howto-authenticate-service-principal-powershell.md)
 * Para saber especificar políticas de segurança, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas aos utilizadores, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos da Azure.](../../role-based-access-control/resource-provider-operations.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: e88a721d500ea1c17c768e9f28835248711bd361
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584447"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015118"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
 
@@ -34,7 +34,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
 ## <a name="create-roles-for-an-application"></a>Criar papéis para uma aplicação
 
-1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione o ícone **Azure Ative Directory.**
+1. No <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure,</a>no painel esquerdo, selecione o ícone **Azure Ative Directory.**
 
     ![Ícone de diretório ativo Azure][1]
 
@@ -167,7 +167,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
     1. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
-    1. Selecione **Guardar**.
+    1. Selecione **Save** (Guardar).
 
 10. Para testar a sua aplicação num único sinal de inscrição iniciado por um fornecedor de identidade, inicie sedível no [Painel de Acesso](https://myapps.microsoft.com) e selecione o seu azulejo de aplicação. No token SAML, deverá ver todas as funções atribuídas ao utilizador com o nome de reclamação que deu.
 
@@ -255,7 +255,7 @@ Para eliminar uma função existente, execute os seguintes passos:
 
     A função tem de ser desativada antes de poder ser removida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais etapas, consulte a documentação da [aplicação.](../saas-apps/tutorial-list.md)
 

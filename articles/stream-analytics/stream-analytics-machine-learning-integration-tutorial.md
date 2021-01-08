@@ -1,19 +1,18 @@
 ---
 title: Integração Azure Stream Analytics com Azure Machine Learning Studio (clássico)
 description: Este artigo descreve como configurar rapidamente um simples trabalho Azure Stream Analytics que integra o Azure Machine Learning Studio (clássico), utilizando uma função definida pelo utilizador.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011392"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015305"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Faça análise de sentimento com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
@@ -57,7 +56,7 @@ Neste passo, faça o upload de um ficheiro CSV para o seu recipiente de armazena
 
    ![fornecer detalhes da conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-3. Selecione **Review + Criar**. Em seguida, **selecione Criar** para implementar a sua conta de armazenamento.
+3. Selecione **Rever + Criar**. Em seguida, **selecione Criar** para implementar a sua conta de armazenamento.
 
 4. Quando a implementação estiver concluída, navegue para a sua conta de armazenamento. Em **Serviço Blob**, selecione **Contentores**. Em seguida, selecione **+ Recipiente** para criar um novo recipiente.
 
@@ -127,7 +126,7 @@ O trabalho obtém a entrada do ficheiro CSV que carregou anteriormente para o ar
    |Contentor|Selecione o recipiente que criou no passo anterior.|
    |Formato de serialização de eventos|CSV|
 
-3. Selecione **Guardar**.
+3. Selecione **Save** (Guardar).
 
 ### <a name="configure-the-job-output"></a>Configure a produção de trabalho
 
@@ -145,7 +144,7 @@ O trabalho envia resultados para o mesmo armazenamento de bolhas onde obtém ent
    |Contentor|Selecione o recipiente que criou no passo anterior.|
    |Formato de serialização de eventos|CSV|
 
-3. Selecione **Guardar**.
+3. Selecione **Save** (Guardar).
 
 ### <a name="add-the-studio-classic-function"></a>Adicione a função Studio (clássico)
 
@@ -224,7 +223,7 @@ Também pode ver métricas relacionadas com a função studio (clássica). As se
 * **Pedidos de função** indicam o número de pedidos enviados para um serviço web Studio (clássico).  
 * **Eventos de função** indicam o número de eventos no pedido. Por padrão, cada pedido a um serviço web studio (clássico) contém até 1.000 eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

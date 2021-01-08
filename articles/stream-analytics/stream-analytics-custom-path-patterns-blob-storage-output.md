@@ -1,19 +1,18 @@
 ---
 title: Azure Stream Analytics divisória de saída de bolha personalizada
 description: Este artigo descreve os padrões de trajetória datatime personalizados e o campo personalizado ou as funcionalidades de atributos para a saída de armazenamento de blob a partir de trabalhos Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617430"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014041"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics divisória de saída de bolha personalizada
 
@@ -137,6 +136,6 @@ Quando inicia o trabalho, uma estrutura de pasta baseada no padrão do caminho �
 
 ![Saída de blob de stream Analytics com padrão de caminho personalizado](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-output-folder-structure.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)

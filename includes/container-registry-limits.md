@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706206"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015683"
 ---
 | Recurso | Básica | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706206"
 | Tamanho máximo da camada de imagem (GiB) | 200 | 200 | 200 |
 | Leituras por minuto<sup>2, 3</sup> | 1,000 | 3.000 | 10,000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2.000 |
-| Baixar largura de banda Mbps<sup>2</sup> | 30 | 60 | 100 |
-| Carregar largura de banda Mbps<sup>2</sup> | 10 | 20 | 50 |
+| Baixar largura de banda<sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Carregar largura de banda <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Georreplicação | N/D | N/D | [Suportado][geo-replication] |
 | Zonas de disponibilidade | N/D | N/D | [Pré-visualizar][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706206"
 | &bull; Repositórios por mapa de âmbito | N/D | N/D | 500 |
 
 
-<sup>1</sup> Armazenamento incluído na diária para cada nível. Para armazenamento adicional, é-lhe cobrada uma taxa diária adicional por GiB, até ao limite de armazenamento. Para obter informações sobre tarifas, consulte [os preços do registo do contentor Azure][pricing].
+<sup>1</sup> Armazenamento incluído na diária para cada nível. Pode ser utilizado um armazenamento adicional, até ao limite de armazenamento do registo, a uma taxa diária adicional por GiB. Para obter informações sobre tarifas, consulte [os preços do registo do contentor Azure][pricing].
 
 <sup>2</sup>*ReadOps,* *WriteOps* e *Bandwidth* são estimativas mínimas. O Registo de Contentores Azure esforça-se para melhorar o desempenho conforme o uso requer.
 

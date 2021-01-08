@@ -1,19 +1,18 @@
 ---
 title: Rode credenciais de login em trabalhos Azure Stream Analytics
 description: Este artigo descreve como atualizar as credenciais de entradas e sumidouros de saída em trabalhos Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47afaea03e58cf6a24382727c6fc7193fde5abe4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd6c072f9783e8ff5d4d5e465b513c2e530bfd63
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012106"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015237"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rode as credenciais de login para entradas e saídas de um Trabalho de Análise de Fluxo
 
@@ -80,7 +79,7 @@ Tem de se ligar à Base de Dados SQL para atualizar as credenciais de login de u
 2. Selecione **Quando a última vez parou** > clique em **Iniciar**. Note que a opção "Quando a última paragem" só aparece se já executou o trabalho e teve alguma saída gerada. O trabalho é reiniciado com base no tempo do último valor de saída.
    ![Inicie o trabalho stream analytics](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

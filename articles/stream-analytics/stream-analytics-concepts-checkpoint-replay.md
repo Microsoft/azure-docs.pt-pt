@@ -1,25 +1,24 @@
 ---
 title: Checkpoint e replay conceitos de recuperação em Azure Stream Analytics
 description: Este artigo descreve o checkpoint e a repetição de conceitos de recuperação de emprego no Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df31f8538bb9eabeca37fe4c52c4443fd447e415
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84020613"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015323"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Checkpoint e replay conceitos em empregos Azure Stream Analytics
 Este artigo descreve os conceitos de checkpoint interno e repetição no Azure Stream Analytics, e o impacto que estes têm na recuperação de emprego. Cada vez que um trabalho stream Analytics é executado, a informação do estado é mantida internamente. Essa informação do estado é guardada num posto de controlo periodicamente. Em alguns cenários, a informação do checkpoint é usada para a recuperação de emprego se ocorrer uma falha de trabalho ou atualização. Noutras circunstâncias, o ponto de verificação não pode ser utilizado para a recuperação, e é necessária uma repetição.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta imponente em elementos temporais
-Uma das capacidades únicas do trabalho do Azure Stream Analytics é realizar um processamento imponente, como agregados com janelas, juntas temporais e funções analíticas temporais. Cada um destes operadores mantém a informação do Estado quando o trabalho funciona.O tamanho máximo da janela para estes elementos de consulta é de sete dias. 
+## <a name="stateful-query-logic-in-temporal-elements"></a>Lógica de consulta imponente em elementos temporais
+Uma das capacidades únicas do trabalho do Azure Stream Analytics é realizar um processamento imponente, como agregados com janelas, juntas temporais e funções analíticas temporais. Cada um destes operadores mantém a informação do Estado quando o trabalho funciona. O tamanho máximo da janela para estes elementos de consulta é de sete dias. 
 
 O conceito de janela temporal aparece em vários elementos de consulta stream analytics:
 1. Agregados com janelas (GRUPO BY de Tumbling, Hopping e Janelas deslizantes)
@@ -67,7 +66,7 @@ Para editar a sintaxe de consulta num trabalho de streaming, ou para ajustar ent
 
 Os dados do checkpoint não podem ser utilizados para um reinício de trabalho iniciado pelo utilizador. Para estimar o atraso da produção durante este reinício, utilize o mesmo procedimento descrito na secção anterior e aplique uma mitigação semelhante se o atraso for demasiado longo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre fiabilidade e escalabilidade, consulte estes artigos:
 - [Tutorial: Criar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md)
 - [Escalar um trabalho Azure Stream Analytics para aumentar a produção](stream-analytics-scale-jobs.md)

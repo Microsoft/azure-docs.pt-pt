@@ -1,17 +1,17 @@
 ---
 title: Alcançar geo-redundância para empregos Azure Stream Analytics
 description: Este artigo descreve como alcançar a geo-redundância dos empregos da Azure Stream Analytics em vez de geo-failover.
-author: mamccrea
-ms.author: mamccrea
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/26/2020
-ms.openlocfilehash: 44b0394773485f8054eddc94c7d7e9b91baebc6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a90cbcbb3381e853dcea766364642a89dafd7b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88951096"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015526"
 ---
 # <a name="achieve-geo-redundancy-for-azure-stream-analytics-jobs"></a>Alcançar geo-redundância para empregos Azure Stream Analytics
 
@@ -27,7 +27,7 @@ A sua aplicação precisa de gerir qual a base de dados de saída da região con
 
 Embora diferentes tipos de entrada e saída permitam diferentes opções de geo-replicação, recomendamos a utilização do padrão descrito neste artigo para alcançar a geo-redundância, pois proporciona flexibilidade e controlo tanto para os produtores de eventos como para os consumidores de eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorize e gera os trabalhos de Azure Stream Analytics com a PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 * [Depuração orientada por dados no Azure Stream Analytics](stream-analytics-job-diagram-with-metrics.md)

@@ -3,16 +3,15 @@ title: Funciona o Estúdio de Aprendizagem de Máquinas de Escala (clássico) em
 description: Este artigo descreve como escalar os trabalhos do Stream Analytics que utilizam funções do Machine Learning Studio (clássico), configurando unidades de partição e streaming.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018822"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013945"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalar o seu trabalho stream analytics com funções Azure Machine Learning Studio (clássico)
 
@@ -142,7 +141,7 @@ Para escalar um trabalho stream analytics com funções studio (clássicas), con
 
 Uma consulta stream analytics totalmente dividida foi usada como um exemplo. Se for necessária uma consulta mais complexa, o [Microsoft Q&Página de perguntas para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre stream analytics, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

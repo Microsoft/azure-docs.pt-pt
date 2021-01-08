@@ -1,19 +1,18 @@
 ---
 title: Introdução ao Azure Stream Analytics
 description: Saiba mais sobre o Azure Stream Analytics, um serviço gerido que o ajuda a analisar dados de streaming a partir da Internet das Coisas (IoT) em tempo real.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q2
 ms.date: 11/12/2020
-ms.openlocfilehash: 1871fdda7fe37e938f52c68e97bd9f40dbd9791d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5aea6460f3a876d63544ce8422f9f205c22f2a0f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029282"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015254"
 ---
 # <a name="welcome-to-azure-stream-analytics"></a>Bem-vindo ao Azure Stream Analytics
 
@@ -103,7 +102,7 @@ A Azure Stream Analytics segue várias certificações de conformidade como desc
 
 Stream Analytics pode processar milhões de eventos a cada segundo e pode entregar resultados com latências ultra baixas. Permite-lhe aumentar a escala e a escala para lidar com grandes aplicações de processamento de eventos em tempo real e complexas. Stream Analytics suporta um desempenho mais elevado através da partição, permitindo que consultas complexas sejam paralelas e executadas em múltiplos nós de streaming. O Azure Stream Analytics é construído em [Trill,](https://github.com/Microsoft/Trill)um motor de análise de streaming de alta memória desenvolvido em colaboração com a Microsoft Research.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Viu agora uma descrição geral do Azure Stream Analytics. Em seguida, pode criar o seu primeiro trabalho do Stream Analytics e experimentá-lo na prática:
 

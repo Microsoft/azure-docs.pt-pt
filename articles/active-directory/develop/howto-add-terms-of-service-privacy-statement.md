@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89535777"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013673"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar termos de serviço e declaração de privacidade para uma aplicação
 
@@ -41,7 +41,7 @@ Antes de adicionar links aos termos de serviço e documentos de declaração de 
 
 | Diretriz     | Descrição                           |
 |---------------|---------------------------------------|
-| Formatar        | URL válido                             |
+| Formato        | URL válido                             |
 | Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
 | Comprimento máximo    | 2048 caracteres                       |
 
@@ -58,7 +58,7 @@ Quando os termos de serviço e declaração de privacidade estiverem prontos, po
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Utilizar o portal do Azure
 Siga estes passos no portal Azure.
 
-1. Inscreva-se no [portal Azure,](https://portal.azure.com/)selecione o inquilino AzureAD correto (não B2C).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure,</a>selecione o inquilino AzureAD correto (não B2C).
 2. Navegue na secção registos de **aplicações** e selecione a sua aplicação.
 3. Abra o painel **de marcação.**
 4. Preencha os termos **de URL de serviço** e url de Declaração de **Privacidade.**

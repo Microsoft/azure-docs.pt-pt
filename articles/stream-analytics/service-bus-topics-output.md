@@ -1,18 +1,17 @@
 ---
 title: Produção de tópicos de ônibus de serviço da Azure Stream Analytics
 description: Este artigo descreve os tópicos do Service Bus como saída para a Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: c578febf088148e9e0496d87b715c953c5bd9d36
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 584d73acf36d22f59fbbcb6dff8b2f53cbc7437d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348377"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014183"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Saída de tópicos de ônibus de serviço da Azure Stream Analytics
 
@@ -28,7 +27,7 @@ A tabela que se segue lista os nomes dos imóveis e as suas descrições para a 
 | Nome da política de tópicos |Ao criar um tópico de Service Bus, também pode criar políticas de acesso partilhado no **separador Configurar** do tópico. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
 | Chave de política de tópicos |A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nomes do Service Bus. |
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados. |
-| Codificação |Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento. |
+| Encoding |Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável apenas para serialização de CSV. O Stream Analytics suporta uma série de delimiters comuns para serializar dados em formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam de ser anexadas como propriedades do utilizador da mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades de metadados personalizados para a saída.](#custom-metadata-properties-for-output) |
 | Colunas de propriedade do sistema | Opcional. Os pares de valor chave das Propriedades do Sistema e os nomes correspondentes das colunas que precisam de ser anexados à mensagem de saída em vez da carga útil. |

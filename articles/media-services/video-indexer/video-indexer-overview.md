@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052142"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014540"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
 
@@ -76,7 +76,7 @@ A lista a seguir mostra as informações que pode obter dos seus vídeos utiliza
 
 * **Transcrição áudio**: Converte o discurso em texto em 12 línguas e permite extensões. São suportados os seguintes idiomas: alemão, árabe, chinês mandarim, coreano, espanhol, francês, hindu, inglês, italiano, japonês, português e russo.
 * **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. São suportados os seguintes idiomas: alemão, chinês mandarim, espanhol, francês, inglês, italiano, japonês, português e russo. Se não conseguir identificar o idioma com confiança, o Video Indexer assumirá que o idioma falado é o inglês. Para obter mais informações, veja [Modelo de identificação de idioma](language-identification-model.md).
-* **Identificação e transcrição de fala multi-linguístico (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro multimédia para ser transcrito e, em seguida, combina a transcrição de volta numa transcrição unificada. Para obter mais informações, veja [Identificar e transcrever automaticamente conteúdo de vários idiomas](multi-language-identification-transcription.md).
+* **Identificação e transcrição de fala multi-linguístico**: Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro multimédia para ser transcrito e, em seguida, combina a transcrição de volta numa transcrição unificada. Para obter mais informações, veja [Identificar e transcrever automaticamente conteúdo de vários idiomas](multi-language-identification-transcription.md).
 * **Closed captioning** (Legendas): cria legendas em três formatos: VTT, TTML e SRT.
 * **Processamento de dois canais**: Auto deteta transcrição separada e funde-se numa única linha temporal.
 * **Redução do ruído**: Limpa as gravações áudio ou ruidosas (com base nos filtros Skype).
@@ -116,9 +116,9 @@ Pode aceder às capacidades do Indexador de Vídeo de três formas:
 
 Se estiver a utilizar o website, os insights são adicionados como metadados e são visíveis no portal. Se estiver a utilizar APIs, os insights estão disponíveis como um ficheiro JSON.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os artigos seguintes:
+Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os seguintes artigos:
 
 - [Começa com o site do Video Indexer.](video-indexer-get-started.md)
 - [Processar conteúdo com índice de vídeo REST API](video-indexer-use-apis.md).

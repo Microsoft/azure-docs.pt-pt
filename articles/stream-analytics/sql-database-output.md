@@ -1,18 +1,17 @@
 ---
 title: Saída da Base de Dados Azure SQL da Azure Stream Analytics
 description: Este artigo descreve a Base de Dados Azure SQL como uma saída para o Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: fc333994deaa03ec04405ea032b2ab1956705fe3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 631fdba451f69e44a675d396a42e1cddaea50a3b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740322"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013962"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Saída da Base de Dados Azure SQL da Azure Stream Analytics
 
@@ -24,7 +23,7 @@ Também pode utilizar [a Azure SQL Managed Instance](../azure-sql/managed-instan
 
 A tabela que se segue lista os nomes dos imóveis e a sua descrição para a criação de uma saída sql Database.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta base de dados. |
 | Base de Dados | O nome da base de dados para onde está a enviar a sua produção. |
@@ -49,7 +48,7 @@ A partição tem de ser ativada e baseia-se na cláusula PARTITION BY na consult
 
 Pode configurar o tamanho máximo da mensagem utilizando a **contagem de lotes Max**. O máximo de predefinição é de 10.000 e o mínimo de predefinição é de 100 linhas por cada inserção a granel. Para mais informações, consulte [os limites do Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Cada lote é inicialmente inserido a granel com a contagem máxima de lote. O lote é dividido ao meio (até à contagem mínima de lotes) com base em erros retripáveis do SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics a partir de um trabalho de Azure Stream Analytics (Preview)](sql-database-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093473"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015764"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Convidar utilizadores internos para a colaboração B2B
 
@@ -44,8 +44,7 @@ Nestes casos, se o utilizador interno tiver de ser alterado para um utilizador B
 
 Pode utilizar o PowerShell ou o convite da API para enviar um convite B2B ao utilizador interno. Certifique-se de que o endereço de e-mail que pretende utilizar para o convite está definido como o endereço de e-mail externo no objeto interno do utilizador.
 
-- Para um utilizador apenas na nuvem, utilize o endereço de e-mail na propriedade User.OtherMails para o convite.
-- Para um utilizador sincronizado no local, deve utilizar o valor na propriedade User.Mail para o convite.
+- Tem de utilizar o endereço de e-mail na propriedade User.Mail para o convite.
 - O domínio na propriedade do utilizador Mail deve coincidir com a conta que estão a usar para iniciar scontabilidade. Caso contrário, alguns serviços como o Teams não poderão autenticar o utilizador.
 
 Por padrão, o convite enviará ao utilizador um e-mail informando-os de que foram convidados, mas você pode suprimir este e-mail e enviar o seu próprio.
@@ -97,6 +96,6 @@ ContentType: application/json
 
 A resposta à API é a mesma que obtém quando convida um novo utilizador convidado para o diretório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resgate de convite de colaboração B2B](redemption-experience.md)

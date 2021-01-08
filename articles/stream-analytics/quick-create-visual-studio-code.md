@@ -2,17 +2,17 @@
 title: Quickstart - Crie um trabalho Azure Stream Analytics em Código de Estúdio Visual
 description: Este quickstart mostra-lhe como começar criando um trabalho stream Analytics, configurando entradas e saídas, e definindo uma consulta com o Código do Estúdio Visual.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125857"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014616"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Quickstart: Criar um trabalho Azure Stream Analytics em Visual Studio Code (pré-visualização)
 
@@ -35,13 +35,13 @@ Este quickstart mostra-lhe como criar e executar um trabalho Azure Stream Analyt
 
 2. A partir **de extensões** no painel esquerdo, procure **stream Analytics** e selecione **Instal** na extensão **Azure Stream Analytics Tools.**
 
-3. Após a instalação da extensão, verifique se as **ferramentas de análise do fluxo Azure** estão visíveis nas **extensões ativadas** .
+3. Após a instalação da extensão, verifique se as **ferramentas de análise do fluxo Azure** estão visíveis nas **extensões ativadas**.
 
    ![Ferramentas Azure Stream Analytics sob extensões ativadas no Código do Estúdio Visual](./media/quick-create-visual-studio-code/enabled-extensions.png)
 
 ## <a name="activate-the-azure-stream-analytics-tools-extension"></a>Ativar a extensão das Ferramentas de Análise do Fluxo Azure
 
-1. Selecione o ícone **Azure** na barra de atividades do Código do Estúdio Visual. Em **Stream Analytics** na barra lateral, selecione Iniciar **súm em Azure** .
+1. Selecione o ícone **Azure** na barra de atividades do Código do Estúdio Visual. Em **Stream Analytics** na barra lateral, selecione Iniciar **súm em Azure**.
 
    ![Inscreva-se no Azure em Código de Estúdio Visual](./media/quick-create-visual-studio-code/azure-sign-in.png)
 
@@ -57,7 +57,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Criar um recurso** Internet of  >  **Things**  >  **IoT Hub** .
+2. Selecione **Criar um recurso** Internet of  >  **Things**  >  **IoT Hub**.
 
 3. No painel **IoT Hub,** insira as seguintes informações:
 
@@ -70,15 +70,15 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
    ![Criar um hub IoT](./media/quick-create-visual-studio-code/create-iot-hub.png)
 
-4. Selecione **Seguinte: Definir tamanho e escala** .
+4. Selecione **Seguinte: Definir tamanho e escala**.
 
 5. Faça uma seleção para **preços e escala.** Para este arranque rápido, selecione o **F1 - Free** tier se ainda estiver disponível na sua subscrição. Se o nível gratuito não estiver disponível, escolha o nível mais baixo disponível. Para mais informações, consulte os preços do [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
    ![Tamanho e escala do seu hub IoT](./media/quick-create-visual-studio-code/iot-hub-size-and-scale.png)
 
-6. Selecione **Rever + criar** . Reveja as informações do seu hub IoT e **selecione Criar** . A criação do hub IoT pode demorar alguns minutos. Pode monitorizar o progresso no painel **de notificações.**
+6. Selecione **Rever + criar**. Reveja as informações do seu hub IoT e **selecione Criar**. A criação do hub IoT pode demorar alguns minutos. Pode monitorizar o progresso no painel **de notificações.**
 
-7. No menu de navegação do seu hub IoT, **selecione Adicionar** em **dispositivos IoT** . Adicione um ID para **identificação do dispositivo** e selecione **Save** .
+7. No menu de navegação do seu hub IoT, **selecione Adicionar** em **dispositivos IoT**. Adicione um ID para **identificação do dispositivo** e selecione **Save**.
 
    ![Adicione um dispositivo ao seu hub IoT](./media/quick-create-visual-studio-code/add-device-iot-hub.png)
 
@@ -92,7 +92,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
 2. Substitua o espaço reservado na linha 15 pela cadeia de ligação do dispositivo do hub IoT que guardou anteriormente.
 
-3. Selecione **Executar** . A saída deve mostrar os dados do sensor e as mensagens que estão a ser enviadas para o seu hub IoT.
+3. Selecione **Executar**. A saída deve mostrar os dados do sensor e as mensagens que estão a ser enviadas para o seu hub IoT.
 
    ![Raspberry Pi Azure IoT Simulador Online com saída](./media/quick-create-visual-studio-code/ras-pi-connection-string.png)
 
@@ -108,13 +108,13 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
    ![Descrição geral da conta de armazenamento](./media/quick-create-visual-studio-code/blob-storage.png)
 
-4. Na página **Serviço Blob,** selecione **Recipiente** e forneça um nome para o seu recipiente, tal como **o contentor1** . Deixe **o nível de acesso público** como Privado **(sem acesso anónimo)** e selecione **OK** .
+4. Na página **Serviço Blob,** selecione **Recipiente** e forneça um nome para o seu recipiente, tal como **o contentor1**. Deixe **o nível de acesso público** como Privado **(sem acesso anónimo)** e selecione **OK**.
 
    ![Criar um contentor de blobs](./media/quick-create-visual-studio-code/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>Criar um projeto do Stream Analytics
 
-1. No Código do Estúdio Visual, selecione **Ctrl+Shift+P** para abrir a paleta de comando. Em seguida, insira **as ASA** e selecione **ASA: Criar novo projeto** .
+1. No Código do Estúdio Visual, selecione **Ctrl+Shift+P** para abrir a paleta de comando. Em seguida, insira **as ASA** e selecione **ASA: Criar novo projeto**.
 
    ![Criar um novo projeto](./media/quick-create-visual-studio-code/create-new-project.png)
 
@@ -122,14 +122,14 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
     ![Criar um nome de projeto](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. O novo projeto é adicionado ao seu espaço de trabalho. Um projeto Stream Analytics é composto por três pastas: **Entradas,** **Saídas** e **Funções** . Também tem o script de consulta **(*.asaql)** , um **JobConfig.jsem** arquivo e um **asaproj.jsno** ficheiro de configuração.
+3. O novo projeto é adicionado ao seu espaço de trabalho. Um projeto Stream Analytics é composto por três pastas: **Entradas,** **Saídas** e **Funções**. Também tem o script de consulta **(*.asaql)**, um **JobConfig.jsem** arquivo e um **asaproj.jsno** ficheiro de configuração.
 
     A **asaproj.jsno** ficheiro de configuração contém as informações de ficheiros de configuração de entradas, saídas e de configuração de trabalho necessárias para submeter o trabalho de Stream Analytics ao Azure.
 
     ![Stream Analytics ficheiros de projeto em Visual Studio Code](./media/quick-create-visual-studio-code/asa-project-files.png)
 
 > [!Note]
-> Quando adiciona entradas e saídas da paleta de comando, os caminhos correspondentes são adicionados a **asaproj.js** automaticamente. Se adicionar ou remover diretamente as entradas ou saídas no disco, tem de as adicionar manualmente ou removê-las de **asaproj.jsligados** . Pode optar por colocar as entradas e saídas num só local e depois faz referência a diferentes trabalhos, especificando os caminhos de cada **asaproj.jsarquivados.**
+> Quando adiciona entradas e saídas da paleta de comando, os caminhos correspondentes são adicionados a **asaproj.js** automaticamente. Se adicionar ou remover diretamente as entradas ou saídas no disco, tem de as adicionar manualmente ou removê-las de **asaproj.jsligados**. Pode optar por colocar as entradas e saídas num só local e depois faz referência a diferentes trabalhos, especificando os caminhos de cada **asaproj.jsarquivados.**
 
 ## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
 
@@ -150,7 +150,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
     ![Adicionar entrada da pasta Entradas](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-    Ou selecione **Ctrl+Shift+P** para abrir a paleta de comando e **introduza ASA: Adicionar Entrada** .
+    Ou selecione **Ctrl+Shift+P** para abrir a paleta de comando e **introduza ASA: Adicionar Entrada**.
 
    ![Adicionar entrada Stream Analytics no Código do Estúdio Visual](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -158,7 +158,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
    ![Selecione o hub IoT como a opção de entrada](./media/quick-create-visual-studio-code/iot-hub.png)
 
-3. Se adicionar a entrada da paleta de comando, escolha o script de consulta stream Analytics que utilizará a entrada. Deve ser automaticamente povoado com o caminho do ficheiro para **myASAproj.asaql** .
+3. Se adicionar a entrada da paleta de comando, escolha o script de consulta stream Analytics que utilizará a entrada. Deve ser automaticamente povoado com o caminho do ficheiro para **myASAproj.asaql**.
 
    ![Selecione um script Stream Analytics no Código do Estúdio Visual](./media/quick-create-visual-studio-code/asa-script.png)
 
@@ -170,7 +170,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
 
    |Definição|Valor sugerido|Descrição|
    |-------|---------------|-----------|
-   |Nome|Entrada|Insira um nome para identificar a entrada do trabalho.|
+   |Nome|Input|Insira um nome para identificar a entrada do trabalho.|
    |IotHubNamespace|MyASAIotHub|Escolha ou insira o nome do seu hub IoT. Os nomes dos hubs IoT são automaticamente detetados se forem criados na mesma subscrição.|
    |SharedAccessPolicyName|iothubowner| |
 
@@ -188,7 +188,7 @@ Selecione **os dados de pré-visualização** em **IoTHub1.jsa** partir da linha
 
 ## <a name="define-an-output"></a>Definir uma saída
 
-1. Selecione **Ctrl+Shift+P** para abrir a paleta de comando. Em seguida, insira **ASA: Adicionar saída** .
+1. Selecione **Ctrl+Shift+P** para abrir a paleta de comando. Em seguida, insira **ASA: Adicionar saída**.
 
    ![Adicionar saída stream analytics no Código do Estúdio Visual](./media/quick-create-visual-studio-code/add-output.png)
 
@@ -196,7 +196,7 @@ Selecione **os dados de pré-visualização** em **IoTHub1.jsa** partir da linha
 
 3. Escolha o roteiro de consulta stream Analytics que utilizará esta entrada.
 
-4. Introduza o nome do ficheiro de saída como **BlobStorage** .
+4. Introduza o nome do ficheiro de saída como **BlobStorage**.
 
 5. Edite **BlobStorage** utilizando os seguintes valores. Mantenha os valores predefinidos para campos não mencionados aqui. Utilize a função CodeLens para o ajudar a selecionar a partir de uma lista de recuos ou introduzir uma cadeia.
 
@@ -219,7 +219,7 @@ Há duas maneiras de desencadear a compilação do guião:
 
    ![Use a paleta de comando Visual Studio Code para compilar o script](./media/quick-create-visual-studio-code/compile-script1.png)
 
-- Clique com o botão direito no script e selecione **ASA: Compile Script** .
+- Clique com o botão direito no script e selecione **ASA: Compile Script**.
 
     ![Clique com o botão direito no script Stream Analytics para compilar](./media/quick-create-visual-studio-code/compile-script2.png)
 
@@ -229,17 +229,17 @@ Após a compilação, pode encontrar os dois modelos gerados do Gestor de Recurs
 
 ## <a name="submit-a-stream-analytics-job-to-azure"></a>Submeta um trabalho de Stream Analytics ao Azure
 
-1. Na janela do editor de scripts do seu script de consulta, **selecione Submeter-se ao Azure** .
+1. Na janela do editor de scripts do seu script de consulta, **selecione Submeter-se ao Azure**.
 
    ![Selecione a partir do texto das suas subscrições no editor de scripts](./media/quick-create-visual-studio-code/submit-job.png)
 
 2. Selecione a sua subscrição a partir da lista pop-up.
 
-3. Escolha **Selecionar um trabalho.** Em seguida, escolha **Criar Novo Emprego** .
+3. Escolha **Selecionar um trabalho.** Em seguida, escolha **Criar Novo Emprego**.
 
 4. Insira o seu nome de trabalho, **myASAjob.** Em seguida, siga as instruções para escolher o grupo de recursos e a localização.
 
-5. Selecione **Submeter-se a Azure** . Pode encontrar os registos na janela de saída. 
+5. Selecione **Submeter-se a Azure**. Pode encontrar os registos na janela de saída. 
 
 6. Quando o seu trabalho é criado, pode vê-lo no **Stream Analytics Explorer.**
 
@@ -247,7 +247,7 @@ Após a compilação, pode encontrar os dois modelos gerados do Gestor de Recurs
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
-1. Open **Stream Analytics Explorer** em Visual Studio Code e encontre o seu trabalho, **myASAJob** .
+1. Open **Stream Analytics Explorer** em Visual Studio Code e encontre o seu trabalho, **myASAJob**.
 
 2. Clique com o direito no nome do trabalho. Em seguida, **selecione Iniciar** a partir do menu de contexto.
 
@@ -255,11 +255,11 @@ Após a compilação, pode encontrar os dois modelos gerados do Gestor de Recurs
 
 3. Escolha **agora** na janela pop-up para iniciar o trabalho.
 
-4. Note que o estado do trabalho mudou para **Running** . Clique com o botão direito no nome do trabalho e selecione **Open Job View no Portal** para ver as métricas do evento de entrada e saída. Esta ação pode levar alguns minutos.
+4. Note que o estado do trabalho mudou para **Running**. Clique com o botão direito no nome do trabalho e selecione **Open Job View no Portal** para ver as métricas do evento de entrada e saída. Esta ação pode levar alguns minutos.
 
 5. Para visualizar os resultados, abra o armazenamento de bolhas na extensão do Código do Estúdio Visual ou no portal Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, apague o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A eliminação do trabalho evita cobrar as unidades de streaming que o trabalho consome. 
 
@@ -267,9 +267,9 @@ Se planeias usar o trabalho no futuro, podes detê-lo e reiniciá-lo mais tarde.
 
 1. A partir do menu esquerdo no portal Azure, selecione **grupos de Recursos** e, em seguida, selecione o nome do recurso que criou.  
 
-2. Na página do grupo de recursos, selecione **Eliminar** . Introduza o nome do recurso para eliminar na caixa de texto e, em seguida, selecione **Delete** .
+2. Na página do grupo de recursos, selecione **Eliminar**. Introduza o nome do recurso para eliminar na caixa de texto e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, implementou um simples trabalho stream Analytics usando o Código de Estúdio Visual. Também pode implementar trabalhos stream Analytics utilizando o [portal Azure,](stream-analytics-quick-create-portal.md) [PowerShell](stream-analytics-quick-create-powershell.md)e [Visual Studio](stream-analytics-quick-create-vs.md).
 

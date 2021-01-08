@@ -5,18 +5,27 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 964af92006aad7b5ce8bdf25a332cbcf9c7ef144
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569854"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014523"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
 O ExpressRoute Direct dá-lhe a capacidade de se conectar diretamente à rede global da Microsoft através de localizações de observação estrategicamente distribuídas em todo o mundo. Para obter mais informações, veja [Sobre o ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Para se inscrever, envie um Email para <ExpressRouteDirect@microsoft.com> o seu ID de subscrição, incluindo os seguintes detalhes:
+
+* Cenários que pretende realizar com o **ExpressRoute Direct**
+* Preferências de localização - consulte [parceiros e locais de observação](expressroute-locations-providers.md) para obter uma lista completa de todos os locais
+* Linha cronológica da implementação
+* Quaisquer outras perguntas
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -288,6 +297,6 @@ Crie um circuito no recurso ExpressRoute Direct.
   GatewayManagerEtag     
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [Visão Geral.](expressroute-erdirect-about.md)

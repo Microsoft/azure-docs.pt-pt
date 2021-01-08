@@ -1,18 +1,18 @@
 ---
 title: Tutorial - Executar funções Azure em trabalhos Azure Stream Analytics
 description: Neste tutorial, irá aprender a configurar Funções do Azure como um sink de saída para tarefas do Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ffc056a97d3c0fd14bab186614015a9352a34077
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862008"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015152"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar funções Azure a partir de trabalhos Azure Stream Analytics 
 
@@ -143,7 +143,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Abra a sua tarefa do Stream Analytics no portal do Azure.  
 
-2. Navegue pela sua função **Overview** e selecione  >  **Overview Outputs**  >  **Add**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída de Funções tem as seguintes propriedades:  
+2. Navegue pela sua função e selecione  >  **Overview Outputs**  >  **Add**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída de Funções tem as seguintes propriedades:  
 
    |**Nome da propriedade**|**Descrição**|
    |---|---|
@@ -214,7 +214,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou.  
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou um simples trabalho de Stream Analytics, que executa uma Função Azure. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 

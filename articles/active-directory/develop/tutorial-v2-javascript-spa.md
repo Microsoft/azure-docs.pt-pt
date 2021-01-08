@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 4eb3c2905f3c1ccfa63da1bb4a8c81decdbc2f2b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 51b548beae57ce1da32006b61dfd222b0a4e6218
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507732"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015866"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -265,7 +265,7 @@ Tem agora um servidor simples para servir o seu SPA. A estrutura de pastas prete
 
 Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório Ativo Azure**.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -276,7 +276,7 @@ Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório A
 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 1. Em **Gestão**, **selecione Autenticação**.
 1. Na secção **de concessão implícita,** selecione **fichas de identificação** e **fichas de acesso**. São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Desa redirecione um URL de redirecionamento para Node.js
 >
@@ -508,7 +508,7 @@ A API do Microsoft Graph requer que o âmbito de leitura do *utilizador.leia* pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprofundar o desenvolvimento de aplicações de uma página única (SPA) na plataforma de identidade da Microsoft na nossa série de cenários multi-partes.
 
