@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20f1e152d67e653b10b8378b7d667106c48dc116
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016937"
+ms.locfileid: "98028935"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
 
@@ -137,6 +137,9 @@ O utilizador com atributo conflituoso no Azure AD deve ser limpo antes de poder 
 
 **A atualização da âncora de origem para o utilizador baseado na nuvem no seu inquilino não é suportada.**  
 O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. Neste caso, a atualização da âncora de origem não é suportada. A correção manual é necessária a partir do local. 
+
+**O processo de correção não atualizou os valores.**
+As definições específicas, tais como [userWriteback no Azure AD Connect,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) não são suportadas. Por favor, desative as definições. 
 
 ## <a name="faq"></a>FAQ
 **Q.** O que acontece se a execução da **Correção de Aplicação** falhar?  

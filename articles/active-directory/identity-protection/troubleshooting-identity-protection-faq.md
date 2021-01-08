@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558934"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028901"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -29,13 +29,13 @@ ms.locfileid: "96558934"
 Existe um problema atual conhecido que causa latência no fluxo de despedimento de risco do utilizador. Se tiver uma "política de risco de utilizador", esta política deixará de se aplicar aos utilizadores dispensados poucos minutos depois de clicar em "Dispensar o risco do utilizador". No entanto, são conhecidos os atrasos com o UX a refrescar o "estado de risco" dos utilizadores dispensados. Como solução, atualize a página no nível do navegador para ver o mais recente utilizador "Estado de risco".
 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="why-is-a-user-is-at-risk"></a>Por que um utilizador está em risco?
 
 Se for um cliente Azure AD Identity Protection, vá ao ponto de vista [dos utilizadores arriscados](howto-identity-protection-investigate-risk.md#risky-users) e clique num utilizador em risco. Na gaveta de baixo, o separador 'Histórico de risco' mostrará todos os eventos que levaram a uma mudança de risco do utilizador. Para ver todos os insus máximos de segurança para o utilizador, clique em 'Ins de risco do utilizador'. Para ver todas as deteções de risco para este utilizador, clique em "Deteções de risco do utilizador".
 
-## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Porque é que a minha inscrição estava bloqueada, mas a Proteção de Identidade não gerou uma deteção de risco?
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Porque é que a minha inscrição estava bloqueada, mas a Proteção de Identidade não gerou uma deteção de risco?
 As inscrições podem ser bloqueadas por várias razões. É importante notar que a Proteção de Identidade só gera deteções de risco quando são utilizadas credenciais corretas no pedido de autenticação. Se um utilizador utilizar credenciais incorretas, não será sinalizado pela Proteção de Identidade, uma vez que não existe risco de compromisso credencial, a menos que um mau ator utilize as credenciais corretas. Algumas razões pelas quais um utilizador pode ser impedido de assinar que não gerará uma deteção de Proteção de Identidade incluem:
 * O **IP pode ser bloqueado** devido a atividades maliciosas a partir do endereço IP. A mensagem bloqueada ip não diferencia se as credenciais estavam corretas ou não. Se o IP estiver bloqueado e não forem utilizadas credenciais corretas, não gerará uma deteção de Proteção de Identidade
 * **[Smart Lockout](../authentication/howto-password-smart-lockout.md)** pode bloquear a inscrição da conta após várias tentativas falhadas
@@ -96,3 +96,7 @@ Dado que o risco do utilizador é cumulativo de natureza e não expira, um utili
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que razão um sinal tem uma pontuação de "risco de entrada (agregado)" de High quando as deteções associadas a ele são de baixo ou médio risco?
 
 A pontuação de risco agregada elevada pode basear-se em outras características do sinal, ou no facto de mais de uma deteção ter disparado para esse sinal. E inversamente, um sinal pode ter um risco de inscrição (agregado) de Medium, mesmo que as deteções associadas à inscrição sejam de alto risco.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>Qual é a diferença entre as deteções de "Atividade a partir de endereço IP anónimo" e "Endereço IP Anónimo"?
+
+A fonte de deteção de "endereço IP anónimo" é Azure AD Identity Protection, enquanto a deteção de "Atividade a partir de endereço IP anónimo" é integrada a partir de MCAS (Microsoft Cloud App Security). Embora tenham nomes muito semelhantes e é possível que se vejam sobreposições nestes sinais, têm deteções distintas nas costas.

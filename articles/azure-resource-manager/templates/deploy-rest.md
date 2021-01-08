@@ -3,12 +3,12 @@ title: Implementar recursos com API rest e modelo
 description: Utilize o Azure Resource Manager e o Resource Manager REST API para mobilizar recursos para o Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d1c8a365153007d3337d922bc163ba3767eeddc9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 77192aff9ed4fe33269b5e11891c30e15bc312dd
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675419"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028969"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Implementar recursos com modelos ARM e AZure Resource Manager REST API
 
@@ -20,13 +20,13 @@ Pode incluir o seu modelo no corpo de pedido ou ligar-se a um ficheiro. Ao utili
 
 Pode direcionar a sua implementação para um grupo de recursos, subscrição Azure, grupo de gestão ou inquilino. Dependendo do alcance da implantação, utiliza-se diferentes comandos.
 
-* Para implementar num **grupo de recursos,** utilize [implementações - Crie](/rest/api/resources/deployments/createorupdate). O pedido é enviado para:
+- Para implementar num **grupo de recursos,** utilize [implementações - Crie](/rest/api/resources/deployments/createorupdate). O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
-* Para implementar uma **subscrição** , utilize [implementações - Crie no âmbito de subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope). O pedido é enviado para:
+- Para implementar uma **subscrição**, utilize [implementações - Crie no âmbito de subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope). O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -34,7 +34,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição Az
 
   Para obter mais informações sobre as implementações do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](deploy-to-subscription.md)
 
-* Para implantar num **grupo de gestão,** utilize [implementações - Crie no Âmbito do Grupo de Gestão](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). O pedido é enviado para:
+- Para implantar num **grupo de gestão,** utilize [implementações - Crie no Âmbito do Grupo de Gestão](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -42,7 +42,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição Az
 
   Para obter mais informações sobre as implementações de nível de grupo de gestão, consulte [Criar recursos ao nível do grupo de gestão.](deploy-to-management-group.md)
 
-* Para implantar num **inquilino,** utilize [implementações - Crie ou atualize no âmbito do inquilino.](/rest/api/resources/deployments/createorupdateattenantscope) O pedido é enviado para:
+- Para implantar num **inquilino,** utilize [implementações - Crie ou atualize no âmbito do inquilino.](/rest/api/resources/deployments/createorupdateattenantscope) O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
@@ -83,7 +83,7 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
 
    No corpo de pedido, forneça um link para o seu modelo e arquivo de parâmetros. Para obter mais informações sobre o ficheiro de parâmetros, veja [Criar ficheiro de parâmetros do Resource Manager](parameter-files.md).
 
-   Note que o **modo** está definido para **Incremental** . Para executar uma implementação completa, desa ajuste **o modo** para **completar** . Tenha cuidado ao utilizar o modo completo, pois pode eliminar inadvertidamente recursos que não estão no seu modelo.
+   Note que o `mode` é definido para **Incremental**. Para executar uma implementação completa, definir `mode` para **completar**. Tenha cuidado ao utilizar o modo completo, pois pode eliminar inadvertidamente recursos que não estão no seu modelo.
 
    ```json
    {
@@ -122,9 +122,9 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
    }
    ```
 
-    Pode configurar a sua conta de armazenamento para utilizar um token de assinatura de acesso partilhado (SAS). Para mais informações, consulte [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+    Pode configurar a sua conta de armazenamento para utilizar um token de assinatura de acesso partilhado (SAS). Para mais informações, consulte [o Acesso do Delegado com uma assinatura de acesso partilhado.](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 
-    Se precisar de fornecer um valor sensível para um parâmetro (como uma palavra-passe), adicione esse valor a um cofre de chaves. Recupere o cofre da chave durante a colocação, como mostra o exemplo anterior. Para obter mais informações, consulte [valores seguros do Passe durante a implementação](key-vault-parameter.md).
+    Se precisar de fornecer um valor sensível para um parâmetro (como uma palavra-passe), adicione esse valor a um cofre de chaves. Recupere o cofre da chave durante a colocação, como mostra o exemplo anterior. Para obter mais informações, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](key-vault-parameter.md).
 
 1. Em vez de ligar aos ficheiros para o modelo e parâmetros, pode incluí-los no corpo de pedido. O exemplo a seguir mostra o corpo de pedido com o modelo e o parâmetro inline:
 
@@ -217,4 +217,3 @@ Para evitar conflitos com implementações simultâneas e para garantir entradas
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
 - Para aprender a lidar com operações assíncronas do REST, consulte [as operações de Azure assíncrona .](../management/async-operations.md)
 - Para saber mais sobre os modelos, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
-

@@ -13,16 +13,16 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tratamento de formulários, processamento automatizado de dados
-ms.openlocfilehash: f01adc472f94d679366af50c136ddc020b79b811
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: d099feff76d74f358a7d7958fb10406a5b8dc188
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808577"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029037"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Quickstart: Use a biblioteca do cliente Do Reconhecimento de Formulários
 
-Começa com o Reconhecimento de Formulários utilizando o idioma à tua escolha. Azure Form Recogniser é um serviço cognitivo que permite construir software automatizado de processamento de dados usando tecnologia de machine learning. Identificar e extrair texto, pares chave/valor e dados de tabela do seu formulário documenta &mdash; os dados estruturados de saídas de serviço que incluem as relações no ficheiro original. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas. A biblioteca cliente Do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.
+Começa com o Reconhecimento de Formulários utilizando o idioma à tua escolha. Azure Form Recogniser é um serviço cognitivo que permite construir software automatizado de processamento de dados usando tecnologia de machine learning. Identificar e extrair texto, pares chave/valor e dados de tabela do seu formulário documenta &mdash; os dados estruturados de saídas de serviço que incluem as relações no ficheiro original. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas. A biblioteca cliente Do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço Desabridor de Formulários.
 
 Utilize a biblioteca do cliente Do Reconhecimento de Formulários para:
 
