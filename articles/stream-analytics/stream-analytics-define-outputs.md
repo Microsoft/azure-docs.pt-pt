@@ -1,19 +1,18 @@
 ---
 title: Saídas do Azure Stream Analytics
 description: Este artigo descreve as opções de saída de dados disponíveis para o Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
-ms.openlocfilehash: c11e0702a7825b719417288c5ebbf93defde186c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029249"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019351"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas do Azure Stream Analytics
 
@@ -34,7 +33,7 @@ Alguns tipos de saídas [suportam a partição,](#partitioning)e [os tamanhos](#
 |[Armazenamento de tabelas do Azure](table-storage-output.md)|Sim|Chave da conta|
 |[Filas de autocarros da Azure Service](service-bus-queues-output.md)|Sim|Chave de acesso|
 |[Tópicos de ônibus de serviço Azure](service-bus-topics-output.md)|Sim|Chave de acesso|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Sim|Chave de acesso|
+|[BD do Cosmos para o Azure](azure-cosmos-db-output.md)|Sim|Chave de acesso|
 |[Funções do Azure](azure-functions-output.md)|Sim|Chave de acesso|
 
 ## <a name="partitioning"></a>Criação de partições
@@ -80,7 +79,7 @@ Estas propriedades da janela de loteamento só são suportadas pela versão API 
           ],
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >

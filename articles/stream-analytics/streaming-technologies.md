@@ -1,18 +1,17 @@
 ---
 title: Escolha uma solução de processamento em tempo real e stream no Azure
 description: Saiba como escolher a tecnologia de análise e processamento de streaming em tempo real para construir a sua aplicação no Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: a204aacc0061091e0a273581e766bb669d191f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c10a91971357001723adcb783253c9867cf6d87
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903710"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019062"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma tecnologia de processamento de análise e streaming em tempo real no Azure
 
@@ -50,7 +49,7 @@ O Azure Stream Analytics suporta funções definidas pelo utilizador (UDF) ou ag
 
 O Azure Stream Analytics é a tecnologia proprietária da Microsoft e só está disponível no Azure. Se precisar da sua solução para ser portátil através de Nuvens ou no local, considere tecnologias de código aberto como o Spark Structured Streaming ou Storm.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Crie um trabalho stream analytics utilizando o portal Azure](stream-analytics-quick-create-portal.md)
 * [Criar um trabalho do Stream Analytics com o Azure PowerShell](stream-analytics-quick-create-powershell.md)

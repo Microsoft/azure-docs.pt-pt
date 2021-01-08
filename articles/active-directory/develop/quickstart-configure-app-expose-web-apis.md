@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030965"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017757"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Quickstart: Configurar uma aplicação para expor uma API web
 
@@ -45,7 +45,7 @@ O código de uma aplicação de cliente solicita permissão para realizar opera�
 
 Em primeiro lugar, siga estes passos para criar um exemplo de âmbito `Employees.Read.All` chamado:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
 1. Selecione as inscrições da **App Azure Ative Directory**  >  App e, em seguida, selecione o registo da sua aplicação da API.
 1. Selecione **Expor uma API**  >  **Adicione um âmbito**.
@@ -111,7 +111,7 @@ Uma vez que um registo de aplicações do cliente é autorizado a aceder à sua 
 
 Se necessário, pode expor âmbitos adicionais mais tarde. Considere que a sua API web pode expor vários âmbitos associados a várias operações. O seu recurso pode controlar o acesso à API web em tempo de execução, avaliando o âmbito `scp` (s) claim(s) no token de acesso OAuth 2.0 que recebe.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que expôs a sua API web configurando os seus âmbitos, configurar o registo da sua aplicação cliente com permissão para aceder aos âmbitos.
 

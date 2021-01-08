@@ -1,18 +1,17 @@
 ---
 title: Armazenamento de blob e saída do Azure Data Lake Gen2 da Azure Stream Analytics
 description: Este artigo descreve o armazenamento de blob e o Azure Data Lake Gen 2 como saída para a Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 708e6351350a1925d58cd4da6b71427a98633362
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8f8fa524a69d0431fe98cdcd4d1f12addc576e86
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954962"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019589"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Armazenamento de blob e saída do Azure Data Lake Gen2 da Azure Stream Analytics
 
@@ -24,7 +23,7 @@ O armazenamento Azure Blob oferece uma solução rentável e escalável para arm
 
 A tabela que se segue lista os nomes da propriedade e as suas descrições para a criação de uma saída blob ou ADLS Gen2.
 
-| Nome da propriedade       | Description                                                                      |
+| Nome da propriedade       | Descrição                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Alias de saída        | Um nome amigável usado em consultas para direcionar a saída de consulta para este armazenamento de bolhas. |
 | Conta de armazenamento     | O nome da conta de armazenamento para onde está a enviar a sua produção.               |
@@ -61,7 +60,7 @@ Para a tecla de partição, utilize fichas {date} e {time} dos campos de eventos
 
 Para obter o tamanho máximo da mensagem, consulte [os limites de armazenamento do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). O tamanho máximo do bloco blob é de 4 MB e a contagem máxima de bock blob é de 50.000. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize identidade gerida (pré-visualização) para autenticar o seu trabalho Azure Stream Analytics para o armazenamento de blob Azure](blob-output-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Configurar alta disponibilidade
+title: Configurar a elevada disponibilidade
 description: Aumente a resiliência do seu Defender para a implementação de IoT instalando um aparelho de gestão de consolas de alta disponibilidade no local. As implementações de alta disponibilidade garantem que os sensores geridos reportam continuamente a uma consola de gestão ativa no local.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 6540b5f93bebfe39253a88dc495a3613568f8926
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841798"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019147"
 ---
 # <a name="about-high-availability"></a>Sobre a alta disponibilidade
 
@@ -52,7 +52,7 @@ Os procedimentos de instalação e configuração são realizados em quatro fase
 
 3. Instale um aparelho secundário de gestão de consolas no local. Para mais informações consulte, [Sobre o Defender para a Instalação IoT](how-to-install-software.md).
 
-4. Emparelhe os aparelhos de consola de gestão primária e secundária no local, conforme [descrito aqui](/create-the-primary-and-secondary-pair.md). A consola de gestão principal no local deve gerir pelo menos dois sensores para realizar a configuração.
+4. Emparelhe os aparelhos de consola de gestão primária e secundária no local, conforme [descrito aqui](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). A consola de gestão principal no local deve gerir pelo menos dois sensores para realizar a configuração.
 
 ## <a name="high-availability-requirements"></a>Elevados requisitos de disponibilidade
 
@@ -149,6 +149,6 @@ Para atualizar com alta disponibilidade:
 
 3. Atualize os sensores.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-[Ative e crie a sua consola de gestão no local](how-to-activate-and-set-up-your-on-premises-management-console.md)
+[Ativar e configurar a sua consola de gestão no local](how-to-activate-and-set-up-your-on-premises-management-console.md)

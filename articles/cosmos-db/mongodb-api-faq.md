@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4c93aea5a37fb286b49dabfb97522bf40c8f5429
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 08899018d03209dab09f61d4dd74feceee03b246
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333176"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019023"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Perguntas frequentes sobre a API da Azure Cosmos DB para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,12 +29,7 @@ Para mais informações, consulte [a sua base de dados Cosmos com a API da Azure
 
 ## <a name="error-codes-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Códigos de erro durante a utilização da API da Azure Cosmos DB para o MongoDB?
 
-Juntamente com os códigos de erro comuns do MongoDB, a API da Azure Cosmos DB para a MongoDB tem os seus próprios códigos de erro específicos:
-
-| Erro               | Código  | Descrição  | Solução  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | O número total de unidades de pedido consumidas é superior à taxa de unidade de pedido prevista para o contentor e foi estrangulado. | Considere escalonar a produção atribuída a um contentor ou a um conjunto de contentores do portal Azure ou voltar a tentar. |
-| LimiteMemóriaExcedido | 16501 | Como serviço multi-inquilino, a operação passou por cima do loteamento de memória do cliente. | Reduzir o âmbito de funcionamento através de critérios de consulta mais restritivos ou suporte de contacto do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br> Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+Juntamente com os códigos de erro comuns do MongoDB, a API da Azure Cosmos DB para a MongoDB tem os seus próprios códigos de erro específicos. Estes podem ser encontrados no [Guia de Resolução de Problemas.](mongodb-troubleshoot.md)
 
 ## <a name="supported-drivers"></a>Motoristas apoiados
 
@@ -42,7 +37,7 @@ Juntamente com os códigos de erro comuns do MongoDB, a API da Azure Cosmos DB p
 
 Sim, você pode usar o motorista Mongo ODBC de Simba com Azure Cosmos DB's API para MongoDB
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Construa uma aplicação web .NET utilizando a API da Azure Cosmos DB para a MongoDB](create-mongodb-dotnet.md)
 * [Crie uma app de consolas com a Java e a MongoDB API em Azure Cosmos DB](create-mongodb-java.md)

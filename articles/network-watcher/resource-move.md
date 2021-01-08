@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 84764e73ec5b4ada8c204147def310326a3c7bdd
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4853f485e4424c3c3263a18d27834d0f9ae94918
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948430"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019657"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>Movimentação de recursos do Observador da Rede Azure em regiões
 

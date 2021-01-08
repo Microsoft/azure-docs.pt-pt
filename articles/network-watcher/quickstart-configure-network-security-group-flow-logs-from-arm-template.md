@@ -6,15 +6,15 @@ author: damendo
 Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/22/2020
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: 563f111a656376899fcd0201b42f87bfea445865
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488045"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019725"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Quickstart: Configurar registos de fluxo de grupo de segurança de rede usando um modelo ARM
 
@@ -117,7 +117,7 @@ O modelo a seguir permite registos de fluxo para um NSG e, em seguida, armazena 
 
 > [!NOTE]
 > - O nome do recurso utiliza o formato _ParentResource_ChildResource_. No nosso exemplo, o recurso principal é o exemplo regional do Observador da Rede Azure:
->    - **Formato** : NetworkWatcher_RegionName
+>    - **Formato**: NetworkWatcher_RegionName
 >    - **Exemplo:** NetworkWatcher_centraluseuap
 > - `targetResourceId` é o ID de recursos do NSG alvo.
 > - `storageId` é o ID de recursos da conta de armazenamento de destino.
@@ -149,7 +149,7 @@ Tem duas opções para ver se a sua implantação foi bem sucedida:
 
 Se houver problemas com a implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar os recursos do Azure utilizando o modo de implementação completo. Para eliminar um recurso de registos de fluxo, especifique uma implementação em modo completo sem incluir o recurso que pretende eliminar. Leia mais sobre [o modo de implementação completo](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
 
@@ -157,12 +157,12 @@ Também pode desativar um registo de fluxo NSG no portal Azure:
 
 1. Inicie sessão no portal do Azure.
 1. Selecione **Todos os serviços**. Na caixa **Filtro,** introduza o **observador de rede**. Nos resultados da pesquisa, selecione **Network Watcher**.
-1. Em **Registos** , selecione **registos de fluxo NSG**.
+1. Em **Registos**, selecione **registos de fluxo NSG**.
 1. Na lista de NSGs, selecione o NSG para o qual pretende desativar os registos de fluxo.
-1. Nas **definições de registos de fluxo** , selecione **Off**.
-1. Selecione **Guardar**.
+1. Nas **definições de registos de fluxo**, selecione **Off**.
+1. Selecione **Save** (Guardar).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a ativar os registos de fluxo NSG utilizando um modelo ARM. Em seguida, aprenda a visualizar os seus dados de fluxo NSG utilizando uma destas opções:
 

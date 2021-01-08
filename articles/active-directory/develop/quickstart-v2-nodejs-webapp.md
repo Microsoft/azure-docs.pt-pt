@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169414"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017345"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -29,38 +29,29 @@ Neste arranque rápido, descarrega e execute uma amostra de código que demonstr
 - [Node.js. ](https://nodejs.org/en/download/)
 
 ## <a name="register-your-application"></a>Registar a aplicação
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. Se a sua conta estiver presente em mais de um inquilino da AZure AD:
-    - Selecione o seu perfil a partir do menu no canto superior direito da página e, em seguida, altere o **diretório**.
-    - Mude a sua sessão para o inquilino Azure AD onde pretende criar a sua candidatura.
 
-1. Navegue para [o Azure Ative Directory > registos da App](https://go.microsoft.com/fwlink/?linkid=2083908) para registar a sua aplicação.
-
-1. Selecione **Novo registo.**
-
-1. Quando aparecer a página **de inscrição** do Registo, insira as informações de registo da sua aplicação:
-    - Na secção **Nome,** insira um nome significativo que será apresentado aos utilizadores da aplicação. Por exemplo: MyWebApp
-    - Na secção **tipos de contas suportadas,** selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Introduza um **Nome** para a sua aplicação, por `MyWebApp` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Na secção **tipos de contas suportadas,** selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
 
     Se existirem mais de um REdireccionamento de URIs, terá de os adicionar no **separador Autenticação** mais tarde, depois de a aplicação ter sido criada com sucesso.
 
 1. Selecione **Registar-se** para criar a aplicação.
-
 1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para mais tarde. Você precisará deste valor para configurar a aplicação mais tarde neste projeto.
+1. Em **Gestão**, **selecione Autenticação**.
+1. **Selecione Adicionar uma plataforma**  >  **Web** 
+1. Na secção **URIs de redirecionamento,** insira `http://localhost:3000/auth/openid/return` .
+1. Introduza um **URL logout** `https://localhost:3000` .
+1. Na secção de subvenção implícita, verifique **os tokens de identificação,** uma vez que esta amostra requer que o [fluxo de subvenção implícito](./v2-oauth2-implicit-grant-flow.md) seja habilitado a iniciar a inscrição no utilizador.
+1. Selecione **Configurar**.
+1. Under **Manage**, selecione **Certificados & segredos**  >  **Novo segredo do cliente**.
+1. Introduza uma descrição chave (por exemplo, o segredo da aplicação).
+1. Selecione uma duração chave de qualquer **um em 1 ano, em 2 anos,** ou **nunca expira**.
+1. Selecione **Adicionar**. O valor da chave será apresentado. Copie o valor da chave e guarde-o num local seguro para utilização posterior.
 
-1. Na lista de páginas da aplicação, selecione **Autenticação**.
-    - Na secção **Redirecionar URIs,** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI: `http://localhost:3000/auth/openid/return`
-    - Na secção **definições Avançadas,** defina **o URL de logout** para `https://localhost:3000` .
-    - Nas **definições avançadas > secção de subvenção implícita,** verifique **os tokens de identificação,** uma vez que esta amostra requer que o fluxo de [subvenção implícito](./v2-oauth2-implicit-grant-flow.md) seja ativado para iniciar a sposição do utilizador.
-
-1. Selecione **Guardar**.
-
-1. A partir da página **Certificados & segredos,** na secção segredos do **Cliente,** escolha **novo segredo de cliente.**
-    - Introduza uma descrição chave (por exemplo, o segredo da aplicação).
-    - Selecione uma duração chave de qualquer **um em 1 ano, em 2 anos,** ou **nunca expira**.
-    - Quando clicar no botão **Adicionar,** o valor da chave será exibido. Copie o valor da chave e guarde-o num local seguro.
-
-    Mais tarde vai precisar desta chave para configurar a aplicação. Este valor chave não será exibido novamente, nem recuperável por qualquer outro meio, por isso grave-o assim que for visível a partir do portal Azure.
 
 ## <a name="download-the-sample-application-and-modules"></a>Descarregue a aplicação da amostra e os módulos
 
@@ -122,7 +113,7 @@ Terá um servidor a funcionar com sucesso `http://localhost:3000` .
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o cenário de aplicações web que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Aplicação web que assina no cenário dos utilizadores](scenario-web-app-sign-user-overview.md)

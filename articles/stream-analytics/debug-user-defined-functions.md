@@ -3,17 +3,16 @@ title: Debug funções definidas pelo utilizador no Azure Stream Analytics
 description: Este artigo descreve como depurar funções definidas pelo utilizador no Azure Stream Analytics.
 author: jenssuessmeyer
 ms.author: jenss
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 567def7abaff3cd8d70eb56f0aa117d1eeb52a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f5a24e4d351d7c133251900a80c70094b84cc4e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300433"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019436"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Debug funções definidas pelo utilizador no Azure Stream Analytics 
 
@@ -102,7 +101,7 @@ Tal como acontece com a UDF, inclui uma chamada para a UDA para garantir que o p
 > [!div class="mx-imgBorder"]
 > ![Adicione uda a asaql](./media/debug-user-defined-functions/asaql-uda.png)
 
-No ficheiro *Test_UDA.js, * refere o ficheiro UDA como fez com a UDF. Além disso, ligue, `main()` `init()` e . `accumulate()` . O `accumulate()` método é chamado em loop para colocar os valores na pilha de estado. O `computeresult()` método é chamado para compor a consulta final. 
+No ficheiro *Test_UDA.js,* refere o ficheiro UDA como fez com a UDF. Além disso, ligue, `main()` `init()` e . `accumulate()` . O `accumulate()` método é chamado em loop para colocar os valores na pilha de estado. O `computeresult()` método é chamado para compor a consulta final. 
 
 > [!div class="mx-imgBorder"]
 > ![Ficheiro de teste UDA](./media/debug-user-defined-functions/uda-test.png)
@@ -127,7 +126,7 @@ Selecione **Run and Debug** ou pressione **CTRL + SHIFT + D** para começar a de
 > ![Stream Analytics run e debug uda](./media/debug-user-defined-functions/run-debug-uda.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Desenvolver e depurar Azure Stream Analytics empregos localmente](develop-locally.md)
 * [Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual](debug-locally-using-job-diagram.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c540c1b032676e07450eccfea3f9618ddc3ee64
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120699"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017080"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registo no portal do Azure para aplicações personalizadas
 
@@ -24,7 +24,7 @@ Este artigo dá-lhe uma breve descrição de todos os campos disponíveis no for
 
 ## <a name="register-a-new-application"></a>Registar uma nova aplicação
 
--   Para registar uma nova aplicação, navegue para o [portal Azure](https://portal.azure.com).
+-   Para registar uma nova aplicação, navegue para o <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 
 -   A partir do painel de navegação esquerdo, clique no **Diretório Ativo Azure.**
 
@@ -70,6 +70,6 @@ Depois de ter preenchido os campos acima, a aplicação está registada no porta
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Segredos de cliente            | Pode criar segredos de clientes, ou chaves, para aceder programáticamente às APIs da web protegidas pela Azure AD sem qualquer interação do utilizador. A partir da página secreta do **novo cliente,** insira uma descrição chave e a data de validade e guarde para gerar a chave. Certifique-se de guardá-lo em algum lugar seguro, já que não poderá acessá-lo mais tarde.             |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gestão de Aplicações com Diretório Ativo Azure](../manage-apps/what-is-application-management.md)

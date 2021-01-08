@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903025"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019181"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -135,7 +135,7 @@ Azure Cosmos DB, por padrão, não criará quaisquer índices espaciais. Se voc�
 
 ## <a name="composite-indexes"></a>Índices compostos
 
-Consultas que têm uma `ORDER BY` cláusula com duas ou mais propriedades requerem um índice composto. Também pode definir um índice composto para melhorar o desempenho de muitas consultas de igualdade e alcance. Por predefinição, não são definidos índices compostos, pelo que deve [adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+Consultas que têm uma `ORDER BY` cláusula com duas ou mais propriedades requerem um índice composto. Também pode definir um índice composto para melhorar o desempenho de muitas consultas de igualdade e alcance. Por predefinição, não são definidos índices compostos, pelo que deve [adicionar índices compostos](how-to-manage-indexing-policy.md#composite-index) conforme necessário.
 
 Ao contrário de caminhos incluídos ou excluídos, não é possível criar um caminho com o `/*` wildcard. Cada caminho composto tem um implícito `/?` no final do caminho que não precisa de especificar. Os caminhos compostos conduzem a um valor escalar e este é o único valor que está incluído no índice composto.
 
@@ -160,7 +160,7 @@ As seguintes considerações são utilizadas quando se utilizam índices compost
 
 Considere o seguinte exemplo quando um índice composto é definido no nome, idade e _ts:
 
-| **Índice Composto**     | **`ORDER BY`Consulta de amostras**      | **Suportado por Índice Composto?** |
+| **Índices Composto**     | **`ORDER BY`Consulta de amostras**      | **Suportado pelo Índice Composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
@@ -183,7 +183,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age = 18
 
 Esta consulta será mais eficiente, demorando menos tempo e consumindo menos RU's, se for capaz de alavancar um índice composto em (nome ASC, idade ASC).
 
-Consultas com filtros de gama também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de gama única. Os filtros de gama `>` incluem, , , e `<` `<=` `>=` `!=` . O filtro de gama deve ser definido por último no índice composto.
+Consultas com filtros de gama também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de gama única. Os filtros de gama `>` `<` incluem, e `<=` `>=` `!=` . O filtro de gama deve ser definido por último no índice composto.
 
 Considere a seguinte consulta com filtros de igualdade e gama:
 
@@ -197,7 +197,7 @@ As seguintes considerações são usadas ao criar índices compostos para consul
 
 - As propriedades do filtro da consulta devem coincidir com as do índice composto. Se uma propriedade estiver no índice composto mas não estiver incluída na consulta como um filtro, a consulta não utilizará o índice composto.
 - Se uma consulta tiver propriedades adicionais no filtro que não foram definidas num índice composto, então uma combinação de índices compósitos e de intervalo será usada para avaliar a consulta. Isto requer menos RU's do que exclusivamente usando índices de gama.
-- Se uma propriedade tiver um filtro de alcance ( `>` , , , , ou ), `<` `<=` `>=` `!=` então esta propriedade deve ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de gama, não utilizará o índice composto.
+- Se uma propriedade tiver um filtro de alcance ( `>` `<` , ou ), `<=` `>=` `!=` então esta propriedade deve ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de gama, não utilizará o índice composto.
 - Ao criar um índice composto para otimizar consultas com múltiplos filtros, `ORDER` o índice composto não terá qualquer impacto nos resultados. Esta propriedade é opcional.
 - Se não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta continuará a ter sucesso. No entanto, o custo RU da consulta pode ser reduzido com um índice composto.
 - As consultas com ambos os agregados (por exemplo, COUNT ou SUM) e filtros também beneficiam de índices compostos.
@@ -205,7 +205,7 @@ As seguintes considerações são usadas ao criar índices compostos para consul
 
 Considere os seguintes exemplos em que um índice composto é definido no nome, idade e marca de tempo das propriedades:
 
-| **Índice Composto**     | **Consulta de amostras**      | **Suportado por Índice Composto?** |
+| **Índices Composto**     | **Consulta de amostras**      | **Suportado pelo Índice Composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
@@ -256,7 +256,7 @@ As seguintes considerações são utilizadas na criação de índices compósito
 * Todas as considerações para a criação de índices compósitos para `ORDER BY` consultas com múltiplas propriedades, bem como consultas com filtros em várias propriedades ainda se aplicam.
 
 
-| **Índice Composto**                      | **`ORDER BY`Consulta de amostras**                                  | **Suportado por Índice Composto?** |
+| **Índices Composto**                      | **`ORDER BY`Consulta de amostras**                                  | **Suportado pelo Índice Composto?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
@@ -294,7 +294,7 @@ A utilização da [função Time-to-Live (TTL)](time-to-live.md) requer indexaç
 
 Para cenários em que não é necessário indexar nenhuma trajetória imobiliária, mas o TTL é necessário, pode utilizar uma política de indexação com um modo de indexação definido para `consistent` , sem caminhos incluídos, e `/*` como o único caminho excluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre a indexação nos seguintes artigos:
 

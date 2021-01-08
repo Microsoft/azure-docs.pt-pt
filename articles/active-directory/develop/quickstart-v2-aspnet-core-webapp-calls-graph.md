@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 95a0dbd61e44e9c5b1f2854f8b3215aa4ef9403c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 349caa9a4fa34d87e0a4d99089a1063be66307f4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439652"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017566"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome
 
@@ -47,7 +47,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -56,7 +56,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Selecione **Registar**.
 > 1. Em **Gestão**, **selecione Autenticação**.
 > 1. Insira um **URL logout** de `https://localhost:44321/signout-oidc`
-> 1. Selecione **Guardar**.
+> 1. Selecione **Save** (Guardar).
 > 1. Under **Manage**, selecione **Certificados & segredos**  >  **Novo segredo do cliente**.
 > 1. Introduza uma **Descrição,** por exemplo `clientsecret1` .
 > 1. Selecione **em 1 ano** para a expiração do segredo.
@@ -211,7 +211,7 @@ public async Task<IActionResult> Index()
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O repo GitHub que contém a amostra de código core ASP.NET referenciada neste quickstart inclui instruções e mais amostras de código que mostram como:
 

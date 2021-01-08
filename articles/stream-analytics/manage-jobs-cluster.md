@@ -3,17 +3,16 @@ title: Criar e eliminar empregos num cluster Azure Stream Analytics
 description: Saiba como gerir os trabalhos do Stream Analytics num cluster Azure Stream Analytics
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 09a67d11ac4daf3e87a50ee2171f1ca49060c5bf
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305820"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018127"
 ---
 # <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Adicione e remova os empregos num cluster Azure Stream Analytics
 
@@ -25,7 +24,7 @@ Apenas os trabalhos stream analytics existentes podem ser adicionados aos cluste
 
 1. No portal Azure, localize e selecione o seu cluster Stream Analytics.
 
-1. Em **Definições** , selecione **stream analytics jobs**. Em seguida, **selecione Adicionar o trabalho existente**.
+1. Em **Definições**, selecione **stream analytics jobs**. Em seguida, **selecione Adicionar o trabalho existente**.
 
 1. Selecione a subscrição e o trabalho stream Analytics que pretende adicionar ao cluster. Apenas os trabalhos stream Analytics que estão na mesma região que o cluster podem ser adicionados ao cluster.
 
@@ -41,7 +40,7 @@ Os trabalhos de Stream Analytics devem estar num estado parado antes de poderem 
 
 1. Localize e selecione o seu cluster Stream Analytics.
 
-1. Em **Definições** , selecione **stream analytics jobs**.
+1. Em **Definições**, selecione **stream analytics jobs**.
 
 1. Selecione os trabalhos que pretende remover do cluster e, em seguida, selecione **Remover**.
 
@@ -49,7 +48,7 @@ Os trabalhos de Stream Analytics devem estar num estado parado antes de poderem 
 
    Quando um trabalho é removido de um cluster Stream Analytics, ele retorna ao ambiente padrão multi-inquilino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora sabe como adicionar e remover empregos no seu cluster Azure Stream Analytics. Em seguida, pode aprender a gerir pontos finais privados e escalar os seus clusters:
 

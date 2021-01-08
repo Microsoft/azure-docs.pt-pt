@@ -4,28 +4,20 @@ description: Automatizar tarefas que monitorizem, criem, gerem, enviem e recebam
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324241"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016767"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
 
 Para automatizar tarefas que monitorizem, criem, enviem e recebam ficheiros num servidor [de Protocolo de Transferência de Ficheiros Seguro (SFTP),](https://www.ssh.com/ssh/sftp/) utilizando o protocolo Secure Shell [(SSH),](https://www.ssh.com/ssh/protocol/) pode construir e automatizar fluxos de trabalho de integração utilizando apps Azure Logic e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável.
-
-> [!NOTE]
-> O conector SFTP-SSH não suporta atualmente estes servidores SFTP:
-> 
-> * IBM DataPower
-> * Mensagem Caminho
-> * OpenText Secure MFT
-> * OpenText GXS
 
 Aqui estão algumas tarefas de exemplo que pode automatizar:
 
@@ -41,31 +33,38 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
 ## <a name="limits"></a>Limites
 
+* O conector SFTP-SSH não suporta atualmente estes servidores SFTP:
+
+  * IBM DataPower
+  * Mensagem Caminho
+  * OpenText Secure MFT
+  * OpenText GXS
+
 * O conector SFTP-SSH suporta a autenticação privada da chave ou a autenticação por palavra-passe, e não ambos.
 
-* As ações SFTP-SSH que [suportam a chunking](../logic-apps/logic-apps-handle-large-messages.md) podem lidar com ficheiros até 1 GB, enquanto as ações SFTP-SSH que não suportam o chunking podem lidar com ficheiros até 50 MB. Embora o tamanho do pedaço padrão seja de 15 MB, este tamanho pode mudar dinamicamente, começando de 5 MB e aumentando gradualmente para o máximo de 50 MB, com base em fatores como latência de rede, tempo de resposta do servidor, e assim por diante.
+* As ações SFTP-SSH que [suportam a chunking](../logic-apps/logic-apps-handle-large-messages.md) podem lidar com ficheiros até 1 GB, enquanto as ações SFTP-SSH que não suportam o chunking podem lidar com ficheiros até 50 MB. Embora o tamanho do pedaço padrão seja de 15 MB, este tamanho pode mudar dinamicamente, começando de 5 MB e aumentando gradualmente para o máximo de 50-MB, com base em fatores como latência de rede, tempo de resposta do servidor, e assim por diante.
 
   > [!NOTE]
   > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector requer que se utilizem os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-  Pode anular este comportamento adaptativo quando [especificar um tamanho constante](#change-chunk-size) de pedaço para usar. Este tamanho pode variar de 5 MB a 50 MB. Por exemplo, suponha que tem um ficheiro de 45 MB e uma rede que pode suportar esse tamanho de ficheiro sem latência. O chunking adaptativo resulta em várias chamadas, em vez daquela chamada. Para reduzir o número de chamadas, pode tentar definir um tamanho de pedaço de 50 MB. Em diferentes cenários, se a sua aplicação lógica estiver a cronometrar, por exemplo, ao utilizar pedaços de 15 MB, pode tentar reduzir o tamanho para 5 MB.
+  Pode anular este comportamento adaptativo quando [especificar um tamanho constante](#change-chunk-size) de pedaço para usar. Este tamanho pode variar de 5 MB a 50 MB. Por exemplo, suponha que tem um ficheiro de 45-MB e uma rede que pode suportar esse tamanho de ficheiro sem latência. O chunking adaptativo resulta em várias chamadas, em vez daquela chamada. Para reduzir o número de chamadas, pode tentar definir um tamanho de pedaço de 50 MB. Em diferentes cenários, se a sua aplicação lógica estiver a cronometrar, por exemplo, ao utilizar pedaços de 15-MB, pode tentar reduzir o tamanho para 5 MB.
 
   O tamanho do pedaço está associado a uma ligação, o que significa que você pode usar a mesma conexão para ações que suportam o chunking e, em seguida, para ações que não suportam o chunking. Neste caso, o tamanho do pedaço para ações que não suportam o chunking varia de 5 MB a 50 MB. Este quadro mostra quais as ações da SFTP-SSH que suportam a chunking:
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | No | Não aplicável |
-  | **Criar ficheiro** | Yes | Yes |
+  | **Ficheiro de cópia** | Não | Não aplicável |
+  | **Criar ficheiro** | Sim | Sim |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar mosaico** | Não aplicável | Não aplicável |
   | **Extrair arquivo para pasta** | Não aplicável | Não aplicável |
-  | **Obtenha o conteúdo do arquivo** | Yes | Yes |
-  | **Obtenha o conteúdo do ficheiro usando o caminho** | Yes | Yes |
+  | **Obtenha o conteúdo do arquivo** | Sim | Sim |
+  | **Obtenha o conteúdo do ficheiro usando o caminho** | Sim | Sim |
   | **Obtenha metadados de ficheiros** | Não aplicável | Não aplicável |
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | No | Não aplicável |
+  | **Atualizar ficheiro** | Não | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -86,7 +85,7 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
 
 * Fornece a ação **de ficheiro Rename,** que renomeia um ficheiro no servidor SFTP.
 
-* Caches a ligação ao servidor SFTP *até 1 hora* , o que melhora o desempenho e reduz o número de tentativas de ligação ao servidor. Para definir a duração deste comportamento de caching, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração SSH no seu servidor SFTP.
+* Caches a ligação ao servidor SFTP *até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de ligação ao servidor. Para definir a duração deste comportamento de caching, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração SSH no seu servidor SFTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,13 +97,13 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
   >
   > O conector SFTP-SSH suporta *apenas* estes formatos de chave privadas, algoritmos e impressões digitais:
   >
-  > * **Formatos chave privados** : Teclas RSA (Rivest Shamir Adleman) e DSA (Algoritmo de Assinatura Digital) em ambos os formatos OpenSSH e ssh.com. Se a sua chave privada estiver no formato de ficheiro PuTTY (.ppk), [primeiro converta a chave para o formato de ficheiro OpenSSH (.pem).](#convert-to-openssh)
+  > * **Formatos chave privados**: Teclas RSA (Rivest Shamir Adleman) e DSA (Algoritmo de Assinatura Digital) em ambos os formatos OpenSSH e ssh.com. Se a sua chave privada estiver no formato de ficheiro PuTTY (.ppk), [primeiro converta a chave para o formato de ficheiro OpenSSH (.pem).](#convert-to-openssh)
   >
-  > * **Algoritmos de encriptação** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
+  > * **Algoritmos de encriptação**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   >
-  > * **Impressão digital** : MD5
+  > * **Impressão digital**: MD5
   >
-  > Depois de adicionar o gatilho SFTP-SSH ou a ação que pretende à sua aplicação lógica, tem de fornecer informações de ligação para o seu servidor SFTP. Quando fornecer a sua chave privada SSH para esta ligação, * *_não introduza manualmente ou edite a tecla_* _, o que pode causar a falha da ligação. Em vez disso, certifique-se de que _*_copia a chave_*_ do seu ficheiro de chave privada SSH e _*_cole_*_ essa chave nos detalhes da ligação. 
+  > Depois de adicionar o gatilho SFTP-SSH ou a ação que pretende à sua aplicação lógica, tem de fornecer informações de ligação para o seu servidor SFTP. Quando fornecer a sua chave privada SSH para esta ligação, **_não introduza manualmente ou edite a tecla_* _, o que pode causar a falha da ligação. Em vez disso, certifique-se de que _*_copia a chave_*_ do seu ficheiro de chave privada SSH e _*_cole_*_ essa chave nos detalhes da ligação. 
   > Para mais informações, consulte a [secção Connect to SFTP com SSH](#connect) mais tarde este artigo.
 
 _ Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -113,15 +112,25 @@ _ Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/qu
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Como os acionadores do SFTP-SSH funcionam
 
-A SFTP-SSH desencadeia o trabalho através da sondagem do sistema de ficheiros SFTP e à procura de qualquer ficheiro que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o tempo de tempo quando os ficheiros mudam. Nestes casos, tem de desativar esta funcionalidade para que o seu gatilho possa funcionar. Aqui estão algumas configurações comuns:
+<a name="polling-behavior"></a>
+
+### <a name="polling-behavior"></a>Comportamento das sondagens
+
+A SFTP-SSH desencadeia a sondagem do sistema de ficheiros SFTP e procura qualquer ficheiro que tenha mudado desde a última sondagem. Algumas ferramentas permitem preservar o tempo de tempo quando os ficheiros mudam. Nestes casos, tem de desativar esta funcionalidade para que o seu gatilho possa funcionar. Aqui estão algumas configurações comuns:
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Ir a **Opções**  >  **Preferências**  >  **Transfer**  >  **Transferir Editar**  >  **Preservar horários Desativar**  >  **Disable** |
-| FileZilla | Ir para **transferir**  >  **limites tempos de ficheiros transferidos Desativar**  >  **Disable** |
+| Winscp | Ir a **Opções**  >  **Preferências**  >    >  **Transferir Editar**  >  **Preservar horários Desativar**  >   |
+| FileZilla | Ir para **transferir**  >  **limites tempos de ficheiros transferidos Desativar**  >   |
 |||
 
 Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo ficheiro está completo e não parcialmente escrito. Por exemplo, um ficheiro pode ter alterações em andamento quando o gatilho verifica o servidor de ficheiros. Para evitar a devolução de um ficheiro parcialmente escrito, o gatilho anota o tempo de tempo para o ficheiro que tem alterações recentes, mas não devolve imediatamente esse ficheiro. O gatilho devolve o ficheiro apenas quando volta a sondar o servidor. Às vezes, este comportamento pode causar um atraso que é até o dobro do intervalo de votação do gatilho.
+
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>Mudança de recorrência do gatilho e deriva
+
+Os gatilhos baseados em ligação onde é necessário criar uma ligação em primeiro lugar, como o gatilho SFTP-SSH, diferem dos gatilhos incorporados que funcionam de forma nativa em Azure Logic Apps, como o [gatilho de Recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em ligação recorrente, o calendário de recorrência não é o único condutor que controla a execução, e o fuso horário apenas determina a hora de início inicial. As execuções subsequentes dependem do calendário de recorrência, da última execução do *gatilho, e* de outros fatores que podem causar tempos de fuga ou produzir comportamentos inesperados, por exemplo, não mantendo o horário especificado quando o horário de verão (DST) começa e termina. Para garantir que o tempo de recorrência não muda quando o DST entra em vigor, ajuste manualmente a recorrência para que a sua aplicação lógica continue a funcionar no momento esperado. Caso contrário, a hora de início muda uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina. Para obter mais informações, consulte [Recorrência para gatilhos baseados em ligação](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
@@ -131,7 +140,7 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
 ### <a name="unix-based-os"></a>Sistema operativo unix
 
-1. Se as ferramentas PuTTY ainda não estiverem instaladas no seu sistema, faça-o agora, por exemplo:
+1. Se não tiver as ferramentas PuTTY instaladas no seu sistema, faça-o agora, por exemplo:
 
    `sudo apt-get install -y putty`
 
@@ -197,11 +206,11 @@ Para criar um ficheiro no seu servidor SFTP, pode utilizar a ação de ficheiro 
 
    1. No menu **Notepad Edit,** **selecione Select All**.
 
-   1. Selecione **Edit**  >  **Editar Copy**.
+   1. Selecione   >  **Editar Copy**.
 
    1. No gatilho ou ação SFTP-SSH que adicionou, cole a chave *completa* que copiou para a propriedade **chave privada SSH,** que suporta várias linhas.  **_Certifique-se de colar_* a chave. _*_Não introduza ou edite manualmente a chave._*_
 
-1. Quando terminar de inserir os detalhes da ligação, selecione _*Create**.
+1. Depois de terminar de introduzir os detalhes da ligação, selecione _*Create**.
 
 1. Agora forneça os detalhes necessários para o seu gatilho ou ação selecionado e continue a construir o fluxo de trabalho da sua aplicação lógica.
 
@@ -219,7 +228,7 @@ Para anular o comportamento adaptativo predefinido que o chunking utiliza, pode 
 
    ![Especifique o tamanho do pedaço para usar em vez](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. Quando tiver terminado, selecione **Concluído**.
+1. Depois de terminar, selecione **'Fazer'.**
 
 ## <a name="examples"></a>Exemplos
 
@@ -229,7 +238,7 @@ Para anular o comportamento adaptativo predefinido que o chunking utiliza, pode 
 
 Este gatilho inicia um fluxo de trabalho de aplicações lógicas quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, pode adicionar uma condição que verifica o conteúdo do ficheiro e obtém o conteúdo com base no facto de o conteúdo cumprir uma condição especificada. Em seguida, pode adicionar uma ação que obtém o conteúdo do ficheiro e coloca esse conteúdo numa pasta no servidor SFTP.
 
-**Exemplo da empresa** : Pode utilizar este gatilho para monitorizar uma pasta SFTP para novos ficheiros que representem as ordens dos clientes. Em seguida, pode utilizar uma ação SFTP, como **obter conteúdo de ficheiros,** para obter o conteúdo da encomenda para posterior processamento e armazenar essa encomenda numa base de dados de encomendas.
+**Exemplo da empresa**: Pode utilizar este gatilho para monitorizar uma pasta SFTP para novos ficheiros que representem as ordens dos clientes. Em seguida, pode utilizar uma ação SFTP, como **obter conteúdo de ficheiros,** para obter o conteúdo da encomenda para posterior processamento e armazenar essa encomenda numa base de dados de encomendas.
 
 <a name="get-content"></a>
 
@@ -239,21 +248,9 @@ Esta ação obtém o conteúdo de um ficheiro num servidor SFTP especificando o 
 
 <a name="troubleshooting-errors"></a>
 
-## <a name="troubleshoot-errors"></a>Resolver erros
+## <a name="troubleshoot-problems"></a>Resolução de problemas
 
 Esta secção descreve possíveis soluções para erros ou problemas comuns.
-
-<a name="file-does-not-exist"></a>
-
-### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 erro: "Foi feita uma referência a um ficheiro ou pasta que não existe"
-
-Este erro pode ocorrer quando a sua aplicação lógica cria um novo ficheiro no seu servidor SFTP através da ação de ficheiro SFTP-SSH **Create,** mas o ficheiro recém-criado é imediatamente movido antes que o serviço De aplicações lógicas possa obter os metadados do ficheiro. Quando a sua aplicação lógica executa a ação **de ficheiro Create,** o serviço De aplicações lógicas também liga automaticamente para o seu servidor SFTP para obter os metadados do ficheiro. No entanto, se o ficheiro for movido, o serviço De Aplicações Lógicas já não pode encontrar o ficheiro para obter a `404` mensagem de erro.
-
-Se não conseguir evitar ou atrasar a deslocação do ficheiro, pode ignorar a leitura dos metadados do ficheiro após a criação do ficheiro, seguindo estes passos:
-
-1. Na ação de **ficheiro Create,** abra a nova lista **de parâmetros Adicionar,** selecione a propriedade **'Obter todos os metadados de ficheiros'** e desabrocha o valor para **Nº**.
-
-1. Se precisar deste ficheiro metadados mais tarde, pode utilizar a ação **de metadados de ficheiros Get.**
 
 <a name="connection-attempt-failed"></a>
 
@@ -273,6 +270,18 @@ Este erro pode ocorrer quando a sua aplicação lógica não consegue estabelece
 
 * Reveja o registo do servidor SFTP para verificar se o pedido da aplicação lógica chegou ao servidor SFTP. Para obter mais informações sobre o problema de conectividade, também pode executar um rastreio de rede na sua firewall e no seu servidor SFTP.
 
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 erro: "Foi feita uma referência a um ficheiro ou pasta que não existe"
+
+Este erro pode ocorrer quando a sua aplicação lógica cria um novo ficheiro no seu servidor SFTP através da ação de ficheiro SFTP-SSH **Create,** mas move imediatamente o ficheiro recém-criado antes que o serviço De aplicações lógicas possa obter os metadados do ficheiro. Quando a sua aplicação lógica executa a ação **de ficheiro Create,** o serviço De aplicações lógicas também liga automaticamente para o seu servidor SFTP para obter os metadados do ficheiro. No entanto, se a sua aplicação lógica mover o ficheiro, o serviço De Aplicações Lógicas já não pode encontrar o ficheiro para obter a `404` mensagem de erro.
+
+Se não conseguir evitar ou atrasar a deslocação do ficheiro, pode ignorar a leitura dos metadados do ficheiro após a criação do ficheiro, seguindo estes passos:
+
+1. Na ação de **ficheiro Create,** abra a nova lista **de parâmetros Adicionar,** selecione a propriedade **'Obter todos os metadados de ficheiros'** e desabrocha o valor para **Nº**.
+
+1. Se precisar deste ficheiro metadados mais tarde, pode utilizar a ação **de metadados de ficheiros Get.**
+
 ## <a name="connector-reference"></a>Referência do conector
 
 Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/sftpwithssh/).
@@ -280,6 +289,6 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector requer que se utilizem os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

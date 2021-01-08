@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 7c0efbae3576a5b57433fe70885fd97aae5e87e3
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 476261181ca4a8f32bb307a13aa6faa2f1ef9d26
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107945"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017396"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
 
@@ -49,13 +49,13 @@ Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/downl
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `Daemon-console` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Selecione **Registar** para criar a aplicação.
-> 1. Em **Manage**, selecione **Certificados & segredos**.
+> 1. Em **Gerir**, selecione **Certificados e segredos**.
 > 1. Sob **os segredos do Cliente,** selecione **Novo segredo de cliente,** insira um nome e, em seguida, selecione **Add**. Grave o valor secreto num local seguro para ser utilizado num passo posterior.
 > 1. Em **Gestão**, selecione **Permissões API**  >  **Adicione uma permissão**. Selecione **Microsoft Graph**.
 > 1. Selecione **permissões de aplicação**.
@@ -223,7 +223,7 @@ Para mais informações, consulte a [documentação de referência para `Acquire
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre aplicações daemon, consulte a visão geral do cenário:
 

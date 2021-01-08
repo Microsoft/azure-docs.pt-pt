@@ -3,16 +3,15 @@ title: Debug Azure Stream Analytics consulta localmente usando diagrama de traba
 description: Este artigo descreve como depurar consultas localmente usando o diagrama de trabalho em Azure Stream Analytics Tools for Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d0e94fda1fb21be1a01516f4cecf657426ae867e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130991"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019453"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
 
@@ -72,7 +71,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 |-|-|
 |**TaxiRide**| O nome da entrada.|
 |**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
-|**Tamanho dos dados**| O tamanho dos dados gerados a partir deste passo.|
+|**Tamanho dos Dados**| O tamanho dos dados gerados a partir deste passo.|
 |**Entrada local**| Use os dados locais como entrada.|
 
 #### <a name="query-steps"></a>Passos da consulta
@@ -83,7 +82,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporários.|
 |**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
-|**Tamanho dos dados**| O tamanho dos dados gerados a partir deste passo.|
+|**Tamanho dos Dados**| O tamanho dos dados gerados a partir deste passo.|
   
 #### <a name="output-sinks-live-output"></a>Pias de saída (saída ao vivo)
 
@@ -103,7 +102,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 |**regionaggEH**|O nome da saída.|
 |**Saída local**| Resultado de saída para um ficheiro local.|
 |**Contagem de Linhas**| O número de linhas de saída para o arquivo local.|
-|**Tamanho dos dados**| O tamanho da saída de dados para o ficheiro local.|
+|**Tamanho dos Dados**| O tamanho da saída de dados para o ficheiro local.|
 
 ### <a name="close-job-diagram"></a>Diagrama de trabalho próximo
 
@@ -121,7 +120,7 @@ Outras métricas de nível de trabalho aparecem na consola pop-up. Prima **Ctrl+
 
 * Apenas as opções de entrada na nuvem têm suporte às políticas de [tempo,](./stream-analytics-time-handling.md) enquanto as opções de entrada local não.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

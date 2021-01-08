@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 1d5f879ead35ef6d47b993ff833dc0b0595e3c6c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 99bcef2ba702235279c1327a2a5e51a8c6ab806d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861923"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018484"
 ---
 # <a name="create-a-connection-monitor-by-using-powershell"></a>Criar um monitor de ligação utilizando o PowerShell
 
 Saiba como utilizar a funcionalidade De Monitor de Ligação do Observador de Redes Azure para monitorizar a comunicação entre os seus recursos.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Nos monitores de ligação que cria com o Connection Monitor, pode adicionar tanto as máquinas no local como as máquinas virtuais Azure (VMs) como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
 
@@ -117,7 +117,7 @@ Os monitores de ligação têm os seguintes limites de escala:
 * Fontes e destinos máximos por monitor de ligação: 100
 * Configurações máximas de teste por monitor de ligação: 20
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como analisar os dados de monitorização e definir alertas.](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
 * Saiba [como diagnosticar problemas na sua rede.](./connection-monitor-overview.md#diagnose-issues-in-your-network)

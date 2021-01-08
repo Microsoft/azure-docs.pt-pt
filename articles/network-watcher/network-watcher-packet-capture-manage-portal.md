@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d4112bd1d632ec21e2d8cb565027277eeb85452d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966450"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018264"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o Azure Network Watcher usando o portal
 
@@ -25,7 +25,7 @@ A captura de pacotes do Network Watcher permite-lhe criar sessões de captura pa
 
 Neste artigo, aprende-se a começar, parar, descarregar e apagar uma captura de pacotes. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A captura de pacotes requer a seguinte conectividade TCP de saída:
 - para a conta de armazenamento escolhida sobre a porta 443
@@ -78,7 +78,7 @@ Após o prazo fixado na captura do pacote ter expirado, a captura do pacote é i
 
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
-1. Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique com o botão direito numa captura de pacote existente e selecione **Delete**. **...**
+1. Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique com o botão direito numa captura de pacote existente e selecione **Delete**. 
 2. É-lhe pedido que confirme que pretende eliminar a captura do pacote. Selecione **Yes** (Sim).
 
 > [!NOTE]
@@ -86,7 +86,7 @@ Após o prazo fixado na captura do pacote ter expirado, a captura do pacote é i
 
 ## <a name="stop-a-packet-capture"></a>Pare uma captura de pacotes
 
-Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique com o botão direito numa captura de pacote existente, e selecione **Stop**. **...**
+Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique com o botão direito numa captura de pacote existente, e selecione **Stop**. 
 
 ## <a name="download-a-packet-capture"></a>Faça o download de uma captura de pacotes
 
@@ -100,7 +100,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se selecionou **O Ficheiro** quando criou a captura, pode visualizar ou descarregar o ficheiro a partir do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a automatizar capturas de pacotes com alertas de máquinas virtuais, consulte [Criar uma captura de pacote acionada em alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se o tráfego específico é permitido dentro ou fora de uma máquina virtual, consulte diagnosticar um problema de filtro de [tráfego de rede de máquinas virtuais](diagnose-vm-network-traffic-filtering-problem.md).

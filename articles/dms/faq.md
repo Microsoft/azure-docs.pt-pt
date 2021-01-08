@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: bf6e61ef3dfb1c50166cf17168b4deeb21e958d7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962914"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019096"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre a utilização do Serviço de Migração da Base de Dados de Azure
 
@@ -50,6 +50,9 @@ O Azure Database Migration Service é o método preferido para a migração de b
 
 **Q. Como é que o Azure Database Migration Service se compara à oferta da Azure Migrate?**
 A Azure Migrate ajuda na migração de máquinas virtuais no local para Azure IaaS. O serviço avalia a adequação da migração e o dimensionamento baseado no desempenho, e fornece estimativas de custos para executar as suas máquinas virtuais no local em Azure. A Azure Migrate é útil para migrações de elevação e mudança de cargas de trabalho baseadas em VM para Azure IaaS VMs. No entanto, ao contrário do Azure Database Migration Service, a Azure Migrate não é uma oferta especializada de serviços de migração de bases de dados para plataformas de base de dados relacionais Azure PaaS, como a Base de Dados Azure SQL ou a Azure SQL Managed Instance.
+
+**Q. O Serviço de Migração da Base de Dados armazena os dados do cliente?**
+Não. O Serviço de Migração de Bases de Dados não armazena dados do cliente.
 
 ## <a name="setup"></a>Configuração
 
@@ -117,6 +120,6 @@ Pode fazer algumas coisas para acelerar a migração da sua base de dados utiliz
 * Utilize o nível de preços para fins gerais multi CPU quando criar a sua instância de serviço para permitir que o serviço aproveite vários vCPUs para para paralelização e transferência de dados mais rápida.
 * Dimensione temporariamente a sua instância-alvo da Base de Dados Azure SQL para o SKU de nível Premium durante a operação de migração de dados para minimizar o estrangulamento da Base de Dados Azure SQL que pode afetar as atividades de transferência de dados quando utilizar SKUs de nível inferior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure.](dms-overview.md)

@@ -3,7 +3,7 @@ title: Instale os agentes connect Health no Diretório Ativo Azure
 description: Este artigo do Azure AD Connect Health descreve a instalação do agente para serviços da Federação de Diretório Ativo (AD FS) e para o Sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
@@ -17,18 +17,18 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff6f96c62936d8bf66b908060b91f8cad7989763
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 57362aa84886d7b7d764617ce5a43ca2393bed52
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962600"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018246"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do agente Azure AD Connect Health
 
 Neste artigo, você vai aprender a instalar e configurar os agentes de ligação de Saúde Azure Ative (Azure AD). Para descarregar os agentes, consulte [estas instruções.](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 As seguintes listas de tabelas exigem a utilização do Azure AD Connect Health.
 
@@ -398,7 +398,7 @@ O parâmetro de função toma atualmente os seguintes valores:
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira os seguintes artigos relacionados:
 

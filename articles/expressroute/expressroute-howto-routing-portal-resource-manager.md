@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/26/2020
+ms.date: 01/07/2021
 ms.author: duau
-ms.openlocfilehash: eb55e4633ef64bee0577b1c1defba27dad24a3b7
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 3e106bc313d6189b2fae8cf6a4dd7ce862294b8f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515964"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019283"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutorial: Criar e modificar o espreitamento para um circuito ExpressRoute utilizando o portal Azure
 
@@ -22,7 +22,7 @@ Este tutorial mostra-lhe como criar e gerir a configuração de encaminhamento p
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
-> * [Olhando público](about-public-peering.md)
+> * [Peering público](about-public-peering.md)
 > * [Vídeo - Peering privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vídeo - Microsoft a espreitar](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
     * [Requisitos do encaminhamento](expressroute-routing.md)
     * [Fluxos de trabalho](expressroute-workflows.md)
 * Deve ter um circuito ExpressRoute ativo. Siga as instruções para [criar um circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e tenha o circuito ativado pelo seu fornecedor de conectividade antes de continuar. Para configurar o(s) de espreitar, o circuito ExpressRoute deve estar num estado aprovisionado e habilitado. 
-* Se pretender utilizar uma chave partilhada/hash MD5, certifique-se de que utiliza a chave em ambos os lados do túnel. O limite é um máximo de 25 caracteres alfanuméricos. Personagens especiais não são suportados. 
+* Se pretender utilizar uma chave partilhada/hash MD5, certifique-se de que utiliza a chave em ambos os lados do túnel. O limite é um máximo de 25 caracteres alfanuméricos. Os carateres especiais não são suportados. 
 
 Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que fornecem serviços de conectividade de Camada 2. Se estiver a utilizar um prestador de serviços que oferece serviços geridos da Camada 3 (normalmente um IPVPN, como o MPLS), o seu fornecedor de conectividade configura e gere o encaminhamento para si. 
 
@@ -50,7 +50,7 @@ Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de s
 > Atualmente, não estamos a anunciar peerings configuradas por fornecedores de serviços através do portal de gestão do serviço. Estamos a trabalhar para ativar essa capacidade brevemente. Consulte o seu fornecedor de serviços antes de configurar os seus pares BGP.
 > 
 
-## <a name="microsoft-peering"></a><a name="msft"></a>Peering da Microsoft
+## <a name="microsoft-peering"></a><a name="msft"></a>Microsoft a espreitar
 
 Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de espreitar a Microsoft para um circuito ExpressRoute.
 
@@ -165,7 +165,7 @@ Pode selecionar a linha para peering e modificar as propriedades do peering. Dep
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/update-private-peering.png" alt-text="Atualizar o espreitamento privado":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Para eliminar o peering da Microsoft
 
@@ -183,7 +183,7 @@ Pode remover a sua configuração de observação privada clicando no persitivo 
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-private-peering.png" alt-text="Apagar o espreitamento privado":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar o Azure em privado, pode criar uma porta de entrada ExpressRoute para ligar uma rede virtual ao circuito. 
 

@@ -1,18 +1,17 @@
 ---
 title: Tutorial - Deserializadores personalizados .NET para trabalhos em nuvem Azure Stream Analytics
 description: Este tutorial demonstra como criar um deserializador personalizado .NET para um trabalho em nuvem Azure Stream Analytics usando o Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/17/2020
-ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 6db65d85b5d5d72e7b4764949abcffed004cae85
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822017"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018212"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Deserializadores personalizados .NET para Azure Stream Analytics
 
@@ -20,7 +19,7 @@ A Azure Stream Analytics tem [suporte incorporado para três formatos de dados](
 
 Este tutorial demonstra como criar um deserializador personalizado .NET para um trabalho em nuvem Azure Stream Analytics usando o Visual Studio. Para aprender a criar deserializadores .NET no Código do Estúdio Visual, consulte [Criar deserializadores .NET para trabalhos Azure Stream Analytics em Código de Estúdio Visual](visual-studio-code-custom-deserializer.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie um deserializador personalizado para tampão de protocolo.
@@ -98,7 +97,7 @@ O contentor que criar será utilizado para armazenar ativos relacionados com o s
 
    |Definição|Valor sugerido|
    |-------|---------------|
-   |Alias de Entrada|Entrada|
+   |Alias de Entrada|Input|
    |Tipo de Fonte|Fluxo de Dados|
    |Formato de Serialização de Eventos|Outros (Protobuf, XML, proprietário...)|
    |Nome da montagem do CSharp|ProtobufDeserializer.dll|
@@ -131,7 +130,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a implementar um deserializador personalizado .NET para a serialização da entrada de tampão protocolar. Para saber mais sobre a criação de deserializadores personalizados, continue ao seguinte artigo:
 

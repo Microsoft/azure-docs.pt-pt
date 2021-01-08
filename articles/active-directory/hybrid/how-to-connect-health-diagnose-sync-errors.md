@@ -3,7 +3,7 @@ title: Azure AD Connect Health - Diagnosticar erros de sincronização de atribu
 description: Este documento descreve o processo de diagnóstico de erros de sincronização de atributos duplicados e uma possível correção dos cenários de objetos órfãos diretamente do portal Azure.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20f1e152d67e653b10b8378b7d667106c48dc116
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278688"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016937"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
 
@@ -111,7 +111,7 @@ Esta questão verifica um utilizador conflituoso e o objeto de utilizador existe
    - Nome a Apresentar
    - Nome Principal de Utilizador
    - ID de objeto
-2. Se a Azure AD não os comparar, verifique se o Ative Directory tem objetos com os **nomes de UserPrincipalNames**fornecidos . Responda **não** se encontrar os dois.
+2. Se a Azure AD não os comparar, verifique se o Ative Directory tem objetos com os **nomes de UserPrincipalNames** fornecidos . Responda **não** se encontrar os dois.
 
 No exemplo seguinte, os dois objetos pertencem ao mesmo utilizador **Joe Johnson.**
 

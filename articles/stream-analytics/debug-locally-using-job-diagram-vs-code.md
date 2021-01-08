@@ -3,16 +3,15 @@ title: Debug Azure Stream Analytics consulta localmente usando diagrama de traba
 description: Este artigo descreve como depurar consultas localmente usando o diagrama de trabalho na extensão Azure Stream Analytics para Código de Estúdio Visual.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124174"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019504"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Código de Estúdio Visual
 
@@ -31,7 +30,7 @@ Utilize este [Quickstart](quick-create-visual-studio-code.md) para aprender a cr
 
 Se pretender testar a consulta com os dados de entrada locais, siga estas [instruções](visual-studio-code-local-run.md). Se quiser testar com entrada ao vivo, [configure a sua entrada](stream-analytics-add-inputs.md) para o passo seguinte. 
 
-Abra o ficheiro de script *\. asaql* e selecione **Executar localmente** . Em seguida, **selecione Use local input** ou Use a entrada ao **vivo** . O diagrama de trabalho aparece no lado direito da janela.
+Abra o ficheiro de script *\. asaql* e selecione **Executar localmente**. Em seguida, **selecione Use local input** ou Use a entrada ao **vivo**. O diagrama de trabalho aparece no lado direito da janela.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>Ver a saída e o conjunto de resultados intermédios  
 
@@ -56,7 +55,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
    > [!div class="mx-imgBorder"]
    > ![Métricas do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. Selecione o nome da fonte de dados de entrada a partir do dropdown para ver as métricas de entrada. A fonte de entrada na imagem abaixo é chamada *de citações* . Para obter mais informações sobre as métricas de entrada, consulte [a monitorização do trabalho do Stream Analytics e como monitorizar as consultas.](stream-analytics-monitoring.md)
+3. Selecione o nome da fonte de dados de entrada a partir do dropdown para ver as métricas de entrada. A fonte de entrada na imagem abaixo é chamada *de citações*. Para obter mais informações sobre as métricas de entrada, consulte [a monitorização do trabalho do Stream Analytics e como monitorizar as consultas.](stream-analytics-monitoring.md)
 
    > [!div class="mx-imgBorder"]
    > ![Métricas de entrada de diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
@@ -106,7 +105,7 @@ Selecione **Job Summary** no topo-direito do diagrama de trabalho para ver propr
 
 * Apenas as opções de entrada em nuvem têm suporte [para políticas de tempo,](./stream-analytics-time-handling.md) enquanto as opções de entrada local não.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Criar um trabalho stream analytics usando código de estúdio visual](quick-create-visual-studio-code.md)
 * [Explore a Azure Stream Analytics com Código de Estúdio Visual](visual-studio-code-explore-jobs.md)

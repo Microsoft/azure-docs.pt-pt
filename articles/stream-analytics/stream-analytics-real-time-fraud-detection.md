@@ -1,24 +1,24 @@
 ---
 title: Tutorial - Analise dados fraudulentos de chamadas com a Azure Stream Analytics e visualize os resultados no painel Power BI
 description: Este tutorial fornece uma demonstração ponto a ponto de como utilizar o Azure Stream Analytics para analisar chamadas fraudulentas num fluxo de chamadas telefónica.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: b8744d86300287403ca390d93c70b25215bcac4f
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1e26159c07ca551a78ee2f83a0ca64779c60f7b4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822136"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018875"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise dados fraudulentos de chamadas com Stream Analytics e visualize os resultados no painel Power BI
 
 Este tutorial mostra-lhe como analisar dados de chamadas telefónicas usando a Azure Stream Analytics. Os dados da chamada telefónica, gerados por uma aplicação do cliente, contêm chamadas fraudulentas, que são filtradas pelo trabalho stream Analytics. Você pode usar as técnicas deste tutorial para outros tipos de deteção de fraude, como fraude de cartão de crédito ou roubo de identidade.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Gerei dados de chamadas telefónicas de amostra e envia-os para os Hubs de Eventos Azure.
@@ -54,10 +54,10 @@ Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chama
 
    |**Definição**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |Nome     | asaTutorialEventHub        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
+   |Name     | asaTutorialEventHub        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
    |Subscrição     |   \<Your subscription\>      |   Selecione uma subscrição do Azure onde pretende criar o hub de eventos.      |
-   |O grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
-   |A localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
+   |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
+   |Localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
 
 4. Utilize opções predefinidos nas definições restantes e selecione **Review + create**. Em seguida, **selecione Criar** para iniciar a implementação.
 
@@ -75,7 +75,7 @@ Antes de uma aplicação poder enviar dados para a Azure Event Hubs, o centro de
 
 1. Navegue até ao centro de eventos que criou no passo anterior, *MyEventHub*. Selecione **Políticas de acesso partilhado** em **Definições** e, em seguida, selecione **+ Adicionar**.
 
-2. Atribua o nome **MyPolicy** à política e certifique-se de que a opção **Gerir** está marcada. Em seguida, selecione **Criar**.
+2. Atribua o nome **MyPolicy** à política e certifique-se de que a opção **Gerir** está marcada. Em seguida, selecione **Create** (Criar).
 
    ![Criar a política de acesso partilhado do hub de eventos](media/stream-analytics-real-time-fraud-detection/create-event-hub-access-policy.png)
 
@@ -141,8 +141,8 @@ Agora que tem um fluxo de eventos de chamada, pode criar uma tarefa do Stream An
    |---------|---------|---------|
    |Nome da tarefa     |  ASATutorial       |   Um nome exclusivo para identificar o espaço de nomes do hub de eventos.      |
    |Subscrição    |  \<Your subscription\>   |   Selecione uma subscrição do Azure onde pretende criar a tarefa.       |
-   |O grupo de recursos   |   MyASADemoRG      |   Selecione **Utilizar existente** e introduza um novo nome de grupo de recursos para a sua conta.      |
-   |A localização   |    E.U.A. Oeste 2     |      Localização onde a tarefa pode ser implementada. É recomendado colocar a tarefa e o hub de eventos na mesma região para obter o melhor desempenho e para que não pague a transferência de dados entre regiões.      |
+   |Grupo de recursos   |   MyASADemoRG      |   Selecione **Utilizar existente** e introduza um novo nome de grupo de recursos para a sua conta.      |
+   |Localização   |    E.U.A. Oeste 2     |      Localização onde a tarefa pode ser implementada. É recomendado colocar a tarefa e o hub de eventos na mesma região para obter o melhor desempenho e para que não pague a transferência de dados entre regiões.      |
    |Ambiente de alojamento    | Cloud        |     As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A Cloud permite-lhe implantar para a Azure Cloud, e o Edge permite-lhe implementar para um dispositivo IoT Edge.    |
    |Unidades de transmissão em fluxo     |    1       |      As unidades de transmissão em fluxo representam os recursos informáticos que são necessários para executar uma tarefa. Por predefinição, este valor está definido como 1. Para saber mais sobre o dimensionamento de unidades de transmissão em fluxo, veja o artigo [Compreender e ajustar as unidades de transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -336,7 +336,7 @@ Quando a aplicação estiver em execução no browser, siga estes passos para in
 
 3. Por fim, cole o **EmbedUrl** no campo de texto correspondente e selecione **Incorporar Dashboard**. Agora, pode ver o mesmo dashboard incorporado numa aplicação Web.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma tarefa simples do Stream Analytics, analisou os dados de entrada e apresentou os resultados num dashboard do Power BI. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 

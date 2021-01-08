@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 9014f24918013872ce102d094f62fd5703594ddc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961877"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016716"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar conectividade no local através de gateways VPN
 
@@ -29,7 +29,7 @@ Com a funcionalidade de resolução de problemas do Azure Network Watcher, é ca
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Pretende configurar uma ligação site-to-site entre Azure e no local usando o FortiGate como o VPN Gateway no local. Para alcançar este cenário, seria necessário a seguinte configuração:
 
@@ -87,11 +87,11 @@ A funcionalidade de resolução de problemas do Azure Network Watcher permite-lh
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do utilizador está em andamento. Isto pode ser uma operação de redimensionar. | Não |
 | VipUnResponsive | Não consigo chegar ao primeiro caso do Portal. Isto acontece quando a sonda de saúde falha. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | No|
-| ServiceNotRunning | O serviço subjacente não está a funcionar. | No|
-| NoConnectionsFoundForGateway | Não existem ligações no portal. Isto é só um aviso.| No|
-| LigaçõesNotConnected | Nenhuma das Ligações está ligada. Isto é só um aviso.| Yes|
-| GatewayCPUUsageExceed | O uso atual do CPU de utilização gateway é > 95%. | Yes |
+| PlatformInActive | Existe um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
+| NoConnectionsFoundForGateway | Não existem ligações no portal. Isto é só um aviso.| Não|
+| LigaçõesNotConnected | Nenhuma das Ligações está ligada. Isto é só um aviso.| Sim|
+| GatewayCPUUsageExceed | O uso atual do CPU de utilização gateway é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
@@ -101,14 +101,14 @@ A funcionalidade de resolução de problemas do Azure Network Watcher permite-lh
 | GatewayNotFound | Não é possível encontrar Gateway ou Gateway não está a ser a provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do utilizador está em andamento. Isto pode ser uma operação de redimensionar.  | Não |
-| VipUnResponsive | Não consigo chegar ao primeiro caso do Portal. Acontece quando a sonda de saúde falha. | No |
-| Entidade de ConexãoNotFound | Falta a configuração da ligação. | No |
-| LigaçãoIsMarkedDis ligados | A Ligação está marcada como "desligada". |No|
-| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a Ligação configurada. | Yes |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Yes|
-| Autenticação | Incompatibilidade de chave pré-partilhada. | Yes|
-| PeerReachability | O portal dos pares não é alcançável. | Yes|
-| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Yes|
+| VipUnResponsive | Não consigo chegar ao primeiro caso do Portal. Acontece quando a sonda de saúde falha. | Não |
+| Entidade de ConexãoNotFound | Falta a configuração da ligação. | Não |
+| LigaçãoIsMarkedDis ligados | A Ligação está marcada como "desligada". |Não|
+| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a Ligação configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
+| Autenticação | Incompatibilidade de chave pré-partilhada. | Sim|
+| PeerReachability | O portal dos pares não é alcançável. | Sim|
+| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Sim|
 | Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Sim|
 
 ## <a name="next-steps"></a>Próximos passos

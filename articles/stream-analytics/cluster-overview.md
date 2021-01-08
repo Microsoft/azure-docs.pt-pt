@@ -3,17 +3,16 @@ title: Visão geral dos clusters Azure Stream Analytics (Pré-visualização)
 description: Saiba mais sobre a oferta dedicada do Stream Analytics Cluster.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95247698"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019538"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Visão geral do Azure Stream Analytics Cluster (Pré-visualização)
 
@@ -39,7 +38,7 @@ Os clusters do Stream Analytics são alimentados pelo mesmo motor que alimenta o
 
 Pode [criar um cluster Stream Analytics](create-cluster.md) através do portal [Azure.](https://aka.ms/asaclustercreateportal) Se tiver alguma dúvida ou precisar de ajuda no embarque, pode contactar a [equipa stream Analytics](mailto:askasa@microsoft.com).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="how-do-i-choose-between-a-stream-analytics-cluster-and-a-stream-analytics-job"></a>Como escolho entre um cluster Stream Analytics e um trabalho stream Analytics?
 

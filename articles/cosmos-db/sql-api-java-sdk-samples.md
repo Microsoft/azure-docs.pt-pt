@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 6b732c2af204cba6e93f9207648a5123b75660b1
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0b0bdd204b2aa322adeb7373911b90e742c71999
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545541"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019002"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4 exemplos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -164,7 +164,7 @@ O ficheiro [Amostras CRUD documentais](https://github.com/Azure/azure-documentdb
 | [Ler documento apenas se este for alterado](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AcessoCondition.setType<br>AcessoCondição.setCondição |
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
-O ficheiro [Recolha CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) mostra como executar as seguintes tarefas. Para aprender sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte [políticas de indexação,](index-policy.md) [tipos de indexação](index-overview.md#index-kinds)e [artigos conceptuais de caminhos de indexação.](index-policy.md#include-exclude-paths) 
+O ficheiro [Recolha CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) mostra como executar as seguintes tarefas. Para aprender sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte [políticas de indexação,](index-policy.md) [tipos de indexação](index-overview.md#index-types)e [artigos conceptuais de caminhos de indexação.](index-policy.md#include-exclude-paths) 
 
 | Tarefa | Referência da API |
 | --- | --- |

@@ -1,19 +1,18 @@
 ---
 title: Conecte os trabalhos do Stream Analytics aos recursos numa Rede Virtual Azure (VNET)
 description: Este artigo descreve como ligar um trabalho do Azure Stream Analytics com recursos que estão num VNET.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 99563760bf37c4046e7dd81e779fedbe415380bc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898152"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019487"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Conecte os trabalhos do Stream Analytics a recursos numa Rede Virtual Azure (VNet)
 
@@ -43,7 +42,7 @@ Os seus trabalhos podem ligar-se aos seguintes serviços Azure utilizando esta t
 
 Se os seus trabalhos precisarem de se ligar a outros tipos de entrada ou saída, pode escrever de Stream Analytics para Event Hubs primeiro e depois para qualquer destino à sua escolha usando Funções Azure. Se pretender escrever diretamente do Stream Analytics para outros tipos de saída protegidos num VNet ou firewall, então a única opção é utilizar pontos finais privados em clusters Stream Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e remover pontos finais privados em clusters Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/private-endpoints)
 * [Ligue-se aos Centros de Eventos num VNet utilizando a autenticação de identidade gerida](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity)

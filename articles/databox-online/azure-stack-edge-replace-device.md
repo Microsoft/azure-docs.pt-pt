@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 501136c6f5015dc8c68a1aba004432900675b11c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893894"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017974"
 ---
 # <a name="replace-your-azure-stack-edge-pro-device"></a>Substitua o seu dispositivo Azure Stack Edge Pro
 
@@ -43,6 +43,9 @@ Se o seu dispositivo existente tiver uma falha de hardware, abra um bilhete de S
 
 ## <a name="create-a-resource-for-replacement-device"></a>Criar um recurso para dispositivo de substituição
 
+> [!NOTE]
+> Crie um novo recurso para a ativação do seu dispositivo de substituição. A ativação do dispositivo de substituição contra um recurso existente não é suportada.
+
 Siga estes passos para criar um recurso.
 
 1. Siga os passos na [Criar um novo recurso](azure-stack-edge-deploy-prep.md#create-a-new-resource) para criar um recurso para o dispositivo de substituição. 
@@ -69,6 +72,6 @@ Siga todos os passos para devolver o dispositivo original:
 4. [Elimine o recurso](azure-stack-edge-return-device.md#delete-the-resource) associado ao dispositivo devolvido.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [devolver um dispositivo Azure Stack Edge Pro](azure-stack-edge-return-device.md).

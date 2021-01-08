@@ -1,18 +1,17 @@
 ---
 title: Fluxo de dados como entrada no Azure Stream Analytics
 description: Saiba como configurar uma ligação de dados no Azure Stream Analytics. As entradas incluem um fluxo de dados de eventos, e também dados de referência.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 5f10fed66475cda8fd700a4737727101e2465870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683461"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019368"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Fluxo de dados como entrada no Stream Analytics
 

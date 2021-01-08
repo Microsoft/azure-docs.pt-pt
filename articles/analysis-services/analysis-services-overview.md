@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4be8c8a6163fe0400b37a3f2e1884ff389c00518
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963711"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019079"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -91,6 +91,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Central     |    S8v2, S9v2     |    1     |
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|E.U.A. Centro-Sul     |    S8v2, S9v2     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |E.U.A. Oeste     |    S8v2, S9v2   |    2  |
@@ -115,6 +116,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Leste da Austrália     |    S8v2, S9v2    |    1     |
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Leste do Japão     |    S8v2, S9v2    |    1     |
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Sudeste Asiático     |     S8v2, S9v2     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -261,7 +263,7 @@ As coisas evoluem rapidamente. Obtenha as últimas informações no [blog Power 
 
 O Analysis Services tem uma vibrante comunidade de utilizadores. Junte-se à conversa no [fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Inscreva-se numa Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   

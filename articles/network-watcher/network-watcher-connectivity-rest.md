@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 01/07/2021
 ms.author: kumud
-ms.openlocfilehash: be74871b5669ee249fc06232d804b28c4446757b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b10194d47a90abf9d2070f00b71b78d8796dde4
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494057"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019759"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Conexões de resolução de problemas com o Azure Network Watcher utilizando a API Azure REST
 
@@ -29,7 +29,7 @@ ms.locfileid: "96494057"
 
 Saiba como utilizar a resolução de problemas de ligação para verificar se pode ser estabelecida uma ligação TCP direta de uma máquina virtual para um determinado ponto final.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que tem os seguintes recursos:
 
@@ -464,7 +464,7 @@ O exemplo a seguir é a resposta da execução da chamada anterior da API. Como 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como automatizar capturas de pacotes com alertas de máquina virtual visualizando [Criar uma captura de pacote acionada em alerta.](network-watcher-alert-triggered-packet-capture.md)
 

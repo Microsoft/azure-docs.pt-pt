@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: b9786f9d9da363f15bd2f59390d5dddf86bc1bf9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658855"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016733"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Entenda como os utilizadores são atribuídos a apps no Azure Ative Directory
 Este artigo ajuda-o a entender como os utilizadores são designados para uma aplicação no seu inquilino.
@@ -42,4 +42,4 @@ Para que um utilizador aceda a uma aplicação, deve primeiro ser-lhe atribuído
 ## <a name="next-steps"></a>Próximos passos
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [O que é a gestão de aplicações?](what-is-application-management.md)
-* [O que é o início de sessão único?](what-is-single-sign-on.md)
+* [O que é um único sinal?](what-is-single-sign-on.md)

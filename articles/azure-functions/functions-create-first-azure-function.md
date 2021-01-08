@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: e37a14b2634395d7f31565d6d5a6f6ec96a4a2f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 5c9612547fcfed8e583f5b2fbcfe0bddd5dc412c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954533"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019113"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -61,13 +61,13 @@ Em seguida, crie uma função na nova aplicação de função.
 
     ![Copiar o URL da função a partir do portal do Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Cole o URL da função na barra de endereço do navegador. Adicione o valor da cadeia de consulta `&name=<your_name>` ao final deste URL e prima Enter para executar o pedido. 
+1. Cole o URL da função na barra de endereço do navegador. Adicione o valor da cadeia de consulta `?name=<your_name>` ao final deste URL e prima Enter para executar o pedido. 
 
     O exemplo seguinte mostra a resposta no browser:
 
     ![Resposta da função no browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    O URL do pedido inclui uma chave que é necessária, por predefinição, para aceder à sua função através de HTTP.
+    Se o URL de pedido incluiu uma [chave](functions-bindings-http-webhook-trigger.md#authorization-keys) de acesso `?code=...` (), significa escolher **função** em vez de nível de acesso **Anónimo** ao criar a função. Neste caso, deveria em vez disso anexar `&name=<your_name>` .
 
 1. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída de **vestígios,** volte à página **Code + Test** no portal e expanda a seta de Logs na parte inferior da página.
 
@@ -77,6 +77,6 @@ Em seguida, crie uma função na nova aplicação de função.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

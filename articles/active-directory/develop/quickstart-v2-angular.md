@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 72d9aefcdda5d224b256c6e969b7a75259a97005
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c34ea5e2c622b7b203c56c6de2b611d6eca1d35c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95750778"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017515"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
@@ -35,7 +35,7 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opção 1 (expresso): Registar e configurar automaticamente a aplicação e, em seguida, descarregar a amostra de código
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 > 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a conta no canto superior direito e, em seguida, desacione a sua sessão de portal para o inquilino do Azure Ative Directory (Azure AD) que pretende utilizar.
 > 1. Abra o novo painel [de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) da App no portal Azure.
 > 1. Introduza um nome para a sua inscrição e, em seguida, **selecione Registar..**
@@ -45,7 +45,7 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 >
 > #### <a name="step-1-register-the-application"></a>Passo 1: Registar o pedido
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 > 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a sua conta no canto superior direito e desemconfie da sua sessão de portal para o inquilino AZure AD que pretende utilizar.
 > 1. Siga as instruções para [registar uma aplicação de uma página](./scenario-spa-app-registration.md) no portal Azure.
 > 1. Adicione uma nova plataforma no painel de **autenticação** do registo da sua aplicação e registe o redireccionamento URI: `http://localhost:4200/` .
@@ -96,7 +96,7 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 >
 > Substitua estes valores:
 >
->|Nome do valor|Description|
+>|Nome do valor|Descrição|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na página **geral** do seu registo de candidatura, este é o seu valor **de ID de candidatura(cliente).** |
 >|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)|
@@ -137,7 +137,7 @@ Depois de o navegador carregar a aplicação, **selecione 'Iniciar sessão'.** A
 ![Diagrama que mostra como a aplicação da amostra neste quickstart funciona](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, aprenda a assinar num utilizador e adquira fichas no tutorial angular:
 

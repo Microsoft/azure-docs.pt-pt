@@ -1,19 +1,18 @@
 ---
 title: Saída Azure Stream Analytics para Azure Cosmos DB
 description: Este artigo descreve como usar o Azure Stream Analytics para guardar a saída para Azure Cosmos DB para a saída JSON, para arquivar dados e consultas de baixa latência em dados JSON não estruturados.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 35231eda43e766b5febd8ba90c4d92a44537e0ef
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 2d00d489ff248ecf5599d78e0a351c93248cf8ee
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703760"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018094"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída Azure Stream Analytics para Azure Cosmos DB  
 O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para a implementação desta configuração. Recomendamos que descreva o seu trabalho para o nível de compatibilidade 1.2 ao utilizar o Azure Cosmos DB como saída.
@@ -146,7 +145,7 @@ Se uma falha transitória, indisponibilidade de serviço ou estrangulamento acon
 
 3. A `Id` coluna não existe.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md) 
 * [Saída Azure Stream Analytics para Azure SQL Database](stream-analytics-sql-output-perf.md)

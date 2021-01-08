@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: a97f3bf3a479d956747755a421d7946f7aafd4f1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3c094bf5397d15e24c3b1a58369a74438c99017e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494244"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018416"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação a partir do Monitor de Ligação (Clássico)
 
@@ -61,7 +61,7 @@ Após o início da migração, ocorrem as seguintes alterações:
 * Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação.
 * Quaisquer integrações externas, como dashboards no Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM), devem ser migradas manualmente. Este é o único passo manual que precisa de ser acionado para migrar a sua configuração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Connection Monitor, consulte:
 * [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação](./migrate-to-connection-monitor-from-network-performance-monitor.md)

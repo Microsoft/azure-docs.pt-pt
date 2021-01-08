@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437155"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018076"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Os desafios descritos na secção acima, podem ser resolvidos usando uma ferrame
 
 A ferramenta personalizada utiliza a biblioteca de executor a granel e suporta a escala em vários clientes e para rastrear erros durante o processo de ingestão. Para utilizar esta ferramenta, os dados de origem devem ser divididos em ficheiros distintos no Azure Data Lake Storage (ADLS) para que diferentes trabalhadores da migração possam pegar em cada ficheiro e ingerê-los em Azure Cosmos DB. A ferramenta personalizada faz uso de uma recolha separada, que armazena metadados sobre o progresso da migração para cada ficheiro de origem individual em ADLS e rastreia quaisquer erros associados a eles.  
 
-A imagem a seguir descreve o processo de migração utilizando esta ferramenta personalizada. A ferramenta está a funcionar num conjunto de máquinas virtuais, e cada máquina virtual consulta a recolha de rastreio em Azure Cosmos DB para adquirir um arrendamento numa das divisórias de dados de origem. Uma vez feito isto, a partição de dados de origem é lida pela ferramenta e ingerida no Azure Cosmos DB utilizando a biblioteca do executor a granel. Em seguida, a recolha de rastreio é atualizada para registar o progresso da ingestão de dados e quaisquer erros encontrados. Depois de uma partição de dados ser processada, a ferramenta tenta consultar a próxima partição de origem disponível. Continua a processar a próxima partição de origem até que todos os dados são migrados. O código fonte da ferramenta está disponível [aqui.](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)  
+A imagem a seguir descreve o processo de migração utilizando esta ferramenta personalizada. A ferramenta está a funcionar num conjunto de máquinas virtuais, e cada máquina virtual consulta a recolha de rastreio em Azure Cosmos DB para adquirir um arrendamento numa das divisórias de dados de origem. Uma vez feito isto, a partição de dados de origem é lida pela ferramenta e ingerida no Azure Cosmos DB utilizando a biblioteca do executor a granel. Em seguida, a recolha de rastreio é atualizada para registar o progresso da ingestão de dados e quaisquer erros encontrados. Depois de uma partição de dados ser processada, a ferramenta tenta consultar a próxima partição de origem disponível. Continua a processar a próxima partição de origem até que todos os dados são migrados. O código fonte da ferramenta está disponível no [repo de ingestão a granel Azure Cosmos DB.](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Configuração da ferramenta de migração" border="false":::
@@ -143,7 +143,7 @@ Após a conclusão dos pré-requisitos, pode migrar dados com os seguintes passo
 
 Uma vez concluída a migração, pode validar que a contagem de documentos em Azure Cosmos DB é a mesma que a contagem de documentos na base de dados de origem. Neste exemplo, o tamanho total em Azure Cosmos DB acabou por ser de 65 terabytes. Após a migração, a indexação pode ser ligada seletivamente e as RUs podem ser reduzidas para o nível exigido pelas operações da carga de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executor a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * A biblioteca de executor a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo [do conector Azure Cosmos DB Spark.](spark-connector.md)  

@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: be69e7fc0c836257b92aa8573826fe1e8a36d770
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d7c4f1853ff8dcb9249ab6ec4f536e1f8cfa10e5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948447"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018229"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de amostra com novos campos no esquema traffic Analytics (agosto de 2019 atualização de esquema)
 
 O [esquema de registo traffic Analytics](./traffic-analytics-schema.md) inclui os seguintes novos campos: **SrcPublicIPs_s**, **DestPublicIPs_s,** **NSGRule_s**. Os novos campos fornecem informações sobre os IPs de origem e destino, e simplificam as consultas.
 
-Nos próximos meses, serão depreciados os seguintes campos mais antigos: **VMIP_s,** **Subscription_g,** **Region_s,** **NSGRules_s, Subnet_s,** **NSGRules_s** **VM_s,** **NIC_s,** **PublicIPs_s,** **FlowCount_d.**
+Nos próximos meses, serão depreciados os seguintes campos mais antigos: **VMIP_s,** **Subscription_g,** **Region_s,** **NSGRules_s, Subnet_s,**  **VM_s,** **NIC_s,** **PublicIPs_s,** **FlowCount_d.**
 
 Os três exemplos que se seguem mostram como substituir os campos antigos pelos novos.
 
@@ -120,7 +120,7 @@ Para ilustrar estas condições:
 
 Dependendo das condições, sabemos qual dos quatro campos será povoado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter respostas a perguntas frequentes, consulte [o Traffic Analytics FAQ](traffic-analytics-faq.md).
 - Para ver detalhes sobre a funcionalidade, consulte [a documentação do Traffic Analytics](traffic-analytics.md).

@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173435"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017804"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
 
@@ -183,8 +183,8 @@ Adicione o URI redirecionado ao registo da aplicação no [portal Azure](https:/
 
 **Para gerar o URI de redirecionamento:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione registos de Aplicações **de Diretório Ativo Azure**  >  **App registrations** > sua aplicação registada
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Selecione registos de Aplicações **de Diretório Ativo Azure**  >   > sua aplicação registada
 1. **Selecione autenticação**  >  **Adicione uma plataforma**  >  **iOS / macOS**
 1. Introduza o seu iD do pacote e, em seguida, **selecione Configure**.
 
@@ -315,7 +315,7 @@ Modifique o manifesto da sua aplicação para adicionar o filtro de intenção:
 
 Por exemplo, se tiver um URI de `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` redirecionamento, o seu manifesto deve parecer o seguinte corte XML.
 
-É necessário o corte para `/` a frente ( ) em frente à assinatura no valor `android:path` . **required**
+É necessário o corte para `/` a frente ( ) em frente à assinatura no valor `android:path` . 
 
 ```xml
 <!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
@@ -361,6 +361,6 @@ Aqui ficam algumas dicas para evitar problemas quando implementa a autenticaçã
 
     Assim que tiver os registos, pode pesquisar através deles as suas tentativas de autenticação através do ID de correlação. A identificação da correlação está anexada a todos os pedidos de autenticação. Para encontrar erros devolvidos pelo ponto final de autenticação da plataforma de identidade da Microsoft, procure `AADSTS` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais [sobre considerações para utilizar a Plataforma Universal do Windows com MSAL.NET](msal-net-uwp-considerations.md).

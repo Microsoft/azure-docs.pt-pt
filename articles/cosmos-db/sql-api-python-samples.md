@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 8515ff7102095a278b2656608f00932fe8b19126
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4a1cd5b1773a58cf385fc6cc5c22be8df7b21e20
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098642"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018960"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,7 +76,7 @@ A amostra [container_management.py](https://github.com/Azure/azure-sdk-for-pytho
 
 ## <a name="item-examples"></a>Exemplos de itens
 
-A amostra [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer os documentos do Azure Cosmos antes de executar as [seguintes amostras, consulte Trabalhar com bases de dados, contentores e artigos conceptuais.](account-databases-containers-items.md)
+A [amostra item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer os documentos do Azure Cosmos antes de executar as [seguintes amostras, consulte Trabalhar com bases de dados, contentores e artigos conceptuais.](account-databases-containers-items.md)
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -91,7 +91,7 @@ A amostra [item_management.py](https://github.com/Azure/azure-sdk-for-python/blo
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
 
-A amostra [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python mostra como fazer as seguintes tarefas. Para aprender sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte [políticas de indexação,](index-policy.md) [tipos de indexação](index-overview.md#index-kinds)e [artigos conceptuais de caminhos de indexação.](index-policy.md#include-exclude-paths)
+A amostra [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python mostra como fazer as seguintes tarefas. Para aprender sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte [políticas de indexação,](index-policy.md) [tipos de indexação](index-overview.md#index-types)e [artigos conceptuais de caminhos de indexação.](index-policy.md#include-exclude-paths)
 
 | Tarefa | Referência da API |
 | --- | --- |

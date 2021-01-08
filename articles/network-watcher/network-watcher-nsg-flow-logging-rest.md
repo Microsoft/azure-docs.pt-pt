@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 936501674fcf1d428de936174575440edad71de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea24716dba5e4e824a4fa986602007035be8e365
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738520"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018382"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar registos de fluxo do Grupo de Segurança da Rede usando API REST
 
@@ -38,7 +38,7 @@ Este cenário pressupõe que já seguiu os passos na [Criação de um Observador
 > [!Important]
 > Para o Observador de Rede REST A API chama o nome do grupo de recursos no pedido URI é o grupo de recursos que contém o Observador de Rede, e não os recursos em que está a realizar as ações de diagnóstico.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 O cenário abordado neste artigo mostra-lhe como ativar, desativar e consultar registos de fluxo de consulta utilizando a API REST. Para saber mais sobre os registos de fluxo do Grupo de Segurança de Rede, visite [a rede de registo de fluxos do Grupo de Segurança - Visão geral](network-watcher-nsg-flow-logging-overview.md).
 
@@ -215,7 +215,7 @@ Se uma conta de armazenamento for especificada, os ficheiros de captura de pacot
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [visualizar os seus registos de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

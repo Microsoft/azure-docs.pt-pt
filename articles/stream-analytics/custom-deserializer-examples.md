@@ -1,19 +1,18 @@
 ---
 title: Leia a entrada em qualquer formato utilizando deserializadores personalizados .NET em Azure Stream Analytics
 description: Este artigo explica o formato de serialização e as interfaces que definem os deserializadores personalizados .NET para trabalhos de nuvem e borda do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 140a836882ad3abe048047120e4fe1ebc0a3067c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488439"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018161"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leia a entrada em qualquer formato utilizando deserializadores personalizados .NET
 
@@ -113,7 +112,7 @@ message MessageBodyProto {
 }
 ```
 
-Funcionando `protoc.exe` a partir do **Google.Protobuf.Tools** NuGet gera um ficheiro .cs com a definição. O ficheiro gerado não é mostrado aqui. Deve certificar-se de que a versão do Protobuf Nuget que utiliza no seu projeto Stream Analytics corresponde à versão Protobuf que foi usada para gerar a entrada. 
+Executar `protoc.exe` a partir do **Google.Protobuf.Tools** NuGet gera um ficheiro .cs com a definição. O ficheiro gerado não é mostrado aqui. Deve certificar-se de que a versão do Protobuf Nuget que utiliza no seu projeto Stream Analytics corresponde à versão Protobuf que foi usada para gerar a entrada. 
 
 O seguinte código snippet é a implementação de deserializador assumindo que o ficheiro gerado está incluído no projeto. Esta implementação é apenas um invólucro fino sobre o ficheiro gerado.
 
@@ -235,7 +234,7 @@ Esta funcionalidade está disponível nas seguintes regiões:
 
 Pode [solicitar apoio](https://aka.ms/ccodereqregion) para regiões adicionais.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando é que esta funcionalidade estará disponível em todas as regiões do Azure?
 

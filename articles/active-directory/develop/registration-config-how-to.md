@@ -12,20 +12,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: ryanwi
-ms.openlocfilehash: dc37ce474ad3226f5dbf7e6efd687ddf55f7da03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c348bd7a1738742744976c46396f62a3317dc17
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82926685"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017089"
 ---
 # <a name="how-to-discover-endpoints"></a>Como descobrir pontos finais
 
 Pode encontrar os pontos finais de autenticação da sua aplicação no [portal Azure](https://portal.azure.com).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Selecione **Azure Active Directory**.
-1. Em **Manage**, selecione **as inscrições da App**e, em seguida, selecione **Endpoints** no menu superior.
+1. Em **Manage**, selecione **as inscrições da App** e, em seguida, selecione **Endpoints** no menu superior.
 
     É apresentada a página **Endpoints,** mostrando os pontos finais de autenticação para o seu inquilino.
     
@@ -33,6 +33,6 @@ Pode encontrar os pontos finais de autenticação da sua aplicação no [portal 
 
 **As nuvens** nacionais (por exemplo, Azure AD China, Alemanha e Governo dos EUA) têm o seu próprio portal de registo de aplicações e pontos finais de autenticação AZure AD. Saiba mais na visão geral das [nuvens nacionais.](authentication-national-cloud.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os pontos finais nos diferentes ambientes Azure, consulte a visão geral das [nuvens nacionais.](authentication-national-cloud.md)

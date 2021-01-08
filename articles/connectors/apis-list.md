@@ -3,15 +3,15 @@ title: Conectores do Azure Logic Apps
 description: Automatizar fluxos de trabalho com conectores para apps Azure Logic, tais como incorporados, geridos, no local, conta de integração, ISE e conectores empresariais
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 01/07/2021
+ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359753"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019640"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
 
@@ -28,7 +28,7 @@ Os conectores estão disponíveis como gatilhos e ações incorporados ou como c
 
 <a name="built-in"></a>
 
-* Incorporado : Os gatilhos e ações incorporados são "nativos" das Apps Azure Logic e [**ajudam-no**](#built-ins)a executar estas tarefas para as suas aplicações lógicas:
+* [**Incorporado :**](#built-ins)Desencadeadores e ações incorporadas são executados de forma nativa em Azure Logic Apps para que não exijam a criação de uma ligação antes de as utilizar e ajudá-lo a executar estas tarefas para as suas aplicações lógicas:
 
   * Corra em horários personalizados e avançados.
 
@@ -81,10 +81,10 @@ A Logic Apps fornece gatilhos e ações incorporados para que possa criar fluxos
 
 | Nome | Descrição |
 |------|-------------|
-| [![Horário do conector incorporado ][schedule-icon]<br> **Schedule**][schedule-doc] | - Executar uma aplicação lógica numa recorrência especificada, que vai desde horários básicos a horários avançados com o gatilho [ **de Recorrência**][schedule-recurrence-doc]. <br>- Executar uma aplicação lógica que precisa de lidar com dados em pedaços contínuos com o gatilho [ **da janela deslizante**][schedule-sliding-window-doc]. <br>- Faça uma pausa na sua aplicação lógica durante uma duração especificada com a ação [ **Delay**][schedule-delay-doc]. <br>- Faça uma pausa na sua aplicação lógica até à data e hora especificadas com o [ **Atraso até** à ação][schedule-delay-until-doc]. |
+| [![Horário do conector incorporado ][schedule-icon]<br> ][schedule-doc] | - Executar uma aplicação lógica numa recorrência especificada, que vai desde horários básicos a horários avançados com o gatilho [ **de Recorrência**][schedule-recurrence-doc]. <br>- Executar uma aplicação lógica que precisa de lidar com dados em pedaços contínuos com o gatilho [ **da janela deslizante**][schedule-sliding-window-doc]. <br>- Faça uma pausa na sua aplicação lógica durante uma duração especificada com a ação [ **Delay**][schedule-delay-doc]. <br>- Faça uma pausa na sua aplicação lógica até à data e hora especificadas com o [ **Atraso até** à ação][schedule-delay-until-doc]. |
 | [![Lote de conector incorporado ][batch-icon]<br> **lote**][batch-doc] | - Processar mensagens em lotes com o gatilho **de mensagens Batch.** <br>- Ligue para aplicações lógicas que tenham gatilhos de lote existentes com as **mensagens Enviar para ação de lote.** |
 | [![HTTP Conector incorporado ][http-icon]<br> **HTTP**][http-doc] | Chamar pontos finais HTTP ou HTTPS com acionadores e ações para HTTP. Outros gatilhos e ações incorporadas http-in incluem [HTTP + Conector incorporado swagger][http-swagger-doc] e HTTP + [Webhook][http-webhook-doc]. |
-| [![Pedido de pedido de ][http-request-icon]<br> **Request** conector incorporado][http-request-doc] | - Tornar a sua aplicação lógica callable a partir de outras aplicações ou serviços, desencadear eventos de recursos de Event Grid ou desencadear respostas aos alertas do Azure Security Center com o gatilho **do Pedido.** <br>- Enviar respostas para uma app ou serviço com a ação **Resposta.** |
+| [![Pedido de pedido de ][http-request-icon]<br>  conector incorporado][http-request-doc] | - Tornar a sua aplicação lógica callable a partir de outras aplicações ou serviços, desencadear eventos de recursos de Event Grid ou desencadear respostas aos alertas do Azure Security Center com o gatilho **do Pedido.** <br>- Enviar respostas para uma app ou serviço com a ação **Resposta.** |
 | [![Gestão AZURE API Gestão incorporada ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc] | Chame acionadores e ações definidos pelas suas próprias APIs que gere e publica com a Gestão de API do Azure. |
 | [![Azure App Services serviços de conector ][azure-app-services-icon]<br> **<br> incorporadoS Azure App Services**][azure-app-services-doc] | Ligue para as Aplicações API do Azure ou as Aplicações Web alojadas no Serviço de Aplicações do Azure. Os gatilhos e ações definidos por estas aplicações aparecem como quaisquer outros gatilhos e ações de primeira classe quando o Swagger está incluído. |
 | [![Azure Logic Apps incorporado connector ][azure-logic-apps-icon]<br> **Azure Logic <br> Apps**][nested-logic-app-doc] | Ligue para outras aplicações lógicas que começam com o gatilho **Do Pedido.** |
@@ -97,7 +97,7 @@ A Logic Apps fornece ações incorporadas para executar o seu próprio código n
 | Nome | Descrição |
 |------|-------------|
 | [![Funções Azure funções de conector incorporado ][azure-functions-icon]<br> **Funções Azure**][azure-functions-doc] | Ligue para as funções Azure que executam os snippets de código personalizado (C# ou Node.js) das suas aplicações lógicas. |
-| [![Inline Code built-in connector ][inline-code-icon]<br> **Inline code**][inline-code-doc] | Adicione e execute os snippets de código JavaScript das suas aplicações lógicas. |
+| [![Código inline código inline código ][inline-code-icon]<br> **inline Código Inline Código Código Inline Código**][inline-code-doc] | Adicione e execute os snippets de código JavaScript das suas aplicações lógicas. |
 |||
 
 ### <a name="control-workflow"></a>Fluxo de trabalho de controlo
@@ -106,10 +106,10 @@ A Logic Apps fornece ações integradas para estruturar e controlar as ações n
 
 | Nome | Descrição |
 |------|-------------|
-| [![Condição de ação incorporada ][condition-icon]<br> **Condition**][condition-doc] | Avaliar uma condição e executar diferentes ações com base no facto de a condição ser verdadeira ou falsa. |
+| [![Condição de ação incorporada ][condition-icon]<br> ][condition-doc] | Avaliar uma condição e executar diferentes ações com base no facto de a condição ser verdadeira ou falsa. |
 | [![Para cada ação incorporada ][for-each-icon]<br> **para cada**][for-each-doc] | Execute as mesmas ações em cada item de uma matriz. |
-| [![Âmbito de ação incorporado ][scope-icon]<br> **Âmbito**][scope-doc] | Ações de grupo em *âmbitos* , que obtêm o seu próprio estatuto após as ações no âmbito de execução. |
-| [![Switch switch de ação incorporado ][switch-icon]<br> **Switch**][switch-doc] | Ações de grupo em *casos* , que são atribuídos valores únicos, exceto para o caso padrão. Executar apenas aquele caso cujo valor atribuído corresponde ao resultado de uma expressão, objeto ou token. Se não existirem fósforos, execute o caso predefinido. |
+| [![Âmbito de ação incorporado ][scope-icon]<br> **Âmbito**][scope-doc] | Ações de grupo em *âmbitos*, que obtêm o seu próprio estatuto após as ações no âmbito de execução. |
+| [![Switch switch de ação incorporado ][switch-icon]<br> **Switch**][switch-doc] | Ações de grupo em *casos*, que são atribuídos valores únicos, exceto para o caso padrão. Executar apenas aquele caso cujo valor atribuído corresponde ao resultado de uma expressão, objeto ou token. Se não existirem fósforos, execute o caso predefinido. |
 | [![Terminar a ação incorporada ][terminate-icon]<br> **Termina**][terminate-doc] | Pare um fluxo de trabalho de aplicações lógicas ativamente funcionando. |
 | [![Até a ação incorporada ][until-icon]<br> **até**][until-doc] | Repita as ações até que a condição especificada seja verdadeira ou algum estado tenha mudado. |
 |||
@@ -120,9 +120,9 @@ A Logic Apps fornece ações integradas para trabalhar com as saídas de dados e
 
 | Nome | Descrição |
 |------|-------------|
-| [![Operações de dados incorporadas em ][data-operations-icon]<br> **operações de dados**][data-operations-doc] | Realizar operações com dados: <p>- **Compor** : Criar uma única saída a partir de múltiplas entradas com vários tipos. <br>- **Criar tabela CSV** : Criar uma tabela de valor separado em vírgula (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML** : Criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro** : Crie uma matriz a partir de itens em outra matriz que satisfaça os seus critérios. <br>- **Junte-se:** Crie uma cadeia de todos os itens numa matriz e separe esses itens com olimdidor especificado. <br>- **Parse JSON** : Crie fichas fáceis de utilizar a partir de propriedades e seus valores em conteúdo JSON para que possa utilizar essas propriedades no seu fluxo de trabalho. <br>- **Selecione:** Crie uma matriz com objetos JSON transformando itens ou valores noutra matriz e mapeando esses itens para propriedades especificadas. |
-| ![Data hora incorporada ação][date-time-icon]<br>**Hora da data** | Executar operações com tempotando: <p>- **Adicione ao tempo** : Adicione o número especificado de unidades a uma estampada de tempo. <br>- **Verso horário** : Converta um relógio de tempo do fuso horário de origem para o fuso horário alvo. <br>- **Tempo atual** : Devolva a atual placa de tempo como uma corda. <br>- **Obtenha a hora futura** : Devolva a hora atual mais as unidades de tempo especificadas. <br>- **Passar a tempo** : Devolva o tempo de tempo atual menos as unidades de tempo especificadas. <br>- **Subtrair do tempo** : Subtrair um número de unidades de tempo de um relógio. |
-| [![Variáveis de ação ][variables-icon]<br> **incorporadas**][variables-doc] | Realizar operações com variáveis: <p>- **Apêndice à variável de matriz** : Insira um valor como o último item numa matriz armazenada por uma variável. <br>- **Apêndice à variável de corda** : Insira um valor como o último caracter numa corda armazenada por uma variável. <br>- **Variável de decremento** : Diminua uma variável por um valor constante. <br>- **Variável incremento** : Aumente uma variável por um valor constante. <br>- **Inicializar variável** : Criar uma variável e declarar o seu tipo de dados e valor inicial. <br>- **Variável definida** : Atribua um valor diferente a uma variável existente. |
+| [![Operações de dados incorporadas em ][data-operations-icon]<br> **operações de dados**][data-operations-doc] | Realizar operações com dados: <p>- **Compor**: Criar uma única saída a partir de múltiplas entradas com vários tipos. <br>- **Criar tabela CSV**: Criar uma tabela de valor separado em vírgula (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz a partir de itens em outra matriz que satisfaça os seus critérios. <br>- **Junte-se:** Crie uma cadeia de todos os itens numa matriz e separe esses itens com olimdidor especificado. <br>- **Parse JSON**: Crie fichas fáceis de utilizar a partir de propriedades e seus valores em conteúdo JSON para que possa utilizar essas propriedades no seu fluxo de trabalho. <br>- **Selecione:** Crie uma matriz com objetos JSON transformando itens ou valores noutra matriz e mapeando esses itens para propriedades especificadas. |
+| ![Data hora incorporada ação][date-time-icon]<br>**Hora da data** | Executar operações com tempotando: <p>- **Adicione ao tempo**: Adicione o número especificado de unidades a uma estampada de tempo. <br>- **Verso horário**: Converta um relógio de tempo do fuso horário de origem para o fuso horário alvo. <br>- **Tempo atual**: Devolva a atual placa de tempo como uma corda. <br>- **Obtenha a hora futura**: Devolva a hora atual mais as unidades de tempo especificadas. <br>- **Passar a tempo**: Devolva o tempo de tempo atual menos as unidades de tempo especificadas. <br>- **Subtrair do tempo**: Subtrair um número de unidades de tempo de um relógio. |
+| [![Variáveis de ação ][variables-icon]<br> **incorporadas**][variables-doc] | Realizar operações com variáveis: <p>- **Apêndice à variável de matriz**: Insira um valor como o último item numa matriz armazenada por uma variável. <br>- **Apêndice à variável de corda**: Insira um valor como o último caracter numa corda armazenada por uma variável. <br>- **Variável de decremento**: Diminua uma variável por um valor constante. <br>- **Variável incremento**: Aumente uma variável por um valor constante. <br>- **Inicializar variável**: Criar uma variável e declarar o seu tipo de dados e valor inicial. <br>- **Variável definida**: Atribua um valor diferente a uma variável existente. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -135,7 +135,7 @@ A Logic Apps fornece estes conectores Standard populares para automatizar tarefa
 |------|-------------|
 | [![Azure Service Bus geriu o conector ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Faça a gestão de mensagens assíncronas, sessões e subscrições de tópicos com o conector mais usado em Logic Apps. |
 | [![SQL Server gerido conector ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Ligue ao seu SQL Server nas instalações ou numa Base de Dados Azure SQL na nuvem para que possa gerir registos, executar procedimentos armazenados ou realizar consultas. |
-| [![Azure Blob Storage gerido conector ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Ligue-se à sua conta de armazenamento para que possa criar e gerir o conteúdo blob. |
+| [![Azure Blob Storage gerido conector ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Ligue-se à sua conta de armazenamento para criar e gerir conteúdos de blob. |
 | [![Office 365 Outlook gerido conector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de e-mail de trabalho ou escola para que possa criar e gerir e-mails, tarefas, eventos de calendário e reuniões, contactos, pedidos e muito mais. |
 | [![Conector gerido ][sftp-ssh-icon]<br> **SFTP-SSH SFTP-SSH**][sftp-ssh-doc] | Ligue-se a servidores SFTP aos quais pode aceder a partir da Internet com o SSH para poder trabalhar com os ficheiros e as pastas. |
 | [![SharePoint Contacto Gerido Online ][sharepoint-online-icon]<br> **SharePoint <br> Online**][sharepoint-online-doc] | Ligue-se ao SharePoint Online para poder gerir ficheiros, anexos, pastas e mais. |
@@ -157,7 +157,7 @@ Aqui estão *alguns* conectores Standard comumente usados que as Aplicações L�
 
 :::row:::
     :::column:::
-        [![Servidor bizTalk Servidor ][biztalk-server-icon]<br> **bizTalk** <br> **Server**][biztalk-server-doc]
+        [![Servidor bizTalk Servidor ][biztalk-server-icon]<br> **bizTalk** <br>][biztalk-server-doc]
     :::column-end:::
     :::column:::
         [![Sistema de ficheiros do conector do sistema ][file-system-icon]<br> **de <br> ficheiros de ficheiros** do sistema de ficheiros][file-system-doc]
@@ -324,7 +324,7 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![][edifact-icon]<br>**Conector EDIFACT** ISE EDIFACT][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Sistema de ficheiros ise do sistema de ficheiros do sistema de ficheiros do sistema de ficheiros do sistema de ][file-system-icon]<br> **<br> ficheiros**][file-system-doc]
+        [![Sistema de ficheiros ise do sistema de ][file-system-icon]<br> **<br> ficheiros**][file-system-doc]
     :::column-end:::
     :::column:::
         [![Conector FTP ISE ][ftp-icon]<br> **FTP**][ftp-doc]
@@ -341,7 +341,7 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![Conector MQ ISE ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![SAP conector SAP ISE ][sap-icon]<br> **SAP**][sap-connector-doc]
+        [![SAP conector SAP ISE ][sap-icon]<br> ][sap-connector-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -375,11 +375,11 @@ Depois de um gatilho, a Azure Logic Apps cria uma instância da sua aplicação 
 
 Aqui estão os tipos gerais de gatilhos que a Azure Logic Apps fornece:
 
-* *Trigger de recorrência* : Este gatilho funciona com um horário especificado e não está fortemente associado a um determinado serviço ou sistema.
+* *Trigger de recorrência*: Este gatilho funciona com um horário especificado e não está fortemente associado a um determinado serviço ou sistema.
 
-* *Gatilho de sondagens* : Este gatilho sonda regularmente um serviço ou sistema específico com base no horário especificado, verificando novos dados ou se um evento específico aconteceu. Se novos dados estiverem disponíveis ou o evento específico acontecer, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
+* *Gatilho de sondagens*: Este gatilho sonda regularmente um serviço ou sistema específico com base no horário especificado, verificando novos dados ou se um evento específico aconteceu. Se novos dados estiverem disponíveis ou o evento específico acontecer, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
 
-* *Acionar o gatilho* : Este gatilho espera e ouve novos dados ou para que um evento aconteça. Quando novos dados estão disponíveis ou quando o evento acontece, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
+* *Acionar o gatilho*: Este gatilho espera e ouve novos dados ou para que um evento aconteça. Quando novos dados estão disponíveis ou quando o evento acontece, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
 
 <a name="connections"></a>
 
@@ -390,6 +390,54 @@ Os gatilhos e ações de cada conector fornecem as suas próprias propriedades p
 Para conectores que utilizam OAuth Azure Ative Directory (Azure AD), criar uma ligação significa iniciar sessão no serviço, como o Office 365, Salesforce ou GitHub, onde o seu token de acesso é [encriptado](../security/fundamentals/encryption-overview.md) e armazenado de forma segura numa loja secreta Azure. Outros conectores, como FTP e SQL, requerem uma ligação que tenha detalhes de configuração, tais como o endereço do servidor, nome de utilizador e senha. Estes detalhes de configuração de ligação também são encriptados e armazenados de forma segura. Saiba mais sobre [encriptação em Azure.](../security/fundamentals/encryption-overview.md)
 
 As ligações podem aceder ao serviço ou sistema alvo enquanto esse serviço ou sistema permitir. Para serviços que utilizam ligações Azure AD OAuth, como Office 365 e Dynamics, a Azure Logic Apps atualiza o acesso a tokens indefinidamente. Outros serviços podem ter limites em quanto tempo as Azure Logic Apps podem usar um token sem refrescante. Geralmente, algumas ações invalidam todos os tokens de acesso, como alterar a sua palavra-passe.
+
+<a name="recurrence-behavior"></a>
+
+## <a name="recurrence-behavior"></a>Comportamento de recorrência
+
+O comportamento de gatilhos incorporados recorrentes que funcionam de forma nativa em Azure Logic Apps, como o [gatilho Recurrence,](../connectors/connectors-native-recurrence.md)difere do comportamento para gatilhos baseados em conexão recorrentes onde é necessário criar uma ligação primeiro, como o gatilho do conector SQL.
+
+No entanto, para ambos os tipos de gatilhos, se uma recorrência não especificar uma data e hora de início específicas, a primeira recorrência corre imediatamente quando guarda ou implementa a aplicação lógica, apesar da configuração de recorrência do gatilho. Para evitar este comportamento, forneça uma data de início e hora para quando quiser que a primeira recorrência seja executada.
+
+<a name="recurrence-built-in"></a>
+
+### <a name="recurrence-for-built-in-triggers"></a>Recorrência para gatilhos incorporados
+
+Os gatilhos incorporados recorrentes honram o horário que definiu, incluindo qualquer fuso horário que especifique. No entanto, se uma recorrência não especificar quaisquer outras opções avançadas de agendamento, tais como tempos específicos para executar recorrências futuras, essas recorrências são baseadas na última execução do gatilho. Como resultado, os tempos de início para essas recorrências podem derivar devido a fatores como a latência durante as chamadas de armazenamento. Além disso, se não selecionar um fuso horário, o horário de verão (DST) pode afetar quando os gatilhos funcionam, por exemplo, deslocando a hora de início uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina.
+
+Para se certificar de que a sua aplicação lógica funciona na hora de início especificada e não perde uma recorrência, especialmente quando a frequência é em dias ou mais, experimente estas soluções:
+
+* Certifique-se de que seleciona um fuso horário para que a sua aplicação lógica seja executado na hora de início especificada. Caso contrário, o DST pode afetar quando os gatilhos funcionam, por exemplo, deslocando a hora de início uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina.
+
+  Ao agendar postos de trabalho, a Logic Apps coloca a mensagem para o processamento na fila e especifica quando essa mensagem fica disponível, com base no tempo UTC quando o último trabalho foi executado e na hora utc quando o próximo trabalho está programado para ser executado. Ao especificar um fuso horário, o tempo UTC para a sua aplicação lógica também muda para contrariar a mudança de tempo sazonal. No entanto, algumas janelas de tempo podem causar problemas quando a hora muda. Para obter mais informações e exemplos, consulte [Recorrência para horário de verão e horário normal](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Utilize o gatilho de Recorrência e forneça uma data e hora de início para a recorrência mais os horários específicos para quando executar recorrências subsequentes utilizando as propriedades denominadas **Nestas horas** e **nestas atas**, que estão disponíveis apenas para as frequências **dia** e **semana.**
+
+* Utilize o [gatilho da janela deslizante](../connectors/connectors-native-sliding-window.md), em vez do gatilho de recorrência.
+
+<a name="recurrence-connection-based"></a>
+
+### <a name="recurrence-for-connection-based-triggers"></a>Recorrência para gatilhos baseados em ligação
+
+Em gatilhos baseados em ligação recorrente, tais como SQL ou SFTP-SSH, o horário não é o único controlador que controla a execução, e o fuso horário apenas determina a hora de início inicial. As execuções subsequentes dependem do calendário de recorrência, da última execução do *gatilho, e* de outros fatores que podem causar tempos de fuga ou produzir comportamentos inesperados, por exemplo:
+
+* Se o gatilho acede a um servidor que tem mais dados, que o gatilho tenta imediatamente obter.
+
+* Quaisquer falhas ou retrações que o gatilho incorre.
+
+* Latência durante as chamadas de armazenamento.
+
+* Não mantendo o horário especificado quando o horário de verão (DST) começar e terminar.
+
+* Outros fatores que podem afetar quando a próxima hora de execução acontece.
+
+Para resolver ou contornar estes problemas, experimente estas soluções:
+
+* Para garantir que o tempo de recorrência não muda quando o DST entra em vigor, ajuste manualmente a recorrência para que a sua aplicação lógica continue a funcionar no momento esperado. Caso contrário, a hora de início muda uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina.
+
+* Utilize o gatilho de Recorrência para que possa especificar um fuso horário, uma data e hora de início, *além* dos horários específicos para executar as recorrências subsequentes utilizando as propriedades denominadas **Nestas horas** e **nestes minutos**, que estão disponíveis apenas para as frequências **dia** e **semana.** No entanto, algumas janelas de tempo ainda podem causar problemas quando a hora muda. Para obter mais informações e exemplos, consulte [Recorrência para horário de verão e horário normal](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Para evitar recorrências perdidas, utilize o [gatilho da janela deslizante](../connectors/connectors-native-sliding-window.md), em vez do gatilho de Recorrência.
 
 <a name="custom"></a>
 

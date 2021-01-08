@@ -3,7 +3,7 @@ title: Azure Ative Directory Connect Health operações
 description: Este artigo descreve operações adicionais que podem ser realizadas depois de ter implantado a Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b7bd6d05ee0b992ee166b9acb13aff2e605a2c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961010"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016971"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
 Este tópico descreve as várias operações que pode realizar utilizando o Azure Ative Directory (Azure AD) Connect Health.
@@ -166,7 +166,7 @@ Pode remover um utilizador ou um grupo adicionado à Azure AD Connect Health e a
 
 [//]: # (Fim da secção RBAC)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)

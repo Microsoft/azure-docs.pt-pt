@@ -1,20 +1,20 @@
 ---
 title: Indexação no Azure Cosmos DB
-description: Entenda como a indexação funciona em Azure Cosmos DB, diferentes tipos de índices tais como Range, Spatial, índices compósitos suportados.
+description: Entenda como a indexação funciona em Azure Cosmos DB, diferentes tipos de índices tais como Range, Spatial, índices compostos suportados.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339761"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019334"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB — Descrição geral
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB é uma base de dados de esquemas agnósticos que lhe permite iterar a sua aplicação sem ter de lidar com esquemas ou gestão de índices. Por padrão, a Azure Cosmos DB indexa automaticamente todas as propriedades para todos os itens do seu [contentor](account-databases-containers-items.md#azure-cosmos-containers) sem ter de definir qualquer esquema ou configurar índices secundários.
@@ -64,9 +64,9 @@ Aqui estão os caminhos para cada propriedade a partir do item de exemplo acima 
 
 Quando um item é escrito, a Azure Cosmos DB indexa eficazmente o caminho de cada propriedade e o seu valor correspondente.
 
-## <a name="index-kinds"></a>Tipos de índice
+## <a name="types-of-indexes"></a><a id="index-types"></a>Tipos de índices
 
-A Azure Cosmos DB suporta atualmente três tipos de índices.
+A Azure Cosmos DB suporta atualmente três tipos de índices. Pode configurar estes tipos de índices ao definir a política de indexação.
 
 ### <a name="range-index"></a>Índice de Gama
 
@@ -92,7 +92,7 @@ A Azure Cosmos DB suporta atualmente três tipos de índices.
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (obras `>` `<` para, `>=` , , , `<=` `!=` )
+  (obras `>` `<` para, `>=` `<=` `!=` )
 
 - Verificação da presença de um imóvel:
 
@@ -122,7 +122,7 @@ A Azure Cosmos DB suporta atualmente três tipos de índices.
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Os índices de gama podem ser usados em valores escalares (cadeia ou número).
+Os índices de gama podem ser usados em valores escalares (cadeia ou número). A política de indexação predefinida para os contentores recém-criados impõe índices de intervalo para qualquer cadeia ou número. Para aprender a configurar índices de gama, consulte [exemplos de política de indexação de gama](how-to-manage-indexing-policy.md#range-index)
 
 ### <a name="spatial-index"></a>Índice espacial
 
@@ -146,7 +146,7 @@ Os índices **espaciais** permitem consultas eficientes em objetos geoespaciais 
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Os índices espaciais podem ser utilizados em objetos [GeoJSON](./sql-query-geospatial-intro.md) corretamente formatados. Pontos, LineStrings, Polígonos e MultiPolygons são atualmente suportados.
+Os índices espaciais podem ser utilizados em objetos [GeoJSON](./sql-query-geospatial-intro.md) corretamente formatados. Pontos, LineStrings, Polígonos e MultiPolygons são atualmente suportados. Para utilizar este tipo de índice, definido utilizando a `"kind": "Range"` propriedade ao configurar a política de indexação. Para aprender a configurar índices espaciais, consulte [exemplos de política de indexação espacial](how-to-manage-indexing-policy.md#spatial-index)
 
 ### <a name="composite-indexes"></a>Índices compostos
 
@@ -170,11 +170,13 @@ Os índices **compósitos** aumentam a eficiência quando está a realizar opera
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Enquanto um pré-filtro de filtros utilizar um do tipo indexado, o motor de consulta avaliará primeiro antes de digitalizar o resto. Por exemplo, se tiver uma consulta SQL, como `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Enquanto um pré-filtro utilizar um do tipo de índice, o motor de consulta avaliará primeiro antes de digitalizar o resto. Por exemplo, se tiver uma consulta SQL, como `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * A consulta acima filtra-se primeiro para entradas onde primeiro Nome = "Andrew" utilizando o índice. Em seguida, passa todas as entradas do primeiro Nome = "Andrew" através de um pipeline subsequente para avaliar o predicado do filtro CONTAINS.
 
 * Pode acelerar as consultas e evitar análises completas dos contentores quando utilizar funções que não utilizem o índice (por exemplo, CONTAINS) adicionando predicados de filtros adicionais que utilizam o índice. A ordem das cláusulas de filtragem não é importante. O motor de consulta é vai descobrir quais os predicados são mais seletivos e executar a consulta em conformidade.
+
+Para aprender a configurar índices compostos, consulte [exemplos de política de indexação compósita](how-to-manage-indexing-policy.md#composite-index)
 
 ## <a name="querying-with-indexes"></a>Consulta com índices
 
@@ -187,7 +189,7 @@ Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN co
 > [!NOTE]
 > Uma `ORDER BY` cláusula que ordena por uma única propriedade *sempre* precisa de um índice de alcance e falhará se o caminho que referenciar não tiver um. Da mesma forma, uma `ORDER BY` consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre a indexação nos seguintes artigos:
 

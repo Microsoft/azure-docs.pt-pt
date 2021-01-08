@@ -3,17 +3,16 @@ title: Confiúde os alertas de monitorização para os trabalhos do Azure Stream
 description: Este artigo descreve como usar o portal Azure para configurar monitorização e alertas para trabalhos do Azure Stream Analytics.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7884f8baa24180fcb94f77a45c3457ba62d3f351
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027497"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018144"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Azure Stream Analytics
 
@@ -65,7 +64,7 @@ Recomenda-se que os seguintes alertas sejam necessários para monitorizar o dese
 |Atraso da marca de água|Maior que|Máximo|Quando o valor médio desta métrica ao longo dos últimos 15 minutos for maior do que a tolerância de chegada tardia (em segundos). Se não tiver modificado a tolerância de chegada tardia, o padrão é definido para 5 segundos.|Tente aumentar o número de SUs ou paralelizar a sua consulta. Para obter mais informações sobre as SUs, consulte [compreender e ajustar unidades de streaming.](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job) Para obter mais informações sobre a paralelização da sua consulta, consulte [a paralelização da consulta de alavancagem no Azure Stream Analytics](stream-analytics-parallelization.md).|
 |Erros de deserialização de entradas|Maior que|Total|0|Examine a atividade ou registos de recursos e faça alterações apropriadas na entrada. Para obter mais informações sobre registos de recursos, consulte [Troubleshoot Azure Stream Analytics utilizando registos de recursos](stream-analytics-job-diagnostic-logs.md)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

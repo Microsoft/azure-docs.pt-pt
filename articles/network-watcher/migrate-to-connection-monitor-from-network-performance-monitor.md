@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 688786fd60d7945340e0a027cf6ee28e6dc2bb32
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3eb456dad2836bed55c45e7be9e898fdf72ac4d2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492476"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017940"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
 
@@ -71,7 +71,7 @@ Após a migração, certifique-se de:
 * Migrar quaisquer integrações externas para a mesa ConnectionMonitor_CL. Exemplos de integrações externas são dashboards em Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Connection Monitor, consulte:
 * [Migrar do Monitor de Ligação para o Monitor de Ligação](./migrate-to-connection-monitor-from-connection-monitor-classic.md)

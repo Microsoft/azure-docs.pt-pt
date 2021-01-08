@@ -3,16 +3,15 @@ title: Configurar ferramentas Azure Stream Analytics para Estúdio Visual
 description: Este artigo descreve os requisitos de instalação e como configurar as ferramentas Azure Stream Analytics para o Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/22/2018
-ms.openlocfilehash: 464e8fbf624dfa84ec54bf6a7e0ce202d047e15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0077ac8465e8f785e772b384f26e0edc6874a1a0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045115"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018705"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Instale ferramentas Azure Stream Analytics para Estúdio Visual
 
@@ -68,4 +67,4 @@ Para o Visual Studio 2015 e o Visual Studio 2013, as ferramentas verificam autom
 
 Pode desinstalar as ferramentas Azure Data Lake e Stream Analytics. Para Visual Studio 2019 ou Visual Studio 2017, selecione **Tools**  >  **Get Tools and Features**. Ao **Modificar,** desescolh as ferramentas de análise do **Lago de Dados Azure e do stream.** Aparece sob a carga **de trabalho de armazenamento e processamento de dados** ou a carga de trabalho de desenvolvimento do **Azure.**
 
-Para desinstalar do Visual Studio 2015 ou **Control Panel**do Visual Studio 2013, vá a  >  **Programas e Funcionalidades**do Painel de Controlo . Desinstale as ferramentas de análise **do Microsoft Azure Data Lake e stream analytics para o Estúdio Visual**.
+Para desinstalar do Visual Studio 2015 ou do Visual Studio 2013, vá a  >  **Programas e Funcionalidades** do Painel de Controlo . Desinstale as ferramentas de análise **do Microsoft Azure Data Lake e stream analytics para o Estúdio Visual**.
