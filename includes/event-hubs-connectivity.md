@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dac82692c76d9d36b1f25d7b93b5c3a2e2400672
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002801"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978854"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso para abrir na firewall? 
 Pode utilizar os seguintes protocolos com os Azure Event Hubs para enviar e receber eventos:
@@ -53,7 +53,7 @@ Além disso, verifique se o endereço IP para o seu espaço de nome é permitido
     ```
 2. Note o endereço IP devolvido em `Non-authoritative answer` . 
 
-Se utilizar a **redundância** da zona para o seu espaço de nome, tem de fazer alguns passos adicionais: 
+Se utilizar a **redundância** da zona para o seu espaço de nome, tem de fazer alguns passos extras: 
 
 1. Primeiro, corres nslookup no espaço de nomes.
 
@@ -72,7 +72,7 @@ Se utilizar a **redundância** da zona para o seu espaço de nome, tem de fazer 
     > [!NOTE]
     > O endereço IP devolvido pelo `nslookup` comando não é um endereço IP estático. No entanto, permanece constante até que a implementação subjacente seja eliminada ou transferida para um cluster diferente.
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Onde posso encontrar o IP do cliente a enviar ou a receber mensagens para o meu espaço de nome?
+### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>Que clientes iPs estão enviando eventos ou recebendo eventos do meu espaço de nome?
 Em primeiro lugar, ative [a filtragem IP](../articles/event-hubs/event-hubs-ip-filtering.md) no espaço de nomes. 
 
 Em seguida, Ative os registos de diagnóstico para [eventos de ligação de rede virtual do Event Hubs](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguindo instruções nos [registos de diagnóstico Ativar](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá o endereço IP para o qual a ligação é negada.
@@ -92,3 +92,6 @@ Em seguida, Ative os registos de diagnóstico para [eventos de ligação de rede
 
 > [!IMPORTANT]
 > Os registos de rede virtuais só são gerados se o espaço de nome permitir o acesso a partir de **endereços IP específicos (regras** de filtro IP). Se não quiser restringir o acesso ao seu espaço de identificação utilizando estas funcionalidades e ainda pretender obter registos de rede virtuais para rastrear endereços IP de clientes que se ligam ao espaço de nomes dos Centros de Eventos, poderá utilizar a seguinte solução: Ativar a filtragem IP e adicionar a gama total iPv4 endereçada (1.0.0/1 - 255.0.0.0/1). O Event Hubs não suporta intervalos de endereços IPv6. 
+
+> [!NOTE]
+> Atualmente, não é possível determinar a origem IP de uma mensagem ou evento individual. 

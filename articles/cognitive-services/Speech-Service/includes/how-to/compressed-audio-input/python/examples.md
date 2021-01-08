@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
-ms.openlocfilehash: 3000709f19b53eb6e79b4dae0559040ca025c9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58d547995d39505da18a6bca1a6c3925b95252a6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282751"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978904"
 ---
-Para transmitir num formato áudio comprimido para o serviço Speech, criar `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` a partir de um exemplo da sua classe de fluxo, especificando o formato de compressão do fluxo.
+Para configurar a Speech SDK para aceitar a entrada de áudio comprimido, criar `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` a partir de um exemplo da sua classe de fluxo, especificando o formato de compressão do fluxo.
 
 Vamos supor que o seu caso de uso é para usar `PullStream` para um `MP3` arquivo. O seu código pode ser assim:
 
