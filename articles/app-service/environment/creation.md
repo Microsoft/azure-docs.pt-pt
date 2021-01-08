@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238399"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020184"
 ---
 # <a name="create-an-app-service-environment"></a>Criar um Ambiente de Serviço de Aplicações
 
@@ -20,10 +20,9 @@ ms.locfileid: "95238399"
 > Este artigo é sobre o App Service Environment v3 (pré-visualização)
 > 
 
-O [App Service Environment (ASE)][Intro] é uma única implantação do Serviço de Aplicações que injeta na sua Rede Virtual Azure (VNet).  O ASEv3 só suporta expor aplicações num endereço privado no seu Vnet. Quando um ASEv3 é criado durante a pré-visualização, três recursos são adicionados à sua subscrição.
+O [App Service Environment (ASE)][Intro] é uma única implantação do Serviço de Aplicações que injeta na sua Rede Virtual Azure (VNet).  O ASEv3 só suporta expor aplicações num endereço privado no seu Vnet. Quando um ASEv3 é criado durante a pré-visualização, estes recursos são adicionados à sua subscrição.
 
 - Ambiente do Serviço de Aplicações
-- Zona privada Azure DNS
 - Ponto final privado
 
 A implantação de um ASE requer a utilização de duas sub-redes.  Uma sub-rede terá o ponto final privado.  Esta sub-rede pode ser usada para outras coisas, como VMs.  A outra sub-rede é utilizada para chamadas de saída feitas a partir do ASE.  Esta sub-rede não pode ser usada para outra coisa que não o ASE. 

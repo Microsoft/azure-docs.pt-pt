@@ -1,18 +1,17 @@
 ---
 title: Compreender o manuseamento do tempo no Azure Stream Analytics
 description: Aprenda a escolher a melhor hora de início, lidar com eventos tardios e precoces e sobre métricas de manuseamento de tempo no Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: c8f40808834c64ad74673f1c5f0c19892607fdcc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127478"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019946"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender o manuseamento do tempo no Azure Stream Analytics
 
@@ -22,11 +21,11 @@ Neste artigo, você aprende a fazer escolhas de design para resolver problemas p
 
 Para enquadrar melhor a discussão, vamos definir alguns conceitos de fundo:
 
-- **Hora do evento** : A hora em que o evento original aconteceu. Por exemplo, quando um carro em movimento na autoestrada se aproxima de uma portagem.
+- **Hora do evento**: A hora em que o evento original aconteceu. Por exemplo, quando um carro em movimento na autoestrada se aproxima de uma portagem.
 
-- **Tempo de processamento** : A hora em que o evento atinge o sistema de processamento e é observado. Por exemplo, quando um sensor de portagem vê o carro e o sistema informático demora alguns momentos a processar os dados.
+- **Tempo de processamento**: A hora em que o evento atinge o sistema de processamento e é observado. Por exemplo, quando um sensor de portagem vê o carro e o sistema informático demora alguns momentos a processar os dados.
 
-- **Marca de água** : Um marcador de tempo de evento que indica até que ponto os eventos foram ingressados no processador de streaming. As marcas de água permitem que o sistema indique progressos claros na ingestão dos eventos. Pela natureza dos riachos, os dados do evento nunca param, pelo que as marcas de água indicam o progresso para um determinado ponto no fluxo.
+- **Marca de água**: Um marcador de tempo de evento que indica até que ponto os eventos foram ingressados no processador de streaming. As marcas de água permitem que o sistema indique progressos claros na ingestão dos eventos. Pela natureza dos riachos, os dados do evento nunca param, pelo que as marcas de água indicam o progresso para um determinado ponto no fluxo.
 
    O conceito de marca de água é importante. As marcas de água permitem que o Stream Analytics determine quando o sistema pode produzir resultados completos, corretos e repetíveis que não precisam de ser recolhidos. O processamento pode ser feito de forma previsível e repetível. Por exemplo, se for necessário fazer uma recontagem para algumas condições de manuseamento de erros, as marcas de água são pontos de partida e de finalização seguros.
 
@@ -76,7 +75,7 @@ Quando optar por utilizar a hora de **chegada** como hora do evento, aí não pr
 
 ## <a name="late-arriving-events"></a>Eventos tardios de chegada
 
-Por definição de janela de tolerância de chegada tardia, para cada evento de entrada, o Azure Stream Analytics compara a hora do **evento** com a hora de **chegada** . Se o tempo do evento estiver fora da janela de tolerância, pode configurar o sistema para deixar cair o evento ou ajustar o tempo do evento para estar dentro da tolerância.
+Por definição de janela de tolerância de chegada tardia, para cada evento de entrada, o Azure Stream Analytics compara a hora do **evento** com a hora de **chegada**. Se o tempo do evento estiver fora da janela de tolerância, pode configurar o sistema para deixar cair o evento ou ajustar o tempo do evento para estar dentro da tolerância.
 
 Uma vez geradas as marcas de água, o serviço pode potencialmente receber eventos com um tempo de evento inferior ao da marca de água. Pode configurar o serviço para **deixar cair** esses eventos ou **ajustar** o tempo do evento ao valor da marca de água.
 
@@ -86,7 +85,7 @@ Como parte do ajuste, o **system.timestamp** do evento está definido para o nov
 
 O mecanismo de geração de marcas de água heurística descrito funciona bem na maioria dos casos em que o tempo é maioritariamente sincronizado entre os vários remetentes de eventos. No entanto, na vida real, especialmente em muitos cenários IoT, o sistema tem pouco controlo sobre o relógio nos remetentes do evento. Os remetentes do evento podem ser todo o tipo de dispositivos no campo, talvez em diferentes versões de hardware e software.
 
-Em vez de usar uma marca de água que é global para todos os eventos numa partição de entrada, o Stream Analytics tem outro mecanismo chamado **substreams** . Pode utilizar substreams no seu trabalho escrevendo uma consulta de trabalho que utiliza a cláusula [**TIMETAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) e a palavra-chave **OVER** . Para designar o substream, forneça um nome de coluna-chave após a palavra-chave **OVER,** como uma `deviceid` , de modo que o sistema aplique políticas de tempo por essa coluna. Cada substream recebe a sua própria marca de água independente. Este mecanismo é útil para permitir a geração de produção oportuna, quando se lida com grandes distorções de relógio ou atrasos de rede entre os remetentes de eventos.
+Em vez de usar uma marca de água que é global para todos os eventos numa partição de entrada, o Stream Analytics tem outro mecanismo chamado **substreams**. Pode utilizar substreams no seu trabalho escrevendo uma consulta de trabalho que utiliza a cláusula [**TIMETAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) e a palavra-chave **OVER**. Para designar o substream, forneça um nome de coluna-chave após a palavra-chave **OVER,** como uma `deviceid` , de modo que o sistema aplique políticas de tempo por essa coluna. Cada substream recebe a sua própria marca de água independente. Este mecanismo é útil para permitir a geração de produção oportuna, quando se lida com grandes distorções de relógio ou atrasos de rede entre os remetentes de eventos.
 
 Os substreams são uma solução única fornecida pelo Azure Stream Analytics, e não são oferecidos por outros sistemas de processamento de dados de streaming.
 
@@ -220,7 +219,7 @@ Nesta ilustração, são utilizadas as seguintes tolerâncias:
 
    ![Azure Stream Analytics substreams ilustração de marca de água](media/stream-analytics-time-handling/watermark-graph-3.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Considerações de ordem de eventos Azure Stream Analytics]()
 - [Métricas de trabalho stream Analytics](stream-analytics-monitoring.md)

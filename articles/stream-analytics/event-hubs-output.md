@@ -1,18 +1,17 @@
 ---
 title: Saída de Hubs de Eventos da Azure Stream Analytics
 description: Este artigo descreve como obter dados de produção de Azure Stream Analytics para Azure Event Hubs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e01a4418681e0f78864eacbf70016cfb33fa6f53
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739642"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020592"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída de Hubs de Eventos da Azure Stream Analytics
 
@@ -22,7 +21,7 @@ O serviço [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
 
 A tabela seguinte tem os parâmetros necessários para configurar fluxos de dados dos centros de eventos como uma saída.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída | Um nome amigável usado em consultas para direcionar a saída de consulta para este centro de eventos. |
 | Espaço de nomes do hub de eventos | Um contentor para um conjunto de entidades de mensagens. Quando criou um novo centro de eventos, também criou um espaço de nomes de centros de eventos. |
@@ -64,7 +63,7 @@ A imagem a seguir é das propriedades de mensagens de saída esperadas inspecion
 
 :::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize identidades geridas para aceder ao Event Hub a partir de um trabalho de Azure Stream Analytics (Preview)](event-hubs-managed-identity.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

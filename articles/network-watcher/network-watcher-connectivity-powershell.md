@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 15ce453b607855072ca6e7c7ee32f63000e1d754
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f32823686dca37cb992746924cbaff0695660242
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492493"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019810"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Ligações de resolução de problemas com o Observador de Redes Azure usando o PowerShell
 
@@ -32,7 +32,7 @@ Saiba como utilizar a resolução de problemas de ligação para verificar se po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Um caso de Observador de Rede na região que pretende resolver uma ligação.
 * Máquinas virtuais para resolver ligações com.
@@ -301,7 +301,7 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Determine se determinado tráfego é permitido dentro ou fora do seu VM visitando [verificar o fluxo IP.](diagnose-vm-network-traffic-filtering-problem.md)
 

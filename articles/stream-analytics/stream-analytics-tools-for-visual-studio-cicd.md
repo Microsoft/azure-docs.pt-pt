@@ -3,16 +3,15 @@ title: Utilize o pacote Azure Stream Analytics CI/CD NuGet
 description: Este artigo descreve como usar o pacote Azure Stream Analytics CI/CD NuGet para configurar um processo de integração e implementação contínua.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019859"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019895"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utilize o pacote Azure Stream Analytics CI/CD NuGet para integração e desenvolvimento 
 Este artigo descreve como utilizar o pacote Azure Stream Analytics CI/CD NuGet para configurar um processo de integração e implementação contínua.
@@ -90,7 +89,7 @@ Exemplo:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Criar um trabalho em nuvem Azure Stream Analytics em Estúdio Visual](stream-analytics-quick-create-vs.md)
 * [Teste Stream Analytics consultas localmente com Visual Studio](stream-analytics-vs-tools-local-run.md)

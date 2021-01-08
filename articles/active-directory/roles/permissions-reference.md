@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976831"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020660"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -87,6 +87,14 @@ A [função de administrador de autenticação privilegiada](#privileged-authent
 >* Security Group e Microsoft 365 proprietários do grupo, que podem gerir a adesão ao grupo. Esses grupos podem conceder acesso a informações sensíveis ou privadas ou configuração crítica em Azure AD e em outros lugares.
 >* Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
 >* Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
+
+### <a name="attack-payload-author"></a>[Autor de carga útil de ataque](#attack-payload-author-permissions)
+
+Os utilizadores desta função podem criar cargas de ataque, mas não realmente lançá-las ou programar. As cargas de ataque estão então disponíveis para todos os administradores do inquilino que podem usá-los para criar uma simulação.
+
+### <a name="attack-simulation-administrator"></a>[Administrador de simulação de ataque](#attack-simulation-administrator-permissions)
+
+Os utilizadores desta função podem criar e gerir todos os aspetos da criação de simulação de ataque, lançamento/agendamento de uma simulação e revisão dos resultados da simulação. Os membros desta função têm este acesso a todas as simulações no arrendatário.
 
 ### <a name="azure-devops-administrator"></a>[Administrador da Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -489,6 +497,10 @@ Os utilizadores com esta função podem gerir [dispositivos certificados por Equ
 
 Os utilizadores desta função podem gerir todos os aspetos da carga de trabalho das Equipas Microsoft através das Equipas microsoft & Skype para centro de administração de negócios e os respetivos módulos PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionadas com a telefonia, mensagens, reuniões e as próprias equipas. Esta função também oferece a capacidade de criar e gerir todos os grupos Microsoft 365, gerir bilhetes de suporte e monitorizar a saúde do serviço.
 
+### <a name="usage-summary-reports-reader"></a>[Leitor de Relatórios de Resumo de Utilização](#usage-summary-reports-reader-permissions)
+
+Os utilizadores com esta função podem aceder a dados agregados de nível de inquilino e insights associados no Microsoft 365 Admin Center for Usage and Productivity Score, mas não podem aceder a quaisquer detalhes ou insights do nível do utilizador. No Microsoft 365 Admin Center para os dois relatórios, diferenciamos entre dados agregados ao nível do inquilino e detalhes do nível de utilizador. Esta função confere uma camada extra de proteção sobre dados identificáveis individuais dos utilizadores, que foi solicitado tanto por clientes como por equipas legais. 
+
 ### <a name="user-administrator"></a>[Administrador do Utilizador](#user-administrator-permissions)
 
 Os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos dos utilizadores com algumas restrições (ver tabela) e podem atualizar as políticas de validade da palavra-passe. Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função inclui também a capacidade de criar e gerir as vistas dos utilizadores, gerir bilhetes de apoio e monitorizar a saúde do serviço. Os administradores do utilizador não têm permissão para gerir algumas propriedades do utilizador para os utilizadores na maioria das funções de administrador. O utilizador com esta função não tem permissões para gerir o MFA. As funções que são exceções a esta restrição estão listadas no quadro seguinte.
@@ -591,6 +603,25 @@ Permitido visualizar, definir e redefinir informações do método de autentica�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
 | microsoft.diretório/utilizadores/password/atualização | Atualizar palavras-passe para todos os utilizadores da organização Microsoft 365. Consulte a documentação online para obter mais detalhes. |
+
+### <a name="attack-payload-author-permissions"></a>Permissões de autor de carga útil de ataque
+
+Pode criar cargas de ataque que podem ser implementadas por um administrador mais tarde.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Criar e gerir cargas de ataque no Simulador de Ataque. |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de simulação de ataque, respostas e treino associado. |
+
+### <a name="attack-simulation-administrator-permissions"></a>Permissões de administrador de simulação de ataque
+
+Pode criar e gerir todos os aspetos das campanhas de simulação de ataque.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Criar e gerir cargas de ataque no Simulador de Ataque. |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de simulação de ataque, respostas e treino associado. |
+| microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Crie e gere modelos de simulação de ataque no Simulador de Ataque. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Permissões de administrador da Azure DevOps
 
@@ -1876,6 +1907,14 @@ Pode gerir o serviço Microsoft Teams.
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.teams/allEntities/allProperties/allTasks | Gerir todos os recursos em Equipas. |
 
+### <a name="usage-summary-reports-reader-permissions"></a>Relatórios de Utilização Relatórios Do leitor permissões
+Pode ver apenas agregados de nível de inquilino em M365 Usage Analytics e Productivity Score.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.office365.usageReports/allEntities/standard/read | Leia relatórios de utilização agregados ao nível do inquilino. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal.|
+
 ### <a name="user-administrator-permissions"></a>Permissões de Administrador de Utilizador
 Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição de palavras-passe para administradores limitados.
 
@@ -1922,6 +1961,8 @@ Graph displayName | Nome de exibição do portal Azure | directoryRoleTemplateId
 Administrador da Aplicação | Administrador de aplicação | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programador de Aplicações | Desenvolvedor de aplicações | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrador de Autenticação | Administrador de autenticação | c4e39bd9-1100-46d3-8c65-fb160da00071f
+Autor de carga útil de ataque | Autor de carga útil de ataque | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+Administrador de simulação de ataque | Administrador de simulação de ataque | c430b396-e693-46cc-96f3-db01bf8bb62a
 Administrador da Azure DevOps | Administrador da Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Administrador de Proteção de Informação da Azure | Administrador de Proteção de Informação da Azure | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrador do keyset B2C IEF | Administrador do keyset B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1985,6 +2026,7 @@ Engenheiro de Suporte de Comunicações de Equipas | Engenheiro de Suporte de Co
 Especialista em Apoio às Comunicações das Equipas | Especialista em Apoio às Comunicações das Equipas | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de dispositivos de equipas | Administrador de dispositivos de equipas | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Administrador de Serviço de Equipas | Administrador de Serviço de Equipas | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Leitor de Relatórios de Resumo de Utilização | Leitor de relatórios de resumo de utilização | 75934031-6c7e-415a-99d7-48dbd49e875e
 Utilizador | Não mostrado porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador de Conta de Utilizador | Administrador de utilizadores | fe930be7-5e62-47db-91af-98c3a49a38b1
 Aderir ao dispositivo de trabalho | Preterido | c34f683f-4d5a-4403-affd-6615e00e3a7f

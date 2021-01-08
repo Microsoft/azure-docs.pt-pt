@@ -4,17 +4,16 @@ description: Este artigo descreve vários padrões e designs de consulta comuns 
 services: stream-analytics
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: f0c5363cfec42ba78ee6c41a1970211518b74a71
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127540"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019997"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
 
@@ -85,7 +84,7 @@ HAVING
     [Count] >= 3
 ```
 
-A cláusula **INTO** diz ao Stream Analytics qual das saídas para escrever os dados. O primeiro **SELECT** define uma consulta de passagem que recebe dados da entrada e envia-os para a saída **denominada ArchiveOutput** . A segunda consulta faz uma simples agregação e filtragem antes de enviar os resultados para uma saída do sistema de alerta a jusante chamada **AlertOutput** .
+A cláusula **INTO** diz ao Stream Analytics qual das saídas para escrever os dados. O primeiro **SELECT** define uma consulta de passagem que recebe dados da entrada e envia-os para a saída **denominada ArchiveOutput**. A segunda consulta faz uma simples agregação e filtragem antes de enviar os resultados para uma saída do sistema de alerta a jusante chamada **AlertOutput**.
 
 Note que a cláusula **COM** pode ser usada para definir vários blocos de sub-consulta. Esta opção tem o benefício de abrir menos leitores à fonte de entrada.
 
@@ -340,7 +339,7 @@ Em caso de eventos irregulares ou em falta, uma saída de intervalo regular pode
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Saída (primeiras 10 linhas)** :
+**Saída (primeiras 10 linhas)**:
 
 | Window_end | Last_event. Hora | Last_event. Valor |
 | --- | --- | --- |
@@ -415,14 +414,14 @@ A duração de um evento pode ser calculada olhando para o último evento Inicia
 
 **Entrada:**  
 
-| Utilizador | Destaque | Evento | Hora |
+| Utilizador | Funcionalidade | Evento | Hora |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Iniciar |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |Fim |2015-01-01T00:00:08.0000000Z |
 
 **Saída:**  
 
-| Utilizador | Destaque | Duração |
+| Utilizador | Funcionalidade | Duração |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -609,7 +608,7 @@ Para obter mais informações, consulte [o COUNT (TEMPO DISTINTO)](/stream-analy
 | Make1 |"A" |2015-01-01T00:00:01.0000000Z |
 | Make2 |"B" |2015-01-01T00:00:02.0000000Z |
 
-**Solução:**
+**Solução**:
 
 ```SQL
 SELECT
@@ -881,7 +880,7 @@ MATCH_RECOGNIZE (
 
 Esta consulta corresponde a pelo menos dois eventos de falha consecutivas e gera um alarme quando as condições estão reunidas.
 **O PADRÃO** define a expressão regular a ser utilizada na correspondência, neste caso, qualquer número de operações bem sucedidas seguidas de pelo menos duas falhas consecutivas.
-O sucesso e o fracasso são definidos utilizando Return_Code valor e uma vez que a condição é satisfeita, as medidas são **projetadas** com *ATM_id* , a primeira operação de aviso e primeiro tempo de aviso.
+O sucesso e o fracasso são definidos utilizando Return_Code valor e uma vez que a condição é satisfeita, as medidas são **projetadas** com *ATM_id*, a primeira operação de aviso e primeiro tempo de aviso.
 
 Para mais informações, consulte [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
@@ -934,7 +933,7 @@ Para obter mais informações, consulte os cenários de [agregação geoespacial
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

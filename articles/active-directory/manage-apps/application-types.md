@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 18e29ce8bf744cabb31c5634c9b0ca547bca5acc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858234"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020677"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade
 A [Série Quickstart em Gestão de Aplicações](view-applications-portal.md) leva-lhe o básico. Nele, você aprende a ver todas as aplicações usando o seu inquilino AZure AD para gestão de identidade. Este artigo mergulha um pouco mais nos tipos de apps que vai encontrar.
@@ -38,5 +38,5 @@ Quando filtrado para **todas as aplicações,** a **Lista** de Todas as Aplicaç
 
 Saiba mais sobre como e porquê, as aplicações são adicionadas ao seu diretório, veja [como as aplicações são adicionadas ao AZure AD.](../develop/active-directory-how-applications-are-added.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

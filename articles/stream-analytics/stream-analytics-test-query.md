@@ -1,19 +1,18 @@
 ---
 title: Teste um trabalho Azure Stream Analytics com dados de amostra
 description: Este artigo descreve como usar o portal Azure para testar um trabalho do Azure Stream Analytics, entrada de amostra e upload de dados da amostra.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490972"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020048"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Teste um trabalho de Azure Stream Analytics no portal
 
@@ -23,7 +22,7 @@ No Azure Stream Analytics, pode testar a sua consulta sem iniciar ou parar o seu
 
 O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entradas de streaming. Pode executar consultas na amostra predefinida ou definir um prazo específico para a amostra.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Localize e selecione o seu trabalho stream analytics existente.
 
@@ -71,7 +70,7 @@ O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entra
 
 Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro local para testar a sua consulta Azure Stream Analytics.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
    
 2. Localize o seu trabalho stream analytics existente e selecione-o.
 
@@ -114,7 +113,7 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro
 
 6. Os dados da amostra API são acelerados após cinco pedidos numa janela de 15 minutos. Após o fim da janela de 15 minutos, pode fazer mais pedidos de dados de amostra. Esta limitação é aplicada ao nível da subscrição.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 1.  Se tiver este erro "Houve um problema de conectividade de rede ao obter os resultados. Por favor, verifique as definições da sua rede e firewall.", siga os passos abaixo:
 
@@ -126,7 +125,7 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro
   * Reduzir o tamanho da consulta – Para testar uma seleção de consulta, selecione uma parte da consulta e, em seguida, clique em **Testar consulta selecionada**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Construa uma solução IoT utilizando o Stream Analytics:](./stream-analytics-build-an-iot-solution-using-stream-analytics.md)este tutorial irá guiá-lo a construir uma solução de ponta a ponta com um gerador de dados que simulará o tráfego numa cabine de portagens.
 
 * [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

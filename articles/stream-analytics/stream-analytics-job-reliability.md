@@ -3,17 +3,16 @@ title: Evite interrupções de serviço em trabalhos Azure Stream Analytics
 description: Este artigo descreve orientações para tornar os seus trabalhos stream Analytics resilientes.
 author: jseb225
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 889e298f64689748340713de6318f8ffcd181001
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f4eda779b1bc719706f9eb42cf805a7d5ce864aa
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006460"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020337"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantia Stream Analytics fiabilidade do trabalho durante atualizações de serviço
 
@@ -29,7 +28,7 @@ O artigo sobre **[disponibilidade e regiões emparelhadas](../best-practices-ava
 
 Recomenda-se a colocação de empregos idênticos em ambas as regiões emparelhadas. Em seguida, deve [monitorizar estes trabalhos](./stream-analytics-set-up-alerts.md#scenarios-to-monitor) para ser notificado quando algo inesperado acontece. Se um destes trabalhos acabar num [estado falhado](./job-states.md) após uma atualização do serviço Stream Analytics, pode contactar o apoio ao cliente para ajudar a identificar a causa principal. Deve também falhar em relação a qualquer consumidor a jusante à produção de emprego saudável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)

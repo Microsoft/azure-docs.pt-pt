@@ -2,18 +2,18 @@
 title: Análise de sentimento no Twitter em tempo real com Azure Stream Analytics
 description: Este artigo descreve como usar stream Analytics para análise de sentimento no Twitter em tempo real. Orientação passo a passo da geração de eventos para dados num dashboard ao vivo.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3b321e318621c5687a2e3e5f0649985210a2d16c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019825"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019878"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Azure Stream Analytics
 
@@ -154,7 +154,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
 
 1. No seu trabalho stream Analytics, selecione **Inputs** do menu esquerdo em **Job Topology**.
 
-2. Selecione Adicionar o Centro **+ &nbsp; de Eventos** de entrada de fluxo  >  **Event Hub**. Preencha o **novo formulário de entrada** com as seguintes informações:
+2. Selecione Adicionar o Centro **+ &nbsp; de Eventos** de entrada de fluxo  >  . Preencha o **novo formulário de entrada** com as seguintes informações:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -212,7 +212,7 @@ Neste guia de como guiar, você escreve os eventos de tweet agregados da consult
    * **Conta de armazenamento**. Selecione a sua conta de armazenamento.
    * **Recipiente**. **Selecione Criar novo** e insira `socialtwitter` .
    
-4. Selecione **Guardar**.   
+4. Selecione **Save** (Guardar).   
 
 ## <a name="start-the-job"></a>Iniciar a tarefa
 
@@ -227,7 +227,7 @@ Uma entrada de trabalho, consulta e saída são especificados. Está pronto para
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

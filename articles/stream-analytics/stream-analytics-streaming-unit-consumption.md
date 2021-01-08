@@ -3,16 +3,15 @@ title: Unidades de streaming em Azure Stream Analytics
 description: Este artigo descreve a definição de Unidades de Streaming e outros fatores que impactam o desempenho no Azure Stream Analytics.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a5a0e6feba966d2d10c5cd36432c3d5db172a795
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019876"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020014"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Transmissão em Fluxo
 
@@ -145,7 +144,7 @@ Os dados de referência na ASA são carregados na memória para uma procura ráp
 ### <a name="use-of-udf-functions"></a>Utilização de funções UDF
 Quando adiciona uma função UDF, o Azure Stream Analytics carrega o tempo de execução JavaScript na memória. Isto vai afetar a SU.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar consultas paralizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Escala Azure Stream Analytics empregos para aumentar a produção](stream-analytics-scale-jobs.md)
 

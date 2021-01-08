@@ -5,15 +5,14 @@ author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 12/15/2020
-ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 70015ef24039694789ce96a6c4853221fe2377c3
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605535"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020388"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
@@ -89,7 +88,7 @@ double | Número
 nvarchar(MAX) | String
 Registo | Objeto
 Matriz | Matriz
-NULL | Null
+NULL | Nulo
 
 Seguem-se conversões do JavaScript para o Stream Analytics:
 
@@ -223,7 +222,7 @@ console.log('my error message');
 ```
 
 Pode aceder às mensagens de registo através dos [registos de diagnóstico](data-errors.md).
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [UDF de aprendizagem automática](./machine-learning-udf.md)
 * [UDF em C#](./stream-analytics-edge-csharp-udf-methods.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1a7bd36a6e3f3cc5b785745fc51f0aede3b47b74
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 2029ec2d0b0f27d7078f381880cf7ca177d24ca0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803311"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020209"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redact enfrenta a Azure Media Analytics
 
@@ -36,6 +36,9 @@ Este artigo dá detalhes sobre **o Azure Media Redator** e mostra como usá-lo c
 A redação facial funciona detetando rostos em cada quadro de vídeo e rastreando o objeto facial tanto para a frente como para trás no tempo, para que o mesmo indivíduo possa ser borrado de outros ângulos também. O processo de redação automatizado é complexo e nem sempre produz 100% da produção desejada, por isso a Media Analytics fornece-lhe algumas formas de modificar a saída final.
 
 Além de um modo totalmente automático, existe um fluxo de trabalho de dois passes, que permite a seleção/desescolagem de rostos encontrados através de uma lista de IDs. Além disso, para fazer ajustes arbitrários por quadro, o MP utiliza um ficheiro de metadados no formato JSON. Este fluxo de trabalho é dividido em modos **Analisar** e **Redact.** Pode combinar os dois modos num único passe que executa ambas as tarefas num só trabalho; este modo chama-se **Combinado.**
+
+   > [!NOTE]
+   > O processador de mídia face detetor foi depreparado a partir de junho de 2020, [componentes legados da Azure Media Services](./legacy-components.md). Considere usar a Azure Media Services v3 API.
 
 ### <a name="combined-mode"></a>Modo combinado
 
@@ -373,7 +376,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

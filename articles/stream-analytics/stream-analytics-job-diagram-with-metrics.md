@@ -3,16 +3,15 @@ title: Depuração orientada por dados no Azure Stream Analytics
 description: Este artigo descreve como resolver problemas no seu trabalho Azure Stream Analytics usando o diagrama de trabalho e métricas no portal Azure.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6d20454515088ccca87665d9b3b27c0d82c3cdf9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123987"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020405"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada para dados com o diagrama de trabalhos
 
@@ -20,7 +19,7 @@ O diagrama de trabalho na lâmina **de monitorização** do portal Azure pode aj
 
 ## <a name="using-the-job-diagram"></a>Usando o diagrama de trabalho
 
-No portal Azure, enquanto em um trabalho stream Analytics, em **SUPORTE + RESOLUÇÃO DE PROBLEMAS,** selecione **Diagrama de Trabalho** :
+No portal Azure, enquanto em um trabalho stream Analytics, em **SUPORTE + RESOLUÇÃO DE PROBLEMAS,** selecione **Diagrama de Trabalho**:
 
 ![Diagrama de trabalho com métricas - localização](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
@@ -81,7 +80,7 @@ Se o passo de consulta anterior for um processador de entrada, utilize as métri
 ## <a name="get-help"></a>Obter ajuda
 Para assistência adicional, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)

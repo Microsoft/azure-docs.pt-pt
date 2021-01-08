@@ -3,16 +3,15 @@ title: Introdução às funções de janela do Azure Stream Analytics
 description: Este artigo descreve quatro funções de janela (tumbling, hopping, sliding, session) que são usadas em trabalhos Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: feea44741fbc2c81d781f0bba12b280abdb9f68a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511445"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020253"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
@@ -57,7 +56,7 @@ As janelas instantâneas agrupam eventos que têm a mesma hora de tensão. Ao co
 
 ![Janela snapshot stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

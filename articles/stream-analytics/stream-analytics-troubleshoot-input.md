@@ -1,19 +1,18 @@
 ---
 title: Resolução de problemas entradas para Azure Stream Analytics
 description: Este artigo descreve técnicas para resolver problemas nas suas ligações de entrada em trabalhos Azure Stream Analytics.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123290"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019912"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
@@ -71,7 +70,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Para adicionar um novo grupo de consumidores na sua instância Event Hubs, siga estes passos:
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Localize o seu Centro de Eventos.
 
@@ -79,7 +78,7 @@ Para adicionar um novo grupo de consumidores na sua instância Event Hubs, siga 
 
 4. Selecione o Centro de Eventos pelo nome.
 
-5. Na página **De Exemplo de Centros de Eventos,** sob a rubrica **Entidades,** selecione **Grupos de Consumidores** . Está listado um grupo de consumidores com **nome $Default.**
+5. Na página **De Exemplo de Centros de Eventos,** sob a rubrica **Entidades,** selecione **Grupos de Consumidores**. Está listado um grupo de consumidores com **nome $Default.**
 
 6. Selecione **+ Grupo de Consumidores** para adicionar um novo grupo de consumidores. 
 
@@ -169,7 +168,7 @@ Os trabalhos de Stream Analytics usam o [ponto de final compatível com o Centro
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

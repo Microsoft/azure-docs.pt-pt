@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591621"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020609"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Voz Personalizada
 
@@ -83,12 +83,12 @@ Para uma solução de DevOps já implementada para discurso personalizado, vá a
 O [repo do modelo DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) do Discurso fornece a infraestrutura e orientação detalhada para:
 
 - Copie o repositório do modelo para a sua conta GitHub e, em seguida, crie recursos Azure e um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho CI/CD das ações do GitHub.
-- Caminhe pelo "[dev loop interior](https://mitchdenny.com/the-inner-loop/)." Atualizar dados de treino e teste de um ramo de recurso, testar as alterações com um modelo de desenvolvimento temporário, e levantar um pedido de pull para propor e rever as alterações.
+- Caminhe pelo "[dev loop interior](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)." Atualizar dados de treino e teste de um ramo de recurso, testar as alterações com um modelo de desenvolvimento temporário, e levantar um pedido de pull para propor e rever as alterações.
 - Quando os dados de formação são atualizados num pedido de puxar para *os modelos principais,* treine os modelos com o fluxo de trabalho CI das Ações GitHub.
 - Realize testes de precisão automatizados para estabelecer a Taxa de Erro de [Texto](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de um modelo. Guarde os resultados dos testes em Azure Blob.
 - Execute o fluxo de trabalho do CD para criar um ponto final quando o WER melhorar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre DevOps com Discurso:
 

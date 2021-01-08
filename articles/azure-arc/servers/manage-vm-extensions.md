@@ -1,16 +1,16 @@
 ---
 title: Gestão de extensão VM com servidores ativados Azure Arc
 description: Os servidores ativados do Azure Arc podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
-ms.date: 12/14/2020
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 55e21f9c6bcd2dfe5f995093034773f2a87d9b03
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 5430b1c1318747cccfb95f031700fddaad716284
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504513"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020626"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensões de máquinas virtuais com servidores preparados para o Azure Arc
 
 As extensões de máquinas virtuais (VM) são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure. Por exemplo, se uma máquina virtual necessitar de instalação de software, proteção antivírus ou para executar um script nele, pode ser utilizada uma extensão VM.
 
@@ -43,20 +43,31 @@ A funcionalidade de extensão VM só está disponível na lista de [regiões apo
 
 Nesta versão, apoiamos as seguintes extensões VM nas máquinas Windows e Linux.
 
-|Extensão |SO |Publisher |Informações adicionais |
-|----------|---|----------|-----------------------|
-|CustomScriptExtension |Windows |Microsoft.Compute |[Extensão de script personalizado do Windows](../../virtual-machines/extensions/custom-script-windows.md)|
-|DSC |Windows |Microsoft.PowerShell|[Extensão DSC do Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
-|Agente do Log Analytics |Windows |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extensão para Windows](../../virtual-machines/extensions/oms-windows.md)|
-|Agente de dependência da Microsoft | Windows |Microsoft.Compute | [Extensão de máquina virtual de agente de dependência para Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
-|Cofre de Chaves | Windows | Microsoft.Compute | [Extensão da máquina virtual key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md) |
-|PersonalScript|Linux |Microsoft.Azure.Extension |[Extensão de script personalizado Linux Versão 2](../../virtual-machines/extensions/custom-script-linux.md) |
-|DSC |Linux |Microsoft.OSTCExtensions |[Extensão DSC powerShell para Linux](../../virtual-machines/extensions/dsc-linux.md) |
-|Agente do Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extensão para Linux](../../virtual-machines/extensions/oms-linux.md) |
-|Agente de dependência da Microsoft | Linux |Microsoft.Compute | [Extensão da máquina virtual do agente de dependência para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
-|Cofre de Chaves | Linux | Microsoft.Compute | [Extensão da máquina virtual key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) |
-
 Para saber mais sobre o pacote do agente Azure Connected Machine e detalhes sobre o componente do agente de extensão, consulte [a visão geral do Agente](agent-overview.md#agent-component-details).
+
+### <a name="windows-extensions"></a>Extensões do Windows
+
+|Extensão |Publisher |Tipo |Informações adicionais |
+|----------|----------|-----|-----------------------|
+|Scanner integrado de vulnerabilidade do Azure Defender |Qualys |WindowsAgent.AzureSecurityCenter |[Solução integrada de avaliação de vulnerabilidades do Azure Defender para a Azure e máquinas híbridas](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Extensão de Script Personalizado |Microsoft.Compute | CustomScriptExtension |[Extensão de script personalizado do Windows](../../virtual-machines/extensions/custom-script-windows.md)|
+|DSC do PowerShell |Microsoft.PowerShell |DSC |[Extensão DSC do Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
+|Agente do Log Analytics |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extensão para Windows](../../virtual-machines/extensions/oms-windows.md)|
+|Monitor azul para VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependênciaAgentWindows | [Extensão de máquina virtual de agente de dependência para Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|Sincronização do certificado de abóbada de chave Azure | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Extensão da máquina virtual key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md) |
+|Agente do Azure Monitor |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Instale o agente Azure Monitor (pré-visualização)](../../azure-monitor/platform/azure-monitor-agent-install.md) |
+
+### <a name="linux-extensions"></a>Extensões linux
+
+|Extensão |Publisher |Tipo |Informações adicionais |
+|----------|----------|-----|-----------------------|
+|Scanner integrado de vulnerabilidade do Azure Defender |Qualys |LinuxAgent.AzureSecurityCenter |[Solução integrada de avaliação de vulnerabilidades do Azure Defender para a Azure e máquinas híbridas](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Extensão de Script Personalizado |Microsoft.Azure.Extensões |PersonalScript |[Extensão de script personalizado Linux Versão 2](../../virtual-machines/extensions/custom-script-linux.md) |
+|DSC do PowerShell |Microsoft.OSTCExtensions |DSCForLinux |[Extensão DSC powerShell para Linux](../../virtual-machines/extensions/dsc-linux.md) |
+|Agente do Log Analytics |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Log Analytics VM extensão para Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Monitor azul para VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependênciaAgentLinux |[Extensão da máquina virtual do agente de dependência para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Sincronização do certificado de abóbada de chave Azure | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Extensão da máquina virtual key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) |
+|Agente do Azure Monitor |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Instale o agente Azure Monitor (pré-visualização)](../../azure-monitor/platform/azure-monitor-agent-install.md) |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -101,6 +112,6 @@ A versão mínima do agente 'Máquina Conectada' que é suportada com esta funci
 
 Para atualizar a sua máquina para a versão do agente necessário, consulte o [agente de atualização](manage-agent.md#upgrading-agent).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode implementar, gerir e remover extensões VM utilizando os modelos [Azure CLI](manage-vm-extensions-cli.md), [Azure PowerShell](manage-vm-extensions-powershell.md), do [portal Azure](manage-vm-extensions-portal.md), ou [modelos Azure Resource Manager](manage-vm-extensions-template.md).
