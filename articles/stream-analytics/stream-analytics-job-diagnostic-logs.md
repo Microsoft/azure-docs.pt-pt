@@ -3,17 +3,16 @@ title: Resolução de problemas Azure Stream Analytics usando registos de recurs
 description: Este artigo descreve como analisar registos de recursos no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029146"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011123"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
 
@@ -141,7 +140,7 @@ Mensagem| Mensagem de registo.
 Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Erros de dados do Stream Analytics](./data-errors.md)
 * [Referência linguística de consulta de stream analytics](/stream-analytics-query/stream-analytics-query-language-reference)

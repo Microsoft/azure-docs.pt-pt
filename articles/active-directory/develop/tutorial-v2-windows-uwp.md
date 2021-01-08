@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1e8c7805cf9804e8380f8638781f9634d2d3d081
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509466"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011514"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
@@ -346,7 +346,7 @@ private async Task DisplayMessageAsync(string message)
 
 Agora tem de registar a sua candidatura:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -357,7 +357,7 @@ Agora tem de registar a sua candidatura:
 
 Configure a autenticação para a sua aplicação:
 
-1. De volta ao [portal Azure](https://portal.azure.com), em **Manage**, selecione **Autenticação** Adicione uma  >  **plataforma** e, em seguida, selecione **aplicações móveis e desktop**.
+1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>, em **Manage**, selecione **Autenticação** Adicione uma  >  **plataforma** e, em seguida, selecione **aplicações móveis e desktop**.
 1. Na secção **URIs de redirecionamento,** verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Selecione **Configurar**.
 
@@ -504,7 +504,7 @@ Permite a [autenticação integrada em domínios federados](#enable-integrated-a
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a utilização da Biblioteca de Autenticação do Microsoft (MSAL) para autorização e autenticação em aplicações .NET:
 

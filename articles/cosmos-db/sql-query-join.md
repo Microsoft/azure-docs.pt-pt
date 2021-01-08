@@ -1,25 +1,25 @@
 ---
 title: SQL JOIN consultas para Azure Cosmos DB
 description: Saiba como juntar várias tabelas em Azure Cosmos DB para consultar os dados
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333856"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011410"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junta-se ao Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Numa base de dados relacional, as juntas entre as tabelas são o corolário lógico para a conceção de esquemas normalizados. Em contraste, a API SQL utiliza o modelo de dados desnormalizado de itens isentos de esquemas, que é o equivalente lógico de uma *união auto-união*.
 
-As juntas interiores resultam num produto transversal completo dos conjuntos que participam na junção. O resultado de uma junção N-way é um conjunto de tuples de elemento N, onde cada valor no tuple está associado com o conjunto pseudónimo que participa na junção e pode ser acedido referindo esse pseudónimo em outras cláusulas.
+As junções resultam num produto cruzado completo dos conjuntos participantes na junção. O resultado de uma junção N-way é um conjunto de tuples de elemento N, onde cada valor no tuple está associado com o conjunto pseudónimo que participa na junção e pode ser acedido referindo esse pseudónimo em outras cláusulas.
 
 ## <a name="syntax"></a>Syntax
 
@@ -254,7 +254,9 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+Se a sua consulta tiver um JOIN e filtros, pode reescrever parte da consulta como [subconsejo para](sql-query-subquery.md#optimize-join-expressions) melhorar o desempenho.
+
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução](sql-query-getting-started.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)

@@ -3,17 +3,16 @@ title: Agregados definidos pelo utilizador JavaScript no Azure Stream Analytics
 description: Este artigo descreve como executar mecânicas de consulta avançadas com agregados definidos pelo utilizador JavaScript em Azure Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e9695a268d1c6ec43a737afd36536e4ec2a41a41
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124769"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012483"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics JavaScript agregados definidos pelo utilizador
  
@@ -83,7 +82,7 @@ O pseudónimo da função é o identificador UDA. Quando chamados em consulta St
 
 ### <a name="function-type"></a>Tipo de função
 
-Para a UDA, o tipo de função deve ser **Javascript UDA** .
+Para a UDA, o tipo de função deve ser **Javascript UDA**.
 
 ### <a name="output-type"></a>Tipo de saída
 
@@ -123,7 +122,7 @@ Abaixo caminhamos através do processo de criação de uma UDA a partir do Porta
 Agora vamos criar um JavaScript UDA sob um trabalho asa existente seguindo os passos.
 
 1. Inicie sessão no portal Azure e localize o seu trabalho de Stream Analytics existente.
-1. Em seguida, clique no link de funções em **JOB TOPOLOGY** .
+1. Em seguida, clique no link de funções em **JOB TOPOLOGY**.
 1. Clique no ícone **Adicionar** para adicionar uma nova função.
 1. Na vista Nova Função, selecione **JavaScript UDA** como o Tipo de Função e, em seguida, vê um modelo UDA padrão aparecer no editor.
 1. Preencha o "TWA" como pseudónimo da UDA e altere a implementação da função como o seguinte:
@@ -228,7 +227,7 @@ Crie um ficheiro JSON local com conteúdo abaixo, faça o upload do ficheiro par
 
 Para obter ajuda adicional, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

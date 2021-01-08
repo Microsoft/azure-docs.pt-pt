@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 087a7ead1ef5f9f46f5b81f8d42fcc0ea0209e61
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739659"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013282"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -54,7 +54,7 @@ Os projetos de rotulagem são administrados a partir da Azure Machine Learning. 
 
 Se os seus dados já estiverem no armazenamento da Azure Blob, deverá disponibilizá-lo como uma loja de dados antes de criar o projeto de rotulagem. Para um exemplo de utilização de uma loja de dados, consulte [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 
-Para criar um projeto, **selecione Adicionar o projeto.** Dê ao projeto um nome adequado e **selecione o tipo de tarefa de rotulagem**.
+Para criar um projeto, **selecione Adicionar o projeto.** Dê ao projeto um nome adequado e **selecione o tipo de tarefa de rotulagem**. O nome do projeto não pode ser reutilizado, mesmo que o projeto seja eliminado no futuro.
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Assistente de criação de projeto de rotulagem":::
 
@@ -268,7 +268,7 @@ Use estas dicas se vir algum destes problemas.
 |Ao rever imagens, imagens recentemente rotuladas não são mostradas.     |   Para carregar todas as imagens etiquetadas, escolha o botão **First.** O botão **First** irá levá-lo de volta para a frente da lista, mas carrega todos os dados rotulados.      |
 |Premir a tecla Esc durante a rotulagem para deteção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. Enviar etiquetas neste estado falha.     |   Elimine a etiqueta clicando na marca transversal ao lado.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

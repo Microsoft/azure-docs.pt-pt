@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286953"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011548"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -33,7 +33,7 @@ Pode configurar os atributos de uma aplicação através do portal Azure ou util
 
 Para configurar o manifesto de aplicação:
 
-1. Aceda ao [portal do Azure](https://portal.azure.com). Procure e selecione o serviço **Azure Ative Directory.**
+1. Vá ao <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure.</a> Procure e selecione o serviço **Azure Ative Directory.**
 1. Selecione **Registos de aplicações**.
 1. Selecione a aplicação que pretende configurar.
 1. A partir da página **Descrição geral** da aplicação, selecione a secção **Manifesto**. Abre um editor manifesto baseado na web, permitindo-lhe editar o manifesto dentro do portal. Opcionalmente, pode selecionar **Download** para editar o manifesto localmente e, em seguida, usar **upload** para reaplicá-lo à sua aplicação.
@@ -435,7 +435,7 @@ Exemplo:
 | parentalControlSettings | String |
 
 - `countriesBlockedForMinors` especifica os países/regiões em que a aplicação está bloqueada para menores.
-- `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
+- `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` `RequireConsentForPrivacyServices` , ou `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
 
 Exemplo:
 
@@ -664,18 +664,18 @@ Para obter descrições para estes atributos, consulte a secção [de referênci
 
 Quando tentar carregar um manifesto previamente descarregado, poderá ver um dos seguintes erros. Este erro é provável porque o editor manifesto agora suporta uma versão mais recente do esquema, que não coincide com a que está a tentar carregar.
 
-* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Identificador de objetos inválidos "indefinido". []."
-* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Um ou mais valores de propriedade especificados são inválidos. []."
-* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Não é permitido definir OsTenants disponíveis nesta versão api para atualização. []."
-* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: As atualizações à propriedade 'answerUrls' não são permitidas para esta aplicação. Utilize a propriedade 'answerUrlsWithType'. []."
-* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Foi encontrado um valor sem um nome tipo e não existe qualquer tipo esperado. Quando o modelo é especificado, cada valor na carga útil deve ter um tipo que pode ser especificado na carga útil, explicitamente pelo chamador ou implicitamente inferido do valor principal. []"
+* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Identificador de objetos inválidos "indefinido". []."
+* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Um ou mais valores de propriedade especificados são inválidos. []."
+* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Não é permitido definir OsTenants disponíveis nesta versão api para atualização. []."
+* "Falhou na atualização da aplicação xxxx. Detalhe de erro: As atualizações à propriedade 'answerUrls' não são permitidas para esta aplicação. Utilize a propriedade 'answerUrlsWithType'. []."
+* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Foi encontrado um valor sem um nome tipo e não existe qualquer tipo esperado. Quando o modelo é especificado, cada valor na carga útil deve ter um tipo que pode ser especificado na carga útil, explicitamente pelo chamador ou implicitamente inferido do valor principal. []"
 
 Quando vir um destes erros, recomendamos as seguintes ações:
 
 1. Edite os atributos individualmente no editor manifesto em vez de carregar um manifesto previamente descarregado. Use a tabela [de referência manifesta](#manifest-reference) para entender a sintaxe e a semântica de atributos antigos e novos para que possa editar com sucesso os atributos em que está interessado.
 1. Se o seu fluxo de trabalho exigir que guarde os manifestos no seu repositório de origem para utilização posterior, sugerimos a rebasão dos manifestos guardados no seu repositório com o que vê na experiência de registos da **App.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre a relação entre a aplicação de uma aplicação e o objeto principal de serviço, consulte [aplicações e objetos principais de serviço em Azure AD](app-objects-and-service-principals.md).
 * Consulte o [glossário de desenvolvedores de plataformas de identidade](developer-glossary.md) da Microsoft para definições de alguns conceitos de desenvolvedores de plataformas de identidade da Microsoft.

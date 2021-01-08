@@ -1,18 +1,17 @@
 ---
 title: Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 description: Etiquetas do sensor da IoT e transmissão de dados com análises de transmissão e processamento de dados em tempo real
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 311aca139220622a0436d490e73a536c3fc898c9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a438401ff93c20d8759e6128936c3626bd3de484
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129019"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012687"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 
@@ -23,7 +22,7 @@ Neste artigo, aprende-se a criar lógica de processamento de streaming para reco
 * Crie uma [subscrição gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Descarregue a consulta de amostras e ficheiros de dados do [GitHub.](https://aka.ms/azure-stream-analytics-get-started-iot)
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 A Contoso, uma empresa de automatização industrial, automatizou por completo o processo de fabrico. Nesta fábrica, as máquinas têm sensores que emitem transmissões de dados em tempo real. Neste cenário, um gestor do piso de produção pretende ter conhecimentos aprofundados e em tempo real sobre os sensores de dados e tomar medidas relativamente aos mesmos. Pode utilizar o Stream Analytics Query Language (SAQL) sobre os dados do sensor para encontrar padrões interessantes a partir do fluxo de dados que chegam.
 
@@ -44,13 +43,13 @@ Para facilitar a utilização, este guia de introdução fornece um ficheiro de 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. No [portal Azure](https://portal.azure.com), selecione **+ Crie um recurso** a partir do menu de navegação à esquerda. Em seguida, selecione **stream analytics job** from **Analytics** .
+1. No [portal Azure](https://portal.azure.com), selecione **+ Crie um recurso** a partir do menu de navegação à esquerda. Em seguida, selecione **stream analytics job** from **Analytics**.
    
     ![Criar uma nova tarefa do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 1. Introduza um nome exclusivo de tarefa e verifique se a subscrição é a correta para a tarefa. Crie um novo grupo de recursos ou selecione um existente a partir da sua subscrição.
 
-1. Selecione um local para o seu trabalho. Utilize a mesma localização para o seu grupo de recursos e todos os recursos para aumentar a velocidade de processamento e reduzir os custos. Depois de escoar as configurações, **selecione Criar** .
+1. Selecione um local para o seu trabalho. Utilize a mesma localização para o seu grupo de recursos e todos os recursos para aumentar a velocidade de processamento e reduzir os custos. Depois de escoar as configurações, **selecione Criar**.
    
     ![Detalhes para criar uma nova tarefa do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
 
@@ -60,7 +59,7 @@ O próximo passo após a criação do seu trabalho é escrever uma consulta. Pod
 Descarregue o [HelloWorldASA-InputStream.jsa](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) partir do GitHub. Em seguida, navegue para o seu trabalho Azure Stream Analytics no portal Azure.
 
-Selecione **Consulta** em **Topologia de Trabalho** a partir do menu esquerdo. Em seguida, **selecione Carregar a entrada da amostra** . Faça o upload do `HelloWorldASA-InputStream.json` ficheiro e selecione **Ok** .
+Selecione **Consulta** em **Topologia de Trabalho** a partir do menu esquerdo. Em seguida, **selecione Carregar a entrada da amostra**. Faça o upload do `HelloWorldASA-InputStream.json` ficheiro e selecione **Ok**.
 
 ![Azulejo de consulta do painel de instrumentos stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -125,7 +124,7 @@ HAVING Avg(temp)>100
 
 ![Consulta do filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Deve ver resultados que contêm apenas 245 linhas e nomes de sensores onde o temperado médio é superior a 100. Esta consulta agrupa a transmissão de eventos por **dspl** , que é o nome do sensor, e coloca-a numa **Janela em Cascata** de 30 segundos. As consultas temporais devem indicar como quer tempo para progredir. Ao utilizar a cláusula **TIMETAMP BY,** especificou a coluna **OUTPUTTIME** para associar os tempos a todos os cálculos temporais. Para obter informações detalhadas, leia sobre funções [de Gestão do Tempo](/stream-analytics-query/time-management-azure-stream-analytics) e [Descamagem](/stream-analytics-query/windowing-azure-stream-analytics).
+Deve ver resultados que contêm apenas 245 linhas e nomes de sensores onde o temperado médio é superior a 100. Esta consulta agrupa a transmissão de eventos por **dspl**, que é o nome do sensor, e coloca-a numa **Janela em Cascata** de 30 segundos. As consultas temporais devem indicar como quer tempo para progredir. Ao utilizar a cláusula **TIMETAMP BY,** especificou a coluna **OUTPUTTIME** para associar os tempos a todos os cálculos temporais. Para obter informações detalhadas, leia sobre funções [de Gestão do Tempo](/stream-analytics-query/time-management-azure-stream-analytics) e [Descamagem](/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Consulta: Detetar a ausência de eventos
 
@@ -148,7 +147,7 @@ WHERE t2.dspl IS NULL
 
 ![Detetar a ausência de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Aqui, vamos utilizar uma associação **EXTERNA** para a mesma transmissão de dados (associação automática). Para uma associação **NTERNA** , só é apresentado um resultado quando é encontrada uma correspondência.  Numa associação **EXTERNA** , se um evento externo à associação não tiver qualquer correspondência, será apresentada a linha NULO para todas as colunas à direita. Esta técnica é muito útil para localizar a ausência de eventos. Para mais informações, consulte [JOIN.](/stream-analytics-query/join-azure-stream-analytics)
+Aqui, vamos utilizar uma associação **EXTERNA** para a mesma transmissão de dados (associação automática). Para uma associação **NTERNA**, só é apresentado um resultado quando é encontrada uma correspondência.  Numa associação **EXTERNA**, se um evento externo à associação não tiver qualquer correspondência, será apresentada a linha NULO para todas as colunas à direita. Esta técnica é muito útil para localizar a ausência de eventos. Para mais informações, consulte [JOIN.](/stream-analytics-query/join-azure-stream-analytics)
 
 ## <a name="conclusion"></a>Conclusão
 

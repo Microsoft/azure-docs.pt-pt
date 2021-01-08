@@ -3,16 +3,15 @@ title: Processamento de eventos em tempo real usando Azure Stream Analytics
 description: Este artigo descreve a arquitetura de referência para alcançar o processamento e análise de eventos em tempo real usando a Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 0aa489e1732a8be564b3cefe1ed74d7aaacb1456
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 858ec5fef065acba6934945a96c21fb1c26b3685
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124429"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012092"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: Processamento de eventos em tempo real com o Microsoft Azure Stream Analytics
 A arquitetura de referência para o processamento de eventos em tempo real com o Azure Stream Analytics destina-se a fornecer uma planta genérica para implementar uma plataforma em tempo real como uma solução de processamento de streaming de serviço (PaaS) com o Microsoft Azure.
@@ -46,7 +45,7 @@ O Microsoft Azure fornece um extenso catálogo de tecnologias de análise que s�
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

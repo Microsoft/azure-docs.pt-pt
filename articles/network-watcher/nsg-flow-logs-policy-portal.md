@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948549"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011106"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>QuickStart: Implementar e gerir registos de fluxo NSG utilizando a política do Azure 
 
@@ -25,7 +25,7 @@ ms.locfileid: "94948549"
 O Azure Policy ajuda a impor normas organizacionais e a avaliar o cumprimento em escala. Os casos de utilização comum para a Política Azure incluem a implementação da governação para a consistência dos recursos, a conformidade regulamentar, a segurança, os custos e a gestão. Neste artigo, usaremos duas políticas incorporadas disponíveis para os Registos de Fluxo NSG para gerir a configuração dos seus registos de fluxo. A primeira política sinaliza quaisquer NSGs sem registos de fluxo ativados. A segunda política implementa automaticamente os registos de fluxo para NSGs sem registos de fluxo ativados. 
 
 Se estiver a criar uma política Azure pela primeira vez, pode ler: 
-- [Visão geral da política de Azure](../governance/policy/overview.md) 
+- [Descrição geral do Azure Policy](../governance/policy/overview.md) 
 - [Tutorial para a criação de política.](../governance/policy/assign-policy-portal.md#create-a-policy-assignment)
 
 
@@ -132,7 +132,7 @@ Devias ver algo como seguir a imagem uma vez que a tua apólice. Caso a sua apó
 ![Resultados da política do DINE](./media/network-watcher-builtin-policy/7_2_dine-policy-results.png)  
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 -   Utilize este [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) Vá mais fundo utilizando modelos ARM para implementar Registos de Fluxo e Análise de Tráfego.
 -   Saiba mais sobre [o Network Watcher](./index.yml)

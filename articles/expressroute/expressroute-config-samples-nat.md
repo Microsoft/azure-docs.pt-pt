@@ -5,25 +5,25 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/07/2021
 ms.author: duau
-ms.openlocfilehash: 4b57dec32a3a008cadf68c19ea52353a23fb2cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0a39d65bf0f1bc5221cd5e46493c489f7630f8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397499"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012670"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Amostras de configuração do router para configurar e gerir o NAT
 
-Esta página fornece amostras de configuração NAT para routers da série Cisco ASA e Juniper SRX quando trabalham com o ExpressRoute. Estas destinam-se a ser apenas amostras para orientação e não devem ser utilizadas como está. Pode trabalhar com o seu fornecedor para criar configurações apropriadas para a sua rede.
+Este artigo fornece amostras de configuração NAT para routers da série Cisco ASA e Juniper SRX quando trabalham com o ExpressRoute. Estas configurações do router destinam-se apenas a amostras para orientação e não devem ser utilizadas como está. Terá de trabalhar com o seu fornecedor para criar configurações apropriadas para a sua rede.
 
 > [!IMPORTANT]
 > As amostras desta página destinam-se a ser apenas para orientação. Tem de trabalhar com a equipa técnica/de vendas do seu fornecedor e com a sua equipa de networking para apresentar configurações adequadas para atender às suas necessidades. A Microsoft não irá suportar problemas relacionados com as configurações listadas nesta página. Deve contactar o seu fornecedor de dispositivos para obter problemas de suporte.
 > 
 > 
 
-* As amostras de configuração do router abaixo aplicam-se aos perstos do Azure Public e da Microsoft. Não deve configurar o NAT para o Azure. Reveja [os requisitos ExpressRoute](expressroute-circuit-peerings.md) e [ExpressRoute NAT](expressroute-nat.md) para obter mais detalhes.
+* As amostras de configuração do router abaixo aplicam-se aos perstos do Azure Public e da Microsoft. Não se configura o NAT para o Azure. Reveja [os requisitos ExpressRoute](expressroute-circuit-peerings.md) e [ExpressRoute NAT](expressroute-nat.md) para obter mais detalhes.
 
 * Deve utilizar piscinas NAT IP separadas para conectividade com a internet e o ExpressRoute. A utilização do mesmo pool NAT IP através da internet e o ExpressRoute resultará num encaminhamento assimétrico e perda de conectividade.
 
@@ -360,6 +360,6 @@ Consulte as amostras na página [de amostras de configuração de encaminhamento
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Veja [FAQ do ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
+## <a name="next-steps"></a>Próximos passos
+Para obter mais informações, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 

@@ -2,18 +2,17 @@
 title: Azure Stream Analytics no IoT Edge
 description: Crie trabalhos de borda no Azure Stream Analytics e implemente-os em dispositivos que executam a Azure IoT Edge.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: an-emma
+ms.author: raan
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 65f1ad93bf711f7f7efe95c38619390dde527dd0
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: c2a062b75caa84a0e3c342ca1ce45ccce12f2bb7
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827245"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012619"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics no IoT Edge
  
@@ -90,7 +89,7 @@ Os tipos de entrada de fluxo suportados são:
 
 Os tipos de saída de fluxo suportados são:
 * Hub de borda
-* SQL Database
+* Base de Dados SQL
 * Hub de Eventos
 * Blob Storage/ADLS Gen2
 
@@ -126,7 +125,7 @@ Esta informação da versão foi atualizada pela última vez em 2020-09-21:
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Mais informações sobre Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [Stream Analytics no tutorial IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)

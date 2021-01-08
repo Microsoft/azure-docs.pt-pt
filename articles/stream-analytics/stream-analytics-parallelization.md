@@ -3,16 +3,15 @@ title: Utilize a paralelização e escala de consulta em Azure Stream Analytics
 description: Este artigo descreve como escalar os trabalhos do Stream Analytics configurando divisórias de entrada, afinando a definição de consulta e definindo unidades de streaming de emprego.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 9149413d070bbb5eb8d0f8d0c99fe5ff705bcefb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704185"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012330"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Paralelização de consulta de alavancagem em Azure Stream Analytics
 Este artigo mostra-lhe como aproveitar a paralelização no Azure Stream Analytics. Aprende-se a escalar os trabalhos do Stream Analytics configurando divisórias de entrada e ajustando a definição de consulta analítica.
@@ -281,7 +280,7 @@ A solução [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 
 [O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql)  suporta a escrita em paralelo, chamada Partição Herdada, mas não é ativada por defeito. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter posições mais elevadas. Os produção de escrita SQL dependem significativamente da configuração da sua base de dados e do esquema de tabela. O artigo [SQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar o seu rendimento de escrita. Como indicado na saída Azure Stream Analytics para o artigo [base de dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode necessitar de repartição antes da saída SQL (ver [INTO).](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) Os SKUs premium são necessários para manter altas taxas de IO, juntamente com a sobrecarga de backups de registos que acontecem a cada poucos minutos.
 
-#### <a name="cosmos-db"></a>BD do Cosmos
+#### <a name="cosmos-db"></a>Cosmos DB
 |Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de Saída  |
 |-------|-------|---------|
 |  Mil   |  3    | 20K RU  |
@@ -317,7 +316,7 @@ Utilize o painel métrica no seu trabalho Azure Stream Analytics para identifica
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

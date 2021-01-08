@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 46d569eae768178815a933d9a857e19bacdaaeb9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544008"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013231"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Criar um monitor de ligação utilizando o modelo ARM
 
 Saiba como criar o Connection Monitor para monitorizar a comunicação entre os seus recursos utilizando o ARMClient. Suporta implantações de nuvem híbrida e Azure.
 
 
-## <a name="before-you-begin"></a>Before you begin 
+## <a name="before-you-begin"></a>Antes de começar 
 
 Nos monitores de ligação que cria no Connection Monitor, pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
 
@@ -399,7 +399,7 @@ Os monitores de ligação têm os seguintes limites de escala:
 * Fontes e destinos máximos por monitor de ligação: 100
 * Configurações máximas de teste por monitor de ligação: 20 via ARMClient
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como analisar dados de monitorização e definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
 * Saiba [como diagnosticar problemas na sua rede](./connection-monitor-overview.md#diagnose-issues-in-your-network)

@@ -2,17 +2,17 @@
 title: Análise JSON e AVRO em Azure Stream Analytics
 description: Este artigo descreve como operar em tipos de dados complexos como matrizes, JSON, CSV dados formatados.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f6cb131fb3ff3cab4122aac5e1c6960dee4f8421
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123358"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012245"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parse JSON e Dados da Avro em Azure Stream Analytics
 
@@ -207,7 +207,7 @@ Em seguida, pode criar um passo na sua consulta Stream Analytics, como mostrado 
 
 Os tipos de dados array são uma recolha ordenada de valores. Algumas operações típicas sobre valores de matriz são detalhadas abaixo. Estes exemplos utilizam as funções [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements,](/stream-analytics-query/getarrayelements-azure-stream-analytics) [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics)e o operador [APPLY.](/stream-analytics-query/apply-azure-stream-analytics)
 
-Aqui está um exemplo de um único evento. Ambos `CustomSensor03` e são de tipo `SensorMetadata` **array** :
+Aqui está um exemplo de um único evento. Ambos `CustomSensor03` e são de tipo `SensorMetadata` **array**:
 
 ```json
 {

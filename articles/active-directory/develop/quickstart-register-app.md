@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 4e9e6c9179c7fbf405cf8fc661a209da3c9d3b61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031271"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011954"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -36,7 +36,7 @@ O registo da sua aplicação estabelece uma relação de confiança entre a sua 
 
 Siga estes passos para criar o registo da aplicação:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -123,7 +123,7 @@ O segredo do cliente, também conhecido como senha de *aplicação,* é um valor
 1. Selecione **Adicionar**.
 1. **Grave o valor de** utilização do segredo no código de aplicação do seu cliente - *nunca mais* é exibido depois de deixar esta página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 As aplicações do cliente normalmente precisam de aceder a recursos numa API web. Além de proteger a aplicação do seu cliente com a plataforma de identidade da Microsoft, pode utilizar a plataforma para autorizar o acesso baseado em permissões à sua API web.
 

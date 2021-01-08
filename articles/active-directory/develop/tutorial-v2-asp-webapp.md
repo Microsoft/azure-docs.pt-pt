@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f0620c4d373ee96c87b575ae7eb173b2f16eecb2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507766"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013656"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
@@ -374,7 +374,8 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
    1. Alterar SSL Habilitado a `True` .
    1. Clique com o botão direito no projeto no Estúdio Visual, selecione **Propriedades** e, em seguida, selecione o separador **Web.** Na secção **Servidores,** altere a definição **de Url de projeto** para o URL **SSL**.
    1. Copie o URL SSL. Irá adicionar este URL à lista de URIs redirecionados na lista de URIs de redirecionamento do portal de redireccionamento no passo seguinte.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+   
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -481,7 +482,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como ligar para apis web protegidos a partir de aplicações web com a plataforma de identidade da Microsoft:
 

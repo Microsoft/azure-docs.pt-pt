@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663662"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013537"
 ---
 # <a name="using-an-app-service-environment"></a>Usando um ambiente de serviço de aplicativo
 
@@ -78,13 +78,20 @@ O URL SCM é utilizado para aceder à consola Kudu ou para a publicação da sua
 
 ### <a name="dns-configuration"></a>Configuração do DNS 
 
-O ASE utiliza pontos finais privados para o tráfego de entrada e é configurado automaticamente com zonas privadas Azure DNS. Se pretender utilizar o seu próprio servidor DNS, tem de adicionar os seguintes registos:
+O ASE utiliza pontos finais privados para o tráfego de entrada. Não é configurado automaticamente com zonas privadas Azure DNS. Se pretender utilizar o seu próprio servidor DNS, tem de adicionar os seguintes registos:
 
 1. criar uma zona para &lt; o nome ASE &gt; .appserviceenvironment.net
 1. criar um registo A nessa zona que aponta * para o endereço IP de entrada usado pelo seu ponto final privado ASE
 1. criar um registo A nessa zona que aponta @ para o endereço IP de entrada usado pelo seu ponto final privado ASE
 1. criar uma zona em &lt; nome ASE &gt; .appserviceenvironment.net nomeado scm
 1. criar um registo A na zona scm que aponta * para o endereço IP usado pelo seu ponto final privado ASE
+
+Para configurar DNS em zonas privadas Azure DNS:
+
+1. criar uma zona privada Azure DNS chamada <ASE name> .appserviceenvironment.net
+1. criar um registo A naquela zona que aponta * para o endereço IP ILB
+1. criar um registo A naquela zona que aponta @ para o endereço IP ILB
+1. criar um registo A nessa zona que aponta *.scm para o endereço IP ILB
 
 As definições de DNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a serem acessíveis apenas por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas apps num ASE. Se então pretender criar uma zona denominada *contoso.net,* pode fazê-lo e apontá-lo para o endereço IP de entrada. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O site scm só está disponível *&lt; no appname &gt; .scm. &lt; asename &gt; .appserviceenvironment.net*. 
 
@@ -125,7 +132,7 @@ Pode integrar o seu ASE com o Azure Monitor para enviar registos sobre o ASE par
 Para ativar o registo no seu ASE:
 
 1. No portal, aceda às **definições de Diagnóstico**.
-1. **Selecione Adicionar a definição de diagnóstico**.
+1. Selecione **Adicionar definição de diagnóstico**.
 1. Fornecer um nome para a integração de registos.
 1. Selecione e configure os destinos de registo que deseja.
 1. Selecione **AppServiceEnvironmentPlatformLogs**.

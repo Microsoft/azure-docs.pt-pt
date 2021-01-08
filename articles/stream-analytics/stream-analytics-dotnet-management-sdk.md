@@ -3,17 +3,16 @@ title: Gestão .NET SDK para Azure Stream Analytics
 description: Começa com o Stream Analytics Management .NET SDK. Aprenda a montar e executar trabalhos de análise. Criar um projeto, entradas, saídas e transformações.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 93e10baa5281481b57e945f93b7375060b574de5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126860"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012636"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gestão .NET SDK: Criar e executar trabalhos de análise utilizando a API AZure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise utilizando a API stream Analytics para .NET utilizando a Management .NET SDK. Crie um projeto, crie fontes de entrada e saída, transformações e iniciar e parar empregos. Para os seus trabalhos de análise, pode transmitir dados a partir do armazenamento blob ou de um centro de eventos.
@@ -167,7 +166,7 @@ O código a seguir cria um trabalho stream Analytics no grupo de recursos que de
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>Criar uma fonte de entrada Stream Analytics
-O código a seguir cria uma fonte de entrada Stream Analytics com o tipo de fonte de entrada blob e a serialização do CSV. Para criar uma fonte de entrada de hub de eventos, utilize **o EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource** . Da mesma forma, pode personalizar o tipo de serialização da fonte de entrada.
+O código a seguir cria uma fonte de entrada Stream Analytics com o tipo de fonte de entrada blob e a serialização do CSV. Para criar uma fonte de entrada de hub de eventos, utilize **o EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource**. Da mesma forma, pode personalizar o tipo de serialização da fonte de entrada.
 
    ```csharp
    // Create an input
@@ -287,7 +286,7 @@ O método **Delete** eliminará o trabalho, bem como os sub-recursos subjacentes
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Aprendeu o básico de usar um .NET SDK para criar e executar trabalhos de análise. Para saber mais, leia os artigos seguintes:
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

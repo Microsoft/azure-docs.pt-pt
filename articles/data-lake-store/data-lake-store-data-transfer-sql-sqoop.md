@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 01/08/2021
 ms.locfileid: "92109192"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiar dados entre data lake storage Gen1 e Azure SQL Database usando Sqoop
@@ -121,7 +121,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se configurar o clus
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   Cada **ficheiro parte-m-*** corresponde a uma linha na tabela de origem, **Quadro1**. Pode ver o conteúdo dos ficheiros part-m-* para verificar.
+   Cada **ficheiro parte-m-_** corresponde a uma linha na tabela de origem, _ *Table1**. Pode ver o conteúdo dos ficheiros part-m* para verificar.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Dados de exportação da Data Lake Storage Gen1 para a Base de Dados Azure SQL
 
@@ -158,7 +158,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se configurar o clus
 
 Para obter informações sobre o desempenho que ajusta o seu trabalho sqoop para copiar dados para Data Lake Storage Gen1, consulte o post do [blog de desempenho sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

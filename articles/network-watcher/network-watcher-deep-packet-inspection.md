@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd85d6faf05fcf659e9335ee9de3d64198dfa08
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84725060"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011174"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com O Observador da Rede Azure
 
@@ -29,7 +29,7 @@ Este artigo passa por alguns cenários pré-configurados numa captura de pacotes
 
 Este cenário pressupõe que já executou uma captura de pacotes numa máquina virtual. Para aprender a criar uma visita de captura de [pacotes, gerencie os pacotes com o portal](network-watcher-packet-capture-manage-portal.md) ou com o REST visitando [Managing Packet Captures com REST API](network-watcher-packet-capture-manage-rest.md).
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Neste cenário, você:
 
@@ -77,7 +77,7 @@ Neste exemplo, revemos uma captura de pacotes anteriores para protocolos indesej
 
 ### <a name="step-1"></a>Passo 1
 
-Usando a mesma captura **Statistics**no cenário anterior clique na  >  **Hierarquia do Protocolo** de Estatísticas
+Usando a mesma captura no cenário anterior clique na  >  **Hierarquia do Protocolo** de Estatísticas
 
 ![menu de hierarquia de protocolo][2]
 
@@ -121,7 +121,7 @@ Introduzimos o texto do filtro de cima na caixa de texto do filtro e entramos.
 
 Pelos resultados, podemos ver que todo o tráfego vem de uma máquina virtual local na mesma sub-rede. Se ainda não entendermos porque é que este tráfego está a ocorrer, podemos inspecionar os pacotes para determinar porque está a fazer estas chamadas no porto 111. Com esta informação podemos tomar as medidas apropriadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça as outras funcionalidades de diagnóstico do Network Watcher visitando a [visão geral de monitorização da rede Azure](network-watcher-monitoring-overview.md)
 

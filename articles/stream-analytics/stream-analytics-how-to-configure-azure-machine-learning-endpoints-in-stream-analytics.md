@@ -3,27 +3,26 @@ title: Use Azure Machine Learning Studio (clássico) pontos finais em Azure Stre
 description: Este artigo descreve como utilizar funções definidas pelo utilizador do Machine Language no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 236191710dac19a08db0e8ce94dc695d393009a7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a36162d24e18371fdf6b19835e4748e3043d1f24
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127132"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012530"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio (clássico) integração em Stream Analytics (Preview)
 O Stream Analytics suporta funções definidas pelo utilizador que chamam ao Azure Machine Learning Studio (clássico) pontos finais. O suporte da API REST para esta funcionalidade é detalhado na [biblioteca API stream Analytics REST](/rest/api/streamanalytics/). Este artigo fornece informações suplementares necessárias para uma implementação bem sucedida desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui.](stream-analytics-machine-learning-integration-tutorial.md)
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Visão geral: Azure Machine Learning Studio (clássico) terminologia
-O Microsoft Azure Machine Learning Studio (clássico) fornece uma ferramenta colaborativa, de arrastar e largar que pode usar para construir, testar e implementar soluções de análise preditivas nos seus dados. Esta ferramenta chama-se *Azure Machine Learning Studio (clássico)* . O estúdio (clássico) é usado para interagir com os recursos de aprendizagem automática e facilmente construir, testar e iterar no seu design. Estes recursos e as suas definições estão abaixo.
+O Microsoft Azure Machine Learning Studio (clássico) fornece uma ferramenta colaborativa, de arrastar e largar que pode usar para construir, testar e implementar soluções de análise preditivas nos seus dados. Esta ferramenta chama-se *Azure Machine Learning Studio (clássico)*. O estúdio (clássico) é usado para interagir com os recursos de aprendizagem automática e facilmente construir, testar e iterar no seu design. Estes recursos e as suas definições estão abaixo.
 
-* **Espaço de trabalho** : O *espaço de trabalho* é um recipiente que mantém todos os outros recursos de aprendizagem automática juntos num recipiente para gestão e controlo.
-* **Experiência** : *As experiências* são criadas por cientistas de dados para utilizar conjuntos de dados e treinar um modelo de aprendizagem automática.
-* **Ponto final** : *Os pontos finais* são o objeto Studio (clássico) usado para tirar funcionalidades como entrada, aplicar um modelo de machine learning especificado e obter resultados pontuados de retorno.
-* **Pontuação Webservice** : Um *webservice de pontuação* é uma coleção de pontos finais como mencionado acima.
+* **Espaço de trabalho**: O *espaço de trabalho* é um recipiente que mantém todos os outros recursos de aprendizagem automática juntos num recipiente para gestão e controlo.
+* **Experiência**: *As experiências* são criadas por cientistas de dados para utilizar conjuntos de dados e treinar um modelo de aprendizagem automática.
+* **Ponto final**: *Os pontos finais* são o objeto Studio (clássico) usado para tirar funcionalidades como entrada, aplicar um modelo de machine learning especificado e obter resultados pontuados de retorno.
+* **Pontuação Webservice**: Um *webservice de pontuação* é uma coleção de pontos finais como mencionado acima.
 
 Cada ponto final tem apis para execução de lote e execução sincronizada. Stream Analytics usa execução sincronizada. O serviço específico é nomeado um [Serviço de Pedido/Resposta](../machine-learning/classic/consume-web-services.md) no Azure Machine Learning Studio (clássico).
 
@@ -190,7 +189,7 @@ Agora questione o UDF (aqui nomeado scoreTweet) para cada evento de entrada e es
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

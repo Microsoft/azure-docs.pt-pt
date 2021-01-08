@@ -1,19 +1,18 @@
 ---
 title: Compreender a monitorização de emprego no Azure Stream Analytics
 description: Este artigo descreve como monitorizar os trabalhos do Azure Stream Analytics no portal Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5141c7fcfe1128574145930548f41731529c2ad8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006683"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012466"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar consultas
 
@@ -27,7 +26,7 @@ A janela aparecerá como mostrado:
 ![Painel de monitorização de trabalho stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para Stream Analytics
-| Metric                 | Definição                               |
+| Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
 | Eventos de entrada recuados       | Número de eventos de entrada que são retrospados. Um valor não-zero para esta métrica implica que o seu trabalho não é capaz de acompanhar o número de eventos que chegam. Se este valor estiver a aumentar lentamente ou consistentemente não zero, deverá escalonar o seu trabalho. Pode aprender mais visitando [Compreender e ajustar Unidades de Streaming.](stream-analytics-streaming-unit-consumption.md) |
 | Erros de Conversão de Dados | Número de eventos de saída que não puderam ser convertidos para o esquema de saída esperado. A política de erros pode ser alterada para 'Drop' para deixar cair eventos que encontrem este cenário. |
@@ -61,7 +60,7 @@ Desta vez é o tempo de aplicação (ou seja, o tempo que utiliza o relógio a p
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

@@ -1,24 +1,24 @@
 ---
 title: Quickstart - Crie um trabalho stream analytics utilizando o portal Azure
 description: Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics, configurar entradas e saídas, e definir uma consulta.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c585cedce677599528e036525dead13a85c8b102
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006666"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012381"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
 Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics. Neste arranque rápido, você define um trabalho stream Analytics que lê dados de streaming em tempo real e filtra mensagens com uma temperatura superior a 27. O seu trabalho stream Analytics irá ler dados do IoT Hub, transformar os dados e escrever os dados de volta para um recipiente no armazenamento de bolhas. Os dados de entrada utilizados neste quickstart são gerados por um simulador online Raspberry Pi. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
@@ -38,7 +38,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
    |---------|---------|---------|
    |Subscrição  | \<Your subscription\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
-   |Region  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
+   |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
    |Nome do hub IoT  | MyASAIotHub  |   Selecione um nome para o seu Hub IoT.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
@@ -77,7 +77,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.  
 
@@ -152,7 +152,7 @@ Nesta secção, irá configurar uma entrada de dispositivo IoT Hub para o trabal
    HAVING Temperature > 27
    ```
 
-3. Neste exemplo, a consulta lê os dados do IoT Hub e copia-os para um novo ficheiro na bolha. Selecione **Guardar**.  
+3. Neste exemplo, a consulta lê os dados do IoT Hub e copia-os para um novo ficheiro na bolha. Selecione **Save** (Guardar).  
 
    ![Configurar a transformação da tarefa](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
@@ -184,7 +184,7 @@ Quando já não for necessário, elimine o grupo de recursos, o trabalho stream 
 
 2. Na página do grupo de recursos, selecione **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o portal do Azure. Também pode implementar trabalhos stream Analytics usando [PowerShell,](stream-analytics-quick-create-powershell.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-visual-studio-code.md).
 

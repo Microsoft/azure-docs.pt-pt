@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619373"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013044"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar serviços de domínio do diretório ativo do Azure do modelo de rede virtual clássico para o Gestor de Recursos
 
@@ -87,7 +87,7 @@ As etapas de alto nível envolvidas neste cenário de migração de exemplo incl
 1. Crie uma rede virtual que espreita entre a rede virtual Clássica e a nova rede virtual Do Gestor de Recursos.
 1. Mais tarde, [migrar os recursos adicionais][migrate-iaas] da rede virtual Clássica, conforme necessário.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 À medida que prepara e migra um domínio gerido, existem algumas considerações em torno da disponibilidade de serviços de autenticação e gestão. O domínio gerido não está disponível durante um período de tempo durante a migração. As aplicações e serviços que dependem do Azure AD DS experimentam tempo de inatividade durante a migração.
 
@@ -155,8 +155,8 @@ A migração para o modelo de implementação do Gestor de Recursos e rede virtu
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Passo 1 - Atualizar e localizar a nova rede virtual](#update-and-verify-virtual-network-settings) | Portal do Azure | 15 minutos | Não é necessário tempo de inatividade | N/D |
 | [Passo 2 - Preparar o domínio gerido para a migração](#prepare-the-managed-domain-for-migration) | PowerShell | 15 - 30 minutos em média | O tempo de inatividade do Azure AD DS começa após a conclusão deste comando. | Recue e restaure disponível. |
-| [Passo 3 - Mover o domínio gerido para uma rede virtual existente](#migrate-the-managed-domain) | PowerShell | 1 - 3 horas, em média | Um controlador de domínio está disponível assim que este comando estiver concluído, termina o tempo de inatividade. | No caso de falha, tanto o reversão (self-service) como o restauro estão disponíveis. |
-| [Passo 4 - Teste e aguarde o controlador de domínio de réplica](#test-and-verify-connectivity-after-the-migration)| Portal PowerShell e Azure | 1 hora ou mais, dependendo do número de testes | Ambos os controladores de domínio estão disponíveis e devem funcionar normalmente. | N/D. Uma vez que o primeiro VM é migrado com sucesso, não há opção para reversão ou restauro. |
+| [Passo 3 - Mover o domínio gerido para uma rede virtual existente](#migrate-the-managed-domain) | PowerShell | 1 - 3 horas, em média | Um controlador de domínio está disponível assim que este comando estiver concluído. | No caso de falha, tanto o reversão (self-service) como o restauro estão disponíveis. |
+| [Passo 4 - Teste e aguarde o controlador de domínio de réplica](#test-and-verify-connectivity-after-the-migration)| Portal PowerShell e Azure | 1 hora ou mais, dependendo do número de testes | Ambos os controladores de domínio estão disponíveis e devem funcionar normalmente, terminações de tempo de inatividade. | N/D. Uma vez que o primeiro VM é migrado com sucesso, não há opção para reversão ou restauro. |
 | [Passo 5 - Etapas de configuração opcionais](#optional-post-migration-configuration-steps) | Portal Azure e VMs | N/D | Não é necessário tempo de inatividade | N/D |
 
 > [!IMPORTANT]
@@ -262,16 +262,14 @@ Nesta fase, pode opcionalmente mover outros recursos existentes do modelo de imp
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>Teste e verifique a conectividade após a migração
 
-Pode levar algum tempo para que o segundo controlador de domínio implemente e esteja disponível para ser utilizado no domínio gerido.
+Pode levar algum tempo para que o segundo controlador de domínio implemente e esteja disponível para ser utilizado no domínio gerido. O segundo controlador de domínio deve estar disponível 1-2 horas após o fim do cmdlet de migração. Com o modelo de implementação do Gestor de Recursos, os recursos de rede para o domínio gerido são apresentados no portal Azure ou no Azure PowerShell. Para verificar se o segundo controlador de domínio está disponível, consulte a página **Propriedades** para o domínio gerido no portal Azure. Se aparecerem dois endereços IP, o segundo controlador de domínio está pronto.
 
-Com o modelo de implementação do Gestor de Recursos, os recursos de rede para o domínio gerido são apresentados no portal Azure ou no Azure PowerShell. Para saber mais sobre o que estes recursos de rede são e fazem, consulte [os recursos da Rede utilizados pela Azure AD DS][network-resources].
-
-Quando estiver disponível pelo menos um controlador de domínio, complete os seguintes passos de configuração para a conectividade da rede com VMs:
+Depois de o segundo controlador de domínio estar disponível, complete os seguintes passos de configuração para a conectividade da rede com VMs:
 
 * **Atualizar as definições do servidor DNS** Para permitir que outros recursos na rede virtual do Gestor de Recursos resolvam e utilizem o domínio gerido, atualize as definições de DNS com os endereços IP dos novos controladores de domínio. O portal Azure pode configurar automaticamente estas definições para si.
 
     Para saber mais sobre como configurar a rede virtual do Gestor de Recursos, consulte as [definições de DNS de atualização para a rede virtual Azure][update-dns].
-* **Reiniciar VMs unidos ao domínio** - À medida que os endereços IP do servidor DNS para os controladores de domínio AZure AD DS mudam, reinicie quaisquer VMs unidos pelo domínio para que utilizem as novas definições do servidor DNS. Se as aplicações ou VMs tiverem configurações de DNS configuradas manualmente, actualifique-as manualmente com os novos endereços IP do servidor DNS dos controladores de domínio que são mostrados no portal Azure.
+* **Reiniciar VMs unidos pelo domínio (opcional)** À medida que os endereços IP do servidor DNS para os controladores de domínio AZure AD DS mudam, pode reiniciar quaisquer VMs unidos pelo domínio para que utilizem as novas definições do servidor DNS. Se as aplicações ou VMs tiverem configurações de DNS configuradas manualmente, actualifique-as manualmente com os novos endereços IP do servidor DNS dos controladores de domínio que são mostrados no portal Azure. Reiniciar VMs unidos ao domínio previne problemas de conectividade causados por endereços IP que não se refrescam.
 
 Agora teste a ligação virtual da rede e a resolução de nomes. Num VM ligado à rede virtual do Gestor de Recursos, ou que lhe espreitam, experimente os seguintes testes de comunicação de rede:
 
@@ -280,7 +278,7 @@ Agora teste a ligação virtual da rede e a resolução de nomes. Num VM ligado 
 1. Verificar a resolução de nomes do domínio gerido, tais como `nslookup aaddscontoso.com`
     * Especifique o nome DNS para o seu próprio domínio gerido para verificar se as definições de DNS estão corretas e resolve.
 
-O segundo controlador de domínio deve estar disponível 1-2 horas após o fim do cmdlet de migração. Para verificar se o segundo controlador de domínio está disponível, consulte a página **Propriedades** para o domínio gerido no portal Azure. Se aparecerem dois endereços IP, o segundo controlador de domínio está pronto.
+Para saber mais sobre outros recursos de rede, consulte [os recursos da Rede utilizados pela Azure AD DS][network-resources].
 
 ## <a name="optional-post-migration-configuration-steps"></a>Passos de configuração pós-migração opcionais
 
@@ -340,7 +338,7 @@ Se tiver problemas após a migração para o modelo de implementação do Gestor
 * [Problemas de inscrição na conta de resolução de problemas][troubleshoot-sign-in]
 * [Resolução de problemas garante problemas de conectividade LDAP][tshoot-ldaps]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com o seu domínio gerido migrado para o modelo de implementação do Gestor de Recursos, [crie e junte o domínio a um VM do Windows][join-windows] e, em seguida, [instale ferramentas de gestão][tutorial-create-management-vm].
 

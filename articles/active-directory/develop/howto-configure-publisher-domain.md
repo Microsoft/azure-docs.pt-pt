@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129275"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013639"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como: Configurar o domínio de uma aplicação
 
@@ -48,7 +48,7 @@ Se a sua aplicação foi registada antes de 21 de maio de 2019, o pedido de cons
 
 Para definir o domínio de editor da sua aplicação, siga estes passos.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 
 1. Se a sua conta estiver presente em mais de um inquilino da AZure AD:
    1. Selecione o seu perfil a partir do menu no canto superior direito da página e, em seguida, altere o **diretório**.

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 50f08ffc304962cc66f6eed07adcb5b7e4aa6692
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995731"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011157"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizar registos de fluxo do Grupo de Segurança da Rede com Power BI
 
@@ -28,7 +28,7 @@ Pode ser difícil obter informações sobre dados de registo de fluxos, pesquisa
 > [!Warning]  
 > Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais informações, consulte [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 No cenário seguinte, conectamos o desktop Power BI à conta de armazenamento que configuramos como o lavatório para os nossos dados de Registo de Fluxo NSG. Depois de ligarmos à nossa conta de armazenamento, o Power BI descarrega e analisa os registos para fornecer uma representação visual do tráfego que é registado pelos grupos de Segurança da Rede.
 

@@ -3,16 +3,15 @@ title: Integração do painel power BI com Azure Stream Analytics
 description: Este artigo descreve como usar um dashboard Power BI em tempo real para visualizar dados de um trabalho do Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bd35df91e836245de52d8959dff0671582ebc3f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006700"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012449"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um dashboard de análise em tempo real para dados de streaming
 
@@ -227,7 +226,7 @@ Da mesma forma, se um trabalho começar após o token expirar, ocorre um erro e 
 
 Depois de a autorização ter sido atualizada com o Power BI, aparece um alerta verde na área de autorização para refletir que a questão foi resolvida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics saídas](stream-analytics-define-outputs.md)

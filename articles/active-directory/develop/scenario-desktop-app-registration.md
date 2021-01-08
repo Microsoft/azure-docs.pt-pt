@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c0623d58bf88b8bcc5f19665a081ce012b560b6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 08e07ac3a8079d725611f9b072e8d21dabb32867
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614881"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011565"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -48,7 +48,7 @@ Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabal
 - Se a sua aplicação utilizar apenas a Autenticação Integrada do Windows ou um nome de utilizador e uma palavra-passe, não precisa de registar um URI de redirecionamento para a sua aplicação. Estes fluxos fazem uma ida e volta para a plataforma de identidade da Microsoft v2.0. A sua candidatura não será chamada de volta em nenhum URI específico.
 - Para distinguir o [fluxo de código do dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [Autenticação Integrada do Windows,](scenario-desktop-acquire-token.md#integrated-windows-authentication)nome de [utilizador e palavra-passe](scenario-desktop-acquire-token.md#username-and-password) de uma aplicação confidencial do cliente utilizando um fluxo de credencial do cliente utilizado em [aplicações daemon](scenario-daemon-overview.md), nenhum dos quais requer um URI de redirecionamento, é necessário configurá-lo como uma aplicação de cliente público. Para alcançar esta configuração:
 
-    1. No [portal Azure](https://portal.azure.com), selecione a sua aplicação nas **inscrições da App** e, em seguida, selecione **Autenticação**.
+    1. No <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>, selecione a sua aplicação nas **inscrições da App** e, em seguida, selecione **Autenticação**.
     1. Em **Definições Avançadas**  >  **Permita fluxos de clientes públicos** Ative os  >  **seguintes fluxos móveis e de ambiente de trabalho:**, selecione **Sim**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Ativar a configuração do cliente público no painel de autenticação no portal Azure":::
@@ -57,6 +57,6 @@ Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabal
 
 As aplicações para desktop chamam APIs para o utilizador inscrito. Precisam pedir permissões delegadas. Não podem solicitar permissões de pedidos, que são tratadas apenas em [aplicações daemon](scenario-daemon-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [configuração do Código de Aplicação](scenario-desktop-app-configuration.md).

@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744198"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012840"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em Diretório Ativo Azure - opções de telefone
 
@@ -58,6 +58,8 @@ Se tiver problemas com a autenticação do telefone para a Azure AD, reveja as s
 
 * "Atingiu o nosso limite em chamadas de verificação" ou "Atingiu o nosso limite em códigos de verificação de texto" mensagens de erro durante a sin-in
    * A Microsoft pode limitar as tentativas de autenticação repetidas que são efetuadas pelo mesmo utilizador num curto espaço de tempo. Esta limitação não se aplica ao Microsoft Authenticator ou código de verificação. Se tiver atingido estes limites, pode utilizar a App Autenticador, código de verificação ou tentar entrar novamente em alguns minutos.
+* "Desculpe, estamos com problemas em verificar a sua conta" mensagem de erro durante a sing-in
+   * A Microsoft pode limitar ou bloquear tentativas de autenticação de voz ou SMS que sejam realizadas pelo mesmo utilizador, número de telefone ou organização devido ao elevado número de tentativas de autenticação de voz ou SMS falhadas. Se estiver a experimentar este erro, pode tentar outro método, como a App Autenticador ou o código de verificação, ou contactar o seu administrador para obter apoio.
 * Identificação de chamada bloqueada num único dispositivo.
    * Reveja quaisquer números bloqueados configurados no dispositivo.
 * Número de telefone errado ou código de país/região incorreto, ou confusão entre o número de telefone pessoal versus número de telefone de trabalho.
@@ -73,7 +75,7 @@ Se tiver problemas com a autenticação do telefone para a Azure AD, reveja as s
 * Fornecedores de telecomunicações defeituosos, tais como nenhuma entrada de telefone detetada, problemas de tons DTMF em falta, ID de chamada bloqueado em vários dispositivos ou SMS bloqueados em vários dispositivos.
    * A Microsoft utiliza vários fornecedores de telecomunicações para encaminhar chamadas telefónicas e mensagens SMS para autenticação. Se vir algum dos problemas acima, tenha um utilizador que tente utilizar o método pelo menos cinco vezes no prazo de 5 minutos e tenha as informações desse utilizador disponíveis quando contactar o suporte da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor AD Azure][tutorial-azure-mfa].
 

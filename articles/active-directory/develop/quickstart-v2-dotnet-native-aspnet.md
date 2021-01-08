@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 6874794dcf33d77d0b03f2a5713bdf42a40d6891
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 2967476d06b8f6f88b740f811a94c5fdb4284b4d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560915"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011871"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade da Microsoft
 
@@ -48,32 +48,30 @@ Nesta secção, registe a sua API web nas **inscrições** da App no portal Azur
 
 Para registar as suas aplicações manualmente, escolha o inquilino Azure Ative Directory (Azure AD) onde pretende criar as suas apps.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> com uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. Se a sua conta estiver presente em mais de um inquilino AD Azure, selecione o seu perfil no canto superior direito e, em seguida, selecione **o diretório da Switch**.
 1. Mude a sua sessão de portal para o inquilino AZure AD que pretende utilizar.
 
 ### <a name="register-the-todolistservice-app"></a>Registe a aplicação TodoListService
 
-1. Aceda à plataforma de identidade da Microsoft para programadores O portal [de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-1. Selecione **Novo registo**.
-1. Quando a página do Registo abrir uma página de **inscrição,** insira as informações de registo do seu pedido:
-
-    1. Na secção **Nome,** insira um nome de aplicação significativo que será apresentado aos utilizadores da aplicação. Por exemplo, insira **AppModelv2-NativeClient-DotNet-TodoListService**.
-    1. Para **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional**.
-    1. Selecione **Registar** para criar a aplicação.
-
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Introduza um **Nome** para a sua aplicação, por `AppModelv2-NativeClient-DotNet-TodoListService` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Para **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional**.
+1. Selecione **Registar** para criar a aplicação.
 1. Na página **de Visão Geral** da aplicação, procure o valor de **ID da Aplicação (cliente)** e, em seguida, grave-o para utilização posterior. Você precisará dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto (isto é, `ClientId` no ficheiro *TodoListService\Web.config).*
+1. Em **Gestão**, **selecione Expor uma API** Adicione um  >  **âmbito**. Aceite a proposta de ID URI de aplicação ( `api://{clientId}` ) selecionando **Save and continue**, e, em seguida, insira as seguintes informações:
 
-1. Na secção **Expor uma API,** selecione **Adicionar um âmbito,** aceitar o ID URI de aplicação proposto `api://{clientId}` selecionando Guardar e **Continuar,** e, em seguida, introduzir as seguintes informações:
-
-    1. Para **o nome Scope** , **introduza access_as_user**.
-    1. Para **Quem pode consentir** , certifique-se de que a opção **Dedmins e utilizadores** está selecionada.
-    1. Na caixa de **nome de visualização de consentimento** do Administrador, **insira o Access TodoListService como utilizador**.
-    1. Na caixa de descrição do consentimento do **Administrador,** **insira acessos à API web TodoListService como utilizador**.
-    1. Na caixa de **nome de visualização** do consentimento do Utilizador, **insira o Access TodoListService como utilizador**.
-    1. Na caixa de descrição do **consentimento do Utilizador,** **insira acessos à API web TodoListService como utilizador**.
-    1. Para **o Estado** , mantenha **ativado**.
-    1. Selecione **Adicionar âmbito**.
+    1. Para **o nome Scope,** insira `access_as_user` .
+    1. Para **Quem pode consentir**, certifique-se de que a opção **Dedmins e utilizadores** está selecionada.
+    1. Na caixa de **nome do exposição de consentimento** do Administrador, insira `Access TodoListService as a user` .
+    1. Na caixa de descrição do consentimento do **Administrador,** insira `Accesses the TodoListService web API as a user` .
+    1. Na caixa de nome de visualização do **consentimento do utilizador,** introduza `Access TodoListService as a user` .
+    1. Na caixa **de descrição** do consentimento do Utilizador, insira `Accesses the TodoListService web API as a user` .
+    1. Para **o Estado**, mantenha **ativado**.
+1. Selecione **Adicionar âmbito**.
 
 ### <a name="configure-the-service-project"></a>Configure o projeto de serviço
 
@@ -107,7 +105,7 @@ Para registar a aplicação TodoListClient, faça o seguinte:
 1. Quando a página do Registo abrir uma página de **inscrição,** insira as informações de registo do seu pedido:
 
     1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação (por exemplo, **NativeClient-DotNet-TodoListClient).**
-    1. Para **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional**.
+    1. Para **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional**.
     1. Selecione **Registar** para criar a aplicação.
 
    > [!NOTE]
@@ -119,11 +117,11 @@ Para registar a aplicação TodoListClient, faça o seguinte:
 1. Na página **'Visão Geral'** da aplicação, selecione **Autenticação** e, em seguida, faça o seguinte:
 
     1. Nas **configurações da Plataforma,** selecione o botão **Adicionar uma plataforma.**
-    1. Para **aplicações móveis e desktop** , selecione **aplicações móveis e desktop**.
+    1. Para **aplicações móveis e desktop**, selecione **aplicações móveis e desktop**.
     1. Para **redirecionar URIs,** selecione a **https://login.microsoftonline.com/common/oauth2/nativeclient** caixa de verificação.
     1. Selecione **Configurar**.
 
-1. Selecione **permissões API** , e, em seguida, faça o seguinte:
+1. Selecione **permissões API**, e, em seguida, faça o seguinte:
 
     1. Selecione o botão **Adicionar uma permissão**.
     1. Selecione o **separador As Minhas APIs.**
@@ -185,7 +183,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o `I
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o cenário de API web protegido que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Cenário de API web protegido](scenario-protected-web-api-overview.md)

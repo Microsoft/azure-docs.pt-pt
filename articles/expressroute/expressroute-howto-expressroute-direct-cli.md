@@ -5,19 +5,28 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7931ad9e55d62d5fa2b1828d276e56f7c8cd02e1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aea51e56f2d96fa634b1ece2029c9ea5bf3f60fc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286486"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011310"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configure ExpressRoute Direct usando o Azure CLI
 
 O ExpressRoute Direct dá-lhe a capacidade de se conectar diretamente à rede global da Microsoft através de localizações de observação estrategicamente distribuídas em todo o mundo. Para mais informações, consulte [Sobre o ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscrição. Para se inscrever, envie um Email para <ExpressRouteDirect@microsoft.com> o seu ID de subscrição, incluindo os seguintes detalhes:
+
+* Cenários que pretende realizar com o **ExpressRoute Direct**
+* Preferências de localização - consulte [parceiros e locais de observação](expressroute-locations-providers.md) para obter uma lista completa de todos os locais
+* Linha cronológica da implementação
+* Quaisquer outras perguntas
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -333,6 +342,6 @@ Criar um circuito no recurso ExpressRoute Direct:
   }  
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [visão geral.](expressroute-erdirect-about.md)
