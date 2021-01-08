@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636950"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028219"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -29,8 +29,10 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
 ## <a name="subscribe-to-the-api"></a>Subscrever a API
 
 1. Inicie sessão no [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+
+    Reveja uma nota de lançamento relativa a [informações](release-notes.md#october-2020)de login .
     
-    ![Inscreva-se no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Inscreva-se no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
@@ -40,14 +42,14 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
 
     Selecione o separador [Produtos.](https://api-portal.videoindexer.ai/products) Em seguida, selecione Autorização e subscreva.
     
-    ![Separador de produtos no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Separador de produtos no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > Os utilizadores novos estão automaticamente subscritos em Autorização.
     
-    Depois de subscrever, pode encontrar a sua subscrição sob a Autorização **de Produtos.**  ->  **Authorization** Na página de subscrição, encontrará as teclas primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Não devem estar disponíveis do lado do cliente (.js, .html, e assim por diante).
+    Depois de subscrever, pode encontrar a sua subscrição sob a Autorização **de Produtos.**  ->   Na página de subscrição, encontrará as teclas primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Não devem estar disponíveis do lado do cliente (.js, .html, e assim por diante).
 
-    ![Subscrição e chaves no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Subscrição e chaves no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > O utilizador do Video Indexer pode utilizar uma chave de subscrição individual para ligar a várias contas do Video Indexer. Em seguida, pode associar estas contas do Video Indexer a diferentes contas dos Serviços de Multimédia.

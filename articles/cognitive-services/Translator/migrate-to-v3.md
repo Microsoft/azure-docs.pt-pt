@@ -10,19 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: baaf907d2fafe23805e6b49582ecc7592ee05e0b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364280"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028238"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Tradução V2 para V3 Migração
 
 > [!NOTE]
-> A V2 foi depreciada a 30 de abril de 2018. Por favor, emordene as suas aplicações para v3 de forma a tirar partido das novas funcionalidades disponíveis exclusivamente na V3.
-> 
-> O Microsoft Tradutor Hub será reformado no dia 17 de maio de 2019. [Consulte informações e datas de migração importantes.](https://www.microsoft.com/translator/business/hub/)  
+> A V2 foi depreciada a 30 de abril de 2018. Por favor, emordene as suas aplicações para v3 de forma a tirar partido das novas funcionalidades disponíveis exclusivamente na V3. A V2 será reformada no dia 24 de maio de 2021. 
 
 A equipa da Microsoft Tradutor lançou a Versão 3 (V3) do Tradutor. Esta versão inclui novas funcionalidades, métodos preprecados e um novo formato para envio e receção de dados do Serviço de Tradutores da Microsoft. Este documento fornece informações para alterar aplicações para utilizar v3. 
 
@@ -45,8 +43,8 @@ A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornec
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
+| `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de Fala da Microsoft](../speech-service/language-support.md#text-to-speech)         |
 | `Speak`     | [Serviço de Fala da Microsoft](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detetar](reference/v3-0-detect.md)         |
@@ -118,8 +116,8 @@ A tradução neural com o texto V3 API não suporta a utilização de categorias
 
 | Versão | Ponto final | Conformidade do processador do RGPD | Use Centro de Tradutor | Use tradutor personalizado (pré-visualização) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
-|Tradução Versão 2|    api.microsofttranslator.com|    No    |Yes    |No|
-|Tradução Versão 3|    api.cognitive.microsofttranslator.com|    Yes|    No|    Yes|
+|Tradução Versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
+|Tradução Versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|
 
 **Tradução Versão 3**
 * Geralmente está disponível e totalmente suportado.

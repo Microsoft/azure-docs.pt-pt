@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16a86982813b667ed5c761da27c8e9e5a43ab6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322500"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028068"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configure ExpressRoute Global Reach usando o Azure CLI
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identifique os seus circuitos ExpressRoute para configuração
 
-Você pode ativar ExpressRoute Global Reach entre dois circuitos ExpressRoute, desde que estejam localizados em países/regiões apoiados e foram criados em diferentes locais de observação. Se a sua subscrição possuir ambos os circuitos, pode escolher qualquer circuito para executar a configuração, como explicado mais tarde neste artigo. Se os dois circuitos estiverem em diferentes subscrições do Azure, tem de ter autorização de uma subscrição do Azure e deve passar na sua chave de autorização quando executar o comando de configuração na outra subscrição do Azure.
+Pode ativar o ExpressRoute Global Reach entre dois circuitos ExpressRoute. Os circuitos são necessários para serem em países/regiões apoiados e foram criados em diferentes locais de observação. Se a sua subscrição possuir ambos os circuitos, pode selecionar qualquer circuito para executar a configuração. No entanto, se os dois circuitos estiverem em diferentes subscrições Azure, deve criar uma chave de autorização a partir de um dos circuitos. Utilizando a chave de autorização gerada a partir do primeiro circuito, pode ativar o Global Reach no segundo circuito.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Permitir a conectividade entre as suas redes no local
 
@@ -58,7 +58,7 @@ Ao executar o comando para permitir a conectividade, note os seguintes requisito
 
   > /subscrições/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-* *o prefixo de endereço* deve ser uma sub-rede IPv4 "/29" (por exemplo, "10.0.0.0.0/29"). Utilizamos endereços IP nesta sub-rede para estabelecer conectividade entre os dois circuitos ExpressRoute. Não deve utilizar endereços nesta sub-rede nas suas redes virtuais Azure ou nas suas redes no local.
+* *o prefixo de endereço* deve ser uma sub-rede IPv4 "/29" (por exemplo, "10.0.0.0.0/29"). Utilizamos endereços IP nesta sub-rede para estabelecer conectividade entre os dois circuitos ExpressRoute. Não pode utilizar endereços nesta sub-rede nas suas redes virtuais Azure ou nas suas redes no local.
 
 Executar o seguinte comando CLI para ligar dois circuitos ExpressRoute:
 
@@ -94,7 +94,7 @@ Quando esta operação estiver concluída, terá conectividade entre as suas red
 
 ## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>Permitir a conectividade entre circuitos ExpressRoute em diferentes subscrições Azure
 
-Se os dois circuitos não estiverem na mesma assinatura Azure, precisa de autorização. Na configuração seguinte, gera autorização na subscrição do circuito 2 e passa a chave de autorização para o circuito 1.
+Se os dois circuitos não estiverem na mesma assinatura Azure, precisa de autorização. Na configuração seguinte, gera autorização na subscrição do circuito 2. Depois passa-se a chave de autorização para o circuito 1.
 
 1. Gerar uma chave de autorização:
 

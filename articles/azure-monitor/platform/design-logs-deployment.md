@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 269ecdf8998707ac375339edb4e11bb24380e27d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536783"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027711"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
@@ -99,7 +99,7 @@ O Azure Monitor determina automaticamente o modo certo, dependendo do contexto a
 
 A tabela a seguir resume os modos de acesso:
 
-| Problema | Contexto do espaço de trabalho | Contexto de recursos |
+| Problema | Workspace-context | Resource-context |
 |:---|:---|:---|
 | Para quem é destinado cada modelo? | Administração central. Administradores que precisam de configurar a recolha de dados e utilizadores que precisam de acesso a uma grande variedade de recursos. Também atualmente necessário para os utilizadores que precisam de aceder a registos de recursos fora do Azure. | Equipas de candidatura. Administradores dos recursos da Azure a ser monitorizados. |
 | O que um utilizador necessita para visualizar registos? | Permissões para o espaço de trabalho. Consulte **permissões do Espaço de Trabalho** em Gerir o acesso utilizando [permissões de espaço de trabalho.](manage-access.md#manage-access-using-workspace-permissions) | Leia o acesso ao recurso. Consulte **permissões de Recursos** em Gerir o acesso utilizando [permissões Azure](manage-access.md#manage-access-using-azure-permissions). As permissões podem ser herdadas (por exemplo, do grupo de recursos contendo) ou diretamente atribuídas ao recurso. A permissão para os registos do recurso será automaticamente atribuída. |

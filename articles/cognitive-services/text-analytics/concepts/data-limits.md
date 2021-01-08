@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965107"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028136"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxas para a API de Análise de Texto
 <a name="data-limits"></a>
@@ -35,7 +35,15 @@ Use este artigo para encontrar os limites para o tamanho e as tarifas que pode e
 | Tamanho máximo de um único documento `/analyze` (ponto final)  | Caracteres de 125K medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Não se aplica a Text Analytics para saúde. |
 | Tamanho máximo do pedido completo | 1 MB. Aplica-se também ao Text Analytics para a saúde. |
 
-O número máximo de documentos que pode enviar num único pedido dependerá da versão API e da funcionalidade que estiver a utilizar. O `/analyze` ponto final rejeitará todo o pedido se algum documento exceder o tamanho máximo (caracteres de 125K)
+
+Se um documento exceder o limite de caracteres, a API comportar-se-á de forma diferente dependendo do ponto final que estiver a utilizar:
+
+* `/analyze` ponto final:
+  * A API rejeitará todo o pedido e devolverá um `400 bad request` erro se qualquer documento dentro dele exceder o tamanho máximo.
+* Todos os outros pontos finais:  
+  * A API não processa um documento que exceda o tamanho máximo e retornará um erro de documento inválido para o mesmo. Se um pedido de API tiver vários documentos, a API continuará a processá-los se estiver dentro do limite de caracteres.
+
+O número máximo de documentos que pode enviar num único pedido dependerá da versão API e da funcionalidade que está a utilizar, que está descrito na tabela abaixo.
 
 #### <a name="version-3"></a>[Versão 3](#tab/version-3)
 

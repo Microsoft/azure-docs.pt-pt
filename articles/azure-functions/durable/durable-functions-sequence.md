@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8223b1273c2a487e15e3c10d7c6852a119e4cdc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87033569"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028255"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Acorrentação de funções em funções duradouras - Amostra de sequência de olá
 
-Acorrentamento de funções refere-se ao padrão de execução de uma sequência de funções numa determinada ordem. Muitas vezes, a saída de uma função tem de ser aplicada à entrada de outra função. Este artigo descreve a sequência de acorrentação que cria quando completa o arranque rápido das Funções Duráveis[(C#](durable-functions-create-first-csharp.md) ou [JavaScript).](quickstart-js-vscode.md) Para obter mais informações sobre funções duradouras, consulte [a visão geral das funções duradouras](durable-functions-overview.md).
+Acorrentamento de funções refere-se ao padrão de execução de uma sequência de funções numa determinada ordem. Muitas vezes, a saída de uma função tem de ser aplicada à entrada de outra função. Este artigo descreve a sequência de acorrentação que cria quando completa o quickstart[(C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), ou [Python).](quickstart-python-vscode.md) Para obter mais informações sobre funções duradouras, consulte [a visão geral das funções duradouras](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -24,7 +24,7 @@ Este artigo explica as seguintes funções na aplicação da amostra:
 
 * `E1_HelloSequence`: Uma [função orquestradora](durable-functions-bindings.md#orchestration-trigger) que chama `E1_SayHello` várias vezes numa sequência. Armazena as saídas das `E1_SayHello` chamadas e regista os resultados.
 * `E1_SayHello`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que prepara uma corda com "Olá".
-* `HttpStart`: Uma função HTTP desencadeada que inicia uma instância do orquestrador.
+* `HttpStart`: Uma função [de cliente durável](durable-functions-bindings.md#orchestration-client) de HTTP que inicia uma instância do orquestrador.
 
 ### <a name="e1_hellosequence-orchestrator-function"></a>função orquestrador E1_HelloSequence
 
@@ -39,11 +39,11 @@ O código chama `E1_SayHello` três vezes em sequência com diferentes valores d
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 > [!NOTE]
-> As funções duradouras javaScript estão disponíveis apenas para as funções 2.0.
+> As funções duradouras javaScript estão disponíveis apenas para as funções 3.0.
 
 #### <a name="functionjson"></a>function.json
 
-Se utilizar o Código do Estúdio Visual ou o portal Azure para o desenvolvimento, aqui está o conteúdo do *function.jsem* ficheiro para a função de orquestrador. A maioria dosfunction.jsde orquestra * em* ficheiros são quase exatamente assim.
+Se utilizar o Código do Estúdio Visual ou o portal Azure para o desenvolvimento, aqui está o conteúdo do *function.jsem* ficheiro para a função de orquestrador. A maioria dosfunction.jsde orquestra *em* ficheiros são quase exatamente assim.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
@@ -54,17 +54,47 @@ O importante é o `orchestrationTrigger` tipo de encadernação. Todas as funç�
 
 #### <a name="indexjs"></a>index.js
 
-Aqui está a função:
+Aqui está a função orquestradora:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Todas as funções de orquestração JavaScript devem incluir o [ `durable-functions` módulo.](https://www.npmjs.com/package/durable-functions) É uma biblioteca que lhe permite escrever Funções Duradouras em JavaScript. Existem três diferenças significativas entre uma função de orquestração e outras funções JavaScript:
+Todas as funções de orquestração JavaScript devem incluir o [ `durable-functions` módulo.](https://www.npmjs.com/package/durable-functions) É uma biblioteca que lhe permite escrever Funções Duradouras em JavaScript. Existem três diferenças significativas entre uma função orquestradora e outras funções JavaScript:
 
-1. A função é uma [função geradora.](/scripting/javascript/advanced/iterators-and-generators-javascript). .
+1. A função orquestradora é uma [função geradora.](/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. A função é envolta numa chamada para o `durable-functions` método do módulo `orchestrator` `df` (aqui).
 3. A função deve ser sincronizada. Como o método "orquestrador" trata do chamado "context.done", a função deve simplesmente "regressar".
 
 O `context` objeto contém um objeto de contexto de `df` orquestração durável que permite chamar outras funções de *atividade* e passar parâmetros de entrada usando o seu `callActivity` método. O código chama `E1_SayHello` três vezes em sequência com diferentes valores de parâmetro, utilizando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíco a serem devolvidas. O valor de retorno de cada chamada é adicionado à `outputs` matriz, que é devolvida no final da função.
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> As Funções Duradouras python estão disponíveis apenas para as funções 3.0.
+
+
+#### <a name="functionjson"></a>function.json
+
+Se utilizar o Código do Estúdio Visual ou o portal Azure para o desenvolvimento, aqui está o conteúdo do *function.jsem* ficheiro para a função de orquestrador. A maioria dosfunction.jsde orquestra *em* ficheiros são quase exatamente assim.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
+
+O importante é o `orchestrationTrigger` tipo de encadernação. Todas as funções do orquestrador devem utilizar este tipo de gatilho.
+
+> [!WARNING]
+> Para respeitar a regra "não I/O" das funções do orquestrador, não utilize nenhuma entrada ou encadernação de saída quando utilizar a ligação do `orchestrationTrigger` gatilho.  Se forem necessárias outras ligações de entrada ou saída, devem ser utilizadas no contexto das `activityTrigger` funções, que são chamadas pelo orquestrador. Para obter mais informações, consulte o artigo de restrições de [função do orquestrador.](durable-functions-code-constraints.md)
+
+#### <a name="__init__py"></a>\_\_.py \_ init \_
+
+Aqui está a função orquestradora:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
+
+Todas as funções de orquestração Python devem incluir o [ `durable-functions` pacote.](https://pypi.org/project/azure-functions-durable) É uma biblioteca que lhe permite escrever Funções Duradouras em Python. Existem duas diferenças significativas entre uma função orquestradora e outras funções python:
+
+1. A função orquestradora é uma [função geradora.](https://wiki.python.org/moin/Generators)
+2. O _ficheiro_ deve registar a função de orquestrador, indicando `main = df.Orchestrator.create(<orchestrator function name>)` no final do processo. Isto ajuda a distingui-lo de outras funções, ajudantes, declaradas no ficheiro.
+
+O `context` objeto permite-lhe chamar outras funções de *atividade* e passar parâmetros de entrada usando o seu `call_activity` método. O código chama `E1_SayHello` três vezes em sequência com diferentes valores de parâmetro, utilizando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíco a serem devolvidas. O valor de retorno de cada chamada é devolvido no final da função.
 
 ---
 
@@ -91,7 +121,7 @@ O *function.jsem* ficheiro para a função de atividade é semelhante ao da fun�
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
-> Qualquer função chamada por uma função de orquestração deve utilizar a `activityTrigger` ligação.
+> Todas as funções de atividade chamadas por uma função de orquestração devem utilizar a `activityTrigger` ligação.
 
 A implementação `E1_SayHello` de é uma operação de formatação de cordas relativamente trivial.
 
@@ -99,7 +129,26 @@ A implementação `E1_SayHello` de é uma operação de formatação de cordas r
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Ao contrário de uma função de orquestração JavaScript, uma função de atividade não necessita de configuração especial. A entrada que lhe foi transmitida pela função do orquestrador está localizada no `context.bindings` objeto sob o nome da `activityTrigger` encadernação - neste caso, `context.bindings.name` . O nome de ligação pode ser definido como um parâmetro da função exportada e acedido diretamente, que é o que o código de amostra faz.
+Ao contrário da função de orquestração, uma função de atividade não precisa de uma configuração especial. A entrada que lhe foi transmitida pela função do orquestrador está localizada no `context.bindings` objeto sob o nome da `activityTrigger` encadernação - neste caso, `context.bindings.name` . O nome de ligação pode ser definido como um parâmetro da função exportada e acedido diretamente, que é o que o código de amostra faz.
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.jsem
+
+O *function.jsem* ficheiro para a função de atividade é semelhante ao da função de `E1_SayHello` `E1_HelloSequence` atividade, exceto que utiliza um tipo de `activityTrigger` encadernação em vez de um tipo de `orchestrationTrigger` ligação.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
+
+> [!NOTE]
+> Todas as funções de atividade chamadas por uma função de orquestração devem utilizar a `activityTrigger` ligação.
+
+A implementação `E1_SayHello` de é uma operação de formatação de cordas relativamente trivial.
+
+#### <a name="e1_sayhello__init__py"></a>E1_SayHello/ \_ \_ \_ \_ init .py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
+
+Ao contrário da função orquestradora, uma função de atividade não necessita de uma configuração especial. A entrada que lhe foi transmitida pela função orquestradora é diretamente acessível como parâmetro para a função.
 
 ---
 
@@ -126,6 +175,20 @@ Para interagir com os orquestradores, a função deve incluir uma `durableClient
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
 Use `df.getClient` para obter um `DurableOrchestrationClient` objeto. Usas o cliente para iniciar uma orquestração. Também pode ajudá-lo a devolver uma resposta HTTP contendo URLs para verificar o estado da nova orquestração.
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.jsem
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
+
+Para interagir com os orquestradores, a função deve incluir uma `durableClient` ligação de entrada.
+
+#### <a name="httpstart__init__py"></a>HttpStart/ \_ \_ init \_ \_ .py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
+
+Utilize o `DurableOrchestrationClient` construtor para obter um cliente De Funções Duradouras. Usas o cliente para iniciar uma orquestração. Também pode ajudá-lo a devolver uma resposta HTTP contendo URLs para verificar o estado da nova orquestração.
 
 ---
 

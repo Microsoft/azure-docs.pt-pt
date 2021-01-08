@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572716"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028765"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
 
@@ -50,7 +50,7 @@ Apoiamos até Full HD 1080p nos SDKs nativos (iOS, Android). Para Web (JS) SDK a
 
 ### <a name="rooms-concept"></a>Conceito de quartos
 Os quartos são um conjunto de APIs e SDKs que permitem adicionar facilmente interações de áudio, vídeo, partilha de ecrã, PSTN e SMS ao seu website ou aplicação nativa.
-Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesma conversa. Pode criar o iD de grupo que precisar e separar os utilizadores pelos "quartos". Avançar vai introduzir mais controlos em torno de "quartos" 
+Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesma conversa. Pode criar os iDs de grupo que precisar e separar os utilizadores pelos "quartos". Avançar vai introduzir mais controlos em torno de "quartos" 
 
 ## <a name="next-steps"></a>Passos seguintes
 

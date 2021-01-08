@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/05/2021
+ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014877"
+ms.locfileid: "98028476"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -87,10 +87,12 @@ Estas reclamações estão sempre incluídas em fichas AD v1.0 Azure, mas não i
 | `given_name`  | Nome próprio                      | Fornece o primeiro nome ou "dado" do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o `profile` alcance. |
 | `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para identificar exclusivamente informações do utilizador (por exemplo, como chave de base de dados). Em vez disso, utilize o ID do objeto de utilizador `oid` como uma chave de base de dados. Os utilizadores que iniciam sessão com um [ID de login alternativo](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados o seu Nome Principal do Utilizador (UPN). Em vez disso, utilize a seguinte `preferred_username` alegação para visualizar o estado de inscrição no utilizador. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configuração da reclamação. Requer o `profile` alcance.|
 
+## <a name="v10-specific-optional-claims-set"></a>v1.0 conjunto de reclamações opcionais específicas
+
+Algumas das melhorias do formato token v2 estão disponíveis para aplicações que utilizam o formato de token V1, uma vez que ajudam a melhorar a segurança e a fiabilidade. Estes não produzirão efeitos para os tokens de ID solicitados a partir do ponto final v2, nem tokens de acesso para APIs que utilizem o formato token v2. Estes só se aplicam a JWTs, não a fichas SAML. 
 
 **Quadro 4: v1.0 apenas pedidos opcionais**
 
-Algumas das melhorias do formato token v2 estão disponíveis para aplicações que utilizam o formato de token V1, uma vez que ajudam a melhorar a segurança e a fiabilidade. Estes não produzirão efeitos para os tokens de ID solicitados a partir do ponto final v2, nem tokens de acesso para APIs que utilizem o formato token v2. 
 
 | Reivindicação JWT     | Nome                            | Descrição | Notas |
 |---------------|---------------------------------|-------------|-------|
@@ -149,7 +151,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 1. **Selecione Adicionar reclamação opcional**.
 1. Selecione o tipo de símbolo que deseja configurar.
 1. Selecione as reclamações opcionais a adicionar.
-1. Selecione **Adicionar**.
+1. Selecione **Add** (Adicionar).
 
 > [!NOTE]
 > A lâmina de **configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente. Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/configure-user-input.md) 
@@ -254,7 +256,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 1. Selecione **Adicionar grupos reivindicação**.
 1. Selecione os tipos de grupo para devolver **(Grupos de segurança,** ou **funções de diretório**, **Todos os grupos** e/ou **grupos designados para a aplicação).** Os **Grupos atribuídos à opção de candidatura** incluem apenas grupos atribuídos à aplicação. A opção **All Groups** inclui **SecurityGroup,** **DirectyRole** e **DistributionList,** mas não **grupos atribuídos à aplicação.** 
 1. Opcional: selecione as propriedades específicas do tipo token para modificar o valor de reivindicação dos grupos para conter nos atributos do grupo de instalações ou para alterar o tipo de reclamação para uma função.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 **Configurar pedidos opcionais de grupos através do manifesto de aplicação:**
 
@@ -448,7 +450,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

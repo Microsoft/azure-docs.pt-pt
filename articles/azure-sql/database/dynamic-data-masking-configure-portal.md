@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791057"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028017"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Começar com a sql Database dinâmico mascarando dados com o portal Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92791057"
 Este artigo mostra-lhe como implementar [uma máscara dinâmica de dados](dynamic-data-masking-overview.md) com o portal Azure. Também pode implementar máscaras de dados dinâmicas utilizando [cmdlets Azure SQL Database](/powershell/module/az.sql/) ou a [API REST](/rest/api/sql/).
 
 > [!NOTE]
-> Esta função não pode ser definida utilizando o portal Azure Synapse (use PowerShell ou REST API) ou SQL Managed Instance. Para obter mais informações, consulte [a Máscara de Dados Dinâmicos.](/sql/relational-databases/security/dynamic-data-masking)
+> Esta função não pode ser definida utilizando o portal para a sql Managed Instance (use PowerShell ou REST API). Para obter mais informações, consulte [a Máscara de Dados Dinâmicos.](/sql/relational-databases/security/dynamic-data-masking)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Confiem de uma máscara de dados dinâmica para a sua base de dados utilizando o portal Azure
 
@@ -47,7 +47,7 @@ Este artigo mostra-lhe como implementar [uma máscara dinâmica de dados](dynami
 
     ![Screenshot que mostra as categorias sensíveis de mascaramento de dados na secção Select how to mask.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
-8. Clique **Add** na página de regra de mascarar dados para atualizar o conjunto de regras de mascaramento na política dinâmica de mascaramento de dados.
+8. Clique  na página de regra de mascarar dados para atualizar o conjunto de regras de mascaramento na política dinâmica de mascaramento de dados.
 9. Digite os utilizadores SQL ou as identidades do Azure Ative Directory (Azure AD) que devem ser excluídas da máscara e tenham acesso aos dados sensíveis desmascarados. Esta deve ser uma lista separada de utilizadores. Os utilizadores com privilégios de administrador têm sempre acesso aos dados originais desmascarados.
 
     ![Painel de navegação](./media/dynamic-data-masking-configure-portal/8_ddm_excluded_users.png)

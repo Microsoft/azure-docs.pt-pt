@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalização, personalizador Azure, machine learning
-ms.openlocfilehash: 28aae130d062eaf57a66a9b90a6602c3874f1494
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094153"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028782"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
-O Azure Personalizer é um serviço baseado na nuvem que ajuda as suas aplicações a escolher o melhor item de conteúdo para mostrar aos seus utilizadores. Pode utilizar o serviço Personalizar para determinar que produto sugerir aos compradores ou descobrir a posição ideal para um anúncio. Depois de o conteúdo ser mostrado ao utilizador, o sistema monitoriza o comportamento do utilizador em tempo real e reporta uma pontuação de recompensa de volta ao serviço Personaler. Isto garante uma melhoria contínua do modelo de machine learning e a capacidade do Personalizer de selecionar o melhor item de conteúdo com base na informação contextual que recebe.
+O Azure Personalizer é um serviço baseado na nuvem que ajuda as suas aplicações a escolher o melhor item de conteúdo para mostrar aos seus utilizadores. Pode utilizar o serviço Personalizar para determinar que produto sugerir aos compradores ou descobrir a posição ideal para um anúncio. Depois de o conteúdo ser mostrado ao utilizador, a sua aplicação monitoriza a reação do utilizador e reporta uma pontuação de recompensa de volta ao serviço Personaler. Isto garante uma melhoria contínua do modelo de machine learning e a capacidade do Personalizer de selecionar o melhor item de conteúdo com base na informação contextual que recebe.
 
 > [!TIP]
 > O conteúdo é qualquer unidade de informação, como texto, imagens, URL, e-mails ou qualquer outra coisa que queira selecionar e mostrar aos seus utilizadores.
@@ -65,7 +65,7 @@ Personalizar a aprendizagem de reforço usada para selecionar a melhor ação, c
 
 Utilize o Personalizar quando o seu conteúdo:
 
-* Tem um conjunto limitado de itens (máx. Se tiver uma lista maior, [utilize um motor de recomendação](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) para reduzir a lista para 50 itens.
+* Tem um conjunto limitado de ações ou itens (máx. Se tiver uma lista maior, [utilize um motor de recomendação](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) para reduzir a lista para 50 itens para cada vez que ligar para o Rank no serviço Personalizar.
 * Tem informações que descrevem o conteúdo que pretende classificar: _ações com funcionalidades_ e _funcionalidades de contexto_.
 * Tem um mínimo de ~1k/dia de eventos relacionados com conteúdo para personalizer ser eficaz. Se o Personaler não receber o tráfego mínimo necessário, o serviço demora mais tempo a determinar o único item de conteúdo.
 

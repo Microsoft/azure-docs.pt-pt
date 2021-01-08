@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/17/2019
+ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d8c67fa5373afc8ea8bae5a49b87309f3893a12
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369098"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028731"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregar dados para a piscina SQL Azure Synapse Analytics
 
@@ -24,9 +24,6 @@ Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImpo
 
 > [!div class="checklist"]
 >
-> * Criar um armazém de dados usando piscina SQL no portal Azure
-> * Configurar uma regra de firewall ao nível do servidor no portal do Azure
-> * Conecte-se à piscina SQL com SSMS
 > * Criar um utilizador designado para carregar dados
 > * Criar tabelas externas que utilizam o blob do Azure como origem de dados
 > * Utilizar a instrução CTAS T-SQL para carregar dados para o armazém de dados
@@ -40,110 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
-
-## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um armazém de dados em branco na piscina SQL
-
-Uma piscina SQL é criada com um conjunto definido de [recursos computativos.](memory-concurrency-limits.md) A piscina SQL é criada dentro de um [grupo de recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e num [servidor SQL lógico](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Siga estes passos para criar uma piscina SQL em branco.
-
-1. **Selecione Criar um recurso** no portal Azure.
-
-1. Selecione **Bases de Dados** **da** nova página e selecione **Azure Synapse Analytics** em **destaque** na página **Nova.**
-
-    ![criar piscina SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
-
-1. Preencha a secção Detalhes do **Projeto** com as seguintes informações:
-
-   | Definição | Exemplo | Descrição |
-   | ------- | --------------- | ----------- |
-   | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-   | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
-
-1. Em **detalhes da piscina SQL,** forneça um nome para a sua piscina SQL. Em seguida, selecione um servidor existente a partir da queda ou selecione **Criar novas** definições sob as definições do **Servidor** para criar um novo servidor. Preencha o formulário com as informações seguintes:
-
-    | Definição | Valor sugerido | Descrição |
-    | ------- | --------------- | ----------- |
-    |**Nome da piscina SQL**|SampleDW| Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados). |
-    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
-    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).|
-    | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
-    | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
-
-    ![criar servidor](./media/load-data-wideworldimportersdw/create-database-server.png)
-
-1. **Selecione o nível de desempenho**. O slider por defeito está definido para **DW1000c**. Mova o deslizador para cima e para baixo para escolher a escala de desempenho desejada.
-
-    ![criar servidor 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-1. Na página **Definições Adicionais,** defina os **dados existentes** para Nenhum e deixe a **Colagem** por defeito de *SQL_Latin1_General_CP1_CI_AS*.
-
-1. Selecione **Rever + criar** para rever as suas definições e, em seguida, selecione **Criar** para criar o seu armazém de dados. Pode monitorizar o seu progresso abrindo a página de **implementação em progresso** a partir do menu **Notificações.**
-
-     ![A screenshot mostra notificações com implementação em curso.](./media/load-data-wideworldimportersdw/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
-
-O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do cliente.
-
-> [!NOTE]
-> A piscina Azure Synapse Analytics SQL comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não é possível ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
->
-
-1. Após a implementação concluída, procure o nome da piscina na caixa de pesquisa no menu de navegação e selecione o recurso de piscina SQL. Selecione o nome do servidor.
-
-    ![ir para o seu recurso](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
-
-1. Selecione o nome do servidor.
-    ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-1. Selecione **Mostrar definições da firewall**. A página **de definições de Firewall** para o servidor abre.
-
-    ![definições do servidor](./media/load-data-wideworldimportersdw/server-settings.png)
-
-1. Na página **firewalls e redes virtuais,** selecione **Adicionar o IP** do cliente para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
-
-    ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
-
-1. Selecione **Guardar**. Uma regra de firewall ao nível do servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
-
-Pode agora ligar-se ao servidor utilizando o endereço IP do seu cliente. A ligação funciona a partir do SQL Server Management Studio ou de outra ferramenta à sua escolha. Ao ligar, utilize a conta serveradmin que criou anteriormente.  
-
-> [!IMPORTANT]
-> Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Clique em **DESATIVADO** nesta página e, em seguida, clique em **Guardar** para desativar a firewall para todos os serviços do Azure.
-
-## <a name="get-the-fully-qualified-server-name"></a>Obter o nome de servidor completamente qualificado
-
-O nome do servidor totalmente qualificado é o que é usado para ligar ao servidor. Vá ao seu recurso de piscina SQL no portal Azure e veja o nome totalmente qualificado sob **o nome do Servidor**.
-
-![nome do servidor](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
-
-Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao seu servidor.
-
-1. Abra o SQL Server Management Studio.
-
-2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
-
-    | Definição      | Valor sugerido | Descrição |
-    | ------------ | --------------- | ----------- |
-    | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
-    | Nome do servidor | O nome de servidor completamente qualificado | Por exemplo, **sqlpoolservername.database.windows.net** é um nome de servidor totalmente qualificado. |
-    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
-    | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
-    | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
-
-    ![ligar ao servidor](./media/load-data-wideworldimportersdw/connect-to-server.png)
-
-3. Clique em **Ligar**. A janela do Object Explorer é aberta no SSMS.
-
-4. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda **o SampleDW** para visualizar os objetos na sua nova base de dados.
-
-    ![objetos da base de dados](./media/load-data-wideworldimportersdw/connected.png)
+Este tutorial pressupõe que já criou uma piscina dedicada SQL a partir do seguinte [tutorial.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin)
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 

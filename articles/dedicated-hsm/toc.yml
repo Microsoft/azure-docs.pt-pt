@@ -14,6 +14,8 @@
   items:
     - name: Criar um Azure Dedicated HSM com o Azure PowerShell
       href: quickstart-create-hsm-powershell.md
+    - name: Criar um Azure Dedicated HSM com o Azure CLI
+      href: quickstart-hsm-azure-cli.md
 - name: Conceitos
   items:
     - name: Elevada disponibilidade

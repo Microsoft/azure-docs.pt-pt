@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916665"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028646"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -44,12 +44,15 @@ O Video Indexer suporta a deteção, agrupamento e reconhecimento de personagens
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Alterações de autenticação planeadas do site do Indexer de Vídeo
 
-A partir de 1 de janeiro de 2021, deixará de poder inscrever-se e inscrever-se no site do [Video Indexer](https://www.videoindexer.ai/) (oferta experimental) utilizando o Facebook ou o LinkedIn.
+A partir de 1 de março de 2021, já não poderá inscrever-se e inscrever-se no site do [Video Indexer](https://www.videoindexer.ai/) através do Facebook ou LinkedIn.
 
 Poderá inscrever-se e iniciar seduca através de um destes fornecedores: Azure AD, Microsoft e Google.
 
 > [!NOTE]
-> É aconselhável exportar o seu conteúdo antes de 1 de janeiro de 2021, uma vez que as contas ligadas ao LinkedIn e Facebook serão eliminadas e os conteúdos deixarão de estar acessíveis.
+> As contas do Video Indexer ligadas ao LinkedIn e ao Facebook não estarão acessíveis a partir de 1 de março de 2021. 
+> 
+> Deve [convidar](invite-users.md) um AD AZure, Microsoft ou Google e-mail que possui para a conta do Índice de Vídeo para que ainda tenha acesso.<br/>
+> Em alternativa, pode criar uma conta paga e migrar os dados.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

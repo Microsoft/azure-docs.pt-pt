@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: db48183e918fcb1096734f912f02c091ddac1d74
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8ccf2665f19b66959ce259088d0b322aec7b59f4
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511880"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028714"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -36,14 +36,14 @@ Pode ver o seguinte vídeo com passos detalhados sobre como começar com o Live 
 
 Este tutorial requer os seguintes recursos Azure:
 
-* Hub IoT
+* IoT Hub
 * Conta de armazenamento
 * Conta Azure Media Services
 * Um Linux VM em Azure, com [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge.md) instalado
 
 Para este arranque rápido, recomendamos que utilize o [script de configuração de recursos live video analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar os recursos necessários na sua subscrição Azure. Para tal, siga estes passos:
 
-1. Vá ao [Azure Cloud Shell.](https://shell.azure.com)
+1. Vá ao [Portal Azure](https://portal.azure.com) e selecione o ícone da concha da nuvem.
 1. Se estiver a utilizar a Cloud Shell pela primeira vez, será solicitado que selecione uma subscrição para criar uma conta de armazenamento e uma partilha de Ficheiros Microsoft Azure. Selecione **Criar armazenamento** para criar uma conta de armazenamento para as informações da sessão Cloud Shell. Esta conta de armazenamento é separada da conta que o script criará para utilizar com a sua conta Azure Media Services.
 1. No menu suspenso no lado esquerdo da janela Cloud Shell, selecione **Bash** como seu ambiente.
 

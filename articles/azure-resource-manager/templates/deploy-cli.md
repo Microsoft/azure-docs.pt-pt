@@ -3,12 +3,12 @@ title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676198"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028153"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
@@ -18,7 +18,7 @@ Os comandos de implantação foram alterados na versão 2.2.0 do Azure CLI. Os e
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Se não tiver o Azure CLI instalado, pode utilizar a Cloud Shell. Para obter mais informações, consulte [os modelos ARM da Cloud Shell](deploy-cloud-shell.md).
+Se não tiver o Azure CLI instalado, pode utilizar a Azure Cloud Shell. Para obter mais informações, consulte [os modelos ARM da Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Âmbito de implantação
 
@@ -169,7 +169,7 @@ Para passar valores de parâmetros, pode utilizar parâmetros inline ou um fiche
 
 ### <a name="inline-parameters"></a>Parâmetros inline
 
-Para passar parâmetros inline, forneça os valores em `parameters` . Por exemplo, para passar uma corda e matriz para um modelo é uma concha bash, use:
+Para passar parâmetros inline, forneça os valores em `parameters` . Por exemplo, para passar uma corda e matriz para um modelo numa concha bash, use:
 
 ```azurecli-interactive
 az deployment group create \
@@ -191,7 +191,7 @@ az deployment group create \
 
 Obter um valor de parâmetro de um ficheiro é útil quando é necessário fornecer valores de configuração. Por exemplo, pode fornecer [valores de ineção de nuvem para uma máquina virtual Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-A arrayContent.jsno formato é:
+A _arrayContent.jsno_ formato é:
 
 ```json
 [
@@ -228,7 +228,7 @@ Em vez de transmitir parâmetros como valores inline no seu script, poderá cons
 
 Para obter mais informações sobre o ficheiro de parâmetros, veja [Criar ficheiro de parâmetros do Resource Manager](parameter-files.md).
 
-Para passar um ficheiro de parâmetro local, use `@` para especificar um ficheiro local chamado storage.parameters.jsligado.
+Para passar um ficheiro de parâmetro local, utilize `@` para especificar um ficheiro local nomeado _storage.parameters.jsem_.
 
 ```azurecli-interactive
 az deployment group create \

@@ -1,18 +1,18 @@
 ---
 title: Implementar modelos com Cloud Shell
-description: Utilize o Azure Resource Manager e a Cloud Shell para implantar recursos para o Azure. Os recursos são definidos num modelo de Gestor de Recursos Azure.
+description: Use o Azure Resource Manager e a Azure Cloud Shell para implantar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d0b519955cb877f5fb9640cc0cf95a898e1743ef
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c67251a33b6197603be27086bcc6cd047e0c414b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681636"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028612"
 ---
-# <a name="deploy-arm-templates-from-cloud-shell"></a>Implementar modelos ARM da Cloud Shell
+# <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Implemente modelos ARM a partir de Azure Cloud Shell
 
-Pode utilizar a [Cloud Shell](../../cloud-shell/overview.md) para implementar um modelo de Gestor de Recursos Azure (modelo ARM). Pode implementar um modelo ARM que é armazenado remotamente ou um modelo ARM que é armazenado na conta de armazenamento local para Cloud Shell.
+Pode utilizar [a Azure Cloud Shell](../../cloud-shell/overview.md) para implementar um modelo de Gestor de Recursos Azure (modelo ARM). Pode implementar um modelo ARM que é armazenado remotamente ou um modelo ARM que é armazenado na conta de armazenamento local para Cloud Shell.
 
 Pode ser implantado em qualquer âmbito. Este artigo mostra a implantação para um grupo de recursos.
 
@@ -54,7 +54,7 @@ Para implementar um modelo externo, forneça o URI do modelo exatamente como far
 
 Para implementar um modelo local, tem primeiro de carregar o seu modelo para a conta de armazenamento que está ligada à sua sessão Cloud Shell.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O padrão de nome é `cloud-shell-storage-<region>`.
 
@@ -62,27 +62,27 @@ Para implementar um modelo local, tem primeiro de carregar o seu modelo para a c
 
 1. Selecione a conta de armazenamento para o Cloud Shell.
 
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Abrir o Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Selecione conta de armazenamento":::
 
-1. Selecione **ações de ficheiros** .
+1. Selecione **ações de ficheiros**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Abrir o Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Selecione ações de ficheiros":::
 
 1. Selecione a partilha de ficheiros predefinido para Cloud Shell. A partilha de ficheiros tem o formato de nome de `cs-<user>-<domain>-com-<uniqueGuid>` .
 
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Abrir o Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Partilha de ficheiros predefinidos":::
 
 1. Adicione um novo diretório para manter os seus modelos. Selecione o diretório.
 
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Abrir o Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Adicionar diretório":::
 
-1. Selecione **Carregar** .
+1. Selecione **Carregar**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Abrir o Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Modelo de upload":::
 
 1. Localize e carregue o modelo.
 
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Abrir o Cloud Shell":::
+   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Selecione o modelo":::
 
 1. Abra o pedido da Cloud Shell.
 

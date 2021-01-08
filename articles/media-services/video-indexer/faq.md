@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217733"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028799"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
 
@@ -183,7 +183,7 @@ Atualmente existem algumas sobreposições nas funcionalidades oferecidas pela A
 
 A API do Indexante de Vídeo contém uma API de Autorização e uma API de Operações. A API de Autorizações contém chamadas que lhe dão acesso a ficha. Cada chamada efetuada para a API de Operações deve estar associada a um token de acesso que corresponda ao âmbito de autorização da chamada.
 
-São necessários tokens de acesso para utilizar as APIs do Indexador de Vídeo para fins de segurança. Isto garante que quaisquer chamadas estão a chegar de si ou de quem tem permissões de acesso à sua conta. 
+São necessários tokens de acesso para utilizar as APIs do Indexador de Vídeo para fins de segurança. Isto garante que quaisquer chamadas estão a chegar de si ou de quem tem permissões de acesso à sua conta. 
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Qual é a diferença entre o token de acesso à conta, o token de acesso ao utilizador e o token de acesso de vídeo?
 
@@ -197,7 +197,7 @@ Os tokens de acesso expiram a cada hora, por isso tens de gerar um novo token de
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quais são as opções de login do portal de desenvolvimento do Indexer de Vídeo?
 
-Pode iniciar sessão usando Azure AD, conta Microsoft, conta Google ou conta do Facebook. 
+Consulte uma nota de lançamento relativa às [informações](release-notes.md#october-2020)de login .
 
 Uma vez que registe a sua conta de e-mail utilizando um fornecedor de identidade, não poderá utilizar esta conta de e-mail com outro fornecedor de identidade.
 

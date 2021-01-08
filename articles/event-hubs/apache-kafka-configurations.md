@@ -2,13 +2,13 @@
 title: Configurações recomendadas para clientes Apache Kafka - Azure Event Hubs
 description: Este artigo fornece configurações recomendadas de Apache Kafka para clientes que interagem com a Azure Event Hubs para Apache Kafka.
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097671"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028833"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurações recomendadas para clientes Apache Kafka
 Aqui estão as configurações recomendadas para a utilização de Azure Event Hubs a partir de aplicações de clientes Apache Kafka. 
@@ -79,7 +79,7 @@ Verifique a seguinte tabela de cenários de erro relacionados com a configuraç�
 
 Sintomas | Problema | Solução
 ----|---|-----
-Compensação cometer falhas por causa do reequilíbrio | O seu consumidor está à espera demasiado tempo entre as chamadas para a sondagem e o serviço está a expulsar o consumidor do grupo. | Tem várias opções: <ul><li>aumentar o tempo limite da sessão</li><li>diminuir o tamanho do lote de mensagens para acelerar o processamento</li><li>melhorar a paralelização do processamento para evitar o bloqueio ao consumidor.poll()</li></ul> Aplicar alguma combinação dos três é provavelmente o mais sensato.
+Compensação cometer falhas por causa do reequilíbrio | O seu consumidor está à espera demasiado tempo entre as chamadas para a sondagem e o serviço está a expulsar o consumidor do grupo. | Tem várias opções: <ul><li>Aumentar o tempo de processamento da sondagem `max.poll.interval.ms` ()</li><li>Diminua o tamanho do lote de mensagens para acelerar o processamento</li><li>Melhorar a paralelização do processamento para evitar o bloqueio ao consumidor.poll()</li></ul> Aplicar alguma combinação dos três é provavelmente o mais sensato.
 Exceções da rede em produção elevada | Está a utilizar o cliente Java + max.request.size?  Os seus pedidos podem ser muito grandes. | Veja Java configs acima.
 
 ## <a name="next-steps"></a>Passos seguintes

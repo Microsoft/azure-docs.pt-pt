@@ -4,12 +4,12 @@ description: Aprenda a implantar um grupo de contentores para uma rede virtual A
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746901"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028884"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentores numa rede virtual do Azure
 
@@ -20,7 +20,7 @@ Este artigo mostra como usar o [contentor az criar][az-container-create] comando
 Para cenários e limitações de networking, consulte [cenários e recursos de rede virtual para instâncias de contentores Azure](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> A implantação do grupo de contentores para uma rede virtual está geralmente disponível para contentores Linux, na maioria das regiões onde existem instâncias para contentores Azure. Para mais informações, consulte [Regiões e disponibilidade de recursos.](container-instances-virtual-network-concepts.md#where-to-deploy) 
+> A implantação do grupo de contentores para uma rede virtual está geralmente disponível para contentores Linux, na maioria das regiões onde existem instâncias para contentores Azure. Para mais informações, consulte [Regiões e disponibilidade de recursos.][container-regions] 
 
 Exemplos neste artigo são formatados para a concha bash. Se preferir outra concha, como PowerShell ou Command Prompt, ajuste os caracteres de continuação da linha em conformidade.
 
@@ -69,7 +69,7 @@ Para implantar um grupo de contentores numa rede virtual existente:
 
 O exemplo seguinte coloca um segundo grupo de contentores na mesma sub-rede criada anteriormente e verifica a comunicação entre as duas instâncias de contentores.
 
-Em primeiro lugar, obtenha o endereço IP do primeiro grupo de contentores que implementou, o *appcontainer* :
+Em primeiro lugar, obtenha o endereço IP do primeiro grupo de contentores que implementou, o *appcontainer*:
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -139,7 +139,7 @@ Resultado do exemplo:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Assim que tiver o ID do perfil de rede, copie o YAML seguinte para um novo ficheiro chamado *vnet-deploy-aci.yaml* . Em `networkProfile` baixo, substitua o `id` valor por ID que acabou de recuperar e guarde o ficheiro. Este YAML cria um grupo de contentores chamado *appcontaineryaml* na sua rede virtual.
+Assim que tiver o ID do perfil de rede, copie o YAML seguinte para um novo ficheiro chamado *vnet-deploy-aci.yaml*. Em `networkProfile` baixo, substitua o `id` valor por ID que acabou de recuperar e guarde o ficheiro. Este YAML cria um grupo de contentores chamado *appcontaineryaml* na sua rede virtual.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -238,3 +238,4 @@ Para implementar uma nova rede virtual, sub-rede, perfil de rede e grupo de cont
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md

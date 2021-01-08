@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7938920459654bd59620ad0992f3a13db85ff4fb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019024"
+ms.locfileid: "98028867"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>Como escrever gatilhos
 
-AZure Cosmos DB suporta pré-gatilhos e pós-gatilhos. Os pré-gatilhos são executados antes de modificar um item de base de dados e os gatilhos pós-gatilhos são executados após modificar um item de base de dados. Os gatilhos não são automáticos. Devem ser especificados para cada operação de base de dados onde os queira executados.
+AZure Cosmos DB suporta pré-gatilhos e pós-gatilhos. Os pré-gatilhos são executados antes de modificar um item de base de dados e os gatilhos pós-gatilhos são executados após modificar um item de base de dados. Os gatilhos não são executados automaticamente, devem ser especificados para cada operação de base de dados onde pretende que sejam executados. Depois de definir um gatilho, deve [registar-se e chamar um pré-gatilho](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) utilizando os SDKs DB do Azure Cosmos.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>Pré-gatilhos
 
@@ -399,7 +399,7 @@ new RequestOptions { EnableScriptLogging = true } );
 Console.WriteLine(response.ScriptLog);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais conceitos e como escrever ou utilizar procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB:
 

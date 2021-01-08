@@ -3,12 +3,12 @@ title: Implementar recursos com PowerShell e modelo
 description: Utilize o Azure Resource Manager e a Azure PowerShell para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5266aa51422dce6dfa4b82238e905f4f630ccf48
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 40ee659f5892c983f84409a10634c6a8d6d78cc5
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668564"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028494"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementar recursos com modelos ARM e Azure PowerShell
 
@@ -16,26 +16,26 @@ Este artigo explica como usar a Azure PowerShell com modelos de Gestor de Recurs
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de um modelo para implementar. Se ainda não tiver um, faça o download e guarde um modelo de [exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repo dos modelos Azure Quickstart. O nome do ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.jsem** .
+Precisa de um modelo para implementar. Se ainda não tiver um, faça o download e guarde um modelo de [exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repo dos modelos Azure Quickstart. O nome do ficheiro local utilizado neste artigo é _C:\MyTemplates\azuredeploy.jsem_.
 
 Tem de instalar o Azure PowerShell e ligar-se ao Azure:
 
 - **Instale cmdlets Azure PowerShell no seu computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Ligue-se ao Azure utilizando [o Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Se tiver várias subscrições do Azure, também poderá ter de executar [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Ligue-se ao Azure utilizando [o Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se tiver várias subscrições do Azure, também poderá ter de executar [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
 
-Se não tiver o PowerShell instalado, pode utilizar a Cloud Shell. Para obter mais informações, consulte [os modelos ARM da Cloud Shell](deploy-cloud-shell.md).
+Se não tiver o PowerShell instalado, pode utilizar a Azure Cloud Shell. Para obter mais informações, consulte [os modelos ARM da Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Âmbito de implantação
 
 Pode direcionar a sua implementação para um grupo de recursos, subscrição, grupo de gestão ou inquilino. Dependendo do alcance da implantação, utiliza-se diferentes comandos.
 
-* Para implementar num grupo de **recursos,** utilize [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+- Para implementar num grupo de **recursos,** utilize [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
   ```azurepowershell
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
   ```
 
-* Para implementar uma **subscrição,** utilize o New-AzSubscriptionDeployment:
+- Para implementar uma **subscrição,** utilize [o New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment) que é um pseudónimo do `New-AzDeployment` cmdlet:
 
   ```azurepowershell
   New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
@@ -43,7 +43,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 
   Para obter mais informações sobre as implementações do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](deploy-to-subscription.md)
 
-* Para implantar num grupo de **gestão,** utilize [o New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
+- Para implantar num grupo de **gestão,** utilize [o New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
   New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
@@ -51,7 +51,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 
   Para obter mais informações sobre as implementações de nível de grupo de gestão, consulte [Criar recursos ao nível do grupo de gestão.](deploy-to-management-group.md)
 
-* Para implantar num **inquilino,** utilize [o New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+- Para implantar num **inquilino,** utilize [o New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
   ```azurepowershell
   New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
@@ -209,7 +209,7 @@ Em vez de transmitir parâmetros como valores inline no seu script, poderá cons
 
 Para obter mais informações sobre o ficheiro de parâmetros, veja [Criar ficheiro de parâmetros do Resource Manager](parameter-files.md).
 
-Para passar um ficheiro de parâmetro local, utilize o parâmetro **ModeloParameterFile:**
+Para passar um ficheiro de parâmetro local, utilize o `TemplateParameterFile` parâmetro:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -217,7 +217,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-Para passar um ficheiro de parâmetro externo, utilize o parâmetro **ModeloParameterUri:**
+Para passar um ficheiro de parâmetro externo, utilize o `TemplateParameterUri` parâmetro:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -230,4 +230,4 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
 - Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
-- Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).
+- Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo ARM privado com o token SAS](secure-template-with-sas-token.md).
