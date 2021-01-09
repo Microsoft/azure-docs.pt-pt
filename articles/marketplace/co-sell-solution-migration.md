@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781135"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043783"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial
 
@@ -136,7 +136,7 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Os separadores de configuração da oferta no Partner Center.":::
 
-3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Preencha as restantes informações necessárias no separador **Co-venda com** o separador Microsoft para tornar a sua oferta co-venda pronta. Quando estiver concluído, **selecione 'Rever' e publicar**.
+3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Preencha as restantes informações necessárias no separador **Co-venda com** o separador Microsoft para tornar a sua oferta co-venda pronta. Quando estiver concluído, **selecione 'Rever' e publicar**. Para obter mais informações, consulte [Como submeter materiais de co-venda no centro parceiro.](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="A oferta co-vende o separador no Partner Center.":::
 
@@ -154,4 +154,6 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Revenda através de Parceiros CSP](cloud-solution-providers.md)
+- [Como submeter materiais de co-venda no centro parceiro](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Ver estas [PERGUNTAS Frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
+

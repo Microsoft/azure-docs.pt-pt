@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461027"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045262"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
-Diferentes eventos em Azure Digital Twins produzem notificações , que permitem que a solução recue quando estão a acontecer **diferentes**ações. Estes são então [encaminhados](concepts-route-events.md) para diferentes locais dentro e fora da Azure Digital Twins que podem usar esta informação para tomar medidas.
+Diferentes eventos em Azure Digital Twins produzem notificações , que permitem que a solução recue quando estão a acontecer **diferentes** ações. Estes são então [encaminhados](concepts-route-events.md) para diferentes locais dentro e fora da Azure Digital Twins que podem usar esta informação para tomar medidas.
 
 Existem vários tipos de notificações que podem ser geradas, e as mensagens de notificação podem parecer diferentes dependendo do tipo de evento que as gerou. Este artigo dá detalhes sobre diferentes tipos de mensagens, e como podem ser.
 
@@ -93,7 +93,7 @@ Esta secção entra em mais detalhes sobre os diferentes tipos de notificações
 
 ### <a name="digital-twin-life-cycle-notifications"></a>Notificações digitais do ciclo de vida gémeos
 
-Todos os [gémeos digitais](concepts-twins-graph.md) emitem notificações, independentemente de representarem ou não [dispositivos IoT Hub em Azure Digital Twins.](how-to-ingest-iot-hub-data.md) Isto **deve-se**às notificações do ciclo de vida , que são sobre o próprio gémeo digital.
+Todos os [gémeos digitais](concepts-twins-graph.md) emitem notificações, independentemente de representarem ou não [dispositivos IoT Hub em Azure Digital Twins.](how-to-ingest-iot-hub-data.md) Isto **deve-se** às notificações do ciclo de vida , que são sobre o próprio gémeo digital.
 
 As notificações do ciclo de vida são desencadeadas quando:
 * Um gémeo digital é criado
@@ -103,7 +103,7 @@ As notificações do ciclo de vida são desencadeadas quando:
 
 Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto. |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -189,7 +189,7 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
 
 Aqui estão os campos no corpo de uma notificação de mudança de borda.
 
-| Name    | Valor |
+| Nome    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto |
 | `source` | Nome do exemplo das Gémeas Digitais Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -245,7 +245,7 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 Aqui estão os campos no corpo de uma notificação digital de mudança de gémeos.
 
-| Name    | Valor |
+| Nome    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
@@ -260,22 +260,9 @@ Aqui estão os campos no corpo de uma notificação digital de mudança de géme
 
 O organismo para a `Twin.Update` notificação é um documento do JSON Patch que contém a atualização para o gémeo digital.
 
-Por exemplo, digamos que um gémeo digital foi atualizado usando o seguinte Patch.
+Por exemplo, digamos que um gémeo digital foi atualizado usando o seguinte patch.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 A notificação correspondente (se executada sincronizadamente pelo serviço, como a Azure Digital Twins atualizando um gémeo digital) teria um corpo como:
 

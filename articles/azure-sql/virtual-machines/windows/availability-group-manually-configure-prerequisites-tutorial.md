@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a9a2f9d999a51f2b4600e8379d4a8913675b338
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360021"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044293"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Pré-requisitos para criar grupos de disponibilidade no SQL Server em Azure Virtual Machines
 
@@ -235,7 +235,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     ![Adicionar diálogo de papéis](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Selecione **Seguinte** até chegar à secção **de Confirmação.** Selecione **o servidor de destino reinicie automaticamente se necessário** caixa de verificação.
-8. Selecione **Install** (Instalar).
+8. Selecione **Instalar**.
 9. Depois de as funcionalidades terminarem de ser instaladas, volte ao painel **do Gestor do Servidor.**
 10. Selecione a nova opção **AD DS** no painel esquerdo.
 11. Selecione o link **Mais** na barra de aviso amarela.
@@ -251,7 +251,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     | **Opções de Controlador de Domínio** |**Senha DSRM** = Contoso!0000<br/>**Confirmar Senha** = Contoso!0000 |
 
 14. Selecione **Seguinte** para ver as outras páginas do assistente. Na página **Pré-Requisitos Verificar,** verifique se vê a seguinte mensagem: **Todas as verificações pré-requisitos passadas com sucesso**. Pode rever quaisquer mensagens de aviso aplicáveis, mas é possível continuar com a instalação.
-15. Selecione **Install** (Instalar). A máquina virtual **ad-primar-dc** reinicia automaticamente.
+15. Selecione **Instalar**. A máquina virtual **ad-primar-dc** reinicia automaticamente.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Note o endereço IP do controlador de domínio primário
 
@@ -539,7 +539,7 @@ Repita os passos no outro SQL Server VM.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Afinação dos limiares da rede de cluster de falhas
 
-Ao executar os nós do Cluster Failover do Windows em Azure Vms com SQL Server AlwaysOn, recomenda-se alterar a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para mais informações sobre este assunto, consulte [IaaS com SQL AlwaysOn - Afinação dos limiares da rede de clusters](/windows-server/troubleshoot/iaas-sql-failover-cluster)de falhas.
+Ao executar os nós do Cluster Failover do Windows em Azure Vms com grupos de disponibilidade do SQL Server, altere a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para obter mais informações sobre este assunto, consulte [IaaS com SQL Server - Afinação dos limiares da rede de cluster](/windows-server/troubleshoot/iaas-sql-failover-cluster)de falhas .
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configure a firewall em cada SQL Server VM

@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta de IRS 1075
 description: Implementar etapas para a amostra de planta do IRS 1075 (Rev.11-2016), incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5f2c58b69519f27f759ddfc79d3333e55ed4eb54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4be1b642961b9642ea9d638521653dbc33f0334
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653737"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045211"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implementar a amostra de planta do IRS 1075
 
@@ -52,7 +52,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 

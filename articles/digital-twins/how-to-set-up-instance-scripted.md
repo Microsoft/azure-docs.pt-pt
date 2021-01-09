@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495026"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044310"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92495026"
 
 Este artigo abrange as etapas para **a criação de um novo exemplo de Azure Digital Twins**, incluindo a criação do caso e a criação de autenticação. Depois de completar este artigo, terá uma instância Azure Digital Twins pronta para começar a programar contra.
 
-Esta versão deste artigo completa estes passos executando uma amostra [ **de script de implementação automatizada** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
+Esta versão deste artigo completa estes passos executando uma amostra [ **de script de implementação automatizada**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
 * Para ver os passos manuais do CLI que o script percorre nos bastidores, consulte a versão CLI deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para ver os passos manuais de acordo com o portal Azure, consulte a versão porta deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (portal)*](how-to-set-up-instance-portal.md).
 
@@ -31,9 +31,9 @@ Esta versão deste artigo completa estes passos executando uma amostra [ **de sc
 
 O guião da amostra está escrito no PowerShell. Faz parte das amostras de ponta a ponta dos [**Gémeos Digitais Azure,**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *Download ZIP* por baixo do título.
 
-Isto irá transferir o projeto de amostra para a sua máquina à medida _** queAzure_Digital_Twins_end_to_end_samples.zip**_. Navegue para a pasta da sua máquina e desaperte-a para extrair os ficheiros.
+Isto irá transferir o projeto de amostra para a sua máquina à medida _**queAzure_Digital_Twins_end_to_end_samples.zip**_. Navegue para a pasta da sua máquina e desaperte-a para extrair os ficheiros.
 
-Na pasta desapertado, o script de implementação está localizado em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1** _.
+Na pasta desapertado, o script de implementação está localizado em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,15 +50,13 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
  
 2. Na barra de ícones Cloud Shell, certifique-se de que a cloud shell está definida para executar a versão PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell":::
 
-1. Selecione o ícone &quot;Carregar/Descarregar ficheiros" e escolha "Upload".
+1. Selecione o ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela cloud Shell mostrando a seleção do ícone upload":::
 
-1. Selecione o ícone &quot;Carregar/Descarregar ficheiros":::
-
-    Navegue para o ficheiro _**deploy.ps1**_ na sua máquina (em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1) ** _e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
+    Navegue para o ficheiro _**deploy.ps1**_ na sua máquina (em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1)**_ e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
 
 4. Executar o script enviando o `./deploy.ps1` comando na janela Cloud Shell. Pode copiar o comando abaixo (lembre-se que para colar em Cloud Shell, pode utilizar **Ctrl+Shift+V** no Windows e Linux, ou **Cmd+Shift+V** no macOS. Também pode utilizar o menu de clique à direita).
 
@@ -72,13 +70,11 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
     * Por exemplo: o ID de *subscrição* da sua subscrição Azure para usar
     * Por exemplo: um *local* onde gostaria de desdobrar o caso. Para ver que regiões suportam a Azure Digital Twins, visite [*os produtos Azure disponíveis por região.*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
     * Por exemplo: um nome *de grupo de recursos.* Pode utilizar um grupo de recursos existente ou introduzir um novo nome para criar.
-    * Por exemplo: um *nome* para o seu exemplo de Azure Digital Twins. O nome do novo caso deve ser único na região para a sua subscrição (o que significa que se a sua subscrição tiver outra instância Azure Digital Twins na região que já está a usar o nome que escolher, será solicitado que escolha um nome diferente).
+    * Por exemplo: um *nome* para o seu exemplo de Azure Digital Twins. Se a sua subscrição tiver outro exemplo de Azure Digital Twins na região que já está a usar o nome especificado, será solicitado que escolha um nome diferente.
 
 Aqui está um excerto do registo de saída do script:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
-
-1. Selecione o ícone &quot;Carregar/Descarregar ficheiros" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando log de entrada e saída através da execução do script de implementação" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se o guião estiver concluído com sucesso, a impressão final dirá `Deployment completed successfully` . Caso contrário, endereça a mensagem de erro e reencando o script. Irá contornar os passos que já completou e começar a solicitar a entrada novamente no ponto onde deixou de lado.
 
@@ -108,11 +104,9 @@ Se a verificação não tiver sido bem sucedida, pode voltar a tentar criar uma 
 
 ### <a name="collect-instance-values"></a>Recolher valores de instância
 
-Selecione o nome do seu caso na [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir a página *geral* do caso. Note o seu *Nome,* *Grupo de Recursos*e Nome *hospedeiro.* Pode precisar mais tarde para identificar e ligar-se ao seu caso.
+Selecione o nome do seu caso na [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir a página *geral* do caso. Note o seu *Nome,* *Grupo de Recursos* e Nome *hospedeiro.* Pode precisar mais tarde para identificar e ligar-se ao seu caso.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
-
-1. Selecione o ícone &quot;Carregar/Descarregar ficheiros":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página geral da instância":::
 
 ### <a name="verify-user-role-assignment"></a>Verificar a atribuição da função do utilizador
 

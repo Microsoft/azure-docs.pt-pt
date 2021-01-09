@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para mensagens de autocarro da Azure Service
 description: Lista os controlos de conformidade regulamentar da política Azure disponíveis para mensagens de autocarro do serviço Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 8564177868682561066f7728460d0cf89f582aae
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: cc13aefea18d7f492f32e0c7c1b87bed2d462358
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985421"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045601"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Controlos de conformidade regulamentar da política Azure para mensagens de autocarro da Azure Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "94985421"
 
 [!INCLUDE [azure-policy-compliancecontrols-servicebus](../../includes/policy/standards/byrp/microsoft.servicebus.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

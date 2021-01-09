@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 44f23e4f5b3f65fb4f3c69b2ddc55af8c983aa23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887540"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043732"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -32,7 +32,7 @@ O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como 
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
 
@@ -72,7 +72,7 @@ Quando queremos implantar localmente, precisamos de iniciar ambas as aplicaçõe
 
 Pode testar a amostra localmente abrindo várias sessões de navegador com o URL da sua chamada para simular uma chamada multiutilizador.
 
-## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
+### <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
 
 1. Abra uma instância de PowerShell, Windows Terminal, Command Prompt ou equivalente e navegue para o diretório ao qual pretende clonar a amostra.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356404"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045959"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
-Numa solução Azure Digital Twins, as entidades do seu ambiente são representadas por **gémeos digitais** Azure. Um gémeo digital é um exemplo de um dos seus [modelos personalizados.](concepts-models.md) Pode ser conectado a outros gémeos digitais através de **relações** para formar um **gráfico gémeo** : este gráfico gémeo é a representação de todo o seu ambiente.
+Numa solução Azure Digital Twins, as entidades do seu ambiente são representadas por **gémeos digitais** Azure. Um gémeo digital é um exemplo de um dos seus [modelos personalizados.](concepts-models.md) Pode ser conectado a outros gémeos digitais através de **relações** para formar um **gráfico gémeo**: este gráfico gémeo é a representação de todo o seu ambiente.
 
 > [!TIP]
 > "Azure Digital Twins" refere-se a este serviço Azure como um todo. "Digital twin(s)" ou apenas "twin(s)" refere-se a nódoas gémeas individuais dentro do seu caso do serviço.
@@ -25,7 +25,7 @@ Numa solução Azure Digital Twins, as entidades do seu ambiente são representa
 
 Antes de criar um gémeo digital na sua instância Azure Digital Twins, precisa de ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relacionamentos que um gémeo em particular pode ter, entre outras coisas. Para os tipos de informação que são definidos num modelo, consulte [*Conceitos: Modelos personalizados.*](concepts-models.md)
 
-Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar uma instância do tipo; este é um gémeo digital. Por exemplo, depois de criar um modelo de *Floor,* pode criar um ou vários gémeos digitais que usam este tipo (como um twin tipo *chão* chamado *GroundFloor* , outro chamado *Floor2* , etc.). 
+Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar uma instância do tipo; este é um gémeo digital. Por exemplo, depois de criar um modelo de *Floor,* pode criar um ou vários gémeos digitais que usam este tipo (como um twin tipo *chão* chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relacionamentos: um gráfico de gémeos digitais
 
@@ -47,7 +47,7 @@ Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](/rest
 
 Pode inicializar as propriedades de um gémeo quando é criado, ou defini-las mais tarde. Para criar um gémeo com propriedades inicializadas, crie um documento JSON que forneça os valores de inicialização necessários.
 
-[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "twin" mais diretamente, como uma alternativa para usar um dicionário. Para obter mais informações sobre a classe de ajudante e exemplos da sua utilização, consulte a secção [*Digital Twin*](how-to-manage-twin.md#create-a-digital-twin) de *How-to: Manage digital twins*.
 
@@ -58,25 +58,7 @@ Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para a
 
 Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para construir uma relação entre um twin digital tipo *Floor* chamado *GroundFloor* e um twin digital *tipo Quarto* chamado *Café.*
 
-```csharp
-// Create Twins, using functions similar to the previous sample
-await CreateRoom("Cafe", 70, 66);
-await CreateFloor("GroundFloor", averageTemperature=70);
-// Create relationships
-var relationship = new BasicRelationship
-{
-    TargetId = "Cafe",
-    Name = "contains"
-};
-try
-{
-    string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
-} catch(ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representações de JSON de elementos gráficos
 
@@ -175,7 +157,7 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir elementos gráficos com APIs Azure Digital Twin:
 * [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)

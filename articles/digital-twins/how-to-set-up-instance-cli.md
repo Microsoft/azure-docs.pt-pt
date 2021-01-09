@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494975"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044497"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -35,12 +35,12 @@ Esta versão deste artigo passa por estes passos manualmente, um a um, utilizand
 ## <a name="create-the-azure-digital-twins-instance"></a>Criar a instância Azure Digital Twins
 
 Nesta secção, irá **criar uma nova instância de Azure Digital Twins** utilizando o comando Cloud Shell. Terá de providenciar:
-* Um grupo de recursos para implantá-lo. Se ainda não tiver um grupo de recursos existente em mente, pode criar um agora com este comando:
+* Um grupo de recursos onde o caso será implantado. Se ainda não tiver um grupo de recursos existente em mente, pode criar um agora com este comando:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Uma região para o destacamento. Para ver que regiões suportam a Azure Digital Twins, visite [*os produtos Azure disponíveis por região.*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
-* Um nome para o seu exemplo. O nome do novo caso deve ser único na região para a sua subscrição (o que significa que se a sua subscrição tiver outra instância Azure Digital Twins na região que já está a usar o nome que escolher, será solicitado que escolha um nome diferente).
+* Um nome para o seu exemplo. Se a sua subscrição tiver outro exemplo de Azure Digital Twins na região que já está a usar o nome especificado, será solicitado que escolha um nome diferente.
 
 Utilize estes valores no seguinte comando para criar o caso:
 
@@ -54,7 +54,7 @@ Se o caso foi criado com sucesso, o resultado na Cloud Shell parece algo parecid
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Janela de comando com criação bem sucedida de grupo de recursos e exemplo de Gémeos Digitais Azure":::
 
-Note o *nome de anfitrião*da Azure Digital Twins, *nome*e grupo *de recursos* a partir da saída. Estes são valores importantes que poderá necessitar à medida que continua a trabalhar com a sua instância Azure Digital Twins, para configurar a autenticação e os recursos Azure relacionados. Se outros utilizadores estiverem a programar contra a ocorrência, deverá partilhar estes valores com eles.
+Note o **nome de anfitrião** da Azure Digital Twins, **nome** e grupo **de recursos** a partir da saída. Estes são valores importantes que poderá necessitar à medida que continua a trabalhar com a sua instância Azure Digital Twins, para configurar a autenticação e os recursos Azure relacionados. Se outros utilizadores estiverem a programar contra a ocorrência, deverá partilhar estes valores com eles.
 
 > [!TIP]
 > Você pode ver estas propriedades, juntamente com todas as propriedades do seu caso, a qualquer momento, correndo `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -78,9 +78,9 @@ O resultado deste comando é informação sobre a atribuição de funções que 
 >
 > Em vez disso, atribua a função utilizando o *ID* do objeto do utilizador. Isto pode acontecer para utilizadores em [contas pessoais da Microsoft (MSAs)](https://account.microsoft.com/account). 
 >
-> Utilize a [página do portal Azure dos utilizadores do Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de utilizador e abrir os seus dados. Copie o *ObjectID*do utilizador:
+> Utilize a [página do portal Azure dos utilizadores do Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de utilizador e abrir os seus dados. Copie o *ObjectID* do utilizador:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Janela de comando com criação bem sucedida de grupo de recursos e exemplo de Gémeos Digitais Azure" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Vista da página do utilizador no portal Azure destacando o GUID no campo 'Objeto ID'" lightbox="media/includes/user-id.png":::
 >
 > Em seguida, repita o comando da lista de atribuições de funções utilizando o *ID* do objeto do utilizador para o `assignee` parâmetro acima.
 

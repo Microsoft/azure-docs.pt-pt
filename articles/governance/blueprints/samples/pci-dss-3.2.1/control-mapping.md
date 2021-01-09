@@ -1,14 +1,14 @@
 ---
 title: PCI-DSS v3.2.1 controlos de amostras de plantas
 description: Controlo do mapeamento da norma de segurança de dados da indústria de cartões de pagamento v3.2.1 amostra de planta para Azure Policy e Azure RBAC.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 7391b32b23f6f0fb8b337a8178b83cffd7dba69b
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 9b1cf7702b627ae073f0172dde4694060004cb3f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955693"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045160"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controlo da amostra de planta PCI-DSS v3.2.1
 

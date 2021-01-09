@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967929"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046826"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
 
@@ -37,6 +37,7 @@ A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Lo
 
 | Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data da versão: | Notas de Versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | Outubro de 2020   | <ul><li>Novo agente Troubleshooter</li><li>Atualizações da forma como o agente lida com as alterações dos certificados aos serviços da Azure</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no Arco Azure</li></ul> |
 | 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Permite a conectividade sobre o Link Privado utilizando âmbitos de ligação privados do Monitor Azure</li><li>Adiciona estrangulamento de ingestão para evitar um súbito e acidental afluxo na ingestão para um espaço de trabalho</li><li>Adiciona apoio a nuvens e regiões adicionais do Governo de Azure</li><li>Resolve um inseto onde HealthService.exe se despenhou</li></ul> |
 | 10.20.18029 | 1.0.18029 | Março de 2020   | <ul><li>Adiciona suporte de assinatura de código SHA-2</li><li>Melhora a instalação e gestão da extensão VM</li><li>Resolve um bug em Azure Arc para integração de servidores</li><li>Adiciona uma ferramenta incorporada de resolução de problemas para suporte ao cliente</li><li>Acrescenta apoio a regiões adicionais do Governo de Azure</li> |

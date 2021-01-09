@@ -3,14 +3,14 @@ title: Segurança de dados da Azure Automation
 description: Este artigo ajuda-o a aprender como a Azure Automation protege a sua privacidade e protege os seus dados.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/20/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87004652"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046044"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
@@ -26,11 +26,9 @@ Para garantir a segurança dos dados em trânsito para a Azure Automation, encor
 
 * Nódes DSC
 
-Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. A partir de setembro de 2020, começamos a impor versões TLS 1.2 e versões posteriores do protocolo de encriptação.
+Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Não recomendamos que o seu agente utilize apenas o TLS 1.2 a menos que seja absolutamente necessário, pois pode quebrar funcionalidades de segurança de nível da plataforma que lhe permitam detetar e tirar partido de protocolos mais recentes e mais seguros à medida que estes ficam disponíveis, como o TLS 1.3.
 
-Não recomendamos que o seu agente utilize apenas o TLS 1.2 a menos que seja absolutamente necessário, pois pode quebrar funcionalidades de segurança de nível da plataforma que lhe permitam detetar e tirar partido de protocolos mais recentes e mais seguros à medida que estes ficam disponíveis, como o TLS 1.3.
-
-Para obter informações sobre o suporte TLS 1.2 com o agente Log Analytics para Windows e Linux, que é uma dependência para o papel de Trabalhador de Runbook Híbrido, consulte [a visão geral do agente Log Analytics - TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+Para obter informações sobre o suporte TLS 1.2 com o agente Log Analytics para Windows e Linux, que é uma dependência para o papel de Trabalhador de Runbook Híbrido, consulte [a visão geral do agente Log Analytics - TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Orientação específica da plataforma
 
@@ -51,7 +49,7 @@ O quadro que se segue resume a política de retenção de diferentes recursos.
 |:--- |:--- |
 | Contas |Uma conta é permanentemente removida 30 dias após o utilizador a eliminar. |
 | Elementos |Um ativo é permanentemente removido 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar uma conta que detém o ativo. Os ativos incluem variáveis, horários, credenciais, certificados, pacotes Python 2 e conexões. |
-| Nó de DSC |Um nó DSC é removido permanentemente 30 dias após não ter sido registado numa conta de Automação utilizando o portal Azure ou o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um utilizador apagar a conta que detém o nó. |
+| Nó de DSC |Um nó DSC é removido permanentemente 30 dias após não ter sido registado numa conta de Automação utilizando o portal Azure ou o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um utilizador apagar a conta que detém o nó. |
 | Tarefas |Um trabalho é eliminado e permanentemente removido 30 dias após a modificação, por exemplo, após o fim do trabalho, é interrompido ou suspenso. |
 | Módulos |Um módulo é removido permanentemente 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar a conta que detém o módulo. |
 | Configurações de nó/ficheiros MOF |Uma configuração de nó antigo é removida permanentemente 30 dias após a geração de uma nova configuração do nó. |
@@ -80,7 +78,7 @@ Não é possível recuperar os valores para variáveis encriptadas ou os campos 
 
 ### <a name="dsc-configurations"></a>Configurações de DSC
 
-Pode exportar as suas configurações DSC para ficheiros de scripts utilizando o portal Azure ou o cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) no Windows PowerShell. Pode importar e utilizar estas configurações noutra conta de Automação.
+Pode exportar as suas configurações DSC para ficheiros de scripts utilizando o portal Azure ou o cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) no Windows PowerShell. Pode importar e utilizar estas configurações noutra conta de Automação.
 
 ## <a name="geo-replication-in-azure-automation"></a>Geo-replicação na Azure Automation
 

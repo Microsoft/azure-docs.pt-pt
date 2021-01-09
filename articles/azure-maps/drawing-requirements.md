@@ -3,17 +3,17 @@ title: Requisitos de pacote de desenho no Microsoft Azure Maps Creator (Preview)
 description: Saiba mais sobre os requisitos do pacote de desenho para converter os seus ficheiros de design de instalações para mapear dados
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 1/08/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903467"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044786"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
 
@@ -41,7 +41,7 @@ Para uma referência fácil, aqui estão alguns termos e definições que são i
 | Camada | Uma camada AutoCAD DWG.|
 | Level | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
 | Xref  |Um ficheiro em formato de ficheiro AutoCAD DWG (.dwg), anexado ao desenho primário como referência externa.  |
-| Funcionalidade | Um objeto que combina uma geometria com informações adicionais de metadados. |
+| Funcionalidade | Um objeto que combina uma geometria com mais informações de metadados. |
 | Aulas de recurso | Uma planta comum para características. Por exemplo, uma *unidade* é uma classe de recurso, e um *escritório* é uma característica. |
 
 ## <a name="drawing-package-structure"></a>Estrutura de pacote de desenho
@@ -49,9 +49,9 @@ Para uma referência fácil, aqui estão alguns termos e definições que são i
 Um pacote de desenho é um arquivo .zip que contém os seguintes ficheiros:
 
 * Ficheiros DWG no formato de ficheiro AutoCAD DWG.
-* Um _manifest.jsa_ arquivar uma única instalação.
+* Um _manifest.jsem_ ficheiro que descreve os ficheiros DWG no pacote Desenhista.
 
-Pode organizar os ficheiros DWG de qualquer forma dentro da pasta, mas o ficheiro manifesto deve viver no diretório de raiz da pasta. Tem de fechar a pasta num único ficheiro de arquivo, com uma extensão .zip. As secções seguintes detalham os requisitos para os ficheiros DWG, o ficheiro manifesto e o conteúdo destes ficheiros.  
+A embalagem de desenho deve ser fechada num único ficheiro de arquivo, com a extensão .zip. Os ficheiros DWG podem ser organizados de qualquer forma dentro do pacote, mas o ficheiro manifesto deve viver no diretório de raiz do pacote zipped. As secções seguintes detalham os requisitos para os ficheiros DWG, o ficheiro manifesto e o conteúdo destes ficheiros.
 
 ## <a name="dwg-files-requirements"></a>Requisitos de ficheiros DWG
 
@@ -60,6 +60,7 @@ Pode organizar os ficheiros DWG de qualquer forma dentro da pasta, mas o ficheir
 * Deve definir as _camadas exterior e_ _unitária._ Pode definir opcionalmente as seguintes camadas opcionais: _Parede,_ _Porta,_ _UnitLabel,_ _Zona_ e _ZoneLabel._
 * Não deve conter características de vários níveis.
 * Não deve conter recursos de várias instalações.
+* Deve fazer referência ao mesmo sistema de medição e unidade de medição que outros ficheiros DWG na embalagem de desenho.
 
 O [serviço de conversão Azure Maps](/rest/api/maps/conversion) pode extrair as seguintes classes de funcionalidades de um ficheiro DWG:
 
@@ -78,19 +79,19 @@ As camadas DWG também devem seguir os seguintes critérios:
 
 * As origens dos desenhos para todos os ficheiros DWG devem alinhar-se com a mesma latitude e longitude.
 * Cada nível deve estar na mesma orientação que os outros níveis.
-* Os polígonos auto-interseccionados são automaticamente reparados e o [serviço de conversão Azure Maps](/rest/api/maps/conversion) levanta um aviso. Deve inspecionar manualmente os resultados reparados, porque podem não corresponder aos resultados esperados.
+* Os polígonos auto-interseccionados são automaticamente reparados e o [serviço de conversão Azure Maps](/rest/api/maps/conversion) levanta um aviso. É aconselhável inspecionar manualmente os resultados reparados, porque podem não corresponder aos resultados esperados.
 
-Todas as entidades de camadas devem ser um dos seguintes tipos: Linha, Poliline, Polígono, Arco Circular, Círculo ou Texto (linha única). Quaisquer outros tipos de entidades são ignorados.
+Todas as entidades de camadas devem ser um dos seguintes tipos: Linha, PolyLine, Polygon, Circular Arc, Circle, Elipse (fechado) ou Texto (linha única). Quaisquer outros tipos de entidades são ignorados.
 
-A tabela a seguir descreve os tipos de entidades suportadas e as funcionalidades suportadas para cada camada. Se uma camada contiver tipos de entidades não suportadas, então o [serviço de Conversão Azure Maps](/rest/api/maps/conversion) ignora estas entidades.  
+A tabela abaixo descreve os tipos de entidades suportadas e as características do mapa convertidos para cada camada. Se uma camada contiver tipos de entidades não suportadas, então o [serviço de Conversão Azure Maps](/rest/api/maps/conversion) ignora estas entidades.  
 
-| Camada | Tipos de entidade | Funcionalidades |
+| Camada | Tipos de entidade | Características convertidas |
 | :----- | :-------------------| :-------
-| [Exterior](#exterior-layer) | Polígono, Poliline (fechado), Circle | Níveis
-| [Unidade](#unit-layer) |  Polígono, Poliline (fechado), Circle | Penetrações verticais, Unidades
-| [Parede](#wall-layer)  | Polígono, Poliline (fechado), Circle | Não aplicável. Para obter mais informações, consulte a [camada de Parede.](#wall-layer)
+| [Exterior](#exterior-layer) | Polígono, PolyLine (fechado), Circle, Elipse (fechado) | Níveis
+| [Unidade](#unit-layer) |  Polígono, PolyLine (fechado), Circle, Elipse (fechado) | Penetrações verticais, Unidade
+| [Parede](#wall-layer)  | Polígono, PolyLine (fechado), Circle, Elipse (fechado) | Não aplicável. Para obter mais informações, consulte a [camada de Parede.](#wall-layer)
 | [Porta](#door-layer) | Polígono, Poliline, Linha, CircularArc, Circle | Aberturas
-| [Zona](#zone-layer) | Polígono, Poliline (fechado), Circle | Zona
+| [Zona](#zone-layer) | Polígono, PolyLine (fechado), Circle, Elipse (fechado) | Zona
 | [UnitLabel](#unitlabel-layer) | Texto (linha única) | Não aplicável. Esta camada só pode adicionar propriedades às características da unidade a partir da camada Unidades. Para obter mais informações, consulte a [camada UnitLabel](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Texto (linha única) | Não aplicável. Esta camada só pode adicionar propriedades às características da zona a partir do ZonesLayer. Para mais informações, consulte a [camada ZoneLabel.](#zonelabel-layer)
 
@@ -102,8 +103,10 @@ O ficheiro DWG para cada nível deve conter uma camada para definir o perímetro
 
 Não importa quantos desenhos de entidades estejam na camada exterior, o [conjunto de dados de instalação resultante](tutorial-creator-indoor-maps.md#create-a-feature-stateset) conterá apenas uma funcionalidade de nível para cada ficheiro DWG. Além disso,
 
-* Os exteriores devem ser desenhados como Polygon, PolyLine (fechado) ou Circle.
+* Os exteriores devem ser desenhados como Polygon, PolyLine (fechado), Circle ou Elipse (fechado).
 * Os exteriores podem sobrepor-se, mas são dissolvidos numa geometria.
+* A característica de nível resultante deve ser de pelo menos 4 metros quadrados.
+* A característica de nível resultante não deve ser superior a 400 metros quadrados.
 
 Se a camada contiver polilines sobrepostos múltiplos, os PolyLines são dissolvidos numa única função de Nível. Alternativamente, se a camada contiver múltiplos PoliLines não sobrepostos, a função nível resultante tem uma representação multi-poligonal.
 
@@ -111,9 +114,11 @@ Pode ver um exemplo da camada exterior como a camada de contorno no pacote de de
 
 ### <a name="unit-layer"></a>Camada de unidade
 
-O ficheiro DWG para cada nível define uma camada contendo unidades. As unidades são espaços navegáveis no edifício, tais como escritórios, corredores, escadas e elevadores. A camada unidade deve respeitar os seguintes requisitos:
+O ficheiro DWG para cada nível define uma camada contendo unidades. As unidades são espaços navegáveis no edifício, tais como escritórios, corredores, escadas e elevadores. Se a `VerticalPenetrationCategory` propriedade for definida, unidades navegáveis que se estendem por vários níveis, como elevadores e escadas, são convertidas para características de Penetração Vertical. Características de penetração vertical que se sobrepõem uma à outra são atribuídas a uma `setid` .
 
-* As unidades devem ser desenhadas como Polygon, PolyLine (fechado) ou Circle.
+A camada unidade deve respeitar os seguintes requisitos:
+
+* As unidades devem ser desenhadas como Polygon, PolyLine (fechada), Circle ou Elipse (fechada).
 * As unidades devem cair dentro dos limites do perímetro exterior da instalação.
 * As unidades não devem sobrepor-se parcialmente.
 * As unidades não devem conter qualquer geometria auto-intersecção.
@@ -126,7 +131,7 @@ Pode ver um exemplo da camada unidades no pacote de desenho da [amostra.](https:
 
 O ficheiro DWG para cada nível pode conter uma camada que define as extensões físicas de paredes, colunas e outra estrutura de construção.
 
-* As paredes devem ser desenhadas como Polygon, PolyLine (fechado) ou Circle.
+* As paredes devem ser desenhadas como Polygon, PolyLine (fechado), Circle ou Elipse (fechado).
 * A camada ou camadas de parede só devem conter geometria que é interpretada como estrutura de construção.
 
 Pode ver um exemplo da camada de Paredes no pacote de desenho da [amostra.](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
@@ -141,9 +146,9 @@ As aberturas das portas num conjunto de dados Azure Maps são representadas como
 
 ### <a name="zone-layer"></a>Camada de zona
 
-O ficheiro DWG para cada nível pode conter uma camada de Zona que define as extensões físicas das zonas. Uma zona pode ser um espaço vazio interior ou um quintal.
+O ficheiro DWG para cada nível pode conter uma camada de Zona que define as extensões físicas das zonas. Uma zona é um espaço não navegável que pode ser nomeado e renderizado. As zonas podem abranger vários níveis e são agrupadas usando a propriedade zoneSetId.
 
-* As zonas devem ser desenhadas como Polygon, PolyLine (fechado) ou Circle.
+* As zonas devem ser desenhadas como Polygon, PolyLine (fechado) ou Elipse (fechada).
 * As zonas podem sobrepor-se.
 * As zonas podem cair dentro ou fora do perímetro exterior da instalação.
 
@@ -153,7 +158,7 @@ Pode ver um exemplo da camada zona no pacote de desenho da [amostra.](https://gi
 
 ### <a name="unitlabel-layer"></a>Camada unitLabel
 
-O ficheiro DWG para cada nível pode conter uma camada UnitLabel. A camada UnitLabel adiciona uma propriedade de nome às unidades extraídas da camada Unit. As unidades com uma propriedade de nome podem ter detalhes adicionais especificados no ficheiro manifesto.
+O ficheiro DWG para cada nível pode conter uma camada UnitLabel. A camada UnitLabel adiciona uma propriedade de nome às unidades extraídas da camada Unit. As unidades com uma propriedade de nome podem ter mais detalhes especificados no ficheiro manifesto.
 
 * As etiquetas unitárias devem ser entidades de texto de linha única.
 * As etiquetas da unidade devem cair dentro dos limites da sua unidade.
@@ -163,7 +168,7 @@ Pode ver um exemplo da camada UnitLabel na [amostra Desenho.](https://github.com
 
 ### <a name="zonelabel-layer"></a>Camada ZoneLabel
 
-O ficheiro DWG para cada nível pode conter uma camada ZoneLabel. Esta camada adiciona uma propriedade de nome às zonas extraídas da camada zone. Zonas com uma propriedade de nome podem ter detalhes adicionais especificados no arquivo manifesto.
+O ficheiro DWG para cada nível pode conter uma camada ZoneLabel. Esta camada adiciona uma propriedade de nome às zonas extraídas da camada zone. Zonas com uma propriedade de nome podem ter mais detalhes especificados no arquivo manifesto.
 
 * As etiquetas das zonas devem ser entidades de texto de linha única.
 * As etiquetas das zonas devem cair dentro dos limites da sua zona.
@@ -186,14 +191,14 @@ Embora existam requisitos quando se utilizam os objetos manifestos, nem todos os
 | `buildingLevels` | true | Especifica os níveis dos edifícios e os ficheiros que contêm a conceção dos níveis. |
 | `georeference` | true | Contém informações geográficas numéricas para o desenho das instalações. |
 | `dwgLayers` | true | Lista os nomes das camadas, e cada camada lista os nomes das suas próprias características. |
-| `unitProperties` | false | Pode ser utilizado para inserir metadados adicionais para as funcionalidades da unidade. |
-| `zoneProperties` | false | Pode ser usado para inserir metadados adicionais para as características da zona. |
+| `unitProperties` | false | Pode ser usado para inserir mais metadados para as funcionalidades da unidade. |
+| `zoneProperties` | false | Pode ser usado para inserir mais metadados para as características da zona. |
 
 As secções seguintes detalham os requisitos para cada objeto.
 
 ### `directoryInfo`
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 | `name`      | cadeia (de carateres) | true   |  Nome do prédio. |
 | `streetAddress`|    string |    false    | Endereço do edifício. |
@@ -214,7 +219,7 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`levelName`    |cadeia (de carateres)    |true |    Nome de nível descritivo. Por exemplo: Piso 1, Lobby, Estacionamento Azul ou Cave.|
 |`ordinal` | número inteiro |    true | Determina a ordem vertical dos níveis. Todas as instalações devem ter um nível com ordinal 0. |
@@ -224,7 +229,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 ### `georeference`
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    Representação decimal de graus de latitude na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator `EPSG:3857` ().|
 |`lon`    |numeric|    true|    Representação decimal de graus de longitude na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator `EPSG:3857` (). |
@@ -232,7 +237,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 ### `dwgLayers`
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`exterior`    |matriz de cadeias (de carateres)|    true|    Nomes de camadas que definem o perfil de construção exterior.|
 |`unit`|    matriz de cadeias (de carateres)|    true|    Nomes de camadas que definem unidades.|
@@ -246,11 +251,11 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`unitName`    |cadeia (de carateres)    |true    |Nome da unidade para associar a este `unitProperty` registo. Este registo só é válido quando uma etiqueta correspondente `unitName` é encontrada nas `unitLabel` camadas. |
 |`categoryName`|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
-|`navigableBy`| matriz de cadeias (de carateres) |    false    |Indica os tipos de agentes de navegação que podem atravessar a unidade. Esta propriedade informa as capacidades de wayfinding. Os valores permitidos são: `pedestrian` , , , , , , , , `wheelchair` , , `machine` , , , `bicycle` e `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` `disallowed` .|
+|`navigableBy`| matriz de cadeias (de carateres) |    false    |Indica os tipos de agentes de navegação que podem atravessar a unidade. Esta propriedade informa as capacidades de wayfinding. Os valores permitidos são: `pedestrian` `wheelchair` , e `machine` `bicycle` `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` `disallowed` .|
 |`routeThroughBehavior`|    string|    false    |A rota através do comportamento para a unidade. Os valores permitidos são `disallowed` `allowed` , e `preferred` . O valor predefinido é `allowed`.|
 |`occupants`    |matriz de objetos De directórioInfo |false    |Lista de ocupantes para a unidade. |
 |`nameAlt`|    string|    false|    Nome alternativo da unidade. |
@@ -260,13 +265,13 @@ O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 |`verticalPenetrationDirection`|    string|    false    |Se `verticalPenetrationCategory` for definido, definir opcionalmente a direção válida do viagens. Os valores permitidos são: `lowToHigh` `highToLow` , , e `both` `closed` . O valor predefinido é `both`.|
 | `nonPublic` | bool | false | Indica se a unidade está aberta ao público. |
 | `isRoutable` | bool | false | Quando esta propriedade está definida `false` para, você não pode ir ou através da unidade. O valor predefinido é `true`. |
-| `isOpenArea` | bool | false | Permite que o agente de navegação entre na unidade sem a necessidade de uma abertura ligada à unidade. Por predefinição, este valor é definido `true` para unidades sem aberturas, e `false` para unidades com aberturas. A regulação manual `isOpenArea` para uma unidade sem `false` aberturas resulta num aviso. Isto porque a unidade resultante não será acessível por um agente de navegação.|
+| `isOpenArea` | bool | false | Permite que o agente de navegação entre na unidade sem a necessidade de uma abertura ligada à unidade. Por predefinição, este valor é definido `true` para unidades sem aberturas, e `false` para unidades com aberturas. A regulação manual `isOpenArea` para uma unidade sem `false` aberturas resulta num aviso, porque a unidade resultante não será acessível por um agente de navegação.|
 
 ### `zoneProperties`
 
 O `zoneProperties` objeto contém uma matriz JSON de propriedades de zona.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome da zona para associar ao `zoneProperty` registo. Este registo só é válido quando uma etiqueta correspondente `zoneName` é encontrada na camada da `zoneLabel` zona.  |
 |categoriaName|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -276,7 +281,7 @@ O `zoneProperties` objeto contém uma matriz JSON de propriedades de zona.
 
 ### <a name="sample-drawing-package-manifest"></a>Manifesto de pacote de desenho de amostra
 
-Segue-se um ficheiro manifesto de amostra para o pacote de desenho da amostra. Para descarregar todo o pacote, consulte [o pacote de desenho de amostras.](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
+Abaixo está o ficheiro manifesto para o pacote de desenho da amostra. Para descarregar todo o pacote, consulte [o pacote de desenho de amostras.](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
 
 #### <a name="manifest-file"></a>Arquivo manifesto
 

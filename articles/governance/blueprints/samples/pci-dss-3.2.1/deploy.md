@@ -1,14 +1,14 @@
 ---
 title: Implantar amostra de planta PCI-DSS v3.2.1
 description: Implementar etapas para a amostra de segurança de dados da indústria de cartões de pagamento v3.2.1, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: a0b1d635a073dc19e41a7ba73e130d6028daca99
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 37e39231ee7395b951f69035cd98f2e14028ba1c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955676"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045058"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementar a amostra de planta PCI-DSS v3.2.1
 
