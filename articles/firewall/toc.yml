@@ -110,7 +110,7 @@
 - name: Recursos
   items:
     - name: FAQ
-      href: firewall-faq.md
+      href: firewall-faq.yml
     - name: Modelos de autor
       href: ../azure-resource-manager/templates/template-syntax.md
     - name: Mapa do Azure

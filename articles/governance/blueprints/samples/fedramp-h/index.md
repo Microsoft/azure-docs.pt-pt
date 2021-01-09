@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema do FedRAMP Alto
 description: Descrição geral do exemplo de esquema do FedRAMP Alto. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos do FedRAMP Alto.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: f089c88910d4c4c0b485bde1f36dd2b7c742f857
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1287a0369e59cc78cce775bff01fe885c1b571d0
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669291"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034854"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Descrição geral do exemplo de esquema do FedRAMP Alto
 

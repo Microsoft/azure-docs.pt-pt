@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 10/26/2020
-  ms.openlocfilehash: cef3c2ce0973436edf9406f9ef16b565735463ce
-  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+  ms.openlocfilehash: 753a2b112929b785526e32df9c9836f48b8675ba
+  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93102008"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98034956"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -128,9 +128,9 @@ landingContent:
     - text: CLI do Azure
       url: /cli/azure/policy
     - text: Azure PowerShell (Política)
-      url: /powershell/module/az.resources/#policies
+      url: /powershell/module/az.resources/#policy
     - text: Azure PowerShell (Informações da Política)
-      url: /powershell/module/az.policyinsights#policy_insights
+      url: /powershell/module/az.policyinsights#policy-insights
     - text: REST (Informações da Política)
       url: /rest/api/policy-insights/
     - text: REST (Atribuições)

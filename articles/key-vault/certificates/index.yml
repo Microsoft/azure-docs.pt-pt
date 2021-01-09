@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: c69a520e7f21698b71d682a4ee82411b6703ed15
-  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+  ms.openlocfilehash: d988fca2c5eb56484e21b20e088b4331c51bd23b
+  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/06/2021
-  ms.locfileid: "97935959"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98028952"
 landingContent:
 - title: Certificados
   linkLists:
@@ -42,8 +42,14 @@ landingContent:
       url: quick-create-powershell.md
     - text: Portal
       url: quick-create-portal.md
+    - text: .NET
+      url: quick-create-net.md
     - text: Python
       url: quick-create-python.md
+    - text: Node.js
+      url: quick-create-node.md
+    - text: Java
+      url: quick-create-java.md
     - text: Importar um certificado no Key Vault
       url: tutorial-import-certificate.md
 - title: Bibliotecas de cliente para certificados do Key Vault
