@@ -1,18 +1,18 @@
 ---
-title: Crie a sua primeira função em Azure com Kotlin e Maven
-description: Crie e publique uma função desencadeada http para Azure com Kotlin e Maven.
+title: Criar uma função Kotlin em Funções Azure usando Maven
+description: Crie e publique uma aplicação de função desencadeada HTTP para Azure Functions com Kotlin e Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8b597f54f22aaf6d904ba276ebdfa3a051b93b2d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 6f7b79b6e3e72b34a27e5b4f0e1fb5426c539699
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954299"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035245"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Quickstart: Crie a sua primeira função com Kotlin e Maven
 

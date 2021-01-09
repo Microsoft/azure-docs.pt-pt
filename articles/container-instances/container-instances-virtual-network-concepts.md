@@ -3,12 +3,12 @@ title: Cenários para usar uma rede virtual
 description: Cenários, recursos e limitações para implantar grupos de contentores numa rede virtual Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882437"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033834"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
@@ -33,6 +33,7 @@ Grupos de contentores implantados numa rede virtual Azure permitem cenários com
 * **Balançador de carga Azure** - A colocação de um balançador de carga Azure em frente a casos de contentores num grupo de contentores em rede não é suportada
 * **O espreitamento global da rede virtual** - O espreitamento global (que liga redes virtuais em regiões de Azure) não é suportado
 * **Etiqueta PÚBLICA IP ou DNS** - Os grupos de contentores implantados numa rede virtual não suportam atualmente a exposição de contentores diretamente à internet com um endereço IP público ou um nome de domínio totalmente qualificado
+* **Rede Virtual NAT** - Os grupos de contentores implantados numa rede virtual não suportam atualmente o uso de um recurso de gateway NAT para a conectividade de saída da Internet.
 
 ## <a name="other-limitations"></a>Outras limitações
 

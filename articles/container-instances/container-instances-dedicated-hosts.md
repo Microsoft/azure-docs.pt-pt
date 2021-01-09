@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68b9b31cdfb55e8150b05e3efd35389320905cdc
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825612"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034276"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementar em anfitriões dedicados
 
@@ -19,6 +19,9 @@ ms.locfileid: "91825612"
 O sku dedicado é apropriado para cargas de trabalho de contentores que requerem isolamento de carga de trabalho do ponto de vista do servidor físico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]
+> Devido a algumas limitações atuais, nem todos os pedidos de aumento de limites são garantidos para serem aprovados.
 
 * O limite padrão para qualquer subscrição para usar o sku dedicado é 0. Se quiser utilizar este sku para as suas instalações de contentores de produção, crie um [pedido de Suporte Azure][azure-support] para aumentar o limite.
 

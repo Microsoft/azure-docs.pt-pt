@@ -3,16 +3,16 @@ title: Tutorial - Crie e gere regras na sua aplicação Azure IoT Central
 description: Este tutorial mostra-lhe como as regras da Azure IoT Central permitem monitorizar os seus dispositivos em tempo real e invocar automaticamente ações, como o envio de um e-mail, quando a regra dispara.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a1991860e1599020c5a91c09dfb30a96ed442ff7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991018"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033851"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Criar uma regra e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -24,7 +24,7 @@ Os dispositivos utilizam a telemetria para enviar dados numéricos do dispositiv
 
 Neste tutorial, cria-se uma regra para enviar um e-mail quando a temperatura num dispositivo de sensor simulado excede 70 &deg; F.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -38,6 +38,9 @@ Antes de começar, preencha a [aplicação Create a Azure IoT Central](./quick-d
 ## <a name="create-a-rule"></a>Criar uma regra
 
 Para criar uma regra de telemetria, o modelo do dispositivo deve incluir pelo menos um valor de telemetria. Este tutorial utiliza um dispositivo simulado **do Controlador de Sensores** que envia telemetria de temperatura e humidade. Adicionou este modelo de dispositivo e criou um dispositivo simulado no [Add um dispositivo simulado à sua aplicação IoT Central.](./quick-create-simulated-device.md) A regra monitoriza a temperatura reportada pelo dispositivo e envia um e-mail quando ultrapassa os 70 graus.
+
+> [!NOTE]
+> Há um limite de 50 regras por aplicação.
 
 1. No painel esquerdo, selecione **Regras**.
 

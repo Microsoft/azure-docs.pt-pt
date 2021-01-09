@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 907836b0e45ccc9e9481e605b1ebf4180f7650d6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 621773a84db99dbacfaa163f77189974ba102163
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182585"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034820"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Para concluir este tutorial:
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
 Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
@@ -36,7 +37,7 @@ Tem de ter uma conta do Azure Cosmos DB que utilize a API SQL para poder criar 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="create-an-azure-function-app"></a>Criar uma aplicação de Funções do Azure
+## <a name="create-a-function-app-in-azure"></a>Criar uma aplicação de função em Azure
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -57,12 +58,12 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nova Função** | Aceite o nome padrão | O nome da função. |
+    | **Nova Função** | Aceitar a predefinição do nome | O nome da função. |
     | **Ligação à conta do Cosmos DB** | Aceite o novo nome predefinido | Selecione **Novo**, a **Conta de Base de Dados** que criou anteriormente e, em seguida, **OK**. Esta ação cria uma definição de aplicação para a sua ligação à conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
     | **Nome da base de dados** | Tarefas | Nome da base de dados que inclui a recolha a ser monitorizada. |
     | **Nome da coleção** | Itens | Nome da coleção a ser monitorizado. |
     | **Nome da coleção para concessões** | leases | Nome da coleção para armazenar os arrendamentos. |
-    | **Crie a coleção de arrendamento se não existir** | Yes | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
+    | **Crie a coleção de arrendamento se não existir** | Sim | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função acionada do Azure Cosmos DB":::
 
@@ -129,7 +130,7 @@ Depois de existir o recipiente especificado na encadernação da função, pode 
 
 1. (Opcional) Volte para o seu documento, faça uma alteração e clique em **Atualizar**. Em seguida, volte para os registos de função e certifique-se de que a atualização também acionou a função.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

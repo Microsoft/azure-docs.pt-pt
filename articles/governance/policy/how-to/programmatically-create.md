@@ -3,12 +3,12 @@ title: Criar políticas programaticamente
 description: Este artigo acompanha-o através de políticas programáticas para a Política Azure com Azure CLI, Azure PowerShell e REST API.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920020"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033868"
 ---
 # <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
@@ -95,7 +95,7 @@ O primeiro passo para uma melhor visibilidade dos seus recursos é criar e atrib
    - Assinatura - `/subscriptions/{subId}`
    - Grupo de gestão - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para obter mais informações sobre a gestão das políticas de recursos utilizando o módulo PowerShell do Gestor de Recursos, consulte [Az.Resources](/powershell/module/az.resources/#policies).
+Para obter mais informações sobre a gestão das políticas de recursos utilizando o módulo PowerShell do Gestor de Recursos, consulte [Az.Resources](/powershell/module/az.resources/#policy).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Criar e atribuir uma definição de política usando ARMClient
 
@@ -242,7 +242,7 @@ Para obter mais informações sobre como gerir as políticas de recursos com o A
 Reveja os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
 
 - [Recursos AZURE REST API](/rest/api/resources/)
-- [Módulos Azure PowerShell](/powershell/module/az.resources/#policies)
+- [Módulos Azure PowerShell](/powershell/module/az.resources/#policy)
 - [Comandos políticos do Azure CLI](/cli/azure/policy)
 - [Azure Policy Insights fornecedor de recursos REST API referência](/rest/api/policy-insights)
 - [Organizar os recursos com os grupos de gestão do Azure](../../management-groups/overview.md).

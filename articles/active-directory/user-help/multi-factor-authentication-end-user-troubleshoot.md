@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cb5e3463eda5d77bbbdefe223954105fd125c71
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033787"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033987"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e a conta escolar ou profissional
 
@@ -74,7 +74,7 @@ Não receber o seu código de verificação é um problema comum. O problema est
 
 Experimente isto | Informação de orientação
 --------- | ------------
-Utilize a aplicação autenticadora ou códigos de verificação da Microsoft | Está a receber mensagens de erro "Atingiu o nosso limite em chamadas de verificação" ou "Atingiu o nosso limite em códigos de verificação de texto" durante a sinscagem. <br/><br/>A Microsoft pode limitar as tentativas de autenticação repetidas que são efetuadas pelo mesmo utilizador num curto espaço de tempo. Esta limitação não se aplica ao Microsoft Authenticator ou código de verificação. Se tiver atingido estes limites, pode utilizar a App Autenticador, código de verificação ou tentar entrar novamente em alguns minutos.
+Utilize a aplicação autenticadora ou códigos de verificação da Microsoft | Está a receber mensagens de erro "Atingiu o nosso limite em chamadas de verificação" ou "Atingiu o nosso limite em códigos de verificação de texto" durante a sinscagem. <br/><br/>A Microsoft pode limitar as tentativas de autenticação repetidas que são efetuadas pelo mesmo utilizador num curto espaço de tempo. Esta limitação não se aplica ao Microsoft Authenticator ou código de verificação. Se tiver atingido estes limites, pode utilizar a App Autenticador, código de verificação ou tentar entrar novamente em alguns minutos. <br/><br/> Está a receber uma mensagem de erro "Desculpe, estamos a ter problemas em verificar a sua conta" durante a sing-in. <br/><br/> A Microsoft pode limitar ou bloquear tentativas de autenticação de voz ou SMS que sejam realizadas pelo mesmo utilizador, número de telefone ou organização devido ao elevado número de tentativas de autenticação de voz ou SMS falhadas. Se estiver a experimentar este erro, pode tentar outro método, como a App Autenticador ou o código de verificação, ou contactar o seu administrador para obter apoio.
 Reinicie o seu dispositivo móvel | Às vezes, o seu dispositivo só precisa de ser atualizado. Quando reinicia o seu dispositivo, todos os processos e serviços de fundo terminam. O reinício também desliga os componentes do núcleo do seu dispositivo. Qualquer serviço ou componente é atualizado quando reinicia o seu dispositivo.
 Verifique se as suas informações de segurança estão corretas | Certifique-se de que as informações do seu método de verificação de segurança são precisas, especialmente os seus números de telefone. Se colocar o número de telefone errado, todos os seus alertas irão para esse número incorreto. Felizmente, esse utilizador não poderá fazer nada com os alertas, mas também não o ajudará a entrar na sua conta. Para se certificar de que as suas informações estão corretas, consulte as instruções no artigo [de definição do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md)
 Verifique se as suas notificações estão ligadas | Certifique-se de que o seu dispositivo móvel tem notificações ligadas. Certifique-se de que são permitidos os seguintes modos de notificação: <br/><br/> &bull; Chamadas telefónicas <br/> &bull; A sua aplicação de autenticação <br/> &bull; A sua aplicação de mensagens de texto <br/><br/> Certifique-se de que estes modos criam um alerta _visível_ no seu dispositivo.

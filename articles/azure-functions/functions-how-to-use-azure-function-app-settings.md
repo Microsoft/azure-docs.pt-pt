@@ -1,16 +1,16 @@
 ---
-title: Configurar definições de aplicativos de função em Azure
-description: Saiba como configurar as definições da aplicação de função Azure.
+title: Configurar definições de aplicativos de função em Funções Azure
+description: Saiba como configurar as definições de aplicações de função em Funções Azure.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 746a97ecd9b0bdd676e70cca38edc75905e3e4bd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936945"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035211"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
 

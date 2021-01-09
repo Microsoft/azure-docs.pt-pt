@@ -3,12 +3,12 @@ title: Endereço IP estático para grupo de contentores
 description: Crie um grupo de contentores numa rede virtual e use uma porta de entrada de aplicação Azure para expor um endereço IP estático para uma aplicação web contentorizada
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0131780fdb04a71837d5ae9bf5498bf2bd499f8a
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260783"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035058"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Expor um endereço IP estático para um grupo de contentores
 
@@ -100,6 +100,9 @@ ACI_IP=$(az container show \
   --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv)
 ```
+
+> [!IMPORTANT]
+> Se o grupo de contentores for parado, iniciado ou reiniciado, o grupo de contentores ip privado está sujeito a alterações. Se isto acontecer, terá de atualizar a configuração do gateway de aplicações.
 
 ## <a name="create-application-gateway"></a>Criar um gateway de aplicação
 

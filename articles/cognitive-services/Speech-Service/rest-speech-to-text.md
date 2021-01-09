@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504479"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033647"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -61,7 +61,7 @@ Antes de utilizar a API REST discurso-a-texto para áudio curto, considere o seg
 Se o envio de áudio mais longo for um requisito para a sua aplicação, considere utilizar o [SPI de voz](speech-sdk.md) [para texto v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
-> Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do governo Azure para os pontos finais da nuvem governamental (FairFax).
+> Veja [este artigo](sovereign-clouds.md) para o Governo Azure e para os pontos finais da Azure China.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -86,7 +86,7 @@ Estes parâmetros podem ser incluídos na sequência de consulta do pedido REST.
 
 | Parâmetro | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas suportadas.](language-support.md#speech-to-text) | Necessário |
+| `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas suportadas.](language-support.md#speech-to-text) | Obrigatório |
 | `format` | Especifica o formato de resultado. Os valores aceites são `simple` `detailed` e. Os resultados simples `RecognitionStatus` `DisplayText` incluem, `Offset` `Duration` e. As respostas detalhadas incluem quatro representações diferentes do texto do visor. A predefinição é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com a profanação nos resultados do reconhecimento. Os `masked` valores aceites são , que substitui a profanação por asteriscos, que `removed` removem toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
 | `cid` | Ao utilizar o [portal Discurso Personalizado](./custom-speech-overview.md) para criar modelos personalizados, pode utilizar modelos personalizados através do seu **ID Endpoint** encontrado na página **De implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de `cid` cadeia de consulta. | Opcional |
@@ -100,7 +100,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discur
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
 | `Pronunciation-Assessment` | Especifica os parâmetros para mostrar pontuações de pronúncia nos resultados do reconhecimento, que avaliam a qualidade de pronúncia da entrada da fala, com indicadores de precisão, fluência, completude, etc. Este parâmetro é um json codificado base64 contendo vários parâmetros detalhados. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para construir este cabeçalho. | Opcional |
-| `Content-type` | Descreve o formato e o codec dos dados áudio fornecidos. Os valores aceites são `audio/wav; codecs=audio/pcm; samplerate=16000` `audio/ogg; codecs=opus` e. | Necessário |
+| `Content-type` | Descreve o formato e o codec dos dados áudio fornecidos. Os valores aceites são `audio/wav; codecs=audio/pcm; samplerate=16000` `audio/ogg; codecs=opus` e. | Obrigatório |
 | `Transfer-Encoding` | Especifica que os dados de áudio em pedaços estão a ser enviados, em vez de um único ficheiro. Utilize apenas este cabeçalho se os dados áudio em pedaços. | Opcional |
 | `Expect` | Se utilizar uma transferência em pedaços, envie `Expect: 100-continue` . O serviço Discurso reconhece o pedido inicial e aguarda dados adicionais.| Necessário se enviar dados áudio em pedaços. |
 | `Accept` | Se for fornecido, deve `application/json` ser. O serviço Discurso fornece resultados em JSON. Alguns quadros de pedido fornecem um valor padrão incompatível. É uma boa prática incluir `Accept` sempre. | Opcional, mas recomendado. |
@@ -123,7 +123,7 @@ Esta tabela lista os parâmetros necessários e opcionais para a avaliação da 
 
 | Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
-| Texto de Referência | O texto contra o que a pronúncia será avaliado. | Necessário |
+| Texto de Referência | O texto contra o que a pronúncia será avaliado. | Obrigatório |
 | Sistema de Classificação | O sistema de pontos para a calibração da pontuação. O `FivePoint` sistema dá uma pontuação de 0-5 pontos flutuantes, e dá uma `HundredMark` pontuação de 0-100 pontos flutuantes. Predefinição: `FivePoint`. | Opcional |
 | Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme` , que mostram a pontuação no nível completo do texto, palavra e fon de texto, que mostra a `Word` pontuação no texto completo e no nível de palavra, `FullText` que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceites são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, pontuação de fluência e pontuação de completude no nível de texto completo, tipo de erro no nível de palavra). Consulte [os parâmetros de resposta](#response-parameters) para ver definições de diferentes dimensões de pontuação e tipos de erros de palavras. A predefinição é `Basic`. | Opcional |

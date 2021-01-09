@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832782"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033358"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
 
@@ -51,13 +51,13 @@ Utilize os seguintes passos para implantar um módulo de segurança Defender par
 
 1. A partir do portal Azure, **open Marketplace**.
 
-1. Selecione **Internet of Things** e, em seguida, procure por Defender para **IoT** e selecione-o.
+1. Selecione **Internet of Things,** em seguida, procure por **IoT no Centro de Segurança Azure** e selecione-o.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Selecione Defender para IoT":::
 
-1. Clique em **Criar** para configurar a implementação.
+1. **Selecione Criar** para configurar a implementação.
 
-1. Escolha a **Assinatura** Azure do seu Hub IoT e, em seguida, selecione o seu **Hub IoT**.<br>Selecione **Implementar para um dispositivo** para direcionar um único dispositivo ou selecione Implementar na **Escala** para atingir vários dispositivos e clique em **Criar**. Para obter mais informações sobre a implantação em escala, consulte [Como implementar](../iot-edge/how-to-deploy-at-scale.md).
+1. Escolha a **Assinatura** Azure do seu Hub IoT e, em seguida, selecione o seu **Hub IoT**.<br>Selecione **Implementar para um dispositivo** para direcionar um único dispositivo ou selecione Implementar na **Escala** para atingir vários dispositivos e selecione **Criar**. Para obter mais informações sobre a implantação em escala, consulte [Como implementar](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >Se selecionar **Implementar à Escala,** adicione o nome do dispositivo e os detalhes antes de continuar no separador **'Adicionar Módulos'** nas seguintes instruções.
@@ -68,7 +68,7 @@ Complete cada passo para completar a sua implementação IoT Edge para Defender 
 
 1. Selecione o módulo **AzureSecurityCenterforIoT.**
 1. No **separador Definições** do Módulo, altere o **nome** para **azureiotsecurity**.
-1. No separador **Variáveis de Enviroment,** adicione uma variável se necessário (por exemplo, nível de depuração).
+1. No separador **Variáveis ambientais,** adicione uma variável se necessário (por exemplo, pode adicionar *o nível de depurado* e defini-lo para um dos seguintes valores: "Fatal", "Error", "Warning" ou "Information").
 1. No **separador Opções de Criação de Recipientes,** adicione a seguinte configuração:
 
     ``` json
@@ -112,8 +112,12 @@ Complete cada passo para completar a sua implementação IoT Edge para Defender 
 #### <a name="step-2-runtime-settings"></a>Passo 2: Definições de tempo de execução
 
 1. Selecione **definições de tempo de execução**.
-1. Em **Edge Hub**, altere a **imagem** para **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
-1. Verifique se **as opções de criar** estão definidas para a seguinte configuração:
+2. Em **Edge Hub**, altere a **imagem** para **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+
+    >[!Note]
+    > Atualmente, a versão 1.0.8.3 ou mais é suportada.
+
+3. Verifique se **as opções de criar** estão definidas para a seguinte configuração:
 
     ``` json
     {
@@ -139,9 +143,9 @@ Complete cada passo para completar a sua implementação IoT Edge para Defender 
     }
     ```
 
-1. Selecione **Guardar**.
+4. Selecione **Guardar**.
 
-1. Selecione **Seguinte**.
+5. Selecione **Seguinte**.
 
 #### <a name="step-3-specify-routes"></a>Passo 3: Especificar rotas
 

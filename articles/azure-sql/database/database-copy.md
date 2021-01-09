@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 53e62d790514bd3fb5bef93788fa78944db28c2c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127744"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035143"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -43,7 +43,7 @@ Se utilizar inícios de sessão ao nível do servidor para o acesso aos dados e 
 
 ## <a name="copy-using-the-azure-portal"></a>Copiar com o portal do Azure
 
-Para copiar uma base de dados utilizando o portal Azure, abra a página da sua base de dados e, em seguida, clique em **Copiar** .
+Para copiar uma base de dados utilizando o portal Azure, abra a página da sua base de dados e, em seguida, clique em **Copiar**.
 
    ![Cópia da base de dados](./media/database-copy/database-copy.png)
 
@@ -135,6 +135,46 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 Pode utilizar os passos na [Base de Dados Copy a SQL para uma](#copy-to-a-different-server) secção de servidor diferente para copiar a sua base de dados para um servidor numa subscrição diferente utilizando o T-SQL. Certifique-se de que utiliza um login com o mesmo nome e senha que o proprietário da base de dados da base de dados de origem. Além disso, o login deve ser um membro da `dbmanager` função ou um administrador do servidor, tanto nos servidores de origem como nos servidores-alvo.
 
+```sql
+Step# 1
+Create login and user in the master database of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+
+Step# 2
+Create the user in the source database and grant dbowner permission to the database.
+
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'db_owner','loginname'
+GO
+
+Step# 3
+Capture the SID of the user “loginname” from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname'
+
+Step# 4
+Connect to Destination server.
+Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server]
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'dbmanager','loginname'
+GO
+
+Step# 5
+Execute the copy of database script from the destination server using the credentials created
+
+CREATE DATABASE new_database_name
+AS COPY OF source_server_name.source_database_name
+```
+
 > [!NOTE]
 > O [portal Azure,](https://portal.azure.com)o PowerShell e o Azure CLI não suportam cópia de base de dados para uma subscrição diferente.
 
@@ -143,10 +183,10 @@ Pode utilizar os passos na [Base de Dados Copy a SQL para uma](#copy-to-a-differ
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorizar o progresso da operação de cópia
 
-Monitorize o processo de cópia consultando as [vistas sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Enquanto a cópia está em curso, a coluna **state_desc** da vista sys.databases para a nova base de dados está definida como **COPYING** .
+Monitorize o processo de cópia consultando as [vistas sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Enquanto a cópia está em curso, a coluna **state_desc** da vista sys.databases para a nova base de dados está definida como **COPYING**.
 
-* Se a cópia falhar, a coluna **state_desc** da vista sys.databases para a nova base de dados é definida como **SUSPEITA** . Execute a declaração DROP na nova base de dados e tente novamente mais tarde.
-* Se a cópia for bem sucedida, a coluna **state_desc** da vista sys.databases para a nova base de dados está definida para **ONLINE** . A cópia está completa e a nova base de dados é uma base de dados regular que pode ser alterada independentemente da base de dados de origem.
+* Se a cópia falhar, a coluna **state_desc** da vista sys.databases para a nova base de dados é definida como **SUSPEITA**. Execute a declaração DROP na nova base de dados e tente novamente mais tarde.
+* Se a cópia for bem sucedida, a coluna **state_desc** da vista sys.databases para a nova base de dados está definida para **ONLINE**. A cópia está completa e a nova base de dados é uma base de dados regular que pode ser alterada independentemente da base de dados de origem.
 
 > [!NOTE]
 > Se decidir cancelar a cópia enquanto estiver em curso, execute a declaração [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) na nova base de dados.

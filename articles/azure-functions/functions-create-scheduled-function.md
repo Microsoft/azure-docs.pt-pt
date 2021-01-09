@@ -1,20 +1,20 @@
 ---
-title: Criar uma função que funciona em um horário em Azure
-description: Saiba como criar uma função no Azure que é executada com base numa agenda definida por si.
+title: Criar uma função em Azure que funciona em um horário
+description: Aprenda a usar o portal Azure para criar uma função que funcione com base num horário que define.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14d918cc41f49b954f5cabf48572db5df829fd10
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973100"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035194"
 ---
-# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
+# <a name="create-a-function-in-the-azure-portal-that-runs-on-a-schedule"></a>Criar uma função no portal Azure que funciona em um horário
 
-Aprenda a usar as Funções Azure para criar uma função [sem servidor](https://azure.microsoft.com/solutions/serverless/) que funciona com base num horário que define.
+Aprenda a usar o portal Azure para criar uma função que funciona [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Azure com base num horário que define.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,7 +22,7 @@ Para concluir este tutorial:
 
 + Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-an-azure-function-app"></a>Criar uma aplicação de Funções do Azure
+## <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -34,17 +34,17 @@ A sua nova aplicação de função está pronta a ser utilizada. Em seguida, cri
 
 ## <a name="create-a-timer-triggered-function"></a>Criar uma função acionada por temporizador
 
-1. Na sua aplicação de funções, selecione **Funções**e, em seguida, selecione **+ Adicionar** 
+1. Na sua aplicação de funções, selecione **Funções** e, em seguida, selecione **+ Adicionar** 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
 1. Selecione o modelo **de gatilho do temporizador.** 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Selecione o gatilho do temporizador no portal Azure." border="true":::
 
 1. Configure o novo gatilho com as definições especificadas na tabela abaixo da imagem e, em seguida, selecione **Criar Função**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="A screenshot mostra a página Nova Função com o modelo de gatilho do temporizador selecionado." border="true":::
     
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
@@ -55,11 +55,11 @@ A sua nova aplicação de função está pronta a ser utilizada. Em seguida, cri
 
 1. Na sua função, selecione **Código + Teste** e expanda os registos.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Teste o gatilho do temporizador no portal Azure." border="true":::
 
 1. Verifique a execução visualizando as informações escritas nos registos.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Veja o gatilho do temporizador no portal Azure." border="true":::
 
 Agora, altere a agenda da função, para que seja executada a cada hora, em vez de cada minuto.
 
@@ -69,11 +69,11 @@ Agora, altere a agenda da função, para que seja executada a cada hora, em vez 
 
 1. Selecione **Timer (myTimer)**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Atualize o horário no portal Azure." border="true":::
 
 1. Atualize o valor **da Agenda** para `0 0 */1 * * *` , e, em seguida, selecione **Guardar**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Aplicação Function App criada com êxito." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Atualizar o calendário do temporizador da função no portal Azure." border="true":::
 
 Agora tem uma função que funciona uma vez a cada hora, à hora.
 

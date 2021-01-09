@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 75df985377e6ed1764985f8d0b6b44323f249b8a
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 04103de47e82764f7ec4effa84a9b2b7b90b9363
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632014"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034633"
 ---
 # <a name="monitoring-azure-cosmos-db-data-reference"></a>Monitorização da referência de dados do Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Todas as métricas correspondentes à Azure Cosmos DB estão armazenadas nas **m
 
 ### <a name="request-metrics"></a>Solicitar métricas
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação) |Description|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação) |Descrição|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---| ---|
 | Total de Reques (Total de Pedidos) | Contagem (Contagem) | Número de pedidos feitos| Data de dadosName, Nome de Recolha, Região, StatusCode| Todos | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Erro do Servidor Interno, Serviço Indisponível, Pedidos De Throttled, Pedidos Médios por Segundo | Usado para monitorizar pedidos por código de estado, recipiente a um minuto de granularidade. Para obter pedidos médios por segundo, use a agregação count ao minuto e divida por 60. |
 | MetadadosRequests (Pedidos de Metadados) |Contagem (Contagem) | Contagem de pedidos de metadados. O Azure Cosmos DB mantém o contentor de metadados do sistema para cada conta, que lhe permite enumerar recolhas, bases de dados, etc., e as suas configurações, gratuitamente. | Data de dadosName, Nome de Recolha, Região, StatusCode| Todos| |Usado para monitorizar aceleradores devido a pedidos de metadados.|
@@ -34,7 +34,7 @@ Todas as métricas correspondentes à Azure Cosmos DB estão armazenadas nas **m
 
 ### <a name="request-unit-metrics"></a>Métricas da Unidade de Pedido
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (Taxa de Pedido de Mongo) | Contagem (Total) |Unidades de pedido da Mongo Consumidas| Nome de dados, Nome de Recolha, Região, Nome de Comando, Código de Erro| Todos |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Usado para monitorizar os recursos da Mongo RUs num minuto.|
 | Total DerequestUnits (Unidades totais de pedido)| Contagem (Total) | Unidades de pedido consumidas| Data de dadosName, Nome de Recolha, Região, StatusCode |Todos| TotalRequestUnits| Utilizado para monitorizar o uso total de RU a um minuto de granularidade. Para obter ru médio consumido por segundo, use agregação total ao minuto e divida por 60.|
@@ -42,7 +42,7 @@ Todas as métricas correspondentes à Azure Cosmos DB estão armazenadas nas **m
 
 ### <a name="storage-metrics"></a>Métricas de armazenamento
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---| ---|
 | Availablestorage (Armazenamento Disponível) |Bytes (Total) | Armazenamento total disponível reportado a 5 minutos de granularidade por região| Nome de dados, Nome de Recolha, Região| 5M| Armazenamento Disponível| Utilizado para monitorizar a capacidade de armazenamento disponível (aplicável apenas para recolhas fixas de armazenamento) A granularidade mínima deve ser de 5 minutos.| 
 | DataUsage (Utilização de Dados) |Bytes (Total) |Total de utilização de dados reportados a 5 minutos de granularidade por região| Nome de dados, Nome de Recolha, Região| 5M |Tamanho dos dados | Utilizado para monitorizar o uso total de dados no contentor e na região, a granularidade mínima deve ser de 5 minutos.|
@@ -52,20 +52,20 @@ Todas as métricas correspondentes à Azure Cosmos DB estão armazenadas nas **m
 
 ### <a name="latency-metrics"></a>Métricas de latência
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Utilização |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Latência de replicação)| MilliSegundos (Mínimo, Máximo, Média) | P99 Replicação Latência em todas as regiões de origem e alvo para conta geo-habilitada| SourceRegion, TargetRegion| Todos | Usado para monitorizar a latência de replicação P99 entre duas regiões para uma conta geo-replicada. |
 | Latência do lado do servidor| MilliSegundos (Média) | Tempo demorado pelo servidor para processar o pedido. | ColeçãoName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Região | Todos | Usado para monitorizar a latência do pedido no servidor DB Azure Cosmos. |
 
 ### <a name="availability-metrics"></a>Métricas de disponibilidade
 
-|Métrica (Nome de Exibição Métrica) |Unidade (Tipo de agregação)|Description| Granularidades do tempo| Mapeamento métrico legado | Utilização |
+|Métrica (Nome de Exibição Métrica) |Unidade (Tipo de agregação)|Descrição| Granularidades do tempo| Mapeamento métrico legado | Utilização |
 |---|---|---|---| ---| ---|
 | ServiçoSadisponibilidade (Disponibilidade de Serviço)| Por cento (Mínimo, Máximo) | Conta solicita disponibilidade a uma hora de granularidade| 1H | Disponibilidade de serviço | Representa a percentagem do total de pedidos aprovados. Considera-se que um pedido foi falhado devido a um erro do sistema se o código de estado for 410, 500 ou 503 Utilizado para monitorizar a disponibilidade da conta à hora de granularidade. |
 
 ### <a name="cassandra-api-metrics"></a>Métricas da API de Cassandra
 
-|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Description|Dimensões| Granularidades do tempo| Utilização |
+|Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Utilização |
 |---|---|---|---| ---| ---|
 | CassandraRequests (Pedidos de Cassandra) | Contagem (Contagem) | Número de pedidos da Cassandra API feitos| Nome de dados, Nome de Recolha, Código de Erro, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar os pedidos de Cassandra num minuto de granularidade. Para obter pedidos médios por segundo, use a agregação count ao minuto e divida por 60.|
 | CassandraRequestCharges (Cassandra Request Charges) | Conde (Soma, Min, Max, Avg) | Unidades de pedido consumidas pela API cassandra | Nome de dados, Nome de Recolha, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar rUs usados por minuto por uma conta API Cassandra.|
@@ -77,12 +77,12 @@ Para mais informações, consulte uma lista de [todas as métricas da plataforma
 
 A tabela que se segue lista as propriedades dos registos de recursos em Azure Cosmos DB. Os registos de recursos são recolhidos em Registos monitores Azure ou Azure Storage. No Azure Monitor, os registos são recolhidos na tabela **AzureDiagnostics** sob o nome do fornecedor de recursos** de `MICROSOFT.DOCUMENTDB` .
 
-| Campo ou propriedade de Armazenamento Azure | Propriedade Azure Monitor Logs | Description |
+| Campo ou propriedade de Armazenamento Azure | Propriedade Azure Monitor Logs | Descrição |
 | --- | --- | --- |
 | **Hora** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
 | **recursosId** | **Recurso** | A conta DB do Azure Cosmos para os registos que estão ativados.|
-| **categoria** | **Categoria** | Para Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de registos disponíveis. |
-| **operaçãoName** | **OperationName** | O nome da operação. O nome da operação pode ser  `Create` , `Update` `Read` ou `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` `Upsert` .   |
+| **categoria** | **Categoria** | Para Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption,** **ControlPlaneRequests,** **CassandraRequests,** **GremlinRequests** são os tipos de registos disponíveis. |
+| **operationName** | **Operação Nome** | O nome da operação. O nome da operação pode ser  `Create` , `Update` `Read` ou `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` `Upsert` .   |
 | **propriedades** | n/a | O conteúdo deste campo é descrito nas linhas que se seguem. |
 | **activityId** | **activityId_g** | O GUIA único para a operação registada. |
 | **userAgent** | **userAgent_s** | Uma cadeia que especifica o agente utilizador cliente a partir do qual o pedido foi enviado. O formato do agente utilizador é `{user agent name}/{version}` .|

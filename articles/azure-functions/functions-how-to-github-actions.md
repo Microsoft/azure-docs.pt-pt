@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608515"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035228"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua utilizando a GitHub Action
 
-Utilize [as ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para construir e implementar código automaticamente para a sua aplicação de função Azure. 
+Utilize [as ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para construir e implementar código automaticamente para a sua aplicação de funções em Funções Azure. 
 
-Em GitHub Actions, um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define no seu repositório GitHub. Este processo diz ao GitHub como construir e implementar o seu projeto de aplicações de funções no GitHub. 
+Em GitHub Actions, um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define no seu repositório GitHub. Este processo diz ao GitHub como construir e implementar o seu projeto de aplicação de função no GitHub. 
 
 Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho do `/.github/workflows/` seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho. 
 
@@ -187,6 +187,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que constrói a aplicaç�
 ---
 
 ## <a name="deploy-the-function-app"></a>Implementar a aplicação de funções
+
 Utilize a `Azure/functions-action` ação para implementar o seu código numa aplicação de função. Esta ação tem três parâmetros:
 
 |Parâmetro |Explicação  |
@@ -202,7 +203,7 @@ O exemplo a seguir utiliza a versão 1 do `functions-action` e a `publish profil
 Crie um fluxo de trabalho .NET Linux que utilize um perfil de publicação.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -241,7 +242,7 @@ jobs:
 Crie um fluxo de trabalho .NET Windows que utilize um perfil de publicação.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -283,7 +284,7 @@ jobs:
 Crie um fluxo de trabalho Java Linux que utilize um perfil de publicação.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -325,7 +326,7 @@ jobs:
 Crie um fluxo de trabalho Java Windows que utilize um perfil de publicação.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -369,7 +370,7 @@ jobs:
 Crie um fluxo de trabalho Node.JS Linux que utiliza um perfil de publicação.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -411,7 +412,7 @@ jobs:
 Crie um fluxo de trabalho Node.JS Windows que utilize um perfil de publicação.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -455,7 +456,7 @@ jobs:
 Crie um fluxo de trabalho Python Linux que utilize um perfil de publicação.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]

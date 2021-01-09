@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696029"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033953"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um bilhete de apoio para Azure Stack Edge Pro e Azure Data Box Gateway
 
@@ -78,7 +78,7 @@ Esta informação aplica-se apenas ao dispositivo Azure Stack. O processo de rep
     * É enviada uma Unidade de Substituição de Campo (FRU) para a peça de hardware falhada. Atualmente, as unidades de alimentação e as unidades de estado sólido são as únicas FUs suportadas.
     * Apenas as FUs são substituídas no dia útil seguinte, tudo o resto requer uma substituição completa do sistema (FSR) para ser enviada.
 
-3. Se um bilhete de Apoio for levantado antes das 16h30 locais (segunda a sexta-feira), é enviado um técnico no local no dia útil seguinte para a sua localização para realizar uma substituição de FRU. Uma substituição completa do sistema normalmente demorará muito mais tempo porque as peças são enviadas da nossa fábrica e podem estar sujeitas a atrasos de transporte e alfândega.
+3. Se for determinado que uma substituição de FRU é necessária até às 13:00 horas locais (de segunda a sexta-feira), é enviado um técnico no local no dia útil seguinte para a sua localização para realizar uma substituição de FRU. Uma substituição completa do sistema normalmente demorará muito mais tempo porque as peças são enviadas da nossa fábrica e podem estar sujeitas a atrasos de transporte e alfândega.
 
 ## <a name="manage-a-support-request"></a>Gerir um pedido de apoio
 

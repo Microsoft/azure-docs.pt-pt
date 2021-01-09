@@ -2,20 +2,19 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos.
 ms.topic: conceptual
-ms.date: 10/28/2020
-ms.openlocfilehash: c2d5797a7ec354f41d510ec6e884968bf9dbdbcd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 01/08/2021
+ms.openlocfilehash: 6a63fd7e41c03b542f4a43b483243702c5be5f14
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672369"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034939"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
 Por predefinição, pode implementar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos estão isentos do limite de 800 instâncias. Este artigo lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos. Todos os outros tipos de recursos estão limitados a 800 instâncias.
 
 Para alguns tipos de recursos, é necessário contactar o suporte para que o limite de 800 instâncias seja removido. Estes tipos de recursos são anotados neste artigo.
-
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -105,6 +104,11 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 * software
 * softwareUpdateProfile
 * softwareUpdates
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+
+* máquinas - suporta até 5.000 instâncias
+* extensões - suporta um número ilimitado de instâncias de extensão VM
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 

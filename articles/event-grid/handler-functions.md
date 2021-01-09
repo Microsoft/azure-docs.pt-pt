@@ -1,31 +1,31 @@
 ---
-title: A azure funciona como manipulador de eventos para eventos Azure Event Grid
-description: Descreve como pode usar funções Azure como manipuladores de eventos para eventos de Grade de Eventos.
+title: Use uma função em Azure como manipulador de eventos para eventos Azure Event Grid
+description: Descreve como pode utilizar funções criadas e hospedadas pela Azure Functions como manipuladores de eventos para eventos de Grade de Eventos.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145764"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034973"
 ---
-# <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>A azure funciona como manipulador de eventos para eventos de Grade de Eventos
+# <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Use uma função como manipulador de eventos para eventos de Grelha de Eventos
 
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma uma ação para processar o evento. Vários serviços Azure são configurados automaticamente para lidar com eventos e **as Funções Azure** é um deles. 
 
 
-Para utilizar uma função Azure como manipulador para eventos, siga uma destas abordagens: 
+Para utilizar uma função em Azure como manipulador para eventos, siga uma destas abordagens: 
 
--   Use o [gatilho da grelha de eventos](../azure-functions/functions-bindings-event-grid-trigger.md).  Especificar **a função Azure** como o **tipo ponto final**. Em seguida, especifique a aplicação de função Azure e a função que irá lidar com eventos. 
--   Utilize [o gatilho HTTP](../azure-functions/functions-bindings-http-webhook.md).  Especifique o **Web Hook** como o **tipo de ponto final.** Em seguida, especifique o URL para a função Azure que irá lidar com eventos. 
+-   Use o [gatilho da grelha de eventos](../azure-functions/functions-bindings-event-grid-trigger.md).  Especificar **a função Azure** como o **tipo ponto final**. Em seguida, especifique a aplicação de função e a função que irá lidar com eventos. 
+-   Utilize [o gatilho HTTP](../azure-functions/functions-bindings-http-webhook.md).  Especifique o **Web Hook** como o **tipo de ponto final.** Em seguida, especifique o URL para a função que irá lidar com eventos. 
 
 Recomendamos que utilize a primeira abordagem (detonador de Grade de Eventos), uma vez que tem as seguintes vantagens sobre a segunda abordagem:
 -   A Grelha de Eventos valida automaticamente os gatilhos da Grelha de Eventos. Com os gatilhos GENÉRICOS HTTP, tem de implementar a [resposta de validação](webhook-event-delivery.md) por si mesmo.
 -   A Grelha de Eventos ajusta automaticamente a taxa a que os eventos são entregues a uma função desencadeada por um evento de Grade de Eventos com base na taxa percebida a que a função pode processar eventos. Esta funcionalidade de correspondência de taxa evita erros de entrega que decorrem da incapacidade de uma função para processar eventos, uma vez que a taxa de processamento de eventos da função pode variar ao longo do tempo. Para melhorar a eficiência a uma produção elevada, ative o lote na subscrição do evento. Para obter mais informações, consulte [Ativar o lote .](#enable-batching)
 
     > [!NOTE]
-    > Atualmente, não é possível utilizar um gatilho de Grade de Eventos para uma aplicação Azure Functions quando o evento é entregue no esquema do **CloudEvents.** Em vez disso, utilize um gatilho HTTP.
+    > Atualmente, não é possível utilizar um gatilho de Grade de Eventos para uma aplicação de função quando o evento é entregue no esquema **do CloudEvents.** Em vez disso, utilize um gatilho HTTP.
 
 ## <a name="tutorials"></a>Tutoriais
 
@@ -69,7 +69,7 @@ No momento em que criar uma subscrição na UI, na página De Subscrição de **
 
 Pode atualizar estes valores para uma subscrição existente no separador **Funcionalidades** da página **Tópico de Grelha de Eventos.** 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Ativar o lote no momento de criar uma subscrição":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Ativar o loteamento após a criação":::
 
 ### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 Pode definir **maxEventsPerBatch** e **preferirBatchSizeInKilobytes** num modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [a referência do modelo de eventos Microsoft.EventGrid](/azure/templates/microsoft.eventgrid/eventsubscriptions).

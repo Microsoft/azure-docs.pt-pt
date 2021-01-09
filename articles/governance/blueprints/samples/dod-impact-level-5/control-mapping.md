@@ -1,21 +1,21 @@
 ---
 title: Controlos de amostra de amostra do DoD Impact Level 5
 description: Controlo do mapeamento da amostra de planta do DoD Impact Level 5. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 09/17/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01f786684e5f8d73f57eb9f4741593c01fe1c8d4
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929494"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034786"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 5
 
 O artigo seguinte detalha como o Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) mapes de amostra para os controlos do DoD Impact Level 5. Para obter mais informações sobre os controlos, consulte [o Guia de Requisitos de Segurança da Computação em Nuvem do DoD (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
 A Defense Information Systems Agency (DISA) é uma agência do Departamento de Defesa dos EUA (DoD) que é responsável pelo desenvolvimento e manutenção do Guia de Requisitos de Segurança da Computação em Nuvem do DoD (SRG). O SRG define os requisitos de segurança de base para os fornecedores de serviços na nuvem (CSPs) que hospedam informações, sistemas e aplicações do DoD, e para a utilização do DoD de serviços na nuvem.  
 
-Os seguintes mapeamentos são para os comandos **DoD Impact Level 5.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ iniciativa política de pré-visualização \] : DoD Impact Level 5** incorporada.
+Os seguintes mapeamentos são para os comandos **DoD Impact Level 5.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a **\[ iniciativa política de pré-visualização \] : DoD Impact Level 5** incorporada.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
