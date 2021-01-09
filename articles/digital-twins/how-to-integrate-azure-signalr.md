@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a11cd9f3208c97748ab16c636aedd9a443c5b9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d84acc5501b3d40f6db85d0ee6ee369aec5a6aa4
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093168"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051110"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integre as Gémeas Digitais Azure com o Serviço Azure SignalR
 
@@ -68,66 +68,8 @@ Em seguida, inicie o Visual Studio (ou outro editor de código à sua escolha) e
 1. Crie uma nova classe C# afiada chamada **SignalRFunctions.cs** no projeto *SampleFunctionsApp.*
 
 1. Substitua o conteúdo do ficheiro de classe pelo seguinte código:
-
-    ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Azure.EventGrid.Models;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
-    using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-    using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System.Collections.Generic;
     
-    namespace SampleFunctionsApp
-    {
-        public static class SignalRFunctions
-        {
-            public static double temperature;
-    
-            [FunctionName("negotiate")]
-            public static SignalRConnectionInfo GetSignalRInfo(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
-                [SignalRConnectionInfo(HubName = "dttelemetry")] SignalRConnectionInfo connectionInfo)
-            {
-                return connectionInfo;
-            }
-    
-            [FunctionName("broadcast")]
-            public static Task SendMessage(
-                [EventGridTrigger] EventGridEvent eventGridEvent,
-                [SignalR(HubName = "dttelemetry")] IAsyncCollector<SignalRMessage> signalRMessages,
-                ILogger log)
-            {
-                JObject eventGridData = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-    
-                log.LogInformation($"Event grid message: {eventGridData}");
-    
-                var patch = (JObject)eventGridData["data"]["patch"][0];
-                if (patch["path"].ToString().Contains("/Temperature"))
-                {
-                    temperature = Math.Round(patch["value"].ToObject<double>(), 2);
-                }
-    
-                var message = new Dictionary<object, object>
-                {
-                    { "temperatureInFahrenheit", temperature},
-                };
-        
-                return signalRMessages.AddAsync(
-                    new SignalRMessage
-                    {
-                        Target = "newMessage",
-                        Arguments = new[] { message }
-                    });
-            }
-        }
-    }
-    ```
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
 1. Na janela da consola do Gestor de *Pacotes* do Estúdio Visual, ou em qualquer janela de comando da sua máquina na pasta *Azure_Digital_Twins_end_to_end_samples\AdtSampleApp\SampleFunctionsApp,* execute o seguinte comando para instalar o `SignalRService` pacote NuGet no projeto:
     ```cmd
@@ -141,7 +83,7 @@ Em seguida, publique a sua função no Azure, utilizando os passos descritos na 
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Vista do portal Azure da aplicação de função, com 'Funções' em destaque no menu. A lista de funções é mostrada na página, e a função 'negociar' também é destacada.":::
 
-    Hit *Get function URL* e copiar o valor através de **_/api_ (não inclua o último _/negociar?_ )**. Vais usar isto mais tarde.
+    Hit *Get function URL* e copiar o valor através de **_/api_ (não inclua o último _/negociar?_)**. Vais usar isto mais tarde.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vista do portal Azure da função &quot;negociar&quot;. O botão 'Obter URL de função' é realçado, e a parte do URL desde o início até '/api'":::
 
@@ -166,10 +108,10 @@ No [portal Azure,](https://portal.azure.com/)navegue para o tópico da grelha de
 :::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Portal Azure: Subscrição de eventos da Grade de Eventos":::
 
 Na página *'Criar Subscrição de* Eventos', preencha os campos da seguinte forma (os campos preenchidos por predefinição não são mencionados):
-* *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome** : Dê um nome à subscrição do seu evento.
-* *DETALHES DO PONTO FINAL*  >  **Tipo ponto final** : Selecione *Azure Function* a partir das opções do menu.
-* *DETALHES DO PONTO FINAL*  >  **Ponto final** : Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *de função Select Azure:*
-    - Preencha a sua **Subscrição** , **Grupo de Recursos,** **Função app** e **Função** *(transmissão).* Alguns destes podem preencher automaticamente após a seleção da subscrição.
+* *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome**: Dê um nome à subscrição do seu evento.
+* *DETALHES DO PONTO FINAL*  >  **Tipo ponto final**: Selecione *Azure Function* a partir das opções do menu.
+* *DETALHES DO PONTO FINAL*  >  **Ponto final**: Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *de função Select Azure:*
+    - Preencha a sua **Subscrição**, **Grupo de Recursos,** **Função app** e **Função** *(transmissão).* Alguns destes podem preencher automaticamente após a seleção da subscrição.
     - Hit **Confirm Selection**.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Vista do portal Azure de criar uma subscrição de eventos. Os campos acima são preenchidos e os botões 'Confirmar Seleção' e 'Criar' são realçados.":::
@@ -228,7 +170,7 @@ Isto abrirá uma janela do navegador que executa a aplicação da amostra, que e
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Excerto da aplicação web do cliente da amostra, mostrando um medidor de temperatura visual. A temperatura refletida é de 67,52":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar dos recursos criados neste artigo, siga estes passos para os eliminar. 
 

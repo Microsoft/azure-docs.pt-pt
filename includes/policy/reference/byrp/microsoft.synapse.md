@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: fb5f6dbb410a15bf88fccc1ed3f9c3ca0f830c70
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a0751e7e4c90f04cd5e28610e2c62dbec6a7adcf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96296097"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051206"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Os espaços de trabalho do Azure Synapse devem usar chaves geridas pelo cliente para encriptar dados em repouso](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Utilize chaves geridas pelo cliente para controlar a encriptação no resto dos dados armazenados nos espaços de trabalho do Azure Synapse. As teclas geridas pelo cliente fornecem encriptação dupla adicionando uma segunda camada de encriptação em cima da encriptação padrão com teclas geridas pelo serviço. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 |[As regras de firewall ip nos espaços de trabalho do Azure Synapse devem ser removidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |A remoção de todas as regras de firewall IP melhora a segurança garantindo que o seu espaço de trabalho Azure Synapse só pode ser acedido a partir de um ponto final privado. Esta configuração audita a criação de regras de firewall que permitem o acesso da rede pública no espaço de trabalho. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |

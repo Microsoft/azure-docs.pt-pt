@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760339"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049835"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre produção provisão e sem servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,11 +25,11 @@ A Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [pro
 | Critérios | Débito aprovisionado | Sem servidor |
 | --- | --- | --- |
 | Estado | Disponível em Geral | Em pré-visualização |
-| Mais adequado para | Cargas de trabalho críticas à missão que requerem um desempenho previsível | Cargas de trabalho pequenas a médias com tráfego leve e intermitente que é difícil de prever |
+| Mais adequado para | Cargas de trabalho com tráfego sustentado que requerem desempenho previsível | Cargas de trabalho com tráfego intermitente ou imprevisível e baixo rácio de tráfego médio-máximo |
 | Como funciona | Para cada um dos seus contentores, fornece alguma quantidade de produção expressa nas [Unidades de Pedido](request-units.md) por segundo. A cada segundo, este número de Unidades de Pedido está disponível para as suas operações de base de dados. A produção a provisionada pode ser atualizada manualmente ou ajustada automaticamente com [autoescala](provision-throughput-autoscale.md). | Execute as suas operações de base de dados contra os seus contentores sem ter de providenciar qualquer capacidade. |
 | Geo-distribuição | Disponível (número ilimitado de regiões de Azure) | Indisponível (as contas sem servidor só podem ser executadas em 1 região do Azure) |
 | Armazenamento máximo por contentor | Ilimitado | 50 GB |
-| Desempenho | 99,99% para 99,999% disponibilidade coberta pela SLA<br>< 10 ms latência para leituras e escritos cobertos por SLA<br>Produção garantida de 99,99% abrangida pelo SLA | Disponibilidade de 99,9% a 99,99% abrangida pela SLA<br>< 10 ms latência para leituras pontuais e < 30 ms para escritas cobertas pela SLO<br>95% de burstability coberto pela SLO |
+| Desempenho | < 10 ms latência para leituras e escritos cobertos por SLA | < 10 ms latência para leituras pontuais e < 30 ms para escritas cobertas pela SLO |
 | Modelo de faturação | A faturação é feita por hora para o R/S a provisionado, independentemente do número de RUs consumidos. | A faturação é feita por hora pela quantidade de RUs consumidas pelas suas operações de base de dados. |
 
 > [!IMPORTANT]

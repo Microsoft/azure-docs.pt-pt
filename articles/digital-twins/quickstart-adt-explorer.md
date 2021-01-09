@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187307"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050532"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -251,9 +251,7 @@ Nesta secção, você fará uma pergunta para responder à questão de quantos g
 
 Para ver a resposta, execute a seguinte consulta na caixa **QUERY EXPLORER.**
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Lembre-se de ver as propriedades gémeas mais cedo que o Quarto0 tem uma temperatura de 70, e a Sala1 tem uma temperatura de 80. Por esta razão, apenas a Sala 1 aparece nos resultados aqui.
     
@@ -284,9 +282,7 @@ Agora, você verá uma janela **de Informação de Patch** onde aparece o códig
 
 Para verificar se o gráfico registou com sucesso a sua atualização à temperatura da Sala 0, reexame a consulta de antes para obter todos os gémeos no ambiente com uma temperatura superior a 75.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Agora que a temperatura da Sala 0 foi alterada de 70 para 76, ambos os gémeos devem aparecer no resultado.
 
@@ -306,7 +302,7 @@ A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digi
 
 Neste arranque rápido, fez a atualização da temperatura manualmente. É comum no Azure Digital Twins ligar gémeos digitais a dispositivos IoT reais para que recebam atualizações automaticamente, com base em dados de telemetria. Desta forma, pode construir um gráfico ao vivo que reflita sempre o estado real do seu ambiente. Você pode usar consultas para obter informações sobre o que está acontecendo no seu ambiente em tempo real.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Esta ação desliga a ligação à aplicação ADT Explorer no navegador. Não poderá mais ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 

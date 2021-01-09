@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para backup Azure
 description: Lista definições de políticas incorporadas da Azure Policy para Azure Backup. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 60ad2b24647b0409157ee4d21661707bf7f0bb1a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 543c44134c9855b146db3d07e75416533120deb8
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992272"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051420"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Definições incorporadas da Política Azure para backup Azure
 

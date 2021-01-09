@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015683"
+ms.locfileid: "98052756"
 ---
 | Recurso | Básica | Standard | Premium |
 |---|---|---|---|
@@ -38,7 +38,7 @@ ms.locfileid: "98015683"
 | &bull; Repositórios por mapa de âmbito | N/D | N/D | 500 |
 
 
-<sup>1</sup> Armazenamento incluído na diária para cada nível. Pode ser utilizado um armazenamento adicional, até ao limite de armazenamento do registo, a uma taxa diária adicional por GiB. Para obter informações sobre tarifas, consulte [os preços do registo do contentor Azure][pricing].
+<sup>1</sup> Armazenamento incluído na diária para cada nível. Pode ser utilizado um armazenamento adicional, até ao limite de armazenamento do registo, a uma taxa diária adicional por GiB. Para obter informações sobre tarifas, consulte [os preços do registo do contentor Azure][pricing]. Se necessitar de armazenamento para além do limite de armazenamento do registo, contacte o Suporte Azure.
 
 <sup>2</sup>*ReadOps,* *WriteOps* e *Bandwidth* são estimativas mínimas. O Registo de Contentores Azure esforça-se para melhorar o desempenho conforme o uso requer.
 

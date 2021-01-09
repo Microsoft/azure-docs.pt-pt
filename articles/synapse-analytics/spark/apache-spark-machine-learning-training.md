@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97091994"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048322"
 ---
 # <a name="train-machine-learning-models"></a>Modelos de aprendizagem de máquinas de comboio
 Apache Spark in Azure Synapse Analytics permite a aprendizagem automática com big data, fornecendo a capacidade de obter informações valiosas de grandes quantidades de dados estruturados, desestruturados e em movimento rápido. Existem várias opções quando treinam modelos de machine learning usando Azure Spark em Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning, e várias outras bibliotecas de código aberto. 
@@ -58,6 +58,6 @@ Ao utilizar ml automatizado dentro do Azure Synapse Analytics, você pode aprove
 ## <a name="next-steps"></a>Passos seguintes
 Este artigo fornece uma visão geral das várias opções para treinar modelos de machine learning dentro das piscinas Apache Spark em Azure Synapse Analytics. Pode aprender mais sobre a formação de modelos seguindo o tutorial abaixo:
 
-- Executar experiências automatizadas de ML usando Azure Machine Learning e Azure Synapse Analytics: [Tutorial automatizado de ML](./spark/../apache-spark-autoscale.md) 
-- Executar experiências SparkML: [Apache SparkML Tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Executar experiências automatizadas de ML usando Azure Machine Learning e Azure Synapse Analytics: [Tutorial automatizado de ML](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Executar experiências SparkML: [Apache SparkML Tutorial](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - Ver as bibliotecas predefinidas: [Azure Synapse Analytics tempo de execução](../spark/apache-spark-version-support.md)

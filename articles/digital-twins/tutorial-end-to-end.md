@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845636"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049221"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -89,10 +89,7 @@ Query
 >
 > Aqui está o corpo de consulta completa para obter todos os gémeos digitais no seu caso:
 > 
-> ```sql
-> SELECT *
-> FROM DIGITALTWINS
-> ``` 
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 Depois disto, pode parar de dirigir o projeto. Mantenha a solução aberta no Visual Studio, pois continuará a usá-la durante todo o tutorial.
 

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas
 description: Lista definições políticas incorporadas da Azure Policy para a Azure Synapse Analytics. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 01/08/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 655cf05ece748ae66ffd99bb170c59af74fb1f07
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 85486f92c0b19d341255e74c714b41ddd4449135
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446756"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051216"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Azure Policy definições incorporadas para Azure Synapse Analytics 
 

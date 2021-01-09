@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658592"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051518"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -35,7 +35,7 @@ Para implantações de produção, [recomenda-se](/azure/architecture/reference-
 
 ![Tutorial de infraestrutura de rede](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar um ambiente de rede de teste
@@ -72,10 +72,10 @@ O grupo de recursos contém todos os recursos para o tutorial.
 Esta VNet irá conter três sub-redes.
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
-1. Selecione rede virtual **de rede**  >  **Virtual network**.
+1. Selecione rede virtual **de rede**  >  .
 2. Em **Subscrição**, selecione a sua subscrição.
 3. Para **o grupo de recursos**, selecione **Test-FW-RG**.
 4. Em **Nome**, escreva **Test-FW-VN**.
@@ -136,7 +136,7 @@ Implemente a firewall na VNet.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**Teste-FW-RG** |
-   |Name     |**Test-FW01**|
+   |Nome     |**Test-FW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilização existente**: **Test-FW-VN**|
    |Endereço IP público     |**Adicionar novo**<br>**Nome**:  **fw-pip**|
@@ -269,7 +269,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos elimine o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta SWIFT CSP-CSCF v2020
 description: Implementar etapas para a amostra de planta SWIFT CSP-CSCF v2020, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 08/18/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 973cd0076ae03fd32db5fc9be262b2c5300fdf16
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c3672dabb7f4c0a977b8140f470ddfc9fcea9c6d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949416"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048764"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implementar a amostra de planta SWIFT CSP-CSCF v2020
 
@@ -52,7 +52,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** e procure e selecione **Política** no painel esquerdo. Na página **'Política',** selecione **Plantas**.
 

@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d662efc927235711c4dd5e8a424d8775279c30b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023691"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048050"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Tutorial: Proteja a sua rede virtual do hub utilizando o Azure Firewall Manager
 
@@ -30,7 +30,7 @@ Para este tutorial, cria três redes virtuais:
 
 ![Rede híbrida](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma política de firewall
@@ -101,13 +101,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     Para destino, tipo **10.6.0.0/16**
 
 1. Selecione **Adicionar**.
-2. Selecione **Review + Criar**.
+2. Selecione **Rever + Criar**.
 3. Reveja os detalhes e, em seguida, **selecione Criar**.
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Crie a rede virtual do hub de firewall
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Em **Rede,** selecione **Rede Virtual.**

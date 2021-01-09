@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496047"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051586"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -62,7 +62,7 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
 3. Crie uma rota em Azure Digital Twins para enviar eventos de atualização dupla para o seu ponto final.
 
     >[!NOTE]
-    >Existe atualmente um **problema conhecido** na Cloud Shell que afeta estes grupos de comando: . . . . . . . . . . . . `az dt route` . `az dt model` `az dt twin` .
+    >Existe atualmente um **problema conhecido** na Cloud Shell que afeta estes grupos de comando: `az dt route` `az dt model` . `az dt twin`
     >
     >Para resolver, ou corra `az login` em Cloud Shell antes de executar o comando, ou use o [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) em vez de Cloud Shell. Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
@@ -72,66 +72,13 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
 
 ## <a name="create-an-azure-function-to-update-maps"></a>Criar uma função Azure para atualizar mapas
 
-Vai criar uma função desencadeada por Event Grid dentro da sua aplicação de função a partir do tutorial de ponta a ponta[*(Tutorial: Conecte uma solução de ponta a ponta).*](./tutorial-end-to-end.md) Esta função irá desembalar essas notificações e enviar atualizações para um estado de funcionalidade do Azure Maps para atualizar a temperatura de um quarto. 
+Vai criar uma função desencadeada por Event Grid dentro da sua aplicação de função a partir do tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta).*](./tutorial-end-to-end.md) Esta função irá desembalar essas notificações e enviar atualizações para um estado de funcionalidade do Azure Maps para atualizar a temperatura de um quarto. 
 
 Consulte o seguinte documento para obter informações de referência: [*Azure Event Grid trigger for Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Substitua o código de função pelo seguinte código. Filtrará apenas atualizações para gémeos espaciais, lerá a temperatura atualizada e enviará essa informação para o Azure Maps.
 
-```C#
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoMaps
-    {   //Read maps credentials from application settings on function startup
-        private static string statesetID = Environment.GetEnvironmentVariable("statesetID");
-        private static string subscriptionKey = Environment.GetEnvironmentVariable("subscription-key");
-        private static HttpClient httpClient = new HttpClient();
-
-        [FunctionName("ProcessDTUpdatetoMaps")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
-                eventGridEvent.EventType.ToString() + ": " + message["data"]);
-
-            //Parse updates to "space" twins
-            if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in your map. 
-                //Replace this line with your logic for retrieving featureID. 
-                string featureID = "UNIT103";
-
-                //Iterate through the properties that have changed
-                foreach (var operation in message["data"]["patch"])
-                {
-                    if (operation["op"].ToString() == "replace" && operation["path"].ToString() == "/Temperature")
-                    {   //Update the maps feature stateset
-                        var postcontent = new JObject(new JProperty("States", new JArray(
-                            new JObject(new JProperty("keyName", "temperature"),
-                                 new JProperty("value", operation["value"].ToString()),
-                                 new JProperty("eventTimestamp", DateTime.Now.ToString("s"))))));
-
-                        var response = await httpClient.PostAsync(
-                            $"https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetID}&featureID={featureID}&subscription-key={subscriptionKey}",
-                            new StringContent(postcontent.ToString()));
-
-                        log.LogInformation(await response.Content.ReadAsStringAsync());
-                    }
-                }
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
 Terá de definir duas variáveis ambientais na sua aplicação de função. Uma delas é a sua chave de subscrição primária do [Azure Maps,](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)e uma é o seu [ID de estado Azure Maps.](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset)
 
@@ -145,14 +92,14 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 Para ver a temperatura de atualização ao vivo, siga os passos abaixo:
 
 1. Comece a enviar dados IoT simulados executando o projeto **DeviceSimulator** a partir do Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). As instruções para tal encontram-se no [*Configure e executam a secção de simulação.*](././tutorial-end-to-end.md#configure-and-run-the-simulation)
-2. Utilize [o módulo Interior **Azure Maps** ](../azure-maps/how-to-use-indoor-module.md) para tornar os seus mapas internos criados no Azure Maps Creator.
+2. Utilize [o módulo Interior **Azure Maps**](../azure-maps/how-to-use-indoor-module.md) para tornar os seus mapas internos criados no Azure Maps Creator.
     1. Copie o HTML a partir do exemplo: Utilize a secção do [*Módulo mapas interiores*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) do tutorial de mapas [*interiores: Utilize o módulo Azure Maps Indoor Maps para*](../azure-maps/how-to-use-indoor-module.md) um ficheiro local.
     1. Substitua o *tilesetId* e *o stateetID* no ficheiro HTML local pelos seus valores.
     1. Abra o ficheiro no seu navegador.
 
 Ambas as amostras enviam temperatura numa gama compatível, por isso deve ver a cor da atualização do quarto 121 no mapa a cada 30 segundos.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta, destacando a peça de Integração de Mapas Interiores":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Um mapa de escritório mostrando a sala 121 cor de laranja":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Guarde as informações dos seus mapas em Azure Digital Twins
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927322"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050566"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como resolver problemas com o agente do Log Analytics para Windows 
 
@@ -21,6 +21,40 @@ Se nenhum destes passos funcionar para si, estão também disponíveis os seguin
 * Os clientes com benefícios de suporte Premier podem abrir um pedido de apoio com [o Premier.](https://premier.microsoft.com/)
 * Os clientes com contratos de apoio Azure podem abrir um pedido de apoio [no portal Azure.](https://manage.windowsazure.com/?getsupport=true)
 * Visite a página de Feedback do Log Analytics para rever as ideias e bugs submetidos [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou arquivar uma nova. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Ferramenta de resolução de problemas de log analytics
+
+A Ferramenta de resolução de problemas do Agente de Ação de Registos Windows é uma coleção de scripts PowerShell projetados para ajudar a encontrar e diagnosticar problemas com o Agente De Análise de Registo. É automaticamente incluído com o agente aquando da instalação. Executar a ferramenta deve ser o primeiro passo para diagnosticar um problema.
+
+### <a name="how-to-use"></a>Como utilizar
+1. Abrir o pedido de PowerShell como administrador na máquina onde o Agente de Análise de Registo está instalado.
+1. Navegue para o diretório onde a ferramenta está localizada.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Execute o script principal usando este comando:
+   * `.\GetAgentInfo.ps1`
+1. Selecione um cenário de resolução de problemas.
+1. Siga as instruções na consola. (Nota: os passos de registo de vestígios requerem uma intervenção manual para parar a recolha de registos. Com base na reprodutibilidade da emissão, aguarde a duração do tempo e prima 's' para parar a recolha de registos e avançar para o passo seguinte).
+
+   As localizações do ficheiro de resultados são registadas após a conclusão e uma nova janela do explorador que realça o mesmo é aberta.
+
+### <a name="installation"></a>Instalação
+A Ferramenta de Resolução de Problemas é automaticamente incluída após a instalação do Agente Desanalção de Registos 10.20.18053.0 e em diante.
+
+### <a name="scenarios-covered"></a>Cenários cobertos
+Abaixo está uma lista de cenários verificados pela Ferramenta de Resolução de Problemas:
+
+- Agente que não reporte dados ou dados de batimentos cardíacos em falta
+- Falha na implementação da extensão do agente
+- Agente a despenhar-se
+- Agente consumindo CPU/memória elevado
+- Falhas de instalação/desinstalação
+- Problema de registos personalizados
+- Emissão do OMS Gateway
+- Emissão de contadores de desempenho
+- Recolha todos os registos
+
+>[!NOTE]
+>Por favor, execute a ferramenta de resolução de problemas quando tiver um problema. Ao abrir um bilhete, ter os registos inicialmente ajudará muito a nossa equipa de suporte a resolver o seu problema mais rapidamente.
 
 ## <a name="important-troubleshooting-sources"></a>Importantes fontes de resolução de problemas
 
@@ -59,7 +93,7 @@ Existem várias formas de verificar se o agente está a comunicar com sucesso co
 
     ![Resultados da execução da ferramenta TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtrar o registo de eventos *do Gestor de Operações* por **fontes de eventos**  -  *Health Service Modules,* *HealthService*e *Service Connector* e filtrar por *Aviso* e *Erro* **de Nível** de Evento para confirmar se tem eventos escritos a partir da tabela seguinte. Se forem, reveja as etapas de resolução incluídas para cada evento possível.
+- Filtrar o registo de eventos *do Gestor de Operações* por **fontes de eventos**  -  *Health Service Modules,* *HealthService* e *Service Connector* e filtrar por *Aviso* e *Erro* **de Nível** de Evento para confirmar se tem eventos escritos a partir da tabela seguinte. Se forem, reveja as etapas de resolução incluídas para cada evento possível.
 
     |ID do Evento |Fonte |Descrição |Resolução |
     |---------|-------|------------|-----------|

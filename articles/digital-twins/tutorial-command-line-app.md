@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458096"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050243"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -51,27 +51,15 @@ Selecione *Room.js* para abri-lo na janela de edição e alterá-lo das seguinte
 1. **Editar uma propriedade.** Mude o nome da `Humidity` propriedade para *HumidityLevel* (ou algo diferente, se quiser. Se utilizar algo diferente do *HumidityLevel,* lembre-se do que utilizou e continue a usá-lo em vez de *HumidityLevel* durante todo o tutorial).
 1. **Adicione uma propriedade.** Por baixo da `HumidityLevel` propriedade que termina na linha 15, cole o seguinte código para adicionar uma propriedade ao `RoomName` quarto:
 
-    ```json
-    ,
-    {
-      "@type": "Property",
-      "name": "RoomName",
-      "schema": "string"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
+
 1. **Adicione uma relação.** Por baixo da `RoomName` propriedade que acabou de adicionar, cole o seguinte código para adicionar a capacidade deste tipo de *gémeos de* formar relações com outros gémeos:
 
-    ```json
-    ,
-    {
-      "@type": "Relationship",
-      "name": "contains"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
 
-Quando terminar, o modelo atualizado deve ser assim:
+Quando terminar, o modelo atualizado deve coincidir com isto:
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento" border="false":::
+:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 Certifique-se de que guarda o ficheiro antes de seguir em frente.
 

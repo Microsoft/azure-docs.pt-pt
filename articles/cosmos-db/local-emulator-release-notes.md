@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 12983f43e5f778cdf46c2ea3e0177d43838e5b47
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656228"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051603"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - Divulgar notas e descarregar informações
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ Este artigo mostra as notas de lançamento do Azure Cosmos DB Emulator com uma l
 |**Introdução**|[Desenvolva-se localmente com o Azure Cosmos DB Emulator](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="21110-5-january-2021"></a>2.11.10 (5 janeiro 2021)
+
+ - Esta versão atualiza o conteúdo local do Data Explorer para a versão mais recente do Portal Azure e adiciona uma nova opção pública, "/ExportPemCert", que permite ao utilizador emulador exportar diretamente o certificado do emulador público como um . Ficheiro PEM.
 
 ### <a name="2119-3-december-2020"></a>2.11.9 (3 de dezembro de 2020)
 

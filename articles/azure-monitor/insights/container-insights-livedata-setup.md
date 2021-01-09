@@ -2,14 +2,14 @@
 title: Configurar o Azure Monitor para contentores Live Data (pré-visualização) Microsoft Docs
 description: Este artigo descreve como configurar a visão em tempo real dos troncos de contentores (stdout/stderr) e eventos sem utilizar kubectl com O Azure Monitor para contentores.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830790"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050787"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -29,8 +29,6 @@ Este artigo explica como configurar a autenticação para controlar o acesso à 
 - O controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) permitiu o cluster AKS
 - Azure Ative Directory integra o cluster AKS.
 
->[!NOTE]
->Os clusters AKS ativados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esta funcionalidade. Esta funcionalidade baseia-se no acesso direto à API de Kubernetes através de um servidor proxy do seu navegador. Permitir a segurança em rede para bloquear a API de Kubernetes a partir deste proxy bloqueará este tráfego.
 
 ## <a name="authentication-model"></a>Modelo de autenticação
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ac8ae4fd4218bbf74bbb6760d8344096c214a76
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 77fab9c4a52a1d54f548dfbcb35e351195d13bd9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820597"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052837"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
@@ -187,6 +187,13 @@ Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que subs
           recognizer.addAllIntents(lm);
         }
 ```
+
+> [!NOTE]
+> Pode criar um LanguageUnderstandingModel passando um URL de ponto final para o método FromEndpoint.
+> A SDK da fala só suporta pontos finais LUIS v2.0, e os pontos finais LUIS v2.0 seguem sempre um destes dois padrões:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
 Pelo `IntentRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço de Discurso saber que está a enviar uma única frase para reconhecimento, e que uma vez que a frase é identificada para parar de reconhecer a fala.

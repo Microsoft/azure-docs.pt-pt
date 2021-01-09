@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 78e934a90b8d4e8feccf18a5cada3ec4920e1642
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734458"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051076"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
 
@@ -29,7 +29,7 @@ Para este tutorial, cria três redes virtuais:
 
 ![Firewall numa rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Declarar as variáveis
@@ -78,13 +78,13 @@ Em primeiro lugar, crie o grupo de recursos para conter os recursos para este tu
 3. Em **Subscrição**, selecione a sua subscrição.
 1. Para **o nome do grupo de recursos**, tipo **FW-Hybrid-Test**.
 2. Para **a Região**, selecione **(EUA) Leste DOS EUA.** Todos os recursos que criar mais tarde devem estar no mesmo local.
-3. Selecione **Review + Criar**.
+3. Selecione **Rever + Criar**.
 4. Selecione **Criar**.
 
 Agora, crie o VNet:
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Em **Rede,** selecione **Rede Virtual.**
@@ -152,7 +152,7 @@ Agora, insi(implantado a firewall na rede virtual do hub de firewall.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**FW-Hybrid-Test** |
-   |Name     |**AzFW01**|
+   |Nome     |**AzFW01**|
    |Região     |**E.U.A. Leste**|
    |Escolher uma rede virtual     |**Utilização existente:**<br> **VNet-hub**|
    |Endereço IP público     |Adicione novo: <br>**fw-pip**. |
@@ -313,7 +313,7 @@ Em seguida, crie duas rotas:
 6. Selecione o **FW-Hybrid-Test** para o grupo de recursos.
 8. Para **a Região**, selecione o mesmo local que usou anteriormente.
 1. Para o nome, escreva **UDR-Hub-Spoke**.
-9. Selecione **Review + Criar**.
+9. Selecione **Rever + Criar**.
 10. Selecione **Criar**.
 11. Depois da tabela de rotas ser criada, selecione-a para abrir a página da tabela de rotas.
 12. Selecione **Rotas** na coluna esquerda.
@@ -342,7 +342,7 @@ Agora crie a rota padrão a partir da sub-rede falada.
 8. Para **a Região**, selecione o mesmo local que usou anteriormente.
 1. Para o nome, escreva **UDR-DG**.
 4. Para **a rota de gateway propagate**, selecione **Nº**.
-5. Selecione **Review + Criar**.
+5. Selecione **Rever + Criar**.
 6. Selecione **Criar**.
 7. Depois da tabela de rotas ser criada, selecione-a para abrir a página da tabela de rotas.
 8. Selecione **Rotas** na coluna esquerda.
@@ -451,7 +451,7 @@ Em seguida, altere a ação das coleções de regras de rede da firewall para **
 2. Selecione **Regras**.
 3. Selecione o separador **de recolha de regras da Rede** e selecione a coleção de regras **RCNet01.**
 4. For **Action**, selecione **Deny**.
-5. Selecione **Save** (Guardar).
+5. Selecione **Guardar**.
 
 Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regras alteradas. Agora execute os testes novamente. Desta vez, devem falhar todos.
 

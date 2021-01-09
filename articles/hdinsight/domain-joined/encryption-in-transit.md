@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705375"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049784"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Encriptação IPSec em trânsito para Azure HDInsight
 
@@ -24,7 +24,7 @@ O Azure HDInsight oferece uma variedade de funcionalidades de segurança para ga
 
 A encriptação em repouso é coberta pela encriptação do lado do servidor nas contas de armazenamento Azure, bem como a encriptação de discos nos VMs Azure que fazem parte do seu cluster HDInsight.
 
-A encriptação de dados em trânsito em HDInsight é conseguida com a [Segurança da Camada de Transporte (TLS)](../transport-layer-security.md) para aceder aos gateways de cluster e à Segurança do Protocolo de Internet [(IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente ativado entre todos os nós da cabeça, nós de trabalhadores, nós de borda e nós de zookeeper. Não está ativado para o tráfego entre os nós de gateway ou [de id broker](./identity-broker.md) que são VMs baseados no Windows e outros nós baseados em linux no cluster.
+A encriptação de dados em trânsito em HDInsight é conseguida com a [Segurança da Camada de Transporte (TLS)](../transport-layer-security.md) para aceder aos gateways de cluster e à Segurança do Protocolo de Internet [(IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente ativado entre todos os nós da cabeça, nós de trabalhadores, nós de borda, nós de zookeeper, bem como nós de gateway e [id broker.](./identity-broker.md)
 
 ## <a name="enable-encryption-in-transit"></a>Ativar a encriptação em trânsito
 
@@ -47,7 +47,7 @@ A encriptação em trânsito é ativada usando a `isEncryptionInTransitEnabled` 
 
 Pode [descarregar um modelo de amostra e um ficheiro de parâmetros.](https://github.com/Azure-Samples/hdinsight-enterprise-security) Antes de utilizar o modelo e o corte de código Azure CLI abaixo, substitua os seguintes espaços reservados pelos seus valores corretos:
 
-| Marcador de posição | Description |
+| Marcador de posição | Descrição |
 |---|---|
 | `<SUBSCRIPTION_ID>` | O ID da sua assinatura Azure |
 | `<RESOURCE_GROUP>` | O grupo de recursos onde pretende a criação da nova conta de cluster e armazenamento. |

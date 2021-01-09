@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 71eda40abd38b4885b8e88085e338667b608902f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 281d0587ca4c041c7149e49aad6227f6dc0b7fbf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655141"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050872"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de internet de entrada com ADN da Azure Firewall usando o portal Azure
 
 Pode configurar a Tradução de Endereços de Rede de Destino (DNAT) do Azure Firewall para traduzir e filtrar o tráfego de Internet de entrada para as sub-redes. Ao configurar o DNAT, a ação de recolha de regras NAT está definida para **Dnat**. Cada regra na coleção de regras NAT pode então ser utilizada para traduzir o endereço IP e a porta de firewall públicos para um IP e porta privados. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar um ambiente de rede de teste
@@ -66,7 +66,7 @@ Em primeiro lugar, crie as VNets e, em seguida, configure o peering entre elas.
 
      A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
      > [!NOTE]
-     > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+     > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 10. Para **a gama Address**, tipo **10.0.1.0/26**.
 11. Utilize as outras definições predefinidos e, em seguida, **selecione Criar**.
@@ -119,7 +119,7 @@ Crie uma máquina virtual de carga de trabalho e coloque-a na sub-rede **SN-Work
 **Discos**
 1. Selecione **Seguinte: Rede**.
 
-**Rede**
+**Redes**
 
 1. Para **rede virtual**, selecione **VN-Spoke**.
 2. Em **Sub-rede**, selecione **SN-Workload**.
@@ -130,7 +130,7 @@ Crie uma máquina virtual de carga de trabalho e coloque-a na sub-rede **SN-Work
 **Gestão**
 
 1. Para **diagnósticos de arranque**, selecione **Off**.
-1. Selecione **Review + Criar**.
+1. Selecione **Rever + Criar**.
 
 **Comentário + Criar**
 

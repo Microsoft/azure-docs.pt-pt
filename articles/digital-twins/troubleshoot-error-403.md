@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091808"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049818"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)
 
@@ -44,7 +44,7 @@ A primeira solução é verificar se o utilizador do Azure tem a função _**de 
 Note que este papel é diferente de...
 * o nome anterior para este papel durante a pré-visualização, *Azure Digital Twins Owner (Preview)* (o papel é o mesmo, mas o nome mudou)
 * a função *do Proprietário* em toda a subscrição do Azure. *Azure Digital Twins Data Owner* é um papel dentro da Azure Digital Twins e é traçado para este exemplo individual de Azure Digital Twins.
-* o papel *de Proprietário* em Azure Digital Twins. Estes são dois papéis distintos de gestão da Azure Digital Twins, e *a Azure Digital Twins Data Owner* é o papel que deve ser usado para a gestão durante a pré-visualização.
+* o papel *de Proprietário* em Azure Digital Twins. Estes são dois papéis distintos de gestão da Azure Digital Twins, e *a Azure Digital Twins Data Owner* é o papel que deve ser usado para a gestão.
 
 #### <a name="check-current-setup"></a>Verifique a configuração atual
 
@@ -52,7 +52,7 @@ Note que este papel é diferente de...
 
 #### <a name="fix-issues"></a>Corrigir problemas 
 
-Se não tiver esta atribuição de funções, alguém com um papel proprietário na sua **subscrição Azure** deve executar o seguinte comando para dar ao seu utilizador Azure a função *de Proprietário de Dados Azure Digital Twins* na instância **Azure Digital Twins** . 
+Se não tiver esta atribuição de funções, alguém com um papel proprietário na sua **subscrição Azure** deve executar o seguinte comando para dar ao seu utilizador Azure a função *de Proprietário de Dados Azure Digital Twins* na instância **Azure Digital Twins**. 
 
 Se você é um Proprietário na subscrição, você pode executar este comando por si mesmo. Se não estiver, contacte um proprietário para executar este comando em seu nome.
 
@@ -60,7 +60,7 @@ Se você é um Proprietário na subscrição, você pode executar este comando p
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)* .
+Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.
 
 Se já tem esta atribuição de funções *e* está a utilizar um registo de aplicações AD AZure para autenticar uma aplicação de clientes, pode continuar a solução seguinte se esta solução não resolver a questão 403.
 
@@ -80,11 +80,11 @@ Você deve ver o registo de aplicações que acabou de criar na lista. Selecione
 
 Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twins foram corretamente definidas no registo. Para isso, selecione *Manifesto* da barra de menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Página de registos de aplicativos no portal Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Vista portal do manifesto para o registo da app AZure AD":::
 
 Em seguida, selecione *permissões API* da barra de menu para verificar se este registo de aplicações contém permissões de Read/Write para Azure Digital Twins. Devia ver uma entrada como esta:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Página de registos de aplicativos no portal Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Vista do portal das permissões da API para o registo da aplicação AZure AD, mostrando 'Read/Write Access' para Azure Digital Twins":::
 
 #### <a name="fix-issues"></a>Corrigir problemas
 

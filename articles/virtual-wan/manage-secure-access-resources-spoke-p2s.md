@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360327"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051535"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gerir o acesso seguro aos recursos em VNets falados para clientes VPN de utilizador
 
@@ -147,4 +147,4 @@ Verifique a configuração do seu hub seguro.
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte o [VIRTUAL WAN FAQ](virtual-wan-faq.md).
-* Para obter mais informações sobre o Azure Firewall, consulte o [Azure Firewall FAQ](../firewall/firewall-faq.md).
+* Para obter mais informações sobre o Azure Firewall, consulte o [Azure Firewall FAQ](../firewall/firewall-faq.yml).
