@@ -3,20 +3,20 @@ title: Tipos de runbook Azure Automation
 description: Este artigo descreve os tipos de livros que pode utilizar na Azure Automation e considerações para determinar que tipo de utilização.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1a0c12297f19d30bf13ffbe594e0433c83914a8e
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733965"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050974"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook Azure Automation
 
 A funcionalidade Azure Automation Process Automation suporta vários tipos de runbooks, conforme definido na tabela seguinte. Para conhecer o ambiente de automatização de processos, consulte [a execução do Runbook na Azure Automation.](automation-runbook-execution.md)
 
-| Tipo | Description |
+| Tipo | Descrição |
 |:--- |:--- |
 | [Gráficos](#graphical-runbooks)|Livro gráfico baseado no Windows PowerShell e criado e editado completamente no editor gráfico no portal Azure. |
 | [Fluxo de trabalho gráfico powershell](#graphical-runbooks)|Livro gráfico baseado no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico no portal Azure. |
@@ -117,7 +117,6 @@ Os livros de python compilam-se sob Python 2 e Python 3. Os livros de 100 python
 * Para utilizar bibliotecas de terceiros, deve [importar os pacotes](python-packages.md) para a conta Automation.
 * A utilização do cmdlet **Start-AutomationRunbook**   no PowerShell/PowerShell Workflow para iniciar um livro de bordo Python 3 (pré-visualização) não funciona. Pode utilizar o cmdlet **Start-AzAutomationRunbook** a partir do módulo Az.Automation ou o cmdlet **Start-AzureRmAutomationRunbook** da AzureRm.Automation module para contornar esta limitação.  
 * Os livros de bordo Python 3 (pré-visualização) e os pacotes não funcionam com o PowerShell.
-* Não é suportado o suporte de um webhook para iniciar um livro de aplicações Python.
 * A Azure Automation não suporta **sys.stderr**.
 
 ### <a name="known-issues"></a>Problemas conhecidos

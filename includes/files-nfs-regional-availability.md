@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb4a43fe120991c64bf678047251a1f0f845137a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6eeee88cf9fbfacdca8883094dc597b252e3b5d1
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022599"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052931"
 ---
 - Leste dos EUA (LRS e ZRS)
 - E.U.A. Leste 2
@@ -21,4 +21,8 @@ ms.locfileid: "96022599"
 - Europa Ocidental
 - Sudeste Asiático
 - Sul do Reino Unido
-- Leste da Austrália
+- Austrália Leste (LRS e ZRS)
+- França Central
+- KoreaCentral
+- Coreias
+

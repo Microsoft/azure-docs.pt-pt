@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 44c4427540e1b94ebcaf00e6875723e0a654e9ef
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8eada631b7e1f632148993e586c70b6811cf9ac9
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425063"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052720"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,6 +70,12 @@ Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que subs
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
 
 Este exemplo utiliza a `add_intents()` função para adicionar uma lista de intenções explicitamente definidas. Se quiser adicionar todas as intenções de um modelo, use `add_all_intents(model)` e passe o modelo.
+
+> [!NOTE]
+> Pode criar um LanguageUnderstandingModel passando um URL de ponto final para o método FromEndpoint.
+> A SDK da fala só suporta pontos finais LUIS v2.0, e os pontos finais LUIS v2.0 seguem sempre um destes dois padrões:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 

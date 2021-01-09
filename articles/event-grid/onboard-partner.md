@@ -3,12 +3,12 @@ title: A bordo como parceiro da Azure Event Grid usando o portal Azure
 description: Utilize o portal Azure para embarcar num parceiro da Azure Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349391"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050957"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>A bordo como parceiro da Azure Event Grid utilizando o portal Azure
 Este artigo descreve a forma como os fornecedores de SaaS de terceiros, também conhecidos como editores de eventos ou parceiros, estão a bordo da Event Grid para poderem publicar eventos a partir dos seus serviços e como esses eventos são consumidos pelos utilizadores finais.
@@ -112,7 +112,6 @@ Para completar os passos restantes, certifique-se de que tem:
     1. Na secção **de detalhes do Canal,** faça estes passos:
         1. Para **o nome do canal event,** insira um nome para o canal de eventos. 
         1. Insira a **fonte**. Consulte [as especificações cloud Events 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) para obter uma ideia de um valor adequado para a fonte. Além disso, consulte [este exemplo de esquema de Cloud Events](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Insira a fonte (O QUE É IT?).
     1. Na secção de detalhes do **Destino,** insira detalhes para o tópico do parceiro de destino que será criado para este canal de eventos. 
         1. Introduza o **ID da subscrição** na qual o tópico do parceiro será criado. 
         1. Insira o **nome do grupo de recursos** no qual o recurso tópico parceiro será criado. 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9119af718131808bce0440934d482a53e39b8ef7
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 29c05544b4291eb57215bb733eb3791ad3196b6c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964580"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049801"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -93,62 +93,25 @@ Aqui estão algumas amostras de código que ilustram a utilização do .NET SDK.
 
 Autenticar contra o serviço:
 
-```csharp
-// Authenticate against the service and create a client
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credential = new DefaultAzureCredential();
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_basic":::
 
 [!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-note.md)] 
 
-Faça upload de um modelo e modelos de lista:
+Faça o upload de um modelo:
 
-```csharp
-// Upload a model
-var typeList = new List<string>();
-string dtdl = File.ReadAllText("SampleModel.json");
-typeList.Add(dtdl);
-try {
-    await client.CreateModelsAsync(typeList);
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
-}
-// Read a list of models back from the service
-AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-await foreach (DigitalTwinsModelData md in modelDataList)
-{
-    Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-Criar e consultar gémeos:
+Modelos de listas:
 
-```csharp
-// Initialize twin metadata
-BasicDigitalTwin twinData = new BasicDigitalTwin();
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
-twinData.Id = $"firstTwin";
-twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.Contents.Add("data", "Hello World!");
-try {
-    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", twinData);
-} catch(RequestFailedException rex) {
-    Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
-}
- 
-// Run a query    
-AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-await foreach (string twin in result)
-{
-    // Use JSON deserialization to pretty-print
-    object jsonObj = JsonSerializer.Deserialize<object>(twin);
-    string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(prettyTwin);
-    // Or use BasicDigitalTwin for convenient property access
-    BasicDigitalTwin btwin = JsonSerializer.Deserialize<BasicDigitalTwin>(twin);
-}
-```
+Criar gémeos:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
+
+Consultas gémeas e loop através de resultados:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 
 Consulte o [*Tutorial: Código de um aplicativo*](tutorial-code.md) de cliente para uma passagem deste código de aplicação de amostra. 
 
@@ -168,103 +131,41 @@ As aulas de ajudante disponível são:
 
 Pode sempre desseeciar dados gémeos utilizando a biblioteca JSON à sua escolha, como `System.Test.Json` ou `Newtonsoft.Json` . Para o acesso básico a um gémeo, as aulas de ajudante tornam isto um pouco mais conveniente.
 
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-```
-
 A `BasicDigitalTwin` classe de ajudante também lhe dá acesso a propriedades definidas no gémeo, através de um `Dictionary<string, object>` . Para listar as propriedades do gémeo, pode utilizar:
 
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
 
 ##### <a name="create-a-digital-twin"></a>Criar um gémeo digital
 
 Utilizando a `BasicDigitalTwin` classe, pode preparar dados para criar uma instância dupla:
 
-```csharp
-BasicDigitalTwin twin = new BasicDigitalTwin();
-twin.Metadata = new DigitalTwinMetadata();
-twin.Metadata.ModelId = "dtmi:example:Room;1";
-// Initialize properties
-Dictionary<string, object> props = new Dictionary<string, object>();
-props.Add("Temperature", 25.0);
-twin.Contents = props;
-
-client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 O código acima é equivalente à seguinte variante "manual":
 
-```csharp
-Dictionary<string, object> meta = new Dictionary<string, object>()
-{
-    { "$model", "dtmi:example:Room;1"}
-};
-Dictionary<string, object> twin = new Dictionary<string, object>()
-{
-    { "$metadata", meta },
-    { "Temperature", 25.0 }
-};
-client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 ##### <a name="deserialize-a-relationship"></a>Deserializar uma relação
 
 Pode sempre desseeciar dados de relacionamento a um tipo de escolha. Para acesso básico a uma relação, utilize o tipo `BasicRelationship` .
 
-```csharp
-BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
-Console.WriteLine($"Relationship Name: {rel.Name}");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
 A `BasicRelationship` classe de ajudante também lhe dá acesso a propriedades definidas na relação, através de um `IDictionary<string, object>` . Para listar propriedades, pode utilizar:
 
-```csharp
-BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
-Console.WriteLine($"Relationship Name: {rel.Name}");
-foreach (string prop in rel.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
 
 ##### <a name="create-a-relationship"></a>Criar uma relação
 
 Utilizando a `BasicRelationship` classe, também pode preparar dados para criar relacionamentos num caso duplo:
 
-```csharp
-BasicRelationship rel = new BasicRelationship();
-rel.TargetId = "myTargetTwin";
-rel.Name = "contains"; // a relationship with this name must be defined in the model
-// Initialize properties
-Dictionary<string, object> props = new Dictionary<string, object>();
-props.Add("active", true);
-rel.Properties = props;
-client.CreateOrReplaceRelationshipAsync("mySourceTwin", "rel001", rel);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ##### <a name="create-a-patch-for-twin-update"></a>Crie um patch para atualização twin
 
 A atualização de chamadas para gémeos e relacionamentos usam a estrutura [do JSON Patch.](http://jsonpatch.com/) Para criar listas de operações do JSON Patch, pode utilizar o `JsonPatchDocument` como mostrado abaixo.
 
-```csharp
-var updateTwinData = new JsonPatchDocument();
-updateTwinData.AppendAddOp("/Temperature", 25.0);
-updateTwinData.AppendAddOp("/myComponent/Property", "Hello");
-// Un-set a property
-updateTwinData.AppendRemoveOp("/Humidity");
-
-client.UpdateDigitalTwin("myTwin", updateTwinData);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
 ## <a name="general-apisdk-usage-notes"></a>Notas gerais de utilização da API/SDK
 
@@ -280,9 +181,9 @@ A lista a seguir fornece detalhes adicionais e orientações gerais para a utili
 * Todas as funções de serviço existem em versões sincronizadas e assíncronos.
 * Todas as funções de serviço lançam uma exceção para qualquer estado de devolução de 400 ou mais. Certifique-se de embrulhar as chamadas numa `try` secção e apanhar pelo `RequestFailedExceptions` menos. Para saber mais sobre este tipo de exceção, consulte [aqui.](/dotnet/api/azure.requestfailedexception?preserve-view=true&view=azure-dotnet)
 * A maioria dos métodos de serviço regressam `Response<T>` ou `Task<Response<T>>` (para as chamadas assíncronas), onde `T` está a classe de objeto de retorno para a chamada de serviço. A [`Response`](/dotnet/api/azure.response-1?preserve-view=true&view=azure-dotnet) classe encapsula a devolução do serviço e apresenta valores de retorno no seu `Value` campo.  
-* Métodos de serviço com retorno de resultados paged `Pageable<T>` ou `AsyncPageable<T>` como resultados. Para saber mais sobre a `Pageable<T>` classe, consulte [aqui;](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet-preview)para mais `AsyncPageable<T>` informações, consulte [aqui.](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet-preview)
+* Métodos de serviço com retorno de resultados paged `Pageable<T>` ou `AsyncPageable<T>` como resultados. Para saber mais sobre a `Pageable<T>` classe, consulte [aqui;](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet)para mais `AsyncPageable<T>` informações, consulte [aqui.](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet)
 * Pode iterar os resultados paged utilizando um `await foreach` loop. Para saber mais sobre este processo, consulte [aqui.](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8)
-* O SDK subjacente `Azure.Core` é. Consulte a documentação do [espaço de nomeS Azure](/dotnet/api/azure?preserve-view=true&view=azure-dotnet-preview) para obter referência sobre a infraestrutura e tipos SDK.
+* O SDK subjacente `Azure.Core` é. Consulte a documentação do [espaço de nomeS Azure](/dotnet/api/azure?preserve-view=true&view=azure-dotnet) para obter referência sobre a infraestrutura e tipos SDK.
 
 Os métodos de serviço retornam objetos fortemente digitado sempre que possível. No entanto, uma vez que o Azure Digital Twins se baseia em modelos configurados pelo utilizador em tempo de execução (através de modelos DTDL enviados para o serviço), muitas APIs de serviço pegam e devolvem dados gémeos em formato JSON.
 
