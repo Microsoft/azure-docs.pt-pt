@@ -1,5 +1,5 @@
 ---
-title: Garantir o acesso externo aos recursos no Azure Ative Directory
+title: Assegurar a colaboração externa no Azure Ative Directory
 description: Um guia para arquitetos e administradores de TI para garantir o acesso externo aos recursos internos
 services: active-directory
 author: BarbaraSelden
@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39300c887245a99dce2913661f6492c85a1e6722
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7f09d2050617cbda539eee9fcda1ecfb204a015a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744091"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059284"
 ---
-# <a name="securing-external-access-to-resources"></a>Garantir o acesso externo aos recursos
+# <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Assegurar a colaboração externa no Azure Ative Directory e microsoft 365
 
 A colaboração segura com parceiros externos garante que os parceiros externos certos tenham acesso adequado aos recursos internos durante o tempo certo. Através de uma abordagem de governação holística, você pode reduzir os riscos de segurança, cumprir objetivos de conformidade, e garantir que você sabe quem tem acesso.
 
@@ -43,7 +43,7 @@ Este conjunto de documentos destina-se a permitir-lhe passar de colaboração ex
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 
 
-1. [Determine a sua desejada postura de segurança para acesso externo](1-secure-access-posture.md)
+1. [Determine a sua postura de segurança para acesso externo](1-secure-access-posture.md)
 
 2. [Descubra o seu estado atual](2-secure-access-current-state.md)
 

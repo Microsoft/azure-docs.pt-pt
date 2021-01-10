@@ -3,12 +3,12 @@ title: Autenticação e autorização do Azure Service Bus Microsoft Docs
 description: Autenticar aplicativos para Service Bus com autenticação de assinatura de acesso partilhado (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517285"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060219"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Service Bus
 Existem duas formas de autenticar e autorizar o acesso aos recursos do Azure Service Bus: Azure Activity Directory (Azure AD) e Shared Access Signatures (SAS). Este artigo dá-lhe detalhes sobre a utilização destes dois tipos de mecanismos de segurança. 
@@ -37,7 +37,7 @@ Para utilizar SAS, pode configurar um objeto [SharedAccessAuthorizationRule](/do
 * *Nome-chave*: identifica a regra.
 * *PrimaryKey*: uma chave criptográfica usada para assinar/validar fichas SAS.
 * *SecondaryKey*: uma chave criptográfica usada para assinar/validar fichas SAS.
-* *Direitos*: representa a recolha de direitos **de escuta,** **envio**ou **gestão** concedidos.
+* *Direitos*: representa a recolha de direitos **de escuta,** **envio** ou **gestão** concedidos.
 
 As regras de autorização configuradas ao nível do espaço de nome podem conceder acesso a todas as entidades num espaço de nome para clientes com fichas assinadas usando a chave correspondente. Pode configurar até 12 tais regras de autorização num espaço de nomes, fila ou tópico do Service Bus. Por padrão, uma [Regra de Polidissauto](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos é configurada para cada espaço de nome quando é for provisionada pela primeira vez.
 

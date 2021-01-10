@@ -4,12 +4,12 @@ description: Este quickstart mostra-lhe como usar o Live Video Analytics no IoT 
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09a17712287c73fa165b4bec77682831a51edfa3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89566921"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060577"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Quickstart: Detetar movimento e emitir eventos
 
@@ -34,6 +34,17 @@ Este quickstart acompanha-o através dos passos para começar com live video ana
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/python/prerequisites.md)]
 ::: zone-end
+
+## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/csharp/review-sample-video.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
+::: zone-end
+
 
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
 
@@ -105,7 +116,7 @@ Este quickstart acompanha-o através dos passos para começar com live video ana
 [!INCLUDE [interpret-results](includes/detect-motion-emit-events-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende experimentar os outros quickstarts, então deve manter os recursos que criou. Caso contrário, no portal Azure, vá aos seus grupos de recursos, selecione o grupo de recursos onde executou este arranque rápido e, em seguida, elimine todos os recursos.
 

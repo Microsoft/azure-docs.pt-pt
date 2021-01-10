@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763949"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060165"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
 
@@ -245,9 +245,8 @@ A sua aplicação está a lançar exceções sem correntes – Verifique `d:\\ho
 A causa comum para os longos tempos de início da aplicação é um elevado número de ficheiros nos módulos de \_ nó. A aplicação tenta carregar a maioria destes ficheiros quando começa. Por padrão, uma vez que os seus ficheiros são armazenados na partilha de rede no Azure App Service, o carregamento de muitos ficheiros pode demorar algum tempo.
 Algumas soluções para tornar este processo mais rápido são:
 
-1. Certifique-se de que tem uma estrutura de dependência plana e nenhuma dependência duplicada utilizando o npm3 para instalar os seus módulos.
-2. Tente carregar preguiçosos os seus módulos de nó \_ e não carregue todos os módulos no início da aplicação. Para os módulos de carga preguiçosos, a chamada para exigir ('módulo') deve ser feita quando realmente precisa do módulo dentro da função antes da primeira execução do código do módulo.
-3. O Azure App Service oferece uma funcionalidade chamada cache local. Esta funcionalidade copia o seu conteúdo da partilha de rede para o disco local no VM. Uma vez que os ficheiros são locais, o tempo de carga dos módulos de nó \_ é muito mais rápido.
+1. Tente carregar preguiçosos os seus módulos de nó \_ e não carregue todos os módulos no início da aplicação. Para os módulos de carga preguiçosos, a chamada para exigir ('módulo') deve ser feita quando realmente precisa do módulo dentro da função antes da primeira execução do código do módulo.
+2. O Azure App Service oferece uma funcionalidade chamada cache local. Esta funcionalidade copia o seu conteúdo da partilha de rede para o disco local no VM. Uma vez que os ficheiros são locais, o tempo de carga dos módulos de nó \_ é muito mais rápido.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http status e substatus
 

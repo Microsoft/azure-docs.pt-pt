@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826625"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059726"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -36,7 +36,7 @@ O novo V2 SKU inclui as seguintes melhorias:
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-A SKU Standard_v2 e WAF_v2 está disponível nas seguintes regiões: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canadá Central, Canadá East, East Asia, Coreia Do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul, Coreia do Sul. , Reino Unido Sul, Índia Central, Índia Ocidental, Sul da Índia.
+A SKU Standard_v2 e WAF_v2 está disponível nas seguintes regiões: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canadá Central, Canadá East, East Asia, Coreia Do Sul, Coreia do Sul. , Reino Unido Sul, Índia Central, Índia Ocidental, Sul da Índia.
 
 ## <a name="pricing"></a>Preços
 
@@ -101,7 +101,7 @@ Esta secção descreve características e limitações do V2 SKU que difere do V
 |Certificado de autenticação|Não suportado.<br>Para obter mais informações, consulte [a visão geral do fim do TLS com o Gateway de aplicações.](ssl-overview.md#end-to-end-tls-with-the-v2-sku)|
 |Mistura Standard_v2 e Gateway de aplicação padrão na mesma sub-rede|Não suportado|
 |Rota User-Defined (UDR) na sub-rede do Gateway de Aplicação|Suportado (cenários específicos). Na pré-estreia.<br> Para obter mais informações sobre cenários suportados, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-infrastructure.md#supported-user-defined-routes).|
-|NSG para a gama porta de entrada| - 65200 a 65535 para Standard_v2 SKU<br>- 65503 a 65534 para a Standard SKU.<br>Para mais informações, consulte as [FAQ.](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)|
+|NSG para a gama porta de entrada| - 65200 a 65535 para Standard_v2 SKU<br>- 65503 a 65534 para a Standard SKU.<br>Para mais informações, consulte as [FAQ.](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet)|
 |Registos de desempenho em diagnósticos Azure|Não suportado.<br>Devem ser utilizadas métricas azure.|
 |Faturação|Faturação prevista para 1 de julho de 2019.|
 |Modo FIPS|Estes não são atualmente apoiados.|

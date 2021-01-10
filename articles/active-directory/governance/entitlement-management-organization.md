@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347494"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059386"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -135,8 +135,6 @@ Se já não tiver uma relação com um diretório ou domínio Azure AD externo, 
 1. No painel esquerdo, selecione **Organizações Conectadas** e, em seguida, selecione a organização conectada para abri-la.
 
 1. No painel de visão geral da organização ligada, **selecione Delete** para eliminá-lo.
-
-    Atualmente, só pode excluir uma organização conectada se não houver utilizadores ligados.
 
     ![O botão delete da organização conectada](./media/entitlement-management-organization/organization-delete.png)
 

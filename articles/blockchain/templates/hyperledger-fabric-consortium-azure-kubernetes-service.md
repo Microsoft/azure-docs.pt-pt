@@ -1,15 +1,15 @@
 ---
 title: Implementar consórcio de tecidos hiper-iniciantes no serviço Azure Kubernetes
 description: Como implementar e configurar uma rede de consórcios Hyperledger Fabric no Serviço Azure Kubernetes
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651561"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060321"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementar consórcio de tecidos hiper-iniciantes no serviço Azure Kubernetes
 
@@ -50,7 +50,7 @@ O modelo na implementação gira vários recursos Azure na sua subscrição. Os 
 
 - **Cluster AKS**: Cluster de serviço Azure Kubernetes configurado de acordo com os parâmetros de entrada fornecidos pelo cliente. O cluster AKS tem várias cápsulas configuradas para executar os componentes da rede Hyperledger Fabric. As cápsulas criadas são:
 
-  - **Ferramentas de**tecido : Ferramentas responsáveis pela configuração dos componentes do Tecido Hiper-conjugador.
+  - **Ferramentas de** tecido : Ferramentas responsáveis pela configuração dos componentes do Tecido Hiper-conjugador.
   - **Cápsulas de encomenda/pares**: Os nós da rede Hyperledger Fabric.
   - **Proxy**: Um casulo de procuração NGNIX através do qual as aplicações do cliente podem comunicar com o cluster AKS.
   - **Fabric CA**: A cápsula que executa o Fabric CA.
@@ -66,7 +66,7 @@ Para começar, precisa de uma subscrição do Azure que possa suportar a impleme
 
 Para começar com a implantação de componentes de rede Hyperledger Fabric, aceda ao [portal Azure](https://portal.azure.com).
 
-1. Selecione **Criar um blockchain de recurso**  >  **Blockchain**e, em seguida, procurar por **Tecido Hiper-ledger no Serviço Azure Kubernetes (pré-visualização)**.
+1. Selecione **Criar um blockchain de recurso**  >  e, em seguida, procurar por **Tecido Hiper-ledger no Serviço Azure Kubernetes (pré-visualização)**.
 
 2. Insira os detalhes do projeto no separador **Básicos.**
 
@@ -83,8 +83,8 @@ Para começar com a implantação de componentes de rede Hyperledger Fabric, ace
 
 5. Introduza os seguintes detalhes:
     - **Nome da organização**: Introduza o nome da organização Hyperledger Fabric, que é necessária para várias operações de data plane. O nome da organização tem de ser único por implantação.
-    - **Componente de rede de**tecido : Escolha o **serviço de encomenda** ou os **nós peer,** com base no componente da rede blockchain que pretende configurar.
-    - Número de nós : **Seguem-se**os dois tipos de nós:
+    - **Componente de rede de** tecido : Escolha o **serviço de encomenda** ou os **nós peer,** com base no componente da rede blockchain que pretende configurar.
+    - Número de nós : **Seguem-se** os dois tipos de nós:
         - **Serviço de encomendas**: Selecione o número de nós para proporcionar tolerância a falhas à rede. A contagem de nós de ordem apoiada é 3, 5 e 7.
         - **Nó de pares**: Pode escolher 1 a 10 nós com base na sua exigência.
     - **Base de dados do estado do nó de pares:** Escolha entre LevelDB e CouchDB. Este campo é apresentado quando escolhe **nós Peer** na lista de drop-down de componentes da rede **De Tecido.**
@@ -106,9 +106,9 @@ Para começar com a implantação de componentes de rede Hyperledger Fabric, ace
     - **Prefixo DNS**: Introduza um prefixo de nome do Sistema de Nome de Domínio (DNS) para o cluster AKS. Utilizará o DNS para ligar à API de Kubernetes ao gerir os contentores depois de criar o cluster.
     - **Tamanho do nó**: Para o tamanho do nó Kubernetes, pode escolher entre a lista de unidades de armazenamento VM (SKUs) disponíveis no Azure. Para um melhor desempenho, recomendamos o Standard DS3 v2.
     - **Contagem de nó:** Introduza o número de nós Kubernetes a serem implantados no cluster. Recomendamos manter esta contagem de nós igual ou superior ao número de nós de tecido hiper-ledger especificados no **separador definições de Tecido.**
-    - **ID do cliente principal do serviço**: Introduza a identificação do cliente de um principal de serviço existente ou crie uma nova. É necessário um principal de serviço para a autenticação AKS. Consulte os [passos para criar um principal de serviço.](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)
-    - **Segredo do cliente principal**do serviço : Insira o segredo do cliente do principal serviço fornecido na identificação do cliente para o principal serviço.
-    - **Confirme o segredo**do cliente: Confirme o segredo do cliente para o diretor de serviço.
+    - **ID do cliente principal do serviço**: Introduza a identificação do cliente de um principal de serviço existente ou crie uma nova. É necessário um principal de serviço para a autenticação AKS. Consulte os [passos para criar um principal de serviço.](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal)
+    - **Segredo do cliente principal** do serviço : Insira o segredo do cliente do principal serviço fornecido na identificação do cliente para o principal serviço.
+    - **Confirme o segredo** do cliente: Confirme o segredo do cliente para o diretor de serviço.
     - **Ativar a monitorização do contentor**: Opte por ativar a monitorização AKS, que permite que os registos AKS empurrem para o espaço de trabalho especificado do Log Analytics.
     - **Log Analytics workspace**: O espaço de trabalho Log Analytics será preenchido com o espaço de trabalho predefinido que é criado se a monitorização estiver ativada.
 
@@ -393,23 +393,35 @@ Passe o nome da função de consulta e a lista de argumentos separados pelo espa
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Executar os seguintes comandos para encontrar a versão da sua implementação do modelo.
+### <a name="find-deployed-version"></a>Encontrar versão implementada
 
-Desloque as variáveis ambientais de acordo com o grupo de recursos onde o modelo foi implantado.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Executar o seguinte comando para imprimir a versão do modelo.
+Executar os seguintes comandos para encontrar a versão da sua implementação do modelo. Desloque as variáveis ambientais de acordo com o grupo de recursos onde o modelo foi implantado.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>Verrou versão anterior
+
+Se estiver a enfrentar problemas com o código de corrente em qualquer implementação da versão do modelo abaixo do v3.0.0, siga os passos abaixo para corrigir os seus nós de pares com uma correção.
+
+Descarregue o script de implementação de pares.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Execute o script utilizando o seguinte comando substituindo os parâmetros para o seu par.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Espere que todos os seus nós parem para ser remendados. Pode sempre verificar o estado dos seus nós pares, em diferentes instâncias da concha utilizando o seguinte comando.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>Suporte e comentários

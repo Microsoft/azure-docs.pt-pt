@@ -6,18 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: d39bc35d1edcbcfef4c7774259112ec5144efa15
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044361"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059226"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (Pré-visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB sem servidor está atualmente em pré-visualização. Esta versão de pré-visualização é fornecida sem um Acordo de Nível de Serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Azure Cosmos DB sem servidor permite-lhe utilizar a sua conta Azure Cosmos de forma baseada no consumo, onde só é cobrado pelas Unidades de Pedido consumidas pelas suas operações de base de dados e pelo armazenamento consumido pelos seus dados. Os contentores sem servidor podem servir milhares de pedidos por segundo sem carga mínima e sem necessidade de planeamento de capacidade.
 

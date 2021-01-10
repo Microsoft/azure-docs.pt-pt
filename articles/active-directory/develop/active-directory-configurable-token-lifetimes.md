@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ecd7c3b034a65fa239248bf0e286181475376da2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963484"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059352"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -121,9 +121,9 @@ Uma política de vida simbólica é um tipo de objeto político que contém regr
 | --- | --- | --- | --- | --- | --- |
 | Atualizar tempo inativo token Max |MaxInactiveTime |Fichas de atualização |90 dias |10 minutos |90 dias |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Fichas de atualização (para qualquer utilizadores) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Fichas de atualização (para qualquer utilizadores) | 180 dias |10 minutos |180 dias<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Fichas de atualização (para qualquer utilizadores) | Até revogação |10 minutos |180 dias<sup>1</sup> |
 | Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
-| Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) | 180 dias |10 minutos | 180 dias<sup>1</sup> |
+| Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) | Até revogação |10 minutos | 180 dias<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento explícito máximo que pode ser definido para estes atributos.
 

@@ -1,5 +1,5 @@
 ---
-title: Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
+title: Ligar um cluster do Kubernetes preparado para o Azure Arc (Pré-visualização)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7f402d86ac1287753bc2deab53b24bb796644992
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8155ed709045626dee44fb499304ff5244a61b54
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97583937"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060253"
 ---
-# <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
+# <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ligar um cluster do Kubernetes preparado para o Azure Arc (Pré-visualização)
 
 Este documento abrange o processo de ligação de qualquer cluster certificado da Cloud Native Computing Foundation (CNCF) como o motor AKS em Azure, motor AKS no Azure Stack Hub, GKE, EKS e VMware vSphere cluster a Azure Arc.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Verifique se tem os seguintes requisitos prontos:
 
@@ -30,7 +30,7 @@ Verifique se tem os seguintes requisitos prontos:
 * Você precisará de um ficheiro kubeconfig para aceder ao cluster e papel de administração de cluster no cluster para implantação de agentes Kubernetes habilitados pela Arc.
 * O utilizador ou o principal de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões de 'Ler' e 'Escrever' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Kubernetes Cluster - Azure Arc Onboarding" tem estas permissões e pode ser usada para atribuições de funções no utilizador ou principal de serviço.
 * O leme 3 é necessário para o embarque do cluster utilizando a extensão connectedk8s. [Instale a mais recente versão do Helm 3](https://helm.sh/docs/intro/install) para satisfazer este requisito.
-* A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
+* A versão 2.15+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.15+.
 * Instale as extensões CLI ativadas pelo Arco:
   
   Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:

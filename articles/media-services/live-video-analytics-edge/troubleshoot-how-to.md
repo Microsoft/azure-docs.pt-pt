@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401320"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060236"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -65,6 +65,8 @@ Pode utilizar o portal Azure para executar um diagnóstico do gráfico de mídia
     * 406 - O dispositivo IoT Edge está offline ou não está a enviar relatórios de estado.
     * 500 - Ocorreu um erro no tempo de execução do IoT Edge.
 
+    > [!TIP]
+    > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como guia para a resolução de problemas e diagnósticos.
 ### <a name="post-deployment-direct-method-error-code"></a>Implantação de posts: Código de erro do método direto
 1. Se obter um `501 code` estado, verifique se o nome do método direto está correto. Se o nome do método e a carga útil do pedido estiverem corretos, deverá obter resultados juntamente com o código de sucesso =200. 
 1. Se a carga útil do pedido for imprecisa, obterá um estado `400 code` e uma carga útil de resposta que indique código de erro e mensagem que deve ajudar a diagnosticar o problema com a sua chamada de método direto.
@@ -93,6 +95,8 @@ O Live Video Analytics é implantado como um módulo IoT Edge no dispositivo IoT
 * [O Live Video Analytics ou qualquer outro módulo IoT Edge personalizado não envia uma mensagem para o centro de borda com erro 404](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [O módulo IoT Edge é implantado com sucesso e desaparece do dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
+    > [!TIP]
+    > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como guia para a resolução de problemas e diagnósticos.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Vídeo ao vivo Analytics trabalhando com módulos externos
 
 O Live Video Analytics através dos processadores de extensão de gráficos de mídia pode estender o gráfico de mídia para enviar e receber dados de outros módulos IoT Edge utilizando protocolos HTTP ou gRPC. Como [exemplo específico,](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)este gráfico de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externa, como o Yolo v3 e receber resultados de análise baseados em JSON usando o protocolo HTTP . Em tal topologia, o destino para os eventos é principalmente o hub IoT. Em situações em que não se vê os eventos de inferência no centro, verifique o seguinte:
@@ -208,7 +212,7 @@ Para configurar o vídeo ao vivo analítico no módulo IoT Edge para gerar regis
     > Este comando liga as pastas de registo entre o dispositivo Edge e o recipiente. Se pretender recolher os registos num local diferente, utilize o seguinte comando, substituindo **$LOG_LOCATION_ON_EDGE_DEVICE** pela localização que pretende utilizar: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Selecione **Atualizar**.
-1. Selecione **Review + Criar**. Uma mensagem de validação bem sucedida é postada sob um banner verde.
+1. Selecione **Rever + Criar**. Uma mensagem de validação bem sucedida é postada sob um banner verde.
 1. Selecione **Criar**.
 1. Atualizar **Módulo Identidade Twin** para apontar para o parâmetro DebugLogsDirectory, que aponta para o diretório em que os registos são recolhidos:
 

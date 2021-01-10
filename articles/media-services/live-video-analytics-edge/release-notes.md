@@ -3,12 +3,12 @@ title: Live Video Analytics em notas de lançamento IoT Edge - Azure
 description: Este tópico fornece notas de lançamento de Live Video Analytics sobre lançamentos, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400850"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059981"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Vídeo ao vivo analítico em notas de lançamento do IoT Edge
 
@@ -33,7 +33,7 @@ Este lançamento é o lançamento da atualização de visualização pública do
 * Suporte adicional para a utilização de mais de um processador de extensão HTTP e processador de extensão gRPC por topologia de gráfico.
 * Suporte adicional para gestão de espaço em disco para nós de pia.
 * `MediaGraphGrpcExtension` o nó suporta agora [a extensãoConfiguration](grpc-extension-protocol.md) property para usar vários modelos de IA dentro de um único servidor gRPC.
-* Suporte adicional à recolha de métricas de módulos de Vídeo Ao Vivo no [formato Prometheus](https://prometheus.io/docs/practices/naming/) 
+* Suporte adicional à recolha de métricas de módulos de vídeo ao vivo no [formato Prometheus](https://prometheus.io/docs/practices/naming/). Saiba mais sobre como [recolher métricas e ver no Azure Monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
 * O processador frame Rate Filter é **precotado.**  
     * A gestão da taxa de fotogramas está agora disponível dentro dos nós do processador de extensão de gráfico.
 

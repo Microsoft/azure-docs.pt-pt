@@ -1,7 +1,7 @@
 ---
 title: Criar um projeto de rotulagem de dados
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar e executar projetos de rotulagem para marcar dados para machine learning.  Utilize a rotulagem assistida ML, ou humana na rotulagem do loop, para ajudar na tarefa.
+description: Aprenda a criar e executar projetos de rotulagem para marcar dados para machine learning. Utilize a rotulagem assistida ML, ou humana na rotulagem do loop, para ajudar na tarefa.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,36 +9,28 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 2fe217d08203aec2d25a5d1219a2556bd0dcbcd7
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 854504347409efb4f0eafff0d776db23ca9fda07
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046112"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059845"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
+Aprenda a criar e executar projetos de rotulagem de dados para marcar dados em Azure Machine Learning.  Utilize a rotulagem de dados assistidos por aprendizagem automática, ou rotulagem humana no circuito, para ajudar na tarefa.
 
 
-Rotular dados volumosos em projetos de aprendizagem automática é muitas vezes uma dor de cabeça. Projetos que têm uma componente de visão computacional, como classificação de imagem ou deteção de objetos, geralmente requerem etiquetas para milhares de imagens.
- 
-A rotulagem de dados [de aprendizagem automática Azure](https://ml.azure.com/) dá-lhe um lugar central para criar, gerir e monitorizar projetos de rotulagem. Use-o para coordenar dados, etiquetas e membros da equipa para gerir eficientemente as tarefas de rotulagem. Machine Learning suporta a classificação de imagem, multi-rótulo ou multi-classe, e identificação de objetos com caixas delimitadas.
-
-A rotulagem dos dados acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas.
-
-É capaz de iniciar e parar o projeto e controlar o progresso da rotulagem. Pode rever os dados e exportações rotulados no formato COCO ou como um conjunto de dados de Aprendizagem automática Azure.
+## <a name="data-labeling-capabilities"></a>Capacidades de rotulagem de dados
 
 > [!Important]
 > Atualmente, apenas são apoiados projetos de rotulagem de classificação de imagem e identificação de objetos. Além disso, as imagens de dados devem estar disponíveis numa loja de dados blob Azure. (Se não tiver uma loja de dados existente, poderá enviar imagens durante a criação do projeto.)
 
-Neste artigo, vai aprender a:
-
-> [!div class="checklist"]
-> * Criar um projeto
-> * Especificar os dados e estrutura do projeto
-> * Executar e monitorizar o projeto
-> * Exportar as etiquetas
-
+A rotulagem de dados de aprendizagem automática Azure é um local central para criar, gerir e monitorizar projetos de rotulagem:
+ - Coordene dados, rótulos e membros da equipa para gerir eficientemente as tarefas de rotulagem. 
+ - Rastreia o progresso e mantém a fila de tarefas de rotulagem incompletas.
+ - Inicie e pare o projeto e controle o progresso da rotulagem.
+ - Reveja os dados e exportações rotulados no formato COCO ou como um conjunto de dados de aprendizagem automática Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +40,7 @@ Neste artigo, vai aprender a:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 * Um espaço de trabalho de aprendizagem automática. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).
 
-## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
+## <a name="create-a-data-labeling-project"></a>Criar um projeto de rotulagem de dados
 
 Os projetos de rotulagem são administrados a partir da Azure Machine Learning. Utiliza a página **de projetos de rotulagem** para gerir os seus projetos.
 
@@ -119,11 +111,11 @@ Pode encontrar o tempo de duração para a última atualização no **separador 
 
 ## <a name="specify-label-classes"></a>Especificar classes de etiquetas
 
-Na página de **classes Label,** especifique o conjunto de classes para categorizar os seus dados. Faça isto com cuidado, porque a precisão e velocidade dos seus rotuladores serão afetadas pela sua capacidade de escolher entre as classes. Por exemplo, em vez de soletrar o género e as espécies completas para plantas ou animais, utilize um código de campo ou abreveve o género.
+Na página de **classes Label,** especifique o conjunto de classes para categorizar os seus dados. A precisão e velocidade dos seus rotuladores são afetadas pela sua capacidade de escolher entre as classes. Por exemplo, em vez de soletrar o género e as espécies completas para plantas ou animais, utilize um código de campo ou abreveve o género.
 
 Introduza uma etiqueta por linha. Utilize o **+** botão para adicionar uma nova linha. Se tiver mais de 3 ou 4 etiquetas mas menos de 10, pode querer pré-afixar os nomes com números ("1: " "2: ") para que os rotuladores possam utilizar as teclas numeradas para acelerar o seu trabalho.
 
-## <a name="describe-the-labeling-task"></a>Descreva a tarefa de rotulagem
+## <a name="describe-the-data-labeling-task"></a>Descreva a tarefa de rotulagem de dados
 
 É importante explicar claramente a tarefa de rotulagem. Na página de **instruções de rotulagem,** pode adicionar um link a um site externo para instruções de rotulagem ou fornecer instruções na caixa de edição da página. Mantenha as instruções orientadas para a tarefa e apropriadas ao público. Considere estas questões:
 
@@ -145,9 +137,9 @@ Para as caixas de delimitação, questões importantes incluem:
 >[!NOTE]
 > Tenha em atenção que os rótulos poderão selecionar as primeiras 9 etiquetas utilizando as teclas 1-9.
 
-## <a name="use-ml-assisted-labeling"></a>Utilizar rotulagem assistida ML
+## <a name="use-ml-assisted-data-labeling"></a>Utilizar a rotulagem de dados assistidas por ML
 
-A página **de rotulagem assistida ML** permite-lhe acionar modelos automáticos de aprendizagem automática para acelerar a tarefa de rotulagem. No início do seu projeto de rotulagem, as imagens são baralhadas numa ordem aleatória para reduzir o preconceito potencial. No entanto, quaisquer enviesamentos que estejam presentes no conjunto de dados serão refletidos no modelo treinado. Por exemplo, se 80% das suas imagens forem de uma única classe, então aproximadamente 80% dos dados utilizados para treinar o modelo serão dessa classe. Esta formação não inclui a aprendizagem ativa.
+A página **de rotulagem assistida pelo ML** permite-lhe acionar modelos automáticos de aprendizagem automática para acelerar a tarefa de rotulagem. No início do seu projeto de rotulagem, as imagens são baralhadas numa ordem aleatória para reduzir o preconceito potencial. No entanto, quaisquer enviesamentos que estejam presentes no conjunto de dados serão refletidos no modelo treinado. Por exemplo, se 80% das suas imagens forem de uma única classe, então aproximadamente 80% dos dados utilizados para treinar o modelo serão dessa classe. Esta formação não inclui a aprendizagem ativa.
 
 Selecione *a rotulagem assistida ML* e especifique uma GPU para permitir a rotulagem assistida, que consiste em duas fases:
 * Clustering
@@ -172,9 +164,9 @@ A fase de agrupamento não aparece para modelos de deteção de objetos.
 
 Depois de serem submetidas etiquetas de imagem suficientes, um modelo de classificação é usado para prever etiquetas de imagem. Ou um modelo de deteção de objetos é usado para prever caixas de delimitação. O rotulador vê agora páginas que contêm etiquetas previstas já presentes em cada imagem. Para a deteção de objetos, as caixas previstas também são mostradas. A tarefa é então rever estas previsões e corrigir quaisquer imagens mal rotuladas antes de submeter a página.  
 
-Uma vez treinado um modelo de machine learning nos seus dados etiquetados manualmente, o modelo é avaliado num conjunto de testes de imagens etiquetadas manualmente para determinar a sua precisão numa variedade de diferentes limiares de confiança. Este processo de avaliação é utilizado para determinar um limiar de confiança acima do qual o modelo é suficientemente preciso para apresentar pré-etiquetas. O modelo é então avaliado com dados não rotulados. Imagens com previsões mais confiantes do que este limiar são usadas para pré-rotulagem.
+Uma vez treinado um modelo de machine learning nos seus dados etiquetados manualmente, o modelo é avaliado num conjunto de testes de imagens etiquetadas manualmente para determinar a sua precisão em diferentes limiares de confiança. Este processo de avaliação é utilizado para determinar um limiar de confiança acima do qual o modelo é suficientemente preciso para apresentar pré-etiquetas. O modelo é então avaliado com dados não rotulados. Imagens com previsões mais confiantes do que este limiar são usadas para pré-rotulagem.
 
-## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
+## <a name="initialize-the-data-labeling-project"></a>Inicializar o projeto de rotulagem de dados
 
 Após a inicial do projeto de rotulagem, alguns aspetos do projeto são imutáveis. Não é possível alterar o tipo de tarefa ou o conjunto de dados. *Pode* modificar as etiquetas e o URL para a descrição da tarefa. Reveja cuidadosamente as definições antes de criar o projeto. Depois de submeter o projeto, é devolvido à página inicial da **Rotulagem de Dados,** que mostrará o projeto como **Initializing**.
 
@@ -229,11 +221,11 @@ Veja os detalhes do seu projeto.  Neste separador pode:
 
 ### <a name="access-for-labelers"></a>Acesso aos rotuladores
 
-Qualquer pessoa que tenha acesso ao seu espaço de trabalho pode rotular dados no seu projeto.  Também pode personalizar as permissões para os seus rotuladores para que possam aceder à rotulagem, mas não a outras partes do espaço de trabalho ou ao seu projeto de rotulagem.  Para obter mais detalhes, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning](how-to-assign-roles.md)e aprender a criar o papel personalizado do [labeler.](how-to-assign-roles.md#labeler)
+Qualquer pessoa que tenha acesso ao seu espaço de trabalho pode rotular dados no seu projeto.  Também pode personalizar as permissões para os rotuladores para que possam aceder à rotulagem, mas não a outras partes do espaço de trabalho ou ao seu projeto de rotulagem.  Para obter mais detalhes, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning](how-to-assign-roles.md)e aprender a criar o papel personalizado do [labeler.](how-to-assign-roles.md#labeler)
 
 ## <a name="add-new-label-class-to-a-project"></a>Adicione nova classe de rótulo a um projeto
 
-Durante o processo de rotulagem, poderá descobrir que são necessárias etiquetas adicionais para classificar as suas imagens.  Por exemplo, pode querer adicionar uma etiqueta "Desconhecido" ou "Outro" para indicar imagens confusas.
+Durante o processo de rotulagem de dados, poderá descobrir que são necessárias etiquetas adicionais para classificar as suas imagens.  Por exemplo, pode querer adicionar uma etiqueta "Desconhecido" ou "Outro" para indicar imagens confusas.
 
 Utilize estes passos para adicionar um ou mais rótulos a um projeto:
 

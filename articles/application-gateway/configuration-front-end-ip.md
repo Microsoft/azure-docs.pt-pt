@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: dc5efd6ad478710ba839634a49f041211756af71
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 732054ae2cd8f93d17694e9ea1bdd85680e9c314
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397676"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058655"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Configuração de endereço IP frontal do Gateway de aplicação
 
@@ -25,7 +25,7 @@ Atualmente, o Gateway V2 da aplicação não suporta apenas o modo IP privado. S
 * Endereço IP privado e endereço IP público
 * Endereço IP público apenas
 
-Para obter mais informações, consulte [Perguntas frequentes sobre o Gateway de Aplicações.](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)
+Para obter mais informações, consulte [Perguntas frequentes sobre o Gateway de Aplicações.](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)
 
 
 Um endereço IP público não é necessário para um ponto final interno que não esteja exposto à Internet. É conhecido como um *ponto final interno de load-balancer* (ILB) ou frontend IP privado. Um gateway de aplicações ILB é útil para aplicações internas de linha de negócio que não estão expostas à Internet. Também é útil para serviços e níveis numa aplicação de vários níveis dentro de uma fronteira de segurança que não estão expostos à Internet, mas que requerem distribuição de carga de robin redondo, adesivo de sessão ou rescisão de TLS.
@@ -36,7 +36,7 @@ Apenas um endereço IP público ou um endereço IP privado é suportado. Escolha
 
 - Para um endereço IP privado, pode especificar um endereço IP privado a partir da sub-rede onde o gateway de aplicações é criado. Se não especificar um, um endereço IP arbitrário é automaticamente selecionado a partir da sub-rede. O tipo de endereço IP que seleciona (estático ou dinâmico) não pode ser alterado mais tarde. Para obter mais informações, consulte [Criar uma porta de aplicação com um equilibrador de carga interno](./application-gateway-ilb-arm.md).
 
-Um endereço IP frontal está associado a um *ouvinte* , que verifica os pedidos de entrada no IP frontal.
+Um endereço IP frontal está associado a um *ouvinte*, que verifica os pedidos de entrada no IP frontal.
 
 ## <a name="next-steps"></a>Passos seguintes
 

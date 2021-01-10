@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509705"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059063"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Azure Ative Directory B2C
 
@@ -208,7 +208,7 @@ Também pode chamar um perfil técnico de API REST com a sua lógica de negócio
 | definição.showCancelButton | Não | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão), ou `false` |
 | setting.showContinueButton | Não | Exibe o botão de continuidade. Valores possíveis: `true` (padrão), ou `false` |
 | definição.showSignupLink <sup>2</sup>| Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão), ou `false` |
-| definição.forgotPasswordLinkLocation <sup>2</sup>| Não| Apresenta o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.|
+| definição.forgotPasswordLinkLocation <sup>2</sup>| Não| Apresenta o link de senha esquecido. Valores possíveis: `AfterLabel` (predefinido) exibe o link diretamente após a etiqueta ou após o campo de entrada de palavra-passe quando não há etiqueta,  `AfterInput` exibe o link após o campo de entrada da palavra-passe, exibe o link na parte inferior do formulário após os `AfterButtons` botões ou remove o link de senha `None` esquecido.|
 | definição.enableRememberMe <sup>2</sup>| Não| Exibe o [Keep me assinado na](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) caixa de verificação. Valores possíveis: `true` , ou `false` (predefinição). |
 | definição.inputVerificationDelayTimeMliseconds <sup>3</sup>| Não| Melhora a experiência do utilizador, esperando que o utilizador pare de digitar e, em seguida, valide o valor. Valor padrão 2000 milissegundos. |
 | IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |

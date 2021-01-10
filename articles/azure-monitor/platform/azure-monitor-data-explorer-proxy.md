@@ -1,18 +1,18 @@
 ---
 title: Consulta de recursos cruzados Azure Data Explorer usando O Monitor de Azure
 description: Utilize o Azure Monitor para realizar consultas entre o Azure Data Explorer, os espaços de trabalho do Log Analytics e as aplicações clássicas de Insights de Aplicações no Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674434"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060457"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta de recursos cruzados Azure Data Explorer usando O Monitor de Azure
 O Azure Monitor suporta consultas de serviços cruzados entre O Explorador de Dados Azure, [Insights de Aplicação](/azure/azure-monitor/app/app-insights-overview)e [Log Analytics](/azure/azure-monitor/platform/data-platform-logs). Em seguida, pode consultar o seu cluster Azure Data Explorer utilizando ferramentas De Registo Analytics/Application Insights e consultar-se numa consulta de serviço transversal. O artigo mostra como fazer uma consulta de cross-service.
@@ -22,7 +22,7 @@ O seguinte diagrama mostra o fluxo de serviço transversal Azure Monitor:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagrama que mostra o fluxo de consultas entre um utilizador, Azure Monitor, um proxy, e Azure Data Explorer.":::
 
 >[!NOTE]
-> A consulta de serviço cross-service Azure Monitor está em pré-visualização privada. É necessária a lista de licenciamento. Contacte a [Equipa de Serviço](mailto:ADXProxy@microsoft.com) com quaisquer perguntas.
+> A consulta de serviço cross-service Azure Monitor está em pré-visualização pública. Contacte a [Equipa de Serviço](mailto:ADXProxy@microsoft.com) com quaisquer perguntas.
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Questione os recursos de Log Analytics ou Application Insights e Azure Data Explorer
 

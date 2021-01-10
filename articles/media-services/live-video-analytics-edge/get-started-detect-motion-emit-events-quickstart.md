@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 8ccf2665f19b66959ce259088d0b322aec7b59f4
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 276c2ceaa9e0bef254c70f91541a3a3db7c02d47
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028714"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060406"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -21,7 +21,7 @@ Depois de completar os passos de configuração, poderá executar um vídeo simu
 
 Pode ver o seguinte vídeo com passos detalhados sobre como começar com o Live Video Analytics no IoT Edge:
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,9 +55,13 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Se o script terminar com sucesso, deverá ver todos os recursos necessários na sua subscrição. Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso `Microsoft.Devices/IotHubs` e anotar o nome. Vai precisar deste nome no próximo passo. 
+Após a conclusão com sucesso do script, deverá ver todos os recursos necessários na sua subscrição. Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso **`Microsoft.Devices/IotHubs`** e anotar o nome. Vai precisar deste nome no próximo passo.  
 
-O script também gera alguns ficheiros de configuração no *diretório ~/clouddrive/lva-sample/.* Vai precisar destes ficheiros mais tarde no início rápido.
+> [!NOTE]
+> O script também gera alguns ficheiros de configuração no **_~/clouddrive/lva-sample/_* _ diretório. Vai precisar destes ficheiros mais tarde no início rápido.
+
+> [!TIP]
+> Se encontrar problemas com os recursos Azure que são criados, por favor veja o nosso *[_ guia de resolução de problemas](troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas comumente encontrados.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Implementar módulos no seu dispositivo de borda
 
@@ -417,8 +421,8 @@ Invoque o método direto `GraphInstanceSet` utilizando a seguinte carga útil.
 Note que esta carga útil:
 
 * Especifica o nome de topologia `MotionDetection` ( ) para o qual o exemplo precisa ser criado.
-* Contém um valor de parâmetro para `rtspUrl` , que não tinha um valor padrão na carga útil da topologia do gráfico.
-
+* Contém um valor de parâmetro para `rtspUrl` , que não tinha um valor padrão na carga útil da topologia do gráfico. Este valor é um link para o vídeo da amostra abaixo:
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 Em poucos segundos, vê a seguinte resposta na janela **OUTPUT:**
 
 ```

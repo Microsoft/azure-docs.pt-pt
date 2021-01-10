@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1798ca74493ba22d29cd9ce819d469c29cd5ec3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979109"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059590"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Encode a remote file based on URL and stream the video - REST (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)
 
@@ -38,7 +38,7 @@ Este tutorial mostrar-lhe como:
 > * Configurar o Postman
 > * Enviar pedidos através do Postman
 > * Testar o URL de transmissão em fluxo
-> * Limpar recursos
+> * Limpar os recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -170,10 +170,17 @@ A saída [Asset](/rest/api/media/assets) armazena o resultado da tarefa de codif
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Certifique-se de que substitui a conta de armazenamento e os nomes dos recipientes, quer pelos do ficheiro ambiente, quer forneça o seu próprio.
+>
+> Ao completar os passos descritos no resto deste artigo, certifique-se de que fornece parâmetros válidos nos corpos solicitados.
 
 ### <a name="create-a-transform"></a>Criar uma transformação
 
@@ -355,8 +362,9 @@ Nesta secção, criemos um URL de transmissão HLS. Os URL são compostos pelos 
     Para obter o nome de anfitrião, pode utilizar a seguinte operação GET:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    e certifique-se de que define os `resourceGroupName` parâmetros e `accountName` parâmetros para combinar com o ficheiro ambiental. 
     
 3. Um caminho que obteve na secção anterior (Caminhos da lista).  
 
@@ -386,7 +394,7 @@ Geralmente, deve limpar tudo, exceto objetos que está a planear reutilizar (nor
 
 Para eliminar um recurso, selecione a operação "Eliminar…" sob o recurso que pretende eliminar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.  
 

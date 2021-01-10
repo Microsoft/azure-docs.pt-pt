@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974668"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060644"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -114,7 +114,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
->| Utilização da CPU       | cpu-uso      | Milissegundos | Quantidade de tempo que o processo utilizou o CPU. |
+>| Utilização da CPU       | cpu-uso      | Percentagem      | A percentagem da utilização do CPU do processo em relação a todos os recursos do SISTEMA CPU [0-100]. |
 >| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho utilizado pelo processo. |
 >| Tamanho da pilha de GC    | gc-tamanho-heap   | Megabytes    | Tamanho total do monte relatado pelo colecionador de lixo. |
 >| Contagem de Gen 0 GC  | gen-0-gc-contagem | de palavras        | Número de recolhas de lixo da Geração 0 por segundo. |

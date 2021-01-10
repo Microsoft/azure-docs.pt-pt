@@ -9,12 +9,12 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 2eb7984097b4edf34ed2f0214e1453246e12916f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f00b2c1a8a8264267aa8ae68d80890adeb642ea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786756"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059150"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentar horizontalmente com a Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -23,7 +23,7 @@ Pode escalar facilmente bases de dados na Base de Dados Azure SQL utilizando as 
 
 * [Biblioteca de clientes Elastic Database](elastic-database-client-library.md): A biblioteca do cliente é uma funcionalidade que lhe permite criar e manter bases de dados de fragmentos.  Consulte [Começar com as ferramentas Elastic Database](elastic-scale-get-started.md).
 * [Ferramenta de fusão split-merge Elastic Database](elastic-scale-overview-split-and-merge.md): move dados entre bases de dados de fragmentos. Esta ferramenta é útil para mover dados de uma base de dados multi-inquilino para uma base de dados de inquilinos únicos (ou vice-versa). Consulte [o tutorial de ferramentas elástica Split-Merge base de dados.](elastic-scale-configure-deploy-split-and-merge.md)
-* [Trabalhos de base de dados elásticos](elastic-jobs-overview.md): Utilize empregos para gerir um grande número de bases de dados na Base de Dados Azure SQL. Facilmente realizar operações administrativas tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou recolha de telemetria de inquilino (cliente) usando empregos.
+* [Trabalhos de base de dados elásticos](elastic-jobs-overview.md) (pré-visualização): Utilizar empregos para gerir um grande número de bases de dados na Base de Dados Azure SQL. Facilmente realizar operações administrativas tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou recolha de telemetria de inquilino (cliente) usando empregos.
 * [Consulta de base de dados elástica](elastic-query-overview.md) (pré-visualização): Permite executar uma consulta Transact-SQL que abrange várias bases de dados. Isto permite a ligação a ferramentas de reporte como Excel, Power BI, Tableau, etc.
 * [Transações elásticas](elastic-transactions-overview.md): Esta funcionalidade permite executar transações que se estendem por várias bases de dados. As transações de bases de dados elásticas estão disponíveis para aplicações .NET utilizando ADO .NET e integram-se com a experiência de programação familiar utilizando as [classes System.Transaction](/dotnet/api/system.transactions).
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605518"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060389"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 
@@ -237,7 +237,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
     ![Mapear para as bases de dados de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Embora possa selecionar várias bases de dados neste passo, cada instância do Azure Database Migration Service suporta até quatro bases de dados para migração simultânea. Além disso, existe um limite de dois casos de Serviço de Migração de Bases de Dados Azure por região numa subscrição. Por exemplo, se tiver 40 bases de dados para migrar, só pode migrar oito delas simultaneamente, e só se tiver criado duas instâncias do Serviço de Migração da Base de Dados Azure.
+   > Embora possa selecionar várias bases de dados neste passo, cada instância do Serviço de Migração da Base de Dados Azure suporta até 4 bases de dados para migração simultânea. Além disso, existe um limite de 10 casos de Serviço de Migração de Bases de Dados Azure por subscrição por região. Por exemplo, se tiver 80 bases de dados para migrar, pode migrar 40 delas para a mesma região simultaneamente, mas apenas se tiver criado 10 instâncias do Serviço de Migração da Base de Dados Azure.
 
 3. Selecione **Guardar**, no ecrã **Resumo da migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e, em seguida, reveja o resumo para garantir que os detalhes de origem e de destino correspondem aos que foram anteriormente especificados.
 

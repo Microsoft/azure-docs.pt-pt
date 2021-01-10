@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585195"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058672"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador no Azure Ative Directory B2C
 
@@ -74,7 +74,7 @@ Ao utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI, hospe
 ## <a name="guidelines-for-using-custom-page-content"></a>Diretrizes para a utilização de conteúdo de página personalizado
 
 - Utilize um URL absoluto quando incluir recursos externos como suportes, ficheiros CSS e JavaScript no seu ficheiro HTML.
-- Utilizando [a versão de layout](page-layout.md) da página 1.2.0 ou superior, pode adicionar o atributo nas suas `data-preload="true"` tags HTML para controlar a ordem de carga para CSS e JavaScript. Com `data-preload=true` , a página é construída antes de ser mostrada ao utilizador. Este atributo ajuda a evitar que a página "cintile" pré-carregando o ficheiro CSS, sem que o HTML não-estilo seja mostrado ao utilizador. O seguinte corte de código HTML mostra a utilização da `data-preload` etiqueta.
+- Utilizando [a versão de layout](page-layout.md) da página 1.2.0 ou superior, pode adicionar o atributo nas suas `data-preload="true"` tags HTML para controlar a ordem de carga para CSS e JavaScript. Com `data-preload="true"` , a página é construída antes de ser mostrada ao utilizador. Este atributo ajuda a evitar que a página "cintile" pré-carregando o ficheiro CSS, sem que o HTML não-estilo seja mostrado ao utilizador. O seguinte corte de código HTML mostra a utilização da `data-preload` etiqueta.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```

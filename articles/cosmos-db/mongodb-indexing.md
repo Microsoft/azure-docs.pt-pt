@@ -1,22 +1,22 @@
 ---
-title: Gerir a indexação na API da Azure Cosmos para a MongoDB
+title: Gerir os índices na API para MongoDB do Azure Cosmos DB
 description: Este artigo apresenta uma visão geral das capacidades de indexação da Azure Cosmos DB utilizando a API da Azure Cosmos DB para a MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369295"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060093"
 ---
-# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
+# <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir os índices na API para MongoDB do Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A API da Azure Cosmos DB para a MongoDB tira partido das capacidades de gestão de índices fundamentais da Azure Cosmos DB. Este artigo centra-se em como adicionar índices usando a API da Azure Cosmos DB para a MongoDB. Também pode ler uma [visão geral da indexação em Azure Cosmos DB](index-overview.md) que é relevante em todas as APIs.
@@ -29,6 +29,16 @@ Para indexar campos adicionais, aplique os comandos de gestão de índices do Mo
 
 Para aplicar uma espécie a uma consulta, é necessário criar um índice nos campos utilizados na operação de classificação.
 
+### <a name="editing-indexing-policy"></a>Política de indexação de edição
+
+Recomendamos a edição da sua política de indexação no Data Explorer dentro do portal Azure.
+. Pode adicionar índices de campo único e wildcard do editor de política de indexação no Data Explorer:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Indexação de editor de política":::
+
+> [!NOTE]
+> Não é possível criar índices compostos utilizando o editor de política de indexação no Data Explorer.
+
 ## <a name="index-types"></a>Tipos de índice
 
 ### <a name="single-field"></a>Campo único
@@ -36,6 +46,10 @@ Para aplicar uma espécie a uma consulta, é necessário criar um índice nos ca
 Pode criar índices em qualquer campo. A ordem do índice de campo único não importa. O seguinte comando cria um índice no `name` campo:
 
 `db.coll.createIndex({name:1})`
+
+Pode criar o mesmo índice de campo único `name` no portal Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Adicione índice de nome no editor de política de indexação":::
 
 Uma consulta utiliza vários índices de campo único sempre que disponível. Pode criar até 500 índices de campo únicos por contentor.
 
@@ -135,6 +149,10 @@ Eis como se pode criar um índice wildcard em todos os campos:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
+Também pode criar índices wildcard utilizando o Data Explorer no portal Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Adicione o índice wildcard no editor de política de indexação":::
+
 > [!NOTE]
 > Se está apenas a começar o desenvolvimento, recomendamos **vivamente** começar com um índice wildcard em todos os campos. Isto pode simplificar o desenvolvimento e facilitar a otimização de consultas.
 
@@ -144,13 +162,13 @@ Os documentos com muitos campos podem ter uma elevada taxa de Unidade de Pedido 
 
 Os índices wildcard não suportam nenhum dos seguintes tipos ou propriedades de índices:
 
-- Composto
+- Compostos
 - TTL
 - Exclusivo
 
 **Ao contrário do que acontece em MongoDB,** na API da Azure Cosmos DB para a MongoDB **não pode** utilizar índices wildcard para:
 
-- Criar um índice wildcard que inclui vários campos específicos
+- Criar um índice de carateres universais que inclui vários campos específicos
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -162,7 +180,7 @@ Os índices wildcard não suportam nenhum dos seguintes tipos ou propriedades de
     }
 )`
 
-- Criar um índice wildcard que exclui vários campos específicos
+- Criar um índice de carateres universais que exclui vários campos específicos
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -174,7 +192,7 @@ Os índices wildcard não suportam nenhum dos seguintes tipos ou propriedades de
     }
 )`
 
-Como alternativa, pode criar vários índices wildcard.
+Como alternativa, pode criar vários índices de carateres universais.
 
 ## <a name="index-properties"></a>Propriedades de índice
 

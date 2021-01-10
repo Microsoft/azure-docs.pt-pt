@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 28a1e5e7361f1f5333d9679262abfa1fd31bd32f
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 3ac81e89aaea5bc37297d2f83dce9e2158ae28d8
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967519"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060661"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Azure Ative Directory integração única (SSO) com Workplace by Facebook
 
@@ -83,11 +83,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<instancename>.facebook.com`
+    a. Na caixa de texto **do Url** (encontrado no WorkPlace como URL do destinatário), digite um URL utilizando o seguinte padrão: `https://.workplace.com/work/saml.php`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
+    b. Na caixa de texto **Identifier (Entity ID)** (encontrada no WorkPlace como URL do público), digite um URL utilizando o seguinte padrão: `https://www.workplace.com/company/`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
+    c. Na caixa de texto **URL de resposta** (encontrada no WorkPlace como caixa de texto do Serviço de Apoio ao Consumidor de Afirmação), digite um URL utilizando o seguinte padrão: `https://.workplace.com/work/saml.php`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Consulte a página de autenticação do Painel de Trabalho para obter os valores corretos para a sua comunidade workplace, isto é explicado mais tarde no tutorial.

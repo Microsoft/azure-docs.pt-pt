@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90f89e72193c26b71859076b99c448a6e2d4c4c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792128"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060134"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Começar com consultas de base de dados cruzadas (partição vertical) (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,10 +77,11 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
+    O "master_key_password" é uma palavra-passe forte da sua escolha usada para encriptar as credenciais de ligação. 
     O "nome de utilizador" e "palavra-passe" deve ser o nome de utilizador e a palavra-passe utilizada para iniciar sessão na base de dados dos Clientes.
     A autenticação utilizando o Azure Ative Directory com consultas elásticas não é suportada atualmente.
 
-### <a name="external-data-sources"></a>Fontes de dados externas
+### <a name="external-data-sources"></a>Origens de dados externas
 
 Para criar uma fonte de dados externa, execute o seguinte comando na base de dados Encomendas:
 

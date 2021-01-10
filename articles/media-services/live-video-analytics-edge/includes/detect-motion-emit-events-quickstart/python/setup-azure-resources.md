@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509320"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060614"
 ---
 Este tutorial requer os seguintes recursos Azure:
 
@@ -26,12 +26,15 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Se o script terminar com sucesso, deverá ver todos os recursos necessários na sua subscrição.
+    Após a conclusão com sucesso do script, deverá ver todos os recursos necessários na sua subscrição.
 1. Depois de terminar o script, selecione os suportes encaracolados para expor a estrutura da pasta. Você verá alguns ficheiros no *diretório de amostras ~/clouddrive/Lva.* De interesse neste arranque rápido são:
 
      * ***~/clouddrive/lva-sample/edge-deployment/.env** _ - Este ficheiro contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
-     _ ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code usa este ficheiro para executar o código de amostra.
+     _ ~**~/clouddrive/lva-sample/appsetting.json** _ - Visual Studio Code usa este ficheiro para executar o código de amostra.
      
     Vai precisar destes ficheiros quando configurar o seu ambiente de desenvolvimento no Código do Estúdio Visual na secção seguinte. Talvez queira copiá-los num ficheiro local por enquanto.
     
     ![Definições da aplicação](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> Se encontrar problemas com os recursos Azure que são criados, por favor veja o nosso *[_ guia de resolução de problemas](../../../troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas comumente encontrados.

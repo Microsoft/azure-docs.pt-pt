@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/05/2020
 ms.author: russellcooks
-ms.openlocfilehash: 8d0a40d9dc02e3e3720faf22652ed15c31e39ee7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2e8f61582a664287b094c24c71e92a678c821e5e
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358304"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060515"
 ---
 Os pré-requisitos para este tutorial são:
 
@@ -23,3 +23,5 @@ Os pré-requisitos para este tutorial são:
     * [Criar Recursos Azure](../../../detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Configurar o ambiente de desenvolvimento](../../../detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
 
+> [!TIP]
+> Se encontrar problemas com os recursos da Azure que são criados, por favor, consulte o nosso **[guia de resolução de problemas](../../../troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas comumente encontrados.

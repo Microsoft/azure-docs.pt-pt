@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78ce6466521c7903187798d902056948c659653c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 624cf4012316b832e507518aa7e0f0874f517971
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509857"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059137"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Azure Ative Directory B2C
 
@@ -87,7 +87,7 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 | end_session_endpoint | Sim | O URL do ponto final da sessão de acordo com o RFC 6749. |
 | AccessTokenResponseFormat | Não | O formato da chamada de ponto final de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta do token de acesso está no formato JSON. |
 | Outros RequestQueryParameters | Não | Parâmetros de consulta de pedido adicionais. Por exemplo, pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. Pode incluir vários parâmetros utilizando o delimiter de vírgula. |
-| ClaimsEndpointAccessTokenName | Não | O nome do parâmetro de cadeia de consulta de acesso. As alegações de alguns fornecedores de identidade suportam o pedido GET HTTP. Neste caso, o token do portador é enviado utilizando um parâmetro de cadeia de consulta em vez do cabeçalho de autorização. |
+| ClaimsEndpointAccessTokenName | Não | O nome do parâmetro de cadeia de consulta de acesso. As alegações de alguns fornecedores de identidade suportam o pedido GET HTTP. Neste caso, o token do portador é enviado utilizando um parâmetro de cadeia de consulta em vez do cabeçalho de autorização. Valor predefinido: `access_token` . |
 | ClaimsEndpointFormatName | Não | O nome do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o nome como `format` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
 | ClaimsEndpointFormat | Não | O valor do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o valor como `json` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
 | ProviderName | Não | O nome do fornecedor de identidade. |
@@ -100,7 +100,8 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 | IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 | ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#output-claims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
 |token_endpoint_auth_method| Não| Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| Não| Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](session-behavior.md#sign-out).  Valores possíveis: `true` (padrão), ou `false` .|
+|SingleLogoutEnabled| Não| Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](session-behavior.md#sign-out). Valores possíveis: `true` (padrão), ou `false` .|
+| UsePolicyInRedirectUri | Não | Indica se deve utilizar uma política ao construir o URI de redirecionamento. Ao configurar a sua aplicação no fornecedor de identidade, tem de especificar o URI de redirecionamento. O redirecionamento URI aponta para Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` . Se `true` especificar, tem de adicionar um URI de redirecionamento para cada apólice que utilizar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
