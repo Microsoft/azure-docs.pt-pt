@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: 87f9328745484d3f9643e3fd297fd2bf07b00a43
-  ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+  ms.openlocfilehash: de8b6cba87d0297841f4e6236ee69d4f6a856eb4
+  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/17/2020
-  ms.locfileid: "94695576"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98027881"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -96,6 +96,10 @@ landingContent:
       url: load-balancer-common-deployment-errors.md
     - text: Resolver problemas comuns de ligação de saída
       url: troubleshoot-outbound-connection.md
+    - text: Problemas da sonda de estado de funcionamento
+      url: load-balancer-troubleshoot-health-probe-status.md
+    - text: Tráfego do conjunto de back-end (VM)
+      url: load-balancer-troubleshoot-backend-traffic.md
   - linkListType: video
     links:
     - text: Criar e monitorizar aplicações de elevada disponibilidade com o Balanceador de Carga do Azure

@@ -146,11 +146,15 @@
       items:
         - name: Resolver problemas do Balanceador de Carga do Azure
           href: load-balancer-troubleshoot.md
-        - name: Resolver erros de implementação comuns
+        - name: Estado da sonda de estado de funcionamento
+          href: load-balancer-troubleshoot-health-probe-status.md
+        - name: Tráfego do conjunto de back-end (VM)
+          href: load-balancer-troubleshoot-backend-traffic.md
+        - name: Erros de implementação comuns
           href: load-balancer-common-deployment-errors.md
-        - name: Resolver problemas comuns de ligação de saída
+        - name: Problemas comuns de ligação de saída
           href: troubleshoot-outbound-connection.md
-        - name: Resolver problemas de estado de funcionamento dos recursos e de disponibilidade de entrada
+        - name: Problemas de estado de funcionamento dos recursos e de disponibilidade de entrada
           href: troubleshoot-rhc.md
 - name: Referência
   items:
