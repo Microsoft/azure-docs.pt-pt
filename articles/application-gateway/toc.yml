@@ -109,7 +109,7 @@
     - name: Compreender os preços
       href: understanding-pricing.md
     - name: FAQ
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Guias de procedimentos
   items:
     - name: Alojar um único site

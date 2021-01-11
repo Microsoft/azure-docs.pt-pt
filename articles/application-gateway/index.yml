@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 03/24/2020
-  ms.openlocfilehash: 708050cad9cf7e27243b9af21f28dbc6b93b09e6
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: df125820d56aa5c2edda29306c69cef00e012a12
+  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91397152"
+  ms.lasthandoff: 01/10/2021
+  ms.locfileid: "98059539"
 landingContent:
 - title: Saiba mais sobre o Gateway de Aplicação
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Perguntas mais frequentes
-      url: application-gateway-faq.md
+      url: application-gateway-faq.yml
   - linkListType: whats-new
     links:
     - text: Novidades
