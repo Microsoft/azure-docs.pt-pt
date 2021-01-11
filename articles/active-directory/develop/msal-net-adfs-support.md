@@ -1,7 +1,7 @@
 ---
 title: Apoio da AD FS em MSAL.NET [ Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o suporte de Serviços da Federação de Diretório Ativo (AD FS) na Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba mais sobre o suporte de Serviços da Federação de Diretório Ativo (AD FS) na Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4107b0785ef4635e0e5e745a35b605d2634a220d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a146b310e6056954ac2655ff2fd99e1e3d7c694f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166234"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063642"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Apoio aos Serviços da Federação Ativa em MSAL.NET
 Os Serviços da Federação de Diretórios Ativos (AD FS) no Windows Server permitem-lhe adicionar a autenticação baseada em OpenID Connect e OAuth 2.0 e autorização às aplicações que está a desenvolver. Essas aplicações podem, então, autenticar os utilizadores diretamente contra AD FS. Para mais informações, leia [cenários de FS da AD para desenvolvedores.](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)
@@ -56,6 +56,6 @@ Atualmente, não existem planos para suportar uma ligação direta com:
 
  Se necessitar de suportar cenários que exijam uma ligação direta ao AD FS 2016, utilize a versão mais recente da [Azure Ative Directory Authentication Library](../azuread-dev/active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Quando tiver atualizado o seu sistema no local para AD FS 2019, poderá utilizar MSAL.NET.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](../manage-apps/configure-authentication-for-federated-users-portal.md)

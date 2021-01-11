@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534317"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063761"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Aplicações de cliente público e confidencial
 A Microsoft Authentication Library (MSAL) define dois tipos de clientes: clientes públicos e clientes confidenciais. Os dois tipos de cliente distinguem-se pela sua capacidade de autenticar de forma segura com o servidor de autorização e manter a confidencialidade das suas credenciais de cliente. Em contraste, a Azure AD Authentication Library (ADAL) utiliza o chamado contexto de *autenticação* (que é uma ligação ao Azure AD).
@@ -45,7 +45,7 @@ Aqui estão algumas semelhanças e diferenças entre cliente público e aplicaç
 
 Se utilizou o ADAL, poderá notar que, ao contrário do contexto de autenticação da ADAL, no MSAL o ID do cliente (também chamado *de ID* de aplicação ou *ID de aplicação)* é aprovado uma vez na construção da aplicação. Não precisa de ser passado novamente quando a app adquire um token. Isto é verdade tanto para aplicações de clientes públicos como confidenciais. Os construtores de aplicações confidenciais de clientes também são passados credenciais de cliente: o segredo que partilham com o fornecedor de identidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre:
 - [Opções de configuração de aplicação de cliente](msal-client-application-configuration.md)
 - [Instantiing aplicações de clientes utilizando MSAL.NET](msal-net-initializing-client-applications.md)

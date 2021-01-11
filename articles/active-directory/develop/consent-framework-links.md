@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15270a998aff174c04acf2969d984eb022852635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5db45ea49f7e0be674f07a3f8e077656f3d6dee2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117367"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064992"
 ---
 # <a name="how-application-consent-works"></a>Como funciona o consentimento da aplicação
 
@@ -29,5 +30,5 @@ Este artigo é para ajudá-lo a aprender mais sobre como funciona o quadro de co
 - Para obter mais profundidade, saiba [como uma aplicação multi-inquilino pode usar o quadro de consentimento](./howto-convert-app-to-be-multi-tenant.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.
 - Para obter mais profundidade, saiba [como o consentimento é suportado na camada do protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)

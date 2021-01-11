@@ -13,16 +13,16 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 95cfb937ce236d0acd1a3369068afc6f3b505aed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94e4a4d5b80e246ce822e977deafe5c41c9ff4ad
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166251"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064781"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obtenha um símbolo da cache simbólica usando MSAL.NET
 
-Quando adquire um token de acesso utilizando a Microsoft Authentication Library para .NET (MSAL.NET), o token está em cache. Quando a aplicação precisa de um token, deve primeiro ligar para o `AcquireTokenSilent` método para verificar se um símbolo aceitável está na cache. Em muitos casos, é possível adquirir outro token com mais miras baseadas num símbolo na cache. Também é possível refrescar um token quando está perto de expirar (como a cache simbólica também contém um token de atualização).
+Quando adquire um token de acesso utilizando a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET), o token está em cache. Quando a aplicação precisa de um token, deve primeiro ligar para o `AcquireTokenSilent` método para verificar se um símbolo aceitável está na cache. Em muitos casos, é possível adquirir outro token com mais miras baseadas num símbolo na cache. Também é possível refrescar um token quando está perto de expirar (como a cache simbólica também contém um token de atualização).
 
 O padrão recomendado é chamar o `AcquireTokenSilent` método primeiro.  Se `AcquireTokenSilent` falhar, então adquira um símbolo utilizando outros métodos.
 

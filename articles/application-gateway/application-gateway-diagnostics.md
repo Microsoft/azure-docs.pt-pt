@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347596"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065325"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para Application Gateway
 
@@ -91,7 +91,7 @@ O seguinte corte mostra um exemplo da resposta:
 }
 ```
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnósticos
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnóstico
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver os serviços de resolução de problemas. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos do armazenamento do Azure Blob e vistos em diferentes ferramentas, tais como [registos Azure Monitor,](../azure-monitor/insights/azure-networking-analytics.md)Excel e Power BI. Pode saber mais sobre os diferentes tipos de registos da seguinte lista:
 
@@ -222,7 +222,7 @@ O registo de acesso só é gerado se o tiver ativado em cada instância do Gatew
 |serverrouted| O servidor backend que o gateway de aplicação encaminha o pedido para.|
 |serverStatus| Código de estado HTTP do servidor backend.|
 |servidorReseLatency| Latência da resposta do servidor de backend.|
-|anfitrião| Endereço listado no cabeçalho anfitrião do pedido. Se reescrito, este campo contém o nome de anfitrião atualizado|
+|anfitrião| Endereço listado no cabeçalho anfitrião do pedido. Se reescrito usando a reescrita do cabeçalho, este campo contém o nome de anfitrião atualizado|
 |originalRequestUriWithArgs| Este campo contém o URL de pedido original |
 |requestUri| Este campo contém o URL após a operação de reescrita no Gateway de Aplicação |
 |originalHost| Este campo contém o nome de anfitrião de pedido original

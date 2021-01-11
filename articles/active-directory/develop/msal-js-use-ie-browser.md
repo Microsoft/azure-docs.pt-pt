@@ -13,16 +13,16 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 633166f3bb46212991920d6720737f8268b3f401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87026859"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064849"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problemas conhecidos nos navegadores do Internet Explorer (MSAL.js)
 
-A Microsoft Authentication Library for JavaScript (MSAL.js) é gerada para [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) para que possa ser executada no Internet Explorer. Há, no entanto, algumas coisas para saber.
+A Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) é gerada para [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) para que possa ser executada no Internet Explorer. Há, no entanto, algumas coisas para saber.
 
 ## <a name="run-an-app-in-internet-explorer"></a>Executar uma aplicação no Internet Explorer
 Se pretender utilizar MSAL.js em aplicações que podem ser executadas no Internet Explorer, terá de adicionar uma referência a um polifill de promessa antes de fazer referência ao script MSAL.js.
@@ -51,7 +51,7 @@ Se quiser executar e depurar localmente a sua aplicação em execução no Inter
     1. Reinicie o Internet Explorer.
     1. Corra e depure a sua candidatura.
 
-Quando terminar, restaure as definições de segurança do Internet Explorer.  Selecione **Definições**  ->  **Opções de Internet**  ->  **Segurança**Redefinir todas  ->  **as zonas para o nível predefinido**.
+Quando terminar, restaure as definições de segurança do Internet Explorer.  Selecione **Definições**  ->  **Opções de Internet**  ->  **Segurança** Redefinir todas  ->  **as zonas para o nível predefinido**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [questões conhecidas ao utilizar MSAL.js no Internet Explorer.](msal-js-use-ie-browser.md)

@@ -7,21 +7,18 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032376"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065393"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados
 
 > [!Note]
-> Este artigo descreve as características de exportação de dados na IoT Central.
->
-> - Para obter informações sobre as funcionalidades de exportação de dados antigos, consulte [os dados do Export IoT para destinos em nuvem utilizando a exportação de dados (legado)](./howto-export-data-legacy.md).
-> - Para saber mais sobre as diferenças entre as características de exportação de dados e de exportação de dados, consulte o quadro de [comparação](#comparison-of-legacy-data-export-and-data-export) abaixo.
+> Este artigo descreve as características de exportação de dados na IoT Central. Para obter informações sobre as funcionalidades de exportação de dados antigos, consulte [os dados do Export IoT para destinos em nuvem utilizando a exportação de dados (legado)](./howto-export-data-legacy.md).
 
 Este artigo descreve como utilizar a nova funcionalidade de exportação de dados na Azure IoT Central. Utilize esta funcionalidade para exportar continuamente dados de IoT filtrados e enriquecidos da sua aplicação IoT Central. A exportação de dados impulsiona as mudanças em tempo quase real para outras partes da sua solução de nuvem para insights de caminhos quentes, análises e armazenamento.
 
@@ -43,7 +40,7 @@ Para utilizar as funcionalidades de exportação de dados, tem de ter uma [aplic
 
 O seu destino de exportação deve existir antes de configurar a sua exportação de dados. Os seguintes tipos de destino estão atualmente disponíveis:
 
-- Azure Event Hubs
+- Hubs de Eventos do Azure
 - Fila do Azure Service Bus
 - Tópico do Azure Service Bus
 - Armazenamento de Blobs do Azure
@@ -285,6 +282,6 @@ O quadro a seguir mostra as diferenças entre a [exportação de dados antigos](
 | Versões de aplicações suportadas | V2, V3 | Apenas V3 |
 | Limites notáveis | 5 exportações por app, 1 destino por exportação | 10 ligações exportações-destino por app |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe usar a nova exportação de dados, um próximo passo sugerido é aprender [a usar analítica na IoT Central](./howto-create-analytics.md)

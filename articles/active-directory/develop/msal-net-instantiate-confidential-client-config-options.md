@@ -13,16 +13,16 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 140385a26dbfd754438d632ce327c3c4a3ea1b61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166183"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063557"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação confidencial do cliente com opções de configuração usando MSAL.NET
 
-Este artigo descreve como instantaneamente uma [aplicação de cliente confidencial](msal-client-applications.md) utilizando a Microsoft Authentication Library for .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
+Este artigo descreve como instantaneamente uma [aplicação de cliente confidencial](msal-client-applications.md) utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
 
 Antes de rubricar uma aplicação, primeiro precisa [de a registar](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registo, poderá necessitar das seguintes informações (que podem ser encontradas no portal Azure):
 

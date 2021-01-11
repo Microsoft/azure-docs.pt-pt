@@ -14,18 +14,18 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 1cc94519525d5f87a14769b0109e425171265c6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258324"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063744"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração ADAL para MSAL para Java
 
 Este artigo destaca as alterações que precisa de fazer para migrar uma aplicação que utiliza a Biblioteca de Autenticação ativa do Azure Ative (ADAL) para utilizar a Biblioteca de Autenticação do Microsoft (MSAL).
 
-Tanto a Microsoft Authentication Library for Java (MSAL4J) como a Azure AD Authentication Library for Java (ADAL4J) são utilizadas para autenticar entidades AD do Azure e solicitar tokens a Azure AD. Até agora, a maioria dos desenvolvedores tem trabalhado com a Azure AD para a plataforma de desenvolvedores (v1.0) para autenticar identidades AZure AD (contas de trabalho e escola) solicitando tokens usando Azure AD Authentication Library (ADAL).
+Tanto a Biblioteca de Autenticação da Microsoft para Java (MSAL4J) como a Azure AD Authentication Library for Java (ADAL4J) são utilizadas para autenticar entidades AD do Azure e solicitar fichas da Azure AD. Até agora, a maioria dos desenvolvedores tem trabalhado com a Azure AD para a plataforma de desenvolvedores (v1.0) para autenticar identidades AZure AD (contas de trabalho e escola) solicitando tokens usando Azure AD Authentication Library (ADAL).
 
 A MSAL oferece os seguintes benefícios:
 

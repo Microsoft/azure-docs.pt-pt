@@ -13,12 +13,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 0df811f4e8b5d6a95868dfebe192e96fbfa80ed9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ROBOTS: NOINDEX
+ms.openlocfilehash: de0231a49c4f806660ea0cb305fdc1a70e2b36d3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169261"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063132"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar uma aplicação multi-inquilino à galeria da aplicação do Azure AD
 
@@ -46,5 +47,5 @@ Se quiser listar a sua aplicação com esta tecnologia:
 
 Para qualquer escalada, envie um e-mail para a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e entraremos em conversações consigo o mais rapidamente possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como listar a [sua candidatura na galeria de candidaturas do Azure Ative Directory.](./v2-howto-app-gallery-listing.md)

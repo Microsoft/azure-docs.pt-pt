@@ -12,12 +12,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: ryanwi
-ms.openlocfilehash: 2c348bd7a1738742744976c46396f62a3317dc17
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3afaf654228511a357461a9e762be0b04acc65c6
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017089"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064169"
 ---
 # <a name="how-to-discover-endpoints"></a>Como descobrir pontos finais
 

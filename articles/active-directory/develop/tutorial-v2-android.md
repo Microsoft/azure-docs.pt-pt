@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 746d4ac2d346d67b5ca796c19c799f654715acc4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013588"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063149"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação Android
 
@@ -71,7 +71,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
 6. Desa estatua o **nível mínimo de API** para **API 19** ou superior, e clique em **Terminar**.
 7. Na visão do projeto, **escolha** Project no dropdown para exibir ficheiros de projetos de origem e não fonte, abrir **app/build.gradle** e definir `targetSdkVersion` para `28` .
 
-## <a name="integrate-with-microsoft-authentication-library"></a>Integrar-se com a Microsoft Authentication Library
+## <a name="integrate-with-the-microsoft-authentication-library"></a>Integre-se na Biblioteca de Autenticação da Microsoft
 
 ### <a name="register-your-application"></a>Registar a aplicação
 
@@ -582,7 +582,7 @@ PR 4
 
 A primeira vez que qualquer utilizador entrar na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas. Alguns inquilinos da AD Azure têm o consentimento do utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para apoiar este cenário, você precisará criar o seu próprio inquilino ou receber o consentimento administrativo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o objeto da aplicação que criou no Passo de Inscrição da [sua aplicação.](#register-your-application)
 

@@ -13,12 +13,13 @@ ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631414"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063846"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integração com a plataforma de identidade da Microsoft
 
@@ -82,13 +83,13 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 **Protocolos padrão da indústria.**  A Microsoft está empenhada em apoiar os padrões da indústria. A plataforma de identidade da Microsoft suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. Saiba mais sobre [os protocolos de autenticação da plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
 
-**Bibliotecas de código aberto.**  A Microsoft fornece bibliotecas de código aberto totalmente suportadas para idiomas e plataformas populares para acelerar o desenvolvimento. O código fonte é licenciado sob Apache 2.0, e você é livre para fork e contribuir de volta para os projetos. Saiba mais sobre [a Microsoft Authentication Library (MSAL)](reference-v2-libraries.md).
+**Bibliotecas de código aberto.**  A Microsoft fornece bibliotecas de código aberto totalmente suportadas para idiomas e plataformas populares para acelerar o desenvolvimento. O código fonte é licenciado sob Apache 2.0, e você é livre para fork e contribuir de volta para os projetos. Saiba mais sobre a [Biblioteca de Autenticação da Microsoft (MSAL)](reference-v2-libraries.md).
 
 ### <a name="worldwide-presence-and-high-availability"></a>Presença mundial e alta disponibilidade
 
 **O Azure AD é implantado em datacenters em todo o mundo e é gerido e monitorizado 24 horas por dia.**  Azure AD é o sistema de gestão de identidade do Microsoft Azure e Microsoft 365 e está implantado em 28 datacenters em todo o mundo. É garantido que os dados do diretório sejam replicados em pelo menos três centros de dados. Os equilibradores de carga globais garantem que os utilizadores acedem à cópia mais próxima do AZure AD contendo os seus dados e reencaminham automaticamente os pedidos para outros centros de dados se for detetado um problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Começa a escrever código.](v2-overview.md#getting-started)
 

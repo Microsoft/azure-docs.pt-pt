@@ -13,15 +13,15 @@ ms.date: 05/29/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5eb30f7dcf4b459b0af0bd8de965971fbbe44863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c96d161e55261af1bbe04eae6ead1d245158d02
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85477656"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064832"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite recargas de página ao adquirir e renovar tokens silenciosamente utilizando MSAL.js
-A Microsoft Authentication Library for JavaScript (MSAL.js) utiliza `iframe` elementos ocultos para adquirir e renovar tokens silenciosamente em segundo plano. A Azure AD devolve o símbolo ao redirect_uri registado especificado no pedido simbólico (por padrão, esta é a página raiz da aplicação). Uma vez que a resposta é um 302, resulta no HTML correspondente ao `redirect_uri` carregamento no `iframe` . Normalmente, a aplicação `redirect_uri` é a página raiz e isto faz com que recarregue.
+A Biblioteca de Autenticação da Microsoft para o JavaScript (MSAL.js) utiliza `iframe` elementos ocultos para adquirir e renovar tokens silenciosamente em segundo plano. A Azure AD devolve o símbolo ao redirect_uri registado especificado no pedido simbólico (por padrão, esta é a página raiz da aplicação). Uma vez que a resposta é um 302, resulta no HTML correspondente ao `redirect_uri` carregamento no `iframe` . Normalmente, a aplicação `redirect_uri` é a página raiz e isto faz com que recarregue.
 
 Noutros casos, se navegar na página raiz da aplicação necessitar de autenticação, pode levar a `iframe` elementos aninhados ou `X-Frame-Options: deny` erros.
 
@@ -145,5 +145,5 @@ export class MsalComponent {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [a construção de uma aplicação de uma página (SPA)](scenario-spa-overview.md) utilizando MSAL.js.

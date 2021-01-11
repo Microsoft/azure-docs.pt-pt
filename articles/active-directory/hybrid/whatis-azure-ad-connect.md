@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: d8e1af1848405441088796d2e3b42e7b52eedba8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874105"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065121"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -26,7 +26,7 @@ O Azure AD Connect é a ferramenta da Microsoft concebida para satisfazer e atin
 - [Autenticação pass-through](how-to-connect-pta.md) - Um método de entrada que permite aos utilizadores usar a mesma palavra-passe no local e na nuvem, mas não requer a infraestrutura adicional de um ambiente federado.
 - [Integração da](how-to-connect-fed-whatis.md) Federação - A Federação é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura AD FS no local. Também fornece capacidades de gestão de FS AD, tais como renovação de certificados e implementações adicionais de servidores AD FS.
 - [Sincronização](how-to-connect-sync-whatis.md) - Responsável pela criação de utilizadores, grupos e outros objetos.  Além disso, certificar-se de que as informações de identidade dos seus utilizadores e grupos no local estão a combinar com a nuvem.  Esta sincronização também inclui hashes de senha.
-- [Monitorização de Saúde]() - Azure AD Connect Health pode fornecer uma monitorização robusta e fornecer uma localização central no portal Azure para visualizar esta atividade. 
+- [Monitorização de Saúde](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) - Azure AD Connect Health pode fornecer uma monitorização robusta e fornecer uma localização central no portal Azure para visualizar esta atividade. 
 
 
 ![O que é o Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -71,7 +71,7 @@ Métricas de utilização [avançadas](how-to-connect-health-adfs.md#usage-analy
 ## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Requisitos de licença para utilização de Azure AD Connect Health
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições expressas](how-to-connect-install-express.md)

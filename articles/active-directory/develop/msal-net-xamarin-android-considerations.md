@@ -1,7 +1,7 @@
 ---
 title: Configuração de código Android Xamarin e resolução de problemas (MSAL.NET) Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações para utilizar o Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba mais sobre considerações para utilizar o Xamarin Android com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 08/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 320d48535c4792a4d610888c6a7030568ccf16bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34f2b146dda6e739f977c4894b5ec333c79d74d4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995187"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063438"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Requisitos de configuração e dicas de resolução de problemas para Xamarin Android com MSAL.NET
 
@@ -156,7 +156,7 @@ Este exemplo contém um caminho de ficheiro correto:
 </Reference>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte a amostra de uma [aplicação móvel Xamarin que utiliza a plataforma de identidade da Microsoft.](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) A tabela seguinte resume as informações relevantes no ficheiro README.
 

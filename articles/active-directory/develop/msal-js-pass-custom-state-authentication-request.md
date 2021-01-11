@@ -13,16 +13,16 @@ ms.date: 01/16/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c1fad96ea6e3b75b3afdfd4a4d3baac43308541
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85477588"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063676"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passe o estado personalizado em pedidos de autenticação usando MSAL.js
 
-O parâmetro *do estado,* tal como definido pela OAuth 2.0, está incluído num pedido de autenticação e é também devolvido na resposta simbólica para evitar ataques de falsificação de pedidos de trans-locais. Por predefinição, a Microsoft Authentication Library for JavaScript (MSAL.js) transmite um valor único de parâmetro *único* gerado aleatoriamente nos pedidos de autenticação.
+O parâmetro *do estado,* tal como definido pela OAuth 2.0, está incluído num pedido de autenticação e é também devolvido na resposta simbólica para evitar ataques de falsificação de pedidos de trans-locais. Por predefinição, a Biblioteca de Autenticação do Microsoft para JavaScript (MSAL.js) transmite um valor de parâmetro *único* gerado aleatoriamente nos pedidos de autenticação.
 
 O parâmetro de estado também pode ser usado para codificar informações do estado da aplicação antes de redirecionar. Pode passar o estado do utilizador na aplicação, como a página ou a visualização em que se encontrava, como entrada para este parâmetro. A biblioteca MSAL.js permite-lhe passar o seu estado personalizado como parâmetro de estado no `Request` objeto:
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443114"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063217"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicação móvel que chama APIs web
 
@@ -32,18 +32,18 @@ Se ainda não o fez, crie a sua primeira aplicação completando um arranque rá
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação para iOS](./quickstart-v2-ios.md)
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação Xamarin iOS e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-Uma experiência personalizada e sem emenda do utilizador é essencial para aplicações móveis.  A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para utilizadores de iOS e Android. A sua aplicação pode iniciar súbs em utilizadores do Azure Ative Directory (Azure AD), utilizadores pessoais da conta microsoft e utilizadores Azure AD B2C. Também pode adquirir fichas para chamar uma API web em seu nome. Para implementar estes fluxos, usaremos a Microsoft Authentication Library (MSAL). A MSAL implementa o fluxo de [código de autorização OAuth2.0 padrão da](v2-oauth2-auth-code-flow.md)indústria.
+Uma experiência personalizada e sem emenda do utilizador é essencial para aplicações móveis.  A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para utilizadores de iOS e Android. A sua aplicação pode iniciar súbs em utilizadores do Azure Ative Directory (Azure AD), utilizadores pessoais da conta microsoft e utilizadores Azure AD B2C. Também pode adquirir fichas para chamar uma API web em seu nome. Para implementar estes fluxos, usaremos a Biblioteca de Autenticação da Microsoft (MSAL). A MSAL implementa o fluxo de [código de autorização OAuth2.0 padrão da](v2-oauth2-auth-code-flow.md)indústria.
 
 ![Aplicações daemon](./media/scenarios/mobile-app.svg)
 
 Considerações para aplicações móveis:
 
-- **A experiência do utilizador é fundamental** : Permita que os utilizadores vejam o valor da sua aplicação antes de pedir o seu sôm. Solicite apenas as permissões necessárias.
-- **Suportar todas as configurações do utilizador** : Muitos utilizadores de empresas móveis devem aderir a políticas de acesso condicional e políticas de conformidade com o dispositivo. Certifique-se de apoiar estes cenários-chave.
-- **Implementar um único sign-on (SSO)** : Utilizando a plataforma de identidade MSAL e Microsoft, pode ativar um único sinal através do navegador do dispositivo ou do Microsoft Authenticator (e portal da Empresa Intune no Android).
-- **Implementar o modo de dispositivo partilhado** : Permita que a sua aplicação seja usada em cenários de dispositivos partilhados, como hospitais, fabricação, retalho e finanças. [Leia mais sobre o modo de suporte ao dispositivo partilhado](msal-shared-devices.md).
+- **A experiência do utilizador é fundamental**: Permita que os utilizadores vejam o valor da sua aplicação antes de pedir o seu sôm. Solicite apenas as permissões necessárias.
+- **Suportar todas as configurações do utilizador**: Muitos utilizadores de empresas móveis devem aderir a políticas de acesso condicional e políticas de conformidade com o dispositivo. Certifique-se de apoiar estes cenários-chave.
+- **Implementar um único sign-on (SSO)**: Utilizando a plataforma de identidade MSAL e Microsoft, pode ativar um único sinal através do navegador do dispositivo ou do Microsoft Authenticator (e portal da Empresa Intune no Android).
+- **Implementar o modo de dispositivo partilhado**: Permita que a sua aplicação seja usada em cenários de dispositivos partilhados, como hospitais, fabricação, retalho e finanças. [Leia mais sobre o modo de suporte ao dispositivo partilhado](msal-shared-devices.md).
 
 ## <a name="specifics"></a>Especificidades
 
@@ -57,6 +57,6 @@ Tenha em mente as seguintes considerações quando construir uma aplicação mó
 
 [!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [registo de aplicações.](scenario-mobile-app-registration.md)

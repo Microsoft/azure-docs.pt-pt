@@ -1,7 +1,7 @@
 ---
 title: Considerações do navegador do sistema Xamarin Android (MSAL.NET) Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações para utilizar navegadores de sistema no Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba mais sobre considerações para utilizar navegadores de sistema no Xamarin Android com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165996"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063472"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema Xamarin Android para usar MSAL.NET
 
-Este artigo discute o que deve considerar quando utiliza o navegador do sistema no Xamarin Android com a Microsoft Authentication Library para .NET (MSAL.NET).
+Este artigo discute o que deve considerar quando utiliza o navegador do sistema no Xamarin Android com a Microsoft Authentication Library for .NET (MSAL.NET).
 
 A partir de MSAL.NET 2.4.0 Preview, MSAL.NET suporta navegadores que não o Chrome. Já não é necessário que o Chrome seja instalado no dispositivo Android para autenticação.
 
@@ -44,16 +44,16 @@ A tabela que se segue lista os dispositivos e navegadores que foram testados par
 
 | Dispositivo | Browser     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One+ | Chrome\* | Passe|
-| Huawei/One+ | Microsoft Edge\* | Passe|
-| Huawei/One+ | Firefox\* | Passe|
-| Huawei/One+ | Corajoso\* | Passe|
-| Um+ | Ecosia\* | Passe|
-| Um+ | Rio Kiwi\* | Passe|
-| Huawei/One+ | Ópera | Passe|
-| Huawei | OperaMini | Passe|
-| Huawei/One+ | InBrowser | Passe|
-| Um+ | Maxthon | Passe|
+| Huawei/One+ | Chrome\* | Aprovação|
+| Huawei/One+ | Microsoft Edge\* | Aprovação|
+| Huawei/One+ | Firefox\* | Aprovação|
+| Huawei/One+ | Corajoso\* | Aprovação|
+| Um+ | Ecosia\* | Aprovação|
+| Um+ | Rio Kiwi\* | Aprovação|
+| Huawei/One+ | Ópera | Aprovação|
+| Huawei | OperaMini | Aprovação|
+| Huawei/One+ | InBrowser | Aprovação|
+| Um+ | Maxthon | Aprovação|
 | Huawei/One+ | Pato-do-pato | Autenticação cancelada do utilizador|
 | Huawei/One+ | Navegador UC | Autenticação cancelada do utilizador|
 | Um+ | Golfinho | Autenticação cancelada do utilizador|
@@ -71,5 +71,5 @@ Se a autenticação falhar (por exemplo, se a autenticação for lançada com Du
   - **Problema de raiz**: Um navegador que suporta separadores personalizados não foi ativado no dispositivo. A autenticação foi lançada com um browser que não conseguiu completar a autenticação. 
   - **Mitigação:** Peça ao utilizador para ativar um browser no seu dispositivo. Recomendar um navegador que suporte separadores personalizados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações e exemplos de código, consulte [Escolher entre um navegador web incorporado e um navegador de sistema no Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) e Incorporado versus sistema web [UI](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

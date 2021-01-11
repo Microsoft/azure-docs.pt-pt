@@ -1,7 +1,7 @@
 ---
 title: Suporte Azure AD FS (MSAL Python)
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o suporte da Federação de Diretórios Ativos (AD FS) na Microsoft Authentication Library for Python
+description: Saiba mais sobre o suporte da Federação de Diretórios Ativos (AD FS) na Biblioteca de Autenticação da Microsoft para Python
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad874a4b117b7a7ccecea0e1800ca18c6fce8aaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161bcb2a4276b39765361e97a4516812c26ef580
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846212"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064475"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Apoio ativo dos Serviços da Federação de Diretórios no MSAL para Python
 
@@ -59,6 +59,6 @@ MSAL Python suporta ADFS 2019.
 
 Não suporta uma ligação direta à ADFS 2016 ou à ADFS v2. Se precisar de suportar cenários que exijam uma ligação direta ao ADFS 2016, utilize a versão mais recente do ADAL Python. Uma vez atualizado o seu sistema no local para ADFS 2019, pode utilizar o MSAL Python.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](../manage-apps/configure-authentication-for-federated-users-portal.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 5841af4225f88b36fe727b60a597af208ac830f5
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827177"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063302"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Cenários de troca de símbolos de plataforma de identidade da Microsoft com SAML e OIDC/OAuth
 
@@ -30,7 +30,7 @@ Muitas aplicações são implementadas com SAML. No entanto, a API do Gráfico u
 A estratégia geral é adicionar a pilha OIDC/OAuth à sua aplicação. Com a sua aplicação que implementa ambos os padrões pode usar um cookie de sessão. Não estás a trocar um símbolo explicitamente. Está a iniciar sessão com um utilizador com o SAML, o que gera um cookie de sessão. Quando a API do Gráfico invoca um fluxo de OAuth, utilize o cookie de sessão para autenticar. Esta estratégia pressupõe o passe de verificação de acesso condicional e o utilizador é autorizado.
 
 > [!NOTE]
-> A biblioteca recomendada para adicionar o comportamento OIDC/OAuth é a Microsoft Authentication Library (MSAL). Para saber mais sobre o MSAL, consulte [a visão geral da Biblioteca de Autenticação do Microsoft (MSAL)](msal-overview.md). A biblioteca anterior chamava-se Ative Directory Authentication Library (ADAL), no entanto não é recomendada, uma vez que a MSAL está a substituí-la.
+> A biblioteca recomendada para adicionar o comportamento OIDC/OAuth é a Microsoft Authentication Library (MSAL). Para saber mais sobre o MSAL, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md). A biblioteca anterior chamava-se Ative Directory Authentication Library (ADAL), no entanto não é recomendada, uma vez que a MSAL está a substituí-la.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

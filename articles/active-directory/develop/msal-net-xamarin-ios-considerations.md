@@ -1,7 +1,7 @@
 ---
 title: Considerações de Xamarin iOS (MSAL.NET) Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações para a utilização do Xamarin iOS com a Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba mais sobre considerações para a utilização do Xamarin iOS com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62eb4ab9eb6e4b0e7be0f7aadae1173950d21615
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258064"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064492"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerações para a utilização de Xamarin iOS com MSAL.NET
 
-Quando utilizar a Microsoft Authentication Library para .NET (MSAL.NET) no Xamarin iOS, deve:
+Quando utilizar a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET) no Xamarin iOS, deve:
 
 - Sobrepor e implementar a `OpenUrl` função em `AppDelegate` .
 - Ativar grupos de chavechain.
@@ -147,7 +147,7 @@ Nestes casos, utilize [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft
 
 Se tiver dúvidas ou quiser reportar um problema que encontrou no MSAL.NET, abra um problema no repositório [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) no GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre propriedades para xamarin iOS, consulte o parágrafo de [considerações específicas](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) para o iOS do ficheiro README.md da amostra seguinte:
 

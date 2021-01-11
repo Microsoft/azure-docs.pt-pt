@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 41dd1ae62e67fe7a23ad62927e1a67989d684bdb
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5dec4958c3a1d955d8f8c1dce90e27696fbebfe5
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516481"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063353"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os incumprimentos de vida de símbolo para uma aplicação desenvolvida sob medida
 
@@ -39,7 +40,7 @@ $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal di
 Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [as vidas de token configurantes em Azure AD](./active-directory-configurable-token-lifetimes.md) para aprender a configurar vidas simbólicas emitidas pela Azure AD, incluindo como definir vidas simbólicas para todas as aplicações da sua organização, para uma app multi-inquilino, ou para um diretor de serviço específico na sua organização. 
 * [Referência simbólica Azure Ad](./id-tokens.md)

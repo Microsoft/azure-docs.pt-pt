@@ -7,19 +7,19 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987359"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065444"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (legado)
 
 > [!Note]
 > Este artigo descreve as características antigas da exportação de dados na IoT Central.
 >
-> - Para obter informações sobre as novas funcionalidades de exportação de dados de pré-visualização, consulte [os dados do IoT de exportação para destinos em nuvem utilizando a exportação de dados.](./howto-export-data.md)
+> - Para obter informações sobre as mais recentes funcionalidades de exportação de dados, consulte [os dados do IoT de exportação para destinos em nuvem utilizando a exportação de dados.](./howto-export-data.md)
 > - Para conhecer as diferenças entre as características de exportação de dados de pré-visualização e as características de exportação de dados legados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Este artigo descreve como utilizar a funcionalidade de exportação de dados na Azure IoT Central. Esta funcionalidade permite-lhe exportar os seus dados continuamente para **Azure Event Hubs,** **Azure Service Bus** ou **a azure Blob.** A exportação de dados utiliza o formato JSON e pode incluir informações sobre telemetria, informações do dispositivo e modelo do dispositivo. Utilize os dados exportados para:
@@ -748,7 +748,7 @@ Para **os modelos do Dispositivo,** diferenças notáveis entre o antigo formato
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe exportar os seus dados para a Azure Event Hubs, Azure Service Bus e Azure Blob, continue para o próximo passo:
 

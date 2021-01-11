@@ -1,7 +1,7 @@
 ---
 title: Suporte AD FS (MSAL para Java)
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o suporte da Federação de Diretórios Ativos (AD FS) na Microsoft Authentication Library for Java (MSAL4j).
+description: Saiba mais sobre o suporte da Federação de Diretórios Ativos (AD FS) na Biblioteca de Autenticação da Microsoft para Java (MSAL4j).
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 5d01d1143563637e21aaa06a3f997c1507e4d8f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e3f3b32c6d96b83ec1d0402f344e7d65788c06
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88114783"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063710"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Apoio aos Serviços da Federação De Diretório Ativo no MSAL para a Java
 
@@ -46,6 +46,6 @@ As versões AD FS suportadas neste cenário federado são:
 
 Quando adquire um token usando `ConfidentialClientApplication.AcquireToken()` ou `PublicClientApplication.AcquireToken()` com `IntegratedWindowsAuthenticationParameters` `UsernamePasswordParameters` ou, MSAL para Java consegue que o fornecedor de identidade entre em contato com base no nome de utilizador. A MSAL para a Java recebe um [token SAML 1.1](reference-saml-tokens.md) do fornecedor de identidade, que depois fornece à Azure AD que devolve o JSON Web Token (JWT).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](../manage-apps/configure-authentication-for-federated-users-portal.md)

@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ad43d380bde1bae0e389fa58e3d916c2c3250be7
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344883"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064937"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Use o MSAL para Android com B2C
 
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações autuçam os utilizadores com identidades sociais e locais utilizando [o Azure Ative Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C é um serviço de gestão de identidade. Use-o para personalizar e controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis quando utilizam as suas aplicações.
+A Microsoft Authentication Library (MSAL) permite aos desenvolvedores de aplicações autenticar utilizadores com identidades sociais e locais utilizando [o Azure Ative Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C é um serviço de gestão de identidade. Use-o para personalizar e controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis quando utilizam as suas aplicações.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configure as autoridades conhecidas e redirecione a URI
 
@@ -237,6 +237,6 @@ Cada política adiciona uma `IAccount` cache para cada utilizador. Se um utiliza
 
 Quando renovar os tokens para uma política com `acquireTokenSilent` , forneça o mesmo que foi devolvido de `IAccount` invocações anteriores da apólice para  `AcquireTokenSilentParameters` . Fornecer uma conta devolvida por outra apólice resultará num erro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Azure Ative Directory B2C (Azure AD B2C) no [What is Azure Ative Directory B2C?](../../active-directory-b2c/overview.md)

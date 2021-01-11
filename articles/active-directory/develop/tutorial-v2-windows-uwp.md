@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 1e8c7805cf9804e8380f8638781f9634d2d3d081
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011514"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064424"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
@@ -42,7 +42,7 @@ Neste tutorial:
 
 ![Mostra como funciona a app de amostras gerada por este tutorial](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
 
-Este guia cria uma aplicação UWP de amostra que consulta a API do Gráfico microsoft. Para este cenário, é adicionado um token aos pedidos HTTP utilizando o cabeçalho de Autorização. A Microsoft Authentication Library lida com aquisições e renovações simbólicas.
+Este guia cria uma aplicação UWP de amostra que consulta a API do Gráfico microsoft. Para este cenário, é adicionado um token aos pedidos HTTP utilizando o cabeçalho de Autorização. A Microsoft Authentication Library trata de aquisições e renovações simbólicas.
 
 ## <a name="nuget-packages"></a>Pacotes NuGet
 
@@ -50,7 +50,7 @@ Este guia utiliza o seguinte pacote NuGet:
 
 |Biblioteca|Descrição|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Biblioteca de Autenticação da Microsoft|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Biblioteca do cliente do Microsoft Graph|
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
@@ -71,7 +71,7 @@ Este guia cria uma aplicação que exibe um botão que consulta a API do Microso
 
    ![Versões mínimas e alvo](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Adicione a Biblioteca de Autenticação do Microsoft ao seu projeto
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>Adicione a Biblioteca de Autenticação microsoft ao seu projeto
 
 1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
 1. Copiar e colar os seguintes comandos na janela **da consola Package Manager:**
@@ -82,7 +82,7 @@ Este guia cria uma aplicação que exibe um botão que consulta a API do Microso
     ```
 
    > [!NOTE]
-   > O primeiro comando instala a [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET adquire, caches e atualiza fichas de utilizador que acedem a APIs que estão protegidas pela plataforma de identidade da Microsoft. O segundo comando instala [a Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para autenticar pedidos no Microsoft Graph e fazer chamadas para o serviço.
+   > O primeiro comando instala a [Biblioteca de Autenticação do Microsoft (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET adquire, caches e atualiza fichas de utilizador que acedem a APIs que estão protegidas pela plataforma de identidade da Microsoft. O segundo comando instala [a Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para autenticar pedidos no Microsoft Graph e fazer chamadas para o serviço.
 
 ### <a name="create-your-applications-ui"></a>Crie uI da sua aplicação
 
@@ -103,9 +103,9 @@ O Visual Studio cria *o MainPage.xaml* como parte do seu modelo de projeto. Abra
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Utilize a Microsoft Authentication Library para obter um token para a API do Gráfico microsoft
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Utilize a Biblioteca de Autenticação microsoft para obter um token para a API do Gráfico microsoft
 
-Esta secção mostra como usar a Microsoft Authentication Library para obter um token para a API do Gráfico microsoft. Faça alterações no ficheiro *MainPage.xaml.cs.*
+Esta secção mostra como usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Gráfico microsoft. Faça alterações no ficheiro *MainPage.xaml.cs.*
 
 1. Em *MainPage.xaml.cs*, adicione as seguintes referências:
 
@@ -227,7 +227,7 @@ O `AcquireTokenInteractive` método resulta numa janela que leva os utilizadores
 
 O `AcquireTokenSilent` método lida com aquisições e renovações simbólicas sem qualquer interação do utilizador. Depois de `AcquireTokenInteractive` correr pela primeira vez e solicitar ao utilizador credenciais, utilize o método para solicitar `AcquireTokenSilent` fichas para chamadas posteriores. Este método adquire fichas silenciosamente. A Microsoft Authentication Library trata da cache e da renovação do símbolo.
 
-Eventualmente, o `AcquireTokenSilent` método falha. As razões para a falha incluem um utilizador que assinou ou alterou a sua palavra-passe noutro dispositivo. Quando a Microsoft Authentication Library deteta que o problema requer uma ação interativa, abre uma `MsalUiRequiredException` exceção. A sua aplicação pode lidar com esta exceção de duas formas:
+Eventualmente, o `AcquireTokenSilent` método falha. As razões para a falha incluem um utilizador que assinou ou alterou a sua palavra-passe noutro dispositivo. Quando a Biblioteca de Autenticação da Microsoft deteta que o problema requer uma ação interativa, abre uma `MsalUiRequiredException` exceção. A sua aplicação pode lidar com esta exceção de duas formas:
 
 * A sua candidatura liga `AcquireTokenInteractive` imediatamente. Esta chamada resulta em levar o utilizador a iniciar sinsumento. Normalmente, utilize esta abordagem para aplicações online onde não há conteúdo offline disponível para o utilizador. A amostra gerada por esta configuração guiada segue o padrão. Vê-lo em ação da primeira vez que faz a amostra.
 
@@ -297,7 +297,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 #### <a name="more-information-about-signing-out"></a>Mais informações sobre a assinatura<a name="more-information-on-sign-out"></a>
 
-O `SignOutButton_Click` método remove o utilizador da cache do utilizador da Microsoft Authentication Library. Este método diz eficazmente à Microsoft Authentication Library para esquecer o utilizador atual. Um pedido futuro para adquirir um símbolo só tem sucesso se for interativo.
+O `SignOutButton_Click` método remove o utilizador da cache do utilizador da Microsoft Authentication Library. Este método diz eficazmente à Biblioteca de Autenticação da Microsoft para esquecer o utilizador atual. Um pedido futuro para adquirir um símbolo só tem sucesso se for interativo.
 
 A aplicação nesta amostra suporta um único utilizador. A Microsoft Authentication Library suporta cenários em que o utilizador pode iniciar sposição em mais de uma conta. Um exemplo é uma aplicação de e-mail onde um utilizador tem várias contas.
 
@@ -322,7 +322,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>Mais informações<a name="more-information-1"></a>
 
-Os tokens de ID adquiridos através do **OpenID Connect** também contêm um pequeno subconjunto de informação pertinente ao utilizador. `DisplayBasicTokenInfo` exibe informações básicas contidas no token. Esta informação inclui o nome de exibição do utilizador e o ID. Também inclui a data de validade do token e a cadeia que representa o próprio símbolo de acesso. Se selecionar várias vezes o botão **API do Gráfico de Chamada Microsoft,** verá que o mesmo token foi reutilizado para pedidos posteriores. Também pode ver a data de validade estendida quando a Microsoft Authentication Library decidir que é hora de renovar o token.
+Os tokens de ID adquiridos através do **OpenID Connect** também contêm um pequeno subconjunto de informação pertinente ao utilizador. `DisplayBasicTokenInfo` exibe informações básicas contidas no token. Esta informação inclui o nome de exibição do utilizador e o ID. Também inclui a data de validade do token e a cadeia que representa o próprio símbolo de acesso. Se selecionar várias vezes o botão **API do Gráfico de Chamada Microsoft,** verá que o mesmo token foi reutilizado para pedidos posteriores. Também pode ver a data de validade estendida quando a Biblioteca de Autenticação da Microsoft decidir que é hora de renovar o token.
 
 ### <a name="display-message"></a>Mensagem de exibição
 
@@ -469,7 +469,7 @@ Você também vê informações básicas sobre o símbolo adquirido via `Acquire
 |Propriedade  |Formato  |Descrição |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |O nome de utilizador que identifica o utilizador.|
-|`Token Expires` |`DateTime` |O tempo em que o símbolo expira. A Microsoft Authentication Library prolonga a data de validade renovando o token conforme necessário.|
+|`Token Expires` |`DateTime` |O tempo em que o símbolo expira. A Biblioteca de Autenticação da Microsoft prolonga a data de validade renovando o token se necessário.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas
 

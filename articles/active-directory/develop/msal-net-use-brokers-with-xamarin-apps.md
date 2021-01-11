@@ -1,7 +1,7 @@
 ---
 title: Use corretores com Xamarin iOS & Android Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como configurar aplicações xamarin iOS que podem utilizar a Microsoft Authenticator e a Microsoft Authentication Library para .NET (MSAL.NET). Aprenda também a migrar da Biblioteca de Autenticação AD Azure para .NET (ADAL.NET) para a Microsoft Authentication Library para .NET (MSAL.NET).
+description: Saiba como configurar aplicações xamarin iOS que podem utilizar o Autenticador microsoft e a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET). Aprenda também a migrar da Biblioteca de Autenticação AD Azure para .NET (ADAL.NET) para a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017804"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063489"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
 

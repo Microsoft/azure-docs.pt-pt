@@ -1,5 +1,5 @@
 ---
-title: Orientações do programador para o Acesso Condicional ao Azure Active Directory
+title: Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
 titleSuffix: Microsoft identity platform
 description: Orientação do desenvolvedor e cenários para acesso condicional AD Azure e plataforma de identidade microsoft.
 services: active-directory
@@ -14,14 +14,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120631"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064373"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientações do programador para o Acesso Condicional ao Azure Active Directory
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
 
 A funcionalidade de Acesso Condicional no Azure Ative Directory (Azure AD) oferece uma das várias formas que pode usar para proteger a sua aplicação e proteger um serviço. O Acesso Condicional permite aos desenvolvedores e clientes empresariais proteger os serviços de várias formas, incluindo:
 
@@ -43,7 +43,7 @@ Para desenvolvedores que couem apps para Azure AD, este artigo mostra como você
 
 ### <a name="app-types-impacted"></a>Tipos de aplicativos impactados
 
-Na maioria dos casos comuns, o Acesso Condicional não altera o comportamento de uma aplicação nem requer quaisquer alterações do desenvolvedor.Apenas em certos casos quando uma aplicação solicita, indiretamente ou silenciosamente, um símbolo para um serviço, uma aplicação requer alterações de código para lidar com "desafios" do Acesso Condicional.Pode ser tão simples como realizar um pedido de inscrição interativo.
+Na maioria dos casos comuns, o Acesso Condicional não altera o comportamento de uma aplicação nem requer quaisquer alterações do desenvolvedor. Apenas em certos casos quando uma aplicação solicita, indiretamente ou silenciosamente, um símbolo para um serviço, uma aplicação requer alterações de código para lidar com "desafios" do Acesso Condicional. Pode ser tão simples como realizar um pedido de inscrição interativo.
 
 Especificamente, os seguintes cenários requerem código para lidar com "desafios" do Acesso Condicional:
 
@@ -178,10 +178,10 @@ A nossa aplicação precisa de apanhar o `error=interaction_required` . A aplica
 
 Para experimentar este cenário, consulte a nossa [amostra de código JS SPA Em nome de código.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md) Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar corretamente com o desafio de reclamações e obter um token de acesso que pode ser usado para a sua API web. Alternativamente, check-out a amostra de [ código geralAngular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) para orientação num SPA angular
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * Para saber mais sobre as capacidades, consulte [o Acesso Condicional no Diretório Ativo Azure.](../conditional-access/overview.md)
 * Para obter mais amostras de código AD Azure, consulte [as amostras](sample-v2-code.md).
-* Para obter mais informações sobre o MSAL SDK's e aceda à documentação de referência, consulte a [visão geral da Biblioteca de Autenticação da Microsoft](msal-overview.md).
+* Para obter mais informações sobre os MSAL SDK's e aceda à documentação de referência, consulte a visão geral da [Biblioteca de Autenticação](msal-overview.md)da Microsoft .
 * Para saber mais sobre cenários multi-inquilinos, consulte [como assinar nos utilizadores usando o padrão multi-inquilino.](howto-convert-app-to-be-multi-tenant.md)
 * Saiba mais sobre [o acesso condicional e garantir o acesso a aplicações IoT.](/azure/architecture/example-scenario/iot-aad/iot-aad)

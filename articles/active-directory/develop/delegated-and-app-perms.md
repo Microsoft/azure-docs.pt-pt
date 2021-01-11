@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: 5f7035472ae408987a14f06492a762b56fa657b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d9011a69d9c3389f73097e65d509e463f1f5280
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76697613"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063812"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Como reconhecer diferenças entre permissões delegadas e de candidatura
 
@@ -26,5 +27,5 @@ ms.locfileid: "76697613"
 - Consulte instruções passo a passo sobre como [configurar os pedidos de permissão de um pedido de cliente](quickstart-configure-app-access-web-apis.md)
 - Para obter mais profundidade, saiba como as aplicações de recursos expõem [os âmbitos](developer-glossary.md#scopes) e funções de [aplicação](developer-glossary.md#roles) às aplicações dos clientes, que se manifestam como permissões delegadas e de candidatura, respectivamente, no portal Azure. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)

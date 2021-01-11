@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62f4f629e44d317d36e182adb48f8f00b9f1c2b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120682"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063064"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar um único sinal para uma aplicação
 
@@ -30,7 +31,7 @@ Para Android, consulte [Enableing Cross App SSO no Android.](../azuread-dev/howt
 
 Para iOS, consulte [Enableing Cross App SSO no iOS](../azuread-dev/howto-v1-enable-sso-ios.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Azure AD SSO](../manage-apps/what-is-single-sign-on.md)<br>
 

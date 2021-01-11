@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/25/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709423"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065257"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Permitir o login nos oleodutos de designers de machine learning do Azure
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre métricas de registo utilizando a experiênc
 
 ## <a name="enable-logging-with-execute-python-script"></a>Ativar o registo com executar o script python
 
-Utilize o módulo __de script Execute Python__ para permitir o registo em pipelines de design. Embora possa registar qualquer valor com este fluxo de trabalho, é especialmente útil registar métricas a partir do módulo __De Modelo avaliar__ para acompanhar o desempenho do modelo através de corridas.
+Utilize o módulo [de script Execute Python](./algorithm-module-reference/execute-python-script.md) para permitir o registo em pipelines de design. Embora possa registar qualquer valor com este fluxo de trabalho, é especialmente útil registar métricas a partir do módulo __De Modelo avaliar__ para acompanhar o desempenho do modelo através de corridas.
 
 O exemplo a seguir mostra como registar o erro médio quadrado de dois modelos treinados utilizando os módulos de Avaliação de Scripts Python e Desematado.
 
@@ -53,7 +53,7 @@ O exemplo a seguir mostra como registar o erro médio quadrado de dois modelos t
         
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
         parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-        # Log right output port result of Evaluate Model.
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
         parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
         return dataframe1,
@@ -81,3 +81,4 @@ Neste artigo, aprendeu a usar registos no designer. Para os próximos passos, co
 
 * Saiba como resolver os oleodutos de designers de resolução de problemas, consulte [debug & os oleodutos ML de resolução de problemas.](how-to-debug-pipelines.md#azure-machine-learning-designer)
 * Aprenda a utilizar o Python SDK para registar métricas na experiência de autoria SDK, consulte [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+* Aprenda a usar [o Executo Python Script](./algorithm-module-reference/execute-python-script.md) no designer.

@@ -13,16 +13,16 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e12beafc81cbc41ea070fbdda1d68990f6f3fcda
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343591"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063693"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialize as aplicações do cliente utilizando MSAL.js
 
-Este artigo descreve a inicialização da Biblioteca de Autenticação do Microsoft para o JavaScript (MSAL.js) com uma aplicação de agente de utilizador.
+Este artigo descreve a inicialização da Biblioteca de Autenticação do Microsoft para o JavaScript (MSAL.js) com uma instância de uma aplicação de agente de utilizador.
 
 A aplicação de agente de utilizador é uma forma de aplicação de cliente público na qual o código do cliente é executado num agente de utilizador, como um navegador web. Estes clientes não armazenam segredos porque o contexto do navegador é abertamente acessível.
 
@@ -144,7 +144,7 @@ Ambos MSAL.js 1.x e 2.x são projetados para ter uma única instância e configu
 
 Várias instâncias de `UserAgentApplication` ou `PublicClientApplication` não são recomendadas, uma vez que causam entradas e comportamentos de cache conflituosos no navegador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Esta MSAL.js amostra de código de 2.x no GitHub demonstra a instantiação de uma [Aplicação deClient Público][msal-js-publicclientapplication] com um objeto [de configuração:][msal-js-configuration]
 

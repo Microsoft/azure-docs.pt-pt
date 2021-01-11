@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968420"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065308"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -64,7 +64,7 @@ Depois de ter preparado as suas ferramentas ITSM, complete estes passos para cri
 
 1. Em **Todos os recursos,** procure **o ServiceDesk(o *seu nome de espaço de trabalho)***:
 
-   ![Screenshot que mostra recursos recentes no portal Azure.](media/itsmc-overview/itsm-connections.png)
+   ![Screenshot que mostra recursos recentes no portal Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. Em **Fontes de Dados** do Espaço de Trabalho no painel esquerdo, selecione **ItsM Connections**:
 
@@ -169,6 +169,6 @@ Quando criar ou editar uma regra de alerta Azure, utilize um grupo de ação, qu
 >
 >- O campo de descrição curta na definição de regra de alerta é limitado a 40 caracteres quando o envia utilizando a ação ITSM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolver problemas do Conector do ITSM](./itsmc-resync-servicenow.md)

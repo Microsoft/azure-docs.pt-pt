@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173469"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064973"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Apoie políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolver
 
@@ -36,7 +36,7 @@ Além disso, ativar um único login na sua aplicação desbloqueia novos mecanis
 
 Recomendamos o seguinte para permitir que a sua aplicação aproveite o único sign-on.
 
-### <a name="use-microsoft-authentication-library-msal"></a>Utilize a Microsoft Authentication Library (MSAL)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Utilize a Biblioteca de Autenticação microsoft (MSAL)
 
 A melhor escolha para implementar um único sinal de sing na sua aplicação é utilizar [a Microsoft Authentication Library (MSAL)](msal-overview.md). Ao utilizar o MSAL, pode adicionar autenticação à sua aplicação com o código mínimo e chamadas API, obter todas as funcionalidades da [plataforma de identidade da Microsoft](./index.yml)– e deixar a Microsoft lidar com a manutenção de uma solução de autenticação segura. Por predefinição, a MSAL adiciona suporte SSO para a sua aplicação. Além disso, usar o MSAL é um requisito se também planeia implementar políticas de proteção de aplicações.
 

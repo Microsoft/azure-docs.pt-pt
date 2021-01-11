@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 01e492072bd75af9f80656b71d2cc1c473d64263
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803804"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065190"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Resolver problemas do Conector do ITSM
 
@@ -23,13 +23,38 @@ A ITSM dá-lhe a opção de enviar os alertas para o sistema de bilhética exter
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e alterar os dados do pedido
 
-Dependendo da configuração quando configurar uma ligação, o ITSMC pode sincronizar até 120 dias de incidente e alterar dados de pedido. O esquema de registo de registo destes dados é fornecido na Secção de [Informações Adicionais](./itsmc-overview.md) deste artigo.
+Dependendo da configuração quando configurar uma ligação, o ITSMC pode sincronizar até 120 dias de incidente e alterar dados de pedido. O esquema de registo de registo destes dados é fornecido na Secção de [Informações Adicionais](./itsmc-synced-data.md) deste artigo.
 
 Pode visualizar o incidente e alterar os dados do pedido utilizando o painel ITSMC:
 
 ![Screenshot que mostra o painel ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 O painel também fornece informações sobre o estado do conector, que pode usar como ponto de partida para analisar problemas com as ligações.
+
+### <a name="error-investigation-using-the-dashboard"></a>Investigação de erro usando o painel
+
+Para ver os erros no painel de instrumentos, deve seguir os próximos passos:
+
+1. Em **Todos os recursos,** procure **o ServiceDesk(o *seu nome de espaço de trabalho)***:
+
+   ![Screenshot que mostra recursos recentes no portal Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
+
+2. Em **Fontes de Dados** do Espaço de Trabalho no painel esquerdo, selecione **ItsM Connections**:
+
+   ![Screenshot que mostra o item do menu ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
+
+3. Em **Resumo** no **Conector de Gestão** de Serviço de TI da caixa esquerda, selecione **Ver Resumo**:
+
+    ![Screenshot que mostra o resumo da visualização.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+
+4. Em **Resumo** no **Conector de Gestão** de Serviço de TI da caixa esquerda, clique no gráfico:
+
+    ![Screenshot que mostra clique de gráfico.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+
+5. Utilizando este painel de instrumentos poderá rever o estado e os erros no seu conector.
+    ![Screenshot que mostra o estado do conector.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="service-map"></a>Mapa de serviço
 
 Também pode visualizar os incidentes sincronizados com os computadores afetados no Mapa de Serviço.
 

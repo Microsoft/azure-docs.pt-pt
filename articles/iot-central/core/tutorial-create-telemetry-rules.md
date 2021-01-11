@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a1991860e1599020c5a91c09dfb30a96ed442ff7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033851"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065291"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Criar uma regra e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -24,7 +24,7 @@ Os dispositivos utilizam a telemetria para enviar dados numéricos do dispositiv
 
 Neste tutorial, cria-se uma regra para enviar um e-mail quando a temperatura num dispositivo de sensor simulado excede 70 &deg; F.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -118,4 +118,4 @@ Neste tutorial, ficou a saber como:
 Agora que definiu uma regra baseada no limiar, o próximo passo sugerido é aprender a:
 
 > [!div class="nextstepaction"]
-> [Configure a exportação contínua de dados.](./howto-export-data.md)
+> [Crie webhooks sobre regras.](./howto-create-webhooks.md)

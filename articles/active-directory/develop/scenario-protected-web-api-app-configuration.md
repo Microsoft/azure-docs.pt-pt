@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 12eba5a0de85f97dba9c220ed71679bdd35d7482
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963337"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063200"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -40,7 +40,7 @@ Considere as perguntas seguintes:
 
 O token portador que é definido no cabeçalho quando a aplicação é chamada contém informações sobre a identidade da app. Também contém informações sobre o utilizador, a menos que a aplicação web aceite chamadas de serviço a serviço a partir de uma aplicação daemon.
 
-Aqui está um exemplo de código C# que mostra um cliente a ligar para a API depois de adquirir um token com a Microsoft Authentication Library para .NET (MSAL.NET):
+Aqui está um exemplo de código C# que mostra um cliente a ligar para a API depois de adquirir um token com a Microsoft Authentication Library for .NET (MSAL.NET):
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};
@@ -195,7 +195,7 @@ Os passos de validação são capturados em validadores, que são fornecidos pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Description |
+| Validador | Descrição |
 |---------|---------|
 | **ValidarAudiência** | Garante que o token é para a aplicação que valida o token para si. |
 | **ValidarIssuer** | Garante que o símbolo foi emitido por uma STS de confiança, o que significa que é de alguém em quem confias. |
@@ -240,6 +240,6 @@ Também pode validar fichas de acesso recebidas em Funções Azure. Pode encontr
 - Node.js: [Azure-Samples/ms-identidade-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
 - Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [Verifique os âmbitos e as funções de aplicação no seu código.](scenario-protected-web-api-verification-scope-app-roles.md)

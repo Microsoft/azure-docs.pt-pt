@@ -13,16 +13,16 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 349ec8c99bc9e6768e5ec2ded346893da95c1636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e2ffebf0b414d4b59178fe04fb109530365786b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166149"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064713"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação de cliente público com opções de configuração usando MSAL.NET
 
-Este artigo descreve como instantaneamente uma [aplicação de cliente público](msal-client-applications.md) utilizando a Microsoft Authentication Library for .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
+Este artigo descreve como instantaneamente uma [aplicação de cliente público](msal-client-applications.md) utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
 
 Antes de rubricar uma aplicação, primeiro precisa [de a registar](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registo, poderá necessitar das seguintes informações (que podem ser encontradas no portal Azure):
 
@@ -32,7 +32,7 @@ Antes de rubricar uma aplicação, primeiro precisa [de a registar](quickstart-r
 - Para aplicações web, e às vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
 
 
-Uma aplicação de consola .NET Core pode ter as * seguintesappsettings.jsno* ficheiro de configuração:
+Uma aplicação de consola .NET Core pode ter as *seguintesappsettings.jsno* ficheiro de configuração:
 
 ```json
 {

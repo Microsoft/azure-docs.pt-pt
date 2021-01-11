@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516503"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063795"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>As melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -30,7 +30,7 @@ Utilize a seguinte lista de verificação para garantir que a sua aplicação es
 > [!TIP]
 > O *assistente de integração* no portal Azure pode ajudá-lo a aplicar muitas destas boas práticas e recomendações. Selecione qualquer uma das suas [inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de aplicações no portal Azure e, em seguida, selecione o item do menu **assistente de Integração** para começar com o assistente.
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) Leia e compreenda as Políticas da Plataforma [microsoft](/legal/microsoft-identity-platform/terms-of-use). Certifique-se de que a sua aplicação adere aos termos delineados, uma vez que foram concebidos para proteger os utilizadores e a plataforma.
 

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 7b70460af8126199b19c18118897c93f0477791c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e1b4a0b1279130250938b900b47a98cf52f7bb6
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442208"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064441"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma determinada API
 
@@ -26,6 +27,6 @@ ms.locfileid: "89442208"
 - Consulte instruções passo a passo sobre como [configurar os pedidos de permissão de um pedido de cliente](./quickstart-configure-app-access-web-apis.md)
 - Para obter mais profundidade, saiba como as aplicações de recursos expõem [os âmbitos](./developer-glossary.md#scopes) e funções de [aplicação](./developer-glossary.md#roles) às aplicações dos clientes, que se manifestam como permissões delegadas e de candidatura, respectivamente, no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
