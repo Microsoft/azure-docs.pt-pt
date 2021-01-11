@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805606"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98061150"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os seguintes cenários podem beneficiar muito da explosão:
@@ -28,7 +28,7 @@ O sistema de crédito estourando aplica-se da mesma forma tanto ao nível da má
 
 ![Diagrama de balde de explosão](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Depende de si sobre como quer usar os 30 minutos de explosão. Pode usá-lo durante 30 minutos consecutivos ou esporadicamente ao longo do dia. Quando o produto é implantado, fica pronto com todos os créditos e quando esgota os créditos demora menos de um dia a ficar totalmente abastecido de créditos novamente. Você pode acumular e gastar os seus créditos de rebentamento a seu critério e o balde de 30 minutos não precisa estar cheio novamente para explodir. Uma coisa a notar sobre a acumulação de explosão é que é diferente para cada recurso, uma vez que é baseado no IOPS não uused e MB/s abaixo dos seus valores de desempenho. Isto significa que os produtos de desempenho de base mais elevados podem acumular as suas quantidades de rebentamento mais rapidamente do que os produtos de desempenho de base mais baixos. Por exemplo, um disco P1 em escoamento sem atividade irá acumular 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo enquanto está em óquelinho sem atividade.
+Depende de si como quer usar os 30 minutos de explosão. Pode usá-lo durante 30 minutos consecutivos ou esporadicamente ao longo do dia. Quando o produto é implantado, fica pronto com todos os créditos e quando esgota os créditos demora menos de um dia a ficar totalmente abastecido de créditos novamente. Você pode acumular e gastar os seus créditos de rebentamento a seu critério e o balde de 30 minutos não precisa estar cheio novamente para explodir. Uma coisa a notar sobre a acumulação de explosão é que é diferente para cada recurso, uma vez que é baseado no IOPS não uused e MB/s abaixo dos seus valores de desempenho. Isto significa que os produtos de desempenho de base mais elevados podem acumular as suas quantidades de rebentamento mais rapidamente do que os produtos de desempenho de base mais baixos. Por exemplo, um disco P1 em escoamento sem atividade irá acumular 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo enquanto está em óquelinho sem atividade.
 
 ## <a name="bursting-states"></a>Estados em explosão
 Existem três estados em que o seu recurso pode estar com a explosão ativada:
