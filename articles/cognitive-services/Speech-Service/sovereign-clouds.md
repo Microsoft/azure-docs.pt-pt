@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 01/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 539ea6f80604eabdbbe56a3280cf5ddb367c0439
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
+ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97966788"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98061757"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Serviços de fala em nuvens soberanas
 
@@ -36,9 +36,10 @@ Disponível apenas para entidades governamentais dos EUA e seus parceiros. Veja 
     - Discurso personalizado (Modelo Acústico (AM) e Adaptação do Modelo de Linguagem (LM)
       - [Speech Studio](https://speech.azure.us/)
   - Conversão de texto em voz
+    - Voz padrão
+    - Voz neural
   - Tradutor de fala
 - **Características não suportadas:**
-  - Voz neural
   - Voz Personalizada
 - **Línguas apoiadas:**
   - Veja a lista de línguas apoiadas [aqui](language-support.md)
@@ -105,20 +106,13 @@ Disponível para organizações com presença comercial na China. Veja mais info
     - Discurso personalizado (Modelo Acústico (AM) e Adaptação do Modelo de Linguagem (LM)
       - [Speech Studio](https://speech.azure.cn/)
   - Conversão de texto em voz
+    - Voz padrão
+    - Voz neural
   - Tradutor de fala
 - **Características não suportadas:**
-  - Voz neural
   - Voz Personalizada
 - **Línguas apoiadas:**
-  - Árabe (ar-*)
-  - Chinês (zh-*)
-  - Inglês (en-*)
-  - Francês (fr-*)
-  - Alemão (de-*)
-  - Hindi (hi-IN)
-  - Coreano (ko-KR)
-  - Russo (ru-RU)
-  - Espanhol (es-*)
+  - Veja a lista de línguas apoiadas [aqui](language-support.md)
 
 ### <a name="endpoint-information"></a>Informações sobre ponto final
 

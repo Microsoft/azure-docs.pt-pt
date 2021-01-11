@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c3dc2f91fcd09807a7eaaaaa638e78ba3717faec
+ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345530"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98061774"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
 
@@ -26,6 +26,8 @@ Saiba as novidades com o QnA Maker.
 ### <a name="november-2020"></a>Novembro de 2020
 
 * Nova versão do QnA Maker lançada em visualização pública gratuita. Leia mais [aqui](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
 * Criação de recursos simplificados
 * Apoio à região de Fim a Fim
 * Modelo de classificação de profundo conhecimento
@@ -43,7 +45,7 @@ Saiba as novidades com o QnA Maker.
 
 ### <a name="may-2020"></a>Maio de 2020
 
-* [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](concepts/role-based-access-control.md)
+* [Controlo de acesso baseado em funções Azure (Azure RBAC)](concepts/role-based-access-control.md)
 * [Edição de texto rico](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) para respostas
 
 ### <a name="march-2020"></a>Março de 2020
