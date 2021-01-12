@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462868"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121197"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendações do Azure Advisor para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -65,12 +65,12 @@ Atualmente, o Advisor só mostrará no máximo quatro candidatos de mesa replica
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Utilização adaptativa (Gen2) em cache
-Quando se tem um grande conjunto de trabalho, pode experimentar uma baixa percentagem de cache e uma utilização de cache elevada. Para este cenário, deverá aumentar a capacidade de cache e refazer a sua carga de trabalho. Para mais informações visite a seguinte [documentação.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache) 
+Quando se tem um grande conjunto de trabalho, pode experimentar uma baixa percentagem de cache e uma utilização de cache elevada. Para este cenário, deverá aumentar a capacidade de cache e refazer a sua carga de trabalho. Para mais informações visite a seguinte [documentação.](./sql-data-warehouse-how-to-monitor-cache.md) 
 
 ## <a name="tempdb-contention"></a>Contenção temporária
 
-O desempenho da consulta pode degradar-se quando há uma alta contenção temporária.  A contenção temporária pode ocorrer através de tabelas temporárias definidas pelo utilizador ou quando há uma grande quantidade de movimento de dados. Para este cenário, pode escalar para mais alocação temporária e [configurar classes de recursos e gestão de carga de trabalho](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) para fornecer mais memória às suas consultas. 
+O desempenho da consulta pode degradar-se quando há uma alta contenção temporária.  A contenção temporária pode ocorrer através de tabelas temporárias definidas pelo utilizador ou quando há uma grande quantidade de movimento de dados. Para este cenário, pode escalar para mais alocação temporária e [configurar classes de recursos e gestão de carga de trabalho](./sql-data-warehouse-workload-management.md) para fornecer mais memória às suas consultas. 
 
 ## <a name="data-loading-misconfiguration"></a>Confirmação errada de carregamento de dados
 
-Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL dedicada para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) 
+Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL dedicada para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](./guidance-for-loading-data.md)

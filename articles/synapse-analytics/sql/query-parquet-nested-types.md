@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462559"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118766"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Tipos de aninhados de consulta em ficheiros Parquet e JSON utilizando piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Os tipos aninhados são estruturas complexas que representam objetos ou matrizes
 - Ficheiros [hierárquicos do JSON,](query-json-files.md)onde pode ler um documento JSON complexo como uma única coluna.
 - Coleções DB Azure Cosmos (atualmente em pré-visualização pública fechada), onde cada documento pode conter propriedades complexas aninhadas.
 
-Os formatos de piscina SQL sem servidor são todos os tipos aninhados como objetos e matrizes JSON. Para que possa [extrair ou modificar objetos complexos utilizando funções JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analisar dados JSON utilizando a função OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Os formatos de piscina SQL sem servidor são todos os tipos aninhados como objetos e matrizes JSON. Para que possa [extrair ou modificar objetos complexos utilizando funções JSON](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analisar dados JSON utilizando a função OPENJSON](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Aqui está um exemplo de uma consulta que extrai valores de escalão e objeto do ficheiro JSON do [Conjunto de Dados de Investigação Aberta COVID-19,](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) que contém objetos aninhados: 
 
@@ -121,7 +121,7 @@ O resultado é indicado na tabela seguinte:
 | --- | --- | --- | --- |
 | Informação Complementar Um eco-epidemiolo... | Julien   | - Figura S1 : Filologenia de... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Ao contrário dos ficheiros JSON, que na maioria dos casos devolvem uma única coluna que contém um objeto JSON complexo, os ficheiros Parquet podem ter várias colunas complexas. Pode ler as propriedades das colunas aninhadas utilizando a `JSON_VALUE` função em cada coluna. `OPENROWSET` permite especificar diretamente os caminhos das propriedades aninhadas numa `WITH` cláusula. Pode definir os caminhos como o nome de uma coluna, ou pode adicionar uma expressão de [caminho JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) após o tipo de coluna.
+Ao contrário dos ficheiros JSON, que na maioria dos casos devolvem uma única coluna que contém um objeto JSON complexo, os ficheiros Parquet podem ter várias colunas complexas. Pode ler as propriedades das colunas aninhadas utilizando a `JSON_VALUE` função em cada coluna. `OPENROWSET` permite especificar diretamente os caminhos das propriedades aninhadas numa `WITH` cláusula. Pode definir os caminhos como o nome de uma coluna, ou pode adicionar uma expressão de [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server) após o tipo de coluna.
 
 A seguinte consulta lê o ficheiro structExample.parquet e mostra como superfície elementos de uma coluna aninhada. Há duas maneiras de fazer referência a um valor aninhado:
 - Especificando a expressão do caminho do valor aninhado após a especificação do tipo.

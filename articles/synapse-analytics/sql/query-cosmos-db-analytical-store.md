@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095105"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121350"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Dados DB de consulta Azure Cosmos com uma piscina SQL sem servidor em Azure Synapse Link Preview
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a escrever uma consulta com uma piscina SQL sem s
 > [!IMPORTANT]
 > Este tutorial usa um recipiente com um [esquema bem definido da Azure Cosmos.](../../cosmos-db/analytical-store-introduction.md#schema-representation) A experiência de consulta que a piscina SQL sem servidor proporciona um [esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que mudará com base no feedback de pré-visualização. Não confie no esquema de definição de resultados da `OPENROWSET` função sem a `WITH` cláusula que lê dados de um recipiente com um esquema de fidelidade completo porque a experiência de consulta pode estar alinhada e mudar com base no esquema bem definido. Pode publicar o seu feedback no [fórum de feedback Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). Também pode contactar a equipa de [produtos Azure Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O pool SQL sem servidor permite-lhe consultar o armazenamento analítico Azure Cosmos DB utilizando `OPENROWSET` a função. 
 - `OPENROWSET` com chave em linha. Esta sintaxe pode ser usada para consultar coleções DB Azure Cosmos sem necessidade de preparar credenciais.
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Não utilize `OPENROWSET` sem esquemas explicitamente definidos porque pode ter impacto no seu desempenho. Certifique-se de que utiliza os tamanhos mais pequenos possíveis para as suas colunas (por exemplo VARCHAR(100) em vez de VARCHAR predefinido (8000)). Deve utilizar uma colagem UTF-8 como colagem de base de dados predefinida ou defini-la como uma combinação explícita de colunas para evitar a [emissão de conversão UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). A colisão `Latin1_General_100_BIN2_UTF8` proporciona o melhor desempenho quando os dados do filtro yu utilizam algumas colunas de cordas.
+Não utilize `OPENROWSET` sem esquemas explicitamente definidos porque pode ter impacto no seu desempenho. Certifique-se de que utiliza os tamanhos mais pequenos possíveis para as suas colunas (por exemplo VARCHAR(100) em vez de VARCHAR predefinido (8000)). Deve utilizar uma colagem UTF-8 como colagem de base de dados predefinida ou defini-la como uma combinação explícita de colunas para evitar a [emissão de conversão UTF-8](../troubleshoot/reading-utf8-text.md). A colisão `Latin1_General_100_BIN2_UTF8` proporciona o melhor desempenho quando os dados do filtro yu utilizam algumas colunas de cordas.
 
 ## <a name="query-nested-objects-and-arrays"></a>Consulta objetos aninhados e matrizes
 
@@ -268,8 +268,8 @@ O resultado desta consulta pode parecer a seguinte tabela:
 Saiba mais sobre a análise de [tipos de dados complexos em Azure Synapse Link](../how-to-analyze-complex-schema.md) e estruturas [aninhadas numa piscina SQL sem servidor.](query-parquet-nested-types.md)
 
 > [!IMPORTANT]
-> Se vir caracteres inesperados no seu texto como `MÃƒÂ©lade` em vez de , `Mélade` então a sua colagem de base de dados não está definida para a colagem [UTF-8.](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8)
-> [Altere a colagem da base de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para a colagem UTF-8 utilizando uma declaração SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Se vir caracteres inesperados no seu texto como `MÃƒÂ©lade` em vez de , `Mélade` então a sua colagem de base de dados não está definida para a colagem [UTF-8.](/sql/relational-databases/collations/collation-and-unicode-support#utf8)
+> [Altere a colagem da base de dados](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para a colagem UTF-8 utilizando uma declaração SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="flatten-nested-arrays"></a>Achatado conjuntos aninhados
 
@@ -325,7 +325,7 @@ Informação Complementar Um eco-epidemi... | `[{"first":"Nicolas","last":"4#","
 | Informação Complementar Um eco-epidemi... |   `[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |     
 
 > [!IMPORTANT]
-> Se vir caracteres inesperados no seu texto como `MÃƒÂ©lade` em vez de , `Mélade` então a sua colagem de base de dados não está definida para a colagem [UTF-8.](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) [Altere a colagem da base de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para a colagem UTF-8 utilizando uma declaração SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Se vir caracteres inesperados no seu texto como `MÃƒÂ©lade` em vez de , `Mélade` então a sua colagem de base de dados não está definida para a colagem [UTF-8.](/sql/relational-databases/collations/collation-and-unicode-support#utf8) [Altere a colagem da base de dados](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para a colagem UTF-8 utilizando uma declaração SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Mapeamentos do tipo Azure Cosmos DB para SQL
 
@@ -338,7 +338,7 @@ As contas DB da Azure Cosmos de SQL (Core) suportam tipos de propriedade JSON de
 | Booleano | bit |
 | Número inteiro | bigint |
 | Decimal | float |
-| String | varchar (colagem de base de dados UTF-8) |
+| Cadeia | varchar (colagem de base de dados UTF-8) |
 | Data (cadeia formatada pela ISO) | varchar(30) |
 | Data (relógio UNIX) | bigint |
 | Nulo | `any SQL type` 

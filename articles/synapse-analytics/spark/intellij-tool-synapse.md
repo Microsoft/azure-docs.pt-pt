@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 39f39b6f53944510b5f3692bb8b3fdd472004454
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451043"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121231"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar uma aplicação Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
@@ -24,7 +24,7 @@ Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para 
 - Aceda aos recursos das suas piscinas Spark.
 - Desenvolver e executar uma aplicação Scala Spark localmente.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 >
 > - Utilize o kit de ferramentas Azure para o plug-in IntelliJ
@@ -36,7 +36,7 @@ Neste tutorial, ficará a saber como:
 - [Versão comunitária intellij IDEA](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Ficha de kit de ferramentas Azure 3.27.0-2019.2 – Instalação do [repositório IntelliJ Plugin](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [JDK (versão 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Scala Plugin – Instalar no [repositório IntelliJ Plugin](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
+- Scala Plugin – Instalar no [repositório IntelliJ Plugin](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - O seguinte pré-requisito é apenas para utilizadores do Windows:
 
   Enquanto executa a aplicação local Spark Scala num computador Windows, poderá obter uma exceção, como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe falta no Windows.
@@ -78,7 +78,7 @@ Neste tutorial, ficará a saber como:
 
     ![Informação de artefacto na caixa de diálogo](./media/intellij-tool-synapse/default-artifact-dialog.png)
 
-9. Encontre **o LogQuery** da amostra principal de scala do **myApp**  >  **src.**  >  **main**  >  **scala** >  **sample** >  **LogQuery** Este tutorial usa **LogQuery** para executar.
+9. Encontre **o LogQuery** da amostra principal de scala do **myApp**  >  **src.**  >    >   >   >   Este tutorial usa **LogQuery** para executar.
 
    ![Comandos para a criação de uma classe Scala do Projeto](./media/intellij-tool-synapse/select-run-file.png)
 
@@ -142,7 +142,7 @@ Depois de criar uma aplicação Scala, pode executá-la remotamente.
     |----|----|
     |Piscinas de faíscas|Selecione as piscinas Spark nas quais pretende executar a sua aplicação.|
     |Selecione um artefacto para submeter|Deixe a definição predefinida.|
-    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse **...** e escolhendo outra classe.|
+    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipsee escolhendo outra classe.|
     |Configurações de trabalho|Pode alterar a chave e valores predefinidos. Para mais informações, consulte [a Apache Livy REST API.](http://livy.incubator.apache.org./docs/latest/rest-api.html)|
     |Argumentos de linha de comando|Pode introduzir argumentos separados por espaço para a classe principal, se necessário.|
     |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtuais Azure, que atualmente apenas suporta o cluster ADLS Gen2. Para mais informações: [Configuração de faíscas Apache] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) e Como carregar recursos para [cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
@@ -178,7 +178,7 @@ Pode seguir as instruções abaixo para configurar a sua corrida local e depurar
 
     ![Intellij Run depurar configurações locais run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. Uma vez concluída a execução local, se o **data** script incluir a saída, pode verificar o ficheiro de saída a partir do  >  **__predefinido dados__**.
+3. Uma vez concluída a execução local, se o script incluir a saída, pode verificar o ficheiro de saída a partir do  >  **__predefinido dados__**.
 
     ![Intellij Project resultado de execução local 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -213,7 +213,7 @@ Pode executar a Consola Local Spark (Scala) ou executar a Consola De Sessão Int
 
 Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
-1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
+1. A partir da barra de menu, navegue para  >  **configurações de edição de execução...**.
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark na Synapse**  >  **[Faísca na Sinapse] myApp**.
 3. A partir da janela principal, selecione o **separador Localmente Executar.**
 4. Forneça os seguintes valores e, em seguida, selecione **OK**:
@@ -241,7 +241,7 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
 Só é suportado no IntelliJ 2018.2 e 2018.3.
 
-1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
+1. A partir da barra de menu, navegue para  >  **configurações de edição de execução...**.
 
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark na sinapse**  >  **[Faísca na sinapse] myApp**.
 

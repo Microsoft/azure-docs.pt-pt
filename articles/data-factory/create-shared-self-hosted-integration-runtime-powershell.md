@@ -11,18 +11,31 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632894"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118256"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Crie um tempo de integração independente partilhado na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este guia mostra-lhe como criar um tempo de integração independente partilhado na Azure Data Factory. Em seguida, você pode usar o tempo de integração auto-hospedado compartilhado em outra fábrica de dados.
+
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Crie um tempo de integração independente partilhado na Azure Data Factory
+
+Você pode reutilizar uma infraestrutura de tempo de integração auto-hospedada existente que você já estabeleceu em uma fábrica de dados. Esta reutilização permite criar um tempo de integração auto-hospedado ligado numa fábrica de dados diferente, referindo-se a um IR partilhado existente.
+
+Para ver uma introdução e demonstração desta funcionalidade, veja o vídeo seguinte de 12 minutos:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### <a name="terminology"></a>Terminologia
+
+- **IR compartilhado**: Um IR original auto-hospedado que funciona em uma infraestrutura física.  
+- **Linked IR**: Um IR que faz referência a outro IR partilhado. O IR ligado é um IR lógico e utiliza a infraestrutura de outro IR partilhado auto-hospedado.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Criar um IR partilhado auto-hospedado usando Azure Data Factory UI
 
@@ -55,9 +68,9 @@ Para criar um IR partilhado e auto-hospedado utilizando a Azure PowerShell, pode
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Assinatura Azure** . Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+- **Assinatura Azure**. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell** . Siga as instruções no [Install Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um tempo de integração auto-hospedado que pode ser partilhado com outras fábricas de dados. 
+- **Azure PowerShell**. Siga as instruções no [Install Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um tempo de integração auto-hospedado que pode ser partilhado com outras fábricas de dados. 
 
 > [!NOTE]  
 > Para obter uma lista das regiões do Azure em que a Data Factory está atualmente disponível, selecione as regiões que lhe interessam [os produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
@@ -213,6 +226,37 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
+
+### <a name="monitoring"></a>Monitorização
+
+#### <a name="shared-ir"></a>IR compartilhado
+
+![Seleções para encontrar um tempo de integração partilhada](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![Monitorize um tempo de integração partilhada](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### <a name="linked-ir"></a>IR ligado
+
+![Seleções para encontrar um tempo de integração ligado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![Monitorize um tempo de integração ligado](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas da partilha de IR auto-acolam
+
+* A fábrica de dados em que é criado um IR vinculado deve ter uma [Identidade Gerida.](../active-directory/managed-identities-azure-resources/overview.md) Por padrão, as fábricas de dados criadas no portal Azure ou nos cmdlets PowerShell têm uma Identidade Gerida implicitamente criada. Mas quando uma fábrica de dados é criada através de um modelo de Gestor de Recursos Azure ou SDK, você deve definir a propriedade **Identidade** explicitamente. Esta definição garante que o Gestor de Recursos cria uma fábrica de dados que contém uma Identidade Gerida.
+
+* A Data Factory .NET SDK que suporta esta funcionalidade deve ser a versão 1.1.0 ou posterior.
+
+* Para conceder permissão, precisa da função proprietário ou da função de Proprietário herdado na fábrica de dados onde existe o IR partilhado.
+
+* A funcionalidade de partilha funciona apenas para fábricas de dados dentro do mesmo inquilino AZure AD.
+
+* Para [os utilizadores convidados](../active-directory/governance/manage-guest-access-with-access-reviews.md)da Azure AD, a funcionalidade de pesquisa no UI, que lista todas as fábricas de dados utilizando uma palavra-chave de pesquisa, não funciona. Mas enquanto o utilizador convidado for o proprietário da fábrica de dados, pode partilhar o IR sem a funcionalidade de pesquisa. Para a Identidade Gerida da fábrica de dados que necessita de partilhar o IR, insira essa Identidade Gerida na caixa **de Permissão de Atribuição** e selecione **Adicionar** na UI da Fábrica de Dados.
+
+  > [!NOTE]
+  > Esta funcionalidade está disponível apenas na Data Factory V2.
+
 
 ### <a name="next-steps"></a>Passos seguintes
 

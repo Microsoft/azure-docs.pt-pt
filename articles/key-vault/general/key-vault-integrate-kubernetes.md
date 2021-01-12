@@ -7,17 +7,18 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 6952d239c9dc5c52c0057a6ee1a3b10b30ed9b00
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108760"
+ms.locfileid: "98121367"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
 > [!IMPORTANT]
-> O CSI Driver é um projeto de código aberto que não é suportado pelo suporte técnico da Azure. Por favor, informe todos os comentários e problemas relacionados com a integração do CSI Driver Key Vault no link github na parte inferior da página. Esta ferramenta é fornecida para que os utilizadores se auto-instalem em clusters e recolham feedback da nossa comunidade.
+> O CSI Driver é um projeto de código aberto que não é suportado pelo suporte técnico da Azure. Por favor, informe todos os comentários e questões relacionadas com a integração do CSI Driver Key Vault no link github [aqui.](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues) Esta ferramenta é fornecida para que os utilizadores se auto-instalem em clusters e recolham feedback da nossa comunidade.
+
 
 Neste tutorial, você acede e obtém segredos do seu cofre de chaves Azure usando o controlador Secrets Store Container Storage Interface (CSI) para montar os segredos em cápsulas Kubernetes.
 

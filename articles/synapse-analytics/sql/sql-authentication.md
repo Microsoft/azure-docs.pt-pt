@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1217cf74ab36a8fe865e47009616b1ccb240df67
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462404"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119888"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -51,7 +51,7 @@ As contas **de administração do Servidor** e **Azure AD** têm as seguintes ca
 - Pode adicionar e remover membros aos `dbmanager` `loginmanager` papéis e funções.
 - Pode ver a tabela do `sys.sql_logins` sistema.
 
-## <a name="serverless-sql-pool"></a>[Conjunto de SQL sem servidor](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/serverless)
 
 Para gerir os utilizadores que tenham acesso à piscina SQL sem servidor, pode utilizar as instruções abaixo.
 
@@ -111,7 +111,7 @@ Para criar uma base de dados, o utilizador deve ser um utilizador baseado num lo
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo utilizador, à função de base de dados **dbmanager** na `master` utilização do procedimento [de sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (note que a declaração [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) não é suportada no SQL a provisionado). Instruções de exemplo:
+4. Adicione o novo utilizador, à função de base de dados **dbmanager** na `master` utilização do procedimento [de sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (note que a declaração [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) não é suportada no SQL a provisionado). Instruções de exemplo:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -133,7 +133,7 @@ A outra função administrativa é a função de gestor de início de sessão. O
 
 ## <a name="non-administrator-users"></a>Utilizadores não administradores
 
-Geralmente, as contas não-administradoras não precisam de acesso à base de dados principal. Utilize a instrução [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) para criar os utilizadores de base de dados contidos na base de dados ao nível da base de dados. 
+Geralmente, as contas não-administradoras não precisam de acesso à base de dados principal. Utilize a instrução [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) para criar os utilizadores de base de dados contidos na base de dados ao nível da base de dados. 
 
 O utilizador pode ser um utilizador de base de dados contido do Azure Active Directory (se tiver configurado o ambiente para autenticação do Azure AD), um utilizador de base de dados contido de autenticação do SQL Server ou um utilizador de autenticação do SQL Server com base num início de sessão de autenticação do SQL Server (criado no passo anterior).  
 
@@ -191,7 +191,7 @@ As funções de base de dados podem ser as funções incorporadas, tais como **d
 
 Por exemplo, a função de base de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas na base de dados, o que, regra geral, é mais do que o estritamente necessário. 
 
-É muito melhor usar a declaração [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para criar as suas próprias funções de base de dados definidas pelo utilizador e conceder cuidadosamente a cada papel as menos permissões necessárias para a necessidade do negócio. Quando um utilizador é membro de várias funções, agrega as permissões de todas essas funções.
+É muito melhor usar a declaração [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) para criar as suas próprias funções de base de dados definidas pelo utilizador e conceder cuidadosamente a cada papel as menos permissões necessárias para a necessidade do negócio. Quando um utilizador é membro de várias funções, agrega as permissões de todas essas funções.
 
 ## <a name="permissions"></a>Permissões
 
@@ -199,7 +199,7 @@ Existem mais de 100 permissões que podem ser individualmente concedidas ou nega
 
 Devido à natureza aninhada e ao número de permissões, desenhar um sistema de permissões que proteja as bases de dados adequadamente pode envolver um cuidadoso estudo. 
 
-Comece com a lista de permissões em [Permissions (Database Engine) (Permissões [Motor de Base de Dados])](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) e reveja o [gráfico em tamanho de cartaz](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) das permissões.
+Comece com a lista de permissões em [Permissions (Database Engine) (Permissões [Motor de Base de Dados])](/sql/relational-databases/security/permissions-database-engine) e reveja o [gráfico em tamanho de cartaz](/sql/relational-databases/security/media/database-engine-permissions.png) das permissões.
 
 ### <a name="considerations-and-restrictions"></a>Considerações e restrições
 
@@ -236,5 +236,4 @@ Ao gerir logins e utilizadores na Base de Dados SQL, considere os seguintes pont
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
- 
+Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

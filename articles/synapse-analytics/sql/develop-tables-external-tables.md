@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c2daef64b110e59da76d8342508c19c7f1b3cd08
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 02194bd6122cc97ac9dfd6887c6ae2161182c13a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452789"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120432"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -31,9 +31,9 @@ Na piscina SQL dedicada, você pode usar uma mesa externa para:
 
 Quando utilizado em conjunto com a declaração [CREATE TABLE AS SELECT,](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) selecionando de uma tabela externa os dados de importação para uma tabela dentro do pool SQL. Além da [declaração COPY,](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)as tabelas externas são úteis para o carregamento de dados. 
 
-Para um tutorial de carregamento, consulte [o PolyBase para carregar os dados do Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para um tutorial de carregamento, consulte [o PolyBase para carregar os dados do Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
-### <a name="serverless-sql-pool"></a>[Conjunto de SQL sem servidor](#tab/sql-on-demand)
+### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 Para piscina SQL sem servidor, você usará uma mesa externa para:
 
@@ -76,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="serverless-sql-pool"></a>[Conjunto de SQL sem servidor](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -95,7 +95,7 @@ data_source_name
 
 Especifica o nome definido pelo utilizador para a fonte de dados. O nome deve ser único na base de dados.
 
-#### <a name="location"></a>Localização
+#### <a name="location"></a>A localização
 LOCALIZAÇÃO = `'<prefix>://<path>'`   - Fornece o protocolo de conectividade e o caminho para a fonte de dados externa. Os seguintes padrões podem ser utilizados no local:
 
 | Fonte de Dados Externos        | Prefixo de localização | Caminho de localização                                         |
@@ -133,7 +133,7 @@ WITH
   ) ;
 ```
 
-#### <a name="serverless-sql-pool"></a>[Conjunto de SQL sem servidor](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 O exemplo a seguir cria uma fonte de dados externa para o Azure Data Lake Gen2 que pode ser acedido através da credencial SAS:
 
@@ -195,7 +195,7 @@ WITH (
 }
 ```
 
-#### <a name="serverless-sql-pool"></a>[Conjunto de SQL sem servidor](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  

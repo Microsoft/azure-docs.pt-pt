@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 511d5841652b1f7b6487a42341ec392cb86d2b3a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843303"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120381"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utilize a autenticação AAD multi-factor com sinaapse SQL (suporte SSMS para MFA)
 
@@ -44,7 +44,7 @@ O método interativo é que também suporta a autenticação multi-factor Azure 
 
 - `Active Directory - Universal with MFA`
 
-O Azure AD MFA ajuda a salvaguardar o acesso a dados e aplicações, ao mesmo tempo que satisfaz a procura do utilizador por um simples processo de inscrição. Oferece uma autenticação forte com um leque de opções de verificação fáceis (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis), permitindo que os utilizadores escolham o método que preferem. O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação.
+A MFA do Azure AD ajuda a salvaguardar o acesso a dados e aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Oferece uma autenticação forte com um leque de opções de verificação fáceis (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis), permitindo que os utilizadores escolham o método que preferem. O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
 Para obter uma descrição da autenticação multi-factor, consulte [a autenticação multi-factor.](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
@@ -71,7 +71,7 @@ Se estiver a executar SSMS 18.x ou mais tarde, então o nome de domínio AD ou i
    ![mfa-inquilino-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Negócio da AD AZure para apoio ao negócio   
-Os utilizadores da AZure AD suportados por cenários Azure AD B2B como utilizadores convidados (ver [What is Azure B2B collaboration](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) can connect to Synapse SQL only as part of a group created in current Azure AD and mapeed manualmente using the Transact-SQL statement in a given `CREATE USER` database. 
+Os utilizadores da AZure AD suportados por cenários Azure AD B2B como utilizadores convidados (ver [What is Azure B2B collaboration](../../active-directory/external-identities/what-is-b2b.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) can connect to Synapse SQL only as part of a group created in current Azure AD and mapeed manualmente using the Transact-SQL statement in a given `CREATE USER` database. 
 
 Por exemplo, se `steve@gmail.com` for convidado para a Azure AD `contosotest` (com o domínio Azure `contosotest.onmicrosoft.com` Ad), um grupo AD Azure, tal como `usergroup` deve ser criado no AD Azure que contém o `steve@gmail.com` membro. Em seguida, este grupo deve ser criado para uma base de dados específica (isto é, MyDatabase) por Azure AD SQL ou Azure AD DBO executando uma declaração Transact-SQL. `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 
 
@@ -92,5 +92,4 @@ Como utilizador convidado, `steve@gmail.com` deve verificar a caixa e adicionar 
 - A versão Ative Directory Authentication Library (ADAL) para autenticação Universal foi atualizada para a sua versão mais recente ADAL.dll 3.13.9 disponível. Consulte a Biblioteca de Autenticação do [Diretório Ativo 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações, consulte o [Connect to Synapse SQL com](get-started-ssms.md) o artigo do SQL Server Management Studio. 
-
+Para obter mais informações, consulte o [Connect to Synapse SQL com](get-started-ssms.md) o artigo do SQL Server Management Studio.

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 962e0e734abd73f5a66f9b9ee6067155dd839e5d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457982"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118290"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com Sinapse SQL
 
@@ -129,8 +129,7 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral do acesso e controlo em Synapse SQL, consulte [o controlo de acesso Sinaapse SQL](../sql/access-control.md).
+- Para obter uma visão geral do acesso e controlo em Synapse SQL, consulte [o controlo de acesso Sinaapse SQL](../security/synapse-workspace-access-control-overview.md).
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
- 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b17e47463ef3fe9a2cc959364825451468266f0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462875"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120024"
 ---
 # <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Boas práticas para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
@@ -74,7 +74,7 @@ A Azure Data Factory também suporta cargas PolyBase e pode obter um desempenho 
 > [!NOTE]
 > Para maximizar a produção ao utilizar ficheiros de texto gzip, descole os ficheiros em 60 ou mais ficheiros para maximizar o paralelismo da sua carga.  Para um débito total mais rápido, considere carregar dados em simultâneo.
 
-Consulte também [os dados de carga,](design-elt-data-loading.md) [Guia para a utilização de PolyBase](guidance-for-loading-data.md), [Padrões e estratégias de carregamento de piscinas SQL dedicados, Dados](https://blogs.msdn.microsoft.com/sqlcat/20../../) [de Carga com Azure Data Factory,]( ../../data-factory/load-azure-sql-data-warehouse.md) [Mover dados com Azure Data Factory,](../../data-factory/transform-data-using-machine-learning.md) [CRIAR Formato de FICHEIRO EXTERNO,](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
+Consulte também [os dados de carga,](design-elt-data-loading.md) [Guia para a utilização de PolyBase](guidance-for-loading-data.md), [Padrões e estratégias de carregamento de piscinas SQL dedicados, Dados](/archive/blogs/sqlcat/) [de Carga com Azure Data Factory,]( ../../data-factory/load-azure-sql-data-warehouse.md) [Mover dados com Azure Data Factory,](../../data-factory/transform-data-using-machine-learning.md) [CRIAR Formato de FICHEIRO EXTERNO,](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Carregar e consultar tabelas externas
 
@@ -97,7 +97,7 @@ Por exemplo, se tiver uma tabela de pedidos, que é distribuída por order_id, e
 
 Consulte os seguintes links para obter mais detalhes sobre como selecionar uma coluna de distribuição pode melhorar o desempenho, bem como como definir uma tabela distribuída na cláusula WITH da sua declaração CREATE TABLE.
 
-Consulte também [a visão geral da tabela,](sql-data-warehouse-tables-overview.md) [distribuição de tabelas,](sql-data-warehouse-tables-distribute.md) [Selecionando a distribuição da tabela,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [CRIE TABELA,](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [CRIE TABELA COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Consulte também [a visão geral da tabela,](sql-data-warehouse-tables-overview.md) [distribuição de tabelas,](sql-data-warehouse-tables-distribute.md) [Selecionando a distribuição da tabela,](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service) [CRIE TABELA,](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [CRIE TABELA COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="do-not-over-partition"></a>Não crie partições em demasia
 
@@ -180,7 +180,7 @@ Consulte também [as classes de recursos para gestão da carga de trabalho,](res
 
 Consulte também o nosso artigo [Resolução de problemas](sql-data-warehouse-troubleshoot.md), para ver problemas e soluções comuns.
 
-Se não encontrou o que procura neste artigo, tente usar a "Procura de docs" no lado esquerdo desta página para pesquisar todos os documentos da Azure Synapse.  O [Microsoft Q&Uma página de perguntas para o Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para publicar perguntas a outros utilizadores e ao Grupo de Produtos Azure Synapse. Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
+Se não encontrou o que procura neste artigo, tente usar a "Procura de docs" no lado esquerdo desta página para pesquisar todos os documentos da Azure Synapse.  O [Microsoft Q&Uma página de perguntas para o Azure Synapse](/answers/topics/azure-synapse-analytics.html) é um local para publicar perguntas a outros utilizadores e ao Grupo de Produtos Azure Synapse. Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
 
 Se preferir fazer as suas perguntas sobre Stack Overflow, também temos um [Azure Synapse Stack Overflow Forum.](https://stackoverflow.com/questions/tagged/azure-sqldw)
 

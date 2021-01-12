@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c2a6a88e9f730e17c929cf7949352448903435f6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493788"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118460"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
-A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados. Com a encriptação gerida pelo cliente, para além de ser o responsável pelo ciclo de vida de uma chave, pelas permissões de utilização da chave e pela auditoria das operações nas chaves, também possui o controlo total.
+O Azure PostgreSQL aproveita a [encriptação do Azure Storage](../storage/common/storage-service-encryption.md) para encriptar os dados em repouso por padrão utilizando as teclas geridas pela Microsoft. Para os utilizadores do Azure PostgreSQL, é muito semelhante ao Encrupção de Dados Transparente (TDE) em outras bases de dados, como o SQL Server. Muitas organizações exigem o controlo total do acesso aos dados utilizando uma chave gerida pelo cliente. A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados. Com a encriptação gerida pelo cliente, para além de ser o responsável pelo ciclo de vida de uma chave, pelas permissões de utilização da chave e pela auditoria das operações nas chaves, também possui o controlo total.
 
 A encriptação de dados com as teclas geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single está definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) de propriedade do cliente e gerida pelo cliente. A chave de encriptação chave (KEK) e a chave de encriptação de dados (DEK) é descrita mais detalhadamente mais tarde neste artigo.
 
@@ -60,7 +60,9 @@ Quando o servidor está configurado para utilizar a chave gerida pelo cliente ar
 Seguem-se os requisitos para a configuração do Cofre de Chaves:
 
 * Key Vault e Azure Database for PostgreSQL Single servidor deve pertencer ao mesmo inquilino do Azure Ative Directory (Azure AD). O Key Vault e as interações do servidor não são suportados. A deslocação do recurso Key Vault requer que reconfigure a encriptação de dados.
-* Ativar a função de eliminação suave no cofre da chave, para proteger da perda de dados se uma chave acidental (ou cofre de chaves) acontecer. Os recursos eliminados por 90 dias são retidos, a menos que o utilizador os recupere ou purgue entretanto. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure).
+* O cofre-chave deve ser definido com 90 dias para "Dias para reter cofres apagados". Se o cofre de chaves existente tiver sido configurado com um número mais baixo, terá de criar um novo cofre-chave, uma vez que não pode ser modificado após a criação.
+* Ativar a função de eliminação suave no cofre da chave, para proteger da perda de dados se uma chave acidental (ou cofre de chaves) acontecer. Os recursos eliminados por 90 dias são retidos, a menos que o utilizador os recupere ou purgue entretanto. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure). 
+* Permitir a proteção de purga para impor um período de retenção obrigatório para abóbadas e objetos de abóbada apagados
 * Conceda à Base de Dados Azure para o acesso do servidor single PostgreSQL ao cofre de chaves com as permissões get, wrapKey e desembrulhar, utilizando a sua identidade gerida única. No portal Azure, a identidade única de 'Serviço' é criada automaticamente quando a encriptação de dados é ativada no servidor PostgreSQL Single. Consulte [a encriptação de dados para a base de dados Azure para o servidor Single PostgreSQL, utilizando o portal Azure](howto-data-encryption-portal.md) para obter instruções detalhadas, passo a passo, quando estiver a utilizar o portal Azure.
 
 Seguem-se os requisitos para a configuração da chave gerida pelo cliente:
@@ -93,7 +95,7 @@ Quando configurar a encriptação de dados com uma chave gerida pelo cliente no 
 
 * Se criarmos um servidor Point In Time Restore para o seu servidor PostgreSQL Single, que tem encriptação de dados ativada, o servidor recém-criado estará em estado *inacessível.* Pode corrigir o estado do servidor através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Se criarmos uma réplica de leitura para o seu Azure Database para o servidor PostgreSQL Single, que tem encriptação de dados ativada, o servidor de réplica estará em estado *inacessível.* Pode corrigir o estado do servidor através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Se eliminar o KeyVault, a Base de Dados Azure para o servidor PostgreSQL Single não poderá aceder à chave e mudar-se-á para o estado *Inacessível.* Recupere o [Cofre de Chaves](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para disponibilizar o servidor . *Available*
+* Se eliminar o KeyVault, a Base de Dados Azure para o servidor PostgreSQL Single não poderá aceder à chave e mudar-se-á para o estado *Inacessível.* Recupere o [Cofre de Chaves](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para disponibilizar o servidor . 
 * Se eliminarmos a chave do KeyVault, a Base de Dados Azure para o servidor Single PostgreSQL não poderá aceder à chave e mudar-se-á para o estado *inacessível.* Recupere a [Chave](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para tornar o servidor *disponível*.
 * Se a chave armazenada no Azure KeyVault expirar, a chave tornar-se-á inválida e a Base de Dados Azure para o servidor Single PostgreSQL irá transitar para estado *inacessível.* Prolongue a data de validade da chave utilizando [o CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e, em seguida, revalidar a encriptação de dados para tornar o servidor *disponível*.
 

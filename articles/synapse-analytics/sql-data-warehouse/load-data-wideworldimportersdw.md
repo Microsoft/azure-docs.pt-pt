@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 1d8c67fa5373afc8ea8bae5a49b87309f3893a12
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 7c41474143fbb7782ccf7b5c89b0b34802e5ef0a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028731"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119701"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregar dados para a piscina SQL Azure Synapse Analytics
 
@@ -33,11 +33,11 @@ Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImpo
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-Este tutorial pressupõe que já criou uma piscina dedicada SQL a partir do seguinte [tutorial.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin)
+Este tutorial pressupõe que já criou uma piscina dedicada SQL a partir do seguinte [tutorial.](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 
@@ -967,7 +967,7 @@ Para obter um desempenho de consulta elevado, é importante criar estatísticas 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Estão a ser-lhe cobrados os recursos de computação e os dados que carregou para o armazém de dados. São faturados em separado.  
 
@@ -975,7 +975,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) e clique no seu armazém de dados.
 
-    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao fazer uma pausa no cálculo, será cobrado apenas pelo armazenamento de dados e poderá retomar o cálculo sempre que estiver pronto para trabalhar com os dados. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
 

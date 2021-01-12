@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 2c526d25fed169f702a3786a17717de3cf4dc6af
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 3b5f5d64498922e9fc35942ff4570d801aa6c516
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059029"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118885"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -61,6 +61,7 @@ Os dados estão disponíveis numa tabela em **SQLPOOL1**. Coloque-o numa base de
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
+1. **Selecione Executar** na célula.
 1. No centro **de dados,** clique à direita bases de **dados** e, em seguida, selecione **Refresh**. Devia ver estas bases de dados:
 
     - **SQLPOOL1 (SQL)**

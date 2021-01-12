@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1fd7649cac6b636873ca529fe9780429d86697c6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321495"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120908"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Melhores práticas de desenvolvimento para Sinapse SQL
 
@@ -53,7 +53,7 @@ Isto significa que eliminamos as operações de movimento de dados.  Menos passo
 
 Consulte os seguintes links para obter mais detalhes sobre como selecionar uma coluna de distribuição pode melhorar o desempenho, bem como como definir uma tabela distribuída na cláusula WITH da sua declaração CREATE TABLES.
 
-Consulte também [a visão geral da tabela,](develop-tables-overview.md) [distribuição de tabelas,](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [selecionando a distribuição da tabela,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [CRIE TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e CRIE TABELA [COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Consulte também [a visão geral da tabela,](develop-tables-overview.md) [distribuição de tabelas,](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [selecionando a distribuição da tabela,](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service) [CRIE TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e CRIE TABELA [COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Não crie partições em demasia
 Embora os dados de partição possam ser eficazes para manter os seus dados através da comutação de partição ou otimização de digitalizações com eliminação de divisórias, ter demasiadas divisórias pode abrandar as suas consultas.  Muitas vezes, uma estratégia de partição de alta granularidade que pode funcionar bem no SQL Server pode não funcionar bem em piscina SQL dedicada.  
@@ -147,7 +147,7 @@ Se possível, pode preparar ficheiros para um melhor desempenho:
 - É preferível ter ficheiros de tamanho igual para um único caminho OPENROWSET ou uma LOCALIZAÇÃO de tabela externa.
 - Partition seus dados armazenando divisórias em diferentes pastas ou nomes de ficheiros - verifique [usar funções de nome de ficheiro e filepa para direcionar divisórias específicas](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
-### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Use funções de fileinfo e filepath para direcionar divisórias específicas
+### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Utilizar as funções fileinfo e filepath para direcionar partições específicas
 
 Os dados são muitas vezes organizados em divisórias. Pode instruir a piscina SQL sem servidor para consultar pastas e ficheiros específicos. Ao fazê-lo, reduzirá o número de ficheiros e a quantidade de dados que a consulta necessita para ler e processar. 
 
@@ -167,7 +167,6 @@ Pode utilizar o CETAS para armazenar frequentemente parte das consultas usadas, 
 
 ### <a name="next-steps"></a>Passos seguintes
 
-Se precisar de informações não fornecidas neste artigo, utilize a função **De procurar por doc** no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O [Microsoft Q&Uma página de perguntas para a Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao grupo de produtos Azure Synapse Analytics. Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
+Se precisar de informações não fornecidas neste artigo, utilize a função **De procurar por doc** no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O [Microsoft Q&Uma página de perguntas para a Azure Synapse Analytics](/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao grupo de produtos Azure Synapse Analytics. Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
 
 Se preferir fazer as suas perguntas sobre Stack Overflow, também temos um [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
- 

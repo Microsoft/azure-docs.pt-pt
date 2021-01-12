@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751432"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119089"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilize propriedades numa solução Azure IoT Central
 
-Este artigo mostra-lhe como usar propriedades do dispositivo que são definidas num modelo de dispositivo na sua aplicação Azure IoT Central.
+Este guia de como fazer mostra-lhe como, como desenvolvedor de dispositivos, utilizar propriedades do dispositivo que são definidas num modelo de dispositivo na sua aplicação Azure IoT Central.
 
 As propriedades representam valores pontuais. Por exemplo, um dispositivo pode usar uma propriedade para reportar a temperatura-alvo que está a tentar alcançar. Por predefinição, as propriedades do dispositivo são apenas de leitura na IoT Central. Propriedades writable permitem sincronizar o estado entre o seu dispositivo e a sua aplicação Azure IoT Central.
 
@@ -35,7 +35,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Campo           | Descrição                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome a apresentar    | O nome de exibição para o valor da propriedade usado em dashboards e formulários.                                                                                                                                                              |
-| Nome            | O nome da propriedade. O Azure IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo deve ser alfanumérico.                                                 |
+| Name            | O nome da propriedade. O Azure IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo deve ser alfanumérico.  O código do dispositivo utiliza este valor **Nome.**           |
 | Tipo de capacidade | Propriedade.                                                                                                                                                                                                                          |
 | Semantic type (Tipo de semântica)   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados da propriedade, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado.                                               |
@@ -160,7 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-Este artigo usa Node.js para a simplicidade. Para obter informações completas sobre exemplos de aplicações do dispositivo, consulte o seguinte [Criar e conecte uma aplicação do cliente ao seu tutorial de aplicação Azure IoT Central.](tutorial-connect-device.md)
+Este artigo usa Node.js para a simplicidade. Para outros exemplos linguísticos, consulte a [Configuração e conecte uma aplicação do cliente ao seu tutorial de aplicação Azure IoT Central.](tutorial-connect-device.md)
 
 A seguinte vista na aplicação Azure IoT Central mostra as propriedades que você pode ver. A vista torna automaticamente a propriedade do **modelo do dispositivo** uma propriedade _apenas de leitura_.
 

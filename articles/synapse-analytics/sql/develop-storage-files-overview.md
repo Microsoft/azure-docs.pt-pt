@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f398f80e4e283f971e0d947d0dda131e12fe88a7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446575"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120398"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Aceda ao armazenamento externo utilizando piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 O utilizador com as permissões para ler a tabela pode aceder a ficheiros externos utilizando uma TABELA EXTERNA criada em cima do conjunto de pastas e ficheiros de armazenamento Azure.
 
-O utilizador que tem [permissões para criar tabela externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (por exemplo, CRIAR TABELA e ALTERAR QUALQUER CREDENCIAL ou REFERÊNCIAS BASE DE DADOS SCOPED CREDENCIAL) pode utilizar o seguinte script para criar uma tabela em cima da fonte de dados de armazenamento Azure:
+O utilizador que tem [permissões para criar tabela externa](/sql/t-sql/statements/create-external-table-transact-sql?preserve-view=true&view=sql-server-ver15#permissions) (por exemplo, CRIAR TABELA e ALTERAR QUALQUER CREDENCIAL ou REFERÊNCIAS BASE DE DADOS SCOPED CREDENCIAL) pode utilizar o seguinte script para criar uma tabela em cima da fonte de dados de armazenamento Azure:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

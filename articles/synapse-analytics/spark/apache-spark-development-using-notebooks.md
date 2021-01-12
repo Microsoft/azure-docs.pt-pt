@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450859"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120959"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -149,10 +149,10 @@ As características do IntelliSense estão em diferentes níveis de maturidade p
 
 |Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Apache Spark (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
-|Sparksql|Sim|Sim|-|-|-|-|-|-|
-|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
+|PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Apache Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
+|Sparksql|Yes|Yes|-|-|-|-|-|-|
+|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -422,7 +422,7 @@ Você pode usar comandos mágicos jupyter familiares em cadernos do Estúdio Azu
 
 Magias de linha disponíveis: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
-Magias celulares disponíveis: [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%captura,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages)[%%configure](#spark-session-config-magic-command) [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture)
+Magias celulares disponíveis: [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%captura,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages)[%%configure](#spark-session-config-magic-command) [](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture)
 
 
 
@@ -496,7 +496,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Selecione a célula acima| Cima |
 |Selecione a célula abaixo| Baixo |
 |Insira a célula acima| A |
-|Insira a célula abaixo| B |
+|Insira a célula abaixo| N |
 |Estender as células selecionadas acima| Shift+Up |
 |Estender as células selecionadas abaixo| Shift+Down|
 |Mover a célula para cima| Ctrl+Alt+↑ |
@@ -516,7 +516,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Selecione célula anterior| K |
 |Selecione a próxima célula| J |
 |Insira a célula acima| A |
-|Insira a célula abaixo| B |
+|Insira a célula abaixo| N |
 |Eliminar células selecionadas| Turno+D |
 |Mude para o modo de edição| ENTER |
 
@@ -553,4 +553,4 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)
 - [Utilizar o .NET para Apache Spark com o Azure Synapse Analytics](spark-dotnet.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

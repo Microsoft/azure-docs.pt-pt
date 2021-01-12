@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
-ms.translationtype: HT
+ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746733"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120415"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -63,7 +63,7 @@ Antes de aceder aos dados, o administrador do Azure Storage deve conceder permis
 
 ### <a name="anonymous-access"></a>[Acesso anónimo](#tab/public-access)
 
-Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazenamento Azure que [permitem o acesso anónimo](/azure/storage/blobs/storage-manage-access-to-resources).
+Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazenamento Azure que [permitem o acesso anónimo](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -90,7 +90,7 @@ Pode utilizar as seguintes combinações de autorizações e tipos de armazename
 \* O token SAS e o AD Identity Azure podem ser usados para aceder a armazenamento que não esteja protegido com firewall.
 
 
-### <a name="querying-firewall-protected-storage"></a>Consulta de firewall armazenamento protegido
+### <a name="querying-firewall-protected-storage"></a>Consultar o armazenamento protegido por firewall
 
 Ao aceder ao armazenamento protegido com a firewall, pode utilizar a **Identidade do Utilizador** ou identidade **gerida.**
 
@@ -101,7 +101,7 @@ Para aceder ao armazenamento que está protegido com a firewall através da Iden
 
 Siga estes passos para configurar a firewall da sua conta de armazenamento e adicione uma exceção para o espaço de trabalho da Synapse.
 
-1. Abrir powerShell ou [instalar PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+1. Abrir powerShell ou [instalar PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
 2. Instale o Az atualizado. Módulo de armazenamento: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
@@ -187,7 +187,7 @@ O nome CREDENCIAL ao nível do servidor deve corresponder ao caminho completo da
 | Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
 | -------------------------- | ------ | --------------------------------------------------- |
 | Armazenamento de Blobs do Azure         | https  | <storage_account>.blob.core.windows.net             |
-| Armazenamento do Azure Data Lake Ger1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Armazenamento do Azure Data Lake Ger2 | https  | <storage_account>.dfs.core.windows.net              |
 
 Credenciais de âmbito do servidor permitem o acesso ao armazenamento Azure utilizando os seguintes tipos de autenticação:

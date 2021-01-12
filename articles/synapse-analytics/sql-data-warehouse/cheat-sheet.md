@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a75e1fb5b250be1004195d3a77301c73eac94b02
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043562"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120228"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Folha de batota para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytic
 
@@ -46,7 +46,7 @@ Em primeiro lugar, carregue os seus dados no [Azure Data Lake Storage](../../dat
 | Criação de partições | Nenhum |
 | Classe de Recursos | largerc ou xlargerc |
 
-Saiba mais sobre a [migração de dados](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), o [carregamento de dados](design-elt-data-loading.md) e o [processo de Extração, Carregamento e Transformação (ELT)](design-elt-data-loading.md).
+Saiba mais sobre a [migração de dados](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), o [carregamento de dados](design-elt-data-loading.md) e o [processo de Extração, Carregamento e Transformação (ELT)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelas distribuídas ou replicadas
 
@@ -137,7 +137,7 @@ Agora, dimensione automaticamente sempre que quiser com as Funções do Azure:
 
 Recomendamos olhar para a Base de Dados SQL e o Azure Analysis Services numa arquitetura hub-and-spoke. Esta solução pode proporcionar isolamento de cargas de trabalho entre diferentes grupos de utilizadores e utilizar, ao mesmo tempo, funcionalidades avançadas de segurança da Base de Dados SQL e do Azure Analysis Services. Também é uma forma de dar simultaneidade ilimitada aos seus utilizadores.
 
-Saiba mais sobre [arquiteturas típicas que aproveitam a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)
+Saiba mais sobre [arquiteturas típicas que aproveitam a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse)
 
 Implemente em um clique nos seus porta-vozes em bases de dados SQL a partir de pool SQL dedicado (anteriormente SQL DW):
 

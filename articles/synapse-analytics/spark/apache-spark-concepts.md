@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 51b2e8cd968c4c14777d196d90686b13158aef42
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458756"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120313"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark in Azure Synapse Analytics Core Concepts
 
@@ -80,7 +80,7 @@ O artigo que se segue descreve como solicitar um aumento da quota vCore do espa�
 - Selecione "Azure Synapse Analytics" como o tipo de serviço.
 - Na janela de detalhes da Quota, selecione Apache Spark (vCore) por espaço de trabalho
 
-[Solicite um aumento de capacidade através do portal Azure](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Solicite um aumento de capacidade através do portal Azure](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### <a name="spark-pool-level"></a>Nível de piscina de faísca
 
@@ -95,5 +95,5 @@ Para resolver este problema, tem de reduzir o seu uso dos recursos da piscina an
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Documentação de faíscas apache](https://spark.apache.org/docs/2.4.5/)

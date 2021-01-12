@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530889"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119293"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure
 
@@ -52,7 +52,7 @@ Neste cenário são utilizadas as seguintes ferramentas e serviços.
 Deve ter uma aplicação de pesquisa que possa criar o objeto encriptado. Neste código, você vai fazer referência a uma chave de cofre e informações de registo do Ative Directory. Este código pode ser uma aplicação de funcionamento, ou código protótipo, como a amostra de [código C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Pode utilizar [o Código do Estúdio Visual ou Carteiro](search-get-started-rest.md), ou [Azure PowerShell,](./search-get-started-powershell.md)para chamar APIs REST que criam índices e mapas de sinónimo que incluem um parâmetro chave de encriptação. Não existe suporte ao portal para adicionar uma chave para índices ou mapas de sinónimo neste momento.
+> Pode utilizar [o Carteiro](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)ou [Azure PowerShell,](./search-get-started-powershell.md)para chamar APIs REST que criam índices e mapas de sinónimo que incluem um parâmetro chave de encriptação. Não existe suporte ao portal para adicionar uma chave para índices ou mapas de sinónimo neste momento.
 
 ## <a name="1---enable-key-recovery"></a>1 - Permitir a recuperação das chaves
 
@@ -66,7 +66,7 @@ Pode definir ambas as propriedades utilizando os comandos portal, PowerShell ou 
 
 1. Na página **'Visão Geral'** no **âmbito do Essencial,** **ativar a proteção para eliminar** e **purgar.**
 
-### <a name="using-powershell"></a>Utilizar o PowerShell
+### <a name="using-powershell"></a>Com o PowerShell
 
 1. Corre `Connect-AzAccount` para preparar as tuas credenciais do Azure.
 

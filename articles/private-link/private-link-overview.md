@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: adc08e978be699ea6ea3dd00beae1762d48644c0
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 3c03a207e91ae969836e208f4e6bf4ea32086c7d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781067"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121328"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -22,6 +22,8 @@ O tráfego entre a sua rede virtual e o serviço percorre a rede de espinha dors
 
 > [!IMPORTANT]
 > O Azure Private Link está disponível em geral. Tanto o serviço Private Endpoint como o serviço Private Link (serviço por trás do balanceador de carga padrão) estão geralmente disponíveis. O Azure PaaS diferente embarcará no Azure Private Link em diferentes horários. Consulte a secção [de disponibilidade](#availability) neste artigo para obter o estado exato do Azure PaaS no Link Privado. Para limitações conhecidas, consulte [Private Endpoint](private-endpoint-overview.md#limitations) e [Private Link Service](private-link-service-overview.md#limitations). 
+
+:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Centro de Ligação Privada Azure no portal Azure" border="false":::
 
 ## <a name="key-benefits"></a>Principais vantagens
 A Azure Private Link proporciona os seguintes benefícios:  

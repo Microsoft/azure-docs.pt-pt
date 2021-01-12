@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109702"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120296"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada através do portal Azure
 
@@ -77,7 +77,7 @@ Siga estes passos para retomar uma piscina SQL dedicada.
 
     ![Computação online](././media/pause-and-resume-compute-portal/compute-online.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados na sua piscina de SQL dedicada. Estes recursos de computação e armazenamento são faturados em separado. 
 
@@ -88,7 +88,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e selecione a sua piscina SQL dedicada.
 
-    ![Limpar os recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
+    ![Limpar recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
 
 1. Para interromper a computação, clique no botão **Pausar**. 
 
@@ -98,5 +98,4 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Já fez uma pausa e retomou o cálculo para a sua piscina DE SQL dedicada. Continue para o próximo artigo para saber mais sobre como [carregar dados numa piscina de SQL dedicada.](load-data-from-azure-blob-storage-using-polybase.md) Para obter informações adicionais sobre a gestão das capacidades de computação, consulte o artigo [de visão geral do cálculo do](sql-data-warehouse-manage-compute-overview.md) cálculo. 
-
+Já fez uma pausa e retomou o cálculo para a sua piscina DE SQL dedicada. Continue para o próximo artigo para saber mais sobre como [carregar dados numa piscina de SQL dedicada.](./load-data-from-azure-blob-storage-using-copy.md) Para obter informações adicionais sobre a gestão das capacidades de computação, consulte o artigo [de visão geral do cálculo do](sql-data-warehouse-manage-compute-overview.md) cálculo.

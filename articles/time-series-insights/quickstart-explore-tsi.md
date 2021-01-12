@@ -9,13 +9,13 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/02/2020
-ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 01/11/2021
+ms.openlocfilehash: cb5bac06ab6eeaa00e72ba6068328a972b8ac37b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016229"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119366"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Quickstart: Explore o ambiente de demonstração da Azure Time Series Insights Gen2
 
@@ -38,12 +38,27 @@ O Azure Time Series Insights Gen2 Explorer demonstra dados históricos e anális
 
 ## <a name="work-with-historical-data"></a>Trabalhar com dados históricos
 
-1. Na **Planta Contoso 1,** veja a turbina eólica **W7.**  
+1. **Selecione a Hierarquia do WindFarm de Contoso.**
+
+   [![Hierarquia do Parque Eólico contoso](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. Na **Planta Contoso 1,** veja a turbina eólica **W7.**
+
+   [![W7 na Fábrica Contoso 1](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. Altere o intervalo de visualização para **1/1/17 20:00:00.00 para 3/10/17 20:00:00.00 (UTC)**.
+
+      [![Vista de gama](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![Definição de vista de gama](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. Ajuste a vista de gama utilizando o zoom dentro **(+)** e para fora **(-)** e movendo a barra de diapositivos.
+
+      [![Ajustar a vista de gama](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. Para selecionar um sensor, **selecione Contoso Plant 1**  >  **W7**  >  **Generator**  >  **SystemSpeed**. Em seguida, reveja os valores que são mostrados.
 
-      [![W7 na Fábrica Contoso 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![Velocidade do gerador](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. Recentemente, Contoso encontrou um incêndio na turbina eólica **W7.** As opiniões variam sobre o que causou o incêndio. Em Azure Time Series Insights Gen2, é exibido o sensor de alerta de incêndio que foi ativado durante o incêndio.
 
@@ -122,7 +137,7 @@ Agora que completou o quickstart, limpe os recursos que criou:
 1. A partir do menu esquerdo no [portal Azure](https://portal.azure.com), selecione **Todos os recursos** e localize o seu grupo de recursos Azure Time Series Insights Gen2.
 1. Ou elimina todo o grupo de recursos (e todos os recursos contidos no mesmo) selecionando **Eliminar** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estás pronto para criar o teu próprio ambiente Azure Time Series Insights Gen2. Para começar:
 

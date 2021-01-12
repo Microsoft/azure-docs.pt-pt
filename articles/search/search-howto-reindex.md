@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697089"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119106"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como reconstruir um índice na Pesquisa Cognitiva Azure
 
@@ -37,7 +37,7 @@ Desde que não mude a estrutura do índice, pode atualizar um índice utilizando
 
 Largue e recrie um índice se alguma das seguintes condições for verdadeira. 
 
-| Condição | Description |
+| Condição | Descrição |
 |-----------|-------------|
 | Alterar uma definição de campo | A revisão de um nome de campo, tipo de dados ou [atributos](/rest/api/searchservice/create-index) de índice específicos (pescáveis, filtrais, ordenados, facetable) requer uma reconstrução completa. |
 | Atribua um analisador a um campo | [Os analisadores](search-analyzers.md) são definidos num índice e depois atribuídos aos campos. Pode adicionar uma nova definição de analisador a um índice a qualquer momento, mas só pode *atribuir* um analisador quando o campo é criado. Isto é verdade tanto para as propriedades do **analisador** como **do indexAnalyzer.** A **propriedade searchAnalyzer** é uma exceção (você pode atribuir esta propriedade a um campo existente). |
@@ -91,11 +91,11 @@ Quando carrega o índice, o índice invertido de cada campo é preenchido com to
 
 Pode começar a consultar um índice assim que o primeiro documento estiver carregado. Se souber o ID de um documento, a [API do Documento de Procura](/rest/api/searchservice/lookup-document) rest devolve o documento específico. Para testes mais amplos, deve esperar até que o índice esteja totalmente carregado e, em seguida, usar consultas para verificar o contexto que espera ver.
 
-Pode utilizar [o Search Explorer](search-explorer.md) ou uma ferramenta de teste web como o [Postman ou o Visual Studio Code](search-get-started-rest.md) para verificar se há conteúdo atualizado.
+Pode utilizar [o Search Explorer](search-explorer.md) ou uma ferramenta de teste web como o [Postman](search-get-started-rest.md) ou [o Visual Studio Code](search-get-started-vs-code.md) para verificar se há conteúdo atualizado.
 
 Se adicionou ou renomeou um campo, utilize [$select](search-query-odata-select.md) para devolver esse campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Índice grandes conjuntos de dados em escala](search-howto-large-index.md)

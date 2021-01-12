@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 67cb4868ee8d4190c47e23315bf2a22e5c847ff1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463212"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121180"
 ---
 # <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Utilize transações numa piscina SQL em Azure Synapse 
 
@@ -45,7 +45,7 @@ No quadro seguinte, foram feitas duas suposições:
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Linhas por distribuição | Max Rows por transação |
+| [DWU](./sql-data-warehouse-overview-what-is.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Linhas por distribuição | Max Rows por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -56,29 +56,29 @@ No quadro seguinte, foram feitas duas suposições:
 | DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
 | DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
 | DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
-| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW3000c |22,5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37,5 |60 |2,250 |150,000,000 |9,000,000,000 |
 | DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 | DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
 | DW10000c |75 |60 |4500 |300,000,000 |18,000,000,000 |
-| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW15000c |112,5 |60 |6,750 |450,000,000 |27,000,000,000 |
 | DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Linhas por distribuição | Max Rows por transação |
+| [DWU](./sql-data-warehouse-overview-what-is.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Tampa por distribuição (GB) | Número de Distribuições | Tamanho da transação MAX (GB) | # Linhas por distribuição | Max Rows por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
 | DW300 |2.25 |60 |135 |9,000,000 |540,000,000 |
 | DW400 |3 |60 |180 |12,000,000 |720,000,000 |
 | DW500 |3,75 |60 |225 |15,000,000 |900,000,000 |
-| DW600 |4.5 |60 |270 |18,000,000 |1,080,000,000 |
+| DW600 |4,5 |60 |270 |18,000,000 |1,080,000,000 |
 | DW1000 |7,5 |60 |450 |30,000,000 |1,800,000,000 |
 | DW1200 |9 |60 |540 |36,000,000 |2,160,000,000 |
 | DW1500 |11.25 |60 |675 |45,000,000 |2,700,000,000 |
 | DW2000 |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW3000 |22,5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
 O limite de tamanho da transação é aplicado por transação ou operação. Não é aplicado em todas as transações simultâneas. Portanto, cada transação é autorizada a escrever esta quantidade de dados para o registo.

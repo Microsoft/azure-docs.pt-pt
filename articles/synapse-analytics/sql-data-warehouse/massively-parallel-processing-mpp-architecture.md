@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448255"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119599"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Arquitetura dedicada da piscina SQL (anteriormente SQL DW) em Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Com armazenamento e cálculo dissociados, quando se utiliza uma piscina SQL dedi
 
 ### <a name="azure-storage"></a>Storage do Azure
 
-A piscina SQL dedicada SQL (anteriormente SQL DW) aproveita o Azure Storage para manter os dados do utilizador seguros.  Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **fragmentos** em distribuições para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
+A piscina SQL dedicada SQL (anteriormente SQL DW) aproveita o Azure Storage para manter os dados do utilizador seguros.  Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **fragmentos** em distribuições para otimizar o desempenho do sistema. Pode escolher o padrão de fragmentação que será utilizado para distribuir os dados, ao definir a tabela. Estes padrões de fragmentos são suportados:
 
 - Hash
 - Round Robin
@@ -107,13 +107,13 @@ O diagrama abaixo mostra uma tabela replicada que é em cache na primeira distri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que sabe um pouco sobre a Azure Synapse, aprenda a criar rapidamente [uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md) e [carregue dados de amostras.](load-data-from-azure-blob-storage-using-polybase.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quando se deparar com terminologia nova. Ou olhe para alguns destes outros Recursos Azure Synapse.  
+Agora que sabe um pouco sobre a Azure Synapse, aprenda a criar rapidamente [uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md) e [carregue dados de amostras.](./load-data-from-azure-blob-storage-using-copy.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quando se deparar com terminologia nova. Ou olhe para alguns destes outros Recursos Azure Synapse.  
 
 - [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogues](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Pedidos de funcionalidades](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- [Microsoft Q&Uma página de perguntas](/answers/topics/azure-synapse-analytics.html)
 - [Fórum de Transbordamento de Pilhas](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

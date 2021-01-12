@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cb80f2d21246a75d41fc5753e72995d409d5c6b4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589904"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119191"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração contínua e implantação para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -62,5 +62,5 @@ Neste momento, você tem um ambiente simples onde qualquer check-in no seu ramo 
 
 - Explore [a arquitetura dedicada da piscina SQL (anteriormente SQL DW)](massively-parallel-processing-mpp-architecture.md)
 - Crie [rapidamente uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md)
-- [Carregar dados de exemplo](load-data-from-azure-blob-storage-using-polybase.md)
+- [Carregar dados de exemplo](./load-data-from-azure-blob-storage-using-copy.md)
 - Explore [vídeos](sql-data-warehouse-videos.md)

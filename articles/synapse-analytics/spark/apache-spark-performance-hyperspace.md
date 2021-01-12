@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 6795828f4fd3a77a7bc6d8de208848d5f4ee3bee
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3aedef8452ad3e972f78958fc0765639692d76d6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501044"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121061"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hiperespaço: Subsistema de indexação para Apache Spark
 
@@ -2230,4 +2230,4 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Projeto Hyperspace](https://microsoft.github.io/hyperspace/)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)

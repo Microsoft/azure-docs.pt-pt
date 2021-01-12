@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932358"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121095"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -81,7 +81,7 @@ Nesta secção, criamos os certificados auto-assinados usando uma imagem docker 
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Faça upload de certificados para Azure Key Vault
 
-Para armazenar os nossos certificados de forma segura e torná-los acessíveis a partir de vários dispositivos, enviaremos os certificados para o Cofre da Chave Azure. Como pode ver na lista acima, temos dois tipos de ficheiros de certificado: PFX e PEM. Trataremos o PFX como certificados do Cofre-Chave para serem enviados para o Cofre de Chaves. Os ficheiros PEM são texto simples e vamos tratá-los como segredos do Cofre chave. Utilizaremos o Cofre-Chave associado ao espaço de trabalho Azure Machine Learning que criámos executando os [Cadernos Azure.](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks)
+Para armazenar os nossos certificados de forma segura e torná-los acessíveis a partir de vários dispositivos, enviaremos os certificados para o Cofre da Chave Azure. Como pode ver na lista acima, temos dois tipos de ficheiros de certificado: PFX e PEM. Trataremos o PFX como certificados do Cofre-Chave para serem enviados para o Cofre de Chaves. Os ficheiros PEM são texto simples e vamos tratá-los como segredos do Cofre chave. Usaremos o Cofre-Chave associado ao espaço de trabalho Azure Machine Learning que criámos executando os [Cadernos Jupyter.](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks)
 
 1. A partir do [portal Azure,](https://portal.azure.com)navegue até ao seu espaço de trabalho Azure Machine Learning.
 
@@ -303,7 +303,7 @@ Em seguida, atualizaremos os certificados e o nome anfitrião editando diretamen
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 

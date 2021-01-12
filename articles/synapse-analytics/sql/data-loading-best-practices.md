@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31014d336b5122251cf8be4a166520064776fce3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024032"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118171"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Melhores práticas para carregar dados em um pool de SQL dedicado Azure Synapse Analytics
 
@@ -145,5 +145,5 @@ Não é preciso fazer outras alterações às origens de dados externas subjacen
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a PolyBase e conceber um processo de extrato, carga e transformação (ELT), consulte [Design ELT para Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-- Para um tutorial de carregamento, [utilize a PolyBase para carregar os dados do armazenamento da bolha Azure para a Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Para um tutorial de carregamento, [utilize a PolyBase para carregar os dados do armazenamento da bolha Azure para a Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 - Para monitorizar o carregamento de dados, veja [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Monitorizar a sua carga de trabalho com redes de perímetro).

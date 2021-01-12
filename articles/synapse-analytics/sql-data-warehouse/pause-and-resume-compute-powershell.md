@@ -11,12 +11,12 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 08ddb6077887043d798af9790a7b66f1b8ebb95c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91570693"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121044"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL com Azure PowerShell
 
@@ -130,10 +130,10 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 3. Para remover a piscina SQL para que não esteja cobrado para calcular ou armazenar, clique em **Eliminar**.
 
-4. Para remover o servidor SQL que criou, clique **em sqlpoolservername.database.windows.net**e, em seguida, clique em **Apagar**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor SQL que criou, clique **em sqlpoolservername.database.windows.net** e, em seguida, clique em **Apagar**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
 5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a piscina SQL, continue os dados de Carga no artigo [de piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md) Para obter informações adicionais sobre a gestão das capacidades de computação, consulte o artigo [de visão geral do cálculo do](sql-data-warehouse-manage-compute-overview.md) cálculo.
+Para saber mais sobre a piscina SQL, continue os dados de Carga no artigo [de piscina SQL.](./load-data-from-azure-blob-storage-using-copy.md) Para obter informações adicionais sobre a gestão das capacidades de computação, consulte o artigo [de visão geral do cálculo do](sql-data-warehouse-manage-compute-overview.md) cálculo.

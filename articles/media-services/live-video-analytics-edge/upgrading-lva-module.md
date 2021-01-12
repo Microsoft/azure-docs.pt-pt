@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901560"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119463"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Upgrade vídeo ao vivo Analytics em IoT Edge de 1.0 a 2.0
 
@@ -19,9 +19,9 @@ Este artigo cobre as diferenças e as diferentes coisas a ter em conta ao atuali
 ## <a name="change-list"></a>Lista de Alterações
 
 > [!div class="mx-tdCol4BreakAll"]
-> |Título|Vídeo ao vivo Analytics 1.0|Vídeo ao vivo Analytics 2.0|Description|
+> |Título|Vídeo ao vivo Analytics 1.0|Vídeo ao vivo Analytics 2.0|Descrição|
 > |-------------|----------|---------|---------|
-> |Imagem de recipiente|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Microsoft publicou imagens de estivadores para live video analytics em Azure IoT Edge|
+> |Imagem de recipiente|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Microsoft publicou imagens de estivadores para live video analytics em Azure IoT Edge|
 > |**Nódes media gráficos** |    |   |   |
 > |Origens|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Fonte RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Fonte de mensagem do hub IoT |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Fonte RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Fonte de mensagem do hub IoT | Nós do MediaGraph que funcionam como fontes para ingestão de meios e mensagens.|
 > |Processadores|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de deteção de movimentos </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de filtro de taxa de fotogramas </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de extensão http </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de extensão Grpc </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador do portão de sinal |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de deteção de movimentos </br>:::image type="icon" source="./././media/upgrading-lva/remove.png":::**Processador de filtro de taxa de fotogramas**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de extensão http </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador de extensão Grpc </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processador do portão de sinal | Nós do MediaGraph que lhe permitem formatar os meios antes de enviar para servidores de inferência de IA.|

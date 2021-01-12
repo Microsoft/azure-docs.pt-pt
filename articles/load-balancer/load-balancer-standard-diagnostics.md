@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: da4c5f7891b518f4e6393f3fb4e153d464f4f2a2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955540"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121418"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -35,19 +35,22 @@ O Azure Load Balancer fornece métricas multidimensionais através das Métricas
 
 As várias configurações standard de balançadores de carga fornecem as seguintes métricas:
 
-| Métrica | Tipo de recurso | Description | Agregação recomendada |
+| Metric | Tipo de recurso | Descrição | Agregação recomendada |
 | --- | --- | --- | --- |
 | Disponibilidade do caminho dos dados | Balanceador de carga público e interno | O Balanceador de Carga Standard exerce continuamente o caminho de dados a partir de uma região para o front-end do balanceador de carga, até à pilha SDN que suporta a sua VM. Enquanto se mantiverem casos saudáveis, a medição segue o mesmo caminho que o tráfego equilibrado da sua aplicação. O caminho de dados que os clientes utilizam também é validado. A medição é invisível para a aplicação e não interfere com outras operações.| Média |
 | Estado da sonda de estado de funcionamento | Balanceador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do seu ponto final de aplicação de acordo com as definições de configuração. Esta métrica proporciona uma vista filtrada agregada ou por ponto final de cada ponto final no conjunto do balanceador de carga. Pode ver como o Balanceador de Carga vê o estado de funcionamento da sua aplicação, conforme indicado pela configuração da sonda de estado de funcionamento. |  Média |
-| Pacotes SYN (sincronização) | Balanceador de carga público e interno | O Balanceador de Carga Standard não termina as ligações do Protocolo de Controlo de Transmissão (TCP) nem interage com os fluxos de pacotes TCP ou UDP. Os fluxos e os respetivos handshakes estão sempre entre a origem e a instância da VM. Para resolver melhor os problemas relacionados com o protocolo TCP, pode utilizar os contadores de pacotes SYN para compreender quantas tentativas de ligação TCP são feitas. A métrica reporta o número de pacotes SYN de TCP que foram recebidos.| Média |
-| Ligações SNAT | Balanceador de carga público |O Balanceador de Carga Standard reporta o número de fluxos de saída mascarados para o front-end do endereço IP público. As portas de tradução de endereços de rede de origem (SNAT) são um recurso renovável. Esta métrica pode dar uma indicação de quão fortemente a sua aplicação está a depender do SNAT para os fluxos de saída originados. Os contadores de fluxos SNAT de saída bem-sucedidos e falhados são reportados e podem ser utilizados para resolver problemas e compreender o estado de funcionamento dos fluxos de saída.| Média |
+| CONTAGEM SYN (sincronização) | Balanceador de carga público e interno | O Balanceador de Carga Standard não termina as ligações do Protocolo de Controlo de Transmissão (TCP) nem interage com os fluxos de pacotes TCP ou UDP. Os fluxos e os respetivos handshakes estão sempre entre a origem e a instância da VM. Para resolver melhor os problemas relacionados com o protocolo TCP, pode utilizar os contadores de pacotes SYN para compreender quantas tentativas de ligação TCP são feitas. A métrica reporta o número de pacotes SYN de TCP que foram recebidos.| Soma |
+| Contagem de ligação SNAT | Balanceador de carga público |O Balanceador de Carga Standard reporta o número de fluxos de saída mascarados para o front-end do endereço IP público. As portas de tradução de endereços de rede de origem (SNAT) são um recurso renovável. Esta métrica pode dar uma indicação de quão fortemente a sua aplicação está a depender do SNAT para os fluxos de saída originados. Os contadores de fluxos SNAT de saída bem-sucedidos e falhados são reportados e podem ser utilizados para resolver problemas e compreender o estado de funcionamento dos fluxos de saída.| Soma |
 | Portas SNAT atribuídas | Balanceador de carga público | O Balanceador de Carga Padrão informa o número de portas SNAT atribuídas por instância de backend | Média. |
 | Portas SNAT usadas | Balanceador de carga público | O Balancer de Carga Padrão informa o número de portas SNAT que são utilizadas por instância backend. | Média | 
-| Contadores de bytes |  Balanceador de carga público e interno | O Balanceador de Carga Standard reporta os dados processados por front-end. Pode notar que os bytes não são distribuídos igualmente pelas instâncias de back-end. Isto é esperado, uma vez que o algoritmo do Balanceador de Carga da Azure é baseado em fluxos | Média |
-| Contadores de pacotes |  Balanceador de carga público e interno | O Balanceador de Carga Standard reporta os pacotes processados por front-end.| Média |
+| Contagem de byte |  Balanceador de carga público e interno | O Balanceador de Carga Standard reporta os dados processados por front-end. Pode notar que os bytes não são distribuídos igualmente pelas instâncias de back-end. Isto é esperado, uma vez que o algoritmo do Balanceador de Carga da Azure é baseado em fluxos | Soma |
+| Contagem de pacotes |  Balanceador de carga público e interno | O Balanceador de Carga Standard reporta os pacotes processados por front-end.| Soma |
 
   >[!NOTE]
-  >Ao utilizar o tráfego de distribuição de um equilibrador de carga interno através de um Pacote de Sínsma NVA ou firewall, as métricas do Contador byte e do Contador de Pacotes não estão disponíveis e mostrarão como zero. 
+  >Ao utilizar o tráfego de distribuição de um equilibrador de carga interno através de um Pacote de Sínodo NVA ou firewall, as métricas byte Count e Packet Count não estão disponíveis e mostrarão como zero. 
+  
+  >[!NOTE]
+  >As agregações max e min não estão disponíveis para a contagem de SYN, contagem de pacotes, contagem de ligações SNAT e métricas de contagem byte 
   
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Veja as suas métricas de balançador de carga no portal Azure
 
@@ -233,7 +236,7 @@ O gráfico permite que os clientes resolvam a implementação por conta própria
 
 O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto através da **saúde dos recursos** existentes no **âmbito do Serviço de > Saúde** do Serviço de Monitorização . É avaliado de **dois em dois minutos** medindo a disponibilidade do caminho de dados que determina se os seus pontos finais de equilíbrio de carga frontal estão disponíveis.
 
-| Estado da saúde dos recursos | Description |
+| Estado da saúde dos recursos | Descrição |
 | --- | --- |
 | Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
 | Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.

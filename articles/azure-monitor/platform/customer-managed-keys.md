@@ -1,17 +1,17 @@
 ---
 title: Chave gerida pelo cliente do Azure Monitor
-description: Informações e passos para configurar Customer-Managed chave para encriptar dados nos seus espaços de trabalho Log Analytics usando uma chave Azure Key Vault.
+description: Informações e passos para configurar a chave gerida pelo cliente para encriptar dados nos seus espaços de trabalho Log Analytics utilizando uma chave Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 07562167131d1839bc0827c74fae09c683302c08
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071940"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118613"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -25,27 +25,27 @@ Recomendamos que reveja [as limitações e constrangimentos](#limitationsandcons
 
 O Azure Monitor garante que todos os dados e consultas guardadas são encriptados em repouso utilizando as teclas geridas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de encriptação utilizando a sua própria chave que está armazenada no seu [Cofre de Chaves Azure](../../key-vault/general/overview.md), o que lhe dá o controlo para revogar o acesso aos seus dados a qualquer momento. O uso do Azure Monitor da encriptação é idêntico ao funcionamento da [encriptação do Azure Storage.](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)
 
-Customer-Managed chave é entregue em [clusters dedicados](../log-query/logs-dedicated-clusters.md) que fornecem um nível de proteção e controlo mais elevados. Os dados ingeridos em clusters dedicados estão a ser encriptados duas vezes - uma a nível de serviço utilizando chaves geridas pela Microsoft ou chaves geridas pelo cliente, e uma vez ao nível da infraestrutura usando dois algoritmos de encriptação diferentes e duas teclas diferentes. [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protege contra um cenário em que um dos algoritmos ou chaves de encriptação pode estar comprometido. Neste caso, a camada adicional de encriptação continua a proteger os seus dados. O cluster dedicado também permite proteger os seus dados com o controlo [Lockbox.](#customer-lockbox-preview)
+A chave gerida pelo cliente é entregue em [clusters dedicados](../log-query/logs-dedicated-clusters.md) que fornecem um nível de proteção e controlo mais elevados. Os dados ingeridos em clusters dedicados estão a ser encriptados duas vezes – uma a nível de serviço utilizando chaves geridas pela Microsoft ou chaves geridas pelo cliente, e uma vez ao nível da infraestrutura usando dois algoritmos de encriptação diferentes e duas teclas diferentes. [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protege contra um cenário em que um dos algoritmos ou chaves de encriptação pode estar comprometido. Neste caso, a camada adicional de encriptação continua a proteger os seus dados. O cluster dedicado também permite proteger os seus dados com o controlo [Lockbox.](#customer-lockbox-preview)
 
-Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para um funcionamento eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft independentemente da configuração da chave gerida pelo cliente, mas o seu controlo sobre os dados SSD adere à [revogação da chave](#key-revocation). Estamos a trabalhar para ter dados SSD encriptados com Customer-Managed chave no primeiro semestre de 2021.
+Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para um funcionamento eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft independentemente da configuração da chave gerida pelo cliente, mas o seu controlo sobre os dados SSD adere à [revogação da chave](#key-revocation). Estamos a trabalhar para ter dados SSD encriptados com a chave gerida pelo Cliente no primeiro semestre de 2021.
 
 Log Analytics Clusters Dedicados usam um [modelo de preços de](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) reserva de capacidade a partir de 1000 GB/dia.
 
 > [!IMPORTANT]
 > Devido a restrições de capacidade temporárias, exigimos que se registe antes de criar um cluster. Utilize os seus contactos na Microsoft ou abrimos o pedido de suporte para registar os IDs das suas subscrições.
 
-## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona a chave Customer-Managed no Azure Monitor
+## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona a chave gerida pelo cliente no Azure Monitor
 
-O Azure Monitor utiliza identidade gerida para dar acesso ao seu Cofre de Chaves Azure. A identidade do cluster Log Analytics é suportada ao nível do cluster. Para permitir Customer-Managed proteção de chaves em vários espaços de trabalho, um novo recurso *do Cluster* Log Analytics funciona como uma ligação de identidade intermédia entre o cofre de chaves e os espaços de trabalho do Log Analytics. O armazenamento do cluster utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar o seu Cofre de Chave Azure via Azure Ative Directory. 
+O Azure Monitor utiliza identidade gerida para dar acesso ao seu Cofre de Chaves Azure. A identidade do cluster Log Analytics é suportada ao nível do cluster. Para permitir a proteção de chaves gerida pelo Cliente em vários espaços de trabalho, um novo recurso *do Cluster* Log Analytics funciona como uma ligação de identidade intermédia entre o cofre de chaves e os espaços de trabalho do Log Analytics. O armazenamento do cluster utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar o seu Cofre de Chave Azure via Azure Ative Directory. 
 
 Após a configuração da chave gerida pelo Cliente, novos dados ingeridos em espaços de trabalho ligados ao seu cluster dedicado são encriptados com a sua chave. Pode desvincular os espaços de trabalho do cluster a qualquer momento. Os novos dados são então ingeridos para o armazenamento do Log Analytics e encriptados com a chave Microsoft, enquanto pode consultar os seus dados novos e antigos sem problemas.
 
 > [!IMPORTANT]
-> Customer-Managed capacidade-chave é regional. O seu Cofre chave Azure, cluster e espaços de trabalho ligados ao Log Analytics devem estar na mesma região, mas podem estar em diferentes subscrições.
+> A capacidade de chave gerida pelo cliente é regional. O seu Cofre chave Azure, cluster e espaços de trabalho ligados ao Log Analytics devem estar na mesma região, mas podem estar em diferentes subscrições.
 
-![Customer-Managed visão geral chave](media/customer-managed-keys/cmk-overview.png)
+![Visão geral da chave gerida pelo cliente](media/customer-managed-keys/cmk-overview.png)
 
-1. Cofre de Chaves
+1. Key Vault
 2. Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster de Log Analytics dedicado
 3. Cluster dedicado log analytics
 4. Espaços de trabalho ligados ao recurso *Cluster* 
@@ -54,7 +54,7 @@ Após a configuração da chave gerida pelo Cliente, novos dados ingeridos em es
 
 Existem 3 tipos de chaves envolvidas na encriptação de dados de armazenamento:
 
-- **KEK** - Chave Chave De encriptação (a sua chave Customer-Managed)
+- **KEK** - Chave Chave De encriptação (a sua chave gerida pelo cliente)
 - **AEK** - Chave de encriptação de conta
 - **DEK** - Chave de encriptação de dados
 
@@ -75,7 +75,7 @@ Aplicam-se as seguintes regras:
 1. Atualizar cluster com detalhes do identificador chave
 1. Ligação de espaços de trabalho log analytics
 
-Customer-Managed configuração chave não é suportada no portal Azure atualmente e o provisionamento pode ser realizado através de pedidos [PowerShell,](/powershell/module/az.operationalinsights/) [CLI](/cli/azure/monitor/log-analytics) ou [REST.](/rest/api/loganalytics/)
+A configuração da chave gerida pelo cliente não é suportada no portal Azure atualmente e o fornecimento pode ser realizado através de pedidos [PowerShell,](/powershell/module/az.operationalinsights/) [CLI](/cli/azure/monitor/log-analytics) ou [REST.](/rest/api/loganalytics/)
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operações assíncronos e verificação de estado
 
@@ -125,7 +125,8 @@ Estas definições podem ser atualizadas no Key Vault via CLI e PowerShell:
 
 ## <a name="create-cluster"></a>Criar cluster
 
-> [! INFORMAÇÃO] Os clusters suportam dois [tipos de identidade geridos.](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) A identidade gerida atribuída ao sistema é criada com o cluster quando introduz o `SystemAssigned` tipo de identidade e esta pode ser usada mais tarde para garantir o acesso ao seu Cofre-Chave. Se pretender criar um cluster configurado para a chave gerida pelo Cliente na criação, crie o cluster com identidade gerida pelo Utilizador que é concedido no seu Cofre-Chave -- Atualize o cluster com `UserAssigned` o tipo de identidade, o ID de recursos da identidade `UserAssignedIdentities` e forneça os seus principais detalhes em `keyVaultProperties` .
+> [!NOTE]
+> Os clusters suportam dois tipos de [identidade geridos,](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)atribuídos pelo Sistema e atribuídos pelo Utilizador, que podem ser utilizados com base no seu cenário. A identidade gerida atribuída pelo sistema é mais simples e criada automaticamente com a criação de clusters quando define a identidade `type` como - esta identidade pode ser usada mais tarde para conceder acesso ao seu Cofre `SystemAssigned` chave. Se precisar de criar um cluster com configuração chave gerida pelo Cliente na criação, deverá ter previamente uma identidade definida e atribuída ao Utilizador no cofre-chave, então crie o cluster com identidade `type` como , com o `UserAssigned` `UserAssignedIdentities` ID de recursos da identidade e detalhes chave em `keyVaultProperties` .
 
 > [!IMPORTANT]
 > Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet). Esta limitação não é aplicada à identidade gerida atribuída pelo Sistema.
@@ -254,20 +255,20 @@ O armazenamento do cluster sonda periodicamente o seu Key Vault para tentar dese
 
 ## <a name="key-rotation"></a>Rotação de chaves
 
-Customer-Managed rotação de chaves requer uma atualização explícita do cluster com a nova versão chave no Cofre da Chave Azure. [Atualizar o cluster com detalhes do identificador chave](#update-cluster-with-key-identifier-details). Se não atualizar a nova versão chave do cluster, o armazenamento do cluster Log Analytics continuará a utilizar a sua chave anterior para encriptação. Se desativar ou eliminar a sua tecla antiga antes de atualizar a nova chave do cluster, entrará em estado [de revogação de chaves.](#key-revocation)
+A rotação da chave gerida pelo cliente requer uma atualização explícita do cluster com a nova versão chave no Cofre da Chave Azure. [Atualizar o cluster com detalhes do identificador chave](#update-cluster-with-key-identifier-details). Se não atualizar a nova versão chave do cluster, o armazenamento do cluster Log Analytics continuará a utilizar a sua chave anterior para encriptação. Se desativar ou eliminar a sua tecla antiga antes de atualizar a nova chave do cluster, entrará em estado [de revogação de chaves.](#key-revocation)
 
 Todos os seus dados permanecem acessíveis após a operação de rotação da chave, uma vez que os dados sempre encriptados com a Chave de Encriptação de Contas (AEK) enquanto o AEK está agora a ser encriptado com a sua nova versão Key Encryption Key (KEK) no Key Vault.
 
-## <a name="customer-managed-key-for-queries"></a>Customer-Managed chave para consultas
+## <a name="customer-managed-key-for-queries"></a>Chave gerida pelo cliente para consultas
 
-A linguagem de consulta utilizada no Log Analytics é expressiva e pode conter informações sensíveis nos comentários que adiciona às consultas ou na sintaxe de consulta. Algumas organizações exigem que tais informações são mantidas protegidas sob Customer-Managed política chave e você precisa salvar as suas consultas encriptadas com a sua chave. O Azure Monitor *permite-lhe* armazenar pesquisas guardadas e *consultas de alerta de registo* encriptadas com a sua chave na sua própria conta de armazenamento quando ligada ao seu espaço de trabalho. 
+A linguagem de consulta utilizada no Log Analytics é expressiva e pode conter informações sensíveis nos comentários que adiciona às consultas ou na sintaxe de consulta. Algumas organizações exigem que essas informações são mantidas protegidas sob a política de chave gerida pelo Cliente e você precisa salvar as suas consultas encriptadas com a sua chave. O Azure Monitor *permite-lhe* armazenar pesquisas guardadas e *consultas de alerta de registo* encriptadas com a sua chave na sua própria conta de armazenamento quando ligada ao seu espaço de trabalho. 
 
 > [!NOTE]
-> As consultas de Log Analytics podem ser guardadas em várias lojas, dependendo do cenário utilizado. As consultas permanecem encriptadas com a tecla microsoft (MMK) nos seguintes cenários, independentemente Customer-Managed configuração chave: Livros de trabalho no Azure Monitor, dashboards Azure, App Azure Logic, Azure Notebooks e Cartões de Automação.
+> As consultas de Log Analytics podem ser guardadas em várias lojas, dependendo do cenário utilizado. As consultas permanecem encriptadas com a tecla microsoft (MMK) nos seguintes cenários, independentemente da configuração de chaves gerida pelo cliente: Livros de trabalho no Azure Monitor, dashboards Azure, Azure Logic App, Azure Notebooks e Automation Runbooks.
 
 Quando traz o seu próprio armazenamento (BYOS) e o liga ao seu espaço de trabalho, o serviço faz uploads *de pesquisas guardadas* e *consultas de alerta de registo* na sua conta de armazenamento. Isto significa que controla a conta de armazenamento e a [política de encriptação em repouso,](../../storage/common/customer-managed-keys-overview.md) utilizando a mesma chave que utiliza para encriptar dados no cluster Log Analytics, ou numa chave diferente. No entanto, será responsável pelos custos associados a essa conta de armazenamento. 
 
-**Considerações antes de definir Customer-Managed chave para consultas**
+**Considerações antes de definir a chave gerida pelo cliente para consultas**
 * Precisa de ter permissões de 'escrever' tanto para o seu espaço de trabalho como para a conta de armazenamento
 * Certifique-se de criar a sua Conta de Armazenamento na mesma região que o seu espaço de trabalho Log Analytics
 * As *pesquisas de poupança* no armazenamento são consideradas como artefactos de serviço e o seu formato pode mudar
@@ -385,7 +386,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
 ## <a name="limitations-and-constraints"></a>Limitações e constrangimentos
 
-- Customer-Managed chave é suportada no cluster dedicado Log Analytics e adequado para clientes que enviam 1TB por dia ou mais.
+- A chave gerida pelo cliente é suportada no cluster dedicado Log Analytics e adequada para clientes que enviam 1TB por dia ou mais.
 
 - O número máximo de cluster por região e subscrição é de 2
 
@@ -395,7 +396,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
 - A ligação do espaço de trabalho ao cluster deve ser transportada apenas depois de ter verificado que o fornecimento do cluster Log Analytics foi concluído. Os dados enviados para o seu espaço de trabalho antes da conclusão serão retirados e não serão recuperáveis.
 
-- Customer-Managed encriptação chave aplica-se aos dados recém-ingeridos após o tempo de configuração. Os dados que foram ingeridos antes da configuração, permanecem encriptados com a tecla microsoft. Pode consultar os dados ingeridos antes e depois da configuração da chave Customer-Managed de forma perfeita.
+- A encriptação da chave gerida pelo cliente aplica-se aos dados recém-ingeridos após o tempo de configuração. Os dados que foram ingeridos antes da configuração, permanecem encriptados com a tecla microsoft. Pode consultar os dados ingeridos antes e depois da configuração da chave gerida pelo Cliente de forma perfeita.
 
 - O Cofre da Chave Azure deve ser configurado como recuperável. Estas propriedades não são ativadas por padrão e devem ser configuradas usando CLI ou PowerShell:<br>
   - [Eliminação de Forma Recuperável](../../key-vault/general/soft-delete-overview.md)
@@ -424,7 +425,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
     
   - Erros de ligação transitórios -- O armazenamento lida com erros transitórios (intervalos de tempo, falhas de ligação, problemas de DNS) permitindo que as chaves permaneçam em cache por um curto período de tempo e isso supera quaisquer pequenos blips na disponibilidade. As capacidades de consulta e ingestão continuam sem interrupção.
     
-  - Site ao vivo - indisponibilidade de cerca de 30 minutos fará com que a conta de Armazenamento fique indisponível. A capacidade de consulta não está disponível e os dados ingeridos são cached durante várias horas usando a chave Microsoft para evitar a perda de dados. Quando o acesso ao Key Vault é restaurado, a consulta fica disponível e os dados em cache temporários são ingeridos na loja de dados e encriptados com Customer-Managed chave.
+  - Site ao vivo - indisponibilidade de cerca de 30 minutos fará com que a conta de Armazenamento fique indisponível. A capacidade de consulta não está disponível e os dados ingeridos são cached durante várias horas usando a chave Microsoft para evitar a perda de dados. Quando o acesso ao Key Vault é restaurado, a consulta torna-se disponível e os dados em cache temporários são ingeridos na loja de dados e encriptados com a chave gerida pelo Cliente.
 
   - A frequência a que o Azure Monitor Storage acede ao Cofre chave para operações de embrulho e desembrulhar é entre 6 a 60 segundos.
 

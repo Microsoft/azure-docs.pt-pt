@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f780d5404d99435a61c4e3f9e90b1acbd9539af9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025957"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118443"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitor de carga de trabalho - Portal Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como utilizar o portal Azure para monitorizar a sua carga d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Subscrição Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Piscina SQL: Vamos recolher registos para uma piscina SQL. Se não tiver uma piscina SQL fornecida, consulte as instruções na [Criação de uma piscina SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Piscina SQL: Vamos recolher registos para uma piscina SQL. Se não tiver uma piscina SQL fornecida, consulte as instruções na [Criação de uma piscina SQL](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
@@ -63,7 +63,7 @@ Navegue para o seu espaço de trabalho Log Analytics onde pode fazer o seguinte:
 - Criar alertas de registos
 - Pin consulta resultados para um dashboard
 
-Para mais informações sobre as capacidades das consultas de registo, visite a seguinte [documentação.](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Para mais informações sobre as capacidades das consultas de registo, visite a seguinte [documentação.](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)
 
 ![Log Analytics editor de espaço de trabalho](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

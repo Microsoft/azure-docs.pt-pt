@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450897"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121078"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutorial: Criar um relatório Power BI usando Apache Spark e Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ As organizações precisam frequentemente de processar grandes volumes de dados 
 
 ## <a name="before-you-begin"></a>Before you begin
 - [Espaço de trabalho Azure Synapse Analytics](../quickstart-create-workspace.md) com uma conta de armazenamento ADLS Gen2 configurada como o armazenamento predefinido. 
-- Power BI workspace e Power BI Desktop para visualizar dados. Para mais detalhes, consulte [criar um espaço de trabalho Power BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) e instalar o ambiente de trabalho Power [BI](https://powerbi.microsoft.com/downloads/)
+- Power BI workspace e Power BI Desktop para visualizar dados. Para mais detalhes, consulte [criar um espaço de trabalho Power BI](/power-bi/service-create-the-new-workspaces) e instalar o ambiente de trabalho Power [BI](https://powerbi.microsoft.com/downloads/)
 - Serviço ligado para ligar o seu Azure Synapse Analytics e espaços de trabalho Power BI. Para mais detalhes, consulte [a ligação a um espaço de trabalho Power BI](../quickstart-power-bi.md)
 - Piscina Apache Spark sem servidor no seu espaço de trabalho Synapse Analytics. Para mais detalhes, consulte [criar uma piscina Apache Spark sem servidor](../quickstart-create-apache-spark-pool-studio.md)
   
@@ -89,7 +89,7 @@ Para consultar a sua mesa Apache Spark utilizando a sua piscina SQL sem servidor
 Em seguida, ligaremos a nossa piscina SQL sem servidor ao nosso espaço de trabalho Power BI. Uma vez ligado o seu espaço de trabalho, poderá criar relatórios Power BI tanto a partir do Azure Synapse Analytics como do desktop Power BI.
 
 >[!Note]
-> Antes de começar, terá de configurar um serviço ligado ao seu [espaço de trabalho Power BI](../quickstart-power-bi.md) e descarregar o ambiente de trabalho Power [BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
+> Antes de começar, terá de configurar um serviço ligado ao seu [espaço de trabalho Power BI](../quickstart-power-bi.md) e descarregar o ambiente de trabalho Power [BI](/power-bi/service-create-the-new-workspaces).  
 
 Para ligar a nossa piscina SQL sem servidor ao nosso espaço de trabalho Power BI:
 

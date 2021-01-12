@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e4bcc13a2eaddbf394d8468b29eeff475119e2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459022"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119837"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Ligue-se à Ligação Azure Synapse para Azure Cosmos DB
+# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Ligar ao Azure Synapse Link para Cosmos DB
 
 Este artigo descreve como aceder a uma base de dados DB Azure Cosmos do Azure Synapse Analytics Studio com Azure Synapse Link.
 
@@ -24,8 +24,8 @@ Este artigo descreve como aceder a uma base de dados DB Azure Cosmos do Azure Sy
 
 Antes de ligar uma base de dados DB do Azure Cosmos ao seu espaço de trabalho, vai precisar de um:
 
-* Base de dados DB Azure Cosmos existente, ou criar uma nova conta seguindo os passos em [Quickstart: Gerir uma conta DB Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
-* Espaço de trabalho existente em Azure Synapse, ou criar um novo espaço de trabalho seguindo os passos em [Quickstart: Criar um espaço de trabalho synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
+* Base de dados DB Azure Cosmos existente, ou criar uma nova conta seguindo os passos em [Quickstart: Gerir uma conta DB Azure Cosmos](../../cosmos-db/how-to-manage-database-account.md).
+* Espaço de trabalho existente em Azure Synapse, ou criar um novo espaço de trabalho seguindo os passos em [Quickstart: Criar um espaço de trabalho synapse](../quickstart-create-workspace.md).
 
 > [!IMPORTANT]
 > A azure Synapse Link for Azure Cosmos DB é atualmente suportado para espaços de trabalho que não têm uma rede virtual gerida ativada.

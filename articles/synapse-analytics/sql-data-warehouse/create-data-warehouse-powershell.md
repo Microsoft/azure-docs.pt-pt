@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 18fba46e4e8de14d9b3ec43455ba2abcc4218dc1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456591"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120194"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Quickstart: Criar uma piscina SQL dedicada (anteriormente SQL DW) com Azure PowerShell
 
@@ -137,7 +137,7 @@ Os parâmetros opcionais são:
 
 Para obter mais informações sobre as opções de parâmetros, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido.
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criou agora uma piscina SQL dedicada (anteriormente SQL DW), criou uma regra de firewall e está ligada à sua piscina SQL dedicada. Para saber mais, continue os dados de Carga num artigo [dedicado à piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)
+Criou agora uma piscina SQL dedicada (anteriormente SQL DW), criou uma regra de firewall e está ligada à sua piscina SQL dedicada. Para saber mais, continue os dados de Carga num artigo [dedicado à piscina SQL.](./load-data-from-azure-blob-storage-using-copy.md)

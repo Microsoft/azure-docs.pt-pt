@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3d12e60e2aeee667b89d56589870d53366772014
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b58474758ac4d26b347dc72d84be401d15a3846b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459035"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119820"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Funcionalidades suportadas do Azure Synapse Link para o Azure Cosmos DB
 
@@ -31,13 +31,13 @@ Existem dois tipos de contentores em Azure Cosmos DB:
 
 Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Ligação Synapse. Neste cenário, só pode ler/escrever na loja transacional. Segue-se uma lista das funcionalidades atualmente suportadas no Synapse Link para Azure Cosmos DB. 
 
-| Categoria              | Descrição |[Piscina de faíscas Apache](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Conjunto de SQL sem servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Categoria              | Descrição |[Piscina de faíscas Apache](../sql/on-demand-workspace-overview.md) | [Piscina SQL sem servidor](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Suporte ao tempo de execução** |Suportado tempo de execução Azure Synapse para aceder a Azure Cosmos DB| ✓ | Pré-visualizar |
 | **Suporte da Azure Cosmos DB API** | Suportado Azure Cosmos DB API tipo | SQL / MongoDB | SQL / MongoDB |
 | **Objeto**  |Objetos como uma tabela que pode ser criada, apontando diretamente para o contentor DB Azure Cosmos| Dataframe, Ver, Tabela | Vista |
 | **Ler**    | Tipo de recipiente DB Azure Cosmos que pode ser lido | OLTP / HTAP | HTAP  |
-| **Escrita**   | O tempo de execução do Azure Synapse pode ser usado para escrever dados num contentor DB Azure Cosmos | Sim | Não |
+| **Escrever**   | O tempo de execução do Azure Synapse pode ser usado para escrever dados num contentor DB Azure Cosmos | Yes | Não |
 
 * Se escrever dados num contentor DB Azure Cosmos da Spark, este processo acontece através da loja transacional da Azure Cosmos DB. Irá impactar o desempenho transacional da Azure Cosmos DB consumindo Unidades de Pedido.
 * A integração dedicada da piscina SQL através de mesas externas não é suportada atualmente.

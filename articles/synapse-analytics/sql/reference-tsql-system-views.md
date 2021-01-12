@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4e4e6a1607fa42f4be07451f9aa0d8ff923d85d6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fc90ad8104cff7ead501470a883b56b67a86cf7c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317320"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121265"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Vistas do sistema suportadas no SQL da Sinapse
 
@@ -111,7 +111,7 @@ Os seguintes DMVs são aplicáveis à piscina SQL dedicada, mas devem ser execut
 * [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.indexs](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys.key_constraints](/sql/relational-databases/system-catalog-views/sys-key-constraints-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.key_restrições](/sql/relational-databases/system-catalog-views/sys-key-constraints-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.numbered_procedures](/sql/relational-databases/system-catalog-views/sys-numbered-procedures-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.parâmetros](/sql/relational-databases/system-catalog-views/sys-parameters-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -129,7 +129,7 @@ Os seguintes DMVs são aplicáveis à piscina SQL dedicada, mas devem ser execut
 * [sys.query_store_runtime_stats_interval](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-interval-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.schemas](/sql/relational-databases/system-catalog-views/schemas-catalog-views-sys-schemas?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.securable_classes](/sql/relational-databases/system-catalog-views/sys-securable-classes-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys.sql_expression_dependencies](/sql/relational-databases/system-catalog-views/sys-sql-expression-dependencies-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.sql_expression_dependências](/sql/relational-databases/system-catalog-views/sys-sql-expression-dependencies-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.sql_modules](/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -252,6 +252,5 @@ Os seguintes DMVs são aplicáveis à piscina SQL dedicada, mas devem ser execut
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações de referência, consulte [as declarações de T-SQL em Synapse SQL,](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)e [elementos de língua T-SQL em Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+Para obter mais informações de referência, consulte [as declarações de T-SQL em Synapse SQL,](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md)e [elementos de língua T-SQL em Synapse SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
 
- 

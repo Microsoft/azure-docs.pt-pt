@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: Kevin
 ms.custom: azure-synapse
-ms.openlocfilehash: 59195bba69bb343e55cfcb7342400d93dcce60c0
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 2920c96d6a2e505347edb51780101327cb884e08
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920755"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120177"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>Quickstart: Criar uma piscina Sinapse SQL com Azure CLI
 
@@ -120,7 +120,7 @@ az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataW
    --workspace-name testsynapseworkspace
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido.
 
@@ -134,4 +134,4 @@ az group delete --ResourceGroupName MyResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criou agora uma piscina SQL, criou uma regra de firewall e está ligado à sua piscina SQL. Para saber mais, continue os dados de Carga no artigo [da piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)
+Criou agora uma piscina SQL, criou uma regra de firewall e está ligado à sua piscina SQL. Para saber mais, continue os dados de Carga no artigo [da piscina SQL.](./load-data-from-azure-blob-storage-using-copy.md)

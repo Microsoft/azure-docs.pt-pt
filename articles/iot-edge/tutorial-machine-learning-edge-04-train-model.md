@@ -8,30 +8,29 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2cc96db88d9a2aec02de5e2fc4ed18b445972e7b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932392"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121153"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implemente um modelo de aprendizagem automática Azure
 
 Neste artigo, fazemos as seguintes tarefas:
 
-* Use cadernos Azure para treinar um modelo de aprendizagem automática.
+* Use o Azure Machine Learning Studio para treinar um modelo de aprendizagem automática.
 * Embale o modelo treinado como imagem de recipiente.
 * Desloque a imagem do recipiente como um módulo Azure IoT Edge.
 
-Os Cadernos Azure aproveitam um espaço de trabalho Azure Machine Learning, um bloco fundamental usado para experimentar, treinar e implementar modelos de aprendizagem automática.
+O Azure Machine Learning Studio é um bloco fundamental usado para experimentar, treinar e implementar modelos de aprendizagem automática.
 
 Os passos neste artigo podem ser normalmente realizados por cientistas de dados.
 
 Nesta secção do tutorial, aprende-se a:
 
 > [!div class="checklist"]
->
-> * Crie um projeto Azure Notebooks para formar um modelo de machine learning.
+> * Crie cadernos Jupyter em Azure Machine Learning Workspace para treinar um modelo de aprendizagem automática.
 > * Contentorize o modelo de aprendizagem de máquinas treinado.
 > * Crie um módulo Azure IoT Edge a partir do modelo de aprendizagem automática contentorizado.
 
@@ -39,49 +38,49 @@ Nesta secção do tutorial, aprende-se a:
 
 Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Cada artigo da série baseia-se no trabalho no artigo anterior. Se já chegou a este artigo diretamente, visite o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
-## <a name="set-up-azure-notebooks"></a>Configurar cadernos Azure
+## <a name="set-up-azure-machine-learning"></a>Configurar a aprendizagem automática Azure 
 
-Usamos cadernos Azure para hospedar os dois Cadernos Jupyter e ficheiros de suporte. Aqui criamos e configuramos um projeto Azure Notebooks. Se não usou Os Cadernos Jupyter e/ou Azure, aqui estão alguns documentos introdutórios:
+Usamos o Azure Machine Learning Studio para acolher os dois Cadernos Jupyter e ficheiros de suporte. Aqui criamos e configuramos um projeto Azure Machine Learning. Se não usou o Jupyter e/ou Azure Machine Learning Studio, aqui estão alguns documentos introdutórios:
 
-* **Quickstart:** [Criar e partilhar um caderno](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Tutorial:** [Criar e executar um caderno Jupyter com Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
+* **Cadernos Jupyter:** [Trabalhando com cadernos Jupyter em Código de Estúdio Visual](https://code.visualstudio.com/docs/python/jupyter-support)
+* **Azure Machine Learning:** [Começar com Azure Machine Learning em Cadernos Jupyter](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
 
-A utilização de Cadernos Azure garante um ambiente consistente para o exercício.
 
 > [!NOTE]
-> Uma vez configurado, o serviço Azure Notebooks pode ser acedido a partir de qualquer máquina. Durante a configuração, deverá utilizar o VM de desenvolvimento, que tem todos os ficheiros de que necessita.
+> Uma vez configurado, o serviço de Aprendizagem automática Azure pode ser acedido a partir de qualquer máquina. Durante a configuração, deverá utilizar o VM de desenvolvimento, que tem todos os ficheiros de que necessita.
 
-### <a name="create-an-azure-notebooks-account"></a>Criar uma conta de Cadernos Azure
+### <a name="install-azure-machine-learning-visual-studio-code-extension"></a>Instalar extensão de código de estúdio visual de aprendizagem de máquina de azure
+VS Código sobre o desenvolvimento VM deve ter esta extensão instalada. Se estiver a funcionar numa instância diferente, por favor, volte a instalar a extensão tal como descrito [aqui.](../machine-learning/tutorial-setup-vscode-extension.md)
 
-Para utilizar os Cadernos Azure, é necessário criar uma conta. As contas do Azure Notebook são independentes das subscrições da Azure.
+### <a name="create-an-azure-machine-learning-account"></a>Criar uma conta de Aprendizagem automática Azure  
+Para obter recursos e executar cargas de trabalho no Azure, tem de assinar com as suas credenciais de conta Azure.
 
-1. Navegue para [Azure Notebooks](https://notebooks.azure.com).
+1. No Código do Estúdio Visual, abra a paleta de comando selecionando **a** Paleta de Comando ver  >   a partir da barra de menu. 
 
-1. Clique **em Iniciar s nota** no canto superior direito da página.
+1. Introduza o comando `Azure: Sign In` na paleta de comando para iniciar o sinal em processo. Siga as instruções para concluir o s.a. 
 
-1. Faça sedida com o seu trabalho ou conta escolar (Azure Ative Directory) ou com a sua conta pessoal (Conta Microsoft).
+1. Crie uma instância Azure ML Compute para executar a sua carga de trabalho. A utilização da palete de comando entra no comando `Azure ML: Create Compute` . 
+1. Selecione a sua subscrição do Azure
+1. Selecione **+ Crie um novo espaço de trabalho Azure ML** e insira o nome `turbofandemo` .
+1. Selecione o grupo de recursos que tem usado para esta demonstração.
+1. Você deve ser capaz de ver o progresso da criação do espaço de trabalho no canto inferior direito da sua janela VS Code: **Criando espaço de trabalho: turobofandemo** (isto pode demorar um minuto ou dois). 
+1. Por favor, aguarde que o espaço de trabalho seja criado com sucesso. Deve dizer que **a Azure ML workspace turbofandemo criou.**
 
-1. Se ainda não ter usado Os Cadernos Azure, será solicitado que tenha acesso à aplicação Azure Notebooks.
-
-1. Crie um ID de utilizador para Azure Notebooks.
 
 ### <a name="upload-jupyter-notebook-files"></a>Carregar ficheiros de cadernos Jupyter
 
-Vamos enviar ficheiros de cadernos de amostras para um novo projeto Azure Notebooks.
+Vamos enviar ficheiros de cadernos de amostras para um novo espaço de trabalho Azure ML.
 
-1. Na página de utilizador da sua nova conta, selecione **My Projects** a partir da barra de menu superior.
+1. Navegue para ml.azure.com e inscreva-se.
+1. Selecione o seu Microsoft Directory, Azure Subscription e o recém-criado espaço de trabalho Azure ML.
 
-1. Adicione um novo projeto selecionando o **+** botão.
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-studio-workspace.png" alt-text="Selecione o seu espaço de trabalho Azure ML." :::
 
-1. Na caixa de diálogo **Create New Project,** forneça um **Nome de Projeto.** 
+1. Uma vez iniciado o seu espaço de trabalho Azure ML, navegue para a secção **DeEstas usando** o menu do lado esquerdo.
+1. Selecione o **separador 'Os meus ficheiros'.**
 
-1. Deixe **o Público** e a **README** descontrolados, uma vez que não há necessidade de o projeto ser público ou de ter uma leitura.
+1. Selecione **Upload** (o ícone de seta para cima) 
 
-1. Selecione **Criar**.
-
-1. Selecione **Upload** (o ícone de seta para cima) e escolha **De Computador**.
-
-1. **Selecione Escolha ficheiros**.
 
 1. Navegue para **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Selecione todos os ficheiros da lista e clique em **Abrir**.
 
@@ -89,9 +88,9 @@ Vamos enviar ficheiros de cadernos de amostras para um novo projeto Azure Notebo
 
 1. Selecione **upload** para começar a carregar e, em seguida, selecione **Feito** uma vez que o processo esteja concluído.
 
-### <a name="azure-notebook-files"></a>Ficheiros Azure Notebook
+### <a name="jupyter-notebook-files"></a>Arquivos de cadernos Jupyter
 
-Vamos rever os ficheiros que enviaste para o teu projeto Azure Notebooks. As atividades nesta parte do tutorial estendem-se por dois ficheiros de cadernos, que utilizam alguns ficheiros de suporte.
+Vamos rever os ficheiros que enviaste para o teu espaço de trabalho Azure ML. As atividades nesta parte do tutorial estendem-se por dois ficheiros de cadernos, que utilizam alguns ficheiros de suporte.
 
 * **01-turbofan \_ regression.ipynb:** Este caderno utiliza o espaço de trabalho de serviço machine learning para criar e executar uma experiência de aprendizagem automática. Em termos gerais, o caderno faz os seguintes passos:
 
@@ -115,13 +114,13 @@ Vamos rever os ficheiros que enviaste para o teu projeto Azure Notebooks. As ati
 
 * **README.md:** Leia-me descrevendo o uso dos cadernos.  
 
-## <a name="run-azure-notebooks"></a>Executar cadernos Azure
+## <a name="run-jupyter-notebooks"></a>Executar Blocos de Notas do Jupyter
 
-Agora que o projeto foi criado, pode executar os cadernos. 
+Agora que o espaço de trabalho foi criado, pode executar os cadernos. 
 
-1. Na sua página do projeto, selecione **01-turbofan \_ regression.ipynb**.
+1. Na sua página **de ficheiros,** selecione **01-turbofan \_ regression.ipynb**.
 
-    ![Selecione o primeiro caderno para executar](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-turbofan-notebook.png" alt-text="Selecione o primeiro caderno para executar. ":::
 
 1. Se o caderno estiver listado como **Não Confiável,** clique no widget **"Não Confiável"** no direito superior do caderno. Quando o diálogo aparecer, selecione **Trust**.
 
@@ -162,7 +161,7 @@ Agora que o projeto foi criado, pode executar os cadernos.
 
 Para verificar se os cadernos foram concluídos com sucesso, verifique se foram criados alguns itens.
 
-1. Na sua página de projeto Azure Notebooks, **selecione Mostrar itens ocultos** para que os nomes dos itens que comecem com um período apareçam.
+1. No seu Azure ML Notebooks **O separador de ficheiros,** selecione **refresh**.
 
 1. Verifique se foram criados os seguintes ficheiros:
 
@@ -177,9 +176,9 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
     | Recurso do Azure | Name |
     | --- | --- |
     | Espaço de trabalho de aprendizagem automática | turborfanDemo |
-    | Registo de Contentor | turbofandemoxx |
+    | Container Registry | turbofandemoxx |
     | Insights de Aplicações | turbofaninsightx |
-    | Cofre de Chaves | turbofankeyvaultbx |
+    | Key Vault | turbofankeyvaultbx |
     | Armazenamento | turbofanstoragexx |
 
 ### <a name="debugging"></a>Depurar
@@ -188,13 +187,13 @@ Pode inserir declarações python no caderno para depurar, como o `print()` coma
 
 Poderá ter de eliminar ficheiros previamente criados e recursos Azure se precisar de refazer os cadernos.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usamos dois Cadernos Jupyter em execução em Cadernos Azure para usar os dados dos dispositivos turbofanos para treinar uma vida útil restante (RUL), para salvar o classificador como modelo, para criar uma imagem de recipiente, e para implantar e testar a imagem como um serviço web.
+Neste artigo, usamos dois Jupyter Notebooks em execução no Azure ML Studio para usar os dados dos dispositivos turbofan para treinar uma vida útil restante (RUL) classificador, para salvar o classificador como modelo, para criar uma imagem de recipiente, e para implementar e testar a imagem como um serviço web.
 
 Continue até ao próximo artigo para criar um dispositivo IoT Edge.
 
