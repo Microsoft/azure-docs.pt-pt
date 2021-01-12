@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 28e70a5d5a6ac4cd51f5ed3fc85afd47a5af68d8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fa6cdeaa47c7fdf9e90cdab96397473d8498afa0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033277"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108709"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados do Azure Machine Learning
 
@@ -173,9 +173,42 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris.|masculino|22.0|1|0|A/5 21171|7.2500||S
 1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs Th...|feminino|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, menina. Laina|feminino|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|Verdadeiro|3|Heikkinen, menina. Laina|feminino|26,0|0|0|STON/O2. 3101282|7.9250||S
 
 Para reutilizar e partilhar conjuntos de dados através de experiências no seu espaço de trabalho, [registe o seu conjunto de dados](#register-datasets).
+
+
+## <a name="explore-data"></a>Explorar dados
+
+Depois de criar e [registar](#register-datasets) o seu conjunto de dados, pode carregá-lo no seu caderno para exploração de dados antes do treino de modelos. Se não precisar de fazer qualquer exploração de dados, consulte como consumir conjuntos de dados nos seus scripts de formação para submeter experiências ML em [Comboio com conjuntos de dados](how-to-train-with-datasets.md).
+
+Para datas de ficheiros, pode **montar** ou **descarregar** o conjunto de dados e aplicar as bibliotecas python que normalmente utilizaria para a exploração de dados. [Saiba mais sobre o mount vs download](how-to-train-with-datasets.md#mount-vs-download).
+
+```python
+# download the dataset 
+dataset.download(target_path='.', overwrite=False) 
+
+# mount dataset to the temp directory at `mounted_path`
+
+import tempfile
+mounted_path = tempfile.mkdtemp()
+mount_context = dataset.mount(mounted_path)
+
+mount_context.start()
+```
+
+Para os Separadores Tabular, utilize o [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método para visualizar os seus dados num dataframe. 
+
+```python
+# preview the first 3 rows of titanic_ds
+titanic_ds.take(3).to_pandas_dataframe()
+```
+
+|(Índice)|PassengerId|Sobreviveu|Pclass|Nome|Sexo|Idade|SibSp|Pergaminho|Pedido de Suporte|Tarifa|Cabana|Embarcado
+-|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
+0|1|Falso|3|Braund, Sr. Owen Harris.|masculino|22.0|1|0|A/5 21171|7.2500||S
+1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs Th...|feminino|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|Verdadeiro|3|Heikkinen, menina. Laina|feminino|26,0|0|0|STON/O2. 3101282|7.9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de dados a partir do dataframe dos pandas
 

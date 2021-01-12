@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: jeedes
-ms.openlocfilehash: b2a6b902f1c6b7e06b1a72b183007fbb9fe05c3c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5577b0cb480b372b64a9cb25f52617edfca3f2e0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515955"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108165"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-single-sign-on-for-skytap"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com single sign-on para Skytap
 
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
-1. Selecione **Definir URLs adicionais**e executar os seguintes passos se quiser configurar a aplicação no modo iniciado **sp:**
+1. Pode selecionar opcionalmente **Definir URLs adicionais** e executar os seguintes passos para configurar a aplicação **no** modo iniciado sp:
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL que utiliza o seguinte padrão: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
 
@@ -107,7 +107,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
@@ -135,7 +135,7 @@ Nesta secção, você permite que B.Simon utilize o único sinal de Azure, permi
 
 ## <a name="configure-single-sign-on-for-skytap-sso"></a>Configurar um único sign-on para Skytap SSO
 
-Para configurar um único sinal no sign-on único para o lado Skytap, você precisa enviar o **metdata XML da Federação**descarregado, e URLs copiados apropriados, do portal Azure para a [equipa de suporte do Cliente Skytap.](mailto:support@skytap.com) Configuram esta definição para que a ligação SSO SAML seja corretamente definida em ambos os lados.
+Para configurar um único sinal no sign-on único para o lado Skytap, você precisa enviar o **metdata XML da Federação** descarregado, e URLs copiados apropriados, do portal Azure para a [equipa de suporte do Cliente Skytap.](mailto:support@skytap.com) Configuram esta definição para que a ligação SSO SAML seja corretamente definida em ambos os lados.
 
 
 ### <a name="create-single-sign-on-for-skytap-test-user"></a>Criar um único sinal para o utilizador de teste Skytap

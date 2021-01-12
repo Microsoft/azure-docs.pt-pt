@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285651"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108743"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Como permitir a exploração do Cofre de Chaves
 
@@ -25,20 +25,10 @@ Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar co
 Para concluir este tutorial, deve ter o seguinte:
 
 * Um cofre de chaves que tiver utilizado.  
-* O Azure CLI ou Azure PowerShell.
+* [Azure Cloud Shell](https://shell.azure.com) - Ambiente bash
 * Armazenamento suficiente no Azure para os seus registos do Cofre de Chaves.
 
-Se optar por instalar e utilizar o CLI localmente, necessitará da versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Para iniciar seduca em Azure usando o CLI pode escrever:
-
-```azurecli-interactive
-az login
-```
-
-Se optar por instalar e utilizar o PowerShell localmente, necessitará da versão 1.0.0 ou posterior do módulo Azure PowerShell. Escreva `$PSVersionTable.PSVersion` para encontrar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
-
-```powershell-interactive
-Connect-AzAccount
-```
+Estes comandos guia são formatados para [Cloud Shell](https://shell.azure.com) com Bash como um ambiente.
 
 ## <a name="connect-to-your-key-vault-subscription"></a>Conecte-se à subscrição do Cofre de Chaves
 
@@ -162,7 +152,7 @@ az storage blob list --account-name "<your-unique-storage-account-name>" --conta
 Com a Azure PowerShell, utilize a lista [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) todas as bolhas deste recipiente, insira:
 
 ```powershell
-Get-AzStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
 Como verá pela saída do comando Azure CLI ou do cmdlet Azure PowerShell, o nome das bolhas está no formato `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json` . Os valores data e hora utilizam o UTC.
@@ -178,7 +168,7 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 Com a Azure PowerShell, use o [cmdlet Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) para obter uma lista das bolhas, em seguida, encaneie-a no cmdlet [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) para baixar os registos para o seu caminho escolhido.
 
 ```powershell-interactive
-$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
+$blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 
 Quando corre este segundo cmdlet em PowerShell, o **/** delimiter nos nomes blob cria uma estrutura de pasta completa sob a pasta de destino. Você usará esta estrutura para descarregar e armazenar as bolhas como ficheiros.
@@ -188,19 +178,19 @@ Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
 * Se tiver vários cofres de chaves e pretender transferir registos apenas para um cofre de chaves designado CONTOSOKEYVAULT3:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Se tiver vários grupos de recursos e pretender transferir os registos para apenas um grupo de recursos, utilize `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Se quiser fazer o download de todos os registos para o mês de janeiro de 2019, `-Blob '*/year=2019/m=01/*'` utilize:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
 Agora, está pronto para começar a procurar o conteúdo dos registos. Mas antes de avançarmos para isso, deves saber mais dois comandos:

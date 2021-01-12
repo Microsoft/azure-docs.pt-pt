@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 01/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 486add54a6d41493c54bd7b0b0339804f6c31847
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: c15e92a28de55e5e8bc331fb4398790984439a01
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400000"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107434"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?
 

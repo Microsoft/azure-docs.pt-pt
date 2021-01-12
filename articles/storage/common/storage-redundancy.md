@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cd4b0b53cdc818cc942382021c1dff97b22f1243
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051620"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108097"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -155,6 +155,7 @@ A tabela a seguir descreve parâmetros-chave para cada opção de redundância:
 | Durabilidade por cento de objetos ao longo de um determinado ano | pelo menos 99.9999999999999999 % (11 9's) | pelo menos 99.9999999999999999999 % (12 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) |
 | Disponibilidade para pedidos de leitura | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para nível de acesso fresco) para GRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GRS | Pelo menos 99,9% (99% para nível de acesso fresco) para GZRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GZRS |
 | Disponibilidade para pedidos de escrita | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) |
+| Número de cópias dos dados mantidas em nós separados.                             | 3   | 3   | 6   | 6      |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilidade e disponibilidade por cenário de paralisação
 

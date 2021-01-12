@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 7fbdeda4cce737a6220d42642473e5f86ef8e525
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 608cfca3343b02101ac5e08acf0bec62900d1443
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96295966"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108658"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instale o MySQL numa máquina virtual em execução OpenSUSE Linux em Azure
 
@@ -37,7 +37,7 @@ Criar o VM. Neste exemplo, o VM é nomeado *myVM* e o tamanho VM é *Standard_D2
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
    --name myVM \
-   --image openSUSE-Leap \
+   --image SUSE:openSUSE-Leap:15-2:latest \
    --size Standard_D2s_v3 \
    --generate-ssh-keys
 ```

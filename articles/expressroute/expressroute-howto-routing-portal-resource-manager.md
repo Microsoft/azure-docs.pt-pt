@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 01/07/2021
+ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 3e106bc313d6189b2fae8cf6a4dd7ce862294b8f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019283"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108539"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutorial: Criar e modificar o espreitamento para um circuito ExpressRoute utilizando o portal Azure
 
@@ -30,7 +30,7 @@ Este tutorial mostra-lhe como criar e gerir a configuração de encaminhamento p
 
 Pode configurar o espreitamento privado e a Microsoft a espreitar por um circuito ExpressRoute (o espremiamento público Azure é precotado para novos circuitos). Os seus pares podem ser configurados em qualquer ordem que escolherem. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e observação, consulte [os domínios de encaminhamento ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre olhando o público, consulte [o público ExpressRoute.](about-public-peering.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > - Configurar, atualizar e eliminar a Microsoft a espreitar por um circuito
 > - Configurar, atualizar e apagar Azure private espreitar por um circuito
@@ -136,7 +136,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de o
 
 2. Configure o peering privado do Azure para o circuito. Certifique-se de que tem os seguintes itens antes de continuar com os próximos passos:
 
-   * Um par de sub-redes /30 propriedade de si e registado num RIR/IRR. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router. Tem três opções para este par de sub-redes:
+   * Um par de sub-redes de 30 de propriedade de si. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router.
    * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Ambos os links primários e secundários devem utilizar o mesmo ID VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número de AS privado para este espreitê-lo, exceto para o número de 65515 a 65520, inclusive.
    * Deve anunciar as rotas do seu router Edge para Azure via BGP quando configurar o seu persp de observação privado.
@@ -165,7 +165,7 @@ Pode selecionar a linha para peering e modificar as propriedades do peering. Dep
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/update-private-peering.png" alt-text="Atualizar o espreitamento privado":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Para eliminar o peering da Microsoft
 
@@ -183,7 +183,7 @@ Pode remover a sua configuração de observação privada clicando no persitivo 
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-private-peering.png" alt-text="Apagar o espreitamento privado":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar o Azure em privado, pode criar uma porta de entrada ExpressRoute para ligar uma rede virtual ao circuito. 
 

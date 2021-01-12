@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575827"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107366"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD juntou dispositivos
 
@@ -32,8 +32,7 @@ Quando liga um dispositivo Windows ao AD Azure utilizando uma junta AZure AD, a 
 - A função de administrador de dispositivo AZure AD 
 - O utilizador que executa a ad AD Azure junta-se   
 
-Ao adicionar funções AD AZure ao grupo de administradores locais, pode atualizar os utilizadores que podem gerir um dispositivo a qualquer momento em AZure AD sem modificar nada no dispositivo. Atualmente, não é possível atribuir grupos a uma função de administrador.
-A Azure AD também adiciona o papel de administrador de dispositivo AZure AD ao grupo de administradores locais para apoiar o princípio do menor privilégio (PoLP). Além dos administradores globais, também é possível permitir aos utilizadores que *apenas* tenham sido designados para gerir um dispositivo. 
+Ao adicionar funções AD AZure ao grupo de administradores locais, pode atualizar os utilizadores que podem gerir um dispositivo a qualquer momento em AZure AD sem modificar nada no dispositivo. A Azure AD também adiciona o papel de administrador de dispositivo AZure AD ao grupo de administradores locais para apoiar o princípio do menor privilégio (PoLP). Além dos administradores globais, também é possível permitir aos utilizadores que *apenas* tenham sido designados para gerir um dispositivo. 
 
 ## <a name="manage-the-global-administrators-role"></a>Gerir o papel de administradores globais
 

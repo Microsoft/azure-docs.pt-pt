@@ -3,22 +3,75 @@ title: Utilizar identidade gerida com uma aplicação
 description: Como utilizar identidades geridas no código de aplicação do Azure Service Fabric para aceder aos Serviços Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c89f7bd064e643b978253f2e083c449d904d2cad
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253648"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108522"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Service Fabric para aceder aos serviços da Azure
 
 As aplicações de Tecido de Serviço podem alavancar identidades geridas para aceder a outros recursos Azure que suportam a autenticação baseada no Diretório Azure Ative. Uma aplicação pode obter um símbolo de [acesso](../active-directory/develop/developer-glossary.md#access-token) que represente a sua identidade, que pode ser atribuído ao sistema ou atribuído ao utilizador, e usá-lo como um símbolo 'portador' para se autenticar para outro serviço - também conhecido como [um servidor de recursos protegido](../active-directory/develop/developer-glossary.md#resource-server). O token representa a identidade atribuída à aplicação Service Fabric, e só será emitido aos recursos da Azure (incluindo aplicações SF) que partilhem essa identidade. Consulte a documentação geral de [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para uma descrição detalhada das identidades geridas, bem como a distinção entre identidades atribuídas ao sistema e identidades atribuídas pelo utilizador. Referimo-nos a uma aplicação de Tecido de Serviço gerida como [a aplicação](../active-directory/develop/developer-glossary.md#client-application) do cliente ao longo deste artigo.
+
+Consulte uma aplicação de amostra de acompanhante que demonstre a utilização de identidades geridas pelo Sistema e atribuídos pelo utilizador com [identidades geridas](https://github.com/Azure-Samples/service-fabric-managed-identity) com Serviços e contentores fiáveis.
 
 > [!IMPORTANT]
 > Uma identidade gerida representa a associação entre um recurso Azure e um principal de serviço no inquilino AD correspondente Azure associado à subscrição que contém o recurso. Como tal, no contexto do Service Fabric, as identidades geridas são apenas suportadas para aplicações implementadas como recursos Azure. 
 
 > [!IMPORTANT]
 > Antes de utilizar a identidade gerida de uma aplicação Service Fabric, a aplicação do cliente deve ter acesso ao recurso protegido. Consulte a lista de [serviços da Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) para verificar o apoio e, em seguida, para a documentação do respetivo serviço para etapas específicas para conceder um acesso identitário aos recursos de interesse. 
+ 
+
+## <a name="leverage-a-managed-identity-using-azureidentity"></a>Alavancar uma identidade gerida usando Azure.Identidade
+
+A Azure Identity SDK agora suporta o Tecido de Serviço. A utilização do Azure.Identity torna o código de escrita para utilizar as identidades geridas pela app Service Fabric porque lida com fichas de busca, fichas de caching e autenticação do servidor. Ao aceder à maioria dos recursos Azure, o conceito de um símbolo está escondido.
+
+O suporte ao tecido de serviço está disponível nas seguintes versões para estes idiomas: 
+- [C# na versão 1.3.0](https://www.nuget.org/packages/Azure.Identity). Ver uma [amostra C#](https://github.com/Azure-Samples/service-fabric-managed-identity).
+- [Python na versão 1.5.0](https://pypi.org/project/azure-identity/). Veja uma [amostra de Python.](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)
+- [Java na versão 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
+
+Amostra C# de inicialização de credenciais e usando as credenciais para obter um segredo do Cofre da Chave Azure:
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace MyMIService
+{
+    internal sealed class MyMIService : StatelessService
+    {
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Load the service fabric application managed identity assigned to the service
+                ManagedIdentityCredential creds = new ManagedIdentityCredential();
+
+                // Create a client to keyvault using that identity
+                SecretClient client = new SecretClient(new Uri("https://mykv.vault.azure.net/"), creds);
+
+                // Fetch a secret
+                KeyVaultSecret secret = (await client.GetSecretAsync("mysecret", cancellationToken: cancellationToken)).Value;
+            }
+            catch (CredentialUnavailableException e)
+            {
+                // Handle errors with loading the Managed Identity
+            }
+            catch (RequestFailedException)
+            {
+                // Handle errors with fetching the secret
+            }
+            catch (Exception e)
+            {
+                // Handle generic errors
+            }
+        }
+    }
+}
+
+```
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Aquisição de um token de acesso utilizando REST API
 Em clusters habilitados para identidade gerida, o tempo de execução do Tecido de Serviço expõe um ponto final local que as aplicações podem usar para obter fichas de acesso. O ponto final está disponível em cada nó do cluster, e é acessível a todas as entidades nesse nó. Os chamadores autorizados podem obter fichas de acesso através do chamado final e da apresentação de um código de autenticação; o código é gerado pelo tempo de funcionamento do Tecido de Serviço para cada ativação de pacote de código de serviço distinto, e está ligado ao tempo de vida útil do processo de hospedagem desse pacote de código de serviço.
@@ -377,3 +430,4 @@ Consulte [os serviços Azure que suportam a autenticação Azure AD](../active-d
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída ao sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo utilizador](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Conceder a uma aplicação Azure Service Fabric acesso a outros recursos da Azure](./how-to-grant-access-other-resources.md)
+* [Explore uma aplicação de amostra usando identidade gerida de tecido de serviço](https://github.com/Azure-Samples/service-fabric-managed-identity)

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 645ae636adb1fcc3f3a79e6cbca618f4e341418f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1826edb31c442fb10b8053433ec01ee5abad0eb2
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052928"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109320"
 ---
 <a name="HOLTop"></a>
 
@@ -51,7 +51,7 @@ Depois de criar um novo projeto, instale a biblioteca do cliente clicando corret
 Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `computer-vision-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs*.
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n computer-vision-quickstart
 ```
 
 Mude o seu diretório para a pasta de aplicações recém-criada. Pode construir a aplicação com:
@@ -292,7 +292,7 @@ dotnet run
 > [!div class="nextstepaction"]
 > [Corri o requerimento](?success=run-the-application#clean-up-resources) [que encontrei.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

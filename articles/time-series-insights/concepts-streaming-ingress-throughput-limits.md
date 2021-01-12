@@ -1,6 +1,6 @@
 ---
 title: Limitações de produção de streaming- Azure Time Series Insights Gen2 Microsoft Docs
-description: Conheça os limites de produção ingresss em Azure Time Series Insights Gen2.
+description: Conheça os limites de produção ingres em Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: dpalled
@@ -10,16 +10,16 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7496a7a40df49fa1b9f8410526cb9ec00c10478b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187464"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108777"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de produção de ingestão de streaming
 
-Azure Time Series Insights Gen2 streaming de dados limitações de ingresss são descritos abaixo.
+Azure Time Series Insights Gen2 streaming de dados limitações de ingres são descritos abaixo.
 
 > [!TIP]
 > Leia [O Plano do seu ambiente Azure Time Series Insights Gen2](./how-to-plan-your-environment.md#review-azure-time-series-insights-gen2-limits) para uma lista completa de todos os limites.
@@ -34,7 +34,7 @@ Por padrão, a Azure Time Series Insights Gen2 pode ingerir dados de entrada a u
 
 > [!TIP]
 >
-> * O apoio ao ambiente para a ingestão de velocidades até 8 MBps pode ser fornecido a pedido.
+> * O apoio ao ambiente para a ingestão de velocidades até 2 MBps pode ser fornecido a pedido.
 > * Contacte-nos se necessitar de uma produção mais elevada, enviando um bilhete de apoio através do portal Azure.
 
 * **Exemplo 1:**
@@ -47,10 +47,10 @@ Por padrão, a Azure Time Series Insights Gen2 pode ingerir dados de entrada a u
 
 * **Exemplo 2:**
 
-    A Contoso Fleet Analytics tem 40.000 dispositivos que emitem um evento a cada segundo. Eles estão a usar um Event Hub com uma contagem de partição de 2 como fonte de eventos Azure Time Series Insights Gen2. O tamanho de um evento é de 200 bytes.
+    A Contoso Fleet Analytics tem 10.000 dispositivos que emitem um evento a cada segundo. Eles estão a usar um Event Hub com uma contagem de partição de 2 como fonte de eventos Azure Time Series Insights Gen2. O tamanho de um evento é de 200 bytes.
 
-  * A taxa de ingestão ambiental seria: **40.000 dispositivos * 200 bytes/event * 1 evento/seg = 8 MBps**.
-    * Assumindo divisórias equilibradas, a sua taxa por partição seria de 4 MBps.
+  * A taxa de ingestão ambiental seria: **10.000 dispositivos * 200 bytes/event * 1 evento/seg = 2 MBps**.
+    * Assumindo divisórias equilibradas, a sua taxa por partição seria de 1 MBps.
     * A taxa de ingestão da Frota Contoso é sobre o ambiente e os limites de partição. Podem submeter um pedido ao Azure Time Series Insights Gen2 através do portal Azure para aumentar a taxa de ingestão para o seu ambiente, e criar um Centro de Eventos com mais divisórias para estar dentro dos limites.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Divisórias centrais e por limite de partição

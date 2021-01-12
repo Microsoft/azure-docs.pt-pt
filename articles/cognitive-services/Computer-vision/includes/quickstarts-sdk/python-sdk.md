@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: ea71cd4e235923c48c7c5b5269eb8f58d4c349d1
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: fc4830e89d71c387afc1c7bc7fbc81608dfeb592
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560802"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109304"
 ---
 <a name="HOLTop"></a>
 
@@ -41,6 +41,12 @@ Pode instalar a biblioteca do cliente com:
 
 ```console
 pip install --upgrade azure-cognitiveservices-vision-computervision
+```
+
+Instale também a biblioteca travesseiro.
+
+```console
+pip install pillow
 ```
 
 ### <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
@@ -202,7 +208,7 @@ python quickstart-file.py
 > [!div class="nextstepaction"]
 > [Corri o requerimento](?success=run-the-application#clean-up-resources) [que encontrei.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

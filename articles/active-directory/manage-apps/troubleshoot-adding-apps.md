@@ -10,18 +10,18 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f873608d07785e6b99bd8e0fcdadf64a8899d490
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655073"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108420"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Resolução de problemas problemas comuns adicionando ou removendo uma aplicação ao Azure Ative Directory
 Este artigo ajuda-o a compreender os problemas comuns que as pessoas enfrentam ao adicionar ou remover uma aplicação ao Azure Ative Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e a minha aplicação demorou muito tempo a aparecer
-Em algumas circunstâncias, pode levar 1-2 minutos (e às vezes mais) para que uma aplicação apareça depois de a adicionar ao seu diretório. Embora este não seja o desempenho normal esperado, pode ver que a adição da aplicação está em andamento clicando no ícone **notificações** (o sino) no canto superior direito do [portal Azure](https://portal.azure.com/) e procurando uma aplicação de adicionar com rótulo **em andamento** ou **concluída.** **Adding application.**
+Em algumas circunstâncias, pode levar 1-2 minutos (e às vezes mais) para que uma aplicação apareça depois de a adicionar ao seu diretório. Embora este não seja o desempenho normal esperado, pode ver que a adição da aplicação está em andamento clicando no ícone **notificações** (o sino) no canto superior direito do [portal Azure](https://portal.azure.com/) e procurando uma aplicação de adicionar com rótulo **em andamento** ou **concluída.** 
 
 Se a sua aplicação nunca for adicionada, ou se encontrar um erro ao clicar no botão **Adicionar,** verá uma **Notificação** num estado **de Erro.** Se quiser mais detalhes sobre o erro para saber mais ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro seguindo os passos no Como ver os detalhes de uma secção [de notificação do portal.](#how-to-see-the-details-of-a-portal-notification)
 
@@ -43,7 +43,7 @@ O botão de eliminação será desativado nos seguintes cenários:
 
 - Para a aplicação da Microsoft, não poderá eliminá-las da UI independentemente do seu papel.
 
-- Para serviçosPrincipals que correspondem a uma identidade gerida. Os principais do serviço de identidades geridas não podem ser eliminados na lâmina de aplicações da Enterprise. Tens de ir ao recurso Azure para o gerires. Lear mais sobre [Identidade Gerida](../managed-identities-azure-resources/overview.md)
+- Para serviçosPrincipals que correspondem a uma identidade gerida. Os principais do serviço de identidades geridas não podem ser eliminados na lâmina de aplicações da Enterprise. Tens de ir ao recurso Azure para o gerires. Saiba mais sobre [Identidade Gerida](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 Pode ver os detalhes de qualquer notificação do portal seguindo os passos abaixo:

@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
-ms.author: johndaw
-ms.openlocfilehash: ee431df89128a516e3a1cabeb43b5cbe9e356dae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.author: mbaldwin
+ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927860"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108607"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantação de HSMs numa rede virtual existente utilizando o PowerShell
 
@@ -259,7 +259,7 @@ Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGrou
 
 Após completar os passos no tutorial, os recursos dedicados do HSM são a provisionados e disponíveis na sua rede virtual. Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts. Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. O ficheiro de modelo utilizado neste tutorial pode ser facilmente usado como base para uma implantação de dois HSM, mas precisa de ter os seus parâmetros modificados para satisfazer os seus requisitos.
 
-* [Elevada Disponibilidade](high-availability.md)
+* [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
 * [Redes](networking.md)
 * [Monitorização](monitoring.md)

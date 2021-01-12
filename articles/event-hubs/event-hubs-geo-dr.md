@@ -3,12 +3,12 @@ title: Recuperação de geo-desastres - Azure Event Hubs Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861474"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108493"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
 
@@ -54,10 +54,10 @@ São suportadas as seguintes combinações de espaços de nome primário e secun
 
 | Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Yes | 
-| Standard | Dedicada | Yes | 
-| Dedicada | Dedicada | Yes | 
-| Dedicada | Standard | No | 
+| Standard | Standard | Sim | 
+| Standard | Dedicada | Sim | 
+| Dedicada | Dedicada | Sim | 
+| Dedicada | Standard | Não | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nomes que estão em aglomerados separados. 
@@ -70,7 +70,29 @@ A seguinte secção é uma visão geral do processo de failover, e explica como 
 
 ### <a name="setup"></a>Configuração
 
-Primeiro cria-se ou usa-se um espaço de nome primário existente, e um novo espaço de nome secundário, em seguida, emparelha os dois. Este emparelhamento dá-lhe um pseudónimo que pode usar para ligar. Porque usas um pseudónimo, não tens de mudar as cordas de ligação. Apenas novos espaços de nome podem ser adicionados ao seu emparelhamento failover. Por último, deve adicionar alguma monitorização para detetar se é necessário um failover. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, pelo que as falhas automáticas raramente são possíveis, uma vez que muitas vezes as falhas devem ser realizadas em sincronização com o subsistema ou infraestrutura restantes.
+Primeiro cria-se ou usa-se um espaço de nome primário existente, e um novo espaço de nome secundário, em seguida, emparelha os dois. Este emparelhamento dá-lhe um pseudónimo que pode usar para ligar. Porque usas um pseudónimo, não tens de mudar as cordas de ligação. Apenas novos espaços de nome podem ser adicionados ao seu emparelhamento failover. 
+
+1. Crie o espaço de nome primário.
+1. Crie o espaço de nome secundário. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
+1. No portal Azure, navegue para o seu espaço de nome principal.
+1. Selecione **Geo-recuperação** no menu esquerdo e selecione Iniciar o **emparelhamento** na barra de ferramentas. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar o emparelhamento a partir do espaço de nome primário":::    
+1. Na página **de emparelhamento Iniciar,** selecione um espaço de nome secundário existente ou crie um e, em seguida, selecione **Criar**. No exemplo seguinte, é selecionado um espaço de nome secundário existente. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecione o espaço de nome secundário":::        
+1. Agora, quando selecionar **Geo-recuperação** para o espaço de nome primário, deve ver a página **de Alias Geo-DR** que se parece com a seguinte imagem:
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página de pseudónimos Geo-DR":::    
+1. Nesta página **geral,** pode fazer as seguintes ações: 
+    1. Quebre o emparelhamento entre espaços de nome primário e secundário. **Selecione Break pairing** na barra de ferramentas. 
+    1. Falha manual no espaço de nome secundário. Selecione **Failover** na barra de ferramentas. 
+    
+        > [!WARNING]
+        > Falhando por cima irá ativar o espaço de nome secundário e remover o espaço de nome primário do emparelhamento Geo-Disaster Recuperação. Crie outro espaço de nome para ter um novo par de recuperação de geo-desastres. 
+1. Na página **De Alias Geo-DR,** selecione políticas de **acesso partilhado** para aceder à cadeia de ligação primária para o pseudónimo. Utilize esta cadeia de ligação em vez de utilizar diretamente a cadeia de ligação ao espaço de nome primário/secundário. 
+
+Por último, deve adicionar alguma monitorização para detetar se é necessário um failover. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, pelo que as falhas automáticas raramente são possíveis, uma vez que muitas vezes as falhas devem ser realizadas em sincronização com o subsistema ou infraestrutura restantes.
 
 ### <a name="example"></a>Exemplo
 
@@ -133,7 +155,7 @@ Pode ativar zonas de disponibilidade apenas em novos espaços de nome, utilizand
 ![3][]
 
 ## <a name="private-endpoints"></a>Pontos finais privados
-Esta secção fornece considerações adicionais ao utilizar a recuperação de geo-desastres com espaços de nome que usam pontos finais privados. Para aprender a utilizar pontos finais privados com os Centros de Eventos em geral, consulte os [pontos finais privados Configure](private-link-service.md).
+Esta secção fornece mais considerações ao utilizar a recuperação de geo-desastres com espaços de nome que usam pontos finais privados. Para aprender a utilizar pontos finais privados com os Centros de Eventos em geral, consulte os [pontos finais privados Configure](private-link-service.md).
 
 ### <a name="new-pairings"></a>Novos pares
 Se tentar criar um emparelhamento entre um espaço de nome primário com um ponto final privado e um espaço de nome secundário sem um ponto final privado, o emparelhamento falhará. O emparelhamento só terá sucesso se os espaços de nome primário e secundário tiverem pontos finais privados. Recomendamos que utilize as mesmas configurações nos espaços de nome primário e secundário e em redes virtuais nas quais são criados pontos finais privados.  

@@ -1,22 +1,22 @@
 ---
 title: Extensão da política Azure para Código do Estúdio Visual
 description: Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos Azure.
-ms.date: 10/20/2020
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906306"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107944"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
 
-> Aplica-se à versão de extensão da Política Azure **0.1.0** e mais recente
+> Aplica-se à versão de extensão da Política Azure **0.1.1** e mais recente
 
 Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar [pseudónimos,](../concepts/definition-structure.md#aliases)rever recursos e políticas, exportar objetos e avaliar definições de políticas. Primeiro, descreveremos como instalar a extensão da Política Azure no Código do Estúdio Visual. Depois vamos ver como procurar pseudónimos.
 
-A extensão da Política Azure para o Código do Estúdio Visual pode ser instalada em todas as plataformas que são suportadas pelo Código do Estúdio Visual. Este suporte inclui Windows, Linux e macOS.
+A extensão da Política Azure para Código do Estúdio Visual pode ser instalada no Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,9 +93,9 @@ A extensão da Política Azure lista os recursos nas subscrições selecionadas 
 - **Grupos de Recursos**
   - Todos os recursos do grupo de recursos em que estão
 
-Por predefinição, a extensão filtra a parte do "Fornecedor de Recursos" através de recursos e recursos existentes que possuem pseudónimos políticos. Altere este comportamento na **Política** de  >  **Azure de Definições para** ver todos os  >  **Azure Policy** Fornecedores de Recursos sem filtragem.
+Por predefinição, a extensão filtra a parte do "Fornecedor de Recursos" através de recursos e recursos existentes que possuem pseudónimos políticos. Altere este comportamento na **Política** de  >  **Azure de Definições para** ver todos os  >   Fornecedores de Recursos sem filtragem.
 
-Os clientes com centenas ou milhares de recursos numa única subscrição podem preferir uma forma pes pes pes pesquisada de localizar os seus recursos. A extensão da Política Azure permite procurar um recurso específico com as seguintes etapas:
+Os clientes com centenas ou milhares de recursos numa única subscrição podem preferir uma forma pes pesquisada de localizar os seus recursos. A extensão da Política Azure permite procurar um recurso específico com as seguintes etapas:
 
 1. Inicie a interface de pesquisa a partir da extensão da Política Azure ou da Paleta de Comando.
 

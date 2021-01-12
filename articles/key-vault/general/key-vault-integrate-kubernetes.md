@@ -1,18 +1,18 @@
 ---
 title: Integrar o Azure Key Vault no Kubernetes
 description: Neste tutorial, você acede e obtém segredos do seu cofre de chaves Azure usando o controlador Secrets Store Container Storage Interface (CSI) para montar em cápsulas Kubernetes.
-author: ShaneBala-keyvault
-ms.author: sudbalas
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 2645842130b83fe7b4cfb33b9389b19a1306506d
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 6952d239c9dc5c52c0057a6ee1a3b10b30ed9b00
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756029"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108760"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -24,12 +24,11 @@ Neste tutorial, você acede e obtém segredos do seu cofre de chaves Azure usand
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Crie um principal de serviço ou utilize identidades geridas.
+> * Use identidades geridas.
 > * Implementar um cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI.
 > * Instale o leme e o controlador CSI Secrets Store.
 > * Crie um cofre de chaves Azure e desconfiem dos vossos segredos.
 > * Crie o seu próprio objeto SecretProviderClass.
-> * Atribua o seu principal de serviço ou utilize identidades geridas.
 > * Desdobre a sua cápsula com segredos montados do cofre das chaves.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,22 +37,7 @@ Neste tutorial, vai aprender a:
 
 * Antes de iniciar este tutorial, instale o [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-## <a name="create-a-service-principal-or-use-managed-identities"></a>Criar um principal serviço ou usar identidades geridas
-
-Se planeia usar identidades geridas, pode passar para a secção seguinte.
-
-Crie um chefe de serviço para controlar quais os recursos que podem ser acedidos a partir do seu cofre de chaves Azure. O acesso deste diretor de serviço é restringido pelas funções que lhe são atribuídas. Esta funcionalidade dá-lhe controlo sobre como o diretor de serviço pode gerir os seus segredos. No exemplo seguinte, o nome do diretor de serviço é *contosoServicePrincipal*.
-
-```azurecli
-az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
-```
-Esta operação devolve uma série de pares chave/valor:
-
-![Screenshot mostrando o appId e senha para contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
-
-Copie as credenciais **de appId** e **password** para posterior utilização.
-
-## <a name="flow-for-using-managed-identity"></a>Fluxo para utilização da Identidade Gerida
+## <a name="use-managed-identities"></a>Utilizar identidades geridas
 
 Este diagrama ilustra o fluxo de integração do Cofre AKS-Key para identidade gerida:
 
@@ -66,7 +50,7 @@ Não precisas de usar a Azure Cloud Shell. O seu pedido de comando (terminal) co
 Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar ao cluster" em [Implementar um cluster de serviço Azure Kubernetes utilizando o CLI Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
-> Se pretender utilizar uma identidade de vagem em vez de um principal de serviço, certifique-se de que o ativa quando criar o cluster Kubernetes, como mostra o seguinte comando:
+> Se pretender utilizar uma identidade de vagem, certifique-se de que o ativa quando criar o cluster Kubernetes, como mostra o seguinte comando:
 >
 > ```azurecli
 > az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
@@ -121,7 +105,7 @@ Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetr
 
 Na amostra, o ficheiro IML da SecretProviderClass preenche os parâmetros em falta. São necessários os seguintes parâmetros:
 
-* **utilizadorAssignedIdentityID**: # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o ID do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
+* **utilizadorAssignedIdentityID**: # [REQUIRED] Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
 * **keyvaultName**: O nome do seu cofre chave
 * **objetos**: O recipiente para todo o conteúdo secreto que pretende montar
     * **nome do objeto**: O nome do conteúdo secreto
@@ -147,9 +131,8 @@ spec:
   parameters:
     usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
     useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
-    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
-                                                             #     az ad sp show --id http://contosoServicePrincipal --query appId -o tsv
-                                                             #     the preceding command will return the client ID of your service principal
+    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED]  If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
+                                                         
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
@@ -174,58 +157,18 @@ A imagem a seguir mostra a saída da consola para **a az keyvault show -- nome c
 
 ![Screenshot mostrando a saída da consola para "az keyvault show -- nome contosoKeyVault5"](../media/kubernetes-key-vault-4.png)
 
-## <a name="assign-your-service-principal-or-use-managed-identities"></a>Atribua o seu principal serviço ou utilize identidades geridas
+## <a name="assign-managed-identity"></a>Atribuir identidade gerida
 
-### <a name="assign-a-service-principal"></a>Atribuir um principal de serviço
-
-Se estiver a usar um diretor de serviço, conceda permissões para aceder ao cofre e recuperar segredos. Atribua o papel de *Leitor* e conceda ao serviço permissões principais para *obter* segredos do seu cofre chave, fazendo o seguinte comando:
-
-1. Atribua o seu principal de serviço ao cofre de chaves existente. O **parâmetro $AZURE_CLIENT_ID** é o **appId** que copiou depois de ter criado o seu principal de serviço.
-    ```azurecli
-    az role assignment create --role Reader --assignee $AZURE_CLIENT_ID --scope /subscriptions/$SUBID/resourcegroups/$KEYVAULT_RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-
-    A saída do comando é mostrada na seguinte imagem: 
-
-    ![Screenshot mostrando o valor principal](../media/kubernetes-key-vault-5.png)
-
-1. Conceda as permissões principais do serviço para obter segredos:
-    ```azurecli
-    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
-    ```
-
-1. Agora configuraste o teu diretor de serviço com permissões para ler segredos do teu cofre. O **$AZURE_CLIENTE_SECRET** é a palavra-passe do seu responsável de serviço. Adicione as suas credenciais principais de serviço como um segredo kubernetes que é acessível pelo motorista CSI Secrets Store:
-    ```azurecli
-    kubectl create secret generic secrets-store-creds --from-literal clientid=$AZURE_CLIENT_ID --from-literal clientsecret=$AZURE_CLIENT_SECRET
-    ```
-
-> [!NOTE] 
-> Se estiver a implementar o pod Kubernetes e receber um erro sobre um ID secreto do cliente inválido, poderá ter um ID secreto do cliente mais antigo que tenha expirado ou reposto. Para resolver este problema, elimine o segredo dos *seus segredos e* crie um novo com o iD secreto do cliente atual. Para eliminar os seus *segredos-loja-creeds,* executar o seguinte comando:
->
-> ```azurecli
-> kubectl delete secrets secrets-store-creds
-> ```
-
-Se esqueceu o ID do cliente do seu chefe de serviço, pode repor o mesmo utilizando o seguinte comando:
-
-```azurecli
-az ad sp credential reset --name contosoServicePrincipal --credential-description "APClientSecret" --query password -o tsv
-```
-
-### <a name="use-managed-identities"></a>Utilizar identidades geridas
-
-Se estiver a usar identidades geridas, atribua funções específicas ao cluster AKS que criou. 
+Atribua funções específicas ao cluster AKS que criou. 
 
 1. Para criar, listar ou ler uma identidade gerida atribuída pelo utilizador, o seu cluster AKS precisa de ser atribuído à função [de Operador de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-operator) Certifique-se de que o **$clientId** é o cliente do cluster Kubernetes. Para o âmbito, estará sob o seu serviço de subscrição Azure, especificamente o grupo de recursos de nó que foi feito quando o cluster AKS foi criado. Este âmbito garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções abaixo atribuídas. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     ```
 
 1. Instale a identidade do Azure Ative Directory (Azure AD) em AKS.
@@ -242,7 +185,7 @@ Se estiver a usar identidades geridas, atribua funções específicas ao cluster
 
 1. Atribua o papel de *Leitor* à identidade AD AZure que criou no passo anterior para o seu cofre chave e, em seguida, conceda as permissões de identidade para obter segredos do seu cofre chave. Use o **clienteId** e **o principalid** da identidade AD Azure.
     ```azurecli
-    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
+    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/<SUBID>/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
     az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
@@ -253,16 +196,6 @@ Se estiver a usar identidades geridas, atribua funções específicas ao cluster
 Para configurar o seu objeto SecretProviderClass, executar o seguinte comando:
 ```azurecli
 kubectl apply -f secretProviderClass.yaml
-```
-
-### <a name="use-a-service-principal"></a>Use um principal de serviço
-
-Se estiver a usar um diretor de serviço, use o seguinte comando para implantar as suas cápsulas Kubernetes com a SecretProviderClass e os segredos-loja-creds que configuraste anteriormente. Aqui estão os modelos de implementação:
-* Para [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
-* Para [janelas](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
-
-```azurecli
-kubectl apply -f updateDeployment.yaml
 ```
 
 ### <a name="use-managed-identities"></a>Utilizar identidades geridas
@@ -318,8 +251,6 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:           # Only required when using service principal mode
-          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 Executar o seguinte comando para implantar a sua cápsula:

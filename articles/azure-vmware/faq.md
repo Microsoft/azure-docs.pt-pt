@@ -3,12 +3,12 @@ title: Perguntas mais frequentes
 description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 1/4/2020
-ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1420fba40492e1a5f45f4ad5e58da2caa29ae7e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881230"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107961"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -29,6 +29,10 @@ O serviço está continuamente a ser adicionado a novas regiões, por isso veja 
 #### <a name="can-workloads-running-in-an-azure-vmware-solution-instance-consume-or-integrate-with-azure-services"></a>As cargas de trabalho em execução numa Solução VMware Azure podem consumir ou integrar-se com os serviços Azure?
 
 Todos os serviços da Azure estarão disponíveis para os clientes da Azure VMware Solution. As limitações de desempenho e disponibilidade de serviços específicos terão de ser abordadas caso a caso.
+
+#### <a name="what-guest-operating-systems-are-compatible-with-azure-vmware-solution"></a>Que sistemas operativos para hóspedes são compatíveis com a Azure VMware Solution?
+
+Pode encontrar informações sobre a compatibilidade do sistema operativo dos hóspedes com a vSphere utilizando o Guia de [Compatibilidade VMware](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16).  Para identificar a versão do vSphere em execução na Solução VMware Azure, consulte as [versões de software VMware](concepts-private-clouds-clusters.md#vmware-software-versions).
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?
 
@@ -62,7 +66,7 @@ Com a nova Azure VMware Solution, a Microsoft e a VMware têm uma parceria diret
 Yes. Desde que o sistema instalado possa aceder ao vCenter de nuvem privada e esteja a utilizar DNS público para resolver os hostnames ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Existem instruções especiais para instalar e utilizar VMRC com VMS de Solução VMware Azure?
-N.º Para cumprir os pré-requisitos VM siga as [instruções fornecidas pela VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
+Não. Para cumprir os pré-requisitos VM siga as [instruções fornecidas pela VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>A VMware HCX é suportada em VPNs?
 Não, por causa dos requisitos de largura de banda e latência.
@@ -71,7 +75,7 @@ Não, por causa dos requisitos de largura de banda e latência.
 Azure Bastion é o serviço recomendado para ligar à caixa de salto para evitar expor a Solução Azure VMware à internet. Não é possível utilizar o Azure Bastion para ligar aos VMs da Solução VMware Azure, uma vez que não são objetos Azure IaaS.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>O Azure Load Balancer interno pode ser utilizado para VMs de Solução VMware Azure?
-N.º Azure Load Balancer suporta apenas VMs Azure IaaS. O Azure Load Balancer não suporta piscinas de backend baseadas em IP; apenas VMs Azure ou conjuntos de balança de máquina virtual em que VMs de Solução VMware Azure não são objetos Azure.
+Não. Azure Load Balancer suporta apenas VMs Azure IaaS. O Azure Load Balancer não suporta piscinas de backend baseadas em IP; apenas VMs Azure ou conjuntos de balança de máquina virtual em que VMs de Solução VMware Azure não são objetos Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Pode ser utilizado um Gateway ExpressRoute existente para ligar à Solução VMware Azure?
 Yes. Utilize um Gateway ExpressRoute existente para ligar à Solução VMware Azure desde que não exceda o limite de quatro circuitos ExpressRoute por rede virtual. Para aceder à Azure VMware Solution a partir das instalações através do ExpressRoute, tem de ter o ExpressRoute Global Reach uma vez que o Portal ExpressRoute não fornece um encaminhamento transitório entre os seus circuitos conectados.
@@ -116,7 +120,7 @@ Utilize a política de armazenamento *thin_provision* para o seu modelo VM.  O p
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Os registos de infraestruturas do SNMP são partilhados?
 
-N.º
+Não.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 
@@ -138,7 +142,7 @@ Os clusters de ensaio são três aglomerados de hospedeiros usados para avaliaç
 
 #### <a name="can-i-use-high-end-hosts-for-trial-clusters"></a>Posso usar hospedeiros de alta qualidade para agrupamentos de ensaios?
 
-N.º Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
+Não. Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
 
 ## <a name="azure-vmware-solution-and-vmware-software"></a>Solução Azure VMware e software VMware
 
@@ -153,7 +157,7 @@ Sim, o NSX-T 2.5 é utilizado para a rede definida pelo software em nuvens priva
 
 #### <a name="can-i-use-vmware-nsx-v-in-a-private-cloud"></a>Posso usar VMware NSX-V numa nuvem privada?
 
-N.º NSX-T é a única versão suportada do NSX.
+Não. NSX-T é a única versão suportada do NSX.
 
 #### <a name="is-nsx-required-in-on-premises-environments-or-networks-that-connect-to-a-private-cloud"></a>O NSX é necessário em ambientes ou redes no local que se ligam a uma nuvem privada?
 
@@ -186,7 +190,7 @@ No portal Azure, permita a conectividade da internet para uma nuvem privada. Com
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Preciso de restringir o acesso da internet a VMs em redes lógicas numa nuvem privada?
 
-N.º O tráfego de rede que está a chegar da internet diretamente para as nuvens privadas não é permitido por defeito.  No entanto, é possível expor VMs de Solução VMware Azure à internet através da opção [IP pública](public-ip-usage.md) no seu portal Azure para a sua nuvem privada Azure VMware Solution.
+Não. O tráfego de rede que está a chegar da internet diretamente para as nuvens privadas não é permitido por defeito.  No entanto, é possível expor VMs de Solução VMware Azure à internet através da opção [IP pública](public-ip-usage.md) no seu portal Azure para a sua nuvem privada Azure VMware Solution.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 
@@ -303,7 +307,7 @@ Yes. A CSP pode adquirir instâncias reservadas para os seus clientes. Para obte
 
 #### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>A Azure VMware Solution oferece vários arrendamentos para hospedar parceiros CSP?
 
-N.º Atualmente, a Azure VMware Solution não oferece vários arrendamentos.
+Não. Atualmente, a Azure VMware Solution não oferece vários arrendamentos.
 
 #### <a name="will-traffic-between-on-premises-and-azure-vmware-solution-over-expressroute-incur-any-outbound-data-transfer-charge-in-the-metered-data-plan"></a>O tráfego entre as instalações e a Azure VMware Solution sobre o ExpressRoute incorrerá em qualquer taxa de transferência de dados de saída no plano de dados medido?
 

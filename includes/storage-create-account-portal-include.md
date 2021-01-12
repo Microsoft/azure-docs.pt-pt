@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 01/11/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3da4fd26b3f985e034ca60039c09412e8237e965
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005554"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109389"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
@@ -26,8 +26,7 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
 1. Selecione um nível de desempenho. O nível predefinido é *Standard*.
 1. Desagravar o campo **de tipo conta** para o armazenamento *V2 (v2 de uso geral)*.
 1. Especifique como a conta de armazenamento será replicada. A opção de replicação predefinida é *o armazenamento geo-redundante de acesso à leitura (RA-GRS)*. Para obter mais informações sobre as opções de replicação disponíveis, consulte [a redundância do Azure Storage](../articles/storage/common/storage-redundancy.md).
-1. Especifique o nível de acesso para bolhas na conta de armazenamento. O nível predefinido é *quente*. Para obter mais informações sobre os níveis de acesso blob, consulte [os níveis de acesso quentes, frescos e arquivados para bolhas.](../articles/storage/blobs/storage-blob-storage-tiers.md)
-1. Para utilizar o Azure Data Lake Storage, escolha o separador **Avançado** e, em seguida, desempate o **espaço de nome hierárquico** para **Ativado**. Para mais informações, consulte [Azure Data Lake Storage Gen2 Introdução](../articles/storage/blobs/data-lake-storage-introduction.md)
+1. Estão disponíveis opções adicionais nos **separadores networking**, **proteção de dados,** **avançado** e **tags.** Para utilizar o Azure Data Lake Storage, escolha o separador **Avançado** e, em seguida, desempate o **espaço de nome hierárquico** para **Ativado**. Para mais informações, consulte [Azure Data Lake Storage Gen2 Introdução](../articles/storage/blobs/data-lake-storage-introduction.md)
 1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
 1. Selecione **Criar**.
 

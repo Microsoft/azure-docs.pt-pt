@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302867"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107400"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem
 
@@ -26,21 +26,23 @@ Quando cria um tipo de oferta, escolhe uma ou mais opções de listagem. Estas o
 
 Esta tabela mostra quais as opções de listagem disponíveis para cada tipo de oferta.
 
-| Tipo de oferta | Avaliação Gratuita | Versão de Teste | Contacte-me | Get It Now (Transactable) |
+| Tipo de oferta | Avaliação Gratuita | Versão de Teste | Contacte-me | Get It Now `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Aplicação Azure (Aplicação gerida) |   | &#10004; |   | &#10004; |
-| Aplicação Azure (modelo de solução) |  |  |  |  |
+| Aplicação Azure (modelo de solução) |  |  |  | &#10004; |
 | Serviço de consultoria |  |  | &#10004; |  |
-| Recipiente Azure |  |  |  |  |
-| Dinâmica 365 centro de negócios | &#10004; | &#10004; | &#10004; |  |
-| Dinâmica 365 Envolvimento com clientes & PowerApps | &#10004; | &#10004; | &#10004; |  |
-| Dinâmica 365 para operações | &#10004; | &#10004; | &#10004; |  |
-| Módulo IoT Edge |  |  |  |  |
-| Serviço Gerido |  |  |  |  |
-| Aplicação Power BI |  |  |  |  |
+| Recipiente Azure |  |  |  | &#10004; |
+| Dinâmica 365 centro de negócios | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dinâmica 365 Envolvimento com clientes & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dinâmica 365 para operações | &#10004; | &#10004; | &#10004; | &#10004; |
+| Módulo IoT Edge |  |  |  | &#10004; |
+| Serviço Gerido |  |  |  | &#10004; |
+| Aplicação Power BI |  |  |  | &#10004; |
 | Máquina Virtual do Azure | &#10004; | &#10004; |  | &#10004; |
 | Software como um serviço | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` A opção de listagem Get It Now inclui Get It Now (Grátis), trazer a sua própria licença (BYOL), Subscrição e preços baseados em Uso. Para mais detalhes, consulte [Get It Now](#get-it-now).
 
 ### <a name="free-trial"></a>Avaliação Gratuita
 
@@ -151,6 +153,6 @@ A tabela a seguir mostra as opções que estão disponíveis para diferentes tip
 
 As suas Recompensas marketplace são diferenciadas com base na opção de listagem que escolher. Para saber mais, consulte [os seus benefícios para o mercado comercial.](gtm-your-marketplace-benefits.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para escolher um tipo de oferta para criar, consulte [o guia de publicação por tipo de oferta.](./publisher-guide-by-offer-type.md)

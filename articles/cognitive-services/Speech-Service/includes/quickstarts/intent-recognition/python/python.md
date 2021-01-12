@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8eada631b7e1f632148993e586c70b6811cf9ac9
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 0cb27a8dc5685ce295c2ce30820734c4301e9dc6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052720"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109523"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,8 +72,9 @@ Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que subs
 Este exemplo utiliza a `add_intents()` função para adicionar uma lista de intenções explicitamente definidas. Se quiser adicionar todas as intenções de um modelo, use `add_all_intents(model)` e passe o modelo.
 
 > [!NOTE]
-> Pode criar um LanguageUnderstandingModel passando um URL de ponto final para o método FromEndpoint.
-> A SDK da fala só suporta pontos finais LUIS v2.0, e os pontos finais LUIS v2.0 seguem sempre um destes dois padrões:
+> A SDK de discurso só suporta pontos finais LUIS v2.0.
+> Tem de modificar manualmente o URL do ponto final v3.0 encontrado no campo de consulta de exemplo para utilizar um padrão URL v2.0.
+> Os pontos finais LUIS v2.0 seguem sempre um destes dois padrões:
 > * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 > * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 

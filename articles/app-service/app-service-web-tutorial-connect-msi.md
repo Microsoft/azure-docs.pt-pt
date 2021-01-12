@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347579"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108624"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -229,6 +229,9 @@ Escreva `EXIT` para regressar à linha de comandos do Cloud Shell.
 > [!NOTE]
 > Os [serviços](overview-managed-identity.md#obtain-tokens-for-azure-resources) back-end de identidades geridas também mantém uma cache simbólica que atualiza o símbolo de um recurso-alvo apenas quando expira. Se cometer um erro ao configurar as permissões da Base de Dados SQL e tentar modificar as permissões *depois de* tentar obter um token com a sua app, não obtém realmente um novo token com as permissões atualizadas até que o token em cache expire.
 
+> [!NOTE]
+> O AAD não é suportado para o SqL Server on-prem, e isto inclui MSIs. 
+
 ### <a name="modify-connection-string"></a>Modificar a cadeia de ligação
 
 Lembre-se que as mesmas alterações que fez em *Web.config* ou *appsettings.jsem* obras com a identidade gerida, por isso a única coisa a fazer é remover a cadeia de conexão existente no Serviço de Aplicações, que o Visual Studio criou ao implementar a sua app pela primeira vez. Utilize o seguinte comando, mas *\<app-name>* substitua-o pelo nome da sua aplicação.
@@ -251,7 +254,7 @@ Na página de publicação, clique em **Publicar**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Quando a página Web nova mostrar a lista de tarefas, significa que a aplicação se está a ligar à base de dados com a identidade gerida.

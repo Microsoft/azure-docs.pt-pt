@@ -9,16 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 1cc6c8cd49a2388ad66a276f4a1667b4c3ee3826
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070325"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107910"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+
+
+ ## <a name="2021-01-11"></a>2021-01-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1200"></a>Azure Machine Learning SDK para Python v1.20.0
++ **Correções e melhorias de bugs**
+  + **azure-cli-ml**
+    + framework_version adicionado na OptimizationConfig. Será utilizado quando o modelo estiver registado na estrutura MULTI.
+  + **azureml-automl-runtime**
+    + Nesta atualização, adicionámos a suavização exponencial holt winters à caixa de ferramentas de previsão de AutoML SDK. Tendo em conta uma série de tempo, o melhor modelo é selecionado pela [AICc (Critério de Informação de Akaike corrigido)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e devolvido.
+  + **azureml-contrib-optimização**
+    + framework_version adicionado na OptimizationConfig. Será utilizado quando o modelo estiver registado na estrutura MULTI.
+  + **azureml-pipeline-steps**
+    + Introduzindo o CommandStep que assumiria o comando para processar. O comando pode incluir executáveis, comandos de conchas, scripts, etc.
+  + **azureml-core**
+    + Agora a criação de espaço de trabalho suporta a identidade atribuída pelo utilizador. Adicionar o suporte uai da SDK/CLI
+    + Problema fixo no service.reload() para recolher alterações na score.py na implantação local.
+    + `run.get_details()` tem um campo extra chamado "submittedBy" que mostra o nome do autor para esta execução.
+    + Modelo editado.registar documentação do método para mencionar como registar o modelo a partir de executado diretamente
+   
 
 ## <a name="2020-12-31"></a>2020-12-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (atualização de dezembro)
@@ -31,6 +51,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
   + Tempos de carga de página melhorados
   + Desempenho melhorado 
   + Melhoria da velocidade e da fiabilidade do núcleo
+
   
 ## <a name="2020-12-07"></a>2020-12-07
 

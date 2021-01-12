@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Criar o modelo preditivo utilizando um caderno (parte 1 de 2)'
+title: 'Tutorial: Criar o modelo preditivo com um caderno (parte 1 de 2)'
 titleSuffix: Azure Machine Learning
-description: Aprenda a construir e implementar um modelo de aprendizagem automática utilizando código num Caderno Jupyter. Pode utilizar o modelo para prever os resultados no Microsoft Power BI.
+description: Aprenda a construir e implementar um modelo de aprendizagem automática utilizando código num Caderno Jupyter. Também crie um script de pontuação que define a entrada e a saída para uma fácil integração no Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814776"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108250"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integração do Power BI - Crie o modelo preditivo utilizando um Caderno Jupyter (parte 1 de 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integração do Power BI - Crie o modelo preditivo com um Caderno Jupyter (parte 1 de 2)
 
-Na parte 1 deste tutorial, treina-se e implementa-se um modelo preditivo de aprendizagem automática utilizando código num Caderno Jupyter. Na parte 2, usará o modelo para prever os resultados no Microsoft Power BI.
+Na parte 1 deste tutorial, treina-se e implementa-se um modelo preditivo de aprendizagem automática utilizando código num Caderno Jupyter. Também irá criar um script de pontuação para definir o esquema de entrada e saída do modelo para integração no Power BI.  Na parte 2, usará o modelo para prever os resultados no Microsoft Power BI.
 
 Neste tutorial:
 
@@ -27,6 +27,7 @@ Neste tutorial:
 > * Criar um Bloco de Notas do Jupyter Notebook.
 > * Crie uma instância computacional de aprendizagem automática Azure.
 > * Treine um modelo de regressão utilizando scikit-learn.
+> * Escreva um script de pontuação que define a entrada e saída para uma fácil integração no Microsoft Power BI.
 > * Desloque o modelo para um ponto final de pontuação em tempo real.
 
 Existem três formas de criar e implementar o modelo que vai utilizar no Power BI.  Este artigo abrange "Opção A: Treinar e implementar modelos utilizando cadernos."  Esta opção é uma experiência de autoria de código. Usa cadernos Jupyter que estão hospedados no Azure Machine Learning Studio. 
@@ -157,7 +158,7 @@ Também pode ver o modelo no Azure Machine Learning Studio. No menu à esquerda,
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot mostrando como ver um modelo.":::
 
-### <a name="define-the-scoring-script"></a>Defina o roteiro de pontuação
+## <a name="define-the-scoring-script"></a>Defina o roteiro de pontuação
 
 Quando implementar um modelo que será integrado no Power BI, precisa de definir um *script de pontuação* Python e um ambiente personalizado. O script de pontuação contém duas funções:
 
@@ -165,7 +166,7 @@ Quando implementar um modelo que será integrado no Power BI, precisa de definir
 - A `run(data)` função é executado quando uma chamada para o serviço inclui dados de entrada que precisam de ser marcados. 
 
 >[!NOTE]
-> Este artigo utiliza decoradores Python para definir o esquema dos dados de entrada e saída. Esta configuração é importante para a integração do Power BI.
+> Os decoradores Python no código abaixo definem o esquema dos dados de entrada e saída, que é importante para a integração no Power BI.
 
 Copie o seguinte código e cole-o numa nova *célula de código* no seu caderno. O seguinte código snippet tem magia celular que escreve o código para um ficheiro chamado *score.py*.
 

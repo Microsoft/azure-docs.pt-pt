@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5af4eb931015e386e35470f2b36341e15f76150f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065410"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108197"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -135,7 +135,7 @@ O Ambiente de Serviço de Aplicações (ASE) pode ser usado para hospedar o serv
     * Verifique a configuração do serviço de Aplicação e adicione 'PrimaryEndpointKey' como uma definição de aplicação. O valor de 'PrimaryEndpointKey' deve ser definido como " \<app-name\> -PrimaryEndpointKey". O Nome da Aplicação é definido no URL do serviço de aplicações. Por exemplo, se o URL do serviço de aplicações for "mywebsite.myase.p.azurewebsite.net", então o nome da aplicação é "mywebsite". Neste caso, o valor de 'PrimaryEndpointKey' deve ser definido como "mywebsite-PrimaryEndpointKey".
     * Crie um serviço de pesquisa Azure.
     * Certifique-se de que as configurações de pesquisa e aplicação do Azure estão devidamente configuradas. 
-      Por favor, siga este [tutorial.](https://docs.microsoft.com/azure/cognitiveservices/qnamaker/reference-app-service#app-service)
+      Por favor, siga este [tutorial.](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service)
 3.  Atualizar o Grupo de Segurança da Rede associado ao Ambiente de Serviço de Aplicações
     * Atualizar regras de segurança de entrada pré-criadas de acordo com os seus requisitos.
     * Adicione uma nova Regra de Segurança de Entrada com a fonte como 'Tag de Serviço' e etiqueta de serviço de origem como 'CognitiveServicesManagement'.

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da053bb04e5ee3f2b2b307c382f2695663669e5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020660"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107927"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -770,6 +770,7 @@ Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam iden
 | microsoft.diretório/directórioRoles/allProperties/allTasks | Crie e elimine o directórioRoles e leia e atualize todas as propriedades no Azure Ative Directory. |
 | microsoft.diretório/directórioRoleTemplates/allProperties/allTasks | Crie e elimine os DirectóriosRoleTemplates e leia e atualize todas as propriedades no Diretório Ativo Azure. |
 | microsoft.diretório/domínios/allProperties/allTasks | Criar e eliminar domínios e ler e atualizar todas as propriedades no Diretório Ativo Azure. |
+| microsoft.diretório/direitoManagement/allProperties/allTasks | Criar e apagar recursos, e ler e atualizar todos os imóveis na gestão de direitos AZure AD. |
 | microsoft.diretório/grupos/allProperties/allTasks | Criar e eliminar grupos e ler e atualizar todas as propriedades no Diretório Ativo Azure. |
 | microsoft.diretório/gruposAssignableToRoles/allProperties/update | Atualizar grupos com propriedade IsAssignableToRole definida para ser verdadeira no Azure Ative Directory. |
 | microsoft.diretório/gruposAssignableToRoles/create | Criar grupos com propriedade isAssignableToRole definida para verdade no Azure Ative Directory. |
@@ -831,6 +832,7 @@ Pode ler e gerir a configuração e relatórios de conformidade em Azure AD e Mi
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure para serviços de nível de diretório. |
+| microsoft.diretório/direitoManagement/allProperties/read | Leia todos os imóveis na gestão de direitos Azure AD. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspetos do Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
@@ -1133,6 +1135,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 | microsoft.diretório/directórioRoles/elegíveisMembers/read    | Leia a propriedade do diretório.elegível Em Azure Ative Directory. |
 | microsoft.diretório/directórioRoles/membros/ler    | Leia a propriedade do diretório.members no Azure Ative Directory. |
 | microsoft.diretório/domínios/básico/ler    | Leia propriedades básicas em domínios no Diretório Ativo Azure. |
+| microsoft.diretório/direitoManagement/allProperties/read | Leia todos os imóveis na gestão de direitos Azure AD. |
 | microsoft.diretório/grupos/appRoleAssignments/read    | Ler propriedade grupos.appRoleAssignments em Azure Ative Directory. |
 | microsoft.diretório/grupos/básico/ler    | Leia propriedades básicas em grupos no Diretório Ativo Azure. |
 | microsoft.diretório/grupos/hiddenMembers/read    | Ler propriedade de grupos.hiddenMembers em Azure Ative Directory. |
@@ -1231,7 +1234,7 @@ Pode redefinir palavras-passe para administradores não-administradores e admini
 
 ### <a name="hybrid-identity-administrator-permissions"></a>Permissões híbridas de administrador de identidade
 
-Ativar, configurar, configurar, gerir, monitorizar e resolver problemas serviços de fornecimento e autenticação em nuvem. 
+Pode gerir o fornecimento de nuvem AD a Azure e as configurações da federação. 
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -1249,8 +1252,10 @@ Ativar, configurar, configurar, gerir, monitorizar e resolver problemas serviço
 | microsoft.diretório/aplicaçãoTemplates/instantiate | Aplicações instantâneas de galeria a partir de modelos de aplicação. |
 | microsoft.diretório/auditoriaLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditLogs no Azure Ative Directory. |
 | microsoft.directy/cloudProvisioning/allProperties/allTasks | Leia e configuure todas as propriedades do serviço Azure AD Cloud Provisioning. |
-| microsoft.diretório/federatedAuthentication/allProperties/allTasks | Gerir todos os aspetos dos Serviços Federados de Diretório Ativo (ADFS) ou do provedor da 3ª federação partidária em Azure AD. |
+| microsoft.diretório/domínios/allProperties/read | Leia todas as propriedades dos domínios. |
+| microsoft.diretório/domínios/federação/atualização | Atualizar a propriedade da federação de domínios. |
 | microsoft.diretório/organização/dirSync/update | Atualizar propriedade da organização.dirSync em Azure Ative Directory. |
+| microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 | microsoft.diretório/serviçoPrincipals/audience/update | Serviço de actualizaçãoPrincipals.propriedade do público em Azure Ative Directory. |
 | microsoft.diretório/serviçoPrincipals/autenticação/atualização | Serviço de actualizaçãoPrincipals.authentication property in Azure Ative Directory. |
 | microsoft.diretório/serviçoPrincipals/básico/atualização | Atualizar propriedades básicas em serviçoPrincipals em Azure Ative Directy. |
@@ -1708,9 +1713,10 @@ Pode ler informações de segurança e relatórios e gerir a configuração em A
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure para serviços de nível de diretório. |
-| microsoft.diretório/bitlockerKeys/chave/ler | Leia os objetos e propriedades dos chaves bitlocker (incluindo a chave de recuperação) no Diretório Ativo Azure. |
 | microsoft.diretório/aplicações/políticas/atualização | Atualizar aplicações.apólices propriedade em Azure Ative Directory. |
 | microsoft.diretório/auditoriaLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditLogs no Azure Ative Directory. |
+| microsoft.diretório/bitlockerKeys/chave/ler | Leia os objetos e propriedades dos chaves bitlocker (incluindo a chave de recuperação) no Diretório Ativo Azure. |
+| microsoft.diretório/direitoManagement/allProperties/read | Leia todos os imóveis na gestão de direitos Azure AD. |
 | microsoft.diretório/identidadeProteção/todas as ofertas/ler | Leia todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.diretório/identidadeProteção/todas as ofertas/atualização | Atualizar todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.diretório/políticas/básico/atualização | Atualizar propriedades básicas sobre políticas no Azure Ative Directory. |
@@ -1761,6 +1767,7 @@ Pode ler informações de segurança e relatórios em Azure AD e Microsoft 365.
 | --- | --- |
 | microsoft.diretório/auditoriaLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditLogs no Azure Ative Directory. |
 | microsoft.diretório/bitlockerKeys/chave/ler | Leia os objetos e propriedades dos chaves bitlocker (incluindo a chave de recuperação) no Diretório Ativo Azure. |
+| microsoft.diretório/direitoManagement/allProperties/read | Leia todos os imóveis na gestão de direitos Azure AD. |
 | microsoft.diretório/políticas/condicionalAccess/basic/read | Ler políticas.conditionalAposs propriedade em Azure Ative Directory. |
 | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Leia todos os recursos em microsoft.aad.identityProtection. |
@@ -1926,6 +1933,7 @@ Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição d
 | microsoft.diretório/contactos/básico/atualização | Atualizar propriedades básicas em contactos no Azure Ative Directory. |
 | microsoft.diretório/contactos/criar | Criar contactos no Diretório Ativo Azure. |
 | microsoft.diretório/contactos/excluir | Eliminar contactos no Diretório Ativo Azure. |
+| microsoft.diretório/direitoManagement/allProperties/allTasks | Criar e apagar recursos, e ler e atualizar todos os imóveis na gestão de direitos AZure AD. |
 | microsoft.diretório/grupos/appRoleAssignments/update | Atualizar a propriedade grupos.appRoleAssignments em Azure Ative Directory. |
 | microsoft.diretório/grupos/básico/atualização | Atualizar propriedades básicas em grupos no Azure Ative Directory. |
 | microsoft.diretório/grupos/criar | Criar grupos no Diretório Ativo Azure. |
@@ -2027,7 +2035,7 @@ Especialista em Apoio às Comunicações das Equipas | Especialista em Apoio às
 Administrador de dispositivos de equipas | Administrador de dispositivos de equipas | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Administrador de Serviço de Equipas | Administrador de Serviço de Equipas | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Leitor de Relatórios de Resumo de Utilização | Leitor de relatórios de resumo de utilização | 75934031-6c7e-415a-99d7-48dbd49e875e
-Utilizador | Não mostrado porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
+User | Não mostrado porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador de Conta de Utilizador | Administrador de utilizadores | fe930be7-5e62-47db-91af-98c3a49a38b1
 Aderir ao dispositivo de trabalho | Preterido | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
@@ -2061,10 +2069,10 @@ Administrador de Serviço Lync | Administrador do Skype para Empresas | [Reflete
 Suporte de Nível 1 do Parceiro | Não mostrado porque não deve ser usado | [Documentação de suporte do Parceiro Tier1](permissions-reference.md#partner-tier1-support)
 Suporte parceiro tier 2 | Não mostrado porque não deve ser usado | [Documentação de suporte de parceiro Tier2](permissions-reference.md#partner-tier2-support)
 Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
-Utilizador | Não mostrado porque não pode ser usado | ND
+User | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Adicionar ou remover atribuições de funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

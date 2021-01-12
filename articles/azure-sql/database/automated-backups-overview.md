@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917907"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108063"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -72,11 +72,11 @@ Pode tentar a configuração de backup e restaurar as operações utilizando os 
 
 | Operação | Portal do Azure | Azure PowerShell |
 |---|---|---|
-| **Alterar a retenção de backup** | [Base de Dados SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância Gerida do SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de Dados SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância Gerida do SQL](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Alterar a retenção de backup a longo prazo** | [Base de Dados SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Sql Caso gerido - N/A  | [Base de Dados SQL](long-term-backup-retention-configure.md)<br/>[Instância Gerida do SQL](../managed-instance/long-term-backup-retention-configure.md)  |
-| **Restaurar uma base de dados a partir de um ponto no tempo** | [Base de Dados SQL](recovery-using-backups.md#point-in-time-restore)<br>[Instância Gerida do SQL](../managed-instance/point-in-time-restore.md) | [Base de Dados SQL](/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerida do SQL](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restaurar uma base de dados eliminada** | [Base de Dados SQL](recovery-using-backups.md)<br>[Instância Gerida do SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Base de Dados SQL](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância Gerida do SQL](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restaurar uma base de dados a partir do armazenamento da Azure Blob** | Base de Dados SQL - N/A <br/>Sql Caso gerido - N/A  | Base de Dados SQL - N/A <br/>[Instância Gerida do SQL](../managed-instance/restore-sample-database-quickstart.md) |
+| **Alterar a retenção de backup** | [Base de Dados SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de Dados SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Alterar a retenção de backup a longo prazo** | [Base de Dados SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Sql Caso gerido - N/A  | [Base de Dados SQL](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Restaurar uma base de dados a partir de um ponto no tempo** | [Base de Dados SQL](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [Base de Dados SQL](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restaurar uma base de dados eliminada** | [Base de Dados SQL](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Base de Dados SQL](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restaurar uma base de dados a partir do armazenamento da Azure Blob** | Base de Dados SQL - N/A <br/>Sql Caso gerido - N/A  | Base de Dados SQL - N/A <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## <a name="backup-scheduling"></a>Agendamento de backup
 
@@ -122,7 +122,7 @@ O consumo de armazenamento de backup até ao tamanho máximo de dados para uma b
 
 ## <a name="backup-retention"></a>Retenção da cópia de segurança
 
-Para todas as bases de dados novas, restauradas e copiadas, a Base de Dados Azure SQL e a Azure SQL Managed Instance conservam cópias de segurança suficientes para permitir o PITR nos últimos 7 dias por padrão. Com exceção das bases de dados hyperscale, pode alterar o período de [retenção de backup](#change-the-pitr-backup-retention-period) por cada base de dados ativa na gama de 1-35 dias. Conforme descrito no [consumo de armazenamento de backup,](#backup-storage-consumption)as cópias de segurança armazenadas para permitir o PITR podem ser mais antigas do que o período de retenção. Apenas para a Azure SQL GerdEd Instance, é possível definir a taxa de retenção de backup PITR uma vez que uma base de dados tenha sido eliminada no intervalo de 0-35 dias. 
+Para todas as bases de dados novas, restauradas e copiadas, a Base de Dados Azure SQL e a Azure SQL Managed Instance conservam cópias de segurança suficientes para permitir o PITR nos últimos 7 dias por padrão. Com exceção das bases de dados de hiperescala e base de dados de nível básico, pode alterar o período de [retenção de backup](#change-the-pitr-backup-retention-period) por cada base de dados ativa na gama de 1-35 dias. Conforme descrito no [consumo de armazenamento de backup,](#backup-storage-consumption)as cópias de segurança armazenadas para permitir o PITR podem ser mais antigas do que o período de retenção. Apenas para a Azure SQL GerdEd Instance, é possível definir a taxa de retenção de backup PITR uma vez que uma base de dados tenha sido eliminada no intervalo de 0-35 dias. 
 
 Se eliminar uma base de dados, o sistema mantém as cópias de segurança da mesma forma que faria para uma base de dados online com o seu período de retenção específico. Não é possível alterar o período de retenção de cópias de segurança para uma base de dados eliminada.
 
@@ -237,7 +237,7 @@ As alterações à retenção de backup pitr para base de dados SQL são feitas 
 
 ![Alterar a retenção pitr, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
-#### <a name="sql-managed-instance"></a>[Instância Gerida do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
 As alterações à retenção de backup pitr para sql Managed Instance são feitas a um nível de base de dados individual. Para alterar a retenção de backup PITR para uma base de dados de casos a partir do portal Azure, aceda à lâmina de visão geral da base de dados individual. Em **seguida, selecione configurar a retenção de backup** na parte superior do ecrã:
 
@@ -261,7 +261,7 @@ Para alterar a retenção de backup PITR para bases de dados Azure SQL ativas, u
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 
-#### <a name="sql-managed-instance"></a>[Instância Gerida do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
 Para alterar a retenção de backup PITR para uma base de dados de exemplo gerida pela SQL **ativa individual,** utilize o seguinte exemplo PowerShell.
 
@@ -382,7 +382,7 @@ Uma redundância de armazenamento de reserva de uma instância gerida só pode s
 No portal Azure, pode configurar a redundância de armazenamento de backup na lâmina **Create SQL Database.** A opção está disponível na secção de redundância de armazenamento de backup. 
 ![Abrir Criar lâmina de base de dados SQL](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
 
-#### <a name="sql-managed-instance"></a>[Instância Gerida do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
 No portal Azure, a opção de alterar a redundância de armazenamento de backup está localizada na lâmina **de armazenamento Compute +** acessível a partir da opção **Configure Managed Instance** no separador **Basics** quando estiver a criar a sua SQL Managed Instance.
 ![Lâmina de configuração Open Compute+Storage](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
@@ -419,7 +419,7 @@ Para mais detalhes visite [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsq
 > Para utilizar o parâmetro -BackupStorageRedundancy com a restauração da base de dados, cópia de base de dados ou criar operações secundárias, utilize a versão Az.Sql 2.Sql 2.11.0 da Azure PowerShell. 
 
 
-#### <a name="sql-managed-instance"></a>[Instância Gerida do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
 Para configurar a redundância de armazenamento de backup durante a criação de instâncias geridas, pode especificar o parâmetro -BackupStoageRedundancy. Os valores possíveis são Geo, Zone e Local.
 

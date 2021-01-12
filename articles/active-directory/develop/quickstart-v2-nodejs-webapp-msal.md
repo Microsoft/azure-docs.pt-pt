@@ -3,21 +3,21 @@ title: 'Quickstart: Adicione autenticação a uma aplicação web nó com nó MS
 titleSuffix: Microsoft identity platform
 description: Neste arranque rápido, aprende-se a implementar a autenticação com uma aplicação web Node.js e a Microsoft Authentication Library (MSAL) para Node.js.
 services: active-directory
-author: amikuma
-manager: saeeda
+author: mmacy
+manager: celested
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2020
-ms.author: amikuma
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 09ffe9948d14d0529756abd44c989dd83602b270
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7fc76259f30f96d95c63b7e9369ec5e9647d923e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011769"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107451"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso numa aplicação web nó usando o fluxo de código auth
 
@@ -139,7 +139,7 @@ A biblioteca MSAL Node assina nos utilizadores e solicita os tokens que são usa
 npm install @azure/msal-node
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar Auth a uma aplicação web existente - a amostra de código GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)

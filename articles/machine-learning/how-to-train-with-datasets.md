@@ -12,19 +12,21 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740679"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108595"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 
 
-Neste artigo, aprende a trabalhar com [conjuntos de dados de Aprendizagem automática Azure](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) nas suas experiências de treino.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados.
+Neste artigo, aprende-se a trabalhar com [conjuntos de dados Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) para treinar modelos de aprendizagem automática.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados. 
 
 Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com a funcionalidade de formação de aprendizagem automática Azure como [scriptRunConfig,](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) [hiperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e [azure machine learning pipelines](how-to-create-your-first-pipeline.md).
+
+Se não estiver pronto para disponibilizar os seus dados para a formação de modelos, mas pretender carregar os seus dados no seu caderno para exploração de dados, consulte como [explorar os dados no seu conjunto de dados.](how-to-create-register-datasets.md#explore-data) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +36,7 @@ Para criar e treinar com conjuntos de dados, precisa:
 
 * Um [espaço de trabalho de aprendizagem automática Azure.](how-to-manage-workspace.md)
 
-* O [Azure Machine Learning SDK para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que inclui o pacote de conjuntos de dados azureml.
+* O [Azure Machine Learning SDK para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que inclui o `azureml-datasets` pacote.
 
 > [!Note]
 > Algumas classes dataset têm dependências do pacote [azureml-dataprep.](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
@@ -65,7 +67,7 @@ O código que se segue configura um argumento de script `--input-data` que irá 
 > [!Note]
 > Se a sua fonte de dados original contiver NaN, cordas vazias ou valores em branco, quando `to_pandas_dataframe()` utilizar, esses valores são substituídos como um valor *nulo.*
 
-Se precisar de carregar os dados preparados num novo conjunto de dados a partir de um dataframe de pandas na memória, escreva os dados para um ficheiro local, como um parquet, e crie um novo conjunto de dados a partir desse ficheiro. Também pode criar conjuntos de dados a partir de ficheiros ou caminhos locais nas datastores. Saiba mais sobre [como criar conjuntos de dados.](how-to-create-register-datasets.md)
+Se precisar de carregar os dados preparados num novo conjunto de dados a partir de um dataframe de pandas na memória, escreva os dados para um ficheiro local, como um parquet, e crie um novo conjunto de dados a partir desse ficheiro. Saiba mais sobre [como criar conjuntos de dados.](how-to-create-register-datasets.md)
 
 ```Python
 %%writefile $script_folder/train_titanic.py

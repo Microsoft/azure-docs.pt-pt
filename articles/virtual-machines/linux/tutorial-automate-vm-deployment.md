@@ -5,21 +5,18 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 456c42dc0b25e168744ce283cddbd63b877813ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ebff49db895468549a7abd420e7b74292b742eab
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747158"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108641"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -39,17 +36,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 O cloud-init também funciona em distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. O cloud-init utiliza automaticamente a ferramenta de gestão de pacotes nativa para a distribuição que selecionar.
 
-Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade atual do cloud-init nas imagens de plataforma do Azure:
-
-| Publisher | Oferta | SKU | Versão | nuvem-init pronto |
-|:--- |:--- |:--- |:--- |:--- |
-|Canónico |UbuntuServer |18.04-LTS |mais recente |yes | 
-|Canónico |UbuntuServer |16.04-LTS |mais recente |yes | 
-|Canónico |UbuntuServer |14.04.5-LTS |mais recente |yes |
-|CoreOS |CoreOS |Estável |mais recente |yes |
-|OpenLogic 7.6 |CentOS |7-CI |mais recente |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
+Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. Para obter informações detalhadas sobre o suporte para cada distribuição, consulte [o suporte cloud-init para VMs em Azure](using-cloud-init.md).
 
 
 ## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração do cloud-init
@@ -102,13 +89,13 @@ runcmd:
 Para obter mais informações sobre as opções de configuração do cloud-init, veja [exemplos de configuração do cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAutomate* na localização *eualeste* :
+Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAutomate* na localização *eualeste*:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt* , se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo a seguir cria um VM chamado *myVM:*
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo a seguir cria um VM chamado *myVM:*
 
 ```azurecli-interactive
 az vm create \
@@ -147,7 +134,7 @@ Os passos seguintes mostram como pode:
 - Criar uma VM e inserir o certificado
 
 ### <a name="create-an-azure-key-vault"></a>Criar um Azure Key Vault
-Em primeiro lugar, crie um Key Vault com [az keyvault create](/cli/azure/keyvault#az-keyvault-create) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua *mykeyvault* no exemplo seguinte pelo nome exclusivo do seu Key Vault:
+Em primeiro lugar, crie um Key Vault com [az keyvault create](/cli/azure/keyvault#az-keyvault-create) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua `mykeyvault` no exemplo seguinte pelo seu próprio nome exclusivo do Key Vault:
 
 ```azurecli-interactive
 keyvault_name=mykeyvault

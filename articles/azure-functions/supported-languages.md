@@ -3,12 +3,12 @@ title: Línguas apoiadas em Funções Azure
 description: Saiba quais as línguas apoiadas (GA) e que estão em pré-visualização, e formas de estender o desenvolvimento de Funções a outras línguas.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83994906"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108556"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Línguas apoiadas em Funções Azure
 
@@ -27,9 +27,9 @@ Estão disponíveis três [versões do tempo de funcionamento das Funções Azur
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>Manipuladores personalizados (pré-visualização) 
+## <a name="custom-handlers"></a>Processadores personalizados
 
-Os manipuladores personalizados são servidores web leves que recebem eventos do anfitrião Azure Functions. Qualquer idioma que suporte primitivos HTTP pode implementar um manipulador personalizado. Isto significa que os manipuladores personalizados podem ser usados para criar funções em idiomas que não são oficialmente suportados. Para saber mais, consulte [os manipuladores personalizados Azure Functions (pré-visualização)](functions-custom-handlers.md).
+Os manipuladores personalizados são servidores web leves que recebem eventos do anfitrião Azure Functions. Qualquer idioma que suporte primitivos HTTP pode implementar um manipulador personalizado. Isto significa que os manipuladores personalizados podem ser usados para criar funções em idiomas que não são oficialmente suportados. Para saber mais, consulte [os manipuladores personalizados Azure Functions](functions-custom-handlers.md).
 
 ## <a name="language-extensibility"></a>Extensibilidade linguística
 

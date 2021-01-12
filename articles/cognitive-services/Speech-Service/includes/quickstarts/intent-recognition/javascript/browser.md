@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 77fab9c4a52a1d54f548dfbcb35e351195d13bd9
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052837"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109340"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
@@ -189,8 +189,9 @@ Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que subs
 ```
 
 > [!NOTE]
-> Pode criar um LanguageUnderstandingModel passando um URL de ponto final para o método FromEndpoint.
-> A SDK da fala só suporta pontos finais LUIS v2.0, e os pontos finais LUIS v2.0 seguem sempre um destes dois padrões:
+> A SDK de discurso só suporta pontos finais LUIS v2.0.
+> Tem de modificar manualmente o URL do ponto final v3.0 encontrado no campo de consulta de exemplo para utilizar um padrão URL v2.0.
+> Os pontos finais LUIS v2.0 seguem sempre um destes dois padrões:
 > * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 > * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 

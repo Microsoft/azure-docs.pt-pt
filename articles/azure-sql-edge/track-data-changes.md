@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 86e84c60aec99246f58b5dc9d67584b23a3969f3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394934"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108267"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Acompanhe as alterações de dados no Azure SQL Edge
 
@@ -35,6 +35,9 @@ Para compreender como ativar ou desativar esta funcionalidade, consulte [Ativar 
 Para administrar e monitorizar esta funcionalidade, consulte [Administrar e monitorizar a captura de dados de alteração](/sql/relational-databases/track-changes/administer-and-monitor-change-data-capture-sql-server).
 
 Para entender como consultar e trabalhar com os dados alterados, consulte [Trabalhar com dados de alteração.](/sql/relational-databases/track-changes/work-with-change-data-sql-server)
+
+> [!NOTE]
+> As funções de Captura de Dados de Alteração que dependem do CLR não são suportadas na Borda SQL do Azure.
 
 ## <a name="change-tracking"></a>Monitorização de alterações
 
