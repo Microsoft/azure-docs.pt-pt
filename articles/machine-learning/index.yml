@@ -9,16 +9,16 @@ metadata:
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
+  ms.author: larryfr
+  author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
-  ms.openlocfilehash: f6664dd78effd3a1f203a564265f1dc7a1f0ce03
-  ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+  ms.openlocfilehash: ddf39e9822d55f8e7bec8a0e36659757ac9b4770
+  ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/10/2020
-  ms.locfileid: "97031322"
+  ms.lasthandoff: 01/11/2021
+  ms.locfileid: "98071991"
 landingContent:
 - title: 'Introdução: Primeiro o código'
   linkLists:

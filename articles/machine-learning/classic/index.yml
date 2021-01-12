@@ -9,15 +9,15 @@ metadata:
   ms.subservice: studio
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
+  ms.author: peterlu
+  author: peterclu
   ms.date: 03/05/2020
-  ms.openlocfilehash: a7cbc96775b512828d7b3a741834c00942ac2980
-  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+  ms.openlocfilehash: 246196268191d49227f9a46f48bf3c8e1175e33a
+  ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94984639"
+  ms.lasthandoff: 01/11/2021
+  ms.locfileid: "98071685"
 landingContent:
 - title: Introdução ao Studio (clássico)
   linkLists:
