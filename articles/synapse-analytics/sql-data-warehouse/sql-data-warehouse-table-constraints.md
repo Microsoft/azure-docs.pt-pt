@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: emtehran
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bdb27c5c9f5ec8a7be433ab6e421ecabf5c8c254
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 88b63ce30000340a70811e9f623e4273ccbb272a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505584"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117287"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Chave primária, chave estrangeira e chave única usando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Piscina SQL dedicada suporta estes constrangimentos de mesa:
 - A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.    
 - É utilizada uma restrição única apenas com NÃO EXECUTADA.
 
-Para sintaxe, verifique [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) e [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+Para sintaxe, verifique [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) e [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
 O constrangimento da CHAVE ESTRANGEIRA não é suportado em piscina SQL dedicada.  
 

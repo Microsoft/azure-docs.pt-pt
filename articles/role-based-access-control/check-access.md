@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 7cf4020ad38224b25ea8bb7dc7f0fdea7dd6f3b1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034008"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115747"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Quickstart: Verifique o acesso de um utilizador aos recursos da Azure
 
@@ -37,7 +37,7 @@ Siga estes passos para abrir o conjunto de recursos Azure para os que pretende v
 
     O seguinte mostra um grupo de recursos exemplo.
 
-    ![Visão geral do grupo de recursos](./media/check-access/rg-overview.png)
+    ![Visão geral do grupo de recursos](./media/shared/rg-overview.png)
 
 ## <a name="step-2-check-access-for-a-user"></a>Passo 2: Verificar o acesso de um utilizador
 
@@ -47,7 +47,7 @@ Siga estes passos para verificar o acesso de um único utilizador, grupo, princi
 
     O seguinte mostra um exemplo da página access control (IAM) para um grupo de recursos.
 
-    ![Controlo de acesso a grupos de recursos - Verifique o separador de acesso](./media/check-access/rg-access-control.png)
+    ![Controlo de acesso a grupos de recursos - Verifique o separador de acesso](./media/shared/rg-access-control.png)
 
 1. No separador **de acesso a Verificação,** na lista **'Localizar',** selecione o utilizador, grupo, principal de serviço ou identidade gerida que pretende verificar o acesso.
 

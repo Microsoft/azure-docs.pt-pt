@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: fe83425230a157be245e3aa1ad088c32596ea5ed
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693368"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115791"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Quickstart: Criar uma conta Azure Purview no portal Azure
 
@@ -29,7 +29,7 @@ Neste arranque rápido, cria-se uma conta Azure Purview.
 
 * A sua conta deve ter permissão para criar recursos na subscrição
 
-* Se tiver **a Azure Policy** a bloquear todas as aplicações da criação de conta de **Armazenamento** e espaço **de nomes EventHub,** tem de abrir exceções de política utilizando a etiqueta, que poderá ser inserida durante o processo de criação de uma conta Purview. A razão principal é que para cada Conta Desembaraço criada, precisa de criar um Grupo de Recursos gerido e dentro deste grupo de recursos, uma conta de Armazenamento e um espaço de nomes EventHub.
+* Se tiver **a Azure Policy** a bloquear todas as aplicações da criação de conta de **Armazenamento** e espaço **de nomes EventHub,** tem de abrir exceções de política utilizando a etiqueta, que pode ser inserida durante o processo de criação de uma conta Purview. A razão principal é que para cada Conta Desembaraço criada, precisa de criar um Grupo de Recursos gerido e dentro deste grupo de recursos, uma conta de Armazenamento e um espaço de nomes EventHub.
 
     > [!important]
     > Não precisa seguir este passo se não tiver a Política Azure ou uma Política Azure existente não estiver a bloquear a criação de **uma conta** de Armazenamento e espaço de **nomes EventHub.**
@@ -163,7 +163,7 @@ Se ao clicar em Adicionar vê duas escolhas que mostram ambas marcadas (desativa
 
 1. Clique em **Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisar desta conta Azure Purview, elimine-a com os seguintes passos:
 

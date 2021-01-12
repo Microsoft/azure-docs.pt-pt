@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964257"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117253"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
 
@@ -31,7 +31,7 @@ Primeiro tens de determinar quem precisa de acesso. Pode atribuir uma função a
 - Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma *identidade de utilizador* (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
 - Identidade gerida - Uma identidade no Azure Ative Directory que é gerida automaticamente pela Azure. Normalmente, utiliza [identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) ao desenvolver aplicações em nuvem para gerir as credenciais para autenticação nos serviços Azure.
 
-## <a name="step-2-find-the-appropriate-role"></a>Passo 2: Encontrar o papel adequado
+## <a name="step-2-select-the-appropriate-role"></a>Passo 2: Selecione a função adequada
 
 As permissões são agrupadas numa *definição de papel.* Normalmente chama-se *um papel.* Pode selecionar a partir de uma lista de várias funções incorporadas. Se as funções incorporadas não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
 

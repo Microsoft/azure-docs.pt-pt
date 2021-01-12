@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701138"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116199"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice básico de pesquisa em Azure Cognitive Search
 
@@ -70,7 +70,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 Durante o desenvolvimento, planeie reconstruções frequentes. Porque as estruturas físicas são criadas no serviço, [a queda e a recriação de índices](search-howto-reindex.md) são necessárias para a maioria das modificações a uma definição de campo existente. Pode considerar trabalhar com um subconjunto dos seus dados para fazer com que as reconstruções vão mais rápido. 
 
 > [!Tip]
-> O código, em vez de uma abordagem do portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como [o Postman e o Visual Studio Code](search-get-started-rest.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fase inicial. Pode escruissar alterações incrementais a uma definição de índice num organismo de pedido e, em seguida, enviar o pedido ao seu serviço para recriar um índice utilizando um esquema atualizado.
+> O código, em vez de uma abordagem do portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como [o Postman](search-get-started-rest.md) ou [o Visual Studio Code](search-get-started-vs-code.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fase inicial. Pode escruissar alterações incrementais a uma definição de índice num organismo de pedido e, em seguida, enviar o pedido ao seu serviço para recriar um índice utilizando um esquema atualizado.
 
 ## <a name="index-schema"></a>Esquema de índice
 
@@ -169,7 +169,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados, e atributos
 
 ### <a name="data-types"></a>Tipos de dados
 
-| Tipo | Description |
+| Tipo | Descrição |
 |------|-------------|
 | Edm.String |Texto que pode opcionalmente ser tokenized para pesquisa de texto completo (quebra de palavras, cauling, e assim por diante). |
 | Coleção (Edm.String) |Uma lista de cadeias que pode, opcionalmente, ser atomizada para pesquisa em texto completo. Não existe um limite superior teórico do número de itens numa coleção, contudo, o limite superior de 16 MB de tamanho de payload aplica-se às coleções. |
@@ -242,7 +242,7 @@ A imagem a seguir ilustra padrões de armazenamento de índices resultantes de v
 
 ![Tamanho do índice com base na seleção de atributos](./media/search-what-is-an-index/realestate-index-size.png "Tamanho do índice com base na seleção de atributos")
 
-Embora estas variantes de índice sejam artificiais, podemos referir-nos a elas para comparações amplas de como os atributos afetam o armazenamento. A definição "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **indicador aumenta** o tamanho do índice? Sim.
+Embora estas variantes de índice sejam artificiais, podemos referir-nos a elas para comparações amplas de como os atributos afetam o armazenamento. A definição "recuperável" aumenta o tamanho do índice? N.º Adicionar campos a um **indicador aumenta** o tamanho do índice? Yes.
 
 Os índices que suportam filtro e classificação são proporcionalmente maiores do que os índices que suportam apenas a pesquisa completa de texto. Isto porque filtrar e classificar as operações para obter correspondências exatas, exigindo a presença de cordas de texto verbatim. Em contraste, os campos pes pesjáveis que suportam consultas de texto completo usam índices invertidos, que são povoados com termos simbólicos que consomem menos espaço do que documentos inteiros. 
 
@@ -256,6 +256,6 @@ Com uma compreensão da composição do índice, pode continuar no portal para c
 > [!div class="nextstepaction"]
 > [Assistente de dados de importação (portal)](search-get-started-portal.md)
 
-Para ambos os conjuntos de dados, o assistente pode inferir um esquema de índice, importar os dados e obter um índice pesmável que pode consultar usando o Search Explorer. Encontre estas fontes de dados na página de dados do assistente de **dados "Importar".** **Import data**
+Para ambos os conjuntos de dados, o assistente pode inferir um esquema de índice, importar os dados e obter um índice pesmável que pode consultar usando o Search Explorer. Encontre estas fontes de dados na página de dados do assistente de **dados "Importar".** 
 
    ![Criar um índice de amostra](media/search-what-is-an-index//import-wizard-sample-data.png "Criar um índice de amostra")

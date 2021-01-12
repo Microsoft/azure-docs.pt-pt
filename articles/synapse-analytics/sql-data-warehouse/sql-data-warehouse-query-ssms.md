@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b213954dde6ca4eaa0a69ddf0e40398fc09b9063
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450468"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115774"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Conecte-se a uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics com SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
@@ -79,4 +79,4 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [Authenticate para piscina SQL dedicada.](sql-data-warehouse-authentication.md)
+Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect). Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [Authenticate para piscina SQL dedicada.](sql-data-warehouse-authentication.md)

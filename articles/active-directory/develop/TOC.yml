@@ -644,34 +644,6 @@
       href: identity-videos.md
     - name: Blogue de programador de plataforma de identidade da Microsoft
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
-    - name: Artigos de ajuda do portal do Azure
-      items:
-        - name: Predefinições de duração do token para uma aplicação personalizada
-          href: registration-config-change-token-lifetime-how-to.md
-        - name: Descobrir pontos finais
-          href: registration-config-how-to.md
-        - name: Selecionar permissões para uma determinada API
-          href: perms-for-given-api.md
-        - name: Protocolos de autenticação
-          href: active-directory-authentication-protocols.md
-        - name: Diferenças entre permissões delegadas e da aplicação
-          href: delegated-and-app-perms.md
-        - name: Como funciona o consentimento da aplicação
-          href: consent-framework-links.md
-        - name: Localizar uma API específica necessária para uma aplicação personalizada
-          href: api-find-an-api-how-to.md
-        - name: Referência de registo de aplicação
-          href: active-directory-v2-registration-portal.md
-        - name: Campos de registo no portal do Azure para aplicações personalizadas
-          href: registration-config-specific-application-property-how-to.md
-        - name: Configurar uma nova aplicação multi-inquilino
-          href: setup-multi-tenant-app.md
-        - name: Adicionar uma aplicação multi-inquilino à galeria da aplicação do Azure AD
-          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-        - name: Integrar no Azure Active Directory
-          href: active-directory-how-to-integrate.md
-        - name: Configurar o início de sessão único para uma aplicação
-          href: registration-config-sso-how-to.md
     - name: Blogue do Microsoft Azure AD
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Roteiro do Azure

@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 846e1a83f3cba5f87210ae4f825b5fac4f1569c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a18fc3e4851c2daf03c662cf40cef58cc7d9e77a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648383"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117712"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicione ou remova atribuições de funções Azure para utilizadores convidados externos usando o portal Azure
 
@@ -29,9 +29,7 @@ ms.locfileid: "94648383"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar ou remover atribuições de funções, você deve ter:
-
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="when-would-you-invite-guest-users"></a>Quando convidaria os utilizadores convidados?
 
@@ -77,7 +75,7 @@ No Azure RBAC, para dar acesso, atribui-se um papel. Para adicionar uma atribui�
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
     A captura de ecrã seguinte mostra um exemplo do painel Controlo de acesso (IAM) para um grupo de recursos. Se fizer alguma alteração no controlo de acesso aqui, aplicar-se-ão apenas ao grupo de recursos.
 
@@ -115,7 +113,7 @@ Se o utilizador convidado ainda não estiver no seu diretório, pode convidar o 
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no **separador atribuições de funções** para ver todas as atribuições de funções neste âmbito.
 
@@ -211,7 +209,7 @@ Se um utilizador convidado tiver acesso a um diretório, mas não ver os recurso
 
 ![Painel de diretórios + assinaturas no portal Azure](./media/role-assignments-external-users/directory-subscription.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar utilizadores de colaboração Azure Ative Directory B2B no portal Azure](../active-directory/external-identities/add-users-administrator.md)
 - [Propriedades de um utilizador de colaboração Azure Ative Directory B2B](../active-directory/external-identities/user-properties.md)

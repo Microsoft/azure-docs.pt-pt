@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3b61df954e913671eafff4b739e0f53a4d420c28
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449712"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117304"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Orientação para o design de mesas distribuídas utilizando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Considere usar a distribuição de rodapé para a sua mesa nos seguintes cenári
 - Se a junção é menos significativa do que outras juntas na consulta
 - Quando a mesa é uma mesa de preparação temporária
 
-Os [dados](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) do imposto de carga de Nova Iorque dão um exemplo de carregar dados numa mesa de paragem de robin redondo.
+Os [dados](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) do imposto de carga de Nova Iorque dão um exemplo de carregar dados numa mesa de paragem de robin redondo.
 
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
 
@@ -117,7 +117,7 @@ Para obter as consultas corretas os resultados da consulta podem mover dados de 
 
 Para minimizar o movimento de dados, selecione uma coluna de distribuição que:
 
-- É usado em `JOIN` , , , e `GROUP BY` `DISTINCT` `OVER` `HAVING` cláusulas. Quando duas grandes tabelas de fatos têm juntas frequentes, o desempenho da consulta melhora quando distribui ambas as tabelas numa das colunas de junção.  Quando uma tabela não é utilizada em juntas, considere distribuir a mesa numa coluna que esteja frequentemente na `GROUP BY` cláusula.
+- É usado em `JOIN` `GROUP BY` , e `DISTINCT` `OVER` `HAVING` cláusulas. Quando duas grandes tabelas de fatos têm juntas frequentes, o desempenho da consulta melhora quando distribui ambas as tabelas numa das colunas de junção.  Quando uma tabela não é utilizada em juntas, considere distribuir a mesa numa coluna que esteja frequentemente na `GROUP BY` cláusula.
 - *Não* é usado em `WHERE` cláusulas. Isto poderia limitar a consulta a não funcionar em todas as distribuições.
 - *Não* é uma coluna de encontros. ONDE as cláusulas filtram frequentemente por data.  Quando isto acontece, todo o processamento pode ser executado em apenas algumas distribuições.
 

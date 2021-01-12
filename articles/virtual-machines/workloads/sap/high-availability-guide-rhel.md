@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: c275d3fc1bb2372b36a3a29ae3b72f3e5e9b758a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d30a9d0abf6984df502283f06b2745f8ee4b1966
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484231"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116301"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -79,7 +79,7 @@ Leia primeiro as seguintes notas e artigos SAP
   * [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster](https://access.redhat.com/articles/3131341)
   * [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure](https://access.redhat.com/articles/3252491)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para obter uma elevada disponibilidade, o SAP NetWeaver necessita de armazenamento partilhado. O GlusterFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 
@@ -623,6 +623,8 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    # Probe Port of ERS
    sudo firewall-cmd --zone=public --add-port=621<b>02</b>/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=621<b>02</b>/tcp
+   sudo firewall-cmd --zone=public --add-port=32<b>02</b>/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=32<b>02</b>/tcp
    sudo firewall-cmd --zone=public --add-port=33<b>02</b>/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=33<b>02</b>/tcp
    sudo firewall-cmd --zone=public --add-port=5<b>02</b>13/tcp --permanent
@@ -896,7 +898,7 @@ Siga estes passos para instalar um servidor de aplicação SAP.
 
    Executar os seguintes comandos como raiz para identificar o processo do servidor de mensagem e matá-lo.
 
-   <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
+   <pre><code>[root@nw1-cl-0 ~]# pgrep -f ms.sapNW1 | xargs kill -9
    </code></pre>
 
    Se só desligar o servidor de mensagens uma vez, será reiniciado por `sapstart` . Se o matares com frequência, o Pacemaker irá eventualmente mover a instância ASCS para o outro nó. Executar os seguintes comandos como raiz para limpar o estado de recursos da instância ASCS e ERS após o teste.
@@ -939,7 +941,11 @@ Siga estes passos para instalar um servidor de aplicação SAP.
 
    Executar os seguintes comandos como raiz no nó onde a instância ASCS está em execução para matar o servidor de enqueue.
 
-   <pre><code>[root@nw1-cl-1 ~]# pgrep en.sapNW1 | xargs kill -9
+   <pre><code>
+    #If using ENSA1 
+    [root@nw1-cl-1 ~]# pgrep -f en.sapNW1 | xargs kill -9
+    #If using ENSA2
+    [root@nw1-cl-1 ~]# pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
 
    A instância ASCS deve falhar imediatamente no outro nó. A instância ERS também deve ser chumbada após o início da instância ASCS. Executar os seguintes comandos como raiz para limpar o estado de recursos da instância ASCS e ERS após o teste.
@@ -982,7 +988,11 @@ Siga estes passos para instalar um servidor de aplicação SAP.
 
    Executar o seguinte comando como raiz no nó onde a instância ERS está a correr para eliminar o processo do servidor de replicação enqueue.
 
-   <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
+   <pre><code>
+    #If using ENSA1
+    [root@nw1-cl-1 ~]# pgrep -f er.sapNW1 | xargs kill -9
+    #If using ENSA2
+    [root@nw1-cl-1 ~]# pgrep -f enqr.sapNW1 | xargs kill -9
    </code></pre>
 
    Se executar apenas o comando uma vez, `sapstart` reiniciará o processo. Se o executar com frequência, `sapstart` não reiniciará o processo e o recurso estará num estado parado. Executar os seguintes comandos como raiz para limpar o estado de recursos da instância ERS após o teste.

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935007"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116012"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -224,14 +224,6 @@ Se configurar mal uma apólice, pode bloquear as organizações fora do portal A
 
 * Crie uma conta de utilizador dedicada à administração de políticas e excluída de todas as suas políticas.
 
-* Cenário de vidro quebrado para ambientes híbridos:
-
-  * Crie um grupo de segurança no local e sincronize-o com a Azure AD. O grupo de segurança deve conter a sua conta dedicada à administração de políticas. 
-
-   * ISENTA Este grupo de segurança forma todas as políticas de Acesso Condicional.
-
-   * Quando ocorrer uma interrupção de serviço, adicione os seus outros administradores ao grupo no local, conforme apropriado, e force uma sincronização. Isto anima a sua isenção às políticas de Acesso Condicional.
-
 ### <a name="set-up-report-only-mode"></a>Configurar o modo apenas de relatório
 
 Pode ser difícil prever o número e os nomes dos utilizadores afetados por iniciativas comuns de implantação, tais como:
@@ -376,7 +368,7 @@ Algumas organizações têm inquilinos de teste para este fim. No entanto, pode 
 
 O plano de ensaio é importante para ter uma comparação entre os resultados esperados e os resultados reais. Deve sempre ter uma expectativa antes de testar algo. A tabela a seguir descreve casos de teste de exemplo. Ajuste os cenários e os resultados esperados com base na configuração das suas políticas de Acesso Condicional.
 
-| Política| Scenario| Resultado Esperado |
+| Política| Cenário| Resultado Esperado |
 | - | - | - |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| O utilizador autorizado assina na App enquanto está numa localização/trabalho de confiança| O utilizador não é solicitado ao MFA |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| O utilizador autorizado assina na App enquanto não está numa localização/trabalho fidedigna| O utilizador é solicitado ao MFA e pode assinar com sucesso |
@@ -493,4 +485,4 @@ Assim que tiver recolhido a informação, consulte os seguintes recursos:
 
 [Saiba mais sobre a Proteção de Identidade](../identity-protection/overview-identity-protection.md)
 
-[Gerir políticas de acesso condicional com a API do Gráfico microsoft](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gerir políticas de acesso condicional com a API do Gráfico microsoft](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)

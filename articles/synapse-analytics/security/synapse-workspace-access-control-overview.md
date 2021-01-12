@@ -9,18 +9,18 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 71a83a8d119e5fd8c18b7b21abe4a0a07ba9c67a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109611"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116556"
 ---
 # <a name="synapse-access-control"></a>Controlo de acesso sinapse 
 
 Este artigo fornece uma visão geral dos mecanismos disponíveis para controlar o acesso aos recursos e dados do cálculo da Sinapse.  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Sinapse fornece um sistema de controlo de acesso abrangente e fino, que integra: 
 - **Funções Azure** para gestão de recursos e acesso a dados armazenados, 
@@ -48,7 +48,7 @@ Para *criar* estes recursos, precisa de ser proprietário ou colaborador da Azur
 A Sinapse suporta dois modelos de desenvolvimento.
 
 - **Sinapse desenvolvimento ao vivo.**  Desenvolve-se e depura código no Synapse Studio e depois **publica-o** para guardar e executar.  O serviço Synapse é a fonte da verdade para a edição e execução de códigos.  Qualquer obra inédita perde-se quando se fecha o Estúdio Synapse.  
-- **Desenvolvimento habilitado a Git.** Desenvolves e depuras códigos no Synapse Studio e **cometes** alterações num ramo de trabalho de um git repo. O trabalho a partir de um ou mais balcões está integrado num ramo de colaboração, de onde o **publica** ao serviço.  O git repo é a fonte da verdade para a edição de código, enquanto o serviço é a fonte da verdade para a execução. As alterações devem ser comprometidas com o git repo ou publicadas no serviço antes de fechar o Synapse Studio. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2150100) sobre a utilização do Synapse Analytics com o Git.
+- **Desenvolvimento habilitado a Git.** Desenvolves e depuras códigos no Synapse Studio e **cometes** alterações num ramo de trabalho de um git repo. O trabalho a partir de um ou mais balcões está integrado num ramo de colaboração, de onde o **publica** ao serviço.  O git repo é a fonte da verdade para a edição de código, enquanto o serviço é a fonte da verdade para a execução. As alterações devem ser comprometidas com o git repo ou publicadas no serviço antes de fechar o Synapse Studio. [Saiba mais](../cicd/continuous-integration-deployment.md) sobre a utilização do Synapse Analytics com o Git.
 
 Em ambos os modelos de desenvolvimento, qualquer utilizador com acesso ao Synapse Studio pode criar artefactos de código.  No entanto, precisa de permissões adicionais para publicar artefactos ao serviço, ler artefactos publicados, comprometer alterações ao Git, executar código e aceder a dados ligados protegidos por credenciais.
 

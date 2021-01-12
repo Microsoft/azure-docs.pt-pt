@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: b1a2e802f66132a88060fb74831781055897b077
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 9e7d45a588e60cd082f1eef43d1d1b6681b9e912
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093660"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117746"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Marque modelos de aprendizagem automática com PREVISÃO
 
-O pool dedicado SQL proporciona-lhe a capacidade de marcar modelos de machine learning usando o familiar idioma T-SQL. Com o T-SQL [PREDICT,](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)pode trazer os seus modelos de machine learning existentes treinados com dados históricos e marcá-los dentro dos limites seguros do seu armazém de dados. A função PREDICT requer um modelo [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esta funcionalidade elimina o passo de mover dados valiosos para fora do armazém de dados para pontuação. Tem como objetivo capacitar os profissionais de dados a implementarem facilmente modelos de machine learning com a interface T-SQL familiar, bem como colaborar perfeitamente com os cientistas de dados que trabalham com o enquadramento certo para a sua tarefa.
+O pool dedicado SQL proporciona-lhe a capacidade de marcar modelos de machine learning usando o familiar idioma T-SQL. Com o T-SQL [PREDICT,](/sql/t-sql/queries/predict-transact-sql?preserve-view=true&view=azure-sqldw-latest)pode trazer os seus modelos de machine learning existentes treinados com dados históricos e marcá-los dentro dos limites seguros do seu armazém de dados. A função PREDICT requer um modelo [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esta funcionalidade elimina o passo de mover dados valiosos para fora do armazém de dados para pontuação. Tem como objetivo capacitar os profissionais de dados a implementarem facilmente modelos de machine learning com a interface T-SQL familiar, bem como colaborar perfeitamente com os cientistas de dados que trabalham com o enquadramento certo para a sua tarefa.
 
 > [!NOTE]
 > Esta funcionalidade não é suportada atualmente na piscina SQL sem servidor.
@@ -35,7 +35,7 @@ Piscina DEDICADA SQL espera um modelo pré-treinado. Tenha em mente os seguintes
 
 - A piscina dedicada SQL suporta apenas modelos de formato ONNX. O ONNX é um formato de modelo de código aberto que permite trocar modelos entre várias estruturas para permitir a interoperabilidade. Pode converter os seus modelos existentes no formato ONNX utilizando quadros que o suportem de forma nativa ou tenham pacotes de conversão disponíveis. Por exemplo, o pacote [sklearn-onnx](https://github.com/onnx/sklearn-onnx) converte modelos de aprendizagem de scikit para ONNX. [O repositório ONNX GitHub](https://github.com/onnx/tutorials#converting-to-onnx-format) apresenta uma lista de quadros e exemplos apoiados.
 
-   Se estiver a utilizar [ml automatizado](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) para treino, certifique-se de definir o parâmetro *enable_onnx_compatible_models* para TRUE para produzir um modelo de formato ONNX. [O Notebook automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) de aprendizagem automática mostra um exemplo de como usar ML automatizado para criar um modelo de aprendizagem automática do formato ONNX.
+   Se estiver a utilizar [ml automatizado](../../machine-learning/concept-automated-ml.md) para treino, certifique-se de definir o parâmetro *enable_onnx_compatible_models* para TRUE para produzir um modelo de formato ONNX. [O Notebook automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) de aprendizagem automática mostra um exemplo de como usar ML automatizado para criar um modelo de aprendizagem automática do formato ONNX.
 
 - Os seguintes tipos de dados são suportados para os dados de entrada:
     - int, bigint, real, flutuar
@@ -66,7 +66,7 @@ GO
 
 ```
 
-Uma vez que o modelo é convertido para uma corda hexadémica e a definição de tabela especificada, utilize o [comando COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) ou Polybase para carregar o modelo na tabela de piscinas SQL dedicada. A seguinte amostra de código utiliza o comando Copy para carregar o modelo.
+Uma vez que o modelo é convertido para uma corda hexadémica e a definição de tabela especificada, utilize o [comando COPY](/sql/t-sql/statements/copy-into-transact-sql?preserve-view=true&view=azure-sqldw-latest) ou Polybase para carregar o modelo na tabela de piscinas SQL dedicada. A seguinte amostra de código utiliza o comando Copy para carregar o modelo.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -80,9 +80,9 @@ WITH (
 
 ## <a name="scoring-the-model"></a>Marcando o modelo
 
-Uma vez que o modelo e os dados são carregados no armazém de dados, utilize a função **T-SQL PREDICT** para marcar o modelo. Certifique-se de que os novos dados de entrada estão no mesmo formato que os dados de formação utilizados para a construção do modelo. T-SQL PREDICT requer duas entradas: modelo e novos dados de entrada de pontuação, e gera novas colunas para a saída. O modelo pode ser especificado como uma variável, uma sub_query literal ou escalar. Utilize [o WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true) para especificar um conjunto de resultados nomeado para o parâmetro de dados.
+Uma vez que o modelo e os dados são carregados no armazém de dados, utilize a função **T-SQL PREDICT** para marcar o modelo. Certifique-se de que os novos dados de entrada estão no mesmo formato que os dados de formação utilizados para a construção do modelo. T-SQL PREDICT requer duas entradas: modelo e novos dados de entrada de pontuação, e gera novas colunas para a saída. O modelo pode ser especificado como uma variável, uma sub_query literal ou escalar. Utilize [o WITH common_table_expression](/sql/t-sql/queries/with-common-table-expression-transact-sql?preserve-view=true&view=azure-sqldw-latest) para especificar um conjunto de resultados nomeado para o parâmetro de dados.
 
-O exemplo abaixo mostra uma consulta de amostra usando a função de previsão. Uma coluna adicional com nome *Pontuação* e *boia* tipo de dados é criada contendo os resultados da previsão. Todas as colunas de dados de entrada, bem como as colunas de previsão de saída, estão disponíveis para visualizar com a declaração selecionada. Para mais detalhes, consulte [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+O exemplo abaixo mostra uma consulta de amostra usando a função de previsão. Uma coluna adicional com nome *Pontuação* e *boia* tipo de dados é criada contendo os resultados da previsão. Todas as colunas de dados de entrada, bem como as colunas de previsão de saída, estão disponíveis para visualizar com a declaração selecionada. Para mais detalhes, consulte [PREDICT (Transact-SQL)](/sql/t-sql/queries/predict-transact-sql?preserve-view=true&view=azure-sqldw-latest).
 
 ```sql
 -- Query for ML predictions
@@ -93,4 +93,4 @@ DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a função PREVISÃO, consulte [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+Para saber mais sobre a função PREVISÃO, consulte [PREDICT (Transact-SQL)](/sql/t-sql/queries/predict-transact-sql?preserve-view=true&view=azure-sqldw-latest).

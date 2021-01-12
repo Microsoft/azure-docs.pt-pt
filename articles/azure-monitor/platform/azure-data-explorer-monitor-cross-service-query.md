@@ -7,19 +7,17 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 5aadd9d96f538f92e1b9e0100b2c1055ee0b0633
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065274"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116714"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Consulta de serviço cross - Azure Monitor e Azure Data Explorer (Preview)
 Criar consultas de serviço cruzada entre [Azure Data Explorer,](https://docs.microsoft.com/azure/data-explorer/) [Application Insights](/azure/azure-monitor/app/app-insights-overview)e [Log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Consulta de serviço cross-service Azure Monitor e Azure Data Explorer
 Esta experiência permite-lhe [criar consultas de serviço cruzada entre o Azure Data Explorer e o Azure Monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) e criar consultas de serviço cruzada entre o [Azure Monitor e o Azure Data Explorer.](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy)
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Fluxo de procuração de explorador de dados Azure.":::
 
 Por exemplo, (consulta do Azure Data Explorer a partir de Log Analytics):
 ```kusto
@@ -43,7 +41,7 @@ Utilize o Azure Data Explorer para consultar dados que foram exportados dos seus
 >[!tip] 
 > * Para exportar todos os dados do seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou centro de eventos, utilize a funcionalidade de exportação de dados do log Analytics do Monitor Azure. [Consulte a exportação de dados do espaço de trabalho Do Log Analytics no Azure Monitor (pré-visualização)](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre:
 * [criar consultas de serviço cruzada entre O Explorador de Dados Azure e monitor Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data). Consulta Azure Monitor dados do Azure Data Explorer
 * [criar consultas de serviço cruzada entre O Monitor Azure e Azure Data Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy). Consulta Azure Data Explorer dados do Azure Monitor

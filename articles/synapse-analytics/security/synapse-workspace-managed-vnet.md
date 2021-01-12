@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501078"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116369"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Azure Synapse Analytics Rede Virtual Gerida
 
@@ -41,7 +41,7 @@ Piscina SQL dedicada e piscina SQL sem servidor são capacidades multi-inquilino
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-virtual-network"></a>Criar um espaço de trabalho Azure Synapse com uma Rede Virtual de espaço de trabalho gerido
 
-Se ainda não o fez, registe o fornecedor de recursos da Rede. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *o Microsoft.Network* na lista de fornecedores de recursos quando se [registar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+Se ainda não o fez, registe o fornecedor de recursos da Rede. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *o Microsoft.Network* na lista de fornecedores de recursos quando se [registar](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 Para criar um espaço de trabalho Azure Synapse que tenha uma Rede Virtual gerida do espaço de trabalho associada a ele, selecione o **separador de Rede** no portal Azure e verifique a caixa de verificação **de rede virtual gerida enable.**
 

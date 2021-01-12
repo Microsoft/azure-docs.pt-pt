@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 3d9a842af5e1d3fac73515d96644bef250d7d0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 95158193a978702392106c8aa3347de211fd1a3e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334574"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115451"
 ---
 # <a name="create-table-as-select-ctas"></a>CRIAR TABELA COMO SELECT (CTAS)
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-merge"></a>ANSI junta-se a substituição da MERGE 
 
-No Azure Synapse Analytics, [a MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (pré-visualização) com NÃO CORRESPONDED BY TARGET requer que o alvo seja uma tabela distribuída HASH.  Os utilizadores podem utilizar o ANSI JOIN com [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) ou [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) como uma solução alternativa para modificar os dados da tabela-alvo com base no resultado de se juntar a outra tabela.  Eis um exemplo.
+No Azure Synapse Analytics, [a MERGE](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (pré-visualização) com NÃO CORRESPONDED BY TARGET requer que o alvo seja uma tabela distribuída HASH.  Os utilizadores podem utilizar o ANSI JOIN com [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) ou [DELETE](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) como uma solução alternativa para modificar os dados da tabela-alvo com base no resultado de se juntar a outra tabela.  Eis um exemplo.
 
 ```sql
 CREATE TABLE dbo.Table1   

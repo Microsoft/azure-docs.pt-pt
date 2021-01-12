@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 5a666d265550de6e24d791db6daa954d50ddde38
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: cefbdce88d49598998e8f985821088778eee3ae8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094187"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117661"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -32,9 +32,9 @@ Numa solução do Data Factory, pode criar um ou mais [pipelines](concepts-pipel
 
 Embora a Data Factory esteja disponível apenas em poucas regiões, o serviço de movimento de dados está [disponível globalmente](concepts-integration-runtime.md#integration-runtime-location) para garantir a conformidade, eficiência e custos reduzidos de saída da rede. 
 
-A Azure Data Factory, incluindo o Integration Runtime, não armazena quaisquer dados, exceto credenciais de serviço ligadas para lojas de dados em nuvem, que são encriptadas através de certificados. Com a Data Factory, cria fluxos de trabalho baseados em dados para orquestrar o movimento de dados entre lojas de [dados apoiadas,](copy-activity-overview.md#supported-data-stores-and-formats)e o processamento de dados utilizando [serviços de computação](compute-linked-services.md) noutras regiões ou num ambiente no local. Também pode monitorizar e gerir fluxos de trabalho utilizando SDKs e Azure Monitor.
+A Azure Data Factory, incluindo o Tempo de Execução da Integração Azure e o Tempo de Execução de Integração Auto-hospedado, não armazena quaisquer dados temporários, dados de cache ou registos, exceto credenciais de serviço ligados para lojas de dados em nuvem, que são encriptadas através da utilização de certificados. Com a Data Factory, cria fluxos de trabalho baseados em dados para orquestrar o movimento de dados entre lojas de [dados apoiadas,](copy-activity-overview.md#supported-data-stores-and-formats)e o processamento de dados utilizando [serviços de computação](compute-linked-services.md) noutras regiões ou num ambiente no local. Também pode monitorizar e gerir fluxos de trabalho utilizando SDKs e Azure Monitor.
 
-A Data Factory foi certificada para:
+A Data Factory foi certificada para: 
 
 | **[Certificação CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
@@ -194,7 +194,7 @@ As seguintes lojas de dados em nuvem requerem que você permita o endereço IP d
 
 **O tempo de integração auto-organizado pode ser partilhado em diferentes fábricas de dados?**
 
-Sim. Mais detalhes [aqui.](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/)
+Yes. Mais detalhes [aqui.](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/)
 
 **Quais são os requisitos portuários para o tempo de funcionamento da integração auto-acolhida?**
 

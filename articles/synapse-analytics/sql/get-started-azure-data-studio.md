@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ff7b07cb1a4f480907bb51e741a05deeaae8e66b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451664"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116488"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Ligue ao Synapse SQL com o Azure Data Studio
 
@@ -95,4 +95,4 @@ Explore outras formas de se conectar ao SQL da Sinapse:
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
-Visite [o Azure Data Studio para conectar e consultar dados utilizando um pool DE SQL dedicado em Azure Synapse Analytics,](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw)para obter mais informações. 
+Visite [o Azure Data Studio para conectar e consultar dados utilizando um pool DE SQL dedicado em Azure Synapse Analytics,](/sql/azure-data-studio/quickstart-sql-dw)para obter mais informações.

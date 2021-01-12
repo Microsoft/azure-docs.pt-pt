@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2a8cfbe75925ddc49f6fa3205fafdd1c2203b472
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448060"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115638"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabelas de design usando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ As mesas temporárias utilizam o armazenamento local para oferecer um desempenho
 
 Uma tabela externa aponta para dados localizados na bolha de armazenamento Azure ou na Azure Data Lake Store. Quando utilizado em conjunto com a declaração CREATE TABLE AS SELECT, selecionando de uma tabela externa dados de importação em pool DE SQL dedicado.
 
-Como tal, as tabelas externas são úteis para o carregamento de dados. Para um tutorial de carregamento, consulte [Use PolyBase para carregar dados do armazenamento de bolhas Azure](load-data-from-azure-blob-storage-using-polybase.md).
+Como tal, as tabelas externas são úteis para o carregamento de dados. Para um tutorial de carregamento, consulte [Use PolyBase para carregar dados do armazenamento de bolhas Azure](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="data-types"></a>Tipos de dados
 

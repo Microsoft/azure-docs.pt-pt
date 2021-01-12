@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5258b1eab48f71d8d17f52849b5e57b467e7a2da
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7eff63b36eb09036b188ac756ec55a5b1bf63718
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460376"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116522"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Sinapse Geridos pontos finais privados
 
@@ -29,7 +29,7 @@ Quando utiliza uma ligação privada, o tráfego entre a sua Rede Virtual e o es
 
 O ponto final privado utiliza um endereço IP privado da sua Rede Virtual para efetivamente trazer o serviço para a sua Rede Virtual. Os pontos finais privados são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. 
 
-Saiba mais sobre [links privados e pontos finais privados.](https://docs.microsoft.com/azure/private-link/)
+Saiba mais sobre [links privados e pontos finais privados.](../../private-link/index.yml)
 
 >[!IMPORTANT]
 >Os pontos finais privados geridos são suportados apenas em espaços de trabalho Azure Synapse com uma Rede Virtual de espaço de trabalho gerido.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9a8dba99435e1616b1c49d5209b30c3c523876db
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071345"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116284"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -45,7 +45,7 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 | Plataformas suportadas:            | Máquinas Azure executando Janelas<br>Máquinas Azure Arc executando janelas|
 | Versões suportadas do Windows:  |  • Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC<br> • Sem suporte para Windows Server 2019, Windows 10 1703 (e mais recente) ou Linux|
 | Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
+| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 
@@ -131,7 +131,7 @@ O Defender for Endpoint está incluído sem custos adicionais com **o Azure Defe
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se já tenho licença para o Microsoft Defender para o Endpoint, posso ter um desconto para o Azure Defender?
 Se já tem uma licença para o Microsoft Defender para o Endpoint, não terá de pagar essa parte da licença do Azure Defender.
 
-Para confirmar o seu desconto, contacte a equipa de apoio do Security Center e forneça o iD do espaço de trabalho relevante, região e informações de licença.
+Para confirmar o seu desconto, contacte a equipa de apoio do Security Center e forneça o ID do espaço de trabalho relevante, região e informações de licença para cada licença relevante.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Como posso mudar de uma ferramenta EDR de terceiros?
 As instruções completas para mudar de uma solução de ponto final não microsoft estão disponíveis na documentação do Microsoft Defender for Endpoint: [Visão geral da migração](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

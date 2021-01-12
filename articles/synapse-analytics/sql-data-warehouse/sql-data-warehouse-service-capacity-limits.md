@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673421"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117695"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacidade para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Valores máximos permitidos para vários componentes de piscina SQL dedicada em 
 | Tabela |Tabelas por base de dados | 100.000 |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md)de coluna. O limite é de 8000 para tipos de dados de char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
-| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma que para o SQL Server com compressão de página. Tal como o SQL Server, o armazenamento de transbordo de linha é suportado, o que permite que **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são empurradas para fora da linha, apenas a raiz de 24 bytes é armazenada no registo principal. Para obter mais informações, consulte [dados de transbordo de linha superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma que para o SQL Server com compressão de página. Tal como o SQL Server, o armazenamento de transbordo de linha é suportado, o que permite que **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são empurradas para fora da linha, apenas a raiz de 24 bytes é armazenada no registo principal. Para obter mais informações, consulte [dados de transbordo de linha superiores a 8 KB](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)). |
 | Tabela |Divisórias por tabela |15 000<br/><br/>Para um alto desempenho, recomendamos minimizar o número de divisórias de que necessita, ao mesmo tempo que suporta os requisitos do seu negócio. À medida que o número de divisórias aumenta, a sobrecarga para as operações de Linguagem de Definição de Dados (DDL) e Linguagem de Manipulação de Dados (DML) cresce e causa um desempenho mais lento. |
 | Tabela |Caracteres por valor limite de partição. |4000 |
 | Índice |Índices não agrupados por tabela. |50<br/><br/>Aplica-se apenas a mesas de loja de filas. |
