@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8768b8f8c7bf70b184971abc6ce27e2193823dea
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458765"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121554"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analisar dados com Apache Spark
 
@@ -25,7 +25,7 @@ Em particular, vamos analisar o conjunto de dados [de táxis de Nova Iorque (NYC
 - Crie uma Piscina de Faíscas Apache seguindo o [tutorial de piscina Create a Apache Spark](../articles/../quickstart-create-apache-spark-pool-studio.md) 
 
 ## <a name="download-and-prepare-the-data"></a>Baixar e preparar os dados
-1. Crie um caderno utilizando o núcleo PySpark. Para obter instruções, consulte [Criar um Caderno](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook). 
+1. Crie um caderno utilizando o núcleo PySpark. Para obter instruções, consulte [Criar um Caderno](../quickstart-apache-spark-notebook.md#create-a-notebook). 
    
 > [!Note]
 > 
@@ -173,12 +173,12 @@ plt.show()
 
 Depois de ter terminado a execução da aplicação, desligue o portátil para libertar os recursos fechando o separador ou selecione **Sessão final** do painel de estado na parte inferior do portátil.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 - [Construa um modelo de aprendizagem automática com o Apache SparkML](../spark/apache-spark-machine-learning-mllib-notebook.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Documentação oficial da Faísca Apache Spark](https://spark.apache.org/docs/latest/)

@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: ef5f81090f4d06f15f1a7263699961cd360e12e5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9598f7a0bc8e4a8b92ac53612023585eb19f4c4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842197"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121537"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Quickstart: Enviar telemetria IoT a partir de um dispositivo Android
 
@@ -64,7 +64,7 @@ Neste arranque rápido, envia telemetria para um Azure IoT Hub a partir de uma a
     **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
     ```
 
     Anote a cadeia de ligação do dispositivo, que se assemelha a:
@@ -91,7 +91,7 @@ Neste arranque rápido, envia telemetria para um Azure IoT Hub a partir de uma a
    > * As versões do plugin Android Gradle e Gradle referenciadas no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para fazer referência e instalar as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e descarregar o SDK.
 
-4. Uma vez concluída a **Run** construção, clique em  >  **'app'** Run Run . Configurar a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
+4. Uma vez concluída a construção, clique em  >  **'app'** Run Run . Configurar a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
 
 5. Uma vez que a aplicação carrega, clique no botão **Iniciar** para começar a enviar telemetria para o seu IoT Hub:
 
@@ -113,7 +113,7 @@ Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/
     A imagem que se segue mostra a saída, uma vez que o hub IoT recebe telemetria enviada pelo dispositivo Android:
 
       ![Ler as mensagens do dispositivo com a CLI do Azure](media/quickstart-send-telemetry-android/read-data.png)
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

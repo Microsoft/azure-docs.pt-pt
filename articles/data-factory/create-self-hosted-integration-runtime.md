@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: nabhishek
-ms.author: abnarain
-manager: anandsub
+author: lrtoyou1223
+ms.author: lle
+manager: shwang
 ms.custom: seo-lt-2019
-ms.date: 11/25/2020
-ms.openlocfilehash: 04efb7bcae11ef6cf377d821b49f9b07d41d347f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.date: 12/25/2020
+ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932596"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121637"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -29,6 +29,54 @@ Um tempo de integração auto-hospedado pode executar atividades de cópia entre
 Este artigo descreve como pode criar e configurar um IR auto-hospedado.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+
+## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações para a utilização de um IR auto-hospedado
+
+- Você pode usar um único tempo de integração auto-hospedado para várias fontes de dados no local. Você também pode partilhá-lo com outra fábrica de dados dentro do mesmo inquilino Azure Ative Directory (Azure AD). Para obter mais informações, consulte [partilhar um tempo de integração auto-hospedado.](./create-shared-self-hosted-integration-runtime-powershell.md)
+- Pode instalar apenas uma instância de um tempo de integração auto-hospedado em qualquer máquina. Se tiver duas fábricas de dados que precisam de aceder a fontes de dados no local, utilize a [funcionalidade de partilha de IR auto-hospedada](./create-shared-self-hosted-integration-runtime-powershell.md) para partilhar o IR auto-hospedado, ou instale o IR auto-hospedado em dois computadores no local, um para cada fábrica de dados.  
+- O tempo de integração auto-hospedado não precisa de estar na mesma máquina que a fonte de dados. No entanto, ter o tempo de integração auto-hospedado perto da fonte de dados reduz o tempo de tempo de integração auto-hospedado para se ligar à fonte de dados. Recomendamos que instale o tempo de funcionamento de integração auto-hospedado numa máquina que difere da que acolhe a fonte de dados no local. Quando o tempo de integração auto-hospedado e a fonte de dados estão em diferentes máquinas, o tempo de integração auto-hospedado não compete com a fonte de dados para recursos.
+- Pode ter vários tempos de integração auto-hospedados em diferentes máquinas que se ligam à mesma fonte de dados no local. Por exemplo, se tiver dois tempos de integração auto-hospedados que servem duas fábricas de dados, a mesma fonte de dados no local pode ser registada em ambas as fábricas de dados.
+- Utilize um tempo de integração auto-hospedado para suportar a integração de dados dentro de uma rede virtual Azure.
+- Trate a sua fonte de dados como uma fonte de dados no local que está por trás de uma firewall, mesmo quando utiliza o Azure ExpressRoute. Utilize o tempo de funcionação da integração auto-hospedada para ligar o serviço à fonte de dados.
+- Utilize o tempo de integração auto-hospedado mesmo que a loja de dados esteja na nuvem de uma infraestrutura Azure como máquina virtual de Serviço (IaaS).
+- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, tem duas opções: armazenar credenciais/valores secretos num Cofre de Chaves Azure ou desativar a encriptação compatível com FIPS no servidor. Para desativar a encriptação compatível com o FIPS, altere o valor do sub-chave do registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se utilizar o [tempo de integração auto-hospedado como proxy para o tempo de execução da integração SSIS,](./self-hosted-integration-runtime-proxy-ssis.md)a encriptação compatível com FIPS pode ser ativada e será usada ao mover dados de instalações para Azure Blob Storage como uma área de preparação.
+
+
+## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
+
+Quando move dados entre as instalações e a nuvem, a atividade utiliza um tempo de integração auto-hospedado para transferir os dados entre uma fonte de dados no local e a nuvem.
+
+Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com um IR auto-hospedado:
+
+![A visão geral de alto nível do fluxo de dados](media/create-self-hosted-integration-runtime/high-level-overview.png)
+
+1. Um desenvolvedor de dados cria um tempo de integração auto-hospedado dentro de uma fábrica de dados Azure usando um cmdlet PowerShell. Atualmente, o portal Azure não suporta esta funcionalidade.
+2. O desenvolvedor de dados cria um serviço ligado para uma loja de dados no local. O desenvolvedor fá-lo especificando a instância de execução de integração auto-hospedada que o serviço deve usar para se conectar às lojas de dados.
+3. O nó de tempo de execução de integração auto-alojado encripta as credenciais utilizando a Interface de Programação da Aplicação de Proteção de Dados do Windows (DPAPI) e guarda as credenciais localmente. Se vários nós estiverem definidos para uma alta disponibilidade, as credenciais são mais sincronizadas em outros nós. Cada nó encripta as credenciais utilizando o DPAPI e armazena-as localmente. A sincronização credencial é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.
+4. A Azure Data Factory comunica com o tempo de integração auto-hospedado para agendar e gerir postos de trabalho. A comunicação é através de um canal de controlo que utiliza uma ligação [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) partilhada. Quando um trabalho de atividade precisa ser executado, data factory faz fila do pedido juntamente com qualquer informação credencial. Fá-lo caso as credenciais não estejam já armazenadas no tempo de integração auto-hospedado. O tempo de integração auto-organizado começa o trabalho depois de sondar a fila.
+5. O tempo de execução de integração auto-alojado copia dados entre uma loja no local e armazenamento em nuvem. A direção da cópia depende da configuração da atividade da cópia no pipeline de dados. Para este passo, o tempo de integração auto-hospedado comunica diretamente com serviços de armazenamento baseados na nuvem, como o armazenamento Azure Blob através de um canal HTTPS seguro.
+
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- As versões suportadas do Windows são:
+  + Windows 8.1
+  + Windows 10
+  + Windows Server 2012
+  + Windows Server 2012 R2
+  + Windows Server 2016
+  + Windows Server 2019
+   
+A instalação do tempo de integração auto-hospedado num controlador de domínio não é suportada.
+- O tempo de integração auto-organizado requer um Sistema Operativo de 64 bits com .NET Framework 4.7.2 ou superior Consulte [os requisitos do sistema-quadro .NET](/dotnet/framework/get-started/system-requirements) para mais detalhes.
+- A configuração mínima recomendada para a máquina de tempo de execução de integração auto-hospedada é um processador de 2-GHz com 4 núcleos, 8 GB de RAM e 80 GB de espaço de disco rígido disponível. Para obter os detalhes dos requisitos do sistema, consulte [Download](https://www.microsoft.com/download/details.aspx?id=39717).
+- Se a máquina hospedeira hibernar, o tempo de integração auto-hospedado não responde aos pedidos de dados. Configure um plano de alimentação apropriado no computador antes de instalar o tempo de funcionamento da integração auto-acolôda. Se a máquina estiver configurada para hibernar, o instalador de tempo de funcionação de integração auto-hospedado solicita com uma mensagem.
+- Tem de ser um administrador na máquina para instalar e configurar com sucesso o tempo de funcionamento da integração auto-hospedada.
+- As operações de cópia acontecem com uma frequência específica. O uso do processador e da RAM na máquina segue o mesmo padrão com tempos de pico e inatividade. O uso de recursos também depende muito da quantidade de dados que são movidos. Quando vários trabalhos de cópia estão em andamento, você vê o uso de recursos subir em tempos de pico.
+- As tarefas podem falhar durante a extração de dados nos formatos Parquet, ORC ou Avro. Para mais informações sobre o Parquet, consulte [o formato Parquet na Azure Data Factory.](./format-parquet.md#using-self-hosted-integration-runtime) A criação de ficheiros funciona na máquina de integração auto-hospedada. Para funcionar como esperado, a criação de ficheiros requer os seguintes pré-requisitos:
+    - [Visual C++ 2010 Redistributável](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
+    - Java Runtime (JRE) versão 8 de um fornecedor JRE como [Adopt OpenJDK](https://adoptopenjdk.net/). Certifique-se de que a `JAVA_HOME` variável ambiente está definida.
 
 ## <a name="setting-up-a-self-hosted-integration-runtime"></a>Criação de um tempo de integração auto-hospedado
 
@@ -126,84 +174,49 @@ Aqui estão os detalhes das ações e argumentos da aplicação:
 |-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Defina o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais.|
 
 
-## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
-
-Quando move dados entre as instalações e a nuvem, a atividade utiliza um tempo de integração auto-hospedado para transferir os dados entre uma fonte de dados no local e a nuvem.
-
-Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com um IR auto-hospedado:
-
-![A visão geral de alto nível do fluxo de dados](media/create-self-hosted-integration-runtime/high-level-overview.png)
-
-1. Um desenvolvedor de dados cria um tempo de integração auto-hospedado dentro de uma fábrica de dados Azure usando um cmdlet PowerShell. Atualmente, o portal Azure não suporta esta funcionalidade.
-1. O desenvolvedor de dados cria um serviço ligado para uma loja de dados no local. O desenvolvedor fá-lo especificando a instância de execução de integração auto-hospedada que o serviço deve usar para se conectar às lojas de dados.
-1. O nó de tempo de execução de integração auto-alojado encripta as credenciais utilizando a Interface de Programação da Aplicação de Proteção de Dados do Windows (DPAPI) e guarda as credenciais localmente. Se vários nós estiverem definidos para uma alta disponibilidade, as credenciais são mais sincronizadas em outros nós. Cada nó encripta as credenciais utilizando o DPAPI e armazena-as localmente. A sincronização credencial é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.
-1. A Azure Data Factory comunica com o tempo de integração auto-hospedado para agendar e gerir postos de trabalho. A comunicação é através de um canal de controlo que utiliza uma ligação de [ônibus de serviço Azure](../azure-relay/relay-what-is-it.md#wcf-relay) partilhada. Quando um trabalho de atividade precisa ser executado, data factory faz fila do pedido juntamente com qualquer informação credencial. Fá-lo caso as credenciais não estejam já armazenadas no tempo de integração auto-hospedado. O tempo de integração auto-organizado começa o trabalho depois de sondar a fila.
-1. O tempo de execução de integração auto-alojado copia dados entre uma loja no local e armazenamento em nuvem. A direção da cópia depende da configuração da atividade da cópia no pipeline de dados. Para este passo, o tempo de integração auto-hospedado comunica diretamente com serviços de armazenamento baseados na nuvem, como o armazenamento Azure Blob através de um canal HTTPS seguro.
-
-## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações para a utilização de um IR auto-hospedado
-
-- Você pode usar um único tempo de integração auto-hospedado para várias fontes de dados no local. Você também pode partilhá-lo com outra fábrica de dados dentro do mesmo inquilino Azure Ative Directory (Azure AD). Para obter mais informações, consulte [partilhar um tempo de integração auto-hospedado.](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory)
-- Pode instalar apenas uma instância de um tempo de integração auto-hospedado em qualquer máquina. Se tiver duas fábricas de dados que precisam de aceder a fontes de dados no local, utilize a [funcionalidade de partilha de IR auto-hospedada](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) para partilhar o IR auto-hospedado, ou instale o IR auto-hospedado em dois computadores no local, um para cada fábrica de dados.  
-- O tempo de integração auto-hospedado não precisa de estar na mesma máquina que a fonte de dados. No entanto, ter o tempo de integração auto-hospedado perto da fonte de dados reduz o tempo de tempo de integração auto-hospedado para se ligar à fonte de dados. Recomendamos que instale o tempo de funcionamento de integração auto-hospedado numa máquina que difere da que acolhe a fonte de dados no local. Quando o tempo de integração auto-hospedado e a fonte de dados estão em diferentes máquinas, o tempo de integração auto-hospedado não compete com a fonte de dados para recursos.
-- Pode ter vários tempos de integração auto-hospedados em diferentes máquinas que se ligam à mesma fonte de dados no local. Por exemplo, se tiver dois tempos de integração auto-hospedados que servem duas fábricas de dados, a mesma fonte de dados no local pode ser registada em ambas as fábricas de dados.
-- Utilize um tempo de integração auto-hospedado para suportar a integração de dados dentro de uma rede virtual Azure.
-- Trate a sua fonte de dados como uma fonte de dados no local que está por trás de uma firewall, mesmo quando utiliza o Azure ExpressRoute. Utilize o tempo de funcionação da integração auto-hospedada para ligar o serviço à fonte de dados.
-- Utilize o tempo de integração auto-hospedado mesmo que a loja de dados esteja na nuvem de uma infraestrutura Azure como máquina virtual de Serviço (IaaS).
-- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, tem duas opções: armazenar credenciais/valores secretos num Cofre de Chaves Azure ou desativar a encriptação compatível com FIPS no servidor. Para desativar a encriptação compatível com o FIPS, altere o valor do sub-chave do registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se utilizar o [tempo de integração auto-hospedado como proxy para o tempo de execução da integração SSIS,](./self-hosted-integration-runtime-proxy-ssis.md)a encriptação compatível com FIPS pode ser ativada e será usada ao mover dados de instalações para Azure Blob Storage como uma área de preparação.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-- As versões suportadas do Windows são:
-  + Windows 7 Service Pack 1
-  + Windows 8.1
-  + Windows 10
-  + Windows Server 2008 R2 SP1
-  + Windows Server 2012
-  + Windows Server 2012 R2
-  + Windows Server 2016
-  + Windows Server 2019
-   
-   A instalação do tempo de integração auto-hospedado num controlador de domínio não é suportada.
-- .NET Quadro 4.6.1 ou posteriormente é necessário. Se estiver a instalar o tempo de funcionamento de integração auto-hospedado numa máquina do Windows 7, instale o Quadro .NET 4.6.1 ou mais tarde. Consulte [os requisitos do sistema-quadro .NET](/dotnet/framework/get-started/system-requirements) para obter mais informações.
-- A configuração mínima recomendada para a máquina de tempo de execução de integração auto-hospedada é um processador de 2-GHz com 4 núcleos, 8 GB de RAM e 80 GB de espaço de disco rígido disponível.
-- Se a máquina hospedeira hibernar, o tempo de integração auto-hospedado não responde aos pedidos de dados. Configure um plano de alimentação apropriado no computador antes de instalar o tempo de funcionamento da integração auto-acolôda. Se a máquina estiver configurada para hibernar, o instalador de tempo de funcionação de integração auto-hospedado solicita com uma mensagem.
-- Tem de ser um administrador na máquina para instalar e configurar com sucesso o tempo de funcionamento da integração auto-hospedada.
-- As operações de cópia acontecem com uma frequência específica. O uso do processador e da RAM na máquina segue o mesmo padrão com tempos de pico e inatividade. O uso de recursos também depende muito da quantidade de dados que são movidos. Quando vários trabalhos de cópia estão em andamento, você vê o uso de recursos subir em tempos de pico.
-- As tarefas podem falhar durante a extração de dados nos formatos Parquet, ORC ou Avro. Para mais informações sobre o Parquet, consulte [o formato Parquet na Azure Data Factory.](./format-parquet.md#using-self-hosted-integration-runtime) A criação de ficheiros funciona na máquina de integração auto-hospedada. Para funcionar como esperado, a criação de ficheiros requer os seguintes pré-requisitos:
-    - [Visual C++ 2010 Redistributável](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
-    - Java Runtime (JRE) versão 8 de um fornecedor JRE como [Adopt OpenJDK](https://adoptopenjdk.net/). Certifique-se de que a `JAVA_HOME` variável ambiente está definida.
-
-## <a name="installation-best-practices"></a>Melhores práticas de instalação
-
-Pode instalar o tempo de integração auto-hospedado descarregando um pacote de configuração de identidade gerida do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Consulte o artigo [Mova os dados entre as instalações e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
-
-- Configure um plano de energia na máquina hospedeira para o tempo de integração auto-hospedado para que a máquina não se hiberna. Se a máquina hospedeira hibernar, o tempo de integração auto-hospedado fica offline.
-- Ressari regularmente as credenciais associadas ao tempo de integração auto-hospedado.
-- Para automatizar as operações de configuração de INFRAVERMELHOs auto-hospedadas, consulte a [Configuração de um IR auto-hospedado existente via PowerShell](#setting-up-a-self-hosted-integration-runtime).  
-
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instale e registe um IR auto-hospedado do Microsoft Download Center
 
 1. Aceda à página de [descarregamento de tempo de execução](https://www.microsoft.com/download/details.aspx?id=39717)da integração da Microsoft.
-1. Selecione **Download**, selecione a versão de 64 bits e selecione **Next**. A versão de 32 bits não é suportada.
-1. Executar o ficheiro Identidade Gerida diretamente, ou guarde-o para o seu disco rígido e execute-o.
-1. Na janela **Welcome,** selecione um idioma e selecione **Seguinte**.
-1. Aceite os Termos de Licença de Software da Microsoft e selecione **Seguinte**.
-1. Selecione **a pasta** para instalar o tempo de execução de integração auto-hospedado e selecione **Next**.
-1. Na página **Pronto para instalar,** selecione **Instalar**.
-1. **Selecione Acabamento** para concluir a instalação.
-1. Obtenha a chave de autenticação utilizando o PowerShell. Aqui está um exemplo powerShell para recuperar a chave de autenticação:
+2. Selecione **Download**, selecione a versão de 64 bits e selecione **Next**. A versão de 32 bits não é suportada.
+3. Executar o ficheiro Identidade Gerida diretamente, ou guarde-o para o seu disco rígido e execute-o.
+4. Na janela **Welcome,** selecione um idioma e selecione **Seguinte**.
+5. Aceite os Termos de Licença de Software da Microsoft e selecione **Seguinte**.
+6. Selecione **a pasta** para instalar o tempo de execução de integração auto-hospedado e selecione **Next**.
+7. Na página **Pronto para instalar,** selecione **Instalar**.
+8. **Selecione Acabamento** para concluir a instalação.
+9. Obtenha a chave de autenticação utilizando o PowerShell. Aqui está um exemplo powerShell para recuperar a chave de autenticação:
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 
-1. Na janela **de runtime de integração do registo (self-hosted)** do Gestor de Configuração de Tempo de Execução de Integração da Microsoft em funcionamento na sua máquina, tome os seguintes passos:
+10. Na janela **de runtime de integração do registo (self-hosted)** do Gestor de Configuração de Tempo de Execução de Integração da Microsoft em funcionamento na sua máquina, tome os seguintes passos:
 
     1. Cole a chave de autenticação na área de texto.
 
-    1. Opcionalmente, selecione **Mostrar a chave de autenticação** para ver o texto chave.
+    2. Opcionalmente, selecione **Mostrar a chave de autenticação** para ver o texto chave.
 
-    1. Selecione **Registar**.
+    3. Selecione **Registar**.
+
+## <a name="service-account-for-self-hosted-integration-runtime"></a>Conta de serviço para o tempo de integração auto-hospedado
+O registo predefinido na conta de serviço do tempo de execução de integração auto-hospedado é **NT SERVICE\DIAHostService**. Pode vê-lo em **Serviços de > Serviço de Integração -> Propriedades -> Iniciar sessão**.
+
+![Conta de serviço para o tempo de integração auto-hospedado](media/create-self-hosted-integration-runtime/shir-service-account.png)
+
+Certifique-se de que a conta tem a permissão de Iniciar sessão como um serviço. Caso contrário, o tempo de integração auto-hospedado não pode começar com sucesso. Pode consultar a permissão em **Definições de Segurança > -> Políticas Locais -> Atribuição de Direitos de Utilizador -> Iniciar sessão como serviço**
+
+![Permissão de conta de serviço](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+
+![Permissão de conta de serviço](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+
+
+## <a name="notification-area-icons-and-notifications"></a>Ícones e notificações da área de notificação
+
+Se deslocar o cursor sobre o ícone ou mensagem na área de notificação, pode ver detalhes sobre o estado do tempo de integração auto-hospedado.
+
+![Notificações na área de notificação](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+
+
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidade e escalabilidade
 
@@ -253,90 +266,6 @@ Aqui estão os requisitos para o certificado TLS/SSL que utiliza para garantir a
 >
 > O movimento de dados em trânsito de um IR auto-alojado para outras lojas de dados acontece sempre dentro de um canal encriptado, independentemente de este certificado estar ou não definido.
 
-## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Crie um tempo de integração independente partilhado na Azure Data Factory
-
-Você pode reutilizar uma infraestrutura de tempo de integração auto-hospedada existente que você já estabeleceu em uma fábrica de dados. Esta reutilização permite criar um tempo de integração auto-hospedado ligado numa fábrica de dados diferente, referindo-se a um IR partilhado existente.
-
-Para ver uma introdução e demonstração desta funcionalidade, veja o vídeo seguinte de 12 minutos:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
-
-### <a name="terminology"></a>Terminologia
-
-- **IR compartilhado**: Um IR original auto-hospedado que funciona em uma infraestrutura física.  
-- **Linked IR**: Um IR que faz referência a outro IR partilhado. O IR ligado é um IR lógico e utiliza a infraestrutura de outro IR partilhado auto-hospedado.
-
-### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Métodos para partilhar um tempo de integração auto-hospedado
-
-Para partilhar um tempo de integração auto-hospedado com várias fábricas de dados, consulte [Criar um tempo de integração auto-hospedado partilhado](create-shared-self-hosted-integration-runtime-powershell.md) para obter detalhes.
-
-### <a name="monitoring"></a>Monitorização
-
-#### <a name="shared-ir"></a>IR compartilhado
-
-![Seleções para encontrar um tempo de integração partilhada](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
-
-![Monitorize um tempo de integração partilhada](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
-
-#### <a name="linked-ir"></a>IR ligado
-
-![Seleções para encontrar um tempo de integração ligado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
-
-![Monitorize um tempo de integração ligado](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
-
-### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas da partilha de IR auto-acolam
-
-* A fábrica de dados em que é criado um IR vinculado deve ter uma [Identidade Gerida.](../active-directory/managed-identities-azure-resources/overview.md) Por padrão, as fábricas de dados criadas no portal Azure ou nos cmdlets PowerShell têm uma Identidade Gerida implicitamente criada. Mas quando uma fábrica de dados é criada através de um modelo de Gestor de Recursos Azure ou SDK, você deve definir a propriedade **Identidade** explicitamente. Esta definição garante que o Gestor de Recursos cria uma fábrica de dados que contém uma Identidade Gerida.
-
-* A Data Factory .NET SDK que suporta esta funcionalidade deve ser a versão 1.1.0 ou posterior.
-
-* Para conceder permissão, precisa da função proprietário ou da função de Proprietário herdado na fábrica de dados onde existe o IR partilhado.
-
-* A funcionalidade de partilha funciona apenas para fábricas de dados dentro do mesmo inquilino AZure AD.
-
-* Para [os utilizadores convidados](../active-directory/governance/manage-guest-access-with-access-reviews.md)da AZure AD, a funcionalidade de pesquisa no UI, que lista todas as fábricas de dados utilizando uma palavra-chave de pesquisa, [não funciona](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Mas enquanto o utilizador convidado for o proprietário da fábrica de dados, pode partilhar o IR sem a funcionalidade de pesquisa. Para a Identidade Gerida da fábrica de dados que necessita de partilhar o IR, insira essa Identidade Gerida na caixa **de Permissão de Atribuição** e selecione **Adicionar** na UI da Fábrica de Dados.
-
-  > [!NOTE]
-  > Esta funcionalidade está disponível apenas na Data Factory V2.
-
-## <a name="notification-area-icons-and-notifications"></a>Ícones e notificações da área de notificação
-
-Se deslocar o cursor sobre o ícone ou mensagem na área de notificação, pode ver detalhes sobre o estado do tempo de integração auto-hospedado.
-
-![Notificações na área de notificação](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
-
-## <a name="ports-and-firewalls"></a>Portas e firewalls
-
-Há duas firewalls a considerar:
-
-- A *firewall corporativa* que funciona no router central da organização
-- A *firewall do Windows* que é configurada como um daemon na máquina local onde o tempo de integração auto-hospedado é instalado
-
-![As firewalls](media/create-self-hosted-integration-runtime/firewall.png)
-
-Ao nível da firewall corporativa, é necessário configurar os seguintes domínios e portas de saída:
-
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
-
-
-Ao nível da firewall do Windows ou ao nível da máquina, estas portas de saída estão normalmente ativadas. Se não forem, pode configurar os domínios e portas numa máquina de execução de integração auto-hospedada.
-
-> [!NOTE]
-> Com base na sua fonte e pias, poderá ter de permitir domínios adicionais e portas de saída na sua firewall corporativa ou firewall do Windows.
->
-> Para algumas bases de dados em nuvem, como a Base de Dados Azure SQL e o Lago de Dados Azure, poderá ser necessário permitir endereços IP de máquinas de execução de integração auto-hospedadas na sua configuração de firewall.
-
-### <a name="copy-data-from-a-source-to-a-sink"></a>Copiar dados de uma fonte para um lavatório
-
-Certifique-se de que permite corretamente as regras de firewall na firewall corporativa, a firewall do Windows da máquina de tempo de execução de integração auto-hospedada e a própria loja de dados. Permitir estas regras permite que o tempo de execução de integração auto-organizado se conecte com sucesso tanto à fonte como à pia. Ativar as regras para cada loja de dados que esteja envolvida na operação de cópia.
-
-Por exemplo, para copiar de uma loja de dados no local para um lavatório SQL Database ou um lavatório Azure Synapse Analytics, tome os seguintes passos:
-
-1. Permitir a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a firewall corporativa.
-1. Configure as definições de firewall da Base de Dados SQL para adicionar o endereço IP da máquina de execução de integração auto-hospedada à lista de endereços IP permitidos.
-
-> [!NOTE]
-> Se a sua firewall não permitir a porta de saída 1433, o tempo de execução de integração auto-hospedado não pode aceder diretamente à base de dados SQL. Neste caso, pode utilizar uma [cópia encenada](copy-activity-performance.md) para a SQL Database e para a Azure Synapse Analytics. Neste cenário, é necessário apenas HTTPS (porta 443) para o movimento de dados.
 
 ## <a name="proxy-server-considerations"></a>Considerações do servidor proxy
 
@@ -437,6 +366,66 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 
 Se optar por não abrir a porta 8060 na máquina de tempo de funcionamento de integração auto-hospedada, utilize mecanismos que não a aplicação 'Definição de Credenciais' para configurar credenciais de armazenamento de dados. Por exemplo, pode utilizar o **cmdlet New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell.
+
+
+## <a name="ports-and-firewalls"></a>Portas e firewalls
+
+Há duas firewalls a considerar:
+
+- A *firewall corporativa* que funciona no router central da organização
+- A *firewall do Windows* que é configurada como um daemon na máquina local onde o tempo de integração auto-hospedado é instalado
+
+![As firewalls](media/create-self-hosted-integration-runtime/firewall.png)
+
+Ao nível da firewall corporativa, é necessário configurar os seguintes domínios e portas de saída:
+
+[!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-internal.md)]
+
+
+Ao nível da firewall do Windows ou ao nível da máquina, estas portas de saída estão normalmente ativadas. Se não forem, pode configurar os domínios e portas numa máquina de execução de integração auto-hospedada.
+
+> [!NOTE]
+> Como atualmente o Azure Relay não suporta a etiqueta de serviço, tem de utilizar a etiqueta de serviço **AzureCloud** ou **a Internet** nas regras NSG para a comunicação ao Azure Relay.
+> Para a comunicação com a Azure Data Factory, pode utilizar a etiqueta de serviço **DataFactoryManagement** na configuração da regra NSG.
+
+Com base na sua fonte e pias, poderá ter de permitir domínios adicionais e portas de saída na sua firewall corporativa ou firewall do Windows.
+
+[!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-external.md)]
+
+Para algumas bases de dados em nuvem, como a Base de Dados Azure SQL e o Lago de Dados Azure, poderá ser necessário permitir endereços IP de máquinas de execução de integração auto-hospedadas na sua configuração de firewall.
+
+### <a name="get-url-of-azure-relay"></a>Obtenha URL de Azure Relay
+Um domínio e uma porta necessários que precisam de ser colocados na lista de permitir a sua firewall é para a comunicação ao Azure Relay. O tempo de execução de integração auto-hospedado utiliza-o para a autoria interativa, tais como a ligação de teste, a lista de pastas de navegação e a lista de tabelas, obter esquemas e dados de pré-visualização. Se você não quiser permitir **.servicebus.windows.net** e gostaria de ter URLs mais específicos, então você pode obter todos os FQDNs que é necessário pelo seu tempo de integração auto-hospedado a partir do portal ADF.
+1. Vá ao portal ADF e selecione o seu tempo de integração auto-hospedado.
+2. Na página Editar, selecione **Nós**.
+3. Clique **em Ver URLs de serviço** para obter todos os FQDNs.
+
+![URLs de relé Azure](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
+
+4. Pode adicionar estes FQDNs na lista de autorizações de regras de firewall.
+
+### <a name="copy-data-from-a-source-to-a-sink"></a>Copiar dados de uma fonte para um lavatório
+
+Certifique-se de que permite corretamente as regras de firewall na firewall corporativa, a firewall do Windows da máquina de tempo de execução de integração auto-hospedada e a própria loja de dados. Permitir estas regras permite que o tempo de execução de integração auto-organizado se conecte com sucesso tanto à fonte como à pia. Ativar as regras para cada loja de dados que esteja envolvida na operação de cópia.
+
+Por exemplo, para copiar de uma loja de dados no local para um lavatório SQL Database ou um lavatório Azure Synapse Analytics, tome os seguintes passos:
+
+1. Permitir a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a firewall corporativa.
+2. Configure as definições de firewall da Base de Dados SQL para adicionar o endereço IP da máquina de execução de integração auto-hospedada à lista de endereços IP permitidos.
+
+> [!NOTE]
+> Se a sua firewall não permitir a porta de saída 1433, o tempo de execução de integração auto-hospedado não pode aceder diretamente à base de dados SQL. Neste caso, pode utilizar uma [cópia encenada](copy-activity-performance.md) para a SQL Database e para a Azure Synapse Analytics. Neste cenário, é necessário apenas HTTPS (porta 443) para o movimento de dados.
+
+
+## <a name="installation-best-practices"></a>Melhores práticas de instalação
+
+Pode instalar o tempo de integração auto-hospedado descarregando um pacote de configuração de identidade gerida do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Consulte o artigo [Mova os dados entre as instalações e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
+
+- Configure um plano de energia na máquina hospedeira para o tempo de integração auto-hospedado para que a máquina não se hiberna. Se a máquina hospedeira hibernar, o tempo de integração auto-hospedado fica offline.
+- Ressari regularmente as credenciais associadas ao tempo de integração auto-hospedado.
+- Para automatizar as operações de configuração de INFRAVERMELHOs auto-hospedadas, consulte a [Configuração de um IR auto-hospedado existente via PowerShell](#setting-up-a-self-hosted-integration-runtime).  
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

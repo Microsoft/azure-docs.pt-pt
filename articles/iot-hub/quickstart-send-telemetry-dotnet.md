@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: e4c87d8579b06cdfb37c1635a25db5ce67aa3545
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b515274ef4bcf494c071ddb487590ff9cdccf4c0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094799"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121494"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de serviço (.NET)
 
@@ -78,7 +78,7 @@ Este guia de início rápido utiliza duas aplicações C# pré-escritas, uma par
    **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     Anote a cadeia de ligação do dispositivo, que se assemelha a:
@@ -157,7 +157,7 @@ A aplicação de serviço conecta-se ao ponto final do lado do serviço **Evento
 
     ![Executar a aplicação de serviço](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

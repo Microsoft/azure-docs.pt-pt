@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445781"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121707"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
 A análise empresarial deve funcionar em grande escala em qualquer tipo de dados, sejam brutos, refinados ou altamente curados. Isto normalmente requer que as empresas cosam tecnologias de armazenamento de big data e dados em complexos oleodutos de dados que funcionam em dados em lojas relacionais e lagos de dados. Este tipo de soluções são difíceis de construir, manter e garantir. Os seus atrasos de complexidade em fornecer as empresas de insights precisam.
 
-**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, e Pipelines para integração de **dados** e ETL/ELT. **O Synapse Studio** proporciona uma experiência unificada de gestão, monitorização, codificação e segurança. A Synapse tem uma profunda integração com outros serviços Azure, tais como **Power BI,** **CosmosDB** e **AzureML.**
+**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, **Pipelines** para integração de dados e ETL/ELT, e integração profunda com outros serviços Azure, como **Power BI,** **CosmosDB,** e **AzureML.**
 
 ## <a name="key-features--benefits"></a>Principais funcionalidades & benefícios
 
@@ -28,7 +28,7 @@ A análise empresarial deve funcionar em grande escala em qualquer tipo de dados
 
 * **O Synapse SQL** é um sistema de consulta distribuído que permite às empresas implementar cenários de armazenamento de dados e virtualização de dados utilizando experiências padrão e familiares de T-SQL. Também expande as capacidades do SQL para abordar cenários de streaming e machine learning.
 
-* O Synapse SQL oferece modelos de recursos **sem servidor** e **dedicados,** oferecendo opções de consumo e faturação para adequar as suas necessidades. Para um desempenho e custo previsíveis, crie piscinas SQL dedicadas para reservar o poder de processamento para os dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sempre disponível e sem servidor.
+* O Synapse SQL oferece modelos de recursos **sem servidor** e **dedicados,** oferecendo opções de consumo e faturação para adequar as suas necessidades. Para obter um desempenho e custo previsíveis, crie conjuntos de SQL dedicados para reservar a capacidade de processamento para dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sempre disponível e sem servidor.
 * Use capacidades de **streaming** incorporadas para obter dados de fontes de dados em nuvem em tabelas SQL
 * Integre a IA com o SQL utilizando modelos **de machine learning** para obter dados utilizando a [função T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
@@ -80,6 +80,6 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começa com o Azure Synapse Analytics](get-started.md)
+* [Introdução ao Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
 * [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)
