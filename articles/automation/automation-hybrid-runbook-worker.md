@@ -3,22 +3,20 @@ title: Visão geral do trabalhador do runbook híbrido da Azure Automation
 description: Este artigo fornece uma visão geral do Trabalhador de Runbook Híbrido, que pode usar para executar livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505533"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072144"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
 Os runbooks na Azure Automation podem não ter acesso a recursos noutras nuvens ou no seu ambiente no local porque funcionam na plataforma cloud Azure. Você pode usar a funcionalidade Hybrid Runbook Worker da Azure Automation para executar runbooks diretamente na máquina que está hospedando o papel e contra recursos no ambiente para gerir esses recursos locais. Os runbooks são armazenados e geridos na Azure Automation e depois entregues a uma ou mais máquinas atribuídas.
 
-A imagem a seguir ilustra esta funcionalidade:
-
-![Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)](media/automation-hybrid-runbook-worker/automation.png)
+## <a name="runbook-worker-types"></a>Tipos de trabalhadores de runbook
 
 Existem dois tipos de Trabalhadores runbook - sistema e utilizador. A tabela a seguir descreve a diferença entre eles.
 
@@ -29,18 +27,19 @@ Existem dois tipos de Trabalhadores runbook - sistema e utilizador. A tabela a s
 
 Um Trabalhador De Runbook Híbrido pode funcionar no Windows ou no sistema operativo Linux, e esta função depende do [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) reportando a um espaço de trabalho Azure Monitor Log [Analytics](../azure-monitor/platform/design-logs-deployment.md). O espaço de trabalho não é apenas para monitorizar a máquina para o sistema operativo suportado, mas também para descarregar os componentes necessários para instalar o Trabalhador de Runbook Híbrido.
 
-Quando a Azure Automation [Update Management](./update-management/overview.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como um trabalhador de runbook híbrido do sistema.
+Quando a Azure Automation [Update Management](./update-management/overview.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como um trabalhador de runbook híbrido do sistema. Para configurgê-lo como utilizador Do Windows Hybrid Runbook Worker, consulte [implementar um Trabalhador de Runbook Híbrido do Windows](automation-windows-hrw-install.md) e para o Linux, consulte implementar um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
 
-Cada utilizador Hybrid Runbook Worker é membro de um grupo híbrido de trabalho de runbook que especifica quando instala o trabalhador. Um grupo pode incluir um único trabalhador, mas você pode incluir vários trabalhadores em um grupo para alta disponibilidade. Cada máquina pode hospedar um Trabalhador De Runbook Híbrido reportando a uma conta de Automação; não é possível registar o trabalhador híbrido em várias contas de Automação. Isto porque um trabalhador híbrido só pode ouvir empregos a partir de uma única conta de Automação. Para as máquinas que hospedam o sistema Hybrid Runbook trabalhador gerido pela Update Management, podem ser adicionadas a um grupo híbrido de trabalhador runbook. Mas deve utilizar a mesma conta de Automação tanto para a Gestão de Atualização como para a associação híbrida do grupo de trabalhadores runbook.
+## <a name="how-does-it-work"></a>Como funciona?
+
+![Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)](media/automation-hybrid-runbook-worker/automation.png)
+
+Cada utilizador Hybrid Runbook Worker é membro de um grupo híbrido de trabalho de runbook que especifica quando instala o trabalhador. Um grupo pode incluir um único trabalhador, mas você pode incluir vários trabalhadores em um grupo para alta disponibilidade. Cada máquina pode hospedar um Trabalhador De Runbook Híbrido reportando a uma conta de Automação; não é possível registar o trabalhador híbrido em várias contas de Automação. Um trabalhador híbrido só pode ouvir empregos a partir de uma única conta de Automação. Para as máquinas que hospedam o sistema Hybrid Runbook trabalhador gerido pela Update Management, podem ser adicionadas a um grupo híbrido de trabalhador runbook. Mas deve utilizar a mesma conta de Automação tanto para a Gestão de Atualização como para a associação híbrida do grupo de trabalhadores runbook.
 
 Quando iniciar um livro de execução num utilizador Hybrid Runbook Worker, especifica o grupo em que funciona. Cada trabalhador do grupo vota Azure Automation para ver se há empregos disponíveis. Se houver um emprego disponível, o primeiro trabalhador a conseguir o emprego aceita-o. O tempo de processamento da fila de trabalhos depende do perfil e da carga do trabalhador híbrido. Não se pode especificar um trabalhador em particular. O trabalhador híbrido trabalha num mecanismo de votação (a cada 30 segundos) e segue uma ordem de primeiro a chegar, primeiro a servir. Dependendo de quando um trabalho foi empurrado, qualquer que seja o trabalhador híbrido pings o serviço de Automação pega o trabalho. Um único trabalhador híbrido pode geralmente conseguir quatro empregos por ping (isto é, a cada 30 segundos). Se a sua taxa de trabalhos de empurrar é superior a quatro por 30 segundos, então há uma alta possibilidade de outro trabalhador híbrido no grupo híbrido Runbook Worker ter escolhido o emprego.
 
+Um Trabalhador De Runbook Híbrido não tem muitos dos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de recursos da caixa de [areia Azure](automation-runbook-execution.md#runbook-execution-environment) no espaço do disco, na memória ou nas tomadas de rede. Os limites para um trabalhador híbrido estão apenas relacionados com os recursos próprios do trabalhador, e não estão limitados pelo justo prazo de [partilha](automation-runbook-execution.md#fair-share) que as caixas de areia Azure têm.
+
 Para controlar a distribuição de runbooks em Trabalhadores De Runbook Híbridos e quando ou como os trabalhos são desencadeados, você pode registar o trabalhador híbrido contra diferentes grupos híbridos de trabalhadores de runbook dentro da sua conta de Automação. Direcione os postos de trabalho contra o grupo ou grupos específicos, a fim de apoiar o seu acordo de execução.
-
-Utilize um Trabalhador de Runbook Híbrido em vez de uma caixa de [areia Azure](automation-runbook-execution.md#runbook-execution-environment) porque não tem muitos dos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) da caixa de areia no espaço do disco, na memória ou nas tomadas de rede. Os limites para um trabalhador híbrido estão apenas relacionados com os recursos próprios do trabalhador.
-
-> [!NOTE]
-> Os trabalhadores híbridos não estão limitados pelo justo limite de tempo de [partilha](automation-runbook-execution.md#fair-share) que as caixas de areia Azure têm.
 
 ## <a name="hybrid-runbook-worker-installation"></a>Instalação híbrida do trabalhador runbook
 
@@ -99,7 +98,7 @@ O Azure Automation Hybrid Runbook Worker pode ser usado no Governo Azure para su
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de gestão de atualização para trabalhador de runbook híbrido
 
-Para além dos endereços padrão e portas necessários para o Trabalhador de Runbook Híbrido, a Update Management tem requisitos adicionais de configuração de rede descritos na secção de planeamento da [rede.](./update-management/overview.md#ports)
+Além dos endereços padrão e portas necessárias para o Trabalhador de Runbook Híbrido, a Update Management tem outros requisitos de configuração de rede descritos na secção de planeamento da [rede.](./update-management/overview.md#ports)
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Configuração do Estado da Automação Azure em um trabalhador de runbook híbrido
 
@@ -107,7 +106,7 @@ Pode executar [a configuração do Estado da Automação Azure](automation-dsc-o
 
 ## <a name="runbook-worker-limits"></a>Limites do trabalhador do runbook
 
-O número máximo de grupos híbridos por Conta de Automação é de 4000, e é aplicável tanto para os trabalhadores híbridos & utilizador. Se tiver mais de 4.000 máquinas para gerir, recomendamos a criação de contas de Automação adicionais.
+O número máximo de grupos híbridos por Conta de Automação é de 4000, e é aplicável tanto para os trabalhadores híbridos & utilizador. Se tiver mais de 4.000 máquinas para gerir, recomendamos a criação de outra conta De Automação.
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em um trabalhador de runbook híbrido
 

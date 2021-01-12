@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.author: jmartens
-author: j-martens
+ms.author: luquinta
+author: luisquintanilla
 ms.date: 11/16/2020
-ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3f3794ed4748eda44e863ff4627dedc0a34691af
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447050"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070104"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
 
@@ -135,7 +135,7 @@ Aqui alguns detalhes sobre os campos:
 |Anfitrião|Use a abreviatura que quiser para a instância computacional |
 |Nome do Anfitrião|Este é o endereço IP da instância computacional |
 |Porta|Esta é a porta mostrada no diálogo SSH acima |
-|Utilizador|Isto tem de ser `azureuser` |
+|User|Isto tem de ser `azureuser` |
 |Ficheiro de Identidade|Deve apontar para o ficheiro onde guardou a chave privada |
 
 Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a abreviatura que você usou acima, `ssh azmlci1` .

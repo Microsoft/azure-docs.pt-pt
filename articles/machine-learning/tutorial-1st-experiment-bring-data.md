@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739438"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072161"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 
@@ -40,9 +40,6 @@ Neste tutorial:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão da [3.00m](tutorial-1st-experiment-sdk-train.md) da série.
-* Conhecimento introdutório da língua python e fluxos de trabalho de aprendizagem automática.
-* Ambiente de desenvolvimento local, como Visual Studio Code, Jupyter ou PyCharm.
-* Python (versão 3.5 a 3.7).
 
 ## <a name="adjust-the-training-script"></a>Ajuste o roteiro de treino
 
@@ -130,7 +127,7 @@ O `target_path` valor especifica a trajetória na loja de dados onde os dados do
 >[!TIP] 
 > Enquanto estiver a utilizar o Azure Machine Learning para fazer o upload dos dados, pode utilizar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para carregar ficheiros ad hoc. Se precisar de uma ferramenta ETL, pode utilizar [a Azure Data Factory](../data-factory/introduction.md) para ingerir os seus dados no Azure.
 
-Executar o ficheiro Python para carregar os dados. (O upload deve ser rápido, menos de 60 segundos.)
+Na janela que tem o ambiente *de conda tutorial1* ativado, execute o ficheiro Python para carregar os dados. (O upload deve ser rápido, menos de 60 segundos.)
 
 ```bash
 python 05-upload-data.py
@@ -274,7 +271,7 @@ Aviso:
 > [!div class="nextstepaction"]
 > [Inspecionei o ficheiro de registo](?success=inspect-log#clean-up-resources) que [encontrei num problema.](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

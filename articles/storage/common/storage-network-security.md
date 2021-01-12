@@ -9,18 +9,18 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938414"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070563"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
 O Armazenamento do Microsoft Azure proporciona um modelo de segurança em camadas. Este modelo permite-lhe proteger e controlar o nível de acesso às contas de armazenamento que as aplicações e os ambientes empresariais exigem, com base no tipo e no subconjunto das redes utilizadas. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder a uma conta de armazenamento. Pode limitar o acesso à sua conta de armazenamento a pedidos originários de endereços IP especificados, intervalos IP ou de uma lista de sub-redes numa Rede Virtual Azure (VNet).
 
-As contas de armazenamento têm um ponto final público que é acessível através da internet. Também pode criar [Pontos Finais Privados para a sua conta de armazenamento,](storage-private-endpoints.md)que atribui um endereço IP privado do seu VNet à conta de armazenamento, e protege todo o tráfego entre o seu VNet e a conta de armazenamento por um link privado. A firewall de armazenamento Azure fornece acesso ao controlo de acesso para o ponto final público da sua conta de armazenamento. Também pode utilizar a firewall para bloquear todo o acesso através do ponto final público quando utilizar pontos finais privados. A configuração da firewall de armazenamento também permite selecionar serviços de plataforma fidedignas Azure para aceder à conta de armazenamento de forma segura.
+As contas de armazenamento têm um ponto final público que é acessível através da internet. Também pode criar [Pontos Finais Privados para a sua conta de armazenamento,](storage-private-endpoints.md)que atribui um endereço IP privado do seu VNet à conta de armazenamento, e protege todo o tráfego entre o seu VNet e a conta de armazenamento por um link privado. A firewall de armazenamento Azure fornece controlo de acesso para o ponto final público da sua conta de armazenamento. Também pode utilizar a firewall para bloquear todo o acesso através do ponto final público quando utilizar pontos finais privados. A configuração da firewall de armazenamento também permite selecionar serviços de plataforma fidedignas Azure para aceder à conta de armazenamento de forma segura.
 
 Uma aplicação que acede a uma conta de armazenamento quando as regras da rede estão em vigor ainda requer uma autorização adequada para o pedido. A autorização é suportada com credenciais do Azure Ative Directory (Azure AD) para bolhas e filas, com uma chave de acesso à conta válida, ou com um token SAS.
 
@@ -33,13 +33,13 @@ Uma aplicação que acede a uma conta de armazenamento quando as regras da rede 
 
 ## <a name="scenarios"></a>Cenários
 
-Para garantir a sua conta de armazenamento, deve primeiro configurar uma regra para negar o acesso ao tráfego de todas as redes (incluindo o tráfego de internet) no ponto final público, por padrão. Em seguida, deve configurar regras que concedem acesso ao tráfego a partir de VNets específicos. Também pode configurar regras para permitir o acesso ao tráfego a partir de intervalos de endereços IP de internet pública selecionados, permitindo ligações a clientes específicos da Internet ou no local. Esta configuração permite-lhe construir um limite de rede seguro para as suas aplicações.
+Para garantir a sua conta de armazenamento, deve primeiro configurar uma regra para negar o acesso ao tráfego de todas as redes (incluindo o tráfego de internet) no ponto final público, por padrão. Em seguida, deve configurar regras que concedem acesso ao tráfego a partir de VNets específicos. Também pode configurar regras para permitir o acesso ao tráfego a partir de intervalos de endereços IP públicos selecionados, permitindo ligações a clientes específicos da Internet ou no local. Esta configuração permite-lhe construir um limite de rede seguro para as suas aplicações.
 
 Pode combinar regras de firewall que permitem o acesso a partir de redes virtuais específicas e de intervalos de endereços IP públicos na mesma conta de armazenamento. As regras de firewall de armazenamento podem ser aplicadas às contas de armazenamento existentes ou ao criar novas contas de armazenamento.
 
 As regras de firewall de armazenamento aplicam-se ao ponto final público de uma conta de armazenamento. Não precisa de regras de acesso a firewall para permitir tráfego para pontos finais privados de uma conta de armazenamento. O processo de aprovação da criação de um ponto final privado concede acesso implícito ao tráfego a partir da sub-rede que acolhe o ponto final privado.
 
-As regras de rede são aplicadas em todos os protocolos de rede para o armazenamento Azure, incluindo REST e SMB. Para aceder a dados utilizando ferramentas como o portal Azure, Storage Explorer e AZCopy, as regras explícitas de rede devem ser configuradas.
+As regras de rede são aplicadas em todos os protocolos de rede para armazenamento Azure, incluindo REST e SMB. Para aceder a dados utilizando ferramentas como o portal Azure, Storage Explorer e AZCopy, as regras explícitas de rede devem ser configuradas.
 
 Uma vez aplicadas as regras da rede, são aplicadas a todos os pedidos. Os tokens SAS que concedem acesso a um endereço IP específico servem para limitar o acesso do titular do token, mas não concedem um novo acesso além das regras de rede configuradas.
 
@@ -376,7 +376,7 @@ Quando ativa os **serviços da Microsoft fidedignos...** definição, os recurso
 | Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para a Azure usando a Data Box. [Saiba mais](../../databox/data-box-overview.md). |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefactos. [Saiba mais](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft.EventGrid        | Permitir a publicação do evento Blob Storage e permitir que a Grade de Eventos publique para as filas de armazenamento. Saiba mais sobre [eventos de armazenamento de bolhas](../../event-grid/overview.md#event-sources) e [publicação em filas.](../../event-grid/event-handlers.md) |
-| Azure Event Hubs         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba Mais](../../event-hubs/event-hubs-capture-overview.md). |
+| Hubs de Eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba Mais](../../event-hubs/event-hubs-capture-overview.md). |
 | Azure File Sync          | Microsoft.StorageSync      | Permite-lhe transformar o seu servidor de ficheiros on-prem para um cache para ações do Ficheiro Azure. Permitindo sincronização multi-site, rápida recuperação de desastres e backup do lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Fornecendo o conteúdo inicial do sistema de ficheiros predefinidos para um novo cluster HDInsight. [Saiba mais](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Exportação de Importação de Azure      | Microsoft.ImportExport     | Permite a importação de dados para a Azure Storage ou exportação de dados da Azure Storage utilizando o serviço de importação/exportação de armazenamento Azure. [Saiba mais](./storage-import-export-service.md).  |
@@ -394,7 +394,7 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As tarefas ACR podem aceder às contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/fábricas        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
 | Azure Data Share               | Microsoft.DataShare/contas           | Permite o acesso às contas de armazenamento através do Data Share. |
-| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Hub IoT do Azure                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que as aplicações lógicas acedam a contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
 | Azure Synapse Analytics       | Microsoft.Sql                          | Permite a importação e exportação de dados a partir de bases de dados SQL específicas utilizando a declaração COPY ou PolyBase. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |

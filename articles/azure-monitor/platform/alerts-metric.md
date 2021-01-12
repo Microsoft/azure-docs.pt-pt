@@ -4,14 +4,14 @@ description: Saiba como usar o portal Azure ou OCli para criar, visualizar e ger
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0518d3a2e1b67b33b9cb6bceb9754df302710f70
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342166"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071039"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
@@ -41,23 +41,23 @@ O procedimento que se segue descreve como criar uma regra de alerta métrico no 
 7. Verá um gráfico para a métrica nas últimas seis horas. Utilize o período de entrega do **gráfico** para selecionar para ver um histórico mais longo para a métrica.
 
 8. Se a métrica tiver dimensões, verá uma tabela de dimensões apresentada. Selecione um ou mais valores por dimensão.
-    - Os valores de dimensão apresentados baseiam-se em dados métricos dos últimos três dias.
-    - Se o valor de dimensão que procura não for apresentado, clique em "+" para adicionar um valor personalizado.
-    - Também pode **Selecione \* *_ para qualquer uma das dimensões. _*Selecione \* *_ escalará dinamicamente a seleção para todos os valores atuais e futuros para uma dimensão.
+    - Os valores de dimensão apresentados baseiam-se em dados métricos do último dia.
+    - Se o valor de dimensão que procura não for apresentado, clique em "Adicionar valor personalizado" para adicionar um valor de dimensão personalizada.
+    - Também pode **selecionar todos os valores atuais e futuros** para qualquer uma das dimensões. Isto irá escalar dinamicamente a seleção para todos os valores atuais e futuros para uma dimensão.
 
     A regra de alerta métrico avaliará a condição para todas as combinações de valores selecionados. [Saiba mais sobre como funciona o alerta sobre métricas multidimensionais.](alerts-metric-overview.md)
 
-9. Selecione o tipo _*Threshold**, **Operador**e **Agregação**. Isto determinará a lógica que a regra de alerta métrico irá avaliar.
+9. Selecione o tipo **Threshold,** **Operador** e Tipo **de Agregação**. Isto determinará a lógica que a regra de alerta métrico irá avaliar.
     - Se estiver a utilizar um limiar **estático,** continue a definir um **valor limiar**. O gráfico métrico pode ajudar a determinar o que pode ser um limiar razoável.
     - Se estiver a utilizar um limiar **Dinâmico,** continue a definir a **sensibilidade Threshold**. O gráfico métrico apresentará os limiares calculados com base em dados recentes. [Saiba mais sobre o tipo de condições e opções de sensibilidade dos Limiares Dinâmicos](alerts-dynamic-thresholds.md).
 
 10. Opcionalmente, refinar a condição ajustando a **granularidade da agregação** e **a frequência de avaliação**. 
 
-11. Clique em **Done** (Concluído).
+11. Clique em **Concluído**.
 
 12. Opcionalmente, adicione outro critério se quiser monitorizar uma regra de alerta complexa. Atualmente, os utilizadores podem ter regras de alerta com critérios de Limiares Dinâmicos como um único critério.
 
-13. Preencha **detalhes de alerta** como nome da regra de **alerta,** **descrição**e **severidade**.
+13. Preencha **detalhes de alerta** como nome da regra de **alerta,** **descrição** e **severidade**.
 
 14. Adicione um grupo de ação ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 
@@ -74,7 +74,7 @@ Pode ver e gerir as regras de alerta métricas utilizando a lâmina 'Gerir regra
 
 2. Clique em **Alertas** e **Gerir regras**
 
-3. Na lâmina **de regras 'Gerir',** pode ver todas as suas regras de alerta através de subscrições. Pode filtrar ainda mais as regras utilizando o **grupo de recursos,** **o tipo de recurso**e o **recurso.** Se quiser ver apenas alertas métricos, selecione **o tipo de sinal** como Métricas.
+3. Na lâmina **de regras 'Gerir',** pode ver todas as suas regras de alerta através de subscrições. Pode filtrar ainda mais as regras utilizando o **grupo de recursos,** **o tipo de recurso** e o **recurso.** Se quiser ver apenas alertas métricos, selecione **o tipo de sinal** como Métricas.
 
     > [!TIP]
     > Na lâmina **de regras De gestão,** pode selecionar várias regras de alerta e ativar/desativá-las. Isto pode ser útil quando certos recursos-alvo precisam ser colocados sob manutenção

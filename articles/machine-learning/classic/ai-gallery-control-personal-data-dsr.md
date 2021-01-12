@@ -9,13 +9,13 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
-ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 6276d5c8d333f29c55720f2255f2cdf27e1e36cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: mldocs
+ms.openlocfilehash: 1c549cd4a4d76e96f16eb04f3cf5aa3368725b8c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346024"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070546"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ver e apagar dados de utilizadores no produto da Galeria Azure AI
 
@@ -62,7 +62,7 @@ Para obter um token de acesso, você precisa inspecionar o `DataLabAccessToken` 
 2.    Clique na imagem do perfil no canto superior direito e, em seguida, o nome da conta para carregar a sua página de perfil.
 3.    Abra o painel de ferramentas do programador do navegador pressionando F12, selecione o separador 'Rede' e refresque a página. 
 4. Filtrar os pedidos no *catálogo* de cordas digitando a caixa de texto do filtro.
-5.    Nos pedidos para o `https://catalog.cortanaanalytics.com/entities` URL, encontre um pedido GET e *Request Headers* selecione o *separador Cabeçalhos.*
+5.    Nos pedidos para o `https://catalog.cortanaanalytics.com/entities` URL, encontre um pedido GET e  selecione o *separador Cabeçalhos.*
 6.    Debaixo do cabeçalho está o símbolo `DataLabAccessToken` alfanumérico. Para ajudar a manter os seus dados seguros, não partilhe este símbolo.
 
 ### <a name="view-user-information"></a>Ver informações do utilizador

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/18/2020
-ms.openlocfilehash: 6037b372f73bcf3554120e305f4b3031b26e97d4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.date: 01/10/2021
+ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831657"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071940"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -36,7 +36,7 @@ Log Analytics Clusters Dedicados usam um [modelo de preços de](../log-query/log
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona a chave Customer-Managed no Azure Monitor
 
-O Azure Monitor utiliza identidade gerida atribuída ao sistema para dar acesso ao seu Cofre de Chaves Azure. A identidade do cluster Log Analytics é suportada ao nível do cluster e permite Customer-Managed chave em vários espaços de trabalho, um novo recurso *do Cluster* Log Analytics funciona como uma ligação de identidade intermédia entre o seu Cofre-Chave e os seus espaços de trabalho Log Analytics. O armazenamento do cluster Log Analytics utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar o seu Cofre de Chave Azure via Azure Ative Directory. 
+O Azure Monitor utiliza identidade gerida para dar acesso ao seu Cofre de Chaves Azure. A identidade do cluster Log Analytics é suportada ao nível do cluster. Para permitir Customer-Managed proteção de chaves em vários espaços de trabalho, um novo recurso *do Cluster* Log Analytics funciona como uma ligação de identidade intermédia entre o cofre de chaves e os espaços de trabalho do Log Analytics. O armazenamento do cluster utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar o seu Cofre de Chave Azure via Azure Ative Directory. 
 
 Após a configuração da chave gerida pelo Cliente, novos dados ingeridos em espaços de trabalho ligados ao seu cluster dedicado são encriptados com a sua chave. Pode desvincular os espaços de trabalho do cluster a qualquer momento. Os novos dados são então ingeridos para o armazenamento do Log Analytics e encriptados com a chave Microsoft, enquanto pode consultar os seus dados novos e antigos sem problemas.
 
@@ -125,6 +125,11 @@ Estas definições podem ser atualizadas no Key Vault via CLI e PowerShell:
 
 ## <a name="create-cluster"></a>Criar cluster
 
+> [! INFORMAÇÃO] Os clusters suportam dois [tipos de identidade geridos.](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) A identidade gerida atribuída ao sistema é criada com o cluster quando introduz o `SystemAssigned` tipo de identidade e esta pode ser usada mais tarde para garantir o acesso ao seu Cofre-Chave. Se pretender criar um cluster configurado para a chave gerida pelo Cliente na criação, crie o cluster com identidade gerida pelo Utilizador que é concedido no seu Cofre-Chave -- Atualize o cluster com `UserAssigned` o tipo de identidade, o ID de recursos da identidade `UserAssignedIdentities` e forneça os seus principais detalhes em `keyVaultProperties` .
+
+> [!IMPORTANT]
+> Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet). Esta limitação não é aplicada à identidade gerida atribuída pelo Sistema.
+
 Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Permissões de Cofre chave
@@ -132,7 +137,7 @@ Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query
 Crie uma política de acesso no Key Vault para conceder permissões ao seu cluster. Estas permissões são utilizadas pelo armazenamento do Monitor Azure. Abra o cofre chave no portal Azure e clique em *"Políticas de Acesso"* e depois *"+ Adicionar Política de Acesso"* para criar uma política com estas definições:
 
 - Permissões-chave: selecione *'Get'*, *'Wrap Key'* e *'Unwrap Key'.*
-- Selecione principal: insira o nome do cluster ou id principal.
+- Selecione principal: dependendo do tipo de identidade utilizado no cluster (sistema ou identidade gerida atribuída pelo utilizador) insira o nome do cluster ou o ID principal do cluster para a identidade gerida atribuída pelo sistema ou pelo nome de identidade gerido atribuído pelo utilizador.
 
 ![conceder permissões key vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -237,11 +242,15 @@ Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query
 
 ## <a name="key-revocation"></a>Revogação de chaves
 
-Pode revogar o acesso aos dados desativando a sua chave ou eliminando a política de acesso do cluster no seu Cofre-Chave. O armazenamento do cluster Log Analytics respeitará sempre as alterações nas permissões-chave dentro de uma hora ou mais cedo e o Armazenamento ficará indisponível. Quaisquer novos dados ingeridos em espaços de trabalho ligados ao seu cluster são eliminados e não serão recuperáveis, os dados são inacessíveis e as consultas a estes espaços de trabalho falham. Os dados previamente ingeridos permanecem armazenados enquanto o seu cluster e os seus espaços de trabalho não forem eliminados. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados quando a retenção for alcançada. 
+Pode revogar o acesso aos dados desativando a sua chave ou eliminando a política de acesso do cluster no seu Cofre-Chave. 
 
-Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado em SSD) para um funcionamento eficiente do motor de consulta. Isto é eliminado no funcionamento da revogação da chave e torna-se inacessível também.
+> [!IMPORTANT]
+> - Se o seu cluster estiver definido com a identidade gerida atribuída pelo Utilizador, a definição `UserAssignedIdentities` com `None` suspensão do cluster e impede o acesso aos seus dados, mas não pode reverter a revogação e ativar o cluster sem abrir o pedido de suporte. Esta limitação não é aplicada à identidade gerida atribuída pelo Sistema.
+> - A ação de revogação da chave recomendada é desativando a sua chave no cofre da chave.
 
-O armazenamento sonda periodicamente o seu Key Vault para tentar desembrulhar a chave de encriptação e uma vez acedido, a ingestão de dados e a consulta retomam dentro de 30 minutos.
+O armazenamento do cluster respeitará sempre as alterações nas permissões-chave dentro de uma hora ou mais cedo e o armazenamento ficará indisponível. Quaisquer novos dados ingeridos em espaços de trabalho ligados ao seu cluster são eliminados e não serão recuperáveis, os dados tornam-se inacessíveis e as consultas nestes espaços de trabalho falham. Os dados previamente ingeridos permanecem armazenados enquanto o seu cluster e os seus espaços de trabalho não forem eliminados. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados quando a retenção for alcançada. Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado em SSD) para um funcionamento eficiente do motor de consulta. Isto é eliminado no funcionamento da revogação da chave e torna-se inacessível também.
+
+O armazenamento do cluster sonda periodicamente o seu Key Vault para tentar desembrulhar a chave de encriptação e uma vez acedido, a ingestão de dados e a consulta retomam dentro de 30 minutos.
 
 ## <a name="key-rotation"></a>Rotação de chaves
 
@@ -404,6 +413,37 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
   - Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster sem a Double Encryption. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` propriedade no corpo de pedido REST.
   - A definição de encriptação dupla não pode ser alterada após a criação do cluster.
 
+  - Se o seu cluster estiver definido com a identidade gerida atribuída pelo Utilizador, a definição `UserAssignedIdentities` com `None` suspensão do cluster e impede o acesso aos seus dados, mas não pode reverter a revogação e ativar o cluster sem abrir o pedido de suporte. Esta limitação é aplicada à identidade gerida atribuída pelo Sistema.
+
+  - Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet). Esta limitação não é aplicada à identidade gerida atribuída pelo Sistema.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+- Comportamento com disponibilidade de Cofre chave
+  - Em funcionamento normal- Caches de armazenamento AEK por curtos períodos de tempo e volta para Key Vault para desembrulhar periodicamente.
+    
+  - Erros de ligação transitórios -- O armazenamento lida com erros transitórios (intervalos de tempo, falhas de ligação, problemas de DNS) permitindo que as chaves permaneçam em cache por um curto período de tempo e isso supera quaisquer pequenos blips na disponibilidade. As capacidades de consulta e ingestão continuam sem interrupção.
+    
+  - Site ao vivo - indisponibilidade de cerca de 30 minutos fará com que a conta de Armazenamento fique indisponível. A capacidade de consulta não está disponível e os dados ingeridos são cached durante várias horas usando a chave Microsoft para evitar a perda de dados. Quando o acesso ao Key Vault é restaurado, a consulta fica disponível e os dados em cache temporários são ingeridos na loja de dados e encriptados com Customer-Managed chave.
+
+  - A frequência a que o Azure Monitor Storage acede ao Cofre chave para operações de embrulho e desembrulhar é entre 6 a 60 segundos.
+
+- Se criar um cluster e especificar imediatamente as Propriedades KeyVault, a operação pode falhar, uma vez que a política de acesso não pode ser definida até que a identidade do sistema seja atribuída ao cluster.
+
+- Se atualizar o cluster existente com KeyVaultProperties e a chave 'Obter' 'Obter' está em falta no Key Vault, a operação falhará.
+
+- Se tiver erro de conflito ao criar um cluster – Pode ser que tenha apagado o seu cluster nos últimos 14 dias e esteja num período de eliminação suave. O nome do cluster permanece reservado durante o período de eliminação suave e não é possível criar um novo cluster com esse nome. O nome é lançado após o período de eliminação suave quando o cluster é permanentemente eliminado.
+
+- Se atualizar o seu cluster enquanto uma operação está em curso, a operação falhará.
+
+- Se não implementar o seu cluster, verifique se o seu Cofre de Chaves Azure, cluster e espaços de trabalho ligados ao Log Analytics estão na mesma região. Pode estar em diferentes subscrições.
+
+- Se atualizar a sua versão chave no Key Vault e não atualizar os novos detalhes do identificador chave no cluster, o cluster Log Analytics continuará a utilizar a sua chave anterior e os seus dados tornar-se-ão inacessíveis. Atualize novos detalhes do identificador chave no cluster para retomar a ingestão de dados e a capacidade de consultar dados.
+
+- Algumas operações são longas e podem demorar algum tempo a concluir -- estas são criação de cluster, atualização da chave de cluster e eliminação de clusters. Pode verificar o estado da operação de duas formas:
+  1. ao utilizar o REST, copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das [operações assíncronos](#asynchronous-operations-and-status-check).
+  2. Envie pedido GET para cluster ou espaço de trabalho e observe a resposta. Por exemplo, o espaço de trabalho desvinculado não terá o *clusterResourceId* sob *funcionalidades*.
+
 - Mensagens de erro
   
   **Criar Cluster**
@@ -441,34 +481,6 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
   **Desvinculação do espaço de trabalho**
   -  404- Espaço de trabalho não encontrado. O espaço de trabalho especificado não existe ou foi apagado.
   -  409 - Ligação do espaço de trabalho ou operação de desvinculação em processo.
-
-## <a name="troubleshooting"></a>Resolução de problemas
-
-- Comportamento com disponibilidade de Cofre chave
-  - Em funcionamento normal- Caches de armazenamento AEK por curtos períodos de tempo e volta para Key Vault para desembrulhar periodicamente.
-    
-  - Erros de ligação transitórios -- O armazenamento lida com erros transitórios (intervalos de tempo, falhas de ligação, problemas de DNS) permitindo que as chaves permaneçam em cache por um curto período de tempo e isso supera quaisquer pequenos blips na disponibilidade. As capacidades de consulta e ingestão continuam sem interrupção.
-    
-  - Site ao vivo - indisponibilidade de cerca de 30 minutos fará com que a conta de Armazenamento fique indisponível. A capacidade de consulta não está disponível e os dados ingeridos são cached durante várias horas usando a chave Microsoft para evitar a perda de dados. Quando o acesso ao Key Vault é restaurado, a consulta fica disponível e os dados em cache temporários são ingeridos na loja de dados e encriptados com Customer-Managed chave.
-
-  - A frequência a que o Azure Monitor Storage acede ao Cofre chave para operações de embrulho e desembrulhar é entre 6 a 60 segundos.
-
-- Se criar um cluster e especificar imediatamente as Propriedades KeyVault, a operação pode falhar, uma vez que a política de acesso não pode ser definida até que a identidade do sistema seja atribuída ao cluster.
-
-- Se atualizar o cluster existente com KeyVaultProperties e a chave 'Obter' 'Obter' está em falta no Key Vault, a operação falhará.
-
-- Se tiver erro de conflito ao criar um cluster – Pode ser que tenha apagado o seu cluster nos últimos 14 dias e esteja num período de eliminação suave. O nome do cluster permanece reservado durante o período de eliminação suave e não é possível criar um novo cluster com esse nome. O nome é lançado após o período de eliminação suave quando o cluster é permanentemente eliminado.
-
-- Se atualizar o seu cluster enquanto uma operação está em curso, a operação falhará.
-
-- Se não implementar o seu cluster, verifique se o seu Cofre de Chaves Azure, cluster e espaços de trabalho ligados ao Log Analytics estão na mesma região. Pode estar em diferentes subscrições.
-
-- Se atualizar a sua versão chave no Key Vault e não atualizar os novos detalhes do identificador chave no cluster, o cluster Log Analytics continuará a utilizar a sua chave anterior e os seus dados tornar-se-ão inacessíveis. Atualize novos detalhes do identificador chave no cluster para retomar a ingestão de dados e a capacidade de consultar dados.
-
-- Algumas operações são longas e podem demorar algum tempo a concluir -- estas são criação de cluster, atualização da chave de cluster e eliminação de clusters. Pode verificar o estado da operação de duas formas:
-  1. ao utilizar o REST, copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das [operações assíncronos](#asynchronous-operations-and-status-check).
-  2. Envie pedido GET para cluster ou espaço de trabalho e observe a resposta. Por exemplo, o espaço de trabalho desvinculado não terá o *clusterResourceId* sob *funcionalidades*.
-
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a faturação dedicada do cluster do Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753540"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071379"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
 
@@ -297,6 +297,24 @@ Esta é uma questão vMware conhecida em que o tamanho do disco indicado por ins
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Error Message: Ocorreu um erro interno. [A atribuição de memória falhou. Fora de memória.]
 
 Isto acontece quando o amortecedor de anfitrião NFC está fora de memória. Para resolver este problema, é necessário mover o VM (compute vMotion) para um anfitrião diferente, que tem recursos gratuitos.
+
+## <a name="replication-cycle-failed"></a>Ciclo de replicação falhou
+
+**ID de erro:** 181008
+
+**Mensagem de erro:** VM: 'VMName'. Erro: Não foram encontrados tiros de disco para a replicação instantânea com id snapshot : 'SnapshotID'.
+
+**Possíveis Causas:**
+
+As razões possíveis são:
+1. Caminho de um ou mais discos incluídos alterados devido à VMotion de Armazenamento.
+2. Um ou mais discos incluídos já não estão ligados ao VM.
+      
+**Recomendação:**
+
+Seguem-se as recomendações
+1. Restaurar os discos incluídos para o caminho original usando o armazenamento vMotion e, em seguida, desativar a vmoção de armazenamento.
+2. Desativar a VMotion de Armazenamento, se ativada, pare a replicação na máquina virtual e replique novamente a máquina virtual. Se o problema persistir, contacte o suporte.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

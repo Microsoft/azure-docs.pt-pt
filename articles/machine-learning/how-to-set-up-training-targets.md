@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a3427be85314f06b5408c4450e0415768122879f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a5764a9f230540d58edf71e8c00781e86589aa9a
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913010"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070172"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de preparação
 
@@ -216,6 +216,8 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
     4. Instalar com `pip install 'PyJWT<2.0.0'`
     
     Se estiver a submeter um ambiente criado pelo utilizador com a sua execução, considere utilizar a versão mais recente do núcleo azureml nesse ambiente. Versões >= 1.18.0 de azureml-core já pin PyJWT < 2.0.0. Se precisar de utilizar uma versão do núcleo azureml < 1.18.0 no ambiente que submete, certifique-se de especificar PyJWT < 2.0.0 nas suas dependências de pip.
+
+* **O alvo do cálculo demora muito tempo a ser iniciado**: As imagens do Docker para alvos de computação são carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e carregar imagens. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

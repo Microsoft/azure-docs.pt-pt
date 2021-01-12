@@ -11,12 +11,12 @@ ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b54df350e3f59720a92d7c1e74e28d9fcafddf94
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 32d7dc913ae19353574e91837b4ea009d9f797c6
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802495"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071821"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Quickstart: Criar uma aplicação Java no Azure App Service
 
@@ -218,7 +218,7 @@ Propriedade | Necessário | Descrição | Versão
 `<subscriptionId>` | false | Especificar o id de assinatura. | 0.1.0+
 `<resourceGroup>` | true | Grupo de Recursos Azure para a sua Aplicação Web. | 0.1.0+
 `<appName>` | true | O nome da sua Aplicação Web. | 0.1.0+
-`<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor predefinido é **westeurope**. Todas as regiões válidas na secção [Regiões Apoiadas.](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) | 0.1.0+
+`<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor predefinido é **westeurope**. Todas as regiões válidas na secção [Regiões Apoiadas.](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) | 0.1.0+
 `<pricingTier>` | false | O nível de preços da sua Web App. O valor predefinido é **P1V2** para carga de trabalho de produção, enquanto **B2** é o mínimo recomendado para Java dev/teste. [Saiba mais](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | A configuração do ambiente de tempo de execução, pode ver o detalhe [aqui.](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details) | 0.1.0+
 `<deployment>` | true | A configuração de implementação, pode ver os detalhes [aqui.](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details) | 0.1.0+

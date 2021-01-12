@@ -3,12 +3,12 @@ title: Sobre failover e failback na Recuperação do Local de Azure
 description: Saiba mais sobre falhas e falhas na Recuperação do Local de Azure.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: 3617683200aa3ffba08061b70993613fd0cc7241
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b900655d6fdf1143d430ac842bfd84eb1dfdf34c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369884"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070749"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre a recuperação de desastres no local/failback
 
@@ -45,7 +45,7 @@ Para ligar aos VMs Azure criados após a falha usando RDP/SSH, existem uma séri
 
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
-**Azure VM (Windows).** | Na máquina no local antes do failover | **Acesso através da internet**: Ativar RDP. Certifique-se de que as regras TCP e UDP são adicionadas ao **Público**, e que o PDR é permitido para todos os perfis em Apps **Windows Firewall**  >  **Permitidas pelo**Windows Firewall .<br/><br/> **Acesso sobre o local-a-local VPN**: Ative o RDP na máquina. Verifique se o RDP **Windows Firewall**é permitido nas  ->  **aplicações e funcionalidades permitidas pelo**Windows Firewall , para redes **de domínio e privado.**<br/><br/>  Certifique-se de que a política do sistema operativo SAN está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando desencadear uma falha. O Windows Update pode começar quando falhar de novo e não poderá iniciar sessão no VM até que as atualizações sejam feitas.
+**Azure VM executando janelas** | Na máquina no local antes do failover | **Acesso através da internet**: Ativar RDP. Certifique-se de que as regras TCP e UDP são adicionadas ao **Público**, e que o PDR é permitido para todos os perfis em Apps   >  **Permitidas pelo** Windows Firewall .<br/><br/> **Acesso sobre o local-a-local VPN**: Ative o RDP na máquina. Verifique se o RDP é permitido nas  ->  **aplicações e funcionalidades permitidas pelo** Windows Firewall , para redes **de domínio e privado.**<br/><br/>  Certifique-se de que a política do sistema operativo SAN está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando desencadear uma falha. O Windows Update pode começar quando falhar de novo e não poderá iniciar sessão no VM até que as atualizações sejam feitas.
 **Azure VM executando janelas** | No Azure VM após falha |  [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) devem permitir a entrada de ligações à porta RDP.<br/><br/> Verifique **os diagnósticos da Boot** para verificar uma imagem do VM. Se não conseguir ligar, verifique se o VM está em funcionamento e reveja [as dicas de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Azure VM executando Linux** | Na máquina no local antes do failover | Certifique-se de que o serviço Secure Shell no VM está programado para iniciar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
 **Azure VM executando Linux** | No Azure VM após falha | As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> Verifique **os diagnósticos da Boot** para obter uma imagem do VM.<br/><br/>
@@ -124,7 +124,7 @@ Saiba mais sobre vMware/reproteção física e failback:
 
 Quando reprotecta os VMs do Azure para as instalações, pode especificar que pretende voltar a falhar no local original ou num local alternativo.
 
-- **Recuperação original**da localização : Isto falha de Azure para a mesma máquina de origem no local, se existir. Neste cenário, apenas as alterações são replicadas de volta ao local.
+- **Recuperação original** da localização : Isto falha de Azure para a mesma máquina de origem no local, se existir. Neste cenário, apenas as alterações são replicadas de volta ao local.
 - **Recuperação alternativa da localização**: Se a máquina no local não existir, pode falhar de volta de Azure para um local alternativo. Quando reprotete o Azure VM para o local, a máquina no local é criada. A replicação completa de dados ocorre de Azure para o local. - - [Rever](concepts-types-of-failback.md) os requisitos e limitações para a falha de localização.
 
 
@@ -147,7 +147,7 @@ Para reprotecer e reprotecer e reprotecer os VMs hiper-V de Azure para as instal
 
 Quando reprotecta os VMs do Azure para as instalações, pode especificar que pretende voltar a falhar no local original ou num local alternativo.
 
-- **Recuperação original**da localização : Isto falha de Azure para a mesma máquina de origem no local, se existir. Neste cenário, selecione uma das opções de sincronização descritas no procedimento anterior.
+- **Recuperação original** da localização : Isto falha de Azure para a mesma máquina de origem no local, se existir. Neste cenário, selecione uma das opções de sincronização descritas no procedimento anterior.
 - **Recuperação alternativa da localização**: Se a máquina no local não existir, pode falhar de volta de Azure para um local alternativo. Quando reprotete o Azure VM para o local, a máquina no local é criada. Com esta opção, recomendamos que selecione a opção de sincronizar dados antes de falhar
 - [Reveja](hyper-v-azure-failback.md) os requisitos e limitações para a falha de localização.
 

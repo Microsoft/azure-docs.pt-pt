@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/13/2020
-ms.openlocfilehash: a82606be62007816d545942161774e776c38a4e3
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 01/11/2021
+ms.openlocfilehash: 2c60e8c71c38e5a6e92939b655cef9fcc1e04f70
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637297"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072089"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para a Salesforce utilizando a Azure Data Factory
 
@@ -42,7 +42,7 @@ Especificamente, este conector Salesforce suporta:
 - Salesforce Developer, Professional, Enterprise ou Edições Ilimitadas.
 - Copiar dados de e para a produção da Salesforce, caixa de areia e domínio personalizado.
 
-O conector Salesforce é construído em cima da Salesforce REST/API a granel. Por predefinição, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. Também pode definir explicitamente a versão API usada para ler/escrever dados através de [ `apiVersion` propriedade](#linked-service-properties) em serviço ligado.
+O conector Salesforce é construído em cima da Salesforce REST/API a granel. Por predefinição, ao copiar dados da Salesforce, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) e escolhe automaticamente entre APIs REST e Bulk com base no tamanho dos dados – quando o conjunto de resultados é grande, a API a granel é utilizada para um melhor desempenho; ao escrever dados à Salesforce, o conector utiliza [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) de API a granel. Também pode definir explicitamente a versão API usada para ler/escrever dados através de [ `apiVersion` propriedade](#linked-service-properties) em serviço ligado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -144,11 +144,11 @@ As seguintes propriedades são suportadas para o serviço ligado à Salesforce.
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Salesforce.
 
-Para copiar dados de e para Salesforce, defina o tipo de propriedade do conjunto de dados para **SalesforceObject** . As seguintes propriedades são suportadas.
+Para copiar dados de e para Salesforce, defina o tipo de propriedade do conjunto de dados para **SalesforceObject**. As seguintes propriedades são suportadas.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **SalesforceObject** .  | Sim |
+| tipo | A propriedade tipo deve ser definida para **SalesforceObject**.  | Sim |
 | objectApiName | O nome do objeto Salesforce para obter dados de. | Não para a fonte, sim para a pia |
 
 > [!IMPORTANT]
@@ -180,7 +180,7 @@ Para copiar dados de e para Salesforce, defina o tipo de propriedade do conjunto
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **RelationalTable** . | Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
 | tableName | O nome da mesa na Salesforce. | Não (se for especificada "consulta" na fonte de atividade) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -189,11 +189,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce como tipo de origem
 
-Para copiar dados da Salesforce, deteta o tipo de origem na atividade de cópia para **SalesforceSource** . As seguintes propriedades são suportadas na secção **de origem** da atividade de cópia.
+Para copiar dados da Salesforce, deteta o tipo de origem na atividade de cópia para **SalesforceSource**. As seguintes propriedades são suportadas na secção **de origem** da atividade de cópia.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **SalesforceSource** . | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **SalesforceSource**. | Sim |
 | consulta |Utilize a consulta personalizada para ler dados. Pode utilizar a consulta [de idioma de consulta de objetos salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou consulta SQL-92. Veja mais dicas na secção [de dicas de consulta.](#query-tips) Se a consulta não for especificada, todos os dados do objeto Salesforce especificados em "objectApiName" no conjunto de dados serão recuperados. | Não (se for especificado "objectApiName" no conjunto de dados) |
 | readOportur-se | Indica se deve consultar os registos existentes ou consultar todos os registos, incluindo os eliminados. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **consultaTo.**  | Não |
 
@@ -239,15 +239,15 @@ Para copiar dados da Salesforce, deteta o tipo de origem na atividade de cópia 
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce como um tipo de pia
 
-Para copiar dados para a Salesforce, desaperte o tipo de pia na atividade de cópia para **SalesforceSink** . As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia.
+Para copiar dados para a Salesforce, desaperte o tipo de pia na atividade de cópia para **SalesforceSink**. As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **SalesforceSink** . | Sim |
-| escrever Comportamento | O comportamento de escrita para a operação.<br/>Os valores permitidos são **Insert** e **Upsert** . | Não (predefinição é Inserir) |
+| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **SalesforceSink**. | Sim |
+| escrever Comportamento | O comportamento de escrita para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (predefinição é Inserir) |
 | nome externoIdField | O nome do campo de identificação externo para a operação de upsert. O campo especificado deve ser definido como "Campo de Identificação Externa" no objeto Salesforce. Não pode ter valores NULOS nos dados de entrada correspondentes. | Sim para "Upsert" |
 | escreverBatchSize | A contagem de dados escrita à Salesforce em cada lote. | Não (o padrão é 5.000) |
-| ignoreNullValues | Indica se deve ignorar os valores NUS dos dados de entrada durante uma operação de escrita.<br/>Os valores permitidos são **verdadeiros** e **falsos.**<br>- **Verdade** : Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.<br/>- **Falso** : Atualize os dados no objeto de destino para NU QUANDO fizer uma operação de atualização ou atualização. Insira um valor NULO quando fizer uma operação de inserção. | Não (o padrão é falso) |
+| ignoreNullValues | Indica se deve ignorar os valores NUS dos dados de entrada durante uma operação de escrita.<br/>Os valores permitidos são **verdadeiros** e **falsos.**<br>- **Verdade**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NU QUANDO fizer uma operação de atualização ou atualização. Insira um valor NULO quando fizer uma operação de inserção. | Não (o padrão é falso) |
 
 **Exemplo: Salesforce afunda numa atividade de cópia**
 
@@ -302,7 +302,7 @@ Ao copiar dados da Salesforce, pode utilizar consulta SOQL ou consulta SQL. Note
 |:--- |:--- |:--- |
 | Seleção de colunas | É necessário enumerar os campos a serem copiados na consulta, por exemplo. `SELECT field1, filed2 FROM objectname` | `SELECT *` é suportado para além da seleção de colunas. |
 | Marcas de aspas | Os nomes arquivados/objetos não podem ser citados. | Os nomes de campo/objeto podem ser citados, por exemplo. `SELECT "id" FROM "Account"` |
-| Formato de data |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e as amostras na secção seguinte. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e as amostras na secção seguinte. |
+| Formato de data |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e as amostras na secção seguinte. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) e as amostras na secção seguinte. |
 | Valores booleano | Representado como `False` `True` e, por `SELECT … WHERE IsDeleted=True` exemplo. | Representado como 0 ou 1, por `SELECT … WHERE IsDeleted=1` exemplo. |
 | Renomeação de coluna | Não suportado. | Apoiado, por exemplo: `SELECT a AS b FROM …` . |
 | Relação | Apoiado, por `Account_vod__r.nvs_Country__c` exemplo. | Não suportado. |
@@ -312,7 +312,7 @@ Ao copiar dados da Salesforce, pode utilizar consulta SOQL ou consulta SQL. Note
 Quando especificar a consulta SOQL ou SQL, preste atenção à diferença do formato DateTime. Por exemplo:
 
 * **Amostra SOQL:**`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Amostra SQL** : `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Amostra SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Erro de MALFORMED_QUERY: Truncado
 

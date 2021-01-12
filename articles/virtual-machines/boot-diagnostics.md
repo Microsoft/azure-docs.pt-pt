@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500755"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071736"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de arranque Azure
 
@@ -21,10 +21,14 @@ O diagnóstico de arranque é uma funcionalidade de depuração para máquinas v
 ## <a name="boot-diagnostics-storage-account"></a>Conta de armazenamento de diagnóstico de arranque
 Ao criar um VM no portal Azure, o diagnóstico de arranque é ativado por padrão. A experiência de diagnóstico de arranque recomendada é usar uma conta de armazenamento gerida, uma vez que produz melhorias significativas no desempenho no tempo para criar um VM Azure. Isto porque será utilizada uma conta de armazenamento gerida pelo Azure, removendo o tempo necessário para criar uma nova conta de armazenamento de utilizador para armazenar os dados de diagnóstico de arranque.
 
-Uma experiência alternativa de diagnóstico de arranque é usar uma conta de armazenamento gerida pelo utilizador. Um utilizador pode criar uma nova conta de armazenamento ou utilizar uma já existente. 
-
 > [!IMPORTANT]
 > As bolhas de dados de diagnóstico de arranque (que compreendem registos e imagens instantâneas) são armazenadas numa conta de armazenamento gerida. Os clientes serão cobrados apenas em GiBs usados pelas bolhas, e não no tamanho provisível do disco. Os contadores instantâneos serão utilizados para a faturação da conta de armazenamento gerida. Uma vez que as contas geridas são criadas em LRS Standard ou ZRS Standard, os clientes serão cobrados a $0,05/GB por mês apenas pelo tamanho das suas bolhas de dados de diagnóstico. Para obter mais informações sobre este preço, consulte [os preços dos discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/). Os clientes verão esta taxa ligada ao seu recurso VM URI. 
+
+Uma experiência de diagnóstico de arranque alternativa é usar uma conta de armazenamento gerida pelo utilizador. Um utilizador pode criar uma nova conta de armazenamento ou utilizar uma já existente.
+> [!NOTE]
+> As contas de armazenamento geridas pelo utilizador associadas aos diagnósticos de arranque requerem a conta de armazenamento e as máquinas virtuais associadas residem na mesma subscrição. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>Vista de diagnóstico de arranque
 Localizada na lâmina da máquina virtual, a opção de diagnóstico de arranque encontra-se na secção *de Suporte e Resolução de Problemas* no portal Azure. A seleção de diagnósticos de arranque apresentará uma imagem e informações de registo em série. O registo em série contém mensagens de kernel e a imagem é uma imagem do seu estado atual dos VMs. Baseado em se o VM está a executar Windows ou Linux determina como seria a imagem esperada. Para o Windows, os utilizadores irão ver um fundo de ambiente de trabalho e, para o Linux, os utilizadores irão ver uma solicitação de login.

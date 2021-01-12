@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df511e79b73256833ec54c5906bb6acbc852bc46
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d2c0003058c2271e46a352567a14e1b01dfabdbf
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739625"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071107"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutorial: Treine o seu primeiro modelo de aprendizagem automática (parte 3 de 4)
 
@@ -41,9 +41,6 @@ Neste tutorial:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão da [parte 2](tutorial-1st-experiment-hello-world.md) da série.
-* Conhecimento introdutório da língua python e fluxos de trabalho de aprendizagem automática.
-* Ambiente de desenvolvimento local, como Visual Studio Code, Jupyter ou PyCharm.
-* Python (versão 3.5 a 3.7).
 
 ## <a name="create-training-scripts"></a>Criar scripts de formação
 
@@ -77,9 +74,7 @@ tutorial
 > [!div class="nextstepaction"]
 > [Criei os guiões de treino](?success=create-scripts#environment) [que encontrei num problema.](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
-## <a name="create-a-python-environment"></a><a name="environment"></a> Criar um ambiente Python
-
-Para fins de demonstração, vamos usar um ambiente Conda. (Os passos para um ambiente virtual pip são quase idênticos.)
+## <a name="create-a-new-python-environment"></a><a name="environment"></a> Criar um novo ambiente Python
 
 Criar um ficheiro chamado `pytorch-env.yml` `.azureml` diretório oculto:
 
@@ -92,18 +87,19 @@ Este ambiente tem todas as dependências que o seu modelo e script de treino req
 
 ## <a name="test-locally"></a><a name="test-local"></a> Teste local
 
-Utilize o seguinte código para testar o seu script que funciona localmente neste ambiente:
+Utilize o seguinte código para testar o seu script localmente no novo ambiente.  
 
 ```bash
-conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env                      # activate conda environment
+conda deactivate                                # If you are still using the tutorial environment, exit it
+conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
+conda activate pytorch-env                      # activate new Conda environment
 python src/train.py                             # train model
 ```
 
 Depois de executar este script, verá os dados descarregados num diretório chamado `tutorial/data` .
 
 > [!div class="nextstepaction"]
-> [Criei o ficheiro ambiental](?success=test-local#create-local) [que encontrei num problema.](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [Corri o código localmente](?success=test-local#create-local) [encontrei um problema](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> Criar o script de controlo
 
@@ -163,11 +159,11 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Submeta a corrida para Azure Machine Learning
 
-Se alterou os ambientes locais, não se esqueça de voltar a mudar para um ambiente que tenha o Azure Machine Learning SDK para Python instalado.
-
-Em seguida, execute:
+Volte para o ambiente *tutorial* que tem o Azure Machine Learning SDK para Python instalado. Como o código de treino não está a funcionar no teu computador, não precisas de ter o PyTorch instalado.  Mas precisa do `azureml-sdk` , que está no ambiente *tutorial.*
 
 ```bash
+conda deactivate
+conda activate tutorial
 python 04-run-pytorch.py
 ```
 

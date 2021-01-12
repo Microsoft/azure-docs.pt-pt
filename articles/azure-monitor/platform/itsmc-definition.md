@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a7e39bb8ed742007a13a222771b430372d50e889
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065308"
+ms.locfileid: "98071702"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -131,11 +131,11 @@ Utilize o seguinte procedimento para criar grupos de ação:
 
     >[!NOTE]
     >
-    > * Esta secção é relevante apenas para registar alertas de pesquisa.
-    > * Alertas métricos e Alertas de Registo de Atividade sempre criarão um item de trabalho por alerta.
+    > * Esta secção é relevante apenas para Alertas de Pesquisa de Registo.
+    > * Para todos os outros tipos de alerta, um item de trabalho será criado por alerta.
 
-    * Num caso que selecione no item de trabalho dropdown "Incident" ou "Alert":
-        * Se verificar a caixa de verificação **"Criar itens de trabalho individuais para cada Item de Configuração",** cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por elemento de configuração no sistema ITSM.
+    * Num caso, selecione na "Work Item" dropdown "Incident" ou "Alert": ![ Screenshot que mostra a janela incidente ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+        * Se verificar a caixa de verificação **"Criar itens de trabalho individuais para cada Item de Configuração",** cada item de configuração em cada alerta criará um novo item de trabalho. Como resultado de vários alertas para os mesmos itens de configuração afetados, haverá mais de um item de trabalho para cada item de configuração.
 
              Por exemplo:
              1) Alerta 1 com 3 Itens de configuração: A, B, C - criará 3 itens de trabalho.
@@ -148,15 +148,13 @@ Utilize o seguinte procedimento para criar grupos de ação:
 
         Por exemplo:
          1) Alerta 1 com 3 Itens de configuração: A, B, C - criará 1 item de trabalho.
-         2) Alerta 2 para a mesma regra de alerta que a fase 1 com 1 Item de configuração: D - será fundido ao item de trabalho na fase 1.
+         2) Alerta 2 para a mesma regra de alerta que na etapa a com 1 Item de configuração: D - D será anexado à lista de itens de configuração impactados no item de trabalho criado no passo a.
          3) Alerta 3 para uma regra de alerta diferente com 1 Item de Configuração: E - criará 1 item de trabalho.
 
-       ![Screenshot que mostra a janela itsm Incident.](media/itsmc-overview/itsm-action-configuration.png)
+    * Num caso, selecione no dropdown "Event" "Event": ![ Screenshot que mostra a janela itsm Event.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-    * Num caso que selecione no ponto de trabalho dropdown "Event":
         * Se selecionar **"Criar itens de trabalho individuais para cada Entrada de Registo (o campo de item de configuração não está preenchido. Pode resultar num grande número de itens de trabalho.)"** na seleção dos botões de rádio, será criado um item de trabalho por cada linha nos resultados de pesquisa da consulta de alerta de pesquisa de registo. Na carga útil do item de trabalho, a propriedade descrição terá a linha a partir dos resultados da pesquisa.
         * Se selecionar **"Criar itens de trabalho individuais para cada Item de Configuração"** na seleção dos botões de rádio, cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por elemento de configuração no sistema ITSM. Isto será o mesmo que a verificação da caixa de verificação na secção Incidente/Alerta.
-    ![Screenshot que mostra a janela do Evento ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selecione **OK**.
 
@@ -169,6 +167,6 @@ Quando criar ou editar uma regra de alerta Azure, utilize um grupo de ação, qu
 >
 >- O campo de descrição curta na definição de regra de alerta é limitado a 40 caracteres quando o envia utilizando a ação ITSM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas do Conector do ITSM](./itsmc-resync-servicenow.md)

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570965"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071158"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um "Olá mundo!" Escrita python (parte 2 de 4)
 
@@ -36,9 +36,6 @@ Neste tutorial, vai:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclusão da [parte 1](tutorial-1st-experiment-sdk-setup-local.md) se ainda não tiver um espaço de trabalho de Aprendizagem automática Azure.
-- Conhecimento introdutório da língua python e fluxos de trabalho de aprendizagem automática.
-- Ambiente de desenvolvimento local, como Visual Studio Code, Jupyter ou PyCharm.
-- Python (versão 3.5 a 3.7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Criar e executar um script Python localmente
 
@@ -64,7 +61,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a><a name="test"></a>Teste o seu script localmente
 
-Pode executar o seu código localmente, utilizando o seu IDE favorito ou um terminal. O código de execução local tem o benefício da depuragem interativa do código.
+Pode executar o seu código localmente, utilizando o seu IDE favorito ou um terminal. O código de execução local tem o benefício da depuragem interativa do código.  Na janela que tem o ambiente *de conda tutorial1* ativado, execute o ficheiro Python:
 
 ```bash
 cd <path/to/tutorial>
@@ -93,8 +90,6 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-
-
 
 ### <a name="understand-the-code"></a>Compreender o código
 
@@ -148,13 +143,6 @@ Aqui está uma descrição de como o script de controlo funciona:
 
 Executa o teu script de controlo, que por sua vez funciona `hello.py` no cluster de cálculo que criaste no tutorial de [configuração](tutorial-1st-experiment-sdk-setup-local.md).
 
-A primeira corrida levará 5 a 10 minutos para ser concluída. Isto porque ocorre o seguinte:
-
-* Uma imagem de estiva é construída na nuvem
-* O cluster computacional é redimensionado de 0 a 1 nó
-* A imagem do estivador é transferida para o cálculo. 
-
-As execuções subsequentes são muito mais rápidas (~15 segundos) uma vez que a imagem do estivador está em cache no cálculo - pode testá-lo reensiqar o código abaixo após a primeira execução ter terminado.
 
 ```bash
 python 03-run-hello.py
@@ -168,9 +156,17 @@ python 03-run-hello.py
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitorize o seu código na nuvem usando o estúdio
 
-A saída conterá uma ligação ao estúdio que se parece com isto: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
+A saída do seu script conterá um link para o estúdio que se parece com isto: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
-Siga o link e vá para o **separador Saídas + registos.** Lá pode ver um `70_driver_log.txt` ficheiro que se parece com este:
+Siga o link.  No início, verá um estado de **preparação.**  A primeira corrida levará 5 a 10 minutos para ser concluída. Isto porque ocorre o seguinte:
+
+* Uma imagem de estiva é construída na nuvem
+* O cluster computacional é redimensionado de 0 a 1 nó
+* A imagem do estivador é transferida para o cálculo. 
+
+As execuções subsequentes são muito mais rápidas (~15 segundos) uma vez que a imagem do estivador é em cache no cálculo. Pode testá-lo reenviando o código abaixo depois de concluído o primeiro ensaio.
+
+Assim que o trabalho estiver concluído, vá ao **separador Saídas + registos.** Lá pode ver um `70_driver_log.txt` ficheiro que se parece com este:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
@@ -199,7 +195,7 @@ Na linha 8, vê-se o "Olá mundo!" saída.
 O `70_driver_log.txt` ficheiro contém a saída padrão de uma execução. Este ficheiro pode ser útil quando está a depurar as remotas corridas na nuvem.
 
 > [!div class="nextstepaction"]
-> [Vi o tronco no estúdio.](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
+> [Vi o tronco no estúdio.](?success=monitor-in-studio#next-steps) [](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,18 +7,17 @@ author: vladvino
 manager: erikre
 editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107656"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070971"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -147,6 +146,9 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
   > A mudança de clusters acima com a zona do **DNS (nsatc.net** para **.microsoftmetrics.com** é sobretudo uma alteração de DNS. Endereço IP do cluster não será alterado.
 
 + **Tags de serviço regionais**: As regras NSG que permitem a conectividade de saída às etiquetas de serviço De Armazenamento, SQL e Event Hubs podem utilizar as versões regionais das tags correspondentes à região que contém o exemplo de Gestão da API (por exemplo, Storage.WestUS para uma instância de Gestão de API na região oeste dos EUA). Nas implantações multi-regiões, o NSG em cada região deve permitir o tráfego das etiquetas de serviço para aquela região e para a região primária.
+
+    > [!IMPORTANT]
+    > Para permitir a publicação do [portal de desenvolvedores](api-management-howto-developer-portal.md) para uma instância de Gestão API numa rede virtual, certifique-se de que também permite a conectividade de saída para o armazenamento de bolhas na região oeste dos EUA. Por exemplo, utilize a etiqueta de serviço **Storage.WestUS** numa regra NSG. A conectividade para o armazenamento de bolhas na região oeste dos EUA é atualmente necessária para publicar o portal de desenvolvedores para qualquer instância de Gestão da API.
 
 + **Relé SMTP**: Conectividade de rede de saída para o Relé SMTP, que se resolve sob o hospedeiro `smtpi-co1.msn.com` `smtpi-ch1.msn.com` , `smtpi-db3.msn.com` e `smtpi-sin.msn.com``ies.global.microsoft.com`
 

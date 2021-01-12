@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548193"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071192"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando recursos de espaço de trabalho synapse para uma piscina SQL dedicada (anteriormente SQL DW)
 
@@ -57,6 +57,9 @@ Os seguintes passos devem ser preenchidos para garantir que as suas instâncias 
 4. Selecione uma das instâncias dedicadas da piscina SQL (anteriormente SQL DW) hospedadas no servidor lógico. Na página geral, selecione **Launch Synapse Studio** ou Vá ao [Sign in para o Synapse Studio](https://web.azuresynapse.net) e inicie sômpa no seu espaço de trabalho.
 
 5. Abra o **centro de dados** e expanda o pool de SQL dedicado no explorador de objetos para garantir que tem acesso e pode consultar o seu armazém de dados.
+
+    > [!NOTE] 
+    > Um espaço de trabalho conectado pode ser apagado a qualquer momento. A eliminação do espaço de trabalho não eliminará a piscina SQL dedicada ligada (anteriormente SQL DW). A função workspace pode ser reativada na piscina SQL dedicada (anteriormente SQL DW) quando a operação de eliminação tiver terminado.
 
 ## <a name="next-steps"></a>Passos seguintes
 Começando com [o Synapse Workspace e Studio.](../get-started.md)

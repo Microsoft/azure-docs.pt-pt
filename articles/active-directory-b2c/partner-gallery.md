@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356128"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070869"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
@@ -54,7 +54,7 @@ A Microsoft associa-se aos seguintes ISVs para autenticação MFA e Password sem
 | ![Screenshot de um logotipo nevis](./media/partner-gallery/nevis-logo.png) | [O Nevis](./partner-nevis.md) permite a autenticação sem palavras-passe e fornece uma experiência de utilizador final de primeira e totalmente marcada com a aplicação Nevis Access para autenticação forte do cliente e para cumprir os requisitos de transação PSD2. |
 | ![Screenshot de um logotipo de trusona](./media/partner-gallery/trusona-logo.png) | A integração [da Trusona](./partner-trusona.md) ajuda-o a assinar de forma segura e permite a autenticação sem palavras-passe, o MFA e a digitalização de licenças digitais. |
 | ![Imagem de um logotipo de twilio.](./media/partner-gallery/twilio-logo.png) | [A aplicação Twilio Check](./partner-twilio.md) fornece múltiplas soluções para permitir o MFA através de sms senha única (OTP), senha única baseada no tempo (TOTP), e notificações push, e para cumprir os requisitos sca para PSD2. |
-| ![Screenshot de um logotipo da dactilografiaDNA](./media/partner-gallery/typingdna-logo.png) | [Digitar O ADN](./partner-twilio.md) permite uma autenticação forte do cliente analisando o padrão de dactilografia de um utilizador. Ajuda as empresas a viabilizarem um MFA silencioso e a cumprirem os requisitos da SCA para o PSD2. |
+| ![Screenshot de um logotipo da dactilografiaDNA](./media/partner-gallery/typingdna-logo.png) | [Digitar O ADN](./partner-typingdna.md) permite uma autenticação forte do cliente analisando o padrão de dactilografia de um utilizador. Ajuda as empresas a viabilizarem um MFA silencioso e a cumprirem os requisitos da SCA para o PSD2. |
 | ![Screenshot de um logotipo whoiam](./media/partner-gallery/whoiam-logo.png) | [A WhoIAM](./partner-whoiam.md) é uma aplicação do Sistema de Gestão de Identidade de Marca (BRIMS) que permite às organizações verificarem a sua base de utilizadores por voz, SMS e e-mail. |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções 
