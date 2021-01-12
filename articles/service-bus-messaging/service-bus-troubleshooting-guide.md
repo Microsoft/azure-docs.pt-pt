@@ -3,12 +3,12 @@ title: Guia de resolução de problemas para a Azure Service Bus Microsoft Docs
 description: Saiba mais sobre dicas e recomendações de resolução de problemas para alguns problemas que poderá ver ao utilizar o Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aab7fa53b4af309c68cd91fdb1d25c5771f89828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261129"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126874"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 
@@ -26,7 +26,7 @@ Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/t
     
     Um exemplo de mensagem de erro de falha:
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>

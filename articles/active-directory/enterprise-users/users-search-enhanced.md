@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296679135063e2c7e1b7f0e3ffd193c8f18c3acf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576269"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127843"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Melhorias na gestão dos utilizadores (pré-visualização) no Azure Ative Directory
 
@@ -60,6 +60,9 @@ Seguem-se as propriedades do utilizador visualizadas na página **de Todos os ut
 - Nome: O nome de exibição do utilizador.
 - Nome principal do utilizador: O nome principal do utilizador (UPN) do utilizador.
 - Tipo de utilizador: Membro, convidado, nenhum.
+- Hora da criação: A data e a hora em que o utilizador foi criado.
+- Título de trabalho: O título de trabalho do utilizador.
+- Departamento: O departamento em que o utilizador trabalha.
 - Diretório sincronizado: Indica se o utilizador está sincronizado a partir de um diretório no local.
 - Emitente de identidade: Os emitentes da identidade utilizados para assinar numa conta de utilizador.
 - ID do objeto: O ID do objeto do utilizador.
@@ -76,7 +79,8 @@ Seguem-se as propriedades do utilizador visualizadas na página **de Todos os ut
 A página **de utilizadores eliminados** inclui todas as colunas disponíveis na página **de todos os utilizadores,** e algumas colunas adicionais, nomeadamente:
 
 - Data de eliminação: A data em que o utilizador foi eliminado pela primeira vez da organização (o utilizador é restaurador).
-- Data de eliminação permanente: A data após a qual começa automaticamente o processo de supressão permanente do utilizador da organização. 
+- Data de eliminação permanente: A data após a qual começa automaticamente o processo de supressão permanente do utilizador da organização.
+- Nome principal original do utilizador: A UPN original do utilizador antes do seu ID objeto foi adicionado como um prefixo à sua UPN eliminada.
 
 > [!NOTE]
 > As datas de eliminação são apresentadas no Tempo Universal Coordenado (UTC) .
@@ -105,6 +109,10 @@ Seguem-se as propriedades filtrais na página **de Todos os utilizadores:**
 - Tipo de utilizador: Membro, convidado, nenhum
 - Estado sincronizado do diretório: Sim, não
 - Tipo de criação: Convite, Email verificado, Conta Local
+- Tempo de criação: Últimos 7, 14, 30, 90, 360 ou >há 360 dias
+- Título de trabalho: Insira um cargo
+- Departamento: Insira um nome de departamento
+- Grupo: Procura por um grupo
 - Estado de convite – Aceitação pendente, Aceite
 - Nome de domínio: Introduza um nome de domínio
 - Nome da empresa: Introduza um nome da empresa
@@ -117,6 +125,9 @@ A página **de utilizadores eliminados** tem filtros adicionais não na página 
 - Tipo de utilizador: Membro, convidado, nenhum
 - Estado sincronizado do diretório: Sim, não
 - Tipo de criação: Convite, Email verificado, Conta Local
+- Tempo de criação: Últimos 7, 14, 30, 90, 360 ou > há 360 dias
+- Título de trabalho: Insira um cargo
+- Departamento: Insira um nome de departamento
 - Estado do convite: Aceitação pendente, Aceite
 - Data de eliminação: Últimos 7, 14 ou 30 dias
 - Nome de domínio: Introduza um nome de domínio

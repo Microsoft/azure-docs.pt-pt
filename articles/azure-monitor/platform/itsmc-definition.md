@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: a7e39bb8ed742007a13a222771b430372d50e889
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 717a1bc4361ba4a7366f4864c1fe44f93b6f4b5e
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071702"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127860"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -153,7 +153,7 @@ Utilize o seguinte procedimento para criar grupos de ação:
 
     * Num caso, selecione no dropdown "Event" "Event": ![ Screenshot que mostra a janela itsm Event.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-        * Se selecionar **"Criar itens de trabalho individuais para cada Entrada de Registo (o campo de item de configuração não está preenchido. Pode resultar num grande número de itens de trabalho.)"** na seleção dos botões de rádio, será criado um item de trabalho por cada linha nos resultados de pesquisa da consulta de alerta de pesquisa de registo. Na carga útil do item de trabalho, a propriedade descrição terá a linha a partir dos resultados da pesquisa.
+        * Se selecionar **"Criar itens de trabalho individuais para cada Entrada de Registo (o campo de item de configuração não está preenchido. Pode resultar num grande número de itens de trabalho.)"** na seleção dos botões de rádio, será criado um item de trabalho por cada linha nos resultados de pesquisa da consulta de alerta de pesquisa de registo. A propriedade descrição na carga útil do item de trabalho conterá a linha a partir dos resultados da pesquisa.
         * Se selecionar **"Criar itens de trabalho individuais para cada Item de Configuração"** na seleção dos botões de rádio, cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por elemento de configuração no sistema ITSM. Isto será o mesmo que a verificação da caixa de verificação na secção Incidente/Alerta.
 
 10. Selecione **OK**.

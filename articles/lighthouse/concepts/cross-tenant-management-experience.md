@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b789f241fba4b77223272f81d1a69c8fcb050008
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630093"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127163"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -62,7 +62,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Azure Automation:](../../automation/index.yml)
 
-- Utilize contas de automação para aceder e trabalhar com recursos delegados
+- Utilizar contas de automação para aceder e trabalhar com recursos delegados
 
 [Azure Backup:](../../backup/index.yml)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116284"
+ms.locfileid: "98126857"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -71,7 +71,7 @@ Ao integrar o Defender para Endpoint com o Security Center, irá beneficiar das 
 
 Quando utiliza o Azure Security Center para monitorizar os seus servidores, é criado automaticamente um Microsoft Defender para o inquilino Endpoint. Os dados recolhidos pelo Defender for Endpoint são armazenados na geolocalização do arrendatário identificado durante o provisionamento. Os dados dos clientes - em forma pseudónimo - também podem ser armazenados nos sistemas centrais de armazenamento e processamento nos Estados Unidos. 
 
-Depois de configurar o local, não pode mudá-lo. Se precisar de mover os seus dados para outro local, contacte o Microsoft Support para redefinir o inquilino.
+Depois de configurar o local, não pode mudá-lo. Se tiver a sua própria licença para o Microsoft Defender para Endpoint e precisar de mover os seus dados para outra localização, contacte o Microsoft Support para redefinir o inquilino.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Permitir a integração do Microsoft Defender para a integração de Endpoint

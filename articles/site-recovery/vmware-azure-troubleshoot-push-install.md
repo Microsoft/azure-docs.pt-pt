@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816194"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127877"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Instalação push do serviço de mobilidade de resolução de problemas
 
@@ -106,7 +106,22 @@ O servidor de configuração/servidor de processo de escala tenta ligar-se à fo
 
 Para resolver o erro:
 
+* Verifique se a conta de utilizador tem acesso administrativo no computador de origem, quer com uma conta local, quer com uma conta de domínio. Se não estiver a utilizar uma conta de domínio, tem de desativar o controlo de Acesso ao Utilizador Remoto no computador local.
+  * Para adicionar manualmente uma chave de registo que desative o controlo de acesso ao utilizador remoto:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Adicione um `DWORD` novo: `LocalAccountTokenFilterPolicy`
+    * Definir o valor para `1`
+  * Para adicionar a chave de registo, a partir de um pedido de comando, executar o seguinte comando:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Certifique-se de que consegue extrair a sua máquina de origem do servidor de configuração. Se tiver escolhido o servidor de processo de escala durante a replicação ativa, certifique-se de que pode tirar a sua máquina de origem do servidor de processos.
+
+* Certifique-se de que o serviço de partilha de ficheiros e impressoras está ativado na sua máquina virtual. Confira os passos [aqui.](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106)
+
+* Certifique-se de que o serviço WMI está ativado na sua máquina virtual. Confira os passos [aqui.](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+
+* Certifique-se de que as pastas partilhadas na rede na sua máquina virtual estão acessíveis a partir do servidor de processos. Confira os passos [aqui.](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523)
 
 * A partir da linha de comando da máquina do servidor de origem, utilize `Telnet` para pingar o servidor de configuração ou o servidor de processo de escala na porta HTTPS 135, como mostrado no comando seguinte. Este comando verifica se existem problemas de conectividade de rede ou problemas de bloqueio de portas de firewall.
 
@@ -159,13 +174,13 @@ Após uma verificação de conectividade, verifique se o serviço de partilha de
 Para as **versões R2 e anteriores do Windows 2008:**
 
 * Para ativar a partilha de ficheiros e impressões através do Windows Firewall,
-  1. Sistema **de painel de controlo**aberto e firewall do Windows  >  **System and Security**  >  **de**segurança . No painel esquerdo, selecione Regras de entrada **avançadas**  >  **Inbound Rules** na árvore da consola.
+  1. Sistema **de painel de controlo** aberto e firewall do Windows  >    >  **de** segurança . No painel esquerdo, selecione Regras de entrada **avançadas**  >   na árvore da consola.
   1. Localizar regras Partilha de Ficheiros e Impressoras (NB-Session-In) e Partilha de Ficheiros e Impressoras (SMB-In).
   1. Para cada regra, clique à direita na regra e, em seguida, clique em **Enable Rule**.
 
 * Para ativar a partilha de ficheiros com a Política de Grupo:
   1. Vá para **iniciar,** escreva `gpmc.msc` e procure.
-  1. No painel de navegação, abra as seguintes pastas: Configuração de modelos de configuração de modelos de configuração **do**  >  **User Configuration**  >  **utilizador**  >  **local, partilha**  >  **de componentes**do Windows .
+  1. No painel de navegação, abra as seguintes pastas: Configuração de modelos de configuração de modelos de configuração **do**  >    >  **utilizador**  >  **local, partilha**  >  **de componentes** do Windows .
   1. No painel de detalhes, clique duas **vezes Para evitar que os utilizadores partilhem ficheiros dentro do seu perfil**.
 
      Para desativar a definição de Política de Grupo e ativar a capacidade do utilizador de partilhar ficheiros, selecione **Disabled**.
@@ -224,7 +239,7 @@ Antes da versão 9.20, uma divisão raiz ou configuração de volume em vários 
 
 ### <a name="possible-cause"></a>Causa Possível
 
-Os ficheiros de configuração do Grande Bootloader Unificado (GRUB)_(/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub.cfg_, ou _/etc/predefinitivo/grub_) podem conter o valor para a **raiz** dos parâmetros e **retomar** como o nome do dispositivo real em vez de um identificador universalmente único (UUID). A Recuperação do Site determina a abordagem UUID, uma vez que os nomes do dispositivo podem mudar através do reboot do VM. Por exemplo, o VM pode não estar online com o mesmo nome no failover e isso resulta em problemas.
+Os ficheiros de configuração do Grande Bootloader Unificado (GRUB)_(/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_, ou _/etc/default/grub_) podem conter o valor para a **raiz** dos parâmetros e **retomar** como o nome do dispositivo real em vez de um identificador universalmente único (UUID). A Recuperação do Site determina a abordagem UUID, uma vez que os nomes do dispositivo podem mudar através do reboot do VM. Por exemplo, o VM pode não estar online com o mesmo nome no failover e isso resulta em problemas.
 
 Por exemplo:
 
@@ -254,7 +269,7 @@ Os nomes dos dispositivos devem ser substituídos pelo UUID correspondente.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Agora substitua o nome do dispositivo pelo seu UUID no formato como `root=UUID=\<UUID>` . Por exemplo, se substituirmos os nomes do dispositivo por UUID por raiz e retomar o parâmetro mencionado nos ficheiros _/boot/grub2/grub.cfg_, _/boot/grub2/grub.cfg,_ ou _/etc/predefinição/grub,_ então as linhas nos ficheiros parecem a seguinte linha:
+1. Agora substitua o nome do dispositivo pelo seu UUID no formato como `root=UUID=\<UUID>` . Por exemplo, se substituirmos os nomes do dispositivo por UUID por raiz e retomar o parâmetro mencionado nos ficheiros _/boot/grub2/grub.cfg_, _/boot/grub2/grub.cfg_, ou _/etc/default/grub,_ então as linhas nos ficheiros parecem a seguinte linha:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -286,7 +301,7 @@ Os possíveis IDs de erro vistos para esta edição são 95572 e 95573. Este pro
 
 ## <a name="vss-installation-failures"></a>Falhas de instalação vss
 
-A instalação do Serviço de Cópias Volume Shadow (VSS) faz parte da instalação do agente mobility. Este serviço é utilizado no processo para gerar pontos de recuperação consistentes de aplicação. Falhas durante a instalação VSS podem ocorrer devido a múltiplas razões. Para identificar os erros exatos, consulte _C:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_. Alguns dos erros comuns e as medidas de resolução são salientados na secção seguinte.
+A instalação do Serviço de Cópias Volume Shadow (VSS) faz parte da instalação do agente mobility. Este serviço é utilizado no processo para gerar pontos de recuperação consistentes de aplicação. Falhas durante a instalação VSS podem ocorrer devido a múltiplas razões. Para identificar os erros exatos, consulte _c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log_. Alguns dos erros comuns e as medidas de resolução são salientados na secção seguinte.
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>Erro VSS -2147023170 [0x800706BE] - código de saída 511
 

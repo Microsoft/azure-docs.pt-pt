@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 7f4d820b33f36c295c294000d33a0ca5177fc4d1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a1ef441943ec3c29770e0964b3c1132f86239b42
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028075"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127418"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 
@@ -53,7 +53,7 @@ A extração, transformação e carregamento (ETL) é um processo onde os dados 
 
 ### <a name="data-warehousing"></a>Armazenamento de dados
 
-Pode utilizar o HDInsight para executar consultas interativas em escalas de petabytes sobre dados estruturados ou não estruturados em qualquer formato. Também pode criar modelos ao ligá-las a ferramentas de BI. Para obter mais informações, [leia esta história do cliente](https://customers.microsoft.com/story/milliman).
+Pode utilizar o HDInsight para executar consultas interativas em escalas de petabytes sobre dados estruturados ou não estruturados em qualquer formato. Também pode criar modelos ao ligá-las a ferramentas de BI.
 
 ![Arquitetura do HDInsight: armazenamento de dados](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Arquitetura de armazenamento de dados HDInsight")
 

@@ -1,20 +1,20 @@
 ---
 title: Registo redundante de zona para elevada disponibilidade
-description: Saiba como permitir a redundância da zona no Registo de Contentores Azure, criando um registo de contentores ou replicação numa zona de disponibilidade de Azure. O despedimento de zona é uma característica do nível de serviço Premium.
+description: Saiba como permitir a redundância da zona no Registo de Contentores Azure. Crie um registo de contentores ou uma replicação numa zona de disponibilidade de Azure. O despedimento de zona é uma característica do nível de serviço Premium.
 ms.topic: article
-ms.date: 12/11/2020
-ms.openlocfilehash: 1553beef47a3d493f066e47cd39751093d83fc24
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.date: 01/07/2021
+ms.openlocfilehash: 8c03b2bb093f8d0fa70ff5132f7448ce86e8779d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803515"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127362"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Permitir redundância de zona no Registo de Contentores de Azure para resiliência e elevada disponibilidade
 
 Para além da [geo-replicação,](container-registry-geo-replication.md)que replica dados de registo em uma ou mais regiões do Azure para fornecer disponibilidade e reduzir a latência para operações regionais, o Registo de Contentores Azure suporta *a redundância* de zona opcional. [A redundância da zona](../availability-zones/az-overview.md#availability-zones) proporciona resiliência e elevada disponibilidade a um recurso de registo ou replicação (réplica) numa região específica.
 
-Este artigo mostra como configurar um registo de contentores redundante de zona ou uma réplica redundante de zona usando o portal Azure ou um modelo de Gestor de Recursos Azure. 
+Este artigo mostra como configurar um registo ou réplica de contentores redundantes de zona utilizando o modelo Azure CLI, portal Azure ou Azure Resource Manager. 
 
 O despedimento de zona é uma característica de **pré-visualização** do nível de serviço de registo de contentores Premium. Para obter informações sobre os níveis e limites do serviço de registo de registo, consulte [os níveis de serviço de registo de contentores Azure](container-registry-skus.md).
 
@@ -24,7 +24,6 @@ O despedimento de zona é uma característica de **pré-visualização** do nív
 * As conversões da região para zonas de disponibilidade não são suportadas atualmente. Para permitir o apoio à zona de disponibilidade numa região, o registo deve ser criado na região desejada, com apoio de zona de disponibilidade ativado, ou uma região replicada deve ser adicionada com suporte de zona de disponibilidade ativado.
 * A redundância da zona não pode ser desativada numa região.
 * [As tarefas ACR](container-registry-tasks-overview.md) ainda não suportam zonas de disponibilidade.
-* Atualmente suportado através de modelos Azure Resource Manager ou do portal Azure. O suporte do Azure CLI será ativado numa futura versão.
 
 ## <a name="about-zone-redundancy"></a>Sobre a redundância de zona
 
@@ -33,6 +32,61 @@ Utilize [zonas de disponibilidade](../availability-zones/az-overview.md) Azure p
 O Registo de Contentores Azure também suporta [a geo-replicação,](container-registry-geo-replication.md)que replica o serviço em várias regiões, permitindo a redundância e localidade para calcular recursos em outros locais. A combinação de zonas de disponibilidade para redundância dentro de uma região, e a geo-replicação em várias regiões, aumenta tanto a fiabilidade como o desempenho de um registo.
 
 As zonas de disponibilidade são localizações físicas únicas dentro de uma região de Azure. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. Cada zona tem um ou mais datacenters equipados com potência, arrefecimento e networking independentes. Quando configurado para redundância de zona, um registo (ou uma réplica de registo em uma região diferente) é replicado em todas as zonas de disponibilidade da região, mantendo-o disponível se houver falhas no datacenter.
+
+## <a name="create-a-zone-redundant-registry---cli"></a>Criar um registo redundante de zona - CLI
+
+Para utilizar o CLI Azure para permitir a redundância da zona, precisa da versão 2.17.0 ou posterior do Azure CLI. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Se necessário, executar o [grupo az criar](/cli/az/group#az_group_create) comando para criar um grupo de recursos para o registo.
+
+```azurecli
+az group create --name <resource-group-name> --location <location>
+```
+
+### <a name="create-zone-enabled-registry"></a>Criar registos via zonas
+
+Executar o [az acr criar](/cli/az/acr#az_acr_create) comando para criar um registo redundante de zona no nível de serviço Premium. Escolha uma região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure. No exemplo seguinte, o despedimento por zona é permitido na região *leste.* Consulte a ajuda de `az acr create` comando para obter mais opções de registo.
+
+```azurecli
+az acr create \
+  --resource-group <resource-group-name> \
+  --name <container-registry-name> \
+  --location eastus \
+  --zone-redundancy enabled \
+  --sku Premium
+```
+
+Na saída do comando, note a `zoneRedundancy` propriedade para o registo. Quando ativado, o registo é redundante:
+
+```JSON
+{
+ [...]
+"zoneRedundancy": "Enabled",
+}
+```
+
+### <a name="create-zone-redundant-replication"></a>Criar replicação redundante de zona
+
+Executar a [replicação az acr criar](/cli/az/acr/replication#az_acr_replication_create) comando para criar uma réplica de registo redundante numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *westus2*. 
+
+```azurecli
+az acr replication create \
+  --location westus2 \
+  --resource-group <resource-group-name> \
+  --registry <container-registry-name> \
+  --zone-redundancy enabled
+```
+ 
+Na saída do comando, note a `zoneRedundancy` propriedade para a réplica. Quando ativada, a réplica é redundante:
+
+```JSON
+{
+ [...]
+"zoneRedundancy": "Enabled",
+}
+```
 
 ## <a name="create-a-zone-redundant-registry---portal"></a>Criar um registo de zona-redundante - portal
 
@@ -50,22 +104,24 @@ As zonas de disponibilidade são localizações físicas únicas dentro de uma r
 Para criar uma replicação redundante de zona:
 
 1. Navegue para o seu registo de contentores de nível Premium e selecione **Replications**.
-1. No mapa que aparece, selecione um hexágono verde numa região que apoie a redundância de zona para o Registo de Contentores de Azure, como **o West US 2**. Em seguida, selecione **Criar**.
-1. Na janela **de replicação Criar,** em **zonas de disponibilidade,** selecione **Ativado** e, em seguida, selecione **Criar**.
+1. No mapa que aparece, selecione um hexágono verde numa região que apoie a redundância de zona para o Registo de Contentores de Azure, como **o West US 2**. Ou selecione **+ Adicionar**.
+1. Na janela **de replicação Criar,** confirme a **Localização**. Em **zonas de disponibilidade**, selecione **Ativado** e, em seguida, selecione **Criar**.
+
+    :::image type="content" source="media/zone-redundancy/enable-availability-zones-replication-portal.png" alt-text="Permitir a replicação redundante em zona no portal Azure":::
 
 ## <a name="create-a-zone-redundant-registry---template"></a>Criar um registo redundante de zona - modelo
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Se necessário, executar o [grupo az criar](/cli/azure/group) comando para criar um grupo de recursos para o registo numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *eastus*.
+Se necessário, executar o [grupo az criar](/cli/az/group#az_group_create) comando para criar um grupo de recursos para o registo numa região que [suporte zonas de disponibilidade](../availability-zones/az-region.md) para registo de contentores Azure, como *eastus*. Esta região é usada pelo modelo para definir a localização do registo.
 
 ```azurecli
-az group create --name <resource-group-name> --location <location>
+az group create --name <resource-group-name> --location eastus
 ```
 
 ### <a name="deploy-the-template"></a>Implementar o modelo 
 
-Pode utilizar o seguinte modelo de Gestor de Recursos para criar um registo geo-replicado e redundante. O modelo por defeito permite a redundância de zona no registo e uma réplica regional adicional. 
+Pode utilizar o seguinte modelo de Gestor de Recursos para criar um registo geo-replicado e redundante. O modelo por defeito permite a redundância de zona no registo e uma réplica regional. 
 
 Copie o seguinte conteúdo para um novo ficheiro e guarde-o utilizando um nome de ficheiro como `registryZone.json` .
 
@@ -163,7 +219,7 @@ Copie o seguinte conteúdo para um novo ficheiro e guarde-o utilizando um nome d
   }
 ```
 
-Executar o [grupo de implementação az](/cli/azure/deployment?view=azure-cli-latest) seguinte criar comando para criar o registo usando o ficheiro de modelo anterior. Quando indicado, fornecer:
+Executar o [grupo de implementação az](/cli/az/deployment#az_group_deployment_create) seguinte criar comando para criar o registo usando o ficheiro de modelo anterior. Quando indicado, fornecer:
 
 * um nome de registo único, ou implementar o modelo sem parâmetros e criará um nome único para si
 * uma localização para a réplica que suporta zonas de disponibilidade, como *westus2*

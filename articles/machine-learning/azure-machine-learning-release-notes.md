@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107910"
+ms.locfileid: "98127622"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -27,8 +27,6 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 + **Correções e melhorias de bugs**
   + **azure-cli-ml**
     + framework_version adicionado na OptimizationConfig. Será utilizado quando o modelo estiver registado na estrutura MULTI.
-  + **azureml-automl-runtime**
-    + Nesta atualização, adicionámos a suavização exponencial holt winters à caixa de ferramentas de previsão de AutoML SDK. Tendo em conta uma série de tempo, o melhor modelo é selecionado pela [AICc (Critério de Informação de Akaike corrigido)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e devolvido.
   + **azureml-contrib-optimização**
     + framework_version adicionado na OptimizationConfig. Será utilizado quando o modelo estiver registado na estrutura MULTI.
   + **azureml-pipeline-steps**

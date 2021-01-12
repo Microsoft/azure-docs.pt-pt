@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a5764a9f230540d58edf71e8c00781e86589aa9a
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070172"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127656"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de preparação
 
@@ -175,6 +175,19 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
+* **A execução `jwt.exceptions.DecodeError` falha com**: Mensagem de erro exata: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
+    
+    Considere atualizar para a versão mais recente do núcleo azureml: `pip install -U azureml-core` .
+    
+    Se estiver a deparar-se com este problema para as execuções locais, consulte a versão do PyJWT instalada no seu ambiente onde está a iniciar as suas corridas. As versões suportadas do PyJWT são < 2.0.0. Desinstalar pyJWT do ambiente se a versão for >= 2.0.0. Pode verificar a versão do PyJWT, desinstalar e instalar a versão certa da seguinte forma:
+    1. Inicie uma concha de comando, ative o ambiente conda onde o núcleo azureml está instalado.
+    2. `pip freeze`Insira e `PyJWT` procure, se encontrado, a versão listada deve ser < 2.0.0
+    3. Se a versão listada não for uma versão suportada, `pip uninstall PyJWT` na concha de comando e insira y para confirmação.
+    4. Instalar com `pip install 'PyJWT<2.0.0'`
+    
+    Se estiver a submeter um ambiente criado pelo utilizador com a sua execução, considere utilizar a versão mais recente do núcleo azureml nesse ambiente. Versões >= 1.18.0 de azureml-core já pin PyJWT < 2.0.0. Se precisar de utilizar uma versão do núcleo azureml < 1.18.0 no ambiente que submete, certifique-se de especificar PyJWT < 2.0.0 nas suas dependências de pip.
+
+
  * **MóduloErrors (Nenhum módulo nomeado)**: Se estiver a correr para o ModuleErrors enquanto submete experiências em Azure ML, o script de treino espera que seja instalado um pacote, mas não é adicionado. Assim que fornecer o nome do pacote, a Azure ML instala a embalagem no ambiente utilizado para o seu treino.
 
     Se estiver a utilizar os Estimadores para submeter experiências, pode especificar um nome de pacote através `pip_packages` ou `conda_packages` parâmetro no estimador com base na fonte que pretende instalar a embalagem. Também pode especificar um ficheiro yml com todas as suas dependências usando `conda_dependencies_file` ou listar todos os seus requisitos de pip num ficheiro TXT usando `pip_requirements_file` parâmetro. Se tiver o seu próprio objeto Azure ML Environment que pretende sobrepor a imagem padrão utilizada pelo estimador, pode especificar esse ambiente através `environment` do parâmetro do construtor estimador.
@@ -204,18 +217,6 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
     ```
 
     Internamente, o Azure ML concatena os blocos com o mesmo nome de métrica numa lista contígua.
-
-* **A execução `jwt.exceptions.DecodeError` falha com**: Mensagem de erro exata: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
-    
-    Considere atualizar para a versão mais recente do núcleo azureml: `pip install -U azureml-core` .
-    
-    Se estiver a deparar-se com este problema para as execuções locais, consulte a versão do PyJWT instalada no seu ambiente onde está a iniciar as suas corridas. As versões suportadas do PyJWT são < 2.0.0. Desinstalar pyJWT do ambiente se a versão for >= 2.0.0. Pode verificar a versão do PyJWT, desinstalar e instalar a versão certa da seguinte forma:
-    1. Inicie uma concha de comando, ative o ambiente conda onde o núcleo azureml está instalado.
-    2. `pip freeze`Insira e `PyJWT` procure, se encontrado, a versão listada deve ser < 2.0.0
-    3. Se a versão listada não for uma versão suportada, `pip uninstall PyJWT` na concha de comando e insira y para confirmação.
-    4. Instalar com `pip install 'PyJWT<2.0.0'`
-    
-    Se estiver a submeter um ambiente criado pelo utilizador com a sua execução, considere utilizar a versão mais recente do núcleo azureml nesse ambiente. Versões >= 1.18.0 de azureml-core já pin PyJWT < 2.0.0. Se precisar de utilizar uma versão do núcleo azureml < 1.18.0 no ambiente que submete, certifique-se de especificar PyJWT < 2.0.0 nas suas dependências de pip.
 
 * **O alvo do cálculo demora muito tempo a ser iniciado**: As imagens do Docker para alvos de computação são carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e carregar imagens. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)
 

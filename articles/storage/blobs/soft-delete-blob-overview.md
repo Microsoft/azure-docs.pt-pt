@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022382"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127486"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
@@ -79,23 +79,23 @@ Quando **delete Blob** é chamado numa bolha de base (qualquer bolha que não se
 > [!NOTE]  
 > Quando uma bolha apagada suave é substituída, uma imagem suave apagada do estado da bolha antes da operação de escrita é gerada automaticamente. A nova bolha herda o nível da bolha substituída.
 
-A eliminação suave não guarda os seus dados em casos de eliminação de contentores ou contas, nem quando os metadados blob e as propriedades blob são substituídos. Para proteger uma conta de armazenamento contra a eliminação errónea, pode configurar uma fechadura utilizando o Gestor de Recursos Azure. Para obter mais informações, consulte o Gestor de Recursos Azure artigo [Bloquear Recursos para Evitar Alterações Inesperadas](../../azure-resource-manager/management/lock-resources.md).
+A eliminação suave não guarda os seus dados em casos de eliminação de contentores ou contas, nem quando os metadados blob e as propriedades blob são substituídos. Para proteger uma conta de armazenamento da eliminação, pode configurar uma fechadura utilizando o Gestor de Recursos Azure. Para obter mais informações, consulte o Azure Resource Manager artigo [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 Os seguintes detalhes da tabela são comportamentos esperados quando a eliminação suave é ligada:
 
 | Operação REST API | Tipo de recurso | Descrição | Mudança de comportamento |
 |--------------------|---------------|-------------|--------------------|
-| [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Sem mudanças. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
-| [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Sem mudanças. As bolhas no recipiente apagado não são recuperáveis. |
+| [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Nenhuma alteração. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
+| [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Nenhuma alteração. As bolhas no recipiente apagado não são recuperáveis. |
 | [Coloque Blob](/rest/api/storageservices/put-blob) | Bloco, apêndice e bolhas de página | Cria uma nova bolha ou substitui uma bolha existente dentro de um recipiente | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
 | [Eliminar Blob](/rest/api/storageservices/delete-blob) | Bloco, apêndice e bolhas de página | Marca uma bolha ou uma foto de bolha para a eliminação. A bolha ou instantâneo é mais tarde apagada durante a recolha do lixo | Se for utilizado para apagar uma imagem de bolha, esta imagem é marcada como suave apagada. Se for utilizado para apagar uma bolha, esta bolha é marcada como suave apagada. |
 | [Bolha de cópia](/rest/api/storageservices/copy-blob) | Bloco, apêndice e bolhas de página | Copia uma bolha de origem para uma bolha de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
 | [Colocar Bloco](/rest/api/storageservices/put-block) | Blobs de blocos | Cria um novo bloco para ser cometido como parte de uma bolha de bloco. | Se usado para comprometer um bloqueio a uma bolha que está ativa, não há nenhuma mudança. Se usado para comprometer um bloco a uma bolha que é suavemente eliminada, uma nova bolha é criada e um instantâneo é gerado automaticamente para capturar o estado da bolha suave apagada. |
 | [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de blocos | Compromete uma bolha especificando o conjunto de IDs de bloco que compõem a bolha de bloco. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for uma bolha de bloco. Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
-| [Colocar página](/rest/api/storageservices/put-page) | Blobs de páginas | Escreve uma gama de páginas para uma bolha de página. | Sem mudanças. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. |
-| [Bloco de Apêndice](/rest/api/storageservices/append-block) | Blobs de acréscimo | Escreve um bloco de dados para o fim de uma bolha de apêndice | Sem mudanças. |
-| [Definir propriedades blob](/rest/api/storageservices/set-blob-properties) | Bloco, apêndice e bolhas de página | Define valores para as propriedades do sistema definidas para uma bolha. | Sem mudanças. As propriedades de bolhas sobreescritas não são recuperáveis. |
-| [Definir metadados blob](/rest/api/storageservices/set-blob-metadata) | Bloco, apêndice e bolhas de página | Define os metadados definidos pelo utilizador para a bolha especificada como um ou mais pares de valor-nome. | Sem mudanças. Os metadados blob sobrescritos não são recuperáveis. |
+| [Colocar página](/rest/api/storageservices/put-page) | Blobs de páginas | Escreve uma gama de páginas para uma bolha de página. | Nenhuma alteração. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. |
+| [Bloco de Apêndice](/rest/api/storageservices/append-block) | Blobs de acréscimo | Escreve um bloco de dados para o fim de uma bolha de apêndice | Nenhuma alteração. |
+| [Definir propriedades blob](/rest/api/storageservices/set-blob-properties) | Bloco, apêndice e bolhas de página | Define valores para as propriedades do sistema definidas para uma bolha. | Nenhuma alteração. As propriedades de bolhas sobreescritas não são recuperáveis. |
+| [Definir metadados blob](/rest/api/storageservices/set-blob-metadata) | Bloco, apêndice e bolhas de página | Define os metadados definidos pelo utilizador para a bolha especificada como um ou mais pares de valor-nome. | Nenhuma alteração. Os metadados blob sobrescritos não são recuperáveis. |
 
 É importante notar que chamar **a Página put** para substituir ou limpar intervalos de uma bolha de página não gerará automaticamente instantâneos. Os discos de máquinas virtuais são apoiados por bolhas de página e usam **a Página Put** para escrever dados.
 
@@ -163,7 +163,7 @@ Permitir a eliminação suave de dados frequentemente substituídos pode resulta
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso utilizar o set Blob Tier API para colocar bolhas de nível com instantâneos suaves apagados?
 
-Sim. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
+Yes. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
 
 ### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>As contas de armazenamento premium têm um limite de instantâneo por bolha de 100. Os instantâneos apagados suaves contam para este limite?
 
@@ -171,7 +171,7 @@ Não, as imagens apagadas suaves não contam para este limite.
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se eu apagar uma conta inteira ou um recipiente com exclusão suave ligado, todas as bolhas associadas serão guardadas?
 
-Não, se apagar uma conta ou um recipiente inteiro, todas as bolhas associadas serão permanentemente eliminadas. Para obter mais informações sobre como proteger uma conta de armazenamento de eliminações acidentais, consulte [Os Recursos de Bloqueio para Evitar Alterações Inesperadas](../../azure-resource-manager/management/lock-resources.md).
+Não, se apagar uma conta ou um recipiente inteiro, todas as bolhas associadas serão permanentemente eliminadas. Para obter mais informações sobre a proteção de uma conta de armazenamento ser acidentalmente eliminada, consulte [Os Recursos de Bloqueio para Evitar Alterações Inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Posso ver as métricas de capacidade para dados eliminados?
 

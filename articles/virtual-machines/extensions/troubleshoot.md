@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: bca826cda8dfe47c341886faaf4a0d66f09d37d2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966348"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127146"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Falhas de extensão Azure Windows VM de resolução de problemas
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -78,26 +78,30 @@ Uma vez removida a extensão, o modelo pode ser re-executado para executar os sc
 
 ### <a name="trigger-a-new-goalstate-to-the-vm"></a>Desencadear um novo GoalState para o VM
 Pode notar que uma extensão não foi executada, ou que não está a ser executada devido a um "Gerador de Certificados CRP do Windows Azure" (esse certificado é utilizado para garantir o transporte das definições protegidas da extensão).
-Este certificado será automaticamente reingerido reiniciando o Windows Guest Agent a partir do interior da Máquina Virtual:
+Este certificado será regenerado automaticamente reiniciando o Windows Guest Agent a partir de dentro da Máquina Virtual:
 - Abra o Gestor de Tarefas
 - Vá ao separador Detalhes
 - Localizar o processo de WindowsAzureGuestAgent.exe
 - Clique à direita e selecione "End Task". O processo será automaticamente reiniciado
 
 
-Também pode desencadear um novo GoalState para o VM, executando uma "atualização vazia":
+Também pode desencadear um novo GoalState para o VM, executando uma "Reapply VM". A VM [Reapply](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) é uma API introduzida em 2020 para reaplicar o estado de um VM. Recomendamos fazê-lo numa altura em que pode tolerar um curto tempo de inatividade em VM. Embora a Reapply em si não cause um reboot VM, e a grande maioria das vezes chamando Reapply não reiniciará o VM, existe um risco muito pequeno de que alguma outra atualização pendente para o modelo VM seja aplicada quando a Reapply desencadeia um novo estado de objetivo, e que outra mudança pode exigir um reinício. 
 
-Azure PowerShell:
+Portal Azure:
+
+No portal, selecione o VM e no painel esquerdo sob o **Support + resolução de problemas**, selecione **Reploy + recandidatar-se,** em seguida, selecione **Recandidatar-se**.
+
+
+Azure PowerShell *(substitua o nome RG e o nome VM pelos seus valores)*:
 
 ```azurepowershell
-$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
-Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+Set-AzVM -ResourceGroupName <RG Name> -Name <VM Name> -Reapply
 ```
 
-Azure CLI:
+Azure CLI *(substitua o nome RG e o nome VM pelos seus valores)*:
 
 ```azurecli
-az vm update -g <rgname> -n <vmname>
+az vm reapply -g <RG Name> -n <VM Name>
 ```
 
-Se uma "atualização vazia" não funcionar, pode adicionar um novo Disco de Dados vazio ao VM do Portal de Gestão Azure e, em seguida, removê-lo mais tarde uma vez que o certificado tenha sido adicionado de volta.
+Se um "VM Reapply" não funcionar, pode adicionar um novo Disco de Dados vazio ao VM do Portal de Gestão de Azure e, em seguida, removê-lo mais tarde uma vez que o certificado tenha sido adicionado de volta.

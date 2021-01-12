@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: d6e52da7fce39a259107fe60a21fb5ead7b18709
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353192"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127826"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados do SharePoint segura à sua base de conhecimentos
 
@@ -127,12 +127,16 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 
 
+
+## <a name="add-sharepoint-data-source-with-apis"></a>Adicionar fonte de dados do SharePoint com APIs
+
+Existe uma solução alternativa para adicionar o mais recente conteúdo do SharePoint através da API utilizando o armazenamento de blob Azure, abaixo estão os passos: 
+1.  Descarregue os ficheiros SharePoint localmente. O utilizador que liga para a API precisa de ter acesso ao SharePoint. 
+1.  Carregue-os no stoarge da bolha do Azure. Isto criará um acesso partilhado seguro [utilizando o token SAS.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works) 
+1. Passe o URL blob gerado com o token SAS para a API do Fabricante QnA. Para permitir a extração de respostas de perguntas dos ficheiros, é necessário adicionar o tipo de ficheiro de sufixo como "&ext=pdf" ou "&ext=doc" no final do URL antes de o passar para a QnA Maker API>  
+
+
 <!--
-
-## Add SharePoint data source with APIs
-
-You need to get the SharePoint file's URI before adding it to QnA Maker.
-
 ## Get SharePoint File URI
 
 Use the following steps to transform the SharePoint URL into a sharing token.

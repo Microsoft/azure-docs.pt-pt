@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969066"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127911"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
 
@@ -187,6 +187,9 @@ O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de 
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> O tipo de **esquema de geoponto** não faz parte da [especificação digital da linguagem de definição de gémeos.](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) A IoT Central suporta atualmente o tipo **de esquema de geoponto** e o tipo semântico **de localização** para retrocompatibilidade.
 
 Um cliente do dispositivo deve enviar a telemetria como JSON que se parece com o seguinte exemplo. A IoT Central exibe o valor como um pino num mapa:
 
@@ -576,6 +579,9 @@ O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de 
 }
 ```
 
+> [!NOTE]
+> O tipo de **esquema de geoponto** não faz parte da [especificação digital da linguagem de definição de gémeos.](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) A IoT Central suporta atualmente o tipo **de esquema de geoponto** e o tipo semântico **de localização** para retrocompatibilidade.
+
 Um cliente do dispositivo deve enviar uma carga útil JSON que se pareça com o seguinte exemplo como uma propriedade reportada no dispositivo twin:
 
 ```json
@@ -717,7 +723,7 @@ A IoT Central espera uma resposta do dispositivo para atualizações de propried
 
 `ac` é um campo numérico que utiliza os valores na tabela seguinte:
 
-| Valor | Etiqueta | Description |
+| Valor | Etiqueta | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202`  ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |

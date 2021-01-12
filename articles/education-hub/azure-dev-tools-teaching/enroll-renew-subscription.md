@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 01/07/2021
-ms.openlocfilehash: 4ff91949c42b9a0e33999b7d0dc21fd24da7cdd9
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0ceb9095f15009c150690b67271f4a654cd6110f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120347"
+ms.locfileid: "98127758"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Inscreva-se ou renove uma assinatura Azure Dev Tools for Teaching
 
@@ -34,7 +34,7 @@ Este artigo descreve o processo de inscrição em Ferramentas Azure Dev para O E
 1. Complete a sua **Informação da Instituição,** se se inscrever pela primeira vez. Se renovar, esta informação será preenchida automaticamente.
 
     :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Insira informações sobre instituições." border="false":::
-        
+
 1. Selecione o **Plano de Subscrição** e confirme o **Administrador de Subscrição** para a subscrição. O domínio de e-mail do Administrador de Subscrição permitirá que os alunos do mesmo domínio tenham acesso fácil para descarregar os seus benefícios de software.
 
     :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Selecione plano de subscrição." border="false":::

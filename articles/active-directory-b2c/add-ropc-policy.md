@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6afe9814757d894c61ab3154bbff02791a830ddd
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 565d5203f057aab74cce30729b3e14494b1edf4d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895075"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127010"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de credenciais de senha do proprietário de recursos no Azure Ative Directory B2C
 
@@ -308,7 +308,7 @@ Use a sua aplicação de desenvolvimento API favorita para gerar uma chamada de 
 O pedido do POST real parece ser o seguinte exemplo:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1A_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

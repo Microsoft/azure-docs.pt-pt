@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 07562167131d1839bc0827c74fae09c683302c08
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118613"
+ms.locfileid: "98127214"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -126,10 +126,10 @@ Estas definições podem ser atualizadas no Key Vault via CLI e PowerShell:
 ## <a name="create-cluster"></a>Criar cluster
 
 > [!NOTE]
-> Os clusters suportam dois tipos de [identidade geridos,](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)atribuídos pelo Sistema e atribuídos pelo Utilizador, que podem ser utilizados com base no seu cenário. A identidade gerida atribuída pelo sistema é mais simples e criada automaticamente com a criação de clusters quando define a identidade `type` como - esta identidade pode ser usada mais tarde para conceder acesso ao seu Cofre `SystemAssigned` chave. Se precisar de criar um cluster com configuração chave gerida pelo Cliente na criação, deverá ter previamente uma identidade definida e atribuída ao Utilizador no cofre-chave, então crie o cluster com identidade `type` como , com o `UserAssigned` `UserAssignedIdentities` ID de recursos da identidade e detalhes chave em `keyVaultProperties` .
+> Os clusters suportam dois tipos de [identidade geridos](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): Atribuídos pelo sistema e atribuídos pelo Utilizador e cada um pode basear-se em função do seu cenário. A identidade gerida atribuída pelo sistema é mais simples e é criada automaticamente com a criação do cluster quando a identidade `type` é definida como "*SystemAssigned*" - esta identidade pode ser usada mais tarde para garantir o acesso do cluster ao seu Cofre chave. Se pretender criar um cluster enquanto a chave gerida pelo Cliente é definida no tempo de criação do cluster, deve ter uma identidade definida e atribuída pelo Utilizador previamente no seu Cofre-Chave, em seguida, crie o cluster com estas definições: identidade `type` como "*UserAssigned*", `UserAssignedIdentities` com o ID de recursos da identidade e `keyVaultProperties` com detalhes chave.
 
 > [!IMPORTANT]
-> Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet). Esta limitação não é aplicada à identidade gerida atribuída pelo Sistema.
+> Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet) e pode utilizar a identidade gerida atribuída pelo Sistema neste caso.
 
 Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -416,7 +416,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
   - Se o seu cluster estiver definido com a identidade gerida atribuída pelo Utilizador, a definição `UserAssignedIdentities` com `None` suspensão do cluster e impede o acesso aos seus dados, mas não pode reverter a revogação e ativar o cluster sem abrir o pedido de suporte. Esta limitação é aplicada à identidade gerida atribuída pelo Sistema.
 
-  - Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet). Esta limitação não é aplicada à identidade gerida atribuída pelo Sistema.
+  - Atualmente não é possível definir a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver localizado em Private-Link (vNet) e pode utilizar a identidade gerida atribuída pelo Sistema neste caso.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

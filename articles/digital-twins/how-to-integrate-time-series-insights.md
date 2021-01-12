@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046544"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127041"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integre as Gémeas Digitais Azure com Insights da Série De Tempo Azure
 
@@ -84,13 +84,13 @@ O Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*]
 
 Antes de seguir em frente, tome nota do seu grupo de nomes e *recursos* *do Event Hubs,* pois irá usá-los novamente para criar outro centro de eventos mais tarde neste artigo.
 
-## <a name="create-an-azure-function"></a>Criar uma função do Azure 
+## <a name="create-a-function-in-azure"></a>Criar uma função no Azure
 
-Em seguida, irá criar uma função desencadeada por Event Hubs dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](./tutorial-end-to-end.md)ou a sua própria. 
+Em seguida, você usará Azure Functions para criar uma função desencadeada por Event Hubs dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](./tutorial-end-to-end.md)ou a sua própria. 
 
 Esta função converterá esses eventos de atualização dupla da sua forma original como documentos do JSON Patch para objetos JSON, contendo apenas valores atualizados e adicionados dos seus gémeos.
 
-Para obter mais informações sobre a utilização de Centros de Eventos com funções Azure, consulte [*o gatilho Azure Event Hubs para Funções Azure*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+Para obter mais informações sobre a utilização de Centros de Eventos com Funções Azure, consulte [*o gatilho Azure Event Hubs para Funções Azure*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Dentro da sua aplicação de função publicada, substitua o código de função pelo seguinte código.
 

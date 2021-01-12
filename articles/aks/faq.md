@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780353"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127639"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ N.º Os aglomerados AKS são recursos regionais e não podem abranger regiões. 
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Posso espalhar um cluster AKS através de zonas de disponibilidade?
 
-Sim. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
+Yes. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor API da Kubernetes?
 
-Sim. Existem duas opções para limitar o acesso ao servidor API:
+Yes. Existem duas opções para limitar o acesso ao servidor API:
 
 - Utilize [gamas IP autorizadas do servidor API][api-server-authorized-ip-ranges] se pretender manter um ponto final público para o servidor API, mas restringir o acesso a um conjunto de gamas IP fidedignas.
 - Utilize [um cluster privado][private-clusters] se pretender limitar o servidor API para estar acessível *apenas* a partir da sua rede virtual.
@@ -60,7 +60,7 @@ Para permitir esta arquitetura, cada implantação AKS abrange dois grupos de re
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Posso dar o meu próprio nome para o grupo de recursos de nó AKS?
 
-Sim. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
+Yes. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
 
 Para especificar o nome do seu próprio grupo de recursos, instale a versão de extensão Azure CLI [de pré-visualização aks-preview][aks-preview-cli] *0.3.2* ou posterior. Quando criar um cluster AKS utilizando os [az aks criar][az-aks-create] comando, use o `--node-resource-group` parâmetro e especifique um nome para o grupo de recursos. Se [utilizar um modelo de Gestor de Recursos Azure][aks-rm-template] para implantar um cluster AKS, pode definir o nome do grupo de recursos utilizando a propriedade *nodeResourceGroup.*
 
@@ -146,7 +146,7 @@ Mover o seu cluster AKS entre inquilinos não é apoiado.
 
 Atualmente, o movimento de clusters entre subscrições não é suportado.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Posso mover os meus clusters AKS da atual assinatura do Azure para outro? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Posso mover os meus clusters AKS da atual assinatura do Azure para outro?
 
 A movimentação do seu cluster AKS e os seus recursos associados entre subscrições Azure não são suportados.
 
@@ -154,7 +154,7 @@ A movimentação do seu cluster AKS e os seus recursos associados entre subscri�
 
 Mover ou renomear o seu cluster AKS e os seus recursos associados não é suportado.
 
-## <a name="why-is-my-cluster-delete-taking-so-long"></a>Porque é que o meu grupo está a demorar tanto tempo? 
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>Porque é que o meu grupo está a demorar tanto tempo?
 
 A maioria dos clusters são eliminados a pedido do utilizador; em alguns casos, especialmente quando os clientes estão trazendo o seu próprio Grupo de Recursos, ou fazendo a supressão de tarefas cross-RG pode levar tempo adicional ou falhar. Se tiver algum problema com as eliminações, verifique duas vezes se não tem fechaduras no RG, que quaisquer recursos fora do RG estão dissociados do RG, e assim por diante.
 
@@ -166,7 +166,7 @@ Podes, mas a AKS não recomenda isto. As atualizações devem ser realizadas qua
 
 Não, elimine/remova quaisquer nós num estado falhado ou de outra forma removido do cluster antes da atualização.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Corri um aglomerado apagar, mas ver o erro `[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Corri um aglomerado apagar, mas ver o erro `[Errno 11001] getaddrinfo failed`
 
 Mais comummente, isto é causado por utilizadores que têm um ou mais Grupos de Segurança de Rede (NSGs) ainda em uso e associados ao cluster.  Retire-os e tente apagar novamente.
 
@@ -174,7 +174,7 @@ Mais comummente, isto é causado por utilizadores que têm um ou mais Grupos de 
 
 Confirme que o seu diretor de serviço não expirou.  Ver: Credenciais de atualização [de serviço AKS](./kubernetes-service-principal.md) e [AKS](./update-credentials.md).
 
-## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>O meu grupo estava a funcionar, mas de repente não consegue abastecer LoadBalancers, montar PVCs, etc.? 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>O meu grupo estava a funcionar, mas de repente não consegue abastecer LoadBalancers, montar PVCs, etc.?
 
 Confirme que o seu diretor de serviço não expirou.  Ver: Credenciais de atualização [de serviço AKS](./kubernetes-service-principal.md)  e [AKS](./update-credentials.md).
 
@@ -254,6 +254,25 @@ Abaixo está um exemplo de configuração da rota ip de modo transparente, cada 
 - Um dos casos de canto no modo ponte é que o Azure CNI não pode continuar a atualizar as listas personalizadas de servidores DNS que os utilizadores adicionam ao VNET ou NIC. Isto resulta na recolha do CNI apenas a primeira instância da lista de servidores DNS. Resolvido em modo Transparente como CNI não altera nenhuma propriedade eth0. Veja mais [aqui.](https://github.com/Azure/azure-container-networking/issues/713)
 - Proporciona uma melhor manipulação do tráfego da UDP e mitigação para a tempestade de inundação da UDP quando o ARP estiver esgotado. No modo ponte, quando a ponte não conhece um endereço MAC do casulo de destino na comunicação intra-VM Pod-to-Pod, por design, isto resulta em tempestade do pacote para todas as portas. Resolvido em modo Transparente uma vez que não existem dispositivos L2 no caminho. Veja mais [aqui.](https://github.com/Azure/azure-container-networking/issues/704)
 - O modo transparente funciona melhor na comunicação Intra VM Pod-to-Pod em termos de produção e latência em comparação com o modo de ponte.
+
+## <a name="how-to-avoid-permission-ownership-setting-slow-issues-when-the-volume-has-a-lot-of-files"></a>Como evitar a propriedade de permissão definindo problemas lentos quando o volume tem um monte de ficheiros?
+
+Tradicionalmente, se o seu casulo estiver a funcionar como um utilizador sem raízes (o que deve fazer), deve especificar um `fsGroup` contexto de segurança dentro da cápsula para que o volume possa ser legível e legível pelo Pod. Este requisito é mais detalhado [aqui.](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+Mas um efeito colateral da definição `fsGroup` é que, cada vez que um volume é montado, Kubernetes deve recursivamente `chown()` e todos os `chmod()` ficheiros e diretórios dentro do volume - com algumas exceções notadas abaixo. Isto acontece mesmo que a propriedade em grupo do volume já corresponda ao pedido `fsGroup` – e pode ser bastante caro para volumes maiores com muitos ficheiros pequenos, o que faz com que o pod startup desemoque muito tempo. Este cenário tem sido um problema conhecido antes do v1.20 e a solução está a definir o Pod run como raiz:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+O problema foi resolvido por Kubernetes v1.20, refere [Kubernetes 1.20: Controlo Granular de Alterações de Permissão de Volume](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) para mais detalhes.
 
 
 <!-- LINKS - internal -->

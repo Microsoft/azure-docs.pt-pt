@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340242"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126891"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
 Se procura melhorar a precisão do reconhecimento, especialmente os problemas que são causados quando as palavras são eliminadas ou substituídas incorretamente, irá querer utilizar transcrições com rótulo humano juntamente com os seus dados áudio. O que são transcrições com rótulo humano? É fácil, são transcrições verbais de um ficheiro áudio.
 
-Uma grande amostra de dados de transcrição é necessária para melhorar o reconhecimento, sugerimos fornecer entre 10 a 1.000 horas de dados de transcrição. Nesta página, vamos rever as diretrizes desenhadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com secções para inglês americano, mandarim chinês e alemão.
+Uma grande amostra de dados de transcrição é necessária para melhorar o reconhecimento, sugerimos fornecer entre 10 a 20 horas de dados de transcrição. Nesta página, vamos rever as diretrizes desenhadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com secções para inglês americano, mandarim chinês e alemão.
+
+> [!NOTE]
+> Nem todos os modelos base suportam a personalização com ficheiros áudio. Se um modelo base não o suportar, a formação utilizará apenas o texto das transcrições da mesma forma que o texto relacionado é utilizado.
 
 ## <a name="us-english-en-us"></a>Inglês dos EUA (en-US)
 

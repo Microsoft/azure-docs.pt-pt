@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566372"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127894"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registos e métricas Azure Virtual WAN
 
-Pode monitorizar a Azure Virtual WAN utilizando o Azure Monitor. Virtual WAN é um serviço de networking que reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Os gateways virtuais wan VPN, gateways ExpressRoute e Azure Firewall têm registo e métricas disponíveis através do Azure Monitor. Para obter informações sobre a Azure Firewall, consulte [os registos e métricas do Azure Firewall](../firewall/logs-and-metrics.md).
+Pode monitorizar a Azure Virtual WAN utilizando o Azure Monitor. Virtual WAN é um serviço de networking que reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Os gateways virtuais wan VPN, gateways ExpressRoute e Azure Firewall têm registo e métricas disponíveis através do Azure Monitor.
 
 Este artigo discute métricas e diagnósticos que estão disponíveis através do portal. As métricas são leves e podem suportar cenários perto de tempo real, tornando-os úteis para alertar e detetar rapidamente problemas.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Monitore Secured Hub (Firewall Azure) 
+
+Pode monitorizar o Hub Seguro utilizando registos Azure Firewall. Também pode utilizar os registos de atividades para auditar operações nos recursos do Azure Firewall.
+
+Se optou por proteger o seu Hub Virtual utilizando o Azure Firewall, estão disponíveis registos e métricas relevantes aqui: [registos e métricas do Azure Firewall](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Métricas
 
@@ -68,7 +74,7 @@ Os seguintes passos ajudam-no a localizar e a visualizar métricas:
 
    :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot que mostra a página 'Métricas' com as categorias em destaque.":::
 
-## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Registos de diagnósticos
+## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Registos de diagnóstico
 
 ### <a name="site-to-site-vpn-gateways"></a>Gateways VPN site-to-site
 
@@ -109,7 +115,7 @@ Os registos estão localizados no **espaço de trabalho Azure Log Analytics**. P
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-Substitua os valores abaixo, após o **= =** , conforme necessário.
+Substitua os valores abaixo, após o **= =**, conforme necessário.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"

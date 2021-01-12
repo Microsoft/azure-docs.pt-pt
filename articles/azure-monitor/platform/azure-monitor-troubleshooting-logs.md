@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: 816cdddc1f3d0a9bc9ebc3f277bc223a688cba31
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b3d1ad2d327da60874d2d07ba697b8f5ab815189
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98067371"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127095"
 ---
 # <a name="azure-monitor-troubleshooting-logs-preview"></a>Registos de resolução de problemas do Monitor Azure (Pré-visualização)
 Utilize o Azure Monitor para investigar rapidamente e/ou periodicamente problemas, código de resolução de problemas ou problemas de configuração ou casos de suporte de endereço, que muitas vezes dependem da pesquisa sobre o volume elevado de dados para obter informações específicas.
@@ -48,7 +48,7 @@ Response:
         },
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": "{tableName}"
-      }
+}
 ```
 ## <a name="check-if-the-troubleshooting-logs-feature-is-enabled-for-a-given-table"></a>Verifique se a função de registos de resolução de problemas está ativada para uma determinada tabela
 Para verificar se o Registo de Resolução de Problemas está ativado para uma determinada tabela, pode utilizar a seguinte chamada API.
@@ -65,6 +65,7 @@ Response:
         },
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": " {tableName}"
+                }
 
 ```
 ## <a name="check-if-the-troubleshooting-logs-feature-is-enabled-for-all-of-the-tables-in-a-workspace"></a>Verifique se a função de registos de resolução de problemas está ativada para todas as tabelas num espaço de trabalho
@@ -83,7 +84,7 @@ Response:
           },
           "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/table1",
           "name": "table1"
-        },
+ },
         {
           "properties": {
             "retentionInDays": 7,
@@ -119,7 +120,7 @@ Response:
         },
         "id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
         "name": "{tableName}"
-      }
+}
 ```
 >[!TIP]
 >* Pode utilizar qualquer ferramenta REST API para executar os comandos. [Ler Mais](https://docs.microsoft.com/rest/api/azure/)
