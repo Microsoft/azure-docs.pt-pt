@@ -376,7 +376,7 @@
         - name: Segurança
           items:
             - name: Controlo de acesso à base de dados
-              href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
             - name: Segurança de dados
               items:
                 - name: Segurança ao nível da coluna
@@ -386,9 +386,9 @@
             - name: Encriptação de Dados
               items:
                 - name: Descrição geral da Encriptação de Dados Transparente
-                  href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                 - name: Encriptação de Dados Transparente com Bring Your Own Key
-                  href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                   displayname: 'transparent, data, encryption'
         - name: Gestão de cargas de trabalho
           items:
@@ -446,9 +446,9 @@
                 - name: Armazenamento do Azure Data Lake
                   href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Data Factory
-                  href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  href: ../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                 - name: Azure Databricks
-                  href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
                 - name: SSIS
                   href: /sql/integration-services/load-data-to-sql-data-warehouse
                   displayname: 'integration, services'
@@ -733,7 +733,7 @@
             - name: Base de Dados SQL do Azure
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instância Gerida do SQL do Azure
-              href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
             - name: Azure Synapse Analytics
               href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Table Storage do Azure
@@ -1163,7 +1163,7 @@
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html'
+      href: /answers/topics/azure-synapse-analytics.html
     - name: Pedidos de funcionalidades
       href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: Preços
@@ -1171,7 +1171,7 @@
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Perguntas e Respostas
-      href: 'https://docs.microsoft.com/answers/questions/topics/single/25423.html'
+      href: /answers/questions/topics/single/25423.html
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

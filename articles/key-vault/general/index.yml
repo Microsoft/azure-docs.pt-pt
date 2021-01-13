@@ -5,18 +5,19 @@ metadata:
   title: Documentação do Azure Key Vault
   description: Saiba como utilizar o Cofre de Chaves para criar e manter as chaves que acedem e encriptam os recursos, as aplicações e as soluções na cloud. Tutoriais, referências de API e muito mais.
   services: key-vault
+  ms.subservice: general
   ms.service: key-vault
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: 1d0fdf9042ccbe2ab433db2f861b6d4e58e7a1c3
-  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+  ms.openlocfilehash: d1b3d48f89fc979775c0ee71df29e3af0ff5f5fa
+  ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/06/2021
-  ms.locfileid: "97935925"
+  ms.lasthandoff: 01/12/2021
+  ms.locfileid: "98133434"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
