@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.openlocfilehash: 32c79360606a67cc7e85a43a226bb34c105d5b7a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 01/13/2021
 ms.locfileid: "93333397"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gerir recursos da API de Núcleo (SQL) do Azure Cosmos DB com modelos de Azure Resource Manager

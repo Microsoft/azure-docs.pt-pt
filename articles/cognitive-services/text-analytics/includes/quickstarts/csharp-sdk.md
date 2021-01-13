@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 12/11/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 8ed768d7bb47db6f102dbb48b438f9f4a2987f1e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 805ee7f5b210a09335b2177b83777c5caa805858
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366510"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147567"
 ---
 <a name="HOLTop"></a>
 
@@ -268,7 +268,7 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 
     AnalyzeSentimentResultCollection reviews = client.AnalyzeSentimentBatch(documents, options: new AnalyzeSentimentOptions()
     {
-        AdditionalSentimentAnalyses = AdditionalSentimentAnalyses.OpinionMining
+        IncludeOpinionMining = true
     });
 
     foreach (AnalyzeSentimentResult review in reviews)

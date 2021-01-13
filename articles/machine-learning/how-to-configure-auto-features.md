@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915866"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134420"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>A participação de dados na aprendizagem automática de máquinas
 
@@ -122,6 +122,9 @@ As personalizações suportadas incluem:
 |**Atualização do parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente suporta *o Imputer* (médio, mais frequente e mediano) e *o HashOneHotEncoder*.|
 |**Remover colunas** |Especifica as colunas a deixar de serem apresentando.|
 |**Transformadores de blocos**| Especifica os transformadores de blocos a utilizar no processo de aposição.|
+
+>[!NOTE]
+> A funcionalidade **das colunas de queda** é depreciada a partir da versão SDK 1.19. Largue as colunas do seu conjunto de dados como parte da limpeza de dados, antes de consumi-la na sua experiência automatizada de ML. 
 
 Crie o `FeaturizationConfig` objeto utilizando chamadas API:
 

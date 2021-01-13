@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 00c1c8ddab9214bf7698c21b05c24afa36ec20d9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553162"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147562"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Análise de Texto para categorias de saúde, entidades e atributos
 
@@ -23,15 +23,15 @@ ms.locfileid: "94553162"
 
 | Categoria  | Descrição  |
 |---------|---------|
-| ANATOMIA | conceitos que captam informação sobre sistemas, sites, locais ou regiões do corpo e anatômicos. |
- | DEMOGRAFIA | conceitos que captam informação sobre o género e a idade. |
- | EXAME | conceitos que captam informação sobre procedimentos de diagnóstico e testes. |
- | GENÓMICA | conceitos que captam informação sobre genes e variantes. |
- | CUIDADOS DE SAÚDE | conceitos que captam informação sobre eventos administrativos, ambientes de cuidados e profissões de saúde. |
- | CONDIÇÃO MÉDICA | conceitos que captam informação sobre diagnósticos, sintomas ou sinais. |
- | MEDICAÇÃO | conceitos que captam informação sobre medicação, incluindo nomes de medicação, classes, dosagem e rota de administração. |
- | SOCIAL | conceitos que captam informação sobre aspetos sociais medicamente relevantes, como a relação familiar. |
- | TRATAMENTO | conceitos que captam informação sobre procedimentos terapêuticos. |
+| [ANATOMIA](#anatomy) | conceitos que captam informação sobre sistemas, sites, locais ou regiões do corpo e anatômicos. |
+ | [DEMOGRAFIA](#demographics) | conceitos que captam informação sobre o género e a idade. |
+ | [EXAME](#examinations) | conceitos que captam informação sobre procedimentos de diagnóstico e testes. |
+ | [GENÓMICA](#genomics) | conceitos que captam informação sobre genes e variantes. |
+ | [CUIDADOS DE SAÚDE](#healthcare) | conceitos que captam informação sobre eventos administrativos, ambientes de cuidados e profissões de saúde. |
+ | [CONDIÇÃO MÉDICA](#medical-condition) | conceitos que captam informação sobre diagnósticos, sintomas ou sinais. |
+ | [MEDICAÇÃO](#medication) | conceitos que captam informação sobre medicação, incluindo nomes de medicação, classes, dosagem e rota de administração. |
+ | [SOCIAL](#social) | conceitos que captam informação sobre aspetos sociais medicamente relevantes, como a relação familiar. |
+ | [TRATAMENTO](#treatment) | conceitos que captam informação sobre procedimentos terapêuticos. |
   
 Cada categoria pode incluir dois grupos de conceito:
 
@@ -267,7 +267,15 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 +   **FREQUENCY_OF_MEDICATION**
 +   **ROUTE_OF_MEDICATION**
 +   **TIME_OF_MEDICATION**
-  
+
+## <a name="social"></a>Social
+
+### <a name="entities"></a>Entidades
+
+**FAMILY_RELATION** – Menções de familiares do sujeito. Por exemplo, pai, filha, irmãos, pais.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="A screenshot mostra outro exemplo de um atributo de tempo de tratamento.":::
+
 ## <a name="treatment"></a>Tratamento
 
 ### <a name="entities"></a>Entidades
@@ -294,17 +302,8 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="A screenshot mostra um exemplo de um atributo de tempo de tratamento.":::
 
-
 ### <a name="supported-relations"></a>Relações apoiadas
 
 + **DIRECTION_OF_TREATMENT**
 +   **TIME_OF_TREATMENT**
 +   **FREQUENCY_OF_TREATMENT**
-
-## <a name="social"></a>Social
-
-### <a name="entities"></a>Entidades
-
-**FAMILY_RELATION** – Menções de familiares do sujeito. Por exemplo, pai, filha, irmãos, pais.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="A screenshot mostra outro exemplo de um atributo de tempo de tratamento.":::

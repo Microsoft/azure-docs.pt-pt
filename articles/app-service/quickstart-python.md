@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 058d64d8b34a47101517273ebd17a09d9ca51197
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f60534f7d319bfe0b9e8e7bd4447770bcd6d45e3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936197"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134437"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python utilizando o Serviço de Aplicações Azure no Linux
 
@@ -158,13 +158,13 @@ Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 Desloque o código na sua pasta local *(python-docs-hello-world)* utilizando o `az webapp up` comando:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
+az webapp up --sku B1 --name <app-name>
 ```
 
 - Se o `az` comando não for reconhecido, certifique-se de que tem o CLI Azure instalado como descrito no [Conjunto do seu ambiente inicial](#set-up-your-initial-environment).
 - Se o `webapp` comando não for reconhecido, porque a sua versão Azure CLI é 2.0.80 ou superior. Caso contrário, [instale a versão mais recente](/cli/azure/install-azure-cli).
 - Substitua `<app_name>` por um nome único em todo o Azure *(caracteres válidos `a-z` `0-9` são, e `-`*. Um bom padrão é usar uma combinação do nome da sua empresa e um identificador de aplicativos.
-- O `--sku F1` argumento cria a aplicação web no nível de preços gratuitos. Omita este argumento para usar um nível premium mais rápido, que incorre num custo de hora a hora.
+- O `--sku B1` argumento cria a aplicação web no nível básico de preços, que incorre num pequeno custo horário. Omita este argumento para usar um nível premium mais rápido.
 - Pode opcionalmente incluir o argumento `--location <location-name>` onde `<location_name>` está uma região de Azure disponível. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) comando.
 - Se vir o erro, "Não consegui detetar automaticamente a pilha de tempo de execução da sua aplicação", certifique-se de que está a executar o comando na pasta *python-docs-hello-world* (Flask) ou na pasta *python-docs-hello-django* (Django) que contém o ficheiro *requirements.txt.* (Ver [problemas de deteção automática de problemas com webapp az](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
@@ -202,7 +202,7 @@ def hello():
 ```
 ::: zone-end
 ::: zone pivot="python-framework-django"
-Abra *o olá/vistas.py* num editor e atualize a `hello` função para corresponder ao seguinte código.
+Abra *olá/views.py* num editor e atualize a `hello` função para corresponder ao seguinte código.
 
 ```python
 def hello(request):
@@ -268,7 +268,7 @@ Tendo problemas? Consulte primeiro o [guia de resolução de problemas,](configu
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS" dependendo da sua localização. Se utilizar um SKU de Serviço de Aplicações que não seja o nível F1 gratuito, estes recursos incorrem em custos contínuos (ver [preços do Serviço de Aplicações).](https://azure.microsoft.com/pricing/details/app-service/linux/)
+Nos passos anteriores, criou os recursos do Azure num grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS" dependendo da sua localização. Se mantiver a aplicação web em funcionamento, irá incorrer em alguns custos em curso (ver [preços do Serviço de Aplicações).](https://azure.microsoft.com/pricing/details/app-service/linux/)
 
 Se não espera precisar destes recursos no futuro, elimine o grupo de recursos executando o seguinte comando:
 

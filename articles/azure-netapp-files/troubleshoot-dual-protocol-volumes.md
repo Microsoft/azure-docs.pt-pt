@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/01/2020
+ms.date: 01/12/2021
 ms.author: b-juche
-ms.openlocfilehash: cc046a27fec1b9e361ff840c7ae0f077e2987b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ae7e8f745a91e080d12a47271057ed90f9bc835
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654211"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134335"
 ---
 # <a name="troubleshoot-dual-protocol-volumes"></a>Resolver problemas de volumes de protocolo duplo
 
@@ -30,7 +30,7 @@ Este artigo descreve resoluções para as condições de erro que pode ter ao cr
 |     Condições de erro    |     Resolução    |
 |-|-|
 | A criação de volume de duplo protocolo falha com o erro `This Active Directory has no Server root CA Certificate` .    |     Se este erro ocorrer quando estiver a criar um volume de dois protocolos, certifique-se de que o certificado de CA raiz é carregado na sua conta NetApp.    |
-| A criação de volume de duplo protocolo falha com o erro `Failed to validate LDAP configuration, try again after correcting LDAP configuration` .    |  Considere as seguintes resoluções:   <ul><li>Certifique-se de que o certificado de raiz necessário é adicionado quando se junta ao Ative Directory (AD) na conta NetApp. Consulte [o certificado de escrituração ativo upload ative Certificate Authority certificado de raiz público](create-volumes-dual-protocol.md#upload-active-directory-certificate-authority-public-root-certificate).   </li><li>O registo do ponteiro (PTR) da máquina hospedeira de AD pode estar em falta no servidor DNS. É necessário criar uma zona de procura inversa no servidor DNS e, em seguida, adicionar um registo PTR da máquina hospedeira de AD nessa zona de procura inversa. <br> Por exemplo, assuma que o endereço IP da máquina AD `1.1.1.1` é, o nome de hospedeiro da máquina AD (como se encontra através do `hostname` comando) é `AD1` , e o nome de domínio é `myDomain.com` .  O registo PTR adicionado à zona de procuração inversa deve ser `1.1.1.1`  ->  `AD1.myDomain.com` . </li></ul>  |
+| A criação de volume de duplo protocolo falha com o erro `Failed to validate LDAP configuration, try again after correcting LDAP configuration` .    |  O registo do ponteiro (PTR) da máquina hospedeira de AD pode estar em falta no servidor DNS. É necessário criar uma zona de procura inversa no servidor DNS e, em seguida, adicionar um registo PTR da máquina hospedeira de AD nessa zona de procura inversa. <br> Por exemplo, assuma que o endereço IP da máquina AD `1.1.1.1` é, o nome de hospedeiro da máquina AD (como se encontra através do `hostname` comando) é `AD1` , e o nome de domínio é `contoso.com` .  O registo PTR adicionado à zona de procuração inversa deve ser `1.1.1.1`  ->  `contoso.com` .   |
 | A criação de volume de duplo protocolo falha com o erro `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 1.1.1.1, port 88 using TCP\\n**[ 950] FAILURE` . |  Este erro indica que a palavra-passe AD está incorreta quando o Ative Directory é associado à conta NetApp. Atualize a ligação AD com a palavra-passe correta e tente novamente. |
 | A criação de volume de duplo protocolo falha com o erro `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available` . |   Este erro indica que o DNS não está acessível. A razão pode ser porque o DNS IP está incorreto, ou há um problema de networking. Verifique o DNS IP introduzido na ligação AD e certifique-se de que o IP está correto. <br> Além disso, certifique-se de que o AD e o volume estão na mesma região e no mesmo VNet. Se estiverem em VNETs diferentes, certifique-se de que o espremiado VNet é estabelecido entre os dois VNets.|
 | É negado o erro de permissão ao montar um volume de dois protocolos. | Um volume de duplo protocolo suporta os protocolos NFS e SMB.  Quando tenta aceder ao volume montado no sistema UNIX, o sistema tenta mapear o utilizador UNIX que utiliza para um utilizador do Windows. Se não for encontrado mapeamento, o erro "Permissão negada" ocorre. <br> Esta situação aplica-se também quando utiliza o utilizador 'raiz' para o acesso. <br> Para evitar o problema "Permissão negada", certifique-se de que o Windows Ative Directory inclui `pcuser` antes de aceder ao ponto de montagem. Se adicionar `pcuser` depois de encontrar o problema "Permissão negada", aguarde 24 horas para que a entrada do cache fique limpa antes de tentar novamente o acesso. |

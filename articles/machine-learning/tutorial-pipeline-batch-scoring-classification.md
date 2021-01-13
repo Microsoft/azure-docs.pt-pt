@@ -11,16 +11,14 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: b0b415cce37e464abcba9fab5ad4c1196b1b2e1b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 916064742e69b7d355a0c7e541d4f2270e8854f4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033481"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134454"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
-
-
 
 Neste tutorial avançado, você aprende a construir um [pipeline Azure Machine Learning](concept-ml-pipelines.md) para executar um trabalho de pontuação de lote. Os oleodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na aprendizagem automática em vez de infraestrutura e automação. Depois de construir e publicar um oleoduto, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma. 
 
@@ -79,26 +77,24 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-dataset-objects"></a>Criar objetos de conjunto de dados
 
-Ao construir oleodutos, `Dataset` os objetos são usados para ler dados a partir de datas do espaço de trabalho, e `PipelineData` os objetos são usados para transferir dados intermédios entre etapas de gasoduto.
+Ao construir oleodutos, `Dataset` os objetos são usados para ler dados a partir de datas do espaço de trabalho, e `OutputFileDatasetConfig` os objetos são usados para transferir dados intermédios entre etapas de gasoduto.
 
 > [!Important]
 > O exemplo de pontuação do lote neste tutorial utiliza apenas um passo de pipeline. Em casos de utilização que tenham múltiplos passos, o fluxo típico incluirá estes passos:
 >
-> 1. Use `Dataset` os objetos como entradas para recolher *dados brutos,* realizar alguma transformação e, em seguida, *desafetar* um `PipelineData` objeto.
+> 1. Use `Dataset` os objetos como entradas para recolher *dados brutos,* realizar alguma transformação e, em seguida, *desafetar* com um `OutputFileDatasetConfig` objeto.
 >
-> 2. Utilize o `PipelineData` *objeto de saída* no passo anterior como objeto de *entrada*. Repita-o para os passos seguintes.
+> 2. Utilize o `OutputFileDatasetConfig` *objeto de saída* no passo anterior como objeto de *entrada*. Repita-o para os passos seguintes.
 
-Neste cenário, `Dataset` cria-se objetos que correspondem aos diretórios de datas-loja tanto para as imagens de entrada como para as etiquetas de classificação (valores de teste y). Também cria um `PipelineData` objeto para os dados de saída de pontuação do lote.
+Neste cenário, `Dataset` cria-se objetos que correspondem aos diretórios de datas-loja tanto para as imagens de entrada como para as etiquetas de classificação (valores de teste y). Também cria um `OutputFileDatasetConfig` objeto para os dados de saída de pontuação do lote.
 
 ```python
 from azureml.core.dataset import Dataset
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
 label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="batchscoring/results")
+output_dir = OutputFileDatasetConfig(name="scores")
 ```
 
 Registe os conjuntos de dados no espaço de trabalho se quiser reutilizá-lo mais tarde. Este passo é opcional.
@@ -426,7 +422,7 @@ published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Não complete esta secção se planeia executar outros tutoriais de Aprendizagem automática Azure.
 
@@ -441,7 +437,7 @@ Se não planeia utilizar os recursos que criou, elimine-os, para não incorrer e
 1. No portal Azure, no menu esquerdo, selecione **Grupos de Recursos**.
 1. Na lista de grupos de recursos, selecione o grupo de recursos que criou.
 1. Selecione **Eliminar grupo de recursos**.
-1. Insira o nome do grupo de recursos. Em seguida, **selecione Delete**.
+1. Introduza o nome do grupo de recursos. Em seguida, **selecione Delete**.
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e, em seguida, selecionar **Delete**.
 

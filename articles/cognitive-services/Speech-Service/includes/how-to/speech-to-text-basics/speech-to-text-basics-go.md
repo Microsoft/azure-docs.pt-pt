@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7603a5aa138e719d7ffe3db7a4c4484466efc1e3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96912357"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147464"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -99,6 +99,20 @@ func main() {
 }
 ```
 
+Executar os seguintes comandos para criar um ficheiro go.mod que se liga aos componentes alojados no Github.
+
+```cmd
+go mod init quickstart
+go get github.com/Microsoft/cognitive-services-speech-sdk-go
+```
+
+Agora construa e execute o código.
+
+```cmd
+go build
+go run quickstart
+```
+
 Consulte os documentos de referência para obter informações detalhadas sobre as [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) aulas e [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) as classes.
 
 ## <a name="speech-to-text-from-audio-file"></a>Discurso-a-texto a partir de ficheiro áudio
@@ -163,6 +177,20 @@ func main() {
     fmt.Println("Got a recognition!")
     fmt.Println(outcome.Result.Text)
 }
+```
+
+Executar os seguintes comandos para criar um ficheiro go.mod que se liga aos componentes alojados no Github.
+
+```cmd
+go mod init quickstart
+go get github.com/Microsoft/cognitive-services-speech-sdk-go
+```
+
+Agora construa e execute o código.
+
+```cmd
+go build
+go run quickstart
 ```
 
 Consulte os documentos de referência para obter informações detalhadas sobre as [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) aulas e [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) as classes.
