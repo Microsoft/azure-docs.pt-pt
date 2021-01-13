@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como pode utilizar o Azure 
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f39019dc092740c166798a7f85d5bdba686adbf4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000186"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179967"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
 As métricas Azure Relay dão-lhe o estado dos recursos na sua assinatura Azure. Com um rico conjunto de dados de métricas, você pode avaliar a saúde geral dos seus recursos De Retransmissor, não só ao nível do espaço de nome, mas também ao nível da entidade. Estas estatísticas podem ser importantes, uma vez que o ajudam a monitorizar o estado de Azure Relay. As métricas também podem ajudar a resolver problemas de causa de raiz sem precisar de contactar o suporte do Azure.
@@ -31,7 +31,7 @@ Pode monitorizar métricas ao longo do tempo no [portal Azure](https://portal.az
 
 ![Uma página intitulada "Monitor - Métricas (pré-visualização)" mostra um gráfico de linha de utilização da memória nos últimos 30 dias.][1]
 
-Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, clique em **Metrics **. 
+Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, clique em **Métricas**. 
 
 Para as métricas que suportam dimensões, deve filtrar com o valor de dimensão pretendido.
 

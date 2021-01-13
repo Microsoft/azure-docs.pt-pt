@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 34af3a7b6c3dd9420c07b6b29ff114b8139fea39
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 293a8d8b8add37f78e5a900b093ec89e95851aec
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011973"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178641"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
@@ -38,7 +38,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao [portal Azure - Inscrições de aplicações.](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
+> 1. Vá ao <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
@@ -52,11 +52,11 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `AspNetCore-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
-> 1. Insira um **URI redirecionado** de `https://localhost:44321/`
+> 1. Introduza um **URI de redirecionamento** de `https://localhost:44321/` .
 > 1. Selecione **Registar**.
 > 1. Em **Gestão**, **selecione Autenticação**.
-> 1. Em **Redirecionar URIs**, selecione **Add URI**, e, em seguida, insira `https://localhost:44321/signin-oidc`
-> 1. Insira um **URL logout** de `https://localhost:44321/signout-oidc`
+> 1. Em **Redirecionar URIs**, selecione **Add URI** e, em seguida, insira `https://localhost:44321/signin-oidc` .
+> 1. Introduza um **URL logout** de `https://localhost:44321/signout-oidc` .
 > 1. Em **Concessão implícita**, selecione **Tokens de ID**.
 > 1. Selecione **Guardar**.
 
@@ -180,7 +180,7 @@ Pode proteger um controlador ou métodos de controlador utilizando o `[Authorize
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O repo GitHub que contém este tutorial ASP.NET Core inclui instruções e mais amostras de código que mostram como:
 

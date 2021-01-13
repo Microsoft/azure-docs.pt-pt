@@ -2,13 +2,13 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807636"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178964"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de inquilinos com modelos ARM
 
@@ -145,7 +145,8 @@ Ao ser destacado para um inquilino, pode mobilizar recursos para:
 * grupos de gestão dentro do inquilino
 * assinaturas
 * grupos de recursos
-* [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser traçado para um alvo diferente do alvo de implantação.
 
 O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
 

@@ -7,24 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/13/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31926653950594b986aca19e2db2877cd655ca24
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7b134c4e9e980104a54f6a96d45445ee114556a5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509602"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178726"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de utilizador
 
-O seu perfil de utilizador de diretório B2C (Azure AD) B2C vem com um conjunto incorporado de atributos, tais como nome, apelido, cidade, código postal e número de telefone. Pode alargar o perfil do utilizador com os seus próprios dados de aplicação sem necessitar de uma loja de dados externa. A maioria dos atributos que podem ser usados com perfis de utilizador Azure AD B2C também são suportados pelo Microsoft Graph. Este artigo descreve atributos suportados do perfil de utilizador Azure AD B2C. Também nota os atributos que não são suportados pelo Microsoft Graph, bem como os atributos microsoft Graph que não devem ser usados com Azure AD B2C.
+O seu perfil de utilizador de diretório B2C (Azure AD) B2C vem com um conjunto incorporado de atributos, tais como nome, apelido, cidade, código postal e número de telefone. Pode alargar o perfil do utilizador com os seus próprios dados de aplicação sem necessitar de uma loja de dados externa. 
+
+A maioria dos atributos que podem ser usados com perfis de utilizador Azure AD B2C também são suportados pelo Microsoft Graph. Este artigo descreve atributos suportados do perfil de utilizador Azure AD B2C. Também nota os atributos que não são suportados pelo Microsoft Graph, bem como os atributos microsoft Graph que não devem ser usados com Azure AD B2C.
 
 > [!IMPORTANT]
 > Não deve utilizar atributos incorporados ou de extensão para armazenar dados pessoais sensíveis, tais como credenciais de conta, números de identificação do governo, dados de titulares de cartões, dados de contas financeiras, informações sobre cuidados de saúde ou informações de fundo sensíveis.
 
 Também pode integrar-se com sistemas externos. Por exemplo, pode utilizar o Azure AD B2C para autenticação, mas delegar numa gestão externa da relação com o cliente (CRM) ou na base de dados de fidelização do cliente como fonte autoritária de dados do cliente. Para mais informações, consulte a solução [de perfil remoto.](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile)
+
+## <a name="azure-ad-user-resource-type"></a>Tipo de recurso de utilizador Azure AD
 
 A tabela abaixo lista os atributos [do tipo de recurso do utilizador](/graph/api/resources/user) que são suportados pelo perfil de utilizador do diretório Azure AD B2C. Fornece as seguintes informações sobre cada atributo:
 
@@ -38,53 +42,121 @@ A tabela abaixo lista os atributos [do tipo de recurso do utilizador](/graph/api
 |Nome     |Tipo     |Descrição|Portal do Azure|Fluxos do utilizador|Política personalizada|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Booleano|Se a conta de utilizador está ativada ou desativada: **verdadeira** se a conta estiver ativada, caso contrário, **é falsa**.|Sim|Não|Persistido, saída|
-|ageGroup        |String|A faixa etária do utilizador. Valores possíveis: nulo, indefinido, menor, adulto, não-adufer.|Sim|Não|Persistido, saída|
-|AlternativeSecurityId[(Identidades)](manage-user-accounts-graph-api.md#identities-property)|String|Uma única identidade de utilizador do fornecedor de identidade externa.|Não|Não|Entrada, Persistência, Saída|
-|AlternativeSecurityIds[(Identidades)](manage-user-accounts-graph-api.md#identities-property)|coleção alternativa securityId|Uma recolha de identidades de utilizadores de fornecedores de identidade externos.|Não|Não|Persistido, saída|
-|city            |String|A cidade em que o utilizador está localizado. Comprimento máximo 128.|Sim|Sim|Persistido, saída|
-|consentProvidedForMinor|String|Se o consentimento foi dado a um menor. Valores permitidos: nulos, concedidos, negados ou não ressaltados.|Sim|Não|Persistido, saída|
-|país         |String|O país/região em que o utilizador se encontra. Exemplo: "EUA" ou "Reino Unido". Comprimento máximo 128.|Sim|Sim|Persistido, saída|
+|ageGroup        |Cadeia|A faixa etária do utilizador. Valores possíveis: nulo, indefinido, menor, adulto, não-adufer.|Sim|Não|Persistido, saída|
+|AlternativeSecurityId[(Identidades)](#identities-attribute)|Cadeia|Uma única identidade de utilizador do fornecedor de identidade externa.|Não|Não|Entrada, Persistência, Saída|
+|AlternativeSecurityIds[(Identidades)](#identities-attribute)|coleção alternativa securityId|Uma recolha de identidades de utilizadores de fornecedores de identidade externos.|Não|Não|Persistido, saída|
+|city            |Cadeia|A cidade em que o utilizador está localizado. Comprimento máximo 128.|Sim|Sim|Persistido, saída|
+|consentProvidedForMinor|Cadeia|Se o consentimento foi dado a um menor. Valores permitidos: nulos, concedidos, negados ou não ressaltados.|Sim|Não|Persistido, saída|
+|país         |Cadeia|O país/região em que o utilizador se encontra. Exemplo: "EUA" ou "Reino Unido". Comprimento máximo 128.|Sim|Sim|Persistido, saída|
 |createdDateTime|DateTime|A data em que o objeto do utilizador foi criado. Leia apenas.|Não|Não|Persistido, saída|
-|criaçãoType    |String|Se a conta de utilizador foi criada como uma conta local para um inquilino Azure Ative Directory B2C, o valor é LocalAccount ou nomeCoexistence. Leia apenas.|Não|Não|Persistido, saída|
-|dataSSbirth     |Date|Data de nascimento.|Não|Não|Persistido, saída|
-|departamento      |String|O nome do departamento em que o utilizador trabalha. Comprimento máximo 64.|Sim|Não|Persistido, saída|
+|criaçãoType    |Cadeia|Se a conta de utilizador foi criada como uma conta local para um inquilino Azure Ative Directory B2C, o valor é LocalAccount ou nomeCoexistence. Leia apenas.|Não|Não|Persistido, saída|
+|dataSSbirth     |Data|Data de nascimento.|Não|Não|Persistido, saída|
+|departamento      |Cadeia|O nome do departamento em que o utilizador trabalha. Comprimento máximo 64.|Sim|Não|Persistido, saída|
 |displayName     |String|O nome de exibição do utilizador. Comprimento máximo 256.|Sim|Sim|Persistido, saída|
-|facsimileTelephoneNumber<sup>1</sup>|String|O número de telefone do fax de negócios do utilizador.|Sim|Não|Persistido, saída|
-|nomeDado       |String|O nome próprio (primeiro nome) do utilizador. Comprimento máximo 64.|Sim|Sim|Persistido, saída|
-|jobTitle        |String|O título de trabalho do utilizador. Comprimento máximo 128.|Sim|Sim|Persistido, saída|
-|imutávelId     |String|Um identificador que é normalmente utilizado para utilizadores migrados do Ative Directory no local.|Não|Não|Persistido, saída|
-|legalAgeGroupClassification|String|Classificação legal de grupo etário. Apenas de leitura e calculado com base no AgeGroup e consentProvidedForMinor propriedades. Valores permitidos: nulo, menorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, e adulto.|Sim|Não|Persistido, saída|
-|legalCountry<sup>1</sup>  |String|País/Região para fins legais.|Não|Não|Persistido, saída|
-|correio            |String|O endereço SMTP para o utilizador, por exemplo, bob@contoso.com ". Só para ler.|Não|Não|Persistido, saída|
-|mailNickName    |String|O pseudónimo do e-mail para o utilizador. Comprimento máximo 64.|Não|Não|Persistido, saída|
-|mobile (mobilePhone) |String|O número de telefone celular primário para o utilizador. Comprimento máximo 64.|Sim|Não|Persistido, saída|
-|netId           |String|Identificação da rede.|Não|Não|Persistido, saída|
-|objectId        |String|Um identificador globalmente único (GUID) que é o identificador único para o utilizador. Exemplo: 12345678-9abc-def0-1234-56789abcde. Leia apenas, imutável.|Só de leitura|Sim|Entrada, Persistência, Saída|
-|outras Mensagens      |Coleção de cordas|Uma lista de endereços de e-mail adicionais para o utilizador. Exemplo: bob@contoso.com [" Robert@fabrikam.com "".].|Sim (E-mail alternativo)|Não|Persistido, saída|
-|palavra-passe        |String|A palavra-passe para a conta local durante a criação do utilizador.|Não|Não|Persistiu|
-|passwordPolícias     |String|Política da senha. É uma corda composta por diferentes nomes políticos separados por vírgula. Por exemplo, "DisablePasswordExpiration, DisableStrongPassword".|Não|Não|Persistido, saída|
-|physicalDeliveryOfficeName (officeLocation)|String|A localização do escritório no local de negócio do utilizador. Comprimento máximo 128.|Sim|Não|Persistido, saída|
-|postalCode      |String|O código postal do endereço postal do utilizador. O código postal é específico do país/região do utilizador. Nos Estados Unidos da América, este atributo contém o código POSTAL. Comprimento máximo 40.|Sim|Não|Persistido, saída|
-|preferiuLanguage    |String|O idioma preferido para o utilizador. Deve seguir o Código ISO 639-1. Exemplo: "en-US".|Não|Não|Persistido, saída|
+|facsimileTelephoneNumber<sup>1</sup>|Cadeia|O número de telefone do fax de negócios do utilizador.|Sim|Não|Persistido, saída|
+|nomeDado       |Cadeia|O nome próprio (primeiro nome) do utilizador. Comprimento máximo 64.|Sim|Sim|Persistido, saída|
+|jobTitle        |Cadeia|O título de trabalho do utilizador. Comprimento máximo 128.|Sim|Sim|Persistido, saída|
+|imutávelId     |Cadeia|Um identificador que é normalmente utilizado para utilizadores migrados do Ative Directory no local.|Não|Não|Persistido, saída|
+|legalAgeGroupClassification|Cadeia|Classificação legal de grupo etário. Apenas de leitura e calculado com base no AgeGroup e consentProvidedForMinor propriedades. Valores permitidos: nulo, menorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, e adulto.|Sim|Não|Persistido, saída|
+|legalCountry<sup>1</sup>  |Cadeia|País/Região para fins legais.|Não|Não|Persistido, saída|
+|correio            |Cadeia|O endereço SMTP para o utilizador, por exemplo, bob@contoso.com ". Só para ler.|Não|Não|Persistido, saída|
+|mailNickName    |Cadeia|O pseudónimo do e-mail para o utilizador. Comprimento máximo 64.|Não|Não|Persistido, saída|
+|mobile (mobilePhone) |Cadeia|O número de telefone celular primário para o utilizador. Comprimento máximo 64.|Sim|Não|Persistido, saída|
+|netId           |Cadeia|Identificação da rede.|Não|Não|Persistido, saída|
+|objectId        |Cadeia|Um identificador globalmente único (GUID) que é o identificador único para o utilizador. Exemplo: 12345678-9abc-def0-1234-56789abcde. Leia apenas, imutável.|Só de leitura|Sim|Entrada, Persistência, Saída|
+|outras Mensagens      |Coleção de cordas|Uma lista de outros endereços de e-mail para o utilizador. Exemplo: bob@contoso.com [" Robert@fabrikam.com "".].|Sim (E-mail alternativo)|Não|Persistido, saída|
+|palavra-passe        |Cadeia|A palavra-passe para a conta local durante a criação do utilizador.|Não|Não|Persistiu|
+|passwordPolícias     |Cadeia|Política da senha. É uma corda composta por diferentes nomes políticos separados por vírgula. Por exemplo, "DisablePasswordExpiration, DisableStrongPassword".|Não|Não|Persistido, saída|
+|physicalDeliveryOfficeName (officeLocation)|Cadeia|A localização do escritório no local de negócio do utilizador. Comprimento máximo 128.|Sim|Não|Persistido, saída|
+|postalCode      |Cadeia|O código postal do endereço postal do utilizador. O código postal é específico do país/região do utilizador. Nos Estados Unidos da América, este atributo contém o código POSTAL. Comprimento máximo 40.|Sim|Não|Persistido, saída|
+|preferiuLanguage    |Cadeia|O idioma preferido para o utilizador. Deve seguir o Código ISO 639-1. Exemplo: "en-US".|Não|Não|Persistido, saída|
 |refreshTokensValidFromDateTime|DateTime|Quaisquer fichas de atualização emitidas antes deste tempo são inválidas, e as aplicações terão um erro ao usar um token de atualização inválido para adquirir um novo token de acesso. Se isso acontecer, o pedido terá de adquirir um novo token de atualização, fazendo um pedido ao ponto final autorizado. Só para ler.|Não|Não|Saída|
-|signInNames[(Identidades)](manage-user-accounts-graph-api.md#identities-property) |String|O nome único de inscrição do utilizador da conta local de qualquer tipo no diretório. Utilize este atributo para obter um utilizador com valor de inscrição sem especificar o tipo de conta local.|Não|Não|Entrada|
-|signInNames.userName[(Identidades)](manage-user-accounts-graph-api.md#identities-property) |String|O nome de utilizador único do utilizador da conta local no diretório. Utilize este atributo para criar ou obter um utilizador com um nome de utilizador de inscrição específica. Especificar isto apenas em PersistedClaims durante a operação Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de sinalInNamames, também precisa persistir no signInNames existente.|Não|Não|Entrada, Persistência, Saída|
-|signInNames.phoneNumber[(Identidades)](manage-user-accounts-graph-api.md#identities-property) |String|O número de telefone único do utilizador da conta local no diretório. Utilize este atributo para criar ou obter um utilizador com um número de telefone de inscrição específico. Especificar este atributo apenas em PersistedClaims durante a operação Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de sinalInNamames, também precisa persistir no signInNames existente.|Não|Não|Entrada, Persistência, Saída|
-|signInNames.emailAddress[(Identidades)](manage-user-accounts-graph-api.md#identities-property)|String|O endereço de e-mail único do utilizador da conta local no diretório. Utilize isto para criar ou obter um utilizador com um endereço de e-mail específico de inscrição. Especificar este atributo apenas em PersistedClaims durante a operação Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de sinalInNamames, também precisa persistir no signInNames existente.|Não|Não|Entrada, Persistência, Saída|
-|state           |String|O estado ou província no endereço do utilizador. Comprimento máximo 128.|Sim|Sim|Persistido, saída|
-|streetAddress   |String|O endereço de rua do local de negócios do utilizador. Comprimento máximo 1024.|Sim|Sim|Persistido, saída|
-|strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|O número de telefone secundário do utilizador, utilizado para a autenticação de vários fatores.|Sim|Não|Persistido, saída|
-|strongAuthenticationEmailAddress<sup>1</sup>|String|O endereço SMTP para o utilizador. Exemplo: " bob@contoso.com " Este atributo é usado para iniciar s início com a política do nome de utilizador, para armazenar o endereço de e-mail do utilizador. O endereço de e-mail é então utilizado num fluxo de reset de palavra-passe.|Sim|Não|Persistido, saída|
-|strongAuthenticationPhoneNumber<sup>2</sup>|String|O número de telefone primário do utilizador, utilizado para a autenticação de vários fatores.|Sim|Não|Persistido, saída|
-|surname         |String|Sobrenome do utilizador (nome de família ou apelido). Comprimento máximo 64.|Sim|Sim|Persistido, saída|
-|número de telefones (primeira entrada de businessPhones)|String|O número de telefone primário do local de negócio do utilizador.|Sim|Não|Persistido, saída|
-|userPrincipalName    |String|O nome principal de utilizador (UPN). O UPN é um nome de login estilo Internet para o utilizador com base na norma de Internet RFC 822. O domínio deve estar presente na coleção de domínios verificados pelo arrendatário. Esta propriedade é necessária quando uma conta é criada. Imutável.|Não|Não|Entrada, Persistência, Saída|
-|usageLocation   |String|Requerido para os utilizadores que serão atribuídas licenças devido à obrigação legal de verificar a disponibilidade de serviços em países/regiões. Não é nulo. Um código país/região de duas letras (norma ISO 3166). Exemplos: "US", "JP" e "GB".|Sim|Não|Persistido, saída|
+|signInNames[(Identidades)](#identities-attribute) |Cadeia|O nome único de inscrição do utilizador da conta local de qualquer tipo no diretório. Utilize este atributo para obter um utilizador com valor de inscrição sem especificar o tipo de conta local.|Não|Não|Entrada|
+|signInNames.userName[(Identidades)](#identities-attribute) |Cadeia|O nome de utilizador único do utilizador da conta local no diretório. Utilize este atributo para criar ou obter um utilizador com um nome de utilizador de inscrição específica. Especificar isto apenas em PersistedClaims durante a operação Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de sinalInNamames, também precisa persistir no signInNames existente.|Não|Não|Entrada, Persistência, Saída|
+|signInNames.phoneNumber[(Identidades)](#identities-attribute) |Cadeia|O número de telefone único do utilizador da conta local no diretório. Utilize este atributo para criar ou obter um utilizador com um número de telefone de inscrição específico. Especificar este atributo apenas em PersistedClaims durante a operação Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de sinalInNamames, também precisa persistir no signInNames existente.|Não|Não|Entrada, Persistência, Saída|
+|signInNames.emailAddress[(Identidades)](#identities-attribute)|Cadeia|O endereço de e-mail único do utilizador da conta local no diretório. Utilize isto para criar ou obter um utilizador com um endereço de e-mail específico de inscrição. Especificar este atributo apenas em PersistedClaims durante a operação Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de sinalInNamames, também precisa persistir no signInNames existente.|Não|Não|Entrada, Persistência, Saída|
+|state           |Cadeia|O estado ou província no endereço do utilizador. Comprimento máximo 128.|Sim|Sim|Persistido, saída|
+|streetAddress   |Cadeia|O endereço de rua do local de negócios do utilizador. Comprimento máximo 1024.|Sim|Sim|Persistido, saída|
+|strongAuthentication AlternativePhoneNumber<sup>1</sup>|Cadeia|O número de telefone secundário do utilizador, utilizado para a autenticação de vários fatores.|Sim|Não|Persistido, saída|
+|strongAuthenticationEmailAddress<sup>1</sup>|Cadeia|O endereço SMTP para o utilizador. Exemplo: " bob@contoso.com " Este atributo é usado para iniciar s início com a política do nome de utilizador, para armazenar o endereço de e-mail do utilizador. O endereço de e-mail é então utilizado num fluxo de reset de palavra-passe.|Sim|Não|Persistido, saída|
+|strongAuthenticationPhoneNumber<sup>2</sup>|Cadeia|O número de telefone primário do utilizador, utilizado para a autenticação de vários fatores.|Sim|Não|Persistido, saída|
+|surname         |Cadeia|Sobrenome do utilizador (nome de família ou apelido). Comprimento máximo 64.|Sim|Sim|Persistido, saída|
+|número de telefones (primeira entrada de businessPhones)|Cadeia|O número de telefone primário do local de negócio do utilizador.|Sim|Não|Persistido, saída|
+|userPrincipalName    |Cadeia|O nome principal de utilizador (UPN). O UPN é um nome de login estilo Internet para o utilizador com base na norma de Internet RFC 822. O domínio deve estar presente na coleção de domínios verificados pelo arrendatário. Esta propriedade é necessária quando uma conta é criada. Imutável.|Não|Não|Entrada, Persistência, Saída|
+|usageLocation   |Cadeia|Requerido para os utilizadores que serão atribuídas licenças devido à obrigação legal de verificar a disponibilidade de serviços em países/regiões. Não é nulo. Um código país/região de duas letras (norma ISO 3166). Exemplos: "US", "JP" e "GB".|Sim|Não|Persistido, saída|
 |userType        |String|Um valor de cadeia que pode ser usado para classificar os tipos de utilizadores no seu diretório. O valor deve ser membro. Só para ler.|Só de leitura|Não|Persistido, saída|
-|estado de utilizador (externalUserState)<sup>3</sup>|String|Apenas para a conta Azure AD B2B, indica se o convite é pendente ou aceite.|Não|Não|Persistido, saída|
+|estado de utilizador (externalUserState)<sup>3</sup>|Cadeia|Apenas para a conta Azure AD B2B, indica se o convite é pendente ou aceite.|Não|Não|Persistido, saída|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Mostra a data de tempo para a última alteração à propriedade UserState.|Não|Não|Persistido, saída|
 
 <sup>1 </sup> Não suportado pelo Microsoft Graph<br><sup>2 </sup> Para mais informações, consulte [o atributo de número de telefone MFA](#mfa-phone-number-attribute)<br><sup>3 </sup> Não deve ser usado com Azure AD B2C
+
+## <a name="display-name-attribute"></a>Atributo de nome de exibição
+
+`displayName`É o nome a apresentar na gestão do utilizador do portal Azure para o utilizador, e no token AD B2C regressa à aplicação. Esta propriedade é necessária.
+
+## <a name="identities-attribute"></a>Atributo de identidades
+
+Uma conta de cliente, que pode ser um consumidor, parceiro ou cidadão, pode ser associada a estes tipos de identidade:
+
+- **Identidade local** - O nome de utilizador e a palavra-passe são armazenados localmente no diretório Azure AD B2C. Muitas vezes nos referimos a estas identidades como "contas locais".
+- Identidade **federada** - Também conhecida como contas *sociais* ou *empresariais,* a identidade do utilizador é gerida por um fornecedor de identidade federado como Facebook, Microsoft, ADFS ou Salesforce.
+
+Um utilizador com uma conta de cliente pode iniciar súmuta com múltiplas identidades. Por exemplo, nome de utilizador, e-mail, identificação de funcionários, ID do governo, e outros. Uma única conta pode ter múltiplas identidades, tanto locais como sociais, com a mesma senha.
+
+Na Microsoft Graph API, as identidades locais e federadas são armazenadas no `identities` atributo do utilizador, que é do tipo [entidade objectIdentity][entidade de gráfico-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para iniciar scontabilidade de um utilizador. Esta recolha permite ao utilizador iniciar seduções na conta do utilizador com qualquer uma das suas identidades associadas.
+
+| Nome   | Tipo |Descrição|
+|:---------------|:--------|:----------|
+|signInType|string| Especifica os tipos de inscrição do utilizador no seu diretório. Para a conta local:  `emailAddress` , ou qualquer outro tipo que você `emailAddress1` `emailAddress2` `emailAddress3`  `userName` goste. A conta social deve ser definida para  `federated` .|
+|issuer|string|Especifica o emitente da identidade. Para contas locais (onde **o signInType** não `federated` está), esta propriedade é o nome de domínio padrão do inquilino B2C local, por `contoso.onmicrosoft.com` exemplo. Para a identidade social (onde **o signInType**  `federated` é) o valor é o nome do emitente, por exemplo `facebook.com`|
+|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando **o signInType** está definido para `emailAddress` `userName` ou, representa o nome de inscrição para o utilizador.<br>Quando **o signInType** estiver definido para: <ul><li>`emailAddress` (ou começa com `emailAddress` como `emailAddress1` ) **emitenteAssignedId** deve ser um endereço de e-mail válido</li><li>`userName` (ou qualquer outro valor), **emitenteAssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
+
+As **seguintes identidades** atribuem, com uma identidade de conta local com nome de inscrição, um endereço de e-mail como sindução, e com uma identidade social. 
+
+ ```json
+ "identities": [
+     {
+       "signInType": "userName",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "johnsmith"
+     },
+     {
+       "signInType": "emailAddress",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "jsmith@yahoo.com"
+     },
+     {
+       "signInType": "federated",
+       "issuer": "facebook.com",
+       "issuerAssignedId": "5eecb0cd"
+     }
+   ]
+ ```
+
+Para identidades federadas, dependendo do fornecedor de identidade, o **emitenteAssignedId** é um valor único para um dado utilizador por aplicação ou conta de desenvolvimento. Configure a política Azure AD B2C com o mesmo ID de aplicação que foi previamente atribuído pelo prestador social ou outro pedido dentro da mesma conta de desenvolvimento. 
+
+## <a name="password-profile-property"></a>Propriedade de perfil de senha
+
+Para uma identidade local, o atributo **passwordProfile** é necessário e contém a palavra-passe do utilizador. O `forceChangePasswordNextSignIn` atributo deve ser definido para `false` .
+
+Para uma identidade federada (social), o atributo **passwordProfile** não é necessário.
+
+```json
+"passwordProfile" : {
+    "password": "password-value",
+    "forceChangePasswordNextSignIn": false
+  }
+```
+
+## <a name="password-policy-attribute"></a>Atributo de política de palavra-passe
+
+A política de senha Azure AD B2C (para contas locais) baseia-se na política [de força de senha forte](../active-directory/authentication/concept-sspr-policy.md) do Azure Ative Directory. As políticas de inscrição ou de início de sposição do Azure AD B2C ou de início de sposição e de redefinição de palavras-passe requerem esta forte força de senha e não expiram palavras-passe.
+
+Nos cenários de migração do utilizador, se as contas que pretende migrar tiverem uma força de senha mais fraca do que a [forte força](../active-directory/authentication/concept-sspr-policy.md) de senha aplicada pelo Azure AD B2C, pode desativar o requisito de senha forte. Para alterar a política de senha padrão, desafine o `passwordPolicies` atributo para `DisableStrongPassword` . Por exemplo, pode modificar o pedido de criação do utilizador da seguinte forma:
+
+```json
+"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
+```
 
 ## <a name="mfa-phone-number-attribute"></a>Atributo de número de telefone MFA
 
@@ -94,30 +166,33 @@ Nas [políticas personalizadas](custom-policy-overview.md)Azure AD B2C, o númer
 
 ## <a name="extension-attributes"></a>Atributos de extensão
 
-Muitas vezes terá de criar os seus próprios atributos, como nos seguintes casos:
+Cada aplicação virada para o cliente tem requisitos únicos para que a informação seja recolhida. O seu inquilino Azure AD B2C vem com um conjunto incorporado de informações armazenadas em propriedades, tais como Nome Dado, Apelido e Código Postal. Com o Azure AD B2C, pode alargar o conjunto de propriedades armazenadas em cada conta de cliente. Para obter mais informações, consulte [Adicionar atributos do utilizador e personalizar a entrada do utilizador no Azure Ative Directory B2C](configure-user-input.md)
 
-- Uma aplicação voltada para o cliente tem de persistir para um atributo como **o LoyaltyNumber**.
-- Um fornecedor de identidade tem um identificador de utilizador único, como **o UniqueUserGUID,** que deve ser salvo.
-- Uma viagem personalizada de utilizador precisa de persistir para um estado de utilizador, como **a migraçãoStatus**.
-
-Azure AD B2C alarga o conjunto de atributos armazenados em cada conta de utilizador. Os atributos de extensão [estendem o esquema](/graph/extensibility-overview#schema-extensions) dos objetos do utilizador no diretório. Os atributos de extensão só podem ser registados num objeto de aplicação, mesmo que possam conter dados para um utilizador. O atributo de extensão é anexado à aplicação chamada b2c-extensions-app. Não modifique esta aplicação, uma vez que é utilizada pelo Azure AD B2C para armazenar dados do utilizador. Pode encontrar esta aplicação nos registos da Azure Ative Directory App.
+Os atributos de extensão [estendem o esquema](/graph/extensibility-overview#schema-extensions) dos objetos do utilizador no diretório. Os atributos de extensão só podem ser registados num objeto de aplicação, mesmo que possam conter dados para um utilizador. O atributo de extensão é anexado à aplicação denominada `b2c-extensions-app` . Não modifique esta aplicação, uma vez que é utilizada pelo Azure AD B2C para armazenar dados do utilizador. Pode encontrar esta aplicação nos registos da Azure Ative Directory App.
 
 > [!NOTE]
 > - Até 100 atributos de extensão podem ser escritos em qualquer conta de utilizador.
 > - Se a aplicação de aplicações de extensões b2c for eliminada, esses atributos de extensão são removidos de todos os utilizadores, juntamente com quaisquer dados que contenham.
 > - Se um atributo de extensão for eliminado pela aplicação, é removido de todas as contas do utilizador e os valores são eliminados.
-> - O nome subjacente do atributo de extensão é gerado no formato "Extension_" + ID de aplicação + "_" + Nome do atributo. Por exemplo, se criar um atributo de extensão LoyaltyNumber, e o ID da aplicação de extensões b2c for 831374b3-bd50-41bf-aa54-263ec9e050fc, o nome do atributo de extensão subjacente será: extension_831374b3bd5041bfaa54263ec9e050fc_LoyaltyNumber. Utiliza o nome subjacente quando executa consultas de API de gráficos para criar ou atualizar contas de utilizador.
 
-Os seguintes tipos de dados são suportados ao definir uma propriedade numa extensão de esquema:
+Os atributos de extensão na API do Gráfico são nomeados através da `extension_ApplicationClientID_AttributeName` convenção, onde é o `ApplicationClientID` **ID da aplicação (cliente)** da `b2c-extensions-app` aplicação (encontrado nos **registos da App** Todas as  >  **Aplicações** no portal Azure). Note que o **ID de Aplicação (cliente)** tal como está representado no nome do atributo de extensão não inclui hífenes. Por exemplo:
 
-|Tipo de propriedade |Observações  |
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
+```
+
+Os seguintes tipos de dados são suportados ao definir um atributo numa extensão de esquema:
+
+|Tipo |Observações  |
 |--------------|---------|
 |Booleano    | Valores possíveis: **verdadeiros** ou **falsos.** |
 |DateTime   | Deve ser especificado no formato ISO 8601. Será armazenado na UTC.   |
 |Número inteiro    | Valor de 32 bits.               |
-|String     | 256 caracteres no máximo.     |
+|Cadeia     | 256 caracteres no máximo.     |
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Saiba mais sobre os atributos de extensão:
+
 - [Extensões de esquema](/graph/extensibility-overview#schema-extensions)
 - [Definir atributos personalizados](user-flow-custom-attributes.md)

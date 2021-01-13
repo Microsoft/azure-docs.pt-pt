@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89468543"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179202"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementar a Cloud Shell numa rede virtual Azure
-> [!NOTE]
-> Esta funcionalidade encontra-se em visualização pública.
 
 Uma sessão regular da Cloud Shell funciona num contentor numa rede da Microsoft separada dos seus recursos. Isto significa que os comandos que correm dentro do contentor não podem aceder a recursos que só podem ser acedidos a partir de uma rede virtual específica. Por exemplo, não é possível utilizar o SSH para ligar da Cloud Shell a uma máquina virtual que tenha apenas um endereço IP privado, ou utilizar kubectl para ligar a um cluster Kubernetes que bloqueou o acesso. 
 
@@ -64,7 +62,7 @@ Tal como na Cloud Shell padrão, é necessária uma conta de armazenamento duran
 ## <a name="virtual-network-deployment-limitations"></a>Limitações de implementação de rede virtual
 * Devido aos recursos adicionais de networking envolvidos, iniciar a Cloud Shell numa rede virtual é tipicamente mais lento do que uma sessão padrão da Cloud Shell.
 
-* Durante a pré-visualização, menos regiões são suportadas para Cloud Shell numa rede virtual. Atualmente, este número limita-se a: WestUS e WestCentralUS.
+* Todas as regiões cloud shell, para além da Índia Central, são atualmente apoiadas. 
 
 * [A Azure Relay](../azure-relay/relay-what-is-it.md) não é um serviço gratuito, por favor veja os seus [preços.](https://azure.microsoft.com/pricing/details/service-bus/) No cenário Cloud Shell, uma ligação híbrida é usada para cada administrador enquanto estão a usar a Cloud Shell. A ligação será automaticamente desligada após a sessão cloud Shell estar completa.
 
@@ -93,7 +91,7 @@ No portal Azure, ou utilizando o Azure CLI, a Azure PowerShell, etc. criar um gr
 > [!NOTE]
 > Durante a pré-visualização pública, o grupo de recursos e a rede virtual devem estar localizados em WestCentralUS ou WestUS.
 
-### <a name="arm-templates"></a>Modelos do ARM
+### <a name="arm-templates"></a>Modelos de ARM
 Utilize o [modelo Azure Quickstart](https://aka.ms/cloudshell/docs/vnet/template) para criar recursos cloud shell numa rede virtual e o [Modelo Azure Quickstart](https://aka.ms/cloudshell/docs/vnet/template/storage) para criar o armazenamento necessário. Tome nota dos seus nomes de recursos, principalmente o nome da sua partilha de ficheiros.
 
 ### <a name="open-relay-firewall"></a>Firewall de retransmissão aberta

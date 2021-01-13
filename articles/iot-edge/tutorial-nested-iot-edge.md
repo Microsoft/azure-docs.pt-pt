@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: c1dba383f259e35b143688b2db68f05f1a67def6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a9591a394d80e7b4c60f28fda6c0a425ba3d0a4f
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938232"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180069"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -27,7 +27,7 @@ Você pode estruturar uma hierarquia de dispositivos para que apenas a camada su
 
 O objetivo deste tutorial é criar uma hierarquia de dispositivos IoT Edge que simula um ambiente de produção. No final, irá implantar o [módulo Sensor de Temperatura Simulado](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) num dispositivo de camada inferior sem acesso à Internet, descarregando imagens de contentores através da hierarquia.
 
-Para atingir este objetivo, este tutorial acompanha-o através da criação de uma hierarquia de dispositivos IoT Edge, implantando recipientes de tempo de execução IoT Edge para os seus dispositivos e configurando os seus dispositivos localmente. Neste tutorial, ficará a saber como:
+Para atingir este objetivo, este tutorial acompanha-o através da criação de uma hierarquia de dispositivos IoT Edge, implantando recipientes de tempo de execução IoT Edge para os seus dispositivos e configurando os seus dispositivos localmente. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -63,6 +63,13 @@ Para criar uma hierarquia de dispositivos IoT Edge, você precisará:
     --admin-username azureuser \
     --admin-password <REPLACE_WITH_PASSWORD>
    ```
+
+* Certifique-se de que as seguintes portas estão abertas à entrada: 8000, 443, 5671, 8883:
+  * 8000: Usado para puxar imagens do contentor Docker através do representante da API.
+  * 443: Utilizado entre os centros de borda do pai e da criança para chamadas DE API REST.
+  * 5671, 8883: Usado para AMQP e MQTT.
+
+  Para obter mais informações, veja [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md) (Como abrir portas para uma máquina virtual com o portal do Azure).
 
 Você também pode experimentar este cenário seguindo a amostra de [IoT Azure IoT](https://aka.ms/iotedge-nested-sample)scripted, que implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
 
@@ -182,6 +189,39 @@ Cada dispositivo necessita de uma cópia do certificado de CA raiz e de uma cóp
 
 Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
 
+1. Instale a configuração do repositório que corresponda ao sistema operativo do dispositivo.
+
+   * **Servidor Ubuntu 16.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Servidor Ubuntu 18.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Estiramento de Framboesa Pi OS**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+1. Copie a lista gerada para o diretório sources.list.d.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+1. Instale a chave pública Microsoft GPG.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+   
 1. Atualize as listas de pacotes no seu dispositivo.
 
    ```bash
@@ -197,7 +237,7 @@ Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
 1. Instale o daemon hsmlib e IoT Edge. Para ver os ativos para outras distribuições do Linux, [visite o lançamento do GitHub.](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0_rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
    curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
@@ -594,13 +634,35 @@ Notice that the image URI that we used for the simulated temperature sensor modu
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
-## View generated data
+## IotEdge check
 
-The **Simulated Temperature Sensor** module that you pushed generates sample environment data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.
+Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
 
-You can watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+You can run `iotedge check` in a nested hierarchy, even if the child machines don't have direct internet access.
 
-You can also view these messages through the [Azure Cloud Shell](https://shell.azure.com/):
+When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
+
+In this tutorial, we use port 8000, so we need to specify it:
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
+```
+   
+O `azureiotedge-diagnostics` valor é retirado do registo do contentor que está ligado ao módulo de registo. Este tutorial tem definido por padrão para https://mcr.microsoft.com:
+
+| Name | Valor |
+| - | - |
+| `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
+
+Se estiver a utilizar um registo de contentores privados, certifique-se de que todas as imagens (por exemplo, IoTEdgeAPIProxy, edgeAgent, edgeHub e diagnósticos) estão presentes no registo do contentor.    
+    
+## <a name="view-generated-data"></a>Ver os dados gerados
+
+O módulo **de sensor de temperatura simulado** que empurrou gera dados do ambiente da amostra. Envia mensagens que incluem temperatura ambiente e humidade, temperatura e pressão da máquina e um tempotando.
+
+Pode ver as mensagens chegarem ao seu hub IoT utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+
+Também pode ver estas mensagens através da [Azure Cloud Shell:](https://shell.azure.com/)
 
    ```azurecli-interactive
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>

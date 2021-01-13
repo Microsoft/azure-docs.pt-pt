@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 22b3ea9eb0e4c3379438b6c3fb58ccfb13b4ed32
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064798"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178624"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -70,19 +70,21 @@ Para ativar a sua aplicação MSAL.js para nuvens soberanas:
 
 ### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.us/).
+1. Inscreva-se no <a href="https://portal.azure.us/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 
    Para encontrar pontos finais do portal Azure para outras nuvens nacionais, consulte [os pontos finais de registo da App.](authentication-national-cloud.md#app-registration-endpoints)
 
-1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito e desemconfie da sua sessão de portal para o pretendido inquilino AZure AD.
-1. Aceda à página de [registos](https://aka.ms/ra/ff) da App na plataforma de identidade da Microsoft para programadores.
-1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional**.
 1. Na secção **Redirecionar o URI,** selecione a plataforma **Web** e desaver o valor para o URL da aplicação com base no seu servidor web. Consulte as próximas secções para obter instruções sobre como definir e obter o URL de redirecionamento em Estúdio Visual e Nó.
 1. Selecione **Registar**.
-1. Na página **geral** da aplicação, anote o valor de **ID da Aplicação (cliente).**
-1. Este tutorial requer que você permita o [fluxo de subvenção implícita](v2-oauth2-implicit-grant-flow.md). No painel esquerdo da aplicação registada, selecione **Autenticação**.
-1. Nas **definições Avançadas**, sob **concessão implícita,** selecione as caixas de verificação **de fichas de identificação** e **de acesso.** São necessários tokens de ID e fichas de acesso porque esta aplicação precisa de assinar nos utilizadores e chamar uma API.
+1. Na página **'Visão Geral',** anote o valor **de ID da Aplicação (cliente)** para utilização posterior.
+    Este tutorial requer que você permita o [fluxo de subvenção implícita](v2-oauth2-implicit-grant-flow.md). 
+1. Em **Gestão**, **selecione Autenticação**.
+1. Sob **subvenção implícita,** selecione **fichas de identificação** e **fichas de acesso.** São necessários tokens de ID e fichas de acesso porque esta aplicação precisa de assinar nos utilizadores e chamar uma API.
 1. Selecione **Guardar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Passo 2: Configurar o seu servidor web ou projeto
@@ -220,7 +222,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [os pontos finais](authentication-national-cloud.md) de autenticação em nuvem nacional para obter uma lista dos URLs do portal Azure e pontos finais simbólicos para cada nuvem.
 

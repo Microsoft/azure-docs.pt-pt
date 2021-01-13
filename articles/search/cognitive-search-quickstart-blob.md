@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 01/12/2021
-ms.openlocfilehash: 8151c9ce177d0cd54826603d1a395a8d5828b623
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133825"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179270"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Quickstart: Criar uma pesquisa cognitiva Azure no portal Azure
 
@@ -23,7 +23,7 @@ Neste arranque rápido, você combinará serviços e dados na nuvem Azure para c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, crie os seguintes serviços:
+Antes de começar, tenha os seguintes pré-requisitos no lugar:
 
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/)
 
@@ -171,7 +171,7 @@ A produção é direcionada para um índice de pesquisa, e há um mapeamento ent
 
 Finalmente, aprendeu que pode verificar o conteúdo consultando o índice. No final, o que a Azure Cognitive Search fornece é um índice pesmável, que pode consultar usando a [sintaxe de consulta](/rest/api/searchservice/lucene-query-syntax-in-azure-search) [simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) ou totalmente alargada. Um índice com campos melhorados é igual a qualquer outro. Se pretender incorporar [analisadores](search-analyzers.md)standard ou [personalizados, perfis de pontuação,](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) [sinónimos, filtros](search-synonyms.md) [facetados,](search-filters-facets.md)geo-pesquisa ou qualquer outra funcionalidade de Pesquisa Cognitiva Azure, certamente poderá fazê-lo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

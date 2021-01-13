@@ -4,13 +4,13 @@ description: Este artigo é atualizado regularmente com notícias sobre a Azure 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/05/2021
-ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/12/2021
+ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916359"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179134"
 ---
 # <a name="whats-new-in-language-understanding"></a>Quais as novidades na compreensão da linguagem
 
@@ -18,10 +18,14 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="january-2021"></a>Janeiro de 2021
+
+* A API de previsão V3 suporta agora a [API Bing Spellcheck](luis-how-to-publish-app.md#spelling-correction).
+
 ### <a name="december-2020"></a>Dezembro de 2020
 
 * Todos os utilizadores de LUIS são obrigados a [migrar para um recurso de autoria LUIS](luis-migration-authoring.md)
-* Novos [pontos finais de avaliação](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) que lhe permitem submeter testes de lote using a API REST, e obter resultados de precisão para as suas intenções e entidades. Disponível a partir do v3.0-preview LUIS Endpoint.
+* Novos [pontos finais de avaliação](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) que lhe permitem submeter testes de lote usando a API REST, e obter resultados de precisão para as suas intenções e entidades. Disponível a partir do v3.0-preview LUIS Endpoint.
 
 ### <a name="june-2020"></a>Junho de 2020
 

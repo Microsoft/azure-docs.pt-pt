@@ -2,21 +2,24 @@
 title: Âmbito dos tipos de recursos de extensão
 description: Descreve como utilizar a propriedade de âmbito ao implementar tipos de recursos de extensão.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681701"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179984"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Definição de margem para recursos de extensão em modelos ARM
 
-Um recurso de extensão é um recurso que modifica outro recurso. Por exemplo, pode atribuir uma função a um recurso para limitar o acesso. A atribuição de funções é um tipo de recurso de extensão.
+Um recurso de extensão é um recurso que modifica outro recurso. Por exemplo, pode atribuir uma função a um recurso. A atribuição de funções é um tipo de recurso de extensão.
 
 Para obter uma lista completa dos tipos de recursos de extensão, consulte [tipos de recursos que alargam as capacidades de outros recursos](../management/extension-resource-types.md).
 
 Este artigo mostra como definir a margem para um tipo de recurso de extensão quando implementado com um modelo de Gestor de Recursos Azure (modelo ARM). Descreve a propriedade de âmbito que está disponível para recursos de extensão quando se aplica a um recurso.
+
+> [!NOTE]
+> A propriedade de âmbito só está disponível para tipos de recursos de extensão. Para especificar um âmbito diferente para um tipo de recurso que não seja um tipo de extensão, utilize uma implantação aninhada ou ligada. Para obter mais informações, consulte [as implementações de grupos de recursos,](deploy-to-resource-group.md) [implementações de subscrições,](deploy-to-subscription.md) [implementações de grupos](deploy-to-management-group.md)de gestão e [implantações de inquilinos.](deploy-to-tenant.md)
 
 ## <a name="apply-at-deployment-scope"></a>Aplicar no âmbito de implantação
 

@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722271"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178743"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como: Restringir a sua app Azure AD a um conjunto de utilizadores num inquilino AZure AD
 
@@ -34,8 +34,8 @@ Os administradores e desenvolvedores de inquilinos podem restringir uma aplicaç
 
 A opção de restringir uma aplicação a um conjunto específico de utilizadores ou grupos de segurança num inquilino trabalha com os seguintes tipos de aplicações:
 
-- Candidaturas configuradas para um único sign-on federado com autenticação baseada em SAML
-- Aplicações proxy que usam pré-autenticação Azure AD
+- Aplicações configuradas para um único sinal federado com autenticação baseada em SAML.
+- Aplicações proxy que usam pré-autenticação Azure AD.
 - Aplicações construídas diretamente na plataforma de aplicação AD Azure que utilizam a autenticação OAuth 2.0/OpenID Connect depois de um utilizador ou administrador ter consentido com essa aplicação.
 
      > [!NOTE]
@@ -47,50 +47,40 @@ Existem duas formas de criar uma aplicação com a atribuição do utilizador at
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicações empresariais (requer a função de Administrador Global)
 
-1. Vá ao [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
-1. Na barra superior, selecione a conta de inscrito. 
-1. Sob **o Diretório,** selecione o inquilino Azure AD onde a aplicação será registada.
-1. Na navegação à esquerda, selecione **Azure Ative Directory**. Se o Azure Ative Directory não estiver disponível no painel de navegação, siga estes passos:
-
-    1. Selecione **Todos os serviços** no topo do menu principal de navegação à esquerda.
-    1. Digite **o Diretório Ativo Azure** na caixa de pesquisa do filtro e, em seguida, selecione o item **Azure Ative Directory** a partir do resultado.
-
-1. No painel **de diretório ativo Azure,** selecione **Aplicações empresariais** do menu de navegação à esquerda do **Azure Ative.**
-1. Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
-
-     Se não vir a aplicação que pretende aparecer aqui em cima, utilize os vários filtros no topo da lista de **aplicações** para restringir a lista ou desloque a lista para localizar a sua aplicação.
-
-1. Selecione a aplicação a que pretende atribuir um utilizador ou grupo de segurança à lista.
-1. Na **página** geral da aplicação, selecione **Propriedades** do menu de navegação à esquerda da aplicação.
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> como **Administrador Global.**
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **Aplicações empresariais**  >  **todas as aplicações**.
+1. Selecione a aplicação que pretende atribuir a um utilizador ou a um grupo de segurança a partir da lista. 
+    Utilize os filtros na parte superior da janela para procurar uma aplicação específica.
+1. Na **página** geral da aplicação, em **Gestão**, selecione **Properties**.
 1. Localizar a **definição de atribuição do utilizador necessária?**  Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
-1. **Selecione Guardar** para guardar esta alteração de configuração.
+1. Selecione **Guardar**.
 
-### <a name="app-registration"></a>Registo de aplicações
+### <a name="app-registration"></a>Registo da aplicação
 
-1. Vá ao [**portal Azure.**](https://portal.azure.com/)
-1. Na barra superior, selecione a conta de inscrito. 
-1. Sob **o Diretório,** selecione o inquilino Azure AD onde a aplicação será registada.
-1. Na navegação à esquerda, selecione **Azure Ative Directory**.
-1. No painel **de diretório ativo Azure,** selecione Registos de **Aplicações** do menu de navegação à esquerda do **Azure Ative.**
-1. Crie ou selecione a aplicação que pretende gerir. Você precisa ser **proprietário** deste registo de aplicativo.
-1. Na **página** geral da aplicação, siga a **aplicação Managed no** link de diretório local sob o essencial no topo da página. Isto irá levá-lo à _aplicação empresarial gerida_ do seu registo de aplicações.
-1. A partir da lâmina de navegação à esquerda, selecione **Propriedades**.
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gerir**, selecione **Registos de aplicações**.
+1. Crie ou selecione a aplicação que pretende gerir. Tens de ser o **dono** desta aplicação.
+1. Na **página** geral da aplicação, selecione a **aplicação Managed no** link de diretório local na secção **Essentials.**
+1. Em **Gestão**, selecione **Propriedades**.
 1. Localizar a **definição de atribuição do utilizador necessária?**  Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
-1. **Selecione Guardar** para guardar esta alteração de configuração.
+1. Selecione **Guardar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Atribuir utilizadores e grupos à app
 
 Uma vez configurada a sua aplicação para ativar a atribuição do utilizador, pode ir em frente e atribuir utilizadores e grupos à aplicação.
 
-1. Selecione o painel **de Utilizadores e grupos** no menu de navegação à esquerda da aplicação da empresa.
-1. No topo da lista de **Utilizadores e grupos,** selecione o botão **de utilizador Adicionar** para abrir o painel de atribuição de **adicionar.**
-1. Selecione o seletor **de Utilizadores** a partir do painel **de atribuição de adicionar.** 
+1. Em **Gestão**, selecione **os Utilizadores e grupos**  >  **Adicione o utilizador/grupo** .
+1. Selecione o seletor **de Utilizadores.** 
 
      Será apresentada uma lista de utilizadores e grupos de segurança juntamente com uma caixa de texto para pesquisar e localizar um determinado utilizador ou grupo. Este ecrã permite-lhe selecionar vários utilizadores e grupos de uma só vez.
 
-1. Uma vez terminado a seleção dos utilizadores e grupos, prima o botão **Select** on bottom para passar para a parte seguinte.
+1. Assim que terminar de selecionar os utilizadores e grupos, **selecione Select**.
 1. (Opcional) Se tiver definido as funções da App na sua aplicação, pode utilizar a opção **de função Select** para atribuir os utilizadores e grupos selecionados a uma das funções da aplicação. 
-1. Pressione o botão **Atribuir** na parte inferior para terminar as atribuições de utilizadores e grupos à aplicação. 
+1. Selecione **Atribuir** para completar as atribuições de utilizadores e grupos para a aplicação. 
 1. Confirme que os utilizadores e grupos que adicionou estão a aparecer na lista atualizada **de Utilizadores e grupos.**
 
 ## <a name="more-information"></a>Mais informações

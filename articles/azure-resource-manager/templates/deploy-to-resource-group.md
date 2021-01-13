@@ -2,13 +2,13 @@
 title: Mobilizar recursos para grupos de recursos
 description: Descreve como implementar recursos num modelo de Gestor de Recursos Azure. Mostra como direcionar mais do que um grupo de recursos.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 8fe503cc95d71772c07427438b17e2ff0d4620a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807728"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178896"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementações de grupos de recursos com modelos ARM
 
@@ -85,7 +85,8 @@ Ao ser implantado num grupo de recursos, pode mobilizar recursos para:
 * outros grupos de recursos na mesma subscrição ou outras subscrições
 * qualquer subscrição no inquilino
 * o inquilino para o grupo de recursos
-* [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser traçado para um alvo diferente do alvo de implantação.
 
 O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549094"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178981"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para bolhas de bloco
 
@@ -89,6 +89,16 @@ Quando se cria uma regra de replicação, por padrão apenas são copiadas novas
 Também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar bolhas de bloqueio por prefixo. Quando especificar um prefixo, apenas as bolhas correspondentes ao prefixo no recipiente de origem serão copiadas para o recipiente de destino.
 
 Os recipientes de origem e destino devem existir antes de os especificar numa regra. Após criar a política de replicação, o contentor de destino torna-se só de leitura. Qualquer tentativa de escrever no contentor de destino falhará com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no recipiente de destino para movê-la para o nível de arquivo. Para obter mais informações sobre o nível de arquivo, consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md#archive-access-tier)
+
+## <a name="replication-status"></a>Estado de replicação
+
+Pode verificar o estado de replicação de uma bolha na conta de origem. Para obter mais informações, [consulte o estado de replicação de uma bolha](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+Se o estado de replicação de uma bolha na conta de origem indicar falha, então investigue as seguintes causas possíveis:
+
+- Certifique-se de que a política de replicação do objeto está configurada na conta de destino.
+- Verifique se o contentor de destino ainda existe.
+- Se a bolha de origem tiver sido encriptada com uma chave fornecida pelo cliente como parte de uma operação de escrita, então a replicação do objeto falhará. Para obter mais informações sobre as chaves fornecidas pelo cliente, consulte fornecer uma chave de [encriptação sobre um pedido de armazenamento Blob](encryption-customer-provided-keys.md).
 
 ## <a name="billing"></a>Faturação
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8909c684187aee2abc0915bad74853e4de9706a4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063268"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178352"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Ligue para a API do Gráfico microsoft a partir de uma aplicação para desktop do Windows
 
@@ -97,7 +97,7 @@ Pode registar a sua candidatura de duas formas.
 ### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
 
 Pode registar rapidamente a sua candidatura fazendo o seguinte:
-1. Aceda ao [portal Azure - Registo de Candidaturas.](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)
+1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 
@@ -377,7 +377,7 @@ Além do token de acesso que é usado para chamar a API do Gráfico microsoft, d
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a construção de aplicativos de desktop que chamem APIs web protegidos na nossa série de cenários multi-partes:
 

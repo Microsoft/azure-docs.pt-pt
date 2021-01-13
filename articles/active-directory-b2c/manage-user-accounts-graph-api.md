@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 01/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff3cd858de86d21637f4a7a9ab9d9a83c7022f5a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507783"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178879"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores AZure AD B2C com Gráfico microsoft
 
@@ -43,85 +43,6 @@ As seguintes operações de gestão de utilizadores estão disponíveis na [Micr
 - [Atualizar um utilizador](/graph/api/user-update)
 - [Eliminar um utilizador](/graph/api/user-delete)
 
-## <a name="user-properties"></a>Propriedades do utilizador
-
-### <a name="display-name-property"></a>Propriedade do nome de exibição
-
-`displayName`É o nome a apresentar na gestão do utilizador do portal Azure para o utilizador, e no token AD B2C regressa à aplicação. Esta propriedade é necessária.
-
-### <a name="identities-property"></a>Propriedade de identidades
-
-Uma conta de cliente, que pode ser um consumidor, parceiro ou cidadão, pode ser associada a estes tipos de identidade:
-
-- **Identidade local** - O nome de utilizador e a palavra-passe são armazenados localmente no diretório Azure AD B2C. Muitas vezes nos referimos a estas identidades como "contas locais".
-- Identidade **federada** - Também conhecida como contas *sociais* ou *empresariais,* a identidade do utilizador é gerida por um fornecedor de identidade federado como Facebook, Microsoft, ADFS ou Salesforce.
-
-Um utilizador com uma conta de cliente pode iniciar súmuta com múltiplas identidades. Por exemplo, nome de utilizador, e-mail, identificação de funcionários, ID do governo, e outros. Uma única conta pode ter múltiplas identidades, tanto locais como sociais, com a mesma senha.
-
-Na API do Gráfico da Microsoft, as identidades locais e federadas são armazenadas no atributo do `identities` utilizador, que é de tipo [objetoIdentity][graph-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para iniciar scontabilidade de um utilizador. Esta recolha permite ao utilizador iniciar seduções na conta do utilizador com qualquer uma das suas identidades associadas.
-
-| Propriedade   | Tipo |Descrição|
-|:---------------|:--------|:----------|
-|signInType|string| Especifica os tipos de inscrição do utilizador no seu diretório. Para a conta local:  `emailAddress` , ou qualquer outro tipo que você `emailAddress1` `emailAddress2` `emailAddress3`  `userName` goste. A conta social deve ser definida para  `federated` .|
-|issuer|string|Especifica o emitente da identidade. Para contas locais (onde **o signInType** não `federated` está), esta propriedade é o nome de domínio padrão do inquilino B2C local, por `contoso.onmicrosoft.com` exemplo. Para a identidade social (onde **o signInType**  `federated` é) o valor é o nome do emitente, por exemplo `facebook.com`|
-|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando **o signInType** está definido para `emailAddress` `userName` ou, representa o nome de inscrição para o utilizador.<br>Quando **o signInType** estiver definido para: <ul><li>`emailAddress` (ou começa com `emailAddress` como `emailAddress1` ) **emitenteAssignedId** deve ser um endereço de e-mail válido</li><li>`userName` (ou qualquer outro valor), **emitenteAssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
-
-A seguinte **propriedade identidades,** com uma identidade de conta local com nome de inscrição, um endereço de e-mail como s-in, e com uma identidade social. 
-
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
-
-Para identidades federadas, dependendo do fornecedor de identidade, o **emitenteAssignedId** é um valor único para um dado utilizador por aplicação ou conta de desenvolvimento. Configure a política Azure AD B2C com o mesmo ID de aplicação que foi previamente atribuído pelo prestador social ou outro pedido dentro da mesma conta de desenvolvimento.
-
-### <a name="password-profile-property"></a>Propriedade de perfil de senha
-
-Para uma identidade local, a **propriedade passwordProfile** é necessária e contém a senha do utilizador. A `forceChangePasswordNextSignIn` propriedade deve definir para `false` .
-
-Para uma identidade federada (social), a **propriedade passwordProfile** não é necessária.
-
-```json
-"passwordProfile" : {
-    "password": "password-value",
-    "forceChangePasswordNextSignIn": false
-  }
-```
-
-### <a name="password-policy-property"></a>Propriedade política de senha
-
-A política de senha Azure AD B2C (para contas locais) baseia-se na política [de força de senha forte](../active-directory/authentication/concept-sspr-policy.md) do Azure Ative Directory. As políticas de inscrição ou de início de sposição do Azure AD B2C ou de início de sposição e de redefinição de palavras-passe requerem esta forte força de senha e não expiram palavras-passe.
-
-Nos cenários de migração do utilizador, se as contas que pretende migrar tiverem uma força de senha mais fraca do que a [forte força](../active-directory/authentication/concept-sspr-policy.md) de senha aplicada pelo Azure AD B2C, pode desativar o requisito de senha forte. Para alterar a política de senha padrão, desafine a `passwordPolicies` propriedade para `DisableStrongPassword` . Por exemplo, pode modificar o pedido de criação do utilizador da seguinte forma:
-
-```json
-"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
-```
-
-### <a name="extension-properties"></a>Propriedades de extensão
-
-Cada aplicação virada para o cliente tem requisitos únicos para que a informação seja recolhida. O seu inquilino Azure AD B2C vem com um conjunto incorporado de informações armazenadas em propriedades, tais como Nome Dado, Apelido, Cidade e Código Postal. Com o Azure AD B2C, pode alargar o conjunto de propriedades armazenadas em cada conta de cliente. Para obter mais informações sobre a definição de atributos personalizados, consulte [atributos personalizados](user-flow-custom-attributes.md).
-
-A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do Gráfico são nomeados através da `extension_ApplicationClientID_attributename` convenção, onde é o `ApplicationClientID` **ID da aplicação (cliente)** da `b2c-extensions-app` aplicação (encontrado nos **registos da App** Todas as  >  **Aplicações** no portal Azure). Note que o **ID de Aplicação (cliente)** tal como está representado no nome do atributo de extensão não inclui hífenes. Por exemplo:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-```
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Amostra de código: Como gerir programáticamente as contas dos utilizadores
 

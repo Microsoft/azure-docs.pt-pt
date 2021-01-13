@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953581"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178947"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C
 
@@ -39,7 +39,7 @@ Com a inscrição no telefone e o registo, o utilizador pode inscrever-se na apl
 >
 > *&lt;inserir: um link para a sua Declaração de Privacidade&gt;*<br/>*&lt;inserir: um link para os seus Termos de Serviço&gt;*
 
-Para adicionar as suas próprias informações de consentimento, personalize a seguinte amostra e inclua-a nas Fontes Locais para a Definição de Conteúdo utilizada pela página autoafirmada com o controlo de visualização (o ficheiro Phone-Email-Base.xml no pacote de arranque de inscrição do telefone &)
+Para adicionar as suas próprias informações de consentimento, personalize a seguinte amostra e inclua-a nas Fontes Desinsufladas Para o Conteúdo Utilizado pela página autoafirmada com o controlo de visualização (o ficheiro *Phone_Email_Base.xml* no [pacote de arranque de inscrição e de entrada de inscrição][starter-pack-phone]do telefone):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        

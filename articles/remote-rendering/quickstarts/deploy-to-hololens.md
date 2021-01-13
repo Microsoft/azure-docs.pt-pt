@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5a44b9d27901fcd00f8813096de6bbae5f2310d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88796804"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179950"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Início Rápido: Implementar exemplo do Unity no HoloLens
 
@@ -48,7 +48,7 @@ Confirme que as suas credenciais estão corretamente guardadas com a cena e que 
 1. No projeto "Quickstart", aceda a *Properties > Debugging* (Propriedades > Depuração)
     1. Confirme que a configuração *Release* (Versão) está ativa
     1. Defina *Debugger to Launch* (Depurador para Iniciar) como **Remote Machine** (Máquina Remota)
-    1. Altere *Machine Name* (Nome da Máquina) para o **IP do HoleLens**
+    1. Alterar *nome da máquina* para o IP dos seus **HoloLens**
 
 ## <a name="launch-the-sample-project"></a>Iniciar o projeto de exemplo
 

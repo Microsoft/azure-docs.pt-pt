@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: f0620c4d373ee96c87b575ae7eb173b2f16eecb2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013656"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178250"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
@@ -361,7 +361,7 @@ Para registar a sua candidatura e adicionar as informações de registo da sua c
 
 Para registar rapidamente a sua candidatura, siga estes passos:
 
-1. Aceda ao novo  [portal Azure - Painel de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) da App.
+1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.  
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para descarregar e configurar automaticamente a sua nova aplicação num único clique.
 
@@ -482,7 +482,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como ligar para apis web protegidos a partir de aplicações web com a plataforma de identidade da Microsoft:
 

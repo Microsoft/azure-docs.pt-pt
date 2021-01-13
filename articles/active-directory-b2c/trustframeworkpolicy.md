@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 354c6f9710b7cbd70e0631bc973b2482ea8d8bb3
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: a87b4c6b845006a9f9f3cf82815277c67c09bef0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386889"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178845"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -46,7 +46,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |
 | PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e a identificação da apólice. |
 | Envio de munições | Não | Valores possíveis: `Production` , ou `Development` . . `Production` é a predefinição. Use esta propriedade para depurar a sua apólice. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
-| UserJourneyRecorderEndpoint | Não | O ponto final que é utilizado quando **o DeploymentMode** está definido para `Development` . O valor deve `urn:journeyrecorder:applicationinsights` ser. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
+| UserJourneyRecorderEndpoint | Não | O ponto final que é utilizado para a exploração madeireira. O valor deve ser definido `urn:journeyrecorder:applicationinsights` se o atributo existir. Para obter mais informações, consulte [a Recolha de Registos.](troubleshoot-with-application-insights.md) |
 
 
 O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy:**

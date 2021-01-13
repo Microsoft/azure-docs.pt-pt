@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108097"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180086"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -155,7 +155,7 @@ A tabela a seguir descreve parâmetros-chave para cada opção de redundância:
 | Durabilidade por cento de objetos ao longo de um determinado ano | pelo menos 99.9999999999999999 % (11 9's) | pelo menos 99.9999999999999999999 % (12 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) |
 | Disponibilidade para pedidos de leitura | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para nível de acesso fresco) para GRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GRS | Pelo menos 99,9% (99% para nível de acesso fresco) para GZRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GZRS |
 | Disponibilidade para pedidos de escrita | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) |
-| Número de cópias dos dados mantidas em nós separados.                             | 3   | 3   | 6   | 6      |
+| Número de cópias de dados mantidos em nós separados | Três cópias dentro de uma única região | Três cópias em zonas de disponibilidade separadas dentro de uma única região | Total de seis exemplares, incluindo três na região primária e três na região secundária | Seis exemplares no total, incluindo três em zonas de disponibilidade separadas na região primária e três cópias redundantes locais na região secundária |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilidade e disponibilidade por cenário de paralisação
 

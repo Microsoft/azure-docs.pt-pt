@@ -7,34 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 01/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 305682812896bb74474b5065cfd56a071a73ed15
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0405db2b68abefbfdc424def9e35e363e45043cd
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358784"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180137"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
-Um *indexante* na Azure Cognitive Search é um crawler que extrai dados e metadados pes pesjáveis de uma fonte externa de dados Azure e povoa um índice baseado em mapeamentos campo-a-campo entre o índice e a sua fonte de dados. Esta abordagem é por vezes referida como um "modelo de puxar" porque o serviço retira dados sem ter de escrever qualquer código que adicione dados a um índice.
+Um *indexante* na Azure Cognitive Search é um crawler que extrai dados e metadados pes pesjáveis de uma fonte externa de dados Azure e povoa um índice de pesquisa usando mapeamentos de campo-a-campo entre dados de origem e o seu índice. Esta abordagem é por vezes referida como um "modelo de puxar" porque o serviço retira dados sem ter de escrever qualquer código que adicione dados a um índice.
 
-Os indexantes baseiam-se em tipos ou plataformas de fontes de dados, com indexadores individuais para O Servidor SQL em Azure, Cosmos DB, Azure Table Storage e Blob Storage. Os indexantes de armazenamento blob têm propriedades adicionais específicas para os tipos de conteúdo blob.
-
-Pode utilizar um indexador como único meio para ingestão de dados ou utilizar uma combinação de técnicas que incluem a utilização de um indexador para carregar apenas alguns dos campos no seu índice.
+Os indexantes são apenas azure, com indexadores individuais para Azure SQL, Azure Cosmos DB, Azure Table Storage e Blob Storage. Ao configurar um indexante, especificará uma fonte de dados (origem), bem como um índice (destino). Várias fontes de dados, tais como indexantes de armazenamento Blob, têm propriedades adicionais específicas desse tipo de conteúdo.
 
 Pode executar indexadores a pedido ou num calendário de atualização de dados recorrente que funciona com a frequência de cinco em cinco minutos. Atualizações mais frequentes requerem um modelo push que atualiza simultaneamente os dados tanto na Pesquisa Cognitiva Azure como na sua fonte de dados externa.
+
+## <a name="usage-scenarios"></a>Cenários de utilização
+
+Você pode usar um indexante como único meio para a ingestão de dados, ou usar uma combinação de técnicas que incluem carregar apenas alguns dos campos no seu índice, transformando opcionalmente ou enriquecendo conteúdo ao longo do caminho. A tabela seguinte resume os cenários principais.
+
+| Cenário |Estratégia |
+|----------|---------|
+| Única fonte | Este padrão é o mais simples: uma fonte de dados é o único fornecedor de conteúdo para um índice de pesquisa. A partir da fonte, irá identificar um campo que contenha valores únicos para servir como chave de documento no índice de pesquisa. O valor único será usado como identificador. Todos os outros campos de origem são mapeados implicitamente ou explicitamente para campos correspondentes num índice. </br></br>Um takeaway importante é que o valor de uma chave de documento provém de dados de origem. Um serviço de pesquisa não gera valores-chave. Nas execuções subsequentes, são adicionados documentos com novas teclas, enquanto os documentos de entrada com chaves existentes são fundidos ou substituídos, dependendo se os campos de índice são nulos ou povoados. |
+| Múltiplas fontes| Um índice pode aceitar conteúdo de várias fontes, onde cada corrida traz novos conteúdos de uma fonte diferente. </br></br>Um dos resultados pode ser um índice que ganha documentos após cada execução do indexante, com documentos inteiros criados na íntegra a partir de cada fonte. O desafio para este cenário reside na conceção de um esquema de índice que funciona para todos os dados recebidos, e uma chave de documentos uniforme no índice de pesquisa. Por exemplo, se os valores que identificam exclusivamente um documento forem metadata_storage_path num recipiente de bolhas e numa chave primária numa tabela SQL, pode imaginar que uma ou ambas as fontes devem ser alteradas para fornecer valores-chave num formato comum, independentemente da origem do conteúdo. Para este cenário, deverá esperar realizar algum nível de pré-processamento para homogeneizar os dados para que possam ser puxados para um único índice.</br></br>Um resultado alternativo pode ser documentos de pesquisa que são parcialmente povoados na primeira execução, e depois mais povoados por corridas subsequentes para trazer valores de outras fontes. O desafio deste padrão é garantir que cada corrida de indexação está direcionada para o mesmo documento. A fusão de campos num documento existente requer uma correspondência na chave do documento. Para uma demonstração deste cenário, consulte [Tutorial: Índice de várias fontes de dados](tutorial-multiple-data-sources.md). |
+| Transformação de conteúdos | A Cognitive Search suporta comportamentos de [enriquecimento](cognitive-search-concept-intro.md) de IA opcionais que adicionam análise de imagem e processamento de linguagem natural para criar novos conteúdos e estrutura pesmáveis. O enriquecimento de IA é definido por um [skillset,](cognitive-search-working-with-skillsets.md)ligado a um indexante. Para realizar o enriquecimento de IA, o indexante ainda precisa de um índice e fonte de dados, mas neste cenário, adiciona o processamento de skillset à execução do indexante. |
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Abordagens para criar e gerir indexadores
 
 Pode criar e gerir indexadores com estas abordagens:
 
-* [Portal > Assistente de Dados de Importação](search-import-data-portal.md)
-* [API REST do Serviço](/rest/api/searchservice/Indexer-operations)
-* [SDK do .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
++ [Portal > Assistente de Dados de Importação](search-import-data-portal.md)
++ [API REST do Serviço](/rest/api/searchservice/Indexer-operations)
++ [SDK do .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
-Inicialmente, um indexador novo é anunciado como uma funcionalidade de pré-visualização. As funcionalidades de pré-visualização são introduzidas em APIs (REST e .NET) e, em seguida, são integradas no portal, após passarem para disponibilidade geral. Se estiver a avaliar um indexador novo, deverá planear sobre como escrever código.
+Se estiver a utilizar um SDK, crie um [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) para trabalhar com indexadores, fontes de dados e skillsets. O link acima é para o .NET SDK, mas todos os SDKs fornecem um SearchIndexerClient e APIs similares.
+
+Inicialmente, novas fontes de dados são anunciadas como funcionalidades de pré-visualização e são apenas REST. Depois de se formar para a disponibilidade geral, o suporte completo é incorporado no portal e nos vários SDKs, cada um dos quais está nos seus próprios horários de lançamento.
 
 ## <a name="permissions"></a>Permissões
 
@@ -46,15 +56,15 @@ Todas as operações relacionadas com indexantes, incluindo pedidos get para o e
 
 Indexantes rastejam lojas de dados em Azure.
 
-* [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
-* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
-* [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Instância Gerida do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
-* [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
++ [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
++ [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
++ [Table Storage do Azure](search-howto-indexing-azure-tables.md)
++ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Instância Gerida do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
++ [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
-## <a name="indexer-stages"></a>Estágios indexantes
+## <a name="stages-of-indexing"></a>Fases de indexação
 
 Numa execução inicial, quando o índice estiver vazio, um indexante lerá todos os dados fornecidos na tabela ou no recipiente. Nas execuções subsequentes, o indexante pode geralmente detetar e recuperar apenas os dados que mudaram. Para os dados blob, a deteção de alterações é automática. Para outras fontes de dados como Azure SQL ou Cosmos DB, a deteção de alterações deve ser ativada.
 
@@ -68,9 +78,9 @@ A quebra de documentos é o processo de abertura de ficheiros e de extração de
 
 Exemplos:  
 
-* Quando o documento é um registo numa fonte de [dados Azure SQL,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)o indexante extrairá cada um dos campos para o registo.
-* Quando o documento é um ficheiro PDF numa fonte de [dados de armazenamento Azure Blob,](search-howto-indexing-azure-blob-storage.md)o indexante extrairá o texto, imagens e metadados para o ficheiro.
-* Quando o documento é um registo numa fonte de [dados da Cosmos DB,](search-howto-index-cosmosdb.md)o indexante extrairá os campos e subcampos do documento do Cosmos DB.
++ Quando o documento é um registo numa fonte de [dados Azure SQL,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)o indexante extrairá cada um dos campos para o registo.
++ Quando o documento é um ficheiro PDF numa fonte de [dados de armazenamento Azure Blob,](search-howto-indexing-azure-blob-storage.md)o indexante extrairá texto, imagens e metadados.
++ Quando o documento é um registo numa fonte de [dados da Cosmos DB,](search-howto-index-cosmosdb.md)o indexante extrairá os campos e subcampos do documento do Cosmos DB.
 
 ### <a name="stage-2-field-mappings"></a>Fase 2: Mapeamentos de campo 
 
@@ -95,18 +105,21 @@ A imagem seguinte mostra uma representação [da sessão de depuração do](cogn
 Os indexadores podem oferecer funcionalidades que são exclusivas da origem de dados. Relativamente a isto, alguns aspetos de configuração do indexador ou da origem de dados irão variar consoante o tipo de indexador. No entanto, todos os indexadores partilham da mesma composição e requisitos básicos. Os passos que são comuns a todos os indexadores são abordados abaixo.
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
+
 Um indexante obtém a ligação de fonte de dados a partir de um objeto *de fonte de dados.* A definição de fonte de dados fornece uma cadeia de ligação e possivelmente credenciais. Ligue para a classe [Create Datasource](/rest/api/searchservice/create-data-source) REST API ou [SearchIndexerDataSourceConnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) para criar o recurso.
 
 As origens de dados são configuradas e geridas independentemente dos indexadores que as utilizam, o que significa que uma origem de dados pode ser utilizada por vários indexadores para carregar mais de um índice de cada vez.
 
 ### <a name="step-2-create-an-index"></a>Passo 2: criar um índice
+
 Um indexador irá automatizar algumas tarefas relacionadas com a ingestão de dados, mas geralmente a criação de um índice não é uma delas. Como pré-requisito, tem de ter um índice predefinido com campos que correspondam aos existentes na origem de dados externa. Os campos precisam de corresponder pelo nome e pelo tipo de dados. Para obter mais informações sobre a estruturação de um índice, consulte [Criar um Índice (Azure Cognitive Search REST API)](/rest/api/searchservice/Create-Index) ou [a classe SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex). Para obter ajuda com associações de campo, consulte [mapeamentos de campo em indexadores de Pesquisa Cognitiva Azure](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Apesar de os indexadores não poderem gerar um índice para si, o assistente **Importar dados** do portal pode ser útil. Na maioria dos casos, o assistente pode inferir um esquema de índice a partir dos metadados existentes na origem, apresentando um esquema de índice preliminar que pode editar em linha enquanto o assistente está ativo. Assim que o índice é criado no serviço, as outras edições no portal são limitadas principalmente à adição de novos campos. Considere o assistente para criar, mas não para rever um índice. Para aprendizagem prática, siga os passos no [portal de instruções](search-get-started-portal.md).
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Passo 3: criar e agendar o indexador
-A definição indexante é uma construção que reúne todos os elementos relacionados com a ingestão de dados. Os elementos necessários incluem uma fonte de dados e um índice. Os elementos opcionais incluem um horário e mapeamentos de campo. O mapeamento de campo só é opcional se os campos de origem e os campos de índice corresponderem claramente. Para obter mais informações sobre a estruturação de um indexante, consulte [Create Indexer (Azure Cognitive Search REST API)](/rest/api/searchservice/Create-Indexer).
+
+A definição indexante é uma construção que reúne todos os elementos relacionados com a ingestão de dados. Os elementos necessários incluem uma fonte de dados e um índice. Os elementos opcionais incluem um horário e mapeamentos de campo. Os mapeamentos de campo só são opcionais se os campos de origem e os campos de índice corresponderem claramente. Para obter mais informações sobre a estruturação de um indexante, consulte [Create Indexer (Azure Cognitive Search REST API)](/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
@@ -120,9 +133,9 @@ api-key: [Search service admin key]
 ```
 
 > [!NOTE]
-> Quando a API run retorna com sucesso, a invocação do indexante foi agendada, mas o processamento real acontece de forma assíncrona. 
+> Quando a API run retorna um código de sucesso, a invocação do indexante foi agendada, mas o processamento real acontece de forma assíncrona. 
 
-Pode monitorizar o estado do indexante no portal ou através da API do Estado do Indexante. 
+Pode monitorizar o estado do indexante no portal ou através da [API do Estado do Indexante](/rest/api/searchservice/get-indexer-status). 
 
 <a name="GetIndexerStatus"></a>
 
@@ -168,11 +181,12 @@ A resposta contém o estado global do indexante, a última invocação indexante
 O histórico de execução contém até as 50 execuções concluídas mais recentes, que são ordenadas por ordem cronológica inversa (assim, a última execução vem em primeiro lugar na resposta).
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as tarefas específicas de cada tipo de origem de dados.
 
-* [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
-* [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
-* [Indexação de bolhas de CSV utilizando o indexante Azure Cognitive Search Blob](search-howto-index-csv-blobs.md)
-* [Indexação de bolhas JSON com indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)
++ [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
++ [Table Storage do Azure](search-howto-indexing-azure-tables.md)
++ [Indexação de bolhas de CSV utilizando o indexante Azure Cognitive Search Blob](search-howto-index-csv-blobs.md)
++ [Indexação de bolhas JSON com indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483288"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179036"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves geridas pelo cliente para encriptação de armazenamento Azure
 
@@ -78,7 +78,7 @@ Ao configurar a encriptação com as teclas geridas pelo cliente, tem duas opç�
 
     Quando a versão chave for explicitamente especificada, deve atualizar manualmente a conta de armazenamento para utilizar a nova versão chave URI quando uma nova versão for criada. Para saber como atualizar a conta de armazenamento para utilizar uma nova versão da chave, consulte [encriptação configure com teclas geridas pelo cliente armazenadas no Cofre de Chaves Azure](customer-managed-keys-configure-key-vault.md) ou [encriptação Configure com teclas geridas pelo cliente armazenadas no Cofre de Chaves Azure Managed HSM (pré-visualização)](customer-managed-keys-configure-key-vault-hsm.md).
 
-A atualização da versão chave para uma chave gerida pelo cliente não desencadeia a reencriminação de dados na conta de armazenamento. Não é necessária nenhuma outra ação por parte do utilizador.
+Quando atualiza a versão chave, a proteção da chave de encriptação raiz muda, mas os dados na sua conta de Armazenamento Azure não são reencri encriptados. Não é necessária nenhuma outra ação por parte do utilizador.
 
 > [!NOTE]
 > Para rodar uma chave, crie uma nova versão da chave no cofre ou gerido pelo HSM, de acordo com as suas políticas de conformidade. Pode rodar a chave manualmente ou criar uma função para a rodar num horário.

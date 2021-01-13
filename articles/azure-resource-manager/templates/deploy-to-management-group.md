@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95798596"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178930"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementações de grupos de gestão com modelos ARM
 
@@ -43,7 +43,7 @@ Para modelos aninhados que se implementem para subscrições ou grupos de recurs
 
 Para gerir os seus recursos, utilize:
 
-* [etiquetas](/azure/templates/microsoft.resources/tags)
+* [tags](/azure/templates/microsoft.resources/tags)
 
 ## <a name="schema"></a>Esquema
 
@@ -123,7 +123,8 @@ Ao ser implantado num grupo de gestão, pode mobilizar recursos para:
 * assinaturas no grupo de gestão
 * grupos de recursos no grupo de gestão
 * o inquilino para o grupo de recursos
-* [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser traçado para um alvo diferente do alvo de implantação.
 
 O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
 

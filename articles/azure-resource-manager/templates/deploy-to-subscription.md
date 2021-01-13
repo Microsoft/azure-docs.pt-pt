@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: ba055970a8fac71b798fca9d3c76550cb7d482a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807697"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178998"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementações de subscrição com modelos ARM
 
@@ -56,7 +56,7 @@ Para gerir a sua subscrição, utilize:
 * [orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [Alterar perfil de análise](/azure/templates/microsoft.changeanalysis/profile)
 * [apoiarPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [etiquetas](/azure/templates/microsoft.resources/tags)
+* [tags](/azure/templates/microsoft.resources/tags)
 
 Outros tipos suportados incluem:
 
@@ -142,7 +142,8 @@ Ao implementar uma subscrição, pode mobilizar recursos para:
 * qualquer subscrição no inquilino
 * grupos de recursos dentro da subscrição ou outras subscrições
 * o inquilino para a assinatura
-* [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser traçado para um alvo diferente do alvo de implantação.
 
 O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
 

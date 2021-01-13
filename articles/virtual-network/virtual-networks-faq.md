@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938805"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179304"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -392,6 +392,9 @@ Quando os pontos finais do serviço de rede virtual estão ativados, os endereç
 
 ### <a name="does-the-service-endpoint-route-always-take-precedence"></a>A rota do ponto final de serviço tem sempre precedência?
 Os pontos finais de serviço adicionam uma rota de sistema que tem precedência sobre as rotas BGP e fornece o encaminhamento ideal para o tráfego de ponto final de serviço. Os pontos finais do serviço levam sempre o tráfego de serviço diretamente da sua rede virtual para o serviço na rede de espinha dorsal do Microsoft Azure. Para obter mais informações sobre como o Azure seleciona uma rota, consulte [o encaminhamento de tráfego da rede Virtual Azure.](virtual-networks-udr-overview.md)
+
+### <a name="do-service-endpoints-work-with-icmp"></a>Os pontos finais de serviço funcionam com o ICMP?
+Não, o tráfego ICMP que provém de uma sub-rede com pontos finais de serviço ativados não levará o caminho do túnel de serviço para o ponto final pretendido. Os pontos finais de serviço só manuseiam o tráfego TCP. Isto significa que se você quiser testar latência ou conectividade para um ponto final através de pontos finais de serviço, ferramentas como ping e tracert não mostrarão o verdadeiro caminho que os recursos dentro da sub-rede tomarão.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Como funciona a NSG numa sub-rede com pontos finais de serviço?
 Para chegar ao serviço Azure, os NSGs precisam de permitir a conectividade de saída. Se os seus NSGs forem abertos a todo o tráfego de saída da Internet, então o tráfego de ponto final de serviço deve funcionar. Também pode limitar o tráfego de saída a IPs de serviço apenas utilizando as etiquetas de Serviço.  

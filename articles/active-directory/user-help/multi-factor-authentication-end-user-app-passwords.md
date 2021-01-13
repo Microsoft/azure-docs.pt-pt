@@ -13,21 +13,21 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07303a0b0b3007ade9adb90af7397855a5014cc0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056086"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179427"
 ---
-# <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicativos para verificação em duas etapas
+# <a name="manage-app-passwords-for-two-step-verification"></a>Gerir as palavras-passe da aplicação para a verificação de dois passos
 
->[!Important]
+> [!Important]
 >O seu administrador pode não permitir que utilize senhas de aplicação. Se não vê **as palavras-passe da App** como uma opção, não estão disponíveis na sua organização.
 
 Ao utilizar palavras-passe de aplicações, é importante lembrar:
 
-- As palavras-passe da aplicação são geradas automaticamente e devem ser criadas e inseridas uma vez por aplicação.
+- As palavras-passe da aplicação são autogeridas e devem ser criadas e inseridas uma vez por aplicação.
 
 - Há um limite de 40 palavras-passe por utilizador. Se tentar criar um após esse limite, será solicitado a apagar uma palavra-passe existente antes de ser autorizado a criar a nova.
 
@@ -64,17 +64,17 @@ Pode criar e eliminar palavras-passe de aplicações a partir da página adicion
 
     ![A página de senha da sua aplicação com a palavra-passe para a sua aplicação especificada](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. A partir da página de **palavras-passe** da App, certifique-se de que a sua aplicação está listada.
+4. Na página de **palavras-passe** da App, certifique-se de que a sua aplicação está listada.
 
-     ![Página de passwords da aplicação, com nova app mostrada na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Página de passwords da aplicação, com nova app mostrada na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
 5. Abra a aplicação para a qual criou a palavra-passe da aplicação (por exemplo, Outlook 2010) e, em seguida, cole a palavra-passe da aplicação quando a pedida. Só deve fazer isso uma vez por aplicação.
 
 ### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>Para eliminar uma palavra-passe da aplicação utilizando a página de palavras-passe da App
 
-1. A partir da página **de palavras-passe** da App, selecione **Eliminar** ao lado da palavra-passe da aplicação que pretende eliminar.
+1. Na página de **palavras-passe da Aplicação,** selecione **Eliminar** ao lado da palavra-passe da aplicação que pretende eliminar.
 
-   ![Eliminar uma senha de aplicação](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Screenshot que mostra a eliminação de uma senha de aplicação na página de passwords da App](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Selecione **Sim** para confirmar que pretende eliminar a palavra-passe e, em seguida, selecione **Fechar**.
 
@@ -86,35 +86,35 @@ Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Criar palavras-passe de aplicativos utilizando o portal Office 365
 
-1. Faça o sômis à sua conta de trabalho ou escola, vá à [página minha conta,](https://portal.office.com)selecione **Segurança & privacidade,** e depois expanda **a verificação adicional de segurança**.
+1. Inscreva-se na sua conta de trabalho ou escola, vá à [página da minha conta](https://myaccount.microsoft.com)e selecione **informações de Segurança**.
 
-    ![Portal do office mostrando área de verificação de segurança adicional expandida](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+    ![Portal do escritório mostrando separador de informações de segurança](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
-2. Selecione o texto que diz, **Crie e gere senhas de aplicação** para abrir a página **de palavras-passe** da App.
+2. Selecione **Adicionar o método,** escolha **a palavra-passe** da App na lista de dropdown e, em seguida, clique em **Adicionar**.
 
-    ![Página de passwords da aplicação, com o separador de senhas da App em destaque](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Página de informações de segurança, com a lista de sonolôs de métodos](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
-3. **Selecione Criar**, digite o nome da aplicação que requer a palavra-passe da aplicação e, em seguida, selecione **Next**.
+3. Introduza um nome para a palavra-passe da aplicação e, em seguida, selecione **Next**.
 
-    ![Crie a página de palavras-passe da aplicação, com nome de app que precisa de senha](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![Crie a página de palavras-passe da aplicação, com o nome da senha da aplicação](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
-4. Copie a palavra-passe a partir da página de senha da **aplicação** e, em seguida, **selecione Fechar**.
+4. Copie a palavra-passe da página de senha da **Aplicação** e, em seguida, selecione **'Fazer'.**
 
-    ![A página de senha da sua aplicação com a palavra-passe para a sua aplicação especificada](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+    ![Página de senha de aplicação com a nova senha de aplicação que criou](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. A partir da página de **palavras-passe** da App, certifique-se de que a sua aplicação está listada.
+5. Na página **de informações de Segurança,** certifique-se de que a sua palavra-passe da aplicação está listada.
 
-     ![Página de passwords da aplicação, com nova app mostrada na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Página de informações de segurança, com nova senha de aplicação mostrada na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
-6. Abra a aplicação para a qual criou a palavra-passe da aplicação (por exemplo, Outlook 2010) e, em seguida, cole a palavra-passe da aplicação quando a pedida. Só deve fazer isso uma vez por aplicação.
+6. Abra a aplicação para a qual criou a palavra-passe da aplicação (por exemplo, Outlook 2016) e, em seguida, cole a palavra-passe da aplicação quando a pedida. Só deve fazer isso uma vez por aplicação.
 
-### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>Para eliminar palavras-passe de aplicativos utilizando a página de palavras-passe da App
+### <a name="to-delete-app-passwords-using-the-security-info-page"></a>Para eliminar palavras-passe de aplicativos utilizando a página de informações de Segurança
 
-1. A partir da página **de palavras-passe** da App, selecione **Eliminar** ao lado da palavra-passe da aplicação que pretende eliminar.
+1. Na página **de informações de Segurança,** selecione **Eliminar** ao lado da palavra-passe da aplicação que pretende eliminar.
 
-   ![Eliminar uma senha de aplicação](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Screenshot que mostra a eliminação de uma senha de aplicação na página de informações de Segurança](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
-2. Selecione **Sim** na caixa de confirmação e, em seguida, selecione **Fechar**.
+2. Selecione **Ok** na caixa de confirmação.
 
     A palavra-passe da aplicação é eliminada com sucesso.
 

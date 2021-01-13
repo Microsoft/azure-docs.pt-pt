@@ -3,18 +3,20 @@ title: Publicar app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de construir e testar a sua aplicação LUIS ativa, disponibilize-a para a aplicação do seu cliente publicando-a no ponto final.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541480"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180035"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
@@ -55,7 +57,7 @@ Por exemplo, para uma app criada no [www.luis.ai](https://www.luis.ai)– se cri
 Depois de selecionar a ranhura, configurar as definições de publicação para:
 
 * Análise de sentimentos
-* [Correção ortográfica](luis-tutorial-bing-spellcheck.md) - ponto final de previsão v2 apenas
+* [Correção ortográfica](luis-tutorial-bing-spellcheck.md)
 * Escorva da fala
 
 Depois de publicar, estas definições estão disponíveis para revisão a partir da página de definições de **'Publicar'** da secção **Manage.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, quaisquer alterações que tenha feito durante a publicação também serão canceladas.
@@ -80,7 +82,32 @@ Para obter mais informações sobre a resposta do ponto final da JSON com a aná
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+A API de previsão V3 suporta agora a API Bing Spellcheck. Pode adicionar verificação ortográfica à sua aplicação, incluindo a chave do seu recurso de pesquisa Bing no cabeçalho dos seus pedidos. Pode utilizar um recurso Bing existente se já possuir um, ou [criar um novo](https://portal.azure.com/#create/Microsoft.BingSearch) para utilizar esta funcionalidade. 
+
+|Chave do cabeçalho|Valor do cabeçalho|
+|--|--|
+|`mkt-bing-spell-check-key`|Chaves encontradas em **Keys e Lâmina Endpoint** do seu recurso|
+
+Exemplo de previsão de saída para uma consulta mal ortoleta:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 As correções à ortografia são feitas antes da previsão da expressão do utilizador LUIS. Pode ver qualquer alteração à expressão original, incluindo a ortografia, na resposta.
 

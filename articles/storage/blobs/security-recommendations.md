@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132482"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179168"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -35,7 +35,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Ligue a eliminação suave para recipientes | A eliminação suave para recipientes permite-lhe recuperar um recipiente depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave dos recipientes, consulte [a eliminação suave para recipientes (pré-visualização)](./soft-delete-container-overview.md). | - |
 | Bloquear conta de armazenamento para evitar a eliminação acidental de conta | Pode bloquear os recursos de Azure Resource Manager, como uma subscrição, grupo de recursos ou conta de armazenamento, para evitar que outros utilizadores da sua organização o apaguem ou modifiquem acidentalmente. O bloqueio de uma conta de armazenamento não impede que os dados dentro dessa conta sejam eliminados. Só impede que a própria conta seja apagada. Para obter mais informações, consulte [os recursos de bloqueio para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 | Armazenar dados críticos do negócio em bolhas imutáveis | Configure as políticas legais de retenção e as políticas de retenção baseadas no tempo para armazenar dados blob num estado WORM (Write Once, Read Many). As bolhas armazenadas imutavelmente podem ser lidas, mas não podem ser modificadas ou eliminadas durante o intervalo de retenção. Para obter mais informações, consulte [os dados de blob críticos de negócio da Loja com armazenamento imutável](storage-blob-immutable-storage.md). | - |
-| Exigir transferência segura (HTTPS) para a conta de armazenamento | ??? | - |
+| Exigir transferência segura (HTTPS) para a conta de armazenamento | Quando necessitar de transferência segura para uma conta de armazenamento, todos os pedidos para a conta de armazenamento devem ser feitos em HTTPS. Quaisquer pedidos feitos sobre HTTP são rejeitados. A Microsoft recomenda que necessite sempre de transferência segura para todas as suas contas de armazenamento. Para obter mais informações, consulte [Exigir uma transferência segura para garantir ligações seguras](../common/storage-require-secure-transfer.md). | - |
 | Limite a assinatura de acesso partilhado (SAS) apenas às ligações HTTPS | Exigir HTTPS quando um cliente usa um token SAS para aceder a dados blob ajuda a minimizar o risco de escutas. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
@@ -53,7 +53,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Se um serviço SAS não estiver associado a uma política de acesso armazenada, então decida o prazo de validade para uma hora ou menos | Um serviço SAS que não esteja associado a uma política de acesso armazenada não pode ser revogado. Por esta razão, recomenda-se a limitação do tempo de validade para que o SAS seja válido por uma hora ou menos. | - |
 | Desativar o público anónimo ler acesso a contentores e bolhas | O público anónimo leu o acesso a um contentor e as suas bolhas concedem acesso apenas a esses recursos a qualquer cliente. Evite permitir o acesso à leitura pública, a menos que o seu cenário o exija. Para aprender a desativar o acesso público anónimo a uma conta de armazenamento, consulte [o público anónimo Configure acesso a contentores e bolhas.](anonymous-read-access-configure.md)  | - |
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|

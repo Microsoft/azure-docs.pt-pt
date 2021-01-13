@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355703"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178131"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -166,10 +166,11 @@ As aplicações podem observar quais as permissões que necessitam (delegadas e 
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões estáticais solicitadas para um pedido
 
-1. Aceda à sua aplicação no [portal Azure – Experiência de registos de aplicações,](https://go.microsoft.com/fwlink/?linkid=2083908) ou [crie uma app](quickstart-register-app.md) se ainda não o fez.
-2. Localizar a secção **permissões API** e dentro das permissões API clique em Adicionar uma permissão.
-3. Selecione o **Microsoft Graph** a partir da lista de APIs disponíveis e, em seguida, adicione as permissões que a sua aplicação necessita.
-3. **Guarde** o registo da aplicação.
+1. Aceda à sua aplicação no <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure - App registra</a> experiência de arranque rápido.
+1. Selecione uma aplicação ou [crie uma aplicação](quickstart-register-app.md) se ainda não o fez.
+1. Na **página** geral da aplicação, em **Gestão,** selecione **Permissões API**  >  **Adicione uma permissão**.
+1. Selecione o **Microsoft Graph** a partir da lista de APIs disponíveis e, em seguida, adicione as permissões que a sua aplicação necessita.
+1. Selecione **Permissões de Adicionar**.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: Inscreva o utilizador na sua aplicação
 

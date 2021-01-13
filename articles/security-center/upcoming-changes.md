@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 0656000a1d6449306e8afe538f846c55c79a31a2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 071f1974e09d2754fe20f3ac2cc90929c4a2eb98
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915291"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180222"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,8 +31,23 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
+- [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)
 - [Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
+
+
+
+### <a name="enhancements-to-sql-data-classification-recommendation"></a>Melhorias à recomendação de classificação de dados sql
+
+**Data estimada para a alteração:** 2º trimestre de 2021
+
+A versão atual da recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** no controlo de segurança **de classificação de dados Apply** será depreciado e substituído por uma nova versão mais alinhada com a estratégia de classificação de dados da Microsoft. Como resultado:
+
+- A recomendação não afetará mais a sua pontuação segura
+- O controlo de segurança ("Aplicar classificação de dados") deixará de afetar a sua pontuação segura
+- O ID da recomendação também mudará (atualmente b0df6f56-862d-4730-8597-38c0fd4ebd59)
+
+
 
 ### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure
 

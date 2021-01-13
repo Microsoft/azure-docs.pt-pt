@@ -1,19 +1,19 @@
 ---
 title: Integrar com o Azure Maps
 titleSuffix: Azure Digital Twins
-description: Veja como criar uma função Azure que pode usar o gráfico gémeo e as notificações de Azure Digital Twins para atualizar um mapa interior do Azure Maps.
+description: Veja como usar as Funções Azure para criar uma função que pode usar o gráfico gémeo e as notificações de Azure Digital Twins para atualizar um mapa interior do Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e582415d9a83dc506b77d506f3e0803002129a07
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051586"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180052"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -22,7 +22,7 @@ Este artigo percorre os passos necessários para utilizar os dados da Azure Digi
 Este como-fazer cobrirá:
 
 1. Configurar a sua instância Azure Digital Twins para enviar eventos de atualização dupla para uma função em [Funções Azure](../azure-functions/functions-overview.md).
-2. Criar uma função Azure para atualizar um Azure Maps em mapas interiores apresenta stateet.
+2. Criar uma função para atualizar um Azure Maps mapas interiores recurso stateet.
 3. Como armazenar o ID dos seus mapas e apresentar iD de estado no gráfico Azure Digital Twins.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -41,7 +41,7 @@ A imagem abaixo ilustra onde os elementos de integração de mapas interiores ne
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Criar uma função para atualizar um mapa quando os gémeos atualizarem
 
-Primeiro, você vai criar uma rota em Azure Digital Twins para encaminhar todos os eventos de atualização de dois para um tópico de grelha de eventos. Em seguida, utilizará uma função Azure para ler as mensagens de atualização e atualizar um estado de funcionalidade no Azure Maps. 
+Primeiro, você vai criar uma rota em Azure Digital Twins para encaminhar todos os eventos de atualização de dois para um tópico de grelha de eventos. Em seguida, utilizará uma função para ler as mensagens de atualização e atualizar um estado de funcionalidade no Azure Maps. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Criar uma rota e filtrar para notificações de duas atualizações
 
@@ -70,7 +70,7 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>Criar uma função Azure para atualizar mapas
+## <a name="create-a-function-to-update-maps"></a>Criar uma função para atualizar mapas
 
 Vai criar uma função desencadeada por Event Grid dentro da sua aplicação de função a partir do tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta).*](./tutorial-end-to-end.md) Esta função irá desembalar essas notificações e enviar atualizações para um estado de funcionalidade do Azure Maps para atualizar a temperatura de um quarto. 
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 349caa9a4fa34d87e0a4d99089a1063be66307f4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ae80ddd9efe8274a29a4b8dd91b7a3c391eefc3a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017566"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178692"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome
 
@@ -38,7 +38,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao [portal Azure - Inscrições de aplicações.](https://aka.ms/aspnetcore-webapp-calls-graph-quickstart-v2)
+> 1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
@@ -52,11 +52,11 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `AspNetCoreWebAppCallsGraph-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
-> 1. Insira um **URI redirecionado** de `https://localhost:44321/signin-oidc`
+> 1. Introduza um **URI de redirecionamento** de `https://localhost:44321/signin-oidc` .
 > 1. Selecione **Registar**.
 > 1. Em **Gestão**, **selecione Autenticação**.
-> 1. Insira um **URL logout** de `https://localhost:44321/signout-oidc`
-> 1. Selecione **Save** (Guardar).
+> 1. Introduza um **URL logout** de `https://localhost:44321/signout-oidc` .
+> 1. Selecione **Guardar**.
 > 1. Under **Manage**, selecione **Certificados & segredos**  >  **Novo segredo do cliente**.
 > 1. Introduza uma **Descrição,** por exemplo `clientsecret1` .
 > 1. Selecione **em 1 ano** para a expiração do segredo.
@@ -211,7 +211,7 @@ public async Task<IActionResult> Index()
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O repo GitHub que contém a amostra de código core ASP.NET referenciada neste quickstart inclui instruções e mais amostras de código que mostram como:
 

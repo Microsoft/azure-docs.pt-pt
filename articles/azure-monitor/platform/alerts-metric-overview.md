@@ -1,15 +1,15 @@
 ---
 title: Entenda como os alertas métricos funcionam no Azure Monitor.
 description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Azure Monitor.
-ms.date: 01/11/2021
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 424cc9db01f1eb6300c2915795f3e2c37b34449f
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: d8e0621f88455a68ad0ee1b236f6b423c9d54b52
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071056"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179899"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -64,6 +64,10 @@ Digamos que o uso em "myVM" continua acima do limiar em verificações subsequen
 Após algum tempo, a utilização em "myVM" volta ao normal (vai abaixo do limiar). A regra de alerta monitoriza a condição por mais duas vezes, para enviar uma notificação resolvida. A regra de alerta envia uma mensagem resolvida/desativada quando a condição de alerta não é cumprida durante três períodos consecutivos para reduzir o ruído em caso de condições de abanão.
 
 À medida que a notificação resolvida é enviada através de ganchos web ou e-mail, o estado da instância de alerta (chamado estado de monitor) no portal Azure também está definido para ser resolvido.
+
+> [!NOTE]
+>
+> Quando uma regra de alerta monitoriza várias condições, um alerta de disparo será resolvido se pelo menos uma das condições deixar de ser satisfeita por três períodos consecutivos.
 
 ### <a name="using-dimensions"></a>Usando dimensões
 
@@ -135,7 +139,7 @@ Até agora, você viu como um único alerta métrico poderia ser usado para moni
 
 Esta funcionalidade é atualmente suportada para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens Azure:
 
-| Serviço | Azure Público | Administração Pública | China |
+| Serviço | Azure Público | Governo | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | Não |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |

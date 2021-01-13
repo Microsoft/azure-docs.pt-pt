@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/16/2020
-ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/12/2021
+ms.openlocfilehash: 8195cffed077a77c0ad66fda1126e2f3ea53d5f0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546165"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179151"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
@@ -58,7 +58,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 |Serviços|Definições de informação e configuração para os serviços no cluster.|
 |Anfitriões|Definições de informação e configuração para os nós no cluster.|
 |Alertas|Um registo de informações, avisos e alertas críticos.|
-|Administrador|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Admin|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão de administração|Gestão Ambari, configurações do utilizador e assine.|
 
 ## <a name="monitoring"></a>Monitorização
@@ -78,11 +78,11 @@ Os alertas são organizados em vários grupos predefinidos, que podem ser vistos
 
 ![Apache Ambari alerta resumo da página](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
-Pode gerir os grupos utilizando o menu **Ações** e selecionando **Grupos de Alerta de Gestão** .
+Pode gerir os grupos utilizando o menu **Ações** e selecionando **Grupos de Alerta de Gestão**.
 
 ![Apache Ambari gere grupos de alerta](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Gere métodos de alerta e cria notificações de alerta a partir do menu **Ações** selecionando __Notificações de Gestão__ . Quaisquer notificações atuais são apresentadas. Crie notificações a partir daqui. As notificações podem ser enviadas via **EMAIL** ou **SNMP** quando ocorrem combinações específicas de alerta/gravidade. Por exemplo, pode enviar uma mensagem de e-mail quando qualquer um dos alertas do grupo **YARN Default** estiver definido para **Critical** .
+Gere métodos de alerta e cria notificações de alerta a partir do menu **Ações** selecionando __Notificações de Gestão__. Quaisquer notificações atuais são apresentadas. Crie notificações a partir daqui. As notificações podem ser enviadas via **EMAIL** ou **SNMP** quando ocorrem combinações específicas de alerta/gravidade. Por exemplo, pode enviar uma mensagem de e-mail quando qualquer um dos alertas do grupo **YARN Default** estiver definido para **Critical**.
 
 ![Apache Ambari cria notificação de alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -100,7 +100,7 @@ O **separador Heatmaps** apresenta métricas como máscaras de calor coloridas, 
 
 ![Painel Apache Ambari com máscaras de calor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Para obter mais informações sobre os nós dentro do cluster, **selecione Hosts** . Em seguida, selecione o nó específico que lhe interessa.
+Para obter mais informações sobre os nós dentro do cluster, **selecione Hosts**. Em seguida, selecione o nó específico que lhe interessa.
 
 ![Apache Ambari acolhe detalhes do resumo](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -139,7 +139,7 @@ A seleção de qualquer uma destas ligações abre um novo separador no seu nave
 É suportado o trabalho com utilizadores, grupos e permissões. Para a administração local, consulte [os utilizadores autorizados para vistas Apache Ambari.](./hdinsight-authorize-users-to-ambari.md) Para clusters unidos por domínio, consulte [Gerir os clusters HDInsight unidos pelo domínio.](./domain-joined/hdinsight-security-overview.md)
 
 > [!WARNING]  
-> Não altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de usar ações de script ou realizar operações de escala com o seu cluster.
+> Não elimine nem altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de usar ações de script ou realizar operações de escala com o seu cluster.
 
 ### <a name="hosts"></a>Anfitriões
 
@@ -200,7 +200,7 @@ Para configurar um serviço, utilize os seguintes passos:
 
     ![Configuração de serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Utilize os campos apresentados para modificar a configuração e, em seguida, **selecione Guardar** . Ou selecione uma configuração anterior e, em seguida, **selecione Faça** a corrente para reverter para as definições anteriores.
+3. Utilize os campos apresentados para modificar a configuração e, em seguida, **selecione Guardar**. Ou selecione uma configuração anterior e, em seguida, **selecione Faça** a corrente para reverter para as definições anteriores.
 
 ## <a name="ambari-views"></a>Vistas de Ambari
 
@@ -214,7 +214,7 @@ O Ambari Views permite que os desenvolvedores liguem elementos de UI à UI Web A
 
 As seguintes operações de Ambari não são suportadas na HDInsight:
 
-* __Mover o serviço de Coletor Métricas__ . Ao visualizar informações sobre o serviço Metrics Collector, uma das ações disponíveis no menu De ações de Serviço é o __coletor Move Metrics__ . Esta ação não é apoiada com HDInsight.
+* __Mover o serviço de Coletor Métricas__. Ao visualizar informações sobre o serviço Metrics Collector, uma das ações disponíveis no menu De ações de Serviço é o __coletor Move Metrics__. Esta ação não é apoiada com HDInsight.
 
 ## <a name="next-steps"></a>Passos seguintes
 
