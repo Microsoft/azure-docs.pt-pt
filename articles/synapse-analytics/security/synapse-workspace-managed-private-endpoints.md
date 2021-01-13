@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 10/16/2020
+ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7eff63b36eb09036b188ac756ec55a5b1bf63718
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116522"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165727"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Sinapse Geridos pontos finais privados
 
@@ -21,13 +21,9 @@ Este artigo explicará os pontos finais privados geridos na Azure Synapse Analyt
 
 ## <a name="managed-private-endpoints"></a>Pontos finais privados geridos
 
-Os pontos finais privados geridos são pontos finais privados criados no espaço de trabalho gerido Microsoft Azure Virtual Network estabelecendo uma ligação privada com os recursos Azure. Azure Synapse gere estes pontos finais privados em seu nome.
+Os pontos finais privados geridos são pontos finais privados criados numa Rede Virtual Gerida associada ao seu espaço de trabalho Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada com os recursos da Azure. Azure Synapse gere estes pontos finais privados em seu nome. Pode criar pontos finais privados geridos a partir do seu espaço de trabalho Azure Synapse para aceder aos serviços Azure (como Azure Storage ou Azure Cosmos DB) e serviços de cliente/parceiro hospedados pela Azure.
 
-Azure Synapse suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (como a Azure Storage e a Azure Cosmos DB) e à Azure acolheu serviços de cliente/parceiro da sua Rede Virtual Azure de forma segura.
-
-Quando utiliza uma ligação privada, o tráfego entre a sua Rede Virtual e o espaço de trabalho atravessa inteiramente a rede de espinha dorsal da Microsoft. A Private Link protege contra riscos de exfiltração de dados. Estabelece-se uma ligação privada a um recurso criando um ponto final privado.
-
-O ponto final privado utiliza um endereço IP privado da sua Rede Virtual para efetivamente trazer o serviço para a sua Rede Virtual. Os pontos finais privados são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. 
+Quando geriu pontos finais privados, o tráfego entre o seu espaço de trabalho Azure Synapse e outros recursos Azure atravessa inteiramente a rede de espinha dorsal da Microsoft. Os pontos finais privados geridos protegem contra a exfiltração de dados. Um ponto final privado gerido utiliza o endereço IP privado da sua Rede Virtual Gerida para efetivamente trazer o serviço Azure que o seu espaço de trabalho Azure Synapse está a comunicar na sua Rede Virtual. Os pontos finais privados geridos são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. 
 
 Saiba mais sobre [links privados e pontos finais privados.](../../private-link/index.yml)
 
@@ -35,13 +31,10 @@ Saiba mais sobre [links privados e pontos finais privados.](../../private-link/i
 >Os pontos finais privados geridos são suportados apenas em espaços de trabalho Azure Synapse com uma Rede Virtual de espaço de trabalho gerido.
 
 >[!NOTE]
->Todo o tráfego de saída da Rede Virtual do espaço de trabalho gerido, exceto através de pontos finais privados geridos, será bloqueado no futuro. Recomenda-se que crie pontos finais privados geridos para ligar a todas as fontes de dados do Azure externas ao espaço de trabalho. 
+>Ao criar um espaço de trabalho Azure Synapse, pode optar por associar uma Rede Virtual Gerida ao mesmo. Se optar por ter uma Rede Virtual Gerida associada ao seu espaço de trabalho, também pode optar por limitar o tráfego de saída do seu espaço de trabalho a apenas alvos aprovados. Tem de criar pontos finais privados geridos para estes alvos. 
 
-Uma ligação de ponto final privado é criada num estado "pendente" quando cria um ponto final privado gerido em Azure Synapse. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de ligação privada é responsável por aprovar ou rejeitar a ligação.
 
-Se o proprietário aprovar a ligação, o link privado é estabelecido. Mas, se o proprietário não aprovar a ligação, então o link privado não será estabelecido. Em qualquer dos casos, o ponto final privado gerido será atualizado com o estado da ligação.
-
-Apenas um ponto final privado gerido num estado aprovado pode enviar tráfego para um determinado recurso de ligação privada.
+Uma ligação de ponto final privado é criada num estado "pendente" quando cria um ponto final privado gerido em Azure Synapse. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de ligação privada é responsável por aprovar ou rejeitar a ligação. Se o proprietário aprovar a ligação, o link privado é estabelecido. Mas, se o proprietário não aprovar a ligação, então o link privado não será estabelecido. Em qualquer dos casos, o ponto final privado gerido será atualizado com o estado da ligação. Apenas um ponto final privado gerido num estado aprovado pode ser utilizado para enviar tráfego para o recurso de ligação privada que está ligado ao ponto final privado gerido.
 
 ## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Pontos finais privados geridos para piscina SQL dedicada e piscina SQL sem servidor
 

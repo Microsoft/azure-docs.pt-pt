@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/5/2021
-ms.openlocfilehash: 90f8b74168f1b02647f14645aa4dc7a3dff8c2ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937673"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165246"
 ---
-# <a name="useful-diagnostic-queries"></a>Consultas de Diagnóstico Úteis
+# <a name="useful-diagnostic-queries"></a>Consultas de diagnóstico úteis
 
 ## <a name="finding-which-node-contains-data-for-a-specific-tenant"></a>Descobrir que nó contém dados para um inquilino específico
 
@@ -278,6 +278,31 @@ Exemplo de saída:
 │ 10.0.0.20 │ 0.89           │
 └───────────┴────────────────┘
 ```
+
+## <a name="cache-hit-rate"></a>Taxa de batida de cache
+
+A maioria das aplicações normalmente acede a uma pequena fração dos seus dados totais ao mesmo tempo. PostgreSQL mantém dados frequentemente acedidos na memória para evitar leituras lentas do disco. Pode ver estatísticas sobre isso na opinião [pg_statio_user_tables.](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW)
+
+Uma medição importante é a percentagem de dados provenientes da cache de memória vs o disco na sua carga de trabalho:
+
+``` postgresql
+SELECT
+  sum(heap_blks_read) AS heap_read,
+  sum(heap_blks_hit)  AS heap_hit,
+  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS ratio
+FROM
+  pg_statio_user_tables;
+```
+
+Exemplo de saída:
+
+```
+ heap_read | heap_hit |         ratio
+-----------+----------+------------------------
+         1 |      132 | 0.99248120300751879699
+```
+
+Se se encontrar com um rácio significativamente inferior a 99%, então é provável que queira considerar aumentar a cache disponível para a sua base de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

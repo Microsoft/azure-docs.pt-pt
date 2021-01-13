@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064973"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165183"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Apoie políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolver
 
 O sign-on único (SSO) é uma oferta chave da plataforma de identidade da Microsoft e do Azure Ative Directory, fornecendo logins fáceis e seguros para os utilizadores da sua aplicação. Além disso, as políticas de proteção de aplicações (APP) permitem o suporte das principais políticas de segurança que mantêm os dados do utilizador seguros. Em conjunto, estas funcionalidades permitem logins seguros dos utilizadores e gestão dos dados da sua aplicação.
+
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
 Este artigo explica porque é que o SSO e a APP são importantes e fornece orientações de alto nível para a construção de aplicações móveis que suportam estas funcionalidades. Isto aplica-se tanto para aplicações de telefone como para tablets. Se você é um administrador de TI que quer implementar SSO através do inquilino do Azure Ative Directory da sua organização, consulte a nossa [orientação para o planeamento de uma única implantação de sinal-on](../manage-apps/plan-sso-deployment.md)
 

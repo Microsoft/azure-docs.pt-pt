@@ -4,17 +4,17 @@ description: Reidrate as suas bolhas do armazenamento de arquivo para que possa 
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/08/2020
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545949"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165676"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados blob do nível de arquivo
 
@@ -29,9 +29,13 @@ Enquanto uma bolha está no nível de acesso ao arquivo, é considerada offline 
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+## <a name="monitor-rehydration-progress"></a>Monitorizar o progresso da reidratação
+
+Durante a reidratação, utilize o funcionamento das propriedades do blob para verificar o atributo Estado de **Arquivo** e confirmar quando a mudança de nível estiver completa. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade do estado do arquivo é removida, e a propriedade blob **Access Tier** reflete o novo nível quente ou fresco.
+
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar um blob arquivado para uma camada online
 
-Se não quiser reidratar a sua bolha de arquivo, pode optar por fazer uma operação [Copy Blob.](/rest/api/storageservices/copy-blob) A sua bolha original permanecerá desmodificado no arquivo enquanto uma nova bolha é criada no nível quente ou fresco on-line para que possa trabalhar. Na operação Copy Blob, também pode definir a propriedade opcional *x-ms-rehydrate-prioridade* para Standard ou High para especificar a prioridade em que deseja que a sua cópia blob seja criada.
+Se não quiser reidratar a sua bolha de arquivo, pode optar por fazer uma operação [Copy Blob.](/rest/api/storageservices/copy-blob) A sua bolha original permanecerá desmodificado no arquivo enquanto uma nova bolha é criada no nível quente ou fresco on-line para que possa trabalhar. Na operação **Copy Blob,** também pode definir a propriedade opcional *x-ms-rehydrate-prioridade* para Standard ou High para especificar a prioridade em que deseja que a sua cópia blob seja criada.
 
 Copiar uma bolha do arquivo pode demorar horas a ser completada dependendo da prioridade rehidratada selecionada. Nos bastidores, a operação **Copy Blob** lê a sua mancha de origem de arquivo para criar uma nova bolha on-line no nível de destino selecionado. O novo blob pode estar visível quando lista as bolhas, mas os dados não estão disponíveis até que a leitura da bolha do arquivo de origem esteja completa e os dados sejam escritos para a nova bolha de destino online. A nova bolha é como uma cópia independente e qualquer modificação ou supressão não afeta a bolha de arquivo de origem.
 

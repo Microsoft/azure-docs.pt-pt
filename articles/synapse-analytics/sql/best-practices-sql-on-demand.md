@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457902"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165880"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -25,9 +25,9 @@ Neste artigo, você encontrará uma coleção de boas práticas para usar a pisc
 
 O pool SQL sem servidor permite-lhe consultar ficheiros nas suas contas de armazenamento Azure. Não tem capacidades locais de armazenamento ou ingestão. Assim, todos os ficheiros que os alvos de consulta são externos ao pool SQL sem servidor. Tudo relacionado com a leitura de ficheiros de armazenamento pode ter um impacto no desempenho da consulta.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Coloque a sua conta de armazenamento Azure e piscina SQL sem servidor
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Coloque o seu armazenamento e piscina SQL sem servidor
 
-Para minimizar a latência, coloque a sua conta de armazenamento Azure e o seu ponto final de piscina SQL sem servidor. As contas de armazenamento e os pontos finais a provisionados durante a criação do espaço de trabalho situam-se na mesma região.
+Para minimizar a latência, coloque a sua conta de armazenamento Azure ou o armazenamento analítico CosmosDB e o seu ponto final de piscina SQL sem servidor. As contas de armazenamento e os pontos finais a provisionados durante a criação do espaço de trabalho situam-se na mesma região.
 
 Para obter um melhor desempenho, se aceder a outras contas de armazenamento com piscina SQL sem servidor, certifique-se de que estão na mesma região. Se não estiverem na mesma região, haverá um aumento da latência para a transferência de rede de dados entre a região remota e a região do ponto final.
 
@@ -44,9 +44,9 @@ Quando o estrangulamento é detetado, a piscina SQL sem servidor tem manuseament
 
 Se possível, pode preparar ficheiros para um melhor desempenho:
 
-- Converter CSV e JSON em Parquet. Parquet é um formato colunar. Por ser comprimido, os seus tamanhos de ficheiro são menores do que os ficheiros CSV ou JSON que contêm os mesmos dados. A piscina SQL sem servidor necessitará de menos tempo e menos pedidos de armazenamento para lê-lo.
+- Converta o CSV e o JSON grandes em Parquet. Parquet é um formato colunar. Por ser comprimido, os seus tamanhos de ficheiro são menores do que os ficheiros CSV ou JSON que contêm os mesmos dados. A piscina SQL sem servidor é capaz de saltar as colunas e linhas que não são necessárias em consulta se estiver a ler ficheiros Parquet. A piscina SQL sem servidor necessitará de menos tempo e menos pedidos de armazenamento para lê-lo.
 - Se uma consulta tiver como alvo um único ficheiro grande, beneficiará de o dividir em vários ficheiros menores.
-- Tente manter o tamanho do ficheiro CSV abaixo dos 10 GB.
+- Tente manter o tamanho do ficheiro CSV entre 100 MB e 10 GB.
 - É melhor ter ficheiros igualmente dimensionados para um único caminho OPENROWSET ou uma LOCALIZAÇÃO DE tabela externa.
 - Partition seus dados armazenando divisórias em diferentes pastas ou nomes de ficheiros. Consulte [o nome de ficheiro e as funções de filepa para direcionar as divisórias específicas](#use-filename-and-filepath-functions-to-target-specific-partitions).
 

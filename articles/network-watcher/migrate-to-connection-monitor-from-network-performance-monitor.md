@@ -12,21 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3eb456dad2836bed55c45e7be9e898fdf72ac4d2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 59e266274d6b65182ad63513ecf9bf3b5ab95490
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017940"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164843"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
 
 Pode migrar os testes do Monitor de Desempenho da Rede (NPM) para um novo Monitor de Ligação melhorado com um único clique e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor.](./connection-monitor-overview.md)
 
-
->[!NOTE]
-> Apenas os testes do Monitor de Conectividade de Serviço podem ser migrados para o Monitor de Ligação.
->
 
 ## <a name="key-points-to-note"></a>Pontos-chave a notar
 
@@ -52,7 +48,7 @@ Para migrar os testes do Monitor de Desempenho da Rede para o Monitor de Ligaç�
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migrar testes do Monitor de Desempenho da Rede para o Monitor de Ligação" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
-1. Nas listas de drop-down, selecione a sua subscrição e espaço de trabalho e, em seguida, selecione a funcionalidade NPM que pretende migrar. Atualmente, só pode migrar testes a partir do Monitor de Conectividade de Serviço.  
+1. Nas listas de drop-down, selecione a sua subscrição e espaço de trabalho e, em seguida, selecione a funcionalidade NPM que pretende migrar. 
 1. **Selecione Importar** para migrar os testes.
 
 Após o início da migração, ocorrem as seguintes alterações: 
@@ -71,8 +67,8 @@ Após a migração, certifique-se de:
 * Migrar quaisquer integrações externas para a mesa ConnectionMonitor_CL. Exemplos de integrações externas são dashboards em Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Connection Monitor, consulte:
-* [Migrar do Monitor de Ligação para o Monitor de Ligação](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
+* [Migrar do Monitor de Ligação (clássico) para o Monitor de Ligação](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Criar Monitor de Ligação utilizando o portal Azure](./connection-monitor-create-using-portal.md)

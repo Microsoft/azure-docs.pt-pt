@@ -3,15 +3,15 @@ title: Solução de Monitorização de Contentores no Monitor Azure Microsoft Do
 description: A solução de monitorização de contentores no Azure Monitor ajuda-o a visualizar e a gerir os seus anfitriões de contentores Docker e Windows num único local.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 483113fc508800eb126ee39f146c1fa34e5dba5e
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145689"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165710"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Monitor Azure
 
@@ -45,7 +45,7 @@ Antes de começar, reveja os seguintes detalhes para verificar se encontra os pr
 
 O quadro que se segue descreve o suporte de monitorização do sistema de monitorização do sistema de estivador e do sistema operativo com o Azure Monitor.   
 
-|Orquestração Docker | ACS | Linux | Windows | Contentor<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contentor<br>Desempenho | Contentor<br>Evento | Evento<br>Registar | Contentor<br>Registar |
+|Orquestração Docker | ACS | Linux | Windows | Contentor<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contentor<br>Desempenho | Contentor<br>Evento | Evento<br>Registo | Contentor<br>Registo |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Utilizar o Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosfera<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ Reveja o [artigo do Docker Engine no Windows](/virtualization/windowscontainers/
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar os anfitriões dos contentores Linux
 
-Depois de ter instalado o Docker, utilize as seguintes definições para o seu anfitrião do contentor para configurar o agente para utilização com o Docker. Primeiro precisa do seu ID e chave do espaço de trabalho Log Analytics, que pode encontrar no portal Azure. No seu espaço de trabalho, clique em **Computadores De Início Rápido** para ver o  >  **Computers** **ID** do espaço de trabalho e **a chave primária.**  Copie e cole ambos no seu editor favorito.
+Depois de ter instalado o Docker, utilize as seguintes definições para o seu anfitrião do contentor para configurar o agente para utilização com o Docker. Primeiro precisa do seu ID e chave do espaço de trabalho Log Analytics, que pode encontrar no portal Azure. No seu espaço de trabalho, clique em **Computadores De Início Rápido** para ver o  >   **ID** do espaço de trabalho e **a chave primária.**  Copie e cole ambos no seu editor favorito.
 
 **Para todos os anfitriões de contentores Linux, exceto CoreOS:**
 
@@ -513,7 +513,7 @@ Para ativar a monitorização do computador Windows e Hiper-V, instale o Microso
 
 Pode monitorizar os recipientes do Windows em funcionamento no Service Fabric. No entanto, [apenas máquinas virtuais que executam em Azure](../learn/quick-collect-azurevm.md) e [computadores que executam o Windows no seu ambiente no local](../platform/agent-windows.md) são atualmente suportados para o Service Fabric.
 
-Pode verificar se a solução de monitorização do contentor está corretamente definida para o Windows. Para verificar se o pacote de gestão foi descarregado corretamente, procure *ContainerManagement.xxx* . Os ficheiros devem estar na pasta C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+Pode verificar se a solução de monitorização do contentor está corretamente definida para o Windows. Para verificar se o pacote de gestão foi descarregado corretamente, procure *ContainerManagement.xxx*. Os ficheiros devem estar na pasta C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
 ## <a name="solution-components"></a>Componentes da solução
 

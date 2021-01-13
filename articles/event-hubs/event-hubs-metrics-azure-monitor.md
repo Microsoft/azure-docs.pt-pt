@@ -3,12 +3,12 @@ title: Métricas em Azure Monitor - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Azure Monitoring para monitorizar os Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74830775a4f31e6f8e486b4d6cc434335b4ee723
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118800"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165897"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de Eventos do Azure no Azure Monitor
 
@@ -20,7 +20,7 @@ O Azure Monitor fornece interfaces de utilizador unificadas para monitorização
 
 O Azure Monitor fornece várias formas de aceder às métricas. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e soluções de análise como Log Analytics e Event Hubs. Para obter mais informações, consulte [os dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/platform/data-platform.md).
 
-As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de reter dados por um período de tempo mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Isto está configurado em [definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Monitor Azure.
+As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de manter os dados por um período mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Esta definição pode ser configurada em [definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Monitor Azure.
 
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
@@ -29,7 +29,7 @@ Pode monitorizar métricas ao longo do tempo no [portal Azure](https://portal.az
 
 ![Ver métricas de sucesso][1]
 
-Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, clique em **Métricas**. Para apresentar métricas filtradas no âmbito do centro de eventos, selecione o centro de eventos e, em seguida, clique em **Métricas**.
+Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, selecione **Métricas**. Para apresentar métricas filtradas no âmbito do centro de eventos, selecione o centro de eventos e, em seguida, selecione **Métricas**.
 
 Para as dimensões de suporte das métricas, deve filtrar com o valor de dimensão pretendido, como mostra o seguinte exemplo:
 
@@ -37,7 +37,7 @@ Para as dimensões de suporte das métricas, deve filtrar com o valor de dimens�
 
 ## <a name="billing"></a>Faturação
 
-A utilização de métricas no Azure Monitor é atualmente gratuita. No entanto, se utilizar soluções adicionais que ingerem dados de métricas, poderá ser faturado por estas soluções. Por exemplo, é faturado pelo Azure Storage se arquivar dados de métricas numa conta de Armazenamento Azure. Também é faturado pelo Azure se transmitir dados de métricas para registos do Azure Monitor para análise avançada.
+A utilização de métricas no Azure Monitor é atualmente gratuita. No entanto, se utilizar outras soluções que ingerem dados de métricas, poderá ser faturado por estas soluções. Por exemplo, é faturado pelo Azure Storage se arquivar dados de métricas numa conta de Armazenamento Azure. Também é faturado pelo Azure se transmitir dados de métricas para registos do Azure Monitor para análise avançada.
 
 As seguintes métricas dão-lhe uma visão geral da saúde do seu serviço. 
 
@@ -49,8 +49,11 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 ## <a name="azure-event-hubs-metrics"></a>Métricas Azure Event Hubs
 Para obter uma lista de métricas suportadas pelo serviço, consulte [os Hubs de Eventos Azure](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)
 
+> [!NOTE]
+> Quando ocorre um erro do utilizador, o Azure Event Hubs atualiza a métrica **de Erros** do Utilizador, mas não regista qualquer outra informação de diagnóstico. Por isso, é necessário capturar detalhes sobre os erros do utilizador nas suas aplicações. Ou também pode converter a telemetria gerada quando as mensagens são enviadas ou recebidas em insights de aplicação. Por exemplo, consulte [Tracking with Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights).
+
 ## <a name="azure-monitor-integration-with-siem-tools"></a>Integração do Azure Monitor com ferramentas SIEM
-Encaminhar os seus dados de monitorização (registos de atividade, registos de diagnóstico, etc.) para um centro de eventos com o Azure Monitor permite-lhe integrar-se facilmente com ferramentas de Gestão de Informação de Segurança e Gestão de Eventos (SIEM). Para mais informações, consulte os seguintes artigos/posts de blog:
+Encaminhar os seus dados de monitorização (registos de atividade, registos de diagnóstico, e assim por diante.) para um centro de eventos com o Azure Monitor permite-lhe integrar-se facilmente com ferramentas de Gestão de Informação de Segurança e Gestão de Eventos (SIEM). Para mais informações, consulte os seguintes artigos/posts de blog:
 
 - [Stream Azure monitorizando dados para um centro de eventos para consumo por uma ferramenta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
 - [Introdução à Integração de Registos Azure](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
@@ -58,7 +61,7 @@ Encaminhar os seus dados de monitorização (registos de atividade, registos de 
 
 No cenário em que uma ferramenta SIEM consome dados de registo a partir de um centro de eventos, se não vir mensagens recebidas ou se vir mensagens recebidas mas nenhuma mensagem de saída no gráfico de métricas, siga estes passos:
 
-- Se não houver **mensagens recebidas,** significa que o serviço Azure Monitor não está a mover registos de auditoria/diagnóstico para o centro de eventos. Abra um bilhete de apoio com a equipa do Azure Monitor neste cenário. 
+- Se não houver **mensagens recebidas,** significa que o serviço Azure Monitor não está a mover registos de auditoria/diagnósticos para o centro de eventos. Abra um bilhete de apoio com a equipa do Azure Monitor neste cenário. 
 - se houver mensagens recebidas, mas **sem mensagens de saída,** significa que a aplicação SIEM não está a ler as mensagens. Contacte o fornecedor SIEM para determinar se a configuração do centro de eventos dessas aplicações está correta.
 
 

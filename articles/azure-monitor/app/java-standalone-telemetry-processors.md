@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133179"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165795"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (pré-visualização) - Azure Monitor Application Insights for Java
 
@@ -23,58 +23,48 @@ Java 3.0 Agente para Insights de Aplicação tem agora a capacidade de processar
 Seguem-se alguns casos de utilização de processadores de telemetria:
  * Mascarar dados sensíveis
  * Adicionar dimensões personalizadas condicionalmente
- * Atualizar o nome da telemetria utilizado para agregação e exibição
- * Atributos de intervalo ou de filtro para controlar o custo de ingestão
+ * Atualize o nome que é usado para agregação e exibição no portal Azure
+ * Desatenção de atributos de extensão para controlar o custo de ingestão
 
 ## <a name="terminology"></a>Terminologia
 
-Antes de saltarmos para processadores de telemetria, é importante entender o que são vestígios e vãos.
+Antes de entrarmos em processadores de telemetria, é importante entender a que se refere o termo.
 
-### <a name="traces"></a>Rastreios
+Um período é um termo geral para qualquer uma destas três coisas:
 
-Os vestígios acompanham a progressão de um único pedido, chamado `trace` de , como é tratado por serviços que compõem uma aplicação. O pedido pode ser iniciado por um utilizador ou por uma aplicação. Cada unidade de trabalho num `trace` é chamada de `span` a; a é uma árvore de `trace` vãos. A `trace` é composta pelo período de raiz única e por qualquer número de extensões infantis.
+* Um pedido de entrada
+* Uma dependência de saída (por exemplo, uma chamada remota para outro serviço)
+* Uma dependência em curso (por exemplo, trabalho a ser feito por subcomponentes do serviço)
 
-### <a name="span"></a>Vão
+Para efeitos de transformadores de telemetria, os componentes importantes de um vão são:
 
-Os vãos são objetos que representam o trabalho que está a ser feito por serviços individuais ou componentes envolvidos num pedido à medida que flui através de um sistema. A `span` contém um conjunto de `span context` identificadores globalmente únicos que representam o pedido único de que cada vão faz parte. 
+* Name
+* Atributos
 
-Os vãos encapsulam:
+O nome de envergadura é o visor principal utilizado para pedidos e dependências no portal Azure.
 
-* O nome da extensão
-* Um imutável `SpanContext` que identifica exclusivamente o Vão
-* Um período de pais na forma de `Span` `SpanContext` um, ou nulo
-* Uma `SpanKind`
-* Uma estamp de tempo de início
-* Um fim da hora
-* [`Attributes`](#attributes)
-* Uma lista de eventos com tempos
-* A `Status` .
+Os atributos de envergadura representam propriedades padrão e personalizadas de um dado pedido ou dependência.
 
-Geralmente, o ciclo de vida de um vão assemelha-se ao seguinte:
+## <a name="telemetry-processor-types"></a>Tipos de processadores de telemetria
 
-* Um pedido é recebido por um serviço. O contexto de extensão é extraído dos cabeçalhos de pedido, se existir.
-* Uma nova extensão é criada como uma criança do contexto de extensão extraída; se nenhuma existe, uma nova extensão de raiz é criada.
-* O serviço trata do pedido. São adicionados atributos e eventos adicionais ao intervalo que são úteis para compreender o contexto do pedido, como o nome de anfitrião da máquina que manuseia o pedido, ou identificadores de clientes.
-* Podem ser criados novos vãos para representar o trabalho que está a ser feito por subcomponentes do serviço.
-* Quando o serviço faz uma chamada remota para outro serviço, o contexto de envergadura atual é serializado e encaminhado para o serviço seguinte, injetando o contexto de envergadura nos cabeçalhos ou envelope de mensagens.
-* O trabalho que está a ser feito pelo serviço completa, com ou sem sucesso. O estado de envergadura está devidamente definido e o intervalo está marcado.
+Existem atualmente dois tipos de processadores de telemetria.
 
-### <a name="attributes"></a>Atributos
+#### <a name="attribute-processor"></a>Processador de atributos
 
-`Attributes` são uma lista de pares de valor-chave zero ou mais que são encapsulados num `span` . Um Atributo DEVE ter as seguintes propriedades:
+Um processador de atributos tem a capacidade de inserir, atualizar, eliminar ou atributos de haxixe.
+Também pode extrair (através de uma expressão regular) um ou mais novos atributos de um atributo existente.
 
-A chave de atributo, que DEVE ser uma corda não-nula e não vazia.
-O valor do atributo, que é:
-* Um tipo primitivo: corda, booleano, ponto flutuante de dupla precisão (IEEE 754-1985) ou assinado 64 bit inteiro.
-* Uma matriz de valores primitivos do tipo. A matriz DEVE ser homogénea, ou seja, NÃO deve conter valores de diferentes tipos. Para protocolos que não suportam de forma nativa valores de matriz tais devem ser representados como cordas JSON.
+#### <a name="span-processor"></a>Processador de extensão
 
-## <a name="supported-processors"></a>Processadores suportados:
- * Processador de atributos
- * Processador de vão
+Um processador de intervalo tem a capacidade de atualizar o nome da telemetria.
+Também pode extrair (através de uma expressão regular) um ou mais novos atributos do nome de extensão.
 
-## <a name="to-get-started"></a>Para começar
+> [!NOTE]
+> Note que atualmente os processadores de telemetria apenas processam atributos de tipo de cadeia, e não processam atributos do tipo boolean ou número.
 
-Crie um ficheiro de configuração chamado `applicationinsights.json` , e coloque-o no mesmo diretório `applicationinsights-agent-***.jar` que , com o seguinte modelo.
+## <a name="getting-started"></a>Introdução
+
+Crie um ficheiro de configuração chamado `applicationinsights.json` , e coloque-o no mesmo diretório `applicationinsights-agent-*.jar` que , com o seguinte modelo.
 
 ```json
 {
@@ -98,9 +88,14 @@ Crie um ficheiro de configuração chamado `applicationinsights.json` , e coloqu
 }
 ```
 
-## <a name="includeexclude-spans"></a>Incluir/Excluir vãos
+## <a name="includeexclude-criteria"></a>Incluir/excluir critérios
 
-O processador de atributos e o processador de envergadura expõem a opção de fornecer um conjunto de propriedades de um período de tempo a combinar, para determinar se o espaço deve ser incluído ou excluído do processador de telemetria. Para configurar esta opção, em `include` baixo e/ou `exclude` pelo menos um e um de ou é `matchType` `spanNames` `attributes` necessário. A configuração de incluir/excluir é suportada para ter mais de uma condição especificada. Todas as condições especificadas devem avaliar a verdade para que ocorra uma correspondência. 
+Tanto os processadores de atributos como os processadores de span suportam `include` critérios e `exclude` critérios opcionais.
+Um transformador só será aplicado aos períodos que correspondam aos seus `include` critérios (se fornecidos) _e_ não correspondam aos seus `exclude` critérios (se fornecidos).
+
+Para configurar esta opção, em `include` baixo e/ou `exclude` pelo menos um e um de ou é `matchType` `spanNames` `attributes` necessário.
+A configuração de incluir/excluir é suportada para ter mais de uma condição especificada.
+Todas as condições especificadas devem avaliar a verdade para que ocorra uma correspondência. 
 
 **Campo obrigatório:** 
 * `matchType` controla a forma como os itens `spanNames` e `attributes` matrizes são interpretados. Os valores possíveis são `regexp` ou `strict`. 
@@ -150,7 +145,7 @@ O processador de atributos e o processador de envergadura expõem a opção de f
 ```
 Para obter mais compreensão, consulte a documentação do [processador de telemetria exemplos.](./java-standalone-telemetry-processors-examples.md)
 
-## <a name="attribute-processor"></a>Processador de atributos 
+## <a name="attribute-processor"></a>Processador de atributos
 
 O processador de atributos modifica atributos de um vão. Suporta opcionalmente a capacidade de incluir/excluir vãos. Requer uma lista de ações que são realizadas por ordem especificada no ficheiro de configuração. As ações apoiadas são:
 
@@ -167,7 +162,7 @@ Insere um novo atributo em vãos onde a chave já não existe.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ Atualiza um atributo em vãos onde a chave existe
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ Elimina um atributo de um vão
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ Hashes (SHA1) um valor de atributo existente
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Extrai valores utilizando uma regra de expressão regular da chave de entrada pa
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ Para a `extract` ação, são necessários seguintes
 
 Para obter mais compreensão, consulte a documentação do [processador de telemetria exemplos.](./java-standalone-telemetry-processors-examples.md)
 
-## <a name="span-processors"></a>Processadores de vãos
+## <a name="span-processor"></a>Processador de extensão
 
 O processador de envergadura modifica o nome de extensão ou atributos de um vão baseado no nome da extensão. Suporta opcionalmente a capacidade de incluir/excluir vãos.
 

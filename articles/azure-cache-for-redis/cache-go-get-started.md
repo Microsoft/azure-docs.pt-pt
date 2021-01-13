@@ -7,12 +7,12 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 577bcc70633fd2a9f47dd0c95d98b729a1326647
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: de7bdc22b4bfdf9ef5865b1b601b32672eb868d1
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146510"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165132"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>Quickstart: Use Azure Cache para Redis com Go
 
@@ -62,7 +62,9 @@ if err != nil {
 
 Se a ligação for bem sucedida, [os manipuladores HTTP](https://golang.org/pkg/net/http/#HandleFunc) são configurados para manusear `POST` e `GET` operações e o servidor HTTP é iniciado. 
 
+> [!NOTE] 
 > [Gorilla mux library](https://github.com/gorilla/mux) é usado para encaminhamento (embora não seja estritamente necessário e poderíamos ter escapado usando a biblioteca padrão para esta aplicação de amostra).
+>
 
 ```go
 uh := userHandler{client: client}
@@ -182,7 +184,7 @@ O servidor HTTP começará na `8080` porta.
     Content-Length: 0
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se terminar com o grupo de recursos Azure e os recursos que criou neste quickstart, pode eliminá-los para evitar encargos.
 

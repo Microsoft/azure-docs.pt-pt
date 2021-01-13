@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857579"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165965"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configure Azure para ligar ferramentas ITSM usando a Exportação Segura
 
@@ -39,9 +39,9 @@ Siga estes passos para registar a candidatura com a Azure AD:
 
 ## <a name="define-service-principal"></a>Definir diretor de serviço
 
-O serviço Action Group necessitará de permissão para adquirir fichas de autenticação da sua aplicação AAD para autenticar agora com o Serviço. Para conceder essas permissões, terá de criar um principal serviço para o serviço action Group no seu inquilino.
-Pode utilizar estes [comandos PowerShell](./action-groups.md#secure-webhook-powershell-script) para este fim. (Requer privilégios administrativos de inquilinos).
-Como um passo opcional pode definir o papel da aplicação no manifesto da aplicação criada, o que lhe permite restringir ainda mais, o acesso de uma forma que apenas certas aplicações com esse papel específico podem enviar mensagens. Esta função tem então de ser atribuída ao diretor de serviço do Grupo de Ação. \
+O serviço Action Group é uma aplicação de primeira parte, pelo que tem permissão para adquirir fichas de autenticação a partir da sua aplicação AAD para autenticação com Serviço agora.
+Como um passo opcional pode definir o papel da aplicação no manifesto da aplicação criada, o que lhe permite restringir ainda mais, o acesso de uma forma que apenas certas aplicações com esse papel específico podem enviar mensagens. Esta função tem então de ser atribuída ao diretor de serviço do Grupo de Ação (requer privilégios administrativos de inquilinos).
+
 Este passo pode ser feito através dos [mesmos comandos PowerShell](./action-groups.md#secure-webhook-powershell-script).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação Secure Webhook

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9999b2fa116a2336f8e50fb166e5d870ae4b5a5f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005389"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165064"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -106,6 +106,21 @@ O Service Fabric suporta o WebAPI com interface web aberta para .NET (OWIN) e AS
 >
 > **Começar:** [Crie a sua primeira aplicação Azure Service Fabric](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 
+#### <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+Azure Spring Cloud é uma plataforma de microserviços sem servidor que lhe permite construir, implementar, escalar e monitorizar as suas aplicações na nuvem. Use a Cloud Spring para trazer padrões modernos de microserviços para as aplicações Spring Boot, eliminando o código da placa de caldeira para construir rapidamente aplicações java robustas.
+
+- Alavancar versões geridas do Spring Cloud Service Discovery e do Config Server, enquanto garantimos que esses componentes críticos estão a funcionar em condições ótimas.
+- Concentre-se em construir a sua lógica de negócio e cuidaremos do seu tempo de serviço com patches de segurança, padrões de conformidade e alta disponibilidade.
+- Gerir o ciclo de vida da aplicação (por exemplo: implementar, iniciar, parar, escalar) em cima do Serviço Azure Kubernetes.
+- Liga facilmente as ligações entre as suas apps e os serviços Azure, tais como Azure Database for MySQL e Azure Cache para Redis.
+- Monitorize e resolva os microserviços e aplicações que utilizam ferramentas de monitorização unificadas de nível empresarial que oferecem informações profundas sobre as dependências das aplicações e a telemetria operacional.
+
+> **Quando usar:** Como um serviço totalmente gerido, o Azure Spring Cloud é uma boa escolha quando está a minimizar os custos operacionais que executam os microserviços baseados em Spring Boot/Spring Cloud em Azure. 
+>
+> **Começar:** [Implemente a sua primeira aplicação Azure Spring Cloud](../../spring-cloud/spring-cloud-quickstart.md).
+
+
 ### <a name="enhance-your-applications-with-azure-services"></a>Melhore as suas aplicações com serviços Azure
 
 Juntamente com o alojamento de aplicações, o Azure fornece ofertas de serviços que podem melhorar a funcionalidade. O Azure também pode melhorar o desenvolvimento e manutenção das suas aplicações, tanto na nuvem como no local.
@@ -124,7 +139,7 @@ A maioria das aplicações deve armazenar dados, por isso, seja como for que dec
 
   > **Quando utilizar**: Quando a sua aplicação armazena dados não-sexuais, tais como pares de valores-chave (tabelas), bolhas, partilhas de ficheiros ou mensagens (filas).
   >
-  > **Começar**: Escolha entre um destes tipos de armazenamento: [bolhas, mesas,](../../storage/blobs/storage-quickstart-blobs-dotnet.md)filas ou [tables](../../cosmos-db/tutorial-develop-table-dotnet.md) [ficheiros](../../storage/queues/storage-dotnet-how-to-use-queues.md). [files](../../storage/files/storage-dotnet-how-to-use-files.md)
+  > **Começar**: Escolha entre um destes tipos de armazenamento: [bolhas, mesas,](../../storage/blobs/storage-quickstart-blobs-dotnet.md)filas ou [](../../cosmos-db/tutorial-develop-table-dotnet.md) [ficheiros](../../storage/queues/storage-dotnet-how-to-use-queues.md). [](../../storage/files/storage-dotnet-how-to-use-files.md)
 
 - **Base de Dados Azure SQL**: Uma versão baseada em Azure do motor do Microsoft SQL Server para armazenar dados tabulares relacionais na nuvem. A SQL Database proporciona um desempenho previsível, escalabilidade sem tempo de inatividade, continuidade do negócio e proteção de dados.
 
@@ -198,7 +213,7 @@ Quer esteja a atear VMs ou a publicar as suas aplicações web com integração 
 * Chef
 * TeamCity
 * Ansible
-* Azure DevOps
+* DevOps do Azure
 
 > **Começar**: Para ver as opções de DevOps para uma aplicação de Serviço de Aplicações, consulte [a Implementação Contínua para o Serviço de Aplicações Azure.](../../app-service/deploy-continuous-deployment.md)
 >
@@ -315,7 +330,7 @@ O Azure Resource Manager permite-lhe atribuir etiquetas personalizadas a recurso
 * No modelo do Gestor de Recursos Azure
 * Utilizar a API REST
 * Com a CLI do Azure
-* Utilizar o PowerShell
+* Com o PowerShell
 
 Pode atribuir várias tags a cada recurso. Para saber mais, consulte [Usando etiquetas para organizar os seus recursos Azure.](../../azure-resource-manager/management/tag-resources.md)
 

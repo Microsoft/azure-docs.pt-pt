@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a77083c721328a8df9facd2f4b320b863aa03c68
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352410"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164945"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -26,7 +26,7 @@ Para ver as perguntas sugeridas, deve [ligar a aprendizagem ativa](../concepts/a
 
 ## <a name="view-suggested-questions"></a>Ver perguntas sugeridas
 
-1. Para ver as perguntas sugeridas, na página base de conhecimento **editar,** selecione **Ver Opções** e, em seguida, selecione **Mostrar sugestões de aprendizagem ativa**.
+1. Para ver as perguntas sugeridas, na página base de conhecimento **editar,** selecione **Ver Opções** e, em seguida, selecione **Mostrar sugestões de aprendizagem ativa**. Esta opção será desativada se não houver sugestões presentes para qualquer um dos pares de perguntas e respostas.  
 
     [![Na secção Editar do portal, selecione Mostrar Sugestões para ver as novas alternativas de perguntas da aprendizagem ativa.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
@@ -135,7 +135,7 @@ Content-Type: application/json
 |Parâmetro de rota URL|ID da base de conhecimento|string|O GUID para a sua base de conhecimento.|
 |Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isto está disponível na página Definições depois de publicar a base de conhecimento. Está listado `host` como.|
 |Cabeçalho|Content-Type|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
-|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx).|
+|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxx-xxxx-xxxx-xxxx-xxx).|
 |Corpo do Correio|Objeto JSON|JSON|O feedback do treino|
 
 O corpo JSON tem várias configurações:

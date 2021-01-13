@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996314"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165931"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto final da CDN do Azure
 
@@ -53,7 +53,7 @@ Depois de criar um perfil CDN, use-o para criar um ponto final.
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Nome** | *Insira o ponto final do CDN-123* para o seu nome de anfitrião do ponto final. Este nome deve ser globalmente único em todo o Azure; se já estiver em uso, insira um nome diferente. Este nome é usado para aceder aos seus recursos em cache no _ &lt; nome &gt; final_do ponto de domínio .azureedge.net.|
+    | **Nome** | *Insira o ponto final do CDN-123* para o seu nome de anfitrião do ponto final. Este nome deve ser globalmente único em todo o Azure; se já estiver em uso, insira um nome diferente. Este nome é usado para aceder aos seus recursos em cache no _&lt; nome &gt; final_ do ponto de domínio .azureedge.net.|
     | **Tipo de origem** | Selecione **Armazenamento**. | 
     | **Nome de anfitrião da origem** | Selecione o nome de anfitrião da conta Azure Storage que está a usar na lista de drop-down, como *cdnstorageacct123.blob.core.windows.net*. |
     | **Caminho de origem** | Deixe em branco. |
@@ -68,9 +68,9 @@ Depois de criar um perfil CDN, use-o para criar um ponto final.
     
    ![Ponto final da CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   O tempo que o ponto final leva para se propagar depende do nível de preços selecionado quando criou o perfil. **A Standard Akamai** normalmente completa dentro de um minuto, **a Standard Microsoft** em 10 minutos e a Standard **Verizon** e a **Premium Verizon** em até 90 minutos.
+   O tempo que o ponto final leva para se propagar depende do nível de preços selecionado quando criou o perfil. **A Standard Akamai** normalmente completa dentro de um minuto, **a Standard Microsoft** em 10 minutos e a Standard **Verizon** e a **Premium Verizon** em até 30 minutos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recursos. Guarde estes recursos, se pretender aceder aos [Passos seguintes](#next-steps) e aprender a adicionar um domínio personalizado ao ponto final. No entanto, se não pretende utilizar estes recursos no futuro pode eliminá-los, ao eliminar o grupo de recursos, evitando assim encargos adicionais:
 

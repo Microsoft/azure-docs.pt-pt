@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860954"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165149"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
 
@@ -144,11 +144,17 @@ Veja abaixo como estas ações podem ser retificadas.
 >Em ambos os casos, deve voltar a registar o dispositivo manualmente em cada um destes dispositivos. Para rever se o dispositivo foi previamente registado, é possível que [os dispositivos de resolução de problemas utilizem o comando dsregcmd](troubleshoot-device-dsregcmd.md).
 
 ---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: Não posso adicionar mais de 3 contas de utilizadores AZure AD na mesma sessão de utilizadores num dispositivo Windows 10, porquê?
+
+**R**: Azure AD adicionou suporte para várias contas AD Azure na versão do Windows 10 1803. No entanto, o Windows 10 restringe o número de contas AD AZure num dispositivo a 3 para limitar o tamanho dos pedidos de token e permitir um único sinal fiável (SSO). Uma vez adicionadas 3 contas, os utilizadores verão um erro nas contas subsequentes. As informações adicionais sobre problemas no ecrã de erro fornecem a seguinte mensagem indicando o motivo - "Adicionar a operação da conta está bloqueada porque o limite de acesso é atingido". 
+
+---
 ## <a name="azure-ad-join-faq"></a>Azure AD junta-se à FAQ
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P: Como é que eu não me uniria a um AD AZure ligado localmente ao dispositivo?
 
-**A:** Para dispositivos puros Azure AD, certifique-se de que tem uma conta de administrador local offline ou crie uma. Não pode iniciar súmia com credenciais de utilizador da AZure. Em seguida, vá ao Trabalho de Acesso de **Contas de Definições**  >  **Accounts**  >  **ou Escola.** Selecione a sua conta e **selecione Desligar**. Siga as instruções e forneça as credenciais do administrador local quando solicitado. Reinicie o dispositivo para terminar o processo de unjoin.
+**A:** Para dispositivos puros Azure AD, certifique-se de que tem uma conta de administrador local offline ou crie uma. Não pode iniciar súmia com credenciais de utilizador da AZure. Em seguida, vá ao Trabalho de Acesso de **Contas de Definições**  >    >  **ou Escola.** Selecione a sua conta e **selecione Desligar**. Siga as instruções e forneça as credenciais do administrador local quando solicitado. Reinicie o dispositivo para terminar o processo de unjoin.
 
 ---
 
@@ -291,7 +297,7 @@ As alterações da UPN são suportadas com a atualização do Windows 10 2004. O
 
 **A:** 
 - Para dispositivos registados no Windows 10 AZure AD, vá a **Definições**  >  **Contas**  >  **Access Work ou School**. Selecione a sua conta e **selecione Desligar**. O registo do dispositivo é por perfil do utilizador no Windows 10.
-- Para iOS e Android, pode utilizar o registo de **dispositivos de definição de configurações** da aplicação Microsoft Authenticator  >  **Device Registration** e selecionar o **dispositivo Unregister**.
+- Para iOS e Android, pode utilizar o registo de **dispositivos de definição de configurações** da aplicação Microsoft Authenticator  >   e selecionar o **dispositivo Unregister**.
 - Para o macOS, pode utilizar a aplicação Microsoft Intune Company Portal para desativar o dispositivo da gestão e remover qualquer registo. 
 
 ---

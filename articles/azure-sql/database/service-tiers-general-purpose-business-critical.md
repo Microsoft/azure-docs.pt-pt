@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512033"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165778"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,7 @@ Os seguintes fatores afetam a quantidade de armazenamento utilizado para dados e
   - Para armazenamento nos níveis de serviço crítico premium ou empresarial, aumente ou diminua o tamanho em incrementos de 250 GB.
 - No nível de serviço para fins `tempdb` gerais, utiliza um SSD anexado, e este custo de armazenamento está incluído no preço vCore.
 - No nível de serviço crítico de negócios, `tempdb` partilha o SSD anexado com os ficheiros MDF e LDF, e o `tempdb` custo de armazenamento está incluído no preço vCore.
+- No nível de serviço premium DTU, `tempdb` partilha o SSD anexado com ficheiros MDF e LDF.
 - O tamanho de armazenamento de uma 222 Instance gerida deve ser especificado em múltiplos de 32 GB.
 
 

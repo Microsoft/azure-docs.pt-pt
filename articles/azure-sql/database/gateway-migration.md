@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427105"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165863"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,25 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
+## <a name="january-2021"></a>Janeiro de 2021
+Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+
+- Austrália Central : 20.36.104.6 , 20.36.104.7 
+- Austrália Central 2 : 20.36.112.6 
+- Brasil Sul : 191.234.144.16 ,191.234.152.3 
+- Canadá Leste : 40.69.105.9 ,40.69.105.10
+- Índia Central : 104.211.86.30 , 104.211.86.31 
+- Leste da Ásia : 13.75.32.14 
+- França Central: 40.79.137.8, 40.79.145.12 
+- França Sul : 40.79.177.10 ,40.79.177.12
+- Coreia Central : 52.231.17.22 ,52.231.17.23
+- Índia Oeste : 104.211.144.4
+
+Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes em 31 de janeiro de 2021
+
+# <a name="completed"></a>[Concluído](#tab/completed-ip)
+As seguintes migrações de gateway estão completas: 
+
 ### <a name="october-2020"></a>Outubro de 2020
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
@@ -70,9 +89,6 @@ Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWA
 Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **1 de setembro de 2020:**
 - Japão Leste : 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Concluído](#tab/completed-ip)
-
-As seguintes migrações de gateway estão completas: 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -107,7 +123,7 @@ A migração de tráfego pode alterar o endereço IP público que o DNS resolve 
 Pode ser afetado se:
 
 - Codificado o endereço IP para qualquer porta de entrada em particular na sua firewall no local
-- Ter quaisquer sub-redes que utilizem o Microsoft.SQL como um Ponto Final de Serviço, mas não podem comunicar com os endereços IP gateway
+- Ter quaisquer sub-redes que utilizem o Microsoft.SQL como um Ponto Final de Serviço, mas não conseguem comunicar com os endereços IP gateway
 - Utilize a [configuração redundante da zona para o nível de finalidade geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - Utilize a [configuração redundante da zona para níveis críticos de negócios premium &](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 

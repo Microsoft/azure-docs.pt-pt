@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340418"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165829"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB Python (pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 Com as estatísticas de saída, pode calcular os RU/s eficazes utilizados para carregar os itens. Por exemplo, se 25.000 RUs foram consumidos ao longo de 38 segundos, o RU/s eficaz é de 25.000 RUs / 38 segundos = 658 RU/s.
+
+Pode guardar ficheiros (como ficheiros CSV ou JSON) para o espaço de trabalho do portátil local. Recomendamos que adicione uma célula no seu caderno para guardar ficheiros. Pode ver estes ficheiros a partir do terminal integrado no ambiente do caderno. Pode utilizar o comando "Ls" para visualizar os ficheiros guardados. No entanto, estes ficheiros são removidos se reiniciar o espaço de trabalho. Assim, é melhor usar armazenamento persistente, como GitHub ou uma conta de armazenamento em vez do espaço de trabalho local.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>Executar outro caderno no caderno atual 
 Pode utilizar o ``%%run`` comando mágico para executar outro caderno no seu espaço de trabalho a partir do seu caderno atual. Utilize a sintaxe:
