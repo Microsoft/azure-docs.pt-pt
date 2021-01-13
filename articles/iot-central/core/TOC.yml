@@ -85,8 +85,14 @@
       items:
         - name: Configurar um modelo de dispositivo
           href: howto-set-up-template.md
+        - name: Como mover dispositivos para a IoT
+          href: how-to-move-device-to-iot.md
         - name: Como utilizar as propriedades
           href: howto-use-properties.md
+        - name: Como utilizar comandos
+          href: howto-use-commands.md
+        - name: Como utilizar dados de localização
+          href: howto-use-location-data.md
         - name: Prepare e ligue um DevKit de Azure Sphere
           href: howto-connect-sphere.md
         - name: Preparar e ligar um dispositivo RuuviTag

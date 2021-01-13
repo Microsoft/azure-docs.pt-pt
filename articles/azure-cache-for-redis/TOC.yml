@@ -29,6 +29,8 @@
           href: cache-nodejs-get-started.md
         - name: Aplicação Python
           href: cache-python-get-started.md
+        - name: Aplicação Go
+          href: cache-go-get-started.md
 - name: Tutoriais
   items:
     - name: ASP.NET

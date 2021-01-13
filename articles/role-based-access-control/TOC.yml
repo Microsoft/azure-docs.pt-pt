@@ -60,9 +60,15 @@
         - name: Passos para adicionar uma atribuição de função
           href: role-assignments-steps.md
         - name: Portal
-          href: role-assignments-portal.md
-        - name: Portal - utilizadores convidados
-          href: role-assignments-external-users.md
+          items:
+            - name: Adicionar ou remover atribuições de função
+              href: role-assignments-portal.md
+            - name: Administrador de subscrição
+              href: role-assignments-portal-subscription-admin.md
+            - name: Identidade gerida
+              href: role-assignments-portal-managed-identity.md
+            - name: Utilizadores convidados externos
+              href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: CLI do Azure

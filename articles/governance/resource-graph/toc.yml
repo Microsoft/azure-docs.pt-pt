@@ -38,6 +38,9 @@
     - name: Criar uma consulta partilhada - CLI do Azure
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md
+    - name: Criar uma consulta partilhada - Azure PowerShell
+      displayName: 'powershell, queries, Az.ResourceGraph'
+      href: ./shared-query-azure-powershell.md
     - name: Implementar uma consulta partilhada - modelo ARM
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md
