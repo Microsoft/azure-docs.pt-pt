@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: ad43d380bde1bae0e389fa58e3d916c2c3250be7
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064937"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131649"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Use o MSAL para Android com B2C
 
@@ -36,11 +36,14 @@ Dada uma aplicação B2C que tem duas políticas:
 
 O ficheiro de configuração da aplicação declararia dois `authorities` . Um para cada política. A `type` propriedade de cada autoridade `B2C` é.
 
+>Nota: O `account_mode` conjunto deve ser definido para **MULTIPLE** para aplicações B2C. Consulte a documentação para obter mais informações sobre [as aplicações de clientes públicos de várias contas.](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application)
+
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
     "client_id": "<your_client_id_here>",
     "redirect_uri": "<your_redirect_uri_here>",
+    "account_mode" : "MULTIPLE",
     "authorities": [{
             "type": "B2C",
             "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
@@ -237,6 +240,6 @@ Cada política adiciona uma `IAccount` cache para cada utilizador. Se um utiliza
 
 Quando renovar os tokens para uma política com `acquireTokenSilent` , forneça o mesmo que foi devolvido de `IAccount` invocações anteriores da apólice para  `AcquireTokenSilentParameters` . Fornecer uma conta devolvida por outra apólice resultará num erro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o Azure Ative Directory B2C (Azure AD B2C) no [What is Azure Ative Directory B2C?](../../active-directory-b2c/overview.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187158"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134114"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
 
@@ -44,7 +44,7 @@ Exemplos de recomendações que pode ver nestes dois controlos na página de **R
 - As contas preprecadas devem ser removidas da sua subscrição (as contas preprecadas são contas que já não são necessárias e impedidas de assinar pelo Azure Ative Directory)
 
 > [!TIP]
-> Para mais informações sobre estas recomendações e as outras que poderá ver nestes [controlos, consulte recomendações de Identidade e Acesso.](recommendations-reference.md#recs-identity)
+> Para mais informações sobre estas recomendações e as outras que poderá ver nestes [controlos, consulte recomendações de Identidade e Acesso.](recommendations-reference.md#recs-identityandaccess)
 
 ### <a name="limitations"></a>Limitações
 

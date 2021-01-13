@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049325"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131394"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -140,7 +140,7 @@ Ao desenhar modelos para refletir as entidades no seu ambiente, pode ser útil o
 
 A utilização de modelos baseados nos padrões da indústria ou na utilização de uma representação ontrologia padrão, como RDF ou OWL, fornece um ponto de partida rico ao desenhar os seus modelos Azure Digital Twins. A utilização de modelos industriais também ajuda na normalização e partilha de informação.
 
-Para ser utilizado com a Azure Digital Twins, um modelo deve ser representado na Linguagem de Definição de [**Gémeos Digitais (DTDL)**](concepts-models.md)baseada em JSON-LD . Por isso, este artigo descreve como representar os seus modelos padrão da indústria em DTDL, integrando os conceitos existentes da indústria com semântica DTDL para que a Azure Digital Twins possa usá-los. O modelo DTDL serve então como fonte de verdade para o modelo dentro da Azure Digital Twins.
+Para ser utilizado com a Azure Digital Twins, um modelo deve ser representado na Linguagem de Definição de [**Gémeos Digitais (DTDL)**](concepts-models.md)baseada em JSON-LD . Portanto, para utilizar um modelo padrão da indústria, você deve primeiro convertê-lo em DTDL para que a Azure Digital Twins possa usá-lo. O modelo DTDL serve então como fonte de verdade para o modelo dentro da Azure Digital Twins.
 
 Existem dois caminhos principais para integrar modelos padrão da indústria com DTDL, dependendo da sua situação:
 * Se ainda não criou os seus modelos, pode desenhá-los em torno **das intologias DTDL existentes** que contêm linguagem específica para a sua indústria.

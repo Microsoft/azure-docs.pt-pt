@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/03/2020
+ms.date: 1/12/2020
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08d5e20bf0755a71e70a0e446cf96d33bb42ad59
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aadf4000da4ab88a3c3b4dee37d2179eb49d39d7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351913"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132069"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Crie um nome de domínio totalmente qualificado no portal Azure para um Linux VM
 
@@ -24,16 +24,14 @@ Quando cria uma máquina virtual (VM) no [portal Azure,](https://portal.azure.co
 Este artigo assume que já criou um VM. Se necessário, pode criar um [Linux](./linux/quick-create-portal.md) ou [Windows](./windows/quick-create-portal.md) VM no portal. Siga estes passos assim que o seu VM estiver a funcionar:
 
 
-1. Selecione o seu VM no portal. Sob **o nome DNS** , selecione **Configure**.
-2. Introduza o nome DNS e, em seguida, **selecione Guardar** no topo da página.
-3. Para voltar à lâmina de visão geral VM, feche a lâmina **de configuração** selecionando o **X** no canto superior direito. 
-4. Verifique se o *nome DNS* está agora corretamente indicado.
-   
+1. Selecione o seu VM no portal. 
+1. No menu esquerdo, selecione **Configuração**
+1. Na **etiqueta de nome DNS,** introduza o prefixo que pretende utilizar.
+1. **Selecione Guardar** no topo da página.
+1. Volte à lâmina de visão geral VM selecionando **visão geral** no menu esquerdo. 
+1. Verifique se o *nome DNS* aparece corretamente. 
 
+## <a name="next-steps"></a>Passos seguintes
 
-
-## <a name="next-steps"></a>Próximos passos
-Agora que o seu VM tem um nome público de IP e DNS, pode implementar quadros ou serviços comuns de aplicação como nginx, MongoDB e Docker.
-
-Também pode ler mais sobre [a utilização do Gestor de Recursos](../azure-resource-manager/management/overview.md) para obter dicas sobre a construção das suas implementações Azure.
+Também pode gerir DNS utilizando [zonas Azure DNS](../dns/dns-getstarted-portal.md).
 

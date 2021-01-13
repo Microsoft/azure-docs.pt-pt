@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/23/2020
+ms.date: 01/12/2021
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 7c41474143fbb7782ccf7b5c89b0b34802e5ef0a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c492ec930cea000e45f7b6f09cc5e9c7a6a0db22
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119701"
+ms.locfileid: "98134505"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregar dados para a piscina SQL Azure Synapse Analytics
 
@@ -37,7 +37,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-Este tutorial pressupõe que já criou uma piscina dedicada SQL a partir do seguinte [tutorial.](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)
+Este tutorial pressupõe que já criou uma piscina dedicada SQL a partir do seguinte [tutorial.](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin) 
+
+> [!NOTE]
+> Recomenda-se a utilização de pelo menos um DW1000c para este tutorial. 
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 

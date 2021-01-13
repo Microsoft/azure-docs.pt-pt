@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f39380e253d3fa9e86bfea3a8c436862738ff8e3
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359936"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131904"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ Para começar, consulte [configurar um equilibrador de carga.](availability-grou
 
 ### <a name="dnn-listener"></a>Serviço de escuta DNN
 
-SQL Server 2019 CU8 introduz suporte para o ouvinte de rede distribuído (DNN). O ouvinte do DNN substitui o ouvinte tradicional do grupo de disponibilidade, negando a necessidade de um Azure Loud Balancer para encaminhar o tráfego na rede Azure. 
+SQL Server 2019 CU8 introduz suporte para o ouvinte de rede distribuído (DNN). O ouvinte do DNN substitui o ouvinte tradicional do grupo de disponibilidade, negando a necessidade de um Azure Load Balancer para encaminhar o tráfego na rede Azure. 
 
 O ouvinte DNN é a solução de conectividade HADR recomendada no Azure, uma vez que simplifica a implementação, reduz a manutenção e o custo e reduz o tempo de incumprimento em caso de falha. 
 
@@ -80,19 +80,19 @@ O quadro a seguir fornece uma comparação das opções disponíveis:
 | | Portal do Azure | Azure CLI / PowerShell | Modelos de arranque rápido | Manual |
 |---------|---------|---------|---------|---------|
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
-|**Edição do SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
+|**Edição do SQL Server** |Grandes Empresas |Grandes Empresas |Grandes Empresas |Enterprise, Standard|
 |**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Todos|
-|**Cria o cluster para si**|Sim|Sim | Sim |Não|
-|**Cria o grupo de disponibilidade para si** |Sim |Não|Não|Não|
-|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Sim|
-|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Sim|
+|**Cria o cluster para si**|Yes|Yes | Yes |Não|
+|**Cria o grupo de disponibilidade para si** |Yes |Não|Não|Não|
+|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Yes|
+|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Yes|
 |**Configuração do quórum WSFC**|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
-|**DR com várias regiões** |Não|Não|Não|Sim|
-|**Suporte multi-subscrição** |Sim|Sim|Sim|Sim|
-|**Apoio a um AD existente**|Sim|Sim|Sim|Sim|
-|**DR com multizona na mesma região**|Sim|Sim|Sim|Sim|
-|**AG distribuído sem AD**|Não|Não|Não|Sim|
-|**AG distribuído sem cluster** |Não|Não|Não|Sim|
+|**DR com várias regiões** |Não|Não|Não|Yes|
+|**Suporte multi-subscrição** |Yes|Yes|Yes|Yes|
+|**Apoio a um AD existente**|Yes|Yes|Yes|Yes|
+|**DR com multizona na mesma região**|Yes|Yes|Yes|Yes|
+|**AG distribuído sem AD**|Não|Não|Não|Yes|
+|**AG distribuído sem cluster** |Não|Não|Não|Yes|
 
 Para mais informações, consulte [o portal Azure,](availability-group-azure-portal-configure.md) [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md)e [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 45654d55ac07bc9056a41cacba6f8f5890c56580
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 6520c1e326dc95584030d3187fdaaaa7e06c498a
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808645"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132297"
 ---
 > [!IMPORTANT]
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
@@ -102,8 +102,8 @@ Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro,
 Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a biblioteca do cliente do Reconhecimento de Formulários para JavaScript:
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo da forma](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
 * [Preparar um modelo personalizado](#train-a-custom-model)
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
@@ -126,7 +126,7 @@ Também terá de adicionar referências aos URLs para os seus dados de treino e 
 * Utilize a amostra e as imagens de receção incluídas nas amostras abaixo (também disponíveis no [GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
 
 
-## <a name="recognize-form-content"></a>Reconhecer o conteúdo da forma
+## <a name="analyze-layout"></a>Analisar layout
 
 Pode utilizar o Form Recogniser para reconhecer tabelas, linhas e palavras em documentos, sem precisar de treinar um modelo. Para reconhecer o conteúdo de um ficheiro num dado URI, utilize o `beginRecognizeContentFromUrl` método.
 
@@ -152,7 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="recognize-receipts"></a>Reconhecer recibos
+## <a name="analyze-receipts"></a>Analisar recibos
 
 Esta secção demonstra como reconhecer e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado.
 
@@ -416,7 +416,7 @@ Execute a aplicação com o `node` comando no seu ficheiro quickstart.
 node index.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

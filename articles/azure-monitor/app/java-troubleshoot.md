@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607903"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133247"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Resolução de problemas e Q e A para Insights de Aplicações para Java SDK
 
@@ -23,7 +23,7 @@ Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo 
 ## <a name="build-errors"></a>Criar erros
 **No Eclipse ou intellij Idea, ao adicionar o SDK de Insights de Aplicação via Maven ou Gradle, recebo erros de validação de construção ou verificação.**
 
-* Se o elemento de dependência `<version>` estiver a utilizar um padrão com caracteres wildcard (por exemplo (Maven) ou `<version>[2.0,)</version>` (Gradle) `version:'2.0.+'` ), tente especificar uma versão específica como `2.0.1` . Consulte as [notas de lançamento](https://github.com/Microsoft/ApplicationInsights-Java/releases) para a versão mais recente.
+* Se o elemento de dependência `<version>` estiver a utilizar um padrão com caracteres wildcard (por exemplo (Maven) ou `<version>[2.0,)</version>` (Gradle) `version:'2.+'` ), tente especificar uma versão específica como `2.6.2` .
 
 ## <a name="no-data"></a>Sem dados
 **Adicionei o Application Insights com sucesso e corri a minha aplicação, mas nunca vi dados no portal.**
@@ -36,7 +36,7 @@ Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo 
 * [Ligue o registo](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) e verifique se há entradas pré-atuais com IA: INFO/WARN/ERROR para quaisquer registos suspeitos. 
 * Certifique-se de que o ficheiro ApplicationInsights.xml correto foi carregado com sucesso pelo SDK Java, olhando para as mensagens de saída da consola para uma declaração de "Configuração foi encontrado com sucesso".
 * Se o ficheiro config não for encontrado, verifique as mensagens de saída para ver onde o ficheiro config está a ser procurado e certifique-se de que o ApplicationInsights.xml está localizado num desses locais de pesquisa. Como regra geral, pode colocar o ficheiro config perto dos JARs SDK do Application Insights. Por exemplo: em Tomcat, isto significaria a pasta WEB-INF/classes. Durante o desenvolvimento pode colocar ApplicationInsights.xml na pasta de recursos do seu projeto web.
-* Por favor, consulte também a [página de problemas do GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
+* Por favor, consulte também a [página de problemas do GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
 * Certifique-se de utilizar a mesma versão dos appenders core, web, agent e logging para evitar qualquer problema de conflito de versão.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Costumava ver dados, mas parou.
@@ -194,7 +194,7 @@ O Application Insights utiliza `org.apache.http` . Isto é relocalizado dentro d
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [Arquivar um problema no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [Arquivar um problema no GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

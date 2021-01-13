@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915560"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133995"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Resolver problemas do Azure Bastion
 
@@ -22,11 +22,7 @@ Este artigo mostra-lhe como resolver problemas com Azure Bastion.
 
 **Q:** Quando tento criar um NSG na sub-rede Azure Bastion, recebo o seguinte erro: *"O grupo de segurança da rede <NSG name> não tem regras necessárias para a Subnet AzureBastionSubnet AzureBastionSubnet"*.
 
-**A:** Se criar e aplicar um NSG ao *AzureBastionSubnet,* certifique-se de que adicionou as seguintes regras no seu NSG. Se não adicionar estas regras, a criação/atualização NSG falhará.
-
-1. Conectividade do avião de controlo - Entrada no 443 de GatewayManager
-2. Registo de diagnósticos e outros – Saída em 443 para AzureCloud (as tags regionais dentro desta etiqueta de serviço ainda não são suportadas.)
-3. Target VM - Saída para 3389 e 22 para VirtualNetwork
+**A:** Se criar e aplicar um NSG ao *AzureBastionSubnet,* certifique-se de que adicionou as regras exigidas ao NSG. Para obter uma lista das regras exigidas, consulte [Trabalhar com acesso NSG e Azure Bastion](./bastion-nsg.md). Se não adicionar estas regras, a criação/atualização NSG falhará.
 
 Um exemplo das regras NSG está disponível para referência no [modelo quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Para mais informações, consulte [a orientação da NSG para O Bastião Azure.](bastion-nsg.md)

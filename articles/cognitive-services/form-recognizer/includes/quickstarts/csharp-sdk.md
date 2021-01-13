@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 4b44a8375bc13709959e2401f9d772fdeab00f52
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 9befe33f70341f218c3339a13dcc1d31dc452d34
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808611"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132319"
 ---
 > [!IMPORTANT]
 > O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade.
@@ -113,8 +113,8 @@ Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro,
 `FormRecognizerClient` Fornece operações para:
 
  - Reconhecendo campos de formulários e conteúdos, utilizando modelos personalizados treinados para reconhecer os seus formulários personalizados.  Estes valores são devolvidos numa coleção de `RecognizedForm` objetos. Veja o exemplo [Analisar formulários personalizados.](#analyze-forms-with-a-custom-model)
- - Reconhecendo o conteúdo da forma, incluindo tabelas, linhas e palavras, sem a necessidade de formar um modelo.  O conteúdo do formulário é devolvido numa coleção de `FormPage` objetos. Ver exemplo [Reconhecer o conteúdo da forma.](#recognize-form-content)
- - Reconhecendo campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado no serviço Form Recogniser. Estes campos e meta-dados são devolvidos numa coleção de `RecognizedForm` objetos. Ver exemplo [Reconhecer recibos.](#recognize-receipts)
+ - Reconhecendo o conteúdo da forma, incluindo tabelas, linhas e palavras, sem a necessidade de formar um modelo.  O conteúdo do formulário é devolvido numa coleção de `FormPage` objetos. Veja o exemplo [Analisar o layout](#analyze-layout).
+ - Reconhecendo campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado no serviço Form Recogniser. Estes campos e meta-dados são devolvidos numa coleção de `RecognizedForm` objetos. Veja o exemplo [Analisar recibos.](#analyze-receipts)
 
 ### <a name="formtrainingclient"></a>FormaTrainingClient
 
@@ -137,8 +137,8 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 #### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo da forma](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
 * [Preparar um modelo personalizado](#train-a-custom-model)
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
@@ -146,10 +146,10 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 #### <a name="version-21-preview"></a>[versão 2.1 pré-visualização](#tab/preview)
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo da forma](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
-* [Reconhecer cartões de visita](#recognize-business-cards)
-* [Reconhecer faturas](#recognize-invoices)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
+* [Analisar cartões de visita](#analyze-business-cards)
+* [Analisar faturas](#analyze-invoices)
 * [Preparar um modelo personalizado](#train-a-custom-model)
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
@@ -189,7 +189,7 @@ Também terá de adicionar referências aos URLs para os seus dados de treino e 
 ---
 
 
-## <a name="recognize-form-content"></a>Reconhecer o conteúdo da forma
+## <a name="analyze-layout"></a>Analisar layout
 
 Pode utilizar o Form Recogniser para reconhecer tabelas, linhas e palavras em documentos, sem precisar de treinar um modelo. O valor devolvido é uma coleção de objetos **FormPage:** um para cada página no documento submetido. 
 
@@ -239,7 +239,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## <a name="recognize-receipts"></a>Reconhecer recibos
+## <a name="analyze-receipts"></a>Analisar recibos
 
 Esta secção demonstra como reconhecer e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado.
 
@@ -298,7 +298,7 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+## <a name="analyze-business-cards"></a>Analisar cartões de visita
 
 #### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
@@ -323,7 +323,7 @@ O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada car
 
 ---
 
-## <a name="recognize-invoices"></a>Reconhecer faturas
+## <a name="analyze-invoices"></a>Analisar faturas
 
 #### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
@@ -661,7 +661,7 @@ dotnet run
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

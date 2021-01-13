@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 036cab033e5b70a8940a488c07374e9092d52b33
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 04f873763b087bfd5168abc2c558cc9d7161c361
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533660"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132142"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Linha de segurança Azure para Azure HPC Cache
 
@@ -108,7 +108,7 @@ O Azure HPC Cache não se destina a executar aplicações web, e não exige que 
 
 - [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](../ddos-protection/manage-ddos-protection.md) 
 
-- [Recomendações do Centro de Segurança do Azure](../security-center/recommendations-reference.md#recs-network)
+- [Recomendações do Centro de Segurança do Azure](../security-center/recommendations-reference.md#recs-networking)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

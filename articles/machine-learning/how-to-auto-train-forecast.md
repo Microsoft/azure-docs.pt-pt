@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796436"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132087"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 
@@ -128,7 +128,7 @@ A aprendizagem automática de máquinas tenta automaticamente diferentes modelos
 >[!Tip]
 > Os modelos tradicionais de regressão também são testados como parte do sistema de recomendação para as experiências de previsão. Consulte a [tabela de modelos suportada](how-to-configure-auto-train.md#supported-models) para a lista completa dos modelos. 
 
-Modelos| Description | Benefícios
+Modelos| Descrição | Benefícios
 ----|----|---
 Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
 Auto-ARIMA (Pré-visualização)|A média móvel integrada autorregressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
@@ -221,9 +221,12 @@ As personalizações suportadas para `forecasting` tarefas incluem:
 |--|--|
 |**Atualização do propósito da coluna**|Substitua o tipo de função detetada automaticamente para a coluna especificada.|
 |**Atualização do parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente suporta *o Imputer* (fill_value e mediano).|
-|**Colunas de queda** |Especifica as colunas a deixar de serem apresentando.|
+|**Remover colunas** |Especifica as colunas a deixar de serem apresentando.|
 
 Para personalizar as ações com o SDK, especifique `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Saiba mais sobre [as apresentações personalizadas.](how-to-configure-auto-features.md#customize-featurization)
+
+>[!NOTE]
+> A funcionalidade **das colunas de queda** é depreciada a partir da versão SDK 1.19. Largue as colunas do seu conjunto de dados como parte da limpeza de dados, antes de consumi-la na sua experiência automatizada de ML. 
 
 ```python
 featurization_config = FeaturizationConfig()

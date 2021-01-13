@@ -1,7 +1,7 @@
 ---
-title: Sintonize hiperparmetros para o seu modelo
+title: Hiperparametro afinando um modelo
 titleSuffix: Azure Machine Learning
-description: Afinar eficientemente hiperparmetros para modelos de aprendizagem profunda e machine learning usando Azure Machine Learning.
+description: Automatize a afinação de hiperparímetros para a aprendizagem profunda e modelos de aprendizagem automática usando Azure Machine Learning.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029078"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133866"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Sintonize hiperparmetros para o seu modelo com Azure Machine Learning
+# <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning
 
 
 Automatizar uma afinação eficiente do hiperparametro utilizando o pacote Azure Machine Learning [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Saiba como completar os passos necessários para sintonizar hiperparímetros com o [Azure Machine Learning SDK:](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
@@ -31,11 +31,11 @@ Automatizar uma afinação eficiente do hiperparametro utilizando o pacote Azure
 1. Visualizar as corridas de treino
 1. Selecione a melhor configuração para o seu modelo
 
-## <a name="what-are-hyperparameters"></a>O que são hiperparímetros?
+## <a name="what-is-hyperparameter-tuning"></a>O que é a sintonização hiperparítnica?
 
 **Os hiperparmetros** são parâmetros ajustáveis que permitem controlar o processo de treino do modelo. Por exemplo, com redes neurais, você decide o número de camadas escondidas e o número de nós em cada camada. O desempenho do modelo depende fortemente de hiperparímetros.
 
- **A sintonização hiperparítnica** é o processo de encontrar a configuração de hiperparímetros que resulta no melhor desempenho. O processo é tipicamente computacionalmente caro e manual.
+ **A sintonização hiperparítnica**, também chamada **de otimização do hiperparímetro,** é o processo de encontrar a configuração de hiperparímetros que resulta no melhor desempenho. O processo é tipicamente computacionalmente caro e manual.
 
 O Azure Machine Learning permite automatizar a afinação de hiperparímetros e executar experiências paralelas para otimizar eficientemente os hiperparímetros.
 
@@ -46,7 +46,7 @@ Sintonize os hiperparmetros explorando a gama de valores definidos para cada hip
 
 Os hiperparmetros podem ser discretos ou contínuos, e tem uma distribuição de valores descritos por uma [expressão de parâmetro](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py).
 
-### <a name="discrete-hyperparameters"></a>Hiperparímetros discretos 
+### <a name="discrete-hyperparameters"></a>Hiperparímetros discretos
 
 Os hiperparmetros discretos são especificados como um `choice` entre valores discretos. `choice` pode ser:
 
@@ -296,7 +296,7 @@ max_concurrent_runs=4
 
 Este código configura a experiência de sintonização do hiperparímetro para utilizar um máximo de 20 corridas totais, executando quatro configurações de cada vez.
 
-## <a name="configure-experiment"></a>Experiência de configuração
+## <a name="configure-hyperparameter-tuning-experiment"></a>Configure experiência de afinação de hiperparímetro
 
 Para configurar a sua experiência [de afinação de hiperparímetros,](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) forneça o seguinte:
 * O espaço de pesquisa de hiperparímetro definido
@@ -323,7 +323,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="submit-experiment"></a>Submeter experiência
+## <a name="submit-hyperparameter-tuning-experiment"></a>Submeter experiência de afinação de hiperparímetros
 
 Depois de definir a configuração de sintonização do hiperparímetro, [submeta a experiência:](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-)
 
@@ -333,7 +333,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hd_config)
 ```
 
-## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Comece quente a sua experiência de afinação de hiperparímetros (opcional)
+## <a name="warm-start-hyperparameter-tuning-optional"></a>Sintonização hiperparítnica de início quente (opcional)
 
 Encontrar os melhores valores de hiperparímetro para o seu modelo pode ser um processo iterativo. Pode reutilizar o conhecimento das cinco corridas anteriores para acelerar a afinação do hiperparímetro.
 
@@ -380,7 +380,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="visualize-experiment"></a>Visualizar a experiência
+## <a name="visualize-hyperparameter-tuning-runs"></a>Visualize corridas de afinação de hiperparímetros
 
 Utilize o [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) para visualizar o progresso das suas corridas de treino. O seguinte corte visualiza toda a sua afinação hiperparítnica corre em um lugar em um lugar em um caderno Jupyter:
 
@@ -391,15 +391,15 @@ RunDetails(hyperdrive_run).show()
 
 Este código apresenta uma tabela com detalhes sobre as corridas de treino para cada uma das configurações do hiperparímetro.
 
-![mesa de afinação hiperparímetro](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+![mesa de afinação hiperparímetro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
 
 Também pode visualizar o desempenho de cada uma das corridas à medida que o treino progride. 
 
-![enredo de afinação hiperparaípeiro](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+![enredo de afinação hiperparaípeiro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
 
 Pode identificar visualmente a correlação entre desempenho e valores de hiperparímetros individuais utilizando um Plano de Coordenadas Paralelas. 
 
-[![hiperparatómetro afinar coordenadas paralelas](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![hiperparatómetro afinar coordenadas paralelas](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 Também pode visualizar todas as suas correções de afinação de hiperparímetros no portal web Azure. Para obter mais informações sobre como ver uma experiência no portal, veja [como rastrear experiências.](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)
 
@@ -420,6 +420,7 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Caderno de amostras
+
 Consulte os cadernos de comboio-hiperparameter-* nesta pasta:
 * [como usar-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 

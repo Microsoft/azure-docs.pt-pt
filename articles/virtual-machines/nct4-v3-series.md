@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 6463e54fb7f0a2cc03ffa043c00048c1131899ce
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 41ab057bdbf31667e45a73b2c5ded4993e716a66
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913435"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131564"
 ---
 # <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
@@ -26,7 +26,7 @@ As máquinas virtuais da série NCasT4_v3 são alimentadas por [GPUs Nvidia Tesl
 [Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
-[Suporte de geração VM](generation-2.md): Geração 1<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 Rede Acelerada: Suportada<br>
 Nvidia NVLink Interconnect: Não suportado<br>
 <br>

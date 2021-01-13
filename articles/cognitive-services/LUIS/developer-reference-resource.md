@@ -4,14 +4,14 @@ description: SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compr
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/19/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8641235fb754080303a9a463d0964e5655234ff2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0e8da4d490ef5c9afb2ac363b62f0f1a4fe66f5e
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024556"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133315"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento de SDK, REST e CLI para a Compreensão da Linguagem (LUIS)
 
@@ -86,10 +86,10 @@ O [esquema da aplicação](app-schema-definition.md) é importado e exportado em
 
 ### <a name="language-based-sdks"></a>SDKs baseados em linguagem
 
-|Idioma |Documentação de referência|Pacote|Guias de Início Rápido|
+|Linguagem |Documentação de referência|Pacote|Guias de Início Rápido|
 |--|--|--|--|
 |C#|[Criação](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Predição](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autoria nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Criação](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[Previsão de consulta](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
-|Ir|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
+|Go|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[Autoria e previsão](/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Autoria de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Previsão de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
 |JavaScript|[Criação](/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Predição](/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Autoria do NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Previsão de NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Criação](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[Predição](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
 |Python|[Autoria e previsão](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Criação](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[Predição](azure-sdk-quickstart.md?pivots=programming-language-python)|
@@ -119,15 +119,11 @@ Importar e exportar estes formatos está disponível nas APIs e no portal LUIS. 
 A estrutura bot está disponível como [SDK](https://github.com/Microsoft/botframework) em uma variedade de idiomas e como um serviço usando [o Azure Bot Service](https://dev.botframework.com/).
 
 A estrutura do bot fornece [várias ferramentas](https://github.com/microsoft/botbuilder-tools) para ajudar na compreensão da linguagem, incluindo:
-
-* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) - Construa modelos de compreensão linguística LUIS usando ficheiros de marcação
-* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Crie e gere as suas aplicações LUIS.ai
-* [Despacho](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- gerir aplicativos de pais e filhos
-* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto gera aulas de suporte C#/Typescript para as suas intenções e entidades LUIS.
 * [Emulador Bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases) - uma aplicação para desktop que permite aos desenvolvedores de bots testar e depurar bots construídos usando o Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - uma ferramenta integrada de desenvolvimento para desenvolvedores e equipas multidisciplinares para construir bots e experiências de conversação com o Microsoft Bot Framework
 * [Amostras de estrutura de](https://github.com/microsoft/botbuilder-samples) bot - em #C, JavaScript, TypeScript e Python
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os [códigos](luis-reference-response-codes.md) de erro HTTP comuns
 * [Documentação de referência](../../index.yml) para todos os APIs e SDKs

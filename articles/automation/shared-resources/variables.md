@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734781"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131530"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 
@@ -26,7 +26,7 @@ As variáveis de automatização são úteis para os seguintes cenários:
 
 A Azure Automation persiste em variáveis e disponibiliza-as mesmo que uma configuração de runbook ou DSC falhe. Este comportamento permite que um livro de execução ou configuração DSC desaje assim seja utilizado por outro runbook, ou pela mesma configuração de runbook ou DSC da próxima vez que for executado.
 
-A Azure Automation armazena cada variável encriptada de forma segura. Quando cria uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. Depois de criar a variável, não pode alterar o seu estado de encriptação sem recriar a variável. Se tiver variáveis de conta de Automação que armazenam dados sensíveis que ainda não estão encriptados, então tem de as eliminar e recriar como variáveis encriptadas. Uma recomendação do Azure Security Center é encriptar todas as variáveis Azure Automation, tal como descritas nas [variáveis de conta Demôm automação, devem ser encriptadas](../../security-center/recommendations-reference.md#recs-computeapp). Se tiver variáveis não encriptadas que deseja excluídas desta recomendação de segurança, consulte [isentar um recurso de recomendações e obter pontuação segura](../../security-center/exempt-resource.md) para criar uma regra de isenção.
+A Azure Automation armazena cada variável encriptada de forma segura. Quando cria uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. Depois de criar a variável, não pode alterar o seu estado de encriptação sem recriar a variável. Se tiver variáveis de conta de Automação que armazenam dados sensíveis que ainda não estão encriptados, então tem de as eliminar e recriar como variáveis encriptadas. Uma recomendação do Azure Security Center é encriptar todas as variáveis Azure Automation, tal como descritas nas [variáveis de conta Demôm automação, devem ser encriptadas](../../security-center/recommendations-reference.md#recs-compute). Se tiver variáveis não encriptadas que deseja excluídas desta recomendação de segurança, consulte [isentar um recurso de recomendações e obter pontuação segura](../../security-center/exempt-resource.md) para criar uma regra de isenção.
 
 >[!NOTE]
 >Os ativos seguros na Azure Automation incluem credenciais, certificados, conexões e variáveis encriptadas. Estes ativos são encriptados e armazenados na Azure Automation utilizando uma chave única que é gerada para cada conta Dem automação. A Azure Automation armazena a chave no Key Vault gerido pelo sistema. Antes de armazenar um ativo seguro, a Automatização carrega a chave do Key Vault e utiliza-a para encriptar o ativo.
@@ -35,7 +35,7 @@ A Azure Automation armazena cada variável encriptada de forma segura. Quando cr
 
 Quando cria uma variável com o portal Azure, deve especificar um tipo de dados da lista de abandono para que o portal possa apresentar o controlo adequado para introduzir o valor variável. Seguem-se os tipos variáveis disponíveis na Azure Automation:
 
-* String
+* Cadeia
 * Número inteiro
 * DateTime
 * Booleano
@@ -65,7 +65,7 @@ Os cmdlets na tabela seguinte criam e gerem variáveis de automação com PowerS
 
 Os cmdlets internos na tabela seguinte são utilizados para aceder a variáveis nos seus runbooks e configurações DSC. Estes cmdlets vêm com o módulo `Orchestrator.AssetManagement.Cmdlets` global. Para obter mais informações, consulte [as cmdlets internas.](modules.md#internal-cmdlets)
 
-| Cmdlet Interno | Description |
+| Cmdlet Interno | Descrição |
 |:---|:---|
 |`Get-AutomationVariable`|Obtém o valor de uma variável existente.|
 |`Set-AutomationVariable`|Define o valor de uma variável existente.|
@@ -84,7 +84,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 As funções na tabela seguinte são utilizadas para aceder a variáveis num livro de bordo Python 2 e 3. Os livros de 100 python estão atualmente em pré-visualização.
 
-|Funções Python|Description|
+|Funções Python|Descrição|
 |:---|:---|
 |`automationassets.get_automation_variable`|Obtém o valor de uma variável existente. |
 |`automationassets.set_automation_variable`|Define o valor de uma variável existente. |

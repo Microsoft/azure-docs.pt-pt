@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: b-juche
-ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915006"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133162"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
 O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo. Este artigo mostra-lhe como criar um volume que utiliza o protocolo duplo de NFSv3 e SMB com suporte para mapeamento de utilizador LDAP.  
 
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 
 * Você já deve ter criado uma piscina de capacidade.  
     Consulte [configurar uma piscina de capacidade.](azure-netapp-files-set-up-capacity-pool.md)   
@@ -39,7 +39,6 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 * Crie uma zona de procura inversa no servidor DNS e, em seguida, adicione um registo de ponteiro (PTR) da máquina hospedeira de AD nessa zona de procura inversa. Caso contrário, a criação de volume de duplo protocolo falhará.
 * Confirme que o cliente NFS está atualizado e a executar as atualizações mais recentes do sistema operativo.
 * Certifique-se de que o servidor LDAP do Ative Directory (AD) está a funcionar no AD. Pode fazê-lo instalando e configurando o papel [de Diretório Leve Ativo (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na máquina AD.
-* Certifique-se de que é criada uma autoridade de certificados (CA) para a AD utilizando a função [de Serviços de Certificados de Diretório Ativo (CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para gerar e exportar o certificado de CA de raiz auto-assinado.   
 * Atualmente, os volumes de protocolo duplo não suportam os Serviços de Domínio do Diretório Ativo Azure (AADDS).  
 * A versão NFS utilizada por um volume de duplo protocolo é NFSv3. Como tal, aplicam-se as seguintes considerações:
     * O protocolo dual não suporta os atributos estendidos do Windows ACLS `set/get` dos clientes NFS.
@@ -105,9 +104,6 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 3. Clique **em Protocolo** e, em seguida, complete as seguintes ações:  
     * Selecione **o protocolo duplo (NFSv3 e SMB)** como o tipo de protocolo para o volume.   
 
-    * Selecione a ligação **Ative Directory** da lista de drop-down.  
-    O Ative Directory que utiliza deve ter um certificado de CA raiz de servidor. 
-
     * Especifique o **percurso de volume** para o volume.   
     Este percurso de volume é o nome do volume partilhado. O nome deve começar com um carácter alfabético, e deve ser único em cada subscrição e em cada região.  
 
@@ -122,32 +118,6 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     O volume que criou aparece na página Volumes. 
  
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
-
-## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Upload Ative Directory Certificate Authority certificado de raiz pública  
-
-1.  Siga [instalar a Autoridade de Certificação](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para instalar e configurar a Autoridade de Certificados ADDS. 
-
-2.  Siga [os certificados de visualização com o snap-in MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) para utilizar o snap-in MMC e a ferramenta Certificate Manager.  
-    Utilize o snap-in do Certificate Manager para localizar a raiz ou o certificado de emissão para o dispositivo local. Deverá executar os comandos de snap-in da Gestão de Certificados a partir de uma das seguintes definições:  
-    * Um cliente baseado no Windows que se juntou ao domínio e tem o certificado raiz instalado 
-    * Outra máquina no domínio que contém o certificado raiz  
-
-3. Exportar o certificado de CA raiz.  
-    Os certificados Root CA podem ser exportados do diretório das Autoridades de Certificação de Raízes Pessoais ou Fidedignas, conforme indicado nos seguintes exemplos:   
-    ![screenshot que mostra certificados pessoais](../media/azure-netapp-files/personal-certificates.png)   
-    ![screenshot que mostra autoridades de certificação de raiz confiáveis](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
-
-    Certifique-se de que o certificado é exportado na Base-64 codificada X.509 (. Formato CER) : 
-
-    ![Assistente de Exportação de Certificados](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Aceda à conta NetApp do volume de duplo protocolo, clique nas **ligações ative directory** e carre faça o upload do certificado de CA raiz utilizando a janela **'Join Ative Directory':**  
-
-    ![Certificado de CA raiz de servidor](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Certifique-se de que o nome da autoridade do certificado pode ser resolvido pelo DNS. Este nome é o campo "Emitido por" ou "Emitente" no certificado:  
-
-    ![Informações sobre certificados](../media/azure-netapp-files/certificate-information.png)
 
 ## <a name="manage-ldap-posix-attributes"></a>Gerir atributos LDAP POSIX
 

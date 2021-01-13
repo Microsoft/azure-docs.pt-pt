@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 835950cc68ca22ea3958d614d669d7a105fefe62
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955268"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132924"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -110,7 +110,7 @@ Saiba mais sobre a segurança do contentor do Security Center nos seguintes arti
 - [Como digitalizar os seus registos e endurecer os seus anfitriões Docker](container-security.md)
 - [Alertas de segurança das funcionalidades de proteção contra ameaças para os clusters de serviços Azure Kubernetes](alerts-reference.md#alerts-akscluster)
 - [Alertas de segurança das funcionalidades de proteção contra ameaças para os anfitriões do Serviço Azure Kubernetes](alerts-reference.md#alerts-containerhost)
-- [Recomendações de segurança para contentores](recommendations-reference.md#recs-containers)
+- [Recomendações de segurança para contentores](recommendations-reference.md#recs-compute)
 
 
 
@@ -195,7 +195,7 @@ Estas novas recomendações aparecerão nos mesmos quatro controlos de seguranç
 
 As recomendações também incluem a capacidade de correção rápida para ajudar a acelerar o processo de implementação. 
 
-Saiba mais sobre estas duas novas recomendações na tabela [de recomendações computacional e de aplicações.](recommendations-reference.md#recs-computeapp)
+Saiba mais sobre estas duas novas recomendações na tabela [de recomendações computacional e de aplicações.](recommendations-reference.md#recs-compute)
 
 Saiba mais sobre como o Azure Security Center utiliza o agente em [O que é o agente Log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)
 
@@ -232,7 +232,7 @@ O controlo de segurança "implementar as melhores práticas de segurança" inclu
 
 Uma recomendação existente, **as máquinas virtuais viradas para a Internet devem ser protegidas com grupos** de segurança de rede, não distinguindo entre VMs virados para a Internet e não virados para a Internet. Para ambos, uma recomendação de alta gravidade foi gerada se um VM não fosse atribuído a um grupo de segurança de rede. Esta nova recomendação separa as máquinas que não se estamos a passar pela Internet para reduzir os falsos positivos e evitar alertas desnecessários de alta gravidade.
 
-Saiba mais na tabela [de recomendações da Rede.](recommendations-reference.md#recs-network)
+Saiba mais na tabela [de recomendações da Rede.](recommendations-reference.md#recs-networking)
 
 
 
@@ -432,7 +432,7 @@ Exemplos de recomendações de identidade e acesso incluem:
 
 Se tiver subscrições no nível de preços gratuitos, as suas pontuações seguras serão impactadas por esta alteração, uma vez que nunca foram avaliadas pela sua identidade e segurança de acesso.
 
-Saiba mais sobre [recomendações de identidade e acesso.](recommendations-reference.md#recs-identity)
+Saiba mais sobre [recomendações de identidade e acesso.](recommendations-reference.md#recs-identityandaccess)
 
 Saiba mais sobre [a monitorização da identidade e do acesso.](security-center-identity-access.md)
 
@@ -737,7 +737,7 @@ O Centro de Segurança agora apoia cenários de gestão de inquilinos cruzados c
 
 O Azure Security Center (ASC) lançou novas recomendações de networking e melhorou algumas existentes. Agora, a utilização do Security Center garante uma proteção de rede ainda maior para os seus recursos. 
 
-[Saiba mais sobre as recomendações de rede.](recommendations-reference.md#recs-network)
+[Saiba mais sobre as recomendações de rede.](recommendations-reference.md#recs-networking)
 
 
 ## <a name="june-2019"></a>Junho de 2019

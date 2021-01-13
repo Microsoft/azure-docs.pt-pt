@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, app de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912989"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132584"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Quickstart: Construa um detetor de objetos com o website Custom Vision
 
@@ -104,9 +104,13 @@ Após o treino ter terminado, o desempenho do modelo é calculado e exibido. O s
 
 ![Os resultados do treino mostram a precisão geral e a recuperação, e a precisão média média.](./media/get-started-build-detector/trained-performance.png)
 
-### <a name="probability-threshold"></a>Limiar de Probabilidade
+### <a name="probability-threshold"></a>Limiar de probabilidade
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>Limiar de sobreposição
+
+O slider **do Limiar de Sobreposição** trata da forma correta como uma previsão correta de objetos deve ser considerada "correta" no treino. Define a sobreposição mínima permitida entre a caixa de delimitação de objetos prevista e a caixa de delimitação real inserida no utilizador. Se as caixas de delimitação não se sobreporem a este grau, a previsão não será considerada correta.
 
 ## <a name="manage-training-iterations"></a>Gerir iterações de formação
 

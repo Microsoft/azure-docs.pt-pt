@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814385"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132754"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -83,7 +83,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | fechaduras | âmbito de atribuição | 1-90 | Alfanuméricos, períodos, sublinhados, hífens e parênteses.<br><br>Não pode terminar em período. |
-> | políticasAssinsagens | âmbito de atribuição | 1-128 nome de exibição<br><br>Nome de recurso 1-64 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço. |
+> | políticasAssinsagens | âmbito de atribuição | 1-128 nome de exibição<br><br>Nome de recurso 1-64<br><br>1-24 nome de recurso no âmbito do grupo de gestão | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço. |
 > | políticasDefinições | âmbito de definição | 1-128 nome de exibição<br><br>Nome de recurso 1-64 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço. |
 > | políticasSetDefinitions | âmbito de definição | 1-128 nome de exibição<br><br>Nome de recurso 1-64<br><br>1-24 nome de recurso no âmbito do grupo de gestão | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço.  |
 
@@ -107,7 +107,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | lotAcons | Região | 3-24 | Letras minúsculas e números. |
+> | lotAcons | Region | 3-24 | Letras minúsculas e números. |
 > | lotacos / aplicações | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos /certificados | conta de lote | 5-45 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos / piscinas | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
@@ -655,7 +655,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | armazenamentoCotas / gestãoPolícias | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. Não se pode usar hífenes consecutivos. |
-> | mesa | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
+> | table | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 

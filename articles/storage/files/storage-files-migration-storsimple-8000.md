@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723983"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134352"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -137,7 +137,7 @@ Provavelmente terá de implementar várias contas de armazenamento da Azure. Cad
 
 Pode utilizar a mesma subscrição que utilizou para a sua implementação StorSimple ou outra. A única limitação é que a sua subscrição deve estar no mesmo inquilino do Azure Ative Directory que a subscrição StorSimple. Considere mover a assinatura StorSimple para o inquilino correto antes de iniciar uma migração. Só pode mover toda a subscrição. Os recursos individuais StorSimple não podem ser transferidos para um inquilino ou subscrição diferente.
 
-#### <a name="resource-group"></a>O grupo de recursos
+#### <a name="resource-group"></a>Grupo de recursos
 
 Os grupos de recursos estão a ajudar na organização de recursos e permissões de gestão de administração. Saiba mais sobre [grupos de recursos em Azure.](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)
 
@@ -441,6 +441,9 @@ Neste momento, existem diferenças entre a instância do Windows Server no local
 1. Alguns ficheiros podem ter sido deixados para trás pelo trabalho de transformação de dados por causa de caracteres inválidos. Em caso afirmativo, copie-os para a instância do Servidor do Windows ativada por Ficheiros Azure. Mais tarde, podes ajustá-los para que se sincronizem. Se não utilizar o Azure File Sync para uma determinada participação, é melhor renomear os ficheiros com caracteres inválidos no volume StorSimple. Em seguida, executar o RoboCopy diretamente contra a partilha de ficheiros Azure.
 
 > [!WARNING]
+> Robocopy no Windows Server 2019 vive atualmente um problema que fará com que os ficheiros tiered by Azure File Sync no servidor alvo sejam recopiados a partir da fonte e re-carregados para Azure quando utilizarem a função /MIR de robocopia. É imperativo que utilize robocopia num Servidor windows diferente de 2019. Uma escolha preferida é o Windows Server 2016. Esta nota será atualizada caso o problema seja resolvido através do Windows Update.
+
+> [!WARNING]
 > *Não deve* iniciar o RoboCopy antes que o servidor tenha o espaço de nome para uma partilha de ficheiros Azure descarregada na totalidade. Para mais informações, consulte [Determine quando o seu espaço de nome foi totalmente descarregado para o seu servidor.](#determine-when-your-namespace-has-fully-synced-to-your-server)
 
  Só queres copiar ficheiros que foram alterados depois do trabalho de migração ter sido feito pela última vez e ficheiros que nunca passaram por estes empregos antes. Pode resolver o problema por que não se moveram mais tarde no servidor, depois da migração estar completa. Para obter mais informações, consulte [a resolução de problemas do Azure File Sync](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -448,7 +451,7 @@ Neste momento, existem diferenças entre a instância do Windows Server no local
 RoboCopy tem vários parâmetros. O exemplo a seguir mostra um comando acabado e uma lista de razões para escolher estes parâmetros.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Antecedentes:
@@ -499,6 +502,14 @@ Antecedentes:
    :::column-end:::
    :::column span="1":::
       Permite que o RoboCopy considere apenas deltas entre a fonte (aparelho StorSimple) e o alvo (diretório do Windows Server).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Garante que a fidelidade é preservada em certos cenários de espelhos.</br>Exemplo: Entre dois Robocopy executa um ficheiro experimenta uma alteração ACL e uma atualização de atributos, por exemplo, também está marcada *escondida*. Sem /IT, a alteração ACL pode ser perdida pela Robocopy e, portanto, não transferida para o local alvo.
    :::column-end:::
 :::row-end:::
 :::row:::

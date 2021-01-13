@@ -1,16 +1,16 @@
 ---
 title: Tutorial - Implementar um modelo local de gestor de recursos Azure
 description: Saiba como implementar um modelo de Gestor de Recursos Azure (modelo ARM) a partir do computador local
-ms.date: 05/20/2020
+ms.date: 01/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 640d314711e34119dac5e1c5bf9fa245685b6f38
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 3b2368f5adcfa4b7140c4ec00243ca2cba5c566a
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368141"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134131"
 ---
 # <a name="tutorial-deploy-a-local-arm-template"></a>Tutorial: Implementar um modelo arm local
 
@@ -26,7 +26,7 @@ Comecemos por ter a certeza de que tem as ferramentas necessárias para implemen
 
 Você precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Para as instruções de instalação, consulte:
 
-- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 - [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
@@ -153,7 +153,7 @@ Para saber mais sobre a implementação do modelo utilizando o Azure CLI, consul
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Limpe os recursos que implementou eliminando o grupo de recursos.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab4ae6980af9556f973ece93634b614d01c615e9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183758"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132669"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
 
@@ -38,7 +38,7 @@ O tráfego de entrada e saída na sub-rede em que a API Management é implantada
 
 * [Utilizar o serviço Gestão de API do Azure com uma rede virtual interna](./api-management-using-with-internal-vnet.md)
 
-* [Integrar a Gestão da API num VNET interno com Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
+* [Integrar a Gestão de API numa VNET interna com o Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -189,7 +189,7 @@ Atenção: Ao configurar um NSG na sub-rede API Management, há um conjunto de p
 
 Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções Azure (Azure RBAC), e políticas numa única definição de planta. Pode aplicar facilmente o projeto a novas subscrições, ambientes e controlo e gestão de afinação através da versão.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -381,7 +381,7 @@ Siga as recomendações do Centro de Segurança Azure para a gestão e manutenç
 
 * [Como obter uma definição de papel de diretório em Azure AD com PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Compreender recomendações de identidade e acesso do Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Compreender recomendações de identidade e acesso do Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -424,7 +424,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 Em alternativa, o processo de inscrição/inscrição pode ser ainda mais personalizado através da delegação. A delegação permite-lhe utilizar o seu website existente para lidar com o sinal de desenvolvimento/inscrição e subscrição de produtos, em oposição à utilização da funcionalidade incorporada no portal do desenvolvedor. Permite que o seu website possua os dados do utilizador e realize a validação destes passos de forma personalizada.
 
-* [Como delegar o registo do utilizador e a subscrição do produto](./api-management-howto-setup-delegation.md)
+* [Como delegar o registo de utilizador e a subscrição do produto](./api-management-howto-setup-delegation.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -798,7 +798,7 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -836,7 +836,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
@@ -890,7 +890,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -908,7 +908,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Defina e implemente configurações de segurança padrão para os seus serviços de Gestão API Azure com Azure Policy. Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração de instâncias de Gestão API da Azure. Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
@@ -948,7 +948,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Defina e implemente configurações de segurança padrão para os seus serviços de Gestão API Azure com Azure Policy. Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração de instâncias de Gestão API da Azure. Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
@@ -970,7 +970,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 Além disso, defina e implemente configurações de segurança padrão para os seus serviços de Gestão API Azure com Azure Policy. Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração de instâncias de Gestão API da Azure. Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
@@ -1010,7 +1010,7 @@ Além disso, defina e implemente configurações de segurança padrão para os s
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1122,7 +1122,7 @@ Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminaç
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 * [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1150,7 +1150,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 * [Publicação do NIST - Guia de Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

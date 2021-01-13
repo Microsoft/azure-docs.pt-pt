@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862167"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132652"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de tecido de serviço suportado
 
@@ -25,25 +25,57 @@ Consulte os seguintes documentos para obter mais informações sobre como manter
 ## <a name="unsupported-versions"></a>Versões não suportadas
 
 ### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>Alerta de atualização para versões entre 5.7 e menos 6.3.63.*
+Para melhorar a segurança e a disponibilidade, a infraestrutura Azure fará uma alteração que poderá afetar os clientes do Service Fabric. **Todos os clusters de tecido de serviço em versões não suportadas de 5.7 a 6.3. são impactados**. Resolver a alteração requer uma atualização para o tempo de funcionamento do Service Fabric, que já está disponível para todas as versões suportadas do Service Fabric em todas as regiões.
 
-***Todos os clusters de Tecidos de Serviço que estão em versões não suportadas de 5.7 a 6.3.63.* será impactado por uma mudança de segurança que será lançada em Azure no dia 7 de janeiro de 2021****
- 
- Para evitar sérias perturbações de serviço (incluindo clusters não que venham), deve atualizar os seus clusters o mais rapidamente possível para uma das versões suportadas abaixo do tempo de execução do Service Fabric que inclui a correção para o problema de segurança. Contactamos os clientes afetados com orientação. Se você tem um plano de apoio e precisa de ajuda técnica, por favor contacte-nos através dos [canais de suporte Azure,](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) abrindo um pedido de apoio e mencionando este contexto no bilhete de apoio. 
- 
-  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>Versões de runtime de tecido de serviço suportado, incluindo a correção para a mudança de quebra de segurança 
-   Atualize os clusters de Tecido de Serviço que estão a funcionar em versões não suportadas mais antigas, impactados pela alteração de quebra de segurança para uma das versões suportadas abaixo.
+Solicitamos e recomendamos que tome medidas para atualizar as versões mais recentes suportadas até **19 de janeiro de 2021** para evitar interrupções de serviço Se tiver um plano de suporte e precisar de ajuda técnica, contacte-nos através dos canais de suporte Azure, abrindo um pedido de apoio à Azure Service Fabric e mencione este contexto no bilhete de apoio.
 
+#### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impacto Se NÃO Atualizado para versões suportadas
+
+**Agrupamentos de tecidos de serviço Azure que funcionam em versões não suportadas de 5.7 a 6.3.63. \* não será capaz de aparecer e estará indisponível** se não tiver atualizado para uma das versões suportadas abaixo até 19 de janeiro de 2021.
+
+#### <a name="required-action"></a>Ação Necessária
+Atualização para as versões suportadas pelo Tecido de Serviço listadas abaixo para evitar tempo de inatividade ou perda de funcionalidades relacionadas com esta alteração. Certifique-se de que os seus clusters estão a executar pelo menos estas versões para evitar problemas no seu ambiente.
+
+  ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de runtime de tecido de serviço suportado
+   Se estiver em NÃO nas versões suportadas abaixo da Service Fabric, faça upgrade para uma destas versões que já contenham as alterações necessárias para evitar o tempo de inatividade do cluster.  
+  
   | SO | Tempo de execução do tecido de serviço atual no cluster | Lançamento CU/Patch  | 
   | --- | --- |--- | 
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
   | Windows | 7.2.* | 7.2.445.9590 |
   | Ubuntu 16 | 7.0.* | 7.0.472.1  |
-  | Ubuntu 16 | 7.1.* | 7.1.455.1  |
-  | Ubuntu 1804 | 7.1.* | 7.1.455.1804 |
-  | Ubuntu 16 | 7.2.* | 7.2.447.1 |
-  | Ubuntu 1804 | 7.2.* | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7.1.* | 7.1.455.1  |
+  | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7.2.* | 7.2.447.1 |
+  | Linux Ubuntu 18.04 | 7.2.* | 7.2.447.1804 |
  
+### <a name="upgrade-alert-for-versions-greater-than-63"></a>Alerta de upgrade para versões superiores a 6.3 
+Para melhorar a segurança e a disponibilidade, a infraestrutura Azure fará uma alteração que poderá afetar os clientes do Service Fabric. **Todos os clusters de tecidos de serviço que utilizam [a função open networking para contentores,](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)funcionam em versões não suportadas superiores a 6.3 e abaixo de 7.0 e são impactadas versões suportadas incompatíveis a partir do ponto 7.0**. Resolver a alteração requer uma atualização para o tempo de funcionamento do Service Fabric, que já está disponível para todas as versões suportadas do Service Fabric em todas as regiões.
+
+ #### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impacto Se NÃO Atualizado para versões suportadas
+  Os clusters de tecidos de serviço Azure que **utilizam a funcionalidade open [networking para contentores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) e funciona em versões superiores a 6.3** que não incluem alterações sentirão perda de funcionalidade ou perturbações de serviço se NÃO for atualizada para uma das versões suportadas abaixo até **19 de janeiro de 2021**.
+ 
+  - **Para os clusters que executam uma versão do Tecido de Serviço superior a 6.3 NÃO utilizando a função open networking,** o cluster permanecerá em funcionamento, no entanto a função de rede aberta para clusters de contentores, deixará de funcionar, o que poderá causar interrupções de serviço nas suas cargas de trabalho.
+
+ - **Para os clusters que executam uma versão do Service Fabric superior a 6.3 e utilizar [a funcionalidade open networking para contentores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** ,o cluster permanecerá em funcionamento, mas deixará de funcionar, o que poderá causar interrupções de serviço nas suas cargas de trabalho.
+  
+#### <a name="required-action"></a>Ação Necessária
+Atualização para as versões suportadas pelo Tecido de Serviço listadas abaixo para evitar tempo de inatividade ou perda de funcionalidades relacionadas com esta alteração. Certifique-se de que os seus clusters estão a executar pelo menos estas versões para evitar problemas no seu ambiente. 
+ 
+ ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de runtime de tecido de serviço suportado
+ Se estiver em NÃO nas versões suportadas abaixo da Service Fabric, faça upgrade para uma destas versões que já contêm as alterações necessárias para evitar a perda de funcionalidade.  
+ 
+  | SO | Tempo de execução do tecido de serviço atual no cluster | Lançamento CU/Patch  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.445.9590 |
+  | Linux Ubuntu 16.04 | 7.0.* | 7.0.472.1  |
+  | Linux Ubuntu 16.04 | 7.1.* | 7.1.455.1  |
+  | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7.2.* | 7.2.447.1 |
+  | Linux Ubuntu 18.04 | 7.2.* | 7.2.447.1804 |
 
 ## <a name="supported-versions"></a>Versões suportadas
 A tabela que se segue lista as versões do Service Fabric e as datas finais de suporte.

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535304"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131292"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -41,7 +41,7 @@ A nuvem Azure fornece vários outros oleodutos, cada um com um propósito difere
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | Orquestração modelo (Machine learning) | Cientista de dados | Gasodutos de aprendizagem de máquinas Azure | Gasodutos Kubeflow | Modelo data -> | Distribuição, caching, código-primeiro, reutilização | 
 | Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Fluxo de ar Apache | Dados -> Dados | Movimento fortemente dactilografado, atividades centradas em dados |
-| Código & orquestração de aplicações (CI/CD) | Desenvolvedor de Aplicativos / Ops | [Gasodutos Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -> App/Serviço | Suporte de atividade mais aberto e flexível, filas de aprovação, fases com gating | 
+| Código & orquestração de aplicações (CI/CD) | Desenvolvedor de Aplicativos / Ops | [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -> App/Serviço | Suporte de atividade mais aberto e flexível, filas de aprovação, fases com gating | 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>O que podem os oleodutos Azure ML fazer?
 
@@ -107,15 +107,18 @@ experiment = Experiment(ws, 'MyExperiment')
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData("output_data", datastore=blob_store)
-
+dataprep_step = PythonScriptStep(
+    name="prep_data",
+    script_name="dataprep.py",
+    compute_target=cluster,
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
+output_data = OutputFileDatasetConfig()
 input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
     arguments=["--input", input_named.as_download(), "--output", output_data],
-    inputs=[input_data],
-    outputs=[output_data],
     compute_target=compute_target,
     source_directory="myfolder"
 ) ]
@@ -126,7 +129,9 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . A matriz `steps` contém um único elemento, um que `PythonScriptStep` utilizará os objetos de dados e funcionará no `compute_target` . Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
+O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . `input_data`Trata-se de uma instância do [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` é um exemplo de [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor gerado `output-name` automaticamente se não for especificado pelo desenvolvedor.
+
+A matriz `steps` contém um único elemento, um que `PythonScriptStep` utilizará os objetos de dados e funcionará no `compute_target` . Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
 
 Para saber mais sobre a ligação do seu oleoduto aos seus dados, consulte os artigos [Acesso de dados em Azure Machine Learning](concept-data.md) e Moving datas dentro e entre etapas de gasoduto [ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
@@ -142,7 +147,7 @@ Ao conceber os oleodutos visualmente, as entradas e saídas de um degrau são vi
 
 As principais vantagens da utilização de oleodutos para os seus fluxos de trabalho de aprendizagem automática são:
 
-|Vantagem chave|Description|
+|Vantagem chave|Descrição|
 |:-------:|-----------|
 |**Corridas sem &nbsp; supervisão**|Agende os passos para ser executado em paralelo ou em sequência de forma fiável e sem supervisão. A preparação e modelação de dados podem durar dias ou semanas, e os oleodutos permitem-lhe focar-se noutras tarefas enquanto o processo está em curso. |
 |**Cálculo heterogéneo**|Utilize vários oleodutos que são coordenados de forma fiável através de recursos de computação heterogéneos e escaláveis e locais de armazenamento. Faça uma utilização eficiente dos recursos de computação disponíveis executando etapas individuais de gasodutos em diferentes alvos de computação, tais como HDInsight, GPU Data Science VMs e Databricks.|

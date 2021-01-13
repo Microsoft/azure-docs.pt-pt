@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030854"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131343"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -27,7 +27,7 @@ O Security Center oferece mais funcionalidades de segurança para contentores se
 - Obtenha alertas de deteção de ameaças em tempo real para os seus clusters K8s [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> Para obter uma lista de *todas as* recomendações de segurança que possam aparecer para aglomerados e nós de Kubernetes, consulte a secção de [recipientes](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+> Para obter uma lista de *todas as* recomendações de segurança que possam aparecer para os clusters e nós de Kubernetes, consulte a secção de [cálculo](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
 
 
 
@@ -39,7 +39,7 @@ O Security Center oferece mais funcionalidades de segurança para contentores se
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de proprietário** ou **segurança** para editar uma atribuição<br>**Leitor** para ver as recomendações|
 |Aglomerados apoiados:|Kubernetes v1.14 (ou superior) é necessário<br>Sem recurso PodSecurityPolicy (modelo antigo da PSP) nos clusters<br>Os nómadas do Windows não são suportados|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -251,6 +251,6 @@ Neste artigo, aprendeu a configurar a proteção da carga de trabalho da Kuberne
 
 Para outros materiais relacionados, consulte as seguintes páginas: 
 
-- [Recomendações do Centro de Segurança para contentores](recommendations-reference.md#recs-containers)
+- [Recomendações do Centro de Segurança para o cálculo](recommendations-reference.md#recs-compute)
 - [Alertas para o nível de cluster AKS](alerts-reference.md#alerts-akscluster)
 - [Alertas para o nível de hospedeiro de contentores](alerts-reference.md#alerts-containerhost)

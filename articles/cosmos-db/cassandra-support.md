@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188552"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134233"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -84,10 +84,11 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 | Token * | Yes |
 | ttl | Yes |
 | tempo de escrita | Yes |
-| elenco | No |
+| elenco ** | Yes |
 
-> [!NOTE]
-> \* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` **não** é apoiado.
+> [!NOTE] 
+> \* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` **não** é apoiado.  
+> \*\* A `cast()` função não é nesteble na API de Cassandra. Por exemplo, `SELECT cast(count as double) FROM myTable` é apoiado, mas `SELECT avg(cast(count as double)) FROM myTable` **não** é apoiado.
 
 
 
@@ -139,58 +140,82 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 |---------|---------|
 | PERMITIR A FILTRAGEM | Yes |
 | ALTERAR O ESPAÇO DE CHAVES | N/A (serviço PaaS, replicação gerida internamente)|
-| ALTERAR VISTA MATERIALIZADA | No |
-| ALTERAR PAPEL | No |
+| ALTERAR VISTA MATERIALIZADA | Não |
+| ALTERAR PAPEL | Não |
 | ALTER TABLE | Yes |
-| TIPO ALTER | No |
-| UTILIZADOR ALTER | No |
+| TIPO ALTER | Não |
+| UTILIZADOR ALTER | Não |
 | LOTE | Sim (apenas lote não enólogo)|
 | ARMAZENAMENTO COMPACTO | N/A (serviço PaaS) |
-| CRIAR AGREGADO | No | 
-| CRIAR ÍNDICE PERSONALIZADO (SASI) | No |
+| CRIAR AGREGADO | Não | 
+| CRIAR ÍNDICE PERSONALIZADO (SASI) | Não |
 | CREATE INDEX | Sim (sem [especificar o nome do índice](cassandra-secondary-index.md), e índices em chaves de agrupamento ou recolha completa de FROZEN não suportada) |
-| CREATE FUNCTION | No |
+| CREATE FUNCTION | Não |
 | CRIAR KEYSPACE (definições de replicação ignoradas) | Yes |
-| CRIAR VISTA MATERIALIZADA | No |
+| CRIAR VISTA MATERIALIZADA | Não |
 | CREATE TABLE | Yes |
-| CRIAR GATILHO | No |
+| CRIAR GATILHO | Não |
 | CRIAR TIPO | Yes |
-| CRIAR PAPEL | No |
-| CREATE USER (Deprecado em Apache Cassandra nativo) | No |
+| CRIAR PAPEL | Não |
+| CREATE USER (Deprecado em Apache Cassandra nativo) | Não |
 | DELETE | Yes |
 | EXCLUIR (transações leves com IF CONDITION)| Yes |
-| DISTINCT | No |
-| AGREGADO DE DROP | No |
-| DROP FUNCTION | No |
+| DISTINCT | Não |
+| AGREGADO DE DROP | Não |
+| DROP FUNCTION | Não |
 | DROP INDEX | Yes |
 | DROP KEYSPACE | Yes |
-| VISTA MATERIALIZADA GOTA | No |
-| PAPEL DE DROP | No |
+| VISTA MATERIALIZADA GOTA | Não |
+| PAPEL DE DROP | Não |
 | DROP TABLE | Yes |
-| DETONADOR DE QUEDA | No | 
+| DETONADOR DE QUEDA | Não | 
 | TIPO DE GOTA | Yes |
-| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | No |
-| GRANT | No |
+| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | Não |
+| GRANT | Não |
 | INSERT | Yes |
 | INSIRA (transações leves com IF CONDITION)| Yes |
-| PERMISSÕES DE LISTA | No |
-| FUNÇÕES DE LISTA | No |
-| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | No |
-| REVOKE | No |
+| PERMISSÕES DE LISTA | Não |
+| FUNÇÕES DE LISTA | Não |
+| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | Não |
+| REVOKE | Não |
 | SELECIONAR | Yes |
-| SELECT (transações leves com IF CONDITION)| No |
+| SELECT (transações leves com IF CONDITION)| Não |
 | UPDATE | Yes |
-| ATUALIZAÇÃO (transações leves com IF CONDITION)| No |
-| TRUNCATO | No |
+| ATUALIZAÇÃO (transações leves com IF CONDITION)| Não |
+| TRUNCATO | Não |
 | USE | Yes |
+
+## <a name="cql-shell-commands"></a>Comandos CQL Shell
+
+O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da API para Cassandra.
+
+|Comando  |Suportado |
+|---------|---------|
+| CAPTURA | Yes |
+| CLARO | Yes |
+| CONSISTÊNCIA * | N/D |
+| CÓPIA | Não |
+| DESCREVER | Yes |
+| cqlshExpand | Não |
+| SAÍDA | Yes |
+| LOGIN | N/A (a função CQL `USER` não é suportada, portanto `LOGIN` é redundante) |
+| PAGING | Yes |
+| CONSISTÊNCIA EM SÉRIE * | N/D |
+| SHOW | Yes |
+| ORIGEM | Yes |
+| RASTREIO | N/A (Cassandra API é apoiada pela Azure Cosmos DB - use [o registo de diagnóstico](cosmosdb-monitor-resource-logs.md) para resolução de problemas) |
+
+> [!NOTE] 
+> \* A consistência funciona de forma diferente na Azure Cosmos DB, consulte [aqui](cassandra-consistency.md) para mais informações.  
+
 
 ## <a name="json-support"></a>Suporte JSON
 |Comando  |Suportado |
 |---------|---------|
 | SELECIONE JSON | Yes |
 | INSERIR JSON | Yes |
-| fromJson() | No |
-| toJson() | No |
+| fromJson() | Não |
+| toJson() | Não |
 
 
 ## <a name="cassandra-api-limits"></a>Limites da API para Cassandra

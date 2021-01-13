@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: cfb83c4ec9972fda3813d414583bc73edeef3229
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 01/12/2021
+ms.openlocfilehash: ff83e559919a836208faae4eae4a5f992534b6cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285972"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134165"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilização de Apache Ambari em Azure HDInsight
 
@@ -65,6 +65,15 @@ Para qualquer cluster com nó de trabalhador conta maior que 16 ao criar o clust
 Nunca inicie/pare manualmente os serviços de ambari-servidor ou ambari-agent, a menos que esteja a tentar reiniciar o serviço para resolver um problema. Para forçar um fracasso, pode reiniciar o headnode ativo.
 
 Nunca modifique manualmente quaisquer ficheiros de configuração em nenhum nó de cluster, deixe a Ambari UI fazer o trabalho por si.
+
+## <a name="property-values-in-esp-clusters"></a>Valores imobiliários em clusters ESP
+
+Nos clusters HDInsight 4.0 Enterprise Security Package, utilize tubos `|` em vez de vírgulas como delimiters variáveis. Apresentamos um exemplo abaixo:
+
+```
+Property Key: hive.security.authorization.sqlstd.confwhitelist.append
+Property Value: environment|env|dl_data_dt
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

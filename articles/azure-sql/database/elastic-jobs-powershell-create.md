@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427289"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131938"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Criar um agente de trabalho elástico utilizando o PowerShell (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,19 +123,11 @@ $db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targ
 $db2
 ```
 
-## <a name="use-elastic-jobs"></a>Use trabalhos elásticos
-
-Para utilizar o Elastic Jobs, registe a funcionalidade na sua subscrição Azure executando o seguinte comando. Executar este comando uma vez para a subscrição na qual pretende provisionar o agente Desemelhado. As subscrições que contenham apenas bases de dados que sejam alvos de emprego não precisam de ser registadas.
-
-```powershell
-Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
-```
-
 ### <a name="create-the-elastic-job-agent"></a>Criar o agente de Tarefa Elástica
 
 Um agente de Tarefa Elástica é um recurso do Azure para criar, executar e gerir tarefas. O agente executa tarefas com base num agendamento ou como uma tarefa única.
 
-O **cmdlet New-AzSqlElasticJobAgent** requer que já exista uma base de dados na Base de Dados Azure SQL, pelo que os *recursosGroupName,* *serverName*e *base de dados* Os parâmetros do Nome de Base de Dados devem apontar todos para os recursos existentes.
+O **cmdlet New-AzSqlElasticJobAgent** requer que já exista uma base de dados na Base de Dados Azure SQL, pelo que os *recursosGroupName,* *serverName* e *base de dados* Os parâmetros do Nome de Base de Dados devem apontar todos para os recursos existentes.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -205,7 +197,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 Um [grupo de destino](job-automation-overview.md#target-group) define o conjunto de um ou mais bases de dados onde será executado um passo de tarefa.
 
-O seguinte snippet cria dois grupos-alvo: *serverGroup*e *serverGroupExcludingDb2*. *o serverGroup* visa todas as bases de dados existentes no servidor no momento da execução, e o *servidorGroupExcludingDb2* visa todas as bases de dados no servidor, exceto o *targetDb2*:
+O seguinte snippet cria dois grupos-alvo: *serverGroup* e *serverGroupExcludingDb2*. *o serverGroup* visa todas as bases de dados existentes no servidor no momento da execução, e o *servidorGroupExcludingDb2* visa todas as bases de dados no servidor, exceto o *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -288,7 +280,7 @@ A tabela que se segue enumera os possíveis estados de execução de empregos:
 |**Ignorado** | A execução do emprego foi ignorada porque outra execução do mesmo passo de trabalho já estava a decorrer no mesmo alvo.|
 |**WaitingForChildJobExecutions** | A execução do trabalho está à espera que as suas execuções infantis terminem.|
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Elimine os recursos do Azure criados neste tutorial ao eliminar o grupo de recursos.
 

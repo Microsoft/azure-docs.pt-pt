@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 696ba785abb317a29de38160440dc06487ff5bca
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 87966a9bd2f83916998a724fc6c1c26a91609665
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673890"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133400"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviçoS Azure Kubernetes
 
@@ -68,17 +68,21 @@ Onde `--enable-private-cluster` está uma bandeira obrigatória para um aglomera
 
 ### <a name="configure-private-dns-zone"></a>Configurar zona privada de DNS
 
-O valor predefinido é "sistema", se o argumento da zona de dns-privado for omitido. A AKS criará uma Zona Privada de DNS no Grupo de Recursos de Nó. Passar o parâmetro "nenhum" significa que a AKS não criará uma Zona Privada de DNS.  Isto baseia-se no Bring Your Own DNS Server e na configuração da resolução DNS para o FQDN Privado.  Se não configurar a resolução DNS, o DNS só é resolúvel dentro dos nós do agente e causará problemas de cluster após a implementação.
+Os seguintes parâmetros podem ser alavancados para configurar a Zona Privada de DNS.
+
+1. "Sistema" é o valor predefinido. Se o argumento da zona de dns-private for omitido, a AKS criará uma Zona Privada de DNS no Grupo de Recursos de Nó.
+2. "Nenhum" significa que a AKS não criará uma Zona Privada de DNS.  Isto requer que você traga o seu próprio servidor DNS e configurar a resolução DNS para o FQDN privado.  Se não configurar a resolução DNS, o DNS só é resolúvel dentro dos nós do agente e causará problemas de cluster após a implementação.
+3. "Nome de zona de dns privado personalizado" deve estar neste formato para a nuvem global azul: `privatelink.<region>.azmk8s.io` . O utilizador designado como título ou principal de serviço deve ser concedido, pelo `private dns zone contributor` menos, à zona privada personalizada do DNS.
 
 ## <a name="no-private-dns-zone-prerequisites"></a>Sem Pré-requisitos privados da zona do DNS
-Sem PrivateDNSZone
-* A versão Azure CLI 0.4.67 ou mais tarde
+
+* A versão Azure CLI 0.4.71 ou mais tarde
 * A versão api 2020-11-01 ou mais tarde
 
 ## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Criar um cluster AKS privado com Zona Privada de DNS
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opções de ligação ao cluster privado
 

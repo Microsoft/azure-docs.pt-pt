@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/12/2021
+ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825143"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131666"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planeie uma rede virtual para a Azure HDInsight
 
@@ -51,7 +51,8 @@ Seguem-se as perguntas que deve responder ao planear instalar o HDInsight numa r
 Utilize os passos nesta secção para descobrir como adicionar um novo HDInsight a uma Rede Virtual Azure existente.
 
 > [!NOTE]  
-> Não é possível adicionar um cluster HDInsight existente numa rede virtual.
+> - Não é possível adicionar um cluster HDInsight existente numa rede virtual.
+> - O VNET e o cluster criado devem estar na mesma subscrição.
 
 1. Está a utilizar um modelo de implementação clássico ou gestor de recursos para a rede virtual?
 

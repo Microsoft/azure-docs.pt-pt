@@ -3,12 +3,12 @@ title: Adicione dinamicamente divisórias a um centro de eventos em Azure Event 
 description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a um centro de eventos em Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002544"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132176"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs
 O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos. Uma partição é uma sequência ordenada de eventos mantida num hub de eventos. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Para obter mais informações sobre divisórias em geral, consulte [As Partições](event-hubs-scalability.md#partitions)
@@ -71,7 +71,7 @@ O Event Hubs oferece três opções de remetente:
 
 - **Remetente de partição** – Neste cenário, os clientes enviam eventos diretamente para uma partição. Embora as divisórias sejam identificáveis e os eventos possam ser enviados diretamente para eles, não recomendamos este padrão. Adicionar divisórias não afeta este cenário. Recomendamos que reinicie as aplicações para que possam detetar as novas divisórias adicionadas. 
 - **Remetente chave de partição** – neste cenário, os clientes enviam os eventos com uma chave para que todos os eventos pertencentes a essa chave acabem na mesma partição. Neste caso, o serviço tem a chave e as rotas para a partição correspondente. A atualização da contagem de divisórias pode causar problemas fora de ordem devido a alterações de hashing. Por isso, se se preocupa em encomendar, certifique-se de que a sua aplicação consome todos os eventos das divisórias existentes antes de aumentar a contagem de divisórias.
-- **Remetente round-robin (padrão)** – Neste cenário, o serviço Event Hubs roda os eventos através de divisórias. O serviço Event Hubs está ciente das alterações na contagem de divisórias e enviará para novas divisórias poucos segundos após alterar a contagem de divisórias.
+- **Remetente round-robin (padrão)** – Neste cenário, o serviço Event Hubs roda os eventos através de divisórias, e também usa um algoritmo de equilíbrio de carga. O serviço Event Hubs está ciente das alterações na contagem de divisórias e enviará para novas divisórias poucos segundos após alterar a contagem de divisórias.
 
 ### <a name="receiverconsumer-clients"></a>Clientes recetores/consumidores
 O Event Hubs fornece recetores diretos e uma biblioteca de consumidores fácil chamada [Host de Processador de Eventos (antigo SDK)](event-hubs-event-processor-host.md)  ou Processador de [Eventos (novo SDK)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Quando um membro do grupo de consumidores executa uma atualização de metadados
     > [!IMPORTANT]
     > Enquanto os dados existentes preservam a encomenda, o hashing da partição será quebrado para mensagens hashed após a contagem de divisórias mudar devido à adição de divisórias.
 - A adição de divisórias a um tópico ou exemplo de centro de eventos existente é recomendada nos seguintes casos:
-    - Quando se usa o método de rodada de robin (predefinido) de envio de eventos
+    - Quando se usa o método padrão de envio de eventos
      - Estratégias de partição padrão de Kafka, exemplo – Estratégia de Atribuição Pegajosa
 
 

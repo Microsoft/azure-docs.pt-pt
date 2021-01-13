@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674502"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131479"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -236,14 +236,14 @@ As seguintes notas de lançamento são para a versão 9.0.0.0 do agente Azure Fi
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas que são corrigidos
 
 - Suporte de restauração de autosserviço
-    - Os utilizadores podem agora restaurar os seus ficheiros utilizando a funcionalidade de versão anterior. Antes do lançamento do V9, a versão anterior não era suportada em volumes que tivessem o tiering de nuvem ativado. Esta função deve ser ativada para cada volume separadamente, no qual existe um ponto final com nivelamento de nuvem ativado. Para saber mais, ver  
+    - Os utilizadores podem agora também restaurar ficheiros hierárquicos (juntamente com ficheiros em disco) utilizando a funcionalidade de versão anterior, a partir dos instantâneos VSS que são criados após a funcionalidade de restauro de autosserviço ser ativada no volume. Antes do lançamento do V9, a versão anterior não era suportada por ficheiros hierárquicos. Esta função deve ser ativada para cada volume separadamente, no qual existe um ponto final com nivelamento de nuvem ativado. Para saber mais, ver  
 [Autosserviço restaurado através de versões anteriores e VSS (Serviço de Cópia sombra de volume)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Suporte para tamanhos de partilha de ficheiros maiores 
     - O Azure File Sync suporta agora até 64TiB e 100 milhões de ficheiros num único espaço de nome sincronizado.  
  
 - Suporte de desduplicação de dados no Servidor 2019 
-    - A Deduplica de Dados é agora suportada com o tiering de nuvem ativado no Windows Server 2019. Para suportar a desduplicação de dados em volumes com tiering de nuvem, a atualização do Windows [KB4520062](https://support.microsoft.com/help/4520062) deve ser instalada. 
+    - A Deduplica de dados é agora suportada (independentemente de o tiering de nuvem estar ativado ou desativado em um ou mais pontos finais do servidor no volume) no Windows Server 2016 e no Windows Server 2019. Para suportar a desduplicação de dados em volumes com nivelamento em nuvem no Servidor 2019, a atualização do Windows [KB4520062](https://support.microsoft.com/help/4520062) deve ser instalada. 
  
 - Melhorado tamanho mínimo de ficheiro para um ficheiro para tier 
     - O tamanho mínimo do ficheiro para um ficheiro para o nível baseia-se agora no tamanho do cluster do sistema de ficheiros (o dobro do tamanho do cluster do sistema de ficheiros). Por exemplo, por padrão, o tamanho do cluster do sistema de ficheiros NTFS é 4KB, o tamanho mínimo de ficheiro resultante para um ficheiro para o nível é 8KB. 

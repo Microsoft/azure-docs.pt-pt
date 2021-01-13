@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030871"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132722"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contentor no Centro de Segurança
 
@@ -48,7 +48,7 @@ A imagem que se segue mostra a página de inventário do ativo e os vários tipo
 
 Para monitorizar as imagens nos registos de contentores Azure baseados em Recursos Azure, ative [o Azure Defender para registos de contentores](defender-for-container-registries-introduction.md). O Centro de Segurança verifica quaisquer imagens retiradas nos últimos 30 dias, empurradas para o seu registo, ou importadas. O scanner integrado é fornecido pelo fornecedor líder de pesquisa de vulnerabilidades da indústria, Qualys.
 
-Quando forem encontrados problemas – pelo Qualys ou pelo Security Center – será notificado no [painel Azure Defender](azure-defender-dashboard.md). Para cada vulnerabilidade, o Security Center fornece recomendações acccáveis, juntamente com uma classificação de gravidade, e orientações para como remediar o problema. Para obter mais informações sobre as recomendações do Centro de Segurança para os contentores, consulte a [lista de referência das recomendações.](recommendations-reference.md#recs-containers)
+Quando forem encontrados problemas – pelo Qualys ou pelo Security Center – será notificado no [painel Azure Defender](azure-defender-dashboard.md). Para cada vulnerabilidade, o Security Center fornece recomendações acccáveis, juntamente com uma classificação de gravidade, e orientações para como remediar o problema. Para obter mais informações sobre as recomendações do Centro de Segurança para os contentores, consulte a [lista de referência das recomendações.](recommendations-reference.md#recs-compute)
 
 O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informativos indesejados.
 
@@ -60,7 +60,7 @@ O Azure Security Center identifica contentores não geridos alojados em IaaS Lin
 
 O Centro de Segurança inclui todo o conjunto de regras do CIS Docker Benchmark e alerta-o se os seus contentores não satisfizerem nenhum dos controlos. Quando encontra configurações erradas, o Centro de Segurança gera recomendações de segurança. Use a página de **recomendações** do Centro de Segurança para ver recomendações e remediar problemas. Os controlos de referência do CIS não são executados em instâncias geridas pela AKS ou VMs geridos por Databricks.
 
-Para obter mais informações sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [recipientes](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+Para obter mais detalhes sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [cálculo](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
 
 Quando está a explorar os problemas de segurança de um VM, o Security Center fornece informações adicionais sobre os contentores na máquina. Essas informações incluem a versão Docker e o número de imagens em execução no anfitrião. 
 
@@ -74,7 +74,7 @@ A AKS fornece controlos de segurança e visibilidade na postura de segurança do
 * Monitorize constantemente a configuração dos seus clusters AKS
 * Gerar recomendações de segurança alinhadas com os padrões da indústria
 
-Para obter mais informações sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [recipientes](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
+Para obter mais detalhes sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [cálculo](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção da carga de trabalho utilizando o controlo de admissão de Kubernetes
 

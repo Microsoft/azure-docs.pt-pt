@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 366a9a63e4577a9b8470faec68f8d4a25114dd48
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342455"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133706"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os seus recursos de rede
 O Azure Security Center analisa continuamente o estado de segurança dos seus recursos Azure para as melhores práticas de segurança da rede. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o orientam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
 
-Para obter uma lista completa das recomendações relativas ao networking, consulte [as recomendações de networking](recommendations-reference.md#recs-network).
+Para obter uma lista completa das recomendações relativas ao networking, consulte [as recomendações de networking](recommendations-reference.md#recs-networking).
 
 Este artigo aborda recomendações que se aplicam aos seus recursos Azure numa perspetiva de segurança de rede. As recomendações de networking centram-se em torno de firewalls de próxima geração, Grupos de Segurança de Rede, acesso JIT VM, regras de tráfego de entrada excessivamente permissivas, e muito mais. Para obter uma lista de recomendações de networking e ações de reparação, consulte [recomendações de segurança de gestão no Centro de Segurança Azure](security-center-recommendations.md).
 
@@ -48,7 +48,7 @@ Para abrir o mapa da Rede:
 
 1. A partir do menu do Security Center, abra o painel de instrumentos do Azure Defender e selecione **o mapa de Rede**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Tipos de recursos de rede de inventário de ativos" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Abertura do mapa de rede a partir do painel Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Selecione o menu **Layers** escolha **Topologia.**
  

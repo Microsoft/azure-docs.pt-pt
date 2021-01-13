@@ -10,21 +10,21 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d900659f3ca8a8688c1b1d3a66cd888f37521fc6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5fcb3226eebf39ab18fb3bb24f0521a0523748d4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883389"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134182"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
 Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar como e quando os seus cofres chave são acedidos, e por quem. Pode fazê-lo ativando o registo do Azure Key Vault, que guarda informações numa conta de armazenamento Azure que fornece. Para obter orientação passo a passo sobre a configuração deste problema, consulte [como ativar a marcação do Cofre de Chaves](howto-logging.md).
 
-Pode aceder à sua informação de registo 10 minutos (no máximo) após a operação do cofre da chave. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os seus registos na sua conta de armazenamento:
+Pode aceder à sua informação de registo 10 minutos (no máximo) após a operação do cofre da chave. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os registos na sua conta de armazenamento:
 
 * Utilize métodos padrão de controlo de acesso Azure na sua conta de armazenamento para proteger os seus registos, restringindo quem pode aceder aos mesmos.
-* Elimine os registos que já não pretende manter na sua conta de armazenamento.
+* Elimine registos que já não pretende manter na conta de armazenamento.
 
 Para obter informações gerais sobre o Key Vault, veja [o que é o Cofre da Chave Azure?](overview.md) Para obter informações sobre onde o Cofre-Chave está disponível, consulte [a página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre a utilização [do Monitor Azure para o Cofre de Chaves](../../azure-monitor/insights/key-vault-insights-overview.md).
 
@@ -59,11 +59,11 @@ Os blobs individuais são armazenadas como texto, formatados como um blob JSON. 
 
 A tabela que se segue lista os nomes e descrições do campo:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
-| **Hora** |Data e hora na UTC. |
+| **tempo** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
-| **operaçãoName** |Nome da operação, conforme documentada na tabela seguinte. |
+| **operationName** |Nome da operação, conforme documentada na tabela seguinte. |
 | **operaçãoVer** |Versão REST API solicitada pelo cliente. |
 | **categoria** |Tipo de resultado. Para os registos key vault, `AuditEvent` é o valor único disponível. |
 | **resultadoType** |Resultado do pedido da API REST. |
@@ -182,6 +182,7 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **Certificado PendenteDelete** |Apagar certificado pendente |
 | **CertificadoNearExpiryEventGridNotification** |Certificado perto do evento de validade publicado |
 | **CertificadoExpiredEventGridNotification** |Certificado vencida evento publicado |
+
 ---
 
 ## <a name="use-azure-monitor-logs"></a>Utilizar os registos do Azure Monitor

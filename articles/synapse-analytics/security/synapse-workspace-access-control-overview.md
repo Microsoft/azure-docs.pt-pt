@@ -9,18 +9,18 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71a83a8d119e5fd8c18b7b21abe4a0a07ba9c67a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 30cc917e2db3a7c4c6d5d6ebd5a8a47afff5d505
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116556"
+ms.locfileid: "98133145"
 ---
 # <a name="synapse-access-control"></a>Controlo de acesso sinapse 
 
 Este artigo fornece uma visão geral dos mecanismos disponíveis para controlar o acesso aos recursos e dados do cálculo da Sinapse.  
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Sinapse fornece um sistema de controlo de acesso abrangente e fino, que integra: 
 - **Funções Azure** para gestão de recursos e acesso a dados armazenados, 
@@ -30,7 +30,7 @@ A Sinapse fornece um sistema de controlo de acesso abrangente e fino, que integr
 
 As funções de sinapse fornecem conjuntos de permissões que podem ser aplicadas em diferentes âmbitos. Esta granularidade facilita a concessão de acesso adequado a administradores, desenvolvedores, pessoal de segurança e operadores para calcular recursos e dados.
 
-O controlo de acessos pode ser simplificado utilizando grupos de segurança alinhados com as funções de trabalho das pessoas.  Basta adicionar e remover os utilizadores dos grupos de segurança apropriados para gerir o acesso.
+O controlo de acessos pode ser simplificado utilizando grupos de segurança alinhados com as funções de trabalho das pessoas. Basta adicionar e remover os utilizadores dos grupos de segurança apropriados para gerir o acesso.
 
 ## <a name="access-control-elements"></a>Elementos de controlo de acesso
 
@@ -41,16 +41,16 @@ As funções Azure são usadas para controlar a gestão de:
 - Piscinas Apache Spark, e 
 - Tempos de integração. 
 
-Para *criar* estes recursos, precisa de ser proprietário ou colaborador da Azure no grupo de recursos.  Para *geri-los* uma vez criados, você precisa ser um Proprietário Azure ou Colaborador no grupo de recursos ou nos recursos individuais. 
+Para *criar* estes recursos, precisa de ser proprietário ou colaborador da Azure no grupo de recursos. Para *geri-los* uma vez criados, você precisa ser um Proprietário Azure ou Colaborador no grupo de recursos ou nos recursos individuais. 
 
 ### <a name="developing-and-executing-code-in-synapse"></a>Desenvolvimento e execução do código em Sinapse 
 
 A Sinapse suporta dois modelos de desenvolvimento.
 
-- **Sinapse desenvolvimento ao vivo.**  Desenvolve-se e depura código no Synapse Studio e depois **publica-o** para guardar e executar.  O serviço Synapse é a fonte da verdade para a edição e execução de códigos.  Qualquer obra inédita perde-se quando se fecha o Estúdio Synapse.  
-- **Desenvolvimento habilitado a Git.** Desenvolves e depuras códigos no Synapse Studio e **cometes** alterações num ramo de trabalho de um git repo. O trabalho a partir de um ou mais balcões está integrado num ramo de colaboração, de onde o **publica** ao serviço.  O git repo é a fonte da verdade para a edição de código, enquanto o serviço é a fonte da verdade para a execução. As alterações devem ser comprometidas com o git repo ou publicadas no serviço antes de fechar o Synapse Studio. [Saiba mais](../cicd/continuous-integration-deployment.md) sobre a utilização do Synapse Analytics com o Git.
+- **Sinapse desenvolvimento ao vivo.** Desenvolve-se e depura código no Synapse Studio e depois **publica-o** para guardar e executar.  O serviço Synapse é a fonte da verdade para a edição e execução de códigos.  Qualquer obra inédita perde-se quando se fecha o Estúdio Synapse.  
+- **Desenvolvimento habilitado a Git.** Desenvolves e depuras códigos no Synapse Studio e **cometes** alterações num ramo de trabalho de um git repo. O trabalho a partir de um ou mais balcões está integrado num ramo de colaboração, de onde o **publica** ao serviço. O git repo é a fonte da verdade para a edição de código, enquanto o serviço é a fonte da verdade para a execução. As alterações devem ser comprometidas com o git repo ou publicadas no serviço antes de fechar o Synapse Studio. [Saiba mais](../cicd/continuous-integration-deployment.md) sobre a utilização do Synapse Analytics com o Git.
 
-Em ambos os modelos de desenvolvimento, qualquer utilizador com acesso ao Synapse Studio pode criar artefactos de código.  No entanto, precisa de permissões adicionais para publicar artefactos ao serviço, ler artefactos publicados, comprometer alterações ao Git, executar código e aceder a dados ligados protegidos por credenciais.
+Em ambos os modelos de desenvolvimento, qualquer utilizador com acesso ao Synapse Studio pode criar artefactos de código. No entanto, precisa de permissões adicionais para publicar artefactos ao serviço, ler artefactos publicados, comprometer alterações ao Git, executar código e aceder a dados ligados protegidos por credenciais.
 
 ### <a name="synapse-roles"></a>Papéis de sinapse
 
@@ -72,7 +72,7 @@ Ao utilizar o desenvolvimento ativado por Git no modo Git, as permissões do Git
 
 Ao trabalhar com piscinas SQL dedicadas e sem servidor, o acesso a um plano de dados é controlado através de permissões SQL. 
 
-O criador de um espaço de trabalho é designado como o Ative Directory Admin no espaço de trabalho.  Após a criação, esta função pode ser atribuída a um utilizador diferente ou a um grupo de segurança no portal Azure.
+O criador de um espaço de trabalho é designado como o Ative Directory Admin no espaço de trabalho. Após a criação, esta função pode ser atribuída a um utilizador diferente ou a um grupo de segurança no portal Azure.
 
 **Piscinas SQL sem servidor**: Os administradores de sinapse são `db_owner` `DBO` concedidos () permissões na piscina SQL sem servidor, 'Built-in'. Para garantir a outros utilizadores o acesso a piscinas SQL sem servidor, os administradores da Synapse precisam de executar scripts SQL em cada piscina sem servidor.  
 
@@ -82,7 +82,7 @@ Veja [como configurar o Synapse Access Control](./how-to-set-up-access-control.m
 
  ### <a name="accessing-system-managed-data-in-storage"></a>Aceder a dados geridos pelo sistema no armazenamento
 
-As piscinas SQL sem servidor e as tabelas Apache Spark armazenam os seus dados num contentor ADLS Gen2 associado ao espaço de trabalho As bibliotecas Apache Spark instaladas pelo utilizador também são geridas na mesma conta de armazenamento.  Para permitir estes casos de utilização, os utilizadores e o espaço de trabalho MSI devem ter acesso ao **armazenamento de dados blob de armazenamento** a este recipiente de armazenamento ADLS Gen2.  
+Piscinas SQL sem servidor e mesas Apache Spark armazenam os seus dados num recipiente ADLS Gen2 associado ao espaço de trabalho. As bibliotecas Apache Spark instaladas pelo utilizador também são geridas na mesma conta de armazenamento. Para permitir estes casos de utilização, os utilizadores e o espaço de trabalho MSI devem ter acesso ao **armazenamento de dados blob de armazenamento** a este recipiente de armazenamento ADLS Gen2.  
 
 ## <a name="using-security-groups-as-a-best-practice"></a>Usar os grupos de segurança como uma boa prática
 
@@ -97,9 +97,9 @@ O Synapse Studio comportar-se-á de forma diferente com base nas suas permissõe
 - Modo ao vivo da **sinapse:** O Synapse Studio irá impedi-lo de ver conteúdo publicado, publicar conteúdos ou tomar outras ações se não tiver a permissão necessária.  Em alguns casos, será impedido de criar artefactos de código que não pode usar ou guardar. 
 - **Modo git:** Se tiver permissões de Git que lhe permitem comprometer alterações na sucursal atual, então a ação de compromisso será permitida mesmo que não tenha permissão para publicar alterações no serviço ao vivo.  
 
-Em alguns casos, é permitido criar artefactos de código mesmo sem permissão para publicar ou cometer.  Isto permite-lhe executar código (com as permissões de execução necessárias). [Saiba mais](./synapse-workspace-understand-what-role-you-need.md) sobre os papéis necessários para tarefas comuns. 
+Em alguns casos, é permitido criar artefactos de código mesmo sem permissão para publicar ou cometer. Isto permite-lhe executar código (com as permissões de execução necessárias). [Saiba mais](./synapse-workspace-understand-what-role-you-need.md) sobre os papéis necessários para tarefas comuns. 
 
-Se uma funcionalidade for desativada no Synapse Studio, uma ponta de ferramenta indicará a permissão necessária.  Utilize o guia de [funções do SYNAPSE RBAC](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) para ver qual a função necessária para fornecer a permissão em falta.
+Se uma funcionalidade for desativada no Synapse Studio, uma ponta de ferramenta indicará a permissão necessária. Utilize o guia de [funções do SYNAPSE RBAC](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) para ver qual a função necessária para fornecer a permissão em falta.
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019096"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134153"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre a utilização do Serviço de Migração da Base de Dados de Azure
 
@@ -52,7 +52,7 @@ O Azure Database Migration Service é o método preferido para a migração de b
 A Azure Migrate ajuda na migração de máquinas virtuais no local para Azure IaaS. O serviço avalia a adequação da migração e o dimensionamento baseado no desempenho, e fornece estimativas de custos para executar as suas máquinas virtuais no local em Azure. A Azure Migrate é útil para migrações de elevação e mudança de cargas de trabalho baseadas em VM para Azure IaaS VMs. No entanto, ao contrário do Azure Database Migration Service, a Azure Migrate não é uma oferta especializada de serviços de migração de bases de dados para plataformas de base de dados relacionais Azure PaaS, como a Base de Dados Azure SQL ou a Azure SQL Managed Instance.
 
 **Q. O Serviço de Migração da Base de Dados armazena os dados do cliente?**
-Não. O Serviço de Migração de Bases de Dados não armazena dados do cliente.
+N.º O Serviço de Migração de Bases de Dados não armazena dados do cliente.
 
 ## <a name="setup"></a>Configuração
 
@@ -109,7 +109,7 @@ Durante uma migração típica e simples de bases de dados, você:
 ## <a name="troubleshooting-and-optimization"></a>Resolução de problemas e otimização
 
 **Q. Estou a criar um projeto de migração em DMS, e estou a ter dificuldades em ligar-me à minha base de dados de origem. O que devo fazer?**
-Se tiver problemas em ligar-se ao seu sistema de base de dados de origem enquanto trabalha na migração, crie uma máquina virtual na rede virtual com a qual configura a sua instância DMS. Na máquina virtual, deverá ser capaz de realizar um teste de ligação, como utilizar um ficheiro UDL para testar uma ligação ao SQL Server ou descarregar robo 3T para testar as ligações mongoDB. Se o teste de ligação for bem sucedido, não deverá ter qualquer problema em ligar-se à sua base de dados de origem. Se o teste de ligação não for bem sucedido, contacte o administrador da rede.
+Se tiver problemas em ligar-se ao seu sistema de base de dados de origem enquanto trabalha na migração, crie uma máquina virtual na mesma sub-rede da rede virtual com a qual configura a sua instância DMS. Na máquina virtual, deverá ser capaz de realizar um teste de ligação, como utilizar um ficheiro UDL para testar uma ligação ao SQL Server ou descarregar robo 3T para testar as ligações mongoDB. Se o teste de ligação for bem sucedido, não deverá ter qualquer problema em ligar-se à sua base de dados de origem. Se o teste de ligação não for bem sucedido, contacte o administrador da rede.
 
 **Q. Porque é que o meu Serviço de Migração da Base de Dados Azure está indisponível ou parado?**
 Se o utilizador parar explicitamente o Serviço de Migração da Base de Dados de Azure (DMS) ou se o serviço estiver inativo por um período de 24 horas, o serviço estará num estado parado ou automático. Em cada caso, o serviço estará indisponível e em estado de paragem.  Para retomar as migrações ativas, reinicie o serviço.
@@ -120,6 +120,6 @@ Pode fazer algumas coisas para acelerar a migração da sua base de dados utiliz
 * Utilize o nível de preços para fins gerais multi CPU quando criar a sua instância de serviço para permitir que o serviço aproveite vários vCPUs para para paralelização e transferência de dados mais rápida.
 * Dimensione temporariamente a sua instância-alvo da Base de Dados Azure SQL para o SKU de nível Premium durante a operação de migração de dados para minimizar o estrangulamento da Base de Dados Azure SQL que pode afetar as atividades de transferência de dados quando utilizar SKUs de nível inferior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure.](dms-overview.md)

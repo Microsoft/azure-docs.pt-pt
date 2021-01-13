@@ -3,15 +3,15 @@ title: Processadores de telemetria (pré-visualização) - Azure Monitor Applica
 description: Como configurar processadores de telemetria em Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-author: MS-jgol
+author: kryalama
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 7fd53c77b64e028ffad25c8fa7a9eefd95439513
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.author: kryalama
+ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387161"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133179"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (pré-visualização) - Azure Monitor Application Insights for Java
 
@@ -20,12 +20,55 @@ ms.locfileid: "97387161"
 
 Java 3.0 Agente para Insights de Aplicação tem agora a capacidade de processar dados de telemetria antes de os dados serem exportados.
 
-### <a name="some-use-cases"></a>Alguns usam casos:
+Seguem-se alguns casos de utilização de processadores de telemetria:
  * Mascarar dados sensíveis
  * Adicionar dimensões personalizadas condicionalmente
  * Atualizar o nome da telemetria utilizado para agregação e exibição
+ * Atributos de intervalo ou de filtro para controlar o custo de ingestão
 
-### <a name="supported-processors"></a>Processadores suportados:
+## <a name="terminology"></a>Terminologia
+
+Antes de saltarmos para processadores de telemetria, é importante entender o que são vestígios e vãos.
+
+### <a name="traces"></a>Rastreios
+
+Os vestígios acompanham a progressão de um único pedido, chamado `trace` de , como é tratado por serviços que compõem uma aplicação. O pedido pode ser iniciado por um utilizador ou por uma aplicação. Cada unidade de trabalho num `trace` é chamada de `span` a; a é uma árvore de `trace` vãos. A `trace` é composta pelo período de raiz única e por qualquer número de extensões infantis.
+
+### <a name="span"></a>Vão
+
+Os vãos são objetos que representam o trabalho que está a ser feito por serviços individuais ou componentes envolvidos num pedido à medida que flui através de um sistema. A `span` contém um conjunto de `span context` identificadores globalmente únicos que representam o pedido único de que cada vão faz parte. 
+
+Os vãos encapsulam:
+
+* O nome da extensão
+* Um imutável `SpanContext` que identifica exclusivamente o Vão
+* Um período de pais na forma de `Span` `SpanContext` um, ou nulo
+* Uma `SpanKind`
+* Uma estamp de tempo de início
+* Um fim da hora
+* [`Attributes`](#attributes)
+* Uma lista de eventos com tempos
+* A `Status` .
+
+Geralmente, o ciclo de vida de um vão assemelha-se ao seguinte:
+
+* Um pedido é recebido por um serviço. O contexto de extensão é extraído dos cabeçalhos de pedido, se existir.
+* Uma nova extensão é criada como uma criança do contexto de extensão extraída; se nenhuma existe, uma nova extensão de raiz é criada.
+* O serviço trata do pedido. São adicionados atributos e eventos adicionais ao intervalo que são úteis para compreender o contexto do pedido, como o nome de anfitrião da máquina que manuseia o pedido, ou identificadores de clientes.
+* Podem ser criados novos vãos para representar o trabalho que está a ser feito por subcomponentes do serviço.
+* Quando o serviço faz uma chamada remota para outro serviço, o contexto de envergadura atual é serializado e encaminhado para o serviço seguinte, injetando o contexto de envergadura nos cabeçalhos ou envelope de mensagens.
+* O trabalho que está a ser feito pelo serviço completa, com ou sem sucesso. O estado de envergadura está devidamente definido e o intervalo está marcado.
+
+### <a name="attributes"></a>Atributos
+
+`Attributes` são uma lista de pares de valor-chave zero ou mais que são encapsulados num `span` . Um Atributo DEVE ter as seguintes propriedades:
+
+A chave de atributo, que DEVE ser uma corda não-nula e não vazia.
+O valor do atributo, que é:
+* Um tipo primitivo: corda, booleano, ponto flutuante de dupla precisão (IEEE 754-1985) ou assinado 64 bit inteiro.
+* Uma matriz de valores primitivos do tipo. A matriz DEVE ser homogénea, ou seja, NÃO deve conter valores de diferentes tipos. Para protocolos que não suportam de forma nativa valores de matriz tais devem ser representados como cordas JSON.
+
+## <a name="supported-processors"></a>Processadores suportados:
  * Processador de atributos
  * Processador de vão
 
@@ -55,9 +98,9 @@ Crie um ficheiro de configuração chamado `applicationinsights.json` , e coloqu
 }
 ```
 
-## <a name="includeexclude-spans"></a>Incluir/excluir vãos
+## <a name="includeexclude-spans"></a>Incluir/Excluir vãos
 
-O processador de atributos e o processador de envergadura expõem a opção de fornecer um conjunto de propriedades de um período de tempo a combinar, para determinar se o intervalo deve ser incluído ou excluído do processador. Para configurar esta opção, em `include` baixo e/ou `exclude` pelo menos um e um de ou é `matchType` `spanNames` `attributes` necessário. A configuração de incluir/excluir é suportada para ter mais de uma condição especificada. Todas as condições especificadas devem avaliar a verdade para que ocorra uma correspondência. 
+O processador de atributos e o processador de envergadura expõem a opção de fornecer um conjunto de propriedades de um período de tempo a combinar, para determinar se o espaço deve ser incluído ou excluído do processador de telemetria. Para configurar esta opção, em `include` baixo e/ou `exclude` pelo menos um e um de ou é `matchType` `spanNames` `attributes` necessário. A configuração de incluir/excluir é suportada para ter mais de uma condição especificada. Todas as condições especificadas devem avaliar a verdade para que ocorra uma correspondência. 
 
 **Campo obrigatório:** 
 * `matchType` controla a forma como os itens `spanNames` e `attributes` matrizes são interpretados. Os valores possíveis são `regexp` ou `strict`. 
@@ -69,183 +112,164 @@ O processador de atributos e o processador de envergadura expõem a opção de f
 > [!NOTE]
 > Se ambos `include` e `exclude` forem especificados, as `include` propriedades são verificadas antes das `exclude` propriedades.
 
-#### <a name="sample-usage"></a>Utilização de amostras
-
-O seguinte demonstra especificar o conjunto de propriedades de vão para indicar a que extensões este processador deve ser aplicado. As `include` propriedades dizem quais devem ser incluídas e as propriedades `exclude` filtram ainda mais os vãos que não devem ser processados.
+#### <a name="sample-usage"></a>Utilização de Exemplo
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+
+"processors": [
+  {
+    "type": "attribute",
+    "include": {
+      "matchType": "strict",
+      "spanNames": [
+        "spanA",
+        "spanB"
+      ]
+    },
+    "exclude": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "redact_trace",
+          "value": "false"
+        }
+      ]
+    },
+    "actions": [
       {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "spanNames": [
-            "svcA",
-            "svcB"
-          ]
-        },
-        "exclude": {
-          "matchType": "strict",
-          "attributes": [
-            {
-              "key": "redact_trace",
-              "value": "false"
-            }
-          ]
-        },
-        "actions": [
-          {
-            "key": "credit_card",
-            "action": "delete"
-          },
-          {
-            "key": "duplicate_key",
-            "action": "delete"
-          }
-        ]
+        "key": "credit_card",
+        "action": "delete"
+      },
+      {
+        "key": "duplicate_key",
+        "action": "delete"
       }
     ]
   }
-}
+]
 ```
-
-Com a configuração acima, aplicam-se as seguintes extensões que correspondem às propriedades e às ações do processador:
-
-* Span1 Nome: 'svcB' Atributos: {env: produção, test_request: 123, credit_card: 1234, redact_trace: "falso"}
-
-* Nome span2: 'svcA' Atributos: {env: encenação, test_request: falso, redact_trace: verdadeiro}
-
-Não são aplicadas as seguintes extensões que não correspondem às propriedades incluídas e as ações do processador não são aplicadas:
-
-* Nome Span3: 'svcB' Atributos: {env: produção, test_request: verdadeiro, credit_card: 1234, redact_trace: falso}
-
-* Nome Span4: 'svcC' Atributos: {env: dev, test_request: falso}
+Para obter mais compreensão, consulte a documentação do [processador de telemetria exemplos.](./java-standalone-telemetry-processors-examples.md)
 
 ## <a name="attribute-processor"></a>Processador de atributos 
 
-O processador de atributos modifica atributos de um vão. Suporta opcionalmente a capacidade de incluir/excluir vãos.
-Requer uma lista de ações que são realizadas por ordem especificada no ficheiro de configuração. As ações apoiadas são:
+O processador de atributos modifica atributos de um vão. Suporta opcionalmente a capacidade de incluir/excluir vãos. Requer uma lista de ações que são realizadas por ordem especificada no ficheiro de configuração. As ações apoiadas são:
 
-* `insert` : Insere um novo atributo em vãos onde a chave já não existe
-* `update` : Atualiza um atributo em vãos onde a chave existe
-* `delete` : Elimina um atributo de um vão
-* `hash`   : Hashes (SHA1) um valor de atributo existente
+### `insert`
 
-Para as ações `insert` e `update`
-* `key` é necessário
-* um de `value` ou `fromAttribute` é necessário
-* `action` é obrigatório.
-
-Para a `delete` ação,
-* `key` é necessário
-* `action`: `delete` é necessário.
-
-Para a `hash` ação,
-* `key` é necessário
-* `action` : `hash` é necessário.
-
-A lista de ações pode ser composta para criar cenários ricos, como atributo de enchimento traseiro, copiando valores para uma nova chave, redirecionando informação sensível.
-
-#### <a name="sample-usage"></a>Utilização de amostras
-
-O exemplo a seguir demonstra a inserção de chaves/valores em vãos:
+Insere um novo atributo em vãos onde a chave já não existe.   
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "actions": [
-          {
-            "key": "attribute1",
-            "value": "value1",
-            "action": "insert"
-          },
-          {
-            "key": "key1",
-            "fromAttribute": "anotherkey",
-            "action": "insert"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "value": "value1",
+        "action": "insert"
+      },
     ]
   }
-}
+]
 ```
+Para a `insert` ação, são necessários seguintes
+  * `key`
+  * um dos `value` ou `fromAttribute`
+  * `action`:`insert`
 
-O exemplo a seguir demonstra a configuração do processador para atualizar apenas as teclas existentes num atributo:
+### `update`
+
+Atualiza um atributo em vãos onde a chave existe
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "actions": [
-          {
-            "key": "piiattribute",
-            "value": "redacted",
-            "action": "update"
-          },
-          {
-            "key": "credit_card",
-            "action": "delete"
-          },
-          {
-            "key": "user.email",
-            "action": "hash"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "value": "newValue",
+        "action": "update"
+      },
     ]
   }
-}
+]
 ```
+Para a `update` ação, são necessários seguintes
+  * `key`
+  * um dos `value` ou `fromAttribute`
+  * `action`:`update`
 
-O exemplo a seguir demonstra como processar vãos que têm um nome de extensão que combina com padrões de regexp.
-Este processador removerá o atributo "token" e obstaculizará o atributo "password" em vãos onde o nome de intervalo corresponde a \* "auth". e onde o nome de intervalo não corresponde a \* "login".
+
+### `delete` 
+
+Elimina um atributo de um vão
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "auth.*"
-          ]
-        },
-        "exclude": {
-          "matchType": "regexp",
-          "spanNames": [
-            "login.*"
-          ]
-        },
-        "actions": [
-          {
-            "key": "password",
-            "value": "obfuscated",
-            "action": "update"
-          },
-          {
-            "key": "token",
-            "action": "delete"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "action": "delete"
+      },
     ]
   }
-}
+]
 ```
+Para a `delete` ação, são necessários seguintes
+  * `key`
+  * `action`: `delete`
+
+### `hash`
+
+Hashes (SHA1) um valor de atributo existente
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "action": "hash"
+      },
+    ]
+  }
+]
+```
+Para a `hash` ação, são necessários seguintes
+* `key`
+* `action` : `hash`
+
+### `extract`
+
+> [!NOTE]
+> Esta funcionalidade é apenas em 3.0.1 e mais tarde
+
+Extrai valores utilizando uma regra de expressão regular da chave de entrada para as teclas-alvo especificadas na regra. Se já existe uma chave-alvo, será ultrapassada. Comporta-se de forma semelhante à definição [do Processador de Esversar](#extract-attributes-from-span-name) `toAttributes` com o atributo existente como fonte.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "pattern": "<regular pattern with named matchers>",
+        "action": "extract"
+      },
+    ]
+  }
+]
+```
+Para a `extract` ação, são necessários seguintes
+* `key`
+* `pattern`
+* `action` : `extract`
+
+Para obter mais compreensão, consulte a documentação do [processador de telemetria exemplos.](./java-standalone-telemetry-processors-examples.md)
 
 ## <a name="span-processors"></a>Processadores de vãos
 
@@ -263,28 +287,19 @@ A seguinte definição pode ser configurada opcionalmente:
 > [!NOTE]
 > Se o renomeamento depender da modificação dos atributos pelos atributos do processador, certifique-se de que o processador de envergadura é especificado após o processador de atributos na especificação do pipeline.
 
-#### <a name="sample-usage"></a>Utilização de amostras
-
-O exemplo a seguir especifica os valores do atributo "db.svc", "operação" e "id" formarão o novo nome do vão, por essa ordem, separados pelo valor "::".
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "name": {
-          "fromAttributes": [
-            "db.svc",
-            "operation",
-            "id"
-          ],
-          "separator": "::"
-        }
-      }
-    ]
+"processors": [
+  {
+    "type": "span",
+    "name": {
+      "fromAttributes": [
+        "attributeKey1",
+        "attributeKey2",
+      ],
+      "separator": "::"
+    }
   }
-}
+] 
 ```
 
 ### <a name="extract-attributes-from-span-name"></a>Extrair atributos do nome de extensão
@@ -295,60 +310,45 @@ São necessárias as seguintes definições:
 
 `rules` : Uma lista de regras para extrair valores de atributos do nome de intervalo. Os valores do nome de intervalo são substituídos por nomes de atributos extraídos. Cada regra da lista é a cadeia de padrão regex. O nome do span é verificado contra o regex. Se o regex corresponder, todas as subexpressões nomeadas do regex são extraídas como atributos e adicionadas ao intervalo. Cada nome de subexpressão torna-se um nome de atributo e a porção de subexpressão corresponde ao valor do atributo. A parte combinada no nome da extensão é substituída pelo nome de atributo extraído. Se os atributos já existirem no espaço, serão substituídos. O processo é repetido para todas as regras na ordem em que são especificadas. Cada regra subsequente funciona com o nome de intervalo que é a saída após o processamento da regra anterior.
 
-#### <a name="sample-usage"></a>Utilização de amostras
-
-Vamos assumir que o nome da extensão de entrada é /api/v1/document/12345678/update. A aplicação dos seguintes resultados no nome de intervalo de saída /api/v1/document/{documentId}/atualização adicionará um novo atributo "documentId"="12345678" ao intervalo.
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "name": {
-          "toAttributes": {
-            "rules": [
-              "^/api/v1/document/(?<documentId>.*)/update$"
-            ]
-          }
-        }
+
+"processors": [
+  {
+    "type": "span",
+    "name": {
+      "toAttributes": {
+        "rules": [
+          "rule1",
+          "rule2",
+          "rule3"
+        ]
       }
-    ]
+    }
   }
-}
+]
+
 ```
 
-O seguinte demonstra renomear o nome de intervalo para "{operation_website}" e adicionar o atributo {Key: operation_website, Valor: oldSpanName } quando o intervalo tem as seguintes propriedades:
-- O nome da extensão contém '/' em qualquer lugar da corda.
-- O nome da span não é "não não/mudança".
-```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "^(.*?)/(.*?)$"
-          ]
-        },
-        "exclude": {
-          "matchType": "strict",
-          "spanNames": [
-            "donot/change"
-          ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [
-              "(?<operation_website>.*?)$"
-            ]
-          }
-        }
-      }
-    ]
-  }
-}
-```
+## <a name="list-of-attributes"></a>Lista de Atributos
+
+Seguem-se a lista de alguns atributos de envergadura comuns que podem ser utilizados nos processadores de telemetria.
+
+### <a name="http-spans"></a>PERÍODOS HTTP
+
+| Atributo  | Tipo | Description | 
+|---|---|---|
+| `http.method` | cadeia (de carateres) | Método de pedido HTTP.|
+| `http.url` | string | URL de pedido completo http no formulário `scheme://host[:port]/path?query[#fragment]` . Normalmente, o fragmento não é transmitido em HTTP, mas se for conhecido, deve ser incluído no entanto.|
+| `http.status_code` | número | [Código de estado de resposta HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
+| `http.flavor` | string | Tipo de protocolo HTTP usado |
+| `http.user_agent` | string | Valor do [cabeçalho http-user-agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) enviado pelo cliente. |
+
+### <a name="jdbc-spans"></a>JDBC Spans
+
+| Atributo  | Tipo | Description  |
+|---|---|---|
+| `db.system` | cadeia (de carateres) | Está a ser utilizado um identificador para o sistema de gestão da base de dados (DBMS). |
+| `db.connection_string` | string | A cadeia de ligação usada para ligar à base de dados. Recomenda-se a remoção de credenciais embutidas.|
+| `db.user` | string | Nome de utilizador para aceder à base de dados. |
+| `db.name` | string | Este atributo é utilizado para reportar o nome da base de dados que está a ser acedida. Para comandos que alterem a base de dados, este deve ser definido para a base de dados alvo (mesmo que o comando falhe).|
+| `db.statement` | string | A declaração da base de dados está a ser executada.|

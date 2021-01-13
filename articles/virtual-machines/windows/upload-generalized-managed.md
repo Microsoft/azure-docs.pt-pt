@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e3333ac780cfca02a6ce4f28d2b0e312016f713
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976055"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131513"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar VMs novas no Azure
 
@@ -20,7 +20,7 @@ Este artigo acompanha-o usando o PowerShell para carregar um VHD de um VM genera
 
 Para obter um script de amostra, consulte [o script sample para carregar um VHD para Azure e criar um novo VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 - Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Plano de revisão [da migração para Discos Geridos](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a sua migração para [Discos Geridos.](../managed-disks-overview.md)
@@ -38,13 +38,15 @@ Certifique-se de que as funções do servidor em funcionamento na máquina são 
 > 
 
 1. Inicie sessão na máquina virtual do Windows.
-2. Abra a janela da Linha de Comandos como administrador. Mude o diretório para %windir%\system32\sysprep e, em seguida, corra `sysprep.exe` .
-3. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE) e certifique-se**de que a caixa de **verificação Generalize** está ativada.
-4. Para **opções de encerramento**, selecione **Shutdown**.
-5. Selecione **OK**.
+1. Abra a janela da Linha de Comandos como administrador. 
+1. Elimine o diretório da pantera (C:\Windows\Panther).
+1. Mude o diretório para %windir%\system32\sysprep e, em seguida, corra `sysprep.exe` .
+1. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE) e certifique-se** de que a caixa de **verificação Generalize** está ativada.
+1. Para **opções de encerramento**, selecione **Shutdown**.
+1. Selecione **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Quando a Sysprep termina, desliga a máquina virtual. Não reinicie a VM.
+1. Quando a Sysprep termina, desliga a máquina virtual. Não reinicie a VM.
 
 
 ## <a name="upload-the-vhd"></a>Faça o upload do VHD 

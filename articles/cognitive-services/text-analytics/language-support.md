@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: a0cd968c90a27d6f1ae79d08fb2bd027169233db
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844961"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133791"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
@@ -86,11 +86,9 @@ ms.locfileid: "97844961"
 
 #### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> As versões de modelo de Extração de Frase-Chave antes de 2020-07-01 têm um limite de caracteres de 64. Este limite não está presente nas versões posteriores do modelo.
-
 | Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Dinamarquês                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
 | Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Finlandês               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -122,21 +120,21 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 | Linguagem | Código do Idioma | v3 suporte | Disponível a partir da versão do modelo V3: |
 |:-|:-:|:-:|:-:|
-| Afrikaans | `af` | ✓ |  |
+| Africânes | `af` | ✓ |  |
 | Albanês | `sq` | ✓ |  |
 | Árabe | `ar` | ✓ |  |
 | Arménio | `hy` | ✓ |  |
 | Basco | `eu` | ✓ |  |
 | Bielorrusso | `be` | ✓ |  |
-| Bengalês | `bn` | ✓ |  |
+| Bengali | `bn` | ✓ |  |
 | Bósnio | `bs` | ✓ | 2020-09-01 |
 | Búlgaro | `bg` | ✓ |  |
 | Birmanês | `my` | ✓ |  |
 | Catalão, Valenciano | `ca` | ✓ |  |
 | Central Khmer | `km` | ✓ |  |
 | Chinês | `zh` | ✓ |  |
-| Chinês simplificado | `zh_chs` | ✓ |  |
-| Chinês tradicional | `zh_cht` | ✓ |  |
+| Chinês Simplificado | `zh_chs` | ✓ |  |
+| Tradicional chinês | `zh_cht` | ✓ |  |
 | Croata | `hr` | ✓ |  |
 | Checo | `cs` | ✓ |  |
 | Dinamarquês | `da` | ✓ |  |
@@ -150,10 +148,10 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 | Finlandês | `fi` | ✓ |  |
 | Francês | `fr` | ✓ |  |
 | Galego | `gl` | ✓ |  |
-| Georgiano | `ka` | ✓ |  |
+| Geórgia | `ka` | ✓ |  |
 | Alemão | `de` | ✓ |  |
 | Grego | `el` | ✓ |  |
-| Guzerate | `gu` | ✓ |  |
+| Rio Gujarati | `gu` | ✓ |  |
 | Haiti, crioulo haitiano | `ht` | ✓ |  |
 | Hebraico | `he` | ✓ |  |
 | Hindi | `hi` | ✓ |  |
@@ -165,7 +163,7 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 | Irlandês | `ga` | ✓ |  |
 | Italiano | `it` | ✓ |  |
 | Japonês | `ja` | ✓ |  |
-| Canarês | `kn` | ✓ |  |
+| Rio Kannada | `kn` | ✓ |  |
 | Cazaque | `kk` | ✓ | 2020-09-01 |
 | Coreano | `ko` | ✓ |  |
 | Curdo | `ku` | ✓ |  |
@@ -176,10 +174,10 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 | Macedónio | `mk` | ✓ |  |
 | Malgaxe | `mg` | ✓ | 2020-09-01 |
 | Malaio | `ms` | ✓ |  |
-| Malaiala | `ml` | ✓ |  |
+| Malayalam | `ml` | ✓ |  |
 | Maltês | `mt` | ✓ |  |
-| Maori | `mi` | ✓ | 2020-09-01 |
-| Marata | `mr` | ✓ | 2020-09-01 |
+| Rio Maori | `mi` | ✓ | 2020-09-01 |
+| Rio Marathi | `mr` | ✓ | 2020-09-01 |
 | Norueguês | `no` | ✓ |  |
 | Norueguês (Nynorsk) | `nn` | ✓ |  |
 | Oriya | `or` | ✓ |  |
@@ -208,8 +206,8 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 | Tongan | `to` | ✓ | 2020-09-01 |
 | Turco | `tr` | ✓ |  |
 | Ucraniano | `uk` | ✓ |  |
-| Urdu | `ur` | ✓ |  |
-| Usbeque | `uz` | ✓ |  |
+| Rio Urdu | `ur` | ✓ |  |
+| Uzbeque | `uz` | ✓ |  |
 | Vietnamita | `vi` | ✓ |  |
 | Galês | `cy` | ✓ |  |
 | Iídiche | `yi` | ✓ |  |

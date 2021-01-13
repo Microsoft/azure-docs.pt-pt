@@ -3,12 +3,12 @@ title: Azure Relay FAQs / Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes sobre o serviço Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299291"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131853"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes de retransmissão de Azure
 
@@ -50,7 +50,6 @@ Aqui estão três cenários de faturação de exemplo para conexões híbridas:
     *   Envia 6 GB de dados através da ligação B durante o mês.
     *   O seu custo total é de $10,50. São $5 para a ligação A + $5 para a ligação B + $0,50 (para o sexto gigabyte na ligação B).
 
-Note que os preços utilizados nos exemplos são aplicáveis apenas durante o período de pré-visualização das Ligações Híbridas. Os preços estão sujeitos a alterações na disponibilidade geral de Conexões Híbridas.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Como são calculadas as horas para o Relay?
 
@@ -60,7 +59,7 @@ O WCF Relay está disponível apenas em espaços de nome de nível Standard. As 
 Em alguns casos, um único retransmissor pode ter vários ouvintes ligados. Um relé é considerado aberto quando pelo menos um ouvinte está ligado a ele. Adicionar ouvintes a um retransmissor aberto resulta em horas de retransmissão adicionais. O número de remetentes de retransmissão (clientes que invocam ou enviam mensagens para retransmissores) que estão ligados a um relé não afeta o cálculo das horas de retransmissão.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Como é calculado o medidor de mensagens para os Relés WCF?
-(Isto**aplica-se apenas aos relés WCF. As mensagens não são um custo para ligações híbridas.**)
+(Isto **aplica-se apenas aos relés WCF. As mensagens não são um custo para ligações híbridas.**)
 
 Em geral, as mensagens faturadas para retransmissores são calculadas utilizando o mesmo método que é usado para entidades intermediadas (filas, tópicos e subscrições), descrito anteriormente. No entanto, existem algumas diferenças notáveis.
 
@@ -120,7 +119,7 @@ Para uma descrição de exceções comuns e ações sugeridas que você pode tom
 As Assinaturas de Acesso Partilhado (SAS) são um mecanismo de autenticação baseado em hashes ou URIs seguros SHA-256. Para obter informações sobre como gerar as suas próprias assinaturas em Node.js, PHP, Python, Java, C e C#, consulte [a autenticação do Service Bus com assinaturas de acesso partilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>É possível permitir apenas alguns pontos finais de retransmissão?
-Sim. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a listagem de aprovação de DNS.
+Yes. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a listagem de aprovação de DNS.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

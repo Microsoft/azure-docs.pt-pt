@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 6/15/2019
+ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: 2f7e4eadc25028db4668db8d245803c7ddba8688
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c468b1216670ce7e6b5d252a7f7fee807199d20c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968252"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131496"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -58,7 +58,7 @@ Para ligar a sua zona DE DNS à hierarquia global de DNS, tem de comprar o nome 
 
 ### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Existem restrições ao utilizar registos de pseudónimos para um apex de nome de domínio com o Traffic Manager?
 
-Sim. Deve utilizar endereços IP públicos estáticos com o Gestor de Tráfego Azure. Configure o alvo **do ponto final externo** utilizando um endereço IP estático. 
+Yes. Deve utilizar endereços IP públicos estáticos com o Gestor de Tráfego Azure. Configure o alvo **do ponto final externo** utilizando um endereço IP estático. 
 
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>O Azure DNS suporta o encaminhamento de tráfego baseado em DNS ou o failover do ponto final?
 
@@ -68,31 +68,31 @@ O Azure DNS suporta apenas o hospedagem de domínios DNS estáticos, onde cada c
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>O Azure DNS suporta o registo do nome de domínio?
 
-Não. A Azure DNS não suporta atualmente a opção de comprar nomes de domínio. Para comprar domínios, deve utilizar um registo de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados no Azure DNS para a gestão dos registos DNS. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](dns-domain-delegation.md).
+N.º A Azure DNS não suporta atualmente a opção de comprar nomes de domínio. Para comprar domínios, deve utilizar um registo de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados no Azure DNS para a gestão dos registos DNS. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](dns-domain-delegation.md).
 
 A funcionalidade de compra de nomes de domínio é rastreada no atraso do Azure. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-dnssec"></a>O Azure DNS suporta o DNSSEC?
 
-Não. O Azure DNS não suporta atualmente as extensões de segurança do sistema de nome de domínio (DNSSEC).
+N.º O Azure DNS não suporta atualmente as extensões de segurança do sistema de nome de domínio (DNSSEC).
 
 A função DNSSEC é rastreada no atraso do Azure DNS. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>O Azure DNS suporta transferências de zona (AXFR/IXFR)?
 
-Não. O Azure DNS não suporta transferências de zona. As zonas de DNS podem ser [importadas para O Azure DNS utilizando o Azure CLI](dns-import-export.md). Os registos DNS são geridos através do [portal de gestão Azure DNS](dns-operations-recordsets-portal.md), [REST API,](/powershell/module/az.dns) [SDK,](dns-sdk.md) [PowerShell cmdlets,](dns-operations-recordsets.md)ou a [ferramenta CLI](dns-operations-recordsets-cli.md).
+N.º O Azure DNS não suporta transferências de zona. As zonas de DNS podem ser [importadas para O Azure DNS utilizando o Azure CLI](dns-import-export.md). Os registos DNS são geridos através do [portal de gestão Azure DNS](dns-operations-recordsets-portal.md), [REST API,](/powershell/module/az.dns) [SDK,](dns-sdk.md) [PowerShell cmdlets,](dns-operations-recordsets.md)ou a [ferramenta CLI](dns-operations-recordsets-cli.md).
 
 A função de transferência de zona é rastreada no atraso do Azure DNS. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>O Azure DNS suporta redirecionamentos de URL?
 
-Não. Os serviços de redirecionamento de URL não são um serviço DNS. Funcionam ao nível HTTP e não ao nível DNS. Alguns fornecedores de DNS agregam um serviço de redirecionamento de URL como parte da sua oferta global. Este serviço não é atualmente suportado pelo Azure DNS.
+N.º Os serviços de redirecionamento de URL não são um serviço DNS. Funcionam ao nível HTTP e não ao nível DNS. Alguns fornecedores de DNS agregam um serviço de redirecionamento de URL como parte da sua oferta global. Este serviço não é atualmente suportado pelo Azure DNS.
 
 A função de redirecionamento de URL é rastreada no atraso do Azure DNS. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
 ### <a name="does-azure-dns-support-the-extended-ascii-encoding-8-bit-set-for-txt-record-sets"></a>O Azure DNS suporta a codificação ascii estendida (8 bits) definida para conjuntos de recordes TXT?
 
-Sim. O Azure DNS suporta o conjunto de codificação ASCII alargado para conjuntos de recordes TXT. Mas deve utilizar a versão mais recente das APIs de REPOUSO Azure, SDKs, PowerShell e CLI. Versões com mais de 1 de outubro de 2017 ou SDK 2.1 não suportam o conjunto ASCII alargado. 
+Yes. O Azure DNS suporta o conjunto de codificação ASCII alargado para conjuntos de recordes TXT. Mas deve utilizar a versão mais recente das APIs de REPOUSO Azure, SDKs, PowerShell e CLI. Versões com mais de 1 de outubro de 2017 ou SDK 2.1 não suportam o conjunto ASCII alargado. 
 
 Por exemplo, pode fornecer uma cadeia como o valor de um registo TXT que tem o caráter ASCII estendido \128. Um exemplo é "abcd\128efgh". Azure DNS usa o valor byte deste personagem, que é 128, em representação interna. No momento da resolução do DNS, este valor byte é devolvido na resposta. Note-se também que "abc" e "\097\098\099" são permutáveis no que diz respeito à resolução. 
 
@@ -123,19 +123,19 @@ Os conjuntos de recordes de alias são suportados para os seguintes tipos de reg
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Posso criar e atualizar registos de pseudónimos do portal Azure?
 
-Sim. Pode criar ou gerir registos de pseudónimos no portal Azure juntamente com as APIs Azure REST, PowerShell, CLI e SDKs.
+Yes. Pode criar ou gerir registos de pseudónimos no portal Azure juntamente com as APIs Azure REST, PowerShell, CLI e SDKs.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Os registos de pseudónimos ajudarão a garantir que o meu conjunto de registos DNS seja eliminado quando o IP público subjacente for eliminado?
 
-Sim. Esta funcionalidade é uma das principais capacidades dos registos de pseudónimos. Ajuda a evitar possíveis interrupções para os utilizadores da sua aplicação.
+Yes. Esta funcionalidade é uma das principais capacidades dos registos de pseudónimos. Ajuda a evitar possíveis interrupções para os utilizadores da sua aplicação.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Os registos de pseudónimos ajudarão a garantir que o meu conjunto de registos DNS seja atualizado para o endereço IP correto quando o endereço IP público subjacente for alterado?
 
-Sim. Esta funcionalidade é uma das principais capacidades dos registos de pseudónimos. Ajuda-o a evitar possíveis interrupções ou riscos de segurança para a sua aplicação.
+Yes. Esta funcionalidade é uma das principais capacidades dos registos de pseudónimos. Ajuda-o a evitar possíveis interrupções ou riscos de segurança para a sua aplicação.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Existem restrições ao utilizar conjuntos de registos de pseudónimos para registos A ou AAAA para apontar para o Gestor de Tráfego?
 
-Sim. Para apontar para um perfil de Gestor de Tráfego como um pseudónimo de um conjunto de registos A ou AAAA, o perfil de Gestor de Tráfego deve utilizar apenas pontos finais externos. Quando criar os pontos finais externos no Gestor de Tráfego, forneça os endereços IP reais dos pontos finais.
+Yes. Para apontar para um perfil de Gestor de Tráfego como um pseudónimo de um conjunto de registos A ou AAAA, o perfil de Gestor de Tráfego deve utilizar apenas pontos finais externos. Quando criar os pontos finais externos no Gestor de Tráfego, forneça os endereços IP reais dos pontos finais.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Há uma taxa adicional para usar registos de pseudónimos?
 
@@ -145,7 +145,7 @@ Os registos de alias são uma qualificação num conjunto de discos de DNS váli
 
 ### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Posso co-hospedar um domínio utilizando o Azure DNS e outro fornecedor de DNS?
 
-Sim. O Azure DNS suporta domínios de co-hospedagem com outros serviços DNS.
+Yes. O Azure DNS suporta domínios de co-hospedagem com outros serviços DNS.
 
 Para configurar o co-hosting, modifique os registos NS para o domínio para apontar para os servidores de nome de ambos os fornecedores. O servidor de nomes (NS) regista o controlo dos fornecedores que recebem consultas de DNS para o domínio. Pode modificar estes registos NS no Azure DNS, no outro fornecedor e na zona dos pais. A zona-mãe é tipicamente configurada através do registo de nomes de domínio. Para obter mais informações sobre a delegação do DNS, consulte [a delegação de domínio DNS](dns-domain-delegation.md).
 
@@ -153,7 +153,7 @@ Além disso, certifique-se de que os registos DNS para o domínio estão sincron
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Tenho de delegar o meu domínio nos quatro servidores de nomes Azure DNS?
 
-Sim. O Azure DNS atribui quatro servidores de nome a cada zona DNS. Este acordo é para o isolamento de falhas e maior resiliência. Para se qualificar para o Azure DNS SLA, delege o seu domínio para todos os quatro servidores de nome.
+Yes. O Azure DNS atribui quatro servidores de nome a cada zona DNS. Este acordo é para o isolamento de falhas e maior resiliência. Para se qualificar para o Azure DNS SLA, delege o seu domínio para todos os quatro servidores de nome.
 
 ### <a name="what-are-the-usage-limits-for-azure-dns"></a>Quais são os limites de utilização para o Azure DNS?
 
@@ -163,7 +163,7 @@ Os seguintes limites predefinidos aplicam-se quando utiliza o Azure DNS.
 
 ### <a name="can-i-move-an-azure-dns-zone-between-resource-groups-or-between-subscriptions"></a>Posso mover uma zona Azure DNS entre grupos de recursos ou entre subscrições?
 
-Sim. As zonas de DNS podem ser movidas entre grupos de recursos ou entre subscrições.
+Yes. As zonas de DNS podem ser movidas entre grupos de recursos ou entre subscrições.
 
 Não há nenhum efeito nas consultas de DNS quando se move uma zona de DNS. Os servidores de nomes atribuídos à zona permanecem os mesmos. As consultas de DNS são processadas normalmente em toda a sua parte.
 
@@ -187,13 +187,17 @@ Para obter mais informações, consulte [as zonas e registos do DNS Protect](dns
 
 ### <a name="do-azure-dns-name-servers-resolve-over-ipv6"></a>Os servidores de nomes DNS do Azure resolvem-se sobre o IPv6? 
 
-Sim. Os servidores de nomes Azure DNS são dupla pilha. Pilha dupla significa que têm endereços IPv4 e IPv6. Para encontrar o endereço IPv6 para os servidores de nomeS DNS Azure atribuídos à sua zona DE DNS, utilize uma ferramenta como o nslookup. Um exemplo é `nslookup -q=aaaa <Azure DNS Nameserver>`.
+Yes. Os servidores de nomes Azure DNS são dupla pilha. Pilha dupla significa que têm endereços IPv4 e IPv6. Para encontrar o endereço IPv6 para os servidores de nomeS DNS Azure atribuídos à sua zona DE DNS, utilize uma ferramenta como o nslookup. Um exemplo é `nslookup -q=aaaa <Azure DNS Nameserver>`.
 
 ### <a name="how-do-i-set-up-an-idn-in-azure-dns"></a>Como posso criar um IDN em Azure DNS?
 
 Os nomes de domínio internacionalizados (IDNs) codificam cada nome DNS utilizando [o código punycode](https://en.wikipedia.org/wiki/Punycode). As consultas de DNS são feitas usando estes nomes codificados por um insignificante código.
 
 Para configurar iDNs em DNS Azure, converta o nome da zona ou o nome do conjunto de registos para o código punycode. O Azure DNS não suporta atualmente a conversão incorporada para ou a partir de um código de punycode.
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>As zonas privadas Azure DNS armazenam algum conteúdo do cliente?
+
+Não, as zonas privadas Azure DNS não armazenam nenhum conteúdo do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

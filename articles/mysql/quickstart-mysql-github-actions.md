@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 6e3dbb968d0dff8d8227518fe53d257bfc1fae4b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: f62ca85bd4e027595103b738c23c9997a05cc85c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607971"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132822"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Quickstart: Use ações do GitHub para ligar ao Azure MySQL
 
-**APLICA-SE A**: :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Base de Dados de Azure para PostgreSQL - Base de Dados Azure de servidor único :::image type="icon" source="./media/applies-to/yes.png" border="false"::: para PostgreSQL - Servidor Flexível
+**APLICA-SE A**: :::image type="icon" source="./media/applies-to/yes.png" border="false"::: Base de Dados Azure para MySQL - Base de Dados Azure de servidor único para :::image type="icon" source="./media/applies-to/yes.png" border="false"::: MySQL - Servidor Flexível
 
 Inicie com [as ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) utilizando um fluxo de trabalho para implementar atualizações de base de dados [para a Base de Dados Azure para o MySQL](https://azure.microsoft.com/services/mysql/).
 
@@ -192,7 +192,7 @@ Usará a cadeia de ligação como segredo do GitHub.
  
     :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Log of GitHub actions run":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando a sua base de dados EsQL E o repositório Azure já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 

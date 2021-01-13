@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 1593c47b7a6cf3b861f3e1af148b7a5fbfae9a19
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127384"
+ms.locfileid: "98132482"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -31,8 +31,8 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 |-|----|--|
 | Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Azure Resource Manager para melhorias importantes de segurança, incluindo controlo de acesso baseado em funções superiores a Azure (Azure RBAC) e auditoria, implementação e governação baseadas em recursos, acesso a identidades geridas, acesso ao Cofre chave Azure para segredos, e autenticação baseada em Azure e autorização de acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que utilizam o modelo clássico de implementação para utilizar o Azure Resource Manager. Para obter mais informações sobre o Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md). | - |
 | Ativar o Azure Defender para todas as suas contas de armazenamento | O Azure Defender for Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [o Configure Azure Defender para armazenamento Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
-| Ligue a eliminação suave para bolhas | A eliminação suave permite-lhe recuperar dados blob depois de eliminado. Para obter mais informações sobre a eliminação suave, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md). | - |
-| Ligue a eliminação suave para recipientes | ???. | - |
+| Ligue a eliminação suave para bolhas | A eliminação suave para bolhas permite-lhe recuperar dados de bolhas depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave para bolhas, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md). | - |
+| Ligue a eliminação suave para recipientes | A eliminação suave para recipientes permite-lhe recuperar um recipiente depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave dos recipientes, consulte [a eliminação suave para recipientes (pré-visualização)](./soft-delete-container-overview.md). | - |
 | Bloquear conta de armazenamento para evitar a eliminação acidental de conta | Pode bloquear os recursos de Azure Resource Manager, como uma subscrição, grupo de recursos ou conta de armazenamento, para evitar que outros utilizadores da sua organização o apaguem ou modifiquem acidentalmente. O bloqueio de uma conta de armazenamento não impede que os dados dentro dessa conta sejam eliminados. Só impede que a própria conta seja apagada. Para obter mais informações, consulte [os recursos de bloqueio para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 | Armazenar dados críticos do negócio em bolhas imutáveis | Configure as políticas legais de retenção e as políticas de retenção baseadas no tempo para armazenar dados blob num estado WORM (Write Once, Read Many). As bolhas armazenadas imutavelmente podem ser lidas, mas não podem ser modificadas ou eliminadas durante o intervalo de retenção. Para obter mais informações, consulte [os dados de blob críticos de negócio da Loja com armazenamento imutável](storage-blob-immutable-storage.md). | - |
 | Exigir transferência segura (HTTPS) para a conta de armazenamento | ??? | - |

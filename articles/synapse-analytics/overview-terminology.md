@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7f0ca83c194aae6f4a8d04d70c2d4f3746ad2ca5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 828f37030ae567cacbaad25849b7ba24c561c20c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446720"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132771"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
 
 Este documento guia-o através dos conceitos básicos da Azure Synapse Analytics.
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 Um espaço de **trabalho da Sinapse** é um limite de colaboração garantido para fazer análises empresariais baseadas na nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos.
 
@@ -38,7 +38,7 @@ Dentro do Synapse Studio, você pode trabalhar com piscinas SQL criando e execut
 
 ## <a name="apache-spark-for-synapse"></a>Faísca apache para sinapse
 
-Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor** no seu espaço de trabalho Synapse. Quando você começa a usar uma piscina Spark, os espaços de trabalho criam uma **sessão de faísca** para lidar com os recursos assosociados com essa sessão. 
+Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor** no seu espaço de trabalho Synapse. Quando você começa a usar uma piscina Spark, os espaços de trabalho criam uma **sessão de faísca** para lidar com os recursos associados a essa sessão. 
 
 Há duas maneiras dentro da Sinapse de usar faísca:
 * **Os Cadernos Spark** para fazer dados Ciência e Engenharia usam Scala, PySpark, C#e SparkSQL
@@ -56,7 +56,7 @@ Os oleodutos são como o Azure Synapse fornece integração de dados - permitind
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começa com o Azure Synapse Analytics](get-started.md)
+* [Introdução ao Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
 * [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)
 
