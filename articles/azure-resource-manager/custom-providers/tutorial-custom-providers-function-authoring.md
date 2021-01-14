@@ -3,14 +3,14 @@ title: Criar um ponto final RESTful
 description: Este tutorial mostra como autorizar um ponto final RESTful para fornecedores personalizados. Detalha como lidar com pedidos e respostas para os métodos RESTful HTTP suportados.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/13/2021
 ms.author: jobreen
-ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75650024"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200214"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Autor de um ponto final RESTful para fornecedores personalizados
 
@@ -132,7 +132,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-O método **CreateCustomResource** atualiza o pedido de entrada para incluir o **id**de campos específicos do Azure, **nome**e **tipo**. Estes campos são propriedades de alto nível usadas por serviços em Azure. Eles permitem que o fornecedor personalizado interopera com outros serviços como Azure Policy, Azure Resource Manager Modelos e Azure Activity Log.
+O método **CreateCustomResource** atualiza o pedido de entrada para incluir o **id** de campos específicos do Azure, **nome** e **tipo**. Estes campos são propriedades de alto nível usadas por serviços em Azure. Eles permitem que o fornecedor personalizado interopera com outros serviços como Azure Policy, Azure Resource Manager Modelos e Azure Activity Log.
 
 Propriedade | Exemplo | Descrição
 ---|---|---
@@ -347,7 +347,7 @@ Depois de adicionar os métodos e as aulas, precisa atualizar os métodos **de u
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

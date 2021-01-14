@@ -5,13 +5,13 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/14/2021
+ms.openlocfilehash: ccae7b3f201e55af0e9e6b4ca9e7fd4ffb9c4897
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492630"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200979"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leia réplicas na Base de Dados Azure para MySQL - Servidor Flexível
 
@@ -24,14 +24,14 @@ Do lado das aplicações, a aplicação é normalmente desenvolvida em Java ou p
 
 A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para o servidor flexível MySQL para um servidor apenas de leitura. Pode replicar-se a partir do servidor de origem até **10** réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, consulte a visão geral da [replicação do binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-As réplicas são novos servidores que geres similares à base de dados Azure de origem para servidores flexíveis MySQL. Incorrerá em taxas de faturação para cada réplica lida com base no cálculo provisionado em vCores e armazenamento em GB/mês. Para mais informações, consulte os [preços.](./concepts-compute-storage.md#pricing)
+As réplicas são novos servidores que geres similares à base de dados Azure de origem para servidores flexíveis MySQL. Incorrerá em taxas de faturação para cada réplica lida com base no cálculo provisionado em vCores e armazenamento em GB/mês. Para obter mais informações, veja os [preços](./concepts-compute-storage.md#pricing).
 
 Para saber mais sobre funcionalidades e problemas de replicação do MySQL, consulte a [documentação de replicação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
 > Comunicação sem preconceitos
 >
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Casos de uso comum para réplica de leitura
@@ -40,7 +40,7 @@ A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala
 
 Os cenários comuns são:
 
-* Dimensionamento de cargas de trabalho provenientes da aplicação utilizando um proxy de conexão leve como [o ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) ou usando padrão baseado em microserviços para escalar as suas consultas de leitura provenientes da aplicação para ler réplicas
+* Dimensionamento de cargas de trabalho provenientes da aplicação utilizando um proxy de conexão leve como [o ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) ou usando um padrão baseado em microserviços para escalar as suas consultas de leitura provenientes da aplicação para ler réplicas
 * Cargas de trabalho de relatórios bi ou analíticos podem usar réplicas de leitura como fonte de dados para reportar
 * Para o cenário de IoT ou Fabricação onde as informações de telemetria são ingeridas no motor da base de dados MySQL, enquanto réplicas de leitura múltiplas são usadas para reportar dados
 
@@ -93,24 +93,24 @@ Aprenda a parar a [replicação a uma réplica.](how-to-read-replicas-portal.md)
 
 ## <a name="failover"></a>Ativação pós-falha
 
-Não existe falha automatizada entre servidores de origem e réplicas. 
+Não existe falha automatizada entre servidores de origem e réplicas.
 
 As réplicas de leitura destinam-se a dimensionamento de cargas de trabalho intensivas de leitura e não são concebidas para satisfazer necessidades de alta disponibilidade de um servidor. Não existe falha automatizada entre servidores de origem e réplicas. Parar a replicação na réplica de leitura para a colocar on-line no modo de escrita de leitura é o meio pelo qual este failover manual é realizado.
 
-Como a replicação é assíncronea, há um desfasamento entre a fonte e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor de origem e a latência entre centros de dados. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
+Como a replicação é assíncronea, há um desfasamento entre a fonte e a réplica. A quantidade de lag pode ser influenciada por muitos fatores como o peso da carga de trabalho no servidor de origem e a latência entre centros de dados. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
 
 > [!Tip]
 > Se falhar na réplica, o lag no momento em que desvincular a réplica da fonte indicará a quantidade de dados perdidos.
 
-Uma vez que tenha decidido que quer falhar para uma réplica, 
+Depois de decidir que quer falhar com uma réplica:
 
 1. Pare a replicação na réplica<br/>
-   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado da fonte. Uma vez iniciado a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
-    
+   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado da fonte. Depois de iniciar a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
+
 2. Aponte a sua aplicação para a (antiga) réplica<br/>
    Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para indicar a (antiga) réplica em vez da fonte.
-    
-Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
+
+Depois de a sua aplicação estar a processar com sucesso leituras e escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
@@ -125,10 +125,10 @@ Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as es
 | Réplicas paradas | Se parar a replicação entre um servidor de origem e uma réplica de leitura, a réplica parada torna-se um servidor autónomo que aceita tanto as leituras como as escritas. O servidor autónomo não pode ser transformado numa réplica novamente. |
 | Fonte eliminada e servidores autónomos | Quando um servidor de origem é eliminado, a replicação é interrompida para todas as réplicas lidas. Estas réplicas tornam-se automaticamente servidores autónomos e podem aceitar tanto as leituras como as escritas. O servidor de origem em si é eliminado. |
 | Contas de utilizador | Os utilizadores do servidor de origem são replicados nas réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador disponíveis no servidor de origem. |
-| Parâmetros do servidor | Para impedir que os dados fiquem dessincronizados e evitar potenciais perdas de dados ou corrupção, a atualização de alguns parâmetros de servidor é bloqueada ao utilizar réplicas de leitura. <br> Os seguintes parâmetros do servidor estão bloqueados tanto nos servidores de origem como em réplicas:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplicas. <br> Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro na fonte e recrie réplicas. |
-| Outros | - A criação de uma réplica de uma réplica não é suportada. <br> - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações. <br>- Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.<br>- Rever a lista completa das limitações de replicação do MySQL na [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
+| Parâmetros do servidor | Para impedir que os dados fiquem dessincronizados e evitar potenciais perdas de dados ou corrupção, a atualização de alguns parâmetros de servidor é bloqueada ao utilizar réplicas de leitura. <br> Os seguintes parâmetros do servidor estão bloqueados tanto nos servidores de origem como em réplicas:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplicas. <br> Para atualizar um dos parâmetros acima no servidor de origem, elimine os servidores de réplicas, atualize o valor do parâmetro na fonte e recrie réplicas. |
+| Outro | - A criação de uma réplica de uma réplica não é suportada. <br> - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações. <br>- Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.<br>- Rever a lista completa das limitações de replicação do MySQL na [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [criar e gerir réplicas de leitura usando o portal Azure](how-to-read-replicas-portal.md)
-- Saiba como [criar e gerir réplicas de leitura usando o Azure CLI](how-to-read-replicas-cli.md)
+* Saiba como [criar e gerir réplicas de leitura usando o portal Azure](how-to-read-replicas-portal.md)
+* Saiba como [criar e gerir réplicas de leitura usando o Azure CLI](how-to-read-replicas-cli.md)

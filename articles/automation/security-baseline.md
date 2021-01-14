@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182755"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200843"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -148,7 +148,7 @@ Se estiver a utilizar os Trabalhadores de Runbook Híbridos alojados em máquina
 
 Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos e políticas do Azure, e políticas, numa única definição de planta. Pode aplicar o projeto a novas subscrições e afinar o controlo e a gestão através da versão.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Amostras da Política Azure para networking](../governance/policy/samples/built-in-policies.md#network)
 
@@ -402,7 +402,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Utilize PAWs com autenticação multi-factor configurada para iniciar sessão e configurar recursos da Conta de Automação Azure em ambientes de produção.
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -556,7 +556,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 * [Compreender a encriptação em trânsito com Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Aplicação da Azure Automation TLS 1.2](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Aplicação da Azure Automation TLS 1.2](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -748,7 +748,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro de subscrições. Isto pode ajudar em ambientes de alta segurança, como aqueles com contas de Armazenamento.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
@@ -778,7 +778,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio da Azure Virtual Machi
 
 **Orientação**: O cliente pode impedir a criação ou utilização de recursos com a Azure Policy, conforme exigido pelas diretrizes da empresa do cliente. Pode implementar o seu próprio processo de remoção de recursos não autorizados. Dentro da Azure Automation oferecendo que é possível instalar, remover e gerir os módulos PowerShell ou Python que os livros de execução podem aceder através do Portal ou cmdlets. O módulo não aprovado ou antigo deve ser removido ou atualizado para os livros de execução.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Gerir módulo em Azure Automation](./shared-resources/modules.md)
 
@@ -802,7 +802,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio da Azure Virtual Machi
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
@@ -914,7 +914,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a recomend
 
 * [Informação sobre a criação de modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
@@ -980,7 +980,7 @@ Ao utilizar a funcionalidade Hybrid Runbook Worker, certifique-se de que está a
 
 **Orientação**: Definir e implementar configurações de segurança padrão para recursos Azure utilizando a Política Azure. Use pseudónimos da Azure Policy para criar políticas personalizadas para auditar ou impor a configuração de rede dos seus recursos Azure. Você também pode fazer uso de definições políticas incorporadas relacionadas com os seus recursos específicos.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como usar pseudónimos](../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -1012,7 +1012,7 @@ Ao utilizar a função Trabalhador do Runbook Híbrido, aproveite o Azure Securi
 
 * [Começando com a configuração do Estado da Automação Azure](./automation-dsc-getting-started.md)
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Amostra de política Azure incorporada para a Azure Automation](./policy-reference.md)
 
@@ -1064,7 +1064,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1206,7 +1206,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 * [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1234,7 +1234,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 * [Publicação do NIST - Guia de Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

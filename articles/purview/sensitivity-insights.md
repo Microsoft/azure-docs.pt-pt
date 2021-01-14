@@ -1,18 +1,18 @@
 ---
-title: Etiqueta de sensibilidade reportando os seus dados no Azure Blob Storage
-description: Este guia de como ver e utilizar a etiqueta de sensibilidade Purview reportando os seus dados no Azure Blob Storage.
+title: Etiqueta de sensibilidade reportando os seus dados em Azure Purview usando a Purview Insights
+description: Este guia de como ver e utilizar a etiqueta de sensibilidade purview reportando nos seus dados.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746187"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199381"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights do rótulo de sensibilidade sobre os seus dados em Azure Purview
 
@@ -27,6 +27,11 @@ Neste guia de como guiar, aprenderá a:
 > - Ver insights de rotulagem de sensibilidade nos seus dados
 > - Aprofundar para obter mais detalhes de rotulagem de sensibilidade nos seus dados
 
+> [!NOTE]
+> As etiquetas de sensibilidade encontradas nos [ativos do Power BI](register-scan-power-bi-tenant.md) que são digitalizados pela Purview não são atualmente apresentadas no relatório Desídus de Rotulagem de Sensibilidade. 
+>
+> Para visualizar etiquetas de sensibilidade nos ativos do Power BI, consulte o ativo no [Catálogo de Dados](how-to-search-catalog.md)da Purview .
+> 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar com as introspeções de Competência, certifique-se de que completou os seguintes passos:
@@ -37,6 +42,8 @@ Antes de começar com as introspeções de Competência, certifique-se de que co
 
 - Configurar e completar uma verificação dos dados de teste em cada fonte de dados
 
+- Inscreva-se em Purview com uma função de [Data Reader ou Data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 Para obter mais informações, consulte [Gerir as fontes de dados em Azure Purview (Preview)](manage-data-sources.md) e [rotular automaticamente os seus dados em Azure Purview](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Utilize insights de rotulagem de sensibilidade purview
@@ -45,9 +52,11 @@ Em Purview, as classificações são semelhantes às tags de assunto, e são usa
 
 As etiquetas de sensibilidade permitem-lhe indicar o quão sensíveis determinados dados são na sua organização. Por exemplo, um nome específico do projeto pode ser altamente confidencial dentro da sua organização, enquanto que esse mesmo termo não é confidencial para outras organizações. 
 
-Enquanto as classificações são correspondidas diretamente (um número de segurança social tem uma classificação do Número de **Segurança Social),** as etiquetas de sensibilidade são aplicadas quando uma ou mais classificações e cenários são encontrados em conjunto. 
+As classificações são correspondidas diretamente, como um número de segurança social, que tem uma classificação de Número de **Segurança Social.** 
 
-A Purview utiliza as mesmas classificações, também conhecidas como tipos de informação sensível, como o Microsoft 365. Isto permite-lhe estender as suas etiquetas de sensibilidade existentes através dos seus ativos Azure Purview.
+Em contrapartida, aplicam-se etiquetas de sensibilidade quando uma ou mais classificações e condições são encontradas em conjunto. Neste contexto, [as condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) referem-se a todos os parâmetros que pode definir para dados não estruturados, tais como **a proximidade a outra classificação**, e **a confiança de %**. 
+
+A Purview utiliza as mesmas classificações, também conhecidas como [tipos de informação sensível,](/microsoft-365/compliance/sensitive-information-type-entity-definitions)como o Microsoft 365. Isto permite-lhe estender as suas etiquetas de sensibilidade existentes através dos seus ativos Azure Purview.
 
 > [!NOTE]
 > Depois de digitalizar os seus tipos de origem, dê à **Sensibilidade Insights** algumas horas para refletir os novos ativos.
@@ -69,7 +78,7 @@ A Purview utiliza as mesmas classificações, também conhecidas como tipos de i
 
    A página principal **de insights de rotulagem de sensibilidade** apresenta as seguintes áreas:
 
-   |Área  |Description  |
+   |Área  |Descrição  |
    |---------|---------|
    |**Visão geral de fontes com rótulos de sensibilidade**     |Exibe azulejos que fornecem: <br>- O número de subscrições encontradas nos seus dados. <br>- O número de rótulos de sensibilidade únicos aplicados nos seus dados <br>- O número de fontes com rótulos de sensibilidade aplicados <br>- O número de ficheiros e tabelas encontrados com etiquetas de sensibilidade aplicadas|
    |**Principais fontes com dados rotulados (últimos 30 dias)**     | Mostra a tendência, nos últimos 30 dias, do número de fontes com rótulos de sensibilidade aplicados.       |

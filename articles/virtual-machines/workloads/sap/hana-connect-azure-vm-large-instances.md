@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8f69f94c53227dc86fbbf9e9936a2fc3c97ec55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: af248b4ee3ccd079d41317fdb1db3de82ad0f835
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967878"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199041"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Ligar VMs do Azure para Instâncias Grandes do HANA
 
@@ -41,7 +41,7 @@ Olhando mais de perto para o lado da rede virtual Azure, há necessidade de:
 >[!Note]
 >A rede virtual Azure para HANA Large Instances deve ser criada utilizando o modelo de implementação do Gestor de Recursos Azure. O modelo de implantação Azure mais antigo, vulgarmente conhecido como o modelo clássico de implementação, não é suportado pela solução HANA Large Instance.
 
-Pode utilizar o portal Azure, o PowerShell, um modelo Azure ou o CLI Azure para criar a rede virtual. (Para obter mais informações, consulte [Criar uma rede virtual utilizando o portal Azure).](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network) No exemplo seguinte, olhamos para uma rede virtual que é criada usando o portal Azure.
+Pode utilizar o portal Azure, o PowerShell, um modelo Azure ou o CLI Azure para criar a rede virtual. (Para obter mais informações, consulte [Criar uma rede virtual utilizando o portal Azure).](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) No exemplo seguinte, olhamos para uma rede virtual que é criada usando o portal Azure.
 
 Ao referir-se ao espaço de **endereço** nesta documentação, ao espaço de endereço que a rede virtual Azure está autorizada a utilizar. Este espaço de endereço é também a gama de endereços que a rede virtual utiliza para propagação de rotas BGP. Este espaço de **endereço** pode ser visto aqui:
 

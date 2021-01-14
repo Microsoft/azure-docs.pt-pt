@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 35b0ed8e8a7a8400388e7c31ef1a83a7ea6ece85
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 22654d49d02809460adc4013c2c92ac857805cf7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533625"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199806"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Linha de base de segurança Azure para Azure Data Share
 
@@ -94,7 +94,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/learn/tutorial-response.md) 
+- [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md) 
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -130,7 +130,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Utilize uma estação de trabalho segura gerida pelo Azure (também conhecida como Estação de Trabalho de Acesso Privilegiado, ou PAW) para tarefas administrativas que exijam privilégios elevados.
 
-- [Compreenda estações de trabalho seguras e geridas pelo Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Compreenda estações de trabalho seguras e geridas pelo Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
  
 
 - [Como ativar O Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)

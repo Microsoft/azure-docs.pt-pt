@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f94147a09a6d9da75a0d04630822f1e6f738700a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328110"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200945"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Pré-visualização: Criar um Windows VM com Azure Image Builder utilizando PowerShell
 
 Este artigo demonstra como pode criar uma imagem personalizada do Windows utilizando o módulo PowerShell do construtor de imagens Azure VM.
 
 > [!CAUTION]
-> O Azure Image Builder está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço. Não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O Azure Image Builder está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibilizada sem contrato de nível de serviço. Não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -169,7 +169,7 @@ New-AzRoleAssignment @RoleAssignParams
 ```
 
 > [!NOTE]
-> Se receber o erro: "_New-AzRoleDefinition: Limite de definição de função ultrapassado. Não podem ser criadas mais definições de papel._ [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md)
+> Se receber o erro: "_New-AzRoleDefinition: Limite de definição de função ultrapassado. Não podem ser criadas mais definições de papel._ [](../../role-based-access-control/troubleshooting.md)
 
 ## <a name="create-a-shared-image-gallery"></a>Criar um Shared Image Gallery
 
@@ -320,7 +320,7 @@ Deve ver a saída com base no conteúdo do ficheiro criado durante o processo de
 Azure-Image-Builder-Was-Here
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se os recursos criados neste artigo não forem necessários, pode eliminá-los executando os seguintes exemplos.
 
@@ -342,4 +342,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os componentes do ficheiro .json utilizado neste artigo, consulte a [referência do modelo do construtor de imagem](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre os componentes do ficheiro .json utilizado neste artigo, consulte a [referência do modelo do construtor de imagem](../linux/image-builder-json.md).

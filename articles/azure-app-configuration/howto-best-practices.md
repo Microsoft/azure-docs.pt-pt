@@ -1,5 +1,5 @@
 ---
-title: Configuração de aplicativos Azure as melhores práticas Microsoft Docs
+title: As melhores práticas de configuração da aplicação Azure | Microsoft Docs
 description: Aprenda as melhores práticas durante a utilização da Configuração da Aplicação Azure. Os tópicos abordados incluem agrupamentos chave, composições de valor-chave, bootstrap de configuração de aplicações, e muito mais.
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 038d19270fbdb672d397eb2bd56bd27e17ea7af9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929094"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200452"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure
 
@@ -89,6 +89,10 @@ A Configuração da Aplicação oferece a opção de importar em massa [as](./ho
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implementação multi-região na Configuração de Aplicativos
 
 A Configuração de Aplicativos é um serviço regional. Para aplicações com configurações diferentes por região, armazenar estas configurações num só caso pode criar um único ponto de falha. Implementar uma configuração de aplicações por região em várias regiões pode ser uma melhor opção. Pode ajudar na recuperação de desastres regionais, desempenho e siloing de segurança. A configuração por região também melhora a latência e utiliza quotas de estrangulamento separadas, uma vez que o estrangulamento é por exemplo. Para aplicar a mitigação da recuperação de desastres, pode utilizar [várias lojas de configuração](./concept-disaster-recovery.md). 
+
+## <a name="client-applications-in-app-configuration"></a>Aplicações do cliente na Configuração de Aplicações 
+
+Pedidos excessivos para a Configuração da Aplicação podem resultar em encargos de estrangulamento ou excesso de velocidade. As aplicações aproveitam o caching e o refrescante inteligente atualmente disponível para otimizar o número de pedidos que enviam. Este processo pode ser espelhado em aplicações de cliente de alto volume, evitando ligações diretas à loja de configuração. Em vez disso, as aplicações do cliente conectam-se a um serviço personalizado, e este serviço comunica com a loja de configuração. Esta solução proxy pode garantir que as aplicações do cliente não se aproximem do limite de estrangulamento na loja de configuração. Para obter mais informações sobre o estrangulamento, consulte [as FAQ](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Passos seguintes
 

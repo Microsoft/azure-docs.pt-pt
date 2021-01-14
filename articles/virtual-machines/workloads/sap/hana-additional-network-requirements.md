@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e9712466734c0e42fd2bea05c5110cbff6924b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 308d30118349e020d3b407243f106d9ad8368118
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964801"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198990"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Requisitos adicionais de rede para grandes instâncias
 
@@ -31,7 +31,7 @@ Utilize o portal Azure, PowerShell ou o Azure CLI quando adicionar mais endereç
 
 Adicione a nova gama de endereços IP como uma nova gama para o espaço de endereço de rede virtual, em vez de gerar uma nova gama agregada. Submeta esta alteração à Microsoft. Isto permite-lhe ligar a partir dessa nova gama de endereços IP às unidades de grande instância HANA do seu cliente. Pode abrir um pedido de suporte Azure para obter o novo espaço de endereço de rede virtual adicionado. Depois de receber a confirmação, execute os próximos passos.
 
-Para criar uma sub-rede adicional a partir do portal Azure, consulte [criar uma rede virtual utilizando o portal Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). Para criar um a partir de PowerShell, consulte [Criar uma rede virtual utilizando o PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
+Para criar uma sub-rede adicional a partir do portal Azure, consulte [criar uma rede virtual utilizando o portal Azure](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para criar um a partir de PowerShell, consulte [Criar uma rede virtual utilizando o PowerShell](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ## <a name="add-virtual-networks"></a>Adicionar redes virtuais
 
@@ -51,11 +51,11 @@ Quando o novo circuito é criado e o SAP HANA na configuração de Gestão de Se
 
 Para remover uma sub-rede de rede virtual, pode utilizar o portal Azure, o PowerShell ou o Azure CLI. Se o seu intervalo de endereços IP de rede virtual Azure ou espaço de endereços foi um alcance agregado, não existe seguimento para si com a Microsoft. (Note-se, no entanto, que a rede virtual ainda está a propagar o espaço de endereço de rota BGP que inclui a sub-rede eliminada.) Pode ter definido o intervalo de endereços de rede virtual Azure ou o espaço de endereço como múltiplos intervalos de endereços IP, dos quais um foi atribuído à sua sub-rede eliminada. Certifique-se de que apaga isso do seu espaço de endereço de rede virtual. Em seguida, informe o SAP HANA sobre a Microsoft Service Management para removê-lo das gamas com as quais o SAP HANA em Azure (grandes instâncias) é autorizado a comunicar.
 
-Para obter mais informações, consulte [Eliminar uma sub-rede.](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet)
+Para obter mais informações, consulte [Eliminar uma sub-rede.](../../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet)
 
 ## <a name="delete-a-virtual-network"></a>Eliminar uma rede virtual
 
-Para obter informações, consulte [Eliminar uma rede virtual.](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network)
+Para obter informações, consulte [Eliminar uma rede virtual.](../../../virtual-network/manage-virtual-network.md#delete-a-virtual-network)
 
 O SAP HANA na Microsoft Service Management remove as autorizações existentes no circuito SAP HANA on Azure (grandes instâncias). Também remove a gama de endereços IP de rede virtual Azure ou espaço de endereço para a comunicação com grandes instâncias HANA.
 

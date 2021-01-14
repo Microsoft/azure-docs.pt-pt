@@ -10,18 +10,18 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2dccfebed26c8064db697413e7417ae08d69a3ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 38d9727cadd925b944809956eaee51103499a2df
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022047"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200911"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU da NVIDIA em VMs da série N que executam o Windows 
 
 Para tirar partido das capacidades da GPU de VMs da série Azure N apoiados pelos GPUs da NVIDIA, tem de instalar os controladores gpu da NVIDIA. A [extensão do condutor do GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala controladores NVIDIA CUDA ou GRID apropriados num VM da série N. Instale ou gerencie a extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação da [extensão do condutor do GPU da NVIDIA](../extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e etapas de implantação.
 
-Se optar por instalar manualmente os controladores da NVIDIA GPU, este artigo fornece sistemas operativos suportados, controladores e etapas de instalação e verificação. Informações de configuração manual do controlador também estão disponíveis para [Os VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se optar por instalar manualmente os controladores da NVIDIA GPU, este artigo fornece sistemas operativos suportados, controladores e etapas de instalação e verificação. Informações de configuração manual do controlador também estão disponíveis para [Os VMs Linux](../linux/n-series-driver-setup.md).
 
 Para especificações básicas, capacidades de armazenamento e detalhes do disco, consulte [os tamanhos VM do GPU Windows](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json). 
 

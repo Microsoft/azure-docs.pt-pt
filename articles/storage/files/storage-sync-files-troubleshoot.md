@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b84256188cf5df3ddf389f763e669a2b2ca00852
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183341"
+ms.locfileid: "98199240"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -52,9 +52,11 @@ Para resolver este problema, instale [o KB2919355](https://support.microsoft.com
 <a id="server-registration-missing-subscriptions"></a>**O Registo do Servidor não lista todas as Subscrições do Azure**  
 Ao registar um servidor utilizando ServerRegistration.exe, faltam subscrições quando clica na entrega da Subscrição Azure.
 
-Esta questão ocorre porque ServerRegistration.exe não suporta atualmente ambientes multi-inquilinos. Este problema será corrigido numa futura atualização do agente Azure File Sync.
+Esta questão ocorre porque ServerRegistration.exe só recuperará subscrições dos primeiros 5 inquilinos AD Azure. 
 
-Para contornar este problema, utilize os seguintes comandos PowerShell para registar o servidor:
+Para aumentar o limite de inusibilidade do servidor, crie um valor DWORD chamado ServerRegistrationTenantLimit em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync com um valor superior a 5.
+
+Também pode resolver este problema utilizando os seguintes comandos PowerShell para registar o servidor:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"

@@ -1,5 +1,5 @@
 ---
-title: Instalar SAP HANA em SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Instale o SAP HANA no SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Como instalar o SAP HANA num SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81d44dae0fed45d4a4df76973c7e233fd71baff1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006307"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198973"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Grandes Instâncias) em Azure
 
@@ -129,7 +129,7 @@ Como resultado, deve configurar um servidor de tempo separado que possa ser util
 Assumimos que seguiu as recomendações na conceção das suas redes virtuais Azure e na ligação dessas redes virtuais às Grandes Instâncias HANA, conforme descrito nos seguintes documentos:
 
 - [Visão geral e arquitetura em Azure](./hana-overview-architecture.md)
-- [Infraestrutura e conectividade SAP HANA (Grandes Instâncias) em Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infraestrutura e conectividade SAP HANA (Grandes Instâncias) em Azure](hana-overview-infrastructure-connectivity.md)
 
 Há alguns detalhes que merecem ser mencionados sobre a ligação em rede das unidades individuais. Cada unidade HANA Large Instance vem com dois ou três endereços IP que são atribuídos a duas ou três portas NIC. Três endereços IP são usados em configurações de escala HANA e no cenário de replicação do sistema HANA. Um dos endereços IP atribuídos ao NIC da unidade está fora do conjunto IP do servidor que é descrito na [visão geral do SAP HANA (Grandes Instâncias) e arquitetura em Azure](./hana-overview-architecture.md).
 
@@ -139,7 +139,7 @@ Para mais informações sobre os detalhes da Ethernet para a sua arquitetura, co
 
 O layout de armazenamento para SAP HANA em Azure (Grandes Instâncias) é configurado pela SAP HANA on Azure `service management` através das diretrizes recomendadas pela SAP. Estas diretrizes estão documentadas nos [requisitos de armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 
 
-Os tamanhos ásperos dos diferentes volumes com os diferentes SKUs de grandes instâncias HANA são documentados em [SAP HANA (Grandes Instâncias) visão geral e arquitetura em Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Os tamanhos ásperos dos diferentes volumes com os diferentes SKUs de grandes instâncias HANA são documentados em [SAP HANA (Grandes Instâncias) visão geral e arquitetura em Azure](hana-overview-architecture.md).
 
 As convenções de nomeação dos volumes de armazenamento constam do quadro seguinte:
 
@@ -161,7 +161,7 @@ Para ambientes de escala, os volumes de backup de dados, registos e registos sã
 
 Quando olhamos para uma unidade HANA Large Instance, percebemos que as unidades vêm com um volume generoso de disco para HANA/dados, e que existe um volume HANA/log/backup. A razão pela qual fizemos o HANA/dados tão grandes é que as fotos de armazenamento que lhe oferecemos como cliente estão usando o mesmo volume de disco. Quanto mais fotos de armazenamento executa, mais espaço é consumido por instantâneos nos volumes de armazenamento atribuídos. 
 
-O volume HANA/log/backup não é suposto ser o volume para cópias de segurança da base de dados. É dimensionado para ser usado como o volume de backup para as cópias de segurança do registo de transações HANA. Para obter mais informações, consulte [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+O volume HANA/log/backup não é suposto ser o volume para cópias de segurança da base de dados. É dimensionado para ser usado como o volume de backup para as cópias de segurança do registo de transações HANA. Para obter mais informações, consulte [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md). 
 
 Além do armazenamento fornecido, pode adquirir capacidade de armazenamento adicional em incrementos de 1-TB. Este armazenamento adicional pode ser adicionado como novos volumes a uma HANA Large Instance.
 

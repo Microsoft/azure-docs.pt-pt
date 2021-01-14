@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d8893daaf73a15cdc0baf8eeb339e794f6f1da64
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913452"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200809"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
 
@@ -398,7 +398,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 **Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos Azure.
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como ativar o MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -602,7 +602,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registo da análise de Armazenamento do Azure](../../storage/common/storage-analytics-logging.md)
+* [Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 8667fc3c5224b1f75a9beeb95b6e1261c768c14d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347919"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199262"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Crie uma delegação de utilizador SAS para um recipiente ou bolha com .NET
 
@@ -96,6 +96,16 @@ O seguinte exemplo de código mostra como gerar uma delegação de utilizador SA
 O exemplo a seguir testa a delegação de utilizador SAS criada no exemplo anterior a partir de uma aplicação de cliente simulada. Se o SAS for válido, a aplicação do cliente é capaz de ler o conteúdo da bolha. Se o SAS for inválido, por exemplo, se tiver expirado, o Azure Storage devolve o código de erro 403 (Proibido).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListBlobsWithSasAsync":::
+
+## <a name="get-a-user-delegation-sas-for-a-directory"></a>Obtenha uma delegação de utilizadores SAS para um diretório
+
+O exemplo de código a seguir mostra como gerar uma delegação de utilizador SAS para um diretório quando um espaço hierárquico está ativado:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+
+O exemplo a seguir testa a delegação de utilizador SAS criada no exemplo anterior a partir de uma aplicação de cliente simulada. Se o SAS for válido, o pedido do cliente é capaz de listar caminhos de arquivo para este diretório. Se o SAS for inválido, por exemplo, se tiver expirado, o Azure Storage devolve o código de erro 403 (Proibido).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

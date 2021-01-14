@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973908"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200894"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar dos Serviços Web da Amazon (AWS) e de outras plataformas para Discos Geridos em Azure
 
@@ -26,12 +26,12 @@ Pode carregar VHDs generalizados e especializados.
 - **Specialized VHD** - mantém as contas de utilizador, aplicações e outros dados estatais do seu VM original. 
 
 > [!IMPORTANT]
-> Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md)
 >
 >
 
 
-| Cenário                                                                                                                         | Documentation                                                                                                                       |
+| Cenário                                                                                                                         | Documentação                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Tem instâncias AWS EC2 existentes que gostaria de migrar para VMs Azure usando discos geridos                              | [Mover um VM da Amazon Web Services (AWS) para Azure](aws-to-azure.md)                           |
 | Tem um VM de outra plataforma de virtualização que gostaria de usar como imagem para criar vários VMs Azure. | [Faça upload de um VHD generalizado e use-o para criar um novo VM em Azure](upload-generalized-managed.md) |
@@ -49,7 +49,7 @@ Esta secção ajuda-o a tomar a melhor decisão sobre os tipos de VM e discos.
 
 Se está a planear migrar de discos não geridos para discos geridos, deve estar ciente de que os utilizadores com a função [de Contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) não poderão alterar o tamanho do VM (como poderiam pré-conversão). Isto porque os VMs com discos geridos exigem que o utilizador tenha a permissão microsoft.Compute/disks/write nos discos DE.
 
-### <a name="location"></a>Localização
+### <a name="location"></a>A localização
 
 Escolha um local onde os Discos Geridos Azure estão disponíveis. Se estiver a migrar para Discos Geridos Premium, certifique-se também de que o armazenamento Premium está disponível na região para onde planeia migrar. Consulte [os Serviços Azure por Região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre os locais disponíveis.
 
@@ -64,20 +64,20 @@ Reveja as características de desempenho das máquinas virtuais que funcionam co
 
 Existem sete tipos de discos geridos premium que podem ser usados com o seu VM e cada um tem IOPs específicos e limites de produção. Tenha em consideração estes limites ao escolher o tipo de disco Premium para o seu VM com base nas necessidades da sua aplicação em termos de capacidade, desempenho, escalabilidade e cargas máximas.
 
-| Tipo de discos premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Tipo de discos premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPs por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
+| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPs por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 **Discos geridos padrão**
 
 Existem sete tipos de discos geridos padrão que podem ser usados com o seu VM. Cada um deles tem uma capacidade diferente, mas tem os mesmos IOPS e limites de produção. Escolha o tipo de discos Standard Managed com base nas necessidades de capacidade da sua aplicação.
 
-| Tipo de Disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| Tipo de Disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Tamanho do disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOPs por disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Tamanho do disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| IOPs por disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Débito por disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo |60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
 
 ### <a name="disk-caching-policy"></a>Política de cache de disco 
@@ -93,4 +93,4 @@ Reveja os [preços dos Discos Geridos.](https://azure.microsoft.com/pricing/deta
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md)

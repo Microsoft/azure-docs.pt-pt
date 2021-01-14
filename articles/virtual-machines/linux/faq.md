@@ -7,28 +7,28 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 84cb9860f247610621bff130aff155abf222f3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f55b5d9093e2e8e78d3841c332d67f26e5106d38
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274899"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200826"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux
-Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criadas em Azure usando o modelo de implementação do Gestor de Recursos. Para a versão Windows deste tópico, consulte [perguntas frequentes sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criadas em Azure usando o modelo de implementação do Gestor de Recursos. Para a versão Windows deste tópico, consulte [perguntas frequentes sobre máquinas virtuais do Windows](../windows/faq.md)
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>O que posso executar numa VM do Azure?
-Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para mais informações, consulte [Linux em Azure-Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para mais informações, consulte [Linux em Azure-Endorsed Distributions](endorsed-distros.md)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
-Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](../sizes.md).
 
 Os Discos Geridos Azure são as ofertas recomendadas de armazenamento de discos para utilização com máquinas virtuais Azure para armazenamento persistente de dados. Pode utilizar vários Discos Geridos com cada Máquina Virtual. Os Discos Geridos oferecem dois tipos de opções de armazenamento duráveis: Discos Standard e Geridos. Para obter informações sobre preços, consulte [preços dos discos geridos.](https://azure.microsoft.com/pricing/details/managed-disks)
 
 As contas de armazenamento Azure também podem fornecer armazenamento para o disco do sistema operativo e quaisquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Como posso aceder à minha máquina virtual?
-Estabeleça uma ligação remota para iniciar snúm na máquina virtual, utilizando Secure Shell (SSH). Consulte as instruções sobre como ligar a [partir do Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou do [Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
+Estabeleça uma ligação remota para iniciar snúm na máquina virtual, utilizando Secure Shell (SSH). Consulte as instruções sobre como ligar a [partir do Windows](ssh-from-windows.md) ou do [Linux e Mac](mac-create-ssh-keys.md). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
 
 Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 
@@ -36,7 +36,7 @@ Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](..
 Não utilize o disco temporário (/dev/sdb1) para armazenar dados. Só existe para armazenamento temporário. Arrisca-se a perder dados que não podem ser recuperados.
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Posso copiar ou clonar um Azure VM existente?
-Sim. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual Linux no modelo de implementação do Gestor de Recursos](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Sim. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual Linux no modelo de implementação do Gestor de Recursos](copy-vm.md).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Porque é que não estou a ver as regiões do Canadá Central e do Canadá do Leste através do Azure Resource Manager?
 As duas novas regiões do Canadá Central e Do Leste do Canadá não estão automaticamente registadas para a criação de máquinas virtuais para as assinaturas Azure existentes. Este registo é feito automaticamente quando uma máquina virtual é implantada através do portal Azure para qualquer outra região usando O Gestor de Recursos Azure. Depois de uma máquina virtual ser implantada em qualquer outra região de Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.

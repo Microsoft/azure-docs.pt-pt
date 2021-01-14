@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: c3443abaa1157122f7bcd43277a0ae00a2cd4407
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 7af13147804fd1e50a033635985c08b9c62f76ba
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059097"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200996"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
 Para tirar partido das capacidades da GPU de VMs da série Azure N apoiados pelos GPUs da NVIDIA, tem de instalar os controladores gpu da NVIDIA. A [extensão do condutor do GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala controladores NVIDIA CUDA ou GRID apropriados num VM da série N. Instale ou gere a extensão utilizando o portal Azure ou ferramentas como os modelos Azure CLI ou Azure Resource Manager. Consulte a documentação da [extensão do condutor do GPU da NVIDIA](../extensions/hpccompute-gpu-linux.md) para distribuição e etapas de implantação suportadas.
 
-Se optar por instalar manualmente os controladores da NVIDIA GPU, este artigo fornece distribuições suportadas, controladores e etapas de instalação e verificação. Informações de configuração manual do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se optar por instalar manualmente os controladores da NVIDIA GPU, este artigo fornece distribuições suportadas, controladores e etapas de instalação e verificação. Informações de configuração manual do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md).
 
 Para especificações VM da série N, capacidades de armazenamento e detalhes do disco, consulte [os tamanhos VM da GPU Linux](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json). 
 
@@ -388,4 +388,4 @@ Em seguida, crie uma entrada para o seu script de atualização `/etc/rc.d/rc3.d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para capturar uma imagem Linux VM com os seus controladores NVIDIA instalados, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Para capturar uma imagem Linux VM com os seus controladores NVIDIA instalados, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: f9907be0e7cd14876964b820d9b267f279fc50d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: affdee6871649102ef7881fb0f540eba6ab450ca
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331459"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200962"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolução de problemas de um Linux VM, fixando o disco DE Aa a um VM de recuperação utilizando o portal Azure
 Se a sua máquina virtual Linux (VM) encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida `/etc/fstab` que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o portal Azure para ligar o seu disco rígido virtual a outro Linux VM para corrigir eventuais erros e, em seguida, recriar o seu VM original.
@@ -49,7 +49,7 @@ Também pode clicar em **Screenshot** através do topo do registo de diagnóstic
 Um instantâneo é uma cópia completa e só de leitura de um disco rígido virtual (VHD). Recomendamos que desligue o VM de forma limpa antes de tirar uma foto, para limpar quaisquer processos em curso. Para tirar uma foto de um disco de so, siga estes passos:
 
 1. Ir para o [portal Azure.](https://portal.azure.com) Selecione **máquinas virtuais** da barra lateral e, em seguida, selecione o VM que tem problemas.
-1. No painel esquerdo, selecione **Discos**e, em seguida, selecione o nome do disco OS.
+1. No painel esquerdo, selecione **Discos** e, em seguida, selecione o nome do disco OS.
     ![Imagem sobre o nome do disco oss](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. Na página **geral** do disco SO e, em seguida, selecione **Criar instantâneo**.
 1. Crie uma imagem instantânea no mesmo local que o disco de so.
@@ -95,7 +95,7 @@ Para criar um disco a partir do instantâneo, siga estes passos:
 ## <a name="attach-disk-to-another-vm"></a>Fixe o disco a outro VM
 Para os próximos passos, utilize outro VM para efeitos de resolução de problemas. Depois de fixar o disco ao VM de resolução de problemas, pode navegar e editar o conteúdo do disco. Este processo permite-lhe corrigir quaisquer erros de configuração ou rever ficheiros adicionais de aplicação ou registo de sistema. Para fixar o disco a outro VM, siga estes passos:
 
-1. Selecione o seu grupo de recursos a partir do portal e, em seguida, selecione o seu VM de resolução de problemas. Selecione **Discos,** **selecione Editar**e, em seguida, clique em **Adicionar disco de dados**:
+1. Selecione o seu grupo de recursos a partir do portal e, em seguida, selecione o seu VM de resolução de problemas. Selecione **Discos,** **selecione Editar** e, em seguida, clique em **Adicionar disco de dados**:
 
     ![Anexar o disco existente no portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
@@ -169,13 +169,13 @@ Assim que os seus erros forem resolvidos, retire o disco rígido virtual existen
 O portal Azure suporta agora alterar o disco de SO do VM. Para tal, siga estes passos:
 
 1. Ir para o [portal Azure.](https://portal.azure.com) Selecione **máquinas virtuais** da barra lateral e, em seguida, selecione o VM que tem problemas.
-1. No painel esquerdo, selecione **Discos**e, em seguida, selecione **o disco Swap OS**.
+1. No painel esquerdo, selecione **Discos** e, em seguida, selecione **o disco Swap OS**.
         ![A imagem sobre o disco Swap OS no portal Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. Escolha o novo disco que reparou e, em seguida, digite o nome do VM para confirmar a alteração. Se não vir o disco na lista, aguarde 10 ~ 15 minutos depois de retirar o disco do VM de resolução de problemas. Certifique-se também de que o disco está no mesmo local que o VM.
 1. Selecione OK.
 
 ## <a name="next-steps"></a>Passos seguintes
-Se tiver problemas de ligação ao seu VM, consulte [as ligações SSH de resolução de problemas a um VM Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num Linux VM](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+Se tiver problemas de ligação ao seu VM, consulte [as ligações SSH de resolução de problemas a um VM Azure](troubleshoot-ssh-connection.md). Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num Linux VM](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 
-Para obter mais informações sobre a utilização do Gestor de Recursos, consulte [a visão geral do Gestor de Recursos do Azure](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações sobre a utilização do Gestor de Recursos, consulte [a visão geral do Gestor de Recursos do Azure](../../azure-resource-manager/management/overview.md).
