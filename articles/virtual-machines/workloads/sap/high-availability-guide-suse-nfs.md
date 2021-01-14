@@ -60,7 +60,7 @@ Este guia descreve como configurar um servidor NFS altamente disponível que é 
 
 Leia primeiro as seguintes notas e artigos SAP
 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
   * Informações importantes sobre a capacidade dos tamanhos Azure VM
   * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados
@@ -83,7 +83,7 @@ Leia primeiro as seguintes notas e artigos SAP
 * [SUSE Linux Enterprise Server para aplicações SAP 12 GUIAs de boas práticas SP3][sles-for-sap-bp]
 * [SUSE Extensão de Alta Disponibilidade 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para obter uma elevada disponibilidade, o SAP NetWeaver necessita de um servidor NFS. O servidor NFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 

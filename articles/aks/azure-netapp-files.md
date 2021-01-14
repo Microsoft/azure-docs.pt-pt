@@ -4,18 +4,18 @@ description: Saiba como integrar ficheiros Azure NetApp com o Serviço Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 19727d3c3322b05f340463d94a2bc3884e5d9d93
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126258"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196015"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes
 
 [Azure NetApp Files][anf] é um serviço de armazenamento de ficheiros de classe empresarial, de alto desempenho e medido em execução no Azure. Este artigo mostra-lhe como integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes (AKS).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
 > [!IMPORTANT]
@@ -28,14 +28,14 @@ Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e config
 Aplicam-se as seguintes limitações quando utiliza ficheiros Azure NetApp:
 
 * O Azure NetApp Files só está disponível [nas regiões de Azure selecionadas.][anf-regions]
-* Antes de poder utilizar ficheiros Azure NetApp, tem de ter acesso ao serviço Azure NetApp Files. Para se candidatar ao acesso, pode utilizar o formulário de submissão da [lista de espera Azure NetApp Files][anf-waitlist]. Não pode aceder ao serviço Azure NetApp Files até receber o e-mail oficial de confirmação da equipa do Azure NetApp Files.
+* Antes de poder utilizar ficheiros Azure NetApp, tem de ter acesso ao serviço Azure NetApp Files. Para se candidatar ao acesso, pode utilizar o formulário de submissão da [lista de espera Azure NetApp Files][anf-waitlist] ou ir para https://azure.microsoft.com/services/netapp/#getting-started . Não pode aceder ao serviço Azure NetApp Files até receber o e-mail oficial de confirmação da equipa do Azure NetApp Files.
 * Após a implantação inicial de um cluster AKS, apenas é suportado o fornecimento estático para ficheiros Azure NetApp.
 * Para utilizar o provisionamento dinâmico com os Ficheiros Azure NetApp, instale e configuure a versão 19.07 do [NetApp Trident](https://netapp-trident.readthedocs.io/) ou posterior.
 
 ## <a name="configure-azure-netapp-files"></a>Configurar ficheiros Azure NetApp
 
 > [!IMPORTANT]
-> Antes de poder registar o fornecedor de recursos  *Microsoft.NetApp,* tem de preencher o formulário de submissão da [lista de espera Azure NetApp Para][anf-waitlist] a sua subscrição. Não é possível registar o recurso até receber o e-mail oficial de confirmação da equipa do Azure NetApp Files.
+> Antes de poder registar o fornecedor de recursos  *Microsoft.NetApp,* tem de preencher o formulário de submissão da [lista de espera Azure NetApp Files][anf-waitlist] ou ir para a sua https://azure.microsoft.com/services/netapp/#getting-started subscrição. Não é possível registar o recurso até receber o e-mail oficial de confirmação da equipa do Azure NetApp Files.
 
 Registe-se o fornecedor de recursos *Microsoft.NetApp:*
 
@@ -46,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Isto pode levar algum tempo para ser concluído.
 
-Quando cria uma conta Azure NetApp para utilização com AKS, precisa de criar a conta no grupo de recursos **de nó.** Primeiro, obtenha o nome do grupo de recursos com o comando [az aks show][az-aks-show] e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo a seguir obtém o grupo de recursos de nó para o cluster AKS chamado *myAKSCluster* no nome do grupo de recursos *myResourceGroup* :
+Quando cria uma conta Azure NetApp para utilização com AKS, precisa de criar a conta no grupo de recursos **de nó.** Primeiro, obtenha o nome do grupo de recursos com o comando [az aks show][az-aks-show] e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo a seguir obtém o grupo de recursos de nó para o cluster AKS chamado *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -158,6 +158,8 @@ spec:
     storage: 100Gi
   accessModes:
     - ReadWriteMany
+  mountOptions:
+    - vers=3
   nfs:
     server: 10.0.0.4
     path: /myfilepath2

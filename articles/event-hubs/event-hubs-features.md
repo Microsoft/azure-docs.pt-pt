@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece detalhes sobre funcionalidades e terminologia dos Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0730a5fa3abbc6b27cb96431125564a2475a90d1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955655"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195794"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e terminologia nos Hubs de Eventos do Azure
 
@@ -104,7 +104,7 @@ Os exemplos que se seguem mostram a convenção URI do grupo de consumidores:
 
 A imagem seguinte mostra a arquitetura do processamento de fluxos dos Hubs de Eventos:
 
-![Arquitetura de Centros de Eventos](./media/event-hubs-features/event_hubs_architecture.png)
+![Arquitetura de Centros de Eventos](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ### <a name="stream-offsets"></a>Desvios de fluxo
 

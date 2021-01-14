@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/1/2020
-ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/13/2021
+ms.openlocfilehash: de4e7959a5778c7275427450ead876338f052882
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541424"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196780"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Criar bases de dados e utilizadores na Base de Dados Azure para o MySQL
 
@@ -20,25 +20,23 @@ ms.locfileid: "94541424"
 Este artigo descreve como criar utilizadores na Base de Dados Azure para o MySQL.
 
 > [!NOTE]
-> **Comunicação sem preconceitos**
+> Comunicação sem preconceitos
 >
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra *escravo.* O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque é a palavra que atualmente aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
 >
 
 Quando criou pela primeira vez a sua Base de Dados Azure para o servidor MySQL, forneceu um nome de utilizador e senha de administração do servidor. Para mais informações, consulte este [Quickstart.](quickstart-create-mysql-server-database-using-azure-portal.md) Pode determinar o nome de utilizador do seu servidor no portal Azure.
 
-O utilizador de administração do servidor tem estes privilégios: 
+O utilizador de administração do servidor tem estes privilégios:
 
    SELECIONE, INSIRA, ATUALIZAÇÃO, APAGUE, CRIE, CRIE, RECARREGUE, PROCESSE, REFERÊNCIAS, INDEX, ALTER, MOSTRAR BASES DE DADOS, CRIAR TABELAS TEMPORÁRIAS, BLOQUEAR TABELAS, EXECUTAR, REPLICAR ESCRAVO, REPLICAR CLIENTE, CRIAR VISÃO, MOSTRAR, CRIAR ROTINA, ALTERAR ROTINA, CRIAR UTILIZADOR, EVENTO, TRIGGER
 
-
-Depois de criar uma Base de Dados Azure para o servidor MySQL, pode utilizar a primeira conta de administração do servidor para criar utilizadores adicionais e conceder acesso administrativo aos mesmos. Também pode utilizar a conta de administração do servidor para criar utilizadores menos privilegiados que tenham acesso a esquemas de bases de dados individuais.
+Depois de criar uma Base de Dados Azure para o servidor MySQL, pode utilizar a primeira conta de administração do servidor para criar mais utilizadores e conceder acesso administrativo aos mesmos. Também pode utilizar a conta de administração do servidor para criar utilizadores menos privilegiados que tenham acesso a esquemas de bases de dados individuais.
 
 > [!NOTE]
 > O papel de super privilégio e DBA não são apoiados. Reveja os [privilégios](concepts-limits.md#privileges--data-manipulation-support) no artigo de limitações para entender o que não é suportado no serviço.
 >
 > Os plugins de palavra-passe gostam `validate_password` e `caching_sha2_password` não são suportados pelo serviço.
-
 
 ## <a name="to-create-a-database-with-a-non-admin-user-in-azure-database-for-mysql"></a>Criar uma base de dados com um utilizador não administrador na Base de Dados Azure para o MySQL
 
@@ -46,7 +44,7 @@ Depois de criar uma Base de Dados Azure para o servidor MySQL, pode utilizar a p
    Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode encontrar facilmente o nome do servidor e informações de inscrição na página **'Vista Geral'** do servidor ou na página **Propriedades** no portal Azure.
 
 2. Utilize a conta de administração e a palavra-passe para ligar ao servidor de base de dados. Utilize a sua ferramenta cliente preferida, como a MySQL Workbench, mysql.exe ou HeidiSQL.
-   
+
    Se não tiver a certeza de como ligar, consulte [os dados de ligação e consulta para o Servidor Único](./connect-workbench.md) ou [conecte e consulte dados para o Servidor Flexível.](./flexible-server/connect-workbench.md)
 
 3. Editar e executar o seguinte código SQL. Substitua o valor do espaço reservado `db_user` pelo novo nome de utilizador pretendido. Substitua o valor do espaço reservado `testdb` pelo nome da base de dados.
@@ -73,25 +71,26 @@ Depois de criar uma Base de Dados Azure para o servidor MySQL, pode utilizar a p
 
 5. Inscreva-se no servidor, especificando a base de dados designada e utilizando o novo nome de utilizador e senha. Este exemplo mostra a linha de comando mysql. Quando utilizar este comando, será solicitado a palavra-passe do utilizador. Use o nome do seu próprio servidor, nome de base de dados e nome de utilizador.
 
-   # <a name="single-server"></a>[Servidor Único](#tab/single-server)
+   ### <a name="single-server"></a>[Servidor Único](#tab/single-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-   # <a name="flexible-server"></a>[Servidor Flexível](#tab/flexible-server)
+
+   ### <a name="flexible-server"></a>[Servidor Flexível](#tab/flexible-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
    ```
  ---
 
-## <a name="to-create-additional-admin-users-in-azure-database-for-mysql"></a>Criar utilizadores de administração adicionais na Base de Dados Azure para o MySQL
+## <a name="to-create-more-admin-users-in-azure-database-for-mysql"></a>Criar mais utilizadores administrativos na Base de Dados Azure para o MySQL
 
 1. Obtenha a informação de ligação e o nome de utilizador administrativo.
    Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode encontrar facilmente o nome do servidor e informações de inscrição na página **'Vista Geral'** do servidor ou na página **Propriedades** no portal Azure.
 
 2. Utilize a conta de administração e a palavra-passe para ligar ao servidor de base de dados. Utilize a sua ferramenta cliente preferida, como a MySQL Workbench, mysql.exe ou HeidiSQL.
-   
+
    Se não tiver a certeza de como ligar, consulte [a workbench MySQL para ligar e consultar dados.](./connect-workbench.md)
 
 3. Editar e executar o seguinte código SQL. Substitua o valor do espaço reservado `new_master_user` pelo seu novo nome de utilizador. Esta sintaxe confere ao utilizador os privilégios listados em todos os esquemas de base de dados *(...* `new_master_user`
@@ -119,7 +118,8 @@ Todas as bases de dados Azure para servidores MySQL são criadas com um utilizad
 ## <a name="next-steps"></a>Passos seguintes
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para permitir a sua ligação:
-- [Criar e gerir regras de firewall no Single Server](howto-manage-firewall-using-portal.md) 
-- [ Criar e gerir regras de firewall no Servidor Flexível](flexible-server/how-to-connect-tls-ssl.md)
+
+* [Criar e gerir regras de firewall no Single Server](howto-manage-firewall-using-portal.md)
+* [Criar e gerir regras de firewall no Servidor Flexível](flexible-server/how-to-connect-tls-ssl.md)
 
 Para obter mais informações sobre a gestão da conta de utilizador, consulte a documentação do produto MySQL para [a gestão da conta do utilizador,](https://dev.mysql.com/doc/refman/5.7/en/access-control.html) [sintaxe GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html)e [Privilégios.](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html)

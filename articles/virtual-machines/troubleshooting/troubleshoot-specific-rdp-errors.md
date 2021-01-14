@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 808443cb805b2dee2426198f9cd4f7ba502d8999
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87028248"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197511"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolver mensagens de erro do RDP específicas para uma VM do Windows no Azure
 Pode receber uma mensagem de erro específica quando utilizar a ligação remote desktop a uma máquina virtual Windows (VM) em Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com medidas de resolução de problemas para as resolver. Se tiver problemas ligados ao seu VM utilizando RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md).
@@ -88,8 +88,8 @@ Causa: O VM alvo não pode validar o nome da sua conta e senha.
 
 Um computador baseado no Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-* Para contas locais, utilize a sintaxe do nome de utilizador *Do Nome de Computador* \\ *UserName* (exemplo: SQL1\Admin4798).
-* Para contas de domínio, utilize a sintaxe do nome de utilizador *do Nome de Domínio* \\ *UserName* (exemplo: CONTOSO\peterodman).
+* Para contas locais, utilize a sintaxe do nome de utilizador *Do Nome de Computador* \\  (exemplo: SQL1\Admin4798).
+* Para contas de domínio, utilize a sintaxe do nome de utilizador *do Nome de Domínio* \\  (exemplo: CONTOSO\peterodman).
 
 Se promoveu o seu VM a um controlador de domínio numa nova floresta de Diretório Ativo, a conta de administrador local com a qual assinou é convertida para uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então apagada.
 
@@ -109,7 +109,7 @@ Todos os computadores Windows têm um grupo local de utilizadores de desktop rem
 Certifique-se de que a conta que está a utilizar para se ligar tem direitos de entrada no Ambiente de Trabalho Remoto. Como solução alternativa, utilize uma conta de administrador de domínio ou local para ligar ao Ambiente de Trabalho Remoto. Para adicionar a conta desejada ao grupo local de utilizadores de desktop remoto, utilize o snap-in do Microsoft Management Console **(Ferramentas de Sistema > Grupos > Grupos > locais > Utilizadores remotos de ambiente de trabalho).**
 
 ## <a name="next-steps"></a>Passos seguintes
-Se nenhum destes erros ocorrer e tiver um problema desconhecido com a ligação utilizando RDP, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se nenhum destes erros ocorrer e tiver um problema desconhecido com a ligação utilizando RDP, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md).
 
 * Para obter etapas de resolução de problemas no acesso a aplicações em execução num VM, consulte [o acesso de Resolução de Problemas a uma aplicação em execução num VM Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Se tiver problemas em utilizar a Secure Shell (SSH) para ligar a um Linux VM em Azure, consulte [as ligações SSH de resolução de problemas a um Linux VM em Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

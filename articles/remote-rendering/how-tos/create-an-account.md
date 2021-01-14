@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83bd4a7ae0082d24f7ac617719e628f4db4baeb9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998537"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197642"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
@@ -71,35 +71,26 @@ O valor para **`arrAccountKey`** pode ser a chave primária ou secundária.
 
 Este parágrafo explica como ligar as contas de armazenamento à sua conta de Renderização Remota. Quando uma conta de armazenamento está ligada não é necessário gerar um SAS URI sempre que pretende interagir com os dados na sua conta, por exemplo, ao carregar um modelo. Em vez disso, pode utilizar os nomes da conta de armazenamento diretamente como descrito na [secção de carregamento de um modelo](../concepts/models.md#loading-models).
 
-Os passos deste parágrafo devem ser realizados para cada conta de armazenamento que deve utilizar este método de acesso alternativo. Se ainda não criou contas de armazenamento, pode percorrer o respetivo passo na [conversão de um modelo para renderização rápida](../quickstarts/convert-model.md#storage-account-creation).
+Os passos deste parágrafo devem ser realizados para cada conta de armazenamento que deve utilizar este método de acesso. Se ainda não criou contas de armazenamento, pode percorrer o respetivo passo na [conversão de um modelo para renderização rápida](../quickstarts/convert-model.md#storage-account-creation).
 
 Agora presume-se que tem uma conta de armazenamento. Navegue para a conta de armazenamento no portal e vá ao **separador Controlo de Acesso (IAM)** para essa conta de armazenamento:
 
 ![Conta de armazenamento IAM](./media/azure-storage-account.png)
 
- Certifique-se de que tem permissões do proprietário sobre esta conta de armazenamento para garantir que pode adicionar atribuições de funções. Se não tiver acesso, a opção Adicionar uma tarefa de **função** será desativada.
+Certifique-se de que tem permissões do proprietário sobre esta conta de armazenamento para garantir que pode adicionar atribuições de funções. Se não tiver acesso, a opção Adicionar uma tarefa de **função** será desativada.
 
- É necessário adicionar três papéis distintos, como descrito nos próximos passos. Se não fornecer os três níveis de acesso, haverá problemas de permissão enquanto tenta aceder à conta de armazenamento.
-
- Clique no botão **Adicionar** no azulejo "Adicionar uma tarefa de função" para adicionar a primeira função:
+Clique no botão **Adicionar** no azulejo "Adicionar uma tarefa de função" para adicionar o papel.
 
 ![IAM de conta de armazenamento adicionar atribuição de função](./media/azure-add-role-assignment.png)
 
-* A primeira função a atribuir é **o Proprietário,** como mostrado na imagem acima.
-* Selecione **Conta de Renderização Remota** a partir do acesso de Atribuição **ao** dropdown.
+* Atribua a **função de contribuinte de dados blob** de armazenamento, como mostrado na imagem acima.
+* Selecione o sistema **de conta de renderização remota**  atribuído a partir do acesso de Atribuição **ao** dropdown.
 * Selecione a sua conta de subscrição e renderização remota nas últimas desistências.
+* Clique em "Guardar" para guardar as suas alterações.
 
 > [!WARNING]
 > Caso a sua conta de renderização remota não esteja listada, consulte esta [secção de resolução de problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Repita a adição de novas funções mais duas vezes para as respetivas seleções da queda do **papel:**
-
-* **Contribuidor de Conta de Armazenamento**
-* **Contribuinte de Dados do Armazenamento de Blobs**
-
-As outras descidas são selecionadas como no primeiro passo.
-
-Se adicionou as três funções, a sua conta de Renderização Remota Azure tem acesso à sua conta de armazenamento utilizando identidades de serviço gerido atribuídos pelo sistema.
 > [!IMPORTANT]
 > As atribuições de funções Azure são armazenadas pelo Azure Storage, pelo que pode haver um atraso de até 30 minutos entre quando concede acesso à sua conta de renderização remota e quando pode ser usada para aceder à sua conta de armazenamento. Consulte a documentação do [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) para obter mais detalhes.
 

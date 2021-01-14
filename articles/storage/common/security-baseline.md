@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 29e72f8358591614489be2731d16e89428ef388b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301360"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195726"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -68,7 +68,7 @@ Note que se tiver Pontos Finais Privados anexados à sua conta de armazenamento,
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negar comunicações com endereços IP maliciosos conhecidos
 
-**Orientação**: Ative a Proteção avançada de ameaças para a sua conta de Armazenamento Azure. A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas integrados do Azure Security Center baseiam-se em atividades para as quais a comunicação de rede foi associada a um endereço IP que foi resolvido com sucesso, quer o endereço IP seja ou não um endereço IP de risco conhecido (por exemplo, um criptominador conhecido) ou um endereço IP que não seja reconhecido anteriormente como arriscado. Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. 
+**Orientação**: Ative a Proteção avançada de ameaças para a sua conta de Armazenamento Azure. A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas integrados do Azure Security Center baseiam-se em atividades para as quais a comunicação de rede foi associada a um endereço IP que foi resolvido com sucesso, quer o endereço IP seja ou não um endereço IP de risco conhecido (por exemplo, um criptominador conhecido) ou um endereço IP que não seja reconhecido anteriormente como arriscado. Os alertas de segurança são acionados quando ocorrem anomalias de atividade. 
 
 - [Como permitir a Proteção Avançada de Ameaças](./azure-defender-storage-configure.md?tabs=azure-portal)
 
@@ -90,7 +90,7 @@ Note que se tiver Pontos Finais Privados anexados à sua conta de armazenamento,
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1.6: Implementar sistemas de deteção/prevenção de intrusões baseados em rede
 
-**Orientação**: A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas de segurança estão integrados no Azure Security Center, e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. 
+**Orientação**: A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são acionados quando ocorrem anomalias de atividade. Estes alertas de segurança estão integrados no Centro de Segurança do Azure. Além disso, são enviados por e-mail aos administradores de subscrições com detalhes sobre a atividade suspeita e recomendações sobre como investigar e remediar ameaças. 
 
 - [Configure a proteção avançada de ameaças para o armazenamento de Azure](./azure-defender-storage-configure.md)
 
@@ -126,7 +126,7 @@ Quando o acesso à rede precisar de ser examinado para contas de armazenamento e
 
 Também pode utilizar definições de política incorporadas relacionadas com a conta de Armazenamento, tais como: As Contas de Armazenamento devem utilizar um ponto final de serviço de rede virtual 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Amostras da Política Azure para armazenamento](../../governance/policy/samples/built-in-policies.md#storage)
 
@@ -156,7 +156,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 **Orientação**: Utilize a Política Azure para registar alterações na configuração dos recursos de rede. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede. 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
@@ -220,7 +220,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 **Orientação**: Para rever os registos de Armazenamento Azure, existem as opções habituais, como consultas através da oferta Log Analytics, bem como uma opção única de visualização direta dos ficheiros de registo. No Azure Storage, os registos são armazenados em bolhas que devem ser acedidas diretamente `http://accountname.blob.core.windows.net/$logs` (a pasta de registo está escondida por predefinição, pelo que terá de navegar diretamente. Não será exibido nos comandos lista) 
 
-Além disso, Ative a Proteção Avançada de Ameaças para a sua conta de Armazenamento Azure. A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas de segurança estão integrados no Azure Security Center, e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. 
+Além disso, Ative a Proteção Avançada de Ameaças para a sua conta de Armazenamento Azure. A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são acionados quando ocorrem anomalias de atividade. Estes alertas de segurança estão integrados no Centro de Segurança do Azure. Além disso, são enviados por e-mail aos administradores de subscrições com detalhes sobre a atividade suspeita e recomendações sobre como investigar e remediar ameaças. 
 
 - [Dados de registo e revisão](./storage-analytics-logging.md#how-logs-are-stored)
 
@@ -238,7 +238,7 @@ Além disso, Ative a Proteção Avançada de Ameaças para a sua conta de Armaze
 
 - [Como gerir alertas no Centro de Segurança Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registos de registos](../../azure-monitor/learn/tutorial-response.md)
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 
@@ -346,7 +346,7 @@ Também pode ativar um Acesso Just-In-Time / Just-Enough-Enough utilizando funç
 
 **Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos de conta de armazenamento. 
 
-- [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Como ativar o MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -694,7 +694,7 @@ Além disso, utilize a Proteção Avançada de Ameaças para o Armazenamento Azu
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s) subscrição. Isto pode ajudar em ambientes de alta segurança, como aqueles com contas de Armazenamento. 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar consultas com Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -714,7 +714,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 **Orientação**: O cliente pode impedir a criação ou utilização de recursos com a Política Azure, conforme exigido pelas políticas da empresa do cliente. 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -735,7 +735,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 - Tipos de recursos não permitidos 
 - Tipos de recursos permitidos 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/index.md)
 
@@ -794,7 +794,7 @@ Utilize recomendações do Azure Security Center como base de configuração seg
 
 - [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -812,7 +812,7 @@ Utilize recomendações do Azure Security Center como base de configuração seg
 
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] para impor definições seguras em todos os recursos da sua conta de Armazenamento. 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Compreender efeitos da política do Azure](../../governance/policy/concepts/effects.md)
 
@@ -852,7 +852,7 @@ Utilize recomendações do Azure Security Center como base de configuração seg
 
 **Orientação**: Alavancar a Política Azure para alertar, auditar e impor configurações do sistema para a conta de Armazenamento. Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas. 
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -910,7 +910,7 @@ Adicionalmente, rode as chaves da conta de armazenamento numa base frequente par
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault. 
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault. 
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1017,7 +1017,7 @@ Nota: Se pretender copiar dados de e para o seu serviço de armazenamento Azure 
 
 - [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Armazenar dados de blob críticos de negócio com armazenamento imutável](../blobs/storage-blob-immutable-storage.md)
+- [Armazenar dados de blobs críticos para a empresa com o armazenamento imutável](../blobs/storage-blob-immutable-storage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -1029,7 +1029,7 @@ Nota: Se pretender copiar dados de e para o seu serviço de armazenamento Azure 
 
 ### <a name="101-create-incident-response-guide"></a>10.1: Criar guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 - [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1057,7 +1057,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 - [Publicação do NIST - Guia de Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -1113,7 +1113,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](../../security/benchmarks/overview.md)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](../../security/benchmarks/security-baselines-overview.md)

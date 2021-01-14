@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: df2b58e0067932edd9dfa21ee1a6fbb2a5c1fdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 941be52f25b08589134f693b9c0fe17a8a87ff28
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289753"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196406"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar um Linux VM a partir de um disco personalizado com o Azure CLI
 
@@ -38,12 +38,12 @@ Tem duas opções para criar um disco personalizado:
 Para completar os seguintes passos, você precisará:
 
 - Uma máquina virtual Linux que foi preparada para ser utilizada em Azure. A secção [VM](#prepare-the-vm) deste artigo abrange como encontrar informações específicas sobre a instalação do Agente Azure Linux (waagent), que é necessário para que possa ligar-se a um VM com SSH.
-- O ficheiro VHD de uma [distribuição Linux existente endossada pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou ver [informações para distribuições não endossadas)](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)para um disco virtual no formato VHD. Existem várias ferramentas para criar um VM e VHD:
+- O ficheiro VHD de uma [distribuição Linux existente endossada pelo Azure](endorsed-distros.md) (ou ver [informações para distribuições não endossadas)](create-upload-generic.md)para um disco virtual no formato VHD. Existem várias ferramentas para criar um VM e VHD:
   - Instale e configuure [o QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [o KVM,](https://www.linux-kvm.org/page/RunningKVM)tendo o cuidado de utilizar o VHD como formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) com `qemu-img convert` .
   - Também pode utilizar o Hyper-V [no Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) ou [no Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> O novo formato VHDX não é suportado no Azure. Quando criar um VM, especifique o VHD como o formato. Se necessário, pode converter discos VHDX em VHD com [conversão qemu-img](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [cmdlet Converte-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell. O Azure não suporta o upload de VHDs dinâmicos, por isso terás de converter esses discos em VHDs estáticos antes de carregar. Pode utilizar ferramentas como [Azure VHD Utilities para GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de upload para Azure.
+> O novo formato VHDX não é suportado no Azure. Quando criar um VM, especifique o VHD como o formato. Se necessário, pode converter discos VHDX em VHD com [conversão qemu-img](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [cmdlet Converte-VHD](/powershell/module/hyper-v/convert-vhd) PowerShell. O Azure não suporta o upload de VHDs dinâmicos, por isso terás de converter esses discos em VHDs estáticos antes de carregar. Pode utilizar ferramentas como [Azure VHD Utilities para GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de upload para Azure.
 > 
 > 
 
@@ -56,20 +56,20 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 
-A Azure suporta várias distribuições Linux (ver [Distribuição Endossada).](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Os seguintes artigos descrevem como preparar as várias distribuições Linux que são suportadas no Azure:
+A Azure suporta várias distribuições Linux (ver [Distribuição Endossada).](endorsed-distros.md) Os seguintes artigos descrevem como preparar as várias distribuições Linux que são suportadas no Azure:
 
-* [Distribuições baseadas em CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Outros: Distribuições Não Endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Distribuições baseadas em CentOS](create-upload-centos.md)
+* [Debian Linux](debian-create-upload-vhd.md)
+* [Oracle Linux](oracle-create-upload-vhd.md)
+* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+* [SLES e openSUSE](suse-create-upload-vhd.md)
+* [Ubuntu](create-upload-ubuntu.md)
+* [Outros: Distribuições Não Endossadas](create-upload-generic.md)
 
 Consulte também as [Notas de Instalação Linux](create-upload-generic.md#general-linux-installation-notes) para obter dicas mais gerais sobre a preparação das imagens Linux para Azure.
 
 > [!NOTE]
-> A [plataforma Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) aplica-se aos VMs que executam o Linux apenas quando uma das distribuições endossadas é utilizada com os detalhes de configuração especificados em "Versões Suportadas" em [Linux em Azure-Endorsed Distribuição](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> A [plataforma Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) aplica-se aos VMs que executam o Linux apenas quando uma das distribuições endossadas é utilizada com os detalhes de configuração especificados em "Versões Suportadas" em [Linux em Azure-Endorsed Distribuição](endorsed-distros.md).
 > 
 > 
 
@@ -133,4 +133,4 @@ az vm create \
 Você deve ser capaz de SSH no VM com as credenciais da fonte VM. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de ter preparado e carregado o seu disco virtual personalizado, pode ler mais sobre [a utilização de Gestor de Recursos e modelos.](../../azure-resource-manager/management/overview.md) Também pode querer [adicionar um disco de dados](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aos seus novos VMs. Se tiver aplicações em execução nos seus VMs a que necessita de aceder, certifique-se de [abrir portas e pontos finais](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Depois de ter preparado e carregado o seu disco virtual personalizado, pode ler mais sobre [a utilização de Gestor de Recursos e modelos.](../../azure-resource-manager/management/overview.md) Também pode querer [adicionar um disco de dados](add-disk.md) aos seus novos VMs. Se tiver aplicações em execução nos seus VMs a que necessita de aceder, certifique-se de [abrir portas e pontos finais](nsg-quickstart.md).

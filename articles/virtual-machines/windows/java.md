@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: f571dc5f4f3aee2405d4968b050bd2dd92a709db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 568760dcaebbad0e14405e14c5a5bf8f6cd18395
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012753"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197460"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs do Windows em Azure utilizando a Java
 
-[Uma Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos de suporte Azure. Este artigo abrange a criação, gestão e eliminação de recursos VM usando Java. Saiba como:
+[Uma Máquina Virtual Azure](overview.md) (VM) precisa de vários recursos de suporte Azure. Este artigo abrange a criação, gestão e eliminação de recursos VM usando Java. Saiba como:
 
 > [!div class="checklist"]
-> * Criar um projeto Maven
+> * Criar um projeto do Maven
 > * Adicionar dependências
 > * Criar credenciais
 > * Criar recursos
@@ -31,7 +31,7 @@ ms.locfileid: "96012753"
 
 Leva cerca de 20 minutos para fazer estes passos.
 
-## <a name="create-a-maven-project"></a>Criar um projeto Maven
+## <a name="create-a-maven-project"></a>Criar um projeto do Maven
 
 1. Se ainda não o fez, instale [Java.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 2. Instale [o Maven.](https://maven.apache.org/download.cgi)
@@ -288,7 +288,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> Este tutorial cria uma máquina virtual que executa uma versão do sistema operativo Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [a Navigate e selecione imagens de máquinas virtuais Azure com o Windows PowerShell e o Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Este tutorial cria uma máquina virtual que executa uma versão do sistema operativo Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [a Navigate e selecione imagens de máquinas virtuais Azure com o Windows PowerShell e o Azure CLI](../linux/cli-ps-findimage.md).
 > 
 >
 

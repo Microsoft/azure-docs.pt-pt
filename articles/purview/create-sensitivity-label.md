@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092691"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196593"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -33,8 +33,9 @@ Em Purview, as classificações são semelhantes às tags de assunto, e são usa
 A Purview utiliza as mesmas classificações, também conhecidas como tipos de informação sensível, como o Microsoft 365.  As etiquetas de sensibilidade MIP são criadas no Microsoft 365 Security and Compliance Center (SCC). Isto permite-lhe estender as suas etiquetas de sensibilidade existentes através dos seus ativos Azure Purview.
 
 > [!NOTE]
-> Enquanto as classificações são correspondidas diretamente (um número de segurança social tem uma classificação do Número de **Segurança Social),** as etiquetas de sensibilidade são aplicadas quando uma ou mais classificações e cenários são encontrados em conjunto. 
-> 
+> As classificações são correspondidas diretamente, como um número de segurança social, que tem uma classificação de Número de **Segurança Social.** 
+>
+> Em contrapartida, aplicam-se etiquetas de sensibilidade quando uma ou mais classificações e condições são encontradas em conjunto. Neste contexto, [as condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) referem-se a todos os parâmetros que pode definir para dados não estruturados, tais como **a proximidade a outra classificação**, e **a confiança de %**. 
 
 As etiquetas de sensibilidade no Azure Purview podem ser utilizadas para aplicar automaticamente rótulos em ficheiros e colunas de bases de dados.
 
@@ -91,11 +92,6 @@ Ao alargar os rótulos de sensibilidade do MIP com o Azure Purview, as organiza�
 > Uma vez que a Microsoft 365 e a Azure Purview são serviços separados, existe a possibilidade de serem implantados em diferentes regiões. Os nomes de etiquetas e os nomes de tipo informação sensível personalizado são considerados dados do cliente, e são mantidos dentro da mesma localização GEO por padrão para proteger a sensibilidade dos seus dados e evitar as leis do RGPD.
 >
 > Por esta razão, as etiquetas e os tipos de informação sensíveis personalizados não são partilhados com a Azure Purview por padrão, e exigem o seu consentimento para usá-los em Azure Purview.
-
-> [!IMPORTANT]
-> O seu consentimento permite que a Microsoft partilhe o nome da etiqueta e o nome de tipo informação sensível personalizado *para O* Azure Purview e Azure Security Center (ASC). A Microsoft utiliza as informações do rótulo da Azure Purview para enriquecer as suas recomendações e alertas na ASC. 
->
-> O consentimento no Microsoft 365 compliance center aplica-se à partilha destes dados com ambos os serviços. Atualmente, não existe escolha de partilhar informações de rotulagem apenas com o Azure Purview.
 
 **Para alargar os rótulos de sensibilidade à Purview:**
 

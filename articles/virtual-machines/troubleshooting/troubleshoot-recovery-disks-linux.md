@@ -1,5 +1,5 @@
 ---
-title: Use um VM de resolução de problemas linux com o Azure CLI Microsoft Docs
+title: Use um VM de resolução de problemas linux com o Azure CLI | Microsoft Docs
 description: Saiba como resolver problemas com os problemas do Linux VM ligando o disco DE A uma VM de recuperação utilizando o CLI Azure
 services: virtual-machines-linux
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: bc796b4d9708c18f4d0612e6f3ebde9b2485d2f7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 70855f7956e42d815e0b8135ccfe6e374853d8aa
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093145"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197528"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o CLI Azure
 Se a sua máquina virtual Linux (VM) encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida `/etc/fstab` que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o CLI Azure para ligar o seu disco rígido virtual a outro Linux VM para corrigir eventuais erros e, em seguida, recriar o seu VM original. 
@@ -36,7 +36,7 @@ O processo de resolução de problemas é o seguinte:
 
 Para executar estes passos de resolução de problemas, precisa do mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e iniciado numa conta Azure utilizando [o login az](/cli/azure/reference-index).
 
-Pode utilizar os comandos de reparação VM para automatizar os passos 1, 2, 3, 4, 6 e 7. Para obter mais documentação e instruções, consulte [reparar um VM Linux utilizando os comandos de reparação da Máquina Virtual Azure](repair-linux-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pode utilizar os comandos de reparação VM para automatizar os passos 1, 2, 3, 4, 6 e 7. Para obter mais documentação e instruções, consulte [reparar um VM Linux utilizando os comandos de reparação da Máquina Virtual Azure](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 > [!Important]
 > Os scripts deste artigo aplicam-se apenas aos VMs que utilizam [o Disco Gerido.](../managed-disks-overview.md) 

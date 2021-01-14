@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499259"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196508"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
 
@@ -55,7 +55,7 @@ Existem duas tarefas de Construtor de Imagem Azure VM (AIB):
 
 ## <a name="add-task-to-release-pipeline"></a>Adicionar tarefa para lançar pipeline
 
-Selecione **Editar pipeline de lançamento**  >  **Edit**
+Selecione **Editar pipeline de lançamento**  >  
 
 No Agente utilizador, selecione *+* para adicionar então procure por **Image Builder**. Selecione **Adicionar**.
 
@@ -69,7 +69,7 @@ Selecione a partir do menu suspenso que subscrição deseja que o Construtor de 
 
 Utilize o grupo de recursos onde o artefacto do modelo de imagem temporária será armazenado. Ao criar um artefacto de modelo, é criado um grupo de recursos temporários de Image `IT_<DestinationResourceGroup>_<TemplateName>_guid` Builder. O grupo de recursos temporários armazena os metadados de imagem, como scripts. No final da tarefa, o artefacto do modelo de imagem e o grupo temporário de recursos do Construtor de Imagem são eliminados.
  
-### <a name="location"></a>Localização
+### <a name="location"></a>A localização
 
 A localização é a região onde o Construtor de Imagem vai funcionar. Apenas um número definido de regiões são [apoiadas.](../windows/image-builder-overview.md#regions) As imagens de origem devem estar presentes neste local. Por exemplo, se estiver a utilizar a Galeria de Imagens Partilhadas, deve existir uma réplica nessa região.
 
@@ -194,7 +194,7 @@ O exemplo a seguir explica como isto funciona:
     
 #### <a name="total-length-of-image-build"></a>Comprimento total da construção de imagem
 
-O comprimento total ainda não pode ser alterado na tarefa do gasoduto DevOps. Usa o padrão de 240 minutos. Se pretender aumentar a [buildTimeoutInMinutes,](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes)então pode utilizar uma tarefa CLI AZ no Pipeline de Lançamento. Configurar a tarefa de copiar um modelo e submetê-lo. Por exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou utilize a Az PowerShell.
+O comprimento total ainda não pode ser alterado na tarefa do gasoduto DevOps. Usa o padrão de 240 minutos. Se pretender aumentar a [buildTimeoutInMinutes,](./image-builder-json.md#properties-buildtimeoutinminutes)então pode utilizar uma tarefa CLI AZ no Pipeline de Lançamento. Configurar a tarefa de copiar um modelo e submetê-lo. Por exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou utilize a Az PowerShell.
 
 
 #### <a name="storage-account"></a>Conta de Armazenamento
@@ -306,7 +306,7 @@ Atualmente, não neste momento.
 
 ### <a name="can-i-specify-the-image-template-name"></a>Posso especificar o nome do modelo de imagem?
 
-Não. Um nome de modelo único é usado e, em seguida, apagado.
+N.º Um nome de modelo único é usado e, em seguida, apagado.
 
 ### <a name="the-image-builder-failed-how-can-i-troubleshoot"></a>O construtor de imagens falhou. Como posso resolver problemas?
 

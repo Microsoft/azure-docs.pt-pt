@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0f0c771b11dfc029f18681e7a4c11b8ee271252c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351815"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197698"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança Azure para instâncias de contentores
 
@@ -277,7 +277,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Grupo de contentores e registo de casos com registos do Monitor Azure](./container-instances-log-analytics.md)
 
-* [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -385,7 +385,7 @@ Se utilizar um registo de contentores Azure com instâncias de contentores Azure
 
 **Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos Azure.
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

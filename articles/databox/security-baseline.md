@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6c2a15ac8d0863539ca878a048940b19794e920d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2773a76ed1166a26ebc12b97550876eaa66bad14
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842912"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197324"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Linha de segurança Azure para Azure Data Box
 
@@ -30,7 +30,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual. Controla o tráfego da Caixa de Dados para o armazenamento hospedado no Azure através do portal Azure. Quando se aproveita a Caixa de Dados, os dados são transferidos sobre a espinha dorsal do Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -38,7 +38,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual. Controla o tráfego da Caixa de Dados para o armazenamento hospedado no Azure através do portal Azure. Quando se aproveita a Caixa de Dados, os dados são transferidos sobre a espinha dorsal do Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -46,7 +46,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -54,7 +54,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual. Controla o tráfego da Caixa de Dados para o armazenamento hospedado no Azure através do portal Azure. Quando se aproveita a Caixa de Dados, os dados são transferidos sobre a espinha dorsal do Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -62,7 +62,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual. Controla o tráfego da Caixa de Dados para o armazenamento hospedado no Azure através do portal Azure. Quando se aproveita a Caixa de Dados, os dados são transferidos sobre a espinha dorsal do Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -74,7 +74,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Informações portuárias para Azure Data Box](./data-box-system-requirements.md#port-requirements)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -82,7 +82,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -90,7 +90,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -98,7 +98,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -106,7 +106,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -114,7 +114,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a sua Caixa de Dados Azure não pode ser associada a uma rede virtual.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -126,7 +126,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: A Microsoft mantém a fonte de tempo utilizada para os recursos Azure, por exemplo, para os relógios nos registos. O tempo de caixa de dados Azure pode derivar se não estiver ligado à rede que pode aceder ao servidor NTP no site do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -136,7 +136,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Compreenda o rastreio e o registo de eventos para a sua Caixa de Dados Azure](./data-box-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -146,7 +146,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Compreenda o rastreio e o registo de eventos para a sua Caixa de Dados Azure](./data-box-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -154,7 +154,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Esta recomendação destina-se a recursos computacional. A Data Box tem registos de auditoria e pacote de suporte que contêm registos de segurança.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -162,7 +162,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -172,7 +172,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Compreenda o rastreio e o registo de eventos para a sua Caixa de Dados Azure](./data-box-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -182,7 +182,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Compreenda o rastreio e o registo de eventos para a sua Caixa de Dados Azure](./data-box-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -190,7 +190,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; A Azure Data Box não processa ou produz registos relacionados com anti-malware.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -198,7 +198,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; A Azure Data Box não processa ou produz registos relacionados com DNS.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -206,7 +206,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -232,7 +232,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: A Azure AD não tem o conceito de senhas padrão. Outros recursos Azure que requerem uma palavra-passe forçam a criação de uma palavra-passe com requisitos de complexidade e um comprimento mínimo de senha, que difere consoante o serviço. É responsável por aplicações de terceiros e serviços de marketplace que possam utilizar senhas padrão.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -249,7 +249,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 * [Como usar a Política Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -257,7 +257,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 **Orientação**: Não aplicável; o acesso à sua encomenda Caixa de Dados é através do portal Azure e reservado para contas com a função de arrendatário de proprietário ou colaborador.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -273,11 +273,11 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 **Orientação**: Utilize uma estação de trabalho de acesso privilegiada (PAW) com autenticação multi-factor AD (MFA) ativada para iniciar sessão e configurar as suas encomendas Azure Data Box.
 
-* [Estações de Trabalho de Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Estações de Trabalho de Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planear a implementação da Multi-Factor Authentication do Azure AD com base na cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -291,7 +291,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 * [Compreender deteções de risco Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -301,7 +301,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 * [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -309,9 +309,9 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 **Orientação**: Utilize o Azure Ative Directory (AD) como o sistema central de autenticação e autorização, sempre que aplicável. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores.
 
-* [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -325,7 +325,7 @@ Para o aparelho Data Box, este não é suportado em tempo real. Pode rever os re
 
 * [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -343,7 +343,7 @@ Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço 
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -357,7 +357,7 @@ Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço 
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -367,7 +367,7 @@ Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço 
 
 * [Lista de serviços suportados pelo Cliente Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -379,7 +379,7 @@ Os registos de serviço da Caixa de Dados Azure não estão escritos no espaço 
 
 **Orientação**: Não aplicável à Caixa de Dados Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -391,7 +391,7 @@ Durante o upload de dados para o Azure, o aparelho data box e o serviço utiliza
 
 * [Como começar com a Azure Data Box](./data-box-quickstart-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -399,11 +399,11 @@ Durante o upload de dados para o Azure, o aparelho data box e o serviço utiliza
 
 **Orientação**: A Microsoft gere a infraestrutura subjacente para a Azure Data Box e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes. Quando a Caixa de Dados estiver no site do cliente, siga as melhores práticas para garantir que os dados sensíveis que estão a ser transferidos sejam protegidos.
 
-* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
@@ -413,17 +413,17 @@ Durante o upload de dados para o Azure, o aparelho data box e o serviço utiliza
 
 * [Visão geral da segurança da Caixa de Dados](./data-box-security.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
 **Orientação**: Atualmente não disponível; As funcionalidades de identificação, classificação e prevenção de perdas ainda não estão disponíveis para a Azure Data Box.A Microsoft gere a infraestrutura subjacente para a Azure Data Box e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Não aplicável
 
@@ -435,7 +435,7 @@ Durante o upload de dados para o Azure, o aparelho data box e o serviço utiliza
 
 * [Compreender como configurar o controlo de acessos](./data-box-logs.md#set-up-access-control-on-the-order)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -445,7 +445,7 @@ Durante o upload de dados para o Azure, o aparelho data box e o serviço utiliza
 
 * [Proteção de dados do cliente Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -459,9 +459,9 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 * [Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box](./data-box-customer-managed-encryption-key-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
@@ -469,7 +469,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -481,7 +481,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que suportam a Azure Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -489,7 +489,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Quando a Caixa de Dados é enviada, é instalada com as atualizações mais recentes. Não realizamos atualizações de campo.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -497,7 +497,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Quando a Caixa de Dados é enviada, é instalada com as atualizações mais recentes. Não realizamos atualizações de campo.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -505,7 +505,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que suportam a Azure Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -513,7 +513,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que suportam a Azure Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -525,7 +525,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, não existem ativos da Caixa de Dados para descobrir.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -533,7 +533,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, não existem metadados de ativos para a Caixa de Dados.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -541,7 +541,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, o serviço Data Box garante que não são utilizados recursos Azure não autorizados.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -549,7 +549,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável; não existem nenhumas ao nível do serviço Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -557,7 +557,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, não existem nenhumas ao nível do serviço Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -565,7 +565,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, não existem nenhumas ao nível do serviço Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -573,7 +573,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, não existem nenhumas ao nível do serviço Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -581,7 +581,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, não existem nenhumas ao nível do serviço Data Box.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -589,7 +589,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, os serviços da Caixa de Dados utilizam apenas os serviços Azure aprovados.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -597,7 +597,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável; Os serviços da Data Box apenas utilizam títulos de software aprovados.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -607,7 +607,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 * [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -615,7 +615,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável; O serviço Data Box não suporta a execução de scripts.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -623,7 +623,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável; O serviço Data Box não tem aplicações web em execução no serviço Azure App.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -635,7 +635,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Azure Data Box vem com definições de segurança pré-configuradas de boas práticas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -643,7 +643,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Azure Data Box vem com definições de segurança pré-configuradas de boas práticas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -651,7 +651,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: A Azure Data Box vem com definições de segurança pré-configuradas para os recursos e não pode ser alterada.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -659,7 +659,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: A Azure Data Box vem com definições de segurança pré-configuradas para os recursos e não pode ser alterada.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -667,7 +667,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Todas as configurações da Caixa de Dados são armazenadas de forma segura.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -675,7 +675,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Todas as imagens do sistema operativo Data Box são armazenadas de forma segura.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -683,7 +683,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, as configurações da Caixa de Dados Azure não podem ser alteradas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -691,7 +691,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, as configurações da Caixa de Dados Azure não podem ser alteradas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -699,7 +699,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, as configurações da Caixa de Dados Azure não podem ser alteradas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -707,7 +707,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, as configurações da Caixa de Dados Azure não podem ser alteradas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -717,9 +717,9 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 * [Como utilizar chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box](./data-box-customer-managed-encryption-key-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gerir as identidades de forma segura e automática
 
@@ -727,19 +727,19 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 * [Serviços Azure que suportam identidades geridas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: A Microsoft executa o scanner de credenciais no código data box. Além disso, a Microsoft também protege de forma segura as credenciais. Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: A Microsoft executa o scanner de credenciais no código data box. Além disso, a Microsoft também protege de forma segura as credenciais. Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitorização do Centro de Segurança Azure**: N/A
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
@@ -749,7 +749,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional. O Microsoft Anti-malware está ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure App Service), no entanto não funciona com conteúdo do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -759,7 +759,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 É da sua responsabilidade pré-digitalizar qualquer conteúdo que seja enviado para recursos Azure não computados. A Microsoft não pode aceder aos dados dos clientes e, portanto, não pode realizar análises anti-malware do conteúdo do cliente em seu nome.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -767,7 +767,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional. O Microsoft Antimalware está ativado no anfitrião subjacente que suporta os serviços Azure, no entanto não funciona com conteúdo do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -779,7 +779,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Não aplicável, o serviço Data Box não requer cópias de segurança.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -787,7 +787,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Certifique-se de que faz o armazenamento de quaisquer dados e a chave gerida pelo cliente. A Data Box não faz cópias de segurança.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -795,7 +795,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Deve verificar se todos os seus dados estão na conta de Armazenamento Azure antes de os eliminar das suas instalações.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -803,7 +803,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Certifique-se de que quaisquer cópias de segurança ou chaves geridas pelo cliente estão protegidas de acordo com as melhores práticas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -813,7 +813,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 * [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -821,7 +821,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 * [Alavancar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -829,23 +829,23 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
+Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 
 * [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
 * [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 * [Publicação do NIST - Guia de Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -855,7 +855,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -867,7 +867,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -877,7 +877,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -889,15 +889,15 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Orientação**: A Microsoft faz testes de penetração e pesquisa de vulnerabilidade em dispositivos Data Box. Podes fazer o teu próprio teste de penetração e digitalização de vulnerabilidade. Se optar por fazê-lo, siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
 
-* [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

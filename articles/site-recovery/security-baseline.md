@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533864"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197579"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança Azure para recuperação do local
 
@@ -222,7 +222,7 @@ Crie um processo para rastrear a identidade e o controlo de acesso para contas a
 
 **Orientação**: Utilize uma estação de trabalho segura gerida pelo Azure (também conhecida como Uma Estação de Trabalho de Acesso Privilegiado (PAW)) com autenticação multifactor Azure para tarefas administrativas e para executar ações privilegiadas nos recursos de Recuperação de Locais.
 
-- [Estações de Trabalho de Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Estações de Trabalho de Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planear a implementação da Multi-Factor Authentication do Azure AD com base na cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 

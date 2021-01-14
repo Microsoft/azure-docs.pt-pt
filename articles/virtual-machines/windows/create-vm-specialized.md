@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455103"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197494"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Create a Windows VM from a specialized disk by using PowerShell (Utilizar o PowerShell para criar uma VM do Windows a partir de um disco especializado)
 
@@ -54,7 +54,7 @@ Você pode carregar o VHD a partir de um VM especializado criado com uma ferrame
 ### <a name="prepare-the-vm"></a>Preparar a VM
 Utilize o VHD como é para criar um novo VM. 
   
-  * [Prepare um VHD do Windows para fazer o upload para o Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Não** generalize o VM utilizando o Sysprep.
+  * [Prepare um VHD do Windows para fazer o upload para o Azure](prepare-for-upload-vhd-image.md). **Não** generalize o VM utilizando o Sysprep.
   * Remova quaisquer ferramentas e agentes de virtualização de hóspedes instalados no VM (como ferramentas VMware).
   * Certifique-se de que o VM está configurado para obter o endereço IP e as definições de DNS do DHCP. Isto garante que o servidor obtém um endereço IP dentro da rede virtual quando este começa. 
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Para obter mais informações sobre os pontos finais e as regras NSG, consulte [portas de abertura para um VM em Azure utilizando o PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter mais informações sobre os pontos finais e as regras NSG, consulte [portas de abertura para um VM em Azure utilizando o PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Criar um endereço IP público e NIC
 Para ativar a comunicação com a máquina virtual na rede virtual, você precisará de um [endereço IP público](../../virtual-network/public-ip-addresses.md) e uma interface de rede.
@@ -264,7 +264,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifique se o VM foi criado
-Deverá ver o VM recém-criado no [portal Azure](https://portal.azure.com) sob as máquinas Virtual **Browse**  >  **Virtual machines**, ou utilizando os seguintes comandos PowerShell.
+Deverá ver o VM recém-criado no [portal Azure](https://portal.azure.com) sob as máquinas Virtual **Browse**  >  , ou utilizando os seguintes comandos PowerShell.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

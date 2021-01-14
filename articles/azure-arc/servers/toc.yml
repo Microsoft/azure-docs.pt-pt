@@ -81,6 +81,8 @@
       href: /powershell/module/az.connectedmachine
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
+    - name: REST do Azure Stack HCI
+      href: 'https://docs.microsoft.com/rest/api/stackhci'
     - name: REST
       href: /rest/api/hybridcompute
     - name: Ir

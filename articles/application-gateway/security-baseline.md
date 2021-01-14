@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 45f6d374ed3782ab0e001631264adf977a762ca4
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f544d2266f9b479f06ffed130592ecd44bfec80f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060355"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195931"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Linha de segurança Azure para Azure Application Gateway
 
@@ -407,7 +407,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 **Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos Azure.
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

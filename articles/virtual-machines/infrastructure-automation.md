@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: dfa0efaa49fbca0b927bfd32511348f3ded7e6c7
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302808"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198004"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize ferramentas de automação de infraestruturas com máquinas virtuais em Azure
 
@@ -88,7 +88,7 @@ Os scripts podem ser descarregados a partir de um armazenamento Azure ou de qual
 Aprenda a:
 
 - [Crie um Linux VM com o CLI Azure e use a extensão de script personalizada.](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json)
-- [Crie um VM do Windows com Azure PowerShell e utilize a extensão de script personalizada](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Crie um VM do Windows com Azure PowerShell e utilize a extensão de script personalizada](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
 
 
 ## <a name="packer"></a>Embalador
@@ -147,5 +147,5 @@ Aprenda a:
 - [Descarregue o modelo para um VM](./windows/download-template.md).
 - [Crie um modelo de construtor de imagens Azure.](./linux/image-builder-json.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Existem muitas opções diferentes para usar ferramentas de automação de infraestruturas em Azure. Tem a liberdade de usar a solução que melhor se adequa às suas necessidades e ambiente. Para começar e experimentar algumas das ferramentas incorporadas no Azure, veja como automatizar a personalização de um [Linux](./linux/tutorial-automate-vm-deployment.md) ou [Windows](./windows/tutorial-automate-vm-deployment.md) VM.

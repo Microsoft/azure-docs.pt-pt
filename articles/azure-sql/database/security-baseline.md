@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9930f42e7d76820674405a98ef53489b91f31f5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 12c7fd1d8ee36b562cd651f50fd0565825441883
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985693"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197392"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Linha de base de segurança Azure para Azure SQL Base de dados & SQL Caso gerido
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,7 +43,7 @@ Como utilizar pontos finais de serviço de rede virtual e regras para servidores
 
 https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -71,7 +71,7 @@ Compreender a Segurança da Rede fornecida pelo Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -79,7 +79,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Orientação**: Não aplicável; esta recomendação destina-se ao Azure Apps Service ou a computar recursos que hospedam aplicações web.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -95,7 +95,7 @@ Compreenda a Inteligência Integrada de Ameaças do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -111,7 +111,7 @@ Como ativar o Observador de Rede:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -121,7 +121,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 Compreender e utilizar a Proteção Avançada de Ameaças para a Base de Dados Azure SQL: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -129,7 +129,7 @@ Compreender e utilizar a Proteção Avançada de Ameaças para a Base de Dados A
 
 **Orientação**: Não aplicável; esta recomendação destina-se ao Azure Apps Service ou a computar recursos que hospedam aplicações web.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -147,7 +147,7 @@ Compreender e utilizar tags de serviço:
 
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -161,7 +161,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 Como criar uma Planta Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -177,7 +177,7 @@ Como criar e utilizar tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -193,7 +193,7 @@ Como criar alertas no Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -209,7 +209,7 @@ Como configurar a sincronização temporal para os recursos computativos Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -231,7 +231,7 @@ Como transmitir diagnósticos para a Azure SQL Analytics:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -243,7 +243,7 @@ Como permitir a auditoria para a Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -251,7 +251,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 **Orientação**: Não aplicável; este referencial destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -263,7 +263,7 @@ Como definir parâmetros de retenção de registos:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -279,7 +279,7 @@ Como configurar alertas personalizados para a Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -299,7 +299,7 @@ Como gerir alertas no Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -307,7 +307,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Orientação**: Não aplicável; para a Azure SQL Database, a solução anti-malware é gerida pela Microsoft na plataforma subjacente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -315,7 +315,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Orientação**: Não aplicável; O registo de DNS não é aplicável à Base de Dados Azure SQL.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Orientação**: Não aplicável; a auditoria da linha de comando não é aplicável à Base de Dados Azure SQL.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -343,7 +343,7 @@ Como obter membros de um papel de diretório em Azure AD com PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -355,7 +355,7 @@ Como configurar e gerir a autenticação do Azure Ative Directory com a Azure SQ
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -367,7 +367,7 @@ Compreenda a identidade e o acesso do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -375,7 +375,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Orientação**: Não aplicável; enquanto pode configurar a autenticação do Diretório Ativo Azure para integrar-se com a Base de Dados Azure SQL, não é suportada uma única sação de súprico.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -391,7 +391,7 @@ Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -401,13 +401,13 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Saiba mais sobre estações de acesso privilegiadas:
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Como permitir o MFA em Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -429,7 +429,7 @@ Reveja a Proteção Avançada de Ameaças e potenciais alertas:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -439,7 +439,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 
 Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -455,7 +455,7 @@ Como criar e configurar um exemplo AD Azure:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -467,7 +467,7 @@ Como utilizar comentários sobre o acesso à identidade do Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -483,7 +483,7 @@ Como integrar os Registos de Atividade do Azure no Monitor Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -499,7 +499,7 @@ Como configurar e permitir políticas de risco de proteção de identidade:
 
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -511,7 +511,7 @@ Compreenda o bloqueio do cliente:
 
 https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -527,7 +527,7 @@ Como criar e utilizar tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -551,7 +551,7 @@ Como configurar o Link Privado para a Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -569,7 +569,7 @@ Compreender a proteção de dados do cliente em Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -581,7 +581,7 @@ Compreenda a encriptação Azure SQL em Trânsito:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#information-protection-and-encryption
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -593,7 +593,7 @@ Como utilizar a descoberta e classificação de dados para a Base de Dados Azure
 
 https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -609,7 +609,7 @@ Como controlar o acesso na Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-control-access
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -621,7 +621,7 @@ Compreender a proteção de dados do cliente em Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -633,7 +633,7 @@ Como gerir encriptação de dados transparentes e usar as suas próprias chaves 
 
 https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -645,7 +645,7 @@ Como criar alertas para eventos de Registo de Atividades Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -669,7 +669,7 @@ Como implementar recomendações de avaliação de vulnerabilidade do Azure Secu
 
 https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -677,7 +677,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -685,7 +685,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Orientação**: Não aplicável; este referencial destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -697,7 +697,7 @@ Como exportar um relatório de avaliação de vulnerabilidades no Centro de Segu
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -709,7 +709,7 @@ Compreenda a pontuação segura do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -729,7 +729,7 @@ Como ver as suas Subscrições Azure: https://docs.microsoft.com/powershell/modu
 
 Compreenda Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -741,7 +741,7 @@ Como criar e utilizar Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -761,7 +761,7 @@ Como criar e utilizar Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -769,7 +769,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Orientação**: Defina a lista de recursos aprovados da Azure e software aprovado para os seus recursos de computação
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -787,7 +787,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -795,7 +795,7 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -803,7 +803,7 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -811,7 +811,7 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -829,7 +829,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -837,7 +837,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações em execução de recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -847,7 +847,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 
 Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -855,7 +855,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -863,7 +863,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 **Orientação**: Não aplicável; esta recomendação destina-se ao Serviço de Aplicações ou a recursos computacional que hospedam aplicações de desktop ou web.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -879,7 +879,7 @@ Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -887,7 +887,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: Não aplicável; esta recomendação destinada aos recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -903,7 +903,7 @@ Compreenda os efeitos da política do Azure:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -911,7 +911,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -927,7 +927,7 @@ Documentação Azure Repos:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -935,7 +935,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -947,7 +947,7 @@ Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -955,7 +955,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -967,7 +967,7 @@ Como remediar recomendações no Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -975,7 +975,7 @@ https://docs.microsoft.com/azure/security-center/security-center-sql-service-rec
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -987,7 +987,7 @@ Como proteger os dados sensíveis que estão a ser armazenados na Base de Dados 
 
 https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1003,17 +1003,17 @@ Como configurar identidades geridas:
 
 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do seu código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do seu código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1025,7 +1025,7 @@ Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/help
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional. A Microsoft lida com anti-malware para a plataforma subjacente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1037,7 +1037,7 @@ Pré-digitalizar qualquer conteúdo que seja enviado para recursos Azure não co
 
 Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1045,7 +1045,7 @@ Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas 
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional. A Microsoft lida com anti-malware para a plataforma subjacente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1055,7 +1055,7 @@ Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas 
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir back ups automáticos regulares
 
-**Orientação**: Para proteger o seu negócio da perda de dados, a Azure SQL Database cria automaticamente cópias de dados completas semanais, cópias de dados diferenciais a cada 12 horas e cópias de segurança de registo de transações a cada 5 - 10 minutos. As cópias de segurança são armazenadas no armazenamento RA-GRS durante pelo menos 7 dias para todos os níveis de serviço. Todos os níveis de serviço, exceto o período de retenção de backup de suporte de suporte de suporte básico configurável para a restauração pontual, até 35 dias.
+**Orientação**: Para proteger o seu negócio da perda de dados, a Azure SQL Database cria automaticamente cópias de dados completas semanais, cópias de dados diferenciais a cada 12 horas e cópias de segurança de registo de transações a cada 5 - 10 minutos. As cópias de segurança são armazenadas no armazenamento RA-GRS durante pelo menos 7 dias para todos os níveis de serviço. Todos os níveis de serviço, exceto o período de retenção de backup de suporte básico configurável para a restauração pontual, até 35 dias.
 
 Para satisfazer diferentes requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anualmente. O consumo de armazenamento depende da frequência selecionada de backups e do(s) período de retenção.
 
@@ -1063,9 +1063,9 @@ Compreenda as cópias de segurança e a continuidade do negócio com a Base de D
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Execute cópias de segurança completas do sistema e faça backups de backups de qualquer tecla gerida pelo cliente
 
@@ -1081,7 +1081,7 @@ Como fazer backup chaves do cofre em Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1097,7 +1097,7 @@ Como recuperar backups da Base de Dados Azure SQL utilizando a restauração pon
 
 https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1109,7 +1109,7 @@ Como permitir a eliminação suave no Cofre de Chaves:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1125,7 +1125,7 @@ Como configurar automatizações de fluxo de trabalho dentro do Centro de Segura
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1135,19 +1135,19 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 Alertas de segurança no Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 Pode consultar a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities:
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1159,7 +1159,7 @@ Como definir o Contacto de Segurança do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1175,7 +1175,7 @@ Como transmitir alertas para Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1187,7 +1187,7 @@ Como configurar a automatização do fluxo de trabalho e as aplicações lógica
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1203,11 +1203,11 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridos pela Microsoft na nuvem, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](../../security/benchmarks/overview.md)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](../../security/benchmarks/security-baselines-overview.md)

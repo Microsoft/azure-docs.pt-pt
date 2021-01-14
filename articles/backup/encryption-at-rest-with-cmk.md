@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895992"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197781"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -29,7 +29,7 @@ Este artigo aborda o seguinte:
 
 - Uma vez ativado para um cofre dos Serviços de Recuperação, a encriptação utilizando chaves geridas pelo cliente não pode ser revertida para usar as teclas geridas pela plataforma (padrão). Pode alterar as chaves de encriptação de acordo com os seus requisitos.
 
-- Atualmente, esta funcionalidade **não suporta cópias de segurança utilizando o agente MARS** , e pode não ser capaz de utilizar um cofre encriptado cmk para o mesmo. O agente MARS utiliza uma encriptação baseada em palavras de utilizador. Esta funcionalidade também não suporta cópias de segurança dos VM clássicos.
+- Atualmente, esta funcionalidade **não suporta cópias de segurança utilizando o agente MARS**, e pode não ser capaz de utilizar um cofre encriptado cmk para o mesmo. O agente MARS utiliza uma encriptação baseada em palavras de utilizador. Esta funcionalidade também não suporta cópias de segurança dos VM clássicos.
 
 - Esta funcionalidade não está relacionada com a [Encriptação do Disco Azure,](../security/fundamentals/azure-disk-encryption-vms-vmss.md)que utiliza encriptação baseada em convidados de discos de um VM utilizando BitLocker (para Windows) e DM-Crypt (para Linux)
 
@@ -66,7 +66,7 @@ O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar
 
     ![Definições de identidade](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Alterar o **Estado** para **On** e selecionar **Guardar** .
+1. Alterar o **Estado** para **On** e selecionar **Guardar**.
 
 1. Um ID de objeto é gerado, que é a identidade gerida do sistema do cofre.
 
@@ -78,7 +78,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
     ![Adicionar Políticas de Acesso](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. Sob **permissões de chave** , selecione **Obter,** **Lista,** **Desembrulhar** as operações da chave de embrulho e **de embrulho.** Isto especifica as ações na chave que serão permitidas.
+1. Sob **permissões de chave**, selecione **Obter,** **Lista,** **Desembrulhar** as operações da chave de embrulho e **de embrulho.** Isto especifica as ações na chave que serão permitidas.
 
     ![Atribuir permissões-chave](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -148,28 +148,36 @@ Para atribuir a chave:
 
     ![Definições de encriptação](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Selecione **Atualização** em **Definições de Encriptação** .
+1. Selecione **Atualização** em **Definições de Encriptação**.
 
 1. No painel de Definições de Encriptação, selecione **Use a sua própria tecla** e continue a especificar a chave utilizando uma das seguintes formas. **Certifique-se de que a chave que pretende utilizar é uma chave RSA 2048, que está em estado ativado.**
 
     1. Introduza o **Key URI** com o qual pretende encriptar os dados neste cofre dos Serviços de Recuperação. Também precisa de especificar a subscrição na qual está presente o Cofre da Chave Azure (que contém esta chave). Esta chave URI pode ser obtida a partir da chave correspondente no seu Cofre de Chave Azure. Certifique-se de que a chave URI é copiada corretamente. Recomenda-se que utilize o botão **Copy para a área de transferência** fornecido com o identificador de chave.
 
+        >[!NOTE]
+        >Ao especificar a chave de encriptação utilizando o Key URI, a tecla não será rodada automaticamente. Assim, as atualizações das chaves terão de ser feitas manualmente, especificando a nova chave quando necessário.
+
         ![Insira a chave URI](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     1. Navegue e selecione a chave do Cofre de Chaves no painel de recolha de chaves.
 
+        >[!NOTE]
+        >Ao especificar a chave de encriptação utilizando o painel de recolha de chaves, a tecla será rodada automaticamente sempre que uma nova versão para a tecla estiver ativada.
+
         ![Selecione a chave do cofre da chave](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Selecione **Guardar** .
+1. Selecione **Guardar**.
 
-1. **Rastreio do progresso da atualização da chave de encriptação:** Pode acompanhar o progresso da atribuição de chave utilizando o **Registo de Atividades** no cofre dos Serviços de Recuperação. O estatuto deve em breve mudar para **Sucesso** . O seu cofre irá agora encriptar todos os dados com a chave especificada como KEK.
+1. **Rastreio do progresso e do estado da atualização da chave de encriptação**: Pode acompanhar o progresso e o estado da atribuição da chave de encriptação utilizando a vista **Backup Jobs** na barra de navegação esquerda. O estado deverá em breve mudar para **Concluído**. O seu cofre irá agora encriptar todos os dados com a chave especificada como KEK.
 
-    ![Acompanhe o progresso com o log de atividade](./media/encryption-at-rest-with-cmk/activity-log.png)
+    ![Estado concluído](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
-    ![Estatuto bem sucedido](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+    As atualizações das chaves de encriptação também estão registadas no Registo de Atividade do cofre.
+
+    ![Registo de atividades](./media/encryption-at-rest-with-cmk/activity-log.png)
 
 >[!NOTE]
-> Este processo permanece o mesmo quando pretende atualizar/alterar a chave de encriptação. Se desejar atualizar e utilizar uma chave de outro Cofre-Chave (diferente da que está a ser utilizada atualmente), certifique-se de que:
+> Este processo permanece o mesmo quando pretende atualizar ou alterar a chave de encriptação. Se desejar atualizar e utilizar uma chave de outro Cofre-Chave (diferente da que está a ser utilizada atualmente), certifique-se de que:
 >
 > - O Cofre-Chave está localizado na mesma região que o cofre dos Serviços de Recuperação
 >
@@ -214,7 +222,7 @@ Pode encriptar o disco restaurado /VM após a restauração estar concluída, in
 
 O Conjunto de Encriptação do Disco é especificado nas Definições de Encriptação no painel de restauro, como mostrado abaixo:
 
-1. **No(s) do (s) disco criptografe utilizando a sua tecla,** selecione **Sim** .
+1. **No(s) do (s) disco criptografe utilizando a sua tecla,** selecione **Sim**.
 
 1. A partir do dropdown, selecione o DES que pretende utilizar para o ous disco restaurado. **Certifique-se de ter acesso ao DES.**
 

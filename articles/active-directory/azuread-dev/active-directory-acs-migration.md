@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: eda648a4d00a0ab4a51c66510060ce16421972ff
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020015"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197426"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "95020015"
 
 O Microsoft Azure Access Control Service (ACS), um serviço do Azure Ative Directory (Azure AD), será reformado a 7 de novembro de 2018. As aplicações e serviços que atualmente utilizam o Controlo de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até lá. Este artigo descreve recomendações para os clientes atuais, uma vez que pretende depreciar o seu uso do Controlo de Acesso. Se não utilizar atualmente o Controlo de Acesso, não precisa de tomar nenhuma medida.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Access Control é um serviço de autenticação em nuvem que oferece uma forma fácil de autenticar e autorizar os utilizadores a acederem às suas aplicações e serviços web. Permite que muitas funcionalidades de autenticação e autorização sejam tidas em conta no seu código. O Access Control é usado principalmente por desenvolvedores e arquitetos de clientes Microsoft .NET, ASP.NET aplicações web e serviços web da Windows Communication Foundation (WCF).
 
@@ -129,7 +129,7 @@ Cada serviço de cloud da Microsoft que aceita fichas que são emitidas pelo Acc
 
 | Serviço | Orientação |
 | ------- | -------- |
-| Azure Service Bus | [Migrar para assinaturas de acesso partilhado](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Service Bus do Azure | [Migrar para assinaturas de acesso partilhado](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
 | Relé de ônibus de serviço Azure | [Migrar para assinaturas de acesso partilhado](../../azure-relay/relay-migrate-acs-sas.md) |
 | Cache gerido azure | [Migrar para a Cache do Azure para Redis](../../azure-cache-for-redis/cache-faq.md) |
 | Azure DataMarket | [Migrar para as APIs dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/) |
@@ -287,7 +287,7 @@ Nestes casos, poderá considerar a migração da sua aplicação web para outro 
 
 ![Esta imagem mostra o logotipo da Identidade ping](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes à ACS. PingOne é um serviço de identidade em nuvem que suporta muitas das mesmas funcionalidades que o ACS, e o PingFederate é um produto de identidade semelhante nas instalações que oferece mais flexibilidade. Consulte a [orientação de aposentadoria ACS da Ping](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html) para obter mais detalhes sobre a utilização destes produtos.
+[Ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes à ACS. PingOne é um serviço de identidade em nuvem que suporta muitas das mesmas funcionalidades que o ACS, e o PingFederate é um produto de identidade semelhante nas instalações que oferece mais flexibilidade. Consulte a orientação de aposentadoria ACS da Ping para obter mais detalhes sobre a utilização destes produtos.
 
 O nosso objetivo em trabalhar com a Ping Identity e a Auth0 é garantir que todos os clientes do Access Control tenham uma rota de migração para as suas apps e serviços que minimizem a quantidade de trabalho necessário para se deslocarem do Controlo de Acesso.
 
@@ -351,7 +351,7 @@ Nestes casos, poderá considerar migrar a sua aplicação web para outro serviç
 [O Auth0](https://auth0.com/acs) é um serviço de identidade em nuvem flexível que criou [orientações de migração de alto nível para os clientes do Access Control](https://auth0.com/acs), e suporta quase todas as funcionalidades que a ACS faz.
 
 ![Esta imagem mostra o logótipo Ping Identity ](./media/active-directory-acs-migration/rsz-ping.png)
- [Ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes à ACS. PingOne é um serviço de identidade em nuvem que suporta muitas das mesmas funcionalidades que o ACS, e o PingFederate é um produto de identidade semelhante nas instalações que oferece mais flexibilidade. Consulte a [orientação de aposentadoria ACS da Ping](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html) para obter mais detalhes sobre a utilização destes produtos.
+ [Ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes à ACS. PingOne é um serviço de identidade em nuvem que suporta muitas das mesmas funcionalidades que o ACS, e o PingFederate é um produto de identidade semelhante nas instalações que oferece mais flexibilidade. Consulte a orientação de aposentadoria ACS da Ping para obter mais detalhes sobre a utilização destes produtos.
 
 O nosso objetivo em trabalhar com a Ping Identity e a Auth0 é garantir que todos os clientes do Access Control tenham uma rota de migração para as suas apps e serviços que minimizem a quantidade de trabalho necessário para se deslocarem do Controlo de Acesso.
 

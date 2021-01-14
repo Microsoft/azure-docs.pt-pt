@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de armazenamento da SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Arquitetura de armazenamento de SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Arquitetura de armazenamento de como implantar SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9254b3d19bd840b62d2f5f7023eba9a91e605d1e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2729369347de92153e9e8b84e008e5e22e732081
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967521"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197443"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Sap HANA (Grandes Instâncias) arquitetura de armazenamento
 
 O layout de armazenamento para SAP HANA em Azure (Grandes Instâncias) é configurado pela SAP HANA no modelo clássico de implementação de acordo com as diretrizes recomendadas pela SAP. As diretrizes estão documentadas nos [requisitos de armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)
 
-A HANA Large Instance da classe Tipo I vem com quatro vezes o volume de memória como volume de armazenamento. Para a classe tipo II das unidades HANA Large Instance, o armazenamento não é quatro vezes mais. As unidades vêm com um volume destinado a armazenar cópias de segurança de registo de transações HANA. Para obter mais informações, consulte [instalar e configurar o SAP HANA (Grandes Instâncias) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+A HANA Large Instance da classe Tipo I vem com quatro vezes o volume de memória como volume de armazenamento. Para a classe tipo II das unidades HANA Large Instance, o armazenamento não é quatro vezes mais. As unidades vêm com um volume destinado a armazenar cópias de segurança de registo de transações HANA. Para obter mais informações, consulte [instalar e configurar o SAP HANA (Grandes Instâncias) no Azure](hana-installation.md).
 
 Consulte a tabela seguinte em termos de atribuição de armazenamento. A tabela lista a capacidade bruta para os diferentes volumes fornecidos com as diferentes unidades HANA Large Instance.
 
@@ -94,7 +94,7 @@ Estes tamanhos são números de volume bruto que podem variar ligeiramente com b
 
 Pode precisar de mais armazenamento. Pode adicionar armazenamento comprando armazenamento adicional em unidades de 1-TB. Este armazenamento adicional pode ser adicionado como volume adicional. Também pode ser utilizado para estender um ou mais dos volumes existentes. Não é possível diminuir os tamanhos dos volumes tal como originalmente implantados e maioritariamente documentados pelas tabelas anteriores. Também não é possível alterar os nomes dos volumes ou dos nomes de montagem. Os volumes de armazenamento previamente descritos são anexados às unidades HANA Large Instance como volumes NFS4.
 
-Pode utilizar instantâneos de armazenamento para fins de backup e restauro e recuperação de desastres. Para obter mais informações, consulte [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pode utilizar instantâneos de armazenamento para fins de backup e restauro e recuperação de desastres. Para obter mais informações, consulte [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md).
 
 Consulte [cenários apoiados pelo HLI](hana-supported-scenario.md) para obter detalhes do layout de armazenamento para o seu cenário.
 

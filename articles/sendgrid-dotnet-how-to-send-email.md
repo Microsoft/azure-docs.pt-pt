@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e605e162e4639a876cc5b6d763e81fdd7ff93aa8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ae816d2be592ab774500d1cfe8f2f6a7b7905b91
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674553"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196559"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar e-mail usando SendGrid com Azure
 ## <a name="overview"></a>Descrição geral
@@ -296,7 +296,7 @@ Agora que aprendeu o básico do serviço de email SendGrid, siga estes links par
 [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
 [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
 [App Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/api_v3.html
+[SendGrid API documentation]: https://sendgrid.com/docs/api-reference/
 [NET-library]: https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html#-Using-NETs-Builtin-SMTP-Library
 [documentation]: https://sendgrid.com/docs/Classroom/Send/api_keys.html
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html

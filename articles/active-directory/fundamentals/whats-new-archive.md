@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e561a0e05cf1a0870d85369867caba6c4d6bf12
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a8166a77b4e3090619aa4c7fdc3fe4d94af6cddc
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932423"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196372"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -1166,7 +1166,7 @@ Para obter mais informações sobre como proteger melhor a sua organização uti
  
 Em janeiro de 2020, adicionámos estas 33 novas aplicações com apoio da Federação à galeria de aplicações: 
 
-[JOSA](../saas-apps/josa-tutorial.md), [FastLy Edge Cloud](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [Upshotly,](../saas-apps/upshotly-tutorial.md) [LeaveBot,](https://appsource.microsoft.com/en-us/product/office/WA200001175) [DataCamp,](../saas-apps/datacamp-tutorial.md) [TripActions,](../saas-apps/tripactions-tutorial.md) [SmartWork,](https://www.intumit.com/english/SmartWork.html) [Dotcom-Monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN - Azure AD SSO Gateway Oracle for E-Business Suite - EBS, PeopleSoft, e JDE](../saas-apps/ssogen-tutorial.md), [Hospedado MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu Property Management Platform,](../saas-apps/yuhu-property-management-platform-tutorial.md) [LumApps](https://sites.lumapps.com/login), [Upwork Enterprise,](../saas-apps/upwork-enterprise-tutorial.md) [Talentsoft,](../saas-apps/talentsoft-tutorial.md) [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Conduct Manager Software](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), [PortalTalk 365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [Squelch Cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [ PrinterLogic SaaS](../saas-apps/printerlogic-saas-tutorial.md), [Taskize Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/), [EZRentOut,](../saas-apps/ezrentout-tutorial.md) [AssetSonar](../saas-apps/assetsonar-tutorial.md), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/)
+[JOSA](../saas-apps/josa-tutorial.md), [FastLy Edge Cloud](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [Upshotly,](../saas-apps/upshotly-tutorial.md) [LeaveBot,](https://appsource.microsoft.com/en-us/product/office/WA200001175) [DataCamp,](../saas-apps/datacamp-tutorial.md) [TripActions,](../saas-apps/tripactions-tutorial.md) [SmartWork,](https://www.intumit.com/teams-smartwork/) [Dotcom-Monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN - Azure AD SSO Gateway Oracle for E-Business Suite - EBS, PeopleSoft, e JDE](../saas-apps/ssogen-tutorial.md), [Hospedado MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu Property Management Platform,](../saas-apps/yuhu-property-management-platform-tutorial.md) [LumApps](https://sites.lumapps.com/login), [Upwork Enterprise,](../saas-apps/upwork-enterprise-tutorial.md) [Talentsoft,](../saas-apps/talentsoft-tutorial.md) [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Conduct Manager Software](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), [PortalTalk 365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [Squelch Cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [ PrinterLogic SaaS](../saas-apps/printerlogic-saas-tutorial.md), [Taskize Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/), [EZRentOut,](../saas-apps/ezrentout-tutorial.md) [AssetSonar](../saas-apps/assetsonar-tutorial.md), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/)
 
 Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../develop/v2-howto-app-gallery-listing.md)
 
@@ -2854,9 +2854,9 @@ Os seguintes campos estão a mudar no esquema de auditoria:
 |Nome do campo|O que mudou|Valores antigos|Novos Valores|
 |----------|------------|----------|----------|
 |Categoria|Este era o campo **de Nome de Serviço.** Agora é o campo **das Categorias de Auditoria.** **O Nome de Serviço** foi renomeado para o campo **DeSema registado.**|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reset de senha de autosserviço</li></ul>|<ul><li>Gestão de Utilizadores</li><li>Gestão de Grupos</li><li>Gestão de Aplicações</li></ul>|
-|targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>Utilizador</li><li>Grupo</li></ul>|
+|targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>User</li><li>Grupo</li></ul>|
 |registradoByService|Fornece o nome do serviço que gerou o registo de auditoria.|Nulo|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
-|Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>Falha</li></ul>|
+|Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Com êxito</li><li>Falha</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Campos alterados no esquema de inscrição
 Os seguintes campos estão a mudar no esquema de inscrição:
@@ -2864,8 +2864,8 @@ Os seguintes campos estão a mudar no esquema de inscrição:
 |Nome do campo|O que mudou|Valores antigos|Novos Valores|
 |----------|------------|----------|----------|
 |aplicadaScionalAccessPolicies|Este era o campo **de segurança condicionada.** Agora é o campo **de Política Da Organização** Da Política.|Sem alterações|Sem alterações|
-|condicionalAccessStatus|Fornece o resultado do Estado da Política de Acesso Condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
-|aplicadoSacionalAcissess: resultado|Fornece o resultado do estado individual da política de acesso condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
+|condicionalAccessStatus|Fornece o resultado do Estado da Política de Acesso Condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Com êxito</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
+|aplicadoSacionalAcissess: resultado|Fornece o resultado do estado individual da política de acesso condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Com êxito</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
 
 Para obter mais informações sobre o esquema, consulte [o esquema de registos de auditoria AZure AD no Azure Monitor (pré-visualização)](../reports-monitoring/reference-azure-monitor-audit-log-schema.md)
 
@@ -3477,7 +3477,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 ---
 
-## <a name="june-2018"></a>junho de 2018
+## <a name="june-2018"></a>Junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegado para apps que utilizam Azure AD Activity Logs API
 
@@ -3621,7 +3621,7 @@ Para mais informações sobre a pré-visualização pública, consulte as [funç
 
 ---
 
-## <a name="may-2018"></a>Maio de 2018
+## <a name="may-2018"></a>May 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte ExpressRoute
 

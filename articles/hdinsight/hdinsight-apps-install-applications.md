@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2b6ea68d069b90293ab35024bebf3fbdc8acb592
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337445"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197681"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações Apache Hadoop de terceiros no Azure HDInsight
 
@@ -23,7 +23,7 @@ Uma aplicação HDInsight é uma aplicação que os utilizadores podem instalar 
 
 A lista que se segue mostra as aplicações publicadas:
 
-|Aplicação |Tipo de agrupamento ou tipo de agrupamento | Description |
+|Aplicação |Tipo de agrupamento ou tipo de agrupamento | Descrição |
 |---|---|---|
 |[Plataforma de Inteligência AtScale](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop |O AtScale transforma o seu cluster HDInsight num servidor OLAP de escala, permitindo-lhe consultar milhares de milhões de linhas de dados interativamente utilizando as ferramentas BI que já conhece, possui e ama – do Microsoft Excel, Power BI, Tableau Software para qlikView. |
 |[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |O CDAP é a primeira plataforma de integração unificada para big data que acelera o tempo para valorizar o Hadoop e permite que a TI forneça dados de autosserviço. Fonte aberta e extensível, o CDAP elimina barreiras à inovação. Requisitos: 4 Nós regionais, min D3 v2. |
@@ -37,7 +37,7 @@ A lista que se segue mostra as aplicações publicadas:
 |[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop |Presto é um motor de consulta SQL distribuído rápido e escalável. Projetado para a separação do armazenamento e cálculo, Presto é perfeito para consulta de dados em Azure Data Lake Storage, Azure Blob Storage, SQL e NoSQL bases de dados, e outras fontes de dados. |
 |[StreamSets Data Collector para HDInsight Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector é um motor leve e poderoso que transmite dados em tempo real. Utilize o Data Collector para encaminhar e processar dados nos seus fluxos de dados. Vem com uma licença de 30 dias de julgamento. |
 |[Empresa Trifacta Wrangler](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark,HBase |A Trifacta Wrangler Enterprise para a HDInsight suporta a luta de dados em toda a empresa para qualquer escala de dados. O custo de funcionamento da Trifacta em Azure é uma combinação de custos de subscrição da Trifacta mais os custos de infraestrutura Azure para as máquinas virtuais. |
-|[Plataforma de Dados Unificado](https://unifisoftware.com/platform/) |Hadoop,HBase,Tempestade,Faísca |A Plataforma de Dados Unificado é um conjunto integrado perfeitamente de ferramentas de dados de autosserviço projetadas para capacitar o utilizador do negócio a enfrentar desafios de dados que impulsionam receitas incrementais, reduzem custos ou complexidade operacional. |
+|[Plataforma de Dados Unificado](https://www.crunchbase.com/organization/unifi-software) |Hadoop,HBase,Tempestade,Faísca |A Plataforma de Dados Unificado é um conjunto integrado perfeitamente de ferramentas de dados de autosserviço projetadas para capacitar o utilizador do negócio a enfrentar desafios de dados que impulsionam receitas incrementais, reduzem custos ou complexidade operacional. |
 |[Desvendadata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Desvenda a aplicação De dados para o cluster HDInsight Spark. |
 |[Catálogo de dados de AI-Driven de água](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Catálogos de linha de água, organiza e rege dados usando AI para marcar automaticamente dados com termos de negócio. O catálogo de literatos de negócios da Waterline é uma componente crítica e de sucesso para a análise de autosserviço, conformidade e governação, e iniciativas de gestão de TI. |
 
@@ -51,7 +51,7 @@ O procedimento seguinte mostra-lhe como instalar aplicações do HDInsight num c
 
 **Instale uma aplicação HDInsight**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. A partir do menu esquerdo, navegue para **todos os serviços**  >  **Analytics**  >  **HDInsight clusters**.
 3. Selecione um cluster HDInsight da lista.  Se não tiver um, tem de criá-lo.  Veja [Create clusters (Criar clusters)](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 
@@ -75,7 +75,7 @@ O portal mostra uma lista das aplicações do HDInsight instaladas relativas a u
 
 **Listar propriedades de aplicação e exibição HDInsight**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. A partir do menu esquerdo, navegue para **todos os serviços**  >  **Analytics**  >  **HDInsight clusters**.
 3. Selecione um cluster HDInsight da lista.
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 
@@ -89,7 +89,7 @@ O portal mostra uma lista das aplicações do HDInsight instaladas relativas a u
     |Estado |Estado da candidatura. |
     |Página web |O URL da aplicação web que implementou para o nó de borda. A credencial é a mesma que as credenciais de utilizador HTTP que configurou para o cluster. |
     |Ponto final do SSH |Pode utilizar o SSH para ligar ao nó de borda. As credenciais de SSH são as mesmas que as credenciais de utilizador de SSH que configurou para o cluster. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md). |
-    |Description | Descrição da aplicação. |
+    |Descrição | Descrição da aplicação. |
 
 6. Para eliminar uma aplicação, clique com o botão direito na aplicação e, em seguida, clique em **Eliminar** a partir do menu de contexto.
 

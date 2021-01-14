@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c88a2cf33cf1149a17af4a82dcf2858822f0c6d4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696154"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196083"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança e encriptação de dados do Azure
 Este artigo descreve as melhores práticas para a segurança dos dados e encriptação.
@@ -74,7 +74,7 @@ Use o Azure RBAC para controlar aquilo a que os utilizadores têm acesso. Por ex
 Como a grande maioria dos ataques visa o utilizador final, o ponto final torna-se um dos principais pontos de ataque. Um intruso que comprometa o ponto final pode usar as credenciais do utilizador para ter acesso aos dados da organização. A maioria dos ataques de pontos finais aproveitam-se do facto de os utilizadores serem administradores nos seus postos de trabalho locais.
 
 **Melhores práticas**: Utilize uma estação de trabalho de gestão segura para proteger contas, tarefas e dados sensíveis.   
-**Detalhe**: Utilize uma [estação de trabalho de acesso privilegiada](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para reduzir a superfície de ataque em postos de trabalho. Estes postos de trabalho de gestão segura podem ajudá-lo a mitigar alguns destes ataques e garantir que os seus dados são mais seguros.
+**Detalhe**: Utilize uma [estação de trabalho de acesso privilegiada](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) para reduzir a superfície de ataque em postos de trabalho. Estes postos de trabalho de gestão segura podem ajudá-lo a mitigar alguns destes ataques e garantir que os seus dados são mais seguros.
 
 **Melhores práticas**: Garantir a proteção do ponto final.   
 **Detalhe**: Impor políticas de segurança em todos os dispositivos que são utilizados para consumir dados, independentemente da localização dos dados (nuvem ou no local).

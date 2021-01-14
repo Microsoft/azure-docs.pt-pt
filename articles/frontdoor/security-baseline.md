@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 77fccf8b2480232debb88136394013941af796c8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763932"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197273"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Linha de segurança Azure para Azure Front Door
 
@@ -86,7 +86,7 @@ Garantir o acesso restrito a sistemas de gestão, identidade e segurança que te
 
 Utilize estações de trabalho de utilizador altamente seguras com Azure Bastion para tarefas administrativas. Escolha O Azure Ative Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP) e Microsoft Intune para implementar estações de trabalho seguras e geridas para tarefas administrativas. As estações de trabalho seguras devem ser geridas centralmente para impor uma configuração segura, incluindo bases de autenticação forte, software e hardware, restrições lógicos e acesso à rede.
 
-- [Compreender estações de trabalho de acesso privilegiada](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Compreender estações de trabalho de acesso privilegiada](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Implementar uma estação de trabalho de acesso privilegiado](../active-directory/devices/howto-azure-managed-workstation.md)
 

@@ -1,18 +1,18 @@
 ---
-title: Relatório de classificação dos seus dados utilizando Insights de Visão (pré-visualização)
-description: Este guia de como ver e utilizar a classificação do Purview Insights reportando os seus dados.
+title: Relatório de classificação sobre os seus dados em Azure Purview usando a Purview Insights
+description: Este guia de como ver e utilizar a classificação do Purview nos seus dados.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938890"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196542"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights de classificação sobre os seus dados a partir do Azure Purview
 
@@ -33,7 +33,9 @@ Antes de começar com as introspeções de Competência, certifique-se de que co
 
 - Configurar os seus recursos Azure e povoar as contas relevantes com dados de teste
 
-- Configurar e completar uma verificação dos dados de teste em cada fonte de dados 
+- Configurar e completar uma verificação dos dados de teste em cada fonte de dados
+
+- Inscreva-se em Purview com uma função de [Data Reader ou Data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
 Para obter mais informações, consulte [Gerir fontes de dados em Azure Purview (Preview)](manage-data-sources.md).
 
@@ -54,7 +56,7 @@ A Purview utiliza os mesmos tipos de informação sensíveis que o Microsoft 365
 
 1. Em Purview, selecione o item do menu **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: à esquerda para aceder à sua área de **Insights.**
 
-1. Na **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: área insights, selecione **Classificação** para exibir o relatório **de insights de classificação de** purga.
+1. Na  :::image type="icon" source="media/insights/ico-insights.png" border="false"::: área insights, selecione **Classificação** para exibir o relatório **de insights de classificação de** purga.
 
    :::image type="content" source="./media/insights/select-classification-labeling-small.png" alt-text="Relatório de insights de classificação" lightbox="media/insights/select-classification-labeling.png":::
 

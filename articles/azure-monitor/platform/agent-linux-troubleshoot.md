@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 26fb70592a75910ae21d327e53569eda12dfea97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704899"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197375"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
 
@@ -96,6 +96,7 @@ Vimos que uma reinstalação limpa do agente resolverá a maioria dos problemas.
 | 5 | O feixe de concha deve ser executado como raiz OU houve 403 erros devolvidos durante o embarque. Executar o seu comando utilizando `sudo` . |
 | 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os *pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e* os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
 | 17 | A instalação do pacote OMS falhou. Procurem através da saída de comando para a falha da raiz. |
+| 18 | A instalação do pacote OMSConfig falhou. Procurem através da saída de comando para a falha da raiz. |
 | 19 | A instalação do pacote OMI falhou. Procurem através da saída de comando para a falha da raiz. |
 | 20 | A instalação do pacote SCX falhou. Procurem através da saída de comando para a falha da raiz. |
 | 21 | A instalação de kits provider falhou. Procurem através da saída de comando para a falha da raiz. |

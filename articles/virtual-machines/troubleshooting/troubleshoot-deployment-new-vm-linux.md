@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: daberry
-ms.openlocfilehash: f48963a4d18e80cb67bfbbdc532d34f89b8b5d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94f7389ce96c2e3bda35413cbcc7b1e8a992683
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87028452"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197545"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Problemas de implementação do Gestor de Recursos de Resolução de Problemas com a criação de uma nova máquina virtual Linux em Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -46,9 +46,9 @@ Para iniciar a resolução de problemas, recolha os registos de atividade para i
 
 **Erros de upload:**
 
-**N<sup>1</sup>:** Se o SISTEMA for generalizado no Linux, e for carregado como especializado, obterá um erro de tempo de provisionamento porque o VM está preso na fase de provisionamento.
+**N <sup>1</sup>:** Se o SISTEMA for generalizado no Linux, e for carregado como especializado, obterá um erro de tempo de provisionamento porque o VM está preso na fase de provisionamento.
 
-**N<sup>2:</sup>** Se o SISTEMA for especializado em Linux, e for carregado como generalizado, obterá um erro de falha de provisionamento porque o novo VM está a funcionar com o nome de computador original, nome de utilizador e senha.
+**N <sup>2:</sup>** Se o SISTEMA for especializado em Linux, e for carregado como generalizado, obterá um erro de falha de provisionamento porque o novo VM está a funcionar com o nome de computador original, nome de utilizador e senha.
 
 **Resolução:**
 
@@ -56,13 +56,13 @@ Para resolver estes dois erros, faça o upload do VHD original, disponível nas 
 
 **Erros de captura:**
 
-**N<sup>3:</sup>** Se o SISTEMA for generalizado no Linux, e for capturado como especializado, obterá um erro de tempo limite de provisão porque o VM original não é utilizável, uma vez que está marcado como generalizado.
+**N <sup>3:</sup>** Se o SISTEMA for generalizado no Linux, e for capturado como especializado, obterá um erro de tempo limite de provisão porque o VM original não é utilizável, uma vez que está marcado como generalizado.
 
-**N<sup>4:</sup>** Se o SISTEMA for especializado em Linux, e for capturado como generalizado, obterá um erro de falha de provisionamento porque o novo VM está a funcionar com o nome de computador original, nome de utilizador e senha. Além disso, o VM original não é utilizável porque é marcado como especializado.
+**N <sup>4:</sup>** Se o SISTEMA for especializado em Linux, e for capturado como generalizado, obterá um erro de falha de provisionamento porque o novo VM está a funcionar com o nome de computador original, nome de utilizador e senha. Além disso, o VM original não é utilizável porque é marcado como especializado.
 
 **Resolução:**
 
-Para resolver estes dois erros, elimine a imagem atual do portal e [recapture-a dos VHDs atuais](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma definição que para o SISTEMA (generalizado/especializado).
+Para resolver estes dois erros, elimine a imagem atual do portal e [recapture-a dos VHDs atuais](../linux/capture-image.md) com a mesma definição que para o SISTEMA (generalizado/especializado).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Edição: Imagem personalizada/ galeria/mercado; falha na atribuição
 Este erro surge em situações em que o novo pedido de VM é fixado a um cluster que não pode suportar o tamanho VM solicitado, ou não tem espaço livre disponível para acomodar o pedido.
@@ -74,7 +74,7 @@ Este erro surge em situações em que o novo pedido de VM é fixado a um cluster
 * Reda o pedido utilizando um tamanho VM menor.
 * Se o tamanho do VM solicitado não puder ser alterado:
   * Pare todos os VMs no conjunto de disponibilidade.
-    Clique **em Grupos de Recursos**o seu grupo de  >  *recursos*  >  **Recursos**a sua disponibilidade  >  *definir*  >  **Máquinas Virtuais**a sua máquina  >  *virtual*  >  **Parar**.
+    Clique **em Grupos de Recursos** o seu grupo de  >  *recursos*  >  **Recursos** a sua disponibilidade  >  *definir*  >  **Máquinas Virtuais** a sua máquina  >  *virtual*  >  **Parar**.
   * Depois de todos os VMs pararem, crie o novo VM no tamanho desejado.
   * Inicie primeiro o novo VM e, em seguida, selecione cada um dos VMs parados e clique em **Iniciar**.
 

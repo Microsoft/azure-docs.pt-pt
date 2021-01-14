@@ -1,5 +1,5 @@
 ---
-title: Identidade azul & acesso às melhores práticas de segurança / Microsoft Docs
+title: Identidade azul & acesso a boas práticas de segurança | Microsoft Docs
 description: Este artigo fornece um conjunto de boas práticas para gestão de identidade e controlo de acessos usando as capacidades do Azure.
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2abc357a5a636aa15909a3645e284c978fb903f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489824"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197596"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Gestão de Identidade Azure e controlo de segurança de acessos as melhores práticas
 
@@ -157,7 +157,7 @@ Se tem vários inquilinos ou pretende permitir que os utilizadores [repusem as s
 
 Recomendamos que necessite de uma verificação em duas etapas para todos os seus utilizadores. Isto inclui administradores e outros na sua organização que podem ter um impacto significativo se a sua conta estiver comprometida (por exemplo, gestores financeiros).
 
-Existem várias opções para exigir uma verificação em duas etapas. A melhor opção para si depende dos seus objetivos, da edição AD AZure que está a executar e do seu programa de licenciamento. Veja [como exigir uma verificação em duas etapas para que um utilizador](../../active-directory/authentication/howto-mfa-userstates.md) determine a melhor opção para si. Consulte as páginas de preços de [autenticação multi-factor Azure Ad Azure Ad](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) para obter mais informações sobre licenças e preços. [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
+Existem várias opções para exigir uma verificação em duas etapas. A melhor opção para si depende dos seus objetivos, da edição AD AZure que está a executar e do seu programa de licenciamento. Veja [como exigir uma verificação em duas etapas para que um utilizador](../../active-directory/authentication/howto-mfa-userstates.md) determine a melhor opção para si. Consulte as páginas de preços de [autenticação multi-factor Azure Ad Azure Ad](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) para obter mais informações sobre licenças e preços. [](https://azure.microsoft.com/pricing/details/active-directory/)
 
 Seguem-se opções e benefícios para permitir a verificação em duas etapas:
 
@@ -275,7 +275,7 @@ Exigir autenticação multi-factor Azure AD no início de sessão para todos os 
 **Detalhe**: Utilize uma estação de trabalho de administração. Escolha um nível de segurança da estação de trabalho:
 
 - Dispositivos de produtividade altamente seguros proporcionam segurança avançada para a navegação e outras tarefas de produtividade.
-- [As Estações de Trabalho de Acesso Privilegiadas (PAWs)](/windows-server/identity/securing-privileged-access/privileged-access-workstations) fornecem um sistema operativo dedicado que está protegido contra ataques de internet e vetores de ameaças para tarefas sensíveis.
+- [As Estações de Trabalho de Acesso Privilegiadas (PAWs)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) fornecem um sistema operativo dedicado que está protegido contra ataques de internet e vetores de ameaças para tarefas sensíveis.
 
 **Melhores práticas**: Deprovision contas de administração quando os colaboradores deixam a sua organização.
 **Detalhe**: Tenha em prática um processo que desativa ou elimina contas de administração quando os colaboradores deixam a sua organização.

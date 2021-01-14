@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 8f60c83417e9c614ca30f140e6acbbf08e5643cf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ca8584d6cce3f5487d84f6647c42274879d610dd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500653"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198072"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
-Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtual Linux através do portal Azure. Também pode [anexar um disco de dados a um VM do Windows no portal Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtual Linux através do portal Azure. Também pode [anexar um disco de dados a um VM do Windows no portal Azure](../windows/attach-managed-disk-portal.md). 
 
 Antes de anexar discos ao seu VM, reveja estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para mais detalhes, consulte [tamanhos para máquinas virtuais.](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Os discos ligados a máquinas virtuais são na verdade ficheiros .vhd armazenados em Azure. Para mais detalhes, consulte a nossa [Introdução aos discos geridos.](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para mais detalhes, consulte [tamanhos para máquinas virtuais.](../sizes.md)
+* Os discos ligados a máquinas virtuais são na verdade ficheiros .vhd armazenados em Azure. Para mais detalhes, consulte a nossa [Introdução aos discos geridos.](../managed-disks-overview.md)
 * Depois de fixar o disco, é necessário [ligar-se ao Linux VM para montar o novo disco](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
