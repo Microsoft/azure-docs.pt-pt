@@ -6,13 +6,13 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: db29fbda404900c29f85fa876e9427994ee9a093
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 118b869cb97a7dd3ce65566a994a27d2a65a7402
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915917"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184939"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 

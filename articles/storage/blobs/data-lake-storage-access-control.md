@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350760"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185908"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de controlo de acesso (ACLs) em Azure Data Lake Storage Gen2
 
@@ -34,7 +34,7 @@ Para definir permissões de nível de arquivo e diretório, consulte qualquer um
 
 | Ambiente | Artigo |
 |--------|-----------|
-|Explorador do Storage do Azure |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
+|Explorador de Armazenamento do Azure |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
 |.NET |[Utilize .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Use a Java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
@@ -60,7 +60,7 @@ Tanto acls de acesso como ACLs predefinidos têm a mesma estrutura.
 
 ## <a name="levels-of-permission"></a>Níveis de permissão
 
-As permissões num objeto de contentor são **Ler,** **Escrever** e **Executar,** e podem ser utilizadas em ficheiros e diretórios, como mostrado na tabela seguinte:
+As permissões em diretórios e ficheiros num contentor são **Ler,** **Escrever** e **Executar,** e podem ser usadas em ficheiros e diretórios como mostrado na tabela seguinte:
 
 |            |    Ficheiro     |   Diretório |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ As permissões num objeto de contentor são **Ler,** **Escrever** e **Executar,*
 | **Execução (X)** | Não significa nada no contexto do Data Lake Storage Gen2 | Obrigado a atravessar os itens infantis de um diretório |
 
 > [!NOTE]
-> Se estiver a conceder permissões usando apenas ACLs (sem Azure RBAC), em seguida, para conceder a um diretor de segurança leitura ou escrever acesso a um ficheiro, terá de dar ao diretor de segurança permissões **execute** para o recipiente e a cada pasta na hierarquia das pastas que levam ao ficheiro.
+> Se estiver a conceder permissões utilizando apenas ACLs (sem Azure RBAC), em seguida, para conceder a um diretor de segurança leitura ou escrever acesso a um ficheiro, terá de dar ao diretor de segurança permissões **execute** a pasta raiz do recipiente e a cada pasta na hierarquia das pastas que levam ao ficheiro.
 
 ### <a name="short-forms-for-permissions"></a>Formatos curtos para as permissões
 
@@ -204,7 +204,7 @@ Para um novo recipiente De armazenamento de dados Gen2, a máscara para o acesso
 |--|--|--|
 |Utilizador proprietário|`rwx`|`r-w`|
 |Grupo proprietário|`r-x`|`r--`|
-|Outros|`---`|`---`|
+|Outro|`---`|`---`|
 
 Os ficheiros não recebem o bit X, uma vez que é irrelevante para os ficheiros de um sistema apenas de loja. 
 
@@ -259,7 +259,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário ativar o suporte para as ACLs?
 
-Não. O controlo de acesso através de ACLs está ativado para uma conta de armazenamento desde que a função Espaço Hierárquico (HNS) esteja ligada.
+N.º O controlo de acesso através de ACLs está ativado para uma conta de armazenamento desde que a função Espaço Hierárquico (HNS) esteja ligada.
 
 Se o HNS for desligado, as regras de autorização do Azure Azure RBAC ainda se aplicam.
 
@@ -329,7 +329,7 @@ Quando tiver o OID correto para o principal do serviço, vá à página de **Ace
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>Posso definir o ACL de um recipiente?
 
-Não. Um recipiente não tem um ACL. No entanto, pode definir o ACL do diretório de raiz do recipiente. Cada contentor tem um diretório de raiz, e tem o mesmo nome que o contentor. Por exemplo, se o recipiente for `my-container` nomeado, o diretório de raiz é nomeado `myContainer/` . 
+N.º Um recipiente não tem um ACL. No entanto, pode definir o ACL do diretório de raiz do recipiente. Cada contentor tem um diretório de raiz, e tem o mesmo nome que o contentor. Por exemplo, se o recipiente for `my-container` nomeado, o diretório de raiz é nomeado `myContainer/` . 
 
 A AZure Storage REST API contém uma operação denominada [set Container ACL,](/rest/api/storageservices/set-container-acl)mas essa operação não pode ser utilizada para definir o ACL de um recipiente ou o diretório de raiz de um recipiente. Em vez disso, esta operação é utilizada para indicar se as bolhas num recipiente [podem ser acedidas publicamente](anonymous-read-access-configure.md). 
 

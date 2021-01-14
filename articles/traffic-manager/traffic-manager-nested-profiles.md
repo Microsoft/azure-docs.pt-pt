@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
-ms.openlocfilehash: d96cd9b3c83357c2591edf4bbb09a82b897c6a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f2aa3d05d349880b5eb2d35a2c58af0741b9855
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826029"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185585"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis do Gestor de Tráfego aninhados
 
@@ -87,7 +87,7 @@ Em vez de adicionar vários pontos finais na Europa Ocidental, esses pontos fina
 
 ## <a name="example-5-per-endpoint-monitoring-settings"></a>Exemplo 5: Definições de monitorização por ponto final
 
-Suponha que está a usar o Traffic Manager para migrar suavemente o tráfego de um site antigo no local para uma nova versão baseada na Cloud hospedada em Azure. Para o site do legado, pretende utilizar a página inicial URI para monitorizar a saúde do local. Mas para a nova versão baseada na Cloud, está a implementar uma página de monitorização personalizada (path '/monitor.aspx') que inclui verificações adicionais.
+Suponha que está a usar o Traffic Manager para migrar suavemente o tráfego de um site antigo no local para uma nova versão baseada na Cloud hospedada em Azure. Para o site do legado, pretende utilizar a página inicial URI para monitorizar a saúde do local. Mas para a nova versão baseada na Cloud, está a implementar uma página de monitorização personalizada (caminho '/monitor.aspx') que inclui verificações adicionais.
 
 ![Monitorização do ponto final do Gestor de Tráfego (comportamento predefinido)][9]
 
@@ -97,23 +97,23 @@ As definições de monitorização num perfil do Gestor de Tráfego aplicam-se a
 
 ## <a name="faqs"></a>FAQs
 
-* [Como posso configurar perfis aninhados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-nested-profiles)
+* [Como posso configurar perfis aninhados?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
 
-* [Quantas camadas de nidificação a Traffic Manger suporta?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [Quantas camadas de nidificação a Traffic Manger suporta?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [Posso misturar outros tipos de pontos finais com perfis infantis aninhados, no mesmo perfil de Gerente de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [Posso misturar outros tipos de pontos finais com perfis infantis aninhados, no mesmo perfil de Gerente de Tráfego?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [Como é que o modelo de faturação se aplica aos perfis de Nested?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [Como é que o modelo de faturação se aplica aos perfis de Nested?](./traffic-manager-faqs.md#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [Existe um impacto de desempenho para perfis aninhados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [Existe um impacto de desempenho para perfis aninhados?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
 
-* [Como é que o Traffic Manager calcula a saúde de um ponto final aninhado num perfil de pai?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [Como é que o Traffic Manager calcula a saúde de um ponto final aninhado num perfil de pai?](./traffic-manager-faqs.md#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [os perfis do Gestor de Tráfego](traffic-manager-overview.md)
 
-Saiba como [criar um perfil de Gestor de Tráfego](traffic-manager-create-profile.md)
+Saiba como [criar um perfil de Gestor de Tráfego](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

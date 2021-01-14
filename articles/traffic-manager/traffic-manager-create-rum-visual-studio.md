@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: devx-track-js
-ms.openlocfilehash: c49672ad38ac8cf80214d03870b5876d741e76ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f9e8cdd3eb5c9f441444683fb5efaccc880b2757
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994881"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184616"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medições reais do utilizador para gerente de tráfego com o Visual Studio Mobile Center
 
@@ -52,7 +52,7 @@ Para obter a chave RUM utilizando o portal Azure utilizando o seguinte procedime
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passo 2: Instrumento a sua app com o pacote RUM do Mobile Center SDK
 
-Se é novo no Visual Studio Mobile Center, visite o seu [site.](https://mobile.azure.com) Para obter instruções detalhadas sobre a integração do [SDK, consulte "Começar com o Android SDK".](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android)
+Se é novo no Visual Studio Mobile Center, visite o seu [site.](https://mobile.azure.com) Para obter instruções detalhadas sobre a integração do [SDK, consulte "Começar com o Android SDK".](/mobile-center/sdk/getting-started/Android)
 
 Para utilizar as Medições Reais do Utilizador, complete o seguinte procedimento:
 
@@ -98,8 +98,7 @@ Para utilizar as Medições Reais do Utilizador, complete o seguinte procediment
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [as Medições Reais do Utilizador](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de Tráfego](traffic-manager-overview.md)
-- Saiba mais sobre [o Mobile Center](https://docs.microsoft.com/mobile-center/)
+- Saiba mais sobre [o Mobile Center](/mobile-center/)
 - [Inscreva-se no](https://mobile.azure.com) Mobile Center
 - Saiba mais sobre os [métodos de encaminhamento de tráfego suportados](traffic-manager-routing-methods.md) pelo Traffic Manager
-- Saiba como [criar um perfil de Gestor de Tráfego](traffic-manager-create-profile.md)
-
+- Saiba como [criar um perfil de Gestor de Tráfego](./quickstart-create-traffic-manager-profile.md)

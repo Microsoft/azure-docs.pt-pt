@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
-ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d5a888bf132725ff64c2a128b77f0257f435585
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003553"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184259"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
 
@@ -45,7 +45,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 7.  Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados no painel **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
 
 > [!NOTE]
-> Depois de adicionar ou remover um ponto final de um perfil com o método de encaminhamento de tráfego *Ativação pós-falha*, a lista de prioridade de ativação pós-falha não pode ser ordenada da forma que pretende. Pode ajustar apenas a ordem da Lista de Prioridade de Ativação Pós-falha na Página de configuração. Para obter mais informações, consulte [Configurar o Encaminhamento de Tráfego de Ativação Pós-falha](traffic-manager-configure-failover-routing-method.md).
+> Depois de adicionar ou remover um ponto final de um perfil com o método de encaminhamento de tráfego *Ativação pós-falha*, a lista de prioridade de ativação pós-falha não pode ser ordenada da forma que pretende. Pode ajustar apenas a ordem da Lista de Prioridade de Ativação Pós-falha na Página de configuração. Para obter mais informações, consulte [Configurar o Encaminhamento de Tráfego de Ativação Pós-falha](./traffic-manager-configure-priority-routing-method.md).
 
 ## <a name="to-disable-an-endpoint"></a>Para desativar um ponto final
 
@@ -77,8 +77,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir perfis de Gestor de Tráfego](traffic-manager-manage-profiles.md)
-* [Configurar métodos de encaminhamento](traffic-manager-configure-routing-method.md)
+* [Configurar métodos de encaminhamento](./traffic-manager-configure-priority-routing-method.md)
 * [Resolução de problemas do estado degradado do Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)
-* [Operações do Traffic Manager (Referência da API REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
-
+* [Operações do Traffic Manager (Referência da API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))

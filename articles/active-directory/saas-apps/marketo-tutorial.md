@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2020
+ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: bd62855aef59439ed476a13770f79ce6d3cf68f8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4f8e71a0afbb1b00313d5e100ba8b3fd2b4e2ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180800"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Diretório Ativo Azure com o Marketo
 
@@ -40,6 +40,9 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Marketo apoia **IDP** iniciado SSO
 
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
+
 ## <a name="adding-marketo-from-the-gallery"></a>Adicionar Marketo da galeria
 
 Para configurar a integração do Marketo no AD Azure, é necessário adicionar o Marketo da galeria à sua lista de aplicações geridas pelo SaaS.
@@ -51,7 +54,7 @@ Para configurar a integração do Marketo no AD Azure, é necessário adicionar 
 1. Na secção Adicionar da secção **de galeria,** **digite Marketo** na caixa de pesquisa.
 1. **Selecione Marketo** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
+## <a name="configure-and-test-azure-ad-sso-for-marketo"></a>Configurar e testar Azure AD SSO para o Marketo
 
 Nesta secção, você configura e testa Azure AD single sign-on com Marketo com base em um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Marketo.
@@ -59,10 +62,10 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com o Marketo, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar Azure AD SSO com Britta Simon.
-    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize O SSO AZure.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar Azure AD SSO com Britta Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize O SSO AZure.
 2. **[Configure o Marketo SSO](#configure-marketo-sso)** - para configurar as definições SSO no lado da aplicação.
-    * **[Create Marketo test user](#create-marketo-test-user)** - ter uma contraparte de Britta Simon em Marketo que está ligada à representação AD AZure do utilizador.
+    1. **[Create Marketo test user](#create-marketo-test-user)** - ter uma contraparte de Britta Simon em Marketo que está ligada à representação AD AZure do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -71,20 +74,20 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações **do Marketo,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://saml.marketo.com/sp`
+    a. Na caixa de texto **identifier,** digite o URL: `https://saml.marketo.com/sp`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     c. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão: `https://<munchkinid>.marketo.com/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e estado de retransmissão. Contacte [a equipa de suporte do Cliente Marketo](https://investors.marketo.com/contactus.cfm) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e estado de retransmissão. Contacte [a equipa de suporte do Cliente Marketo](https://investors.marketo.com/contactus.cfm) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -120,7 +123,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-marketo-sso"></a>Configurar Marketo SSO
 
-1. Para obter a ID munchkin da sua aplicação, inicie sessão no Marketo utilizando credenciais de administração e execute as seguintes ações:
+1. Para automatizar a configuração dentro do Marketo, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **set up Marketo** irá direcioná-lo para a aplicação Marketo. A partir daí, forneça as credenciais de administração para assinar no Marketo. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se quiser configurar o Marketo manualmente, numa janela diferente do navegador web, inscreva-se no site da empresa Marketo como administrador.
+
+1. Para obter a ID munchkin da sua aplicação, execute as seguintes ações:
    
     a. Faça login na app Marketo usando credenciais de administração.
    
@@ -233,13 +246,13 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Marketo. siga este
 
 8. O utilizador recebe a notificação de e-mail e tem de clicar no link e alterar a palavra-passe para ativar a conta. 
 
-### <a name="test-sso"></a>Teste SSO 
+### <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-1. Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Marketo para o qual configura o SSO
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Marketo para o qual configura o SSO
 
-1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo do Marketo no Painel de Acesso, deverá ser automaticamente inscrito no Marketo para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Marketo nas Minhas Apps, deverá ser automaticamente inscrito no Marketo para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="next-steps"></a>Passos seguintes
 

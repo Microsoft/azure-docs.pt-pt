@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 51c22346ee89150194fb1dc83752e2ba2a2e0cf0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921617"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185449"
 ---
 # <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)
 
@@ -36,13 +36,18 @@ Os fornecedores de atestados são criados com uma política padrão para cada ti
 
 A Azure Attestation fornece um fornecedor predefinido em cada região. Os clientes podem optar por utilizar o fornecedor padrão para atestado, ou criar os seus próprios fornecedores com políticas personalizadas. Os fornecedores predefinidos são acessíveis por qualquer utilizador Azure AD e a política associada a um fornecedor predefinido não pode ser alterada.
 
-| Região | Atestar Uri | 
+| Region | Atestar Uri | 
 |--|--|
+| E.U.A. Leste | `https://sharedeus.eus.attest.azure.net` | 
+| E.U.A. Oeste | `https://sharedwus.wus.attest.azure.net` | 
 | Sul do Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| Oeste do Reino Unido| `https://sharedukw.ukw.attest.azure.net  ` | 
+| Leste do Canadá | `https://sharedcae.cae.attest.azure.net` | 
+| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
+| Europa do Norte | `https://sharedneu.neu.attest.azure.net` | 
+| Europa Ocidental| `https://sharedweu.weu.attest.azure.net` | 
 | E.U.A. Leste 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | E.U.A. Central | `https://sharedcus.cus.attest.azure.net` | 
-| E.U.A. Leste| `https://sharedeus.eus.attest.azure.net` | 
-| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Pedido de atestado
 

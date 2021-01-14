@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516975"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186197"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
@@ -54,6 +54,10 @@ Consulte [orientações](container-instances-troubleshooting.md#container-takes-
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Que camada de imagem .NET ou .NET Core devo usar no meu recipiente? 
 
 Use a imagem mais pequena que satisfaça os seus requisitos. Para o Linux, pode utilizar uma imagem *de runtime-alpine* .NET Core, que foi suportada desde o lançamento de .NET Core 2.1. Para o Windows, se estiver a utilizar o quadro .NET completo, então tem de utilizar uma imagem do Núcleo do Servidor do Windows (imagem apenas em funcionamento, como *4.7.2-windowsservercore-ltsc2016).* As imagens apenas de tempo de execução são menores, mas não suportam cargas de trabalho que requeiram o .NET SDK.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Que tipos de registos de contentores são compatíveis com o ACI?
+
+O ACI suporta a imagem a partir de registos de contentores de terceiros, como o DockerHub. O ACI também suporta a retirada de imagens dos registos no local, desde que sejam compatíveis com o OCR e tenham um ponto final que esteja exposto publicamente à internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilidade e quotas
 

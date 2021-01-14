@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302836"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185534"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box
 
@@ -121,7 +121,7 @@ Para ativar uma chave gerida pelo cliente para a sua encomenda de Caixa de Dados
 
 Para alterar o cofre, chave e/ou versão chave para a chave gerida pelo cliente que está a utilizar, siga estes passos:
 
-1. No **ecrã de visão geral** para a sua encomenda de Caixa de **Dados,** aceda à encriptação de Definições  >  **Encryption** e clique na **tecla 'Alterar'.**
+1. No **ecrã de visão geral** para a sua encomenda de Caixa de **Dados,** aceda à encriptação de Definições  >  e clique na **tecla 'Alterar'.**
 
     ![Ecrã geral de uma encomenda de Caixa de Dados com chave gerida pelo cliente - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16.png)
 
@@ -149,7 +149,7 @@ Para alterar o cofre, chave e/ou versão chave para a chave gerida pelo cliente 
 
 Para alterar a identidade utilizada para gerir o acesso à chave gerida pelo cliente para esta encomenda, siga estes passos:
 
-1. No ecrã **de visão geral** para a sua encomenda de Caixa de Dados concluída, aceda à encriptação **de Definições**  >  **Encryption**.
+1. No ecrã **de visão geral** para a sua encomenda de Caixa de Dados concluída, aceda à encriptação **de Definições**  >  .
 
 2. Faça uma das seguintes alterações:
 
@@ -169,7 +169,7 @@ Para alterar a identidade utilizada para gerir o acesso à chave gerida pelo cli
 
 Para mudar de usar uma chave gerida pelo cliente para a chave gerida pela Microsoft para a sua encomenda, siga estes passos:
 
-1. No ecrã **de visão geral** para a sua encomenda de Caixa de Dados concluída, aceda à encriptação **de Definições**  >  **Encryption**.
+1. No ecrã **de visão geral** para a sua encomenda de Caixa de Dados concluída, aceda à encriptação **de Definições**  >  .
 
 2. Por **Seleção do tipo**, selecione a **tecla gerida pela Microsoft**.
 
@@ -199,7 +199,7 @@ Se receber quaisquer erros relacionados com a sua chave gerida pelo cliente, uti
 | SsemUserErrorKeyVaultBadRequestExcepção | Aplicou uma chave gerida pelo cliente, mas o acesso à chave não foi concedido ou foi revogado, ou não foi possível aceder ao cofre de chaves devido à ativação da firewall. | Adicione a identidade selecionada no cofre de chaves para permitir o acesso à chave gerida pelo cliente. Se o cofre-chave tiver a firewall ativada, mude para uma identidade atribuída ao sistema e adicione uma chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
 | Erro genérico  | Não consegui pegar a chave.| Isto é um erro genérico. Contacte o Microsoft Support para resolver o erro e determinar os próximos passos.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 - [Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure](../key-vault/secrets/quick-create-portal.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616251"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185823"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -60,7 +60,7 @@ Aqui está a lista de pedidos que a nossa plataforma terá de expor:
 
 Nesta fase, ainda não pensámos nos detalhes do que cada entidade (utilizador, post, etc.) irá conter. Este passo é geralmente um dos primeiros a ser abordado quando se projeta contra uma loja relacional, porque temos que descobrir como essas entidades se vão traduzir em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com uma base de dados de documentos que não impõe qualquer esquema na escrita.
 
-A principal razão pela qual é importante identificar os nossos padrões de acesso desde o início, é porque esta lista de pedidos vai ser a nossa suíte de teste. Sempre que iteraçãomos sobre o nosso modelo de dados, vamos analisar cada um dos pedidos e verificar o seu desempenho e escalabilidade.
+A principal razão pela qual é importante identificar os nossos padrões de acesso desde o início, é porque esta lista de pedidos vai ser a nossa suíte de teste. Sempre que iteraçãomos sobre o nosso modelo de dados, vamos analisar cada um dos pedidos e verificar o seu desempenho e escalabilidade. Calculamos as unidades de pedido consumidas em cada modelo e otimizamo-las. Todos estes modelos utilizam a política de indexação predefinido e pode sobrepor-se indexando propriedades específicas, o que pode melhorar ainda mais o consumo e a latência do RU.
 
 ## <a name="v1-a-first-version"></a>V1: Uma primeira versão
 
@@ -295,7 +295,7 @@ Também modificamos comentários e itens para adicionar o nome de utilizador do 
 
 O que queremos alcançar é que cada vez que adicionamos um comentário ou um like, também incrementamos o `commentCount` ou o no post `likeCount` correspondente. Como o nosso `posts` recipiente é dividido `postId` por, o novo item (comentário ou similar) e o seu posto correspondente sentam-se na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar esta operação.
 
-Agora, ao criar um comentário **([C3]** ), em vez de apenas adicionar um novo item no `posts` recipiente chamamos o seguinte procedimento armazenado nesse recipiente:
+Agora, ao criar um comentário **([C3]**), em vez de apenas adicionar um novo item no `posts` recipiente chamamos o seguinte procedimento armazenado nesse recipiente:
 
 ```javascript
 function createComment(postId, comment) {

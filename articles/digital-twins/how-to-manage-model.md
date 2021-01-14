@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045245"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185500"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -52,9 +53,6 @@ Seguindo este método, pode continuar a definir modelos para as enfermarias, zon
 ## <a name="upload-models"></a>Modelos de upload
 
 Uma vez criados os modelos, pode enviá-los para a instância Azure Digital Twins.
-
-> [!TIP]
-> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins. Pode utilizar a [biblioteca de parser do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e [a amostra DTDL Validator](/samples/azure-samples/dtdl-validator/dtdl-validator) descrita em [*How-to: Parse e validar modelos*](how-to-parse-models.md) para verificar os seus modelos antes de os enviar para o serviço.
 
 Quando estiver pronto para carregar um modelo, pode utilizar o seguinte corte de código:
 

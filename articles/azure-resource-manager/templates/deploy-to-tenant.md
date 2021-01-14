@@ -3,12 +3,12 @@ title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178964"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186214"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de inquilinos com modelos ARM
 
@@ -185,6 +185,8 @@ Para direcionar um grupo de recursos dentro do inquilino, use uma implantação 
 O modelo a seguir cria um grupo de gestão.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+Se a sua conta não tiver permissão para implantar no inquilino, ainda pode criar grupos de gestão implantando-se para outro âmbito. Para mais informações, consulte [o Grupo de Gestão.](deploy-to-management-group.md#management-group)
 
 ## <a name="assign-role"></a>Atribuir função
 

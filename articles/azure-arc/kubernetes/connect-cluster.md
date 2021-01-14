@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8155ed709045626dee44fb499304ff5244a61b54
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 131ec014c9ac016a682bc4928f74910a3405a5da
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060253"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186010"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ligar um cluster do Kubernetes preparado para o Azure Arc (Pré-visualização)
 
 Este documento abrange o processo de ligação de qualquer cluster certificado da Cloud Native Computing Foundation (CNCF) como o motor AKS em Azure, motor AKS no Azure Stack Hub, GKE, EKS e VMware vSphere cluster a Azure Arc.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Verifique se tem os seguintes requisitos prontos:
 
@@ -35,19 +35,19 @@ Verifique se tem os seguintes requisitos prontos:
   
   Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:
   
-  ```console
+  ```azurecli
   az extension add --name connectedk8s
   ```
   
   Instalar a `k8sconfiguration` extensão:
   
-  ```console
+  ```azurecli
   az extension add --name k8sconfiguration
   ```
   
   Se pretender atualizar estas extensões mais tarde, execute os seguintes comandos:
   
-  ```console
+  ```azurecli
   az extension update --name connectedk8s
   az extension update --name k8sconfiguration
   ```

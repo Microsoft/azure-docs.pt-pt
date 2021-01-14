@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
-ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021695"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184378"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure
 
@@ -65,7 +65,7 @@ O seguinte diagrama mostra a arquitetura deste cenário:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passo 1: Criar um perfil de Gestor de Tráfego
 
-1. No portal Azure, clique em Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
+1. No portal Azure, clique em Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >    >  **Criar**.
 2. Introduza as seguintes informações básicas:
 
    * **Nome**: Dê ao seu perfil de Gestor de Tráfego um nome de prefixo DNS.
@@ -80,7 +80,7 @@ O seguinte diagrama mostra a arquitetura deste cenário:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passo 2: Criar os gateways de aplicação
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um Gateway**  >  **de aplicação de rede de** recursos  >  **Application Gateway**.
+1. No portal Azure, no painel esquerdo, clique em **Criar um Gateway**  >  **de aplicação de rede de** recursos  >  .
 2. Introduza as seguintes informações básicas sobre o gateway de aplicação:
 
    * **Nome**: O nome do gateway de aplicação.
@@ -92,11 +92,11 @@ O seguinte diagrama mostra a arquitetura deste cenário:
 4. Defina as configurações de rede virtual, sub-rede, IP frontal e ouvinte para o gateway de aplicações. Neste cenário, o endereço IP frontal é **público**, o que permite a sua adição como ponto final ao perfil de Gestor de Tráfego mais tarde.
 5. Configure o ouvinte com uma das seguintes opções:
     * Se utilizar HTTP, não há nada a configurar. Clique em **OK**.
-    * Se utilizar HTTPS, é necessária uma configuração adicional. Consulte para [Criar um gateway de aplicação,](../application-gateway/application-gateway-create-gateway-portal.md)a partir do passo 9. Quando tiver concluído a configuração, clique em **OK**.
+    * Se utilizar HTTPS, é necessária uma configuração adicional. Consulte para [Criar um gateway de aplicação,](../application-gateway/quick-create-portal.md)a partir do passo 9. Quando tiver concluído a configuração, clique em **OK**.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configurar o encaminhamento de URL para gateways de aplicações
 
-Quando você escolhe uma piscina de back-end, um gateway de aplicação configurado com uma regra baseada em caminho toma um padrão de caminho do URL de pedido, além da distribuição de robin redondo. Neste cenário, estamos adicionando uma regra baseada em caminho para direcionar qualquer URL com "/images/" \* para o conjunto do servidor de imagem. Para obter mais informações sobre a configuração do encaminhamento baseado em caminhos de URL para um gateway de aplicação, consulte [criar uma regra baseada em caminhos para um gateway de aplicações](../application-gateway/application-gateway-create-url-route-portal.md).
+Quando você escolhe uma piscina de back-end, um gateway de aplicação configurado com uma regra baseada em caminho toma um padrão de caminho do URL de pedido, além da distribuição de robin redondo. Neste cenário, estamos adicionando uma regra baseada em caminho para direcionar qualquer URL com "/images/" \* para o conjunto do servidor de imagem. Para obter mais informações sobre a configuração do encaminhamento baseado em caminhos de URL para um gateway de aplicação, consulte [criar uma regra baseada em caminhos para um gateway de aplicações](../application-gateway/create-url-route-portal.md).
 
 ![Diagrama de nível web do Gateway de aplicação](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -156,9 +156,9 @@ Neste cenário, o Balanceador de Carga distribui ligações do nível web para a
 
 Se o seu cluster de base de dados de alta disponibilidade estiver a utilizar o SQL Server AlwaysOn, consulte [um ou mais ouvintes do Grupo Always On Availability](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) para obter instruções passo a passo.
 
-Para obter mais informações sobre a configuração de um equilibrador de carga interno, consulte [Criar um equilibrador de carga interno no portal Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Para obter mais informações sobre a configuração de um equilibrador de carga interno, consulte [Criar um equilibrador de carga interno no portal Azure](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um equilibrador**  >  **de carga de rede de** recursos  >  **Load balancer**.
+1. No portal Azure, no painel esquerdo, clique em **Criar um equilibrador**  >  **de carga de rede de** recursos  >  .
 2. Escolha um nome para o seu equilibrador de carga.
 3. Desabrague o **Tipo** para **Interno**, e escolha a rede virtual adequada e a sub-rede para o equilibrador de carga residir.
 4. Na **atribuição de endereços IP**, selecione **Dynamic** ou **Static**.
@@ -210,5 +210,5 @@ Agora configuramos o endereço IP e a porta frontal do balanceador de carga nas 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral do Gestor de Tráfego](traffic-manager-overview.md)
-* [Descrição geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)
+* [Descrição geral do Gateway de Aplicação](../application-gateway/overview.md)
 * [Descrição Geral do Balanceador de Carga do Azure (Azure Load Balancer overview)](../load-balancer/load-balancer-overview.md)

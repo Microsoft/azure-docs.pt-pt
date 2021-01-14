@@ -4,15 +4,15 @@ description: Go-To-Market Services - Os recursos da Microsoft que os editores po
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: ad86ebe1ca397004745e75dd279ea0a7cfe8348e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 263c038cf5003d950cf500ccc13cf562ac71db0c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746572"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185009"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -104,16 +104,16 @@ Todas as atividades descritas nesta página estão abrangidas pelo [acordo de ed
 
 A Microsoft reserva-se o direito de revogar e acabar com os benefícios do Marketplace Rewards para os editores que:
 
-* Envolva-se em atividades ilegais usando a sua lista geminada de mercado.
-* Receba uma compra que seja conhecida ou que se acredita ser fraudulenta.
-* Estão desatados do mercado comercial.
-* Use a sua oferta para mostrar marketing ou outro conteúdo que viole leis de direitos autorais ou de marca.
-* Violar as políticas do programa de [patrocínios Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usar o financiamento de patrocínios Azure para as suas próprias operações internas ou mineração Bitcoin.
+- Envolva-se em atividades ilegais usando a sua lista geminada de mercado.
+- Receba uma compra que seja conhecida ou que se acredita ser fraudulenta.
+- Estão desatados do mercado comercial.
+- Use a sua oferta para mostrar marketing ou outro conteúdo que viole leis de direitos autorais ou de marca.
+- Violar as políticas do programa de [patrocínios Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usar o financiamento de patrocínios Azure para as suas próprias operações internas ou mineração Bitcoin.
 
 A Microsoft reserva-se o direito de revogar e terminar as Prémios Marketplace quando:
 
-* O cliente que fez a compra fê-lo acidentalmente e deseja cancelar a compra.
-* O cliente cancela antes de utilizar o produto do parceiro.
+- O cliente que fez a compra fê-lo acidentalmente e deseja cancelar a compra.
+- O cliente cancela antes de utilizar o produto do parceiro.
 
 ### <a name="offer-availability"></a>Disponibilidade de oferta
 

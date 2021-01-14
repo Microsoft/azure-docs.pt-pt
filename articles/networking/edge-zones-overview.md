@@ -2,17 +2,17 @@
 title: Sobre a pré-visualização da Zona de Edge Azure
 description: 'Saiba mais sobre ofertas de computação de borda da Microsoft: Azure Edge Zone.'
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329584"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185415"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Sobre a pré-visualização da Zona de Edge Azure
 
@@ -38,7 +38,7 @@ Existem três tipos de Zonas de Borda Azure:
 
 ![Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Azure Edge Zone")
 
-As Zonas de Azure Edge são extensões de pequena pegada de Azure colocadas em centros populacionais que estão longe das regiões de Azure. As Zonas Azure Edge suportam VMs, contentores e um conjunto selecionado de serviços Azure que permitem executar aplicações sensíveis à latência e de produção intensiva perto dos utilizadores finais. As Azure Edge Zones fazem parte da rede global da Microsoft. Fornecem conectividade segura, fiável e de alta largura de banda entre aplicações que funcionam na zona de borda próxima do utilizador. E oferecem todo o conjunto de serviços Azure em execução nas regiões de Azure. As Azure Edge Zones são propriedade e operadas pela Microsoft. Pode utilizar o mesmo conjunto de ferramentas Azure e o mesmo portal para gerir e implantar serviços em Edge Zones.
+As Zonas de Azure Edge são extensões de pequena pegada de Azure colocadas em centros populacionais que estão longe das regiões de Azure. As Zonas Azure Edge suportam VMs, contentores e um conjunto selecionado de serviços Azure que permitem executar aplicações sensíveis à latência e de produção intensiva perto dos utilizadores finais. As Azure Edge Zones fazem parte da rede global da Microsoft. Fornecem conectividade segura, fiável e de alta largura de banda entre aplicações que funcionam na zona de borda próxima do utilizador. As Azure Edge Zones são propriedade e operadas pela Microsoft. Pode utilizar o mesmo conjunto de ferramentas Azure e o mesmo portal para gerir e implantar serviços em Edge Zones.
 
 Os casos de uso típico incluem:
 
@@ -61,7 +61,7 @@ As Zonas Azure Edge estarão disponíveis nas seguintes áreas de metrô:
 
 As Zonas de Borda Azure com Transportadora são extensões de pequena pegada do Azure que são colocadas nos centros de dados dos operadores móveis nos centros populacionais. A zona de Azure Edge com infraestrutura carrier é colocada a um salto de distância da rede 5G da operadora móvel. Esta colocação oferece latência inferior a 10 milissegundos para aplicações de dispositivos móveis.
 
-As Zonas Azure Edge com a Carrier são implantadas nos datacenters dos operadores móveis e ligadas à rede global da Microsoft. Fornecem conectividade segura, fiável e de alta largura de banda entre aplicações que funcionam perto do utilizador. E oferecem todo o conjunto de serviços Azure em execução nas regiões de Azure. Os desenvolvedores podem usar o mesmo conjunto de ferramentas familiares para construir e implementar serviços nas Zonas edge.
+As Zonas Azure Edge com a Carrier são implantadas nos datacenters dos operadores móveis e ligadas à rede global da Microsoft. Fornecem conectividade segura, fiável e de alta largura de banda entre aplicações que funcionam perto do utilizador. Os desenvolvedores podem usar o mesmo conjunto de ferramentas familiares para construir e implementar serviços nas Zonas edge.
 
 Os casos de uso típico incluem:
 

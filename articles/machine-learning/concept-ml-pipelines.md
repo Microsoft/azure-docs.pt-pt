@@ -1,41 +1,30 @@
 ---
-title: O que são gasodutos de aprendizagem de máquinas Azure
+title: O que são oleodutos de aprendizagem automática?
 titleSuffix: Azure Machine Learning
-description: Saiba como os oleodutos de machine learning (ML) ajudam a construir, otimizar e gerir fluxos de trabalho de aprendizagem automática.
+description: Saiba como os oleodutos de aprendizagem automática o ajudam a construir, otimizar e gerir fluxos de trabalho de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a6ee4c08a7ecf9bcfcbc9cf6f630efe126248e9f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131292"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185711"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
-Neste artigo, você aprende como os oleodutos Azure Machine Learning ajudam a construir, otimizar e gerir fluxos de trabalho de aprendizagem automática. Estes fluxos de trabalho têm uma série de benefícios: 
-
-+ Simplicidade
-+ Velocidade
-+ Repetibilidade
-+ Flexibilidade
-+ Veragem e rastreio
-+ Modularidade 
-+ Garantia de qualidade
-+ Controlo de custos
-
-Estes benefícios tornam-se significativos assim que o seu projeto de aprendizagem automática se move para além da pura exploração e para a iteração. Mesmo os simples oleodutos de um passo podem ser valiosos. Os projetos de aprendizagem automática estão muitas vezes num estado complexo, e pode ser um alívio fazer da realização precisa de um único fluxo de trabalho um processo trivial.
+Neste artigo, aprende-se como um pipeline de aprendizagem automática ajuda a construir, otimizar e gerir o seu fluxo de trabalho de aprendizagem automática. 
 
 <a name="compare"></a>
-### <a name="which-azure-pipeline-technology-should-i-use"></a>Que tecnologia de gasoduto Azure devo usar?
+## <a name="which-azure-pipeline-technology-should-i-use"></a>Que tecnologia de gasoduto Azure devo usar?
 
-A nuvem Azure fornece vários outros oleodutos, cada um com um propósito diferente. A tabela que se segue enumera os diferentes oleodutos e para que são utilizados:
+A nuvem Azure fornece vários tipos de oleoduto, cada um com um propósito diferente. A tabela que se segue enumera os diferentes oleodutos e para que são utilizados:
 
 | Cenário | Persona primária | Oferta azul | Oferta de OSS | Tubo canónico | Pontos fortes | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
@@ -43,7 +32,7 @@ A nuvem Azure fornece vários outros oleodutos, cada um com um propósito difere
 | Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Fluxo de ar Apache | Dados -> Dados | Movimento fortemente dactilografado, atividades centradas em dados |
 | Código & orquestração de aplicações (CI/CD) | Desenvolvedor de Aplicativos / Ops | [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -> App/Serviço | Suporte de atividade mais aberto e flexível, filas de aprovação, fases com gating | 
 
-## <a name="what-can-azure-ml-pipelines-do"></a>O que podem os oleodutos Azure ML fazer?
+## <a name="what-can-machine-learning-pipelines-do"></a>O que podem fazer os oleodutos de aprendizagem automática?
 
 Um pipeline Azure Machine Learning é um fluxo de trabalho executável independentemente de uma tarefa completa de aprendizagem automática. As subtarefas são encapsuladas como uma série de passos dentro do pipeline. Um oleoduto Azure Machine Learning pode ser tão simples como aquele que chama um roteiro python, por isso _pode_ fazer qualquer coisa. Os gasodutos _devem_ concentrar-se em tarefas de aprendizagem automática, tais como:
 
@@ -64,9 +53,9 @@ Em suma, todas as tarefas complexas do ciclo de vida de aprendizagem automática
 
 ### <a name="analyzing-dependencies"></a>Analisar dependências
 
-Muitos ecossistemas de programação têm ferramentas que orquestram dependências de recursos, bibliotecas ou compilações. Geralmente, estas ferramentas usam os tempos de ficheiro para calcular as dependências. Quando um ficheiro é alterado, apenas ele e os seus dependentes são atualizados (descarregados, recompiliados ou embalados). Os oleodutos Azure ML alargam este conceito. Tal como as ferramentas de construção tradicionais, os gasodutos calculam as dependências entre os passos e apenas realizam os recálculos necessários. 
+Muitos ecossistemas de programação têm ferramentas que orquestram dependências de recursos, bibliotecas ou compilações. Geralmente, estas ferramentas usam os tempos de ficheiro para calcular as dependências. Quando um ficheiro é alterado, apenas ele e os seus dependentes são atualizados (descarregados, recompiliados ou embalados). Os oleodutos Azure Machine Learning alargam este conceito. Tal como as ferramentas de construção tradicionais, os gasodutos calculam as dependências entre os passos e apenas realizam os recálculos necessários. 
 
-A análise de dependência nos oleodutos Azure ML é mais sofisticada do que os simples timetamps. Cada passo pode ser executado num ambiente diferente de hardware e software. A preparação de dados pode ser um processo demorado, mas não precisa de funcionar em hardware com GPUs poderosos, certos passos podem requerer software específico para o OS, você pode querer usar treino distribuído, e assim por diante. 
+A análise de dependência nos oleodutos Azure Machine Learning é mais sofisticada do que os simples timetamps. Cada passo pode ser executado num ambiente diferente de hardware e software. A preparação de dados pode ser um processo demorado, mas não precisa de funcionar em hardware com GPUs poderosos, certos passos podem requerer software específico para o OS, você pode querer usar treino distribuído, e assim por diante. 
 
 A Azure Machine Learning orquestra automaticamente todas as dependências entre os passos do gasoduto. Esta orquestração pode incluir girar para cima e para baixo imagens de Docker, anexar e desvincular recursos compute, e mover dados entre os passos de forma consistente e automática.
 
@@ -92,7 +81,7 @@ Quando cria e executa um `Pipeline` objeto, ocorrem os seguintes passos de alto 
 
 No [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)um oleoduto é um objeto Python definido no `azureml.pipeline.core` módulo. Um objeto [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?preserve-view=true&view=azure-ml-py) contém uma sequência ordenada de um ou mais objetos [PipelineStep.](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) A `PipelineStep` classe é abstrata e os passos reais serão de subclasses como [EstimatorStep,](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?preserve-view=true&view=azure-ml-py) [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?preserve-view=true&view=azure-ml-py)ou [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py). A classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?preserve-view=true&view=azure-ml-py) contém uma sequência reutilizável de passos que podem ser partilhados entre os oleodutos. Uma `Pipeline` corrida como parte de um `Experiment` .
 
-Um oleoduto Azure ML está associado a um espaço de trabalho Azure Machine Learning e um passo de pipeline está associado a um alvo de computação disponível dentro desse espaço de trabalho. Para obter mais informações, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure no portal Azure](./how-to-manage-workspace.md) ou Quais são os [alvos de computação em Azure Machine Learning?](./concept-compute-target.md)
+Um oleoduto de aprendizagem automática Azure está associado a um espaço de trabalho Azure Machine Learning e um passo de pipeline está associado a um alvo de computação disponível dentro desse espaço de trabalho. Para obter mais informações, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure no portal Azure](./how-to-manage-workspace.md) ou Quais são os [alvos de computação em Azure Machine Learning?](./concept-compute-target.md)
 
 ### <a name="a-simple-python-pipeline"></a>Um simples pipeline Python
 
@@ -129,7 +118,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . `input_data`Trata-se de uma instância do [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` é um exemplo de [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor gerado `output-name` automaticamente se não for especificado pelo desenvolvedor.
+O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . `input_data`Trata-se de uma instância do [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` é um exemplo de [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor `output-name` autogerado se não for especificado pelo desenvolvedor.
 
 A matriz `steps` contém um único elemento, um que `PythonScriptStep` utilizará os objetos de dados e funcionará no `compute_target` . Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
 
@@ -158,8 +147,7 @@ As principais vantagens da utilização de oleodutos para os seus fluxos de trab
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os oleodutos Azure ML são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Viu um simples código-fonte e foi introduzido em algumas das `PipelineStep` aulas que estão disponíveis. Deve ter uma noção de quando usar os oleodutos Azure ML e como o Azure os gere. 
-
+Os oleodutos Azure Machine Learning são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Viu um simples código-fonte e foi introduzido em algumas das `PipelineStep` aulas que estão disponíveis. Deve ter uma noção de quando usar os oleodutos Azure Machine Learning e como o Azure os gere. 
 
 + Saiba como [criar o seu primeiro oleoduto.](how-to-create-your-first-pipeline.md)
 

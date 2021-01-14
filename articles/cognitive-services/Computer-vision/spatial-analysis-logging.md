@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014582"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186027"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-No manifesto de implantação do seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou de outra máquina de ambiente de [trabalho,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)procure o módulo *telegraf* e substitua os seguintes valores com as informações principais do Serviço do passo anterior e da redistribuição.
+No manifesto de implantação do seu [dispositivo Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM com GPU,](https://go.microsoft.com/fwlink/?linkid=2152189)procure o módulo *telegraf,* e substitua os seguintes valores com as informações principais do serviço do passo anterior e da recolocação.
 
 ```json
 
@@ -129,7 +129,7 @@ Pode utilizar `iotedge` a ferramenta da linha de comando para verificar o estado
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Recolher ficheiros de registo com o recipiente de diagnóstico
 
-A análise espacial gera registos de depurar Docker que pode usar para diagnosticar problemas de tempo de execução, ou incluir em bilhetes de apoio. O módulo de diagnóstico de análise espacial está disponível no Registo de Contentores da Microsoft para que possa descarregar. No ficheiro de implantação manifesto para o seu [Dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outra máquina de ambiente de [trabalho,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)procure o módulo *de diagnóstico.*
+A análise espacial gera registos de depurar Docker que pode usar para diagnosticar problemas de tempo de execução, ou incluir em bilhetes de apoio. O módulo de diagnóstico de análise espacial está disponível no Registo de Contentores da Microsoft para que possa descarregar. No ficheiro de implantação manifesto para o seu [Azure Stack Edge Device,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) procure o módulo *de diagnóstico.*
 
 Na secção "env" adicione a seguinte configuração:
 
@@ -158,7 +158,7 @@ Para otimizar os registos enviados para um ponto final remoto, como o Azure Blob
 
 ### <a name="configure-the-log-level"></a>Configure o nível de registo
 
-A configuração do nível de registo permite-lhe controlar a verbosidade dos registos gerados. Os níveis de registo suportados são: `none` , , , e `verbose` `info` `warning` `error` . O nível verboso de registo predefinido para os nós e plataforma é `info` . 
+A configuração do nível de registo permite-lhe controlar a verbosidade dos registos gerados. Os níveis de registo suportados são: `none` `verbose` , e `info` `warning` `error` . O nível verboso de registo predefinido para os nós e plataforma é `info` . 
 
 Os níveis de registo podem ser modificados globalmente, definindo a `ARCHON_LOG_LEVEL` variável ambiental para um dos valores permitidos.
 Também pode ser definido através do documento IoT Edge Module Twin, quer a nível global, para todas as competências implementadas, quer para todas as habilidades específicas, definindo os valores para `platformLogLevel` e `nodeLogLevel` como mostrado abaixo.
@@ -188,13 +188,13 @@ Também pode ser definido através do documento IoT Edge Module Twin, quer a ní
 > O `diagnostics` módulo não afeta o conteúdo da registo, é apenas ajuda na recolha, filtragem e upload dos registos existentes.
 > Tem de ter a versão API 1.40 ou superior para utilizar este módulo.
 
-O ficheiro manifesto de implementação da amostra para o seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outra máquina de ambiente de [trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  inclui um módulo nomeado que recolhe e `diagnostics` envia registos. Este módulo é desativado por predefinição e deve ser ativado através da configuração do módulo IoT Edge quando necessitar de aceder a registos. 
+O ficheiro manifesto de implantação da amostra para o seu [dispositivo Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) inclui um módulo nomeado `diagnostics` que recolhe e carrega registos. Este módulo é desativado por predefinição e deve ser ativado através da configuração do módulo IoT Edge quando necessitar de aceder a registos. 
 
 A `diagnostics` coleção é a pedido e controlada através de um método direto IoT Edge, e pode enviar registos para um Azure Blob Storage.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurar metas de upload de diagnósticos
 
-A partir do portal IoT Edge, selecione o seu dispositivo e, em seguida, o módulo **de diagnóstico.** No ficheiro manifesto de implementação da amostra para o seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou [outras máquinas de ambiente de trabalho,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)procure a secção **de Variáveis ambientais** para diagnósticos, `env` nomeados, e adicione as seguintes informações:
+A partir do portal IoT Edge, selecione o seu dispositivo e, em seguida, o módulo **de diagnóstico.** No ficheiro manifesto de implantação da amostra para o seu [dispositivo Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquinas de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) procurem a secção **de Variáveis ambientais** para diagnósticos, nomeados, `env` e adicione as seguintes informações:
 
 **Configurar o upload para o armazenamento de blob Azure**
 
@@ -245,7 +245,7 @@ A tabela seguinte lista os atributos na resposta de consulta.
 
 | Palavra-chave | Descrição|
 |--|--|
-|DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_*_.|
+|DoPost| Verdadeiro  ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_*_.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|
 |Filtros de Valor| Filtros de palavras-chave aplicados nos registos. |
 |TimeStamp| Tempo de início da execução do método. |
@@ -401,7 +401,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 | `Get-HcsApplianceInfo` | Devolve informações sobre o seu dispositivo. |
 | `Enable-HcsSupportAccess` | Gera credenciais de acesso para iniciar uma sessão de suporte. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Configure operações de análise espacial](./spatial-analysis-operations.md)

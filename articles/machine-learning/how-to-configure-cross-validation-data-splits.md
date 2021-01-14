@@ -1,7 +1,7 @@
 ---
-title: Configure a validação cruzada e as divisões de dados em experiências automatizadas de aprendizagem automática de máquinas
+title: Divisões de dados e validação cruzada na aprendizagem automática de máquinas
 titleSuffix: Azure Machine Learning
-description: Saiba como configurar a validação cruzada e as divisões de conjuntos de dados para experiências automatizadas de aprendizagem automática de máquinas
+description: Saiba como configurar divisões de conjuntos de dados e validação cruzada para experiências automatizadas de aprendizagem automática de máquinas
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,20 +11,20 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: c29c8ab31507c0ec904a7534e50ef6523e1aab96
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360110"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185687"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no machine learning automatizado
 
-Neste artigo, aprende-se as diferentes opções para configurar divisões de dados de treino/validação e validação cruzada para a sua aprendizagem automática de máquinas, AutoML, experiências.
+Neste artigo, aprende-se as diferentes opções para configurar divisões de dados de treino/validação e validação cruzada para a sua aprendizagem automática de máquinas, ML automatizado, experiências.
 
-No Azure Machine Learning, quando utiliza o AutoML para construir vários modelos ML, cada corrida infantil precisa de validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Estas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais de observações anteriores nos dados de validação. 
+No Azure Machine Learning, quando utiliza ML automatizado para construir vários modelos ML, cada corrida infantil precisa de validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Estas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais de observações anteriores nos dados de validação. 
 
-As experiências autoML realizam a validação do modelo automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
+Experiências automatizadas de ML realizam validação de modelos automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Para obter uma experiência de baixo código ou sem código, consulte [Criar as suas experiências automatizadas de aprendizagem automática de máquinas no estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -39,13 +39,13 @@ Para este artigo que precisa,
 
 * Familiaridade com a criação de uma experiência automatizada de aprendizagem automática com o Azure Machine Learning SDK. Siga o [tutorial](tutorial-auto-train-models.md) ou [como](how-to-configure-auto-train.md) ver os padrões fundamentais de design de experiências de aprendizagem automática de máquinas.
 
-* A compreensão dos dados de validação cruzada e de treino/validação divide-se como conceitos ML. Para uma explicação de alto nível,
+* A compreensão dos dados de comboio/validação divide-se e validação cruzada como conceitos de machine learning. Para uma explicação de alto nível,
 
     * [Sobre conjuntos de comboios, validação e testes em machine learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [Compreensão da validação cruzada](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [Compreender validação cruzada na aprendizagem automática](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
 
-## <a name="default--data-splits-and-cross-validation"></a>Os dados predefinidos dividem-se e validam-se cruzadas
+## <a name="default-data-splits-and-cross-validation"></a>Os dados predefinidos dividem-se e validam-se cruzadas
 
 Utilize o objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) para definir as definições de experiência e treino. No seguinte corte de código, note que apenas os parâmetros necessários são definidos, que são os parâmetros para `n_cross_validation` ou `validation_ data` **não** estão incluídos.
 
@@ -117,7 +117,7 @@ Para realizar a validação cruzada, inclua o `n_cross_validations` parâmetro e
 
 No código seguinte, são definidas cinco dobras para validação cruzada. Assim, cinco treinos diferentes, cada treino utilizando 4/5 dos dados, e cada validação usando 1/5 dos dados com uma dobra de retenção diferente de cada vez.
 
-Como resultado, as métricas são calculadas com a média das 5 métricas de validação.
+Como resultado, as métricas são calculadas com a média das cinco métricas de validação.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -135,7 +135,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="specify-custom-cross-validation-data-folds"></a>Especificar dobras de dados de validação cruzada personalizadas
 
-Também pode fornecer as suas próprias dobras de dados de validação cruzada (CV). Este é considerado um cenário mais avançado porque está a especificar quais colunas dividir e usar para validação.  Inclua colunas de divisão cv personalizadas nos seus dados de treino e especifique quais colunas ao povoar os nomes das colunas no `cv_split_column_names` parâmetro. Cada coluna representa uma divisão de validação cruzada, e é preenchida com valores inteiros 1 ou 0 -- onde 1 indica que a linha deve ser usada para o treino e 0 indica que a linha deve ser usada para validação.
+Também pode fornecer as suas próprias dobras de dados de validação cruzada (CV). Este é considerado um cenário mais avançado porque está a especificar quais colunas dividir e usar para validação.  Inclua colunas de divisão cv personalizadas nos seus dados de treino e especifique quais colunas ao povoar os nomes das colunas no `cv_split_column_names` parâmetro. Cada coluna representa uma divisão de validação cruzada, e é preenchida com valores inteiros 1 ou 0-- onde 1 indica que a linha deve ser usada para o treino e 0 indica que a linha deve ser usada para validação.
 
 O seguinte código snippet contém dados de marketing bancário com duas colunas de cv divididas 'cv1' e 'cv2'.
 
@@ -156,7 +156,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 > [!NOTE]
 > Para utilizar `cv_split_column_names` `training_data` `label_column_name` e, por favor, atualize a sua versão Azure Machine Learning Python SDK 1.6.0 ou mais tarde. Para versões SDK anteriores, consulte a utilização `cv_splits_indices` , mas note que é utilizado apenas com a entrada de conjunto de `X` `y` dados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Evitar dados desequilibrados e sobremontagem](concept-manage-ml-pitfalls.md).
 * [Tutorial: Utilize machine learning automatizado para prever tarifas de táxi - Secção de dados divididos](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).

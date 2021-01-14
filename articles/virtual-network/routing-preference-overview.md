@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: fa83c51469636eb269aa5dc3192ff7e65b53ce89
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912704"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186146"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?
 
@@ -74,7 +74,7 @@ A diferença de preços entre ambas as opções reflete-se nos preços de transf
 
 ## <a name="limitations"></a>Limitações
 
-* A preferência de encaminhamento só é compatível com o SKU padrão do endereço IP público. O SKU básico do endereço IP público não é suportado.
+* A preferência por encaminhamento só é compatível com o SKU padrão redundante de zona do endereço IP público. O SKU básico do endereço IP público não é suportado.
 * Atualmente, a preferência de encaminhamento suporta apenas endereços IP públicos IPv4. Os endereços IP públicos IPv6 não são suportados.
 * Máquinas virtuais com vários NICs podem ter apenas um tipo de preferência de encaminhamento.
 

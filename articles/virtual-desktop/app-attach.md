@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400833"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185772"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Criar scripts PowerShell para anexação de aplicações MSIX (pré-visualização)
 
@@ -39,6 +39,17 @@ Se a sua aplicação usa um certificado que não seja de confiança pública ou 
 6. Selecione **Coloque todos os certificados na loja seguinte** e, em seguida, selecione **Procurar**.
 7. Quando aparecer a janela da loja de certificados selecionada, **selecione Pessoas Fidedignas** e, em seguida, selecione **OK**.
 8. Selecione **Seguinte** e **Termine**.
+
+## <a name="enable-microsoft-hyper-v"></a>Ativar o Hiper-V da Microsoft
+
+O Microsoft Hyper-V tem de ser ativado porque o `Mount-VHD` comando é necessário para o estágio e é necessário para `Dismount-VHD` desabilitado.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>Esta alteração requer que reinicie a máquina virtual.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Prepare scripts PowerShell para anexação de aplicações MSIX
 

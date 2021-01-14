@@ -1,5 +1,5 @@
 ---
-title: Tutorial para encomendar Caixa de Dados Azure / Microsoft Docs
+title: Tutorial para encomendar caixa de dados Azure | Microsoft Docs
 description: Neste tutorial, conheça a Azure Data Box, uma solução híbrida que permite importar dados no local para o Azure e como encomendar a Azure Data Box.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: db97a34a79ac45525177a79a59a17426003aeab0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302623"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186163"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -57,7 +57,7 @@ Antes de começar, certifique-se de que:
 
 * Instale a versão [Azure CLI](/cli/azure/install-azure-cli) 2.0.67 ou posterior. Em alternativa, pode [instalar-se utilizando o MSI.](https://aka.ms/installazurecliwindows)
 
-**Inscreva-se em Azure**
+**Iniciar sessão no Azure**
 
 Abra uma janela de comando Windows PowerShell e inicie sessão no Azure com o comando [de login az:](/cli/azure/reference-index#az-login)
 
@@ -774,7 +774,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da cai
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
    |razão [Necessário]| O motivo para cancelar a encomenda. | "Inseri informações erradas e precisei de cancelar a encomenda." |
-   |yes| Não pedir confirmação. | --sim (-y)| --sim-y |
+   |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
@@ -810,8 +810,8 @@ Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [o traba
    |---|---|---|
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
-   |subscrição| O nome ou ID (GUID) da sua assinatura Azure. | "xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxx" |
-   |yes| Não pedir confirmação. | --sim (-y)| --sim-y |
+   |subscrição| O nome ou ID (GUID) da sua assinatura Azure. | "xxxx-xxxx-xxxx-xxxx-xxxx-xxx" |
+   |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
@@ -903,7 +903,7 @@ PS C:\Windows>
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu sobre artigos da Azure Data Box tais como:
 

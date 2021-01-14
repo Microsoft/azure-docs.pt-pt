@@ -1,26 +1,26 @@
 ---
-title: Como e onde implementar modelos
+title: Como implementar modelos de aprendizagem automática
 titleSuffix: Azure Machine Learning
-description: Saiba como e onde implementar os seus modelos de Aprendizagem automática Azure, incluindo Instâncias de Contentores Azure, Serviço Azure Kubernetes, Azure IoT Edge e FPGA.
+description: Saiba como e onde implementar modelos de aprendizagem automática. Implementar para Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge e FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: e9c691485eb0ec1a0b3c0564f9a8f9a5d2aa255d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070427"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185806"
 ---
-# <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
+# <a name="deploy-machine-learning-models-to-azure"></a>Implementar modelos de aprendizagem automática para Azure
 
-Aprenda a implementar o seu modelo de machine learning como um serviço web na nuvem Azure ou para dispositivos Azure IoT Edge.
+Aprenda a implementar o seu modelo de aprendizagem automática ou aprendizagem profunda como um serviço web na nuvem Azure. Também pode ser implantado em dispositivos Azure IoT Edge.
 
 O fluxo de trabalho é semelhante, independentemente de onde implementa o modelo:
 
@@ -31,7 +31,7 @@ O fluxo de trabalho é semelhante, independentemente de onde implementa o modelo
 1. Implementar o modelo para o destino de computação.
 1. Teste o serviço web resultante.
 
-Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho de implantação, consulte [Gerir, implementar e monitorizar modelos com Azure Machine Learning](concept-model-management-and-deployment.md).
+Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho de implementação de machine learning, consulte [Gerir, implementar e monitorizar modelos com Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -197,7 +197,7 @@ Uma configuração mínima de inferência pode ser escrita como:
 }
 ```
 
-Isto especifica que a implementação utilizará o ficheiro `score.py` no `./working_dir` diretório para processar pedidos de entrada.
+Isto especifica que a implementação de machine learning utilizará o ficheiro `score.py` no `./working_dir` diretório para processar pedidos de entrada.
 
 [Consulte este artigo](./reference-azure-machine-learning-cli.md#inference-configuration-schema) para uma discussão mais aprofundada sobre as configurações de inferência. 
 
@@ -269,7 +269,7 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 ---
 
-## <a name="deploy-your-model"></a>Implemente o seu modelo
+## <a name="deploy-your-machine-learning-model"></a>Implemente o seu modelo de aprendizagem automática
 
 Está agora pronto para lançar o seu modelo. 
 

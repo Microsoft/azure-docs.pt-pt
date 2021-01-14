@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2c4fbefc1bb801ab4a9387054ac91e5fca14ec18
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427085"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185602"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Construa uma aplicação web Java Spring Boot com serviço de aplicações Azure em Linux e Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Este tutorial acompanha-o através do processo de construção, configuração, 
 
 ![Aplicação Boot de mola armazenando dados em Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma base de dados cosmos DB.
@@ -55,23 +55,23 @@ yes | cp -rf .prep/* .
 
 Siga estes passos para criar uma base de dados DB Azure Cosmos na sua subscrição. A aplicação toda a lista ligar-se-á a esta base de dados e armazenará os seus dados ao executar, persistindo o estado da aplicação independentemente do local onde executa a aplicação.
 
-1. Faça login no seu CLI Azure e desabrade opcionalmente a sua subscrição se tiver mais de uma ligada às suas credenciais de login.
+1. Faça login no seu Azure CLI e desabrade opcionalmente a sua subscrição se tiver mais de uma ligada às suas credenciais de login.
 
-    ```bash
+    ```azurecli
     az login
     az account set -s <your-subscription-id>
     ```   
 
 2. Crie um Grupo de Recursos Azure, observando o nome do grupo de recursos.
 
-    ```bash
+    ```azurecli
     az group create -n <your-azure-group-name> \
         -l <your-resource-group-region>
     ```
 
 3. Crie Azure Cosmos DB com o `GlobalDocumentDB` tipo. O nome de Cosmos DB deve usar apenas letras minúsculas. Note no `documentEndpoint` campo na resposta do comando.
 
-    ```bash
+    ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
@@ -79,7 +79,7 @@ Siga estes passos para criar uma base de dados DB Azure Cosmos na sua subscriç�
 
 4. Obtenha a sua chave DB Azure Cosmos para ligar à aplicação. Mantenha o `primaryMasterKey` , por perto como vai precisar deles no próximo `documentEndpoint` passo.
 
-    ```bash
+    ```azurecli
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
@@ -146,7 +146,7 @@ mvn package spring-boot:run
 
 A saída deve parecer-se com a seguinte.
 
-```bash
+```output
 bash-3.2$ mvn package spring-boot:run
 [INFO] Scanning for projects...
 [INFO] 
@@ -291,7 +291,7 @@ Deve ver a aplicação a funcionar com o URL remoto na barra de endereços:
 
 Escale a aplicação adicionando outro trabalhador:
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 \
    --name ${WEBAPP_PLAN_NAME} \
    --resource-group <your-azure-group-name>
@@ -301,7 +301,7 @@ az appservice plan update --number-of-workers 2 \
 
 Se não precisar destes recursos para outro tutorial (veja os [Passos seguintes](#next)), pode eliminá-los ao executar o seguinte comando no Cloud Shell: 
   
-```bash
+```azurecli
 az group delete --name <your-azure-group-name>
 ```
 

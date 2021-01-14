@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400182"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184582"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego frequentemente perguntas (FAQ)
 
@@ -96,7 +96,7 @@ A diferença fundamental entre estes dois métodos de encaminhamento populares �
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quais são as regiões que são apoiadas pelo Gestor de Tráfego para o encaminhamento geográfico?
 
-A hierarquia país/região que é utilizada pelo Traffic Manager pode ser consultada [aqui.](traffic-manager-geographic-regions.md) Enquanto esta página é mantida atualizada com quaisquer alterações, também pode obter programáticamente as mesmas informações utilizando a API do [Gestor de Tráfego Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+A hierarquia país/região que é utilizada pelo Traffic Manager pode ser consultada [aqui.](traffic-manager-geographic-regions.md) Enquanto esta página é mantida atualizada com quaisquer alterações, também pode obter programáticamente as mesmas informações utilizando a API do [Gestor de Tráfego Azure](/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Como é que o gestor de tráfego determina de onde um utilizador está a consultar?
 
@@ -116,11 +116,11 @@ Não, a localização do ponto final não impõe restrições às regiões que l
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Posso atribuir regiões geográficas a pontos finais num perfil que não está configurado para fazer o encaminhamento geográfico?
 
-Sim, se o método de encaminhamento de um perfil não for geográfico, pode utilizar o API do [Gestor de Tráfego Azure](https://docs.microsoft.com/rest/api/trafficmanager/) para atribuir regiões geográficas a pontos finais nesse perfil. No caso de perfis de tipo de encaminhamento não geográficos, esta configuração é ignorada. Se alterar este perfil para o tipo de encaminhamento geográfico mais tarde, o Traffic Manager pode utilizar esses mapeamentos.
+Sim, se o método de encaminhamento de um perfil não for geográfico, pode utilizar o API do [Gestor de Tráfego Azure](/rest/api/trafficmanager/) para atribuir regiões geográficas a pontos finais nesse perfil. No caso de perfis de tipo de encaminhamento não geográficos, esta configuração é ignorada. Se alterar este perfil para o tipo de encaminhamento geográfico mais tarde, o Traffic Manager pode utilizar esses mapeamentos.
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Porque estou a cometer um erro quando tento mudar o método de encaminhamento de um perfil existente para a Geographic?
 
-Todos os pontos finais sob um perfil com encaminhamento geográfico precisam de ter pelo menos uma região mapeada para ele. Para converter um perfil existente para o tipo de encaminhamento geográfico, primeiro é necessário associar as regiões geográficas a todos os seus pontos finais utilizando o [API REST, gestor de tráfego azure,](https://docs.microsoft.com/rest/api/trafficmanager/) antes de alterar o tipo de encaminhamento para geográfico. Se utilizar o portal, primeiro elimine os pontos finais, altere o método de encaminhamento do perfil para geográfico e, em seguida, adicione os pontos finais juntamente com o mapeamento da região geográfica.
+Todos os pontos finais sob um perfil com encaminhamento geográfico precisam de ter pelo menos uma região mapeada para ele. Para converter um perfil existente para o tipo de encaminhamento geográfico, primeiro é necessário associar as regiões geográficas a todos os seus pontos finais utilizando o [API REST, gestor de tráfego azure,](/rest/api/trafficmanager/) antes de alterar o tipo de encaminhamento para geográfico. Se utilizar o portal, primeiro elimine os pontos finais, altere o método de encaminhamento do perfil para geográfico e, em seguida, adicione os pontos finais juntamente com o mapeamento da região geográfica.
 
 ### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Por que razão é fortemente recomendado que os clientes criem perfis aninhados em vez de pontos finais sob um perfil com encaminhamento geográfico ativado?
 
@@ -306,7 +306,7 @@ Os preços de Visualização de Tráfego baseiam-se no número de pontos de dado
 
 A utilização de pontos finais de várias subscrições não é possível com as Aplicações Web Azure. As Aplicações Web Azure exigem que qualquer nome de domínio personalizado usado com Web Apps seja utilizado apenas numa única subscrição. Não é possível utilizar aplicações web a partir de várias subscrições com o mesmo nome de domínio.
 
-Para outros tipos de pontos finais, é possível utilizar o Traffic Manager com pontos finais de mais de uma subscrição. No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adicionados ao Gestor de Tráfego, desde que a pessoa que configura o perfil do Gestor de Tráfego tenha lido o acesso ao ponto final. Estas permissões podem ser concedidas através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Os pontos finais de outras subscrições podem ser adicionados utilizando [a Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou o [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Para outros tipos de pontos finais, é possível utilizar o Traffic Manager com pontos finais de mais de uma subscrição. No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adicionados ao Gestor de Tráfego, desde que a pessoa que configura o perfil do Gestor de Tráfego tenha lido o acesso ao ponto final. Estas permissões podem ser concedidas através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Os pontos finais de outras subscrições podem ser adicionados utilizando [a Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou o [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Posso utilizar o Gestor de Tráfego com slots de 'Staging' do Serviço de Nuvem?
 
@@ -345,9 +345,9 @@ O Gestor de Recursos Azure exige que todos os grupos de recursos especifiquem um
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Como determino a saúde atual de cada ponto final?
 
-O estado atual de monitorização de cada ponto final, para além do perfil geral, é apresentado no portal Azure. Esta informação também está disponível através do Traffic Monitor [REST API,](https://msdn.microsoft.com/library/azure/mt163667.aspx) [PowerShell cmdlets,](https://docs.microsoft.com/powershell/module/az.trafficmanager)e [cross-platform Azure CLI](../cli-install-nodejs.md).
+O estado atual de monitorização de cada ponto final, para além do perfil geral, é apresentado no portal Azure. Esta informação também está disponível através do Traffic Monitor [REST API,](/rest/api/trafficmanager/) [PowerShell cmdlets,](/powershell/module/az.trafficmanager)e [cross-platform Azure CLI](/cli/azure/install-classic-cli).
 
-Também pode utilizar o Azure Monitor para acompanhar a saúde dos seus pontos finais e ver uma representação visual dos mesmos. Para obter mais informações sobre a utilização do Azure Monitor, consulte a [documentação de monitorização do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Também pode utilizar o Azure Monitor para acompanhar a saúde dos seus pontos finais e ver uma representação visual dos mesmos. Para obter mais informações sobre a utilização do Azure Monitor, consulte a [documentação de monitorização do Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Posso monitorizar os pontos finais do HTTPS?
 
@@ -458,7 +458,7 @@ O número de verificações de saúde do Traffic Manager que chegam ao seu ponto
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso ser notificado se um dos meus pontos finais vai para baixo?
 
-Uma das métricas fornecidas pelo Traffic Manager é o estado de saúde dos pontos finais num perfil. Pode ver isto como um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais são saudáveis), ou, a um nível por ponto final. As métricas do Traffic Manager são expostas através do Azure Monitor e pode utilizar as suas [capacidades de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para receber notificações quando há uma alteração no estado de saúde do seu ponto final. Para mais detalhes, consulte [as métricas e alertas do Gestor de Tráfego.](traffic-manager-metrics-alerts.md)  
+Uma das métricas fornecidas pelo Traffic Manager é o estado de saúde dos pontos finais num perfil. Pode ver isto como um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais são saudáveis), ou, a um nível por ponto final. As métricas do Traffic Manager são expostas através do Azure Monitor e pode utilizar as suas [capacidades de alerta](../azure-monitor/platform/alerts-metric.md) para receber notificações quando há uma alteração no estado de saúde do seu ponto final. Para mais detalhes, consulte [as métricas e alertas do Gestor de Tráfego.](traffic-manager-metrics-alerts.md)  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfis aninhados do Gestor de Tráfego
 
@@ -502,7 +502,7 @@ A tabela seguinte descreve o comportamento dos controlos de saúde do Traffic Ma
 | Desativado. O perfil da criança foi desativado. |Parada |O estado do ponto final dos pais está parado, não incapacitado. O estado de deficiente está reservado para indicar que desativou o ponto final no perfil dos pais. |
 | Degradado. Pelo menos um ponto final do perfil da criança está num estado degradado. |Online: o número de pontos finais online no perfil da criança é pelo menos o valor dos Pontos MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos finais Online plus CheckingEndpoint no perfil da criança é pelo menos o valor dos pontos MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é encaminhado para um ponto final de estado CheckingEndpoint. Se os pontos MinChildEndpoints estiverem demasiado altos, o ponto final está sempre degradado. |
 | Online. Pelo menos um ponto final de perfil infantil é um estado online. Nenhum ponto final está no estado degradado. |Veja acima. | |
-| Verificação de Pontos de Final. Pelo menos um ponto final do perfil da criança é "CheckingEndpoint". Nenhum ponto final é 'Online' ou 'Degradado' |O mesmo que acima. | |
+| Verificação de Pontos de Final. Pelo menos um ponto final do perfil da criança é "CheckingEndpoint". Nenhum ponto final é 'Online' ou 'Degradado' |Mesmo que acima. | |
 | Inativo. Todos os pontos finais do perfil da criança são desativado ou parados, ou este perfil não tem pontos finais. |Parada | |
 
 ## <a name="next-steps"></a>Passos seguintes:

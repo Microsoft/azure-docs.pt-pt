@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304304"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185483"
 ---
 # <a name="camera-placement-guide"></a>Guia de colocação de câmera
 
@@ -52,7 +52,7 @@ A ilustração que se segue mostra a vista de elevação para a direção de cam
 
 ## <a name="camera-height"></a>Altura da câmera
 
-Geralmente, as câmaras devem ser montadas a 12-14 pés do chão. Ao planear a montagem da câmara neste intervalo, considere obstruções (por exemplo: prateleiras, luzes penduradas, sinalização de suspensão e visores) que possam afetar a vista da câmara e, em seguida, ajustar a altura conforme necessário.
+Geralmente, as câmaras devem ser montadas a 12-14 pés do chão. Para a deteção da máscara facial, recomendamos que as câmaras sejam montadas a 8-12 pés do chão. Ao planear a montagem da câmara neste intervalo, considere obstruções (por exemplo: prateleiras, luzes penduradas, sinalização de suspensão e visores) que possam afetar a vista da câmara e, em seguida, ajustar a altura conforme necessário.
 
 ## <a name="camera-to-focal-point-distance"></a>Distância entre câmara e ponto focal
 
@@ -68,7 +68,7 @@ De cima, parece que é assim:
 
 ![Como a distância entre câmara e focal é medida a partir de cima](./media/spatial-analysis/camera-focal-point-above.png)
 
-Utilize a tabela abaixo para determinar a distância da câmara do ponto focal com base em alturas de montagem específicas. Estas distâncias são para uma colocação ideal. Note que a tabela fornece orientações abaixo da recomendação de 12'-14', uma vez que alguns limites máximos podem limitar a altura.
+Utilize a tabela abaixo para determinar a distância da câmara do ponto focal com base em alturas de montagem específicas. Estas distâncias são para uma colocação ideal. Note que a tabela fornece orientações abaixo da recomendação de 12'-14', uma vez que alguns limites máximos podem limitar a altura. Para a deteção da máscara facial, a distância recomendada entre a câmara e o ponto focal (min/máx) é de 4'-10' para a altura da câmara entre 8' e 12'.
 
 | Altura da câmera | Distância entre câmara e ponto focal (min/máx) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ Esta secção descreve gamas aceitáveis de montagem de ângulos de câmara. Est
 
 ### <a name="line-configuration"></a>Configuração de linha
 
-A tabela a seguir mostra recomendações para câmaras configuradas para a operação **cognitiveservices.vision.spatialanalysis-personcrossline.** 
+A tabela a seguir mostra recomendações para câmaras configuradas para a operação **cognitiveservices.vision.spatialanalysis-personcrossline.** Para a deteção da máscara facial, +/-30 graus é o ângulo ideal de montagem da câmara para a altura da câmara entre 8' e 12'.
 
 | Altura da câmera | Distância entre câmara e ponto focal | Ângulo ideal de montagem da câmara (min/máx) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  

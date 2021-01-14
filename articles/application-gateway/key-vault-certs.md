@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 95ca4933b97199ba6d8ac1bed7587af5d3bd559f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648128"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185942"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Rescisão de TLS com certificados Key Vault
 
@@ -77,6 +77,6 @@ A integração do Gateway de Aplicação com o Key Vault requer um processo de c
 
    ![Certificados de cofre chave](media/key-vault-certs/ag-kv.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure a rescisão de TLS com certificados Key Vault utilizando a Azure PowerShell](configure-keyvault-ps.md)

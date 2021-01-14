@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 123302490e738e72106780006c77ef76fdc032cc
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976814"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184633"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -36,94 +36,94 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Linguagem                           | Local (BCP-47) | Personalizações                                   |
-|------------------------------------|--------|--------------------------------------------------|
-| Árabe (Bahrein), padrão moderno  | `ar-BH` | Modelo de linguagem                                   |
-| Árabe (Egito)                     | `ar-EG` | Modelo de linguagem                                   |
-| Árabe (Iraque)                      | `ar-IQ` | Modelo de linguagem                                   |
-| Árabe (Israel)                    | `ar-IL` | Modelo de linguagem                                   |
-| Árabe (Jordânia)                    | `ar-JO` | Modelo de linguagem                                   |
-| Árabe (Kuwait)                    | `ar-KW` | Modelo de linguagem                                   |
-| Árabe (Líbano)                   | `ar-LB` | Modelo de linguagem                                   |
-| Árabe (Omã)                      | `ar-OM` | Modelo de linguagem                                   |
-| Árabe (Qatar)                     | `ar-QA` | Modelo de linguagem                                   |
-| Árabe (Arábia Saudita)              | `ar-SA` | Modelo de linguagem                                   |
-| Árabe (Estado da Palestina)        | `ar-PS` | Modelo de linguagem                                   |
-| Árabe (Síria)                     | `ar-SY` | Modelo de linguagem                                   |
-| Árabe (Emirados Árabes Unidos)      | `ar-AE` | Modelo de linguagem                                   |
-| Búlgaro (Bulgária)               | `bg-BG` | Modelo de linguagem                                   |
-| Catalão (Espanha)                    | `ca-ES` | Modelo de linguagem                                   |
-| Chinês (cantonês, tradicional)   | `zh-HK` | Modelo acústico<br>Modelo de linguagem                 |
-| Chinês (Mandarim, Simplificado)     | `zh-CN` | Modelo acústico<br>Modelo de linguagem                 |
-| Chinês (Mandarim taiwanês)       | `zh-TW` | Modelo acústico<br>Modelo de linguagem                 |
-| Croata (Croácia)                 | `hr-HR` | Modelo de linguagem                                   |
-| Checo (República Checa)             | `cs-CZ` | Modelo de linguagem                                   |
-| Dinamarquês (Dinamarca)                   | `da-DK` | Modelo de linguagem                                   |
-| Neerlandês (Países Baixos)                | `nl-NL` | Modelo de linguagem                                   |
-| Inglês (Austrália)                | `en-AU` | Modelo acústico<br>Modelo de linguagem                 |
-| Inglês (Canadá)                   | `en-CA` | Modelo acústico<br>Modelo de linguagem                 |
-| Inglês (Hong Kong)                | `en-HK` | Modelo de linguagem                                   |
-| Inglês (Índia)                    | `en-IN` | Modelo acústico<br>Modelo de linguagem                 |
-| Inglês (Irlanda)                  | `en-IE` | Modelo de linguagem                                   |
-| Inglês (Nova Zelândia)              | `en-NZ` | Modelo acústico<br>Modelo de linguagem                 |
-| Inglês (Nigéria)                  | `en-NG` | Modelo de linguagem                                   |
-| Inglês (Filipinas)              | `en-PH` | Modelo de linguagem                                   |
-| Inglês (Singapura)                | `en-SG` | Modelo de linguagem                                   |
-| Inglês (África do Sul)             | `en-ZA` | Modelo de linguagem                                   |
-| Inglês (Reino Unido)           | `en-GB` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Inglês (Estados Unidos)            | `en-US` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Estónia (Estónia)                  | `et-EE` | Modelo de linguagem                                   |
-| Finlandês (Finlândia)                  | `fi-FI` | Modelo de linguagem                                   |
-| Francês (Canadá)                    | `fr-CA` | Modelo acústico<br>Modelo de linguagem                 |
-| Francês (França)                    | `fr-FR` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Alemão (Alemanha)                   | `de-DE` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Grego (Grécia)                     | `el-GR` | Modelo de linguagem                                   |
-| Gujarati (indiano)                  | `gu-IN` | Modelo de linguagem                                   |
-| Hindi (Índia)                      | `hi-IN` | Modelo acústico<br>Modelo de linguagem                 |
-| Húngaro (Hungria)                | `hu-HU` | Modelo de linguagem                                   |
-| Irlanda (Irlanda)                     | `ga-IE` | Modelo de linguagem                                   |
-| Italiano (Itália)                    | `it-IT` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Japonês (Japão)                   | `ja-JP` | Modelo acústico<br>Modelo de linguagem                 |
-| Coreano (Coreia)                     | `ko-KR` | Modelo acústico<br>Modelo de linguagem                 |
-| Letão (Letónia)                   | `lv-LV` | Modelo de linguagem                                   |
-| Lituano (Lituânia)             | `lt-LT` | Modelo de linguagem                                   |
-| Maltês(Malta)                     | `mt-MT` | Modelo de linguagem                                   |
-| Marathi (Índia)                    | `mr-IN` | Modelo de linguagem                                   |
-| Norueguês (Bokmål, Noruega)         | `nb-NO` | Modelo de linguagem                                   |
-| Polaco (Polónia)                    | `pl-PL` | Modelo de linguagem                                   |
-| Português (Brasil)                | `pt-BR` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Português (Portugal)              | `pt-PT` | Modelo de linguagem                                   |
-| Romeno (Roménia)                 | `ro-RO` | Modelo de linguagem                                   |
-| Russo (Rússia)                   | `ru-RU` | Modelo acústico<br>Modelo de linguagem                 |
-| Eslovaco (Eslováquia)                  | `sk-SK` | Modelo de linguagem                                   |
-| Esloveno (Eslovénia)               | `sl-SI` | Modelo de linguagem                                   |
-| Espanhol (Argentina)                | `es-AR` | Modelo de linguagem                                   |
-| Espanhol (Bolívia)                  | `es-BO` | Modelo de linguagem                                   |
-| Espanhol (Chile)                    | `es-CL` | Modelo de linguagem                                   |
-| Espanhol (Colômbia)                 | `es-CO` | Modelo de linguagem                                   |
-| Espanhol (Costa Rica)               | `es-CR` | Modelo de linguagem                                   |
-| Espanhol (Cuba)                     | `es-CU` | Modelo de linguagem                                   |
-| Espanhol (República Dominicana)       | `es-DO` | Modelo de linguagem                                   |
-| Espanhol (Equador)                  | `es-EC` | Modelo de linguagem                                   |
-| Espanhol (El Salvador)              | `es-SV` | Modelo de linguagem                                   |
-| Espanhol (Guiné Equatorial)        | `es-GQ` | Modelo de linguagem                                   |
-| Espanhol (Guatemala)                | `es-GT` | Modelo de linguagem                                   |
-| Espanhol (Honduras)                 | `es-HN` | Modelo de linguagem                                   |
-| Espanhol (México)                   | `es-MX` | Modelo acústico<br>Modelo de linguagem                 |
-| Espanhol (Nicarágua)                | `es-NI` | Modelo de linguagem                                   |
-| Espanhol (Panamá)                   | `es-PA` | Modelo de linguagem                                   |
-| Espanhol (Paraguai)                 | `es-PY` | Modelo de linguagem                                   |
-| Espanhol (Peru)                     | `es-PE` | Modelo de linguagem                                   |
-| Espanhol (Porto Rico)              | `es-PR` | Modelo de linguagem                                   |
-| Espanhol (Espanha)                    | `es-ES` | Modelo acústico<br>Modelo de linguagem                 |
-| Espanhol (Uruguai)                  | `es-UY` | Modelo de linguagem                                   |
-| Espanhol (EUA)                      | `es-US` | Modelo de linguagem                                   |
-| Espanhol (Venezuela)                | `es-VE` | Modelo de linguagem                                   |
-| Sueco (Suécia)                   | `sv-SE` | Modelo de linguagem                                   |
-| Tamil (Índia)                      | `ta-IN` | Modelo de linguagem                                   |
-| Telugu (Índia)                     | `te-IN` | Modelo de linguagem                                   |
-| Tailandês (Tailândia)                    | `th-TH` | Modelo de linguagem                                   |
-| Turco (Turquia)                   | `tr-TR` | Modelo de linguagem                                   |
+| Linguagem                 | Local (BCP-47) | Personalizações  | [Deteção automática de linguagem?](how-to-automatic-language-detection.md) |
+|------------------------------------|--------|---------------------------------------------------|-------------------------------|
+| Árabe (Bahrein), padrão moderno  | `ar-BH` | Modelo de linguagem                                   | Sim                           | 
+| Árabe (Egito)                     | `ar-EG` | Modelo de linguagem                                   | Sim                          |
+| Árabe (Iraque)                      | `ar-IQ` | Modelo de linguagem                                   |                           |
+| Árabe (Israel)                    | `ar-IL` | Modelo de linguagem                                   |                           |
+| Árabe (Jordânia)                    | `ar-JO` | Modelo de linguagem                                   |                           |
+| Árabe (Kuwait)                    | `ar-KW` | Modelo de linguagem                                   |                           |
+| Árabe (Líbano)                   | `ar-LB` | Modelo de linguagem                                   |                           |
+| Árabe (Omã)                      | `ar-OM` | Modelo de linguagem                                   |                           |
+| Árabe (Qatar)                     | `ar-QA` | Modelo de linguagem                                   |                           |
+| Árabe (Arábia Saudita)              | `ar-SA` | Modelo de linguagem                                   | Sim                          |
+| Árabe (Estado da Palestina)        | `ar-PS` | Modelo de linguagem                                   |                           |
+| Árabe (Síria)                     | `ar-SY` | Modelo de linguagem                                   | Sim                          |
+| Árabe (Emirados Árabes Unidos)      | `ar-AE` | Modelo de linguagem                                   |                           |
+| Búlgaro (Bulgária)               | `bg-BG` | Modelo de linguagem                                   |                           |
+| Catalão (Espanha)                    | `ca-ES` | Modelo de linguagem                                   | Sim                          |
+| Chinês (cantonês, tradicional)   | `zh-HK` | Modelo acústico<br>Modelo de linguagem                 |        Sim                   |
+| Chinês (Mandarim, Simplificado)     | `zh-CN` | Modelo acústico<br>Modelo de linguagem                 |     Sim                      |
+| Chinês (Mandarim taiwanês)       | `zh-TW` | Modelo acústico<br>Modelo de linguagem                 |           Sim                |
+| Croata (Croácia)                 | `hr-HR` | Modelo de linguagem                                   |                           |
+| Checo (República Checa)             | `cs-CZ` | Modelo de linguagem                                   |                           |
+| Dinamarquês (Dinamarca)                   | `da-DK` | Modelo de linguagem                                   | Sim                          |
+| Neerlandês (Países Baixos)                | `nl-NL` | Modelo de linguagem                                   |    Sim                       |
+| Inglês (Austrália)                | `en-AU` | Modelo acústico<br>Modelo de linguagem                 | Sim                          |
+| Inglês (Canadá)                   | `en-CA` | Modelo acústico<br>Modelo de linguagem                 | Sim                          |
+| Inglês (Hong Kong)                | `en-HK` | Modelo de linguagem                                   |                           |
+| Inglês (Índia)                    | `en-IN` | Modelo acústico<br>Modelo de linguagem                 | Sim                          |
+| Inglês (Irlanda)                  | `en-IE` | Modelo de linguagem                                   |                           |
+| Inglês (Nova Zelândia)              | `en-NZ` | Modelo acústico<br>Modelo de linguagem                 |  Sim                         |
+| Inglês (Nigéria)                  | `en-NG` | Modelo de linguagem                                   |                           |
+| Inglês (Filipinas)              | `en-PH` | Modelo de linguagem                                   |                           |
+| Inglês (Singapura)                | `en-SG` | Modelo de linguagem                                   |                           |
+| Inglês (África do Sul)             | `en-ZA` | Modelo de linguagem                                   |                           |
+| Inglês (Reino Unido)           | `en-GB` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia| Sim                          |
+| Inglês (Estados Unidos)            | `en-US` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia| Sim                          |
+| Estónia (Estónia)                  | `et-EE` | Modelo de linguagem                                   |                           |
+| Finlandês (Finlândia)                  | `fi-FI` | Modelo de linguagem                                   |     Sim                      |
+| Francês (Canadá)                    | `fr-CA` | Modelo acústico<br>Modelo de linguagem                 |     Sim                      |
+| Francês (França)                    | `fr-FR` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|      Sim                     |
+| Alemão (Alemanha)                   | `de-DE` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|  Sim                         |
+| Grego (Grécia)                     | `el-GR` | Modelo de linguagem                                   |                           |
+| Gujarati (indiano)                  | `gu-IN` | Modelo de linguagem                                   |                           |
+| Hindi (Índia)                      | `hi-IN` | Modelo acústico<br>Modelo de linguagem                 |     Sim                      |
+| Húngaro (Hungria)                | `hu-HU` | Modelo de linguagem                                   |                           |
+| Irlanda (Irlanda)                     | `ga-IE` | Modelo de linguagem                                   |                           |
+| Italiano (Itália)                    | `it-IT` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|      Sim                     |
+| Japonês (Japão)                   | `ja-JP` | Modelo acústico<br>Modelo de linguagem                 |      Sim                     |
+| Coreano (Coreia)                     | `ko-KR` | Modelo acústico<br>Modelo de linguagem                 |      Sim                     |
+| Letão (Letónia)                   | `lv-LV` | Modelo de linguagem                                   |                           |
+| Lituano (Lituânia)             | `lt-LT` | Modelo de linguagem                                   |                           |
+| Maltês(Malta)                     | `mt-MT` | Modelo de linguagem                                   |                           |
+| Marathi (Índia)                    | `mr-IN` | Modelo de linguagem                                   |                           |
+| Norueguês (Bokmål, Noruega)         | `nb-NO` | Modelo de linguagem                                   |     Sim                      |
+| Polaco (Polónia)                    | `pl-PL` | Modelo de linguagem                                   |       Sim                    |
+| Português (Brasil)                | `pt-BR` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|          Sim                 |
+| Português (Portugal)              | `pt-PT` | Modelo de linguagem                                   |             Sim              |
+| Romeno (Roménia)                 | `ro-RO` | Modelo de linguagem                                   |                           |
+| Russo (Rússia)                   | `ru-RU` | Modelo acústico<br>Modelo de linguagem                 |                Sim           |
+| Eslovaco (Eslováquia)                  | `sk-SK` | Modelo de linguagem                                   |                           |
+| Esloveno (Eslovénia)               | `sl-SI` | Modelo de linguagem                                   |                           |
+| Espanhol (Argentina)                | `es-AR` | Modelo de linguagem                                   |                           |
+| Espanhol (Bolívia)                  | `es-BO` | Modelo de linguagem                                   |                           |
+| Espanhol (Chile)                    | `es-CL` | Modelo de linguagem                                   |                           |
+| Espanhol (Colômbia)                 | `es-CO` | Modelo de linguagem                                   |                           |
+| Espanhol (Costa Rica)               | `es-CR` | Modelo de linguagem                                   |                           |
+| Espanhol (Cuba)                     | `es-CU` | Modelo de linguagem                                   |                           |
+| Espanhol (República Dominicana)       | `es-DO` | Modelo de linguagem                                   |                           |
+| Espanhol (Equador)                  | `es-EC` | Modelo de linguagem                                   |                           |
+| Espanhol (El Salvador)              | `es-SV` | Modelo de linguagem                                   |                           |
+| Espanhol (Guiné Equatorial)        | `es-GQ` | Modelo de linguagem                                   |                           |
+| Espanhol (Guatemala)                | `es-GT` | Modelo de linguagem                                   |                           |
+| Espanhol (Honduras)                 | `es-HN` | Modelo de linguagem                                   |                           |
+| Espanhol (México)                   | `es-MX` | Modelo acústico<br>Modelo de linguagem                 |    Sim                       |
+| Espanhol (Nicarágua)                | `es-NI` | Modelo de linguagem                                   |                           |
+| Espanhol (Panamá)                   | `es-PA` | Modelo de linguagem                                   |                           |
+| Espanhol (Paraguai)                 | `es-PY` | Modelo de linguagem                                   |                           |
+| Espanhol (Peru)                     | `es-PE` | Modelo de linguagem                                   |                           |
+| Espanhol (Porto Rico)              | `es-PR` | Modelo de linguagem                                   |                           |
+| Espanhol (Espanha)                    | `es-ES` | Modelo acústico<br>Modelo de linguagem                 |  Sim                         |
+| Espanhol (Uruguai)                  | `es-UY` | Modelo de linguagem                                   |                           |
+| Espanhol (EUA)                      | `es-US` | Modelo de linguagem                                   |                           |
+| Espanhol (Venezuela)                | `es-VE` | Modelo de linguagem                                   |                           |
+| Sueco (Suécia)                   | `sv-SE` | Modelo de linguagem                                   |   Sim                        |
+| Tamil (Índia)                      | `ta-IN` | Modelo de linguagem                                   |                           |
+| Telugu (Índia)                     | `te-IN` | Modelo de linguagem                                   |                           |
+| Tailandês (Tailândia)                    | `th-TH` | Modelo de linguagem                                   |      Sim                     |
+| Turco (Turquia)                   | `tr-TR` | Modelo de linguagem                                   |                           |
 
 ## <a name="text-to-speech"></a>Conversão de texto em voz
 

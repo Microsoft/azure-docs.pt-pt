@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132074"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185364"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Data Discovery & Classification é incorporado na Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics. Fornece capacidades avançadas para detetar, classificar, etiquetar e comunicar dados confidenciais nas bases de dados.
+Data Discovery & Classification é incorporado na Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics. Fornece capacidades básicas para descobrir, classificar, rotular e reportar os dados sensíveis nas suas bases de dados.
 
 Os seus dados mais sensíveis podem incluir informações empresariais, financeiras, de saúde ou pessoais. Descobrir e classificar estes dados pode desempenhar um papel fundamental na abordagem de proteção de informação da sua organização. Pode funcionar como infraestrutura para:
 
@@ -36,11 +36,11 @@ Os seus dados mais sensíveis podem incluir informações empresariais, financei
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>O que é a classificação & data Discovery?
 
-Data Discovery & Classification introduz um conjunto de serviços avançados e novas capacidades em Azure. Forma um novo paradigma de proteção da informação para a BASE de Dados SQL, SQL Managed Instance e Azure Synapse, destinado a proteger os dados e não apenas a base de dados. O paradigma inclui:
+Data Discovery & Classification introduz um conjunto de serviços básicos e novas capacidades em Azure. Forma um novo paradigma de proteção da informação para a BASE de Dados SQL, SQL Managed Instance e Azure Synapse, destinado a proteger os dados e não apenas a base de dados. O paradigma inclui:
 
 - **Descoberta e recomendações:** O motor de classificação digitaliza a sua base de dados e identifica colunas que contêm dados potencialmente sensíveis. Em seguida, proporciona-lhe uma maneira fácil de rever e aplicar a classificação recomendada através do portal Azure.
 
-- **Rotulagem:** Pode aplicar etiquetas de classificação de sensibilidade persistentemente às colunas utilizando novos atributos de metadados que foram adicionados ao motor de base de dados sql Server. Estes metadados podem então ser utilizados para cenários avançados de auditoria e proteção baseados em sensibilidade.
+- **Rotulagem:** Pode aplicar etiquetas de classificação de sensibilidade persistentemente às colunas utilizando novos atributos de metadados que foram adicionados ao motor de base de dados sql Server. Estes metadados podem então ser utilizados para cenários de auditoria e proteção baseados na sensibilidade.
 
 - **Sensibilidade do conjunto de resultados de consulta:** A sensibilidade de um conjunto de resultados de consulta é calculada em tempo real para efeitos de auditoria.
 
@@ -187,4 +187,4 @@ Pode utilizar a API REST para gerir programáticamente classificações e recome
 ## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes
 
 - Considere configurar [a Auditoria Azure SQL](../../azure-sql/database/auditing-overview.md) para monitorizar e auditar o acesso aos seus dados confidenciais confidenciais.
-- Para uma apresentação que inclua data Discovery & Classification, consulte [Descobrir, classificar, rotular & proteger dados do SQL! Dados expostos](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- Para uma apresentação que inclua data Discovery & Classification, consulte [Descobrir, classificar, rotular & proteger dados do SQL | Dados expostos](https://www.youtube.com/watch?v=itVi9bkJUNc).
