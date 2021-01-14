@@ -113,7 +113,7 @@ Para saber mais sobre as melhores práticas para remover utilizadores convidados
    >[!NOTE]
    >As medidas a aplicar aos utilizadores convidados negados não são configuráveis em comentários a mais do que os utilizadores convidados. Também não é configurável para avaliações de **todos os grupos M365 com utilizadores convidados.** Quando não é configurável, a opção padrão de remover a adesão do utilizador do recurso é usada em utilizadores negados.
 
-13. No **Enable review helpers** choose whether you would like your reviewer to receive recommendations during the review process.
+13. Em **Ativar programas auxiliares de decisão de revisão**, escolha se quer que o seu revisor receba recomendações durante o processo de revisão.
 
     ![Ativar opções de ajudantes de decisão](./media/create-access-review/helpers.png)
 

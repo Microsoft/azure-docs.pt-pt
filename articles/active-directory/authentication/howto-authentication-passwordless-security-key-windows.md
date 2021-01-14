@@ -89,7 +89,7 @@ A configuração das chaves de segurança para o sing-in não depende da configu
 Para direcionar grupos de dispositivos específicos para permitir o fornecedor de credenciais, utilize as seguintes definições personalizadas via Intune:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue para perfis de configuração do dispositivo **Microsoft Intune**  >  **Device configuration**  >  **Profiles**  >  **Crie o perfil**.
+1. Navegue para perfis de configuração do dispositivo **Microsoft Intune**  >    >    >  **Crie o perfil**.
 1. Configure o novo perfil com as seguintes definições:
    - Nome: Chaves de segurança para Sign-In do Windows
    - Descrição: Permite que as chaves de segurança DO FIDO sejam utilizadas durante o S.A. do Windows
@@ -116,10 +116,10 @@ Para dispositivos não geridos pelo Intune, pode ser instalado um pacote de prov
 1. Selecione **Concluir**.
 1. No seu projeto recém-criado, navegue para **configurações de tempo de execução**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Defina **useSecurityKeyForSignIn** para *ativar*.
-1. Selecione **Export**  >  **pacote de provisionamento de exportação**
+1. Selecione   >  **pacote de provisionamento de exportação**
 1. Deixe as predefinições na janela **Build** sob **descrever o pacote de provisionamento** e, em seguida, selecione **Seguinte**.
 1. Deixe as predefinições na janela **Build** sob **detalhes de segurança Selecione para o pacote de provisionamento** e selecione **Next**.
-1. Tome nota ou altere o caminho nas janelas **Build** em **Select where to save the provisioning package** and select **Next**.
+1. Tome nota ou altere o caminho na janela **Compilar** em **Selecionar onde guardar o pacote de aprovisionamento** e selecione **Seguinte**.
 1. Selecione **Construir** na página **de pacote de provisionamento.**
 1. Guarde os dois ficheiros criados *(ppkg* e *gato*) para um local onde possa aplicá-los mais tarde às máquinas.
 1. Para aplicar o pacote de provisionamento que criou, consulte [Aplicar um pacote de provisionamento](/windows/configuration/provisioning-packages/provisioning-apply-package).
@@ -129,7 +129,7 @@ Para dispositivos não geridos pelo Intune, pode ser instalado um pacote de prov
 
 ### <a name="enable-with-group-policy"></a>Ativar com Política de Grupo
 
-Para **dispositivos híbridos Azure AD,** as organizações podem configurar a seguinte definição de Política de Grupo para permitir o sinal de chave de segurança FIDO. A definição pode ser encontrada na **configuração do computador**  >  **Modelos Administrativos**  >  **Modelos Do sistema** De início de  >  **Logon**  >  **sposição Ligue o sinal de chave de segurança**:
+Para **dispositivos híbridos Azure AD,** as organizações podem configurar a seguinte definição de Política de Grupo para permitir o sinal de chave de segurança FIDO. A definição pode ser encontrada na **configuração do computador**  >  **Modelos Administrativos**  >  **Modelos Do sistema** De início de  >    >  **sposição Ligue o sinal de chave de segurança**:
 
 - A definição desta política para **Ativado** permite que os utilizadores entrem com as teclas de segurança.
 - A definição desta política para **desativar** ou **não configurar** impede que os utilizadores entrem com teclas de segurança.
@@ -145,7 +145,7 @@ No exemplo abaixo, um utilizador chamado Bala Sandhu já forrei a sua chave de s
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Gerir a chave de segurança biométrica, PIN ou redefinir a chave de segurança
 
 * Versão 10 do Windows 1903 ou superior
-   * Os utilizadores podem abrir **as Definições do Windows** no seu dispositivo > Chave de Segurança de **Contas**  >  **Security Key**
+   * Os utilizadores podem abrir **as Definições do Windows** no seu dispositivo > Chave de Segurança de **Contas**  >  
    * Os utilizadores podem alterar o seu PIN, atualizar biometria ou redefinir a sua chave de segurança
 
 ## <a name="troubleshooting-and-feedback"></a>Resolução de problemas e feedback
