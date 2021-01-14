@@ -3,12 +3,12 @@ title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178930"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184021"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementações de grupos de gestão com modelos ARM
 
@@ -44,6 +44,8 @@ Para modelos aninhados que se implementem para subscrições ou grupos de recurs
 Para gerir os seus recursos, utilize:
 
 * [tags](/azure/templates/microsoft.resources/tags)
+
+Os grupos de gestão são recursos ao nível dos inquilinos. No entanto, pode criar grupos de gestão numa implantação de grupo de gestão, definindo o âmbito do novo grupo de gestão para o arrendatário. Ver [Grupo de Gestão.](#management-group)
 
 ## <a name="schema"></a>Esquema
 
@@ -168,9 +170,55 @@ Pode utilizar uma implantação aninhada `scope` e `location` definida.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-Ou, pode definir o âmbito `/` para alguns tipos de recursos, como grupos de gestão.
+Ou, pode definir o âmbito `/` para alguns tipos de recursos, como grupos de gestão. A criação de um novo grupo de gestão é descrita na secção seguinte.
+
+## <a name="management-group"></a>Grupo de gestão
+
+Para criar um grupo de gestão numa implantação de grupo de gestão, tem de definir a margem `/` para o grupo de gestão.
+
+O exemplo a seguir cria um novo grupo de gestão no grupo de gestão de raiz.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+O próximo exemplo cria um novo grupo de gestão no grupo de gestão especificado como o progenitor. Note que o âmbito está definido para `/` .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="azure-policy"></a>Azure Policy
 

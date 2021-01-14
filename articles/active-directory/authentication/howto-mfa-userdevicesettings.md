@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a96f01d38fb41f64336d0a2b1d2aa33a96ca9f1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fc0be7e50c5cce511fafd7d8b407626bd57659bd
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742753"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183137"
 ---
 # <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Gerir métodos de autenticação do utilizador para autenticação multi-factor Azure AD
 
@@ -45,7 +45,7 @@ Pode adicionar métodos de autenticação para um utilizador através do portal 
 Para adicionar métodos de autenticação para um utilizador através do portal Azure:  
 
 1. Inicie sessão no **portal do Azure**. 
-1. Navegue para Utilizadores **de Diretório Ativo Azure** Todos os  >  **Users**  >  **utilizadores**. 
+1. Navegue para Utilizadores **de Diretório Ativo Azure** Todos os  >    >  **utilizadores**. 
 1. Escolha o utilizador para quem deseja adicionar um método de autenticação e selecione **métodos de autenticação.**  
 1. Na parte superior da janela, selecione **+ Adicione o método de autenticação**.
    1. Selecione um método (número de telefone ou e-mail). O e-mail pode ser usado para reiniciar a auto-senha, mas não para autenticação. Ao adicionar um número de telefone, selecione um tipo de telefone e introduza o número de telefone com formato válido (por exemplo, +1 42555551234).
@@ -73,7 +73,7 @@ Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
 Crie um método de autenticação de telemóvel para um utilizador específico.
 
 ```powershell
-New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType "mobile" -phoneNumber "+1 7748933135"
 ```
 
 Remova um método de telefone específico para um utilizador
@@ -108,7 +108,7 @@ Para os utilizadores que tenham definido as palavras-passe da aplicação, os ad
 Para eliminar as palavras-passe da aplicação de um utilizador, complete os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No lado esquerdo, selecione **Utilizadores do Diretório Azure Ative**  >  **Users**  >  **Todos os utilizadores**.
+1. No lado esquerdo, selecione **Utilizadores do Diretório Azure Ative**  >    >  **Todos os utilizadores**.
 1. Selecione **Multi-Factor Authentication**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu: [ ![ Selecione a autenticação multi-factor da janela do Utilizadores em Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Verifique a caixa ao lado do utilizador ou utilizadores que deseja gerir. Uma lista de opções de passo rápido aparece à direita.
 1. **Selecione Gerir as definições** do utilizador, em seguida, verifique a caixa para Eliminar todas as **palavras-passe de aplicações existentes geradas pelos utilizadores selecionados**, como mostrado no exemplo seguinte: ![ Eliminar todas as palavras-passe de aplicações existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)

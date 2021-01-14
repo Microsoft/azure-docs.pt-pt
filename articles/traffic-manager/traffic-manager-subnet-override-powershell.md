@@ -1,5 +1,5 @@
 ---
-title: Sub-rede Azure Traffic Manager sobrepõe-se usando Azure PowerShell Microsoft Docs
+title: Sub-rede Azure Traffic Manager sobrepõe-se usando a Azure PowerShell | Microsoft Docs
 description: Este artigo irá ajudá-lo a entender como a sub-rede do Traffic Manager é usada para substituir o método de encaminhamento de um perfil de Gestor de Tráfego para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP pré-indefinida para mapeamentos de ponto final utilizando Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183790"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure Powershell
 
@@ -43,7 +43,7 @@ Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure
 
 1. **Recuperar o ponto final do Gestor de Tráfego:**
 
-    Para ativar a sobreposição da sub-rede, recupere o ponto final a que deseja adicionar a sobreposição e guarde-a numa variável utilizando [o Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Para ativar a sobreposição da sub-rede, recupere o ponto final a que deseja adicionar a sobreposição e guarde-a numa variável utilizando [o Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
     Substitua o Nome, Nome de Perfil e Nome do Grupo de Recursos pelos valores do ponto final que está a alterar.
 
@@ -54,7 +54,7 @@ Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure
     ```
 2. **Adicione o intervalo de endereço IP ao ponto final:**
     
-    Para adicionar a gama de endereços IP ao ponto final, utilizará [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) para adicionar a gama.
+    Para adicionar a gama de endereços IP ao ponto final, utilizará [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) para adicionar a gama.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Assim que as gamas forem adicionadas, utilize [o Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto final.
+    Assim que as gamas forem adicionadas, utilize [o Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto final.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-A remoção do intervalo de endereços IP pode ser concluída utilizando [remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+A remoção do intervalo de endereços IP pode ser concluída utilizando [remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
 
 1.  **Recuperar o ponto final do Gestor de Tráfego:**
 
-    Para ativar a sobreposição da sub-rede, recupere o ponto final a que deseja adicionar a sobreposição e guarde-a numa variável utilizando [o Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Para ativar a sobreposição da sub-rede, recupere o ponto final a que deseja adicionar a sobreposição e guarde-a numa variável utilizando [o Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
     Substitua o Nome, Nome de Perfil e Nome do Grupo de Recursos pelos valores do ponto final que está a alterar.
 
@@ -102,7 +102,7 @@ A remoção do intervalo de endereços IP pode ser concluída utilizando [remove
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Assim que os intervalos forem removidos, utilize [o Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto final.
+     Assim que os intervalos forem removidos, utilize [o Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) para atualizar o ponto final.
 
     ```powershell
 
@@ -113,4 +113,4 @@ A remoção do intervalo de endereços IP pode ser concluída utilizando [remove
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [os métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md)do Traffic Manager .
 
-Conheça o [método de encaminhamento de tráfego sub-rede](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Conheça o [método de encaminhamento de tráfego sub-rede](./traffic-manager-routing-methods.md#subnet-traffic-routing-method)

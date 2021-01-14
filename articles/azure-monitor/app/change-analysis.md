@@ -1,16 +1,16 @@
 ---
-title: Use a análise de mudança de aplicação no Azure Monitor para encontrar problemas com a web-app Microsoft Docs
+title: Use a análise de mudança de aplicação no Azure Monitor para encontrar problemas de aplicações web | Microsoft Docs
 description: Utilize a Análise de Alteração de Aplicações no Azure Monitor para resolver problemas de aplicações em sites ao vivo no Azure App Service.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881514"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183324"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
@@ -174,7 +174,7 @@ foreach ($webapp in $webapp_list)
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Ter dificuldade em registar o provedor de recursos Microsoft.Change Analysis a partir do separador Deturb
 Se for a primeira vez que vê o histórico change após a sua integração com a Análise de Alterações de Aplicações, verá que registará automaticamente um fornecedor de recursos **Microsoft.ChangeAnalysis**. Em casos raros, pode falhar pelas seguintes razões:
 
-- **Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis.** Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Assinaturas Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
+- **Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis.** Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Subscrições | Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
 
     Registar fornecedor de recursos através do PowerShell: 
     ```PowerShell
@@ -184,7 +184,7 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
 
 - **Falhou no registo do fornecedor de recursos Microsoft.ChangeAnalysis**. Esta mensagem significa que algo falhou imediatamente, pois a UI enviou um pedido de registo do fornecedor de recursos, e não está relacionado com a questão da permissão. É provável que seja um problema temporário de conectividade na Internet. Tente refrescar a página e verifique a sua ligação à Internet. Se o erro persistir, contacte changeanalysishelp@microsoft.com
 
-- **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
+- **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições | Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
     ![Registo de RP de resolução de problemas demorando muito tempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
 ![Screenshot da ferramenta Diagnose and Solve Problems para uma Máquina Virtual com ferramentas de resolução de problemas selecionadas.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
@@ -194,6 +194,27 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>A subscrição do Farol Azure não é suportada
 
 - Não tendo consultado o fornecedor de **recursos microsoft.ChangeAnalysis** com a *subscrição do farol Azure não é suportado, as alterações só estão disponíveis no inquilino da subscrição*. Existe neste momento uma limitação para que o fornecedor de recursos change analysis seja registado através da subscrição do Azure Lighthouse para utilizadores que não estejam no arrendatário doméstico. Esperamos que esta limitação seja abordada num futuro próximo. Se esta é uma questão de bloqueio para si, existe uma solução alternativa que envolve a criação de um principal de serviço e a atribuição explícita do papel para permitir o acesso.  Contacto changeanalysishelp@microsoft.com para saber mais sobre isso.
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Ocorreu um erro durante a obtenção de alterações. Por favor, refresque esta página ou volte mais tarde para ver as alterações
+
+Esta é a mensagem de erro geral apresentada pelo serviço de Análise de Alterações de Aplicação quando as alterações não puderam ser carregadas. Algumas causas conhecidas são:
+- Erro de conectividade da Internet a partir do dispositivo cliente
+- O serviço de Análise de Alteração está temporariamente indisponível Refrescando a página após alguns minutos normalmente corrige este problema. Se o erro persistir, contacte changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Não tem permissões suficientes para ver algumas mudanças. Contacte o seu administrador de subscrição da Azure
+
+Esta é a mensagem de erro geral não autorizada, explicando que o utilizador atual não tem permissões suficientes para visualizar a alteração. Pelo menos o acesso ao leitor é necessário no recurso para visualizar as alterações de infraestrutura devolvidas pelo Azure Resource Graph e pelo Azure Resource Manager. Para alterações de ficheiros e alterações de configuração de aplicações web, é necessária uma função de pelo menos contribuinte.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Falhou no registo do fornecedor de recursos Microsoft.ChangeAnalysis
+ 
+**Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis. Contacte o seu administrador de subscrição Azure.** Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Subscrições | Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
+
+Registar fornecedor de recursos através do PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

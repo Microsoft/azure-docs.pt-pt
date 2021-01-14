@@ -4,15 +4,15 @@ description: Resolver problemas comuns numa implementação no Azure File Sync, 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 6/12/2020
+ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b84256188cf5df3ddf389f763e669a2b2ca00852
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005343"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183341"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -199,10 +199,27 @@ No servidor que está a mostrar como "Aparece offline" no portal, veja o ID 9301
 - Se **o GetNextJob estiver concluído com o estado: 0** está registado, o servidor pode comunicar com o serviço Azure File Sync. 
     - Abra o Gestor de Tarefas no servidor e verifique se o processo Monitor da Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se não estiver em execução, experimente primeiro reiniciar o servidor. Se o reinício do servidor não resolver o problema, atualize para a [versão do agente](./storage-files-release-notes.md) do Azure File Sync mais recente. 
 
-- Se **o GetNextJob estiver concluído com o estado: -2134347756** está registado, o servidor não consegue comunicar com o serviço Azure File Sync devido a uma firewall ou procuração. 
+- Se **o GetNextJob estiver concluído com o estado: -2134347756** está registado, o servidor não consegue comunicar com o serviço Azure File Sync devido a uma configuração de ordem de firewall, proxy ou suíte de cifra TLS. 
     - Se o servidor estiver por trás de uma firewall, verifique se a porta 443 de saída é permitida. Se a firewall restringir o tráfego a domínios específicos, confirme que os domínios listados na [documentação](./storage-sync-files-firewall-and-proxy.md#firewall) firewall estão acessíveis.
     - Se o servidor estiver por detrás de um proxy, configufique as definições de procuração específicas para toda a máquina ou para aplicações seguindo os passos na [documentação](./storage-sync-files-firewall-and-proxy.md#proxy)Proxy .
     - Utilize o Test-StorageSyncNetworkConnectivity cmdlet para verificar a conectividade da rede nos pontos finais de serviço. Para saber mais, consulte [a conectividade da rede de teste para os pontos finais de serviço](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+    - Para adicionar suítes cifra no servidor, utilize a política de grupo ou os cmdlets TLS:
+        - Para utilizar a política de grupo, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando a Política de Grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Para utilizar cmdlets TLS, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando cmdlets TLS PowerShell](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+    
+        A Azure File Sync suporta atualmente as seguintes suítes cifra para o protocolo TLS 1.2:  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_RSA_WITH_AES_256_GCM_SHA384  
+        - TLS_RSA_WITH_AES_128_GCM_SHA256  
+        - TLS_RSA_WITH_AES_256_CBC_SHA256  
+        - TLS_RSA_WITH_AES_128_CBC_SHA256  
 
 - Se **o GetNextJob estiver concluído com o estado: -2134347764** estiver registado, o servidor não consegue comunicar com o serviço Azure File Sync devido a um certificado expirado ou eliminado.  
     - Executar o seguinte comando PowerShell no servidor para redefinir o certificado utilizado para a autenticação:

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: duau
-ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31048a0abd939c81b64e87b4a146ae3b6934803f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392838"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183914"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
 
@@ -40,14 +40,14 @@ Para configurar a monitorização do ponto final, tem de especificar as seguinte
 
 ## <a name="how-endpoint-monitoring-works"></a>Como funciona a monitorização do ponto final
 
-Se o protocolo de monitorização for definido como HTTP ou HTTPS, o agente de sondagem do Gestor de Tráfego faz um pedido GET ao ponto final utilizando o protocolo, porta e caminho relativo dado. Se receber de volta uma resposta de 200 OK, ou qualquer uma das respostas configuradas nas ** \* gamas de código de estado esperado**, então esse ponto final é considerado saudável. Se a resposta for um valor diferente, ou, se não for recebida qualquer resposta dentro do período de tempo especificado, então o agente de sondagem do Gestor de Tráfego volta a tentar de acordo com a definição de Número Tolerado de Falhas (não são feitas re-tentativas se esta definição for 0). Se o número de falhas consecutivas for superior ao número tolerado de falhas, então esse ponto final é marcado como pouco saudável. 
+Se o protocolo de monitorização for definido como HTTP ou HTTPS, o agente de sondagem do Gestor de Tráfego faz um pedido GET ao ponto final utilizando o protocolo, porta e caminho relativo dado. Se receber de volta uma resposta de 200 OK, ou qualquer uma das respostas configuradas nas **\* gamas de código de estado esperado**, então esse ponto final é considerado saudável. Se a resposta for um valor diferente, ou, se não for recebida qualquer resposta dentro do período de tempo especificado, então o agente de sondagem do Gestor de Tráfego volta a tentar de acordo com a definição de Número Tolerado de Falhas (não são feitas re-tentativas se esta definição for 0). Se o número de falhas consecutivas for superior ao número tolerado de falhas, então esse ponto final é marcado como pouco saudável. 
 
 Se o protocolo de monitorização for TCP, o agente de sondagem do Gestor de Tráfego inicia um pedido de ligação TCP utilizando a porta especificada. Se o ponto final responder ao pedido com uma resposta para estabelecer a ligação, esse exame de saúde é marcado como um sucesso e o agente de sondagem do Traffic Manager reinicia a ligação TCP. Se a resposta for um valor diferente, ou se não for recebida qualquer resposta dentro do prazo especificado, o agente de sondagem do Gestor de Tráfego re-tenta de acordo com a definição de Número Tolerado de Falhas (não são feitas re-tentativas se esta definição for 0). Se o número de falhas consecutivas for superior ao número tolerado de falhas, então esse ponto final não é saudável.
 
 Em todos os casos, o Traffic Manager sonda de vários locais e a determinação de falhas consecutivas ocorre em cada região. Isto também significa que os pontos finais estão a receber sondas de saúde do Traffic Manager com uma frequência mais alta do que a configuração utilizada para o Intervalo de Sondagem.
 
 >[!NOTE]
->Para o protocolo de monitorização HTTP ou HTTPS, uma prática comum no lado do ponto final é implementar uma página personalizada dentro da sua aplicação - por exemplo, /health.aspx. Utilizando este caminho para monitorização, pode efetuar verificações específicas da aplicação, tais como verificar contadores de desempenho ou verificar a disponibilidade da base de dados. Com base nestas verificações personalizadas, a página devolve um código de estado HTTP apropriado.
+>Para o protocolo de monitorização HTTP ou HTTPS, uma prática comum no lado do ponto final é implementar uma página personalizada dentro da sua aplicação - por exemplo, /saúde.aspx. Utilizando este caminho para monitorização, pode efetuar verificações específicas da aplicação, tais como verificar contadores de desempenho ou verificar a disponibilidade da base de dados. Com base nestas verificações personalizadas, a página devolve um código de estado HTTP apropriado.
 
 Todos os pontos finais de uma definição de monitorização de partilha de perfil do Gestor de Tráfego. Se precisar de utilizar diferentes definições de monitorização para diferentes pontos finais, pode criar [perfis de Gestor de Tráfego aninhados](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
@@ -79,7 +79,7 @@ O estado do monitor de ponto final é um valor gerado pelo Gestor de Tráfego qu
 Para obter mais informações sobre como o estado do monitor de ponto final é calculado para os pontos finais aninhados, consulte [os perfis do Gestor de Tráfego aninhado](traffic-manager-nested-profiles.md).
 
 >[!NOTE]
-> Um estado de monitor de ponto final parado pode acontecer no Serviço de Aplicações se a sua aplicação web não estiver a funcionar no nível Standard ou acima. Para mais informações, consulte a [integração do Traffic Manager com o Serviço de Aplicações.](/azure/app-service/web-sites-traffic-manager)
+> Um estado de monitor de ponto final parado pode acontecer no Serviço de Aplicações se a sua aplicação web não estiver a funcionar no nível Standard ou acima. Para mais informações, consulte a [integração do Traffic Manager com o Serviço de Aplicações.](../app-service/web-sites-traffic-manager.md)
 
 ### <a name="profile-monitor-status"></a>Estado do monitor de perfil
 
@@ -137,7 +137,7 @@ Quando um ponto final tem um estatuto degradado, já não é devolvido em respos
 * **Desempenho**. O ponto final mais próximo do utilizador final é devolvido. Se esse ponto final não estiver disponível, o Gestor de Tráfego desloca o tráfego para os pontos finais na próxima região de Azure. Pode configurar planos alternativos de failover para o encaminhamento de tráfego de desempenho utilizando [perfis de Gestor de Tráfego aninhados](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico.** O ponto final mapeado para servir a localização geográfica com base no pedido de consulta IP's é devolvido. Se esse ponto final não estiver disponível, outro ponto final não será selecionado para falhar, uma vez que uma localização geográfica só pode ser mapeada para um ponto final num perfil (mais detalhes estão nas [FAQ).](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method) Como uma boa prática, ao utilizar o encaminhamento geográfico, recomendamos que os clientes utilizem perfis de Gestor de Tráfego aninhados com mais de um ponto final como ponto final do perfil.
 * **MultiValue** Vários pontos finais mapeados para endereços IPv4/IPv6 são devolvidos. Quando uma consulta é recebida para este perfil, os pontos finais saudáveis são devolvidos com base na **contagem máxima de registo no** valor de resposta que especificou. O número predefinido de respostas é de dois pontos finais.
-* **Sub-rede** O ponto final mapeado para um conjunto de intervalos de endereços IP é devolvido. Quando um pedido é recebido a partir desse endereço IP, o ponto final devolvido é o mapeado para esse endereço IP. 
+* **Sub-rede** O ponto final mapeado para um conjunto de intervalos de endereços IP é devolvido. Quando um pedido é recebido a partir desse endereço IP, o ponto final devolvido é o mapeado para esse endereço IP. 
 
 Para obter mais informações, consulte [os métodos de encaminhamento de tráfego do Gestor de Tráfego](traffic-manager-routing-methods.md).
 
@@ -155,43 +155,43 @@ Para obter mais informações sobre a resolução de problemas de verificação 
 
 ## <a name="faqs"></a>FAQs
 
-* [O Gestor de Tráfego é resiliente às falhas da região de Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+* [O Gestor de Tráfego é resiliente às falhas da região de Azure?](./traffic-manager-faqs.md#is-traffic-manager-resilient-to-azure-region-failures)
 
-* [Como é que a escolha da localização do grupo de recursos afeta o Gestor de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+* [Como é que a escolha da localização do grupo de recursos afeta o Gestor de Tráfego?](./traffic-manager-faqs.md#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
 
-* [Como determino a saúde atual de cada ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+* [Como determino a saúde atual de cada ponto final?](./traffic-manager-faqs.md#how-do-i-determine-the-current-health-of-each-endpoint)
 
-* [Posso monitorizar os pontos finais do HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+* [Posso monitorizar os pontos finais do HTTPS?](./traffic-manager-faqs.md#can-i-monitor-https-endpoints)
 
-* [Uso um endereço IP ou um nome DNS ao adicionar um ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+* [Uso um endereço IP ou um nome DNS ao adicionar um ponto final?](./traffic-manager-faqs.md#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
 
-* [Que tipos de endereços IP posso usar ao adicionar um ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+* [Que tipos de endereços IP posso usar ao adicionar um ponto final?](./traffic-manager-faqs.md#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
 
-* [Posso utilizar diferentes tipos de endpoint num único perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+* [Posso utilizar diferentes tipos de endpoint num único perfil?](./traffic-manager-faqs.md#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
 
-* [O que acontece quando o tipo de registo de uma consulta de entrada é diferente do tipo de registo associado ao tipo de endereço dos pontos finais?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+* [O que acontece quando o tipo de registo de uma consulta de entrada é diferente do tipo de registo associado ao tipo de endereço dos pontos finais?](./traffic-manager-faqs.md#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
 
-* [Posso usar um perfil com iPv4/ IPv6 endpoints endpoints num perfil aninhado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+* [Posso usar um perfil com iPv4/ IPv6 endpoints endpoints num perfil aninhado?](./traffic-manager-faqs.md#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [Parei um ponto final de aplicação web no meu perfil de Gerente de Tráfego, mas não estou a receber nenhum tráfego mesmo depois de o ter reiniciado. Como posso resolver isto?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [Parei um ponto final de aplicação web no meu perfil de Gerente de Tráfego, mas não estou a receber nenhum tráfego mesmo depois de o ter reiniciado. Como posso resolver isto?](./traffic-manager-faqs.md#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
-* [Posso utilizar o Traffic Manager mesmo que a minha aplicação não tenha suporte para HTTP ou HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+* [Posso utilizar o Traffic Manager mesmo que a minha aplicação não tenha suporte para HTTP ou HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
 
-* [Que respostas específicas são necessárias a partir do ponto final durante a utilização do controlo TCP?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+* [Que respostas específicas são necessárias a partir do ponto final durante a utilização do controlo TCP?](./traffic-manager-faqs.md#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
 
-* [Quão rápido o Traffic Manager afasta os meus utilizadores de um ponto final pouco saudável?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+* [Quão rápido o Traffic Manager afasta os meus utilizadores de um ponto final pouco saudável?](./traffic-manager-faqs.md#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
 
-* [Como posso especificar diferentes definições de monitorização para diferentes pontos finais num perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+* [Como posso especificar diferentes definições de monitorização para diferentes pontos finais num perfil?](./traffic-manager-faqs.md#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
 
-* [Como posso atribuir cabeçalhos HTTP aos controlos de saúde do Gestor de Tráfego para os meus pontos finais?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+* [Como posso atribuir cabeçalhos HTTP aos controlos de saúde do Gestor de Tráfego para os meus pontos finais?](./traffic-manager-faqs.md#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
 
-* [Que cabeçalho de anfitrião usam os controlos de saúde do ponto final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+* [Que cabeçalho de anfitrião usam os controlos de saúde do ponto final?](./traffic-manager-faqs.md#what-host-header-do-endpoint-health-checks-use)
 
-* [Quais são os endereços IP de onde provêm os controlos sanitários?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+* [Quais são os endereços IP de onde provêm os controlos sanitários?](./traffic-manager-faqs.md#what-are-the-ip-addresses-from-which-the-health-checks-originate)
 
-* [Quantos cheques de saúde para o meu ponto final posso esperar do Gerente de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+* [Quantos cheques de saúde para o meu ponto final posso esperar do Gerente de Tráfego?](./traffic-manager-faqs.md#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
 
-* [Como posso ser notificado se um dos meus pontos finais vai para baixo?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
+* [Como posso ser notificado se um dos meus pontos finais vai para baixo?](./traffic-manager-faqs.md#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
 ## <a name="next-steps"></a>Passos seguintes
 

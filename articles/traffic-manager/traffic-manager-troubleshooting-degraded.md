@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
-ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003859"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183460"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do estado degradado no Gestor de Tráfego do Azure
 
-Este artigo descreve como resolver problemas num perfil do Gestor de Tráfego Azure que está a mostrar um estado degradado. Como primeiro passo para resolver problemas, um estado degradado do Azure Traffic Manager é permitir a exploração madeireira.  Consulte para [Ativar registos de recursos](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que configuraste um perfil do Gestor de Tráfego que aponta para alguns dos seus serviços cloudapp.net hospedados. Se a saúde do seu Gestor de Tráfego apresentar um estado **degradado,** então o estado de um ou mais pontos finais pode ser **degradado:**
+Este artigo descreve como resolver problemas num perfil do Gestor de Tráfego Azure que está a mostrar um estado degradado. Como primeiro passo para resolver problemas, um estado degradado do Azure Traffic Manager é permitir a exploração madeireira.  Consulte para [Ativar registos de recursos](./traffic-manager-diagnostic-logs.md) para obter mais informações. Para este cenário, considere que configuraste um perfil do Gestor de Tráfego que aponta para alguns dos seus serviços cloudapp.net hospedados. Se a saúde do seu Gestor de Tráfego apresentar um estado **degradado,** então o estado de um ou mais pontos finais pode ser **degradado:**
 
 ![estado de ponto final degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -31,8 +31,8 @@ Se a saúde do seu Gestor de Tráfego apresentar um estado **inativo,** então a
 
 ## <a name="understanding-traffic-manager-probes"></a>Compreender as sondas do Gestor de Tráfego
 
-* O Gestor de Tráfego considera que um ponto final é online apenas quando a sonda recebe uma resposta HTTP 200 de volta do caminho da sonda. Se a sua aplicação devolver qualquer outro código de resposta HTTP, deve adicionar esse código de resposta às gamas de códigos de [estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil de Gestor de Tráfego.
-* Uma resposta de redirecionamento de 30x é tratada como falha, a menos que tenha especificado isto como um código de resposta válido nas [gamas](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) de código de estado esperado do seu perfil de Gestor de Tráfego. O Gestor de Tráfego não sonda o alvo de reorientação.
+* O Gestor de Tráfego considera que um ponto final é online apenas quando a sonda recebe uma resposta HTTP 200 de volta do caminho da sonda. Se a sua aplicação devolver qualquer outro código de resposta HTTP, deve adicionar esse código de resposta às gamas de códigos de [estado esperados](./traffic-manager-monitoring.md#configure-endpoint-monitoring) do seu perfil de Gestor de Tráfego.
+* Uma resposta de redirecionamento de 30x é tratada como falha, a menos que tenha especificado isto como um código de resposta válido nas [gamas](./traffic-manager-monitoring.md#configure-endpoint-monitoring) de código de estado esperado do seu perfil de Gestor de Tráfego. O Gestor de Tráfego não sonda o alvo de reorientação.
 * Para as sondas HTTPs, os erros de certificado são ignorados.
 * O conteúdo real do caminho da sonda não importa, desde que um 200 seja devolvido. Sondar um URL para algum conteúdo estático como "/favicon.ico" é uma técnica comum. O conteúdo dinâmico, tal como as páginas ASP, nem sempre pode devolver 200, mesmo quando a aplicação é saudável.
 * Uma boa prática é definir o caminho da sonda para algo que tenha lógica suficiente para determinar que o site está para cima ou para baixo. No exemplo anterior, ao definir o caminho para "/favicon.ico", só está a testar que w3wp.exe está a responder. Esta sonda pode não indicar que a sua aplicação web é saudável. Uma melhor opção seria definir um caminho para algo como "/Sonda.aspx" que tenha lógica para determinar a saúde do site. Por exemplo, pode utilizar contadores de desempenho para utilizar o CPU ou medir o número de pedidos falhados. Ou pode tentar aceder a recursos de base de dados ou estado de sessão para se certificar de que a aplicação web está a funcionar.
@@ -87,12 +87,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [O que é Gestor de Tráfego](traffic-manager-overview.md)
 
-[Serviços em Nuvem](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Serviços em Nuvem](/previous-versions/azure/jj155995(v=azure.100))
 
 [Serviço de Aplicações do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações do Traffic Manager (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações do Traffic Manager (Referência da API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
 [Comandantes do Gestor de Tráfego Azure][1]
 
-[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
+[1]: /powershell/module/az.trafficmanager

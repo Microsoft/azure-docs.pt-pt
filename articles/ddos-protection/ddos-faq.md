@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 4196515463611f51dddb79438b1d4e827f1b32c2
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: e87fd8724ab9a967bf3b75579eb0e375a324a7b1
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165404"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183103"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Azure DDoS Protection Standard perguntas frequentes
 
@@ -32,6 +32,8 @@ A Azure DDoS Protection Standard, combinada com as melhores práticas de design 
 Os planos de proteção DDoS têm uma taxa mensal fixa de $2.944 por mês que cobre até 100 endereços IP públicos. A proteção de recursos adicionais custará mais 30 dólares por recurso por mês. 
 
 Sob um inquilino, um único plano de proteção DDoS pode ser usado em várias subscrições, por isso não há necessidade de criar mais do que um plano de proteção DDoS.
+
+Consulte [o preço padrão de proteção do Azure DDoS](https://azure.microsoft.com/pricing/details/ddos-protection/) para obter mais detalhes.
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>E a proteção na camada de serviço (camada 7)?
 Os clientes podem utilizar o serviço de proteção Azure DDoS em combinação com uma Firewall de Aplicação Web (WAF) para proteção tanto na camada de rede (Camada 3 e 4, oferecida pela Azure DDoS Protection Standard) como na camada de aplicação (Camada 7, oferecida por um WAF). As ofertas da WAF incluem ofertas de gateway de aplicações Azure [GATEWAY WAF SKU,](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bem como ofertas de firewall de aplicações web de terceiros disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).

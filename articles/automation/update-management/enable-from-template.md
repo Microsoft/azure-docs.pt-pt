@@ -1,5 +1,5 @@
 ---
-title: Ativar a gestão de atualização usando o modelo do Gestor de Recursos Azure ; Microsoft Docs
+title: Ativar a gestão de atualização utilizando o modelo do Gestor de Recursos Azure | Microsoft Docs
 description: Este artigo diz como usar um modelo de Gestor de Recursos Azure para ativar a Gestão de Atualização.
 ms.service: automation
 ms.subservice: update-management
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: 88dd82ee7e004a3613d6d9892b0e853406f4caf4
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696148"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183239"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações com o modelo do Azure Resource Manager
 
@@ -40,7 +40,7 @@ A tabela que se segue lista a versão API para os recursos utilizados neste exem
 | Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
 | [Área de trabalho](/azure/templates/microsoft.operationalinsights/workspaces) | áreas de trabalho | Antevisão 2020-03-01 |
-| [Conta de automatização](/azure/templates/microsoft.automation/automationaccounts) | automatização | Antevisão 2020-01-13 |
+| [Conta de automação](/azure/templates/microsoft.automation/automationaccounts) | automatização | Antevisão 2020-01-13 |
 | [Serviços ligados ao espaço de trabalho](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | áreas de trabalho | Antevisão 2020-03-01 |
 | [Soluções](/azure/templates/microsoft.operationsmanagement/solutions) | soluções | Antevisão 2015-11-01 |
 
@@ -315,7 +315,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
     **CLI do Azure**
 
-    ```cli
+    ```azurecli
     az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 

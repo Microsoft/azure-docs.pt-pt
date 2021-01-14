@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
-ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb49f3c2acc31cba7b245995cf3bcb579113e4c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401661"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183818"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Gestor de Tráfego
 
@@ -28,7 +28,7 @@ Os seguintes métodos de encaminhamento de tráfego estão disponíveis no Gesto
 * **[Desempenho](#performance):** Selecione **Performance** quando tiver pontos finais em diferentes localizações geográficas e pretende que os utilizadores finais utilizem o ponto final "mais próximo" em termos da latência de rede mais baixa.
 * **[Geográfico](#geographic):** Selecione **Geographic** para que os utilizadores sejam direcionados para pontos finais específicos (Azure, External ou Nested) com base na localização geográfica da origem da sua consulta DNS. Isto capacita os clientes do Traffic Manager para permitir cenários em que conhecer a região geográfica de um utilizador e encaminhá-los com base nisso é importante. Exemplos incluem o cumprimento dos mandatos de soberania de dados, a localização de conteúdos & experiência do utilizador e a medição do tráfego de diferentes regiões.
 * **[Multivalue](#multivalue):** Selecione **MultiValue** para perfis de Gestor de Tráfego que só podem ter endereços IPv4/IPv6 como pontos finais. Quando uma consulta é recebida para este perfil, todos os pontos finais saudáveis são devolvidos.
-* **[Sub-rede](#subnet):** Selecione o método de encaminhamento de tráfego **sub-rede** para mapear conjuntos de intervalos de endereços IP do utilizador final para um ponto final específico dentro de um perfil de Gestor de Tráfego. Quando um pedido é recebido, o ponto final devolvido será o mapeado para o endereço IP de origem desse pedido. 
+* **[Sub-rede](#subnet):** Selecione o método de encaminhamento de tráfego **sub-rede** para mapear conjuntos de intervalos de endereços IP do utilizador final para um ponto final específico dentro de um perfil de Gestor de Tráfego. Quando um pedido é recebido, o ponto final devolvido será o mapeado para o endereço IP de origem desse pedido. 
 
 
 Todos os perfis do Traffic Manager incluem a monitorização da saúde do ponto final e a falha automática do ponto final. Para obter mais informações, consulte [a Monitorização endpoint do Gestor de Tráfego.](traffic-manager-monitoring.md) Um único perfil de Gestor de Tráfego pode utilizar apenas um método de encaminhamento de tráfego. Pode selecionar um método de encaminhamento de tráfego diferente para o seu perfil a qualquer momento. As alterações são aplicadas dentro de um minuto e não se incorrem tempo de inatividade. Os métodos de encaminhamento de tráfego podem ser combinados utilizando perfis de Gestor de Tráfego aninhados. A nidificação permite configurações sofisticadas e flexíveis de encaminhamento de tráfego que atendam às necessidades de aplicações maiores e complexas. Para mais informações, consulte [os perfis do Gestor de Tráfego aninhado.](traffic-manager-nested-profiles.md)
@@ -125,36 +125,36 @@ Como explicado em [Como Funciona o Gestor de Tráfego,](traffic-manager-how-it-w
 
 ### <a name="faqs"></a>FAQs
 
-* [Quais são alguns casos de uso em que o encaminhamento geográfico é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+* [Quais são alguns casos de uso em que o encaminhamento geográfico é útil?](./traffic-manager-faqs.md#what-are-some-use-cases-where-geographic-routing-is-useful)
 
-* [Como decido se devo utilizar o método de encaminhamento de desempenho ou o método de encaminhamento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+* [Como decido se devo utilizar o método de encaminhamento de desempenho ou o método de encaminhamento geográfico?](./traffic-manager-faqs.md#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
-* [Quais são as regiões que são apoiadas pelo Gestor de Tráfego para o encaminhamento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+* [Quais são as regiões que são apoiadas pelo Gestor de Tráfego para o encaminhamento geográfico?](./traffic-manager-faqs.md#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
-* [Como é que o gestor de tráfego determina de onde um utilizador está a consultar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+* [Como é que o gestor de tráfego determina de onde um utilizador está a consultar?](./traffic-manager-faqs.md#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
-* [É garantido que o Traffic Manager pode determinar corretamente a localização geográfica exata do utilizador em todos os casos?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+* [É garantido que o Traffic Manager pode determinar corretamente a localização geográfica exata do utilizador em todos os casos?](./traffic-manager-faqs.md#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [Um ponto final precisa de ser fisicamente localizado na mesma região com que está configurado para o encaminhamento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [Um ponto final precisa de ser fisicamente localizado na mesma região com que está configurado para o encaminhamento geográfico?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
 
-* [Posso atribuir regiões geográficas a pontos finais num perfil que não está configurado para fazer o encaminhamento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [Posso atribuir regiões geográficas a pontos finais num perfil que não está configurado para fazer o encaminhamento geográfico?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
 
-* [Porque estou a cometer um erro quando tento mudar o método de encaminhamento de um perfil existente para a Geographic?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+* [Porque estou a cometer um erro quando tento mudar o método de encaminhamento de um perfil existente para a Geographic?](./traffic-manager-faqs.md#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 
-* [Por que razão é fortemente recomendado que os clientes criem perfis aninhados em vez de pontos finais sob um perfil com encaminhamento geográfico ativado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+* [Por que razão é fortemente recomendado que os clientes criem perfis aninhados em vez de pontos finais sob um perfil com encaminhamento geográfico ativado?](./traffic-manager-faqs.md#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
 
-* [Existem restrições à versão API que suporte este tipo de encaminhamento?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+* [Existem restrições à versão API que suporte este tipo de encaminhamento?](./traffic-manager-faqs.md#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Método de encaminhamento de tráfego multivalue
 O método de encaminhamento de tráfego **Multivalue** permite-lhe obter vários pontos finais saudáveis numa única resposta de consulta dns. Isto permite que o chamador faça recauchutagens do lado do cliente com outros pontos finais no caso de um ponto final devolvido não responder. Este padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta DNS para obter um ponto final em bom estado de funcionamento. O método de encaminhamento MultiValue só funciona se todos os pontos finais do tipo 'Externo' e forem especificados como endereços IPv4 ou IPv6. Quando uma consulta é recebida para este perfil, todos os pontos finais saudáveis são devolvidos e estão sujeitos a uma contagem máxima de retorno configurável.
 
 ### <a name="faqs"></a>FAQs
 
-* [Quais são alguns casos de uso em que o encaminhamento MultiValue é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+* [Quais são alguns casos de uso em que o encaminhamento MultiValue é útil?](./traffic-manager-faqs.md#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
-* [Quantos pontos finais são devolvidos quando o roteamento MultiValue é usado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+* [Quantos pontos finais são devolvidos quando o roteamento MultiValue é usado?](./traffic-manager-faqs.md#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [Terei o mesmo conjunto de pontos finais quando o roteamento MultiValue for usado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+* [Terei o mesmo conjunto de pontos finais quando o roteamento MultiValue for usado?](./traffic-manager-faqs.md#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Método de encaminhamento de tráfego de sub-rede
 O método de encaminhamento de tráfego **sub-rede** permite-lhe mapear um conjunto de gamas de endereços IP do utilizador final para pontos finais específicos num perfil. Depois disso, se o Gestor de Tráfego receber uma consulta de DNS para esse perfil, irá inspecionar o endereço IP de origem desse pedido (na maioria dos casos este será o endereço IP de saída do dns resolver utilizado pelo chamador), determinar qual o ponto final a que está mapeado e devolverá esse ponto final na resposta de consulta. 
@@ -166,21 +166,17 @@ O encaminhamento de sub-redes pode ser usado para oferecer uma experiência dife
 
 ### <a name="faqs"></a>FAQs
 
-* [Quais são alguns casos de utilização em que o encaminhamento de sub-redes é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+* [Quais são alguns casos de utilização em que o encaminhamento de sub-redes é útil?](./traffic-manager-faqs.md#what-are-some-use-cases-where-subnet-routing-is-useful)
 
-* [Como é que o Gestor de Tráfego conhece o endereço IP do utilizador final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+* [Como é que o Gestor de Tráfego conhece o endereço IP do utilizador final?](./traffic-manager-faqs.md#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
 
-* [Como posso especificar endereços IP ao utilizar o encaminhamento sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+* [Como posso especificar endereços IP ao utilizar o encaminhamento sub-rede?](./traffic-manager-faqs.md#how-can-i-specify-ip-addresses-when-using-subnet-routing)
 
-* [Como posso especificar um ponto final de recuo ao utilizar o encaminhamento sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+* [Como posso especificar um ponto final de recuo ao utilizar o encaminhamento sub-rede?](./traffic-manager-faqs.md#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
 
-* [O que acontece se um ponto final for desativado num perfil do tipo de encaminhamento sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+* [O que acontece se um ponto final for desativado num perfil do tipo de encaminhamento sub-rede?](./traffic-manager-faqs.md#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como desenvolver aplicações de alta disponibilidade utilizando [a monitorização do ponto final do Traffic Manager](traffic-manager-monitoring.md)
-
-
-
-

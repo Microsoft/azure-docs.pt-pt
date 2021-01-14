@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: fae9a4b1b82a1fe23e8882b45880a6ba0081f580
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 2f33fe4fafbe194238fcfbd4942807ed2fc4d6ff
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071135"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183545"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -54,18 +54,20 @@ Se este comando retornar um `conda not found` erro, [descarregue e instale Minic
 Depois de instalar a Conda, utilize um terminal ou uma janela De imediato Anaconda para criar um novo ambiente:
 
 ```bash
-conda create -n tutorial python=3.7
+conda create -n tutorial python=3.8
 ```
 
 Em seguida, instale o Azure Machine Learning SDK no ambiente conda que criou:
 
 ```bash
 conda activate tutorial
-pip install azureml-sdk
+pip install azureml-core
 ```
     
 > [!NOTE]
-> Leva aproximadamente 5 minutos para a instalação Azure Machine Learning SDK para ser concluída.
+> Leva aproximadamente 2 minutos para a instalação Azure Machine Learning SDK para ser concluída.
+>
+> Se tiver um erro de tempo limite, tente `pip install --default-timeout=100 azureml-core` intstead.
 
 
 > [!div class="nextstepaction"]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: duau
-ms.openlocfilehash: 7bb5559f21289a40b6c75a3481680ab5b2c1c269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39120b1305022739aaef3407aa6c2621a97e842
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392889"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184158"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
 
@@ -30,7 +30,7 @@ Pode utilizar o portal do Azure para criar um perfil do Gestor de Tráfego. Depo
 ### <a name="to-create-a-traffic-manager-profile"></a>Para criar um perfil do Gestor de Tráfego
 
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
-2. Clique em Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
+2. Clique em Criar um perfil de Gestor de Tráfego de Rede de **Recursos**  >    >    >  **Criar**.
 4. No painel **Criar perfil do Gestor de Tráfego**, preencha o seguinte:
     1. Em **Nome**, indique um nome para o perfil. Este nome tem de ser exclusivo na zona trafficmanager.net e resultar no nome DNS `<name>`, trafficmanager.net, que é utilizado para aceder ao seu perfil do Gestor de Tráfego.
     2. Em **Método de encaminhamento**, selecione o método de encaminhamento **Prioridade**.
@@ -50,7 +50,7 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 2. O tráfego deixa de ser direcionado para os pontos finais através das definições de perfil do Gestor de Tráfego.
 3. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
-3. Clique **em Desativar**a visão  >  **geral.**
+3. Clique **em Desativar** a visão  >  **geral.**
 4. Confirme para desativar o perfil do Gestor de Tráfego.
 
 ### <a name="to-enable-a-profile"></a>Para ativar um perfil
@@ -70,7 +70,7 @@ Pode desativar um perfil existente para que o Gestor de Tráfego não refira ped
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Adicionar um ponto final](traffic-manager-endpoints.md)
+* [Adicionar um ponto final](./traffic-manager-manage-endpoints.md)
 * [Configure método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md)
 * [Método de encaminhamento geográfico configure](traffic-manager-configure-geographic-routing-method.md) 
 * [Método de encaminhamento ponderado configurado](traffic-manager-configure-weighted-routing-method.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: c169847c96d10d1c9fb47b210bc85a15e0690e32
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028901"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183120"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -29,9 +29,9 @@ ms.locfileid: "98028901"
 Existe um problema atual conhecido que causa latência no fluxo de despedimento de risco do utilizador. Se tiver uma "política de risco de utilizador", esta política deixará de se aplicar aos utilizadores dispensados poucos minutos depois de clicar em "Dispensar o risco do utilizador". No entanto, são conhecidos os atrasos com o UX a refrescar o "estado de risco" dos utilizadores dispensados. Como solução, atualize a página no nível do navegador para ver o mais recente utilizador "Estado de risco".
 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="why-is-a-user-is-at-risk"></a>Por que um utilizador está em risco?
+### <a name="why-is-a-user-at-risk"></a>Por que um utilizador está em risco?
 
 Se for um cliente Azure AD Identity Protection, vá ao ponto de vista [dos utilizadores arriscados](howto-identity-protection-investigate-risk.md#risky-users) e clique num utilizador em risco. Na gaveta de baixo, o separador 'Histórico de risco' mostrará todos os eventos que levaram a uma mudança de risco do utilizador. Para ver todos os insus máximos de segurança para o utilizador, clique em 'Ins de risco do utilizador'. Para ver todas as deteções de risco para este utilizador, clique em "Deteções de risco do utilizador".
 

@@ -6,19 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 09/18/2020
-ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 01/14/2020
+ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488898"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183443"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Apoio ao programa de marketplace comercial no Partner Center
 
 A Microsoft fornece suporte para uma grande variedade de produtos e serviços. Encontrar a equipa de apoio certa é importante para garantir uma resposta adequada e oportuna. Considere os seguintes cenários, que devem ajudá-lo a encaminhar a sua consulta para a equipa apropriada:
 
 - Se é editor e tem uma pergunta de um cliente, peça ao seu cliente para solicitar apoio utilizando os links de suporte no [portal Azure](https://portal.azure.com/).
+- Se você é um editor e detetou um problema de segurança com uma aplicação em execução no Azure, consulte [como registar um bilhete de suporte para eventos de segurança](/azure/security/fundamentals/event-support-ticket). Os editores devem reportar casos de segurança suspeitos, incluindo incidentes de segurança e vulnerabilidades do seu software e ofertas de serviços Azure Marketplace, o mais rapidamente possível.
 - Se é editor e tem uma pergunta relacionada com a sua app ou serviço, reveja as seguintes opções de suporte.
 
 ## <a name="support-options-for-publishers"></a>Opções de apoio para editores
@@ -100,7 +101,7 @@ Para gerar um ficheiro HAR utilizando **o Microsoft Edge** ou o Google **Chrome:
 
 6. Reproduza o problema que pretende resolver os problemas.
 7. Depois de reproduzir o problema, selecione Parar de **gravar o registo de rede**.
-8. Selecione **Export HAR** , marcado com um ícone de seta para baixo, e guarde o ficheiro.
+8. Selecione **Export HAR**, marcado com um ícone de seta para baixo, e guarde o ficheiro.
 
     ![Como exportar um ficheiro HAR no Microsoft Edge ou no Google Chrome](media/support/chromium-network-export-har.png)
 
@@ -123,7 +124,7 @@ Para gerar um ficheiro HAR utilizando **o Mozilla Firefox:**
 
 Para gerar um ficheiro HAR utilizando **o Safari:**
 
-1. Ative as ferramentas de **Safari** desenvolvedor no Safari: selecione  >  **Safari Preferences**. Vá ao separador **Advanced** e, em seguida, selecione **o menu Show Develop na barra de menus.**
+1. Ative as ferramentas de desenvolvedor no Safari: selecione  >  **Safari Preferences**. Vá ao separador **Advanced** e, em seguida, selecione **o menu Show Develop na barra de menus.**
 1. Vá à página web onde está a passar pelo problema.
 1. Selecione **Desenvolver,** em seguida, **selecione Show Web Inspetor**.
 1. Selecione o separador **'Rede'** e, em seguida, selecione **Itens de Rede Limpos** para remover os registos existentes.
