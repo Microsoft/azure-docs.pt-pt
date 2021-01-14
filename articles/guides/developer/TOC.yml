@@ -22,6 +22,8 @@
           href: ../../service-fabric/service-fabric-tutorial-create-dotnet-app.md
         - name: Serviço de Contentor
           href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
+        - name: Azure Spring Cloud
+          href: ../../spring-cloud/spring-cloud-quickstart.md
 - name: Tutoriais
   items:
     - name: Criar e implementar uma aplicação Web

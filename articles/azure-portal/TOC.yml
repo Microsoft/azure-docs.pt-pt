@@ -70,8 +70,6 @@
       items:
         - name: Recuperar um dashboard eliminado
           href: recover-shared-deleted-dashboard.md
-        - name: Resolução de problemas de subscrição de SKU ou região
-          href: supportability/sku-series-unavailable.md
         - name: Capturar um rastreio de browser para resolução de problemas
           href: capture-browser-trace.md
 - name: Referência
