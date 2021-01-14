@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540987"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201455"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de segurança da política Azure para referência de segurança Azure
 
-Esta linha de base de segurança aplica orientações do Benchmark de [Segurança Azure](../../../security/benchmarks/overview.md) à Política Azure. O Azure Security Benchmark fornece recomendações sobre como pode proteger as suas soluções em nuvem no Azure. O conteúdo é agrupado pelos domínios de conformidade e **controlos de segurança** **definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Política Azure. Foram excluídos **os controlos** não aplicáveis à Política Azure. Para ver como a Política Azure mapeia completamente para o Azure Security Benchmark, consulte o [ficheiro de mapeamento de base de segurança da Política Azure completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Esta linha de base de segurança aplica orientações do Benchmark de [Segurança Azure](../../../security/benchmarks/overview.md) à Política Azure. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos domínios de conformidade e **controlos de segurança** **definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Política Azure. Foram excluídos **os controlos** não aplicáveis à Política Azure. Para ver como a Política Azure mapeia completamente para o Azure Security Benchmark, consulte o [ficheiro de mapeamento de base de segurança da Política Azure completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 Para um mapeamento dos controlos de Benchmark de Segurança Azure para definições políticas incorporadas através da iniciativa incorporada, consulte [conformidade regulamentar: Benchmark de segurança azul](../samples/azure-security-benchmark.md).
 
@@ -36,7 +36,7 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 * [Compreenda o registo e diferentes tipos de registo em Azure](../../../azure-monitor/platform/platform-logs-overview.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -51,7 +51,7 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando funções privilegiadas de gestão de [identidade privilegiada da Azure AD](../../../active-directory/privileged-identity-management/pim-configure.md) ou [gestor de recursos Azure.](../../../azure-resource-manager/management/overview.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -59,12 +59,12 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 
 **Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos Azure.
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Como permitir o MFA em Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -81,7 +81,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 * [Como configurar o Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -92,7 +92,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 * [Como criar alertas para eventos de registo de atividades do Azure](../../../azure-monitor/platform/alerts-activity-log.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -109,7 +109,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 * [Tutorial: Gerir a governação da tag](../tutorials/govern-tags.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -117,7 +117,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 
 **Orientação**: Crie um inventário de definições políticas aprovadas e atribuições políticas de acordo com as suas necessidades organizacionais.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -125,14 +125,14 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 
 **Orientação**: Use a Política Azure para impor restrições ao tipo de recursos que podem ser criados nas suas subscrições.
 
-* [Como configurar e gerir a Política de Azure](../tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../tutorials/create-and-manage.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../../../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../../../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../../../security/benchmarks/security-baselines-overview.md)

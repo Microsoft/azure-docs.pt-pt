@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500594"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203009"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Utilize o portal Azure CLI e Azure para configurar o encaminhamento de mensagens IoT Hub
 
@@ -140,13 +140,13 @@ Agora configure o encaminhamento para a conta de armazenamento. Vá para o paine
 
 2. Selecione o hub IoT na lista de recursos. Este tutorial utiliza **ContosoTestHub**.
 
-3. **Selecione encaminhamento de mensagens**. No painel **de encaminhamento de mensagens,** selecione +**Adicionar**. No painel **Adicionar uma Rota,** selecione +**Adicione** ao lado do campo Endpoint para mostrar os pontos finais suportados, como mostrado na seguinte imagem:
+3. **Selecione encaminhamento de mensagens**. No painel **de encaminhamento de mensagens,** selecione +**Adicionar**. No painel **Adicionar uma Rota,** selecione +**Adicione o ponto final** ao lado do campo Endpoint para mostrar os pontos finais suportados, como mostrado na seguinte imagem:
 
-   ![Comece a adicionar um ponto final para uma rota](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Comece a adicionar um ponto final para uma rota](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Selecione **Armazenamento de blobs**. Veja o **Painel de Ponto final de armazenamento.**
+4. Selecione **Armazenamento**. Veja o **Painel de Ponto final de armazenamento.**
 
-   ![Adicionar um ponto final](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adicionar um ponto final](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Introduza um nome para o ponto final. Este tutorial utiliza **ContosoStorageEndpoint**.
 

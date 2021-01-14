@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 4ae3886e1c47b1d6835dc348b474e3d9e82a8f41
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: eabb55956f97f40312c894ccabd7a341ecc5688c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348828"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202016"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -57,7 +57,7 @@ Para obter mais informações, veja os seguintes artigos:
 - [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Compreender a recolha de dados do Centro de Segurança Azure](../security-center/security-center-enable-data-collection.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -112,7 +112,7 @@ Para obter mais informações, consulte o seguinte artigo: [Como alertar nos dad
 - [Como executar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 - [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md) (Origens de dados de Syslog no Azure Monitor)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -126,7 +126,7 @@ Para obter mais informações, consulte o seguinte artigo: [Como alertar nos dad
 - [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 - [Funções de Azure DevTest Labs](devtest-lab-add-devtest-user.md)  
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -152,7 +152,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 - [Como usar a Política Azure](../governance/policy/tutorials/create-and-manage.md)
 - [Funções de Azure DevTest Labs](devtest-lab-add-devtest-user.md)  
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -183,7 +183,7 @@ _ *Responsabilidade:** Cliente
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Estações de acesso privilegiadas) para todas as tarefas administrativas
 **Orientação:** Utilize estações de trabalho de acesso privilegiada (PAWs) com MFA configurados para iniciar sessão e configurar recursos Azure.
 
-- [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)  
+- [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)  
 - [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 
 **Monitorização do Centro de Segurança Azure:** N/A
@@ -299,7 +299,7 @@ A Microsoft gere a infraestrutura subjacente à Azure DevTest Labs e implementou
 
 [Compreenda a encriptação em cenário de trânsito para a DevTest Labs](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-devtest-labs-enforcing-tls-1-2-starting-may-01-2020/ba-p/1236279)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Compartilhado
 
@@ -372,7 +372,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos recursos subjacentes que s
 
 - [Compreenda as recomendações do Centro de Segurança Azure](../security-center/recommendations-reference.md) 
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Compartilhado
 
@@ -412,7 +412,7 @@ _ *Monitorização do Centro de Segurança Azure:** Não aplicável
 
 - [Compreenda a pontuação segura do Centro de Segurança Azure](../security-center/secure-score-security-controls.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -505,7 +505,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 - [Como utilizar os controlos de aplicações adaptativos do Centro de Segurança Azure](../security-center/security-center-adaptive-application.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -519,7 +519,7 @@ Consulte os seguintes artigos:
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -538,7 +538,7 @@ Consulte os seguintes artigos:
 
 - [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -622,7 +622,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 - [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [Como criar uma fábrica de imagem em DevTest Labs](image-factory-create.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Compartilhado
 
@@ -696,7 +696,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 - [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
 - [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -706,7 +706,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 - [Configurar identidade gerida para implantar ambientes do Gestor de Recursos Azure em Laboratórios DevTest](use-managed-identities-environments.md)
 - [Configurar identidade gerida para implantar máquinas virtuais em Laboratórios DevTest](enable-managed-identities-lab-vms.md)
  
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -729,7 +729,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 - Como configurar o Microsoft Antimalware para serviços em nuvem e máquinas virtuais
 - Proteção contra ameaças no Centro de Segurança do Azure
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -742,7 +742,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 - Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais
 - Compreenda a deteção de ameaças do Azure Security Center para serviços de dados
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Não aplicável
 
@@ -753,7 +753,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 - Como implementar o Microsoft Antimalware para serviços em nuvem azure e máquinas virtuais
 - Proteção Avançada Contra Ameaças do Microsoft Defender
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -766,7 +766,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 - [Uma visão geral do backup Azure VM](../backup/backup-azure-vms-introduction.md)
 - [Apoie um VM Azure a partir das definições de VM](../backup/backup-azure-vms-first-look-arm.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -780,7 +780,7 @@ Ativar o Azure Backup nos VMs Azure alvo e nos períodos de frequência e reten�
 - [Uma visão geral do backup Azure VM](../backup/backup-azure-vms-introduction.md)
 - [Como apoiar as chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -804,7 +804,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 - [Excluir suave para VMs](../backup/soft-delete-virtual-machines.md)
 - [Azure Key Vault - visão geral de exclusão suave](../key-vault/general/soft-delete-overview.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 
@@ -830,7 +830,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 - [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure:** Sim, é o seu
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade:** Cliente
 

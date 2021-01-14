@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 96603d27f53161c72c9e81bb7b84fdc6ab5d1ca2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6699db280c4d82867d5559255eab08fd6b55b65a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320069"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201523"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Partilhadas 
 
@@ -20,7 +20,7 @@ Este artigo é para lhe mostrar como pode usar o Azure Image Builder, e a Azure 
 
 Vamos usar um modelo .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [armTemplateWinSIG.jsem](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vamos descarregar e editar uma versão local do modelo, por isso este artigo é escrito usando a sessão local do PowerShell.
 
-Para distribuir a imagem por uma Galeria de Imagens Partilhadas, o modelo utiliza [a SharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
+Para distribuir a imagem por uma Galeria de Imagens Partilhadas, o modelo utiliza [a SharedImage](../linux/image-builder-json.md#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
 
 O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando genérico sysprep, que pode [ser sobreposto](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
 
@@ -28,7 +28,7 @@ Esteja ciente de quantas vezes você camada personalizações. Pode executar o c
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registar as funcionalidades
 Para utilizar o Azure Image Builder durante a pré-visualização, tem de registar a nova funcionalidade.
@@ -298,7 +298,7 @@ dir c:\
 Você deve ver um diretório chamado `buildActions` que foi criado durante a personalização da imagem.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se pretender agora tentar re-personalizar a versão de imagem para criar uma nova versão da mesma imagem, **ignore este passo** e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 
 

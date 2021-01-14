@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd8166dd29d2210fecdd72d5be446df47a6c5df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c327f5ffbf7c0fbfadf443e80cc1f7540855f59e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072303"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201829"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
@@ -71,7 +71,7 @@ O último comando PowerShell do script anterior mostra o nome da máquina virtua
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Se houver problemas com a implementação, poderá dar uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
-- Aprenda a criar e gerir uma máquina virtual em [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Aprenda a criar e gerir uma máquina virtual em [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md).
 
 Para saber mais sobre a criação de modelos, consulte a sintaxe JSON e as propriedades para os tipos de recursos que implementou:
 

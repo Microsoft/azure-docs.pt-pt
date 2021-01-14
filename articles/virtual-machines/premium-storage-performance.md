@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500398"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201965"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -119,7 +119,7 @@ A melhor forma de medir os requisitos de desempenho da sua aplicação é utiliz
 
 Os contadores PerfMon estão disponíveis para processador, memória e cada disco lógico e disco físico do seu servidor. Quando utiliza discos de armazenamento premium com um VM, os contadores de disco físico são para cada disco de armazenamento premium, e os contadores de disco lógicos são para cada volume criado nos discos de armazenamento premium. Tem de capturar os valores dos discos que acolhem a carga de trabalho da sua aplicação. Se houver um mapeamento entre discos lógicos e físicos, pode consultar os contadores de discos físicos; caso contrário, consulte os contadores de disco lógicos. No Linux, o comando do iostat gera um relatório de utilização de CPU e disco. O relatório de utilização do disco fornece estatísticas por dispositivo físico ou partição. Se tiver um servidor de base de dados com os seus dados e registos em discos separados, recolha estes dados para ambos os discos. Abaixo a tabela descreve contadores para discos, processadores e memória:
 
-| Contador | Descrição | PerfMon | Iostat |
+| Contador | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS ou Transações por segundo** |Número de pedidos de E/S emitidos para o disco de armazenamento por segundo. |Leituras/seg de disco <br> Escritas/seg de disco |tps <br> r/s <br> c/s |
 | **Leituras e escritos de disco** |% das operações de Leitura e Escrita realizadas no disco. |% Tempo de leitura do disco <br> % Tempo de escrita do disco |r/s <br> c/s |
@@ -230,7 +230,7 @@ Tabela abaixo resume a repartição de custos deste cenário para o Armazenament
 
 *Linux Distros*  
 
-Com o Azure Premium Storage, obtém-se o mesmo nível de Desempenho para VMs que executam Windows e Linux. Apoiamos muitos sabores de distros Linux, e você pode ver a lista completa [aqui.](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) É importante notar que diferentes distros são mais adequados para diferentes tipos de cargas de trabalho. Verá diferentes níveis de desempenho dependendo do distro em que a sua carga de trabalho está a funcionar. Teste os distros Linux com a sua aplicação e escolha o que funciona melhor.
+Com o Azure Premium Storage, obtém-se o mesmo nível de Desempenho para VMs que executam Windows e Linux. Apoiamos muitos sabores de distros Linux, e você pode ver a lista completa [aqui.](linux/endorsed-distros.md) É importante notar que diferentes distros são mais adequados para diferentes tipos de cargas de trabalho. Verá diferentes níveis de desempenho dependendo do distro em que a sua carga de trabalho está a funcionar. Teste os distros Linux com a sua aplicação e escolha o que funciona melhor.
 
 Ao executar o Linux com Armazenamento Premium, verifique as últimas atualizações sobre os controladores necessários para garantir um desempenho elevado.
 

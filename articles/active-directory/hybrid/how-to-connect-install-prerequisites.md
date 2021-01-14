@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Pré-requisitos e hardware Microsoft Docs'
+title: 'Azure AD Connect: Pré-requisitos e | de hardware Microsoft Docs'
 description: Este artigo descreve os pré-requisitos e os requisitos de hardware para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858778"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201727"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -83,7 +83,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 - Siga as orientações fornecidas na [Garantia de acesso privilegiado.](/windows-server/identity/securing-privileged-access/securing-privileged-access) 
 - Negar a utilização da autenticação NTLM com o servidor AADConnect. Eis algumas formas de o fazer: [Restringir o NTLM no Servidor AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restringir a NTLM num domínio](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 - Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
-- Implementar estações de [trabalho privilegiadas dedicadas](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
+- Implementar estações de [trabalho privilegiadas dedicadas](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
 - Siga estas [diretrizes adicionais](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative Directory.
 
 
@@ -140,7 +140,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes
@@ -201,7 +201,7 @@ Quando utilizar o Azure AD Connect para implementar O FS AD ou o Proxy da Aplica
 * Se estiver a implementar mais de um servidor AD FS ou servidor Proxy de aplicações web, certifique-se de que configura o seu equilibrador de carga e que os registos DNS para o nome AD FS (por exemplo, sts.contoso.com) apontam para o balançador de carga.
 * Para a autenticação integrada do Windows funcionar para aplicações de navegador utilizando o Internet Explorer na sua intranet, certifique-se de que o nome AD FS (por exemplo, sts.contoso.com) é adicionado à zona intranet no Internet Explorer. Este requisito pode ser controlado através da Política de Grupo e implementado em todos os seus computadores unidos pelo domínio.
 
-## <a name="azure-ad-connect-supporting-components"></a>Componentes de suporte AD AD AD
+## <a name="azure-ad-connect-supporting-components"></a>Componentes de suporte AD
 O Azure AD Connect instala os seguintes componentes no servidor onde o Azure AD Connect está instalado. Esta lista destina-se a uma instalação básica do Expresso. Se optar por utilizar um servidor SQL diferente na página de **serviços de sincronização instalar,** o SQL Express LocalDB não está instalado localmente.
 
 * Azure AD Connect Health

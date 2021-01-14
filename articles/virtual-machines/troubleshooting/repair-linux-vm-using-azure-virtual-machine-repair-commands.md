@@ -1,5 +1,5 @@
 ---
-title: Reparar um Linux VM utilizando os comandos de reparação da Máquina Virtual Azure Microsoft Docs
+title: Repare um Linux VM utilizando os comandos de reparação da Máquina Virtual Azure | Microsoft Docs
 description: Este artigo detalha como utilizar comandos de reparação de máquinas virtuais Azure para ligar o disco a outro Linux VM para corrigir eventuais erros e, em seguida, reconstruir o seu VM original.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: bfd3b2351a280f423ba0ef0b15318449554b5e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3db1c3cdfc87cedc0ba24fadc0271a8af44a279
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595937"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201914"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Linux com os comandos de reparação da Máquina Virtual do Azure
 
@@ -59,7 +59,7 @@ Para obter documentação e instruções adicionais, consulte [a reparação az 
 
    Se preferir instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.30 ou posterior da CLI do Azure. Executar ``az --version`` para localizar a versão. Se necessitar de instalar ou atualizar o seu Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
    
-   Se precisar de iniciar sessão na Cloud Shell com uma conta diferente da que está atualmente a iniciar sessão no Portal Azure com a ``az login`` [sua referência de login az.](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)  Para alternar entre subscrições associadas à sua conta pode utilizar ``az account set --subscription`` [referência definida por conta az](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
+   Se precisar de iniciar sessão na Cloud Shell com uma conta diferente da que está atualmente a iniciar sessão no Portal Azure com a ``az login`` [sua referência de login az.](/cli/azure/reference-index#az-login&preserve-view=true)  Para alternar entre subscrições associadas à sua conta pode utilizar ``az account set --subscription`` [referência definida por conta az](/cli/azure/account#az-account-set&preserve-view=true).
 
 2. Se esta for a primeira vez que utiliza os `az vm repair` comandos, adicione a extensão CLI de reparação de VM.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/05/2021
 ms.author: abhishgu
 ms.reviewer: abhishgu
-ms.openlocfilehash: 24714b185b0f666770b306a7e80a97a3f8f868a3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0038219ee8c1721ff5ab2be76231d33d2bd9064d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052631"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203070"
 ---
 # <a name="migrate-data-from-postgresql-to-azure-cosmos-db-cassandra-api-account-using-apache-kafka"></a>Migrar dados da pós-Menstrual para a conta API API da Azure Cosmos DB Cassandra utilizando Apache Kafka
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -30,7 +30,7 @@ Cassandra API em Azure Cosmos DB tornou-se uma ótima escolha para cargas de tra
 
 Este artigo demonstrará como utilizar uma combinação de conectores Kafka para criar um pipeline de dados para sincronizar continuamente registos de uma base de dados relacional, como [PostgreSQL](https://www.postgresql.org/) a [Azure Cosmos DB Cassandra API](cassandra-introduction.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Aqui está uma visão geral de alto nível do fluxo final apresentado neste artigo.
 
@@ -107,7 +107,7 @@ bin/kafka-server-start.sh config/server.properties
 
 ### <a name="setup-connectors"></a>Conectores de configuração
 
-Instale o conector Debezium PostgreSQL e DataStax Apache Kafka. Descarregue o arquivo plug-in do conector Debezium PostgreSQL. Por exemplo, para baixar a versão 1.3.0 do conector (o mais tardar no momento da escrita), utilize [este link](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz). Descarregue o conector DataStax Apache Kafka a partir [deste link](https://downloads.datastax.com/#akc).
+Instale o conector Debezium PostgreSQL e DataStax Apache Kafka. Descarregue o arquivo plug-in do conector Debezium PostgreSQL. Por exemplo, para baixar a versão 1.3.0 do conector (o mais tardar no momento da escrita), utilize [este link](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.3.0.Final-plugin.tar.gz). Descarregue o conector DataStax Apache Kafka a partir [deste link](https://downloads.datastax.com/#akc).
 
 Desaperte os arquivos do conector e copie os ficheiros JAR para o [plugin.path kafka Connect](https://kafka.apache.org/documentation/#connectconfigs).
 

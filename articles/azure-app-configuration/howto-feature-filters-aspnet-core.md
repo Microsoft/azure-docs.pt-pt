@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 9a6ae1581b3958495010b032980b0de2e267088b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931882"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203145"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Utilize filtros de funcionalidades para permitir bandeiras de características condicionais
 
@@ -56,19 +56,19 @@ Pode configurar estas definições para bandeiras de funcionalidades definidas n
     > [!div class="mx-imgBorder"]
     > ![Editar bandeira de recurso Beta](./media/edit-beta-feature-flag.png)
 
-1. No ecrã **Editar,** selecione o botão de rádio **On** se ainda não estiver selecionado. Em seguida, clique no botão **Adicionar Filtro.** (A etiqueta do botão de rádio **On** mudará para ler **Condicional**.)
+1. No ecrã **Editar,** selecione o botão **de bandeira de função Ativa** se ainda não estiver selecionado. Em seguida, clique no botão **de filtro de função Utilizar** e selecione **Custom**. 
 
 1. No campo **Chave,** insira *Microsoft.Percentagem*.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar filtro de funcionalidade](./media/feature-flag-add-filter.png)
 
-1. Clique no menu de contexto ao lado da tecla do filtro de funcionalidades. Clique em **Editar Parâmetros.**
+1. Clique no menu de contexto ao lado da tecla do filtro de funcionalidades. Clique **em Editar os parâmetros do filtro**.
 
     > [!div class="mx-imgBorder"]
-    > ![Editar parâmetros de filtro de recursos](./media/feature-flag-edit-filter-parameters.png)
+    > ![Editar parâmetros de filtro de recursos](./media/feature-flags-edit-filter-parameters.png)
 
-1. Pairar sob o cabeçalho **Nome** para que as caixas de texto apareçam na grelha. Insira um **Nome** de *Valor* e um **Valor** de 50. O campo **Valor** indica a percentagem de pedidos para ativar o filtro de funcionalidades.
+1. Insira um **Nome** de *Valor* e um **Valor** de 50. O campo **Valor** indica a percentagem de pedidos para ativar o filtro de funcionalidades.
 
     > [!div class="mx-imgBorder"]
     > ![Definir parâmetros de filtro de função](./media/feature-flag-set-filter-parameters.png)

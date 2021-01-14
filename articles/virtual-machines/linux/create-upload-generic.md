@@ -6,23 +6,23 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: ef4175d24cfd02bb5cb6470b6334fea190b5bec2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9888cde8bca9fb0646dbdc8bb601b0887908ad1d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500602"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203240"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informação para distribuições não endossadas
 
-A plataforma Azure SLA aplica-se a máquinas virtuais que executam o Sistema Linux apenas quando uma das [distribuições endossadas](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) é utilizada. Para estas distribuições endossadas, as imagens Linux pré-configuradas são fornecidas no Mercado Azure.
+A plataforma Azure SLA aplica-se a máquinas virtuais que executam o Sistema Linux apenas quando uma das [distribuições endossadas](endorsed-distros.md) é utilizada. Para estas distribuições endossadas, as imagens Linux pré-configuradas são fornecidas no Mercado Azure.
 
-* [Linux on Azure - Distribuição endossada](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux on Azure - Distribuição endossada](endorsed-distros.md)
 * [Suporte para imagens Linux no Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Todas as distribuições em execução em Azure têm uma série de pré-requisitos. Este artigo não pode ser abrangente, pois cada distribuição é diferente. Mesmo que cumpra todos os critérios abaixo, poderá ter de ajustar significativamente o seu sistema Linux para que este possa funcionar corretamente.
 
-Recomendamos que comece com um dos [Linux em Azure Endossado Distribuições.](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Os seguintes artigos mostram-lhe como preparar as várias distribuições de Linux endossadas que são suportadas no Azure:
+Recomendamos que comece com um dos [Linux em Azure Endossado Distribuições.](endorsed-distros.md) Os seguintes artigos mostram-lhe como preparar as várias distribuições de Linux endossadas que são suportadas no Azure:
 
 - [Distribuições baseadas em CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
@@ -38,7 +38,7 @@ Este artigo centra-se na orientação geral para executar a sua distribuição L
 * O formato de disco rígido virtual Hyper-V (VHDX) não é suportado em Azure, apenas *VHD fixo*.  Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o [cmdlet Converte-VHD.](/powershell/module/hyper-v/convert-vhd) Se estiver a utilizar a VirtualBox, selecione **tamanho fixo** em vez do padrão (atribuído dinamicamente) ao criar o disco.
 * A azure suporta máquinas virtuais Gen1 (BOTA BIOS) & Gen2 (bota UEFI).
 * O tamanho máximo permitido para o VHD é de 1.023 GB.
-* Ao instalar o sistema Linux, recomendamos que utilize divisórias padrão, em vez de Logical Volume Manager (LVM), que é o padrão para muitas instalações. A utilização de divisórias padrão evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO for alguma vez ligado a outro VM idêntico para resolução de problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados.
+* Ao instalar o sistema Linux, recomendamos que utilize divisórias padrão, em vez de Logical Volume Manager (LVM), que é o padrão para muitas instalações. A utilização de divisórias padrão evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO for alguma vez ligado a outro VM idêntico para resolução de problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) podem ser usados em discos de dados.
 * É necessário suporte kernel para a montagem de sistemas de ficheiros UDF. No início, a configuração de provisionamento é passada para o Linux VM utilizando meios formatados por UDF que estão ligados ao hóspede. O agente Azure Linux deve montar o sistema de ficheiros UDF para ler a sua configuração e a provisionar o VM.
 * As versões de kernel Linux antes de 2.6.37 não suportam UMA em Hiper-V com tamanhos VM maiores. Esta questão afeta principalmente as distribuições mais antigas utilizando o núcleo a montante do chapéu vermelho 2.6.32, e foi fixada em Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2.6.37, ou núcleos baseados em RHEL com mais de 2.6.32-504 devem definir o parâmetro de arranque `numa=off` na linha de comando do núcleo em grub.conf. Para mais informações, consulte [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Não configuure uma partição de troca no disco SO. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários, conforme descrito nos passos seguintes.
@@ -67,7 +67,7 @@ As imagens VHD em Azure devem ter um tamanho virtual alinhado a 1 MB.  Normalmen
 
 * O VHD http: \/ / \<mystorageaccount> .blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual não suportado de 21475270656 bytes. O tamanho deve ser um número inteiro (em MBs).
 
-Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o [cmdlet Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=win10-ps) PowerShell.  Se não estiver a funcionar num ambiente Windows, recomendamos que se `qemu-img` converta (se necessário) e redimensione o VHD.
+Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o [cmdlet Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell.  Se não estiver a funcionar num ambiente Windows, recomendamos que se `qemu-img` converta (se necessário) e redimensione o VHD.
 
 > [!NOTE]
 > Existe um bug conhecido nas versões [qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >=2.2.1 que resulta num VHD inadequadamente formatado. A questão foi corrigida no QEMU 2.6. Recomendamos a utilização de `qemu-img` 2.2.0 ou inferior, ou 2.6 ou superior.
@@ -114,7 +114,7 @@ Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o [cmdlet 
 
 ## <a name="linux-kernel-requirements"></a>Requisitos de Kernel Linux
 
-Os controladores linux integration services (LIS) para Hyper-V e Azure são contribuídos diretamente para o kernel linux a montante. Muitas distribuições que incluem uma versão recente do kernel do Linux (como 3.x) já têm estes controladores disponíveis, ou de outra forma fornecem versões backported destes condutores com os seus núcleos.  Estes controladores estão constantemente a ser atualizados no núcleo a montante com novas correções e funcionalidades, pelo que, quando possível, recomendamos a execução de uma [distribuição endossada](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que inclua estas correções e atualizações.
+Os controladores linux integration services (LIS) para Hyper-V e Azure são contribuídos diretamente para o kernel linux a montante. Muitas distribuições que incluem uma versão recente do kernel do Linux (como 3.x) já têm estes controladores disponíveis, ou de outra forma fornecem versões backported destes condutores com os seus núcleos.  Estes controladores estão constantemente a ser atualizados no núcleo a montante com novas correções e funcionalidades, pelo que, quando possível, recomendamos a execução de uma [distribuição endossada](endorsed-distros.md) que inclua estas correções e atualizações.
 
 Se estiver a executar uma variante das versões Red Hat Enterprise Linux 6.0 a 6.3, então terá de instalar os [mais recentes controladores LIS para Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partir do RHEL 6.4+ (e derivados), os condutores lis já estão incluídos com o núcleo e, por isso, não são necessários pacotes de instalação adicionais.
 

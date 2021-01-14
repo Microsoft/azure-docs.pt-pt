@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 6b6abaf10f74b29685309ed5a24a5e6b9f261014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d553fb6b2061f987e3e098ae47ebca9cd3f60984
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074436"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203410"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplementar a máquina virtual do Linux no novo nó do Azure
 Se tiver dificuldades em resolver problemas de SSH ou acesso a uma máquina virtual Linux (VM) em Azure, a recolocação do VM pode ajudar. Quando se recoloca um VM, move o VM para um novo nó dentro da infraestrutura Azure e, em seguida, volta a fazê-lo. Todas as suas opções de configuração e recursos associados são mantidos. Este artigo mostra-lhe como recolocar um VM utilizando o Azure CLI ou o portal Azure.
@@ -52,4 +52,4 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Se tiver problemas ligados ao seu VM, pode encontrar ajuda específica para [resolver as ligações SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [para as etapas detalhadas de resolução de problemas do SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se não conseguir aceder a uma aplicação em execução no seu VM, também pode ler [problemas de resolução de problemas de aplicação](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se tiver problemas ligados ao seu VM, pode encontrar ajuda específica para [resolver as ligações SSH](troubleshoot-ssh-connection.md) ou [para as etapas detalhadas de resolução de problemas do SSH](detailed-troubleshoot-ssh-connection.md). Se não conseguir aceder a uma aplicação em execução no seu VM, também pode ler [problemas de resolução de problemas de aplicação](troubleshoot-app-connection.md).

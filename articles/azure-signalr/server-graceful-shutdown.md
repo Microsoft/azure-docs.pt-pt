@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/12/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 06aa91ff414e5575f7b1a743d2cc17765437ef72
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: d9dd7ce9cf321628598a7bb866c5d1b1a6fb0e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797571"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201676"
 ---
 # <a name="server-graceful-shutdown"></a>Paragem graciosa do servidor
 O Microsoft Azure SignalR Service fornece dois modos para desligar graciosamente um servidor. 
@@ -43,7 +43,7 @@ Em geral, haverá quatro etapas num processo gracioso de encerramento:
 
     Pode ter de desenhar uma forma, como transmitir uma mensagem de encerramento a todos os clientes e, em seguida, deixar que os seus clientes decidam quando fechar/reconectar-se.
 
-    Leia [o ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample) para utilização de amostras, que transmitimos uma mensagem de "saída" para ativar o cliente no gancho de encerramento.
+    Leia [o ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample) para utilização de amostras, que transmitimos uma mensagem de "saída" para ativar o cliente no gancho de encerramento.
 
     **Modo definido para MigrateClients**
 

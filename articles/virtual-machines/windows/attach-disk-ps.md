@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2f283aa8b049602d25cf8969bc2327ebcfafe08
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972820"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202883"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anexar um disco de dados a um Windows VM com PowerShell
 
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtu
 
 Primeiro, reveja estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para obter mais informações, consulte [tamanhos para máquinas virtuais.](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para obter mais informações, consulte [tamanhos para máquinas virtuais.](../sizes.md)
 * Para utilizar SSDs premium, você precisará de um [tipo VM habilitado para armazenamento premium](../sizes-memory.md), como a série DS ou máquina virtual série GS.
 
 Este artigo utiliza o PowerShell dentro da [Azure Cloud Shell,](../../cloud-shell/overview.md)que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.

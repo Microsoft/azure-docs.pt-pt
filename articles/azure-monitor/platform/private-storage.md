@@ -1,19 +1,19 @@
 ---
-title: Utilização de contas de armazenamento geridas pelo cliente no Azure Monitor Log Analytics
+title: Utilizar contas de armazenamento geridas pelo cliente no Log Analytics do Azure Monitor
 description: Use a sua própria conta de armazenamento para cenários de Log Analytics
 ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: bb5c6439f2e0b919e422c7a72f98468f0efc01f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 706392d95e371fe303bb9f2c18f59e4a224d83c0
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901319"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201064"
 ---
-# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilização de contas de armazenamento geridas pelo cliente no Azure Monitor Log Analytics
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilizar contas de armazenamento geridas pelo cliente no Log Analytics do Azure Monitor
 
 O Log Analytics conta com o Azure Storage em vários cenários. Esta utilização é normalmente gerida automaticamente. No entanto, alguns casos exigem que você forneça e gere a sua própria conta de armazenamento, também referida como uma conta de armazenamento gerida pelo cliente. Este documento abrange a utilização de armazenamento gerido pelo cliente para registos WAD/LAD, Ligação Privada e encriptação de chaves gerida pelo cliente (CMK). 
 
@@ -23,7 +23,7 @@ O Log Analytics conta com o Azure Storage em vários cenários. Esta utilizaçã
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingerir registos de extensão de Diagnóstico Azure (WAD/LAD)
 Os agentes de extensão Azure Diagnostics (também chamados WAD e LAD para agentes Windows e Linux, respectivamente) recolhem vários registos do sistema operativo e armazenam-nos numa conta de armazenamento gerida pelo cliente. Em seguida, pode ingerir estes registos no Log Analytics para analisá-los e analisá-los.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Como recolher registos de extensão Azure Diagnostics da sua conta de armazenamento
-Ligue a conta de armazenamento ao seu espaço de trabalho Log Analytics como fonte de dados de armazenamento utilizando [o portal Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou ligando para a [API de Insights de Armazenamento](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Ligue a conta de armazenamento ao seu espaço de trabalho Log Analytics como fonte de dados de armazenamento utilizando [o portal Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou ligando para a [API de Insights de Armazenamento](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Tipos de dados suportados:
 * Syslog

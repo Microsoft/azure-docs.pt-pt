@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: f92f286fc9d9438331617cb567272a331834af42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7f9ac0ab9eacb90bde70c85ea06bc19a18aa0c05
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735381"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201149"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Crie uma cópia de um Linux VM utilizando discos Azure CLI e Managed
 
 Este artigo mostra-lhe como criar uma cópia da sua máquina virtual Azure (VM) executando o Linux utilizando o CLI Azure. Para copiar, criar, armazenar e partilhar imagens VM em escala, consulte [Galerias de Imagem Partilhadas.](../shared-images-cli.md)
 
-Também pode [fazer upload e criar um VM a partir de um VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Também pode [fazer upload e criar um VM a partir de um VHD](upload-vhd.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ Se pretender criar uma infraestrutura de rede virtual para os seus VMs copiados,
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  Crie um IP público utilizando [a rede az public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). O exemplo a seguir cria um IP público chamado *myPublicIP* com o nome DNS de *mypublicdns* . (Porque o nome DNS deve ser único, fornecer um nome único.)
+1.  Crie um IP público utilizando [a rede az public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). O exemplo a seguir cria um IP público chamado *myPublicIP* com o nome DNS de *mypublicdns*. (Porque o nome DNS deve ser único, fornecer um nome único.)
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \

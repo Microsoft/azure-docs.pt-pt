@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535083"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201030"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitor Azure Database para desempenho do MySQL com a Loja de Consultas
 
@@ -69,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>Encontrar consultas de espera
 
 > [!NOTE]
-> As estatísticas de espera não devem ser ativadas durante as horas de pico da carga de trabalho ou ser ligadas indefinidamente para cargas de trabalho sensíveis. <br>Para cargas de trabalho em execução com alta utilização do CPU ou em servidores configurados com vCores mais baixos, tenha cuidado ao permitir estatísticas de espera. Não deve ser ligado indefinidamente. 
+> As estatísticas de espera não devem ser ativadas durante as horas de pico da carga de trabalho ou ser ligadas indefinidamente para cargas de trabalho sensíveis. <br>Para cargas de trabalho em execução com alta utilização do CPU ou em servidores configurados com vCores mais baixos, tenha cuidado ao permitir estatísticas de espera. Não deve ser ligado indefinidamente.
 
 Os tipos de eventos de espera combinam diferentes eventos de espera em baldes por semelhança. A Loja de Consultas fornece o tipo de evento de espera, o nome específico do evento de espera e a consulta em questão. Ser capaz de correlacionar esta informação de espera com as estatísticas de tempo de consulta significa que você pode obter uma compreensão mais profunda do que contribui para a consulta das características de desempenho.
 
@@ -79,7 +79,7 @@ Aqui estão alguns exemplos de como pode obter mais informações sobre a sua ca
 |---|---|
 |High Lock espera | Consulte os textos de consulta para as consultas afetadas e identifique as entidades-alvo. Procure na Loja de Consultas outras consultas que modifiquem a mesma entidade, que é executada com frequência e/ou tem alta duração. Depois de identificar estas consultas, considere alterar a lógica da aplicação para melhorar a conúnquidade, ou usar um nível de isolamento menos restritivo. |
 |High Buffer IO espera | Encontre as consultas com um elevado número de leituras físicas na Loja de Consultas. Se combinarem as consultas com as altas esperas de IO, considere introduzir um índice na entidade subjacente, para fazer procuras em vez de digitalizações. Isto minimizaria a despesa com o IO das consultas. Consulte as **Recomendações de Desempenho** do seu servidor no portal para ver se existem recomendações de índice para este servidor que otimizariam as consultas. |
-|Alta Memória espera | Encontre as principais consultas de consumo de memória na Loja de Consultas. Estas consultas estão provavelmente a atrasar o progresso das consultas afetadas. Consulte as **Recomendações de Desempenho** do seu servidor no portal para ver se existem recomendações de índice que otimizem estas consultas.|
+|Alta Memória espera | Encontre as principais consultas de consumo de memória na Loja de Consultas. Estas consultas estão provavelmente a atrasar o progresso das consultas afetadas. Consulte as **Recomendações de Desempenho** do seu servidor no portal para ver se existem recomendações de índice que otimizem estas consultas. |
 
 ## <a name="configuration-options"></a>Opções de configuração
 
@@ -108,7 +108,7 @@ Utilize o [portal Azure](howto-server-parameters.md) ou [O CLI Azure](howto-conf
 
 ## <a name="views-and-functions"></a>Vistas e funções
 
-Ver e gerir a Loja de Consultas utilizando as seguintes vistas e funções. Qualquer pessoa no [papel público de privilégio selecionado](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) pode usar estas opiniões para ver os dados na Loja de Consultas. Estas vistas só estão disponíveis na base de **dados mysql.**
+Ver e gerir a Loja de Consultas utilizando as seguintes vistas e funções. Qualquer pessoa no [papel público de privilégio selecionado](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) pode usar estas opiniões para ver os dados na Loja de Consultas. Estas vistas só estão disponíveis na base de **dados mysql.**
 
 As consultas são normalizadas olhando para a sua estrutura depois de remover literal e constantes. Se duas consultas forem idênticas, exceto para valores literais, terão o mesmo haxixe.
 

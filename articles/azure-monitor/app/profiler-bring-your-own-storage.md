@@ -4,14 +4,14 @@ description: Configure BYOS (Traga o seu próprio armazenamento) para profiler &
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117381"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202543"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
 
@@ -53,11 +53,11 @@ Passos:
 1. Procure & selecione a aplicação "Diagnostic Services Trusted Storage Access" 
 1. Guardar alterações
 
-_ ![ Figura 1.0](media/profiler-bring-your-own-storage/figure-10.png)_ 
+_![ Figura 1.0](media/profiler-bring-your-own-storage/figure-10.png)_ 
  _Figura 1.0_ 
 
 Depois de ter adicionado o papel, aparecerá na secção "Atribuições de Funções", como a figura 1.1 abaixo. 
-_ ![ Figura 1.1](media/profiler-bring-your-own-storage/figure-11.png)_ 
+_![ Figura 1.1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1.1_ 
 
 Se também estiver a utilizar o Private Link, é necessária uma configuração adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. Consulte a [documentação de segurança da rede de armazenamento.](../../storage/common/storage-network-security.md#trusted-microsoft-services)
@@ -91,7 +91,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
 
     Padrão:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -226,7 +226,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
     DeploymentDebugLogLevel :
     ```
 
-1. Ativar diagnósticos de nível de código (Profiler/Debugger) sobre a carga de trabalho de interesse através do portal Azure. (Serviço de aplicações > Insights de Aplicação) _ ![ Figura 2.0](media/profiler-bring-your-own-storage/figure-20.png)_ 
+1. Ativar diagnósticos de nível de código (Profiler/Debugger) sobre a carga de trabalho de interesse através do portal Azure. (Serviço de aplicações > Insights de Aplicação) _![ Figura 2.0](media/profiler-bring-your-own-storage/figure-20.png)_ 
  _Figura 2.0_
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -284,7 +284,7 @@ Para a resolução geral de problemas do Snapshot Debugger, consulte a [document
     _Sim, para ser mais preciso, a BYOS é um requisito para ter o profiler/debugger habilitado com Customer-Manager Keys._
 
 * A BYOS funcionará num ambiente isolado da Internet?
-    _Sim, é um trabalho. De facto, a BYOS é um requisito para cenários isolados de rede._
+    _Sim. De facto, a BYOS é um requisito para cenários isolados de rede._
 
 * A BYOS funcionará quando, ambos, Customer-Managed Keys e Private Link foram ativados? 
     _Sim, pode ser possível._

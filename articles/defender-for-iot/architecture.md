@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2020
+ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832579"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201485"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender para arquitetura IoT
 
-Este artigo descreve a arquitetura funcional do sistema do Defender para a solução IoT.
+Este artigo descreve a arquitetura funcional do sistema do Defender para a solução IoT. O Azure Defender for IoT oferece dois conjuntos de capacidades para adequar as necessidades do seu ambiente, solução sem agentes para organizações e solução baseada em agentes para construtores de dispositivos.
 
-## <a name="defender-for-iot-components"></a>Defender para componentes IoT
+## <a name="agentless-solution-for-organizations"></a>Solução sem agentes para organizações
+### <a name="defender-for-iot-components"></a>Defender para componentes IoT
 
 O Defender para IoT liga tanto à nuvem Azure como aos componentes no local. A solução é projetada para escalabilidade em ambientes grandes e geograficamente distribuídos com múltiplas localizações remotas. Esta solução permite uma arquitetura distribuída em várias camadas por país, região, unidade de negócio ou zona. 
 
@@ -79,12 +80,12 @@ Gerir o Azure Defender para IoT em ambientes híbridos é realizado através de 
 - A consola de gestão no local
 - O portal do Azure
 
-#### <a name="sensor-console"></a>Consola de sensores
+### <a name="sensor-console"></a>Consola de sensores
 As deteções de sensores são exibidas na consola de sensores, onde podem ser visualizadas, investigadas e analisadas num mapa de rede, inventário de ativos e numa vasta gama de relatórios, por exemplo, relatórios de avaliação de riscos, consultas de mineração de dados e vetores de ataque. Também pode utilizar a consola para visualizar e lidar com ameaças detetadas pelos motores sensores, encaminhar informações para sistemas parceiros, gerir utilizadores e muito mais.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender para consola de sensores IoT":::
 
-#### <a name="on-premises-management-console"></a>Consola de gestão no local
+### <a name="on-premises-management-console"></a>Consola de gestão no local
 A consola de gestão no local permite aos operadores do Centro de Operações de Segurança (SOC) gerir e analisar alertas agregados de múltiplos sensores num único dashboard e proporciona uma visão geral da saúde das redes OT.
 
 Esta arquitetura proporciona uma visão unificada abrangente da rede a nível SOC, tratamento de alerta otimizado e controlo da segurança da rede operacional, garantindo que a tomada de decisão e a gestão de riscos permanecem impecáveis.
@@ -103,20 +104,23 @@ Fortemente integrado com os seus fluxos de trabalho SOC e livros de execução, 
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Gerencie todos os seus alertas e informações.":::
 
-#### <a name="azure-portal"></a>Portal do Azure
+### <a name="azure-portal"></a>Portal do Azure
 
 O portal Defender for IoT em Azure é utilizado para o ajudar:
 
 - Adquirir aparelhos de solução
+
 - Instalar e atualizar software
 - Sensores a bordo de Azure
 - Atualizar pacotes de Inteligência de Ameaças
 
-## <a name="embedded-security-agent-built-in-mode"></a>Agente de segurança incorporado: modo incorporado
+## <a name="agent-based-solution-for-device-builders"></a>Solução com base em agente para criadores de dispositivos
+
+### <a name="embedded-security-agent-built-in-mode"></a>Agente de segurança incorporado: modo incorporado
 
 No modo **Incorporado,** o Defender para IoT está ativado quando optar por ativar a opção **Segurança** no seu hub IoT. Oferecendo monitorização, recomendações e alertas em tempo real, o modo incorporado oferece visibilidade de um único passo e segurança incomparável. O modo de construção não requer a instalação do agente em nenhum dispositivo e utiliza análises avançadas em atividades iniciadas para analisar e proteger o seu dispositivo de campo e o hub IoT.
 
-## <a name="embedded-security-agent-enhanced-mode"></a>Agente de segurança incorporado: Modo melhorado
+### <a name="embedded-security-agent-enhanced-mode"></a>Agente de segurança incorporado: Modo melhorado
 
 No modo **Melhorado,** depois de ligar a opção **Segurança** no seu hub IoT e instalar o Defender para agentes de dispositivos IoT nos seus dispositivos, os agentes recolhem, agregam e analisam eventos de segurança bruto dos seus dispositivos. Eventos de segurança bruta podem incluir ligações IP, criação de processos, logins de utilizador e outras informações relevantes para a segurança. O Defender para agentes de dispositivos IoT também lida com a agregação de eventos para ajudar a evitar o elevado rendimento da rede. Os agentes são altamente personalizáveis, permitindo-lhe usá-los para tarefas específicas, como o envio de apenas informações importantes no SLA mais rápido, ou para agregar informações e contextos de segurança extensivas em segmentos maiores, evitando custos de serviço mais elevados.
 
@@ -130,7 +134,9 @@ Utilizando o pipeline de análise, o Defender for IoT combina todos os fluxos de
 
 O Defender para recomendações e alertas IoT (saída de gasoduto analítico) é escrito para o espaço de trabalho Log Analytics de cada cliente. A inclusão dos eventos brutos no espaço de trabalho, bem como os alertas e recomendações permite investigações e consultas de mergulho profundo usando os detalhes exatos das atividades suspeitas detetadas.
 
-## <a name="see-also"></a>Veja também
+:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="A arquitetura do micro-agente.":::
+
+## <a name="see-also"></a>Ver também
 
 [Defender para IoT FAQ](resources-frequently-asked-questions.md)
 

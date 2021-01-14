@@ -1,18 +1,18 @@
 ---
-title: Relatório de extensão de ficheiros sobre os seus dados utilizando o Purview Insights
-description: Este guia de como ver e utilizar a extensão do ficheiro Purview Insights reportando os seus dados.
+title: Relatório de extensão de ficheiros sobre os seus dados em Azure Purview usando a Purview Insights
+description: Este guia de como ver e utilizar a extensão do ficheiro Purview reportando os seus dados.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746289"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202628"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Insights de extensão de ficheiros sobre os seus dados a partir do Azure Purview 
 
@@ -33,6 +33,9 @@ Antes de começar com as introspeções de Competência, certifique-se de que co
 - Configurar os seus recursos Azure e povoar as contas relevantes com dados de teste
 
 - Configurar e completar uma verificação dos dados de teste em cada fonte de dados
+
+- Inscreva-se em Purview com uma função de [Data Reader ou Data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 Para obter mais informações, consulte [Gerir fontes de dados em Azure Purview (Preview)](manage-data-sources.md).
 

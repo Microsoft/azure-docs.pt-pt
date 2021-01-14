@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 43e2f1c304a2ede10445fa656dbdd16a4b60ca3c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 63c1e388ecd53d9b827e45a1fa78bdb6feeaab21
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978956"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201948"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused (Resolver problemas de ligação de SSH a uma VM do Linux do Azure que falha, dá erro ou é recusada)
 Este artigo ajuda-o a encontrar e corrigir os problemas que ocorrem devido a erros da Secure Shell (SSH), falhas de ligação SSH ou SSH é recusado quando tenta ligar-se a uma máquina virtual Linux (VM). Pode utilizar o portal Azure, Azure CLI ou extensão de acesso VM para o Linux para resolver problemas e resolver problemas de ligação.
@@ -277,9 +277,9 @@ Experimente estes passos para resolver as falhas de ligação SSH mais comuns pa
   * Criar uma conta de utilizador *sudo.*
   * Reinicie a configuração SSH.
 * Verifique se a saúde dos recursos do VM é responsável por quaisquer problemas de plataforma.<br>
-     Selecione o seu VM e **desloque-se**para baixo As definições  >  **Verifique saúde**.
+     Selecione o seu VM e **desloque-se** para baixo As definições  >  **Verifique saúde**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* Se ainda não conseguir fazer SSH ao seu VM depois de seguir os passos seguintes, consulte [medidas mais detalhadas de resolução de problemas](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para rever medidas adicionais para resolver o seu problema.
+* Se ainda não conseguir fazer SSH ao seu VM depois de seguir os passos seguintes, consulte [medidas mais detalhadas de resolução de problemas](detailed-troubleshoot-ssh-connection.md) para rever medidas adicionais para resolver o seu problema.
 * Para obter mais informações sobre o acesso à aplicação de resolução de [problemas, consulte o acesso a uma aplicação em execução numa máquina virtual Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 * Para obter mais informações sobre a resolução de problemas de máquinas virtuais criadas utilizando o modelo de implementação clássico, consulte [Como redefinir uma palavra-passe ou SSH para máquinas virtuais baseadas em Linux](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).

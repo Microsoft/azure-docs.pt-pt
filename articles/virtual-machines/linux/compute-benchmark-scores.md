@@ -5,15 +5,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939b5f6005dcb0b320852aece60db5bcf36dddbd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830534"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201183"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de referência do Cálculo para Os VMs do Linux
-As seguintes pontuações de referência do CoreMark mostram o desempenho do computação para a linha VM de alto desempenho da Azure que executa ubuntu. As pontuações de referência do computo também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+As seguintes pontuações de referência do CoreMark mostram o desempenho do computação para a linha VM de alto desempenho da Azure que executa ubuntu. As pontuações de referência do computo também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md).
 
 ## <a name="standard_das_v4"></a>Standard_Das_v4
 (12/11/2019 2:28:52 Pbi 5851281)
@@ -21,7 +21,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 |Tamanho da VM| CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Desvio Padrão | Std Dev% | #Runs |
 |---| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |Standard_D2as_v4| Processador AMD EPYC 7452 32-Core | 2 | 1 | 7.8 | 29,726 | 693 | 2.33% | 42 |
-|Standard_D4as_v4| Processador AMD EPYC 7452 32-Core | 4 | 1 | 15.7 | 59,224 | 1,595 | 2.69% | 42 |
+|Standard_D4as_v4| Processador AMD EPYC 7452 32-Core | 4 | 1 | 15,7 | 59,224 | 1,595 | 2.69% | 42 |
 |Standard_D8as_v4| Processador AMD EPYC 7452 32-Core | 8 | 1 | 31.4 | 116,412 | 3,613 | 3.10% | 42 |
 |Standard_D16as_v4| Processador AMD EPYC 7452 32-Core | 16 | 2 | 62.9 | 229,489 | 7,209 | 3.14% | 35 |
 |Standard_D32as_v4| Processador AMD EPYC 7452 32-Core | 32 | 4 | 125.9 | 461,916 | 6,746 | 1.46% | 35 |
@@ -32,7 +32,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Desvio Padrão | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2a_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 7.8 | 30,023 | 333 | 1.11% | 35 |
-| Standard_D4a_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 15.7 | 59,685 | 1,141 | 1.91% | 77 |
+| Standard_D4a_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 15,7 | 59,685 | 1,141 | 1.91% | 77 |
 | Standard_D8a_v4 | Processador AMD EPYC 7452 32-Core | 8 | 1 | 31.4 | 118,346 | 1,130 | 0.95% | 42 |
 | Standard_D16a_v4 | Processador AMD EPYC 7452 32-Core | 16 | 2 | 62.9 | 231,131 | 3,830 | 1.66% | 35 |
 | Standard_D32a_v4 | Processador AMD EPYC 7452 32-Core | 32 | 4 | 125.9 | 457,266 | 10,208 | 2.23% | 35 |
@@ -45,7 +45,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 
 | Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Desvio Padrão | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_E2as_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 15.7 | 29,217 | 654 | 2.24% | 42 |
+| Standard_E2as_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 15,7 | 29,217 | 654 | 2.24% | 42 |
 | Standard_E4as_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 31.4 | 58,356 | 480 | 0.82% | 42 |
 | Standard_E8as_v4 | Processador AMD EPYC 7452 32-Core | 8 | 1 | 62.9 | 115,943 | 3,526 | 3.04% | 35 |
 | Standard_E16as_v4 | Processador AMD EPYC 7452 32-Core | 16 | 2 | 125.9 | 227,383 | 5,619 | 2.47% | 35 |
@@ -59,7 +59,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 
 | Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Desvio Padrão | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_E2a_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 15.7 | 29,561 | 422 | 1.43% | 42 |
+| Standard_E2a_v4 | Processador AMD EPYC 7452 32-Core | 2 | 1 | 15,7 | 29,561 | 422 | 1.43% | 42 |
 | Standard_E4a_v4 | Processador AMD EPYC 7452 32-Core | 4 | 1 | 31.4 | 58,303 | 1,280 | 2.20% | 42 |
 | Standard_E8a_v4 | Processador AMD EPYC 7452 32-Core | 8 | 1 | 62.9 | 114,650 | 2,726 | 2.38% | 42 |
 | Standard_E16a_v4 | Processador AMD EPYC 7452 32-Core | 16 | 2 | 125.9 | 226,947 | 4,661 | 2.05% | 35 |
@@ -79,18 +79,18 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Standard_A2_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 2 | 1 | 3.9 | 13,161 | 194 | 1.48% | 266 |
 | Standard_A2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 3.9 | 12,067 | 401 | 3,32% | 203 |
 | Standard_A2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 3.9 | 12,527 | 797 | 6.37% | 238 |
-| Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 2 | 1 | 15.7 | 13,167 | 179 | 1.36% | 273 |
-| Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 15.7 | 12,133 | 336 | 2.77% | 210 |
-| Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 12,401 | 656 | 5.29% | 224 |
+| Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 2 | 1 | 15,7 | 13,167 | 179 | 1.36% | 273 |
+| Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 15,7 | 12,133 | 336 | 2.77% | 210 |
+| Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15,7 | 12,401 | 656 | 5.29% | 224 |
 | Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 4 | 1 | 7.8 | 26,307 | 231 | 0.88% | 231 |
 | Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 7.8 | 24,552 | 720 | 2.93% | 224 |
 | Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 7.8 | 24,963 | 1,625 | 6.51% | 252 |
 | Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 4 | 1 | 31.4 | 26,238 | 292 | 1.11% | 259 |
 | Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 31.4 | 24,250 | 491 | 2,02% | 189 |
 | Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 24,725 | 1,553 | 6.28% | 259 |
-| Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 8 | 1 | 15.7 | 53,237 | 687 | 1.29% | 266 |
-| Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 15.7 | 49,655 | 585 | 1.18% | 147 |
-| Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 15.7 | 49,005 | 2,162 | 4.41% | 294 |
+| Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 8 | 1 | 15,7 | 53,237 | 687 | 1.29% | 266 |
+| Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 15,7 | 49,655 | 585 | 1.18% | 147 |
+| Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 15,7 | 49,005 | 2,162 | 4.41% | 294 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 8 | 2 | 62.9 | 52,627 | 902 | 1.71% | 266 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 62.9 | 49,838 | 633 | 1.27% | 182 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 49,123 | 2,483 | 5,05% | 259 |
@@ -111,8 +111,8 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 27,432 | 771 | 2.81% | 672 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 3.9 | 27,488 | 822 | 2.99% | 28 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 3.9 | 27,548 | 864 | 3.14% | 672 |
-| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15.7 | 54,951 | 1,868 | 3.40% | 28 |
-| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 54,051 | 1,260 | 2.33% | 672 |
+| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15,7 | 54,951 | 1,868 | 3.40% | 28 |
+| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15,7 | 54,051 | 1,260 | 2.33% | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 111,929 | 1,562 | 1.40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 109,537 | 1,354 | 1.24% | 665 |
 | Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 1 | 47,1 | 170,777 | 3,421 | 2.00% | 70 |
@@ -135,8 +135,8 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20,153 | 838 | 4.16% | 147 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20,903 | 1,324 | 6.33% | 553 |
-| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15.7 | 39,502 | 1,257 | 3.18% | 189 |
-| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 40,547 | 1,935 | 4,77% | 511 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15,7 | 39,502 | 1,257 | 3.18% | 189 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15,7 | 40,547 | 1,935 | 4,77% | 511 |
 | Standard_D8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 80,191 | 1,054 | 1.31% | 168 |
 | Standard_D8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 79,884 | 3,073 | 3.85% | 532 |
 | Standard_D16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 62.9 | 160,319 | 1,213 | 0.76% | 105 |
@@ -152,8 +152,8 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20,359 | 799 | 3.93% | 154 |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20,737 | 1,422 | 6.86% | 546 |
-| Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15.7 | 40,095 | 1,501 | 3.74% | 147 |
-| Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 41,147 | 2,706 | 6.58% | 546 |
+| Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 15,7 | 40,095 | 1,501 | 3.74% | 147 |
+| Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15,7 | 41,147 | 2,706 | 6.58% | 546 |
 | Standard_D8_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 80,383 | 1,486 | 1.85% | 133 |
 | Standard_D8_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 80,511 | 3,916 | 4.86% | 560 |
 | Standard_D16_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 62.9 | 160,932 | 2.200 | 1.37% | 140 |
@@ -171,17 +171,17 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 14,808 | 904 | 6,10% | 434 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 6.8 | 28,654 | 877 | 3.06% | 301 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 6.8 | 29,089 | 1,421 | 4.89% | 406 |
-| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 13.7 | 57,255 | 1,633 | 2.85% | 238 |
-| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 13.7 | 57,255 | 2,265 | 3.96% | 462 |
+| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 13,7 | 57,255 | 1,633 | 2.85% | 238 |
+| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 13,7 | 57,255 | 2,265 | 3.96% | 462 |
 | Standard_DS4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 27.5 | 116,681 | 1,097 | 0.94% | 231 |
 | Standard_DS4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 27.5 | 112,512 | 1,261 | 1.12% | 462 |
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 55.0 | 225,661 | 2,370 | 1.05% | 189 |
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 55.0 | 229,145 | 2,878 | 1.26% | 21 |
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 55.0 | 226,818 | 1,797 | 0.79% | 497 |
-| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 13.7 | 28,571 | 920 | 3.22% | 238 |
-| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 13.7 | 29,049 | 1,614 | 5.56% | 469 |
-| Standard_DS11 1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 13.7 | 14,594 | 617 | 4.23% | 287 |
-| Standard_DS11 1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 13.7 | 14,951 | 852 | 5.70% | 413 |
+| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 13,7 | 28,571 | 920 | 3.22% | 238 |
+| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 13,7 | 29,049 | 1,614 | 5.56% | 469 |
+| Standard_DS11 1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 13,7 | 14,594 | 617 | 4.23% | 287 |
+| Standard_DS11 1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 13,7 | 14,951 | 852 | 5.70% | 413 |
 | Standard_DS12_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 27.5 | 57,503 | 1,398 | 2.43% | 217 |
 | Standard_DS12_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 27.5 | 57,082 | 2,372 | 4.16% | 483 |
 | Standard_DS12-1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 27.5 | 14,698 | 564 | 3.84% | 238 |
@@ -211,15 +211,15 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 15,057 | 1,319 | 8.76% | 322 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 6.8 | 29,395 | 1,073 | 3.65% | 329 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 6.8 | 29,564 | 2,145 | 7.26% | 378 |
-| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 13.7 | 58,150 | 1,340 | 2.30% | 343 |
-| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 13.7 | 57,820 | 2,944 | 5.09% | 364 |
+| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 13,7 | 58,150 | 1,340 | 2.30% | 343 |
+| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 13,7 | 57,820 | 2,944 | 5.09% | 364 |
 | Standard_D4_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 27.5 | 117,448 | 1,612 | 1.37% | 308 |
 | Standard_D4_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 27.5 | 114,082 | 3,369 | 2.95% | 399 |
 | Standard_D5_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 55.0 | 226,370 | 4,722 | 2.09% | 147 |
 | Standard_D5_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 55.0 | 225,035 | 5,026 | 2.23% | 119 |
 | Standard_D5_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 55.0 | 227,883 | 3,259 | 1.43% | 441 |
-| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 13.7 | 29,260 | 1,012 | 3.46% | 308 |
-| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 13.7 | 29,306 | 1,763 | 6.02% | 399 |
+| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 13,7 | 29,260 | 1,012 | 3.46% | 308 |
+| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 13,7 | 29,306 | 1,763 | 6.02% | 399 |
 | Standard_D12_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 27.5 | 58,322 | 1,391 | 2.39% | 329 |
 | Standard_D12_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 27.5 | 57,999 | 3,533 | 6.09% | 371 |
 | Standard_D13_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 55.0 | 117,218 | 1,514 | 1.29% | 329 |
@@ -233,7 +233,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 
 | Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Desvio Padrão | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 20,957 | 1200 | 5.73% | 672 |
+| Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15,7 | 20,957 | 1200 | 5.73% | 672 |
 | Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 40,420 | 1,993 | 4.93% | 672 |
 | Standard_E4 2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 31.4 | 20,774 | 1,133 | 5.45% | 672 |
 | Standard_E8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 80,153 | 3,308 | 4.13% | 665 |
@@ -262,7 +262,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 
 | Tamanho da VM | CPU | vCPUs | Nó de numções | Memória (GiB) | Pontuação Avg | Desvio Padrão | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 21,171 | 1,772 | 8.37% | 693 |
+| Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15,7 | 21,171 | 1,772 | 8.37% | 693 |
 | Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 41,181 | 3,148 | 7.64% | 700 |
 | Standard_E8_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 81,211 | 5,055 | 6.22% | 700 |
 | Standard_E16_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 125.9 | 158,152 | 4,033 | 2.55% | 700 |
@@ -285,7 +285,7 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 3.9 | 28,219 | 1,843 | 6.53% | 700 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 4 | 1 | 7.8 | 53,911 | 1,002 | 1.86% | 707 |
-| Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 8 | 1 | 15.7 | 106,467 | 1,101 | 1.03% | 707 |
+| Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 8 | 1 | 15,7 | 106,467 | 1,101 | 1.03% | 707 |
 | Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 16 | 1 | 31.4 | 211,311 | 1,724 | 0.82% | 707 |
 | Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 32 | 1 | 62.9 | 423,175 | 4,346 | 1.03% | 707 |
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 64 | 2 | 125.9 | 829,537 | 21,574 | 2.60% | 707 |
@@ -302,8 +302,8 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 3.9 | 29,188 | 1,228 | 4.21% | 455 |
 | Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 7.8 | 57,192 | 1,700 | 2.97% | 259 |
 | Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 7.8 | 57,412 | 2,215 | 3.86% | 448 |
-| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 15.7 | 117,008 | 1,139 | 0,97% | 259 |
-| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 15.7 | 112,610 | 1,595 | 1.42% | 441 |
+| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 15,7 | 117,008 | 1,139 | 0,97% | 259 |
+| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 15,7 | 112,610 | 1,595 | 1.42% | 441 |
 | Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 31.4 | 225,444 | 2,328 | 1.03% | 210 |
 | Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 31.4 | 228,919 | 3,380 | 1.48% | 28 |
 | Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 31.4 | 227,015 | 1,543 | 0.68% | 462 |
@@ -319,8 +319,8 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 | Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 3.9 | 29,299 | 1,908 | 6.51% | 364 |
 | Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 7.8 | 58,314 | 1,245 | 2.14% | 364 |
 | Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 7.8 | 58,280 | 3,581 | 6.14% | 336 |
-| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 15.7 | 117,516 | 1,460 | 1.24% | 308 |
-| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 15.7 | 114,361 | 3,868 | 3.38% | 399 |
+| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 15,7 | 117,516 | 1,460 | 1.24% | 308 |
+| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 15,7 | 114,361 | 3,868 | 3.38% | 399 |
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 31.4 | 226,487 | 4,140 | 1,83% | 154 |
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 31.4 | 226,683 | 4,723 | 2.08% | 133 |
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 31.4 | 228,592 | 2,371 | 1.04% | 392 |
@@ -469,5 +469,5 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 Os números de Linux foram calculados executando [CoreMark](https://www.eembc.org/coremark/faq.php) em Ubuntu. CoreMark foi configurado com o número de fios definidos para o número de CPUs virtuais, e concurrency definido para PThreads. O número de iterações-alvo foi ajustado com base no desempenho esperado para proporcionar um tempo de funcionaamento de pelo menos 20 segundos (normalmente muito mais longo). A pontuação final representa o número de iterações completas divididas pelo número de segundos que demorou a executar o teste. Cada teste foi executado pelo menos sete vezes em cada VM. Datas de teste mostradas acima. Os testes realizados em vários VMs em todas as regiões públicas do Azure o VM foi apoiado na data executada. Séries Básicas A e B (Burstable) não mostradas porque o desempenho é variável. As séries N não são mostradas como centradas na GPU e a Coremark não mede o desempenho da GPU.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](../sizes.md)
 * Para executar os scripts CoreMark em VMs Linux, descarregue o [pacote de scripts CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).

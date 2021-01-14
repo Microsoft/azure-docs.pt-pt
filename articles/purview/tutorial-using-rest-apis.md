@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387824"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202951"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Use as APIs REST
 
 Neste tutorial, você aprende a usar as APIs de repouso Azure Purview. Quem quiser submeter dados a um Catálogo Azure Purview, incluir o catálogo como parte de um processo automatizado, ou construir a sua própria experiência de utilizador no catálogo pode usar as APIs REST para o fazer.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -142,7 +142,7 @@ Encontrar e guardar os seguintes valores:
 
 
 
-1. [Instale Node.js](https://github.com/Azure/autorest/blob/master/docs/installing-autorest.md).
+1. [Instale Node.js](https://github.com/Azure/autorest/blob/v2/docs/installing-autorest.md).
 1. Abra o PowerShell e execute o seguinte comando:
 
    ```powershell
@@ -173,7 +173,7 @@ Encontrar e guardar os seguintes valores:
 1. Certifique-se de que a versão é pelo menos 2.3.21 e, em seguida, **selecione Instalar**.
 1. Compile e execute a aplicação.
 
-O código de amostra devolve uma contagem de quantos doses estão no catálogo e mostra como lidar com as atribuições de funções. Para mais detalhes, consulte `DoRoleAssignmentOperations()` o código de amostra. Para obter mais informações sobre o projeto, consulte [a Configuração do Projeto.](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md)
+O código de amostra devolve uma contagem de quantos doses estão no catálogo e mostra como lidar com as atribuições de funções. Para mais detalhes, consulte `DoRoleAssignmentOperations()` o código de amostra. Para obter mais informações sobre o projeto, consulte [a Configuração do Projeto.](https://github.com/Azure/autorest/blob/v2/docs/client/proj-setup.md)
 
 ### <a name="sample-code-for-the-console-application"></a>Código de amostra para a aplicação da consola
 
@@ -244,7 +244,7 @@ namespace PurviewCatalogSdkTest
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Gerir origens de dados](manage-data-sources.md)

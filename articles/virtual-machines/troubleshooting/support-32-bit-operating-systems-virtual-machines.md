@@ -13,16 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b801bac28b131ff43c47024649bfe0986f768c7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079864"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202900"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Suporte para sistemas operativos de 32 bits nas máquinas virtuais do Azure
 
 O Microsoft Azure permite agora que os utilizadores levem os seus sistemas Operativos Windows de 32 bits para o Azure. Apenas VHDs especializados são suportados e imagens generalizadas não funcionarão em Azure. Como alguns destes sistemas operativos já chegaram ao acordo de suporte de fim de vida, a Microsoft pode não oferecer suporte adicional para os mesmos. O suporte também não é oferecido para sistemas operativos baseados em Linux, ou Berkeley Software Distribution (BSD) que funcionam numa máquina virtual Microsoft Azure (VM).
+
+> [!NOTE]
+> A plataforma Azure tem uma limitação de espaço de endereço de memória imposta aos VMs que executam sistemas operativos de 32 bits onde apenas 1GB de memória são disponibilizados ao VM, e o resto da memória para o VM mostrará como reservado dentro do VM convidado. Trata-se de uma questão conhecida e, atualmente, não dispomos de um ETA para uma correção. Recomendamos que se motenda para versões 64bit OS.
+> 
 
 ## <a name="more-information"></a>Mais informações
 

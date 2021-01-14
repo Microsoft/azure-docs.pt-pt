@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d64552520db28b3fe38cc354a30ee5470ee091
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060737"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201353"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Proteger a Microsoft 365 de ataques no local
 
@@ -131,7 +131,7 @@ O provisionamento refere-se à criação de contas de utilizador e grupos em apl
 
    *  Limite o acesso dos hóspedes a grupos de navegação e outras propriedades no diretório. Utilize as definições de colaboração externa para restringir a capacidade de leitura dos grupos de que não são membros. 
 
-    *   Bloqueie o acesso ao portal Azure. Pode fazer raras exceções necessárias.  Crie uma política de Acesso Condicional que inclua todos os hóspedes e utilizadores externos e, em seguida, [implemente uma política para bloquear o acesso.](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md) 
+    *   Bloqueie o acesso ao portal Azure. Pode fazer raras exceções necessárias.  Crie uma política de Acesso Condicional que inclua todos os hóspedes e utilizadores externos e, em seguida, [implemente uma política para bloquear o acesso.](/azure/role-based-access-control/conditional-access-azure-management) 
 
 * **Florestas desligadas:** Utilize o provisionamento da [nuvem ad Azure](../cloud-provisioning/what-is-cloud-provisioning.md). Isto permite-lhe conectar-se a florestas desligadas, eliminando a necessidade de estabelecer conectividade ou fidedignidades florestais, que podem alargar o impacto de uma violação no local. * 
  

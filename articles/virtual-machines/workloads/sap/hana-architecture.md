@@ -1,5 +1,5 @@
 ---
-title: Arquitetura da SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Arquitetura da SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Arquitetura de como implantar SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23a177945316bca89aa5cbcc46f840213dbe832
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd81139c15e6bba65fe9b9a53a2e8e950ebd754b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964818"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201761"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Sap HANA (Grandes Instâncias) arquitetura em Azure
 
@@ -43,7 +43,7 @@ A arquitetura mostrada é dividida em três secções:
    Para aplicações e bases de dados SAP NetWeaver suportadas para funcionar em Azure, consulte [a Nota de Suporte SAP #1928533 – aplicações SAP no Azure: Produtos suportados e tipos de VM Azure](https://launchpad.support.sap.com/#/notes/1928533). Para documentação sobre como implementar soluções SAP no Azure, consulte:
 
   -  [Utilize SAP em máquinas virtuais do Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
-  -  [Utilize soluções SAP em máquinas virtuais Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Utilize soluções SAP em máquinas virtuais Azure](get-started.md)
 
 - **Esquerda**: Mostra o hardware certificado SAP HANA TDI no carimbo Azure Large Instance. As unidades HANA Large Instance estão ligadas às redes virtuais da sua subscrição Azure utilizando a mesma tecnologia que a conectividade das instalações para o Azure. A partir de maio de 2019 foi introduzida uma otimização que permite comunicar entre as unidades HANA Large Instance e os VMs Azure sem o envolvimento do Portal ExpressRoute. Esta otimização chamada ExpressRoute Fast Path é exibida nesta arquitetura (linhas vermelhas). 
 

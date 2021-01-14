@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7d116010d5e6fea5e1ba8a66431b874194506283
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ad47ac7d51de6ab497d7061961c14b5324fab931
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843456"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202458"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de Base de Segurança do Azure para o Key Vault
 
@@ -39,7 +39,7 @@ Como integrar o Key Vault com Azure Private Link:
 https://docs.microsoft.com/azure/key-vault/private-link-service
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -51,7 +51,7 @@ Para mais informações sobre a Segurança da Rede fornecida pelo Azure Security
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -60,7 +60,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -74,7 +74,7 @@ Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure: https://docs
 Deteção de ameaças para a camada de serviço Azure no Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -90,7 +90,7 @@ Registo do cofre da chave Azure: https://docs.microsoft.com/azure/key-vault/key-
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -106,7 +106,7 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -115,7 +115,7 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -126,7 +126,7 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 Visão geral das etiquetas de serviço Azure: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -149,7 +149,7 @@ Início rápido: Definir e atribuir uma planta no portal:
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -166,7 +166,7 @@ Use etiquetas para organizar os seus recursos Azure:
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -183,7 +183,7 @@ Criar, visualizar e gerir alertas de registo de atividade utilizando o Azure Mon
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -196,7 +196,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 **Orientação**: Não aplicável; A Microsoft mantém a fonte de tempo utilizada para os recursos Azure, como o Azure Key Vault, para os timetamps nos registos.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -213,7 +213,7 @@ Quickstart: Como embarcar Azure Sentinel:
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -226,7 +226,7 @@ Registo do cofre da chave Azure:
 https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -235,7 +235,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -246,7 +246,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 Alterar o período de retenção de dados: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -267,7 +267,7 @@ Começa com consultas de registo no Azure Monitor:
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -288,7 +288,7 @@ Responda aos eventos com alertas do Monitor Azure:
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -297,7 +297,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 **Orientação**: Não aplicável; O Azure Key Vault não processa nem produz registos relacionados com anti-malware.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -306,7 +306,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 **Orientação**: Não aplicável; O Azure Key Vault não processa nem produz registos relacionados com DNS.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -315,7 +315,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -338,7 +338,7 @@ Acesso seguro a um cofre de chaves:
 https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -347,7 +347,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 **Orientação**: Não aplicável; O Azure Key Vault não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida pelo Ative Directory e assegurada com o controlo de acesso baseado em funções Azure (Azure RBAC).
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -360,7 +360,7 @@ Monitorizar a identidade e o acesso (pré-visualização):
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -374,7 +374,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -391,7 +391,7 @@ Monitorizar a identidade e o acesso (pré-visualização):
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -399,13 +399,13 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Orientação**: Utilize uma estação de trabalho de acesso privilegiada (PAW) com a autenticação multi-factor AD (MFA) configurada para iniciar sessão e configurar recursos ativados do Cofre da Chave. 
 
-Estações de trabalho de acesso privilegiada: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Estações de trabalho de acesso privilegiada: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/ 
 
 Planejando uma implementação de autenticação multi-factor Azure Ad baseada na nuvem: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -427,7 +427,7 @@ Criar e gerir grupos de ação no portal Azure: https://docs.microsoft.com/azure
 
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -439,7 +439,7 @@ Qual é a condição de localização no Azure Ative Directy Conditional Access?
 
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -454,7 +454,7 @@ Quickstart: Criar um novo inquilino no Azure Ative Directory:
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -471,7 +471,7 @@ O que são comentários de acesso a AD AZure?:
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -485,7 +485,7 @@ Migrando da antiga solução Key Vault: https://docs.microsoft.com/azure/azure-m
 
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -500,7 +500,7 @@ Como: Configurar e permitir políticas de risco: https://docs.microsoft.com/azur
 Como embarcar Azure Sentinel:  https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -512,7 +512,7 @@ Serviços e cenários apoiados em disponibilidade geral: https://docs.microsoft.
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -528,7 +528,7 @@ Use etiquetas para organizar os seus recursos Azure: https://docs.microsoft.com/
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -544,7 +544,7 @@ Pontos finais de serviço de rede virtual para Azure Key Vault: https://docs.mic
 
 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -560,7 +560,7 @@ Registo do cofre da chave Azure: https://docs.microsoft.com/azure/key-vault/key-
 
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -574,7 +574,7 @@ Acesso Azure Key Vault atrás de uma firewall: https://docs.microsoft.com/azure/
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -583,7 +583,7 @@ Acesso Azure Key Vault atrás de uma firewall: https://docs.microsoft.com/azure/
 **Orientação**: Não aplicável; todos os dados dentro do Cofre da Chave Azure (segredos, chaves e certificados) são considerados sensíveis.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -604,7 +604,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 **Orientação**: A Microsoft gere a infraestrutura subjacente ao Azure Key Vault e implementou controlos rigorosos para evitar a perda ou exposição dos dados dos clientes.
 
-O que é o cofre de chave do Azure?
+O que é o Azure Key Vault?
 
 https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
@@ -613,7 +613,7 @@ Proteção de dados do cliente Azure:
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -626,7 +626,7 @@ Documentação de apoio:
 - [Modelo de encriptação e tabela de gestão chave](../../security/fundamentals/encryption-atrest.md)
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -640,7 +640,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -653,7 +653,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 **Orientação**: A Microsoft executa a gestão de vulnerabilidades nos sistemas subjacentes que suportam o Azure Key Vault.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -661,7 +661,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 **Orientação**: N/A; A Microsoft realiza a gestão de patchs nos sistemas subjacentes que suportam o Key Vault.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -670,7 +670,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -678,7 +678,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 **Orientação**: A Microsoft executa a gestão de vulnerabilidades nos sistemas subjacentes que suportam o Key Vault.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -691,7 +691,7 @@ Melhore a sua pontuação segura no Centro de Segurança Azure:
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -715,7 +715,7 @@ O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -727,7 +727,7 @@ Como criar e utilizar Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -746,7 +746,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 Use etiquetas para organizar os seus recursos Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -754,7 +754,7 @@ Use etiquetas para organizar os seus recursos Azure: https://docs.microsoft.com/
 
 **Orientação**: Defina a lista de recursos aprovados da Azure e software aprovado para os seus recursos de computação
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -774,7 +774,7 @@ Quickstart: Execute a sua primeira consulta de gráfico de recurso utilizando o 
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -783,7 +783,7 @@ Quickstart: Execute a sua primeira consulta de gráfico de recurso utilizando o 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -792,7 +792,7 @@ Quickstart: Execute a sua primeira consulta de gráfico de recurso utilizando o 
 **Orientação**: Não aplicável; esta recomendação destina-se ao Azure como um todo, bem como aos recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -801,7 +801,7 @@ Quickstart: Execute a sua primeira consulta de gráfico de recurso utilizando o 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -819,7 +819,7 @@ Amostras da política de Azure: https://docs.microsoft.com/azure/governance/poli
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -828,7 +828,7 @@ Amostras da política de Azure: https://docs.microsoft.com/azure/governance/poli
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -841,7 +841,7 @@ Gerir o acesso à gestão Azure com Acesso Condicional:
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -850,7 +850,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -859,7 +859,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -892,7 +892,7 @@ Tutorial: Criar e gerir políticas para impor o cumprimento:
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -901,7 +901,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -919,7 +919,7 @@ Compreender os efeitos da Política Azure:
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -928,7 +928,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -944,7 +944,7 @@ Documentação Azure Repos:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -953,7 +953,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -965,7 +965,7 @@ Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -974,7 +974,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -988,7 +988,7 @@ Como remediar recomendações no Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -997,7 +997,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 **Orientação**: Não aplicável; este referencial destina-se a recursos computacional.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1021,7 +1021,7 @@ Como atribuir uma política de acesso ao Cofre chave:
 
 https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1039,17 +1039,17 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 * [Como atribuir uma política de acesso ao Cofre de Chaves](assign-access-policy-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.  
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.  
   
  Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1062,7 +1062,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional. A Microsoft lida com anti-malware para a plataforma subjacente.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1074,7 +1074,7 @@ Pré-digitalize qualquer conteúdo que seja carregado ou enviado para recursos A
 
 Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1083,7 +1083,7 @@ Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional. A Microsoft lida com anti-malware para a plataforma subjacente.
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1117,7 +1117,7 @@ Como ativar a cópia de segurança do Azure: https://docs.microsoft.com/azure/ba
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1147,7 +1147,7 @@ Como ativar a cópia de segurança do Azure: https://docs.microsoft.com/azure/ba
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1172,7 +1172,7 @@ Como restaurar as contas de armazenamento gerido do cofre chave: https://docs.mi
 Como restaurar os segredos do cofre chave: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1184,7 +1184,7 @@ Como utilizar o Soft Delete do Azure Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1194,7 +1194,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente. Estes processos devem ter como foco a proteção de sistemas sensíveis, como os que utilizam segredos do Key Vault.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente. Estes processos devem ter como foco a proteção de sistemas sensíveis, como os que utilizam segredos do Key Vault.
 
 Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure: 
 
@@ -1212,7 +1212,7 @@ O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Seguran�
 
 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1221,19 +1221,19 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 **Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta. Além disso, marque claramente as subscrições (para ex. produção, não-prod) e criar um sistema de nomeação para identificar e categorizar claramente os recursos do Azure, especialmente aqueles que processam dados sensíveis como os segredos do Azure Key Vault.
 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger as instâncias do Cofre da Chave Azure e recursos relacionados. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger as instâncias do Cofre da Chave Azure e recursos relacionados. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities: 
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1245,7 +1245,7 @@ Como definir o Contacto de Segurança do Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1265,7 +1265,7 @@ Como transmitir alertas para Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1279,7 +1279,7 @@ Como configurar a automatização do fluxo de trabalho e as aplicações lógica
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1299,9 +1299,9 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ description: Obtenha a visualização da página e as contagens de sessão, dado
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 31cfa2e56fa10743c9a95d4df880fb1869fd9613
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858557"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203444"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -107,7 +107,7 @@ Cada opção de configuração é mostrada acima numa nova linha, se não preten
 
 As opções de configuração disponíveis são
 
-| Nome | Tipo | Descrição
+| Nome | Tipo | Description
 |------|------|----------------
 | src | corda **[necessária]** | O URL completo para onde carregar o SDK. Este valor é usado para o atributo "src" de um script/tag dinamicamente &lt; &gt; adicionado. Você pode usar a localização pública da CDN ou a sua própria hospedada privada.
 | name | corda *[opcional]* | O nome global para o SDK inicializado, predefine para `appInsights` . Assim ```window.appInsights``` será uma referência à instância inicializada. Nota: se fornecer um valor de nome ou uma instância anterior parece ser atribuído (através da app de nome globalInsightsSDK) então este valor de nome também será definido no espaço de nome global, pois ```window.appInsightsSDK=<name value>``` , isto é exigido pelo código de inicialização SDK para garantir que está a inicializar e atualizar os métodos corretos de esqueleto e procuração.
@@ -170,7 +170,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Nome | Predefinição | Descrição |
+| Name | Predefinição | Description |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Obrigatório**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
@@ -196,7 +196,7 @@ A maioria dos campos de configuração são nomeados de modo a que possam ser in
 | correlationHeaderDomains |  | Permitir cabeçalhos de correlação para domínios específicos |
 | desativarFlushOnBeforeUnload | false | Falso padrão. Se for verdade, o método de descarga não será chamado quando emBeforeUnload evento dispara |
 | enableSessionStorageBuffer | true | Padrão verdadeiro. Se for verdade, o tampão com toda a telemetria não solicitada é armazenado no armazenamento da sessão. O tampão é restaurado na carga da página |
-| isCookieUseDisabled | false | Falso padrão. Se for verdade, o SDK não armazenará nem lerá quaisquer dados a partir de cookies.|
+| isCookieUseDisabled | false | Falso padrão. Se for verdade, o SDK não armazenará nem lerá quaisquer dados a partir de cookies. Note que isto desativa os cookies de Utilizador e Sessão e torna inúteis as lâminas de utilização e as experiências. |
 | cookieDomain | nulo | Domínio de cookies personalizado. Isto é útil se você quiser compartilhar cookies Application Insights em subdomínios. |
 | isRetryDisabled | false | Falso padrão. Se for falso, reda o ano de 206 (sucesso parcial), 408 (tempo limite), 429 (pedidos a mais), 500 (erro do servidor interno), 503 (serviço indisponível) e 0 (offline, apenas se for detetado) |
 | isStorageUseDisabled | false | Se for verdade, o SDK não armazenará nem lerá quaisquer dados do armazenamento local e da sessão. A predefinição é falso. |

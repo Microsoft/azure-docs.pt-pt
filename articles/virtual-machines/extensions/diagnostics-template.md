@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 181f226a4d7aa37ffd8c667db4736a96450e2be5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a91e21994dda126e14c100bcf1d2a69c36b13e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955961"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202169"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilize monitorização e diagnósticos com modelos windows VM e Azure Resource Manager
 A Extensão de Diagnóstico Azure fornece as capacidades de monitorização e diagnóstico numa máquina virtual Azure baseada no Windows. Pode ativar estas capacidades na máquina virtual, incluindo a extensão como parte do modelo do Gestor de Recursos Azure. Consulte [modelos de gestor de recursos Azure com extensões VM](../windows/template-description.md#extensions) para obter mais informações sobre a inclusão de qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como pode adicionar a extensão Azure Diagnostics a um modelo de máquina virtual windows.  
@@ -162,7 +162,7 @@ A configuração métrica acima gera tabelas na sua conta de armazenamento de di
 * **PT1H** ou **PT1M**: Significa que a tabela contém dados agregados ao longo de 1 hora ou 1 minuto
 * **P10D**: Significa que a tabela conterá dados durante 10 dias a partir do momento em que a tabela começou a recolher dados
 * **V2S**: Constante de cordas
-* **yyymmdd**: A data em que a mesa começou a recolher dados
+* **ymmdd**: A data em que a mesa começou a recolher dados
 
 Exemplo: *WADMetricsPT1HP10DV2S20151108* contém dados métricos agregados ao longo de uma hora durante 10 dias a partir de 11-Nov-2015    
 
@@ -179,5 +179,5 @@ Cada tabela WADMetrics contém as seguintes colunas:
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter um modelo completo de amostra de uma máquina virtual do Windows com extensão de diagnóstico, consulte [a extensão de diagnóstico de diagnóstico de monitorização de 201 vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Implemente o modelo do Gestor de Recursos Azure utilizando a linha de comando [Azure PowerShell](../windows/ps-template.md) ou [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Implemente o modelo do Gestor de Recursos Azure utilizando a linha de comando [Azure PowerShell](../windows/ps-template.md) ou [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md)
 * Saiba mais sobre [a autoria de modelos do Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md)

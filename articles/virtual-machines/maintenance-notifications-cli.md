@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: c449bce76cc9cb7e5f8b9659c11b443e186c65ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bd5c8ae7b4f2ba2d057f61712ce799814e19050
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306978"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202152"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Tratamento de notificações de manutenção planeadas utilizando o Azure CLI
 
 **Este artigo aplica-se a máquinas virtuais que executam o Linux e o Windows.**
 
-Pode utilizar o CLI para ver quando estão programados VMs para [manutenção.](maintenance-notifications.md) Informações de manutenção planeadas estão disponíveis a partir de [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
+Pode utilizar o CLI para ver quando estão programados VMs para [manutenção.](maintenance-notifications.md) Informações de manutenção planeadas estão disponíveis a partir de [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view).
  
 As informações de manutenção só são devolvidas se houver manutenção planeada. 
 

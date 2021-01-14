@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 751d447c164c602b9b1524d4945d61556bf71932
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d5caacc7ebbb39a5d6d4fa3d4e9757e8e83420f9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127299"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202696"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Prepare a Red Hat-based virtual machine for Azure (Preparar uma máquina virtual baseada em Red Hat para o Azure)
 Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso em Azure. As versões do RHEL que estão abrangidas por este artigo são 6.7+ e 7.1+. Os hipervisores para a preparação que estão cobertos neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa Red Hat's Cloud Access, consulte o [site do Red Hat's Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o Running [RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para formas de automatizar a construção de imagens RHEL consulte o [Azure Image Builder](./image-builder-overview.md).
@@ -30,7 +30,7 @@ Esta secção pressupõe que já obteve um ficheiro ISO do site do Red Hat e ins
 * O Azure não suporta o formato VHDX. O Azure suporta apenas VHD fixo. Pode utilizar o Hyper-V Manager para converter o disco no formato VHD, ou pode utilizar o cmdlet converte-vhd. Se utilizar a VirtualBox, selecione **tamanho fixo** em oposição ao padrão de opção atribuída dinamicamente quando criar o disco.
 * A azure suporta máquinas virtuais Gen1 (BOTA BIOS) & Gen2 (bota UEFI).
 * O tamanho máximo permitido para o VHD é de 1.023 GB.
-* O Gestor de Volume Lógico (LVM) é suportado e pode ser utilizado no disco de SISTEMA ou discos de dados em máquinas virtuais Azure. No entanto, em geral, recomenda-se a utilização de divisórias padrão no disco de so em vez de LVM. Esta prática evitará conflitos de nome LVM com máquinas virtuais clonadas, especialmente se alguma vez precisar de anexar um disco do sistema operativo a outra máquina virtual idêntica para a resolução de problemas. Consulte também a documentação [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [RAID.](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* O Gestor de Volume Lógico (LVM) é suportado e pode ser utilizado no disco de SISTEMA ou discos de dados em máquinas virtuais Azure. No entanto, em geral, recomenda-se a utilização de divisórias padrão no disco de so em vez de LVM. Esta prática evitará conflitos de nome LVM com máquinas virtuais clonadas, especialmente se alguma vez precisar de anexar um disco do sistema operativo a outra máquina virtual idêntica para a resolução de problemas. Consulte também a documentação [LVM](configure-lvm.md) e [RAID.](configure-raid.md)
 * **É necessário suporte ao Kernel para a montagem de sistemas de ficheiros Universal Disk Format (UDF).** No início da boot on Azure, o mídia formatada pelo UDF que está ligado ao hóspede passa a configuração de provisionamento para a máquina virtual Linux. O Agente Azure Linux deve ser capaz de montar o sistema de ficheiros UDF para ler a sua configuração e providenciar a máquina virtual, sem isso, o provisionamento falhará!
 * Não configuure uma partição de troca no disco do sistema operativo. Mais informações sobre isso podem ser encontradas nos seguintes passos.
 
