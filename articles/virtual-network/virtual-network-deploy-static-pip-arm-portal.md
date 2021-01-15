@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506316"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221161"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Criar uma máquina virtual com um endereço IP público estático utilizando o portal Azure
 
@@ -32,7 +32,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >    >   **Virtual** na caixa de pesquisa.
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -43,7 +43,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Grupo de Recursos | Selecione **Criar novo**. </br> Em **Nome,** insira **o myResourceGroup**. </br> Selecione **OK**. |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Região | Selecione **E.U.A. Leste**. |
+    | Region | Selecione **E.U.A. Leste**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -62,23 +62,23 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | **Interface de rede** |  |
     | Rede virtual | Aceite o nome de rede padrão. |
     | Sub-rede | Aceite a configuração de sub-rede predefinido. |
-    | IP público | Selecione **Criar novo**. </br> In **Create public IP address** , in name in **myPublicIP**. </br> Para **SKU** , selecione **Standard**. </br> **Atribuição** , selecione **Estática**. </br> Selecione **OK**.  |
+    | IP público | Selecione **Criar novo**. </br> In **Create public IP address**, in name in **myPublicIP**. </br> Para **SKU**, selecione **Standard**. </br> **Atribuição**, selecione **Estática**. </br> Selecione **OK**.  |
     | Grupo de segurança de rede NIC | Selecione **Basic**|
     | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
     | Selecione as portas de entrada | Selecione **RDP (3389)** |
 
     > [!WARNING]
-    > O Portal 3389 encontra-se selecionado para permitir o acesso remoto à máquina virtual do Windows Server a partir da internet. A abertura da porta 3389 à internet não é recomendada para gerir cargas de trabalho de produção. </br> Para acesso seguro às máquinas virtuais Azure, veja **[o que é Azure Bastion?](/azure/bastion/bastion-overview)**
+    > O Portal 3389 encontra-se selecionado para permitir o acesso remoto à máquina virtual do Windows Server a partir da internet. A abertura da porta 3389 à internet não é recomendada para gerir cargas de trabalho de produção. </br> Para acesso seguro às máquinas virtuais Azure, veja **[o que é Azure Bastion?](../bastion/bastion-overview.md)**
    
 5. Selecione **Rever + criar**. 
   
 6. Reveja as definições e, em seguida, **selecione Criar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza **myResourceGroup** na caixa **Pesquisar** , na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza **myResourceGroup** na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza **myResourceGroup** em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
@@ -95,7 +95,7 @@ O SKU do endereço IP público da máquina virtual deve corresponder ao IP PÚBL
 
 Pode transferir a lista de intervalos (prefixos) das clouds [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
 
-- Saiba mais sobre [endereços IP públicos estáticos.](virtual-network-ip-addresses-overview-arm.md#allocation-method)
-- Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
+- Saiba mais sobre [endereços IP públicos estáticos.](./public-ip-addresses.md#allocation-method)
+- Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e atribuindo um [endereço IP estático privado](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual Azure.
+- Saiba mais sobre [endereços IP privados](./private-ip-addresses.md) e atribuindo um [endereço IP estático privado](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual Azure.

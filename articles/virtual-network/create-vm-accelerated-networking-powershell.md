@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289627"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223640"
 ---
-# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar um VM do Windows com rede acelerada utilizando a Azure PowerShell
+# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada com o Azure PowerShell
 
 Neste tutorial, aprende-se a criar uma máquina virtual Windows (VM) com rede acelerada.
 
@@ -65,7 +65,7 @@ A rede acelerada é suportada na maioria dos tamanhos de instância otimizados p
 
 Em casos que suportam a hiper-leitura, a rede acelerada é suportada em instâncias VM com quatro ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
-Para obter mais informações sobre as instâncias VM, consulte [tamanhos para máquinas virtuais windows em Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre as instâncias VM, consulte [tamanhos para máquinas virtuais windows em Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="custom-images"></a>Imagens personalizadas
 
@@ -104,7 +104,7 @@ Na informação da interface de rede, junto à etiqueta **de rede acelerada,** o
 
 Antes de prosseguir, instale a versão 1.0.0 ou mais tarde da [Azure PowerShell.](/powershell/azure/install-az-ps) Para encontrar a sua versão atualmente instalada, corra `Get-Module -ListAvailable Az` . Se necessitar de instalar ou atualizar, instale a versão mais recente do módulo Az a partir da [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). Numa sessão PowerShell, inscreva-se numa conta Azure utilizando [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myNic*e *myVM*.
+Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myNic* e *myVM*.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -208,7 +208,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus
     $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
     ```
 
-    Para obter uma lista de todos os tamanhos e características VM, consulte os [tamanhos do Windows VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Para obter uma lista de todos os tamanhos e características VM, consulte os [tamanhos do Windows VM](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Crie o resto da sua configuração VM com [o Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) e [o Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). O seguinte comando cria um VM Windows Server 2016:
 

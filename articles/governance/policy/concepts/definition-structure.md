@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883253"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220818"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -261,7 +261,7 @@ Pode nidificar operadores lógicos. O exemplo a seguir mostra uma **operação n
 
 ### <a name="conditions"></a>Condições
 
-Uma condição avalia se um **campo** ou o acessório **de valor** cumpre determinados critérios. As condições apoiadas são:
+Uma condição avalia se um valor satisfaz determinados critérios. As condições apoiadas são:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -291,12 +291,9 @@ O valor não deve ter mais do que um `*` wildcard.
 
 Ao utilizar as condições **de jogo** e não **de jogo,** forneça `#` para combinar um dígito, para uma `?` letra, para combinar com `.` qualquer personagem, e qualquer outro personagem que corresponda a esse personagem real. Embora **o match** e **o notMatch** sejam sensíveis a casos, todas as outras condições que avaliam uma _cadeiaValue_ são insensíveis a caso. Alternativas insensíveis a casos estão disponíveis em **matchInsensitively** e **não MatchInsensitively**.
 
-Num valor de campo de matriz **\[ \* \] de pseudónimo,** cada elemento na matriz é avaliado individualmente com elementos lógicos **e** entre elementos. Para obter mais informações, consulte as propriedades dos recursos da matriz de [referência.](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)
-
 ### <a name="fields"></a>Campos
 
-As condições são formadas através da utilização de campos. Um campo corresponde às propriedades na carga útil do pedido de recurso e descreve o estado do recurso.
-
+As condições que avaliam se os valores dos imóveis na carga útil do pedido de recurso satisfazem determinados critérios podem ser formadas através de uma expressão **de campo.**
 São suportados os seguintes campos:
 
 - `name`
@@ -305,6 +302,7 @@ São suportados os seguintes campos:
 - `kind`
 - `type`
 - `location`
+  - Os campos de localização estão normalizados para suportar vários formatos. Por exemplo, `East US 2` é considerado igual a `eastus2` .
   - Use **global** para recursos que são agnósticos de localização.
 - `id`
   - Devolve o ID de recursos do recurso que está a ser avaliado.
@@ -324,6 +322,10 @@ São suportados os seguintes campos:
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]` e ainda são formas `tags[tag.with.dots]` aceitáveis de declarar um campo de tags. No entanto, as expressões preferidas são as acima referidas.
+
+> [!NOTE]
+> Nas expressões de **campo** referentes ao **\[ \* \] pseudónimo,** cada elemento da matriz é avaliado individualmente com elementos lógicos **e** entre elementos.
+> Para obter mais informações, consulte as propriedades dos recursos da matriz de [referência.](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)
 
 #### <a name="use-tags-with-parameters"></a>Use etiquetas com parâmetros
 
@@ -355,7 +357,7 @@ No exemplo seguinte, `concat` é usado para criar um lookup de campo de tags par
 
 ### <a name="value"></a>Valor
 
-As condições também podem ser formadas com **o valor.** **valore** verifica as condições contra [parâmetros,](#parameters) [funções de modelo suportadas,](#policy-functions)ou literais. **o valor** é emparelhado com qualquer [condição](#conditions)suportada .
+As condições que avaliam se um valor satisfaz determinados critérios podem ser formadas através de uma expressão **de valor.** Os valores podem ser literais, os valores dos [parâmetros,](#parameters)ou os valores devolvidos de quaisquer [funções de modelo suportados.](#policy-functions)
 
 > [!WARNING]
 > Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação** implícita. Para obter mais informações, consulte [evitar falhas no modelo](#avoiding-template-failures). Utilize [a aplicação da](./assignment-structure.md#enforcement-mode) **DoNotEnforce** para evitar o impacto de uma avaliação falhada em recursos novos ou atualizados enquanto testa e valida uma nova definição de política.
@@ -440,9 +442,11 @@ Com a regra da política revista, `if()` verifica o comprimento do **nome** ante
 
 ### <a name="count"></a>de palavras
 
-As condições que contam quantos membros de uma matriz na carga útil do recurso satisfazem uma expressão da condição podem ser formadas usando a expressão **da contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia cada membro da matriz [ \[ \* \] de pseudónimo para](#understanding-the--alias) uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até três vezes a uma única definição **de regra de política.**
+As condições que contam quantos membros de uma matriz cumprem determinados critérios podem ser formadas usando uma expressão **de contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem uma condição. **O Conde** avalia cada membro da matriz para uma expressão de condição e resume os _verdadeiros_ resultados, que são então comparados com o operador de expressão.
 
-A estrutura da expressão **da contagem** é:
+#### <a name="field-count"></a>Contagem de campo
+
+Conte quantos membros de uma matriz na carga útil do pedido satisfaçam uma expressão da condição. A estrutura das expressões de contagem de **campo** é:
 
 ```json
 {
@@ -456,16 +460,62 @@ A estrutura da expressão **da contagem** é:
 }
 ```
 
-As seguintes propriedades são utilizadas com **contagem:**
+As seguintes propriedades são utilizadas com **contagem de campo:**
 
-- **count.field** (obrigatório): Contém o caminho para a matriz e deve ser um pseudónimo de matriz. Se faltar a matriz, a expressão é avaliada como _falsa_ sem considerar a expressão da condição.
-- **count.where** (opcional): A expressão da condição para avaliar individualmente cada membro da [ \[ \* \]](#understanding-the--alias) matriz de **nomes de conde.field**. Se esta propriedade não for fornecida, todos os membros da matriz com o caminho do 'campo' são avaliados como _verdadeiros_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro desta propriedade.
+- **count.field** (obrigatório): Contém o caminho para a matriz e deve ser um pseudónimo de matriz.
+- **count.where** (opcional): A expressão da condição para avaliar individualmente para cada membro da [ \[ \* \]](#understanding-the--alias) matriz de `count.field` . Se esta propriedade não for fornecida, todos os membros da matriz com o caminho do 'campo' são avaliados como _verdadeiros_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro desta propriedade.
   [Os operadores lógicos](#logical-operators) podem ser usados dentro desta propriedade para criar requisitos de avaliação complexos.
 - **\<condition\>** (obrigatório): O valor é comparado com o número de itens que cumpriram a **contagem.onde** a expressão da condição. Deve ser utilizada uma [condição](../concepts/definition-structure.md#conditions) numérica.
 
-Para obter mais detalhes sobre como trabalhar com propriedades de matriz na Política Azure, incluindo explicações detalhadas sobre como a expressão da contagem é avaliada, consulte [as propriedades de recursos da matriz de referência](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+**As** expressões de contagem de campo podem enumerar o mesmo conjunto de campo até três vezes numa única definição **de regra de política.**
 
-#### <a name="count-examples"></a>Contar exemplos
+Para obter mais detalhes sobre como trabalhar com propriedades de matriz na Política Azure, incluindo explicações detalhadas sobre como a expressão **da contagem de campo** é avaliada, consulte as propriedades de recursos da matriz de [referência](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+#### <a name="value-count"></a>Contagem de valor
+Conte quantos membros de uma matriz satisfazem uma condição. A matriz pode ser uma matriz literal ou uma [referência ao parâmetro de matriz](#using-a-parameter-value). A estrutura das expressões de contagem de **valor** é:
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+As seguintes propriedades são utilizadas com **a contagem de valor:**
+
+- **count.value** (obrigatório): A matriz para avaliar.
+- **count.name** (obrigatório): O nome do índice, composto por letras e dígitos ingleses. Define um nome para o valor do membro da matriz avaliado na iteração atual. O nome é usado para referenciar o valor atual dentro da `count.where` condição. Opcional quando a expressão da **contagem** não está numa criança de outra expressão **de contagem.** Quando não for fornecido, o nome do índice é implicitamente definido para `"default"` .
+- **count.where** (opcional): A expressão da condição para avaliar individualmente para cada membro da matriz de `count.value` . Se esta propriedade não for fornecida, todos os membros da matriz são avaliados como _verdadeiros_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro desta propriedade. [Os operadores lógicos](#logical-operators) podem ser usados dentro desta propriedade para criar requisitos de avaliação complexos. O valor do membro da matriz atualmente enumerado pode ser acedido através da chamada da função [atual.](#the-current-function)
+- **\<condition\>** (obrigatório): O valor é comparado com o número de itens que satisfaziam a expressão da `count.where` condição. Deve ser utilizada uma [condição](../concepts/definition-structure.md#conditions) numérica.
+
+São aplicados os seguintes limites:
+- Até 10 expressões **de contagem de valor** podem ser usadas numa única **definição de regra de política.**
+- Cada **contagem de valor** expressões pode executar até 100 iterações. Este número inclui o número de iterações realizadas por quaisquer expressões **de contagem de valor** dos pais.
+
+#### <a name="the-current-function"></a>A função atual
+
+A `current()` função só está disponível dentro da `count.where` condição. Devolve o valor do membro da matriz que é atualmente enumerado por uma avaliação de expressão **de contagem.**
+
+**Utilização da contagem de valor**
+
+- `current(<index name defined in count.name>)`. Por exemplo: `current('arrayMember')`.
+- `current()`. Permitido apenas quando a expressão **de contagem** de valor não é uma criança de outra expressão **de contagem.** Devolve o mesmo valor que acima.
+
+Se o valor devolvido pela chamada for um objeto, os acessórios de propriedade são suportados. Por exemplo: `current('objectArrayMember').property`.
+
+**Utilização da contagem de campo**
+
+- `current(<the array alias defined in count.field>)`. Por exemplo, `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Permitido apenas quando a expressão **contagem de campo** não é uma criança de outra expressão de **contagem.** Devolve o mesmo valor que acima.
+- `current(<alias of a property of the array member>)`. Por exemplo, `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
+
+#### <a name="field-count-examples"></a>Exemplos de contagem de campo
 
 Exemplo 1: Verifique se uma matriz está vazia
 
@@ -550,18 +600,162 @@ Exemplo 5: Verifique se pelo menos um membro da matriz corresponde a várias pro
 }
 ```
 
-Exemplo 6: Utilizar `field()` a função dentro das `where` condições de acesso ao valor literal do membro da matriz atualmente avaliado. Esta condição verifica se não existem regras de segurança com um valor _prioritário_ numerado.
+Exemplo 6: Utilize `current()` a função dentro das `where` condições para aceder ao valor do membro da matriz atualmente enumerado numa função de modelo. Esta condição verifica se uma rede virtual contém um prefixo de endereço que não está na faixa 10.0.0.0/24 CIDR.
 
 ```json
 {
     "count": {
-        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
         "where": {
-          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
-          "equals": 0
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
         }
     },
     "greater": 0
+}
+```
+
+Exemplo 7: Utilizar `field()` a função dentro das `where` condições de acesso ao valor do membro da matriz atualmente enumerado. Esta condição verifica se uma rede virtual contém um prefixo de endereço que não está na faixa 10.0.0.0/24 CIDR.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### <a name="value-count-examples"></a>Exemplos de contagem de valor
+
+Exemplo 1: Verifique se o nome do recurso corresponde a algum dos padrões de nome.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 2: Verifique se o nome do recurso corresponde a algum dos padrões de nome. A `current()` função não especifica um nome de índice. O resultado é o mesmo é o exemplo anterior.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 3: Verifique se o nome do recurso corresponde a algum dos padrões de nome fornecidos por um parâmetro de matriz.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 4: Verifique se algum dos prefixos de endereço de rede virtual não está na lista de prefixos aprovados.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemplo 5: Verifique se todas as regras NSG reservadas são definidas num NSG. As propriedades das regras NSG reservadas são definidas num parâmetro de matriz contendo objetos.
+
+Valor do parâmetro:
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+Política:
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
 }
 ```
 
@@ -627,7 +821,6 @@ As seguintes funções só estão disponíveis nas regras políticas:
   }
   ```
 
-
 - `ipRangeContains(range, targetRange)`
     - **gama**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
     - **targetRange**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
@@ -639,6 +832,8 @@ As seguintes funções só estão disponíveis nas regras políticas:
     - Gama CIDR (exemplos: `10.0.0.0/24` `2001:0DB8::/110` , )
     - Gama definida por endereços IP de início e fim (exemplos: `192.168.0.1-192.168.0.9` `2001:0DB8::-2001:0DB8::3:FFFF` )
 
+- `current(indexName)`
+    - Função especial que só pode ser utilizada dentro [das expressões de contagem.](#count)
 
 #### <a name="policy-function-example"></a>Exemplo de função política
 

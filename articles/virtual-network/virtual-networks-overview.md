@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 11651b7a76ea0e61f78f3b2f305e39ed621df391
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109322"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218539"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -31,7 +31,7 @@ A rede virtual Azure permite que os recursos Azure se comuniquem de forma segura
 Todos os recursos num VNet podem comunicar-se à internet, por padrão. Pode comunicar com um recurso à entrada, ao atribuir-lhe um endereço IP público ou um Balanceador de Carga público. Também pode utilizar o IP público ou o Balanceador de Carga público para gerir as suas ligações de saída.  Para saber mais sobre as ligações de saída no Azure, veja [Ligações de saída](../load-balancer/load-balancer-outbound-connections.md), [Endereços IP públicos](virtual-network-public-ip-address.md) e [Balanceador de Carga](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
->Ao utilizar apenas um [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md) interno, a conectividade de saída não está disponível até definir como pretende que as [ligações de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público de nível de instância ou um Balanceador de Carga público.
+>Ao utilizar apenas um [Balanceador de Carga Standard](../load-balancer/load-balancer-overview.md) interno, a conectividade de saída não está disponível até definir como pretende que as [ligações de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público de nível de instância ou um Balanceador de Carga público.
 
 ### <a name="communicate-between-azure-resources"></a>Comunicação entre os recursos do Azure
 
@@ -49,14 +49,14 @@ Pode ligar os computadores e redes no local a uma rede virtual, com qualquer com
 - **Rede de VPNs:** estabelecida entre o dispositivo VPN no local e um Gateway de VPN do Azure que é implementado numa rede virtual. Este tipo de ligação permite a qualquer recurso no local, que esteja autorizado por si, a aceder a uma rede virtual. A comunicação entre o dispositivo VPN no local e um gateway de VPN do Azure é enviada por um túnel encriptado através da Internet. Para obter mais informações, veja [Rede de VPNs](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
 - **Azure ExpressRoute:** estabelecida entre a rede e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada. O tráfego não é transmitido pela Internet. Para saber mais, veja [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="filter-network-traffic"></a>Filtre o tráfego de rede
+### <a name="filter-network-traffic"></a>Filtrar o tráfego de rede
 
 Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
-- **Grupos de segurança de rede:** Os grupos de segurança da rede e os grupos de segurança de aplicações podem conter várias regras de segurança de entrada e saída que lhe permitem filtrar o tráfego de e para os recursos através do endereço IP de origem e destino, porto e protocolo. Para saber mais, consulte [grupos de segurança da Rede](security-overview.md#network-security-groups) ou [grupos de segurança de aplicações.](security-overview.md#application-security-groups)
+- **Grupos de segurança de rede:** Os grupos de segurança da rede e os grupos de segurança de aplicações podem conter várias regras de segurança de entrada e saída que lhe permitem filtrar o tráfego de e para os recursos através do endereço IP de origem e destino, porto e protocolo. Para saber mais, consulte [grupos de segurança da Rede](./network-security-groups-overview.md#network-security-groups) ou [grupos de segurança de aplicações.](./network-security-groups-overview.md#application-security-groups)
 - **Aplicações virtuais de rede:** uma aplicação virtual de rede é uma VM que executa uma função de rede, como uma firewall, otimização de rede alargada ou outra função de rede. Para ver uma lista das aplicações virtuais de rede disponíveis que pode implementar numa rede virtual, veja [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-### <a name="route-network-traffic"></a>Encaminhe o tráfego de rede
+### <a name="route-network-traffic"></a>Encaminhar o tráfego de rede
 
 O Azure encaminha tráfego entre sub-redes, redes virtuais ligadas, redes no local e na Internet, por predefinição. Pode implementar uma ou ambas das seguintes opções para substituir as rotas predefinidas que o Azure cria:
 

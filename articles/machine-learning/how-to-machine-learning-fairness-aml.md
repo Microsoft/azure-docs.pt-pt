@@ -10,13 +10,13 @@ author: mesameki
 ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.custom: how-to, devx-track-python, responsible-ml
+ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901152"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222773"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
 

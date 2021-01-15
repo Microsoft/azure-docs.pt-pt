@@ -1,14 +1,14 @@
 ---
 title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
-ms.date: 10/05/2020
+ms.date: 01/14/2021
 ms.topic: overview
-ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803957"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220733"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -83,7 +83,7 @@ Se nenhuma das Funções incorporadas tiver as permissões exigidas, crie uma [f
 
 ### <a name="resources-covered-by-azure-policy"></a>Recursos abrangidos pela Política Azure
 
-A Azure Policy avalia todos os recursos em recursos azure e Arc habilitados. Para certos fornecedores de recursos, como [a Configuração de Hóspedes](./concepts/guest-configuration.md), [Serviço Azure Kubernetes](../../aks/intro-kubernetes.md)e [Azure Key Vault,](../../key-vault/general/overview.md)existe uma integração mais profunda para gerir configurações e objetos. Para saber mais, consulte os [modos Provedor de Recursos.](./concepts/definition-structure.md)
+A Azure Policy avalia todos os recursos Azure a nível de subscrição ou abaixo, incluindo recursos ativados pela Arc. Para certos fornecedores de recursos, como [a Configuração de Hóspedes](./concepts/guest-configuration.md), [Serviço Azure Kubernetes](../../aks/intro-kubernetes.md)e [Azure Key Vault,](../../key-vault/general/overview.md)existe uma integração mais profunda para gerir configurações e objetos. Para saber mais, consulte os [modos Provedor de Recursos.](./concepts/definition-structure.md)
 
 ### <a name="recommendations-for-managing-policies"></a>Recomendações para a gestão de políticas
 

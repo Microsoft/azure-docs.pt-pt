@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179202"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222807"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementar a Cloud Shell numa rede virtual Azure
 
@@ -87,9 +87,6 @@ Se **o Estado de Registo** `Registered` for, não é necessária qualquer ação
 Se já tiver um VNET desejado a que gostaria de se ligar, salte esta secção.
 
 No portal Azure, ou utilizando o Azure CLI, a Azure PowerShell, etc. criar um grupo de recursos e uma rede virtual no novo grupo de recursos, **o grupo de recursos e a rede virtual precisam de estar na mesma região.**
-
-> [!NOTE]
-> Durante a pré-visualização pública, o grupo de recursos e a rede virtual devem estar localizados em WestCentralUS ou WestUS.
 
 ### <a name="arm-templates"></a>Modelos de ARM
 Utilize o [modelo Azure Quickstart](https://aka.ms/cloudshell/docs/vnet/template) para criar recursos cloud shell numa rede virtual e o [Modelo Azure Quickstart](https://aka.ms/cloudshell/docs/vnet/template/storage) para criar o armazenamento necessário. Tome nota dos seus nomes de recursos, principalmente o nome da sua partilha de ficheiros.

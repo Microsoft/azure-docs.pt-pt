@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b11bdf9b82352c15b7f7236168494f32fe4a4f9f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361318"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221515"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquinas virtuais
 
@@ -32,11 +32,11 @@ A entrada não é medido ou limitado diretamente. No entanto, existem outros fat
 
 A rede acelerada é uma funcionalidade projetada para melhorar o desempenho da rede, incluindo a latência, a produção e a utilização do CPU. Embora a rede acelerada possa melhorar a produção de uma máquina virtual, só pode fazê-lo até à largura de banda atribuída pela máquina virtual. Para saber mais sobre rede acelerada, consulte rede acelerada para máquinas virtuais [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux.](create-vm-accelerated-networking-cli.md)
  
-As máquinas virtuais Azure devem ter uma, mas podem ter várias interfaces de rede ligadas a elas. A largura de banda atribuída a uma máquina virtual é a soma de todo o tráfego de saída em todas as interfaces de rede ligadas a uma máquina virtual. Por outras palavras, a largura de banda atribuída é por máquina virtual, independentemente de quantas interfaces de rede estão ligadas à máquina virtual. Para saber quantas interfaces de rede suportam diferentes tamanhos Azure VM, consulte os tamanhos Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM. 
+As máquinas virtuais Azure devem ter uma, mas podem ter várias interfaces de rede ligadas a elas. A largura de banda atribuída a uma máquina virtual é a soma de todo o tráfego de saída em todas as interfaces de rede ligadas a uma máquina virtual. Por outras palavras, a largura de banda atribuída é por máquina virtual, independentemente de quantas interfaces de rede estão ligadas à máquina virtual. Para saber quantas interfaces de rede suportam diferentes tamanhos Azure VM, consulte os tamanhos Azure [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM. 
 
 ## <a name="expected-network-throughput"></a>Produção esperada da rede
 
-O rendimento de saída esperado e o número de interfaces de rede suportadas por cada tamanho VM é detalhado nos tamanhos Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM. Selecione um tipo, como propósito geral, e, em seguida, selecione uma série de tamanhos na página resultante, como a série Dv2. Cada série tem uma tabela com especificações de networking na última coluna intitulada, **Max NICs / Desempenho da rede esperada (Mbps)**. 
+O rendimento de saída esperado e o número de interfaces de rede suportadas por cada tamanho VM é detalhado nos tamanhos Azure [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM. Selecione um tipo, como propósito geral, e, em seguida, selecione uma série de tamanhos na página resultante, como a série Dv2. Cada série tem uma tabela com especificações de networking na última coluna intitulada, **Max NICs / Desempenho da rede esperada (Mbps)**. 
 
 O limite de produção aplica-se à máquina virtual. A produção não é afetada pelos seguintes fatores:
 - **Número de interfaces de rede**: O limite de largura de banda é cumulativo de todo o tráfego de saída da máquina virtual.

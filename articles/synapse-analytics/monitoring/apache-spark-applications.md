@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341137"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223130"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorizar as suas aplicações Apache Spark
 
@@ -33,17 +33,17 @@ Este tutorial abrange as seguintes tarefas:
 
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 
-- Um espaço de trabalho do Estúdio Synapse. Para obter instruções, consulte Criar um espaço de [trabalho do Estúdio Synapse](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Um espaço de trabalho do Estúdio Synapse. Para obter instruções, consulte Criar um espaço de [trabalho do Estúdio Synapse](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
 
 - Uma piscina Apache Spark.
 
 ## <a name="view-apache-spark-applications"></a>Ver aplicações Apache Spark 
-Pode ver todas as aplicações Apache Spark a partir de **Monitor**  ->  **aplicações** Monitor Apache Spark .
+Pode ver todas as aplicações Apache Spark a partir de   ->  **aplicações** Monitor Apache Spark .
    ![aplicações de faísca apache](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## <a name="view-completed-apache-spark-application"></a>Ver aplicação concluída do Apache Spark
 
-Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações concluídas do Apache Spark, selecione a aplicação Apache Spark e veja os detalhes.
+Abrir **monitor**, em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações concluídas do Apache Spark, selecione a aplicação Apache Spark e veja os detalhes.
 
   ![selecionar trabalho concluído](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
@@ -59,7 +59,7 @@ Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para
 
 6. Pode ver uma visão geral do seu trabalho no gráfico de trabalho gerado. Por defeito, o gráfico mostra todos os trabalhos. Pode filtrar esta vista por **Job ID**.
 
-7. Por predefinição, o **visor Progress** é selecionado. Pode verificar o fluxo de dados selecionando a Duração Escrita de **Leitura de Progresso** na lista / **Read** / **Written** / **Duration** de desistências do **Visor.**
+7. Por predefinição, o **visor Progress** é selecionado. Pode verificar o fluxo de dados selecionando a Duração Escrita de **Leitura de Progresso** na lista /  /  /  de desistências do **Visor.**
 
 8. Para reproduzir o trabalho, clique no botão **Reprodução.** Pode clicar no botão **Stop** a qualquer momento para parar.
 
@@ -92,7 +92,7 @@ Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para
 
 ## <a name="monitor-running-apache-spark-application"></a>Monitor que executa a aplicação Apache Spark
 
-Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações Apache Spark que estão em execução, selecione a aplicação Apache Spark e veja os detalhes. Se a aplicação Apache Spark ainda estiver em funcionamento, pode monitorizar o progresso.
+Abrir **monitor**, em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações Apache Spark que estão em execução, selecione a aplicação Apache Spark e veja os detalhes. Se a aplicação Apache Spark ainda estiver em funcionamento, pode monitorizar o progresso.
 
    ![selecionar trabalho de execução](./media/how-to-monitor-spark-applications/select-running-job.png)
 
@@ -116,7 +116,7 @@ Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para
 
 ## <a name="view-canceled-apache-spark-application"></a>Ver pedido cancelado da Apache Spark
 
-Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações canceladas do Apache Spark, selecione a aplicação Apache Spark e veja os detalhes.
+Abrir **monitor**, em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações canceladas do Apache Spark, selecione a aplicação Apache Spark e veja os detalhes.
 
  ![selecionar trabalho cancelado](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
@@ -138,7 +138,7 @@ Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para
 
 ## <a name="debug-failed-apache-spark-application"></a>Debug falhou pedido de Apache Spark
 
-Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações falhadas do Apache Spark, selecione a aplicação Apache Spark e veja os detalhes.
+Abrir **monitor**, em seguida, selecione **as aplicações Apache Spark**. Para ver os detalhes sobre as aplicações falhadas do Apache Spark, selecione a aplicação Apache Spark e veja os detalhes.
 
 ![selecionar trabalho falhado](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
@@ -158,4 +158,4 @@ Abrir **monitor** , em seguida, selecione **as aplicações Apache Spark**. Para
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o gasoduto de monitorização, consulte o gasoduto Monitor funciona usando o artigo [do Synapse Studio.](how-to-monitor-pipeline-runs.md)  
+Para obter mais informações sobre o gasoduto de monitorização, consulte o gasoduto Monitor funciona usando o artigo [do Synapse Studio.](how-to-monitor-pipeline-runs.md)

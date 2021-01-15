@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
-ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 1/14/2021
+ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308828"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222229"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ Ao encontrar alta sessão ou utilização do trabalhador, as opções de mitiga�
 - Aumentar o nível de serviço ou o tamanho do cálculo da base de dados ou piscina elástica. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização do trabalhador se deve à contenção dos recursos computacional. Para obter mais informações, veja [Ajuste/Sugestões de Consultas](performance-guidance.md#query-tuning-and-hinting).
 - Redução da regulação [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (grau máximo de paralelismo).
-- Otimização da carga de trabalho de consulta para reduzir o número de ocorrências e duração do bloqueio de consultas.
+- Otimização da carga de trabalho de consulta para reduzir o número de ocorrências e duração do bloqueio de consultas. Para mais informações, consulte [Compreender e resolver problemas de bloqueio do Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="memory"></a>Memória
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954146"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223011"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Quickstart: Criar um endereço IP público utilizando o portal Azure
 
-Este artigo mostra-lhe como criar um recurso de endereço IP público utilizando o portal Azure. Para obter mais informações sobre quais os recursos a que estes recursos podem estar associados, a diferença entre O SKU Básico e Padrão, e outras informações [relacionadas, consulte endereços IP públicos.](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses)  Para este exemplo, centrar-nos-emos apenas nos endereços IPv4; para obter mais informações sobre endereços IPv6, consulte [IPv6 para Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+Este artigo mostra-lhe como criar um recurso de endereço IP público utilizando o portal Azure. Para obter mais informações sobre quais os recursos a que estes recursos podem estar associados, a diferença entre O SKU Básico e Padrão, e outras informações [relacionadas, consulte endereços IP públicos.](./public-ip-addresses.md)  Para este exemplo, centrar-nos-emos apenas nos endereços IPv4; para obter mais informações sobre endereços IPv6, consulte [IPv6 para Azure VNet](./ipv6-overview.md).
 
 # <a name="standard-sku---using-zones"></a>[**SKU Padrão - Utilização de zonas**](#tab/option-create-public-ip-standard-zones)
 
@@ -43,12 +43,12 @@ Utilize os seguintes passos para criar um endereço IP público redundante de zo
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
     | Subscrição            | Selecione a sua subscrição.   |
     | Grupo de recursos          | Selecione **Criar novo,** insira o myResourceGroup e, em seguida, selecione **OK** |
-    | Localização                | Selecione **East US 2**      |
+    | A localização                | Selecione **East US 2**      |
     | Zona de Disponibilidade       | Selecione **Zona-Redundante** ou escolha zona específica (ver nota abaixo) |
 
-Note que estas são apenas seleções válidas em regiões com [Zonas de Disponibilidade.](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)  (Também pode selecionar uma zona específica nestas regiões, embora não seja resiliente à falha zonal.)
+Note que estas são apenas seleções válidas em regiões com [Zonas de Disponibilidade.](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)  (Também pode selecionar uma zona específica nestas regiões, embora não seja resiliente à falha zonal.)
 
-\* = O nível diz respeito à funcionalidade [Balancer de Carga cross-region,](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) atualmente em Pré-visualização.
+\* = O nível diz respeito à funcionalidade [Balancer de Carga cross-region,](../load-balancer/cross-region-overview.md) atualmente em Pré-visualização.
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 
@@ -70,7 +70,7 @@ Utilize os seguintes passos para criar um endereço IP público estático básic
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
     | Subscrição            | Selecione a sua subscrição.   |
     | Grupo de recursos          | Selecione **Criar novo,** insira o myResourceGroup e, em seguida, selecione **OK** |
-    | Localização                | Selecione **East US 2**      |
+    | A localização                | Selecione **East US 2**      |
 
 Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribuição de IP **dinâmico** pode ser selecionada.
 
@@ -78,9 +78,9 @@ Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribui�
 
 ## <a name="additional-information"></a>Informações adicionais 
 
-Para obter mais detalhes sobre os campos listados acima, consulte [Gerir os endereços IP públicos.](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address)
+Para obter mais detalhes sobre os campos listados acima, consulte [Gerir os endereços IP públicos.](./virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ## <a name="next-steps"></a>Passos seguintes
-- Associar um [endereço IP público a uma Máquina Virtual](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
-- Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
+- Associar um [endereço IP público a uma Máquina Virtual](./associate-public-ip-address-vm.md#azure-portal)
+- Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

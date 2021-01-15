@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812289"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221447"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testes de largura de banda/produção (NTTTCP)
 
@@ -26,9 +26,9 @@ Ao testar o desempenho da produção da rede em Azure, o melhor é usar uma ferr
 Copie a ferramenta para dois VMs Azure do mesmo tamanho. Um VM funciona como SENDER e o outro como RECETOR.
 
 #### <a name="deploying-vms-for-testing"></a>Implantação de VMs para testes
-Para efeitos deste teste, os dois VMs devem estar no mesmo Grupo de [Colocação](../virtual-machines/windows/co-location.md) de Proximidade ou no mesmo Conjunto de Disponibilidade para que possamos utilizar os seus IPs internos e excluir os Balançadores de Carga do teste. É possível testar com o VIP, mas este tipo de testes está fora do âmbito deste documento.
+Para efeitos deste teste, os dois VMs devem estar no mesmo Grupo de [Colocação](../virtual-machines/co-location.md) de Proximidade ou no mesmo Conjunto de Disponibilidade para que possamos utilizar os seus IPs internos e excluir os Balançadores de Carga do teste. É possível testar com o VIP, mas este tipo de testes está fora do âmbito deste documento.
 
-Tome nota do endereço IP do RECETOR. Vamos chamar ip "a.b.c.r"
+Tome nota do endereço IP do RECETOR. Vamos chamar o IP de "a.b.c.r"
 
 Tome nota do número de núcleos no VM. Vamos chamar isto de \# \_ "núcleos num".
 
@@ -65,7 +65,7 @@ Permitir que o NTTTCP passe pela Firewall do Windows desta forma:
 
 netsh advfirewall firewall adicionar programa de regra= \<PATH\> \\ntttcp.exe nome="ntttcp" protocolo=any dir=in action=allow enable=yes profile=ANY
 
-Por exemplo, se copiasse ntttcp.exe para a pasta "c: \\ ferramentas", este seria o comando: 
+Por exemplo, se copiasse ntttcp.exe para a pasta "c: \\ ferramentas", este seria o comando: 
 
 netsh advfirewall firewall adicionar programa de regra=c: \\ ferramentas \\ntttcp.exe protocolo de nome="ntttcp" =qualquer dir=em ação=permitir ativar=sim perfil=ANY
 
@@ -82,7 +82,7 @@ ntttcp -r -m 8, \* ,10.0.0.4 -t 300
 
 Iniciar ntTTCP no SENDER **(executado a partir de CMD**, não de PowerShell):
 
-NTTTCP -s -m 8, \* 10.0.0.4 -t 300 
+NTTTCP -s -m 8, \* 10.0.0.4 -t 300 
 
 Espere pelos resultados.
 
@@ -95,19 +95,19 @@ Nos VMs Linux (tanto SENDER como RECETOR), execute estes comandos para preparar 
 
 CentOS - Instalar Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - Instalar Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 Fazer e instalar em ambos:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Como no exemplo do Windows, assumimos que o IP do recetor Linux é de 10.0.0.4
@@ -123,7 +123,7 @@ E no REMETENTE, corra:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 O comprimento do teste não pode ser de 60 segundos se não for dado nenhum parâmetro de tempo
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Testes entre VMs em execução Windows e LINUX:

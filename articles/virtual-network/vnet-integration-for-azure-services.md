@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882369"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218659"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrar serviços Azure com redes virtuais para isolamento de rede
 
@@ -66,7 +66,7 @@ Para mais informações, consulte [pontos finais do serviço de rede Virtual](vi
 
 ## <a name="service-tags"></a>Etiquetas de serviço
 
-Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. Utilizando etiquetas de serviço, pode definir controlos de acesso à rede em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de rede ou [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Ao especificar o nome da etiqueta de serviço (por exemplo, AzureEventGrid) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. Utilizando etiquetas de serviço, pode definir controlos de acesso à rede em [grupos de segurança](./network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). Ao especificar o nome da etiqueta de serviço (por exemplo, AzureEventGrid) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
 
 ![Permitir ou negar tráfego usando Tags de Serviço](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ Para obter mais informações sobre tags de serviço e serviços Azure que os su
 
 - Saiba como integrar a [sua aplicação com uma rede Azure.](../app-service/web-sites-integrate-with-vnet.md)
 - Saiba como restringir o [acesso a recursos utilizando tags de serviço.](tutorial-restrict-network-access-to-resources.md)
-- Saiba como [ligar-se privadamente a uma conta Azure Cosmos utilizando o Azure Private Link](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Saiba como [ligar-se privadamente a uma conta Azure Cosmos utilizando o Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed250e3f32965fc450102fb14b93b93d6753ab3e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84702844"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222790"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visualização e modificação de hostnames
-Para permitir que as suas instâncias de função sejam referenciadas pelo nome de anfitrião, deve definir o valor do nome de anfitrião no ficheiro de configuração de serviço para cada função. Faça isso adicionando o nome de anfitrião desejado ao atributo **vmName** do elemento **Role.** O valor do atributo **vmName** é usado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **o vmName** for *webrole* e houver três instâncias desse papel, os nomes dos anfitriões dos casos serão *webrole0,* *webrole1*e *webrole2*. Não é necessário especificar um nome de anfitrião para máquinas virtuais no ficheiro de configuração, porque o nome de anfitrião de uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre a configuração de um serviço Microsoft Azure, consulte [o Esquema de Configuração do Serviço Azure (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+Para permitir que as suas instâncias de função sejam referenciadas pelo nome de anfitrião, deve definir o valor do nome de anfitrião no ficheiro de configuração de serviço para cada função. Faça isso adicionando o nome de anfitrião desejado ao atributo **vmName** do elemento **Role.** O valor do atributo **vmName** é usado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **o vmName** for *webrole* e houver três instâncias desse papel, os nomes dos anfitriões dos casos serão *webrole0,* *webrole1* e *webrole2*. Não é necessário especificar um nome de anfitrião para máquinas virtuais no ficheiro de configuração, porque o nome de anfitrião de uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre a configuração de um serviço Microsoft Azure, consulte [o Esquema de Configuração do Serviço Azure (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
 ## <a name="viewing-hostnames"></a>Visualização de números de anfitrião
 Pode ver os nomes dos anfitriões de máquinas virtuais e instâncias de papel num serviço de nuvem utilizando qualquer uma das ferramentas abaixo.
 
 ### <a name="service-configuration-file"></a>Ficheiro de configuração de serviço
-Pode descarregar o ficheiro de configuração de serviço para um serviço implantado a partir da lâmina **configurar** do serviço no portal Azure. Em seguida, pode procurar o atributo **vmName** para o elemento **nome Role** para ver o nome do anfitrião. Tenha em mente que este nome de hospedeiro é usado como base para o nome de anfitrião de cada instância. Por exemplo, se **o vmName** for *webrole* e houver três instâncias desse papel, os nomes dos anfitriões dos casos serão *webrole0,* *webrole1*e *webrole2*.
+Pode descarregar o ficheiro de configuração de serviço para um serviço implantado a partir da lâmina **configurar** do serviço no portal Azure. Em seguida, pode procurar o atributo **vmName** para o elemento **nome Role** para ver o nome do anfitrião. Tenha em mente que este nome de hospedeiro é usado como base para o nome de anfitrião de cada instância. Por exemplo, se **o vmName** for *webrole* e houver três instâncias desse papel, os nomes dos anfitriões dos casos serão *webrole0,* *webrole1* e *webrole2*.
 
 ### <a name="remote-desktop"></a>Ambiente de Trabalho Remoto
 Depois de ativar as ligações de Desktop Remoto (Windows), Windows PowerShell (Windows) ou SSH (Linux e Windows) às suas máquinas virtuais ou instâncias de função, pode ver o nome de anfitrião a partir de uma ligação de ambiente de trabalho remoto ativa de várias formas:
@@ -39,7 +39,7 @@ Depois de ativar as ligações de Desktop Remoto (Windows), Windows PowerShell (
 ### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
 A partir de um cliente REST, siga estas instruções:
 
-1. Certifique-se de que tem um certificado de cliente para ligar ao portal Azure. Para obter um certificado de cliente, siga os passos apresentados em [Como: Baixar e Importar Configurações de Publicação e Informações de Subscrição.](https://msdn.microsoft.com/library/dn385850.aspx) 
+1. Certifique-se de que tem um certificado de cliente para ligar ao portal Azure. Para obter um certificado de cliente, siga os passos apresentados em [Como: Baixar e Importar Configurações de Publicação e Informações de Subscrição.](/previous-versions/dynamicsnav-2013/dn385850(v=nav.70)) 
 2. Desa estação uma entrada de cabeçalho denominada versão x-ms com um valor de 2013-11-01.
 3. Enviar um pedido no seguinte formato: https: \/ https: /management.core.windows.net/ \<subscrition-id\> /services/hostedservices/ \<service-name\> ?embed-detail=true
 4. Procure o elemento **HostName** para cada elemento **RoleInstance.**
@@ -55,9 +55,8 @@ Pode modificar o nome de anfitrião para qualquer máquina virtual ou instância
 ## <a name="next-steps"></a>Passos seguintes
 [Resolução de nomes (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Esquema de Configuração de Serviço Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Esquema de Configuração de Serviço Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
-[Esquema de configuração de rede virtual Azure](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Esquema de configuração de rede virtual Azure](/previous-versions/azure/reference/jj157100(v=azure.100))
 
-[Especifique as definições de DNS utilizando ficheiros de configuração de rede](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
-
+[Especifique as definições de DNS utilizando ficheiros de configuração de rede](/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file)

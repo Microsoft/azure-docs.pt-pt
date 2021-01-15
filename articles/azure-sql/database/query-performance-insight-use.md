@@ -10,13 +10,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501265"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222348"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Insight de desempenho de consulta para base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ Consulta Performance Insight é fácil de usar:
 
 3. No primeiro separador, reveja a lista das principais consultas que consomem recursos.
 4. Selecione uma consulta individual para ver os seus detalhes.
-5. Abra **Intelligent Performance** as  >  **recomendações de Desempenho** Inteligente e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte [o Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
+5. Abra as  >  **recomendações de Desempenho** Inteligente e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte [o Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
 6. Utilize sliders ou ícones de zoom para alterar o intervalo observado.
 
    ![Painel de desempenho](./media/query-performance-insight-use/performance.png)
@@ -155,7 +155,7 @@ Para ver detalhes de consulta:
 
 Duas métricas no Insight de Desempenho de Consulta podem ajudá-lo a encontrar potenciais estrangulamentos: duração e contagem de execução.
 
-As consultas de longa duração têm o maior potencial para bloquear recursos por mais tempo, bloquear outros utilizadores e limitar a escalabilidade. São também os melhores candidatos à otimização.
+As consultas de longa duração têm o maior potencial para bloquear recursos por mais tempo, bloquear outros utilizadores e limitar a escalabilidade. São também os melhores candidatos à otimização. Para mais informações, consulte [Compreender e resolver problemas de bloqueio do Azure SQL](understand-resolve-blocking.md).
 
 Para identificar consultas de longa duração:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035472"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223028"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associar um endereço IP público a uma máquina virtual
 
@@ -30,7 +30,7 @@ Pode utilizar o [portal Azure,](#azure-portal)a [interface de linha de comando](
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue ou procure a máquina virtual a que pretende adicionar o endereço IP público e, em seguida, selecione-o.
-3. Em **Definições**, selecione **Networking**e, em seguida, selecione a interface de rede a que pretende adicionar o endereço IP público, tal como mostrado na seguinte imagem:
+3. Em **Definições**, selecione **Networking** e, em seguida, selecione a interface de rede a que pretende adicionar o endereço IP público, tal como mostrado na seguinte imagem:
 
    ![Selecione interface de rede](./media/associate-public-ip-address-vm/select-nic.png)
 
@@ -44,7 +44,7 @@ Pode utilizar o [portal Azure,](#azure-portal)a [interface de linha de comando](
    > [!NOTE]
    > Os endereços IP públicos estão associados a configurações IP para uma interface de rede. Na imagem anterior, a interface de rede tem uma configuração IP. Se a interface de rede tivesse várias configurações IP, todas elas apareceriam na lista e selecionaria a configuração IP a que pretende associar o endereço IP público.
 
-5. Selecione **Ativado**e, em seguida, selecione **o endereço IP *(Configurações necessárias para configuração)***. Escolha um endereço IP público existente, que fecha automaticamente a caixa **de endereços IP público** Escolha. Se não tiver nenhum endereço IP público disponível listado, tem de criar um. Para saber como, consulte [Criar um endereço IP público.](virtual-network-public-ip-address.md#create-a-public-ip-address) **Selecione Guardar**, como mostrado na imagem que se segue e, em seguida, feche a caixa para a configuração IP.
+5. Selecione **Ativado** e, em seguida, selecione **o endereço IP *(Configurações necessárias para configuração)***. Escolha um endereço IP público existente, que fecha automaticamente a caixa **de endereços IP público** Escolha. Se não tiver nenhum endereço IP público disponível listado, tem de criar um. Para saber como, consulte [Criar um endereço IP público.](virtual-network-public-ip-address.md#create-a-public-ip-address) **Selecione Guardar**, como mostrado na imagem que se segue e, em seguida, feche a caixa para a configuração IP.
 
    ![Ativar o endereço IP público](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 
@@ -214,4 +214,4 @@ Antes de poder ligar ao endereço IP público a partir da internet, certifique-s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Permitir o tráfego de acesso à internet para o seu VM com um grupo de segurança de rede. Para aprender a criar um grupo de segurança de rede, consulte [Trabalhar com grupos de segurança de rede.](manage-network-security-group.md#work-with-network-security-groups) Para saber mais sobre grupos de segurança de rede, consulte [os grupos de segurança.](security-overview.md)
+Permitir o tráfego de acesso à internet para o seu VM com um grupo de segurança de rede. Para aprender a criar um grupo de segurança de rede, consulte [Trabalhar com grupos de segurança de rede.](manage-network-security-group.md#work-with-network-security-groups) Para saber mais sobre grupos de segurança de rede, consulte [os grupos de segurança.](./network-security-groups-overview.md)

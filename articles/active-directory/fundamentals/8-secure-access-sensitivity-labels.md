@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef987305fadb83f9ed8b3f080cfb5a8d52fc36df
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 71031c7f5db299fbb1b7c99014c30590fec89f03
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744103"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222297"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Controlar o acesso com etiquetas de sensibilidade 
 

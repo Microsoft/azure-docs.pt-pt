@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2cf28565818f6de4d52b57040a80c21d0e03a76c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179304"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218524"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -36,7 +36,7 @@ Utilize VNets para:
 * Ativar cenários de nuvem híbrida. Os VNets dão-lhe a flexibilidade para suportar uma série de cenários híbridos em nuvem. Pode ligar aplicações baseadas em nuvem de forma segura a qualquer tipo de sistema no local, como os mainframes e os sistemas Unix.
 
 ### <a name="how-do-i-get-started"></a>Como posso começar?
-Visite a [documentação](https://docs.microsoft.com/azure/virtual-network/) da rede Virtual para começar. Este conteúdo fornece informações gerais e de implementação para todas as funcionalidades VNet.
+Visite a [documentação](./index.yml) da rede Virtual para começar. Este conteúdo fornece informações gerais e de implementação para todas as funcionalidades VNet.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>Posso usar VNets sem conectividade transversal?
 Sim. Pode utilizar um VNet sem ligá-lo às suas instalações. Por exemplo, pode executar controladores de domínio do Microsoft Windows Server Ative Directory e sharePoint apenas num Azure VNet.
@@ -52,7 +52,7 @@ Pode utilizar as seguintes ferramentas para criar ou configurar um VNet:
 * Portal do Azure
 * PowerShell
 * CLI do Azure
-* Um ficheiro de configuração de rede (netcfg - apenas para VNets clássicos). Consulte o [Configure um VNet utilizando um artigo de ficheiro de configuração de rede.](virtual-networks-using-network-configuration-file.md)
+* Um ficheiro de configuração de rede (netcfg - apenas para VNets clássicos). Consulte o [Configure um VNet utilizando um artigo de ficheiro de configuração de rede.](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file)
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Que intervalos de endereços posso usar nos meus VNets?
 Recomendamos que utilize os intervalos de endereços enumerados no [RFC 1918,](https://tools.ietf.org/html/rfc1918)que foram reservados pelo IETF para espaços de endereço privados e não encaminháveis:
@@ -162,7 +162,7 @@ Sim. Todas as interfaces de rede (NIC) ligadas a um VM implantado através do mo
   - **Gestor de Recursos**: Um endereço IP privado atribuído ao método dinâmico ou estático permanece atribuído a uma máquina virtual (Gestor de Recursos) até que o recurso seja eliminado. A diferença é que seleciona o endereço para atribuir quando se utiliza estática, e o Azure escolhe quando se utiliza a dinâmica. 
   - **Clássico**: Um endereço IP privado atribuído ao método dinâmico pode mudar quando uma máquina virtual (clássica) VM é reiniciada depois de ter estado no estado parado (deallocated). Se precisar de garantir que o endereço IP privado de um recurso implantado através do modelo de implementação clássico nunca muda, atribua um endereço IP privado com o método estático.
 
-* **Público:** Atribuído opcionalmente a NICs ligados a VMs implantados através do modelo de implementação do Gestor de Recursos Azure. O endereço pode ser atribuído com o método de atribuição estática ou dinâmica. Todas as instâncias de função VMs e Cloud Services implementadas através do modelo de implementação clássica existem dentro de um serviço de cloud, que é atribuído um endereço *dinâmico,* virtual PÚBLICO IP (VIP). Um endereço IP *estático* público, chamado [de endereço IP reservado,](virtual-networks-reserved-public-ip.md)pode opcionalmente ser atribuído como VIP. Pode atribuir endereços IP públicos a vms individuais ou instâncias de funções de Serviços cloud implementadas através do modelo de implementação clássico. Estes endereços são chamados [de IP público nível de instância (endereços ILPIP](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
+* **Público:** Atribuído opcionalmente a NICs ligados a VMs implantados através do modelo de implementação do Gestor de Recursos Azure. O endereço pode ser atribuído com o método de atribuição estática ou dinâmica. Todas as instâncias de função VMs e Cloud Services implementadas através do modelo de implementação clássica existem dentro de um serviço de cloud, que é atribuído um endereço *dinâmico,* virtual PÚBLICO IP (VIP). Um endereço IP *estático* público, chamado [de endereço IP reservado,](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)pode opcionalmente ser atribuído como VIP. Pode atribuir endereços IP públicos a vms individuais ou instâncias de funções de Serviços cloud implementadas através do modelo de implementação clássico. Estes endereços são chamados [de IP público nível de instância (endereços ILPIP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para um VM que criarei mais tarde?
 N.º Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, é atribuído a um VM ou instância de função pelo servidor DHCP. O VM pode ou não ser aquele a que pretende o endereço IP privado atribuído. No entanto, pode alterar o endereço IP privado de um VM já criado, para qualquer endereço IP privado disponível.
@@ -177,7 +177,7 @@ Sim, mas não é recomendado a menos que seja necessário, como quando atribuir 
 Nada. Os endereços IP (VIP público, público e privado) permanecem atribuídos à ranhura de implementação de serviços na nuvem ou VM.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Posso mover VMs de uma sub-rede para outra sub-rede num VNet sem recolocar?
-Sim. Pode encontrar mais informações no [Como mover um VM ou instância de função para um artigo de sub-rede diferente.](virtual-networks-move-vm-role-to-subnet.md)
+Sim. Pode encontrar mais informações no [Como mover um VM ou instância de função para um artigo de sub-rede diferente.](/previous-versions/azure/virtual-network/virtual-networks-move-vm-role-to-subnet)
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>Posso configurar um endereço MAC estático para o meu VM?
 N.º Um endereço MAC não pode ser configurado estáticamente.
@@ -220,7 +220,7 @@ N.º Não pode mover serviços dentro e fora dos VNets. Para mover um recurso pa
 Os VNets estão isolados uns dos outros, e outros serviços alojados na infraestrutura Azure. Um VNet é um limite de confiança.
 
 ### <a name="can-i-restrict-inbound-or-outbound-traffic-flow-to-vnet-connected-resources"></a>Posso restringir o fluxo de tráfego de entrada ou saída aos recursos ligados à VNet?
-Sim. Pode aplicar [grupos de segurança de rede](security-overview.md) a sub-redes individuais dentro de um VNet, NICs ligados a um VNet, ou ambos.
+Sim. Pode aplicar [grupos de segurança de rede](./network-security-groups-overview.md) a sub-redes individuais dentro de um VNet, NICs ligados a um VNet, ou ambos.
 
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>Posso implementar uma firewall entre recursos ligados à VNet?
 Sim. Pode implantar um [aparelho virtual](https://azure.microsoft.com/marketplace/?term=firewall) de rede de firewall de vários fornecedores através do Azure Marketplace.
@@ -234,13 +234,13 @@ N.º A Virtual Networks não armazena quaisquer dados do cliente.
 ## <a name="apis-schemas-and-tools"></a>APIs, esquemas e ferramentas
 
 ### <a name="can-i-manage-vnets-from-code"></a>Posso gerir os VNets a partir do código?
-Sim. Pode utilizar APIs REST para VNets no [Azure Resource Manager](/rest/api/virtual-network) e modelos de implementação [clássicos.](https://go.microsoft.com/fwlink/?LinkId=296833)
+Sim. Pode utilizar APIs REST para VNets no [Azure Resource Manager](/rest/api/virtual-network) e modelos de implementação [clássicos.](/previous-versions/azure/ee460799(v=azure.100))
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe suporte de ferramentas para VNets?
 Sim. Saiba mais sobre a utilização:
-- O portal Azure para implantar VNets através do [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e modelos [clássicos](virtual-networks-create-vnet-classic-pportal.md) de implementação.
+- O portal Azure para implantar VNets através do [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e modelos [clássicos](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) de implementação.
 - PowerShell para gerir VNets implantados através do [Gestor de Recursos](/powershell/module/az.network) e modelos de implementação [clássicos.](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0)
-- A interface de linha de comando Azure (CLI) para implantar e gerir VNets implantados através do [Gestor de Recursos](/cli/azure/network/vnet) e modelos de implementação [clássicos.](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources)  
+- A interface de linha de comando Azure (CLI) para implantar e gerir VNets implantados através do [Gestor de Recursos](/cli/azure/network/vnet) e modelos de implementação [clássicos.](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources)  
 
 ## <a name="vnet-peering"></a>VNet peering
 
@@ -260,7 +260,7 @@ Os seguintes recursos podem utilizar balanceadores de carga básicos, o que sign
 - Service Fabric
 - Gestão de API
 - Serviço de Domínio do Diretório Ativo (ADDS)
-- Aplicações Lógicas
+- Logic Apps
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -289,7 +289,7 @@ N.º Só é possível ativar a opção "Use Remote Gateway" num dos seus olhos p
 Não há qualquer custo para criar uma ligação de espreitamento VNet. A transferência de dados através de ligações de espreitária é cobrada. [Veja aqui.](https://azure.microsoft.com/pricing/details/virtual-network/)
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>O tráfego de observação da VNet está encriptado?
-Quando o tráfego Azure se move entre datacenters (limites físicos externos não controlados pela Microsoft ou em nome da Microsoft), a encriptação da [camada de ligação de dados MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) é utilizada no hardware de rede subjacente.  Isto é aplicável ao tráfego de observação VNet.
+Quando o tráfego Azure se move entre datacenters (limites físicos externos não controlados pela Microsoft ou em nome da Microsoft), a encriptação da [camada de ligação de dados MACsec](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) é utilizada no hardware de rede subjacente.  Isto é aplicável ao tráfego de observação VNet.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Porque é que a minha ligação de espreitar está num estado *desligado?*
 As ligações de observação VNet entram em estado *de desconexão* quando um link de observação VNet é eliminado. Tem de eliminar ambas as ligações para restabelecer uma ligação de observação bem sucedida.
@@ -319,7 +319,7 @@ Sim. O mesmo recurso de rede virtual TAP pode ser utilizado para agregar tráfeg
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Existem considerações de desempenho no tráfego de produção se eu permitir uma configuração de TAP de rede virtual numa interface de rede?
 
-A rede virtual TAP está em pré-visualização. Durante a pré-visualização, não existe nenhum acordo de nível de serviço. A capacidade não deve ser utilizada para cargas de trabalho de produção. Quando uma interface de rede de máquinas virtuais é ativada com uma configuração TAP, os mesmos recursos no hospedeiro Azure atribuídos à máquina virtual para enviar o tráfego de produção são utilizados para executar a função de espelhamento e enviar os pacotes espelhados. Selecione o tamanho correto da máquina virtual [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para garantir que existem recursos suficientes para a máquina virtual enviar o tráfego de produção e o tráfego espelhado.
+A rede virtual TAP está em pré-visualização. Durante a pré-visualização, não existe nenhum acordo de nível de serviço. A capacidade não deve ser utilizada para cargas de trabalho de produção. Quando uma interface de rede de máquinas virtuais é ativada com uma configuração TAP, os mesmos recursos no hospedeiro Azure atribuídos à máquina virtual para enviar o tráfego de produção são utilizados para executar a função de espelhamento e enviar os pacotes espelhados. Selecione o tamanho correto da máquina virtual [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para garantir que existem recursos suficientes para a máquina virtual enviar o tráfego de produção e o tráfego espelhado.
 
 ### <a name="is-accelerated-networking-for-linux-or-windows-supported-with-virtual-network-tap"></a>A rede acelerada para [o Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) é suportada com a rede virtual TAP?
 
@@ -370,7 +370,7 @@ Por predefinição, os recursos de serviço do Azure obtidos para redes virtuais
 Para garantir os serviços Azure a várias sub-redes dentro de uma rede virtual ou através de várias redes virtuais, ative os pontos finais de serviço no lado da rede em cada uma das sub-redes de forma independente e, em seguida, fixe os recursos de serviço Azure a todas as sub-redes, criando ACLs VNet apropriados no lado do serviço Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Como posso filtrar o tráfego de saída de uma rede virtual para os serviços Azure e ainda utilizar pontos finais de serviço?
-Se pretender inspecionar ou filtrar o tráfego destinado a um serviço Azure a partir de uma rede virtual, pode implantar um aparelho virtual de rede dentro da rede virtual. Em seguida, pode aplicar pontos finais de serviço na sub-rede onde o aparelho virtual de rede é implantado e fixar recursos de serviço Azure apenas a esta sub-rede através de ACLs VNet. Este cenário também pode ser útil se pretender restringir o acesso do serviço Azure da sua rede virtual apenas a recursos específicos do Azure utilizando a filtragem de aparelhos virtuais de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+Se pretender inspecionar ou filtrar o tráfego destinado a um serviço Azure a partir de uma rede virtual, pode implantar um aparelho virtual de rede dentro da rede virtual. Em seguida, pode aplicar pontos finais de serviço na sub-rede onde o aparelho virtual de rede é implantado e fixar recursos de serviço Azure apenas a esta sub-rede através de ACLs VNet. Este cenário também pode ser útil se pretender restringir o acesso do serviço Azure da sua rede virtual apenas a recursos específicos do Azure utilizando a filtragem de aparelhos virtuais de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-a-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando acede a uma conta de serviço Azure que tem uma lista de controlo de acesso à rede virtual (ACL) ativada fora do VNet?
 O erro HTTP 403 ou HTTP 404 é devolvido.
@@ -400,7 +400,7 @@ Não, o tráfego ICMP que provém de uma sub-rede com pontos finais de serviço 
 Para chegar ao serviço Azure, os NSGs precisam de permitir a conectividade de saída. Se os seus NSGs forem abertos a todo o tráfego de saída da Internet, então o tráfego de ponto final de serviço deve funcionar. Também pode limitar o tráfego de saída a IPs de serviço apenas utilizando as etiquetas de Serviço.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Que permissões preciso para configurar pontos finais de serviço?
-Os pontos finais de serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso por escrito à rede virtual. Para garantir os recursos de serviço do Azure a um VNet, o utilizador deve ter permissão **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. Esta permissão está incluída na função de administrador de serviço incorporada por padrão e pode ser modificada criando funções personalizadas. Saiba mais sobre funções incorporadas e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Os pontos finais de serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso por escrito à rede virtual. Para garantir os recursos de serviço do Azure a um VNet, o utilizador deve ter permissão **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. Esta permissão está incluída na função de administrador de serviço incorporada por padrão e pode ser modificada criando funções personalizadas. Saiba mais sobre funções incorporadas e a atribuição de permissões específicas a [funções personalizadas](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Posso filtrar o tráfego de rede virtual para os serviços Azure, permitindo apenas recursos específicos de serviço azul, sobre os pontos finais do serviço VNet? 
@@ -409,7 +409,7 @@ As políticas de ponto final de serviço de rede virtual (VNet) permitem filtrar
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>O Azure Ative Directory (Azure AD) suporta pontos finais de serviço VNet?
 
-O Azure Ative Directory (Azure AD) não suporta os pontos finais de serviço de forma nativa. A lista completa dos serviços Azure que suportam os pontos finais do serviço VNet pode ser vista [aqui.](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) Note que a tag "Microsoft.AzureActiveDirectory" listada nos pontos finais de serviço de suporte de serviços é utilizada para apoiar pontos finais de serviço para a ADLS Gen 1. Para o ADLS Gen 1, a integração virtual da rede para o Azure Data Lake Storage Gen1 utiliza a segurança do ponto final do serviço de rede virtual entre a sua rede virtual e o Azure Ative Directory (Azure AD) para gerar pedidos de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. Saiba mais sobre [a Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+O Azure Ative Directory (Azure AD) não suporta os pontos finais de serviço de forma nativa. A lista completa dos serviços Azure que suportam os pontos finais do serviço VNet pode ser vista [aqui.](./virtual-network-service-endpoints-overview.md) Note que a tag "Microsoft.AzureActiveDirectory" listada nos pontos finais de serviço de suporte de serviços é utilizada para apoiar pontos finais de serviço para a ADLS Gen 1. Para o ADLS Gen 1, a integração virtual da rede para o Azure Data Lake Storage Gen1 utiliza a segurança do ponto final do serviço de rede virtual entre a sua rede virtual e o Azure Ative Directory (Azure AD) para gerar pedidos de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. Saiba mais sobre [a Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Existem limites para quantos pontos finais de serviço VNet posso configurar a partir do meu VNet?
 Não existe limite para o número total de pontos finais de serviço VNet numa rede virtual. Para um recurso de serviço Azure (como uma conta de Armazenamento Azure), os serviços podem impor limites ao número de sub-redes utilizadas para assegurar o recurso. A tabela a seguir mostra alguns limites de exemplo: 
@@ -428,10 +428,6 @@ Não existe limite para o número total de pontos finais de serviço VNet numa r
 >[!NOTE]
 > Os limites são sujeitos a alterações ao critério do serviço Azure. Consulte a respetiva documentação de serviço para mais detalhes sobre os serviços. 
 
-
-
-
-  
 
 
 

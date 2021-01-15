@@ -1,5 +1,5 @@
 ---
-title: Configure endereços IP privados para VMs (Clássico) - Azure PowerShell Microsoft Docs
+title: Configure endereços IP privados para VMs (Clássico) - Azure PowerShell | Microsoft Docs
 description: Saiba como configurar endereços IP privados para máquinas virtuais (Classic) utilizando o PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 669b8427f13efcc55a69bc7c970b6658a6719cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e798f81102017b4d34c4b1b219a9f23035b0359
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86134713"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222841"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configure endereços IP privados para uma máquina virtual (Classic) usando PowerShell
 
@@ -35,7 +35,7 @@ Este artigo abrange o modelo de implementação clássica. Também pode [gerir u
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-A amostra que o PowerShell comanda abaixo espera um ambiente simples já criado. Se pretender executar os comandos tal como são apresentados neste documento, primeiro construa o ambiente de teste descrito na [Create a VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
+A amostra que o PowerShell comanda abaixo espera um ambiente simples já criado. Se pretender executar os comandos tal como são apresentados neste documento, primeiro construa o ambiente de teste descrito na [Create a VNet](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Como verificar se um endereço IP específico está disponível
 Para verificar se o endereço IP *192.168.1.101* está disponível num VNet chamado *TestVNet,* executar o seguinte comando PowerShell e verificar o valor *disponível:*
@@ -154,7 +154,6 @@ Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded
 Recomenda-se que não atribua estáticamente o IP privado atribuído à máquina virtual Azure dentro do sistema operativo de um VM, a menos que seja necessário. Se definir manualmente o endereço IP privado dentro do sistema operativo, certifique-se de que é o mesmo endereço que o endereço IP privado atribuído ao Azure VM, ou pode perder conectividade com a máquina virtual. Nunca deve atribuir manualmente o endereço IP público atribuído a uma máquina virtual Azure dentro do sistema operativo da máquina virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre os endereços [IP públicos reservados.](virtual-networks-reserved-public-ip.md)
-* Saiba mais sobre [endereços IP públicos de nível de instância (ILPIP).](virtual-networks-instance-level-public-ip.md)
-* Consulte as [APIs de REPOUSO IP Reservadas](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Saiba mais sobre os endereços [IP públicos reservados.](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
+* Saiba mais sobre [endereços IP públicos de nível de instância (ILPIP).](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip)
+* Consulte as [APIs de REPOUSO IP Reservadas](/previous-versions/azure/reference/dn722420(v=azure.100)).

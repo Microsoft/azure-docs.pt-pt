@@ -13,16 +13,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e047f46e110e1f7b1d544545c80bd1097ae65167
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079654"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221923"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 
-A Azure encaminha o tráfego entre todas as sub-redes dentro de uma rede virtual, por padrão. Pode criar as sua próprias rotas para substituir o encaminhamento predefinido do Azure. As rotas personalizadas são úteis quando, por exemplo, pretender encaminhar o tráfego entre sub-redes através de um aparelho virtual de rede (NVA). Neste tutorial, ficará a saber como:
+A Azure encaminha o tráfego entre todas as sub-redes dentro de uma rede virtual, por padrão. Pode criar as sua próprias rotas para substituir o encaminhamento predefinido do Azure. As rotas personalizadas são úteis quando, por exemplo, pretender encaminhar o tráfego entre sub-redes através de um aparelho virtual de rede (NVA). Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma NVA que encaminha o tráfego
@@ -42,18 +42,18 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
 
 1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
-1. Escolha **o Centro**de  >  **Dados 2016 do Security Windows Server**.
+1. Escolha **o Centro** de  >  **Dados 2016 do Security Windows Server**.
 
     ![Windows Server 2016 Datacenter, Criar um VM, portal Azure](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
 
-1. Na página de **máquina virtual Criar,** em **Básicos, insira**ou selecione estas informações:
+1. Na página de **máquina virtual Criar,** em **Básicos, insira** ou selecione estas informações:
 
     | Section | Definição | Ação |
     | ------- | ------- | ----- |
     | **Detalhes do projeto** | Subscrição | Escolha a sua subscrição. |
-    | | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e selecione **OK**. |
+    | | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup* e selecione **OK**. |
     | **Detalhes da instância** | Nome da máquina virtual | Insira *myVmNva*. |
-    | | Região | Escolha **(EUA) Leste DOS EUA.** |
+    | | Region | Escolha **(EUA) Leste DOS EUA.** |
     | | Opções de disponibilidade | Escolha **Não é necessário um despedimento de infraestrutura**. |
     | | Imagem | Escolha **o Centro de Dados 2016 do Windows Server**. |
     | | Tamanho | Mantenha o padrão, **Standard DS1 v2**. |
@@ -189,7 +189,7 @@ Em seguida, ligue o encaminhamento IP para a sua nova máquina virtual NVA, *myV
 
 1. Na barra de menus de interface de rede, selecione **configurações IP**.
 
-1. Na página de **configurações IP,** despasse **o encaminhamento IP** para **Ativado**e selecione **Guardar**.
+1. Na página de **configurações IP,** despasse **o encaminhamento IP** para **Ativado** e selecione **Guardar**.
 
     ![Ativar o encaminhamento IP, configurações IP, interface de rede, máquina virtual de aparelho virtual de rede (VM), portal Azure](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
 
@@ -205,11 +205,11 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 
 | Tecla de Tabulação | Definição | Valor |
 | --- | ------- | ----- |
-| Noções básicas | Grupo de recursos | **myResourceGroup** |
+| Informações básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPublic* |
 | | Portas de entrada públicas | **Permitir portas selecionadas** |
 | | Selecione as portas de entrada | **RDP** |
-| Redes | Rede virtual | **myVirtualNetwork** |
+| Rede | Rede virtual | **myVirtualNetwork** |
 | | Sub-rede | **Público (10.0.0.0/24)** |
 | | Endereço IP público | O padrão |
 | Gestão | Conta de armazenamento de diagnóstico | **conta de mynvastorage** |
@@ -218,11 +218,11 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 
 | Tecla de Tabulação | Definição | Valor |
 | --- | ------- | ----- |
-| Noções básicas | Grupo de recursos | **myResourceGroup** |
+| Informações básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPrivate* |
 | | Portas de entrada públicas | **Permitir portas selecionadas** |
 | | Selecione as portas de entrada | **RDP** |
-| Redes | Rede virtual | **myVirtualNetwork** |
+| Rede | Rede virtual | **myVirtualNetwork** |
 | | Sub-rede | **Privado (10.0.1.0/24)** |
 | | Endereço IP público | O padrão |
 | Gestão | Conta de armazenamento de diagnóstico | **conta de mynvastorage** |
@@ -239,7 +239,7 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 
 1. Na página **'Ligar com RDP',** selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
-1. Abra o ficheiro *.rdp* descarregado. Se lhe for pedido, selecione **Ligar**. Selecione **Mais escolhas**  >  **Utilize uma conta diferente**e, em seguida, insira o nome de utilizador e a palavra-passe que especificou ao criar o VM privado.
+1. Abra o ficheiro *.rdp* descarregado. Se lhe for pedido, selecione **Ligar**. Selecione **Mais escolhas**  >  **Utilize uma conta diferente** e, em seguida, insira o nome de utilizador e a palavra-passe que especificou ao criar o VM privado.
 
 1. Selecione **OK**.
 
@@ -339,7 +339,7 @@ Primeiro, vamos testar o encaminhamento do tráfego de rede do *VM myVmPublic* p
 
 1. Feche a sessão de ambiente de trabalho remoto para a VM *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando o grupo de recursos já não for necessário, elimine *o myResourceGroup* e todos os recursos que tenha:
 
@@ -349,7 +349,7 @@ Quando o grupo de recursos já não for necessário, elimine *o myResourceGroup*
 
 1. Selecione **Eliminar grupo de recursos**.
 
-1. Na caixa de diálogo de confirmação, insira *o myResourceGroup* para **TYPE THE RESOURCE GROUP NAME**e, em seguida, selecione **Delete**. O Azure elimina o *myResourceGroup* e todos os recursos ligados a esse grupo de recursos, incluindo as suas tabelas de rotas, contas de armazenamento, redes virtuais, VMs, interfaces de rede e endereços IP públicos.
+1. Na caixa de diálogo de confirmação, insira *o myResourceGroup* para **TYPE THE RESOURCE GROUP NAME** e, em seguida, selecione **Delete**. O Azure elimina o *myResourceGroup* e todos os recursos ligados a esse grupo de recursos, incluindo as suas tabelas de rotas, contas de armazenamento, redes virtuais, VMs, interfaces de rede e endereços IP públicos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -361,4 +361,4 @@ Embora possa implementar muitos recursos Azure dentro de uma rede virtual, o Azu
 > [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md) (Restringir o acesso de rede a recursos de PaaS)
 
 > [!NOTE] 
-> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

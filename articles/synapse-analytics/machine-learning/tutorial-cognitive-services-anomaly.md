@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4052d6a0773aa27e0a378ee04975c7946f1ffbfe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e7b914d459d2452704f93987ce1bf91bfba988c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468399"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222212"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>Tutorial: Deteção de anomalias com Serviços Cognitivos (Pré-visualização)
 
-Neste tutorial, você aprenderá a enriquecer facilmente os seus dados em Azure Synapse com [Serviços Cognitivos.](https://go.microsoft.com/fwlink/?linkid=2147492) Vamos usar o [Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2147493) para fazer a deteção de anomalias. Um utilizador em Azure Synapse pode simplesmente selecionar uma tabela para enriquecer para deteção de anomalias.
+Neste tutorial, você aprenderá a enriquecer facilmente os seus dados em Azure Synapse com [Serviços Cognitivos.](../../cognitive-services/index.yml) Vamos usar o [Detetor de Anomalias](../../cognitive-services/anomaly-detector/index.yml) para fazer a deteção de anomalias. Um utilizador em Azure Synapse pode simplesmente selecionar uma tabela para enriquecer para deteção de anomalias.
 
 Este tutorial aborda:
 
@@ -94,7 +94,7 @@ O caderno que acabou de abrir está a usar a [biblioteca mmlspark](https://githu
 
 Os detalhes do Azure Key Vault que forneceu permitem-lhe fazer referências seguras aos seus segredos a partir desta experiência sem os revelar.
 
-Agora pode **executar todas as** células para efetuar a deteção de anomalias. Saiba mais sobre [serviços cognitivos - Detetor de Anomalias.](https://go.microsoft.com/fwlink/?linkid=2147493)
+Agora pode **executar todas as** células para efetuar a deteção de anomalias. Saiba mais sobre [serviços cognitivos - Detetor de Anomalias.](../../cognitive-services/anomaly-detector/index.yml)
 
 ![Deteção de anomalias de execução](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
 
