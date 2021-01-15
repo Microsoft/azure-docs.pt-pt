@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739302"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216653"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas do ponto final de serviço de rede virtual do Armazenamento do Microsoft Azure
 
@@ -32,7 +32,7 @@ As políticas de ponto final de serviço de rede virtual oferecem as seguintes v
 
 - __Segurança melhorada para o tráfego da rede virtual para o Azure Storage__
 
-  [As tags de serviço Azure para grupos de segurança](https://aka.ms/servicetags) de rede permitem-lhe restringir o tráfego de saída de rede virtual para regiões específicas de Armazenamento Azure. No entanto, isto permite o tráfego a qualquer conta dentro da região de Armazenamento Azure selecionada.
+  [As tags de serviço Azure para grupos de segurança](./network-security-groups-overview.md) de rede permitem-lhe restringir o tráfego de saída de rede virtual para regiões específicas de Armazenamento Azure. No entanto, isto permite o tráfego a qualquer conta dentro da região de Armazenamento Azure selecionada.
   
   As políticas de ponto final permitem especificar as contas de Armazenamento Azure que são permitidas o acesso à saída da rede virtual e restringem o acesso a todas as outras contas de armazenamento. Isto dá muito mais controlo de segurança granular para proteger a exfiltração de dados da sua rede virtual.
 

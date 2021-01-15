@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: afebb6a67b4c8a33e812c0e51ff225f16cd35356
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6156bd72e3f4965a74798a3f91496eb8a321444e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461469"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219532"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingerir dados numa piscina de SQL dedicada
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a ingerir dados de uma conta de armazenamento Azu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição Azure**: Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento Azure**: Utiliza a Azure Data Lake Storage Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter passos para criar uma.
+* **Conta de armazenamento Azure**: Utiliza a Azure Data Lake Storage Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) para obter passos para criar uma.
 * **Azure Synapse Analytics**: Você usa uma piscina SQL dedicada como uma loja de dados *de lavatórios.* Se não tiver uma instância Azure Synapse Analytics, consulte [Criar uma piscina SQL dedicada](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para etapas para criar uma.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados

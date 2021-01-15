@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ca4dc8cd7048df69c827e7ca657b9882900819
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88706035"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218914"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -25,7 +25,7 @@ ms.locfileid: "88706035"
 
 Saiba como criar e eliminar uma rede virtual e alterar definições, como servidores DNS e espaços de endereço IP, para uma rede virtual existente. Se é novo em redes virtuais, pode saber mais sobre elas na [visão geral](virtual-networks-overview.md) da rede Virtual ou completando um [tutorial](quick-create-portal.md). Uma rede virtual contém sub-redes. Para aprender a criar, alterar e eliminar sub-redes, consulte [Gerir sub-redes](virtual-network-manage-subnet.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Complete as seguintes tarefas antes de completar etapas em qualquer secção deste artigo:
 
@@ -37,7 +37,7 @@ Complete as seguintes tarefas antes de completar etapas em qualquer secção des
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ Criar uma**rede virtual  >  **de rede de**  >  **Virtual network**recursos.
+1. Selecione **+ Criar uma** rede virtual  >  **de rede de**  >  recursos.
 2. Introduza ou selecione valores para as seguintes definições e, em seguida, **selecione Criar**:
    - **Nome**: O nome deve ser único no [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que seleciona para criar a rede virtual em. Não é possível alterar o nome após a criação da rede virtual. Pode criar várias redes virtuais ao longo do tempo. Para nomear sugestões, consulte [as convenções de nomeação.](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) Seguir uma convenção de nomeação pode ajudar a facilitar a gestão de várias redes virtuais.
    - **Espaço de endereço**: O espaço de endereço de uma rede virtual é composto por uma ou mais gamas de endereços não sobrepostas que são especificadas na notação CIDR. O intervalo de endereços que define pode ser público ou privado (RFC 1918). Quer se defina o intervalo de endereços como público ou privado, o intervalo de endereços só é acessível a partir da rede virtual, a partir de redes virtuais interligadas e de quaisquer redes no local que tenha ligado à rede virtual. Não é possível adicionar os seguintes intervalos de endereços:
@@ -56,7 +56,7 @@ Complete as seguintes tarefas antes de completar etapas em qualquer secção des
      - **Nome da sub-rede**: O nome da sub-rede deve ser único dentro da rede virtual. Não é possível alterar o nome da sub-rede após a criação da sub-rede. O portal requer que defina uma sub-rede quando cria uma rede virtual, mesmo que uma rede virtual não seja necessária para ter sub-redes. No portal, pode definir apenas uma sub-rede quando se cria uma rede virtual. Pode adicionar mais sub-redes à rede virtual mais tarde, após a criação da rede virtual. Para adicionar uma sub-rede a uma rede virtual, consulte [Gerir sub-redes](virtual-network-manage-subnet.md). Pode criar uma rede virtual que tenha várias sub-redes utilizando O Azure CLI ou PowerShell.
 
        >[!TIP]
-       >Por vezes, os administradores criam sub-redes diferentes para filtrar ou controlar o encaminhamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como pretende filtrar e encaminhar o tráfego entre as suas sub-redes. Para saber mais sobre a filtragem do tráfego entre sub-redes, consulte [os grupos de segurança da Rede](security-overview.md). O Azure liga automaticamente o tráfego entre sub-redes, mas pode sobrepor-se às rotas predefinidas do Azure. Para saber mais sobre o encaminhamento de tráfego de sub-rede padrão da Azures, consulte [a visão geral do encaminhamento](virtual-networks-udr-overview.md).
+       >Por vezes, os administradores criam sub-redes diferentes para filtrar ou controlar o encaminhamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como pretende filtrar e encaminhar o tráfego entre as suas sub-redes. Para saber mais sobre a filtragem do tráfego entre sub-redes, consulte [os grupos de segurança da Rede](./network-security-groups-overview.md). O Azure liga automaticamente o tráfego entre sub-redes, mas pode sobrepor-se às rotas predefinidas do Azure. Para saber mais sobre o encaminhamento de tráfego de sub-rede padrão da Azures, consulte [a visão geral do encaminhamento](virtual-networks-udr-overview.md).
        >
 
      - **Intervalo de endereços da sub-rede**: O intervalo deve estar dentro do espaço de endereço que introduziu para a rede virtual. A faixa mais pequena que pode especificar é /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e último endereço em cada sub-rede para conformidade com o protocolo. Três endereços adicionais estão reservados para o uso do serviço Azure. Como resultado, uma rede virtual com uma gama de endereços de sub-rede de /29 tem apenas três endereços IP utilizáveis. Se planeia ligar uma rede virtual a uma porta de entrada VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações específicas do intervalo de endereços para sub-redes gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços após a criação da sub-rede, em condições específicas. Para aprender a alterar uma gama de endereços de sub-rede, consulte [Gerir sub-redes](virtual-network-manage-subnet.md).
@@ -121,7 +121,7 @@ Para adicionar ou remover uma gama de endereços:
 3. Selecione **o espaço de endereço**, em **DEFINIÇÕES**.
 4. Complete uma das seguintes opções:
     - **Adicione uma gama de endereços**: Introduza o novo intervalo de endereços. O intervalo de endereços não pode sobrepor-se a um intervalo de endereços existente definido para a rede virtual.
-    - **Remova um intervalo**de endereços : À direita do intervalo de endereços que pretende remover, selecione... **e,** em seguida, selecione **Remover**. Se existir uma sub-rede no intervalo de endereços, não é possível remover o intervalo de endereços. Para remover um intervalo de endereços, deve primeiro eliminar quaisquer sub-redes (e quaisquer recursos nas sub-redes) que existam no intervalo de endereços.
+    - **Remova um intervalo** de endereços : À direita do intervalo de endereços que pretende remover, selecione... **e,** em seguida, selecione **Remover**. Se existir uma sub-rede no intervalo de endereços, não é possível remover o intervalo de endereços. Para remover um intervalo de endereços, deve primeiro eliminar quaisquer sub-redes (e quaisquer recursos nas sub-redes) que existam no intervalo de endereços.
 5. Selecione **Guardar**.
 
 **Comandos**
@@ -170,7 +170,7 @@ Só pode excluir uma rede virtual se não houver recursos ligados à rede. Se ex
 
 Para executar tarefas em redes virtuais, a sua conta deve ser atribuída à [função de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída às ações apropriadas listadas no quadro seguinte:
 
-| Ação                                  |   Nome                                |
+| Ação                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Ler uma rede virtual              |
 |Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |
@@ -179,4 +179,4 @@ Para executar tarefas em redes virtuais, a sua conta deve ser atribuída à [fun
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie uma rede virtual utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou usando [modelos de Gestor de Recursos](template-samples.md) Azure
-- Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Política Azure](./policy-reference.md) para redes virtuais

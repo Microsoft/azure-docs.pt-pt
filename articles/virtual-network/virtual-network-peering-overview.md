@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004981"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216755"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -48,7 +48,7 @@ A latência de rede entre máquinas virtuais em redes virtuais no modo de peerin
 O tráfego entre as máquinas virtuais nas redes virtuais em modo de peering é encaminhado diretamente através da infraestrutura principal da Microsoft e não através de um gateway ou numa Internet pública.
 
 Pode aplicar grupos de segurança de rede em qualquer rede virtual para bloquear o acesso a outras redes virtuais ou sub-redes.
-Ao configurar o olhar de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se abrir a conectividade total entre redes virtuais, pode aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [os grupos de segurança.](security-overview.md)
+Ao configurar o olhar de rede virtual, abra ou feche as regras do grupo de segurança de rede entre as redes virtuais. Se abrir a conectividade total entre redes virtuais, pode aplicar grupos de segurança de rede para bloquear ou negar acesso específico. A conectividade completa é a opção padrão. Para saber mais sobre grupos de segurança de rede, consulte [os grupos de segurança.](./network-security-groups-overview.md)
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 

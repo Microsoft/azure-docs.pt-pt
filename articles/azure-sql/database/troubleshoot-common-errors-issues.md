@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791346"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219067"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Problemas de conectividade de resolução de problemas e outros erros com Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,7 +24,7 @@ Recebe mensagens de erro quando a ligação à Base de Dados Azure SQL ou à Ins
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Mensagens de erro transitórias (40197, 40613 e outras)
 
-A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serviços quando surgem cargas de trabalho pesadas no serviço Base de Dados SQL.  Este comportamento dinâmico pode fazer com que o seu programa de clientes perca a sua ligação à base de dados ou instância. Este tipo de condição de erro é chamado de *falha transitória* . Os eventos de reconfiguração da base de dados ocorrem devido a um evento planeado (por exemplo, uma atualização de software) ou a um evento não planeado (por exemplo, uma falha de processo ou equilíbrio de carga). A maioria dos eventos de reconfiguração são geralmente de curta duração e devem ser concluídos em menos de 60 segundos no máximo. No entanto, estes eventos podem ocasionalmente demorar mais tempo a terminar, como quando uma grande transação causa uma recuperação prolongada. A tabela que se segue lista vários erros transitórios que as aplicações podem receber ao ligar-se à Base de Dados SQL
+A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serviços quando surgem cargas de trabalho pesadas no serviço Base de Dados SQL.  Este comportamento dinâmico pode fazer com que o seu programa de clientes perca a sua ligação à base de dados ou instância. Este tipo de condição de erro é chamado de *falha transitória*. Os eventos de reconfiguração da base de dados ocorrem devido a um evento planeado (por exemplo, uma atualização de software) ou a um evento não planeado (por exemplo, uma falha de processo ou equilíbrio de carga). A maioria dos eventos de reconfiguração são geralmente de curta duração e devem ser concluídos em menos de 60 segundos no máximo. No entanto, estes eventos podem ocasionalmente demorar mais tempo a terminar, como quando uma grande transação causa uma recuperação prolongada. A tabela que se segue lista vários erros transitórios que as aplicações podem receber ao ligar-se à Base de Dados SQL
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista de códigos de erro transitórios
 
@@ -32,11 +32,11 @@ A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serv
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir a base de dados "%&#x2a;ls" solicitada pelo login. O início de sessão falhou. Para mais informações, consulte [Errors 4000 a 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |O serviço encontrou um erro no processamento do seu pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está em baixo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de falha. O código de erro (%d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou falha que ocorreu. Alguns exemplos dos códigos de erro estão incorporados na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão liga-o automaticamente a uma cópia saudável da sua base de dados. A sua aplicação deve apanhar o erro 40197, registar o código de erro incorporado (%d) dentro da mensagem para resolução de problemas e tentar reconectar-se à Base de Dados SQL até que os recursos estejam disponíveis e a sua ligação seja novamente estabelecida. Para obter mais informações, consulte [erros transitórios.](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)|
-| 40501 |20 |o serviço está ocupado neste momento. Reda o pedido após 10 segundos. Identificação do incidente: %ls. Código: %d. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md).|
+| 40501 |20 |o serviço está ocupado neste momento. Reda o pedido após 10 segundos. Identificação do incidente: %ls. Código: %d. Para obter mais informações, veja: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md).|
 | 40613 |17 |A base de dados "%.&#x2a;ls" no servidor '%.&#x2a;ls' não está disponível atualmente. Por favor, re-teste a ligação mais tarde. Se o problema persistir, contacte o apoio ao cliente e forneça-lhes o ID de '%.&#x2a;ls'.<br/><br/> Este erro pode ocorrer se já existir uma ligação de administrador dedicada existente (DAC) estabelecida na base de dados. Para obter mais informações, consulte [erros transitórios.](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)|
-| 49918 |16 |Não é possível processar o pedido. Não há recursos suficientes para processar o pedido.<br/><br/>o serviço está ocupado neste momento. Por favor, re-tentar o pedido mais tarde. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
-| 49919 |16 |Não é possível processar o pedido de criação ou atualização. Muitas operações de criação ou atualização em curso para subscrição "%ld".<br/><br/>O serviço está ocupado a processar vários pedidos de criação ou atualização para a sua subscrição ou servidor. Os pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) para operações pendentes. Aguarde até que os pedidos de criação ou atualização estejam completos ou elimine um dos seus pedidos pendentes e revendo o seu pedido mais tarde. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
-| 49920 |16 |Não é possível processar o pedido. Demasiadas operações em curso para a subscrição "%ld".<br/><br/>O serviço está ocupado a processar vários pedidos para esta subscrição. Os pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) para o estado de funcionamento. Aguarde até que os pedidos pendentes estejam completos ou elimine um dos seus pedidos pendentes e relemisse o seu pedido mais tarde. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
+| 49918 |16 |Não é possível processar o pedido. Não há recursos suficientes para processar o pedido.<br/><br/>o serviço está ocupado neste momento. Por favor, re-tentar o pedido mais tarde. Para obter mais informações, veja: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
+| 49919 |16 |Não é possível processar o pedido de criação ou atualização. Muitas operações de criação ou atualização em curso para subscrição "%ld".<br/><br/>O serviço está ocupado a processar vários pedidos de criação ou atualização para a sua subscrição ou servidor. Os pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) para operações pendentes. Aguarde até que os pedidos de criação ou atualização estejam completos ou elimine um dos seus pedidos pendentes e revendo o seu pedido mais tarde. Para obter mais informações, veja: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
+| 49920 |16 |Não é possível processar o pedido. Demasiadas operações em curso para a subscrição "%ld".<br/><br/>O serviço está ocupado a processar vários pedidos para esta subscrição. Os pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) para o estado de funcionamento. Aguarde até que os pedidos pendentes estejam completos ou elimine um dos seus pedidos pendentes e relemisse o seu pedido mais tarde. Para obter mais informações, veja: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
 | 4221 |16 |O login para ler secundário falhou devido à longa espera em 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. A réplica não está disponível para login porque faltam versões de linha para transações que estavam a bordo quando a réplica foi reciclada. A questão pode ser resolvida recuando ou cometendo as transações ativas na réplica primária. As ocorrências desta condição podem ser minimizadas evitando transações de escrita longas nas primárias. |
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Medidas para resolver problemas transitórios de conectividade
@@ -119,19 +119,19 @@ Normalmente, o administrador de serviço pode usar os seguintes passos para adic
 4. Se o nome de utilizador de login SQL não existir, crie-o seguindo estes passos:
 
    1. Na SSMS, clique duas vezes **em Segurança** para expandi-lo.
-   2. Clique em **Logins** com direito e, em seguida, **selecione Novo login** .
+   2. Clique em **Logins** com direito e, em seguida, **selecione Novo login**.
    3. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>'
    GO
    ```
 
 5. Base de **dados** de duplo clique .
 6. Selecione a base de dados a que pretende conceder a permissão do utilizador.
 7. **Segurança** de duplo clique.
-8. Clique com o botão direito **dos Utilizadores** e, em seguida, selecione **Novo Utilizador** .
+8. Clique com o botão direito **dos Utilizadores** e, em seguida, selecione **Novo Utilizador**.
 9. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
@@ -141,7 +141,7 @@ Normalmente, o administrador de serviço pode usar os seguintes passos para adic
    GO
    -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
    GO
    ```
 
@@ -183,22 +183,20 @@ Para contornar esta questão, experimente um dos seguintes métodos:
 - Verifique se existem consultas de longa duração.
 
   > [!NOTE]
-  > Esta é uma abordagem minimalista que pode não resolver a questão.
+  > Esta é uma abordagem minimalista que pode não resolver a questão. Para obter informações detalhadas sobre o bloqueio de consultas de resolução de [problemas, consulte compreender e resolver problemas de bloqueio do Azure SQL](understand-resolve-blocking.md).
 
 1. Faça a seguinte consulta SQL para verificar a vista [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para ver quaisquer pedidos de bloqueio:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine o **tampão de entrada** para o bloqueador de cabeça.
 3. Sintonize a consulta do bloqueador de cabeça.
 
-   Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
+   Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) 
 
 Se a base de dados atingir consistentemente o seu limite apesar de abordar consultas de bloqueio e de longa duração, considere o upgrade para uma edição com mais [recursos Edições](https://azure.microsoft.com/pricing/details/sql-database/)).
-
-Para obter mais informações sobre pontos de vista dinâmicos de gestão, consulte [as opiniões de gestão dinâmica do Sistema.](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
 Para obter mais informações sobre os limites da base de dados, consulte  [os limites de recursos da Base de Dados SQL para servidores](./resource-limits-logical-server.md).
 
@@ -234,7 +232,7 @@ Os seguintes passos podem ajudá-lo a contornar o problema ou fornecer-lhe opç�
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. Se o tamanho atual não exceder o tamanho máximo suportado para a sua edição, pode utilizar a BASE DE DADOS ALTER para aumentar a definição MAXSIZE.
@@ -253,7 +251,7 @@ Se encontrar repetidamente este erro, tente resolver o problema seguindo estes p
 1. Verifique a vista sys.dm_exec_requests para ver quaisquer sessões abertas com um valor elevado para a coluna total_elapsed_time. Execute esta verificação executando o seguinte script SQL:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine o tampão de entrada para a consulta de longa duração.
@@ -299,7 +297,7 @@ Para um procedimento aprofundado de resolução de problemas, vê [a minha consu
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 10928 |20 |Identificação de recursos: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [os limites de recursos da Base de Dados SQL para bases de dados individuais e agrizadas.](resource-limits-logical-server.md)<br/><br/>O ID de recursos indica o recurso que atingiu o limite. Para os fios dos trabalhadores, o ID de recurso = 1. Para sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). |
-| 10929 |20 |Identificação de recursos: %d. A garantia mínima %s é %d, o limite máximo é de %d, e a utilização atual para a base de dados é de %d. No entanto, o servidor encontra-se atualmente demasiado ocupado para suportar pedidos superiores a %d para esta base de dados. O ID de recursos indica o recurso que atingiu o limite. Para os fios dos trabalhadores, o ID de recurso = 1. Para sessões, o ID de recurso = 2. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). <br/>Caso contrário, tente de novo mais tarde. |
+| 10929 |20 |Identificação de recursos: %d. A garantia mínima %s é %d, o limite máximo é de %d, e a utilização atual para a base de dados é de %d. No entanto, o servidor encontra-se atualmente demasiado ocupado para suportar pedidos superiores a %d para esta base de dados. O ID de recursos indica o recurso que atingiu o limite. Para os fios dos trabalhadores, o ID de recurso = 1. Para sessões, o ID de recurso = 2. Para obter mais informações, veja: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md). <br/>Caso contrário, tente de novo mais tarde. |
 | 40544 |20 |A base de dados atingiu a sua quota de tamanho. Dividir ou apagar dados, deixar cair índices ou consultar a documentação para possíveis resoluções. Para escalar a base de dados, consulte [os recursos de base de dados únicos de escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)|
 | 40549 |16 |A sessão termina porque tem uma transação de longa duração. Tente encurtar a sua transação. Para obter informações sobre o lote, consulte [como utilizar o lote para melhorar o desempenho da aplicação da base de dados SQL](../performance-improve-use-batching.md).|
 | 40550 |16 |A sessão foi encerrada porque adquiriu demasiadas fechaduras. Tente ler ou modificar menos linhas numa única transação. Para obter informações sobre o lote, consulte [como utilizar o lote para melhorar o desempenho da aplicação da base de dados SQL](../performance-improve-use-batching.md).|
@@ -340,8 +338,8 @@ Este problema ocorre porque a conta não tem permissão para aceder à base de d
 
 Para resolver este problema, siga estes passos:
 
-1. No ecrã de login do SSMS, selecione **Opções** e, em seguida, selecione **Connection Properties** .
-2. No campo **'Ligar à base de dados',** insira o nome de base de dados predefinido do utilizador como base de dados de login predefinido e, em seguida, selecione **Connect** .
+1. No ecrã de login do SSMS, selecione **Opções** e, em seguida, selecione **Connection Properties**.
+2. No campo **'Ligar à base de dados',** insira o nome de base de dados predefinido do utilizador como base de dados de login predefinido e, em seguida, selecione **Connect**.
 
    ![Propriedades de ligação](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
@@ -390,5 +388,5 @@ Para obter mais informações sobre como permitir a sessão, consulte [Ativar o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Arquitetura de conectividade Azure SQL Database](./connectivity-architecture.md)
+- [Arquitetura da conectividade da Base de Dados SQL do Azure](./connectivity-architecture.md)
 - [Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede](./network-access-controls-overview.md)

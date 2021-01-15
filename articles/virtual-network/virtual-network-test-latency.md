@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687808"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219263"
 ---
 # <a name="test-vm-network-latency"></a>Testar a latência da rede de VMs
 
@@ -55,7 +55,7 @@ Ao utilizar estas ferramentas, ajuda a garantir que apenas os prazos de entrega 
 Quando criar a sua configuração VM, tenha em mente as seguintes recomendações:
 - Utilize a versão mais recente do Windows ou Linux.
 - Ativar o Networking Acelerado para obter os melhores resultados.
-- Implementar VMs com um [grupo de colocação de proximidade Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Implementar VMs com um [grupo de colocação de proximidade Azure](../virtual-machines/co-location.md).
 - Os VM maiores geralmente funcionam melhor do que os VMs menores.
 
 ### <a name="tips-for-analysis"></a>Dicas para análise
@@ -200,7 +200,7 @@ Este exemplo SockPerf usa um tamanho de mensagem de 350 byte, que é típico par
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Melhorar a latência com um [grupo de colocação de proximidade Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Melhorar a latência com um [grupo de colocação de proximidade Azure](../virtual-machines/co-location.md).
 * Saiba como otimizar a [rede para VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) para o seu cenário.
 * Leia sobre como a [largura de banda é atribuída a máquinas virtuais.](../virtual-network/virtual-machine-network-throughput.md)
 * Para mais informações, consulte [a Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).

@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 3cf7b069d6f010a4461b22c5326589ad3ec31204
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0b0e26262f75ba8030188a2bffbce8282b38bca8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186265"
+ms.locfileid: "98219645"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no Serviço Azure Kubernetes (AKS)
 
@@ -262,7 +262,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Ambas as aplicações estão agora a ser em execução no seu cluster Kubernetes. No entanto, estão configurados com um serviço de tipo `ClusterIP` e não estão acessíveis a partir da internet. Para torná-los disponíveis ao público, crie um recurso de entrada kubernetes. O recurso ingressa configura as regras que encaminham o tráfego para uma das duas aplicações.
 
-No exemplo seguinte, o tráfego para o endereço *olá-ingresss. MY_CUSTOM_DOMAIN* é encaminhado para o serviço *aks-helloworld.* Tráfego para o endereço *olá-mundo-ingresss. MY_CUSTOM_DOMAIN/olá-mundo-dois* é encaminhado para o serviço *aks-helloworld-two.* Tráfego para *olá-mundo-ingresss. MY_CUSTOM_DOMAIN/estática* é encaminhado para o serviço chamado *aks-helloworld* para ativos estáticos.
+No exemplo seguinte, o tráfego para o endereço *olá-ingresss. MY_CUSTOM_DOMAIN* é encaminhado para o serviço *aks-helloworld-one.* Tráfego para o endereço *olá-mundo-ingresss. MY_CUSTOM_DOMAIN/olá-mundo-dois* é encaminhado para o serviço *aks-helloworld-two.* Tráfego para *olá-mundo-ingresss. MY_CUSTOM_DOMAIN/estática* é encaminhado para o serviço chamado *aks-helloworld-one* para ativos estáticos.
 
 > [!NOTE]
 > Se configurar um FQDN para o endereço IP do controlador de entrada em vez de um domínio personalizado, use o FQDN em vez de *hello-world-ingress. MY_CUSTOM_DOMAIN.* Por exemplo, se o seu FQDN for *demo-aks-ingress.eastus.cloudapp.azure.com,* substitua *a hello-world-ingress. MY_CUSTOM_DOMAIN* com *demo-aks-ingress.eastus.cloudapp.azure.com* em `hello-world-ingress.yaml` .
@@ -348,7 +348,7 @@ tls-secret   True    tls-secret   11m
 
 Abra um navegador web para *hello-world-ingress. MY_CUSTOM_DOMAIN* do seu controlador de entrada kubernetes. Note que é redirecionado para a utilização do HTTPS e o certificado é fidedigno e a aplicação de demonstração é mostrada no navegador web. Adicione o caminho */olá-mundo-dois* e note que a segunda aplicação de demonstração com o título personalizado é mostrado.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 

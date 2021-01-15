@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455503"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219458"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Quickstart: Criar um novo serviço de aprendizagem automática Azure em Synapse
 
@@ -22,7 +22,7 @@ Neste arranque rápido, você vai ligar um espaço de trabalho Azure Synapse Ana
 
 Por exemplo, esta ligação a um espaço de trabalho de aprendizagem automática Azure permite estas experiências:
 
-- Executar os seus oleodutos Azure Machine Learning como um passo nos seus oleodutos Synapse. Para saber mais, consulte os oleodutos executar a [azure machine learning](/azure/data-factory/transform-data-machine-learning-service).
+- Executar os seus oleodutos Azure Machine Learning como um passo nos seus oleodutos Synapse. Para saber mais, consulte os oleodutos executar a [azure machine learning](../../data-factory/transform-data-machine-learning-service.md).
 
 - Enriqueça os seus dados com previsões trazendo um modelo de aprendizagem automática do registo do modelo Azure Machine Learning e marque o modelo nas piscinas Sinapse SQL. Para mais detalhes, consulte [Tutorial: Assistente de pontuação de modelo de machine learning para piscinas Sinapse SQL](tutorial-sql-pool-model-scoring-wizard.md).
 
@@ -30,7 +30,7 @@ Por exemplo, esta ligação a um espaço de trabalho de aprendizagem automática
 
 - Assinatura Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/).
 - [Espaço de trabalho Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento ADLS Gen2 configurada como o armazenamento padrão. Tem de ser o colaborador de dados da **Blob** de Armazenamento do sistema de ficheiros ADLS Gen2 com o que trabalha.
-- [Espaço de trabalho de aprendizagem automática Azure.](/azure/machine-learning/how-to-manage-workspace)
+- [Espaço de trabalho de aprendizagem automática Azure.](../../machine-learning/how-to-manage-workspace.md)
 - Você precisa de permissões (ou pedido de alguém que tenha permissões) para criar um principal de serviço e segredo que você pode usar para criar o serviço ligado. Note que este diretor de serviço precisa de ser atribuído o papel de contribuinte no espaço de trabalho de aprendizagem de máquinas Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -50,7 +50,7 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 
    ![Gerar segredo](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00a.png)
 
-1. Crie um diretor de serviço para a aplicação. Vá à **sua visão** geral da sua  ->  **Overview** aplicação e, em seguida, clique em **Criar o principal do serviço**. Em alguns casos, este diretor de serviço é criado automaticamente.
+1. Crie um diretor de serviço para a aplicação. Vá à **sua visão** geral da sua  ->   aplicação e, em seguida, clique em **Criar o principal do serviço**. Em alguns casos, este diretor de serviço é criado automaticamente.
 
    ![Criar um principal de serviço](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00b.png)
 
@@ -60,7 +60,7 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-1. No espaço de trabalho da Sinaapse onde pretende criar o novo serviço Azure Machine Learning, vá ao serviço **Management**  ->  **Linked service** Linked, crie um novo serviço ligado com o tipo "Azure Machine Learning".
+1. No espaço de trabalho da Sinaapse onde pretende criar o novo serviço Azure Machine Learning, vá ao serviço **Management**  ->  Linked, crie um novo serviço ligado com o tipo "Azure Machine Learning".
 
    ![Criar serviço ligado](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 

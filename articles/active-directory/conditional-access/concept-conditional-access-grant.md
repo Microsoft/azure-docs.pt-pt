@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900931"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219951"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -139,7 +139,7 @@ Esta definição aplica-se às seguintes aplicações de clientes:
 - Nove e-mail - E-mail & Calendário
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não suportam a concessão **de política de proteção de aplicações Require.** Se necessitar que estas aplicações funcionem, por favor utilize a concessão **de aplicações aprovadas requerendo** exclusivamente. A utilização da ou cláusula entre as duas subvenções não funcionará para estas três candidaturas.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não suportam a concessão **de política de proteção de aplicações Require.** Se necessitar que estas aplicações funcionem, por favor utilize a concessão **de aplicações aprovadas requerendo** exclusivamente. A utilização da ou cláusula entre as duas subvenções não funcionará para estas três candidaturas.
 
 **Observações**
 

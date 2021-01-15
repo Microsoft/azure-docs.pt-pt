@@ -3,12 +3,12 @@ title: 'Erro de resolução de problemas: O tempo de execução das funções Az
 description: Saiba como resolver problemas com uma conta de armazenamento inválida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9f6592b6d5ef88127a9dfca1e868564be0aa4ed5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579016"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217299"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de resolução de problemas: "O tempo de execução das funções Azure é inacessível"
 
@@ -16,15 +16,15 @@ Este artigo ajuda-o a resolver os problemas da seguinte cadeia de erro que apare
 
 > "Erro: O tempo de execução das funções Azure é inacessível. Clique aqui para mais detalhes sobre a configuração do armazenamento."
 
-Este problema ocorre quando o tempo de execução das funções Azure não pode começar. A razão mais comum para o problema é que a aplicação de função perdeu o acesso à sua conta de armazenamento. Para obter mais informações, consulte os [requisitos da conta de Armazenamento.](./functions-create-function-app-portal.md#storage-account-requirements)
+Este problema ocorre quando o tempo de funcionamento das Funções não pode começar. A razão mais comum para isso é que a aplicação de função perdeu o acesso à sua conta de armazenamento. Para obter mais informações, consulte os [requisitos da conta de Armazenamento.](storage-considerations.md#storage-account-requirements)
 
-O resto deste artigo ajuda-o a resolver os seguintes problemas deste erro, incluindo como identificar e resolver cada caso.
+O resto deste artigo ajuda-o a resolver problemas específicos deste erro, incluindo como identificar e resolver cada caso.
 
 ## <a name="storage-account-was-deleted"></a>A conta de armazenamento foi eliminada
 
-Cada aplicação de função requer que uma conta de armazenamento funcione. Se essa conta for apagada, a sua função não funcionará.
+Cada aplicação de função requer que uma conta de armazenamento funcione. Se essa conta for apagada, as suas funções não funcionarão.
 
-Comece por procurar o nome da sua conta de armazenamento nas definições da sua aplicação. Ou `AzureWebJobsStorage` `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento embrulhada numa cadeia de ligação. Para obter mais informações, consulte [a referência de definições de aplicações para Funções Azure](./functions-app-settings.md#azurewebjobsstorage).
+Comece por procurar o nome da sua conta de armazenamento nas definições da sua aplicação. Ou `AzureWebJobsStorage` `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento como parte de uma cadeia de ligação. Para obter mais informações, consulte [a referência de definições de aplicações para Funções Azure](./functions-app-settings.md#azurewebjobsstorage).
 
 Procure a sua conta de armazenamento no portal Azure para ver se ainda existe. Se tiver sido eliminada, volte a criar a conta de armazenamento e substitua as cordas de ligação de armazenamento. O seu código de função está perdido e precisa de o recolocar.
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte [a referência de definições de aplica
 
 ### <a name="guidance"></a>Orientação
 
-* Não verifique a "definição de ranhura" para nenhuma destas definições. Se trocar slots de implementação, a aplicação de função quebra.
+* Não verifique a definição de **ranhuras** para nenhuma destas definições. Se trocar slots de implementação, a aplicação de função quebra.
 * Não modifique estas definições como parte de implementações automatizadas.
 * Estas definições devem ser fornecidas e válidas no momento da criação. Uma implementação automatizada que não contenha estas definições resulta numa aplicação de função que não será executada, mesmo que as definições sejam adicionadas mais tarde.
 
@@ -56,7 +56,7 @@ As cadeias de ligação da conta de armazenamento previamente discutidas devem s
 
 A aplicação de função deve poder aceder à conta de armazenamento. Questões comuns que bloqueiam o acesso de uma aplicação de função a uma conta de armazenamento são:
 
-* A aplicação de função é implantada no seu Ambiente de Serviço de Aplicações sem as regras corretas de rede para permitir o tráfego de e para a conta de armazenamento.
+* A aplicação de função é implantada no seu Ambiente de Serviço de Aplicações (ASE) sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento.
 
 * A firewall da conta de armazenamento está ativada e não configurada para permitir o tráfego de e para funções. Para obter mais informações, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -72,7 +72,7 @@ Para resolver este problema, remova ou aumente a quota diária e, em seguida, re
 
 ## <a name="app-is-behind-a-firewall"></a>App está por trás de uma firewall
 
-O tempo de funcionamento da sua função pode ser inacessível por uma das seguintes razões:
+A sua aplicação de função pode ser inacessível por uma das seguintes razões:
 
 * A sua aplicação de função está hospedada num [Ambiente de Serviço de Aplicações equilibrado internamente](../app-service/environment/create-ilb-ase.md) e está configurada para bloquear o tráfego de internet de entrada.
 
@@ -80,8 +80,8 @@ O tempo de funcionamento da sua função pode ser inacessível por uma das segui
 
 O portal Azure faz chamadas diretamente para a aplicação de execução para recolher a lista de funções, e faz chamadas HTTP para o ponto final de Kudu. As definições ao nível da plataforma no separador **Funcionalidades** da Plataforma ainda estão disponíveis.
 
-Para verificar a configuração do Ambiente do Serviço de Aplicações:
-1. Vá ao grupo de segurança da rede (NSG) da sub-rede onde reside o App Service Environment.
+Para verificar a sua configuração ASE:
+1. Vá ao grupo de segurança da rede (NSG) da sub-rede onde reside o ASE.
 1. Valide as regras de entrada para permitir o tráfego que vem do IP público do computador onde está a aceder à aplicação. 
    
 Também pode utilizar o portal a partir de um computador que está ligado à rede virtual que está a executar a sua aplicação ou a uma máquina virtual que está a funcionar na sua rede virtual. 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352d5218f91fa55134a7515b6aeee49857847468
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173214"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219917"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores da sua organização podem convidar utilizadores convidados para uma aplicação
 
@@ -28,8 +28,8 @@ Depois de um utilizador convidado ter sido adicionado ao diretório em Azure AD,
  - Configure a app para self-service e atribua o grupo à app
 
 > [!NOTE]
-> Este artigo descreve como configurar a gestão de self-service para galerias e aplicações baseadas em SAML que adicionou ao seu inquilino AZure AD. Também pode [configurar grupos microsoft 365 self-service](../enterprise-users/groups-self-service-management.md) para que os seus utilizadores possam gerir o acesso aos seus próprios grupos Microsoft 365. Para obter mais formas de os utilizadores partilharem ficheiros e aplicações do Office com utilizadores [convidados, consulte o acesso do Hóspede em grupos microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [ficheiros share SharePoint ou pastas](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-
+> * Este artigo descreve como configurar a gestão de self-service para galerias e aplicações baseadas em SAML que adicionou ao seu inquilino AZure AD. Também pode [configurar grupos microsoft 365 self-service](../enterprise-users/groups-self-service-management.md) para que os seus utilizadores possam gerir o acesso aos seus próprios grupos Microsoft 365. Para obter mais formas de os utilizadores partilharem ficheiros e aplicações do Office com utilizadores [convidados, consulte o acesso do Hóspede em grupos microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [ficheiros share SharePoint ou pastas](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * Os utilizadores só podem convidar os hóspedes se tiverem o papel **de convidado** convidado.
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Convide um utilizador convidado para uma aplicação do Painel de Acesso
 
 Depois de uma aplicação ser configurada para self-service, os proprietários de aplicações podem usar o seu próprio Painel de Acesso para convidar um utilizador convidado para a app que querem partilhar. O utilizador convidado não precisa necessariamente de ser adicionado ao Azure AD com antecedência. 

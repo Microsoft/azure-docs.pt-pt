@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480138"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216976"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Add network interfaces to or remove network interfaces from virtual machines (Adicionar interfaces de rede ou remover interfaces de rede de máquinas virtuais)
 
@@ -28,7 +28,7 @@ Saiba como adicionar uma interface de rede existente quando criar uma máquina v
 
 Se precisar de adicionar, alterar ou remover endereços IP para uma interface de rede, consulte [gerir endereços IP de interface de rede](virtual-network-network-interface-addresses.md). Para criar, alterar ou eliminar interfaces de rede, consulte [Gerir interfaces de rede](virtual-network-network-interface.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -61,11 +61,11 @@ Para adicionar uma interface de rede à sua máquina virtual:
 
 1. Vá ao [portal Azure](https://portal.azure.com) para encontrar uma máquina virtual existente. Procure e selecione **máquinas Virtuais.**
 
-2. Selecione o nome do seu VM. O VM deve suportar o número de interfaces de rede que pretende adicionar. Para saber quantas interfaces de rede cada tamanho VM suporta, consulte os tamanhos em Azure para [VMs Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Selecione o nome do seu VM. O VM deve suportar o número de interfaces de rede que pretende adicionar. Para saber quantas interfaces de rede cada tamanho VM suporta, consulte os tamanhos em Azure para [VMs Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-3. Na barra de comando VM, selecione **Stop**e, em seguida, **OK** na caixa de diálogo de confirmação. Em seguida, aguarde até que o **Estado** do VM mude para **Parar (deallocated)**.
+3. Na barra de comando VM, selecione **Stop** e, em seguida, **OK** na caixa de diálogo de confirmação. Em seguida, aguarde até que o **Estado** do VM mude para **Parar (deallocated)**.
 
-4. A partir da barra de menuS VM, escolha interface de rede **Networking**  >  **anexar**rede. Em **seguida,** na interface de rede existente, escolha a interface de rede que pretende anexar e selecione **OK**.
+4. A partir da barra de menuS VM, escolha interface de rede   >  **anexar** rede. Em **seguida,** na interface de rede existente, escolha a interface de rede que pretende anexar e selecione **OK**.
 
     >[!NOTE]
     >A interface de rede que seleciona não pode ter ativado a rede acelerada, não pode ter um endereço IPv6 atribuído à mesma, e deve existir na mesma rede virtual com a interface de rede atualmente anexada ao VM.
@@ -115,7 +115,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 4. Aguarde até que o **Estado** das alterações do VM **para Stop (deallocated)**.
 
-5. A partir da barra de menuS VM, escolha interface de rede de retirada **de rede**em rede  >  **Detach network interface**.
+5. A partir da barra de menuS VM, escolha interface de rede de retirada **de rede** em rede  >  .
 
 6. Na caixa de diálogo de **interface de rede Detach,** selecione a interface de rede que pretende separar. Em seguida, selecione **OK**.
 
@@ -133,7 +133,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 - Um VM deve ter pelo menos uma interface de rede ligada a ela.
 
-- Um VM só pode ter tantas interfaces de rede ligadas a ele como o tamanho VM suporta. Para saber mais sobre quantas interfaces de rede cada tamanho VM suporta, consulte os tamanhos em Azure para [VMs Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Todos os tamanhos suportam pelo menos duas interfaces de rede.
+- Um VM só pode ter tantas interfaces de rede ligadas a ele como o tamanho VM suporta. Para saber mais sobre quantas interfaces de rede cada tamanho VM suporta, consulte os tamanhos em Azure para [VMs Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [VMs windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Todos os tamanhos suportam pelo menos duas interfaces de rede.
 
 - As interfaces de rede que adiciona a um VM não podem atualmente ser anexadas a outro VM. Para saber mais sobre como criar interfaces de rede, consulte [Criar uma interface de rede.](virtual-network-network-interface.md#create-a-network-interface)
 
@@ -143,7 +143,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 - Pode controlar a interface de rede para a qual envia tráfego de saída. No entanto, um VM por padrão envia todo o tráfego de saída para o endereço IP que é atribuído à configuração IP primária da interface de rede primária.
 
-- No passado, todos os VMs dentro do mesmo conjunto de disponibilidade eram necessários para ter uma única, ou múltipla, interfaces de rede. VMs com qualquer número de interfaces de rede podem agora existir no mesmo conjunto de disponibilidade, até ao número suportado pelo tamanho VM. Só é possível adicionar um VM a um conjunto de disponibilidade quando este for criado. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de VMs em Azure.](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)
+- No passado, todos os VMs dentro do mesmo conjunto de disponibilidade eram necessários para ter uma única, ou múltipla, interfaces de rede. VMs com qualquer número de interfaces de rede podem agora existir no mesmo conjunto de disponibilidade, até ao número suportado pelo tamanho VM. Só é possível adicionar um VM a um conjunto de disponibilidade quando este for criado. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de VMs em Azure.](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)
 
 - Pode ligar interfaces de rede no mesmo VM a diferentes sub-redes dentro de uma rede virtual. No entanto, as interfaces de rede devem estar todas ligadas à mesma rede virtual.
 

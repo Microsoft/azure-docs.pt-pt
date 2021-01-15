@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc3ba3a0519400368e0cbfec7abe2d9bd1731b34
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86082442"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217639"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
 
@@ -32,22 +32,22 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. No menu do portal do Azure, selecione **Criar um recurso**. A partir do Mercado Azure, **selecione rede**Virtual de Rede  >  **Virtual network**.
+1. No menu do portal do Azure, selecione **Criar um recurso**. A partir do Mercado Azure, **selecione rede** Virtual de Rede  >  .
 
 1. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
     | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e, em seguida, selecione **OK**. |
+    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup* e, em seguida, selecione **OK**. |
     | Name | Insira *a minha RedeTual*. |
-    | Localização | Selecione **East US**.|
+    | A localização | Selecione **East US**.|
 
 1. Selecione **Seguinte: Endereços IP**, e para **o espaço de endereço IPv4**, insira *10.1.0.0/16*.
 
 1. **Selecione Adicionar a sub-rede**, em seguida, insira *myVirtualSubnet* para **o nome da sub-rede** e *10.1.0.0/24* para **intervalo de endereços sub-rede**.
 
-1. Selecione **Adicionar**e, em seguida, selecione **Rever + criar**. Deixe o resto como padrão e **selecione Criar**.
+1. Selecione **Adicionar** e, em seguida, selecione **Rever + criar**. Deixe o resto como padrão e **selecione Criar**.
 
 1. In **Create virtual network,** selecione **Create**.
 
@@ -61,7 +61,7 @@ Crie duas VMs na rede virtual:
 
 1. A partir do Azure Marketplace, **selecione Compute**  >  **Windows Server 2019 Datacenter**. Selecione **Criar**.
 
-1. Na **Criar uma máquina virtual - Básicos, insira**ou selecione esta informação:
+1. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -225,4 +225,4 @@ Para saber mais sobre as definições de rede virtual, consulte [Criar, alterar 
 Por predefinição, o Azure permite uma comunicação segura entre VMs. O Azure só permite ligações remotas de ambiente de trabalho ao Windows VMs a partir da internet. Para saber mais sobre tipos de comunicações de rede VM, consulte [o tráfego da rede Filter](tutorial-filter-network-traffic.md).
 
 > [!NOTE] 
-> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> Os serviços da Azure custam dinheiro. A Azure Cost Management ajuda-o a definir orçamentos e a configurar alertas para manter os gastos sob controlo. Analise, gerencie e otimize os seus custos Azure com a Gestão de Custos. Para saber mais, consulte o [quickstart na análise dos seus custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c9e9ea2e59537a1c0c8e372a766fba3aa9a1b9a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88122187"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217673"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Quickstart: Criar uma rede virtual - Modelo de Gestor de Recursos
 
@@ -36,8 +36,8 @@ O modelo usado neste quickstart é de [modelos Azure Quickstart](https://github.
 :::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 Os seguintes recursos Azure foram definidos no modelo:
-- [**Microsoft.Network/virtualNetworks:**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)criar uma rede virtual Azure.
--  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) - crie uma sub-rede.
+- [**Microsoft.Network/virtualNetworks:**](/azure/templates/microsoft.network/virtualnetworks)criar uma rede virtual Azure.
+-  [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets) - crie uma sub-rede.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -56,7 +56,7 @@ Implementar o modelo do Gestor de Recursos para Azure:
 
 Explore os recursos que foram criados com a rede virtual.
 
-Para saber mais sobre a sintaxe JSON e propriedades para uma rede virtual num modelo, consulte [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+Para saber mais sobre a sintaxe JSON e propriedades para uma rede virtual num modelo, consulte [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

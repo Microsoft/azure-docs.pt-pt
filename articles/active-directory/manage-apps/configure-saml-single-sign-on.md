@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: ec020ecd4c2bcf6e9186afb3d2c4a79ef235c371
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 32e654f002e3ba0c8bf72fb781b32d9098d83c00
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658915"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219849"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Compreenda o sign-on único baseado em SAML
 
@@ -32,7 +32,7 @@ Na [série quickstart,](add-application-portal-setup-sso.md)há um artigo sobre 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará presente na navegação para uma aplicação em **aplicações da Enterprise**. 
 >
-> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](../develop/reference-app-manifest.md). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform) 
+> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](../develop/reference-app-manifest.md). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform) 
 >
 > Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -44,7 +44,7 @@ Deve obter os valores do vendedor de aplicações. Pode introduzir manualmente o
 > [!TIP]
 > Muitas aplicações já foram pré-configuradas para trabalhar com a Azure AD. Estas aplicações estão listadas na galeria de aplicações que pode navegar quando adiciona uma aplicação ao seu inquilino AZure AD. A [série quickstart](add-application-portal-setup-sso.md) acompanha-o através do processo. Para as aplicações na galeria encontrará instruções detalhadas, passo a passo. Para aceder aos passos pode clicar no link na página de configuração SAML para a aplicação descrita na série quickstart ou pode navegar numa lista de todos os tutoriais de configuração de aplicações em tutoriais de configuração de [aplicações SaaS.](../saas-apps/tutorial-list.md)
 
-| Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
+| Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Description |
 |:--|:--|:--|:--|
 | **Identificador (ID de Entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do Público do token SAML. Espera-se que o pedido o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize o seguinte padrão: 'https:// <subdomain> .contoso.com' *Pode encontrar este valor como elemento **emitente** no **pedido AuthnRequest** (pedido SAML) enviado pela aplicação.* |
 | **URL de resposta** | Necessário | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos URL de resposta adicionais para especificar URLs de resposta múltipla. Por exemplo, pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para efeitos de teste, pode especificar URLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |
@@ -131,9 +131,9 @@ Se aparecer uma mensagem de erro, complete os seguintes passos:
 Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](./debug-saml-sso-issues.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 - [Atribuir utilizadores ou grupos à aplicação](./assign-user-or-group-access-portal.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-- [Protocolo SAML de Sign-On único](../develop/single-sign-on-saml-protocol.md)
+- [Protocolo SAML de Início de Sessão Único](../develop/single-sign-on-saml-protocol.md)

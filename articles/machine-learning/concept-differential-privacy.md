@@ -9,12 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 307786c0df744751122487b8c931d0e9572d5f22
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.custom: responsible-ml
+ms.openlocfilehash: 22ba505a2e13b2f88f212f2fe1b85d07f79f77e5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723495"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218965"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Preservar a privacidade dos dados utilizando a privacidade diferencial e o pacote SmartNoise (pré-visualização)
 

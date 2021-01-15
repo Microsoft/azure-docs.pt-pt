@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 12/10/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795942"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216636"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Treinar modelos PyTorch em escala com Azure Machine Learning
 
 Neste artigo, aprenda a executar os seus scripts de treinamento [PyTorch](https://pytorch.org/) à escala empresarial usando Azure Machine Learning.
 
-Os scripts de exemplo neste artigo são usados para classificar imagens de frango e peru para construir uma rede neural de aprendizagem profunda (DNN) baseada no [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)de aprendizagem de transferência de PyTorch. A aprendizagem de transferência é uma técnica que aplica conhecimentos adquiridos desde a resolução de um problema para um problema diferente, mas relacionado. Isto atalho o processo de formação, requerendo menos dados, tempo e recursos de computação do que a formação de raiz.
+Os scripts de exemplo neste artigo são usados para classificar imagens de frango e peru para construir uma rede neural de aprendizagem profunda (DNN) baseada no [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)de aprendizagem de transferência de PyTorch. A aprendizagem de transferência é uma técnica que aplica conhecimentos adquiridos desde a resolução de um problema para um problema diferente, mas relacionado. Isto atalho o processo de formação, requerendo menos dados, tempo e recursos de computação do que a formação de raiz. Veja o artigo [de aprendizagem profunda vs machine learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) para saber mais sobre a aprendizagem de transferências.
 
 Quer esteja a treinar um modelo PyTorch de aprendizagem profunda a partir do solo ou se está a trazer um modelo existente para a nuvem, pode usar o Azure Machine Learning para escalar trabalhos de formação de código aberto usando recursos de computação em nuvem elástica. Pode construir, implementar, verrativa e monitorizar modelos de nível de produção com Azure Machine Learning. 
 

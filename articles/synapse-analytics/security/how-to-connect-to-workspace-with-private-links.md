@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461328"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218268"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Ligar-se à área de trabalho do Azure Synapse com ligações privadas
 
-Este artigo irá ensiná-lo a criar um ponto final privado para o seu espaço de trabalho Azure Synapse. Consulte [links privados e pontos finais privados](https://docs.microsoft.com/azure/private-link/) para saber mais.
+Este artigo irá ensiná-lo a criar um ponto final privado para o seu espaço de trabalho Azure Synapse. Consulte [links privados e pontos finais privados](../../private-link/index.yml) para saber mais.
 
 ## <a name="step-1-register-network-resource-provider"></a>Passo 1: Fornecedor de recursos da Rede de Registo
 
-Se ainda não o fez, registe o fornecedor de recursos da Rede. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *o Microsoft.Network* na lista de fornecedores de recursos quando se [registar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Se o fornecedor de recursos da Rede já estiver registado, então dirijam-se ao passo 2.
+Se ainda não o fez, registe o fornecedor de recursos da Rede. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *o Microsoft.Network* na lista de fornecedores de recursos quando se [registar](../../azure-resource-manager/management/resource-providers-and-types.md). Se o fornecedor de recursos da Rede já estiver registado, então dirijam-se ao passo 2.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Passo 2: Abra o seu espaço de trabalho Azure Synapse no portal Azure
 

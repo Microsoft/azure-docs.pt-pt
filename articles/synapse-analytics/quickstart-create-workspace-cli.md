@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659391"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219033"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure CLI
 
@@ -30,7 +30,7 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
 - [Conta de armazenamento de Azure Data Lake Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento que ligue como conta de armazenamento primário, deve ter ativado o **espaço hierárquico** na criação da conta de armazenamento, conforme descrito na página [Criar um Accout de Armazenamento.](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) 
+    > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento que ligue como conta de armazenamento primário, deve ter ativado o **espaço hierárquico** na criação da conta de armazenamento, conforme descrito na página [Criar um Accout de Armazenamento.](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -38,13 +38,13 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
 
 1. Definir variáveis ambientais necessárias para criar recursos para o espaço de trabalho Azure Synapse.
 
-    | Nome da Variável de Ambiente | Descrição |
+    | Nome da Variável de Ambiente | Description |
     |---|---|---|
     |StorageAccountName| Nome da sua conta de armazenamento ADLS Gen2 existente.|
     |StorageAccountResourceGroup| Nome do seu grupo de recursos de conta de armazenamento ADLS Gen2 existente. |
     |Nome de FileShare| Nome do seu sistema de ficheiros de armazenamento existente.|
     |Grupo SynapseResource| Escolha um novo nome para o seu grupo de recursos Azure Synapse. |
-    |Região| Escolha uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#overview) |
+    |Region| Escolha uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#overview) |
     |SinapseWorkspaceName| Escolha um nome único para o seu novo espaço de trabalho Azure Synapse. |
     |SqlUser| Escolha um valor para um novo nome de utilizador.|
     |SqlPassword| Escolha uma senha segura.|
@@ -112,7 +112,7 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
     [![Azure Synapse workspace web ](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png)](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png#lightbox)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Siga os passos abaixo para eliminar o espaço de trabalho Azure Synapse.
 > [!WARNING]
@@ -126,6 +126,6 @@ Se pretender eliminar o espaço de trabalho Azure Synapse, complete o seguinte c
 az synapse workspace delete --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool-studio.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar seus dados.

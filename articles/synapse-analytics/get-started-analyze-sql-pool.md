@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 38332492ba9f20ea7c6682d8341ddf6b5f1f11dd
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 683da659dcfa07c0a105382f4cc93d1f4dfb21b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209427"
+ms.locfileid: "98219542"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
@@ -24,7 +24,7 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carregue os dados do táxi de NYC em SQLPOOL1
 
 1. No Synapse Studio, navegue no centro **De Desenvolvimento,** clique no **+** botão para adicionar novo recurso e, em seguida, crie um novo script SQL.
-1. Selecione a piscina 'SQLPOOL1' (piscina criada no [PASSO 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na lista de descida 'Connect to' acima do script.
+1. Selecione a piscina 'SQLPOOL1' (piscina criada no [PASSO 1](./get-started-create-workspace.md) deste tutorial) na lista de descida 'Connect to' acima do script.
 1. Introduza o seguinte código:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -103,4 +103,3 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
 
 > [!div class="nextstepaction"]
 > [Analisar usando faísca](get-started-analyze-spark.md)
-

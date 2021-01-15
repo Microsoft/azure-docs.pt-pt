@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: 8f3cdad8638f8a1f99942d03f3878d0626c3bdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d94166c6c56a3652dc0ad532bd481c6e792c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281247"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217095"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o Azure CLI
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Azure Resource Manager utilizando o Azure CLI. Vários endereços IP não podem ser atribuídos a recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo [de modelos de implementação Understand.](../resource-manager-deployment-model.md)
+Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Azure Resource Manager utilizando o Azure CLI. Vários endereços IP não podem ser atribuídos a recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo [de modelos de implementação Understand.](../azure-resource-manager/management/deployment-models.md)
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 

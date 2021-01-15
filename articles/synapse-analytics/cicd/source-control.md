@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008169"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219747"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
 
@@ -77,7 +77,7 @@ Também pode usar o link do repositório para apontar rapidamente para o reposit
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Use um inquilino azure ative inquilina diferente
 
-O Azure Repos Git repo pode estar em um inquilino azure ative diretório diferente. Para especificar um inquilino do Azure AD diferente, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar. Para mais informações, consulte [o administrador de subscrição de alteração](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator)
+O Azure Repos Git repo pode estar em um inquilino azure ative diretório diferente. Para especificar um inquilino do Azure AD diferente, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar. Para mais informações, consulte [o administrador de subscrição de alteração](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
 
 > [!IMPORTANT]
 > Para se ligar a outro Diretório Ativo Azure, o utilizador que fez login deve fazer parte desse diretório ativo. 
@@ -86,7 +86,7 @@ O Azure Repos Git repo pode estar em um inquilino azure ative diretório diferen
 
 Para utilizar uma conta pessoal da Microsoft para a integração do Git, pode ligar o seu Azure Repo pessoal ao Ative Directory da sua organização.
 
-1. Adicione a sua conta pessoal da Microsoft ao Ative Directory da sua organização como hóspede. Para mais informações, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/external-identities/add-users-administrator).
+1. Adicione a sua conta pessoal da Microsoft ao Ative Directory da sua organização como hóspede. Para mais informações, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../../active-directory/external-identities/add-users-administrator.md).
 
 2. Faça login no portal Azure com a sua conta pessoal da Microsoft. Em seguida, mude para o Diretório Ativo da sua organização.
 

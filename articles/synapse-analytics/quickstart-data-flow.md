@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: cb0fd5464f7025d71dd384c56233aefa6a6cd364
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743852"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218727"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Quickstart: Transforme dados usando fluxos de dados de mapeamento
 
@@ -68,7 +68,7 @@ Um oleoduto contém o fluxo lógico para uma execução de um conjunto de ativid
 
 Assim que criar o fluxo de dados, será automaticamente enviado para a tela de fluxo de dados. Neste passo, você vai construir um fluxo de dados que leva o MoviesDB.csv no armazenamento ADLS e agrega a classificação média de comédias de 1910 a 2000. Em seguida, irá escrever este ficheiro de volta para o armazenamento ADLS.
 
-1. Acima da tela de fluxo de dados, deslize o **depurador de fluxo de dados.** O modo Debug permite testes interativos da lógica de transformação contra um cluster de Faíscas ao vivo. Os clusters Data Flow demoram 5 a 7 minutos a aquecer e os utilizadores são recomendados a ligar primeiro o depurg se planeiam fazer o desenvolvimento do Fluxo de Dados. Para mais informações, consulte [o Modo Debug](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+1. Acima da tela de fluxo de dados, deslize o **depurador de fluxo de dados.** O modo Debug permite testes interativos da lógica de transformação contra um cluster de Faíscas ao vivo. Os clusters Data Flow demoram 5 a 7 minutos a aquecer e os utilizadores são recomendados a ligar primeiro o depurg se planeiam fazer o desenvolvimento do Fluxo de Dados. Para mais informações, consulte [o Modo Debug](../data-factory/concepts-data-flow-debug-mode.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
     ![Deslize o depurg](media/quickstart-data-flow/debug-on.png)
 
@@ -104,7 +104,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
 
 1. Nomeie o seu filter transformation **FilterYears**. Clique na caixa de expressão ao lado **do Filtro para** abrir o construtor de expressão. Aqui irá especificar a sua condição de filtragem.
 
-1. O construtor de expressão de fluxo de dados permite-lhe construir expressões interativas para usar em várias transformações. As expressões podem incluir funções incorporadas, colunas do esquema de entrada e parâmetros definidos pelo utilizador. Para obter mais informações sobre como construir expressões, consulte o [construtor de expressão Data Flow.](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+1. O construtor de expressão de fluxo de dados permite-lhe construir expressões interativas para usar em várias transformações. As expressões podem incluir funções incorporadas, colunas do esquema de entrada e parâmetros definidos pelo utilizador. Para obter mais informações sobre como construir expressões, consulte o [construtor de expressão Data Flow.](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 
     Neste arranque rápido, você quer filtrar filmes de comédia de género que saiu entre os anos 1910 e 2000. Como o ano é atualmente uma corda, você precisa convertê-lo em um inteiro usando a ```toInteger()``` função. Utilize os operadores maiores ou iguais (>=) e inferiores ou iguais a (<=) para comparar com os valores do ano literal de 1910 e 200-. União estas expressões juntamente com o operador e (&&). A expressão sai como:
 
@@ -190,6 +190,6 @@ Se seguiu corretamente este arranque rápido, devia ter escrito 83 linhas e 2 co
 Avance para os seguintes artigos para saber sobre o suporte Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
-> [Gasoduto e atividades](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
->  [Visão geral](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
->  do fluxo de dados de mapeamento [Linguagem de expressão de fluxo de dados](https://docs.microsoft.com/azure/data-factory/data-flow-expression-functions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Gasoduto e atividades](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 
+>  [Visão geral](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 
+>  do fluxo de dados de mapeamento [Linguagem de expressão de fluxo de dados](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

@@ -1,6 +1,6 @@
 ---
-title: Vários endereços IP para máquinas virtuais Azure - Portal Microsoft Docs
-description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando o portal Azure Gestor de Recursos.
+title: Vários endereços IP para máquinas virtuais Azure - Portal | Microsoft Docs
+description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando o portal Azure | Gestor de Recursos.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 135504ad4956836614bfc0f2cb107e610de17c0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0dab64aac8bc5fa68a53fad6cd8e6f6bb4bac03
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543491"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217146"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o portal Azure
 
 > [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 > 
-> Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Azure Resource Manager utilizando o portal Azure. Vários endereços IP não podem ser atribuídos a recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo [de modelos de implementação Understand.](../resource-manager-deployment-model.md)
+> Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Azure Resource Manager utilizando o portal Azure. Vários endereços IP não podem ser atribuídos a recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo [de modelos de implementação Understand.](../azure-resource-manager/management/deployment-models.md)
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -75,8 +75,8 @@ Um endereço IP público é adicionado associando um recurso de endereço IP pú
 Um endereço IP público é uma definição para um recurso de endereço IP público. Se tiver um recurso de endereço IP público que não esteja atualmente associado a uma configuração IP que pretende associar a uma configuração IP, salte os passos seguintes e complete os passos numa das secções que se seguem, conforme necessário. Se não tiver um recurso de endereço IP público disponível, complete os seguintes passos para criar um:
 
 1. Procure no portal Azure https://portal.azure.com e assine, se necessário.
-3. No portal, clique em **Criar um**endereço IP  >  público de rede**de**  >  **Public IP address**recursos.
-4. No painel **de endereços IP público** que aparece, introduza um **Nome**, selecione um tipo de atribuição de **endereço IP,** uma **Subscrição**, um **grupo de Recursos**e uma **Localização**, clique em **Criar**, como mostrado na seguinte imagem:
+3. No portal, clique em **Criar um** endereço IP  >  público de rede **de**  >  recursos.
+4. No painel **de endereços IP público** que aparece, introduza um **Nome**, selecione um tipo de atribuição de **endereço IP,** uma **Subscrição**, um **grupo de Recursos** e uma **Localização**, clique em **Criar**, como mostrado na seguinte imagem:
 
     ![Criar um recurso de endereço IP público](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 

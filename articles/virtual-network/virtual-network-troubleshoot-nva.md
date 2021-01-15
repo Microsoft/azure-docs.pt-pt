@@ -1,5 +1,5 @@
 ---
-title: Problemas de rede de aparelhos virtuais em Azure Microsoft Docs
+title: Problemas de rede de problemas de aparelhos virtuais em Azure | Microsoft Docs
 description: Problemas problemas de prescrição de aparelhos virtuais de rede (NVA) em Azure e validar os requisitos básicos da Plataforma Azure para as configurações da NVA.
 services: virtual-network
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368592"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219288"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aparelhos virtuais em rede em Azure
 
@@ -93,7 +93,7 @@ Utilizar o PowerShell
 
 **Verifique se o tráfego pode chegar à NVA**
 
-1. No [portal Azure](https://portal.azure.com), abra **o Observador de Rede**e, em seguida, selecione IP Flow **Check**. 
+1. No [portal Azure](https://portal.azure.com), abra **o Observador de Rede** e, em seguida, selecione IP Flow **Check**. 
 2. Especifique o VM e o endereço IP do NVA e, em seguida, verifique se o tráfego está bloqueado por quaisquer grupos de segurança da Rede (NSG).
 3. Se houver uma regra NSG que bloqueie o tráfego, localize o NSG em regras **de segurança eficazes** e, em seguida, atualize-a para permitir que o tráfego passe. Em seguida, executar **o fluxo IP Verifique** novamente e utilize a resolução de problemas de **ligação** para testar as comunicações TCP de VM para o seu endereço IP interno ou externo.
 
@@ -127,11 +127,11 @@ Se a rede VM utilizar picos ou mostrar períodos de alta utilização, também p
 ## <a name="advanced-network-administrator-troubleshooting"></a>Resolução avançada de problemas do administrador de rede
 
 ### <a name="capture-network-trace"></a>Rastrear vestígios de rede
-Capture um traço de rede simultâneo na origem VM, na NVA e no VM de destino enquanto corre **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** ou **Nmap**, e depois pare o rastreio.
+Capture um traço de rede simultâneo na origem VM, na NVA e no VM de destino enquanto corre **[PsPing](/sysinternals/downloads/psping)** ou **Nmap**, e depois pare o rastreio.
 
 1. Para capturar um rastreio de rede simultâneo, executar o seguinte comando:
 
-   **Para Windows**
+   **Para janelas**
 
    captura de início de traço de netsh=sim tracefile=c:\server_IP.etl scenario=netconnection
 

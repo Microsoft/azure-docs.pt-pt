@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 005e3a3b717d4b1b8e5eb02b77a1d228908f8707
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210632"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218863"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure PowerShell
 
@@ -30,9 +30,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 - [Conta de armazenamento de Azure Data Lake Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Para qualquer conta de armazenamento que ligue como conta de armazenamento primário, deve ativar o **espaço hierárquico** na criação da conta de armazenamento, tal como descrito na [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell#create-a-storage-account).
+    > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Para qualquer conta de armazenamento que ligue como conta de armazenamento primário, deve ativar o **espaço hierárquico** na criação da conta de armazenamento, tal como descrito na [Criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).
 
-Se optar por utilizar a Cloud Shell, consulte [a visão geral da Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para obter mais informações.
+Se optar por utilizar a Cloud Shell, consulte [a visão geral da Azure Cloud Shell](../cloud-shell/overview.md) para obter mais informações.
 
 ### <a name="install-the-azure-powershell-module-locally"></a>Instale o módulo Azure PowerShell localmente
 
@@ -43,7 +43,7 @@ Para obter mais informações sobre a autenticação com a Azure PowerShell, con
 ### <a name="install-the-azure-synapse-powershell-module"></a>Instale o módulo Azure Synapse PowerShell
 
 > [!IMPORTANT]
-> Enquanto o módulo **Az.Synapse** PowerShell estiver em pré-visualização, deve instalá-lo separadamente utilizando o `Install-Module` cmdlet. Depois de este módulo PowerShell ficar geralmente disponível, fará parte das futuras versões do módulo Az PowerShell e disponível por padrão a partir de Azure Cloud Shell.
+> Enquanto o módulo **Az.Synapse** PowerShell estiver em pré-visualização, deve instalá-lo separadamente utilizando o `Install-Module` cmdlet. Quando este módulo do PowerShell entrar em disponibilidade geral, fará parte das versões futuras do módulo Az PowerShell e estará disponível por predefinição a partir do Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Synapse
@@ -53,13 +53,13 @@ Install-Module -Name Az.Synapse
 
 1. Definir variáveis ambientais necessárias para criar recursos para o espaço de trabalho Azure Synapse.
 
-   |        Nome da variável        |                                                 Descrição                                                 |
+   |        Nome da variável        |                                                 Description                                                 |
    | --------------------------- | ----------------------------------------------------------------------------------------------------------- |
    | StorageAccountName          | Nome da sua conta de armazenamento ADLS Gen2 existente.                                                           |
    | StorageAccountResourceGroup | Nome do seu grupo de recursos de conta de armazenamento ADLS Gen2 existente.                                             |
    | Nome de FileShare               | Nome do seu sistema de ficheiros de armazenamento existente.                                                                  |
    | Grupo SynapseResource        | Escolha um novo nome para o seu grupo de recursos Azure Synapse.                                                    |
-   | Região                      | Escolha uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#overview) |
+   | Region                      | Escolha uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#overview) |
    | SinapseWorkspaceName        | Escolha um nome único para o seu novo espaço de trabalho Azure Synapse.                                                  |
    | SqlUser                     | Escolha um valor para um novo nome de utilizador.                                                                          |
    | SqlPassword                 | Escolha uma senha segura.                                                                                   |

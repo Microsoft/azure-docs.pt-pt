@@ -1,5 +1,5 @@
 ---
-title: Gerir endereços IP públicos ! Microsoft Docs
+title: Gerir endereços IP públicos | Microsoft Docs
 titleSuffix: Azure Virtual Network
 description: Gerir endereços IP públicos.  Saiba também como um endereço IP público é um recurso com as suas próprias configurações configuráveis.
 services: virtual-network
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 1d7ba163f05e827e9262215fd604fa175efa6fc8
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 36b7c5caf54001abba1f17500c680f96934657eb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955608"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216789"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerir endereços IP públicos
 
@@ -30,7 +30,7 @@ Saiba mais sobre um endereço IP público e como criar, alterar e apagar um. Um 
 - Comunicação de entrada da Internet para o recurso, tais como Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, entre outros. Você ainda pode comunicar com alguns recursos, tais como VMs, da Internet, se um VM não tiver um endereço IP público atribuído a ele, desde que o VM faça parte de um pool de back-end do balanceador de carga, e o equilibrador de carga é atribuído um endereço IP público. Para determinar se um recurso para um serviço Azure específico pode ser atribuído um endereço IP público, ou se pode ser comunicado através do endereço IP público de um recurso Azure diferente, consulte a documentação do serviço.
 - Conectividade de saída para a Internet usando um endereço IP previsível. Por exemplo, uma máquina virtual pode comunicar saída para a Internet sem um endereço IP público que lhe seja atribuído, mas o seu endereço é o endereço de rede traduzido pelo Azure para um endereço público imprevisível, por padrão. A atribuição de um endereço IP público a um recurso permite-lhe saber qual o endereço IP utilizado para a ligação de saída. Embora previsível, o endereço pode mudar, dependendo do método de atribuição escolhido. Para mais informações, consulte [Criar um endereço IP público.](#create-a-public-ip-address) Para saber mais sobre as ligações de saída a partir dos recursos Azure, consulte [as ligações de saída.](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,9 +49,9 @@ Os endereços IP públicos têm uma taxa nominal. Para ver os preços, leia a p�
 
 Para obter instruções sobre como criar endereços IP públicos utilizando o Portal, PowerShell ou CLI -- consulte as seguintes páginas:
 
- * [Criar endereços IP públicos - portal](https://docs.microsoft.com/azure/virtual-network/create-public-ip-portal?tabs=option-create-public-ip-standard-zones)
- * [Criar endereços IP públicos - PowerShell](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-standard-zones)
- * [Criar endereços IP públicos - CLI do Azure](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-standard-zones)
+ * [Criar endereços IP públicos - portal](./create-public-ip-portal.md?tabs=option-create-public-ip-standard-zones)
+ * [Criar endereços IP públicos - PowerShell](./create-public-ip-powershell.md?tabs=option-create-public-ip-standard-zones)
+ * [Criar endereços IP públicos - CLI do Azure](./create-public-ip-cli.md?tabs=option-create-public-ip-standard-zones)
 
 >[!NOTE]
 >Embora o portal forneça a opção de criar dois recursos de endereço IP públicos (um IPv4 e um IPv6), os comandos PowerShell e CLI criam um recurso com um endereço para uma versão IP ou outra. Se pretender dois recursos de endereço IP públicos, um para cada versão IP, tem de executar o comando duas vezes, especificando nomes diferentes e versões IP para os recursos de endereço IP públicos.
@@ -61,7 +61,7 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
    |Definição|Necessário?|Detalhes|
    |---|---|---|
    |Versão IP|Yes| Selecione IPv4 ou IPv6 ou Ambos. A seleção de Ambos resultará na criação de 2 endereços IP públicos: endereço 1 IPv4 e endereço 1 IPv6. Saiba mais sobre [o IPv6 em Azure VNETs](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-   |SKU|Yes|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos **básicos** do SKU. Não é possível alterar o SKU após a criação do endereço IP público. Uma máquina virtual autónoma, máquinas virtuais dentro de um conjunto de disponibilidade, ou conjuntos de escala de máquina virtual podem usar SKUs básicos ou padrão. Não é permitida a mistura de SKUs entre máquinas virtuais dentro de conjuntos de disponibilidade ou conjuntos de escala ou VMs autónomos. **Básico** SKU: Se estiver a criar um endereço IP público numa região que suporte zonas de disponibilidade, a definição **de zona de Disponibilidade** está definida para *Nenhum* por padrão. Os IPs públicos básicos não suportam zonas de disponibilidade. **Padrão** SKU: Um IP público Standard SKU pode ser associado a uma máquina virtual ou a uma extremidade frontal do balanceador de carga. Se estiver a criar um endereço IP público numa região que suporte zonas de disponibilidade, a definição **de zona de disponibilidade** está definida como zona *redundante* por padrão. Para obter mais informações sobre as zonas de disponibilidade, consulte a definição **da zona de Disponibilidade.** O SKU padrão é necessário se associar o endereço a um equilibrador de carga Standard. Para saber mais sobre os balanceadores de carga padrão, consulte [o EKU do balanceador de carga Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.|
+   |SKU|Yes|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos **básicos** do SKU. Não é possível alterar o SKU após a criação do endereço IP público. Uma máquina virtual autónoma, máquinas virtuais dentro de um conjunto de disponibilidade, ou conjuntos de escala de máquina virtual podem usar SKUs básicos ou padrão. Não é permitida a mistura de SKUs entre máquinas virtuais dentro de conjuntos de disponibilidade ou conjuntos de escala ou VMs autónomos. **Básico** SKU: Se estiver a criar um endereço IP público numa região que suporte zonas de disponibilidade, a definição **de zona de Disponibilidade** está definida para *Nenhum* por padrão. Os IPs públicos básicos não suportam zonas de disponibilidade. **Padrão** SKU: Um IP público Standard SKU pode ser associado a uma máquina virtual ou a uma extremidade frontal do balanceador de carga. Se estiver a criar um endereço IP público numa região que suporte zonas de disponibilidade, a definição **de zona de disponibilidade** está definida como zona *redundante* por padrão. Para obter mais informações sobre as zonas de disponibilidade, consulte a definição **da zona de Disponibilidade.** O SKU padrão é necessário se associar o endereço a um equilibrador de carga Standard. Para saber mais sobre os balanceadores de carga padrão, consulte [o EKU do balanceador de carga Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.|
    |Escalão de serviço|Yes|Indica se o endereço IP está associado a uma região **(Regional)** ou se é "anycast" de várias regiões **(Global).** *Note que um IP "Global Tier" é uma funcionalidade de pré-visualização para IPs padrão, e atualmente apenas utilizado para o Balancer de Carga Cross-Region*.|
    |Name|Yes|O nome deve ser único dentro do grupo de recursos que seleciona.|
    |Atribuição de endereços IP|Yes|**Dinâmico:** Os endereços dinâmicos são atribuídos apenas após um endereço IP público estar associado a um recurso Azure, e o recurso é iniciado pela primeira vez. Os endereços dinâmicos podem ser alterados se forem atribuídos a um recurso, como uma máquina virtual, e a máquina virtual é interrompida (locada por negócios) e depois reiniciada. O endereço permanece o mesmo se uma máquina virtual for reiniciada ou parada (mas não negociada). Os endereços dinâmicos são libertados quando um recurso de endereço IP público é dissociado de um recurso a que está associado. **Estática:** Os endereços estáticos são atribuídos quando um endereço IP público é criado. Os endereços estáticos não são liberados até que um recurso de endereço IP público seja eliminado. Se o endereço não estiver associado a um recurso, pode alterar o método de atribuição após a criação do endereço. Se o endereço estiver associado a um recurso, poderá não conseguir alterar o método de atribuição. Se selecionar *o IPv6* para a **versão IP,** o método de atribuição deve ser *Dinâmico* para SKU Básico.  Os endereços SKU standard são *estáticos* tanto para IPv4 como IPv6. |
@@ -77,7 +77,7 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
 ## <a name="view-modify-settings-for-or-delete-a-public-ip-address"></a>Ver, modificar as definições para ou eliminar um endereço IP público
 
    - **Visualização/Lista**: Para rever as definições de um IP público, incluindo o SKU, endereço, qualquer associação aplicável (por exemplo, Virtual Machine NIC, Load Balancer Frontend).
-   - **Modificar:** Modificar as definições utilizando as informações no passo 4 de [criar um endereço IP público](#create-a-public-ip-address), como o tempo limite de marcha lenta, a etiqueta do nome DNS ou o método de atribuição.  (Para o processo completo de atualização de um SKU IP público de Base para Standard, consulte [endereços IP públicos de upgrade](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade).)
+   - **Modificar:** Modificar as definições utilizando as informações no passo 4 de [criar um endereço IP público](#create-a-public-ip-address), como o tempo limite de marcha lenta, a etiqueta do nome DNS ou o método de atribuição.  (Para o processo completo de atualização de um SKU IP público de Base para Standard, consulte [endereços IP públicos de upgrade](./virtual-network-public-ip-address-upgrade.md).)
    >[!WARNING]
    >Para alterar a atribuição de um endereço IP público de estática para dinâmica, tem primeiro de dissociar o endereço de quaisquer configurações IP aplicáveis (ver secção **Eliminar).**  Note também que, quando altera o método de atribuição de estática para dinâmica, perde-se o endereço IP que foi atribuído ao endereço IP público. Enquanto os servidores DNS públicos Azure mantêm um mapeamento entre endereços estáticos ou dinâmicos e qualquer etiqueta de nome DNS (se tiver definido um), um endereço IP dinâmico pode mudar quando a máquina virtual é iniciada depois de estar no estado parado (deallocated). Para evitar que o endereço se mude, atribua um endereço IP estático.
    
@@ -91,9 +91,9 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
 
 |Recurso|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
-|[Máquina Virtual](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
+|[Máquina virtual](./remove-public-ip-address-vm.md)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
 |Frontend de balançador de carga | Navegue para um endereço IP público não utilizado e selecione **Associate** e escolha o Balanceador de Carga com a configuração IP frontal relevante para substituí-lo (em seguida, o ip antigo pode ser eliminado usando o mesmo método que para VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) para associar o novo Frontend IP config com o Balancer de Carga Pública; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) para remover Frontend IP Config se houver mais de um |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) para associar novo Frontend IP config com Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [a az rede lb frontend-ip apagar](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) para remover Frontend IP Config se houver mais de um|
-|Firewall|N/D| [Deallocate()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) para negociar firewall e remover todas as configurações IP | [az firewall ip-config eliminar](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) para remover IP (mas deve usar PowerShell para negociar primeiro)|
+|Firewall|N/D| [Deallocate()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) para negociar firewall e remover todas as configurações IP | [az firewall ip-config eliminar](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) para remover IP (mas deve usar PowerShell para negociar primeiro)|
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 
@@ -101,17 +101,17 @@ Ao utilizar uma balança de máquina virtual definida com IPs públicos, não ex
 
 Para listar os IPs públicos num conjunto de escala de máquina virtual, pode utilizar PowerShell[(Get-AzPublicIpAddress -VirtualMachineScaleSetName)](/powershell/module/az.network/get-azpublicipaddress)ou CLI[(az vmss list-instance-public-ips).](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips)
 
-Para obter mais informações, consulte [conjuntos de balanças de máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine).
+Para obter mais informações, consulte [conjuntos de balanças de máquinas virtuais Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 
 ## <a name="assign-a-public-ip-address"></a>Atribuir um endereço IP público
 
 Saiba como atribuir um endereço IP público aos seguintes recursos:
 
 - Uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ao criar), ou para uma [máquina virtual existente](virtual-network-network-interface-addresses.md#add-ip-addresses)
-- [Balanceador de Carga Pública](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Gateway de Aplicação](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Ligação local-local utilizando um Gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Balanceador de Carga Pública](../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Gateway de Aplicação](../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Ligação local-local utilizando um Gateway VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Conjunto de escala de máquina virtual](../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Permissões
 
@@ -127,4 +127,4 @@ Para executar tarefas em endereços IP públicos, a sua conta deve ser atribuíd
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie um endereço IP público utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou usando [modelos de Gestor de Recursos](template-samples.md) Azure
-- Criar e atribuir [definições de Política Azure](policy-samples.md) para endereços IP públicos
+- Criar e atribuir [definições de Política Azure](./policy-reference.md) para endereços IP públicos

@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX com
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: eb58bbe127349aaebed3b1eb00281cf2938c1933
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 14835f7d332b1fcc6e1afabec9a6ee6e55d699e7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681589"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219866"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -169,8 +169,12 @@ spec:
 Para criar o emitente, use o `kubectl apply` comando.
 
 ```
-$ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+```
 
+A saída deve ser semelhante a este exemplo:
+
+```
 clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
 
@@ -307,8 +311,12 @@ spec:
 Crie o recurso de entrada utilizando o `kubectl apply` comando.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+```
 
+A saída deve ser semelhante a este exemplo:
+
+```
 ingress.extensions/hello-world-ingress created
 ```
 
@@ -331,7 +339,7 @@ Type    Reason          Age   From          Message
   Normal  CertIssued      10m   cert-manager  Certificate issued successfully
 ```
 
-Se precisar de criar um recurso adicional de certificado, pode fazê-lo com o seguinte manifesto de exemplo. Atualize os nomes e *domínios dns* para o nome DNS que criou num passo anterior. *domains* Se utilizar um controlador interno de entrada, especifique o nome DNS interno para o seu serviço.
+Se precisar de criar um recurso adicional de certificado, pode fazê-lo com o seguinte manifesto de exemplo. Atualize os nomes e *domínios dns* para o nome DNS que criou num passo anterior.  Se utilizar um controlador interno de entrada, especifique o nome DNS interno para o seu serviço.
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -382,7 +390,7 @@ Adicione agora o caminho */olá-mundo-dois* ao FQDN, tal como *`https://demo-aks
 
 ![Exemplo de aplicação dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -441,7 +449,7 @@ Por fim, remova o endereço IP público estático criado para o controlador de e
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711005"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216993"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Add, change, or remove IP addresses for an Azure network interface (Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure)
 
@@ -29,7 +29,7 @@ Saiba como adicionar, alterar e remover endereços IP públicos e privados para 
 
 Se precisar de criar, alterar ou eliminar uma interface de rede, leia o artigo de interface de [rede.](virtual-network-network-interface.md) Se precisar de adicionar interfaces de rede ou remover interfaces de rede de uma máquina virtual, leia o artigo [de Interfaces de Rede Add ou remova.](virtual-network-network-interface-vm.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,10 +54,10 @@ Pode adicionar o maior número de endereços [IPv4](#ipv4) [privados](#private) 
 
    |Definição|Necessário?|Detalhes|
    |---|---|---|
-   |Nome|Sim|Deve ser único para a interface de rede|
-   |Tipo|Sim|Uma vez que está a adicionar uma configuração IP a uma interface de rede existente, e cada interface de rede deve ter uma configuração IP [primária,](#primary) a sua única opção é **Secundária**.|
-   |Método de atribuição de endereços IP privados|Sim|[**Dinâmica**](#dynamic): O Azure atribui o próximo endereço disponível para o intervalo de endereços da sub-rede em que a interface de rede está implantada. [**Estática**](#static): Atribua um endereço não utilizado para o intervalo de endereços da sub-rede em que a interface de rede está implantada.|
-   |Endereço IP público|Não|**Deficientes:** Nenhum recurso de endereço IP público está atualmente associado à configuração IP. **Habilitado:** Selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [IP público.](virtual-network-public-ip-address.md#create-a-public-ip-address)|
+   |Name|Yes|Deve ser único para a interface de rede|
+   |Tipo|Yes|Uma vez que está a adicionar uma configuração IP a uma interface de rede existente, e cada interface de rede deve ter uma configuração IP [primária,](#primary) a sua única opção é **Secundária**.|
+   |Método de atribuição de endereços IP privados|Yes|[**Dinâmica**](#dynamic): O Azure atribui o próximo endereço disponível para o intervalo de endereços da sub-rede em que a interface de rede está implantada. [**Estática**](#static): Atribua um endereço não utilizado para o intervalo de endereços da sub-rede em que a interface de rede está implantada.|
+   |Endereço IP público|No|**Deficientes:** Nenhum recurso de endereço IP público está atualmente associado à configuração IP. **Habilitado:** Selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [IP público.](virtual-network-public-ip-address.md#create-a-public-ip-address)|
 6. Adicione manualmente endereços IP privados secundários ao sistema operativo da máquina virtual, preenchendo as instruções no artigo [de atribuir vários endereços IP a um artigo de sistemas operativos de máquina virtual.](virtual-network-multiple-ip-addresses-portal.md#os-config) Consulte endereços IP [privados](#private) para obter considerações especiais antes de adicionar manualmente endereços IP a um sistema operativo de máquina virtual. Não adicione quaisquer endereços IP públicos ao sistema operativo da máquina virtual.
 
 **Comandos**
@@ -200,7 +200,7 @@ Não é possível atribuir um endereço IPv6 público a uma configuração IP pr
 Um endereço IP público é criado com o SKU básico ou padrão. Para obter mais informações sobre as diferenças de SKU, consulte [Gerir os endereços IP públicos.](virtual-network-public-ip-address.md)
 
 > [!NOTE]
-> Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
+> Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para criar uma máquina virtual com diferentes configurações IP, leia os seguintes artigos:

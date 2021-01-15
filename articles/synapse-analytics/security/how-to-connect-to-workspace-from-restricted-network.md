@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296718"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218370"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conecte-se aos recursos do espaço de trabalho a partir de uma rede restrita
 
@@ -40,7 +40,7 @@ A imagem que se segue mostra detalhes para a regra de saída do Azure Resource M
 
 Quando estiver a criar as outras três regras, substitua a etiqueta de **serviço** de destino por **AzureFrontDoor.Frontend**, **AzureActiveDirectory** ou **AzureMonitor** da lista.
 
-Para obter mais informações, consulte [a visão geral das etiquetas de serviço.](/azure/virtual-network/service-tags-overview)
+Para obter mais informações, consulte [a visão geral das etiquetas de serviço.](../../virtual-network/service-tags-overview.md)
 
 ## <a name="step-2-create-private-link-hubs"></a>Passo 2: Criar centros de ligação privados
 

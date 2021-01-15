@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1b647e15d3fc99a7f15fbc24e2b6050fdfdc6e93
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654716"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219883"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Compreender o sign-on único baseado em palavra-passe
 
@@ -44,7 +44,7 @@ A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará na navegação para uma aplicação em **aplicações da Enterprise.** 
 >
-> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](../develop/reference-app-manifest.md). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform) 
+> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](../develop/reference-app-manifest.md). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform) 
 >
 > Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -60,7 +60,7 @@ A página de configuração para SSO baseado em palavra-passe é simples. Inclui
 
 Depois de introduzir o URL, **selecione Guardar**. A Azure AD analisa o HTML da página de entrada de inscrição para o nome de utilizador e os campos de entrada de palavra-passe. Se a tentativa for bem sucedida, está feito.
  
-O seu próximo passo é [atribuir utilizadores ou grupos à aplicação.](./assign-user-or-group-access-portal.md) Depois de ter atribuído utilizadores e grupos, pode fornecer credenciais para ser usado para um utilizador quando iniciar o sessão na aplicação. Selecione **Utilizadores e grupos**, selecione a caixa de verificação para a linha do utilizador ou grupo e, em seguida, selecione **''' ''' 'Update Credentials'.** Por fim, introduza o nome de utilizador e a palavra-passe a utilizar para o utilizador ou grupo. Caso não o faça, os utilizadores serão solicitados a introduzir as credenciais no lançamento.
+O seu próximo passo é [atribuir utilizadores ou grupos à aplicação.](./assign-user-or-group-access-portal.md) Depois de ter atribuído utilizadores e grupos, pode fornecer credenciais para ser usado para um utilizador quando iniciar o sessão na aplicação. Selecione **Utilizadores e grupos**, selecione a caixa de verificação para a linha do utilizador ou grupo e, em seguida, selecione **''' ' 'Update Credentials'.** Por fim, introduza o nome de utilizador e a palavra-passe a utilizar para o utilizador ou grupo. Caso não o faça, os utilizadores serão solicitados a introduzir as credenciais no lançamento.
  
 
 ## <a name="manual-configuration"></a>Configuração manual
@@ -86,7 +86,7 @@ Se a tentativa de análise do AD do Azure falhar, pode configurar a inscrição 
 
 8. Selecione **OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir utilizadores ou grupos à aplicação](./assign-user-or-group-access-portal.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)

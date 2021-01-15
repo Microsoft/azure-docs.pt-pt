@@ -1,5 +1,5 @@
 ---
-title: Não é possível apagar uma rede virtual no Azure Microsoft Docs
+title: Não é possível eliminar uma rede virtual no Azure | Microsoft Docs
 description: Saiba como resolver o problema em que não pode eliminar uma rede virtual em Azure.
 services: virtual-network
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335699"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219356"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Resolução de problemas: Falhou em eliminar uma rede virtual em Azure
 
@@ -64,15 +64,15 @@ Se houver um gateway de aplicação, deve removê-lo antes de poder eliminar a r
 ### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Verifique se ainda existem casos de contentores Azure na rede virtual
 
 1. No portal Azure, aceda à página **geral** do grupo de recursos.
-1. No cabeçalho para a lista dos recursos do grupo de recursos, selecione **Mostrar os tipos ocultos**. O tipo de perfil de rede está escondido no portal Azure por padrão.
+1. No cabeçalho da lista dos recursos do grupo de recursos, selecione **Mostrar tipos ocultos**. O tipo de perfil de rede está escondido no portal Azure por padrão.
 1. Selecione o perfil de rede relacionado com os grupos de contentores.
 1. Selecione **Eliminar**.
 
    ![Screenshot da lista de perfis de rede escondidos.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
 
-1. Elimine novamente a sub-rede ou a rede virtual.
+1. Elimine a sub-rede ou a rede virtual novamente.
 
-Se estes passos não resolverem o problema, use estes [comandos Azure CLI](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) para limpar recursos. 
+Se estes passos não resolverem o problema, use estes [comandos Azure CLI](../container-instances/container-instances-vnet.md#clean-up-resources) para limpar recursos. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Verifique se o Azure Ative Directory Domain Service está ativado na rede virtual
 

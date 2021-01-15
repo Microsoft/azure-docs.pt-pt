@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: a9db2bcc0b44dfb6146517de8a139f34cd8584af
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: bb9235f4d1190bf7f71ddc007f09c9666c353234
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654460"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216806"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure
 
@@ -152,7 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Saiba mais sobre a Versão 4.2 dos Serviços de Integração Linux para Hiper-V visualizando a página de [descarregamento](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Passos seguintes
-* Implementar VMs próximos uns dos outros para baixa latência com [Grupo de Colocação de Proximidade](../virtual-machines/windows/co-location.md)
+* Implementar VMs próximos uns dos outros para baixa latência com [Grupo de Colocação de Proximidade](../virtual-machines/co-location.md)
 * Consulte o resultado otimizado com [bandwidth/Throughput testando Azure VM](virtual-network-bandwidth-testing.md) para o seu cenário.
 * Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)

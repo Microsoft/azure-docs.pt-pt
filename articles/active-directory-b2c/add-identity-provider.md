@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 01/08/2021
+ms.date: 01/14/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5c45342524a0300f1c67339f27aa905eb3dc79db
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1665f8f595e2bb9ba2a5f2c8528f85854630ab4f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033376"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216585"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Adicione um fornecedor de identidade ao seu inquilino Azure Ative Directory B2C
 
@@ -37,6 +37,7 @@ Normalmente, usa apenas um fornecedor de identidade nas suas aplicações, mas t
 * [Amazon](identity-provider-amazon.md)
 * [Azure AD (Inquilino único)](identity-provider-azure-ad-single-tenant.md)
 * [Azure AD (Multi-inquilino)](identity-provider-azure-ad-multi-tenant.md)
+* [Azure AD B2C](identity-provider-azure-ad-b2c.md)
 * [Facebook](identity-provider-facebook.md)
 * [Fornecedores de identidade genéricos](identity-provider-generic-openid-connect.md)
 * [GitHub](identity-provider-github.md)

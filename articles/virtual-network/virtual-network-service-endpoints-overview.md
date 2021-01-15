@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004947"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216534"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -33,14 +33,14 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões Azu
 - **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* Geralmente disponível em todas as regiões do Azure.
 - **[Base de Dados Azure para servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
 - **[Base de Dados Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
-- **[Base de Dados Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** *(Microsoft.Sql):* Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Geralmente disponível em todas as regiões do Azure.
+- **[Base de Dados Azure para MariaDB](../mariadb/concepts-data-access-security-vnet.md)** *(Microsoft.Sql):* Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
+- **[Azure Cosmos DB](../cosmos-db/how-to-configure-vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.ServiceBus*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Geralmente disponível em todas as regiões do Azure onde a ADLS Gen1 está disponível.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** *(Microsoft.Web*): Geralmente disponível em todas as regiões Azure onde o serviço de aplicações está disponível.
-- **[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** *(Microsoft.CognitiveServices*): Geralmente disponível em todas as regiões do Azure onde os serviços cognitivos estão disponíveis.
+- **[Azure App Service](../app-service/app-service-ip-restrictions.md)** *(Microsoft.Web*): Geralmente disponível em todas as regiões Azure onde o serviço de aplicações está disponível.
+- **[Azure Cognitive Services](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** *(Microsoft.CognitiveServices*): Geralmente disponível em todas as regiões do Azure onde os serviços cognitivos estão disponíveis.
 
 **Pré-visualização pública**
 
@@ -98,7 +98,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 - Grupos de segurança de rede (NSGs) com pontos finais de serviço:
   - Por padrão, os NSGs permitem o tráfego de internet de saída e também permitem o tráfego dos seus serviços VNet para Azure. Este tráfego continua a funcionar com os pontos finais de serviço como está. 
-  - Se pretender negar todo o tráfego de internet de saída e permitir apenas tráfego para serviços Azure específicos, pode fazê-lo usando [tags](security-overview.md#service-tags) de serviço nos seus NSGs. Pode especificar os serviços Azure suportados como destino nas suas regras NSG e a Azure também fornece a manutenção de endereços IP subjacentes a cada tag. Para obter mais informações, consulte [Etiquetas de Serviço do Azure para NSGs.](security-overview.md#service-tags) 
+  - Se pretender negar todo o tráfego de internet de saída e permitir apenas tráfego para serviços Azure específicos, pode fazê-lo usando [tags](./network-security-groups-overview.md#service-tags) de serviço nos seus NSGs. Pode especificar os serviços Azure suportados como destino nas suas regras NSG e a Azure também fornece a manutenção de endereços IP subjacentes a cada tag. Para obter mais informações, consulte [Etiquetas de Serviço do Azure para NSGs.](./network-security-groups-overview.md#service-tags) 
 
 ### <a name="scenarios"></a>Cenários
 
@@ -138,11 +138,11 @@ Certos serviços Azure, tais como contas de armazenamento Azure, podem impor lim
 
 ## <a name="vnet-service-endpoint-policies"></a>Políticas de ponto final de serviço VNet 
 
-As políticas de ponto final do serviço VNet permitem filtrar o tráfego de rede virtual para os serviços Azure. Este filtro permite apenas recursos de serviço Azure específicos sobre os pontos finais de serviço. As políticas de ponto final de serviço fornecem controlo de acesso granular para tráfego de rede virtual para serviços Azure. Para obter mais informações, consulte [as Políticas de Ponto final do Serviço de Rede Virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+As políticas de ponto final do serviço VNet permitem filtrar o tráfego de rede virtual para os serviços Azure. Este filtro permite apenas recursos de serviço Azure específicos sobre os pontos finais de serviço. As políticas de ponto final de serviço fornecem controlo de acesso granular para tráfego de rede virtual para serviços Azure. Para obter mais informações, consulte [as Políticas de Ponto final do Serviço de Rede Virtual.](./virtual-network-service-endpoint-policies-overview.md)
 
 ## <a name="faqs"></a>FAQs
 
-Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
+Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede virtual.](./virtual-networks-faq.md#virtual-network-service-endpoints)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -151,5 +151,5 @@ Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede vir
 - [Garantir uma Base de Dados Azure SQL a uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Garantir um Azure Synapse Analytics a uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
-- [Políticas de ponto final de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Políticas de ponto final de serviço de rede virtual](./virtual-network-service-endpoint-policies-overview.md)
 - [Modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

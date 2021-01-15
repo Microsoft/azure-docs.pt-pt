@@ -11,18 +11,18 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
-ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493649"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219135"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorizar o desempenho do Azure SQL Managed Instance e da Base de Dados SQL do Microsoft Azure com as vistas de gestão dinâmicas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-A Base de Dados DO Microsoft Azure SQL e a Azure SQL Managed Instance permitem um subconjunto de visões dinâmicas de gestão para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de longa duração, estrangulamentos de recursos, planos de consulta deficientes, e assim por diante. Este tópico fornece informações sobre como detetar problemas de desempenho comuns usando pontos de vista dinâmicos de gestão.
+A Base de Dados DO Microsoft Azure SQL e a Azure SQL Managed Instance permitem um subconjunto de visões dinâmicas de gestão para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de longa duração, estrangulamentos de recursos, planos de consulta deficientes, e assim por diante. Este artigo fornece informações sobre como detetar problemas de desempenho comuns utilizando pontos de vista dinâmicos de gestão.
 
 A Base de Dados DO Microsoft Azure SQL e a Azure SQL Managed Instance suportam parcialmente três categorias de pontos de vista dinâmicos de gestão:
 
@@ -259,7 +259,7 @@ Para a contenção temporária, um método comum é reduzir ou reescrever códig
 - Tabelas temporárias
 - Variáveis de tabela
 - Parâmetros de valor de tabela
-- Utilização do arquivo de versões (especificamente associada a transações de execução prolongada)
+- Utilização da loja de versão (associada a transações de longa duração)
 - Consultas com planos de consulta que utilizam ordenações, associações hash e spools
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Consultas de topo que usam variáveis de mesa e tabelas temporárias
@@ -563,14 +563,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
 A [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista na base de dados **principal** tem informações adicionais que podem ajudá-lo a monitorizar o desempenho da sua base de dados no seu nível de serviço específico e tamanho de cálculo. Os dados são recolhidos a cada 5 minutos e são mantidos durante aproximadamente 14 dias. Esta visão é útil para uma análise histórica a longo prazo de como a sua base de dados utiliza recursos.
 
-O gráfico que se segue mostra a utilização do recurso CPU para uma base de dados Premium com o tamanho do cálculo P2 para cada hora numa semana. Este gráfico começa numa segunda-feira, mostra 5 dias de trabalho, e depois mostra um fim de semana, quando muito menos acontece na aplicação.
+O gráfico que se segue mostra a utilização do recurso CPU para uma base de dados Premium com o tamanho do cálculo P2 para cada hora numa semana. Este gráfico começa numa segunda-feira, mostra cinco dias de trabalho, e depois mostra um fim de semana, quando muito menos acontece na aplicação.
 
 ![Utilização de recursos de base de dados](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -589,7 +589,7 @@ Este exemplo mostra como os dados desta vista são expostos:
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![A vista do catálogo sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -624,7 +624,7 @@ O próximo exemplo mostra-lhe diferentes formas de usar a **vista de** catálogo
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Com esta informação sobre os valores médios e máximos de cada métrica de recurso, pode avaliar o quão bem a sua carga de trabalho se encaixa no tamanho do cálculo que escolheu. Normalmente, os valores médios de **sys.resource_stats** dão-lhe uma boa linha de base para usar contra o tamanho do alvo. Deve ser a sua vara de medição primária. Por exemplo, pode estar a utilizar o nível de serviço Standard com tamanho de computação S2. As percentagens médias de utilização das leituras e escritas de CPU e IO são inferiores a 40%, o número médio de trabalhadores é inferior a 50, e o número médio de sessões é inferior a 200. A sua carga de trabalho pode encaixar no tamanho da computação S1. É fácil ver se a sua base de dados se enquadra nos limites de trabalho e de sessão. Para ver se uma base de dados se enquadra num tamanho de cálculo mais baixo no que diz respeito ao CPU, lê e escreve, divida o número DTU do tamanho do cálculo inferior pelo número DTU do seu tamanho atual de cálculo e, em seguida, multiplique o resultado por 100:
+3. Com esta informação sobre os valores médios e máximos de cada métrica de recurso, pode avaliar o quão bem a sua carga de trabalho se encaixa no tamanho do cálculo que escolheu. Normalmente, os valores médios de **sys.resource_stats** dão-lhe uma boa linha de base para usar contra o tamanho do alvo. Deve ser a sua vara de medição primária. Por exemplo, pode estar a utilizar o nível de serviço Standard com tamanho de computação S2. As percentagens médias de utilização das leituras e escritas de CPU e IO são inferiores a 40%, o número médio de trabalhadores é inferior a 50, e o número médio de sessões é inferior a 200. A sua carga de trabalho pode encaixar no tamanho da computação S1. É fácil ver se a sua base de dados se enquadra nos limites de trabalho e de sessão. Para ver se uma base de dados se enquadra num tamanho de cálculo mais baixo no que diz respeito ao CPU, lê e escreve, divida o número DTU do tamanho do cálculo inferior pelo número DTU do seu tamanho atual de computação e, em seguida, multiplique o resultado por 100:
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
@@ -699,7 +699,7 @@ Para ver o número de sessões ativas atuais, execute esta consulta Transact-SQL
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 Se estiver a analisar uma carga de trabalho do SQL Server, modifique a consulta para se concentrar numa base de dados específica. Esta consulta ajuda-o a determinar possíveis necessidades de sessão para a base de dados se estiver a considerar mudá-la para Azure.
@@ -709,7 +709,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Mais uma vez, estas consultas devolvem uma contagem pontual. Se recolher várias amostras ao longo do tempo, terá a melhor compreensão da sua utilização da sessão.
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Consultas bloqueadas de monitorização
 
-Consultas lentas ou de longa duração podem contribuir para o consumo excessivo de recursos e ser consequência de consultas bloqueadas. A causa do bloqueio pode ser o mau design de aplicações, os maus planos de consulta, a falta de índices úteis, e assim por diante. Pode utilizar a visão sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual na base de dados. Por exemplo, código, consulte [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Consultas lentas ou de longa duração podem contribuir para o consumo excessivo de recursos e ser consequência de consultas bloqueadas. A causa do bloqueio pode ser o mau design de aplicações, os maus planos de consulta, a falta de índices úteis, e assim por diante. Pode utilizar a visão sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual na base de dados. Por exemplo, código, consulte [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). Para obter mais informações sobre o bloqueio de resolução de [problemas, consulte Compreender e resolver problemas de bloqueio do Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="monitoring-query-plans"></a>Planos de consulta de monitorização
 

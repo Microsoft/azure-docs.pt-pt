@@ -1,5 +1,5 @@
 ---
-title: Vários endereços IP para máquinas virtuais Azure - PowerShell Microsoft Docs
+title: Vários endereços IP para máquinas virtuais Azure - PowerShell | Microsoft Docs
 description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando o PowerShell. | Gestor de Recursos
 services: virtual-network
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: 5cd050c88fbc954a211c3a75cdabcb557ae998c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d86d4248b449ad3961a7798fd36a320eb6a74009
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073929"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217078"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "87073929"
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Azure Resource Manager utilizando o PowerShell. Vários endereços IP não podem ser atribuídos a recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo [de modelos de implementação Understand.](../resource-manager-deployment-model.md)
+Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Azure Resource Manager utilizando o PowerShell. Vários endereços IP não podem ser atribuídos a recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo [de modelos de implementação Understand.](../azure-resource-manager/management/deployment-models.md)
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -94,7 +94,7 @@ Os passos que se seguem explicam como criar um VM exemplo com vários endereços
 
 6. Defina a configuração ip primária para o NIC. Altere 10.0.0.4 para um endereço válido na sub-rede que criou, caso não tenha utilizado o valor definido anteriormente. Antes de atribuir um endereço IP estático, recomenda-se que confirme primeiro que ainda não está a ser utilizado. Insira o `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet` comando. Se o endereço estiver disponível, a saída retorna *True*. Se não estiver disponível, a saída devolve *Falso* e uma lista de endereços disponíveis. 
 
-    Nos seguintes comandos, ** \<replace-with-your-unique-name> substitua-o pelo nome DNS único a utilizar.** O nome deve ser único em todos os endereços IP públicos dentro de uma região de Azure. Este é um parâmetro opcional. Pode ser removido se apenas pretender ligar-se ao VM utilizando o endereço IP público.
+    Nos seguintes comandos, **\<replace-with-your-unique-name> substitua-o pelo nome DNS único a utilizar.** O nome deve ser único em todos os endereços IP públicos dentro de uma região de Azure. Este é um parâmetro opcional. Pode ser removido se apenas pretender ligar-se ao VM utilizando o endereço IP público.
 
     ```powershell
     

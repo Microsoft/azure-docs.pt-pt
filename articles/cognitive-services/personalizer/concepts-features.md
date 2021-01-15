@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365521"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217894"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>As funcionalidades são informações sobre ações e contexto
 
 O serviço Personalizer funciona aprendendo o que a sua aplicação deve mostrar aos utilizadores num determinado contexto.
 
-Personalizer usa **funcionalidades** , que é informação sobre o **contexto atual** para escolher a melhor **ação**. As funcionalidades representam toda a informação que acha que pode ajudar a personalizar para obter recompensas mais elevadas. As funcionalidades podem ser muito genéricas, ou específicas de um item. 
+Personalizer usa **funcionalidades**, que é informação sobre o **contexto atual** para escolher a melhor **ação**. As funcionalidades representam toda a informação que acha que pode ajudar a personalizar para obter recompensas mais elevadas. As funcionalidades podem ser muito genéricas, ou específicas de um item. 
 
 Por exemplo, pode ter uma **característica** sobre:
 
@@ -37,12 +37,12 @@ O personalizador não prescreve, limita ou corrige as funcionalidades que pode e
 
 ## <a name="supported-feature-types"></a>Tipos de funcionalidades suportados
 
-O personaler suporta características de tipos de cordas, numéricos e booleanos.
+O personaler suporta características de tipos de cordas, numéricos e booleanos. É muito provável que a sua aplicação utilize principalmente funcionalidades de cordas, com algumas exceções.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta machine learning no personalizar
 
-* **Cordas** : Para tipos de cordas, cada combinação de chave e valor cria novos pesos no modelo de aprendizagem automática Personalizer. 
-* **Numérico** : Deve utilizar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Este é muito dependente do cenário. Num exemplo simplificado, por exemplo, ao personalizar uma experiência de retalho, o NumberOfPetsOwned pode ser uma característica que é numérica, pois pode querer que pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas ou três vezes mais do que ter um animal de estimação. Características que são baseadas em unidades numéricas mas onde o significado não é linear - como Idade, Temperatura ou Altura da Pessoa - são melhor codificadas como cordas, e a qualidade da funcionalidade pode tipicamente ser melhorada usando gamas. Por exemplo, a idade pode ser codificada como "Idade":"0-5", "Idade":"6-10", etc.
+* **Cordas**: Para tipos de cordas, cada combinação de chave e valor é tratada como uma característica One-Hot (por exemplo, género:"ScienceFiction" e género:"Documentário" criaria duas novas funcionalidades de entrada para o modelo de machine learning.
+* **Numérico**: Deve utilizar valores numéricos quando o número é uma magnitude que deve afetar proporcionalmente o resultado da personalização. Este é muito dependente do cenário. Num exemplo simplificado, por exemplo, ao personalizar uma experiência de retalho, o NumberOfPetsOwned pode ser uma característica que é numérica, pois pode querer que pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas ou três vezes mais do que ter um animal de estimação. Características que são baseadas em unidades numéricas mas onde o significado não é linear - como Idade, Temperatura ou Altura da Pessoa - são melhor codificadas como cordas. Por exemplo, DayOfMonth seria uma corda com "1",2"..."..."31". Se tiver muitas categorias A qualidade da funcionalidade pode normalmente ser melhorada utilizando gamas. Por exemplo, a idade pode ser codificada como "Idade":"0-5", "Idade":"6-10", etc.
 * **Valores booleano** enviados com valor de ato "falso" como se não tivessem sido enviados.
 
 As características que não estão presentes devem ser omitidas do pedido. Evite enviar funcionalidades com um valor nulo, pois será processado como existente e com um valor "nulo" ao treinar o modelo.
@@ -80,12 +80,14 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6", "-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -112,6 +121,8 @@ A cadeia que usa para nomear o espaço de nome deve seguir algumas restrições:
 Um bom conjunto de funcionalidades ajuda o Personaler a aprender a prever a ação que irá impulsionar a maior recompensa. 
 
 Considere o envio de funcionalidades para a API do Ranking Personalizado que segue estas recomendações:
+
+* Utilize tipos categóricos e de cordas para funcionalidades que não sejam de magnitude. 
 
 * Há características suficientes para impulsionar a personalização. Quanto mais precisamente o conteúdo for necessário, mais funcionalidades são necessárias.
 

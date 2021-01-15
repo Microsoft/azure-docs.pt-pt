@@ -3,17 +3,17 @@ title: Segurança da rede para relé Azure
 description: Este artigo descreve como usar as regras de firewall IP e pontos finais privados com o Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134471"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217248"
 ---
 # <a name="network-security-for-azure-relay"></a>Segurança da rede para relé Azure 
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Relay: 
 
-- Regras de firewall IP (pré-visualização)
+- Regras de firewall IP
 - Pontos finais privados 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ Esta funcionalidade é útil em cenários em que o Azure Relay só deve ser aces
 As regras de firewall IP são aplicadas ao nível do espaço de identificação do Relay. Por isso, as regras aplicam-se a todas as ligações dos clientes utilizando qualquer protocolo suportado. Qualquer tentativa de ligação a partir de um endereço IP que não corresponda a uma regra ip permitida no espaço de nome Relay é rejeitada como não autorizada. A resposta não menciona a regra do IP. As regras do filtro IP são aplicadas por ordem, e a primeira regra que corresponde ao endereço IP determina a ação de aceitação ou rejeição.
 
 Para obter mais informações, consulte [Como configurar firewall IP para um espaço de nome relay](ip-firewall-virtual-networks.md)
-
-> [!NOTE]
-> Esta funcionalidade encontra-se atualmente em **pré-visualização.** 
 
 ## <a name="private-endpoints"></a>Pontos finais privados
 

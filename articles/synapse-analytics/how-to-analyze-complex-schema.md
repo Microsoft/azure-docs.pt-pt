@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43e4027c9d88b209ed0606e045dd5b4d47d3ff6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088521"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220002"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analise tipos de dados complexos no Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Os engenheiros de dados precisam entender como processar eficientemente tipos de
 
 ## <a name="what-are-arrays-and-nested-structures"></a>O que são matrizes e estruturas aninhadas?
 
-O seguinte objeto provém do [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Neste objeto, existem estruturas aninhadas e matrizes que contêm estruturas aninhadas.
+O seguinte objeto provém do [Application Insights](../azure-monitor/app/app-insights-overview.md). Neste objeto, existem estruturas aninhadas e matrizes que contêm estruturas aninhadas.
 
 ```json
 {
@@ -221,4 +221,4 @@ Existem dois tipos diferentes de operações:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como consultar a Synapse Link para Azure Cosmos DB com Faísca](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Consultar tipos aninhados de Parquet](./sql/query-parquet-nested-types.md) 
+* [Consultar tipos aninhados de Parquet](./sql/query-parquet-nested-types.md)

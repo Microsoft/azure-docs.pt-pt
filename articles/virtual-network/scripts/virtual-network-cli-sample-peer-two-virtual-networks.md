@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6cd6d61ba1404ca6b6de63a0151ec414b2df54e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 902d6643420ff6bdafcf52278f3a1c0df28647ae
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87492467"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217542"
 ---
 # <a name="peer-two-virtual-networks-with-an-azure-cli-script-sample"></a>Peer duas redes virtuais com uma amostra de script Azure CLI
 
@@ -54,6 +54,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos adicionais de scripts da CLI de rede virtual em [Exemplos da CLI de rede virtual](../cli-samples.md).

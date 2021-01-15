@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572291"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218200"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Como gerir atribuições de funções do SYNAPC no Synapse Studio
 
@@ -65,7 +65,7 @@ Para atribuir uma função num âmbito mais fino, selecione o **item workspace**
 
 ![Adicionar atribuição de função de item de espaço de trabalho - selecione o tipo de item](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Selecione o **item** específico a ser utilizado como o âmbito e, em seguida, selecione a **função** a atribuir a partir do drop-down.  As listas de espera listam apenas as funções que são válidas para o tipo de produto selecionado. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Selecione o **item** específico a ser utilizado como o âmbito e, em seguida, selecione a **função** a atribuir a partir do drop-down.  As listas de espera listam apenas as funções que são válidas para o tipo de produto selecionado. [Saiba mais](./synapse-workspace-synapse-rbac.md).  
 
 ![Adicionar atribuição de função de item de ponto de espaço de trabalho - selecione função](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ Lembre-se que as alterações nas atribuições de funções levarão 2-5 minuto
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Compreender as funções de RBAC da Sinapse necessárias para executar tarefas comuns](./synapse-workspace-understand-what-role-you-need.md) 
+[Compreender as funções de RBAC da Sinapse necessárias para executar tarefas comuns](./synapse-workspace-understand-what-role-you-need.md)

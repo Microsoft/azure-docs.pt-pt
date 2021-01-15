@@ -7,46 +7,40 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589173"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220257"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uma execução de pipeline do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, tem um oleoduto que executa às 8:00, 9:00 e 10:00 da manhã. Neste caso, existem três percursos separados do gasoduto ou do gasoduto. Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Um ID de execução é um GUID (Globalmente Unique Identifier) que define esse gasoduto em particular.
+Uma execução de pipeline do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que tem um oleoduto que funciona às 8:00, 9:00 e 10:00. Neste caso, há três oleodutos separados. Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Um ID de execução é um identificador globalmente único (GUID) que define esse gasoduto em particular.
 
-Normalmente, as execuções de pipeline são instanciadas pela transmissão de argumentos a parâmetros que são definidos no pipeline. Pode executar um pipeline manualmente ou com um acionador. Consulte a [execução do Pipeline e os gatilhos na Azure Data Factory](concepts-pipeline-execution-triggers.md) para obter mais detalhes.
+Normalmente, as execuções de pipeline são instanciadas pela transmissão de argumentos a parâmetros que são definidos no pipeline. Pode executar uma tubagem manualmente ou utilizando um gatilho. Consulte [a execução do Pipeline e os gatilhos na Azure Data Factory](concepts-pipeline-execution-triggers.md) para obter mais detalhes.
 
 ## <a name="common-issues-causes-and-solutions"></a>Questões comuns, causas e soluções
 
-### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Pipeline com Função Azure lança erro com conectividade de ponto final privado
+### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>Um pipeline de aplicativoS Azure Funs lança um erro com conectividade de ponto final privado
  
-#### <a name="issue"></a>Problema
-Para algum contexto, tem a Data Factory e a Azure Function App a funcionar num ponto final privado. Está a tentar que funcione um oleoduto que interage com a App de Função Azure. Já experimentou três métodos diferentes, mas um retorna `Bad Request` erro, os outros dois métodos `103 Error Forbidden` regressam.
+Tem data factory e uma aplicação de função Azure em execução num ponto final privado. Está a tentar executar um oleoduto que interage com a aplicação de função. Já tentou três métodos diferentes, mas um retorna o erro "Mau Pedido", e os outros dois métodos devolvem "103 Error Forbidden".
 
-#### <a name="cause"></a>Causa 
-A Data Factory não suporta atualmente um conector de ponto final privado para a App de Função Azure. E esta deve ser a razão pela qual a Azure Function App está rejeitando as chamadas, uma vez que seria configurada para permitir apenas ligações a partir de um Link Privado.
+**Causa**: A Data Factory não suporta atualmente um conector de ponto final privado para aplicações de funções. A Azure Functions rejeita chamadas porque está configurado para permitir apenas ligações a partir de um link privado.
 
-#### <a name="resolution"></a>Resolução
-Pode criar um Ponto Final Privado do tipo **PrivateLinkService** e fornecer o DNS da sua aplicação de função, e a ligação deve funcionar.
+**Resolução**: Crie um ponto final **PrivateLinkService** e forneça o DNS da sua aplicação de função.
 
-### <a name="pipeline-run-is-killed-but-the-monitor-still-shows-progress-status"></a>O gasoduto está morto, mas o monitor ainda mostra o estado de progresso
+### <a name="a-pipeline-run-is-canceled-but-the-monitor-still-shows-progress-status"></a>Uma corrida de gasoduto é cancelada, mas o monitor ainda mostra o estado de progresso
 
-#### <a name="issue"></a>Problema
-Muitas vezes, quando se mata uma conduta, a monitorização do gasoduto ainda mostra o estado de progresso. Isto acontece devido ao problema de cache no navegador e você não está tendo filtros certos para monitorização.
+Quando se cancela uma corrida ao gasoduto, a monitorização do gasoduto mostra frequentemente o estado de progresso. Isto acontece por causa de um problema de cache do navegador. Também pode não ter os filtros de monitorização corretos.
 
-#### <a name="resolution"></a>Resolução
-Refresque o navegador e aplique filtros certos para monitorização.
+**Resolução**: Refresque o navegador e aplique os filtros de monitorização corretos.
  
-### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Falha do Pipeline copy – encontrou mais colunas do que a contagem de colunas esperada (DelimitedTextMoreColumnsThanDefined)
-
-#### <a name="issue"></a>Problema  
-Se os ficheiros de uma determinada pasta que está a copiar contiverem ficheiros com esquemas diferentes, como número variável de colunas, delimiters diferentes, definições de carvão de cotação ou algum problema de dados, o gasoduto Data Factory acabará por funcionar neste erro:
+### <a name="you-see-a-delimitedtextmorecolumnsthandefined-error-when-copying-a-pipeline"></a>Você vê um erro "DelimitedTextMoreColumnsThanDefined" ao copiar um oleoduto
+ 
+Se uma pasta que está a copiar contiver ficheiros com esquemas diferentes, tais como número variável de colunas, delimiters diferentes, definições de carvão de cotação ou algum problema de dados, o gasoduto Data Factory pode lançar este erro:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -56,51 +50,41 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-#### <a name="resolution"></a>Resolução
-Selecione a opção "Cópia Binária" enquanto cria a atividade de Dados de Cópia. Desta forma, para copiar a granel ou migrar os seus dados de um Lago de Dados para outro, com opção **binária,** a Data Factory não abrirá os ficheiros para ler esquemas, mas apenas tratará cada ficheiro como binário e copiá-losá para o outro local.
+**Resolução**: Selecione a opção **Cópia Binária** enquanto cria a atividade Copy. Desta forma, para cópias a granel ou migração dos seus dados de um lago de dados para outro, a Data Factory não abrirá os ficheiros para ler o esquema. Em vez disso, a Data Factory tratará cada ficheiro como binário e copiá-lo-á para o outro local.
 
-### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>O gasoduto falha quando se atinge o limite de capacidade do tempo de execução da integração
+### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime"></a>Um gasoduto falha quando se atinge o limite de capacidade do tempo de funcionação da integração
 
-#### <a name="issue"></a>Problema
 Mensagem de erro:
 
 `
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-O erro indica a limitação do tempo de execução por integração, que atualmente é de 50. Consulte [os Limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) para mais detalhes.
+**Porque:** Atingiste o limite de capacidade do tempo de integração. Você pode estar executando uma grande quantidade de fluxo de dados usando o mesmo tempo de integração ao mesmo tempo. Consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) para mais detalhes.
 
-Se executar uma grande quantidade de fluxo de dados usando o mesmo tempo de integração ao mesmo tempo, pode causar este tipo de erro.
+**Resolução:**
+ 
+- Executar os seus oleodutos em diferentes momentos de disparo.
+- Crie um novo tempo de integração e divida os seus oleodutos através de vários tempos de integração.
 
-#### <a name="resolution"></a>Resolução 
-- Separe estes oleodutos por um tempo diferente de disparo para executar.
-- Crie um novo tempo de integração e divida estes oleodutos através de vários tempos de integração.
+### <a name="you-have-activity-level-errors-and-failures-in-pipelines"></a>Tem erros e falhas ao nível da atividade em oleodutos
 
-### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Como monitorizar falhas do gasoduto em intervalos regulares
+A orquestração Azure Data Factory permite a lógica condicional e permite que os utilizadores tomem caminhos diferentes com base no resultado de uma atividade anterior. Permite quatro caminhos condicional: **Após o Sucesso** (passe padrão), **Após O Fracasso,** **Após A Conclusão,** e **Após O Salto**. 
 
-#### <a name="issue"></a>Problema
-Há muitas vezes a necessidade de monitorizar os oleodutos da Data Factory em intervalos, digamos 5 minutos. Pode consultar e filtrar o gasoduto a partir de uma fábrica de dados utilizando o ponto final. 
+A Azure Data Factory avalia o resultado de todas as atividades ao nível das folhas. Os resultados do gasoduto só são bem sucedidos se todas as folhas forem bem sucedidas. Se uma atividade de folha foi ignorada, avaliamos a sua atividade principal. 
 
-#### <a name="recommendation"></a>Recomendação
-1. Crie uma App Azure Logic para consultar todos os oleodutos falhados a cada 5 minutos.
-2. Em seguida, pode reportar incidentes ao nosso sistema de bilhética de acordo com [a QueryByFactory.](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory)
+**Resolução**
 
-#### <a name="reference"></a>Referência
-- [Notificações de envio externo da Fábrica de Dados](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+1. Implementar controlos ao nível da atividade seguindo [como lidar com falhas e erros](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459)do gasoduto .
+1. Utilize aplicações lógicas Azure para monitorizar os gasodutos em intervalos regulares após [consulta por fábrica](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
-### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Como lidar com erros e falhas ao nível da atividade em gasodutos
+## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitorizar falhas do gasoduto em intervalos regulares
 
-#### <a name="issue"></a>Problema
-A orquestração Azure Data Factory permite a lógica condicional e permite ao utilizador seguir caminhos diferentes com base nos resultados de uma atividade anterior. Permite quatro caminhos condicional: "Após o Sucesso (passe padrão)", "Após O Fracasso", "Após Conclusão", e "Após O Salto". É permitido utilizar diferentes caminhos.
+Pode ser necessário monitorizar os oleodutos falhados da Data Factory em intervalos, digamos, 5 minutos. Pode consultar e filtrar o gasoduto a partir de uma fábrica de dados utilizando o ponto final. 
 
-A Azure Data Factory define o sucesso e o fracasso do gasoduto da seguinte forma:
+Crie uma aplicação lógica Azure para consultar todos os oleodutos falhados a cada 5 minutos, conforme descrito em [Consulta Por Fábrica](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Então, pode reportar incidentes ao nosso sistema de bilhética.
 
-- Avalie o resultado de todas as atividades ao nível da folha. Se uma atividade de folha foi ignorada, avaliamos a sua atividade principal.
-- O resultado do gasoduto é bem sucedido se e somente se todas as folhas forem bem sucedidas.
-
-#### <a name="recommendation"></a>Recomendação
-- Implementar controlos de nível de atividade na sequência [de como lidar com falhas e erros do gasoduto](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-- Utilize a Azure Logic App para monitorizar os gasodutos em intervalos regulares após [consulta por DataFactory]( https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+Para mais informações, aceda ao [Envio de Notificações da Data Factory, Parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

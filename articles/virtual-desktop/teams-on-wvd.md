@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505551"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217843"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
 >[!IMPORTANT]
->A otimização dos meios de comunicação para equipas é suportada para ambientes do Governo microsoft 365 (GCC). A otimização dos meios de comunicação para equipas não é suportada para GCC-High ou DoD.
+>A otimização dos meios de comunicação para equipas é suportada para o Governo da Microsoft 365 (GCC) e GCC-High ambientes. A otimização dos meios de comunicação para equipas não é suportada para GCC-High ou DoD.
 
 >[!NOTE]
 >A otimização de meios para o Microsoft Teams só está disponível para o cliente do Windows Desktop em máquinas Windows 10. As otimizações dos meios de comunicação requerem a versão 1.2.1026.0 ou posterior do cliente do Windows Desktop.
@@ -124,7 +124,7 @@ Depois de instalar o Serviço WebSocket e a aplicação de desktop Teams, siga e
 
 4. Selecione a imagem do perfil do utilizador e, em seguida, selecione **Definições**.
 
-      Se as otimizações dos meios de comunicação forem carregadas, os dispositivos áudio e as câmaras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu mostrar **áudio remoto,** saia da aplicação Teams e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as definições de Privacidade no seu PC local. Certifique-se de que as permissões da App de Privacidade sob **Definições**  >  **Privacy**  >  **App permissions** a definição **Permitir que as aplicações acedam ao seu microfone** é alternada **.** Desligue da sessão remota e volte a ligar e verifique novamente os dispositivos de áudio e vídeo. Para se juntar a chamadas e reuniões com vídeo, também deve conceder permissão para que as aplicações acedam à sua câmara.
+      Se as otimizações dos meios de comunicação forem carregadas, os dispositivos áudio e as câmaras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu mostrar **áudio remoto,** saia da aplicação Teams e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as definições de Privacidade no seu PC local. Certifique-se de que as permissões da App de Privacidade sob **Definições**  >    >   a definição **Permitir que as aplicações acedam ao seu microfone** é alternada **.** Desligue da sessão remota e volte a ligar e verifique novamente os dispositivos de áudio e vídeo. Para se juntar a chamadas e reuniões com vídeo, também deve conceder permissão para que as aplicações acedam à sua câmara.
 
       Se as otimizações não carregarem, desinstale as equipas e volte a verificar.
 
@@ -140,7 +140,7 @@ Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente
 
 ### <a name="calls-and-meetings"></a>Chamadas e reuniões
 
-- O cliente de desktop teams em ambientes de desktop virtual do Windows não suporta eventos ao vivo. Por enquanto, recomendamos que se junte a eventos ao vivo do [cliente web teams](https://teams.microsoft.com) na sua sessão remota.
+- O cliente de desktop teams em ambientes de desktop virtual do Windows não suporta a criação de eventos ao vivo, mas pode participar em eventos ao vivo. Por enquanto, recomendamos que crie eventos ao vivo a partir do [cliente web teams](https://teams.microsoft.com) na sua sessão remota.
 - Chamadas ou reuniões não suportam atualmente a partilha de aplicações. As sessões de desktop suportam a partilha do ambiente de trabalho.
 - Dê o controlo e assuma o controlo não está apoiado.
 - As equipas no Windows Virtual Desktop suportam apenas uma entrada de vídeo recebida de cada vez. Isto significa que sempre que alguém tenta partilhar o seu ecrã, o seu ecrã aparecerá em vez do ecrã do líder da reunião.

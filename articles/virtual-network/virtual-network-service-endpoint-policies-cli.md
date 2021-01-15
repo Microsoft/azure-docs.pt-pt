@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: a080c3953c48227301052a0bb151c8cba96e515a
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9ce1e320a93a834a938ce95f3931d885d2214faa
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737392"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216874"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando o Azure CLI
 
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Cada grupo de segurança de rede contém várias [regras de segurança predefinidos.](security-overview.md#default-security-rules) A regra que segue sobrepõe-se a uma regra de segurança predefinido que permite o acesso de saída a todos os endereços IP públicos. A `destination-address-prefix "Internet"` opção nega o acesso de saída a todos os endereços IP públicos. A regra anterior substitui esta regra, devido à sua maior prioridade, que permite o acesso aos endereços IP públicos do Azure Storage.
+Cada grupo de segurança de rede contém várias [regras de segurança predefinidos.](./network-security-groups-overview.md#default-security-rules) A regra que segue sobrepõe-se a uma regra de segurança predefinido que permite o acesso de saída a todos os endereços IP públicos. A `destination-address-prefix "Internet"` opção nega o acesso de saída a todos os endereços IP públicos. A regra anterior substitui esta regra, devido à sua maior prioridade, que permite o acesso aos endereços IP públicos do Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -353,7 +353,7 @@ O acesso é negado e você recebe um `mount error(13): Permission denied` erro, 
 
 Saia da sessão SSH para o *myVmPublic* VM.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure) o grupo de recursos e todos os recursos que contém.
 

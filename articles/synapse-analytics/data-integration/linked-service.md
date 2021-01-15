@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452528"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220121"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a garantir um serviço ligado em Synapse com um p
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição Azure**: Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta Azure Storage**: Utiliza o Azure Data Lake Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter passos para criar uma. Certifique-se de que a Conta de Armazenamento tem a filtragem IP do Estúdio Synapse para aceder à sua aceder e que só permite que **as redes Selecionadas acedam** à conta de Armazenamento. A definição sob as **firewalls** da lâmina e as redes virtuais devem parecer a imagem abaixo.
+* **Conta Azure Storage**: Utiliza o Azure Data Lake Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md) para obter passos para criar uma. Certifique-se de que a Conta de Armazenamento tem a filtragem IP do Estúdio Synapse para aceder à sua aceder e que só permite que **as redes Selecionadas acedam** à conta de Armazenamento. A definição sob as **firewalls** da lâmina e as redes virtuais devem parecer a imagem abaixo.
 
 ![Conta de Armazenamento Segura](./media/secure-storage-account.png)
 

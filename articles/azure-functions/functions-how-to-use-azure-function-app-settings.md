@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035211"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217367"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
 
@@ -19,11 +19,6 @@ Em Funções Azure, uma aplicação de função fornece o contexto de execução
 As funções individuais numa aplicação de função são implementadas em conjunto e são dimensionadas em conjunto. Todas as funções na mesma função a aplicação partilham recursos, por exemplo, à medida que a tabela de aplicações de função. 
 
 As cadeias de ligação, as variáveis ambientais e outras configurações de aplicação são definidas separadamente para cada aplicação de função. Quaisquer dados que devam ser partilhados entre aplicações de função devem ser armazenados externamente numa loja persistiu.
-
-Este artigo descreve como configurar e gerir as suas aplicações de função. 
-
-> [!TIP]  
-> Muitas opções de configuração também podem ser geridas utilizando o [Azure CLI]. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Começar a utilizar o portal do Azure
 
@@ -37,15 +32,17 @@ Pode navegar para tudo o que necessita para gerir a sua aplicação de função 
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Trabalhar com configurações de aplicações
 
-O **separador de definições de aplicação** mantém as definições que são utilizadas pela sua aplicação de função. Estas definições são armazenadas encriptadas e tem de selecionar **valores de 'Mostrar'** para ver os valores no portal. Também pode aceder às definições da aplicação utilizando o CLI Azure.
+As definições de aplicação podem ser geridas a partir do [portal Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) e utilizando o [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) e [o Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Também pode gerir as definições de aplicações a partir do [Código do Estúdio Visual](functions-develop-vs-code.md#application-settings-in-azure) e do Visual [Studio](functions-develop-vs.md#function-app-settings). 
 
-### <a name="portal"></a>Portal
+Estas definições são armazenadas encriptadas. Para saber mais, consulte [a segurança das definições de aplicação](security-concepts.md#application-settings).
 
-Para adicionar uma definição no portal, selecione **nova definição** de aplicação e adicione o novo par de valor-chave.
+# <a name="portal"></a>[Portal](#tab/portal)
+
+O **separador de definições de aplicação** mantém as definições que são utilizadas pela sua aplicação de função. Tem de selecionar **valores de 'Mostrar'** para ver os valores no portal. Para adicionar uma definição no portal, selecione **nova definição** de aplicação e adicione o novo par de valor-chave.
 
 ![Definições de aplicações de função no portal Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>CLI do Azure
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
 O [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) comando devolve as definições de aplicação existentes, como no exemplo seguinte:
 
@@ -62,6 +59,22 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+O [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet devolve as definições de aplicação existentes, como no exemplo seguinte: 
+
+```azurepowershell-interactive
+Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+O [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando adiciona ou atualiza uma definição de aplicação. O exemplo a seguir cria uma definição com uma chave nomeada `CUSTOM_FUNCTION_APP_SETTING` e um valor `12345` de:
+
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
+```
+
+---
 
 ### <a name="use-application-settings"></a>Utilizar as definições de aplicações
 
