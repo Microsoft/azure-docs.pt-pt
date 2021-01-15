@@ -1,17 +1,17 @@
 ---
-title: Importar dados do Azure Log Analytics para o Power BI Microsoft Docs
+title: Importar dados do Azure Log Analytics para o Power BI | Microsoft Docs
 description: Power BI é um serviço de análise de negócios baseado na nuvem da Microsoft que fornece visualizações e relatórios ricos para análise de diferentes conjuntos de dados.  Este artigo descreve como configurar e importar dados do Log Analytics no Power BI e configurar-os para atualizar automaticamente.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f00416f180f83c761be5ed444e80903e9fcbb6
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184574"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234448"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Import Azure Monitor regista dados de registo em Power BI
 
@@ -28,6 +28,9 @@ Para importar dados de um espaço de [trabalho Log Analytics](manage-access.md) 
 ## <a name="export-query"></a>Consulta de exportação
 Comece por criar uma [consulta de registo](../log-query/log-query-overview.md) que retorne os dados que pretende preencher o conjunto de dados Power BI.  Em seguida, exporta essa consulta para a [linguagem Power Query (M)](/powerquery-m/power-query-m-language-specification) que pode ser usada pelo Power BI Desktop.
 
+> [!WARNING]
+> Tenha cuidado para [otimizar](../log-query/query-optimization.md) a sua consulta para que não desempenhe demasiado tempo ou possa ter um tempo limite. Note o valor **da timepan** na consulta exportada que define o tempo de tempo dos dados que a consulta irá recuperar. Utilize a menor quantidade de tempo que necessita para limitar a quantidade de dados que a consulta devolve.
+
 1. [Crie a consulta de registo no Log Analytics](../log-query/log-analytics-tutorial.md) para extrair os dados para o seu conjunto de dados.
 2. Selecione **Export**  >  **Power BI Consulta (M)**.  Isto exporta a consulta para um ficheiro de texto chamado **PowerBIQuery.txt**. 
 
@@ -39,7 +42,7 @@ Comece por criar uma [consulta de registo](../log-query/log-query-overview.md) q
 Power BI Desktop é uma aplicação de ambiente de trabalho que permite criar conjuntos de dados e relatórios que podem ser publicados no Power BI.  Também pode usá-lo para criar uma consulta utilizando a linguagem Power Query exportada do Azure Monitor. 
 
 1. Instale [o Power BI Desktop](https://powerbi.microsoft.com/desktop/) se ainda não o tiver e, em seguida, abra a aplicação.
-2. **Selecione Obter Consulta** Em Branco para abrir uma nova  >  **Blank Query** consulta.  Em seguida, selecione **Advanced Editor** e cole o conteúdo do ficheiro exportado para a consulta. Clique em **Concluído**.
+2. **Selecione Obter Consulta** Em Branco para abrir uma nova  >   consulta.  Em seguida, selecione **Advanced Editor** e cole o conteúdo do ficheiro exportado para a consulta. Clique em **Concluído**.
 
     ![Consulta de ambiente de trabalho Power BI](media/powerbi/desktop-new-query.png)
 

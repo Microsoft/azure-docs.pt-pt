@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: e2cbea433d56d4c1290a5d1cdc54b56e81b4cd73
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968310"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234329"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -233,6 +233,7 @@ SSD Standard | Suportado |
 Redundância | LRS e GRS são apoiados.<br/><br/> O ZRS não é apoiado.
 Armazenamento fresco e quente | Não suportado | Os discos VM não são suportados em armazenamento fresco e quente
 Espaços de Armazenamento | Suportado |
+Interface de armazenamento NVMe | Não suportado
 Encriptação em repouso (SSE) | Suportado | SSE é a definição padrão nas contas de armazenamento.
 Encriptação em repouso (CMK) | Suportado | Tanto as teclas de Software como as teclas HSM são suportadas para discos geridos
 Dupla encriptação em repouso | Suportado | Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md)

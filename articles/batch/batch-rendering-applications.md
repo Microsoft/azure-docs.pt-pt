@@ -3,14 +3,14 @@ title: Aplicações de renderização
 description: É possível utilizar quaisquer aplicações de renderização com o Azure Batch. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
 ms.date: 09/19/2019
 ms.topic: how-to
-ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4eefa287575d68acccb2697e1d262c7e48dab62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85960491"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234414"
 ---
-# <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicações pré-instaladas na renderização de imagens VM
+# <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicações pré-instaladas em imagens VM de renderização de lotes
 
 É possível utilizar quaisquer aplicações de renderização com o Azure Batch. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
 
@@ -87,4 +87,4 @@ A lista a seguir aplica-se ao Windows Server 2016, versão 1.3.7 que renderiza i
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para utilizar as imagens VM de renderização, elas precisam de ser especificadas na configuração da piscina quando uma piscina é criada; ver as capacidades de [lote de piscina para renderização](./batch-rendering-functionality.md#batch-pools).
+Para utilizar as imagens VM de renderização, elas precisam de ser especificadas na configuração da piscina quando uma piscina é criada; ver as capacidades de [lote de piscina para renderização](./batch-rendering-functionality.md).
