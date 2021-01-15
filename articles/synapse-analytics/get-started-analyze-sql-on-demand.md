@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 4ca9ababbeb7843f1a014a4bd51a5e24a74acbae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 12/31/2020
+ms.openlocfilehash: c9f8760bd1a7b5d3700f3fdf03331fe7013e116f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322938"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209411"
 ---
 # <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Analise os dados com piscina SQL sem servidor no Azure Synapse Analytics
 
@@ -23,10 +23,11 @@ Neste tutorial, você vai aprender a analisar dados com pool SQL sem servidor us
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analise os dados do táxi nyc no armazenamento de blob usando a piscina SQL sem servidor
 
-1. No centro de **dados** em **Linked** , clique à direita no **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** e selecione **SELECT TOP 100 linhas**
+1. No centro de **dados** em **Linked**, clique à direita no **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow**, **New SQL Script**, e selecione SELECT TOP **100 linhas**
 1. Isto criará um novo script SQL com o seguinte código:
 
     ```
+    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -42,7 +43,7 @@ Neste tutorial, você vai aprender a analisar dados com pool SQL sem servidor us
 As tabelas nas bases de dados Spark são automaticamente visíveis e podem ser consultadas por piscina SQL sem servidor.
 
 1. No Synapse Studio, vá ao centro **De Desenvolvimento** e crie um novo script SQL.
-1. **Desactor Connect to** **to serverless SQL pool**.
+1. **Desactor Connect à** piscina SQL sem servidor **incorporada.**
 1. Cole o texto seguinte no script e execute o script.
 
     ```sql

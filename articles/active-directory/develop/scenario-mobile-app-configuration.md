@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444066"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208918"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
@@ -148,9 +148,9 @@ Para obter mais informações, consulte [considerações específicas da UWP com
 
 No Android e iOS, os corretores permitem:
 
-- **Único sinal de sinalização (SSO)** : Pode utilizar SSO para dispositivos registados no Azure Ative Directory (Azure AD). Quando utiliza sSO, os seus utilizadores não precisam de iniciar sômposições em cada aplicação.
-- **Identificação do dispositivo** : Esta definição permite políticas de acesso condicional relacionadas com dispositivos AD Azure. O processo de autenticação utiliza o certificado do dispositivo que foi criado quando o dispositivo foi associado ao local de trabalho.
-- **Verificação de identificação de aplicação** : Quando uma aplicação chama o corretor, passa o seu URL de redirecionamento. Então o corretor verifica.
+- **Único sinal de sinalização (SSO)**: Pode utilizar SSO para dispositivos registados no Azure Ative Directory (Azure AD). Quando utiliza sSO, os seus utilizadores não precisam de iniciar sômposições em cada aplicação.
+- **Identificação do dispositivo**: Esta definição permite políticas de acesso condicional relacionadas com dispositivos AD Azure. O processo de autenticação utiliza o certificado do dispositivo que foi criado quando o dispositivo foi associado ao local de trabalho.
+- **Verificação de identificação de aplicação**: Quando uma aplicação chama o corretor, passa o seu URL de redirecionamento. Então o corretor verifica.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Ativar o corretor em Xamarin
 
@@ -249,8 +249,8 @@ Para registar o esquema de URL da sua aplicação, siga estes passos:
 
    Aqui, `BundleId` identifica exclusivamente o seu dispositivo. Por exemplo, se `BundleId` `yourcompany.xforms` for, o seu esquema de URL é `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Este esquema de URL passará a fazer parte do URI de redirecionamento que identifica exclusivamente a sua app quando recebe a resposta do corretor.
+  
+      Este esquema de URL passará a fazer parte do URI de redirecionamento que identifica exclusivamente a sua app quando recebe a resposta do corretor.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Quando o MSAL para iOS e macOS liga para o corretor, o corretor volta para a sua
     }
 ```
 
-> [!NOTE]
-> Se tiver adotado `UISceneDelegate` no iOS 13 ou mais tarde, em seguida, coloque a chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` 20. O MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
->
-> Para mais informações, consulte a documentação da [Apple.](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)
+Se tiver adotado `UISceneDelegate` no iOS 13 ou mais tarde, em seguida, coloque a chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` 20. O MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
+
+Para mais informações, consulte a documentação da [Apple.](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)
 
 #### <a name="step-2-register-a-url-scheme"></a>Passo 2: Registar um esquema de URL
 
@@ -329,8 +328,7 @@ Para registar um esquema para a sua aplicação:
 
    Aqui, `BundleId` identifica exclusivamente o seu dispositivo. Por exemplo, se `BundleId` `yourcompany.xforms` for, o seu esquema de URL é `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Este esquema de URL passará a fazer parte do URI de redirecionamento que identifica exclusivamente a sua app quando recebe a resposta do corretor. Certifique-se de que o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registado para a sua aplicação no portal [Azure](https://portal.azure.com).
+    Este esquema de URL passará a fazer parte do URI de redirecionamento que identifica exclusivamente a sua app quando recebe a resposta do corretor. Certifique-se de que o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registado para a sua aplicação no portal [Azure](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>

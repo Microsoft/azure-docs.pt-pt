@@ -3,16 +3,16 @@ title: 'Quickstart: Monitor Node.js com Insights de Aplicação do Monitor Azure
 description: Fornece instruções para configurar rapidamente uma aplicação web Node.js para monitorização com Azure Monitor Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 550097272f90a2f7fa06af7f06810fd3fa0ed94f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e5fc7c71c1ced4542f00fe862699442c6b43bc69
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173882"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210363"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Quickstart: Comece a monitorizar a sua aplicação web Node.js com insights de aplicação Azure
 
@@ -31,7 +31,7 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Criar um recurso**Developer  >  **tools**  >  **Application Insights**.
+2. Selecione **Criar um recurso** Developer  >  **tools**  >  **Application Insights**.
 
    ![Adicione um recurso Azure Application Insights](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c752bc6ae49f009056067545fde292dc29027d5d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165880"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208136"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -129,7 +129,7 @@ Pode utilizar um analisador otimizado para o desempenho quando consultar ficheir
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Criar manualmente estatísticas para ficheiros CSV
 
-O pool SQL sem servidor baseia-se em estatísticas para gerar planos de execução de consultas ideais. As estatísticas serão automaticamente criadas para colunas em ficheiros Parquet quando necessário. Neste momento, as estatísticas não são automaticamente criadas para colunas em ficheiros CSV e deve criar estatísticas manualmente para colunas que utilize em consultas, particularmente as utilizadas em DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Consulte [estatísticas na piscina SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool para obter mais detalhes.
+O pool SQL sem servidor baseia-se em estatísticas para gerar planos de execução de consultas ideais. As estatísticas serão automaticamente criadas para colunas em ficheiros Parquet quando necessário. Neste momento, as estatísticas não são automaticamente criadas para colunas em ficheiros CSV e deve criar estatísticas manualmente para colunas que utilize em consultas, particularmente as utilizadas em DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Consulte [as estatísticas na piscina SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool) para obter detalhes.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para melhorar o desempenho da consulta e junta-se
 

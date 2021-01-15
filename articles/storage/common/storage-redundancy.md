@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180086"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209699"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -97,11 +97,19 @@ O armazenamento georredundante (GRS) copia os dados de forma síncrona três vez
 
 Uma operação de escrita é inicialmente comprometida com a localização primária e replicada usando LRS. A atualização é então replicada assíncronamente para a região secundária. Quando os dados são escritos para a localização secundária, também é replicado dentro desse local usando LRS.
 
+O seguinte diagrama mostra como os seus dados são replicados com GRS ou RA-GRS:
+
+:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagrama que mostra como os dados são replicados com GRS ou RA-GRS":::
+
 ### <a name="geo-zone-redundant-storage"></a>Armazenamento georredundante com redundância entre zonas
 
 O armazenamento de zonas geo-redundantes (GZRS) combina a elevada disponibilidade proporcionada pela redundância através das zonas de disponibilidade com proteção contra interrupções regionais fornecidas por geo-replicação. Os dados de uma conta de armazenamento GZRS são copiados em três [zonas de disponibilidade de Azure](../../availability-zones/az-overview.md) na região primária e também são replicados numa região geográfica secundária para proteção contra desastres regionais. A Microsoft recomenda a utilização de GZRS para aplicações que exijam a máxima consistência, durabilidade e disponibilidade, excelente desempenho e resiliência para a recuperação de desastres.
 
 Com uma conta de armazenamento GZRS, pode continuar a ler e escrever dados se uma zona de disponibilidade ficar indisponível ou se não for recuperável. Além disso, os seus dados também são duráveis em caso de uma paralisação regional completa ou de um desastre em que a região primária não é recuperável. O GZRS foi concebido para proporcionar pelo menos 99.99999999999999999999999999999999 (16 9's) de durabilidade de objetos durante um determinado ano.
+
+O seguinte diagrama mostra como os seus dados são replicados com GZRS ou RA-GZRS:
+
+:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagrama que mostra como os dados são replicados com GZRS ou RA-GZRS":::
 
 Apenas as contas de armazenamento v2 de uso geral suportam GZRS e RA-GZRS. Para obter mais informações sobre tipos de conta de armazenamento, consulte [a visão geral da conta de armazenamento Azure](storage-account-overview.md). GZRS e RA-GZRS suportam blocos de blocos, bolhas de página (exceto discos VHD), ficheiros, tabelas e filas.
 
@@ -163,10 +171,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
-| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
+| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 

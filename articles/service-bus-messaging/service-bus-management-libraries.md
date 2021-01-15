@@ -1,19 +1,18 @@
 ---
-title: Bibliotecas de gestão de autocarros da Azure Service/ Microsoft Docs
-description: Este artigo explica como usar bibliotecas de gestão de autocarros da Azure Service para provisão dinâmica de espaços e entidades de nomes de Service Bus.
+title: Criar programáticamente entidades de autocarros da Azure Service Microsoft Docs
+description: Este artigo explica como utilizar dinamicamente ou programáticamente a prestação de espaços e entidades de nomes de Service Bus.
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/13/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 915606bffc2037c8fcd1a7d33218143f40c78f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97d89db17af9cde3afadee430b3d0c2a434e12c9
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008051"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210142"
 ---
-# <a name="service-bus-management-libraries"></a>Bibliotecas de gestão do Service Bus
-
+# <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Fornecimento dinâmico de espaços e entidades de nomes de autocarros de serviço 
 As bibliotecas de gestão de autocarros da Azure Service podem providenciar dinamicamente espaços e entidades de nomes de Service Bus. Isto permite implementações complexas e cenários de mensagens, e permite determinar programáticamente quais as entidades a providenciar. Estas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidade suportada
@@ -23,9 +22,137 @@ As bibliotecas de gestão de autocarros da Azure Service podem providenciar dina
 * Criação de tópicos, atualização, eliminação
 * Criação de assinatura, atualização, eliminação
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="azuremessagingservicebusadministration-recommended"></a>Azure.messaging.serviceBus.Administration (Recomendado)
+Pode utilizar a classe [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) no [espaço de nomes Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) para gerir espaços de nome, filas, tópicos e subscrições. Aqui está o código de amostra. Para um exemplo completo, consulte [o exemplo crud](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
 
-Para começar a utilizar as bibliotecas de gestão de serviços do Service Bus, tem de autenticar com o serviço Azure Ative Directory (Azure AD). A Azure AD requer que você autentica como um principal de serviço, que fornece acesso aos seus recursos Azure. Para obter informações sobre a criação de um principal serviço, consulte um destes artigos:  
+```csharp
+using System;
+using System.Threading.Tasks;
+
+using Azure.Messaging.ServiceBus.Administration;
+
+namespace adminClientTrack2
+{
+    class Program
+    {
+        public static void Main()
+        {
+            MainAsync().GetAwaiter().GetResult();
+        }
+
+        private static async Task MainAsync()
+        {
+            string connectionString = "SERVICE BUS NAMESPACE CONNECTION STRING";
+            string QueueName = "QUEUE NAME";
+            string TopicName = "TOPIC NAME";
+            string SubscriptionName = "SUBSCRIPTION NAME";
+
+            var adminClient = new ServiceBusAdministrationClient(connectionString);
+            bool queueExists = await adminClient.QueueExistsAsync(QueueName);
+            if (!queueExists)
+            {
+                var options = new CreateQueueOptions(QueueName)
+                {
+                    MaxDeliveryCount = 3                    
+                };
+                await adminClient.CreateQueueAsync(options);
+            }
+
+
+            bool topicExists = await adminClient.TopicExistsAsync(TopicName);
+            if (!topicExists)
+            {
+                var options = new CreateTopicOptions(TopicName)
+                {
+                    MaxSizeInMegabytes = 1024
+                };
+                await adminClient.CreateTopicAsync(options);
+            }
+
+            bool subscriptionExists = await adminClient.SubscriptionExistsAsync(TopicName, SubscriptionName);
+            if (!subscriptionExists)
+            {
+                var options = new CreateSubscriptionOptions(TopicName, SubscriptionName)
+                {
+                    DefaultMessageTimeToLive = new TimeSpan(2, 0, 0, 0)
+                };
+                await adminClient.CreateSubscriptionAsync(options);
+            }
+        }
+    }
+}
+
+```
+
+
+## <a name="microsoftazureservicebusmanagement"></a>Microsoft.Azure.ServiceBus.Management 
+Pode utilizar a classe [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) no espaço de [nomes Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management) para gerir espaços de nome, filas, tópicos e subscrições. Aqui está o código da amostra: 
+
+> [!NOTE]
+> Recomendamos que utilize a `ServiceBusAdministrationClient` aula da `Azure.Messaging.ServiceBus.Administration` biblioteca, que é a mais recente SDK. Para mais detalhes, consulte a [primeira secção.](#azuremessagingservicebusadministration-recommended) 
+
+```csharp
+using System;
+using System.Threading.Tasks;
+
+using Microsoft.Azure.ServiceBus.Management;
+
+namespace SBusManagementClient
+{
+    class Program
+    {
+        public static void Main()
+        {
+            MainAsync().GetAwaiter().GetResult();
+        }
+
+        private static async Task MainAsync()
+        {
+            string connectionString = "SERVICE BUS NAMESPACE CONNECTION STRING";
+            string QueueName = "QUEUE NAME";
+            string TopicName = "TOPIC NAME";
+            string SubscriptionName = "SUBSCRIPTION NAME";
+
+            var managementClient = new ManagementClient(connectionString);
+            bool queueExists = await managementClient.QueueExistsAsync(QueueName);
+            if (!queueExists)
+            {
+                QueueDescription qd = new QueueDescription(QueueName);
+                qd.MaxSizeInMB = 1024;
+                qd.MaxDeliveryCount = 3;
+                await managementClient.CreateQueueAsync(qd);
+            }
+
+
+            bool topicExists = await managementClient.TopicExistsAsync(TopicName);
+            if (!topicExists)
+            {
+                TopicDescription td = new TopicDescription(TopicName);
+                td.MaxSizeInMB = 1024;
+                td.DefaultMessageTimeToLive = new TimeSpan(2, 0, 0, 0);
+                await managementClient.CreateTopicAsync(td);
+            }
+
+            bool subscriptionExists = await managementClient.SubscriptionExistsAsync(TopicName, SubscriptionName);
+            if (!subscriptionExists)
+            {
+                SubscriptionDescription sd = new SubscriptionDescription(TopicName, SubscriptionName);
+                sd.DefaultMessageTimeToLive = new TimeSpan(2, 0, 0, 0);
+                sd.MaxDeliveryCount = 3;
+                await managementClient.CreateSubscriptionAsync(sd);
+            }
+        }
+    }
+}
+```
+
+
+## <a name="microsoftazuremanagementservicebus"></a>Microsoft.Azure.Management.ServiceBus 
+Esta biblioteca faz parte do plano de controlo baseado em recursos Azure SDK. 
+
+### <a name="prerequisites"></a>Pré-requisitos
+
+Para começar a utilizar esta biblioteca, tem de autenticar com o serviço Azure Ative Directory (Azure AD). A Azure AD requer que você autentica como um principal de serviço, que fornece acesso aos seus recursos Azure. Para obter informações sobre a criação de um principal serviço, consulte um destes artigos:  
 
 * [Utilize o portal Azure para criar aplicação de Diretório Ativo e diretor de serviços que possa aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
@@ -33,7 +160,7 @@ Para começar a utilizar as bibliotecas de gestão de serviços do Service Bus, 
 
 Estes tutoriais fornecem-lhe um `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todos eles utilizados para autenticação pelas bibliotecas de gestão. Deve ter pelo menos permissões de Proprietário de Dados de Autocarros do [**Serviço Azure**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) ou [**do Contribuinte**](../role-based-access-control/built-in-roles.md#contributor) para o grupo de recursos em que deseja executar.
 
-## <a name="programming-pattern"></a>Padrão de programação
+### <a name="programming-pattern"></a>Padrão de programação
 
 O padrão para manipular qualquer recurso de Service Bus segue um protocolo comum:
 
@@ -67,8 +194,8 @@ O padrão para manipular qualquer recurso de Service Bus segue um protocolo comu
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="complete-code-to-create-a-queue"></a>Código completo para criar uma fila
-Aqui está o código completo para criar uma fila de autocarros de serviço: 
+### <a name="complete-code-to-create-a-queue"></a>Código completo para criar uma fila
+Aqui está o código de amostra para criar uma fila de autocarros de serviço. Para um exemplo completo, consulte a [amostra de gestão .NET no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ```csharp
 using System;
@@ -154,8 +281,13 @@ namespace SBusADApp
 }
 ```
 
-> [!IMPORTANT]
-> Para um exemplo completo, consulte a [amostra de gestão .NET no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
+## <a name="fluent-library"></a>Biblioteca fluente
+Para um exemplo de utilização da biblioteca Fluent para gerir entidades de Service Bus, consulte [esta amostra.](https://github.com/Azure/azure-libraries-for-net/tree/master/Samples/ServiceBus) 
 
 ## <a name="next-steps"></a>Passos seguintes
-[Referência Microsoft.Azure.Management.ServiceBus API](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+Consulte os seguintes tópicos de referência: 
+
+- [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient)
+- [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management.managementclient)
+- [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus.servicebusmanagementclient)
+- [Fluent](/dotnet/api/microsoft.azure.management.servicebus.fluent)

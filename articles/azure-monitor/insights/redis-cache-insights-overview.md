@@ -1,16 +1,16 @@
 ---
-title: Monitor Azure para Azure Cache para Redis Microsoft Docs
+title: Monitor Azure para cache Azure para redis | Microsoft Docs
 description: Este artigo descreve o recurso Azure Monitor for Azure Redis Cache, que proporciona aos proprietários de cache uma rápida compreensão dos problemas de desempenho e utilização.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887008"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210380"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Explore o Monitor Azure para Azure Cache para Redis
 
@@ -46,7 +46,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Procure por **Monitor**e selecione **Monitor**.
+1. Procure por **Monitor** e selecione **Monitor**.
 
     ![Caixa de pesquisa com a palavra "Monitor" e o resultado da pesquisa de Serviços que mostra "Monitor" com um símbolo do velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
@@ -87,7 +87,7 @@ Quando seleciona **Operações** no topo da página, abre-se a tabela **operaç�
 - **Linha Cronológica do Total de Operações**
 - **Operações por Segundo**
 - **Obtenções**
-- **Definições**
+- **Conjuntos**
 
 ![Screenshot da experiência de operações](./media/redis-cache-insights-overview/operations.png)
 

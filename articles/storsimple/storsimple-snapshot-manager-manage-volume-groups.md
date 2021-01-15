@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022960"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209224"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use storSimple Snapshot Manager para criar e gerir grupos de volume
 ## <a name="overview"></a>Descrição geral
@@ -107,7 +107,7 @@ Utilize o seguinte procedimento para editar um grupo de volume.
 #### <a name="to-edit-a-volume-group"></a>Para editar um grupo de volume
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Scope,** expanda o nó **grupos de volume,** clique com o botão direito num nome de grupo de volume e, em seguida, clique em **Editar**.
-3. Aparece a caixa de diálogo **Create a volume **. Pode alterar as entradas **Nome,** **Aplicações** e **Volumes.**
+3. Aparece a caixa de diálogo **do grupo De volume Create.** Pode alterar as entradas **Nome,** **Aplicações** e **Volumes.**
 4. Clique em **OK** para guardar as alterações.
 
 ## <a name="delete-a-volume-group"></a>Excluir um grupo de volume

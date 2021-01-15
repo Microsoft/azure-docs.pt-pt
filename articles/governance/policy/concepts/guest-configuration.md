@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o cliente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
-ms.date: 10/14/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071838"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210125"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -60,7 +60,7 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 
 As definições de política de configuração de hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o cliente de Configuração de Hóspedes não for compatível. A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Nome|Versões|
+|Publisher|Name|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 - 18.04|
 |Credativ|Debian|8 e mais tarde|
@@ -101,11 +101,11 @@ Para servidores ligados ao Arco em centros de dados privados, permita o tráfego
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidade geridos
 
-Definições de política na iniciativa [Implementar pré-requisitos para permitir políticas de configuração de hóspedes em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) permitem uma identidade gerida atribuída ao sistema, se não existir. Há duas definições políticas na iniciativa que gerem a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso da máquina em Azure.
+Definições de política na iniciativa _Implementar pré-requisitos para permitir políticas de configuração de hóspedes em máquinas virtuais_ permitem uma identidade gerida atribuída ao sistema, se não existir. Há duas definições políticas na iniciativa que gerem a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso da máquina em Azure.
 
-Se a máquina não tiver atualmente identidades geridas, a política eficaz será: [ \[ \] Pré-visualização : Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Convidados em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+Se a máquina não tiver atualmente identidades geridas, a política eficaz será: [Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Hóspedes em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-Se a máquina tiver atualmente uma identidade de sistema atribuída ao utilizador, a política eficaz será: [ \[ \] Pré-visualização : Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Hóspedes em máquinas virtuais com uma identidade atribuída ao utilizador](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+Se a máquina tiver atualmente uma identidade de sistema atribuída ao utilizador, a política eficaz será: [Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Hóspedes em VMs com uma identidade atribuída ao utilizador](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração do hóspede
 
@@ -120,7 +120,7 @@ A Azure Policy utiliza a conformidade do fornecedor de recursos de configuraçã
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das definições do sistema operativo seguindo as linhas de base da indústria
 
-Uma iniciativa da Azure Policy proporciona a capacidade de auditar as definições do sistema operativo seguindo uma "linha de base". A definição, _\[ Preview : Audit Windows \] VMs que não correspondem às definições de base de segurança Azure_ inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
+Uma iniciativa na Azure Policy audita as definições do sistema operativo seguindo uma "linha de base". A definição, _\[ Preview : As \] máquinas windows devem satisfazer os requisitos para a linha de base de segurança Azure_ inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
 
 A maioria das definições estão disponíveis como parâmetros. Os parâmetros permitem personalizar o que é auditado.
 Alinhe a política com os seus requisitos ou mapeeia a política para informações de terceiros, tais como normas regulamentares da indústria.

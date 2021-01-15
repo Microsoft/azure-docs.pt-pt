@@ -3,17 +3,17 @@ title: Monitorize aplicativos móveis com Azure Monitor Application Insights
 description: Fornece instruções para configurar rapidamente uma aplicação móvel para monitorização com Azure Monitor Application Insights e App Center
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 34c35baf1bd958058bec6642434464711f5e79f6
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993878"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210312"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
 
@@ -68,7 +68,7 @@ Para confirmar que os eventos personalizados estão a ser recebidos, aceda ao se
 Quando a aplicação estiver a enviar eventos personalizados e o App Center a recebê-los, tem de criar um recurso do Application Insights para o App Center no portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Criar um recurso**Developer  >  **tools**  >  **Application Insights**.
+2. Selecione **Criar um recurso** Developer  >  **tools**  >  **Application Insights**.
 
     > [!NOTE]
     > Se esta for a sua primeira vez a criar um recurso Application Insights, pode aprender mais visitando o Doc [Criar um Recurso de Insights de Aplicação.](../app/create-new-resource.md)

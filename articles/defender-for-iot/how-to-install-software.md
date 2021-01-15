@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842088"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208765"
 ---
 # <a name="defender-for-iot-installation"></a>Defender para instalação IoT
 
@@ -44,7 +44,7 @@ Estão disponíveis os seguintes aparelhos de montagem de cremalheira:
 
 | **Tipo de implantação** | **Empresarial** | **Enterprise** | **SMB** |  |
 |--|--|--|--|--|
-| **Modelo** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
+| **Modelação** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Portas de monitorização** | até 15 RJ45 ou 8 OPT | até 9 RJ45 ou 6 OPT | até 8 RJ45 ou 6 OPT | 4 RJ45 |
 | **Max Bandwidth \** _ | 3 Gb/Seg | 1 Gb/Seg | 1 Gb/Seg | 100 Mb/Seg |
 | _ *Dispositivos Protegidos Máximos** | 30,000 | 10,000 | 15 000 | 1,000 |
@@ -230,9 +230,9 @@ Este artigo descreve como configurar o BIOS utilizando o ficheiro de configuraç
 
 4. As credenciais do aparelho são:
 
-   - Nome de utilizador: **cyberx**
+   - Nome de utilizador: **XXX**
 
-   - Palavra-passe: **xhxvhttju, @4338**
+   - Senha: **XXX**
 
      A operação do perfil do servidor de importação é iniciada.
 
@@ -274,7 +274,7 @@ Para configurar manualmente:
 
    - Se o aparelho não for um Defender para aparelho IoT, abra um browser e dirija-se ao endereço IP que já foi configurado anteriormente. Inscreva-se com os privilégios de administrador padrão da Dell. Utilize **raiz** para o nome de utilizador e **calvin** para obter a palavra-passe.
 
-   - Se o aparelho for um Defender para aparelho IoT, inscreva-se utilizando **ciberx** para o nome de utilizador e **xhxvhttju, @4338** para obter a palavra-passe.
+   - Se o aparelho for um Defender para aparelho IoT, inscreva-se utilizando **XXX** para o nome de utilizador e **XXX** para a senha.
 
 2. Depois de aceder ao BIOS, aceda às **Definições do Dispositivo**.
 
@@ -1033,7 +1033,7 @@ Para configurar uma porta SPAN:
 
 1. Abra as propriedades vSwitch.
 
-2. Selecione **Add** (Adicionar).
+2. Selecione **Adicionar**.
 
 3. Selecione **máquina virtual**  >  **seguinte**.
 

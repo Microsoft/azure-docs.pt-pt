@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008490"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209836"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Azure Cognitive Search
 
@@ -95,7 +95,7 @@ Para consultas completas de pesquisa por texto, os resultados são automaticamen
 
 As pontuações de pesquisa transmitem sentido geral de relevância, refletindo a força da correspondência em relação a outros documentos no mesmo conjunto de resultados. Mas as pontuações nem sempre são consistentes de uma consulta para a outra, por isso, à medida que trabalha com consultas, poderá notar pequenas discrepâncias na forma como os documentos de pesquisa são encomendados. Há várias explicações para o porquê disto acontecer.
 
-| Causa | Descrição |
+| Causa | Description |
 |-----------|-------------|
 | Volatilidade dos dados | O conteúdo do índice varia à medida que adiciona, modifica ou elimina documentos. As frequências de prazo mudarão à medida que as atualizações de índices forem processadas ao longo do tempo, afetando as pontuações de pesquisa de documentos correspondentes. |
 | Várias réplicas | Para serviços que utilizam réplicas múltiplas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular uma pontuação de pesquisa são calculadas numa base por réplica, com resultados fundidos e encomendados na resposta de consulta. As réplicas são sobretudo espelhos uns dos outros, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica poderia ter eliminado documentos que contribuíam para as suas estatísticas, que foram fundidos a partir de outras réplicas. Tipicamente, as diferenças nas estatísticas por réplica são mais percetíveis em índices menores. |
@@ -103,7 +103,7 @@ As pontuações de pesquisa transmitem sentido geral de relevância, refletindo 
 
 ### <a name="how-to-get-consistent-ordering"></a>Como obter encomendas consistentes
 
-Se uma encomenda consistente for um requisito de aplicação, pode definir explicitamente uma **`$orderby`** expressão [consulta-odata-filter-orderby-syntax.md) num campo. Apenas os campos que estão indexados como **`sortable`** podem ser usados para encomendar resultados. Os campos geralmente utilizados num **`$orderby`** campo de classificação, data e localização incluem se especificar o valor do parâmetro para incluir nomes de **`orderby`** campo e chamadas para a [**`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespacial.
+Se uma encomenda consistente for um requisito de aplicação, pode definir explicitamente uma [ **`$orderby`** expressão](query-odata-filter-orderby-syntax.md) num campo. Apenas os campos que estão indexados como **`sortable`** podem ser usados para encomendar resultados. Os campos geralmente utilizados num **`$orderby`** campo de classificação, data e localização incluem se especificar o valor do parâmetro para incluir nomes de **`orderby`** campo e chamadas para a [**`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespacial.
 
 Outra abordagem que promove a consistência é a utilização de um [perfil de pontuação personalizado.](index-add-scoring-profiles.md) Os perfis de pontuação dão-lhe mais controlo sobre o ranking de itens nos resultados de pesquisa, com a capacidade de aumentar os jogos encontrados em campos específicos. A lógica de pontuação adicional pode ajudar a ultrapassar pequenas diferenças entre réplicas porque as pontuações de pesquisa de cada documento estão mais distantes. Recomendamos o [algoritmo de classificação](index-ranking-similarity.md) para esta abordagem.
 

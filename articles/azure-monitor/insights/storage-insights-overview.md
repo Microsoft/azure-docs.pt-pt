@@ -1,17 +1,17 @@
 ---
-title: Monitor Azure Storage services with Azure Monitor for Storage [ Monitor Microsoft Docs
+title: Monitor Azure Storage services with Azure Monitor for Storage | Microsoft Docs
 description: Este artigo descreve o recurso Azure Monitor for Storage que fornece aos administradores de armazenamento uma rápida compreensão dos problemas de desempenho e utilização com as suas contas de Armazenamento Azure.
 ms.subservice: ''
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 47799898251923b327954c764dcccb8157ba5119
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296340"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208646"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
 
@@ -171,7 +171,7 @@ No nosso exemplo, estamos a trabalhar com o livro de capacidade de multi-subscri
 * Remover uma métrica
 * Alterar a renderização de cores
 
-Pode efetuar as mesmas alterações em qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade** e **Failures** **Capacitação.**
+Pode efetuar as mesmas alterações em qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade** e  **Capacitação.**
 
 1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento** a partir do painel de esquerda.
 
@@ -187,7 +187,7 @@ Pode efetuar as mesmas alterações em qualquer uma das falhas pré-construídas
 
     ![Editar definições de colunas](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. No painel de **definições** da coluna Editar, selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacidade-Capacidade-Use-Capacidade Timeline$/ Conta utilizada Timeline$**, e sob a lista de **renderizador de colunas** de retirada selecione **Hidden**.
+5. No painel de definições da **coluna Editar,** selecione sob a secção **colunas** **microsoft.storage/storageaccounts-Capacidade-Use-Capacidade Timeline$| Conta utilizada Timeline$**, e sob a lista de **renderizador de colunas** de retirada selecione **Hidden**.
 
 6. **Selecione Guardar e quase** para cometer a sua alteração.
 

@@ -1,17 +1,17 @@
 ---
-title: Monitor Key Vault com monitor Azure para cofre de chaves / Microsoft Docs
+title: Monitor Key Vault com monitor Azure para | de cofre de chaves Microsoft Docs
 description: Este artigo descreve o Monitor Azure para cofres de chaves.
 services: azure-monitor
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088102"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209887"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorizar o seu serviço de cofre chave com monitor Azure para o Cofre de Chaves
 O Azure Monitor for Key Vault fornece uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -34,7 +34,7 @@ Para visualizar a utilização e operações dos seus cofres-chave em todas as s
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/)
 
-2. Selecione **Monitor** a partir do painel esquerdo no portal Azure, e sob a secção Insights, selecione **Key Vaults** .
+2. Selecione **Monitor** a partir do painel esquerdo no portal Azure, e sob a secção Insights, selecione **Key Vaults**.
 
 ![Screenshot da experiência de visão geral com vários gráficos](./media/key-vaults-insights-overview/overview.png)
 
@@ -126,7 +126,7 @@ As personalizações são guardadas num livro personalizado para evitar a sobree
 Pode configurar os livros de visão geral de multi-subscrição e cofre de chaves para o âmbito de uma determinada subscrição ou cofre de chaves em cada execução, realizando os seguintes passos:
 
 1. Selecione **Monitor** a partir do portal e, em seguida, selecione **Key Vaults** a partir do painel esquerdo.
-2. No **livro de visão** geral, a partir da barra de comando selecione **Edit** .
+2. No **livro de visão** geral, a partir da barra de comando selecione **Edit**.
 3. Selecione a partir da lista de **subscrições** desacompindo uma ou mais subscrições que deseja que o yo use como padrão. Lembre-se, o livro suporta selecionar até um total de 10 subscrições.
 4. Selecione na lista de drop-down dos **Cofres** de Chaves uma ou mais contas que pretende que utilize como padrão. Lembre-se, o livro suporta selecionar até um total de 200 contas de armazenamento.
 5. **Selecione Guarde a** partir da barra de comando para guardar uma cópia do livro com as suas personalizações e, em seguida, clique em **Editar Feito** para voltar ao modo de leitura.

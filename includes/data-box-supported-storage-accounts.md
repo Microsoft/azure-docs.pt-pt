@@ -3,16 +3,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/git14/2020
+ms.date: 12/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 25c2ea04cd062554a975c63aae9b97846e646d68
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 11958c54dd1f54e424b71eb00780f5309a1c0bab
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028287"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209559"
 ---
-Aqui está uma lista das contas de armazenamento suportadas e dos tipos de armazenamento para o dispositivo Data Box. Para obter uma lista completa de todos os tipos de contas de armazenamento e todas as suas capacidades, consulte [tipos de contas de armazenamento.](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts)
+Aqui está uma lista das contas de armazenamento suportadas e tipos de armazenamento para um dispositivo Data Box. Para obter uma lista completa de todas as capacidades para todos os tipos de contas de armazenamento, consulte [tipos de contas de armazenamento](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 Para as encomendas de importação, a tabela seguinte mostra as contas de armazenamento suportadas.
 
@@ -23,6 +23,7 @@ Para as encomendas de importação, a tabela seguinte mostra as contas de armaze
 | Finalidade geral v1 Premium  |  | Y| | |
 | Padrão v2 para fins gerais  | Y | Y | Y | Tanto quentes como frescos são suportados.|
 | V2 Premium para fins gerais  |  |Y | | |
+| Arquitorage Azure Premium |  |  | Y |  |  
 | Padrão de armazenamento de bolhas |Y | | |Tanto quentes como frescos são suportados. |
 
 \**- Os dados enviados para as bolhas de página devem estar alinhados com 512 bytes, tais como VHDs.*
@@ -36,6 +37,7 @@ Para as encomendas de exportação, a tabela seguinte mostra as contas de armaze
 | Finalidade geral v1 Premium  |  | Y| | |
 | Padrão v2 para fins gerais  | Y | Y | Y | Quente, Fresco|
 | V2 Premium para fins gerais  |  |Y | | |
+| Arquitorage Azure Premium |  |  | Y |  |
 | Padrão de armazenamento de bolhas |Y | | |Quente, Fresco |
 | Bloco Blob armazenamento Premium |Y | | |Quente, Fresco |
 | Armazenamento blob de página Premium | |Y | | |
@@ -43,7 +45,6 @@ Para as encomendas de exportação, a tabela seguinte mostra as contas de armaze
 > [!IMPORTANT]
 > - Para contas para fins gerais, a Caixa de Dados não suporta tipos de armazenamento de fila, tabela e disco para encomendas de importação. Para encomendas de exportação, a Data Box não suporta tipos de armazenamento de fila, tabela, disco e Azure Data Lake Gen 2 para contas para fins gerais.
 > - A Data Box não suporta blobs de apêndice para contas blob de armazenamento de blob e blocos de armazenamento.
-> - A Caixa de Dados não suporta contas de Armazenamento de Ficheiros Premium.
 > - Os dados enviados para as bolhas de página devem estar alinhados com 512 bytes, tais como VHDs.
 > - Um máximo de 80 TB pode ser exportado.
 > - O histórico de ficheiros e as fotos blob não são exportadas.

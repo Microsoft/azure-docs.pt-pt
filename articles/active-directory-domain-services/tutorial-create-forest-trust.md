@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618336"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208493"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services
 
@@ -23,7 +23,7 @@ Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou tem 
 
 ![Diagrama de confiança florestal de Azure AD DS para as AD DS no local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure o DNS num ambiente AD DS no local para apoiar a conectividade Azure AD DS
@@ -73,8 +73,8 @@ Antes de configurar uma confiança florestal em Azure AD DS, certifique-se de qu
 
 Para resolver corretamente o domínio gerido a partir do ambiente no local, poderá ser necessário adicionar reencaminhadores aos servidores DNS existentes. Se ainda não configurar o ambiente no local para comunicar com o domínio gerido, complete os seguintes passos a partir de uma estação de trabalho de gestão para o domínio AD DS no local:
 
-1. Selecione **Iniciar / Ferramentas Administrativas / DNS**
-1. Selecione o servidor DNS, como *o myAD01,* em seguida, selecione **Propriedades**
+1. Selecione **Iniciar**  >  **Ferramentas Administrativas**  >  **DNS**.
+1. Selecione o servidor DNS, como *o myAD01,* selecione **Properties**.
 1. Escolha **forwarders** e, em seguida, **edite** para adicionar reencaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerido, tais como *10.0.2.4* e *10.0.2.5*.
 
@@ -84,15 +84,15 @@ O domínio AD DS no local precisa de uma confiança florestal para o domínio ge
 
 Para configurar a confiança de entrada no domínio AD DS no local, complete os seguintes passos de uma estação de trabalho de gestão para o domínio DS AD no local:
 
-1. Selecione **Iniciar / Ferramentas Administrativas / Domínios e Fidedignidades do Diretório Ativo**
-1. Domínio de seleção à direita, como *onprem.contoso.com,* em seguida, selecione **Propriedades**
-1. Escolha o separador **Trusts,** em seguida, **New Trust**
-1. Introduza o nome para nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Next**
+1. Selecione **Iniciar / Ferramentas Administrativas / Domínios e Fidedignidades do Diretório Ativo.**
+1. Domínio de seleção à direita, como *onprem.contoso.com,* selecione **Propriedades**.
+1. Escolha o separador **Trusts,** em seguida, **New Trust**.
+1. Introduza o nome para nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Next**.
 1. Selecione a opção de criar um **fundo florestal,** em seguida, para criar uma **única maneira: confiança de entrada.**
 1. Opte por criar a confiança **apenas** para este domínio . No passo seguinte, cria-se a confiança no portal Azure para o domínio gerido.
 1. Opte por utilizar a **autenticação em toda** a Floresta, em seguida, insira e confirme uma senha de confiança. Esta mesma palavra-passe também é inserida no portal Azure na secção seguinte.
 1. Passe pelas próximas janelas com opções predefinidas, em seguida, escolha a opção para **Não, não confirme a confiança de saída**.
-1. Selecione **Acabamento**
+1. Selecione **Concluir**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar a confiança florestal de saída em Azure AD DS
 
@@ -100,16 +100,16 @@ Com o domínio AD DS no local configurado para resolver o domínio gerido e uma 
 
 Para criar a confiança de saída para o domínio gerido no portal Azure, complete os seguintes passos:
 
-1. No portal Azure, procure e selecione **serviços de domínio Azure AD**, selecione o seu domínio gerido, como *aaddscontoso.com*
+1. No portal Azure, procure e selecione **serviços de domínio Azure AD**, selecione o seu domínio gerido, como *aaddscontoso.com*.
 1. A partir do menu no lado esquerdo do domínio gerido, selecione **Trusts,** em seguida, escolha **+ Adicionar** um fundo.
 
    > [!NOTE]
    > Se não vir a opção do menu **Trusts,** consulte as **Propriedades** para o *tipo Forest*. Só as florestas *de recursos* podem criar fidedignidades. Se o tipo de floresta for *Utilizador,* não pode criar fidedignidades. Não há forma de mudar o tipo de floresta de um domínio gerido. É necessário eliminar e recriar o domínio gerido como uma floresta de recursos.
 
-1. Introduza um nome de exibição que identifique a sua confiança, em seguida, o nome DNS da floresta confiável no local, como *onprem.contoso.com*
+1. Introduza um nome de exibição que identifique a sua confiança, em seguida, o nome DNS da floresta confiável no local, como *onprem.contoso.com*.
 1. Forneça a mesma senha de confiança que foi usada ao configurar o fundo florestal de entrada para o domínio AD DS no local na secção anterior.
-1. Fornecer pelo menos dois servidores DNS para o domínio DS AD no local, tais como *10.1.1.4* e *10.1.1.5*
-1. Quando estiver pronto, **salve** a confiança da floresta de saída
+1. Forneça pelo menos dois servidores DNS para o domínio DS AD no local, tais como *10.1.1.4* e *10.1.1.5*.
+1. Quando estiver pronto, **salve** a confiança da floresta de saída.
 
     ![Criar confiança florestal de saída no portal Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
@@ -181,7 +181,7 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos Azu
 1. Nas permissões para caixa de diálogo *CrossForestShare,* selecione **Add**.
 1. Digite *FileServerAccess* in **Introduza os nomes do objeto para selecionar** e, em seguida, selecione **OK**.
 1. *Selecione FileServerAccess* da lista **de grupos ou nomes de utilizadores.** Na lista **de Permissões para FileServerAccess,** escolha *Permitir* as permissões **de Modificação** e **Escrita** e, em seguida, selecione **OK**.
-1. Selecione o separador **Partilhar** e, em seguida, escolha **Partilha Avançada...**
+1. Selecione o separador **Partilhar** e, em seguida, escolha **Partilha Avançada...**.
 1. Escolha **Partilhar esta pasta** e, em seguida, introduzir um nome memorável para a partilha de **ficheiros** em nome de Partilha como *CrossForestShare*.
 1. Selecione **Permissões**. Na lista **de Permissões para Todos,** escolha **Permitir** a permissão **de Alteração.**
 1. Selecione **OK** duas vezes e, em seguida, **Feche**.
@@ -207,7 +207,7 @@ Neste tutorial, ficou a saber como:
 > * Criar uma única saída da floresta em Azure AD DS
 > * Teste e valide a relação de confiança para a autenticação e acesso a recursos
 
-Para obter mais informações conceptuais sobre os tipos de floresta em [How do forest trusts work in Azure AD DS?][concepts-trust] Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest]
+Para obter mais informações conceptuais sobre os tipos de floresta em [][concepts-trust] Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest]
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md

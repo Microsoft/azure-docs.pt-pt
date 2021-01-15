@@ -4,15 +4,15 @@ description: Este guia descreve métodos horizon usados comumente.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/7/2020
+ms.date: 1/5/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 39770fe7aa7b11cae03304fda8901e81e0f1877a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976920"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208429"
 ---
 # <a name="horizon-api"></a>Horizonte API 
 
@@ -20,17 +20,19 @@ Este guia descreve métodos horizon usados comumente.
 
 ### <a name="getting-more-information"></a>Obter mais informações
 
-Para obter mais informações sobre o trabalho com a Horizon e a Plataforma CyberX, consulte o seguinte:
+Para obter mais informações sobre o trabalho com a Horizon e a plataforma Defender for IoT, consulte as seguintes informações:
 
-- Para o Horizonte Open Development Environment (ODE) SDK, contacte o seu representante cyberX.
+- Para o Horizonte Open Development Environment (ODE) SDK, contacte o seu Representante Defender para ioT.
 - Para obter informações de apoio e resolução de problemas, contacte <support@cyberx-labs.com> .
-- Para aceder ao Cyberx User Guide a partir da Consola CyberX, selecione :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: e, em seguida, selecione **Baixar o Manual do Utilizador**.
+
+- Para aceder ao guia de utilizador Defender para IoT a partir da consola Defender para IoT, selecione :::image type="icon" source="media/references-horizon-api/profile.png"::: Download **User Guide**.
+
 
 ## `horizon::protocol::BaseParser`
 
 Resumo para todos os plugins. Trata-se de dois métodos:
 
-- Para o processamento de filtros plugin definidos acima de si. Desta forma horizon sabe como comunicar com o parser
+- Para o processamento de filtros plugin definidos acima de si. Desta forma horizon sabe como comunicar com o parser.
 - Para o processamento dos dados reais.
 
 ## `std::shared_ptr<horizon::protocol::BaseParser> create_parser()`
@@ -39,7 +41,7 @@ A primeira função que é chamada para o seu plugin cria uma instância do pars
 
 ### <a name="parameters"></a>Parâmetros 
 
-Nenhum
+Nenhum.
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -49,7 +51,7 @@ shared_ptr à sua instância de parser.
 
 Esta função será chamada para cada plugin registado acima. 
 
-Na maioria dos casos isto estará vazio. Abriu uma exceção para a Horizon saber que algo de mau aconteceu.
+Na maioria dos casos, isto estará vazio. Abriu uma exceção para a Horizon saber que algo de mau aconteceu.
 
 ### <a name="parameters"></a>Parâmetros 
 
@@ -57,7 +59,7 @@ Na maioria dos casos isto estará vazio. Abriu uma exceção para a Horizon sabe
 
 ### <a name="return-value"></a>Valor devolvido 
 
-Uma série de uint64_t que é o registo transformado numa espécie de uint64_t. Isto significa que no mapa, você terá uma lista de portos, cujos valores serão os uin64_t.
+Uma série de uint64_t, que é o registo transformado numa espécie de uint64_t. Isto significa que no mapa, você terá uma lista de portos, cujos valores serão os uin64_t.
 
 ## `horizon::protocol::ParserResult horizon::protocol::BaseParser::processLayer(horizon::protocol::management::IProcessingUtils &,horizon::general::IDataBuffer &)`
 
@@ -69,12 +71,12 @@ O seu plugin deve ser seguro para os fios, uma vez que esta função pode ser ch
 
 ### <a name="parameters"></a>Parâmetros
 
-- A unidade de controlo SDK responsável por armazenar os dados e criar objetos relacionados com ADK, tais como ILayer, campos etc.
+- A unidade de controlo SDK responsável por armazenar os dados e criar objetos relacionados com SDK, como iLayer, e campos.
 - Um ajudante para ler os dados do pacote bruto. Já está definido com a ordem de byte que definiu no config.js.
 
 ### <a name="return-value"></a>Valor devolvido 
 
-O resultado do processamento. Isto pode ser sucesso/mal-formado/sanidade.
+O resultado do processamento. Isto pode ser *sucesso,* *malforme,* ou *Sanidade.*
 
 ## `horizon::protocol::SanityFailureResult: public horizon::protocol::ParserResult`
 
@@ -90,7 +92,7 @@ Construtor
 
 ## `horizon::protocol::MalformedResult: public horizon::protocol::ParserResult`
 
-Resultado mal formado, indicou que já reconhecemos o pacote como o nosso protocolo, mas alguma validação correu mal (partes reservadas estão em, algum campo está faltando, etc.)
+Resultado mal formado, indicou que já reconhecemos o pacote como o nosso protocolo, mas alguma validação correu mal (as partes reservadas estão em jogo, ou falta algum campo).
 
 ## `horizon::protocol::MalformedResult::MalformedResult(uint64_t)`
 
@@ -102,7 +104,7 @@ Construtor
 
 ## `horizon::protocol::SuccessResult: public horizon::protocol::ParserResult`
 
-Notifica horizonte de processamento bem sucedido. Quando bem sucedido, o pacote foi aceite; os dados pertencem-nos, e todos os dados foram extraídos.
+Notifica horizonte de processamento bem sucedido. Quando bem sucedido, o pacote foi aceite, os dados pertencem-nos, e todos os dados foram extraídos.
 
 ## `horizon::protocol::SuccessResult()`
 
@@ -110,24 +112,24 @@ Construtor. Criei um resultado básico de sucesso. Isto significa que não sabem
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection)`
 
-Construtor
+Construtor.
 
 ### <a name="parameters"></a>Parâmetros 
 
-- A direção do pacote, se identificado. Valores podem ser REQUEST, RESPOSTA
+- A direção do pacote, se identificado. Os valores podem ser *REQUEST,* ou *RESPOSTA.*
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection, const std::vector<uint64_t> &)`
 
-Construtor
+Construtor.
 
 ### <a name="parameters"></a>Parâmetros
 
-- A direção do pacote, se nós o identificamos, pode ser REQUEST, RESPONSE
+- A direção do pacote, se o identificamos, pode ser *REQUEST,* *RESPONSE*.
 - Avisos. Estes eventos não serão falhados, mas horizonte será notificado.
 
 ## `horizon::protocol::SuccessResult(const std::vector<uint64_t> &)`
 
-Construtor
+Construtor.
 
 ### <a name="parameters"></a>Parâmetros 
 
@@ -135,11 +137,11 @@ Construtor
 
 ## `HorizonID HORIZON_FIELD(const std::string_view &)`
 
-Converte uma referência baseada em cordas a um nome de campo (por exemplo, function_code) para HorizonteID
+Converte uma referência baseada em cordas a um nome de campo (por exemplo, function_code) ao HorizonID.
 
 ### <a name="parameters"></a>Parâmetros 
 
-- Corda para converter
+- Corda para converter.
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -155,11 +157,11 @@ Uma referência a uma camada criada, para que possa adicionar dados a ela.
 
 ## `horizon::protocol::management::IFieldManagement &horizon::protocol::management::IProcessingUtils::getFieldsManager()`
 
-Obtém o objeto de gestão de campo, que é responsável pela criação de campos em diferentes objetos, por exemplo, no ILayer
+Obtém o objeto de gestão de campo, que é responsável pela criação de campos em diferentes objetos, por exemplo, no ILayer.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma referência ao gestor
+Uma referência ao gerente.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, uint64_t)`
 
@@ -167,9 +169,9 @@ Cria um novo campo numérico de 64 bits na camada com o ID solicitado.
 
 ### <a name="parameters"></a>Parâmetros 
 
-- A camada que criou anteriormente
-- HorizonteID criado pela macro HORIZON_FIELD
-- O valor bruto que quer armazenar
+- A camada que criaste mais cedo.
+- HorizonID criado pela **macro HORIZON_FIELD.**
+- O valor bruto que quer armazenar.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::string)`
 
@@ -177,19 +179,19 @@ Cria um novo campo de cordas na camada com o ID solicitado. A memória será mov
 
 ### <a name="parameters"></a>Parâmetros  
 
-- A camada que criou anteriormente
-- HorizonteID criado pela macro HORIZON_FIELD
-- O valor bruto que quer armazenar
+- A camada que criaste mais cedo.
+- HorizonID criado pela **macro HORIZON_FIELD.**
+- O valor bruto que quer armazenar.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::vector<char> &)`
 
-Cria um novo campo de valor bruto (matriz de bytes) na camada, com o ID solicitado. A memória será mover-se, por isso tenha cuidado, não poderá usar este valor novamente.
+Cria um novo campo de valor bruto (matriz de bytes) na camada, com o ID solicitado. A memória será mover-se, por isso tenha cuidado, não poderá voltar a usar este valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-- A camada que criou anteriormente
-- HorizonteID criado pela macro HORIZON_FIELD
-- O valor bruto que quer armazenar
+- A camada que criaste mais cedo.
+- HorizonID criado pela **macro HORIZON_FIELD.**
+- O valor bruto que quer armazenar.
 
 ## `horizon::protocol::IFieldValueArray &horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, horizon::protocol::FieldValueType)`
 
@@ -197,40 +199,40 @@ Cria um campo de valor de matriz (matriz) na camada do tipo especificado com o I
 
 ### <a name="parameters"></a>Parâmetros
 
-- A camada que criou anteriormente
-- HorizonteID criado pela macro HORIZON_FIELD
-- O tipo de valores que serão armazenados dentro da matriz
+- A camada que criaste mais cedo.
+- HorizonID criado pela **macro HORIZON_FIELD.**
+- O tipo de valores que serão armazenados dentro da matriz.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Referência a uma matriz a que deve anexar valores
+Referência a uma matriz a que deve anexar valores.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, uint64_t)`
 
-Anexa um novo valor inteiro à matriz criada anteriormente
+Anexa um novo valor inteiro à matriz criada anteriormente.
 
 ### <a name="parameters"></a>Parâmetros
 
-- A matriz criada anteriormente
-- O valor bruto a ser armazenado na matriz
+- A matriz criada anteriormente.
+- O valor bruto a ser armazenado na matriz.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::string)`
 
-Anexa um novo valor de cadeia à matriz criada anteriormente. A memória será mover-se, por isso tenha cuidado, não poderá usar este valor novamente.
+Anexa um novo valor de cadeia à matriz criada anteriormente. A memória será mover-se, por isso tenha cuidado, não poderá voltar a usar este valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-- A matriz criada anteriormente
-- Valor bruto a ser armazenado na matriz
+- A matriz criada anteriormente.
+- Valor bruto a ser armazenado na matriz.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::vector<char> &)`
 
-Anexa um novo valor bruto à matriz criada anteriormente. A memória será mover-se, por isso tenha cuidado, não poderá usar este valor novamente.
+Anexa um novo valor bruto à matriz criada anteriormente. A memória será mover-se, por isso tenha cuidado, não poderá voltar a usar este valor.
 
 ### <a name="parameters"></a>Parâmetros
 
-- A matriz criada anteriormente
-- Valor bruto a ser armazenado na matriz
+- A matriz criada anteriormente.
+- Valor bruto a ser armazenado na matriz.
 
 ## `bool horizon::general::IDataBuffer::validateRemainingSize(size_t)`
 
@@ -238,15 +240,15 @@ Verifica se o tampão contém pelo menos x bytes.
 
 ### <a name="parameters"></a>Parâmetros
 
-Número de bytes deve existir 
+O número de bytes que devem existir.
 
 ### <a name="return-value"></a>Valor devolvido
 
-É verdade se o tampão contiver pelo menos x bytes. Falso de outra forma.
+É verdade se o tampão contiver pelo menos x bytes. Caso contrário, `False` é.
 
 ## `uint8_t horizon::general::IDataBuffer::readUInt8()`
 
-Lê o valor uint8 (1 bytes), a partir do tampão, de acordo com a ordem byte.
+Lê o valor uint8 (1 byte), a partir do tampão, de acordo com a ordem byte.
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -282,12 +284,12 @@ As leituras na memória pré-atribuída, de tamanho especificado, irão realment
 
 ### <a name="parameters"></a>Parâmetros 
 
-- A região da memória para copiar os dados em
-- Tamanho da região da memória, este parâmetro também definiu quantos bytes serão copiados
+- A região da memória para copiar os dados.
+- Tamanho da região da memória, este parâmetro também definiu quantos bytes serão copiados.
 
 ## `std::string_view horizon::general::IDataBuffer::readString(size_t)`
 
-Lê numa corda do tampão
+Lê numa corda do tampão.
 
 ### <a name="parameters"></a>Parâmetros 
 

@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/27/2020
-ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/31/2020
+ms.openlocfilehash: ade8a6b400967bc13fe3593f83f00ecc49ef06a2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744929"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209802"
 ---
 # <a name="integrate-with-pipelines"></a>Integrar-se com oleodutos
 
@@ -26,14 +26,19 @@ Neste tutorial, você vai aprender a integrar oleodutos e atividades usando o Sy
 Pode integrar uma grande variedade de tarefas no Azure Synapse.
 
 1. No Synapse Studio, vá ao centro **de Integração.**
-1. Selecione **+**  >  **Pipeline** para criar um novo oleoduto.
-1. Vá ao centro **De Desenvolvimento** e selecione um dos cadernos que criou anteriormente.
-1. Arraste esse caderno para o oleoduto **(Nota** : Adicione os módulos de importação passo no caderno conforme especificado no [documento,](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace)que são necessários durante o funcionamento do gasoduto)
-1. No oleoduto, **selecione Adicionar gatilho**  >  **Novo/editar** .
-1. Em **Escolha o gatilho** , selecione **New** , e desacorda a **Recorrência** para "a cada 1 hora".
-1. Selecione **OK** . 
-1. Selecione **Publicar Tudo** .
-1. Para fazer o gasoduto funcionar imediatamente, sem esperar pela próxima hora, **selecione Adicione o gatilho**  >  **agora** .
+1. Selecione **+**  >  **Pipeline** para criar um novo oleoduto. Clique no novo objeto do gasoduto para abrir o designer pipeline.
+1. No âmbito **de Atividades,** expanda a pasta **Synapse** e arraste um objeto **Portátil** para o designer.
+1. Selecione o **separador Definições** das propriedades da atividade do Portátil. Utilize a lista de drop-down para selecionar qualquer caderno do seu espaço de trabalho synapse atual. 
+1. No oleoduto, **selecione Adicionar gatilho**  >  **Novo/editar**.
+1. Em **Escolha o gatilho**, selecione **New**, e desacorda a **Recorrência** para "a cada 1 hora".
+1. Selecione **OK**. 
+1. Selecione **Publicar Tudo**. 
+
+
+## <a name="monitor-pipeline"></a>Monitorizar o pipeline
+
+1. Uma vez publicado o gasoduto, para fazer o gasoduto funcionar imediatamente, sem esperar pela hora seguinte, **selecione Adicione o gatilho**  >  **agora**.
+1. No Synapse Studio, vá ao **centro** monitor, e selecione **Pipeline corre** para monitorizar o progresso da execução do gasoduto.
 
 
 

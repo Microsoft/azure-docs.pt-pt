@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: df1064128d6a4eca8497ebf3ea0c6ae8cd42255c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937224"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208442"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Quickstart: Instale a Azure Attestation com o Azure CLI
 
-Começa com o Azure Attestation utilizando o Azure CLI para configurar o atestado.
+Começa com [o Azure Attestation utilizando o Azure CLI](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
 
 ## <a name="get-started"></a>Introdução
 
@@ -65,7 +65,7 @@ Começa com o Azure Attestation utilizando o Azure CLI para configurar o atestad
 
 Aqui estão os comandos que pode utilizar para criar e gerir o provedor de atestado:
 
-1. Executar o [atestado az criar](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) comando para criar um provedor de atestado:
+1. Executar o [attestation az criar](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) comando para criar um provedor de atestado sem requisito de assinatura de política:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
@@ -128,7 +128,7 @@ Para definir a política no formato JWT para um dado tipo de tipo de atestado ut
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

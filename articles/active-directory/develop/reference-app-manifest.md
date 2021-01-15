@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011548"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208894"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -46,7 +46,7 @@ Esta secção descreve os atributos encontrados no manifesto de aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| ID | String |
+| ID | Cadeia |
 
 O identificador único para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação protocolar. É usado para fazer referência ao objeto em consultas de diretório.
 
@@ -115,22 +115,11 @@ Exemplo:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>atributo AvailableToOtherTenants
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| DisponíveisToOtherTenants | Booleano |
-
-Definido como verdadeiro se o pedido for partilhado com outros inquilinos; caso contrário, falso.
-
-> [!NOTE]
-> Este atributo está disponível apenas na experiência de registos da **App (Legado).** Substituído pela `signInAudience` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
-
 ### <a name="appid-attribute"></a>atributo appId
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| appId | String |
+| appId | Cadeia |
 
 Especifica o identificador único para a aplicação que é atribuída a uma aplicação pela Azure AD.
 
@@ -165,22 +154,11 @@ Exemplo:
     ],
 ```
 
-### <a name="displayname-attribute"></a>atributo displayName
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| displayName | String |
-
-O nome do visor da aplicação.
-
-> [!NOTE]
-> Este atributo está disponível apenas na experiência de registos da **App (Legado).** Substituído pela `name` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
-
 ### <a name="errorurl-attribute"></a>atributo errorUrl
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| errorUrl | String |
+| errorUrl | Cadeia |
 
 Sem apoio.
 
@@ -188,7 +166,7 @@ Sem apoio.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|groupMembershipClaims | String |
+|groupMembershipClaims | Cadeia |
 
 Configura a `groups` reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a app espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
@@ -203,38 +181,11 @@ Exemplo:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>atributo de página inicial
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| página inicial |String |
-
-O URL para a página inicial da aplicação.
-
-> [!NOTE]
-> Este atributo está disponível apenas na experiência de registos da **App (Legado).** Substituído pela `signInUrl` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
-
-### <a name="objectid-attribute"></a>atributo objectId
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-|objectId | String |
-
-O identificador único para a aplicação no diretório.
-
-Isto está disponível apenas na experiência de registos da **App (Legado).** Substituído pela `id` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
-
-Exemplo:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>opcional Atribuir atribuições
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| opcionalClaims | String |
+| opcionalClaims | Cadeia |
 
 As reclamações opcionais devolvidas no token pelo serviço de fichas de segurança para esta aplicação específica.
 
@@ -245,7 +196,6 @@ Exemplo:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>atributo identifierUris
@@ -266,7 +216,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| informationalUrls | String |
+| informationalUrls | Cadeia |
 
 Especifica os links para os termos de serviço e declaração de privacidade da aplicação. Os termos de serviço e declaração de privacidade são divulgados aos utilizadores através da experiência de consentimento do utilizador. Para obter mais informações, consulte [Como: Adicionar Termos de serviço e declaração de privacidade para aplicações AD registadas.](howto-add-terms-of-service-privacy-statement.md)
 
@@ -323,7 +273,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoUrl | String |
+| logoUrl | Cadeia |
 
 Leia apenas o valor que aponta para o URL do CDN para o logotipo que foi carregado no portal.
 
@@ -337,7 +287,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoutUrl | String |
+| logoutUrl | Cadeia |
 
 O URL para sair da aplicação.
 
@@ -432,7 +382,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| parentalControlSettings | String |
+| parentalControlSettings | Cadeia |
 
 - `countriesBlockedForMinors` especifica os países/regiões em que a aplicação está bloqueada para menores.
 - `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` `RequireConsentForPrivacyServices` , ou `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
@@ -489,21 +439,11 @@ Exemplo:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>atributo públicoClient
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| públicoCliente | Booleano|
-
-Especifica se esta aplicação é um cliente público (como uma aplicação instalada em execução num dispositivo móvel).
-
-Esta propriedade está disponível apenas na experiência de **registos da App (Legado).** Substituído pela `allowPublicClient` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
-
 ### <a name="publisherdomain-attribute"></a>atributo publisherDomain
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| publisherDomain | String |
+| publisherDomain | Cadeia |
 
 O domínio do editor verificado para a aplicação. Só para ler.
 
@@ -511,17 +451,7 @@ Exemplo:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>atributo answerUrls
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| respostaUrls | Matriz de cadeias |
-
-Esta propriedade multi-valor detém a lista de valores de redirect_uri registados que a Azure AD aceitará como destinos ao devolver fichas.
-
-Esta propriedade está disponível apenas na experiência de **registos da App (Legado).** Substituído pela `replyUrlsWithType` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
+```
 
 ### <a name="replyurlswithtype-attribute"></a>atributo answerUrlsWithType
 
@@ -579,7 +509,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| samlMetadataUrl | String |
+| samlMetadataUrl | Cadeia |
 
 O URL para os metadados SAML para a aplicação.
 
@@ -593,7 +523,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInUrl | String |
+| signInUrl | Cadeia |
 
 Especifica o URL para a página inicial da aplicação.
 
@@ -607,7 +537,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInAudience | String |
+| signInAudience | Cadeia |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
 - `AzureADMyOrg` - Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)
@@ -675,7 +605,7 @@ Quando vir um destes erros, recomendamos as seguintes ações:
 1. Edite os atributos individualmente no editor manifesto em vez de carregar um manifesto previamente descarregado. Use a tabela [de referência manifesta](#manifest-reference) para entender a sintaxe e a semântica de atributos antigos e novos para que possa editar com sucesso os atributos em que está interessado.
 1. Se o seu fluxo de trabalho exigir que guarde os manifestos no seu repositório de origem para utilização posterior, sugerimos a rebasão dos manifestos guardados no seu repositório com o que vê na experiência de registos da **App.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a relação entre a aplicação de uma aplicação e o objeto principal de serviço, consulte [aplicações e objetos principais de serviço em Azure AD](app-objects-and-service-principals.md).
 * Consulte o [glossário de desenvolvedores de plataformas de identidade](developer-glossary.md) da Microsoft para definições de alguns conceitos de desenvolvedores de plataformas de identidade da Microsoft.

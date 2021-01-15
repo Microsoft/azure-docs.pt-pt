@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: da432ee3877af4de931ee6d55860b647090d8e3d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178131"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208782"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -31,8 +31,7 @@ A plataforma de identidade da Microsoft implementa o protocolo de autorização 
 * Microsoft 365 Mail API: `https://outlook.office.com`
 * Cofre da Chave Azure: `https://vault.azure.net`
 
-> [!NOTE]
-> Recomendamos vivamente que utilize o Microsoft Graph em vez do Microsoft 365 Mail API, etc.
+Recomendamos vivamente que utilize o Microsoft Graph em vez do Microsoft 365 Mail API, etc.
 
 O mesmo acontece com os recursos de terceiros que se integraram na plataforma de identidade da Microsoft. Qualquer um destes recursos também pode definir um conjunto de permissões que podem ser usadas para dividir a funcionalidade desse recurso em pedaços menores. Como exemplo, [o Microsoft Graph](https://graph.microsoft.com) definiu permissões para fazer as seguintes tarefas, entre outras:
 
@@ -115,8 +114,7 @@ O `scope` parâmetro é uma lista separada do espaço de permissões delegadas q
 
 Depois de o utilizador introduzir as suas credenciais, o ponto final da plataforma de identidade da Microsoft verifica se há um registo correspondente do consentimento do *utilizador*. Se o utilizador não tiver consentido em nenhuma das permissões solicitadas no passado, nem um administrador consentiu nestas permissões em nome de toda a organização, o ponto final da plataforma de identidade da Microsoft pede ao utilizador que conceda as permissões solicitadas.
 
-> [!NOTE]
->Neste momento, as `offline_access` permissões ("Manter o acesso aos dados a que lhe deu acesso") e `user.read` ("Iniciar sessão e ler o seu perfil") são automaticamente incluídas no consentimento inicial para uma aplicação.  Estas permissões são geralmente necessárias para uma funcionalidade adequada da aplicação - `offline_access` dá à app acesso a tokens de atualização, crítico para aplicações nativas e web, ao mesmo tempo que dá acesso à `user.read` `sub` reivindicação, permitindo ao cliente ou app identificar corretamente o utilizador ao longo do tempo e aceder a informações rudimentares do utilizador.
+Neste momento, as `offline_access` permissões ("Manter o acesso aos dados a que lhe deu acesso") e `user.read` ("Iniciar sessão e ler o seu perfil") são automaticamente incluídas no consentimento inicial para uma aplicação.  Estas permissões são geralmente necessárias para uma funcionalidade adequada da aplicação - `offline_access` dá à app acesso a tokens de atualização, crítico para aplicações nativas e web, ao mesmo tempo que dá acesso à `user.read` `sub` reivindicação, permitindo ao cliente ou app identificar corretamente o utilizador ao longo do tempo e aceder a informações rudimentares do utilizador.
 
 ![Imagem de exemplo que mostra o consentimento da conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -148,8 +146,7 @@ Se o pedido estiver a solicitar permissões de pedido e um administrador concede
 
 ## <a name="using-the-admin-consent-endpoint"></a>Usando o ponto final de consentimento administrativo
 
-> [!NOTE]
-> Por favor, note depois de conceder o consentimento administrativo usando o ponto final de consentimento administrativo, terminou de conceder o consentimento administrativo e os utilizadores não precisam de realizar mais ações adicionais. Após a concessão do consentimento administrativo, os utilizadores podem obter um token de acesso através de um fluxo típico de auth e o token de acesso resultante terá as permissões consentidas.
+Depois de conceder o consentimento administrativo usando o ponto final de consentimento administrativo, terminou de conceder o consentimento administrativo e os utilizadores não precisam de realizar mais ações adicionais. Após a concessão do consentimento administrativo, os utilizadores podem obter um token de acesso através de um fluxo típico de auth e o token de acesso resultante terá as permissões consentidas.
 
 Quando um Administrador da Empresa utiliza a sua aplicação e é direcionado para o ponto final autorizado, a plataforma de identidade da Microsoft irá detetar a função do utilizador e perguntar-lhes se pretende consentir em nome de todo o arrendatário as permissões que solicitou. No entanto, existe também um ponto final de consentimento de administração dedicado que pode usar se quiser solicitar proactivamente que um administrador conceda permissão em nome de todo o inquilino. A utilização deste ponto final também é necessária para solicitar permissões de aplicação (que não podem ser solicitadas usando o ponto final autorizado).
 
@@ -263,8 +260,7 @@ Pode utilizar o `/.default` âmbito para ajudar a migrar as suas aplicações do
 
 O âmbito /.predefinido pode ser utilizado em qualquer fluxo OAuth 2.0, mas é necessário no fluxo de fluxo e credenciais [de](v2-oauth2-on-behalf-of-flow.md) [cliente,](v2-oauth2-client-creds-grant-flow.md)bem como ao utilizar o ponto final de consentimento de administração v2 para solicitar permissões de pedido.
 
-> [!NOTE]
-> Os clientes não podem combinar estática `/.default` () e consentimento dinâmico num único pedido. Assim, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.
+Os clientes não podem combinar estática `/.default` () e consentimento dinâmico num único pedido. Assim, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.
 
 ### <a name="default-and-consent"></a>/.predefinição e consentimento
 
@@ -325,5 +321,5 @@ Se você ou os utilizadores da sua aplicação estiverem a ver erros inesperados
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Fichas de ID Plataforma de identidade da Microsoft](id-tokens.md)
-* [Fichas de acesso Plataforma de identidade da Microsoft](access-tokens.md)
+* [Fichas de ID | Plataforma de identidade da Microsoft](id-tokens.md)
+* [| de fichas de acesso Plataforma de identidade da Microsoft](access-tokens.md)

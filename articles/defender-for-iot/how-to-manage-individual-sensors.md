@@ -4,15 +4,15 @@ description: Saiba como gerir sensores individuais, incluindo gerir ficheiros de
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976950"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210244"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -120,7 +120,7 @@ Para atualizar um certificado:
 Para alterar a definição de validação:
 
 1. Ativar ou desativar a validação do certificado de **ativação.**
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 Se a opção estiver ativada e a validação falhar, a comunicação entre a consola de gestão e o sensor é interrompida e é apresentado um erro de validação na consola.
 
@@ -248,7 +248,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo do nome do **sensor Editar,** insira um nome.
 
-1. Selecione **Save** (Guardar). O novo nome é aplicado.
+1. Selecione **Guardar**. O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Mude o nome de um sensor ligado à nuvem
 
@@ -291,7 +291,7 @@ Para alterar a configuração:
     | Hostname (Nome do anfitrião) | O nome de hospedeiro do sensor |
     | Proxy | Hospedeiro proxy e nome do porto |
 
-4. Selecione **Save** (Guardar).
+4. Selecione **Guardar**.
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar os fusos horários no sensor
 

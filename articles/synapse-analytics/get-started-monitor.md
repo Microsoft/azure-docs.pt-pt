@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 10/15/2020
-ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/31/2020
+ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444395"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209819"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorize o seu espaço de trabalho de sinapse
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a monitorizar atividades no seu espaço de trab
 
 Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode ver uma história de todas as atividades que estão acontecendo no espaço de trabalho e quais estão ativas agora. 
 
-* Em **Integração,** pode monitorizar os cursos de pipelines, gatilhos e integração
+* Em **Integração,** pode monitorizar os cursos de pipelines, gatilhos e tempos de integração.
 * No âmbito **de Atividades,** pode monitorizar as atividades spark e SQL. 
 
 ## <a name="integration"></a>Integração
@@ -36,15 +36,15 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 
 ## <a name="apache-spark-activities"></a>Atividades de Faísca Apache
 
-1. Navegue para **atividades de > integração > aplicações Apache Spark.** Agora pode ver todas as aplicações Spark que estão em execução ou que correram no seu espaço de trabalho.
+1. Navegue para **atividades > aplicações Apache Spark**. Agora pode ver todas as aplicações Spark que estão em execução ou que correram no seu espaço de trabalho.
 1. Encontre uma aplicação que já não esteja em execução e clique no **nome da sua Aplicação.** Agora pode ver os detalhes da aplicação de faíscas.
 1. Se estiver familiarizado com o Apache Spark, pode encontrar o servidor histórico padrão apache Spark UI clicando no **servidor histórico spark**.
 
 ## <a name="sql-activities"></a>Atividades SQL
 
-1. Navegue para **atividades de > integração > pedidos SQL.**
+1. Navegue para **atividades > pedidos SQL.**
 1. Nesta vista pode ver os pedidos do SQL.
-1. Selecione uma **Piscina** para monitorizar. Agora você pode ver todos os pedidos SQL que estão executando ou executado no seu espaço de trabalho nessa piscina.
+1. Selecione uma **Piscina** para monitorar a partir do filtro **Pool.** Agora você pode ver todos os pedidos SQL que estão executando ou executado no seu espaço de trabalho nessa piscina.
 1. Encontre um pedido SQL específico e sobressaa o rato sobre esse item. Assim que pairar, verá um ícone de script SQL aparecer.
 1. Clique no ícone de script SQL para ver o texto completo do pedido SQL.
 

@@ -1,25 +1,25 @@
 ---
-title: Tutorial para encomendar caixa de dados Azure | Microsoft Docs
+title: Tutorial para encomendar Caixa de Dados Azure / Microsoft Docs
 description: Neste tutorial, conheça a Azure Data Box, uma solução híbrida que permite importar dados no local para o Azure e como encomendar a Azure Data Box.
 services: databox
-author: alkohli
+author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186163"
+ms.locfileid: "98210346"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
-O Azure Data Box é uma solução híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para um dispositivo de armazenamento de 80 TB (capacidade utilizável) fornecido pela Microsoft e, em seguida, envie o dispositivo de volta. Estes dados são então carregados para o Azure.
+O Azure Data Box é uma solução híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para um dispositivo de armazenamento 80-TB (capacidade utilizável) fornecido pela Microsoft e, em seguida, envie o dispositivo de volta. Estes dados são então carregados para o Azure.
 
-Este tutorial descreve como pode encomendar um Azure Data Box. Neste tutorial, ficará a saber mais sobre:
+Este tutorial descreve como pode encomendar um Azure Data Box. Neste tutorial, ficará a saber mais sobre:  
 
 > [!div class="checklist"]
 >
@@ -245,7 +245,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |Grupo de recursos    | O grupo de recursos que selecionou anteriormente. |
     |Nome da ordem de importação | Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.    |
 
-    ![Data Box import Assistente de encomenda, ecrã básico, com informação correta preenchida](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Data Box import Assistente de encomenda, ecrã básico, com informação correta preenchida](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. No ecrã de **destino data,** selecione o **destino Data** - contas de armazenamento ou discos geridos.
 
@@ -253,7 +253,11 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     ![Data Box importe assistente de encomenda, ecrã de destino de dados, com contas de armazenamento selecionadas](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**.
+    Com base na região de Azure especificada, selecione uma ou mais contas de armazenamento da lista filtrada das contas de armazenamento existentes. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**.
+
+   > [!NOTE]
+   > - Se selecionar as contas Azure Premium FileStorage, a quota provisida na parte da conta de armazenamento aumentará para o tamanho dos dados que estão a ser copiados para as ações do ficheiro. Depois de a quota ser aumentada, não é ajustada novamente, por exemplo, se por alguma razão a Caixa de Dados não puder copiar os seus dados.
+   > - Esta quota é utilizada para faturação. Depois de os seus dados forem enviados para o datacenter, deverá ajustar a quota para satisfazer as suas necessidades. Para obter mais informações, consulte [a faturação de Compreensão.](../../articles/storage/files/understanding-billing.md)
 
     As contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço Data Box funcione com contas de armazenamento protegidas, ative os serviços fidedignos nas definições de firewall de rede da conta de armazenamento. Para mais informações, consulte como [adicionar a Azure Data Box como um serviço de confiança](../storage/common/storage-network-security.md#exceptions).
 
@@ -409,7 +413,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Descrição |  Valor da amostra |
+   | Definição (parâmetro) | Description |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -419,7 +423,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
    |sku| O dispositivo específico da Caixa de Dados que está a encomendar. Os valores válidos são: "DataBox", "DataBoxDisk" e "DataBoxHeavy"| "DataBox" |
    |lista de e-mails| Os endereços de e-mail associados à encomenda.| "gusp@contoso.com" |
    |endereço de rua1| O endereço da rua para onde a encomenda será enviada. | "15700 NE 39th St" |
-   |endereço de rua2| A informação de endereço secundário, como o número de apartamento ou o número de edifício. | "Bld 123" |
+   |endereço de rua2| A informação de endereço secundário, como o número de apartamento ou o número de edifício. | "Edifício 123" |
    |city| A cidade para onde o dispositivo será enviado. | "Redmond" |
    |estado ou província| O estado onde o dispositivo será enviado.| "WA" |
    |país| O país em que o dispositivo será enviado. | "Estados Unidos" |
@@ -528,7 +532,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
 
 2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Definição (parâmetro) | Descrição |  Valor da amostra |
+    | Definição (parâmetro) | Description |  Valor da amostra |
     |---|---|---|
     |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
     |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -538,7 +542,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
     |DataBoxType [Obrigatório]| O dispositivo específico da Caixa de Dados que está a encomendar. Os valores válidos são: "DataBox", "DataBoxDisk" e "DataBoxHeavy"| "DataBox" |
     |EmailId [Obrigatório]| Os endereços de e-mail associados à encomenda.| "gusp@contoso.com" |
     |StreetAddress1 [Obrigatório]| O endereço da rua para onde a encomenda será enviada. | "15700 NE 39th St" |
-    |StreetAddress2| A informação de endereço secundário, como o número de apartamento ou o número de edifício. | "Bld 123" |
+    |StreetAddress2| A informação de endereço secundário, como o número de apartamento ou o número de edifício. | "Edifício 123" |
     |StreetAddress3| A informação do endereço terciário. | |
     |Cidade [Necessária]| A cidade para onde o dispositivo será enviado. | "Redmond" |
     |StateOrProvinceCode [Obrigatório]| O estado onde o dispositivo será enviado.| "WA" |
@@ -601,7 +605,7 @@ Em seguida, a Microsoft prepara e expede os seus dispositivos através de uma tr
 
 ### <a name="track-a-single-order"></a>Acompanhe uma única encomenda
 
-Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, executar [az databox show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
+Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, corra [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true) . O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +646,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
 
 ### <a name="list-all-orders"></a>Listar todas as encomendas
 
-Se encomendou vários dispositivos, pode executar [a lista de trabalho da caixa de dados az](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+Se tiver encomendado vários dispositivos, pode correr [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
 O comando também apresenta selos temporais de cada ordem.
 
 ```azurecli
@@ -718,7 +722,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
 
 ### <a name="list-all-orders"></a>Listar todas as encomendas
 
-Se encomendou vários dispositivos, pode executar [o Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+Se tiver encomendado vários dispositivos, pode correr [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) para ver todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
 O comando também apresenta selos temporais de cada ordem.
 
 ```azurepowershell
@@ -761,7 +765,7 @@ Para eliminar uma encomenda cancelada, vá ao **Overview** e selecione **Delete*
 
 ### <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da caixa de dados az cancelar](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). É-lhe exigido que especifique a sua razão para cancelar a encomenda.
+Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) . É-lhe exigido que especifique a sua razão para cancelar a encomenda.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -798,7 +802,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da cai
 
 ### <a name="delete-an-order"></a>Apagar uma encomenda
 
-Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [o trabalho de databox az](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para eliminar a encomenda.
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para apagar a encomenda.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -871,7 +875,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Apagar uma encomenda
 
-Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) para apagar a encomenda.
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) para apagar a encomenda.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

@@ -1,5 +1,5 @@
 ---
-title: Registe a sua candidatura para utilizar o Azure Ative Directory ! Microsoft Docs
+title: Registe a sua candidatura para utilizar o Azure Ative Directory | Microsoft Docs
 description: Escrito para o IT Pro, este artigo fornece orientações para a integração de aplicações Azure com Diretório Ativo.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de16c947c59f5a0111b9325dbefe7daf1268fb40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 006aaf7ca5066c552f9c0b797549d7e90ac9beb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649165"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208697"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Ative Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicações de linha de negócios (LoB) para o Azure Ative Directory (AD). O público pretendido é o Ative Directory/Microsoft 365 administradores globais.
@@ -70,7 +70,7 @@ Por predefinição, cada utilizador passa por uma experiência de consentimento 
 
 Para aplicações em que confia, pode simplificar a experiência do utilizador, consentindo com a aplicação em nome da sua organização.
 
-Para obter mais informações sobre o consentimento do utilizador e a experiência de consentimento no Azure, consulte [Integrar Aplicações com o Azure Ative Directory](../develop/quickstart-register-app.md).
+Para obter mais informações sobre o consentimento do utilizador e a experiência de consentimento em Azure, consulte [as experiências de consentimento da aplicação AZure AD](../develop/application-consent-experience.md).
 
 ## <a name="related-articles"></a>Artigos Relacionados
 * [Permitir o acesso remoto seguro a aplicações no local com Proxy de aplicação AD AZure](application-proxy.md)

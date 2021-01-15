@@ -3,16 +3,16 @@ title: Conhecer os seus clientes no Azure Application Insights | Microsoft Docs
 description: Tutorial sobre como utilizar o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f6eeb5265d99a17ed18ace91fa5f2d2f744dbb2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318407"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210176"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -139,7 +139,7 @@ Os **fluxos de utilizador** mostram como é que os utilizadores navegam entre as
 
     ![Screenshot mostrando o display dos caminhos do utilizador e as contagens de sessão para um fluxo do utilizador.](media/tutorial-users/flows.png)
 
-5.  Para remover um evento do fluxo, clique em **x**, no canto da ação, e clique em**Create Graph** (Criar Gráfico).  O gráfico é redesenhado com todas as instâncias desse evento removidas.  Clique em **Edit** (Editar) para ver que o evento foi adicionado a **Excluded events** (Eventos excluídos).
+5.  Para remover um evento do fluxo, clique em **x**, no canto da ação, e clique em **Create Graph** (Criar Gráfico).  O gráfico é redesenhado com todas as instâncias desse evento removidas.  Clique em **Edit** (Editar) para ver que o evento foi adicionado a **Excluded events** (Eventos excluídos).
 
     ![Screenshot mostrando a lista de eventos excluídos para um fluxo de utilizador.](media/tutorial-users/flowsexclude.png)
 

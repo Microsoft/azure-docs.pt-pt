@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183061"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210023"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de networking do Serviço de Aplicações
 
@@ -110,7 +110,7 @@ Esta funcionalidade permite-lhe construir uma lista de regras de permitir e nega
 
 A funcionalidade de restrições de acesso baseadas em IP ajuda quando pretende restringir os endereços IP que podem ser usados para chegar à sua aplicação. São suportados IPv4 e IPv6. Alguns usam casos para esta funcionalidade:
 * Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos. 
-* Restringir o acesso ao tráfego através de um serviço de equilíbrio de carga, como a Porta frontal Azure. Se quiser bloquear o tráfego de entrada até a Porta frontal Azure, crie regras para permitir o tráfego a partir das 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Restringir o acesso ao tráfego através de um serviço externo de equilíbrio de carga ou outros aparelhos de rede com endereços IP de saída conhecidos. 
 
 Para saber como ativar esta funcionalidade, consulte [configurar restrições de acesso][iprestrictions].
 
@@ -126,7 +126,20 @@ Alguns usam casos para esta funcionalidade:
 ![Diagrama que ilustra a utilização de pontos finais de serviço com o Gateway de Aplicação.](media/networking-features/service-endpoints-appgw.png)
 
 Para saber mais sobre configurar os pontos finais do serviço com a sua aplicação, consulte [as restrições de acesso ao Serviço de Aplicações Azure.][serviceendpoints]
+#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Regras de restrição de acesso baseadas em etiquetas de serviço (pré-visualização)
+[As tags de serviço Azure][servicetags] são conjuntos bem definidos de endereços IP para serviços Azure. As tags de serviço agrupam as gamas IP utilizadas em vários serviços Azure e são muitas vezes também mais aprofundadas em regiões específicas. Isto permite filtrar o tráfego *de entrada* a partir de serviços específicos da Azure. 
 
+Para obter uma lista completa de etiquetas e mais informações, visite o link de etiqueta de serviço acima. Para saber como ativar esta funcionalidade, consulte [configurar restrições de acesso][iprestrictions].
+#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtragem de cabeçalho em http para regras de restrição de acesso (pré-visualização)
+Para cada regra de restrição de acesso, pode adicionar uma filtragem adicional do cabeçalho http. Isto permite-lhe inspecionar ainda mais o pedido de entrada e o filtro com base em valores específicos do cabeçalho http. Cada cabeçalho pode ter até 8 valores por regra. A lista seguinte de cabeçalhos http é atualmente suportada: 
+* X-Forward-For
+* X-Forward-Forward-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Alguns casos de utilização para filtragem de cabeçalho http são:
+* Restringir o acesso ao tráfego de servidores proxy reencaminhando o nome do anfitrião
+* Restringir o acesso a uma instância específica da porta frontal Azure com uma regra de etiqueta de serviço e restrição de cabeçalho X-Azure-FDID
 ### <a name="private-endpoint"></a>Ponto Final Privado
 
 Private Endpoint é uma interface de rede que o liga de forma privada e segura à sua Web App por link privado Azure. O Private Endpoint utiliza um endereço IP privado a partir da sua rede virtual, efetivamente trazendo a aplicação web para a sua rede virtual. Esta funcionalidade *destina-se* apenas aos fluxos de entrada para a sua aplicação web.
@@ -299,3 +312,4 @@ Se pesquisar o Serviço de Aplicações, encontrará várias portas expostas par
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md

@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907797"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210210"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Train Vowpal Wabbit Model
 Este artigo descreve como usar o módulo **Modelo Wabbit Train Vowpal** no designer Azure Machine Learning, para criar um modelo de aprendizagem automática utilizando o Vowpal Wabbit.  
@@ -71,7 +71,7 @@ Os dados podem ser lidos a partir de dois tipos de conjuntos de dados, conjunto 
 
 6. **Ficheiro de modelo legível de saída**: selecione a opção se quiser que o módulo guarde o modelo legível para os registos de execução. Este argumento corresponde ao `--readable_model` parâmetro da linha de comando VW.  
 
-7. **Ficheiro de haxixe invertido**de saída : selecione a opção se quiser que o módulo guarde a função de hashing invertida para um ficheiro nos registos de execução. Este argumento corresponde ao `--invert_hash` parâmetro da linha de comando VW.  
+7. **Ficheiro de haxixe invertido** de saída : selecione a opção se quiser que o módulo guarde a função de hashing invertida para um ficheiro nos registos de execução. Este argumento corresponde ao `--invert_hash` parâmetro da linha de comando VW.  
 
 8. Envie o oleoduto.
 
@@ -87,7 +87,7 @@ A Vowpal Wabbit suporta a formação incremental adicionando novos dados a um mo
 2. Ligue o modelo previamente treinado à porta de entrada **do modelo Vowpal Wabbit pré-treinado** do módulo.
 3. Ligue os novos dados de formação à porta de entrada de dados de **formação** do módulo.
 4. No painel de parâmetros do **Modelo Wabbit Do Comboio Vowpal,** especifique o formato dos novos dados de formação e também o nome do ficheiro de dados de formação se o conjunto de dados de entrada for um diretório.
-5. Selecione o ficheiro modelo legível *** e as opções de **ficheiros de haxixe invertidos** de saída se os ficheiros correspondentes precisarem de ser guardados nos registos de execução.
+5. Selecione o **ficheiro de modelo legível de saída** e opções de **ficheiros de hash invertidos** de saída se os ficheiros correspondentes precisarem de ser guardados nos registos de execução.
 
 6. Envie o oleoduto.  
 7. Selecione o módulo e **selecione Conjunto de dados de registo** no separador **Outputs+logs** no painel direito, para preservar o modelo atualizado no seu espaço de trabalho Azure Machine Learning.  Se não especificar um novo nome, o modelo atualizado substitui o modelo guardado existente.

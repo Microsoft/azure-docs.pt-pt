@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade microsoft e OAuth2.0 On-Behalf-Of flow Rio Azure
+title: Plataforma de identidade microsoft e OAuth2.0 Em nome-of fluxo | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Este artigo descreve como utilizar mensagens HTTP para implementar o serviço de autenticação de serviço utilizando o fluxo OAuth2.0 On-Behalf-Of.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958665"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208853"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
 
@@ -27,8 +27,8 @@ O OAuth 2.0 On-Behalf-Of flow (OBO) serve o caso de utilização quando uma apli
 
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Quando possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas para [adquirir fichas e chamar APIs web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dê também uma olhada nas aplicações de [amostra que utilizam o MSAL.](sample-v2-code.md)
 
-> [!NOTE]
-> A partir de maio de 2018, alguns derivados do fluxo implícito `id_token` não podem ser usados para o fluxo OBO. As aplicações de uma só página (SPAs) devem passar um **token** de acesso a um cliente confidencial de nível médio para realizar fluxos OBO em vez disso. Para obter mais informações sobre quais os clientes que podem realizar chamadas OBO, consulte [limitações.](#client-limitations)
+
+A partir de maio de 2018, alguns derivados do fluxo implícito `id_token` não podem ser usados para o fluxo OBO. As aplicações de uma só página (SPAs) devem passar um **token** de acesso a um cliente confidencial de nível médio para realizar fluxos OBO em vez disso. Para obter mais informações sobre quais os clientes que podem realizar chamadas OBO, consulte [limitações.](#client-limitations)
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -39,13 +39,12 @@ Os passos que se seguem constituem o fluxo OBO e são explicados com a ajuda do 
 ![Mostra o fluxo OAuth2.0 Em nome](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. O pedido do cliente faz um pedido à API A com o token A (com `aud` uma reclamação da API A).
-1. A API A autentica-se no ponto final de emissão de emissão de emissão de identidade da Microsoft e solicita um token para aceder à API B.
+1. A API A autentica-se no ponto final de emissão de identidade da Microsoft e solicita um token para aceder à API B.
 1. O ponto final de emissão de emissão de imitância da plataforma de identidade da Microsoft valida as credenciais da API A juntamente com o token A e emite o token de acesso da API B (token B) à API A.
 1. O Token B é definido pela API A no cabeçalho de autorização do pedido à API B.
-1. Os dados do recurso seguro são devolvidos pela API B à API A e daí para o cliente.
+1. Os dados do recurso seguro são devolvidos pela API B à API A e, em seguida, ao cliente.
 
-> [!NOTE]
-> Neste cenário, o serviço de nível médio não tem qualquer interação do utilizador para obter o consentimento do utilizador para aceder à API a jusante. Por isso, a opção de conceder acesso à API a jusante é apresentada antecipadamente como parte do passo de consentimento durante a autenticação. Para aprender a configurar isto para a sua aplicação, consulte [Obter o consentimento para a aplicação de nível médio.](#gaining-consent-for-the-middle-tier-application)
+Neste cenário, o serviço de nível médio não tem qualquer interação do utilizador para obter o consentimento do utilizador para aceder à API a jusante. Por isso, a opção de conceder acesso à API a jusante é apresentada antecipadamente como parte do passo de consentimento durante a autenticação. Para aprender a configurar isto para a sua aplicação, consulte [Obter o consentimento para a aplicação de nível médio.](#gaining-consent-for-the-middle-tier-application)
 
 ## <a name="middle-tier-access-token-request"></a>Pedido de sinal de acesso de nível médio
 
@@ -152,10 +151,9 @@ O exemplo a seguir mostra uma resposta de sucesso a um pedido de acesso à https
 }
 ```
 
-> [!NOTE]
-> O token de acesso acima é um símbolo em formato v1.0 para o Microsoft Graph. Isto porque o formato token baseia-se no **recurso** que está a ser acedido e não está relacionado com os pontos finais utilizados para o solicitar. O Microsoft Graph está configurado para aceitar fichas v1.0, pelo que a plataforma de identidade da Microsoft produz fichas de acesso v1.0 quando um cliente solicita fichas para o Microsoft Graph. Outras aplicações podem indicar que querem fichas em formato v2.0, fichas em formato v1.0 ou até formatos simbólicos ou encriptados.  Tanto os pontos finais v1.0 como v2.0 podem emitir qualquer formato de token - desta forma o recurso pode sempre obter o formato certo de token independentemente de como ou onde o token foi solicitado pelo cliente. 
->
-> Apenas as aplicações devem olhar para os tokens de acesso. Os clientes **não devem** inspecioná-los. A inspeção de fichas de acesso a outras aplicações no seu código resultará na quebra inesperada da sua aplicação quando essa aplicação muda o formato dos seus tokens ou começa a criptografá-las. 
+O token de acesso acima é um símbolo em formato v1.0 para o Microsoft Graph. Isto porque o formato token baseia-se no **recurso** que está a ser acedido e não está relacionado com os pontos finais utilizados para o solicitar. O Microsoft Graph está configurado para aceitar fichas v1.0, pelo que a plataforma de identidade da Microsoft produz fichas de acesso v1.0 quando um cliente solicita fichas para o Microsoft Graph. Outras aplicações podem indicar que querem fichas em formato v2.0, fichas em formato v1.0 ou até formatos simbólicos ou encriptados.  Tanto os pontos finais v1.0 como v2.0 podem emitir qualquer formato de token - desta forma o recurso pode sempre obter o formato certo de token independentemente de como ou onde o token foi solicitado pelo cliente. 
+
+Apenas as aplicações devem olhar para os tokens de acesso. Os clientes **não devem** inspecioná-los. A inspeção de fichas de acesso a outras aplicações no seu código resultará na quebra inesperada da sua aplicação quando essa aplicação muda o formato dos seus tokens ou começa a criptografá-las. 
 
 ### <a name="error-response-example"></a>Exemplo de resposta a erros
 
@@ -189,8 +187,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 Alguns serviços web baseados em OAuth precisam de aceder a outros APIs de serviço web que aceitam afirmações DE SAML em fluxos não interativos. O Azure Ative Directory pode fornecer uma afirmação SAML em resposta a um fluxo On-Behalf-Of que utiliza um serviço web baseado em SAML como recurso alvo.
 
->[!NOTE]
->Trata-se de uma extensão não padrão do fluxo OAuth 2.0 On-Behalf-Of que permite a uma aplicação baseada em OAuth2 aceder a pontos finais de serviço web API que consomem fichas SAML.
+Trata-se de uma extensão não padrão do fluxo OAuth 2.0 On-Behalf-Of que permite a uma aplicação baseada em OAuth2 aceder a pontos finais de serviço web API que consomem fichas SAML.
 
 > [!TIP]
 > Quando você chama um serviço web protegido por SAML a partir de uma aplicação web frontal, você pode simplesmente ligar para a API e iniciar um fluxo de autenticação interativa normal com a sessão existente do utilizador. Só precisa de utilizar um fluxo OBO quando uma chamada de serviço para serviço requer um token SAML para fornecer o contexto do utilizador.
@@ -204,7 +201,7 @@ Dependendo da arquitetura ou uso da sua aplicação, poderá considerar diferent
 
 ### <a name="default-and-combined-consent"></a>/.predefinido e consentimento combinado
 
-A aplicação de nível médio adiciona o cliente à lista de aplicações de clientes conhecida no seu manifesto, e então o cliente pode desencadear um fluxo de consentimento combinado para si mesmo e para a aplicação de nível médio. No ponto final da plataforma de identidade da Microsoft, isto é feito utilizando o [ `/.default` âmbito](v2-permissions-and-consent.md#the-default-scope). Ao desencadear um ecrã de consentimento utilizando aplicações de clientes conhecidas `/.default` e, o ecrã de consentimento mostrará permissões tanto para o cliente como para a API de nível médio, e também solicitará quaisquer permissões necessárias pela API de nível médio. **both** O utilizador fornece o consentimento para ambas as aplicações e, em seguida, o fluxo OBO funciona.
+A aplicação de nível médio adiciona o cliente à lista de aplicações de clientes conhecida no seu manifesto, e então o cliente pode desencadear um fluxo de consentimento combinado para si mesmo e para a aplicação de nível médio. No ponto final da plataforma de identidade da Microsoft, isto é feito utilizando o [ `/.default` âmbito](v2-permissions-and-consent.md#the-default-scope). Ao desencadear um ecrã de consentimento utilizando aplicações de clientes conhecidas `/.default` e, o ecrã de consentimento mostrará permissões tanto para o cliente como para a API de nível médio, e também solicitará quaisquer permissões necessárias pela API de nível médio.  O utilizador fornece o consentimento para ambas as aplicações e, em seguida, o fluxo OBO funciona.
 
 ### <a name="pre-authorized-applications"></a>Pedidos pré-autorizados
 

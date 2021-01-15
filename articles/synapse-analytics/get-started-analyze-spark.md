@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 3b5f5d64498922e9fc35942ff4570d801aa6c516
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 12/31/2020
+ms.openlocfilehash: 2feabda5ea3f0c0748b92de9fcb7ef05abbdcf4c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118885"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209445"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -23,25 +23,25 @@ Neste tutorial, você vai aprender os passos básicos para carregar e analisar d
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analise os dados do táxi de NYC no armazenamento de bolhas usando a Spark
 
-1. No centro **de dados,** selecione **Adicionar um novo recurso** (mais botão acima do **Linked)**> **galeria Browse**.
-1. Selecione **NYC Taxi & Limousine Commission - registos amarelos da viagem de táxi**.
-1. Na parte inferior da página, selecione **Continue**  >  **Adicionar conjunto de dados**.
-1. No centro **de dados** em **Linked**, clique à direita **Azure Blob Storage**, e, em seguida, selecione **conjuntos de dados de amostra**  >  **nyc_tlc_yellow**.
-1. Selecione **novo caderno** para criar um novo caderno com o seguinte código:
+1. No centro **de dados,** clique no **+** botão para **Adicionar um novo recurso** e, em seguida, clique em >> **galeria Browse**. 
+1. Encontre **a Comissão de Táxis & Limousine da NYC - registos amarelos de viagem** de táxi e clique nele. 
+1. Na parte inferior da página prima **Continuar,** em **seguida, adicionar conjunto de dados**. 
+1. Após um momento, no centro de **dados** em **Linked**, clique à direita no **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** e selecione **Novo caderno**, em seguida, **Carregue para Quadro de Dados**.
+1. Isto criará um novo Caderno com o seguinte código:
+    ```
 
-    ```py
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
     data_df = data.to_spark_dataframe()
+    # Display 10 rows
     display(data_df.limit(10))
     ```
+1. No caderno, no **menu Attach,** escolha a piscina **Spark1** sem servidor que criamos anteriormente.
+1. Selecione **Executar** na célula
+1. Se quiser apenas ver o esquema do dataframe executar uma célula com o seguinte código:
+    ```
 
-1. No **menu Anexar ao** menu no caderno, escolha uma piscina spark sem servidor.
-1. **Selecione Executar** na célula.
-1. Se quiser ver apenas o esquema do dataframe, execute uma célula com o seguinte código:
-
-    ```py
     data_df.printSchema()
     ```
 
@@ -52,7 +52,8 @@ Os dados estão disponíveis numa tabela em **SQLPOOL1**. Coloque-o numa base de
 1. No Estúdio Synapse, vá ao centro **de Desenvolvimento.**
 1. Selecione **+**  >  **Caderno**.
 1. Em cima do caderno, desaperte o **valor do Anexo** ao **Spark1**.
-1. **Selecione Adicionar código** para adicionar uma célula de código de caderno e, em seguida, introduzir o seguinte texto:
+1. Na primeira célula de código do novo caderno e, em seguida, introduza o seguinte código:
+
 
     ```scala
     %%spark
@@ -61,16 +62,16 @@ Os dados estão disponíveis numa tabela em **SQLPOOL1**. Coloque-o numa base de
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. **Selecione Executar** na célula.
-1. No centro **de dados,** clique à direita bases de **dados** e, em seguida, selecione **Refresh**. Devia ver estas bases de dados:
 
-    - **SQLPOOL1 (SQL)**
-    - **nyctaxi (Faísca)**
+1. Execute o script. Pode levar 2 a 3 minutos.
+1. No centro **de dados,** no **separador Espaço de Trabalho,** clique com o botão direito **bases de dados** e, em seguida, selecione **Refresh**. Deverá agora ver a base de dados **nyctaxi (Spark)** na lista.
+
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analise os dados do Táxi de NYC usando Spark e cadernos
 
 1. Volte para o seu caderno.
-1. Crie uma nova célula de código e introduza o seguinte texto.
+1. Crie uma nova célula de código e introduza o seguinte código. 
+
 
    ```py
    %%pyspark
@@ -78,8 +79,9 @@ Os dados estão disponíveis numa tabela em **SQLPOOL1**. Coloque-o numa base de
    display(df)
    ```
 
-1. Faça o telemóvel para mostrar os dados do Táxi de NYC que carregou na base **de dados nyctaxi** Spark.
-1. Execute o seguinte código para fazer a mesma análise que fez anteriormente com a piscina **SQL SQLQ1** dedicada. Este código guarda e exibe os resultados da análise numa tabela denominada **nyctaxi.passengercountstats**.
+1. Corre o telemóvel para mostrar os dados do Táxi da NYC que carregámos na base **de dados do Nyctaxi** Spark.
+1. Crie uma nova célula de código e introduza o seguinte código. Em seguida, executar a célula para fazer a mesma análise que fizemos anteriormente com a piscina SQL **SQL 21** dedicada. Este código guarda e exibe os resultados da análise numa tabela chamada **nyctaxi.passengercountstats**.
+
 
    ```py
    %%pyspark
@@ -100,9 +102,9 @@ Os dados estão disponíveis numa tabela em **SQLPOOL1**. Coloque-o numa base de
 
 ## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Carregue os dados de uma tabela Spark numa mesa de bilhar SQL dedicada
 
-Anteriormente copiou dados da tabela de piscinas **SQL.dbo.Trip** para a mesa Spark **nyctaxi.trip**. Em seguida, agregou os dados na tabela Spark **nyctaxi.passengercountstats**. Agora você vai copiar os dados de **nyctaxi.passengercountstats** em uma mesa de bilhar SQL dedicada chamada **SQLPOOL1.dbo.PassengerCountStats**.
+Anteriormente copiamos dados da tabela de piscinas **SQL SQL 22 dedicada SQLPOOL1.dbo.Trip** para a mesa Spark **nyctaxi.trip**. Em seguida, agregou os dados na tabela Spark **nyctaxi.passengercountstats**. Agora você vai copiar os dados de **nyctaxi.passengercountstats** em uma mesa de bilhar SQL dedicada chamada **SQLPOOL1.dbo.PassengerCountStats**.
 
-Coloque a seguinte célula no seu caderno. Copia a mesa spark agregada de volta para a mesa de bilhar SQL dedicada.
+1. Crie uma nova célula de código e introduza o seguinte código. Coloque a cela no seu caderno. Copia a mesa spark agregada de volta para a mesa de bilhar SQL dedicada.
 
 ```scala
 %%spark

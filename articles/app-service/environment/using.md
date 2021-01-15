@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013537"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209734"
 ---
 # <a name="using-an-app-service-environment"></a>Usando um ambiente de serviço de aplicativo
 
@@ -51,7 +51,7 @@ Para criar uma aplicação num ASE:
     > As aplicações Linux e Windows não podem estar no mesmo plano de Serviço de Aplicações, mas podem estar no mesmo Ambiente de Serviço de Aplicações.
     >
 
-1. Selecione ** Seguinte: Monitorização** Se pretender ativar o App Insights com a sua aplicação, pode fazê-lo aqui durante o fluxo de criação. 
+1. Selecione **Seguinte: Monitorização**  Se pretender ativar o App Insights com a sua aplicação, pode fazê-lo aqui durante o fluxo de criação. 
 
 1.  Selecione **Seguinte: Tags** Adicionar todas as tags que quiser à aplicação  
 

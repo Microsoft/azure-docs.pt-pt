@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461387"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209632"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados
 
@@ -32,7 +32,7 @@ Uma vez que as tabelas são sincronizadas para a piscina SQL sem servidor assín
 
 Use o Spark para gerir as bases de dados criadas pela Spark. Por exemplo, elimine-o através de uma conta de piscina Apache Spark sem servidor e crie mesas no mesmo a partir do Spark.
 
-Se criar objetos numa base de dados a partir de uma piscina SQL sem servidor ou tentar largar a base de dados, a operação terá sucesso, mas a base de dados original do Spark não será alterada.
+Se criar objetos numa base de dados a partir de uma piscina SQL sem servidor ou tentar largar a base de dados, a operação falhará. A base de dados original do Spark não pode ser alterada através de uma piscina SQL sem servidor.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Expor uma mesa de faíscas em SQL
 

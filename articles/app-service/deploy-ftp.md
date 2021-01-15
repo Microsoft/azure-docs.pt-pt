@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ce8c32b1afdf4178e3ffdc09e9c9176436fa771b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cfec5ec5f14afc8c4eba5c21c5904687c9b187cc
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605081"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209258"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implemente a sua aplicação para o Azure App Service utilizando FTP/S
 
@@ -111,7 +111,7 @@ Para determinar um problema de implementação ou tempo de execução, consulte 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>I'm not able to FTP and publish my code. Como posso resolver o problema?
 Verifique se inseriu o nome de anfitrião e [as credenciais corretas.](#open-ftp-dashboard) Verifique também se as seguintes portas FTP da sua máquina não estão bloqueadas por uma firewall:
 
-- Porta de ligação de controlo de FTP: 21
+- Porta de ligação de controlo FTP: 21.990
 - Porta de ligação de dados FTP: 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Como posso ligar-me à FTP no Azure App Service através do modo passivo?

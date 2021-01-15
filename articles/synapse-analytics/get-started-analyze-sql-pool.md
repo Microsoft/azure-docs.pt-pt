@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 11/17/2020
-ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/31/2020
+ms.openlocfilehash: 38332492ba9f20ea7c6682d8341ddf6b5f1f11dd
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455171"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209427"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
@@ -23,8 +23,8 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
 
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carregue os dados do táxi de NYC em SQLPOOL1
 
-1. No Synapse Studio, navegue para o centro **de Desenvolvimento** e, em seguida, crie um novo script SQL
-1. Selecione a piscina 'SQLPOOL1' (piscina criada no [PASSO 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na secção 'Ligar a' do script.
+1. No Synapse Studio, navegue no centro **De Desenvolvimento,** clique no **+** botão para adicionar novo recurso e, em seguida, crie um novo script SQL.
+1. Selecione a piscina 'SQLPOOL1' (piscina criada no [PASSO 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na lista de descida 'Connect to' acima do script.
 1. Introduza o seguinte código:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -71,12 +71,13 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. Este guião terminará em cerca de 60 segundos. Carrega 2 milhões de linhas de dados de táxi de NYC numa mesa chamada **DBO. Viagem**
+1. Clique no botão Executar para executar o script.
+1. Este guião terminará em menos de 60 segundos. Carrega 2 milhões de linhas de dados de táxi de NYC numa mesa chamada **DBO. Viagem.**
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explore os dados do Táxi nyc na piscina dedicada SQL
 
 1. No Estúdio Synapse, vá ao centro **de dados.**
-1. Vá às **Mesas SQLPOOL1.**  >  **Tables** Verá várias mesas carregadas.
+1. Vá às **Mesas SQLPOOL1.**  >   
 1. Clique à direita no **dbo. Tabela** de trip e selecione **Novo Script SQL**  >  **Selecione TOP 100 Rows**.
 1. Aguarde enquanto um novo script SQL é criado e executado.
 1. Note que no topo do script SQL **Connect** é automaticamente definido para a piscina SQL chamada **SQLPOOL1**.
@@ -89,7 +90,7 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
     FROM  dbo.Trip
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
-    ORDER BY PassengerCount
+    ORDER BY PassengerCount;
     ```
 
     Esta consulta mostra como as distâncias totais de viagem e a distância média da viagem se relacionam com o número de passageiros.

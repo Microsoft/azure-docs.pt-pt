@@ -5,15 +5,15 @@ author: dalekoetke
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: mbullwin
+ms.author: lagayhar
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c90c2519b03d02da19da62fde5065984d379aa86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020199"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208510"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorização da utilização e dos custos estimados no Azure Monitor
 
