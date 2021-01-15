@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: b69b3a3888b2d6e19b8eaa92ba9b2fedf0e15545
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 27bcb220c67392661cc1b2875823abdca4593bd4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091128"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220954"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK Python do Azure Cosmos DB para a API SQL: Notas de versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ A versão 4.0.0b1 é a primeira pré-visualização dos nossos esforços para cr
 ### <a name="301"></a>3.0.1
 
 * Correção de bugs na LocalizaçãoCache
-* Correção de erro de erro de erro lógica
+* Correção de erro lógica
 * Documentação fixa
 
 ### <a name="300"></a>3.0.0
@@ -320,34 +320,34 @@ A versão 4.0.0b1 é a primeira pré-visualização dos nossos esforços para cr
 A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. As funcionalidades, características e otimizações novas só são adicionadas ao SDK atual, pelo que se recomenda que atualize sempre para a última versão dos SDKs o mais cedo possível.
 
 > [!WARNING]
-> Depois de 31 de agosto de 2022, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões 1.x ou 2.x do Azure Cosmos DB Python SDK para a SQL API. Se preferir não fazer upgrade, os pedidos enviados das versões 1.x e 2.x do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos.
+> Depois de 31 de agosto de 2022, a Azure Cosmos DB deixará de fazer correções de bugs ou fornecerá suporte às versões 1.x e 2.x do Azure Cosmos DB Python SDK para a SQL API. Se preferir não fazer upgrade, os pedidos enviados das versões 1.x e 2.x do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos.
 
 | Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
 | [4.0.0](#400) |20 de maio de 2020 |--- |
 | [3.0.2](#302) |15 de novembro de 2018 |--- |
 | [3.0.1](#301) |04 out, 2018 |--- |
-| [2.3.3](#233) |08 de setembro de 2018 |30 de agosto de 2020 |
-| [2.3.2](#232) |08 de maio de 2018 |30 de agosto de 2020 |
-| [2.3.1](#231) |21 de dezembro de 2017 |30 de agosto de 2020 |
-| [2.3.0](#230) |10 de novembro de 2017 |30 de agosto de 2020 |
-| [2.2.1](#221) |29 set 2017 |30 de agosto de 2020 |
-| [2.2.0](#220) |10 de maio de 2017 |30 de agosto de 2020 |
-| [2.1.0](#210) |01 de maio de 2017 |30 de agosto de 2020 |
-| [2.0.1](#201) |30 de outubro de 2016 |30 de agosto de 2020 |
-| [2.0.0](#200) |29 de setembro de 2016 |30 de agosto de 2020 |
-| [1.9.0](#190) |07 de julho de 2016 |30 de agosto de 2020 |
-| [1.8.0](#180) |14 de junho de 2016 |30 de agosto de 2020 |
-| [1.7.0](#170) |26 de abril de 2016 |30 de agosto de 2020 |
-| [1.6.1](#161) |08 de abril de 2016 |30 de agosto de 2020 |
-| [1.6.0](#160) |29 de março de 2016 |30 de agosto de 2020 |
-| [1.5.0](#150) |03 de janeiro de 2016 |30 de agosto de 2020 |
-| [1.4.2](#142) |06 de outubro de 2015 |30 de agosto de 2020 |
-| 1.4.1 |06 de outubro de 2015 |30 de agosto de 2020 |
-| [1.2.0](#120) |06 de agosto de 2015 |30 de agosto de 2020 |
-| [1.1.0](#110) |09 de julho de 2015 |30 de agosto de 2020 |
-| [1.0.1](#101) |25 de maio de 2015 |30 de agosto de 2020 |
-| 1.0.0 |07 de abril de 2015 |30 de agosto de 2020 |
+| [2.3.3](#233) |08 de setembro de 2018 |31 de agosto de 2022 |
+| [2.3.2](#232) |08 de maio de 2018 |31 de agosto de 2022 |
+| [2.3.1](#231) |21 de dezembro de 2017 |31 de agosto de 2022 |
+| [2.3.0](#230) |10 de novembro de 2017 |31 de agosto de 2022 |
+| [2.2.1](#221) |29 set 2017 |31 de agosto de 2022 |
+| [2.2.0](#220) |10 de maio de 2017 |31 de agosto de 2022 |
+| [2.1.0](#210) |01 de maio de 2017 |31 de agosto de 2022 |
+| [2.0.1](#201) |30 de outubro de 2016 |31 de agosto de 2022 |
+| [2.0.0](#200) |29 de setembro de 2016 |31 de agosto de 2022 |
+| [1.9.0](#190) |07 de julho de 2016 |31 de agosto de 2022 |
+| [1.8.0](#180) |14 de junho de 2016 |31 de agosto de 2022 |
+| [1.7.0](#170) |26 de abril de 2016 |31 de agosto de 2022 |
+| [1.6.1](#161) |08 de abril de 2016 |31 de agosto de 2022 |
+| [1.6.0](#160) |29 de março de 2016 |31 de agosto de 2022 |
+| [1.5.0](#150) |03 de janeiro de 2016 |31 de agosto de 2022 |
+| [1.4.2](#142) |06 de outubro de 2015 |31 de agosto de 2022 |
+| 1.4.1 |06 de outubro de 2015 |31 de agosto de 2022 |
+| [1.2.0](#120) |06 de agosto de 2015 |31 de agosto de 2022 |
+| [1.1.0](#110) |09 de julho de 2015 |31 de agosto de 2022 |
+| [1.0.1](#101) |25 de maio de 2015 |31 de agosto de 2022 |
+| 1.0.0 |07 de abril de 2015 |31 de agosto de 2022 |
 | 0.9.4 pré-lease |14 de janeiro de 2015 |29 de fevereiro de 2016 |
 | 0.9.3 pré-lease |09 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.2 pré-lease |25 de novembro de 2014 |29 de fevereiro de 2016 |

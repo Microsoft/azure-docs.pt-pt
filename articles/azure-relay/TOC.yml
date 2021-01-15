@@ -65,7 +65,7 @@
               href: relay-hybrid-connections-node-ws-api-overview.md
     - name: Proteger
       items:
-        - name: Configurar firewall do IP (pré-visualização)
+        - name: Configurar firewall do IP
           href: ip-firewall-virtual-networks.md
         - name: Configurar pontos finais privados
           href: private-link-service.md

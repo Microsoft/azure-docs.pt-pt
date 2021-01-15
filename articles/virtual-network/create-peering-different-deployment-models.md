@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 148d57da549e8364620c8417cbd61d975cea1498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ff9fcbb693f7e606c07985f9bce9acd60c5591a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046090"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222977"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um espreitamento de rede virtual - diferentes modelos de implementação, mesma subscrição
 
@@ -35,7 +35,7 @@ Os passos para criar um espreguiçadeira de rede virtual são diferentes, depend
 |[Ambas com Resource Manager](create-peering-different-subscriptions.md) |Diferente|
 |[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models-subscriptions.md) |Diferente|
 
-Não se pode criar um espreitamento de rede virtual entre duas redes virtuais implantadas através do modelo clássico de implementação. Se precisar de ligar redes virtuais que foram ambas criadas através do modelo de implementação clássico, pode utilizar um Gateway Azure [VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar as redes virtuais.
+Não se pode criar um espreitamento de rede virtual entre duas redes virtuais implantadas através do modelo clássico de implementação. Se precisar de ligar redes virtuais que foram ambas criadas através do modelo de implementação clássico, pode utilizar um Gateway Azure [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar as redes virtuais.
 
 Este tutorial pares redes virtuais na mesma região. Também pode espreitar redes virtuais em [diferentes regiões apoiadas.](virtual-network-manage-peering.md#cross-region) Recomenda-se que se familiarize com os [requisitos e constrangimentos de espreitar](virtual-network-manage-peering.md#requirements-and-constraints) antes de espreitar as redes virtuais.
 
@@ -44,20 +44,20 @@ Pode utilizar o portal Azure, a [interface de linha de comando](#cli) Azure (CLI
 ## <a name="create-peering---azure-portal"></a>Criar olhando - Portal Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). A conta com que iniciar sessão deve ter as permissões necessárias para criar uma rede virtual de observação. Para obter uma lista de permissões, consulte [permissões de espreitar rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
-2. Clique **em + Novo,** clique **em Rede**e, em seguida, clique na rede **Virtual**.
+2. Clique **em + Novo,** clique **em Rede** e, em seguida, clique na rede **Virtual**.
 3. Na lâmina **de rede virtual Criar,** introduzir ou selecionar valores para as seguintes definições e, em seguida, clicar em **Criar**:
     - **Nome**: *myVnet1*
-    - **Espaço de**endereço : *10.0.0.0/16*
+    - **Espaço de** endereço : *10.0.0.0/16*
     - **Nome da sub-rede**: *predefinição*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
     - **Subscrição**: Selecione a sua subscrição
     - **Grupo de recursos**: Selecione **Criar novo** e insira *o myResourceGroup*
     - **Localização**: *Leste dos EUA*
-4. Clique em **+ New** (+ Novo). Na caixa **'Pesquisar o Mercado',** *digite rede Virtual.* Clique **na rede Virtual** quando aparecer nos resultados da pesquisa.
+4. Clique em **+ Novo**. Na caixa **'Pesquisar o Mercado',** *digite rede Virtual.* Clique **na rede Virtual** quando aparecer nos resultados da pesquisa.
 5. Na lâmina **de rede Virtual,** selecione **Classic** na caixa de modelo **de implementação** e, em seguida, clique em **Criar**.
 6. Na lâmina **de rede virtual Criar,** introduzir ou selecionar valores para as seguintes definições e, em seguida, clicar em **Criar**:
     - **Nome**: *myVnet2*
-    - **Espaço de**endereço : *10.1.0.0/16*
+    - **Espaço de** endereço : *10.1.0.0/16*
     - **Nome da sub-rede**: *predefinição*
     - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
     - **Subscrição**: Selecione a sua subscrição
@@ -71,7 +71,7 @@ Pode utilizar o portal Azure, a [interface de linha de comando](#cli) Azure (CLI
      - **Nome**: *myVnet1ToMyVnet2*
      - **Modelo de implementação de rede virtual**: Selecione **Classic**.
      - **Subscrição**: Selecione a sua subscrição
-     - **Rede virtual**: Clique **Em Escolher uma rede virtual**e, em seguida, clique em **myVnet2**.
+     - **Rede virtual**: Clique **Em Escolher uma rede virtual** e, em seguida, clique em **myVnet2**.
      - **Permitir o acesso à rede virtual:** Certifique-se de que **o Enabled** está selecionado.
     Não são utilizadas outras definições neste tutorial. Para saber mais sobre todas as definições de observação, leia [Gerir os olhos de rede virtuais](virtual-network-manage-peering.md#create-a-peering).
 12. Depois de clicar **em OK** no passo anterior, a lâmina **de espreitar** fecha-se e vê novamente a **lâmina myVnet1 - Peerings.** Após alguns segundos, o espreitamento que criou aparece na lâmina. **Connected** está listado na coluna **PEERING STATUS** para o **myVnet1ToMyVnet2** que o seu cria.
@@ -148,7 +148,7 @@ Complete os seguintes passos utilizando o CLI clássico do Azure e o CLI Azure. 
 1. Instale a versão mais recente dos módulos PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az.](https://www.powershellgallery.com/packages/Az/) Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão PowerShell.
 3. Em PowerShell, inscreva-se em Azure entrando no `Add-AzureAccount` comando. A conta com que iniciar sessão deve ter as permissões necessárias para criar uma rede virtual de observação. Para obter uma lista de permissões, consulte [permissões de espreitar rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
-4. Para criar uma rede virtual (clássica) com o PowerShell, tem de criar um novo, ou modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração da rede](virtual-networks-using-network-configuration-file.md). O ficheiro deve incluir o seguinte elemento **VirtualNetworkSite** para a rede virtual utilizada neste tutorial:
+4. Para criar uma rede virtual (clássica) com o PowerShell, tem de criar um novo, ou modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração da rede](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). O ficheiro deve incluir o seguinte elemento **VirtualNetworkSite** para a rede virtual utilizada neste tutorial:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -214,7 +214,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
 
 1. Na caixa de pesquisa do portal, insira **o myResourceGroup**. Nos resultados da pesquisa, clique **no myResourceGroup**.
 2. Na lâmina **myResourceGroup,** clique no ícone **Eliminar.**
-3. Para confirmar a eliminação, na caixa **TYPE THE RESOURCE GROUP NAME,** introduza o **myResourceGroup**e, em seguida, clique em **Eliminar**.
+3. Para confirmar a eliminação, na caixa **TYPE THE RESOURCE GROUP NAME,** introduza o **myResourceGroup** e, em seguida, clique em **Eliminar**.
 
 ### <a name="azure-cli"></a><a name="delete-cli"></a>CLI do Azure
 
@@ -240,7 +240,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
     Remove-AzResourceGroup -Name myResourceGroup -Force
     ```
 
-2. Para eliminar a rede virtual (clássica) com o PowerShell, tem de modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração da rede](virtual-networks-using-network-configuration-file.md). Remova o seguinte elemento VirtualNetworkSite para a rede virtual utilizada neste tutorial:
+2. Para eliminar a rede virtual (clássica) com o PowerShell, tem de modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração da rede](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Remova o seguinte elemento VirtualNetworkSite para a rede virtual utilizada neste tutorial:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">

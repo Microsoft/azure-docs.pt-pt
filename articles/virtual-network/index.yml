@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 08/28/2019
-  ms.openlocfilehash: a6c0bee32fbeb50c1eef0a9625706bcee9e1ae17
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7bf639fb7bc89ec218b280bcf7d02c76c7bde277
+  ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82086475"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98223606"
 landingContent:
 - title: Sobre a Rede Virtual
   linkLists:
@@ -45,9 +45,9 @@ landingContent:
   - linkListType: concept
     links:
     - text: Grupos de segurança de rede
-      url: security-overview.md
+      url: ./network-security-groups-overview.md
     - text: Grupos de segurança de aplicações
-      url: security-overview.md#application-security-groups
+      url: ./network-security-groups-overview.md#application-security-groups
     - text: Pontos finais de serviço de rede virtual
       url: virtual-network-service-endpoints-overview.md
     - text: FAQ de segurança da rede virtual
@@ -63,7 +63,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Proteger e isolar o acesso a recursos do Azure
-      url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+      url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
   - linkListType: video
     links:
     - text: Aceda de forma segura aos seus recursos PaaS do Azure com o Azure Private Link
@@ -93,7 +93,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Comunicar entre redes virtuais com peering
-      url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering
+      url: /learn/modules/integrate-vnets-with-vnet-peering
 - title: Encaminhe o tráfego de rede
   linkLists:
   - linkListType: concept
@@ -109,7 +109,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Tipos de endereços IP e métodos de alocação
-      url: virtual-network-ip-addresses-overview-arm.md
+      url: ./public-ip-addresses.md
   - linkListType: how-to-guide
     links:
     - text: Criar, alterar ou eliminar endereços IP públicos
@@ -151,7 +151,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Tipos de endereços IP e métodos de alocação
-      url: virtual-network-ip-addresses-overview-arm.md
+      url: ./public-ip-addresses.md
     - text: O que é o IPv6 para a rede virtual do Azure?
       url: ipv6-overview.md
     - text: Prefixo de endereço IP público

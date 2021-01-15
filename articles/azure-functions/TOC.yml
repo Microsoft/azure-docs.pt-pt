@@ -248,7 +248,7 @@
             - name: Acionador HTTP
               items:
                 - name: Portal do Azure
-                  href: functions-create-first-azure-function.md
+                  href: functions-create-function-app-portal.md
                 - name: Linha de comandos
                   href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio

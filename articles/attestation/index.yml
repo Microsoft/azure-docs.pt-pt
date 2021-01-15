@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: d461fb946eeb7a0913162ec164f75b63101cfe97
-  ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+  ms.openlocfilehash: 9740c315333d3f24e43a35b476243f323b6e3821
+  ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/11/2021
-  ms.locfileid: "98070257"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98209921"
 landingContent:
 - title: Acerca do Microsoft Azure Attestation
   linkLists:
@@ -27,12 +27,14 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: Início rápido do PowerShell
-      url: quickstart-powershell.md
-    - text: Início rápido da CLI
-      url: quickstart-azure-cli.md
     - text: Início rápido do modelo do ARM
       url: quickstart-template.md
+    - text: Início rápido do PowerShell
+      url: quickstart-powershell.md
+    - text: Início rápido do portal
+      url: quickstart-portal.md
+    - text: Início rápido da CLI
+      url: quickstart-azure-cli.md
 - title: Conceitos
   linkLists:
   - linkListType: concept

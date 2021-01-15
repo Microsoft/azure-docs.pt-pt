@@ -4,7 +4,7 @@
   items:
     - name: Acerca das Máquinas Virtuais
       href: overview.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   items:
     - name: Criar VM - CLI do Azure
       href: quick-create-cli.md
@@ -197,7 +197,7 @@
             - name: Pré-pagamento de VMs
               href: ../prepay-reserved-vm-instances.md
             - name: Pré-pagamento de Dedicated Hosts
-              href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../prepay-dedicated-hosts-reserved-instances.md
             - name: O que são as reservas do Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Flexibilidade do tamanho da instância de VM
@@ -232,7 +232,7 @@
         - name: Encriptação
           href: ../disk-encryption.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Reservas de Armazenamento de Discos
-          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: Desempenho da máquina virtual e do disco
           href: disk-performance-linux.md
         - name: Conceber para desempenho elevado
@@ -329,7 +329,7 @@
         - name: Migrar com a CLI
           href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Erros comuns de migração
-          href: ../migration-classic-resource-manager-errors.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../migration-classic-resource-manager-errors.md
         - name: Ferramentas da comunidade para migração
           href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: FAQ
@@ -502,7 +502,7 @@
             - name: Criar um anfitrião do Bastion
               items:
                 - name: Portal
-                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+                  href: ../../bastion/tutorial-create-host-portal.md
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: CLI
@@ -746,13 +746,13 @@
                 - name: Ativar descrição geral da monitorização
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Ativar para uma única VM do Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md
                 - name: Ativar com o Azure Policy
-                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md
                 - name: Ativar com o Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md
                 - name: Ativar para o ambiente Híbrido
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md
             - name: Mapear dependências
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Monitorizar desempenho
