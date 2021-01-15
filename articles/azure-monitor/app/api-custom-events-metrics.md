@@ -1,15 +1,15 @@
 ---
-title: Aplicações Insights API para eventos e métricas personalizados Microsoft Docs
+title: Aplicações Insights API para eventos e métricas personalizados | Microsoft Docs
 description: Insira algumas linhas de código no seu dispositivo ou aplicação de ambiente de trabalho, página web ou serviço, para rastrear problemas de utilização e diagnóstico.
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780506"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233751"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados em Analytics
 
-A telemetria está disponível na `customEvents` tabela no Application Insights [Analytics](../log-query/log-query-overview.md). Cada linha representa uma chamada para a `trackEvent(..)` sua aplicação.
+A telemetria está disponível na `customEvents` tabela no [separador Registos de Insights de Aplicação](../log-query/log-query-overview.md) ou [experiência de utilização.](usage-overview.md) Os eventos podem vir `trackEvent(..)` ou [click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
+
+ 
 
 Se [a amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCount mostra um valor superior a 1. Por exemplo, o artigoCount==10 significa que de 10 chamadas para rastrear o Event(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de eventos personalizados, deve, portanto, utilizar código como `customEvents | summarize sum(itemCount)` .
 
@@ -1122,4 +1124,3 @@ Para determinar a duração dos dados, consulte [a retenção de dados e a priva
 
 * [Eventos de pesquisa e registos](./diagnostic-search.md)
 * [Resolução de problemas](../faq.md)
-

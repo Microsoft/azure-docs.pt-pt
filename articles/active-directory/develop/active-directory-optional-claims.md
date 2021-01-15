@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028476"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232476"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -45,7 +45,7 @@ Embora as reclamações opcionais sejam suportadas em fichas de formato v1.0 e v
 O conjunto de reclamações opcionais disponíveis por padrão para aplicações a utilizar estão listados abaixo. Para adicionar reclamações opcionais personalizadas para a sua aplicação, consulte [Extensões do Diretório,](#configuring-directory-extension-optional-claims)abaixo. Ao adicionar reclamações ao **token de acesso,** as reclamações aplicam-se aos tokens de acesso solicitados *para* a aplicação (uma API web), não reclamações solicitadas *pela* aplicação. Não importa como o cliente acede à sua API, os dados certos estão presentes no token de acesso que é usado para autenticar contra a sua API.
 
 > [!NOTE]
-> A maioria destas reclamações pode ser incluída em JWTs para tokens v1.0 e v2.0, mas não fichas SAML, exceto quando anotadas na coluna Token Type. As contas dos consumidores suportam um subconjunto destas reclamações, marcado na coluna "Tipo de Utilizador".  Muitas das reclamações listadas não se aplicam aos utilizadores de consumidores (não têm inquilino, pelo `tenant_ctry` que não têm qualquer valor).
+>A maioria destas reclamações pode ser incluída em JWTs para tokens v1.0 e v2.0, mas não fichas SAML, exceto quando anotadas na coluna Token Type. As contas dos consumidores suportam um subconjunto destas reclamações, marcado na coluna "Tipo de Utilizador".  Muitas das reclamações listadas não se aplicam aos utilizadores de consumidores (não têm inquilino, pelo `tenant_ctry` que não têm qualquer valor).
 
 **Quadro 2: v1.0 e v2.0 conjunto de reclamações opcionais**
 
@@ -148,13 +148,13 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 [![Configure créditos opcionais na UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Em **Gestão**, selecione **token configuração**.
+   - A lâmina **de configuração token** de opção UI não está disponível para aplicações registadas num inquilino Azure AD B2C que pode ser configurado modificando o manifesto de aplicação. Para mais informações consulte  [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
 1. **Selecione Adicionar reclamação opcional**.
 1. Selecione o tipo de símbolo que deseja configurar.
 1. Selecione as reclamações opcionais a adicionar.
-1. Selecione **Add** (Adicionar).
+1. Selecione **Adicionar**.
 
-> [!NOTE]
-> A lâmina de **configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente. Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configurar reclamações opcionais através do manifesto de aplicação:**
 
@@ -227,8 +227,7 @@ Além do conjunto de reclamações opcionais padrão, também pode configurar fi
 
 O esquema e as extensões abertas não são suportados por reclamações opcionais, apenas as extensões de diretório de estilo AAD-Graph. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Consulte a parte inferior desta página para dar um exemplo.
 
-> [!NOTE]
-> As extensões de esquema de diretório são uma característica Azure AD apenas. Se o manifesto da sua aplicação solicitar uma extensão personalizada e um utilizador MSA entrar na sua aplicação, estas extensões não serão devolvidas.
+As extensões de esquema de diretório são uma característica Azure AD apenas. Se o manifesto da sua aplicação solicitar uma extensão personalizada e um utilizador MSA entrar na sua aplicação, estas extensões não serão devolvidas.
 
 ### <a name="directory-extension-formatting"></a>Formatação de extensão de diretório
 
@@ -290,8 +289,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
    - accessToken para o token de acesso OAuth
    - Saml2Token para fichas SAML.
 
-   > [!NOTE]
-   > O tipo Saml2Token aplica-se tanto a fichas de formato SAML1.1 como SAML2.0.
+   O tipo Saml2Token aplica-se tanto a fichas de formato SAML1.1 como SAML2.0.
 
    Para cada tipo de token relevante, modifique os grupos que pretendem utilizar a secção OpcionalClaims no manifesto. O esquema OpcionalClaims é o seguinte:
 
@@ -315,8 +313,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
    Algumas aplicações requerem informações de grupo sobre o utilizador na reivindicação de funções.  Para alterar o tipo de reclamação de uma reivindicação de grupo para uma reivindicação de papel, adicione "emit_as_roles" a propriedades adicionais.  Os valores do grupo serão emitidos na reivindicação do papel.
 
-   > [!NOTE]
-   > Se for utilizada "emit_as_roles", quaisquer funções de aplicação configuradas que o utilizador seja atribuído não aparecerão na alegação de função.
+   Se for utilizada "emit_as_roles", quaisquer funções de aplicação configuradas que o utilizador seja atribuído não aparecerão na alegação de função.
 
 **Exemplos:**
 

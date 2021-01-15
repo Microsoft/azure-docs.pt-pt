@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ee13b2fbe4abbaf9bddf4975f8e25d746dc78f5e
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020798"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232187"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 Event Sources
 
@@ -45,13 +45,25 @@ Quando ligar uma fonte de evento, o seu ambiente Azure Time Series Insights Gen2
 
 - Não ultrapasse o limite de [taxa de produção](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente ou por limite de partição.
 
-- Configure um [alerta](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a passar por problemas de processamento de dados.
+- Configure um [alerta](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a passar por problemas de processamento de dados. Consulte as [cargas de trabalho de produção](./concepts-streaming-ingestion-event-sources.md#production-workloads) abaixo para obter condições de alerta sugeridas. 
 
 - Utilize a ingestão de streaming apenas em tempo real e dados recentes, o streaming de dados históricos não é suportado.
 
 - Compreenda como as propriedades serão escapadas e os dados da JSON [achatados e armazenados.](./concepts-json-flattening-escaping-rules.md)
 
 - Siga o princípio do menor privilégio ao fornecer cordas de ligação de fonte de evento. Para os Centros de Eventos, configurar uma política de acesso partilhado apenas com a reclamação *de envio,* e para o IoT Hub utilizar apenas a permissão *de ligação* de serviço.
+
+## <a name="production-workloads"></a>Cargas de trabalho de produção
+
+Além das melhores práticas acima, recomendamos que implemente o seguinte para cargas de trabalho críticas de negócios. 
+
+- Aumente o seu tempo de retenção de dados IoT Hub ou Event Hub para o máximo de 7 dias.
+
+- Crie alertas ambientais no portal Azure. Os alertas [baseados nas métricas](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) da plataforma permitem validar o comportamento do gasoduto de ponta a ponta. As instruções para criar e gerir alertas estão [aqui.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) Condições de alerta sugeridas:
+
+     - IngressReceivedMesstimeLag é maior que 5 minutos
+     - IngressReceivedBytes é 0
+- Mantenha a sua carga de ingestão equilibrada entre as divisórias IoT Hub ou Event Hub.
 
 ### <a name="historical-data-ingestion"></a>Ingestão de dados históricos
 
@@ -80,7 +92,7 @@ A compensação do fuso horário deve ser formatada como uma das seguintes:
 ±HH:MM</br>
 ±HH:MMZ</br>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia as [Regras de Achatamento e Fuga](./concepts-json-flattening-escaping-rules.md) do JSON para entender como os eventos serão armazenados.
 

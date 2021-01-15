@@ -3,14 +3,14 @@ title: Capacidades de renderização
 description: As capacidades standard do Lote Azure são usadas para executar cargas de trabalho e aplicações de renderização. O lote inclui funcionalidades específicas para suportar cargas de trabalho de renderização.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107475"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234278"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Capacidades de renderização do Lote Azure
 
@@ -18,7 +18,15 @@ As capacidades standard do Lote Azure são usadas para executar cargas de trabal
 
 Para uma visão geral dos conceitos do Lote, incluindo piscinas, empregos e tarefas, consulte [este artigo.](./batch-service-workflow-features.md)
 
-## <a name="batch-pools"></a>Piscinas de Lote
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Piscinas de lote usando imagens VM personalizadas e licenciamento de aplicação padrão
+
+Tal como acontece com outras cargas de trabalho e tipos de aplicação, uma imagem VM personalizada pode ser criada com as aplicações de renderização e plug-ins necessários. A imagem VM personalizada é colocada na Galeria de [Imagens Partilhadas](../virtual-machines/shared-image-galleries.md) e [pode ser usada para criar Piscinas de Lote.](batch-sig-images.md)
+
+As cordas da linha de comando de tarefa terão de fazer referência às aplicações e caminhos utilizados na criação da imagem VM personalizada.
+
+A maioria dos pedidos de renderização requer licenças obtidas a partir de um servidor de licença. Se houver um servidor de licença existente no local, então tanto o servidor de pool como o servidor de licenças precisam de estar na mesma [rede virtual.](../virtual-network/virtual-networks-overview.md) Também é possível executar um servidor de licença num Azure VM, com o Pool Batch e o servidor de licença VM na mesma rede virtual.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>Piscinas de lote usando imagens VM renderização
 
 ### <a name="rendering-application-installation"></a>Instalação de aplicação de renderização
 
@@ -71,13 +79,13 @@ Linha de comando Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 |Linha de comando Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
 |Liquidificador|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Famílias Azure VM
+## <a name="azure-vm-families"></a>Famílias Azure VM
 
 Tal como acontece com outras cargas de trabalho, os requisitos do sistema de aplicação de renderização variam e os requisitos de desempenho variam para empregos e projetos.  Uma grande variedade de famílias VM estão disponíveis em Azure dependendo dos seus requisitos - menor custo, melhor preço/desempenho, melhor desempenho, e assim por diante.
 Algumas aplicações de renderização, como Arnold, são baseadas em CPU; outros, como v-ray e ciclos liquidificadores, podem usar CPUs e/ou GPUs.
 Para obter uma descrição das famílias VM disponíveis e tamanhos VM, [consulte os tipos e tamanhos VM](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>VMs de baixa prioridade
+## <a name="low-priority-vms"></a>VMs de baixa prioridade
 
 Tal como acontece com outras cargas de trabalho, os VMs de baixa prioridade podem ser utilizados em piscinas de Lote para renderização.  Os VM de baixa prioridade executam o mesmo que os VMs dedicados regulares, mas utilizam a capacidade excedentária do Azure e estão disponíveis para um grande desconto.  A compensação pela utilização de VMs de baixa prioridade é que esses VM podem não estar disponíveis para serem atribuídos ou podem ser antecipados a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VM de baixa prioridade não serão adequados para todos os trabalhos de renderização. Por exemplo, se as imagens demoram muitas horas a renderizar, então é provável que ter a renderização dessas imagens interrompida e reiniciada devido à antecipação dos VMs não seria aceitável.
 

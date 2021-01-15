@@ -1,5 +1,5 @@
 ---
-title: Adquira um token para chamar uma API web (app de desktop) Rio Azure
+title: Adquira um token para chamar uma API web (app de desktop) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação de desktop que chama APIs web para adquirir um símbolo para a app
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962402"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232306"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -242,7 +242,7 @@ A MSAL fornece implementações de UI web para a maioria das plataformas, mas ex
 - Pretende testar a sua aplicação e utilizar um browser automatizado que pode ser usado com Selénio.
 - O navegador e a app que executam o MSAL estão em processos separados.
 
-##### <a name="at-a-glance"></a>Num relance
+##### <a name="at-a-glance"></a>Síntese
 
 Para isso, você dá ao MSAL `start Url` , que precisa de ser exibido num navegador de eleição para que o utilizador final possa introduzir itens como o seu nome de utilizador.
 Após a autenticação terminada, a sua aplicação precisa de passar para a MSAL `end Url` , que contém um código fornecido pela Azure AD.
@@ -420,8 +420,8 @@ Para iniciar súm num utilizador de domínio numa máquina de união a um domín
 - A Autenticação Integrada do Windows é utilizável apenas para utilizadores *federados+* ou seja, utilizadores criados em Ative Directory e apoiados pelo Azure AD. Os utilizadores criados diretamente no AD Azure sem suporte ative Directory, conhecido como utilizadores *geridos,* não podem utilizar este fluxo de autenticação. Esta limitação não afeta o nome de utilizador e o fluxo de palavra-passe.
 - IWA destina-se a aplicações escritas para plataformas .NET Framework, .NET Core e Universal Windows Platform (UWP).
 - A IWA não contorna a [autenticação de vários fatores (MFA)](../authentication/concept-mfa-howitworks.md). Se o MFA estiver configurado, o IWA pode falhar se for necessário um desafio MFA, porque o MFA requer interação do utilizador.
-  > [!NOTE]
-  > Este é complicado. A IWA não é interativa, mas o MFA requer interatividade do utilizador. Você não controla quando o fornecedor de identidade pede MFA para ser executado, o administrador inquilino faz. A partir das nossas observações, o MFA é necessário quando você assina de um país/região diferente, quando não conectado via VPN a uma rede corporativa, e às vezes mesmo quando conectado via VPN. Não espere um conjunto de regras deterministas. A Azure AD usa IA para aprender continuamente se o MFA é necessário. Recue para um pedido de utilizador como autenticação interativa ou fluxo de código do dispositivo se a IWA falhar.
+  
+    A IWA não é interativa, mas o MFA requer interatividade do utilizador. Você não controla quando o fornecedor de identidade pede MFA para ser executado, o administrador inquilino faz. A partir das nossas observações, o MFA é necessário quando você assina de um país/região diferente, quando não conectado via VPN a uma rede corporativa, e às vezes mesmo quando conectado via VPN. Não espere um conjunto de regras deterministas. A Azure AD usa IA para aprender continuamente se o MFA é necessário. Recue para um pedido de utilizador como autenticação interativa ou fluxo de código do dispositivo se a IWA falhar.
 
 - A autoridade aprovada `PublicClientApplicationBuilder` tem de ser:
   - Arrendado do `https://login.microsoftonline.com/{tenant}/` formulário, onde `tenant` está o GUID que representa o ID do inquilino ou um domínio associado ao arrendatário.
@@ -602,14 +602,13 @@ Também pode adquirir um token fornecendo o nome de utilizador e a palavra-passe
 
 ### <a name="this-flow-isnt-recommended"></a>Este fluxo não é recomendado
 
-Este fluxo não é *recomendado* porque ter a sua aplicação a pedir a um utilizador a sua palavra-passe não é seguro. Para mais informações, veja [qual é a solução para o problema crescente das senhas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) O fluxo preferido para adquirir um símbolo silenciosamente nas máquinas unidas ao domínio windows é [a Autenticação Integrada do Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Também pode utilizar o [fluxo de código do dispositivo.](https://aka.ms/msal-net-device-code-flow)
+O nome de utilizador e o fluxo de senha não são *recomendados* porque ter a sua aplicação a pedir a palavra-passe a um utilizador não é seguro. Para mais informações, veja [qual é a solução para o problema crescente das senhas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) O fluxo preferido para adquirir um símbolo silenciosamente nas máquinas unidas ao domínio windows é [a Autenticação Integrada do Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Também pode utilizar o [fluxo de código do dispositivo.](https://aka.ms/msal-net-device-code-flow)
 
-> [!NOTE]
-> A utilização de um nome de utilizador e palavra-passe é útil em alguns casos, como cenários de DevOps. Mas se quiser usar um nome de utilizador e uma palavra-passe em cenários interativos onde fornece a sua própria UI, pense em como se afastar dele. Ao usar um nome de utilizador e senha, está a abdicar de uma série de coisas:
->
-> - Princípios fundamentais da identidade moderna. Uma palavra-passe pode ser phished e reproduzida porque um segredo partilhado pode ser intercetado. É incompatível com sem palavras-passe.
-> - Os utilizadores que precisam de fazer MFA não podem entrar porque não há interação.
-> - Os utilizadores não podem fazer um único sinal de inscrição (SSO).
+A utilização de um nome de utilizador e palavra-passe é útil em alguns casos, como cenários de DevOps. Mas se quiser usar um nome de utilizador e uma palavra-passe em cenários interativos onde fornece a sua própria UI, pense em como se afastar dele. Ao usar um nome de utilizador e senha, está a abdicar de uma série de coisas:
+
+- Princípios fundamentais da identidade moderna. Uma palavra-passe pode ser phished e reproduzida porque um segredo partilhado pode ser intercetado. É incompatível com sem palavras-passe.
+- Os utilizadores que precisam de fazer MFA não podem entrar porque não há interação.
+- Os utilizadores não podem fazer um único sinal de inscrição (SSO).
 
 ### <a name="constraints"></a>Restrições
 

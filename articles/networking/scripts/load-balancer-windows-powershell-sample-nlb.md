@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8663a5c86a4d3a247209fb7aedaa422eb6ec9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eff2a4a0dd0b1541639de0126d0dd7c5c8dddd10
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079018"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234123"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Carregar o tráfego de equilíbrio para VMs para uma elevada disponibilidade
 
 Esta amostra de script cria tudo o que é necessário para executar várias máquinas virtuais do Windows configuradas numa configuração altamente disponível e equilibrada de carga. Depois de executar o script, terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure e acessíveis através de um Balanceador de Carga do Azure.
 
-Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -66,6 +66,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Encontrará exemplos adicionais de scripts do PowerShell de redes na [Documentação de Descrição Geral de Redes do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

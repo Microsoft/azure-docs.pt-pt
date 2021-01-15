@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: ba08b5a2563af8f6fde6690bb33e51174683302a
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d1350248e3819863a30ecf21ff68bb7b9488b6ef
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127588"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232935"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -138,7 +138,7 @@ As tabelas a seguir enumeram os sistemas operativos que são suportados pelos ag
 
 ### <a name="windows"></a>Windows
 
-| Sistema de operações | Agente do Azure Monitor | Agente do Log Analytics | Agente de Dependência | Extensão de diagnóstico | 
+| Sistema operativo | Agente do Azure Monitor | Agente do Log Analytics | Agente de Dependência | Extensão de diagnóstico | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
@@ -152,7 +152,7 @@ As tabelas a seguir enumeram os sistemas operativos que são suportados pelos ag
 
 ### <a name="linux"></a>Linux
 
-| Sistema de operações | Agente do Azure Monitor | Agente do Log Analytics | Agente de Dependência | Extensão de diagnóstico | 
+| Sistema operativo | Agente do Azure Monitor | Agente do Log Analytics | Agente de Dependência | Extensão de diagnóstico | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 8                                           |   | X | X |   |
@@ -160,7 +160,7 @@ As tabelas a seguir enumeram os sistemas operativos que são suportados pelos ag
 | CentOS Linux 6                                           |   | X |   |   |
 | CentOS Linux 6.5+                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X | X |
+| Debian 8                                                 |   | X | X |   |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
 | Oráculo Linux 8                                           |   | X |   |   |

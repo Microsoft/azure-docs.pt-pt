@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059352"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232408"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -101,8 +101,7 @@ Os clientes confidenciais são aplicações que podem armazenar de forma segura 
 
 Os clientes públicos não podem armazenar de forma segura uma palavra-passe do cliente (segredo). Por exemplo, uma aplicação iOS/Android não pode ocultar um segredo do proprietário do recurso, pelo que é considerado um cliente público. Pode definir políticas sobre recursos para evitar que os tokens de atualização de clientes públicos com mais de um período especificado obtenham um novo par de token de acesso/atualização. Para isso, utilize a [propriedade Refresh Token Max Inative Time](#refresh-token-max-inactive-time) `MaxInactiveTime` (). Também pode utilizar políticas para definir um período para além do qual os tokens de atualização já não são aceites. Para isso, utilize a propriedade [Single-Factor Refresh Token Max Age](#single-factor-session-token-max-age) ou a propriedade [Multi-Factor Session Token Max Age.](#multi-factor-refresh-token-max-age) Pode ajustar a vida útil de um token de atualização para controlar quando e com que frequência o utilizador é obrigado a reentrar em credenciais, em vez de ser silenciosamente reautentado, ao utilizar uma aplicação de cliente público.
 
-> [!NOTE]
-> A propriedade Max Age é o tempo que um único símbolo pode ser usado. 
+A propriedade Max Age é o tempo que um único símbolo pode ser usado. 
 
 ### <a name="single-sign-on-session-tokens"></a>Fichas de sessão de inscrição única
 Quando um utilizador autentica com a plataforma de identidade da Microsoft, é estabelecida uma única sessão de sessão de sessão (SSO) com o navegador do utilizador e a plataforma de identidade microsoft. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.

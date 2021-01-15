@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602602"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233836"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -35,7 +35,7 @@ Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alte
 - [Imagens do Windows](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> Se estiver a utilizar uma imagem base linux não tirada do Azure Marketplace, pode compensar a primeira partição até 2048 KB. Isto permite que o espaço não testado seja utilizado para adicionar novas informações de faturação e permite que a Azure prossiga com a publicação do seu VM para o Azure Marketplace.  
+> Se estiver a utilizar uma imagem base linux não tirada do Azure Marketplace, certifique-se de que os primeiros sectores de 2048 (cada sector é de 512 bytes) no VHD estão vazios para que o Azure prossiga com a publicação do seu VM para o Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha de extensão VM
 
@@ -68,7 +68,7 @@ Verifique se seguiu rigorosamente o processo de provisionamento de VM antes de s
 
 As questões de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro|Razão|Solução|
+|Cenário|Error|Razão|Solução|
 |---|---|---|---|
 |1|Disco rígido virtual inválido (VHD)|Se o valor de cookie especificado no rodapé VHD estiver incorreto, o VHD será considerado inválido.|Re-crie a imagem e envie o pedido.|
 |2|Tipo de bolha inválida|O fornecimento de VM falhou porque o bloco usado é um tipo de bolha em vez de um tipo de página.|Re-crie a imagem e envie o pedido.|
@@ -157,7 +157,7 @@ A tabela que se segue lista os casos de teste Linux que o conjunto de ferramenta
 
 Consulte a tabela seguinte para os erros comuns que pode ver ao executar casos de teste:
 
-| Cenário | Caso de teste | Erro | Solução |
+| Cenário | Caso de teste | Error | Solução |
 | --- | --- | --- | --- |
 | 1 | Caso de teste de versão linux agente | A versão mínima do agente Linux é 2.2.41 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020. | Atualize a versão do agente Linux. Deve ser 2.241 ou mais tarde. Para mais informações, visite a [página de atualização da versão do agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 | 2 | Caso de teste de história de bash | Ocorre um erro se o tamanho da história da Bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que o seu ficheiro de histórico bash não contém nenhuma informação potencialmente sensível. | Resolva montando o VHD em outro VM em funcionamento e faça alterações para reduzir o tamanho para 1 KB ou menos. Por exemplo, elimine os `.bash` ficheiros de histórico. |
@@ -319,7 +319,7 @@ Para submeter o seu pedido com imagem desativada SSH para o processo de certific
     
 Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega a imagem VM com um URL de assinatura de acesso partilhado (SAS).
 
-|Cenário|Erro|Razão|Solução|
+|Cenário|Error|Razão|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.|| 
 |2|Bolha em uso|O VHD é utilizado por outro processo interno.|O VHD deve estar num estado usado quando o descarrega com um URL SAS.|
@@ -328,14 +328,14 @@ Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega
 |6|Cabeçalho condicional HTTP|O URL SAS é inválido.|Obtenha o URL SAS correto.|
 |7|Nome VHD inválido|Verifique se existem caracteres especiais, como um sinal por cento `%` ou aspas, `"` no nome VHD.|Mude o nome do ficheiro VHD removendo os caracteres especiais.|
 
-## <a name="first-mb-2048-kb-partition-linux-only"></a>Primeira partição MB (2048 KB) (apenas Linux)
+## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Primeira partição de 1MB (2048, cada sector de 512 bytes) (apenas Linux)
 
-Quando submeter o VHD, certifique-se de que o primeiro KB de 2048 do VHD está vazio. Caso contrário, o seu pedido falhará.
+Quando submeter o VHD, certifique-se de que os primeiros sectores de 2048 (1MB) do VHD estão vazios. Caso contrário, o seu pedido falhará. Por favor, note que este será aplicável ao disco boot/OS e não a quaisquer discos de dados adicionais.
 
 >[!NOTE]
->Para certas imagens especiais, como as construídas em cima das imagens base do Azure Windows tiradas do Azure Marketplace, verificamos uma etiqueta de faturação e ignoramos a partição MB se a etiqueta de faturação estiver presente e corresponder aos nossos valores internos disponíveis.
+>Para certas imagens especiais, como as construídas em cima de imagens base do Azure Windows tiradas do Azure Marketplace ou certifique-se de que os primeiros 1MB(2048 sectores) do VHD estão vazios. 
 
-### <a name="create-a-first-mb-2048-kb-partition-on-an-empty-vhd"></a>Crie uma primeira partição de MB (2048 KB) num VHD vazio
+### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Criar uma primeira partição de 1MB (2048, cada sector de 512 bytes) numa VHD vazia
 
 Estes passos aplicam-se apenas ao Linux.
 
@@ -386,7 +386,7 @@ Estes passos aplicam-se apenas ao Linux.
    1. Insira 2048 como primeiro valor _do setor._ Pode deixar _o último sector_ como o valor padrão.
 
       >[!IMPORTANT]
-      >Quaisquer dados existentes serão apagados até 2048 KB. Cópia de segurança do VHD antes de criar uma nova divisória.
+      >Os dados existentes serão apagados até 2048 (cada sector de 512 bytes). Cópia de segurança do VHD antes de criar uma nova divisória.
 
       ![Imagem de linha de comando do cliente putty mostrando os comandos e saída para dados apagados.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -400,7 +400,7 @@ Estes passos aplicam-se apenas ao Linux.
 
 1. Retire o VHD da VM e apague o VM.
 
-### <a name="create-a-first-mb-2048-kb-partition-by-moving-existing-data-on-vhd"></a>Criar uma primeira partição de MB (2048 KB) movendo os dados existentes em VHD
+### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Criar uma primeira divisão MB (2048, cada sector de 512 bytes) movendo os dados existentes sobre vHD
 
 Estes passos aplicam-se apenas ao Linux.
 
@@ -480,7 +480,7 @@ Se todas as imagens que são tiradas do Azure Marketplace forem reutilizadas, o 
 
 Para soluções para erros relacionados com o disco de dados, utilize o seguinte quadro:
 
-|Erro|Razão|Solução|
+|Error|Razão|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Este erro pode ocorrer devido a um número de unidade lógica inválido (LUN) quando a oferta é submetida.|Verifique se a sequência de números LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Este erro pode ocorrer porque um disco de dados não está localizado num URL SAS especificado.|Verifique se o disco de dados está localizado no URL SAS especificado.|
@@ -604,7 +604,7 @@ Em seguida, reeditar a oferta.
 
 Para completar o processo de publicação, consulte [Rever e publicar ofertas.](review-publish-offer.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar as propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)

@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 55d034776c77b3e0156669ba8838dbff6b2869be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fab50f991a15a38d18dead53d268abca79c811
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89074683"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231894"
 ---
 # <a name="peer-two-virtual-networks"></a>Peering de rede de duas redes virtuais
 
 Este script cria e conecta duas redes virtuais na mesma região através da rede Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
 
-Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -55,6 +55,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Encontrará exemplos adicionais de scripts do PowerShell de redes na [Documentação de Descrição Geral de Redes do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

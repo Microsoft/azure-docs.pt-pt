@@ -1,14 +1,14 @@
 ---
-title: Análise de utilização com Azure Application Insights / Docs da Microsoft
+title: Análise de utilização com Azure Application Insights | Docs da Microsoft
 description: Compreenda os seus utilizadores e o que fazem com a sua aplicação.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532108"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233853"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -65,7 +65,7 @@ Insights sobre a direita apontam padrões interessantes no conjunto de dados.
 
 ## <a name="retention---how-many-users-come-back"></a>Retenção - quantos utilizadores voltam?
 
-A retenção ajuda-o a perceber com que frequência os seus utilizadores voltam a usar a sua app, com base em coortes de utilizadores que realizaram alguma ação comercial durante um determinado balde de tempo. 
+A retenção ajuda-o a perceber com que frequência os seus utilizadores voltam a usar a sua app, com base em coortes de utilizadores que realizaram alguma ação comercial durante um determinado balde de tempo. 
 
 - Entenda que funcionalidades específicas fazem com que os utilizadores voltem mais do que outros 
 - Hipóteses de formulário com base em dados reais do utilizador 
@@ -79,7 +79,9 @@ Os controlos de retenção em cima permitem definir eventos específicos e inter
 
 ## <a name="custom-business-events"></a>Eventos de negócios personalizados
 
-Para obter uma compreensão clara do que os utilizadores fazem com a sua aplicação, é útil inserir linhas de código para registar eventos personalizados. Estes eventos podem rastrear qualquer coisa, desde ações detalhadas do utilizador, como clicar em botões específicos, até eventos de negócio mais significativos, como fazer uma compra ou ganhar um jogo. 
+Para obter uma compreensão clara do que os utilizadores fazem com a sua aplicação, é útil inserir linhas de código para registar eventos personalizados. Estes eventos podem rastrear qualquer coisa, desde ações detalhadas do utilizador, como clicar em botões específicos, até eventos de negócio mais significativos, como fazer uma compra ou ganhar um jogo.
+
+Também pode utilizar o [Plugin de recolha automática click Analytics](javascript-click-analytics-plugin.md) para recolher eventos personalizados.
 
 Embora, em alguns casos, as vistas de página possam representar eventos úteis, não é verdade em geral. Um utilizador pode abrir uma página de produto sem comprar o produto. 
 
@@ -116,7 +118,7 @@ Nas ferramentas Utilizadores, Sessões e Eventos, pode cortar e picar eventos pe
 
 Quando estiver a desenhar cada funcionalidade da sua app, considere como vai medir o seu sucesso com os seus utilizadores. Decida quais eventos de negócios precisa de gravar e codi venda as chamadas de rastreio para esses eventos na sua app desde o início.
 
-## <a name="a--b-testing"></a>A / B Testes
+## <a name="a--b-testing"></a>Um | B Testes
 Se não sabe qual a variante de uma funcionalidade que será mais bem sucedida, liberte ambas, tornando cada uma acessível a diferentes utilizadores. Meça o sucesso de cada um e, em seguida, passe para uma versão unificada.
 
 Para esta técnica, você anexa valores de propriedade distintos a toda a telemetria que é enviada por cada versão da sua app. Pode fazê-lo definindo propriedades no TelemetriaContexto ativo. Estas propriedades predefinidos são adicionadas a todas as mensagens de telemetria que a aplicação envia - não apenas as suas mensagens personalizadas, mas também a telemetria padrão.

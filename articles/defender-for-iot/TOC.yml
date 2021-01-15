@@ -3,7 +3,7 @@
 - name: Descrição geral
   href: overview.md
   items:
-    - name: Novidades?
+    - name: Novidades
       href: release-notes.md
     - name: Arquitetura de soluções
       href: architecture.md
@@ -201,6 +201,10 @@
       items:
         - name: Trabalhar com as APIs do Defender para IoT
           href: references-work-with-defender-for-iot-apis.md
+        - name: API do Horizon
+          href: references-horizon-api.md
+        - name: SDK do Horizon
+          href: references-horizon-sdk.md
         - name: Trabalhar com os comandos da CLI do Defender para IoT
           href: references-work-with-defender-for-iot-cli-commands.md
         - name: Gerir protocolos proprietários (Horizon)

@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 6cc67a6af9e11e5667479eadfe277d400c2d4947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eaf12a9799f834046bc3914816f38d672fcc931b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492221"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234091"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -103,19 +103,19 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 14.04 LTS | [9.35](https://support.microsoft.com/help/4573888/), [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/) | 3.13.0-24-genérico a 3.13.0-170-genérico,<br/>3.16.0-25-genérico a 3.16.0-77-genéricos,<br/>3.19.0-18-genérico a 3.19.0-80-genérico,<br/>4.2.0-18-genérico a 4.2.0-42-genérico,<br/>4.4.0-21-genérico a 4.4.0-148-genérico,<br/>4.15.0-1023-azure para 4.15.0-1045-azure |
 |||
 16.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.4.0-21-genérico a 4.4.0-194-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-123-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1098-azure|
-16.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-genérico a 4.4.0-190-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-118-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1096-azure|
+16.04 LTS | [9,38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-genérico a 4.4.0-190-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-118-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1096-azure|
 16.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-genérico a 4.4.0-189-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-115-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1093-azure |
 16.04 LTS | [9.36](https://support.microsoft.com/help/4578241/)| 4.4.0-21-genérico a 4.4.0-186-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-112-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1092-azure |
 16.04 LTS | [9.35](https://support.microsoft.com/help/4573888/) | 4.4.0-21-genérico a 4.4.0-184-genérico,<br/>4.8.0-34-genérico a 4.8.0-58-genérico,<br/>4.10.0-14-genérico a 4.10.0-42-genérico,<br/>4.11.0-13-genérico a 4.11.0-14-genérico,<br/>4.13.0-16-genérico a 4.13.0-45-genéricos,<br/>4.15.0-13-genérico a 4.15.0-106-genérico<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1018-azure <br/>4.15.0-1012-azure para 4.15.0-1089-azure |
 |||
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-genérico a 4.15.0-123-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-63-genérico </br> 5.3.0-19-genérico a 5.3.0-69-genérico </br> 5.4.0-37-genérico a 5.4.0-53-genérico</br> 4.15.0-1009-azure para 4.15.0-1099-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1035-azure </br> 5.4.0-1020-azure para 5.4.0-1031-azure|
-18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-genérico a 4.15.0-118-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-61-genérico </br> 5.3.0-19-genérico a 5.3.0-67-genérico </br> 5.4.0-37-genérico a 5.4.0-48-genérico</br> 4.15.0-1009-azure para 4.15.0-1096-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1035-azure </br> 5.4.0-1020-azure para 5.4.0-1026-azure|
+18.04 LTS | [9,38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-genérico a 4.15.0-118-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-61-genérico </br> 5.3.0-19-genérico a 5.3.0-67-genérico </br> 5.4.0-37-genérico a 5.4.0-48-genérico</br> 4.15.0-1009-azure para 4.15.0-1096-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1035-azure </br> 5.4.0-1020-azure para 5.4.0-1026-azure|
 18.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-genérico a 4.15.0-115-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-60-genérico </br> 5.3.0-19-genérico a 5.3.0-66-genérico </br> 5.4.0-37 genérico a 5.4.0-45-genérico</br> 4.15.0-1009-azure para 4.15.0-1093-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1035-azure </br> 5.4.0-1020-azure para 5.4.0-1023-azure|
 18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-genérico a 4.15.0-112-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-58-genérico </br> 5.3.0-19-genérico a 5.3.0-64-genérico </br> 5.4.0-37-genérico a 5.4.0-42-genérico</br> 4.15.0-1009-azure para 4.15.0-1092-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1032-azure </br> 5.4.0-1020-azure para 5.4.0-1022-azure|
 18.04 LTS | [9.35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-genérico a 4.15.0-108-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-52-genérico </br> 5.3.0-19-genérico a 5.3.0-61-genérico </br> 4.15.0-1009-azure para 4.15.0-1089-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1031-azure|
 |||
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-genérico a 5.4.0-53 </br> -genérico 5.4.0-1010-azure a 5.4.0-1031-azure
-20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-genérico a 5.4.0-48 </br> -genérico 5.4.0-1010-azure para 5.4.0-1026-azure
+20.04 LTS |[9,38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-genérico a 5.4.0-48 </br> -genérico 5.4.0-1010-azure para 5.4.0-1026-azure
 20.04 LTS |[9.37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-genérico a 5.4.0-45 </br> -genérico 5.4.0-1010-azure para 5.4.0-1023-azure
 20.04 LTS |[9.36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-genérico a 5.4.0-42 </br> -genérico 5.4.0-1010-azure para 5.4.0-1022-azure
 
@@ -128,7 +128,7 @@ Debian 7 | [9.35](https://support.microsoft.com/help/4573888/), [9.36](https://s
 |||
 Debian 8 | [9.35](https://support.microsoft.com/help/4573888/), [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/) | 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 |||
-Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64 a 4.9.0-14-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.12-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.12-cloud-amd64 </br> Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 
+Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64 a 4.9.0-14-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.12-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.12-cloud-amd64 </br> Debian 9.1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 
 Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 a 4.9.0-13-amd64, 4.19.0-0.bpo.6-amd64 a 4.19.0-0.bpo.10-amd64, 4.19.0-0.bpo.6-cloud-amd64 a 4.19.0-0.bpo.10-cloud-amd64
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 versões de kernel suportadas
@@ -136,7 +136,7 @@ Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.34-azure |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.38](https://support.microsoft.com/help/4590304/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.28-azure |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9,38](https://support.microsoft.com/help/4590304/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.28-azure |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37,](https://support.microsoft.com/help/4582666/)  | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.22-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.35](https://support.microsoft.com/help/4573888/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.19-azure  |
 
@@ -145,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.35](https://support.
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.21-azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.18-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.18-azure
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.38-azure
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9.35](https://support.microsoft.com/help/4573888/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.33-azure 
 
@@ -181,16 +181,16 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 **Componente** | **Suportado**
 --- | ---
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
-Rede de anfitriões VLAN | Sim.
-Rede de anfitriões IPv4 | Sim.
+Rede de anfitriões VLAN | Yes.
+Rede de anfitriões IPv4 | Yes.
 Rede de anfitriões IPv6 | Não.
 Rede de hóspedes/servidor NIC Teaming | Não.
-Rede de hóspedes/servidores IPv4 | Sim.
+Rede de hóspedes/servidores IPv4 | Yes.
 Rede de hóspedes/servidores IPv6 | Não.
-IP estático de rede de hóspedes/servidor (Windows) | Sim.
-IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
-Rede de hóspedes/servidores múltiplos NICs | Sim.
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+IP estático de rede de hóspedes/servidor (Windows) | Yes.
+IP estático de rede de hóspedes/servidor (Linux) | Yes. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
+Rede de hóspedes/servidores múltiplos NICs | Yes.
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rede Azure VM (após falha)
@@ -231,6 +231,7 @@ Disco de hóspedes/servidor com tamanho lógico lógico de 4K e 512 bytes do set
 Volume de hóspede/servidor com disco listrado >4 TB | Sim
 Gestão lógica do volume (LVM)| Provisão grossa - Sim <br></br> Provisões finas - Não
 Hóspede/servidor - Espaços de Armazenamento | Não
+Guest/server - Interface NVMe | Não
 Adicionar/remover o disco quente do hóspede/servidor | Não
 Guest/server - excluir o disco | Sim
 Multipata de hóspedes/servidores (MPIO) | Não
@@ -262,7 +263,7 @@ Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim
 Opção de transferência segura | Sim
 Serviço de importação/exportação | Não
-Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
+Firewalls de armazenamento Azure para VNets | Yes.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
 
 ## <a name="azure-compute"></a>Computação do Azure
@@ -334,7 +335,7 @@ Mover armazenamento, rede, VMs Azure dentro e em todas as subscrições. | Não
 
 ## <a name="obtain-latest-components"></a>Obtenha componentes mais recentes
 
-**Name** | **Descrição** | **Detalhes**
+**Nome** | **Descrição** | **Detalhes**
 --- | --- | ---
 Servidor de configuração | Instalado no local.<br/> Coordena comunicações entre servidores VMware ou máquinas físicas no local e Azure. | - [Saiba mais sobre](vmware-physical-azure-config-process-server-overview.md) o servidor de configuração.<br/> - [Saiba mais sobre](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) o upgrade para a versão mais recente.<br/> - [Saiba como](vmware-azure-deploy-configuration-server.md) configurar o servidor de configuração.
 Servidor de processo | Instalado por predefinição no servidor de configuração.<br/> Recebe dados de replicação, otimiza-os com caching, compressão e encriptação, e envia-os para o Azure.<br/> À medida que a sua implementação cresce, pode adicionar servidores de processo adicionais para lidar com volumes maiores de tráfego de replicação. | - [Saiba mais sobre](vmware-physical-azure-config-process-server-overview.md) o servidor de processo.<br/> - [Saiba mais sobre](vmware-azure-manage-process-server.md#upgrade-a-process-server) o upgrade para a versão mais recente.<br/> - [Saiba como](vmware-physical-large-deployment.md#set-up-a-process-server) configurar servidores de processos de escala.

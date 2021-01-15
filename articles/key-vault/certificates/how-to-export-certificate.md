@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826123"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233649"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Certificados de exportação do Azure Key Vault
 
-Saiba como exportar certificados da Azure Key Vault. Pode exportar certificados utilizando o Azure CLI, a Azure PowerShell ou o portal Azure. Também pode utilizar o portal Azure para exportar certificados do Azure App Service.
+Saiba como exportar certificados da Azure Key Vault. Pode exportar certificados utilizando o Azure CLI, a Azure PowerShell ou o portal Azure. 
 
 ## <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 
@@ -114,7 +114,7 @@ Para descarregar o certificado, selecione **Baixar em formato CER** ou descarreg
 
 **Certificados de Serviço de Aplicações Azure Exportação**
 
-Os certificados do Azure App Service são uma forma conveniente de comprar certificados SSL. Pode atribuí-las a Azure Apps a partir do portal. Também pode exportar estes certificados do portal como ficheiros PFX para serem usados em outros lugares. Depois de os importar, os certificados do Serviço de Aplicações estão localizados sob **segredos.**
+Os certificados do Azure App Service são uma forma conveniente de comprar certificados SSL. Pode atribuí-las a Azure Apps a partir do portal. Depois de os importar, os certificados do Serviço de Aplicações estão localizados sob **segredos.**
 
 Para mais informações, consulte os passos para [exportar certificados do Azure App Service](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

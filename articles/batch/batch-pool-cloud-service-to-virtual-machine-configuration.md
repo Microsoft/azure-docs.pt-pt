@@ -3,12 +3,12 @@ title: Migrar a configuração da piscina do Lote de Cloud Services para Máquin
 description: Saiba como atualizar a configuração da piscina para a configuração mais recente e recomendada
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969032"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234312"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migrar a configuração da piscina do Lote de Cloud Services para Máquinas Virtuais
 
@@ -22,7 +22,7 @@ Este artigo descreve como migrar para a "Configuração virtual da Investigaçã
 
 Os pools ativos existentes não podem ser atualizados de 'cloudServiceConfiguration' para 'virtualMachineConfiguration', devem ser criados novos pools. A criação de piscinas utilizando a 'configuração virtualMachine' é suportada por todas as APIs do lote, ferramentas de linha de comando, portal Azure e o Batch Explorer UI.
 
-Os tutoriais [.NET](tutorial-parallel-dotnet.md) e [Python](tutorial-parallel-python.md) fornecem exemplos de criação de piscinas usando a "configuração virtual da investigação".
+**Os tutoriais [.NET](tutorial-parallel-dotnet.md) e [Python](tutorial-parallel-python.md) fornecem exemplos de criação de piscinas usando a "configuração virtual da investigação".**
 
 ## <a name="pool-configuration-differences"></a>Diferenças de configuração da piscina
 

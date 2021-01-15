@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: bd560a6ef4a3b4ab5eb4632e7741c764f6e314e1
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: aac949de0b0ae1f085187c1b5e1f3b64d8edad03
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854932"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233819"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para Azure
 
@@ -230,38 +230,41 @@ Agora, selecione máquinas para migração.
     -  Zona de Disponibilidade para fixar a máquina migrada a uma zona de disponibilidade específica na região. Utilize esta opção para distribuir servidores que formam um nível de aplicação de vários nós em zonas de disponibilidade. Se selecionar esta opção, terá de especificar a Zona de Disponibilidade para utilizar para cada uma das máquinas selecionadas no separador Compute. Esta opção só está disponível se a região-alvo selecionada para a migração suportar Zonas de Disponibilidade
     -  Disponibilidade Definir para colocar a máquina migrada num Conjunto de Disponibilidade. O Grupo de Recursos-Alvo que foi selecionado deve ter um ou mais conjuntos de disponibilidade para utilizar esta opção.
     - Não é necessária nenhuma opção de redundância de infraestrutura se não precisar de nenhuma destas configurações de disponibilidade para as máquinas migradas.
-12. Em **Benefício Híbrido do Azure**:
+    
+12. No **tipo de encriptação do disco,** selecione:
+    - Encriptação em repouso com chave gerida pela plataforma
+    - Encriptação em repouso com chave gerida pelo cliente
+    - Dupla encriptação com chaves geridas pela plataforma e geridas pelo cliente
+
+   > [!NOTE]
+   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](https://go.microsoft.com/fwlink/?linkid=2151800) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
+  
+13. Em **Benefício Híbrido do Azure**:
 
     - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
     - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
 
-    ![Definições de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
+    ![Definições de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
-13. No **Compute,** reveja o nome, tamanho, tipo de disco de SO e configuração de disponibilidade (se selecionado no passo anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+14. No **Compute,** reveja o nome, tamanho, tipo de disco de SO e configuração de disponibilidade (se selecionado no passo anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamanho VM**: Se estiver a utilizar recomendações de avaliação, o dropdown do tamanho VM mostra o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**.
     - **Disco de os:** Especifique o disco DE (arranque) para o VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo.
     - **Zona de Disponibilidade**: Especifique a Zona de Disponibilidade a utilizar.
     - **Conjunto de disponibilidade**: Especifique o Conjunto de Disponibilidade a utilizar.
 
-> [!NOTE]
-> Se quiser selecionar uma opção de disponibilidade diferente para um conjunto de máquinas virtuais, vá ao passo 1 e repita os passos selecionando diferentes opções de disponibilidade após iniciar a replicação para um conjunto de máquinas virtuais.
+![Definições de cálculo](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-   ![Definições de cálculo](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
-
-13. Em Discos , **especifique** se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
+15. Em Discos , **especifique** se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
     ![Definições de disco](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-
-14. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
+16. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
 > [!NOTE]
 > Pode atualizar as definições de replicação a qualquer momento antes de começar a replicação, **Gerir**  >  **máquinas de replicação**. As definições não podem ser alteradas após o início da replicação.
-
-
 
 ## <a name="track-and-monitor"></a>Rastreio e monitor
 

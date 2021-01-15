@@ -12,6 +12,9 @@
       href: manage-ddos-protection-powershell.md
     - name: Criar um plano de proteção contra DDoS - CLI
       href: manage-ddos-protection-cli.md
+    - name: Criar um plano de proteção contra DDoS - Modelo do ARM
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
 - name: Tutoriais
   items:
     - name: Ver e configurar telemetria de proteção contra DDoS

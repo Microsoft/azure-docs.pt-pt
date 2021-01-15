@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/22/2020
+ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789612"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233598"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiros para bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Modifique a seguinte consulta para devolver a quantidade de espaço de dados de 
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de dados de base de dados atribuído e espaço atribuído não-alocado
@@ -98,7 +98,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### <a name="database-data-max-size"></a>Tamanho máximo dos dados da base de dados
@@ -108,7 +108,7 @@ Modifique a seguinte consulta para devolver o tamanho máximo dos dados da base 
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Compreender tipos de espaço de armazenamento para uma piscina elástica
@@ -121,6 +121,9 @@ Compreender as seguintes quantidades de espaço de armazenamento é importante p
 |**Espaço de dados atribuído**|A soma do espaço de dados atribuído por todas as bases de dados no pool elástico.||
 |**Espaço de dados atribuído mas não uso**|A diferença entre a quantidade de espaço de dados atribuído e o espaço de dados utilizado por todas as bases de dados no pool elástico.|Esta quantidade representa a quantidade máxima de espaço atribuído ao pool elástico que pode ser recuperado através da redução dos ficheiros de dados da base de dados.|
 |**Tamanho máximo dos dados**|A quantidade máxima de espaço de dados que pode ser usado pela piscina elástica para todas as suas bases de dados.|O espaço atribuído à piscina elástica não deve exceder o tamanho máximo da piscina elástica.  Se esta condição ocorrer, então o espaço atribuído que não é reutilizado pode ser recuperado diminuindo os ficheiros de dados da base de dados.|
+
+> [!NOTE]
+> A mensagem de erro "A piscina elástica atingiu o seu limite de armazenamento" indica que os objetos da base de dados foram atribuídos espaço suficiente para cumprir o limite elástico de armazenamento da piscina, mas pode haver espaço não-indicado na atribuição do espaço de dados. Considere aumentar o limite de armazenamento da piscina elástica, ou como uma solução de curto prazo, libertando espaço de dados usando a secção [**de espaço não utilizado**](#reclaim-unused-allocated-space) para recuperar abaixo. Também deve estar ciente do potencial impacto negativo do desempenho dos ficheiros de base de dados de redução, consulte a secção [**de índices de Reconstrução**](#rebuild-indexes) abaixo.
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar uma piscina elástica para informações de espaço de armazenamento
 
@@ -136,7 +139,7 @@ Modifique a seguinte consulta para devolver a quantidade de espaço elástico de
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço elástico de dados da piscina atribuído e espaço atribuído não-usedido
@@ -187,7 +190,7 @@ A imagem a seguir é um exemplo da saída do script:
 
 ### <a name="elastic-pool-data-max-size"></a>Tamanho máximo de dados de piscina elástico
 
-Modifique a seguinte consulta T-SQL para devolver o tamanho máximo dos dados do pool elástico.  As unidades do resultado da consulta estão em MB.
+Modifique a seguinte consulta T-SQL para devolver o último tamanho máximo de dados elásticos registados.  As unidades do resultado da consulta estão em MB.
 
 ```sql
 -- Connect to master
@@ -195,13 +198,13 @@ Modifique a seguinte consulta T-SQL para devolver o tamanho máximo dos dados do
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperar o espaço não-alocado
 
 > [!NOTE]
-> Este comando pode ter impacto no desempenho da base de dados durante o seu funcionamento e, se possível, deve ser executado durante períodos de baixa utilização.
+> O comando de redução impacta o desempenho da base de dados durante a execução e, se possível, deve ser executado durante períodos de baixa utilização.
 
 ### <a name="dbcc-shrink"></a>Psiquiatra DBCC
 
@@ -209,24 +212,28 @@ Uma vez identificadas bases de dados para recuperar o espaço atribuído não é
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-Este comando pode ter impacto no desempenho da base de dados durante o seu funcionamento e, se possível, deve ser executado durante períodos de baixa utilização.  
+O comando de redução impacta o desempenho da base de dados durante a execução e, se possível, deve ser executado durante períodos de baixa utilização.  
 
-Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Também deve estar ciente do potencial impacto negativo do desempenho dos ficheiros de base de dados de redução, consulte a secção [**de índices de Reconstrução**](#rebuild-indexes) abaixo.
+
+Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
 
 ### <a name="auto-shrink"></a>Redução automática
 
 Em alternativa, o auto-psiquiatra pode ser ativado para uma base de dados.  A redução automática reduz a complexidade da gestão de ficheiros e é menos impactante para o desempenho da base de dados do que `SHRINKDATABASE` `SHRINKFILE` ou .  O auto-psiquiatra pode ser particularmente útil para gerir piscinas elásticas com muitas bases de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação do espaço de ficheiros do que `SHRINKDATABASE` `SHRINKFILE` e .
+Por predefinição, o Auto Shrink é desativado como recomendado para a maioria das bases de dados. Para obter mais informações, consulte [considerações para AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 Para ativar a redução automática, modifique o nome da base de dados no seguinte comando.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-Para obter mais informações sobre este comando, consulte as opções [BASE DE BASE DE BASE.](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+Para obter mais informações sobre este comando, consulte as opções [BASE DE BASE DE BASE.](/sql/t-sql/statements/alter-database-transact-sql-set-options)
 
 ### <a name="rebuild-indexes"></a>Reconstruir índices
 

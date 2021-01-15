@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: e9c1651244eecb036ca18ad5dadfe23f48b2bce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/15/2021
+ms.openlocfilehash: ecdb0e55aa7127a373e63612908ed58109c1f8e2
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529267"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233173"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados de QuickBooks Online usando Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,15 +52,15 @@ As seguintes propriedades são suportadas para o serviço ligado quickBooks:
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **QuickBooks** | Sim |
 | conexõesProperties | Um grupo de propriedades que define como se conectar com QuickBooks. | Sim |
-| ***Em `connectionProperties` :*** | | |
+| **_Em: `connectionProperties` __* | | |
 | endpoint | O ponto final do servidor QuickBooks Online. (isto é, quickbooks.api.intuit.com)  | Sim |
 | companyId | A identificação da empresa quickBooks para autorizar. Para obter informações sobre como encontrar o ID da empresa, veja [como encontro o meu ID da empresa.](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) | Sim |
-| consumerKey | A chave de consumo para a autenticação OAuth 2.0. | Sim |
-| segredo do consumidor | O segredo do consumidor para a autenticação OAuth 2.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| consumerKey | O ID do cliente da sua aplicação QuickBooks Online para autenticação OAuth 2.0. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) | Sim |
+| segredo do consumidor | O segredo do cliente da sua aplicação QuickBooks Online para autenticação OAuth 2.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
 | refreshToken | O token de atualização OAuth 2.0 associado à aplicação QuickBooks. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) Note que o token de atualização expirará após 180 dias. O cliente precisa de atualizar regularmente o token de atualização. <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).| Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
 
-**Exemplo:**
+_ *Exemplo:**
 
 ```json
 {

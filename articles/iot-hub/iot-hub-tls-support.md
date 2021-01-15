@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: e569cbe9030b2ac5a42bd99233b4fefc925a5662
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220320"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234023"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Suporte de segurança da camada de transporte (TLS) no IoT Hub
 
@@ -48,7 +48,7 @@ Para maior segurança, configuure os seus Hubs IoT *apenas* para permitir ligaç
 * US Gov - Arizona
 * Us Gov Virginia (suporte TLS 1.0/1.1 não está disponível nesta região - A aplicação da aplicação TLS 1.2 deve ser ativada ou a criação de hub IoT falha)
 
-Para ativar a aplicação do TLS 1.2, siga os passos no [hub Create IoT no portal Azure,](/.iot-hub-create-through-portal.md)exceto
+Para ativar a aplicação do TLS 1.2, siga os passos no [hub Create IoT no portal Azure,](iot-hub-create-through-portal.md)exceto
 
 - Escolha uma **Região** de uma região da lista acima.
 - Sob **Gestão -> Segurança avançada de > da camada de transporte (TLS) -> versão Mínima TLS**, selecione **1.2**. Esta definição só aparece para o hub IoT criado na região apoiada.

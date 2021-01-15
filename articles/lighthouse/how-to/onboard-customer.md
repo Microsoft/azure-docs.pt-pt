@@ -1,14 +1,14 @@
 ---
 title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516131"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232680"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir papéis e permissões
 
-Como prestador de serviços, poderá querer executar múltiplas tarefas para um único cliente, requerendo acesso diferente para diferentes âmbitos. Pode definir as autorizações necessárias para atribuir as funções adequadas ao [Azure incorporado](../../role-based-access-control/built-in-roles.md) aos utilizadores do seu inquilino.
+Como prestador de serviços, poderá querer executar múltiplas tarefas para um único cliente, requerendo acesso diferente para diferentes âmbitos. Pode definir as autorizações necessárias para atribuir as funções adequadas [ao Azure.](../../role-based-access-control/built-in-roles.md) Cada autorização inclui um **principalid** que se refere a um utilizador, grupo ou principal de serviço da Azure.
 
-Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores Azure AD para cada função. Isto dá-lhe a flexibilidade para adicionar ou remover utilizadores individuais ao grupo que tem acesso, para que não tenha que repetir o processo de embarque para fazer alterações no utilizador. Pode atribuir funções a um diretor de serviço, o que pode ser útil para cenários de automação.
+> [!NOTE]
+> A menos que explicitamente especificado, as referências a um "utilizador" na documentação do Farol Azure podem ser aplicadas a um utilizador, grupo ou principal de serviço Azure numa autorização.
+
+Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores AZure AD para cada função sempre que possível, em vez de para utilizadores individuais. Isto dá-lhe a flexibilidade para adicionar ou remover utilizadores individuais ao grupo que tem acesso, para que não tenha que repetir o processo de embarque para fazer alterações no utilizador. Também pode atribuir funções a um diretor de serviço, o que pode ser útil para cenários de automação.
 
 > [!IMPORTANT]
 > Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Ao definir as suas autorizações, certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para obter orientações e informações sobre funções [apoiadas, consulte Inquilinos, utilizadores e funções em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
+Ao definir as suas autorizações, certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para obter informações sobre funções apoiadas e boas práticas, consulte [Inquilinos, utilizadores e papéis em cenários do Farol de Azure.](../concepts/tenants-users-roles.md)
 
 Para definir as autorizações, você precisará saber os valores de ID para cada utilizador, grupo de utilizadores ou principal de serviço no inquilino do prestador de serviços a que deseja conceder acesso. Também vai precisar da definição de papel ID para cada papel incorporado que pretende atribuir. Se ainda não os tiver, pode recuperá-los executando os comandos abaixo a partir do inquilino do prestador de serviços.
 
@@ -195,7 +198,7 @@ O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada
 }
 ```
 
-A última autorização no exemplo acima adiciona um **principalid** com a função de Administrador de Acesso ao Utilizador (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir esta função, deve incluir a propriedade **delegadoRoleDefinitionIds** e uma ou mais funções incorporadas. O utilizador criado nesta autorização poderá atribuir estas funções incorporadas a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) no arrendatário do cliente, o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md)  O utilizador também é capaz de criar incidentes de suporte.  Nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
+A última autorização no exemplo acima adiciona um **principalid** com a função de Administrador de Acesso ao Utilizador (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir esta função, deve incluir a propriedade **delegadaRoleDefinitionIds** e uma ou mais funções incorporadas do Azure. O utilizador criado nesta autorização poderá atribuir estas funções a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) no arrendatário do cliente, o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md)  O utilizador também é capaz de criar incidentes de suporte. Nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicável a este **principalId**.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
@@ -278,7 +281,7 @@ No inquilino do cliente:
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!NOTE]
-> Pode demorar alguns minutos após a sua implementação estar concluída antes que as atualizações sejam refletidas no portal Azure.
+> Pode demorar até 15 minutos após a sua implementação estar concluída antes de as atualizações serem refletidas no portal Azure. Poderá ver as atualizações mais cedo se atualizar o seu token Azure Resource Manager, refrescando o navegador, fazendo sessão e saída, ou solicitando um novo token.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ Se não conseguir embarcar com sucesso no seu cliente, ou se os seus utilizadore
 - O fornecedor de recursos **Microsoft.ManagedServices** deve estar registado para a subscrição delegada. Isto deve acontecer automaticamente durante a colocação, mas se não, pode [registá-lo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - As autorizações não devem incluir quaisquer utilizadores com a função incorporada [do Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou quaisquer funções incorporadas com [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Os grupos devem ser criados com o [**tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) definido para **Segurança** e não para o **Microsoft 365**.
+- Pode haver um atraso adicional antes de o acesso ser ativado para [grupos aninhados](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Os utilizadores que necessitem de ver recursos no portal Azure devem ter a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Leitor).
 
 ## <a name="next-steps"></a>Passos seguintes

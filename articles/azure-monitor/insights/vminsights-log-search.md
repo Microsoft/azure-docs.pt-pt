@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186733"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234057"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Azure Monitor para VMs
 
@@ -92,7 +92,7 @@ Eis alguns pontos importantes a ter em conta:
 
 #### <a name="naming-and-classification"></a>Nomeação e Classificação
 
-Por conveniência, o endereço IP da extremidade remota de uma ligação está incluído na propriedade RemoteIp. Para ligações de entrada, o RemoteIp é o mesmo que o SourceIp, enquanto para as ligações de saída, é o mesmo que o DestinationIp. A propriedade RemoteDnsCanonicalNames representa os nomes canónicos DNS relatados pela máquina para RemoteIp. As propriedades RemoteDnsQuestions e RemoteClassification estão reservadas para uso futuro. 
+Por conveniência, o endereço IP da extremidade remota de uma ligação está incluído na propriedade RemoteIp. Para ligações de entrada, o RemoteIp é o mesmo que o SourceIp, enquanto para as ligações de saída, é o mesmo que o DestinationIp. A propriedade RemoteDnsCanonicalNames representa os nomes canónicos DNS relatados pela máquina para RemoteIp. A propriedade RemoteDnsQuestions representa as perguntas DNS relatadas pela máquina para RemoteIp. A propriedade RemoveClassification está reservada para uso futuro. 
 
 #### <a name="geolocation"></a>Geolocalização
 
@@ -112,7 +112,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra 
 |:--|:--|
 |MaliciousIp |O endereço RemoteIp |
 |IndicadorThreadType |O indicador de ameaça detetado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining,* *Darknet*, *DDos,* *MaliciousUrl,* *Malware*, *Phishing,* *Proxy,* *PUA,* *Watchlist*.   |
-|Description |Descrição da ameaça observada. |
+|Descrição |Descrição da ameaça observada. |
 |TLPLevel |O nível do Protocolo de Semáforos (TLP) é um dos valores definidos, *Branco,* *Verde,* *Âmbar,* *Vermelho.* |
 |Confiança |Os valores são *0 a 100.* |
 |Gravidade |Os valores são *0 - 5,* onde *5* é o mais grave e *0* não é nada grave. O valor predefinido é *de 3*.  |
@@ -233,7 +233,7 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Grupo | Processar nome de grupo. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | A hora de início da piscina do processo |
 |FirstPid | O primeiro PID na piscina de processos |
-|Description | A descrição do processo |
+|Descrição | A descrição do processo |
 |CompanyName | O nome da empresa |
 |Nome interno | O nome interno |
 |NomeDoProduto | O nome do produto |

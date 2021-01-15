@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade em funcionalidades de conectividade traseira do Azure: Detalhes da configuração Microsoft Docs'
+title: 'Interoperabilidade em funcionalidades de conectividade traseira Azure: Detalhes de configuração | Microsoft Docs'
 description: Este artigo descreve detalhes de configuração para a configuração do teste que pode usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site-to-site e o olhar de rede virtual em Azure.
 documentationcenter: na
 services: networking
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 50fd5641c61d08939eca1f2cbafb1d077254e37d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "86171861"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233275"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidade em funcionalidades de conectividade traseira do Azure: Detalhes da configuração do teste
 
@@ -217,18 +217,15 @@ Consulte as [FAQ expressRoute][ExR-FAQ] para:
 [8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Configuração de ligação do ExpressRoute 2 a um gateway remoto VNet ExR"
 
 <!--Link References-->
-[Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
-[ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
-[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
+[Setup]: ./connectivty-interoperability-preface.md
+[ExpressRoute]: ../expressroute/expressroute-introduction.md
+[VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[Control-Analysis]: ./connectivty-interoperability-control-plane.md
+[Data-Analysis]: ./connectivty-interoperability-data-plane.md
+[ExR-FAQ]: ../expressroute/expressroute-faqs.md
+[S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md
+[ExR-S2S-CoEx]: ../expressroute/expressroute-howto-coexist-resource-manager.md
+[Hub-n-Spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
+[VNet-Config]: ../virtual-network/virtual-network-manage-peering.md

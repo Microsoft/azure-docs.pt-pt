@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure CLI - Peer duas redes virtuais / Microsoft Docs
+title: Amostra de script Azure CLI - Peer duas redes virtuais | Microsoft Docs
 description: Utilize uma amostra de script Azure CLI para criar e ligar duas redes virtuais na mesma região através da rede Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 507e17b2edb0db2d21265f3e945745d97395e7c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 527a2e0dd5a807552aed8d6a833d513fa40c72e3
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503859"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234397"
 ---
 # <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Use um script de amostra Azure CLI para ligar duas redes virtuais
 
@@ -47,13 +47,13 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
-| [az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering) | Cria um peering entre duas redes virtuais.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
+| [az network vnet peering create](/cli/azure/network/vnet/peering) | Cria um peering entre duas redes virtuais.  |
+| [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Encontrará exemplos adicionais de scripts de CLI de redes na [Documentação de Descrição Geral de Redes do Azure](../cli-samples.md).

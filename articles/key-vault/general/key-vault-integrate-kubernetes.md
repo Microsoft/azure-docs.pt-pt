@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121367"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234261"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -37,6 +37,8 @@ Neste tutorial, vai aprender a:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Antes de iniciar este tutorial, instale o [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+Este tutorial pressupõe que você runnig Azure Kubernetes Service em nós Linux.
 
 ## <a name="use-managed-identities"></a>Utilizar identidades geridas
 
@@ -77,6 +79,8 @@ Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar
     ![Screenshot do CLI Azure com valores principalid e clienteId destacado ](../media/kubernetes-key-vault-2.png) ![ Screenshot do CLI Azure com valores de subscriçãoId e nodeResourceGroup destacados](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Instale o leme e o controlador CSI secrets Store
+> [!NOTE]
+> Abaixo a instalação funciona apenas em AKS em Linux. Para obter mais informações sobre a instalação do controlador CSI Secrets Store, consulte [o Fornecedor de Cofres chave Azure para o controlador CSI Secrets Store](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 Para instalar o controlador CSI Secrets Store, primeiro tem de instalar [o Helm](https://helm.sh/docs/intro/install/).
 

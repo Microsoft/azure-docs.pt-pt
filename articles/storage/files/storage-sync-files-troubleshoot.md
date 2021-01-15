@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Azure File Sync / Microsoft Docs
+title: Resolução de problemas Azure File Sync | Microsoft Docs
 description: Resolver problemas comuns numa implementação no Azure File Sync, que pode utilizar para transformar o Windows Server numa cache rápida da sua partilha de ficheiros Azure.
 author: jeffpatt24
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199240"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233904"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -205,7 +205,7 @@ No servidor que está a mostrar como "Aparece offline" no portal, veja o ID 9301
     - Se o servidor estiver por trás de uma firewall, verifique se a porta 443 de saída é permitida. Se a firewall restringir o tráfego a domínios específicos, confirme que os domínios listados na [documentação](./storage-sync-files-firewall-and-proxy.md#firewall) firewall estão acessíveis.
     - Se o servidor estiver por detrás de um proxy, configufique as definições de procuração específicas para toda a máquina ou para aplicações seguindo os passos na [documentação](./storage-sync-files-firewall-and-proxy.md#proxy)Proxy .
     - Utilize o Test-StorageSyncNetworkConnectivity cmdlet para verificar a conectividade da rede nos pontos finais de serviço. Para saber mais, consulte [a conectividade da rede de teste para os pontos finais de serviço](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
-    - Para adicionar suítes cifra no servidor, utilize a política de grupo ou os cmdlets TLS:
+    - Se a ordem de suíte de cifra TLS estiver configurada no servidor, pode utilizar a política de grupo ou os cmdlets TLS para adicionar suítes de cifra:
         - Para utilizar a política de grupo, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando a Política de Grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
         - Para utilizar cmdlets TLS, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando cmdlets TLS PowerShell](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
@@ -1320,7 +1320,7 @@ Para a versão do agente v10 e mais cedo:
 6. Um ficheiro .zip que contenha registos e ficheiros de rastreio é guardado no diretório de saída que especificou.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: abf4e4621a7e42829032923a67d21c5322f432ec
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498400"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232731"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
 
@@ -82,11 +82,11 @@ Durante a migração, os recursos passam da implementação clássica para Resou
 
 Quando se move um VM do modo classic para o gestor de recursos, as cópias de segurança tomadas antes da migração não migrarão para o recém-migrado Resource Manager VM. No entanto, se quiser manter os seus backups de VMs clássicos, siga estes passos antes da migração. 
 
-1. No cofre dos Serviços de Recuperação, vá ao separador **Itens Protegidos** e selecione o VM. 
-2. Clique em Parar Proteção. Deixe a opção *Eliminar dados de cópia de segurança associados***desmarcada**.
+1. No cofre dos Serviços de Recuperação, vá à lâmina **de Itens de Reserva** e selecione o VM. 
+2. Clique em Stop Backup. Selecione "Retenionar dados de backup" no menu suspenso..
 
 > [!NOTE]
-> Serão cobrados custos de instância de backup até reter dados. As cópias de reserva serão podadas de acordo com o intervalo de retenção. No entanto, a última cópia de cópia de segurança é sempre mantida até eliminar explicitamente os dados de backup. É aconselhável verificar o seu alcance de retenção da máquina Virtual e acionar "Delete Backup Data" no item protegido no cofre uma vez que o intervalo de retenção esteja terminado. 
+> Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM. No entanto, o serviço Azure Backup irá manter os pontos de recuperação que foram apoiados.  Terá de pagar para manter os pontos de recuperação no cofre (ver [preços de reserva do Azure](https://azure.microsoft.com/pricing/details/backup/) para mais detalhes). Poderá restaurar o VM, se necessário. Se decidir retomar a proteção VM, pode utilizar a opção *de backup do Resume.*
 >
 >
 
@@ -99,7 +99,7 @@ Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gest
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
-Sim. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
+Yes. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
 
 ## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>O que acontece se me deparar com um erro de quota ao preparar os recursos de IaaS para a migração? 
 

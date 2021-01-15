@@ -10,17 +10,17 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219067"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233377"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Problemas de conectividade de resolução de problemas e outros erros com Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Recebe mensagens de erro quando a ligação à Base de Dados Azure SQL ou à Instância Gerida Azure SQL falha. Estes problemas de ligação podem ser causados por reconfiguração, definições de firewall, tempo limite de ligação, informações de login incorretas ou falha na aplicação de boas práticas e orientações de design durante o processo de conceção da [aplicação.](develop-overview.md) Além disso, se o limite máximo em alguns recursos Azure SQL Database ou SQL Managed Instance for atingido, já não é possível ligar.
+Recebe mensagens de erro quando a ligação à Base de Dados Azure SQL ou à Instância Gerida Azure SQL falha. Estes problemas de ligação podem ser causados por reconfiguração, definições de firewall, tempo limite de ligação, informações incorretas de login ou falha na aplicação de boas práticas e orientações de design durante o processo de conceção da [aplicação.](develop-overview.md) Além disso, se o limite máximo em alguns recursos Azure SQL Database ou SQL Managed Instance for atingido, já não é possível ligar.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Mensagens de erro transitórias (40197, 40613 e outras)
 
@@ -42,7 +42,7 @@ A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serv
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Medidas para resolver problemas transitórios de conectividade
 
 1. Verifique o Painel de Serviços do [Microsoft Azure](https://azure.microsoft.com/status) para saber se as falhas conhecidas ocorreram durante o período durante o qual os erros foram reportados pela aplicação.
-2. As aplicações que se ligam a um serviço de cloud, como o Azure SQL Database, devem esperar eventos de reconfiguração periódica e implementar lógica de repetição para lidar com estes erros em vez de os surgir como erros de aplicação para os utilizadores.
+2. As aplicações que se ligam a um serviço de cloud, como o Azure SQL Database, devem esperar eventos de reconfiguração periódica e implementar lógica de repetição para lidar com estes erros em vez de surgirem erros de aplicação para os utilizadores.
 3. À medida que uma base de dados se aproxima dos seus limites de recursos, pode parecer uma questão de conectividade transitória. Ver [limites de recursos.](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)
 4. Se os problemas de conectividade continuarem, ou se a duração durante a qual a sua aplicação se encontra exceder 60 segundos ou se vir múltiplas ocorrências do erro num determinado dia, arquive um pedido de suporte Azure selecionando **Obter Suporte** no site de [Suporte Azure.](https://azure.microsoft.com/support/options)
 
@@ -104,49 +104,46 @@ Para resolver este problema, contacte o seu administrador de serviço para lhe f
 Normalmente, o administrador de serviço pode usar os seguintes passos para adicionar as credenciais de login:
 
 1. Inicie sessão no servidor utilizando o SQL Server Management Studio (SSMS).
-2. Executar a seguinte consulta SQL para verificar se o nome de login está desativado:
+2. Execute a seguinte consulta SQL na base de dados principal para verificar se o nome de login está desativado:
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. Se o nome correspondente estiver desativado, ative-o através da instrução seguinte:
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. Se o nome de utilizador de login SQL não existir, crie-o seguindo estes passos:
-
-   1. Na SSMS, clique duas vezes **em Segurança** para expandi-lo.
-   2. Clique em **Logins** com direito e, em seguida, **selecione Novo login**.
-   3. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
+4. Se o nome de utilizador de login SQL não existir, edite e execute a seguinte consulta SQL para criar um novo login SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = '<password, sysname, Change_Password>'
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. Base de **dados** de duplo clique .
+5. No SSMS Object Explorer, expanda **as bases de dados.**
 6. Selecione a base de dados a que pretende conceder a permissão do utilizador.
-7. **Segurança** de duplo clique.
-8. Clique com o botão direito **dos Utilizadores** e, em seguida, selecione **Novo Utilizador**.
-9. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
+7. Clique com o botão **direito Segurança** e, em seguida, selecione **Novo**, **Utilizador**.
+8. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   Também pode usar `sp_addrolemember` para mapear utilizadores específicos para funções específicas de base de dados.
+
    > [!NOTE]
-   > Também pode usar `sp_addrolemember` para mapear utilizadores específicos para funções específicas de base de dados.
+   > Na Base de Dados Azure SQL, considere a sintaxe [alter ROLE](/sql/t-sql/statements/alter-role-transact-sql) mais recente para gerir a adesão à função de base de dados.  
 
 Para obter mais informações, consulte [bases de dados e logins em Azure SQL Database](./logins-create-manage.md).
 
@@ -183,7 +180,7 @@ Para contornar esta questão, experimente um dos seguintes métodos:
 - Verifique se existem consultas de longa duração.
 
   > [!NOTE]
-  > Esta é uma abordagem minimalista que pode não resolver a questão. Para obter informações detalhadas sobre o bloqueio de consultas de resolução de [problemas, consulte compreender e resolver problemas de bloqueio do Azure SQL](understand-resolve-blocking.md).
+  > Esta é uma abordagem minimalista que pode não resolver a questão. Para obter informações mais detalhadas sobre a resolução de problemas de longa duração ou bloqueio de consultas, consulte [Compreender e resolver problemas de bloqueio da Base de Dados Azure SQL](understand-resolve-blocking.md).
 
 1. Faça a seguinte consulta SQL para verificar a vista [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para ver quaisquer pedidos de bloqueio:
 
@@ -191,12 +188,15 @@ Para contornar esta questão, experimente um dos seguintes métodos:
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determine o **tampão de entrada** para o bloqueador de cabeça.
-3. Sintonize a consulta do bloqueador de cabeça.
+1. Determine o **tampão** de entrada para o bloqueador de cabeça utilizando a função de gestão dinâmica [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) e a session_id da consulta ofensiva, por exemplo:
 
-   Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) 
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
 
-Se a base de dados atingir consistentemente o seu limite apesar de abordar consultas de bloqueio e de longa duração, considere o upgrade para uma edição com mais [recursos Edições](https://azure.microsoft.com/pricing/details/sql-database/)).
+1. Sintonize a consulta do bloqueador de cabeça.
+
+Se a base de dados atingir consistentemente o seu limite, apesar de abordar consultas de bloqueio e de longa duração, considere o upgrade para uma edição com mais [recursos Edições](https://azure.microsoft.com/pricing/details/sql-database/).
 
 Para obter mais informações sobre os limites da base de dados, consulte  [os limites de recursos da Base de Dados SQL para servidores](./resource-limits-logical-server.md).
 
@@ -254,12 +254,18 @@ Se encontrar repetidamente este erro, tente resolver o problema seguindo estes p
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determine o tampão de entrada para a consulta de longa duração.
+2. Determine o **tampão** de entrada para o bloqueador de cabeça utilizando a função de gestão dinâmica [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) e a session_id da consulta ofensiva, por exemplo:
+
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
 3. Afina a consulta.
 
-Considere também a lotar as suas consultas. Para obter informações sobre o lote, consulte [como utilizar o lote para melhorar o desempenho da aplicação da base de dados SQL](../performance-improve-use-batching.md).
+    > [!Note]
+    > Para obter mais informações sobre o bloqueio de resolução de problemas na Base de Dados Azure SQL, consulte [Compreender e resolver problemas de bloqueio da Base de Dados Azure SQL](understand-resolve-blocking.md).
 
-Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
+Considere também a lotar as suas consultas. Para obter informações sobre o lote, consulte [como utilizar o lote para melhorar o desempenho da aplicação da base de dados SQL](../performance-improve-use-batching.md).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erro 40551: A sessão foi encerrada devido a uma utilização excessiva do TEMPDB
 
@@ -311,7 +317,7 @@ Os seguintes erros estão relacionados com a criação e utilização de piscina
 
 | Código de erro | Gravidade | Descrição | Ação corretiva |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |A piscina elástica atingiu o seu limite de armazenamento. A utilização do armazenamento para a piscina elástica não pode exceder (%d) MBs. Tentar escrever dados para uma base de dados quando o limite de armazenamento do pool elástico tiver sido atingido. Para obter informações sobre os limites de recursos, consulte: <br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites à base de vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md). <br/> |Considere aumentar os DTUs de e/ou adicionar armazenamento à piscina elástica, se possível, a fim de aumentar o seu limite de armazenamento, reduzir o armazenamento utilizado por bases de dados individuais dentro da piscina elástica ou remover bases de dados da piscina elástica. Para dimensionamento elástico da piscina, consulte [os recursos elásticos da piscina.](elastic-pool-scale.md)|
+| 1132 | 17 |A piscina elástica atingiu o seu limite de armazenamento. A utilização do armazenamento para a piscina elástica não pode exceder (%d) MBs. Tentar escrever dados para uma base de dados quando o limite de armazenamento do pool elástico tiver sido atingido. Para obter informações sobre os limites de recursos, consulte: <br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites à base de vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md). <br/> |Considere aumentar os DTUs de e/ou adicionar armazenamento à piscina elástica, se possível, a fim de aumentar o seu limite de armazenamento, reduzir o armazenamento utilizado por bases de dados individuais dentro da piscina elástica ou remover bases de dados da piscina elástica. Para dimensionamento elástico da piscina, consulte [os recursos elásticos da piscina.](elastic-pool-scale.md) Para obter mais informações sobre a remoção do espaço não uusado das bases de dados, consulte Gerir o espaço de [ficheiros para bases de dados na Base de Dados Azure SQL](file-space-manage.md).|
 | 10929 | 16 |A garantia mínima %s é %d, o limite máximo é de %d, e a utilização atual para a base de dados é de %d. No entanto, o servidor encontra-se atualmente demasiado ocupado para suportar pedidos superiores a %d para esta base de dados. Para obter informações sobre os limites de recursos, consulte: <br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites à base de vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md). <br/> Caso contrário, tente de novo mais tarde. DTU /vCore min por base de dados; DTU /vCore max por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados da piscina elástica tentou ultrapassar o limite da piscina. |Considere aumentar os DTUs ou vCores da piscina elástica, se possível, para aumentar o seu limite de trabalhadores, ou remover bases de dados da piscina elástica. |
 | 40844 | 16 |A base de dados '%ls' no Servidor '%ls' é uma base de dados de edição '%ls' numa piscina elástica e não pode ter uma relação de cópia contínua.  |N/D |
 | 40857 | 16 |Piscina elástica não encontrada para servidor: '%ls', nome de piscina elástica: '%ls'. A piscina elástica especificada não existe no servidor especificado. | Forneça um nome de piscina elástica válido. |

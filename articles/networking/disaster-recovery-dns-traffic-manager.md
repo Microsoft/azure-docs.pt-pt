@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres com Azure DNS e Gerente de Tráfego Microsoft Docs
+title: Recuperação de desastres usando Azure DNS e Traffic Manager | Microsoft Docs
 description: Visão geral das soluções de recuperação de desastres utilizando o Azure DNS e o Traffic Manager.
 services: dns
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74483539"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234159"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
 
@@ -45,7 +45,7 @@ A maioria dos clientes empresariais está a escolher uma arquitetura multi-regi�
     
     *Figura: Ativo/Passivo com configuração de recuperação de desastres em espera quente*
     
-Para saber mais sobre falhas e alta disponibilidade, consulte [a Recuperação de Desastres para Aplicações Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Para saber mais sobre falhas e alta disponibilidade, consulte [a Recuperação de Desastres para Aplicações Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planejando a sua arquitetura de recuperação de desastres
@@ -54,7 +54,7 @@ Existem dois aspetos técnicos para a criação da sua arquitetura de recuperaç
 -  Utilizando um mecanismo de implantação para replicar casos, dados e configurações entre ambientes primários e de espera. Este tipo de recuperação de desastres pode ser feito de forma nativa através do Azure Site-Recovery através de eletrodomésticos parceiros da Microsoft Azure, como veritas ou NetApp. 
 - Desenvolver uma solução para desviar o tráfego de rede/web do local primário para o local de espera. Este tipo de recuperação de desastres pode ser alcançado através de Azure DNS, Azure Traffic Manager (DNS), ou equilibradores globais de carga de terceiros.
 
-Este artigo limita-se a abordagens através da reorientação de tráfego da Rede e da Web. Para obter instruções para configurar a recuperação do local de Azure, consulte [a documentação de recuperação do local do Azure](https://docs.microsoft.com/azure/site-recovery/).
+Este artigo limita-se a abordagens através da reorientação de tráfego da Rede e da Web. Para obter instruções para configurar a recuperação do local de Azure, consulte [a documentação de recuperação do local do Azure](../site-recovery/index.yml).
 O DNS é um dos mecanismos mais eficientes para desviar o tráfego da rede porque o DNS é muitas vezes global e externo ao centro de dados e é isolado de quaisquer falhas de nível regional ou de disponibilidade (AZ). Pode-se utilizar um mecanismo de failover baseado em DNS e em Azure, dois serviços DNS podem realizar o mesmo de alguma forma - Azure DNS (DNS autoritário) e Azure Traffic Manager (encaminhamento de tráfego inteligente baseado em DNS). 
 
 É importante compreender poucos conceitos no DNS que são amplamente utilizados para discutir as soluções fornecidas neste artigo:
@@ -170,12 +170,3 @@ Durante um desastre, o principal ponto final é sondado e o estado muda para **d
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 - Saiba mais sobre [o Azure DNS](../dns/dns-overview.md).
-
-
-
-
-
-
-
-
-

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345649"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233785"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Resolução de problemas para o Criador QnA
 
@@ -323,6 +323,29 @@ Se tiver conteúdo de vários idiomas, certifique-se de criar um serviço separa
 
 1. Inicie o serviço app.
 1. Aceda à sua base de conhecimentos para verificar se funciona agora.
+
+</details>
+<details>
+<summary><b>Porque é que os meus Insights de Aplicação não estão a funcionar?</b></summary>
+
+**Resposta**: Por favor, cruze a verificação e atualização abaixo dos passos para corrigir o problema:
+
+1. No Serviço de Aplicações -> Configurações grupo -> a secção de configuração -> Configurações de aplicação -> Os parâmetros "UserAppInsightsKey" são configurados corretamente e definidos para o respetivo separador de visão geral de insights de aplicação ("Chave de instrumentação") Orientador. 
+
+1. No Serviço de Aplicações -> o grupo Definições -> secção "Application Insights" -> Certifique-se de que os insights da aplicação estão ativados e ligados ao recurso de insights de aplicação respetivos.
+
+</details>
+
+<details>
+<summary><b>Os meus Insights de Aplicação estão ativados, mas porque é que não está a funcionar corretamente?</b></summary>
+
+**Resposta**: Siga os passos abaixo: 
+
+1.  Copie o valor do nome "APPINSIGHTS_INSTRUMENTATIONKEY" no nome 'UserAppInsightsKey' sobressaíndo se já existe algum valor presente. 
+
+1.  Se a tecla 'UserAppInsightsKey' não existir nas definições de aplicações, por favor adicione uma nova chave com esse nome e copie o valor.
+
+1.  Guarde-o e isto reiniciará automaticamente o serviço de aplicações. Isto deve resolver a questão. 
 
 </details>
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694886"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232765"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilização de Insights para monitorizar e configurar o seu Balanceador de Carga Azure
 
@@ -45,7 +45,7 @@ A partir da lâmina insights do seu Balancer de Carga, pode selecionar métricas
 No início, será apresentado com o separador Visão Geral. Pode navegar através dos separadores disponíveis cada um dos quais contém visuais relevantes para um aspeto específico do seu Balancer de Carga. A orientação explícita para cada um está disponível no painel de instrumentos na parte inferior de cada separador.
 
 Os separadores do painel de instrumentos atualmente disponíveis são:
-* Descrição Geral
+* Descrição geral
 * Disponibilidade de Front-end e Back-end
 * Débito de Dados
 * Distribuição de Fluxos
@@ -53,7 +53,7 @@ Os separadores do painel de instrumentos atualmente disponíveis são:
 * Definições de Métricas 
 
 ### <a name="overview-tab"></a>Separador de visão geral
-O separador 'Vista Geral' contém uma grelha pes pes pes pes pes pes pes pesalhável com o estado geral da disponibilidade do caminho dos dados e do estado da sonda de saúde para cada um dos IPs frontend ligados ao seu Balanceador de Carga. Estas métricas indicam se o FRONTend IP é responsivo e as instâncias de computação no seu Backend Pool são individualmente responsivas às ligações de entrada.
+O separador 'Vista Geral' contém uma grelha pesalhável com o estado geral da disponibilidade do caminho dos dados e do estado da sonda de saúde para cada um dos IPs frontend ligados ao seu Balanceador de Carga. Estas métricas indicam se o FRONTend IP é responsivo e as instâncias de computação no seu Backend Pool são individualmente responsivas às ligações de entrada.
 
 Também pode ver o resultado geral de dados para cada FRONTend IP nesta página para ter uma ideia de se está a produzir e receber níveis de tráfego esperados. A orientação na parte inferior da página irá direcioná-lo para o separador apropriado caso veja quaisquer valores irregulares.
 
@@ -68,7 +68,7 @@ O separador Data Throughput permite-lhe rever a sua entrada e saída para identi
 ### <a name="flow-distribution"></a>Distribuição de Fluxos
 O Separador de Distribuição de Fluxo irá ajudá-lo a visualizar e gerir o número de fluxos que as suas instâncias de backend estão a receber e a produzir. Mostra a Taxa de Criação de Fluxo e a Contagem de Fluxos para o tráfego de entrada e saída, bem como o Tráfego de Rede que cada VM e a escala virtual de escala definida estão recebendo. 
 
-Estas opiniões podem dar-lhe feedback sobre se a configuração do Balancer de Carga ou os padrões de tráfego estão a levar a um tráfego desequilibrado. Por exemplo, se tiver a afinidade da sessão configurada e um único cliente estiver a fazer um número desproporcionado de pedidos. Também lhe informará se estiver a aproximar-se do [limite de fluxo por VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) para o tamanho da sua máquina.
+Estas opiniões podem dar-lhe feedback sobre se a configuração do Balancer de Carga ou os padrões de tráfego estão a levar a um tráfego desequilibrado. Por exemplo, se tiver a afinidade da sessão configurada e um único cliente estiver a fazer um número desproporcionado de pedidos. Também lhe informará se estiver a aproximar-se do [limite de fluxo por VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) para o tamanho da sua máquina.
 
 ### <a name="connection-monitors"></a>Monitores de Ligação
 O separador Monitores de Ligação mostrar-lhe-á a latência de ida e volta num mapa global para todos os Monitores de [Conexão](../network-watcher/connection-monitor.md)  que configuraste. Estes visuais fornecem informações úteis para serviços com requisitos rigorosos de latência. Para satisfazer os seus requisitos poderá ser necessário adicionar implementações regionais adicionais ou passar para um modelo [de equilíbrio de carga regional transversal](./cross-region-overview.md)

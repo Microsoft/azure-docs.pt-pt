@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541186"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233991"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitor Azure Database para desempenho mariaDB com loja de consultas
 
@@ -21,7 +21,7 @@ A funcionalidade de Loja de Consultas na Base de Dados Azure para Mariadb fornec
 
 ## <a name="common-scenarios-for-using-query-store"></a>Cenários comuns para a utilização da Loja de Consultas
 
-A loja de consultas pode ser utilizada em vários cenários, incluindo os seguintes:
+A loja de consultas pode ser usada em muitos cenários, incluindo os seguintes:
 
 - Deteção de consultas regressas
 - Determinar o número de vezes que uma consulta foi executada numa janela de tempo
@@ -34,14 +34,14 @@ A Loja de Consultas é uma funcionalidade de opt-in, pelo que não está ativa p
 ### <a name="enable-query-store-using-the-azure-portal"></a>Ativar a Loja de Consultas utilizando o portal Azure
 
 1. Inscreva-se no portal Azure e selecione a sua Base de Dados Azure para o servidor MariaDB.
-1. Selecione **parâmetros** do servidor na secção **Definições** do menu.
-1. Procure o parâmetro query_store_capture_mode.
-1. Desa estação o valor para ALL e **Save**.
+2. Selecione **parâmetros** do servidor na secção **Definições** do menu.
+3. Procure o parâmetro query_store_capture_mode.
+4. Desa estação o valor para ALL e **Save**.
 
 Para ativar as estatísticas de espera na sua Loja de Consultas:
 
 1. Procure o parâmetro query_store_wait_sampling_capture_mode.
-1. Desa estação o valor para ALL e **Save**.
+2. Desa estação o valor para ALL e **Save**.
 
 Deixe até 20 minutos para que o primeiro lote de dados permaneça na base de dados mysql.
 
@@ -108,9 +108,9 @@ Utilize o [portal Azure](howto-server-parameters.md) para obter ou definir um va
 
 ## <a name="views-and-functions"></a>Vistas e funções
 
-Ver e gerir a Loja de Consultas utilizando as seguintes vistas e funções. Qualquer pessoa no [papel público de privilégio selecionado](howto-create-users.md#create-additional-admin-users) pode usar estas opiniões para ver os dados na Loja de Consultas. Estas vistas só estão disponíveis na base de **dados mysql.**
+Ver e gerir a Loja de Consultas utilizando as seguintes vistas e funções. Qualquer pessoa no [papel público de privilégio selecionado](howto-create-users.md#create-more-admin-users) pode usar estas opiniões para ver os dados na Loja de Consultas. Estas vistas só estão disponíveis na base de **dados mysql.**
 
-As consultas são normalizadas olhando para a sua estrutura depois de remover literal e constantes. Se duas consultas forem idênticas, exceto para valores literais, terão o mesmo haxixe.
+As consultas são normalizadas olhando para a sua estrutura depois de remover literal e constantes. Se duas consultas forem idênticas, exceto valores literários, terão o mesmo haxixe.
 
 ### <a name="mysqlquery_store"></a>mysql.query_store
 
@@ -138,8 +138,8 @@ Esta vista devolve todos os dados na Loja de Consultas. Há uma linha para cada 
 | `sum_select_full_join` | bigint(20)| NO| Número de juntas completas|
 | `sum_select_scan` | bigint(20)| NO| Número de digitalizações selecionadas |
 | `sum_sort_rows` | bigint(20)| NO| Número de linhas ordenadas|
-| `sum_no_index_used` | bigint(20)| NO| Número de vezes em que a consulta não usou quaisquer índices|
-| `sum_no_good_index_used` | bigint(20)| NO| Número de vezes em que o motor de execução de consulta não usou quaisquer bons índices|
+| `sum_no_index_used` | bigint(20)| NO| Número de vezes em que a consulta não usou nenhum índice|
+| `sum_no_good_index_used` | bigint(20)| NO| Número de vezes em que o motor de execução de consulta não usou nenhum bom índice|
 | `sum_created_tmp_tables` | bigint(20)| NO| Número total de tabelas temporárias criadas|
 | `sum_created_tmp_disk_tables` | bigint(20)| NO| Número total de tabelas temporárias criadas em disco (gera E/O)|
 | `first_seen` | carimbo de data/hora| NO| A primeira ocorrência (UTC) da consulta durante a janela de agregação|
@@ -147,7 +147,7 @@ Esta vista devolve todos os dados na Loja de Consultas. Há uma linha para cada 
 
 ### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
-Esta vista devolve os dados dos eventos de espera na Loja de Consultas. Há uma linha para cada ID de base de dados distinto, ID do utilizador, identificação de consulta e evento.
+Esta vista devolve os dados dos eventos de espera na Loja de Consultas. Há uma linha para cada identificação de base de dados distinta, identificação do utilizador, identificação de consulta e evento.
 
 | **Nome**| **Tipo de Dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Esta vista devolve os dados dos eventos de espera na Loja de Consultas. Há uma 
 
 ## <a name="limitations-and-known-issues"></a>Problemas e limitações conhecidos
 
-- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` ligado, a Loja de Consultas não pode capturar dados.
+- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` ligado, a Query Store não pode capturar dados.
 - A funcionalidade da Loja de Consulta pode ser interrompida se encontrar longas consultas unicode \> (= 6000 bytes).
 - O período de retenção das estatísticas de espera é de 24 horas.
 - As estatísticas de espera usam a amostra ti capturar uma fração de eventos. A frequência pode ser modificada utilizando o parâmetro `query_store_wait_sampling_frequency` .

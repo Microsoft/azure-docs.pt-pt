@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c53eb65f31e32d3edebcbf31d48d166f5464a92
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79455567"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233360"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar a utilização de recursos em relação aos limites
 
@@ -32,7 +32,7 @@ Neste artigo, aprende a ver o número de cada tipo de recurso de rede que implem
 5. Em **DEFINIÇÕES,** selecione **Utilização + quota**.
 6. Pode selecionar as seguintes opções:
    - **Tipos de recursos**: Pode selecionar todos os tipos de recursos ou selecionar os tipos específicos de recursos que pretende visualizar.
-   - **Fornecedores**: Pode selecionar todos os fornecedores de recursos ou selecionar **Computação,** **Rede**ou **Armazenamento.**
+   - **Fornecedores**: Pode selecionar todos os fornecedores de recursos ou selecionar **Computação,** **Rede** ou **Armazenamento.**
    - **Localizações**: Pode selecionar todas as localizações do Azure ou selecionar localizações específicas.
    - Pode selecionar para mostrar todos os recursos, ou apenas os recursos onde pelo menos um é implantado.
 
@@ -48,7 +48,7 @@ Neste artigo, aprende a ver o número de cada tipo de recurso de rede que implem
 
 Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure.com/powershell)ou executando o PowerShell a partir do seu computador. O Azure Cloud Shell é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do computador, precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Corra `Get-Module -ListAvailable Az` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Login-AzAccount` para iniciar sessão no Azure.
 
-Veja a sua utilização contra limites com [a Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). O exemplo a seguir obtém a utilização de recursos onde pelo menos um recurso é implantado na localização dos EUA Orientais:
+Veja a sua utilização contra limites com [a Get-AzNetworkUsage](/powershell/module/az.network/get-aznetworkusage). O exemplo a seguir obtém a utilização de recursos onde pelo menos um recurso é implantado na localização dos EUA Orientais:
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

@@ -1,14 +1,14 @@
 ---
 title: Inquilinos, utilizadores e papéis em cenários do Farol de Azure
 description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser usados em cenários do Farol Azure.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023947"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233921"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, utilizadores e papéis em cenários do Farol de Azure
 
@@ -18,7 +18,10 @@ Um *inquilino* é um caso dedicado e de confiança da Azure AD. Normalmente, cad
 
 Para conseguir esta projeção lógica, uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição) no arrendatário do cliente deve ser *a bordo* do Farol de Azure. Este processo de embarque pode ser feito [através de modelos Azure Resource Manager](../how-to/onboard-customer.md) ou através da publicação de uma oferta pública ou privada ao [Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 
-Seja qual for o método de embarque que escolher, terá de definir *autorizações.* Cada autorização especifica uma conta de utilizador no inquilino gerente que terá acesso aos recursos delegados, e uma função incorporada que define as permissões que cada um destes utilizadores terá para estes recursos.
+Seja qual for o método de embarque que escolher, terá de definir *autorizações.* Cada autorização especifica um **principalid** que terá acesso aos recursos delegados, e um papel incorporado que define as permissões que cada um destes utilizadores terá para estes recursos. Este **principalid** define um utilizador, grupo ou principal de serviço da Azure AD no inquilino gerente.
+
+> [!NOTE]
+> A menos que explicitamente especificado, as referências a um "utilizador" na documentação do Farol Azure podem ser aplicadas a um utilizador, grupo ou principal de serviço Azure numa autorização.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Melhores práticas para definir utilizadores e funções
 

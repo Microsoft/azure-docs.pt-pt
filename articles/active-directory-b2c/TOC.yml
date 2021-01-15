@@ -123,6 +123,8 @@
       items:
         - name: Política de inscrição ou início de sessão
           href: add-sign-up-and-sign-in-policy.md
+        - name: Política de início de sessão
+          href: add-sign-in-policy.md
         - name: Política de reposição de palavra-passe
           href: add-password-reset-policy.md
         - name: Política de alteração de palavra-passe
@@ -148,6 +150,8 @@
           href: identity-provider-azure-ad-single-tenant.md
         - name: Azure AD (Multi-inquilino)
           href: identity-provider-azure-ad-multi-tenant.md
+        - name: Azure AD B2C
+          href: identity-provider-azure-ad-b2c.md
         - name: Facebook
           href: identity-provider-facebook.md
         - name: Fornecedores de identidade genéricos

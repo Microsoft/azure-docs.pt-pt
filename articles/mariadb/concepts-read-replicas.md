@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.custom: references_regions
+ms.openlocfilehash: 576ff68961a68a8b54037d661a51a9d2de7a56df
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541169"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231796"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -24,7 +25,7 @@ Para saber mais sobre a replicação do GTID, consulte a documentação de [repl
 > [!NOTE]
 > Comunicação sem preconceitos
 >
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
@@ -38,6 +39,7 @@ Como as réplicas são apenas de leitura, não reduzem diretamente os encargos d
 A funcionalidade de réplica de leitura utiliza replicação assíncronea. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
+
 Pode criar uma réplica de leitura numa região diferente do seu servidor de origem. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
 
 Pode ter um servidor de origem em qualquer [Base de Dados Azure para a região MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Um servidor de origem pode ter uma réplica na sua região emparelhada ou nas regiões universais de réplicas. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região de origem.
@@ -118,15 +120,14 @@ Como a replicação é assíncronea, há um desfasamento entre a fonte e a répl
 > [!Tip]
 > Se falhar na réplica, o lag no momento em que desvincular a réplica da fonte indicará a quantidade de dados perdidos.
 
-Uma vez que tenha decidido que quer falhar para uma réplica, 
+Depois de decidir que quer falhar para uma réplica,
 
 1. Pare a replicação na réplica<br/>
-   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado do mestre. Uma vez iniciado a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
-    
+   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado do mestre. Depois de iniciar a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
 2. Aponte a sua aplicação para a (antiga) réplica<br/>
    Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez do mestre.
-    
-Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
+
+Depois de a sua aplicação estar a processar com sucesso leituras e escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 

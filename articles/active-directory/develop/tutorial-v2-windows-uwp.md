@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação Universal Windows Platform (UWP) que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
+title: 'Tutorial: Criar uma aplicação Universal Windows Platform (UWP) que utiliza a plataforma de identidade da Microsoft para autenticação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, você constrói uma aplicação UWP que utiliza a plataforma de identidade da Microsoft para assinar nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API em seu nome.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064424"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232340"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
@@ -59,8 +59,8 @@ Esta secção fornece instruções passo a passo para integrar uma aplicação D
 
 Este guia cria uma aplicação que exibe um botão que consulta a API do Microsoft Graph e um botão para assinar. Também exibe caixas de texto que contêm os resultados das chamadas.
 
-> [!NOTE]
-> Deseja descarregar o projeto visual studio desta amostra em vez de o criar? [Faça o download de um projeto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)e salte para o passo de registo da [aplicação](#register-your-application "passo de registo de pedidos") para configurar a amostra de código antes de ser executada.
+> [!Tip]
+> Para ver uma versão completa do projeto que você constrói neste tutorial, você pode [descarregá-lo a partir do GitHub.](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 ### <a name="create-your-application"></a>Crie a sua aplicação
 
@@ -292,8 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-> [!NOTE]
-> MSAL.NET usa métodos assíncronos para adquirir fichas ou manipular contas. Tens de apoiar as ações de UI na linha de UI. Esta é a razão da `Dispatcher.RunAsync` chamada e as precauções para `ConfigureAwait(false)` ligar.
+MSAL.NET usa métodos assíncronos para adquirir fichas ou manipular contas. Tens de apoiar as ações de UI na linha de UI. Esta é a razão da `Dispatcher.RunAsync` chamada e as precauções para `ConfigureAwait(false)` ligar.
 
 #### <a name="more-information-about-signing-out"></a>Mais informações sobre a assinatura<a name="more-information-on-sign-out"></a>
 
@@ -477,8 +476,7 @@ A API do Microsoft Graph requer o `user.read` âmbito de leitura do perfil de um
 
 Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a `Calendars.Read` permissão delegada à informação de registo de pedidos. Em seguida, adicione o `Calendars.Read` âmbito à `acquireTokenSilent` chamada.
 
-> [!NOTE]
-> Os utilizadores podem ser solicitados a obter consentimentos adicionais à medida que aumentam o número de âmbitos.
+Os utilizadores podem ser solicitados a obter consentimentos adicionais à medida que aumentam o número de âmbitos.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -504,7 +502,7 @@ Permite a [autenticação integrada em domínios federados](#enable-integrated-a
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a utilização da Biblioteca de Autenticação do Microsoft (MSAL) para autorização e autenticação em aplicações .NET:
 

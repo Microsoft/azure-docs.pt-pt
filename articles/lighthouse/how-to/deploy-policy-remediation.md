@@ -1,14 +1,14 @@
 ---
 title: Implementar uma política que pode ser corrigida
 description: Para implementar políticas que utilizem uma tarefa de reparação através do Farol Azure, você precisará criar uma identidade gerida no inquilino do cliente.
-ms.date: 12/17/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670496"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233887"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementar uma política que pode ser remediada dentro de uma subscrição delegada
 
@@ -19,9 +19,9 @@ ms.locfileid: "97670496"
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um utilizador que possa atribuir funções a uma identidade gerida no inquilino do cliente
 
-Quando você está a bordo de um cliente para o Azure Lighthouse, você usa um [modelo de Gestor de Recursos Azure](onboard-customer.md#create-an-azure-resource-manager-template) juntamente com um arquivo de parâmetros que define os utilizadores, grupos de utilizadores e diretores de serviço no seu inquilino gerente que será capaz de aceder aos recursos delegados no inquilino do cliente. No seu ficheiro de parâmetros, cada um destes utilizadores **(principalId)** é atribuído a um [papel incorporado](../../role-based-access-control/built-in-roles.md) **(roleDefinitionId**) que define o nível de acesso.
+Quando você está a bordo de um cliente para o Azure Lighthouse, você usa um [modelo de Gestor de Recursos Azure](onboard-customer.md#create-an-azure-resource-manager-template) juntamente com um arquivo de parâmetros para definir autorizações que concedem acesso a recursos delegados no inquilino do cliente. Cada autorização especifica um **principalid** que corresponde a um utilizador, grupo ou principal de serviço da Azure no inquilino gerente, e um **papelDefinitionId** que corresponde à função incorporada do [Azure](../../role-based-access-control/built-in-roles.md) que será concedida.
 
-Para permitir que um **diretor-adjunto** crie uma identidade gerida no inquilino do cliente, deve definir a sua **funçãoDefinitionId** ao Administrador de Acesso ao **Utilizador.** Embora esta função não seja geralmente suportada, pode ser usada neste cenário específico, permitindo aos utilizadores com esta permissão atribuir uma ou mais funções incorporadas específicas a identidades geridas. Estas funções são definidas na propriedade **delegadaRoleDefinitionIds.** Pode incluir qualquer papel incorporado aqui, exceto para Administrador de Acesso ao Utilizador ou Proprietário.
+Para permitir que um **diretor-adjunto** crie uma identidade gerida no inquilino do cliente, deve definir a sua **funçãoDefinitionId** ao Administrador de Acesso ao **Utilizador.** Embora esta função não seja geralmente suportada, pode ser usada neste cenário específico, permitindo que as contas dos utilizadores com esta permissão atribuam uma ou mais funções incorporadas específicas a identidades geridas. Estas funções são definidas na propriedade **delegadaRoleDefinitionIds,** e podem incluir qualquer [papel incorporado Azure suportado,](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) exceto para administrador ou proprietário de acesso ao utilizador.
 
 Após o cliente estar a bordo, o **principalId** criado nesta autorização poderá atribuir estas funções incorporadas a identidades geridas no inquilino do cliente. No entanto, não terão quaisquer outras permissões normalmente associadas à função de Administrador de Acesso ao Utilizador.
 

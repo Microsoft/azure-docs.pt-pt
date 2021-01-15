@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
-ms.openlocfilehash: 568934d6b5ecc2fbb3b6fc6588ecfd48c8306490
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a3bd4cab8123814fe360fe4ab724650c785e9f1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889461"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234119"
 ---
 # <a name="load-balance-multiple-websites"></a>Equilibrar vários websites
 
@@ -46,22 +46,22 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Cria um Balanceador de Carga do Azure. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga é utilizada para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria uma regra de balanceador de carga. Neste exemplo, é criada uma regra para a porta 80. À medida que o tráfego HTTP chega ao balanceador de carga, é encaminhado para a porta 80 de uma das VMs no conjunto de balanceadores de carga. |
-| [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) | Cria um endereço IP de front-end para o Balanceador de Carga. |
-| [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) | Cria um conjunto de endereços de back-end. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Cria a placa da rede virtual e liga-a à rede virtual e à sub-rede. |
-| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
-| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config) | Cria uma configuração IP. Tem de ter a funcionalidade Microsoft.Network/AllowMultipleIpConfigurationsPerNic ativada na sua subscrição. Apenas uma configuração pode ser designada como a configuração de IP principal por NIC ao utilizar o sinalizador make-primary. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
+| [az network lb create](/cli/azure/network/lb) | Cria um Balanceador de Carga do Azure. |
+| [az network lb probe create](/cli/azure/network/lb/probe) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga é utilizada para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
+| [az network lb rule create](/cli/azure/network/lb/rule) | Cria uma regra de balanceador de carga. Neste exemplo, é criada uma regra para a porta 80. À medida que o tráfego HTTP chega ao balanceador de carga, é encaminhado para a porta 80 de uma das VMs no conjunto de balanceadores de carga. |
+| [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) | Cria um endereço IP de front-end para o Balanceador de Carga. |
+| [az network lb address-pool create](/cli/azure/network/lb/address-pool) | Cria um conjunto de endereços de back-end. |
+| [az network nic create](/cli/azure/network/nic) | Cria a placa da rede virtual e liga-a à rede virtual e à sub-rede. |
+| [az vm availability-set create](/cli/azure/network/lb/rule) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
+| [az network nic ip-config create](/cli/azure/network/nic/ip-config) | Cria uma configuração IP. Tem de ter a funcionalidade Microsoft.Network/AllowMultipleIpConfigurationsPerNic ativada na sua subscrição. Apenas uma configuração pode ser designada como a configuração de IP principal por NIC ao utilizar o sinalizador make-primary. |
+| [az vm create](/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
+| [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Encontrará exemplos adicionais de scripts de CLI de redes na [Documentação de Descrição Geral de Redes do Azure](../cli-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

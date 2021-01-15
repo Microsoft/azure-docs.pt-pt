@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074187"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234006"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gestão para aplicações web em Azure
 
@@ -63,7 +63,7 @@ Para definir o fuso horário do servidor para a sua aplicação web:
 2. Nas **definições da App,** adicione esta definição:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *O fuso horário que deseja*
-3. Selecione **Guardar** .
+3. Selecione **Guardar**.
 
 Para os serviços de Aplicação que funcionam no Windows, consulte a saída do `tzutil /L` comando Windows. Utilize o valor da segunda linha de cada entrada. Por exemplo: "Tempo Padrão de Tonga". Alguns destes valores também estão listados na coluna **Timezone** em [Fusos Horários Predefinidos](/windows-hardware/manufacture/desktop/default-time-zones).
 
@@ -71,7 +71,7 @@ Para os serviços de Aplicação que funcionam no Linux, desaprova um valor a pa
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Porque é que os meus Contínuos WebJobs às vezes falham?
 
-Por padrão, as aplicações web são descarregadas se estiverem inativas por um período de tempo definido. Isto permite que o sistema conserva recursos. Nos planos Basic e Standard, pode ligar a definição **Always On** para manter a aplicação web carregada a toda a hora. Se a sua aplicação web executar WebJobs contínuos, deve ligar **Always On** , ou os WebJobs podem não funcionar de forma fiável. Para obter mais informações, consulte [Criar um WebJob em execução contínua.](webjobs-create.md#CreateContinuous)
+Por padrão, as aplicações web são descarregadas se estiverem inativas por um período de tempo definido. Isto permite que o sistema conserva recursos. Nos planos Basic e Standard, pode ligar a definição **Always On** para manter a aplicação web carregada a toda a hora. Se a sua aplicação web executar WebJobs contínuos, deve ligar **Always On**, ou os WebJobs podem não funcionar de forma fiável. Para obter mais informações, consulte [Criar um WebJob em execução contínua.](webjobs-create.md#CreateContinuous)
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como consigo o endereço IP de saída para a minha aplicação web?
 
@@ -131,7 +131,7 @@ Para rever os registos da WebJob:
 2. Selecione o WebJob.
 3. Selecione o botão **de saída toggle.**
 4. Para descarregar o ficheiro de saída, selecione o link **Descarregar.**
-5. Para execuções individuais, **selecione Individual Invoke** .
+5. Para execuções individuais, **selecione Individual Invoke**.
 6. Selecione o botão **de saída toggle.**
 7. Selecione o link de descarregamento.
 
@@ -185,8 +185,8 @@ Tem duas opções para capturar um vestígio de F12:
 ### <a name="f12-console-output"></a>Saída da consola F12
 
 1. Selecione o **separador Consola.**
-2. Para cada separador que contenha mais de zero itens, selecione o separador **(Erro** , **Aviso** ou **Informação).** Se o separador não for selecionado, o ícone do separador é cinzento ou preto quando afasta o cursor.
-3. Clique com o botão direito na área da mensagem do painel e, em seguida, selecione **Copiar tudo** .
+2. Para cada separador que contenha mais de zero itens, selecione o separador **(Erro**, **Aviso** ou **Informação).** Se o separador não for selecionado, o ícone do separador é cinzento ou preto quando afasta o cursor.
+3. Clique com o botão direito na área da mensagem do painel e, em seguida, selecione **Copiar tudo**.
 4. Cole o texto copiado num ficheiro e guarde o ficheiro.
 
 Para visualizar um ficheiro HAR, pode utilizar o [espectador HAR](http://www.softwareishard.com/har/viewer/).
@@ -317,3 +317,8 @@ Também pode especificar os tipos de MIME dinâmicos e estáticos específicos q
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como posso migrar de um ambiente no local para o Serviço de Aplicações?
 
 Para migrar sites de servidores web Windows e Linux para o Serviço de Aplicações, pode utilizar o Assistente de Migração do Serviço de Aplicações Azure. A ferramenta de migração cria aplicações web e bases de dados em Azure, conforme necessário, e depois publica o conteúdo. Para mais informações, consulte [o Assistente de Migração do Serviço de Aplicações Azure.](https://appmigration.microsoft.com/)
+
+## <a name="why-is-my-certificate-issued-for-11-months-and-not-for-a-full-year"></a>Por que motivo o meu certificado foi emitido para 11 meses e não para um ano inteiro?
+
+Para todos os certificados emitidos após 01/09/2020, a duração máxima é agora de 397 dias. Os certificados emitidos antes de 01/09/2020 têm uma validade máxima de 825 dias até serem renovados, terem a chave reintroduzida, etc. Qualquer certificado renovado após 01/09/2020 será afetado por esta alteração e os utilizadores poderão observar uma validade mais curta nos certificados renovados.
+O GoDaddy implementou um serviço de subscrição que cumpre os novos requisitos enquanto respeita os certificados de cliente existentes. Trinta dias antes da expiração do certificado emitido recentemente, o serviço emite automaticamente um segundo certificado que prolonga a duração até à data de expiração original. O Serviço de Aplicações está a trabalhar com o GoDaddy para contornar esta alteração e garantir que os clientes recebem a duração completa dos certificados.

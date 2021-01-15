@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653287"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232391"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -292,10 +292,7 @@ Um *login não baseado em palavra-passe* é aquele em que o utilizador não digi
 - Voz
 - PIN
 
-> [!NOTE]
-> Os Tokens de Atualização Primária (PRT) no Windows 10 são segregados com base na credencial. Por exemplo, o Windows Hello e a palavra-passe têm os respetivos PRTs, isolados uns dos outros. Quando um utilizador se inscreve com uma credencial Hello (PIN ou biometria) e, em seguida, altera a palavra-passe, o PRT baseado na palavra-passe obtido anteriormente será revogado. Entrar de volta com uma senha invalida o antigo PRT e pede um novo.
->
-> Os tokens de atualização não são invalidados ou revogados quando usados para obter um novo token de acesso e atualização token.  No entanto, a sua aplicação deve descartar a antiga assim que for utilizada e substituí-la pela nova, uma vez que o novo token tem um novo tempo de validade na sua.
+Confira [os Tokens Primary Refresh para](../devices/concept-primary-refresh-token.md) mais detalhes sobre tokens de atualização primária.
 
 ## <a name="next-steps"></a>Passos seguintes
 
