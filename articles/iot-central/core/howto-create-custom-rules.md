@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126761"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220271"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Expandir o Azure IoT Central com regras personalizadas através do Stream Analytics, das Funções do Azure do SendGrid
 
@@ -46,7 +46,7 @@ Crie uma aplicação IoT Central no site do [gestor de aplicações Azure IoT Ce
 | URL | Aceite o prefixo padrão ou escolha o seu próprio prefixo URL único |
 | Diretório | Seu inquilino do Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Região | A sua região mais próxima |
+| Region | A sua região mais próxima |
 
 Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 
@@ -130,11 +130,11 @@ O seu espaço de nomes do Event Hubs parece a seguinte imagem:
 A sua aplicação de função necessita de uma chave API SendGrid para enviar mensagens de correio e-mail. Para criar uma chave SendGrid API:
 
 1. No portal Azure, navegue para a sua conta SendGrid. Em **seguida,** escolha Gerir para aceder à sua conta SendGrid.
-1. Na sua conta SendGrid, escolha **Definições**e, em seguida, **Teclas API**. Escolha **criar a chave API:**
+1. Na sua conta SendGrid, escolha **Definições** e, em seguida, **Teclas API**. Escolha **criar a chave API:**
 
     ![Criar a chave API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
 
-1. Na página **'Criar Chave API',** crie uma chave chamada **AzureFunctionAccesss** com permissões **de Acesso Completo.**
+1. Na página **'Criar Chave API',** crie uma chave chamada **AzureFunctionAcces** com permissões **de Acesso Completo.**
 1. Tome nota da Chave API, precisa quando configurar a sua aplicação de função.
 
 ## <a name="define-the-function"></a>Definir a função
@@ -155,7 +155,7 @@ O portal cria uma função predefinida chamada **HttpTrigger1**:
 Para enviar e-mails com SendGrid, tem de configurar as encadernações para a sua função da seguinte forma:
 
 1. **Selecione Integrar,** escolha a saída **HTTP ($return)** e, em seguida, selecione **eliminar**.
-1. Escolha **+ Saída Nova,** em seguida, escolha **SendGrid**e, em seguida, escolha **Selecione**. Escolha **instalar** para instalar a extensão SendGrid.
+1. Escolha **+ Saída Nova,** em seguida, escolha **SendGrid** e, em seguida, escolha **Selecione**. Escolha **instalar** para instalar a extensão SendGrid.
 1. Quando a instalação estiver concluída, selecione **Use function return value**. Adicionar um endereço válido **Para receber** notificações por e-mail.  Adicionar um **válido Do endereço** para usar como remetente de e-mail.
 1. Selecione **novo** ao lado da Definição de **Aplicação da Chave API da SendGrid**. **Insira o SendGridAPIKey** como a chave e a chave API SendGrid que notou anteriormente como o valor. Em seguida, selecione **Criar**.
 1. Escolha **Guardar** para guardar as ligações SendGrid para a sua função.
@@ -249,7 +249,7 @@ Esta solução utiliza uma consulta stream Analytics para detetar quando um disp
     | Espaço de nomes do hub de eventos | O seu espaço de nomes do Centro de Eventos |
     | Nome do Hub de Eventos | Utilizar o ex-exposição existente - **centralexport** |
 
-1. Em **Topologia de Jobs,** selecione **Outputs,** escolha **+ Adicionar**e, em seguida, escolha a **função Azure**.
+1. Em **Topologia de Jobs,** selecione **Outputs,** escolha **+ Adicionar** e, em seguida, escolha **Azure Function**.
 1. Utilize as informações na tabela a seguir para configurar a saída e, em seguida, escolha **Guardar:**
 
     | Definição | Valor |

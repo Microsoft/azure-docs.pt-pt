@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744223"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222416"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Descubra o estado atual da colaboração externa na sua organização 
 
@@ -46,9 +46,9 @@ As organizações externas podem ser determinadas pelos nomes de domínio dos en
 
 ### <a name="use-allow-or-deny-lists"></a>Utilizar listas de permitir ou negar
 
-Outra forma de descobrir com quem colabora atualmente, ou com quem bloqueou a colaboração, é ver se adicionou alguma organização às suas [listas de admissão ou negação.](../external-identities/allow-deny-list.md)
+Considere se a sua organização quer permitir a colaboração apenas com organizações específicas. Em alternativa, considere se a sua organização quer bloquear a colaboração com organizações específicas.  Ao nível dos inquilinos, existe uma [lista de permitis ou de negação,](../external-identities/allow-deny-list.md)que pode ser usada para controlar os convites e resgates B2B globais, independentemente da fonte (por exemplo, Equipas, SharePoint e Portal Azure).
+Se estiver a utilizar a gestão de direitos, também pode estender os pacotes de acesso a um subconjunto dos seus parceiros, utilizando a definição de organizações conectadas específicas, conforme mostrado abaixo.
 
-Considere se a sua organização quer permitir a colaboração apenas com organizações específicas. Considere também se a sua organização quer bloquear a colaboração com organizações específicas. Estas definições podem aplicar-se ao resgate global do B2B ou apenas a um pacote de acesso específico.
 
 ![Screenshot de permitir a lista de negação na criação de um novo pacote de acesso.](media/secure-external-access/2-new-access-package.png)
 

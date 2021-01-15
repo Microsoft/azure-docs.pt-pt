@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
+ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: ce13e0431827bb2c72a03ca33a1ecaefc53d4970
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 19cebefd64f5b6dce9c265a591c8d5072fcd83db
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702531"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222739"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidade de interpretação: explicações de modelos no machine learning automatizado (pré-visualização)
 

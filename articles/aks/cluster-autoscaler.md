@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoescalador de cluster para escalar automati
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542646"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223147"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para satisfazer as exigências das aplicações no Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Para acompanhar as exigências da aplicação no Serviço Azure Kubernetes (AKS)
 
 Este artigo mostra-lhe como ativar e gerir o cluster autoscaler num cluster AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo requer que esteja a executar a versão 2.0.76 do Azure CLI ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -97,7 +97,7 @@ Demora alguns minutos a atualizar o cluster e a configurar as definições de au
 > [!IMPORTANT]
 > Se tiver várias piscinas de nós no seu cluster AKS, salte para a [autoestamos com a secção de piscinas de vários agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Os agrupamentos com piscinas de vários agentes requerem a utilização do conjunto de `az aks nodepool` comandos para alterar propriedades específicas do conjunto de nós em vez de `az aks` .
 
-No passo anterior para criar um cluster AKS ou atualizar um conjunto de nós existente, a contagem mínima de nó de autoescalador foi definida para *1* , e a contagem máxima de nós foi definida para *3* . À medida que a sua aplicação exige alterações, poderá ter de ajustar a contagem de nós de autoescalador do cluster.
+No passo anterior para criar um cluster AKS ou atualizar um conjunto de nós existente, a contagem mínima de nó de autoescalador foi definida para *1*, e a contagem máxima de nós foi definida para *3*. À medida que a sua aplicação exige alterações, poderá ter de ajustar a contagem de nós de autoescalador do cluster.
 
 Para alterar a contagem de nós, utilize o comando [de atualização az aks.][az-aks-update]
 
@@ -130,14 +130,15 @@ Também pode configurar mais detalhes granulares do autoescalador do cluster alt
 | escala-down-un-desempreed-tempo         | Quanto tempo um nó deve ser despromugonado antes de ser elegível para escala para baixo                  | 10 minutos    |
 | escala-down-unready-tempo          | Quanto tempo um nó não redondo deve ser desconso antes de ser elegível para escala para baixo         | 20 minutos    |
 | limiar de redução da escala | Nível de utilização do nó, definido como soma de recursos solicitados divididos por capacidade, abaixo do qual um nó pode ser considerado para escala para baixo | 0,5 |
-| max-graciosa-rescisão-se     | O número máximo de segundos que o autoescalador do cluster aguarda a terminação da cápsula ao tentar reduzir um nó. | 600 segundos   |
+| max-graciosa-rescisão-se     | Número máximo de segundos que o autoscaler do cluster aguarda a terminação do pod ao tentar reduzir um nó | 600 segundos   |
 | balanço-similar-grupos de nó      | Deteta piscinas de nó semelhantes e equilibra o número de nós entre eles                 | false         |
-| expansor                         | Tipo de [expansor](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) de piscina de nó para ser usado em escala. Valores possíveis: `most-pods` `random` , `least-waste` | aleatório | 
+| expansor                         | Tipo de [expansor](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) de piscina de nó para ser usado em escala. Valores possíveis: `most-pods` `random` , `least-waste` , `priority` | aleatório | 
 | skip-nodes-com-local-armazenamento    | Se o verdadeiro autoescalador de clusters nunca apagará os nó com cápsulas com armazenamento local, por exemplo, EmptyDir ou HostPath | true |
 | skip-nodes-com-sistema-pods      | Se o verdadeiro autoescalador de cluster nunca apagará nós com cápsulas do sistema kube (exceto para o DaemonSet ou cápsulas de espelho) | true | 
-| max-empty-granel-delete            | Número máximo de nós vazios que podem ser apagados ao mesmo tempo.                      | 10 nódoas      |
-| novo pod-escala-up-delay           | Para cenários como a escala de burst/lote em que você não quer que a AC aja antes que o programador de kubernetes possa agendar todas as cápsulas, você pode dizer à CA para ignorar cápsulas não programadas antes que tenham uma certa idade".                                                                                                                | 10 segundos    |
-| max-total-não-percentagem     | Percentagem máxima de nós não aprovados no aglomerado. Depois de ultrapassada esta percentagem, a AC suspende as operações | 45% | 
+| max-empty-granel-delete            | Número máximo de nós vazios que podem ser apagados ao mesmo tempo                       | 10 nódoas      |
+| novo pod-escala-up-delay           | Para cenários como a escala de burst/lote onde você não quer que a AC aja antes que o programador de kubernetes possa agendar todas as cápsulas, você pode dizer a CA para ignorar cápsulas não programadas antes que eles tenham uma certa idade.                                                                                                                | 0 segundos    |
+| max-total-não-percentagem     | Percentagem máxima de nós não aprovados no aglomerado. Depois de ultrapassada esta percentagem, a AC suspende as operações | 45% |
+| tempo de provisão max-nó          | Tempo máximo o autoscaler espera que um nó seja a provisionado                           | 15 minutos    |   
 | ok-total-não-contagem           | Número de nós não aprovados permitidos, independentemente da percentagem máxima total-não-primo            | 3 nosdes       |
 
 > [!IMPORTANT]
@@ -249,7 +250,7 @@ Para saber mais sobre o que é registado a partir do autoescalador, leia as FAQ 
 
 O autoescalador de cluster pode ser utilizado juntamente com [várias piscinas de nós][aks-multiple-node-pools] ativadas. Siga este documento para aprender como ativar várias piscinas de nós e adicionar piscinas de nó adicionais a um cluster existente. Ao utilizar ambas as funcionalidades em conjunto, ative o autoescalador de cluster em cada piscina de nó individual no cluster e pode passar regras de autoscalagem únicas para cada um.
 
-O comando abaixo pressupõe que seguiu as [instruções iniciais](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) no início deste documento e pretende atualizar a contagem máxima de um número máximo de piscina existente de *3* a *5* . Utilize o comando [de atualização de nodepool az aks][az-aks-nodepool-update] para atualizar as definições de um grupo de nós existentes.
+O comando abaixo pressupõe que seguiu as [instruções iniciais](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) no início deste documento e pretende atualizar a contagem máxima de um número máximo de piscina existente de *3* a *5*. Utilize o comando [de atualização de nodepool az aks][az-aks-nodepool-update] para atualizar as definições de um grupo de nós existentes.
 
 ```azurecli-interactive
 az aks nodepool update \

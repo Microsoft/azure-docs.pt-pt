@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd5197f99f7187e21eb466bfa213f68a7638e24d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045347"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222552"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -34,7 +34,7 @@ Também pode fazer alterações no seu gráfico utilizando a amostra do Explorad
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
-## <a name="create-relationships"></a>Criar relacionamentos
+## <a name="create-relationships"></a>Criar relações
 
 As relações descrevem como diferentes gémeos digitais estão ligados entre si, o que constitui a base do gráfico gémeo.
 
@@ -157,7 +157,7 @@ Aqui está a saída da consola do programa acima:
 > [!TIP]
 > O gráfico gémeo é um conceito de criação de relações entre gémeos. Se quiser ver a representação visual do gráfico gémeo, consulte a secção [*visualização*](how-to-manage-graph.md#visualization) deste artigo. 
 
-### <a name="create-a-twin-graph-from-a-csv-file"></a>Criar um gráfico gémeo a partir de um ficheiro CSV
+## <a name="create-graph-from-a-csv-file"></a>Criar gráfico a partir de um ficheiro CSV
 
 Em casos práticos de utilização, as hierarquias gémeas serão muitas vezes criadas a partir de dados armazenados numa base de dados diferente, ou talvez numa folha de cálculo ou num ficheiro CSV. Esta secção ilustra como ler dados a partir de um ficheiro CSV e criar um gráfico duplo a partir dele.
 

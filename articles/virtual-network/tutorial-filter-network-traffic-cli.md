@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7589b13dc517a23e8d9d65907fb3342e4e2490a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d2cabecfb2a70e6d325129335c066bb35aeb02ba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000594"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221906"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar o tráfego da rede com um grupo de segurança de rede usando o Azure CLI
 
@@ -231,7 +231,7 @@ curl myVmWeb
 
 Logout do *myVmMgmt* VM. Para confirmar que pode aceder ao servidor web *myVmWeb* a partir de fora do Azure, insira `curl <publicIpAddress>` a partir do seu próprio computador. A ligação tem sucesso, uma vez que a porta 80 é permitida a entrada da Internet para o grupo de segurança da aplicação *myAsgWebServers* em que se encontra a interface de rede anexada ao *myVmWeb* VM.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure/group) o grupo de recursos e todos os recursos que contém.
 
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
+Neste artigo, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](./network-security-groups-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
 
 O Azure encaminha o tráfego entre sub-redes por predefinição. Em alternativa, pode optar por encaminhar o tráfego entre sub-redes através de uma VM que funcione, por exemplo, como uma firewall. Para saber como, consulte [Criar uma tabela de rotas.](tutorial-create-route-table-cli.md)

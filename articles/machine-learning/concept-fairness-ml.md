@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.custom: responsible-ml
+ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335763"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223096"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a equidade nos modelos de aprendizagem automática (pré-visualização)
 
@@ -51,7 +52,7 @@ Juntos, estes componentes permitem que cientistas de dados e líderes empresaria
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a equidade nos modelos de aprendizagem automática
 
-No pacote fairlearn open-source, a equidade é conceptualizada embora uma abordagem conhecida como **justiça de grupo** , que pergunta: Que grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. As características sensíveis são transmitidas a um estimador no pacote fairlearn de código aberto como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer de sistemas deve ser sensível a estas características ao avaliar a equidade do grupo. 
+No pacote fairlearn open-source, a equidade é conceptualizada embora uma abordagem conhecida como **justiça de grupo**, que pergunta: Que grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. As características sensíveis são transmitidas a um estimador no pacote fairlearn de código aberto como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer de sistemas deve ser sensível a estas características ao avaliar a equidade do grupo. 
 
 Algo a ter em conta é se estas funcionalidades contêm implicações de privacidade devido a dados privados. Mas a palavra "sensível" não implica que estas características não devam ser usadas para fazer previsões.
 

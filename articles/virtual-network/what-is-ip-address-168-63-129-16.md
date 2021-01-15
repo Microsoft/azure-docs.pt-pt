@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 03c1badf984fb150631c157f3fdc07856b60e965
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1e304bc30a48c92fdff576723dae6af1e26ef3da
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088902"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222586"
 ---
 # <a name="what-is-ip-address-1686312916"></a>O que é endereço IP 168.63.129.16?
 
@@ -37,7 +37,7 @@ O endereço IP 168.63.129.16 é um endereço IP público virtual que é usado pa
 
 ## <a name="scope-of-ip-address-1686312916"></a>Âmbito de endereço IP 168.63.129.16
 
-O endereço IP público 168.63.129.16 é utilizado em todas as regiões e nuvens nacionais. Este endereço IP público especial é propriedade da Microsoft e não será alterado. Recomendamos que permita este endereço IP em quaisquer políticas locais (na VM) de firewall (direção de saída). A comunicação entre este endereço IP especial e os recursos é segura porque apenas a plataforma Azure interna pode obter uma mensagem a partir deste endereço IP. Se este endereço estiver bloqueado, comportamentos inesperados podem ocorrer em vários cenários. 168.63.129.16 é um [IP virtual do nó de anfitrião](../virtual-network/security-overview.md#azure-platform-considerations) e, como tal, não está sujeito a rotas definidas pelo utilizador.
+O endereço IP público 168.63.129.16 é utilizado em todas as regiões e nuvens nacionais. Este endereço IP público especial é propriedade da Microsoft e não será alterado. Recomendamos que permita este endereço IP em quaisquer políticas locais (na VM) de firewall (direção de saída). A comunicação entre este endereço IP especial e os recursos é segura porque apenas a plataforma Azure interna pode obter uma mensagem a partir deste endereço IP. Se este endereço estiver bloqueado, comportamentos inesperados podem ocorrer em vários cenários. 168.63.129.16 é um [IP virtual do nó de anfitrião](./network-security-groups-overview.md#azure-platform-considerations) e, como tal, não está sujeito a rotas definidas pelo utilizador.
 
 - O Agente VM requer comunicação de saída sobre as portas 80/tcp e 32526/tcp com o WireServer (168.63.129.16). Estes devem estar abertos na firewall local na VM. A comunicação sobre estes portos com 168.63.129.16 não está sujeita aos grupos de segurança de rede configurados.
 
@@ -49,5 +49,5 @@ O endereço IP público 168.63.129.16 é utilizado em todas as regiões e nuvens
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Grupos de segurança](security-overview.md)
+- [Grupos de segurança](./network-security-groups-overview.md)
 - [Criar, alterar ou eliminar um grupo de segurança de rede](manage-network-security-group.md)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97690618de5d58fa4022d01fa36a872f9d220083
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75350145"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221685"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego da rede com um grupo de segurança de rede utilizando o portal Azure
 
-Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste tutorial, ficará a saber como:
+Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um grupo de segurança de rede e regras de segurança.
@@ -41,7 +41,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. 
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. 
 2. Selecione **Redes** e, em seguida, selecione **Rede virtual**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **Criar**:
 
@@ -51,7 +51,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     | Espaço de endereços           | 10.0.0.0/16                                        |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **Criar novo** e introduza *myResourceGroup*. |
-    | Localização                | Selecione **East US**.                                |
+    | A localização                | Selecione **East US**.                                |
     | Nome da Sub-rede            | mySubnet                                           |
     | Sub-rede - Intervalo de endereços  | 10.0.0.0/24                                        |
 
@@ -59,7 +59,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Os grupos de segurança de aplicações permitem-lhe agrupar servidores com funções semelhantes, como servidores Web.
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. 
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. 
 2. Na caixa **Pesquisar no Marketplace**, introduza *Grupo de segurança de aplicações*. Selecione **Grupo de segurança de aplicações** quando aparecer nos resultados da pesquisa, selecione novamente **Grupo de segurança de aplicações** em **Tudo** e, em seguida, selecione **Criar**.
 3. Introduza, ou selecione as seguintes informações e, em seguida, selecione **Criar**:
 
@@ -81,7 +81,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. 
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. 
 2. Selecione **Rede** e selecione **Grupo de segurança de rede**.
 3. Introduza, ou selecione as seguintes informações e, em seguida, selecione **Criar**:
 
@@ -114,7 +114,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgWebServers** para **Grupo de segurança de aplicações**.  |
     | Intervalos de portas de destino | Introduza 80.443                                                                                                    |
     | Protocolo                | Selecione TCP                                                                                                      |
-    | Nome                    | Allow-Web-All                                                                                                   |
+    | Name                    | Allow-Web-All                                                                                                   |
 
 3. Conclua o passo 2 novamente, com os seguintes valores:
 
@@ -124,7 +124,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | Intervalos de portas de destino | Introduza 3389                                                                                                      |
     | Protocolo                | Selecione TCP                                                                                                      |
     | Prioridade                | Introduza 110                                                                                                       |
-    | Nome                    | Allow-RDP-All                                                                                                   |
+    | Name                    | Allow-RDP-All                                                                                                   |
 
     Neste tutorial, o RDP (porta 3389) está exposto à Internet para a VM atribuída ao grupo de segurança de aplicações *myAsgMgmtServers*. Em ambientes de produção, em vez de expor a porta 3389 à Internet, recomenda-se que ligue aos recursos do Azure que quer gerir com uma VPN ou da ligação de rede privada.
 
@@ -138,7 +138,7 @@ Crie duas VMs na rede virtual.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. 
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. 
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
 3. Introduza ou selecione as seguintes informações e aceite as predefinições para as definições restantes:
 
@@ -146,8 +146,8 @@ Crie duas VMs na rede virtual.
     |---|---|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-    |Nome|myVmWeb|
-    |Localização| Selecione **East US**.|
+    |Name|myVmWeb|
+    |A localização| Selecione **East US**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
@@ -182,7 +182,7 @@ Quando o portal criou as VMs, criou uma interface de rede para cada VM e associo
 ## <a name="test-traffic-filters"></a>Testar os filtros de tráfego
 
 1. Ligue à VM *myVmMgmt*. Introduza *myVmMgmt* na caixa de pesquisa, na parte superior do portal. Quando a opção **myVmMgmt** aparecer nos resultados de pesquisa, selecione-a. Selecione o botão **Ligar**.
-2. Selecione **Download FICHEIRO RDP**.
+2. Selecione **Transferir ficheiro RDP**.
 3. Abra o ficheiro rdp transferido e selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
@@ -211,7 +211,7 @@ Quando o portal criou as VMs, criou uma interface de rede para cada VM e associo
   
 11. Para confirmar se consegue aceder ao servidor Web *myVmWeb* a partir da Internet, abra um browser no computador e navegue para `http://<public-ip-address-from-previous-step>`. Consegue ver o ecrã de boas-vindas do IIS porque a porta 80 pode receber tráfego de entrada da Internet para o grupo de segurança de aplicações *myAsgWebServers* no qual a interface de rede ligada à VM *myVmWeb* se encontra.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
@@ -221,7 +221,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
+Neste tutorial, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](./network-security-groups-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
 
 O Azure encaminha o tráfego entre sub-redes por predefinição. Em alternativa, pode optar por encaminhar o tráfego entre sub-redes através de uma VM que funcione, por exemplo, como uma firewall. Para saber como criar uma tabela de rotas, avance para o tutorial seguinte.
 

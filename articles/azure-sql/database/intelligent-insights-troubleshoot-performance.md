@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
-ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488838"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220393"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Resolução de problemas Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho com Insights Inteligentes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,9 @@ Os resultados de registo de diagnóstico bloqueiam detalhes que pode utilizar co
 
 A forma mais simples e segura de mitigar o problema é manter as transações curtas e reduzir a pegada de bloqueio das consultas mais caras. Pode dividir um grande lote de operações em operações menores. As boas práticas consistem em reduzir a pegada de bloqueio de consulta, tornando a consulta o mais eficiente possível. Reduza as grandes análises porque aumentam as probabilidades de impasse e afetam negativamente o desempenho global da base de dados. Para consultas identificadas que causem bloqueio, pode criar novos índices ou adicionar colunas ao índice existente para evitar as digitalizações da tabela.
 
-Para obter mais sugestões, consulte [Como resolver problemas de bloqueio causados pela escalada de bloqueio no SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Para mais sugestões, consulte:
+- [Compreender e resolver problemas de bloqueio do Azure SQL](understand-resolve-blocking.md)
+- [Como resolver problemas de bloqueio que são causados pela escalada de bloqueio no SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)
 
 ## <a name="increased-maxdop"></a>AUMENTO DO MAXDOP
 

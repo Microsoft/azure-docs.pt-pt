@@ -7,18 +7,18 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 4f72c22ee26375e025af7b3a391fdd45187e7041
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a3fdb776643e2cf817c50fb9b716f7315151e21
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006273"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223419"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Mover a configuração IP pública do Azure para outra região usando a Azure PowerShell
 
 Existem vários cenários em que você gostaria de mover as suas configurações de IP público azure existentes de uma região para outra. Por exemplo, pode querer criar um IP público com a mesma configuração e sku para testes. Você também pode querer mover uma configuração ip pública para outra região como parte do planeamento de recuperação de desastres.
 
-**Os IPs públicos do Azure são específicos da região e não podem ser movidos de uma região para outra.** No entanto, pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente de um IP público.  Em seguida, pode encenar o recurso noutra região exportando o IP público para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantar o modelo para a nova região.  Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [grupos de recursos de exportação para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+**Os IPs públicos do Azure são específicos da região e não podem ser movidos de uma região para outra.** No entanto, pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente de um IP público.  Em seguida, pode encenar o recurso noutra região exportando o IP público para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantar o modelo para a nova região.  Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [grupos de recursos de exportação para modelos](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Existem vários cenários em que você gostaria de mover as suas configurações
 
 - Verifique se a sua subscrição Azure permite criar IPs públicos na região alvo que é utilizada. Contacte o suporte para ativar a quota necessária.
 
-- Certifique-se de que a sua subscrição dispõe de recursos suficientes para suportar a adição de IPs públicos para este processo.  Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que a sua subscrição dispõe de recursos suficientes para suportar a adição de IPs públicos para este processo.  Veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
@@ -44,19 +44,19 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exporte o modelo e implemente a partir de um script
 
-1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções no ecrã:
+1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções no ecrã:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtenha o ID de recursos do IP público que pretende mover-se para a região alvo e colocá-lo numa variável usando [Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+2. Obtenha o ID de recursos do IP público que pretende mover-se para a região alvo e colocá-lo numa variável usando [Get-AzPublicIPAddress:](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte a rede virtual de origem para um ficheiro .json para o diretório onde executa o comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte a rede virtual de origem para um ficheiro .json para o diretório onde executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -109,7 +109,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
              ]             
     ```
   
-7. Para obter códigos de localização da região, pode utilizar o cmdlet [Get-AzLocation AzUre](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) PowerShell executando o seguinte comando:
+7. Para obter códigos de localização da região, pode utilizar o cmdlet [Get-AzLocation AzUre](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) PowerShell executando o seguinte comando:
 
     ```azurepowershell-interactive
 
@@ -118,7 +118,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
     ```
 8. Também pode alterar outros parâmetros no modelo se escolher, e é opcional dependendo dos seus requisitos:
 
-    * **Sku** - Pode alterar o sku do IP público na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >  **name** no ficheiro **\<resource-group-name> .json:**
+    * **Sku** - Pode alterar o sku do IP público na configuração de padrão para básico ou básico para padrão, alterando a propriedade do nome **sku**  >   no ficheiro **\<resource-group-name> .json:**
 
          ```json
             "resources": [
@@ -133,7 +133,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
                     },
          ```
 
-         Para obter mais informações sobre as diferenças entre ips públicos básicos e padrão sku, consulte [Criar, alterar ou eliminar um endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+         Para obter mais informações sobre as diferenças entre ips públicos básicos e padrão sku, consulte [Criar, alterar ou eliminar um endereço IP público](./virtual-network-public-ip-address.md).
 
     * **Método de atribuição de IP público** e tempo limite de marcha **lenta** - Pode alterar ambas as opções no modelo alterando a propriedade **publicIPAllocationMethod** de **Dynamic** para **Static** ou **Static** to **Dynamic**. O tempo limite de marcha lenta pode ser alterado alterando a propriedade **idleTimeoutInMinutes** para a quantidade desejada.  O padrão é **4:**
 
@@ -160,17 +160,17 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
                 }            
          ```
 
-        Para obter mais informações sobre os métodos de atribuição e os valores de tempo limite inativo, consulte [Criar, alterar ou eliminar um endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obter mais informações sobre os métodos de atribuição e os valores de tempo limite inativo, consulte [Criar, alterar ou eliminar um endereço IP público](./virtual-network-public-ip-address.md).
 
 
 9. Guarde o ficheiro **\<resource-group-name> .json.**
 
-10. Criar um grupo de recursos na região alvo para que o IP público-alvo seja implantado utilizando [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Criar um grupo de recursos na região alvo para que o IP público-alvo seja implantado utilizando [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implementar o ficheiro **\<resource-group-name> .json** editado para o grupo de recursos criado no passo anterior utilizando o [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implementar o ficheiro **\<resource-group-name> .json** editado para o grupo de recursos criado no passo anterior utilizando o [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -178,7 +178,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
     
     ```
 
-12. Para verificar os recursos foram criados na região alvo, utilize o [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [o Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+12. Para verificar os recursos foram criados na região alvo, utilize o [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [o Get-AzPublicIPAddress:](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
     
     ```azurepowershell-interactive
 
@@ -193,7 +193,7 @@ Os passos seguintes mostram como preparar o IP público para o movimento de conf
     ```
 ## <a name="discard"></a>Eliminar 
 
-Após a implementação, se pretender recomeçar ou descartar o ip público no alvo, elimine o grupo de recursos criado no alvo e o IP público movido será eliminado.  Para remover o grupo de recursos, utilize [o Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Após a implementação, se pretender recomeçar ou descartar o ip público no alvo, elimine o grupo de recursos criado no alvo e o IP público movido será eliminado.  Para remover o grupo de recursos, utilize [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -203,7 +203,7 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>Limpeza
 
-Para cometer as alterações e completar o movimento da rede virtual, elimine a rede virtual de origem ou o grupo de recursos, utilize [o Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [remove-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0):
+Para cometer as alterações e completar o movimento da rede virtual, elimine a rede virtual de origem ou o grupo de recursos, utilize [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [remove-AzPublicIPAddress](/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -222,5 +222,5 @@ Remove-AzPublicIpAddress -Name <source-publicip-name> -ResourceGroupName <resour
 Neste tutorial, mudou um IP público do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

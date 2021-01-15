@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-network
 author: KumudD
 ms.service: virtual-network
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 49a9917d925ebc7a36d14ff6679ad4b1737f9627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: defcce3a00a38c88e1bff944075f0987fbdedd4b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515901"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225669"
 ---
  Os seguintes limites aplicam-se à ligação privada Azure:
 
@@ -26,4 +26,6 @@ ms.locfileid: "86515901"
 |Número de pontos finais privados no mesmo serviço de ligação privada   |  1000       |
 |Número de pontos finais privados por cofre chave | 64 |
 |Número de cofres-chave com pontos finais privados por subscrição | 400 |
+|Número de grupos privados de zona de DNS que podem ser ligados a um ponto final privado | 1 |
+|Número de zonas DNS em cada grupo | 5 |
 

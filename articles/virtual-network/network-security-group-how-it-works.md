@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cf0345ccffe95286b95607c6c7322752df6342b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458200"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223283"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Como os grupos de segurança da rede filtram o tráfego da rede
 <a name="network-security-groups"></a>
 
-Pode utilizar um grupo de segurança da rede Azure para filtrar o tráfego da rede de e para os recursos Azure numa rede virtual Azure. Os grupos de segurança de rede contêm [regras de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) que permitem ou negam o tráfego de entrada ou de saída de e para vários tipos de recursos do Azure. Para cada regra, pode especificar a origem e o destino, a porta e o protocolo.
+Pode utilizar um grupo de segurança da rede Azure para filtrar o tráfego da rede de e para os recursos Azure numa rede virtual Azure. Os grupos de segurança de rede contêm [regras de segurança](./network-security-groups-overview.md#security-rules) que permitem ou negam o tráfego de entrada ou de saída de e para vários tipos de recursos do Azure. Para cada regra, pode especificar a origem e o destino, a porta e o protocolo.
 
 Pode implementar recursos de vários serviços do Azure numa rede virtual do Azure. Para obter uma lista completa, veja [Services that can be deployed into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (Serviços que podem ser implementados numa rede virtual). Pode associar nenhum ou um grupo de segurança de rede à [sub-rede](virtual-network-manage-subnet.md#change-subnet-settings) e à [interface de rede](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group) de cada rede virtual numa máquina virtual. O mesmo grupo de segurança de rede pode ser associado a tantas sub-redes e interfaces de rede que escolher.
 
@@ -37,7 +37,7 @@ Veja a imagem anterior, juntamente com o texto seguinte, para compreender de que
 
 Relativamente ao tráfego de entrada, o Azure processa primeiro as regras num grupo de segurança de rede associado a uma sub-rede, se existir alguma, e, depois, as regras num grupo de segurança de rede associado à interface de rede, se existir alguma.
 
-- **VM1**: as regras de segurança em *NSG1* são processadas, uma vez que está associado a *Subnet1* e *VM1* está em *Subnet1*. A menos que tenha criado uma regra que permita a porta de entrada 80, o tráfego é negado pela regra de segurança predefinida [DenyAllInbound](https://docs.microsoft.com/azure/virtual-network/security-overview#denyallinbound) e nunca é avaliado por *NSG2*, pois *NSG2* está associado à interface de rede. Se *NSG1* tiver uma regra de segurança que permite a porta 80, o tráfego é processado por *NSG2*. Para permitir a porta 80 na máquina virtual, tanto *NSG1*, como *NSG2*, têm de ter uma regra que permite a porta 80 a partir da Internet.
+- **VM1**: as regras de segurança em *NSG1* são processadas, uma vez que está associado a *Subnet1* e *VM1* está em *Subnet1*. A menos que tenha criado uma regra que permita a porta de entrada 80, o tráfego é negado pela regra de segurança predefinida [DenyAllInbound](./network-security-groups-overview.md#denyallinbound) e nunca é avaliado por *NSG2*, pois *NSG2* está associado à interface de rede. Se *NSG1* tiver uma regra de segurança que permite a porta 80, o tráfego é processado por *NSG2*. Para permitir a porta 80 na máquina virtual, tanto *NSG1*, como *NSG2*, têm de ter uma regra que permite a porta 80 a partir da Internet.
 - **VM2**: as regras em *NSG1* são processadas, porque *VM2* também está em *Subnet1*. Uma vez que *VM2* não tem um grupo de segurança de rede associado à respetiva interface de rede, recebe todo o tráfego permitido através *NSG1* ou é-lhe negado todo o tráfego negado por *NSG1*. O tráfego é permitido ou negado para todos os recursos na mesma sub-rede se um grupo de segurança de rede estiver associado a uma sub-rede.
 - **VM3**: uma vez que não existe nenhum grupo de segurança de rede associado a *Subnet2*, o tráfego é permitido na sub-rede e processado por *NSG2*, pois *NSG2* está associado à interface de rede anexada a *VM3*.
 - **VM4**: o tráfego é permitido para *VM4,* porque não existe nenhum grupo de segurança de rede associado a *Subnet3* ou à interface de rede na máquina virtual. Todo o tráfego de rede é permitido através de uma sub-rede e de uma interface de rede se não houver nenhum grupo de segurança de rede associado às mesmas.
@@ -46,7 +46,7 @@ Relativamente ao tráfego de entrada, o Azure processa primeiro as regras num gr
 
 Relativamente ao tráfego de saída, o Azure processa primeiro as regras num grupo de segurança de rede associado a uma interface de rede, se existir alguma, e, depois, as regras num grupo de segurança de rede associado à sub-rede, se existir alguma.
 
-- **VM1**: as regras de segurança em *NSG2* são processadas. A menos que crie uma regra de segurança que negue a porta 80 de saída para a Internet, o tráfego é permitido pela regra de segurança predefinida [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview#allowinternetoutbound) em *NSG1* e *NSG2*. Se *NSG2* tiver uma regra de segurança que negue a porta 80, o tráfego é negado e nunca avaliado por *NSG1*. Para negar a porta 80 a partir da máquina virtual, um ou ambos os grupos de segurança de rede têm de ter uma regra que negue a porta 80 para a Internet.
+- **VM1**: as regras de segurança em *NSG2* são processadas. A menos que crie uma regra de segurança que negue a porta 80 de saída para a Internet, o tráfego é permitido pela regra de segurança predefinida [AllowInternetOutbound](./network-security-groups-overview.md#allowinternetoutbound) em *NSG1* e *NSG2*. Se *NSG2* tiver uma regra de segurança que negue a porta 80, o tráfego é negado e nunca avaliado por *NSG1*. Para negar a porta 80 a partir da máquina virtual, um ou ambos os grupos de segurança de rede têm de ter uma regra que negue a porta 80 para a Internet.
 - **VM2**: todo o tráfego é enviado da interface de rede para a sub-rede, uma vez que a interface de rede anexada a *VM2* não tem um grupo de segurança de rede associado a si. As regras em *NSG1* são processadas.
 - **VM3**: se *NSG2* tiver uma regra de segurança que negue a porta 80, o tráfego é negado. Se *NSG2* tiver uma regra de segurança que permita a porta 80, é permitido tráfego de saída para a Internet na mesma, uma vez que não existe nenhum grupo de segurança de rede associado a *Subnet2*.
 - **VM4**: todo o tráfego de rede é permitido a partir de *VM4,* porque não está associado nenhum grupo de segurança de rede à interface de rede anexada à máquina virtual ou a *Subnet3*.

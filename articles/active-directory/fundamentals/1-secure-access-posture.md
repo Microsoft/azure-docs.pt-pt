@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63d6c37f6cd32985e540164ef8b308652a5e7414
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744242"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222450"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Determine a sua postura de segurança para acesso externo 
 

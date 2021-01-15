@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84172376"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223266"
 ---
 # <a name="private-ip-addresses"></a>Endereços IP privados
 Os IPs privados permitem a comunicação entre os recursos em Azure. 
@@ -82,8 +82,8 @@ Os VMs configurados com DNS geridos pelo Azure resolvem os hostnames dentro da m
 
 Pode atribuir um endereço IP privado **à** configuração frontal de um:
 
-* [Equilibrador interno](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de carga (ILB)
-* [Gateway de Aplicação do Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Equilibrador interno](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de carga (ILB)
+* [Gateway de Aplicação do Azure](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 Este endereço IP privado serve como um ponto final interno. O ponto final interno é acessível apenas aos recursos dentro da sua rede virtual e às redes remotas ligadas à sua rede. Um IP dinâmico ou estático pode ser atribuído.
 
@@ -97,9 +97,9 @@ Os possíveis métodos de atribuição que podem ser utilizados também são apr
 
 | Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
-| Máquina virtual |Interface de rede |Sim |Sim |
-| Balanceador de carga |Configuração de front-end |Sim |Sim |
-| Gateway de aplicação |Configuração de front-end |Sim |Sim |
+| Máquina virtual |Interface de rede |Yes |Yes |
+| Balanceador de carga |Configuração de front-end |Yes |Yes |
+| Gateway de aplicação |Configuração de front-end |Yes |Yes |
 
 ## <a name="limits"></a>Limites
 Os limites para a endereçamento de IP encontram-se no conjunto completo de [limites para a ligação](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) em rede em Azure. Os limites são por região e por subscrição. [Suporte de contato](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites de incumprimento até aos limites máximos baseados nas necessidades do seu negócio.

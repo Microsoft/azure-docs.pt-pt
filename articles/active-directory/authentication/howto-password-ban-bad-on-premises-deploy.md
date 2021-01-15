@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb1f74902fe28d53a5180e4f341547f339a83ac
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741990"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220291"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local Azure Ative Directory Password Protection
 
@@ -99,7 +99,7 @@ Aplicam-se os seguintes requisitos fundamentais:
 
 Os seguintes requisitos aplicam-se ao agente Azure AD Password Protection DC:
 
-* Todas as máquinas onde o software de proteção de passwords AD AD Azure será instalado devem executar o Windows Server 2012 ou mais tarde.
+* Todas as máquinas onde o software de proteção de passwords AD AD Azure será instalado devem executar o Windows Server 2012 ou mais tarde, incluindo as edições Do Windows Server Core.
     * O domínio ou floresta do Ative Directory não precisa de estar no nível funcional do domínio do Windows Server 2012 (DFL) ou no nível funcional da floresta (FFL). Como mencionado nos [Princípios de Design,](concept-password-ban-bad-on-premises.md#design-principles)não há dfl mínimo ou FFL necessário para que o agente DC ou software proxy seja executado.
 * Todas as máquinas que executam o agente Azure AD Password Protection DC devem ter .NET 4.5 instaladas.
 * Qualquer domínio de Diretório Ativo que executa o serviço de agente de proteção de passwords Azure AD deve utilizar a replicação do sistema de ficheiros distribuído (DFSR) para replicação sysvol.
@@ -116,7 +116,7 @@ Os seguintes requisitos aplicam-se ao agente Azure AD Password Protection DC:
 
 Os seguintes requisitos aplicam-se ao serviço de procuração de senhas Azure AD:
 
-* Todas as máquinas onde o serviço de proteção de senhas AD AZure será instalado devem executar o Windows Server 2012 R2 ou mais tarde.
+* Todas as máquinas onde o serviço de proteção de senhas AD AZure será instalado devem executar o Windows Server 2012 R2 ou mais tarde, incluindo as edições Do Windows Server Core.
 
     > [!NOTE]
     > A implementação do serviço de proteção de senhas Azure AD é um requisito obrigatório para a implementação da Proteção de Password AD Azure, mesmo que o controlador de domínio possa ter conectividade direta de internet de saída.

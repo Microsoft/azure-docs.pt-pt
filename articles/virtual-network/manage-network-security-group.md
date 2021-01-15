@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 42efc2bee88f073f2a628b1d2041afcc310cb871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822968"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222943"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
-As regras de segurança nos grupos de segurança da rede permitem filtrar o tipo de tráfego de rede que pode fluir dentro e fora das sub-redes de rede virtuais e interfaces de rede. Para saber mais sobre os grupos de segurança de rede, consulte [a visão geral do grupo de segurança da rede.](security-overview.md) Em seguida, complete o tutorial [de tráfego da rede Filter](tutorial-filter-network-traffic.md) para ganhar alguma experiência com grupos de segurança de rede.
+As regras de segurança nos grupos de segurança da rede permitem filtrar o tipo de tráfego de rede que pode fluir dentro e fora das sub-redes de rede virtuais e interfaces de rede. Para saber mais sobre os grupos de segurança de rede, consulte [a visão geral do grupo de segurança da rede.](./network-security-groups-overview.md) Em seguida, complete o tutorial [de tráfego da rede Filter](tutorial-filter-network-traffic.md) para ganhar alguma experiência com grupos de segurança de rede.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -48,7 +48,7 @@ Há um limite para quantos grupos de segurança de rede pode criar para cada loc
 
 1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
-2. Selecione **Networking**e, em seguida, selecione **grupo de segurança de rede**.
+2. Selecione **Networking** e, em seguida, selecione **grupo de segurança de rede**.
 
 3. Na página do grupo de segurança da **rede Criar,** no separador **Básicos,** definir os valores para as seguintes definições:
 
@@ -87,7 +87,7 @@ Vá ao [portal Azure](https://portal.azure.com) para ver os seus grupos de segur
 
 2. Selecione o nome do seu grupo de segurança de rede.
 
-Na barra de menu do grupo de segurança de rede, em **Definições,** pode ver **as regras de segurança de entrada,** **regras de segurança de saída,** **interfaces de rede**e **subnetas** a que o grupo de segurança da rede está associado.
+Na barra de menu do grupo de segurança de rede, em **Definições,** pode ver **as regras de segurança de entrada,** **regras de segurança de saída,** **interfaces de rede** e **subnetas** a que o grupo de segurança da rede está associado.
 
 Em **Monitorização,** pode ativar ou desativar **as definições de Diagnóstico**. Em **Suporte + resolução de problemas,** pode ver **regras de segurança eficazes**. Para saber mais, consulte [o registo de diagnóstico de um grupo de segurança de rede](virtual-network-nsg-manage-log.md) e [diagnostice um problema de filtro de tráfego de rede VM](diagnose-network-traffic-filter-problem.md).
 
@@ -156,20 +156,20 @@ Há um limite para quantas regras por grupo de segurança de rede pode criar par
 
 3. Na barra de menus do grupo de segurança da rede, escolha **as regras de segurança de Entrada** ou **regras de segurança de saída**.
 
-    Várias regras existentes estão listadas, incluindo algumas que pode não ter adicionado. Quando cria um grupo de segurança de rede, são criadas várias regras de segurança padrão no mesmo. Para saber mais, consulte [as regras de segurança predefinidos.](security-overview.md#default-security-rules)  Não pode eliminar as regras de segurança predefinidos, mas pode anuê-las com regras que têm uma prioridade maior.
+    Várias regras existentes estão listadas, incluindo algumas que pode não ter adicionado. Quando cria um grupo de segurança de rede, são criadas várias regras de segurança padrão no mesmo. Para saber mais, consulte [as regras de segurança predefinidos.](./network-security-groups-overview.md#default-security-rules)  Não pode eliminar as regras de segurança predefinidos, mas pode anuê-las com regras que têm uma prioridade maior.
 
 4. <a name="security-rule-settings"></a>Selecione **Adicionar**. Selecione ou adicione valores para as seguintes definições e, em seguida, selecione **OK**:
 
     | Definição | Valor | Detalhes |
     | ------- | ----- | ------- |
-    | **Origem** | Um dos seguintes:<ul><li>**Qualquer**</li><li>**Endereços IP**</li><li>**Tag de serviço** (regra de segurança de entrada) ou **VirtualNetwork** (regra de segurança de saída)</li><li>**Grupo &nbsp; de segurança de &nbsp; aplicação**</li></ul> | <p>Se escolher **endereços IP,** também deve especificar **endereços IP/gamas CIDR**de origem .</p><p>Se escolher **a Etiqueta de Serviço,** também pode escolher uma etiqueta de serviço **Source**.</p><p>Se escolher **o grupo de segurança de aplicação,** também deve escolher um grupo de segurança de aplicações existente. Se escolher **o grupo de segurança da aplicação** tanto para a **Fonte** como para o **Destino,** as interfaces de rede dentro de ambos os grupos de segurança de aplicações devem estar na mesma rede virtual.</p> |
-    | **Endereços IP de origem/gamas CIDR** | Uma lista delimitada por vírgula de endereços IP e gamas de encaminhamento interdomínio sem classe (CIDR) | <p>Esta definição aparece se alterar **Fonte** para **endereços IP**. Deve especificar uma lista de valores separados por um único valor ou vírgula de vários valores. Um exemplo de múltiplos valores `10.0.0.0/16, 192.188.1.1` é. Existem limites para o número de valores que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)</p><p>Se o endereço IP que especificar estiver atribuído a um VM Azure, especifique o seu endereço IP privado e não o seu endereço IP público. O Azure processa as regras de segurança depois de traduzir o endereço IP público para um endereço IP privado para regras de segurança de entrada, mas antes de traduzir um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados em Azure, consulte [os tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).</p> |
-    | **Etiqueta de serviço de origem** | Uma etiqueta de serviço da lista de dropdown | Esta definição opcional aparece se definir **Source** to **Service Tag** para uma regra de segurança de entrada. Uma etiqueta de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre as etiquetas de serviço disponíveis, e o que cada tag representa, consulte [as etiquetas de serviço](security-overview.md#service-tags). |
+    | **Origem** | Um dos seguintes:<ul><li>**Qualquer**</li><li>**Endereços IP**</li><li>**Tag de serviço** (regra de segurança de entrada) ou **VirtualNetwork** (regra de segurança de saída)</li><li>**Grupo &nbsp; de segurança de &nbsp; aplicação**</li></ul> | <p>Se escolher **endereços IP,** também deve especificar **endereços IP/gamas CIDR** de origem .</p><p>Se escolher **a Etiqueta de Serviço,** também pode escolher uma etiqueta de serviço **Source**.</p><p>Se escolher **o grupo de segurança de aplicação,** também deve escolher um grupo de segurança de aplicações existente. Se escolher **o grupo de segurança da aplicação** tanto para a **Fonte** como para o **Destino,** as interfaces de rede dentro de ambos os grupos de segurança de aplicações devem estar na mesma rede virtual.</p> |
+    | **Endereços IP de origem/gamas CIDR** | Uma lista delimitada por vírgula de endereços IP e gamas de encaminhamento interdomínio sem classe (CIDR) | <p>Esta definição aparece se alterar **Fonte** para **endereços IP**. Deve especificar uma lista de valores separados por um único valor ou vírgula de vários valores. Um exemplo de múltiplos valores `10.0.0.0/16, 192.188.1.1` é. Existem limites para o número de valores que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)</p><p>Se o endereço IP que especificar estiver atribuído a um VM Azure, especifique o seu endereço IP privado e não o seu endereço IP público. O Azure processa as regras de segurança depois de traduzir o endereço IP público para um endereço IP privado para regras de segurança de entrada, mas antes de traduzir um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados em Azure, consulte [os tipos de endereços IP](./public-ip-addresses.md).</p> |
+    | **Etiqueta de serviço de origem** | Uma etiqueta de serviço da lista de dropdown | Esta definição opcional aparece se definir **Source** to **Service Tag** para uma regra de segurança de entrada. Uma etiqueta de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre as etiquetas de serviço disponíveis, e o que cada tag representa, consulte [as etiquetas de serviço](./network-security-groups-overview.md#service-tags). |
     | **Grupo de segurança de aplicações de origem** | Um grupo de segurança de aplicações existente | Esta definição aparece se definir o grupo de segurança **Source** to **Application**. Selecione um grupo de segurança de aplicações que exista na mesma região que a interface de rede. Saiba como [criar um grupo de segurança de aplicações.](#create-an-application-security-group) |
     | **Intervalo de portas de origem** | Um dos seguintes:<ul><li>Um único porto, como `80`</li><li>Uma gama de portos, tais como `1024-65535`</li><li>Uma lista separada por vírgula de portas individuais e/ou gamas portuárias, tais como `80, 1024-65535`</li><li>Um asterisco `*` para permitir o tráfego em qualquer porto</li></ul> | Esta definição especifica as portas em que a regra permite ou nega o tráfego. Há limites para o número de portas que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) |
     | **Destino** | Um dos seguintes:<ul><li>**Qualquer**</li><li>**Endereços IP**</li><li>**Tag de serviço** (regra de segurança de saída) ou **VirtualNetwork** (regra de segurança de entrada)</li><li>**Grupo &nbsp; de segurança de &nbsp; aplicação**</li></ul> | <p>Se escolher **endereços IP,** então especifique também **endereços IP de destino/gamas CIDR**.</p><p>Se escolher **a VirtualNetwork,** é permitido tráfego a todos os endereços IP dentro do espaço de endereço da rede virtual. **VirtualNetwork** é uma etiqueta de serviço.</p><p>Se selecionar **o grupo de segurança de aplicação,** deve então selecionar um grupo de segurança de aplicação existente. Saiba como [criar um grupo de segurança de aplicações.](#create-an-application-security-group)</p> |
-    | **Endereços IP de destino/gamas CIDR** | Uma lista delimitada por vírgula de endereços IP e gamas CIDR | <p>Esta definição aparece se alterar **destino** para **endereços IP**. Semelhante aos endereços **IP de Origem** e **Fonte/Gamas CIDR,** pode especificar endereços ou intervalos únicos ou múltiplos. Há limites para o número que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)</p><p>Se o endereço IP que especificar estiver atribuído a um VM Azure, certifique-se de que especifica o seu IP privado e não o seu endereço IP público. O Azure processa as regras de segurança depois de traduzir o endereço IP público para um endereço IP privado para regras de segurança de entrada, mas antes que o Azure traduz um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados em Azure, consulte [os tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).</p> |
-    | **Etiqueta do serviço de destino** | Uma etiqueta de serviço da lista de dropdown | Esta definição opcional aparece se alterar **Destination** to **Service Tag** para uma regra de segurança de saída. Uma etiqueta de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre as etiquetas de serviço disponíveis, e o que cada tag representa, consulte [as etiquetas de serviço](security-overview.md#service-tags). |
+    | **Endereços IP de destino/gamas CIDR** | Uma lista delimitada por vírgula de endereços IP e gamas CIDR | <p>Esta definição aparece se alterar **destino** para **endereços IP**. Semelhante aos endereços **IP de Origem** e **Fonte/Gamas CIDR,** pode especificar endereços ou intervalos únicos ou múltiplos. Há limites para o número que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)</p><p>Se o endereço IP que especificar estiver atribuído a um VM Azure, certifique-se de que especifica o seu IP privado e não o seu endereço IP público. O Azure processa as regras de segurança depois de traduzir o endereço IP público para um endereço IP privado para regras de segurança de entrada, mas antes que o Azure traduz um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados em Azure, consulte [os tipos de endereços IP](./public-ip-addresses.md).</p> |
+    | **Etiqueta do serviço de destino** | Uma etiqueta de serviço da lista de dropdown | Esta definição opcional aparece se alterar **Destination** to **Service Tag** para uma regra de segurança de saída. Uma etiqueta de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre as etiquetas de serviço disponíveis, e o que cada tag representa, consulte [as etiquetas de serviço](./network-security-groups-overview.md#service-tags). |
     | **Grupo de segurança de aplicação de destino** | Um grupo de segurança de aplicações existente | Esta definição aparece se definir **o grupo** de segurança Destino para **Aplicação**. Selecione um grupo de segurança de aplicações que exista na mesma região que a interface de rede. Saiba como [criar um grupo de segurança de aplicações.](#create-an-application-security-group) |
     | **Intervalos de portas de destino** | Um dos seguintes:<ul><li>Um único porto, como `80`</li><li>Uma gama de portos, tais como `1024-65535`</li><li>Uma lista separada por vírgula de portas individuais e/ou gamas portuárias, tais como `80, 1024-65535`</li><li>Um asterisco `*` para permitir o tráfego em qualquer porto</li></ul> | Tal como acontece com **as gamas de portas Source,** pode especificar portas e gamas simples ou múltiplas. Há limites para o número que pode especificar. Para mais detalhes, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) |
     | **Protocolo** | **Qualquer**, **TCP,** **UDP,** ou **ICMP** | Pode restringir a regra ao Protocolo de Controlo de Transmissão (TCP), ao Protocolo de Datagrama do Utilizador (UDP) ou ao Protocolo de Mensagens de Controlo de Internet (ICMP). O padrão é que a regra se aplique a todos os protocolos. |
@@ -187,7 +187,7 @@ Há um limite para quantas regras por grupo de segurança de rede pode criar par
 
 ### <a name="view-all-security-rules"></a>Ver todas as regras de segurança
 
-Um grupo de segurança de rede contém zero ou mais regras. Para saber mais sobre as informações listadas ao visualizar as regras, consulte [a visão geral do grupo de segurança da rede](security-overview.md).
+Um grupo de segurança de rede contém zero ou mais regras. Para saber mais sobre as informações listadas ao visualizar as regras, consulte [a visão geral do grupo de segurança da rede](./network-security-groups-overview.md).
 
 1. Vá ao [portal Azure](https://portal.azure.com) para ver as regras de um grupo de segurança de rede. Procure e selecione **grupos de segurança da Rede.**
 
@@ -195,7 +195,7 @@ Um grupo de segurança de rede contém zero ou mais regras. Para saber mais sobr
 
 3. Na barra de menus do grupo de segurança da rede, escolha **as regras de segurança de Entrada** ou **regras de segurança de saída**.
 
-A lista contém quaisquer regras que tenha criado e as [regras](security-overview.md#default-security-rules)de segurança do grupo de segurança da rede.
+A lista contém quaisquer regras que tenha criado e as [regras](./network-security-groups-overview.md#default-security-rules)de segurança do grupo de segurança da rede.
 
 #### <a name="commands"></a>Comandos
 
@@ -258,7 +258,7 @@ A lista contém quaisquer regras que tenha criado e as [regras](security-overvie
 
 ## <a name="work-with-application-security-groups"></a>Trabalhar com grupos de segurança de aplicações
 
-Um grupo de segurança de aplicações contém interfaces de rede zero ou mais. Para saber mais, consulte [os grupos de segurança de aplicações.](security-overview.md#application-security-groups) Todas as interfaces de rede de um grupo de segurança de aplicações devem existir na mesma rede virtual. Para aprender a adicionar uma interface de rede a um grupo de segurança de aplicações, consulte [Adicionar uma interface de rede a um grupo de segurança de aplicações.](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)
+Um grupo de segurança de aplicações contém interfaces de rede zero ou mais. Para saber mais, consulte [os grupos de segurança de aplicações.](./network-security-groups-overview.md#application-security-groups) Todas as interfaces de rede de um grupo de segurança de aplicações devem existir na mesma rede virtual. Para aprender a adicionar uma interface de rede a um grupo de segurança de aplicações, consulte [Adicionar uma interface de rede a um grupo de segurança de aplicações.](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)
 
 ### <a name="create-an-application-security-group"></a>Criar um grupo de segurança de aplicações
 
@@ -340,7 +340,7 @@ Não é possível eliminar um grupo de segurança de aplicações se contiver in
 
 2. Selecione o nome do grupo de segurança de aplicações que pretende eliminar.
 
-3. Selecione **Eliminar**e, em seguida, selecione **Sim** para eliminar o grupo de segurança da aplicação.
+3. Selecione **Eliminar** e, em seguida, selecione **Sim** para eliminar o grupo de segurança da aplicação.
 
 #### <a name="commands"></a>Comandos
 
@@ -355,7 +355,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="network-security-group"></a>Grupo de segurança de rede
 
-| Ação                                                        |   Nome                                                                |
+| Ação                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Obtenha grupo de segurança de rede                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Criar ou atualizar grupo de segurança de rede                             |
@@ -364,7 +364,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="network-security-group-rule"></a>Regra do grupo de segurança da rede
 
-| Ação                                                        |   Nome                                                                |
+| Ação                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   Obtenha a regra                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   Criar ou atualizar regra                                               |
@@ -372,7 +372,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="application-security-group"></a>Grupo de segurança de aplicações
 
-| Ação                                                                     | Nome                                                     |
+| Ação                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Junte-se a uma configuração IP a um grupo de segurança de aplicações|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Junte-se a uma regra de segurança a um grupo de segurança de aplicações    |
@@ -383,4 +383,4 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie um grupo de segurança de rede ou aplicação utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou [modelos de Gestor de Recursos](template-samples.md) Azure
-- Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Política Azure](./policy-reference.md) para redes virtuais

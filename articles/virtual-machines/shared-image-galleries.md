@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4156308fa58ea1f02e6e3f2c5174839dc1cd381c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841529"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223368"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas
 
-A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
+O Shared Image Gallery é um serviço que ajuda a criar a estrutura e a organização à volta das imagens. As Galerias de Imagem Partilhadas fornecem:
 
 - Replicação global de imagens.
 - Versão e agrupamento de imagens para uma gestão mais fácil.
@@ -150,8 +150,8 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
-| Definição da Imagem     | Não                   | Sim          | Sim                  |
+| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
+| Definição da Imagem     | No                   | Yes          | Yes                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../role-based-access-control/role-assignments-portal.md)
 
@@ -170,12 +170,12 @@ Por exemplo, digamos que tem uma imagem de um disco oss de 127 GB, que ocupa ape
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Descrição
+- Description
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim de vida
 
 Versão de imagem:
@@ -316,6 +316,11 @@ Para implementações de VM e Conjunto de Escala de Máquina Virtual utilizando 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Posso atualizar o meu Conjunto de Escala de Máquina Virtual criado usando uma imagem gerida para utilizar imagens da Galeria de Imagens Partilhadas?
 
 Sim, pode atualizar a referência de imagem definida em escala de uma imagem gerida para uma imagem de galeria de imagens partilhada, desde que o tipo de SO, geração Hyper-V e o layout do disco de dados correspondam entre as imagens.
+
+## <a name="troubleshoot-shared-image-gallery-issues"></a>Problemas com questões da Galeria de Imagem Partilhada
+Se tiver problemas com a realização de quaisquer operações nos recursos da galeria de imagens partilhadas, consulte a lista de erros comuns no [guia de resolução de problemas](troubleshooting-shared-images.md).
+
+Além disso, pode publicar e marcar a sua pergunta `azure-virtual-machines-images` no Q&[A](/answers/topics/azure-virtual-machines-images.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 

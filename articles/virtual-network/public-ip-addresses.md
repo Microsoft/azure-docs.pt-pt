@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955591"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223232"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -44,7 +44,7 @@ Para saber mais sobre a atualização do SKU, consulte a [atualização IP públ
 Os endereços IP públicos são criados com um dos SKUs seguintes:
 
 >[!IMPORTANT]
-> Os SKUs correspondentes são necessários para o balanceador de carga e os recursos IP públicos. Não é possível ter uma mistura de recursos de SKU básicos e recursos de SKU standard. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.  Os novos designs devem ponderar a utilização de recursos SKU Standard.  Veja [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais detalhes.
+> Os SKUs correspondentes são necessários para o balanceador de carga e os recursos IP públicos. Não é possível ter uma mistura de recursos de SKU básicos e recursos de SKU standard. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.  Os novos designs devem ponderar a utilização de recursos SKU Standard.  Veja [Balanceador de Carga Standard](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais detalhes.
 
 ### <a name="standard"></a>Standard
 
@@ -52,13 +52,13 @@ Endereços IP públicos standard SKU:
 
 - Utilize sempre o método de atribuição estática.
 - Tenha um tempo de saída de entrada recímido ajustável de 4-30 minutos, com um padrão de 4 minutos, e uma saída fixa originou o tempo de saída inativo de 4 minutos.
-- Seguro por defeito e fechado ao tráfego de entrada. Permitir a lista de tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- Atribuído a interfaces de rede, balanceadores de carga público padrão ou Gateways de aplicação. Para obter mais informações sobre o balanceador de carga Standard, consulte [o Balanceador de Carga Standard Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Pode ser redundante de zona (advertizado de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Os IPs redundantes da zona só podem ser criados em regiões onde vivem [3 zonas de disponibilidade.](https://docs.microsoft.com/azure/availability-zones/az-region)** Os IPs criados antes de as zonas serem ao vivo não serão redundantes.
-- Pode ser usado como iPs de frontend para [balançadores de carga cross-region (funcionalidade de pré-visualização).](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
+- Seguro por defeito e fechado ao tráfego de entrada. Permitir a lista de tráfego de entrada com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups).
+- Atribuído a interfaces de rede, balanceadores de carga público padrão ou Gateways de aplicação. Para obter mais informações sobre o balanceador de carga Standard, consulte [o Balanceador de Carga Standard Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Pode ser redundante de zona (advertizado de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Os IPs redundantes da zona só podem ser criados em regiões onde vivem [3 zonas de disponibilidade.](../availability-zones/az-region.md)** Os IPs criados antes de as zonas serem ao vivo não serão redundantes.
+- Pode ser usado como iPs de frontend para [balançadores de carga cross-region (funcionalidade de pré-visualização).](../load-balancer/cross-region-overview.md)
  
 > [!NOTE]
-> A comunicação de entrada com um recurso Standard SKU falha até criar e associar um [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada pretendido.
+> A comunicação de entrada com um recurso Standard SKU falha até criar e associar um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada pretendido.
 
 > [!NOTE]
 > Apenas endereços IP públicos com SKU básico estão disponíveis quando se utilizam [o IMDS do serviço de metadados de exemplo.](../virtual-machines/windows/instance-metadata-service.md) O SKU padrão não é suportado.
@@ -150,7 +150,7 @@ Pode associar um endereço IP público de qualquer um dos [SKU](#sku) a um [Bala
 
 Pode atribuir um endereço IP público dinâmico ou estático a um front-end de balanceador de carga. Pode atribuir vários endereços IP públicos a uma extremidade frontal do balançador de carga. Esta configuração permite cenários [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente multi-inquilino com websites baseados em TLS. 
 
-Para obter mais informações sobre os SKUs de balanceador de carga do Azure, veja [SKU standard de balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre os SKUs de balanceador de carga do Azure, veja [SKU standard de balanceador de carga do Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="vpn-gateways"></a>Gateways de VPN
 
@@ -163,7 +163,7 @@ Um endereço IP público é atribuído ao Gateway VPN para permitir a comunicaç
 
 ## <a name="application-gateways"></a>Gateways de aplicação
 
-Pode associar um endereço IP público a um [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure, ao atribuí-lo à configuração do **front-end** do gateway. 
+Pode associar um endereço IP público a um [Gateway de Aplicação](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure, ao atribuí-lo à configuração do **front-end** do gateway. 
 
 * Atribua um IP público básico **dinâmico** a uma configuração frontal do gateway de aplicação V1. 
 * Atribua um endereço SKU padrão **estático** a uma configuração frontal V2.
@@ -200,4 +200,3 @@ Os endereços IP públicos podem ter custos nominais. Para saber mais sobre os p
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre endereços IP privados em Azure](private-ip-addresses.md)
 * [Deploy a VM with a static public IP using the Azure portal (Implementar uma VM com IP público estático através do portal do Azure)](virtual-network-deploy-static-pip-arm-portal.md)
-

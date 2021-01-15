@@ -9,13 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, deploy, responsible-ml
+ms.openlocfilehash: a2c8b765f109408b8cb08f78a4b3ad2283f35eb9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325511"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223589"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Como implementar um serviço web de inferenculação encriptado (pré-visualização)
 
@@ -28,7 +28,7 @@ Neste guia, utiliza o serviço Azure Machine Learning para:
 > * Implementar serviço web de inferição encriptado
 > * Preparar dados de teste
 > * Fazer previsões encriptadas
-> * Limpar os recursos
+> * Limpar recursos
 
 O ACI é uma excelente solução para testar e compreender o fluxo de trabalho de implementação do modelo. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, consulte [como implementar e onde.](./how-to-deploy-and-where.md)
 
@@ -319,7 +319,7 @@ Para fazer previsões encriptadas:
     print ( ' Actual Label : ', y_test[sample_index])
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Eliminar o serviço web criado nesta amostra:
 

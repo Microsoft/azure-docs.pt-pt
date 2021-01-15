@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506290"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225588"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -48,7 +48,6 @@ Existem algumas limitações com a utilização da Integração VNet com VNets n
 * A funcionalidade requer uma sub-rede não utilizada que seja um /28 ou maior num VNet do Gestor de Recursos Azure.
 * A aplicação e o VNet devem estar na mesma região.
 * Não é possível eliminar um VNet com uma aplicação integrada. Remova a integração antes de eliminar o VNet.
-* Só é possível integrar-se com VNets na mesma subscrição que a aplicação.
 * Você pode ter apenas uma integração regional VNet por plano de Serviço de Aplicação. Várias aplicações no mesmo plano de Serviço de Aplicações podem usar o mesmo VNet.
 * Não é possível alterar a subscrição de uma app ou de um plano enquanto há uma aplicação que está a usar a Integração VNet regional.
 * A sua aplicação não consegue resolver endereços em Zonas Privadas Azure DNS sem alterações de configuração

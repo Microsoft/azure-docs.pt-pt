@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678054"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222569"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,16 +42,16 @@ Do ponto de vista da base de dados, existem quatro grandes cenários de perturba
 
 Para mitigar as falhas de hardware e software locais, a SQL Database inclui uma arquitetura de [alta disponibilidade,](high-availability-sla.md)que garante a recuperação automática destas falhas com até 99,995% de disponibilidade SLA.  
 
-Para proteger o seu negócio da perda de dados, a SQL Database e a SQL Managed Instance criam automaticamente cópias de dados completas semanais, cópias de dados diferenciais a cada 12 horas e cópias de segurança de registo de transações a cada 5 - 10 minutos. As cópias de segurança são armazenadas no armazenamento RA-GRS durante pelo menos 7 dias para todos os níveis de serviço. Todos os níveis de serviço, exceto o período de retenção de backup de suporte de suporte de suporte básico configurável para a restauração pontual, até 35 dias.
+Para proteger o seu negócio da perda de dados, a SQL Database e a SQL Managed Instance criam automaticamente cópias de dados completas semanais, cópias de dados diferenciais a cada 12 horas e cópias de segurança de registo de transações a cada 5 - 10 minutos. As cópias de segurança são armazenadas no armazenamento RA-GRS durante pelo menos 7 dias para todos os níveis de serviço. Todos os níveis de serviço, exceto o período de retenção de backup de suporte básico configurável para a restauração pontual, até 35 dias.
 
 A SQL Database e a SQL Managed Instance também fornecem várias funcionalidades de continuidade de negócios que pode usar para mitigar vários cenários não planeados.
 
 - As [tabelas temporais](../temporal-tables.md) permitem-lhe restaurar as versões de linhas a partir de qualquer ponto no tempo.
 - [Cópias de segurança automatizadas incorporadas](automated-backups-overview.md) e [Point in Time Restore](recovery-using-backups.md#point-in-time-restore) permitem-lhe restaurar a base de dados completa até algum ponto no tempo dentro do período de retenção configurado até 35 dias.
-- Pode [restaurar uma base de dados eliminada](recovery-using-backups.md#deleted-database-restore) ao ponto em que foi eliminada se o **servidor não tiver sido eliminado** .
+- Pode [restaurar uma base de dados eliminada](recovery-using-backups.md#deleted-database-restore) ao ponto em que foi eliminada se o **servidor não tiver sido eliminado**.
 - [A retenção de backup](long-term-retention-overview.md) a longo prazo permite-lhe manter as cópias de segurança até 10 anos. Isto está em pré-visualização pública limitada para SQL Managed Instance
 - [A geo-replicação ativa permite-lhe](active-geo-replication-overview.md) criar réplicas legíveis e falhar manualmente em qualquer réplica em caso de interrupção do datacenter ou atualização de aplicações.
-- [O grupo de falha automática](auto-failover-group-overview.md#terminology-and-capabilities) permite que a aplicação seja automaticamente recuperada em caso de interrupção do datacenter.
+- [O grupo de falha automática](auto-failover-group-overview.md#terminology-and-capabilities) permite que a aplicação recupere automaticamente em caso de interrupção do datacenter.
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Recuperar uma base de dados dentro da mesma região de Azure
 
@@ -65,13 +65,13 @@ Se o período máximo de retenção de backup suportado para a restauração pon
 
 |                                              | Georreplicação | Grupos de ativação pós-falha  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Ativação pós-falha automática**                          |     Não          |      Sim         |
-| **Efetuar ativação pós-falha em várias bases de dados simultaneamente**  |     Não          |      Sim         |
-| **O utilizador deve atualizar a cadeia de ligação após a ativação pós-falha**      |     Sim         |      Não          |
-| **Suporte ao SQL Managed Instance**                   |     Não          |      Sim         |
-| **Pode estar na mesma região que a primária**             |     Sim         |      Não          |
-| **Várias réplicas**                            |     Sim         |      Não          |
-| **Suporta o escalamento horizontal de leituras**                          |     Sim         |      Sim         |
+| **Ativação pós-falha automática**                          |     No          |      Yes         |
+| **Efetuar ativação pós-falha em várias bases de dados simultaneamente**  |     No          |      Yes         |
+| **O utilizador deve atualizar a cadeia de ligação após a ativação pós-falha**      |     Yes         |      No          |
+| **Suporte ao SQL Managed Instance**                   |     No          |      Yes         |
+| **Pode estar na mesma região que a primária**             |     Yes         |      No          |
+| **Várias réplicas**                            |     Yes         |      No          |
+| **Suporta o escalamento horizontal de leituras**                          |     Yes         |      Yes         |
 
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente

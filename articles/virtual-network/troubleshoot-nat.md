@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836110"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223436"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Resolução de problemas Azure Rede Virtual NAT conectividade
 
@@ -68,10 +68,10 @@ _**Solução:**_ Utilize padrões e boas práticas apropriados
 A exaustão do SNAT também pode ser amplificada com outros anti-padrões na aplicação subjacente. Reveja estes padrões e boas práticas adicionais para melhorar a escala e a fiabilidade do seu serviço.
 
 - Explore o impacto da redução do [tempo de inatividade da TCP](nat-gateway-resource.md#timers) para valores mais baixos, incluindo o tempo de inatividade padrão de 4 minutos para libertar o inventário portuário SNAT mais cedo.
-- Considere [padrões de sondagens assíncronos](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) para operações de longa duração para libertar recursos de ligação para outras operações.
+- Considere [padrões de sondagens assíncronos](/azure/architecture/patterns/async-request-reply) para operações de longa duração para libertar recursos de ligação para outras operações.
 - Os fluxos de longa duração (por exemplo, ligações TCP reutilizadas) devem utilizar keepalives TCP ou keepalives de camadas de aplicação para evitar o tempo de funcionamento dos sistemas intermédios. Aumentar o tempo limite é um último recurso e pode não resolver a causa principal. Uma pausa prolongada pode causar falhas de taxas baixas quando o tempo limite expira e introduzir atrasos e falhas desnecessárias.
-- Devem ser [utilizados padrões](https://docs.microsoft.com/azure/architecture/patterns/retry) de retenção graciosos para evitar recauchutagens/explosões agressivas durante a falha transitória ou recuperação de falhas.
-Criar uma nova ligação TCP para cada operação HTTP (também conhecida como "conexões atómicas") é um anti-padrão.  As ligações atómicas impedirão que a sua aplicação escale bem e os recursos de resíduos.  Gasoduto sempre várias operações na mesma ligação.  A sua aplicação beneficiará em velocidade de transação e custos de recursos.  Quando a sua aplicação utiliza encriptação da camada de transporte (por exemplo, TLS), há um custo significativo associado ao processamento de novas ligações.  Reveja [os padrões de design da nuvem de Azure](https://docs.microsoft.com/azure/architecture/patterns/) para padrões adicionais de boas práticas.
+- Devem ser [utilizados padrões](/azure/architecture/patterns/retry) de retenção graciosos para evitar recauchutagens/explosões agressivas durante a falha transitória ou recuperação de falhas.
+Criar uma nova ligação TCP para cada operação HTTP (também conhecida como "conexões atómicas") é um anti-padrão.  As ligações atómicas impedirão que a sua aplicação escale bem e os recursos de resíduos.  Gasoduto sempre várias operações na mesma ligação.  A sua aplicação beneficiará em velocidade de transação e custos de recursos.  Quando a sua aplicação utiliza encriptação da camada de transporte (por exemplo, TLS), há um custo significativo associado ao processamento de novas ligações.  Reveja [os padrões de design da nuvem de Azure](/azure/architecture/patterns/) para padrões adicionais de boas práticas.
 
 #### <a name="additional-possible-mitigations"></a>Eventuais mitigações adicionais
 
@@ -96,7 +96,7 @@ A tabela a seguir pode ser utilizada como ponto de partida para as ferramentas a
 | Sistema operativo | Teste de ligação genérico de TCP | Teste da camada de aplicação TCP | UDP |
 |---|---|---|---|
 | Linux | nc (teste de ligação genérica) | caracóis (teste da camada de aplicação TCP) | aplicação específica |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | aplicação específica |
+| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | aplicação específica |
 
 ### <a name="connectivity-failures"></a>Falhas de conectividade
 
@@ -113,7 +113,7 @@ Utilize ferramentas como as seguintes para validar a conectividade. [O ping ICMP
 | Sistema operativo | Teste de ligação genérico de TCP | Teste da camada de aplicação TCP | UDP |
 |---|---|---|---|
 | Linux | nc (teste de ligação genérica) | caracóis (teste da camada de aplicação TCP) | aplicação específica |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | aplicação específica |
+| Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | aplicação específica |
 
 #### <a name="configuration"></a>Configuração
 
@@ -202,4 +202,3 @@ Se ainda tiver problemas, abra um caso de apoio para mais resolução de problem
 * Saiba mais sobre [o recurso de gateway NAT](nat-gateway-resource.md)
 * Saiba mais [sobre métricas e alertas para os recursos de gateway DA NAT.](nat-metrics.md)
 * [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
-

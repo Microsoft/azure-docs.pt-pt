@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 11/16/2020
-ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699394"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222637"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação do modelo em Azure Machine Learning (pré-visualização)
 
@@ -62,7 +62,7 @@ Conheça técnicas de interpretação apoiadas, modelos de aprendizagem automát
 
  `azureml-interpret` utiliza as técnicas de interpretação desenvolvidas na [Interpret-Community,](https://github.com/interpretml/interpret-community/)um pacote de pitão de código aberto para a formação de modelos interpretáveis e ajuda a explicar os sistemas de IA blackbox. [A Interpret-Community](https://github.com/interpretml/interpret-community/) serve de anfitrião para os explicadores apoiados por este SDK, e apoia atualmente as seguintes técnicas de interpretação:
 
-|Técnica de Interpretação|Description|Tipo|
+|Técnica de Interpretação|Descrição|Tipo|
 |--|--|--------------------|
 |Explicador de árvores SHAP| O explicador de árvores [shap,](https://github.com/slundberg/shap)que se foca no tempo polinómico fast SHAP valor value value algoritmo específico para **árvores e conjuntos de árvores.**|Específico do modelo|
 |Explicador Profundo SHAP| Com base na explicação da SHAP, o Deep Explainer "é um algoritmo de aproximação de alta velocidade para valores SHAP em modelos de aprendizagem profunda que se baseia numa ligação com o DeepLIFT descrita no [papel SHAP NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Os modelos **TensorFlow** e **Keras** que utilizam o backend TensorFlow são suportados (existe também suporte preliminar para pyTorch)".|Específico do modelo|

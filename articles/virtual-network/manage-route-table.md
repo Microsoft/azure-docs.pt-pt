@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291004"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220597"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
 O Azure liga automaticamente o tráfego entre sub-redes Azure, redes virtuais e redes no local. Se quiser alterar qualquer um dos roteamentos padrão do Azure, fá-lo criando uma tabela de rotas. Se você é novo em encaminhamento em redes virtuais, você pode aprender mais sobre isso em [encaminhamento de tráfego de rede virtual](virtual-networks-udr-overview.md) ou completando um [tutorial](tutorial-create-route-table-portal.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se não tiver uma, crie uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Em seguida, complete uma destas tarefas antes de iniciar etapas em qualquer secção deste artigo:
 
@@ -169,7 +169,7 @@ Não é possível apagar uma tabela de rotas associada a quaisquer sub-redes. [D
 
 1. Na lista de tabelas de rotas, escolha a tabela de rotas que pretende eliminar.
 
-1. Selecione **Eliminar**e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Selecione **Eliminar** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 ### <a name="delete-a-route-table---commands"></a>Excluir uma tabela de rotas - comandos
 
@@ -194,7 +194,7 @@ Há um limite para quantas rotas por tabela de rotas pode criar por localizaçã
 
 1. Escolha um **próximo tipo de lúpulo**. Para saber mais sobre os próximos tipos de lúpulo, consulte [o encaminhamento de tráfego de rede virtual.](virtual-networks-udr-overview.md)
 
-1. Se escolher um tipo de **aparelho virtual**de **próximo lúpulo,** insira um endereço IP para **o próximo endereço de lúpulo**.
+1. Se escolher um tipo de **aparelho virtual** de **próximo lúpulo,** insira um endereço IP para **o próximo endereço de lúpulo**.
 
 1. Selecione **OK**.
 
@@ -268,7 +268,7 @@ Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informa
 
 1. Escolha o percurso que pretende eliminar.
 
-1. Selecione **Eliminar**e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Selecione **Eliminar** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 ### <a name="delete-a-route---commands"></a>Excluir uma rota - comandos
 
@@ -308,7 +308,7 @@ Pode determinar o próximo tipo de lúpulo entre uma máquina virtual e o endere
 
 1. Na barra de menu do observador de rede, escolha **Next hop**.
 
-1. No **Observador de Rede ! Próxima página de lúpulo:**
+1. Na **| do Observador de Rede Próxima página de lúpulo:**
 
     1. Escolha a sua **Subscrição** e o grupo de **Recursos** da fonte VM a partir da qual pretende validar o encaminhamento.
 
@@ -333,7 +333,7 @@ Depois de uma curta espera, a Azure diz-lhe o próximo tipo de lúpulo e o ID da
 
 Para realizar tarefas em tabelas e rotas de rota, a sua conta deve ser atribuída à [função de contribuinte da Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas no quadro seguinte:
 
-| Ação                                                          |   Nome                                                  |
+| Ação                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Leia uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar uma tabela de rotas                        |
@@ -348,4 +348,4 @@ Para realizar tarefas em tabelas e rotas de rota, a sua conta deve ser atribuíd
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie uma tabela de rotas utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md) ou [modelos](template-samples.md) de Gestor de Recursos Azure
-- Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Política Azure](./policy-reference.md) para redes virtuais

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 79062ae45f04b290f6e4120906b98590ce95dbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833271"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223487"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Criar um espreitamento de rede virtual - Gestor de Recursos, diferentes subscrições e inquilinos do Azure Ative Directory
 
@@ -31,14 +31,14 @@ Os passos para criar um espreguiçadeira de rede virtual são diferentes, depend
 |[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models.md) |Mesma|
 |[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models-subscriptions.md) |Diferente|
 
-Não é possível criar um espreitamento de rede virtual entre duas redes virtuais implantadas através do modelo clássico de implementação. Se precisar de ligar redes virtuais que foram ambas criadas através do modelo de implementação clássico, pode utilizar um Gateway Azure [VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar as redes virtuais.
+Não é possível criar um espreitamento de rede virtual entre duas redes virtuais implantadas através do modelo clássico de implementação. Se precisar de ligar redes virtuais que foram ambas criadas através do modelo de implementação clássico, pode utilizar um Gateway Azure [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar as redes virtuais.
 
 Este tutorial pares redes virtuais na mesma região. Também pode espreitar redes virtuais em [diferentes regiões apoiadas.](virtual-network-manage-peering.md#cross-region) Recomenda-se que se familiarize com os [requisitos e constrangimentos de espreitar](virtual-network-manage-peering.md#requirements-and-constraints) antes de espreitar as redes virtuais.
 
 Pode utilizar o [portal Azure,](#portal)a [interface de linha de comando](#cli) Azure (CLI), Azure [PowerShell](#powershell)ou um [modelo Azure Resource Manager](#template) para criar um esprevamento de rede virtual. Selecione qualquer uma das ligações de ferramentas anteriores para ir diretamente aos passos para criar uma rede virtual espreitando usando a sua ferramenta de eleição.
 
 Se as redes virtuais estiverem em diferentes subscrições, e as subscrições estiverem associadas a diferentes inquilinos do Azure Ative Directory, complete os seguintes passos antes de continuar:
-1. Adicione o utilizador de cada inquilino ative como [utilizador convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no inquilino Azure Ative Directory oposto.
+1. Adicione o utilizador de cada inquilino ative como [utilizador convidado](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no inquilino Azure Ative Directory oposto.
 1. Cada utilizador tem de aceitar o convite de utilizador convidado do inquilino do Azure Active Directory oposto.
 
 ## <a name="create-peering---azure-portal"></a><a name="portal"></a>Criar olhando - Portal Azure
@@ -46,10 +46,10 @@ Se as redes virtuais estiverem em diferentes subscrições, e as subscrições e
 Os seguintes passos utilizam contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todas as etapas, saltar os passos para iniciar sessão fora do portal e saltar os passos para atribuir outras permissões do utilizador às redes virtuais.
 
 1. Faça login no [portal Azure](https://portal.azure.com) como *UserA*. A conta com que inicia sessão deve ter as permissões necessárias para criar uma rede virtual de observação. Para obter uma lista de permissões, consulte [permissões de espreitar rede virtual](virtual-network-manage-peering.md#permissions).
-2. Selecione **+ Crie um recurso,** selecione **Networking**e, em seguida, selecione **rede Virtual**.
+2. Selecione **+ Crie um recurso,** selecione **Networking** e, em seguida, selecione **rede Virtual**.
 3. Selecione ou introduza os seguintes valores de exemplo para as seguintes definições e, em seguida, **selecione Criar**:
     - **Nome**: *myVnetA*
-    - **Espaço de**endereço : *10.0.0.0/16*
+    - **Espaço de** endereço : *10.0.0.0/16*
     - **Nome da sub-rede**: *predefinição*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
     - **Assinatura**: Selecione subscrição A.
@@ -59,14 +59,14 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
 5. Selecione o controlo de **acesso (IAM)** da lista vertical de opções no lado esquerdo.
 6. No **âmbito do myVnetA - Controlo de acesso (IAM)**, selecione **+ Adicionar a atribuição de funções**.
 7. Selecione o **contribuinte de rede** na caixa **Role.**
-8. Na caixa **Select,** selecione *UserB*ou digite o endereço de e-mail do UtilizadorB para pesquisar.
+8. Na caixa **Select,** selecione *UserB* ou digite o endereço de e-mail do UtilizadorB para pesquisar.
 9. Selecione **Guardar**.
 10. No **âmbito do myVnetA - Controlo de acesso (IAM)**, selecione **Propriedades** da lista vertical de opções no lado esquerdo. Copie o **ID recurso,** que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA` .
 11. Faça login no portal como UserA e, em seguida, faça login como UserB.
 12. Passos completos 2-3, introduzindo ou selecionando os seguintes valores no passo 3:
 
     - **Nome**: *myVnetB*
-    - **Espaço de**endereço : *10.1.0.0/16*
+    - **Espaço de** endereço : *10.1.0.0/16*
     - **Nome da sub-rede**: *predefinição*
     - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
     - **Assinatura**: Selecione subscrição B.
@@ -75,7 +75,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
 
 13. Na caixa **de recursos de busca** no topo do portal, digite *myVnetB*. Selecione **myVnetB** quando aparecer nos resultados da pesquisa.
 14. No **myVnetB,** selecione **Propriedades** da lista vertical de opções no lado esquerdo. Copie o **ID recurso,** que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB` .
-15. Selecione **o controlo de acesso (IAM)** no **myVnetB**e, em seguida, complete os passos 5-10 para o myVnetB, entrando no **UserA** no passo 8.
+15. Selecione **o controlo de acesso (IAM)** no **myVnetB** e, em seguida, complete os passos 5-10 para o myVnetB, entrando no **UserA** no passo 8.
 16. Faça login no portal como UserB e faça login como UserA.
 17. Na caixa **de recursos de busca** no topo do portal, *digite myVnetA*. Selecione **myVnetA** quando aparecer nos resultados da pesquisa.
 18. Selecione **myVnetA**.
@@ -90,7 +90,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     Não são utilizadas outras definições neste tutorial. Para saber mais sobre todas as definições de observação, leia [Gerir os olhos de rede virtuais](virtual-network-manage-peering.md#create-a-peering).
 22. O espreitamento criado aparece uma curta espera depois de selecionar **OK** no passo anterior. **O Iniciado** está listado na coluna **PEERING STATUS** para o **myVnetAToMyVnetB** que o observa a sua criação. Você olhou myVnetA para myVnetB, mas agora você tem que espreitar myVnetB para myVnetA. O espreitamento deve ser criado em ambas as direções para permitir que os recursos nas redes virtuais se comuniquem entre si.
 23. Faça login no portal como UserA e faça login como UserB.
-24. Complete os passos 17-21 novamente para o myVnetB. No passo 21, nomeie o *myVnetBToMyVnetA,* selecione *myVnetA* para **rede Virtual**e introduza o ID a partir do passo 10 na caixa **de ID** de recurso.
+24. Complete os passos 17-21 novamente para o myVnetB. No passo 21, nomeie o *myVnetBToMyVnetA,* selecione *myVnetA* para **rede Virtual** e introduza o ID a partir do passo 10 na caixa **de ID** de recurso.
 25. Alguns segundos depois de selecionar **OK** para criar o espreitamento para o myVnetB, o **myVnetBToMyVnetA** que o seu acabou de criar está listado com **Connected** na coluna **STATUS PEERING.**
 26. Faça login no portal como UserB e faça login como UserA.
 27. Complete os passos 17-19 novamente. O **ESTADO DE PEERING** para o persipecção **myVnetAToVNetB** está agora também **ligado**. O espreitamento é estabelecido com sucesso depois de ver **Conectado** na coluna **STATUS PEERING** para ambas as redes virtuais no espreitamento. Quaisquer recursos Azure que crie em qualquer rede virtual são agora capazes de comunicar uns com os outros através dos seus endereços IP. Se estiver a utilizar a resolução de nomeS Azure padrão para as redes virtuais, os recursos nas redes virtuais não são capazes de resolver nomes através das redes virtuais. Se quiser resolver nomes através de redes virtuais num espreitê-lo, tem de criar o seu próprio servidor DNS. Saiba como configurar a [resolução Name utilizando o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -292,7 +292,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
 1. Faça login no portal Azure como UserA.
 2. Na caixa de pesquisa do portal, insira **o myResourceGroupA**. Nos resultados da pesquisa, selecione **myResourceGroupA**.
 3. Selecione **Eliminar**.
-4. Para confirmar a eliminação, na caixa **TYPE THE RESOURCE GROUP NAME,** introduza o **myResourceGroupA**e, em seguida, selecione **Delete**.
+4. Para confirmar a eliminação, na caixa **TYPE THE RESOURCE GROUP NAME,** introduza o **myResourceGroupA** e, em seguida, selecione **Delete**.
 5. Faça login no portal como UserA e faça login como UserB.
 6. Passos completos 2-4 para o myResourceGroupB.
 

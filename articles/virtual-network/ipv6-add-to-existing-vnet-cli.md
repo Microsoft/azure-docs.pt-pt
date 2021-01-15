@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: de8d63fb5181e324738e082cbb36a40ee59e36b0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 04f50396ea9ced4b4377f264b4952efa7a75d170
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96005253"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223504"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Adicione IPv6 a uma aplicação IPv4 na rede virtual Azure - Azure CLI
 
@@ -48,7 +48,7 @@ az network public-ip create \
 
 ## <a name="configure-ipv6-load-balancer-frontend"></a>Configurar iPv6 carregar frontend
 
-Configure o balançador de carga com o novo endereço IP IPv6 utilizando [a rede az-rede lb frontend-ip criar](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) da seguinte forma:
+Configure o balançador de carga com o novo endereço IP IPv6 utilizando [a rede az-rede lb frontend-ip criar](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) da seguinte forma:
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -60,7 +60,7 @@ az network lb frontend-ip create \
 
 ## <a name="configure-ipv6-load-balancer-backend-pool"></a>Configure piscina de backend de balançador de carga IPv6
 
-Crie o pool backend para NICs com endereços IPv6 utilizando [o pool de endereços lb da rede az criar](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) da seguinte forma:
+Crie o pool backend para NICs com endereços IPv6 utilizando [o pool de endereços lb da rede az criar](/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) da seguinte forma:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -71,7 +71,7 @@ az network lb address-pool create \
 
 ## <a name="configure-ipv6-load-balancer-rules"></a>Configurar regras do balançador de carga IPv6
 
-Criar regras de balançador de carga IPv6 com [regra lb de rede az criar](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
+Criar regras de balançador de carga IPv6 com [regra lb de rede az criar](/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ az network vnet subnet update \
 
 ## <a name="add-ipv6-configuration-to-nics"></a>Adicionar configuração IPv6 aos NICs
 
-Configure os NICs VM com um endereço IPv6 utilizando [a rede az nic ip-config criar](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) da seguinte forma:
+Configure os NICs VM com um endereço IPv6 utilizando [a rede az nic ip-config criar](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) da seguinte forma:
 
 ```azurecli-interactive
 az network nic ip-config create \
@@ -147,7 +147,7 @@ Pode ver a rede virtual de pilha dupla IPv6 no portal Azure da seguinte forma:
   ![IPv6 dual stack rede virtual em Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 

@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: bccbfed96dd6cd87bdfe986baf4b52817a160ac0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533366"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222960"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com Rede Acelerada usando O Azure CLI
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual do Linux com Rede Acelerada com a CLI do Azure
 
 Neste tutorial, aprende-se a criar uma máquina virtual Linux (VM) com Rede Acelerada. Para criar um VM do Windows com rede acelerada, consulte [criar um VM do Windows com rede acelerada](create-vm-accelerated-networking-powershell.md). A rede acelerada permite a virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este percurso de alto desempenho contorna o hospedeiro do datapath, reduzindo a latência, o nervosismo e a utilização do CPU, para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados. A seguinte imagem mostra a comunicação entre dois VMs com e sem rede acelerada:
 
 ![Comparação](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Sem uma rede acelerada, todo o tráfego de ligação em rede dentro e fora do VM deve atravessar o hospedeiro e o interruptor virtual. O interruptor virtual fornece toda a aplicação de políticas, tais como grupos de segurança de rede, listas de controlo de acesso, isolamento e outros serviços virtualizados de rede para o tráfego de rede. Para saber mais sobre os interruptores virtuais, leia a virtualização da rede Hyper-V e o artigo [de comutação virtual.](https://technet.microsoft.com/library/jj945275.aspx)
+Sem uma rede acelerada, todo o tráfego de ligação em rede dentro e fora do VM deve atravessar o hospedeiro e o interruptor virtual. O interruptor virtual fornece toda a aplicação de políticas, tais como grupos de segurança de rede, listas de controlo de acesso, isolamento e outros serviços virtualizados de rede para o tráfego de rede. Para saber mais sobre os interruptores virtuais, leia a virtualização da rede Hyper-V e o artigo [de comutação virtual.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134230(v=ws.11))
 
 Com a rede acelerada, o tráfego de rede chega à interface de rede da máquina virtual (NIC), e é depois encaminhado para o VM. Todas as políticas de rede que o interruptor virtual aplica são agora descarregadas e aplicadas em hardware. A aplicação da política em hardware permite ao NIC encaminhar o tráfego da rede diretamente para o VM, contornando o hospedeiro e o comutador virtual, mantendo ao mesmo tempo toda a política que aplicava no anfitrião.
 
@@ -60,7 +60,7 @@ O Networking Acelerado é suportado na maioria dos tamanhos de instância otimiz
 
 Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
-Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Linux VM](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Linux VM](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="custom-images"></a>Imagens Personalizadas
 Se estiver a utilizar uma imagem personalizada e a sua imagem suportar rede acelerada, certifique-se de que tem os controladores necessários para trabalhar com mellanox ConnectX-3 e ConnectX-4 Lx NICs no Azure.
@@ -173,7 +173,7 @@ az vm create \
     --nics myNic
 ```
 
-Para obter uma lista de todos os tamanhos e características VM, consulte os [tamanhos linux VM](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter uma lista de todos os tamanhos e características VM, consulte os [tamanhos linux VM](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Uma vez criado o VM, a saída semelhante à saída de exemplo a seguir é devolvida. Anote o **publicIpAddress**. Este endereço é utilizado para aceder ao VM nos passos seguintes.
 
@@ -310,5 +310,4 @@ Um VM com rede acelerada ativado não pode ser redimensionado para uma instânci
 
 * Parar/Negociar o VM ou se num conjunto de disponibilidade/VMSS, parar/negociar todos os VMs no set/VMSS.
 * A rede acelerada deve ser desativada no NIC do VM ou se num conjunto de disponibilidade/VMSS, todos os VMs no conjunto/VMSS.
-* Uma vez desativada a rede acelerada, o conjunto VM/disponibilidade/VMSS pode ser movido para um novo tamanho que não suporta rede acelerada e reiniciado.  
-
+* Uma vez desativada a rede acelerada, o conjunto VM/disponibilidade/VMSS pode ser movido para um novo tamanho que não suporta rede acelerada e reiniciado.

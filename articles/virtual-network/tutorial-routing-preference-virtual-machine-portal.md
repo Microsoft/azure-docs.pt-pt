@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 35e4b90e9bdd52a20bf892f0784b191384f271ac
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533711"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221651"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configure a preferência de encaminhamento para um VM utilizando o portal Azure
 
@@ -46,7 +46,7 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |A localização| Selecione **E.U.A. Leste**.|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. No **separador 'Rede',** clique em **Criar novo** endereço IP **público.**
@@ -69,7 +69,7 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
 
     ![A screenshot mostra o endereço I P e a preferência de encaminhamento para um endereço Público I P.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
@@ -79,5 +79,5 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [IP público com preferência por encaminhamento](routing-preference-overview.md).
-- Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
+- Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

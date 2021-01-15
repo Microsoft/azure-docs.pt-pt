@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432584"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222433"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
 Um prefixo de endereço IP público é uma gama reservada de endereços IP em Azure. O Azure dá uma gama contígua de endereços à sua subscrição com base em quantos especifica. 
 
-Se não estiver familiarizado com endereços públicos, consulte [os endereços IP públicos.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+Se não estiver familiarizado com endereços públicos, consulte [os endereços IP públicos.](./public-ip-addresses.md#public-ip-addresses)
 
 Os endereços IP públicos são atribuídos a partir de um conjunto de endereços em cada região de Azure. Você pode [baixar](https://www.microsoft.com/download/details.aspx?id=56519) a lista de gamas que Azure usa para cada região. Por exemplo, 40.121.0.0/16 é uma das mais de 100 gamas que o Azure utiliza na região leste dos EUA. A gama inclui os endereços utilizáveis de 40.121.0.1 - 40.121.255.254.
 
@@ -68,9 +68,9 @@ Pode associar os seguintes recursos a um endereço IP público estático a parti
 ## <a name="constraints"></a>Restrições
 
 - Não é possível especificar os endereços IP para o prefixo. O Azure dá os endereços IP para o prefixo, com base no tamanho especificado.
-- Pode criar um prefixo de até 16 endereços IP ou um /28 por predefinição. Os [limites da rede](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) de revisão aumentam os pedidos e os [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para mais informações.
+- Pode criar um prefixo de até 16 endereços IP ou um /28 por predefinição. Os [limites da rede](../azure-portal/supportability/networking-quota-requests.md) de revisão aumentam os pedidos e os [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para mais informações.
 - Não se pode mudar o alcance, depois de criar o prefixo.
-- Apenas endereços IP públicos estáticos criados com o SKU Standard podem ser atribuídos a partir do intervalo do prefixo. Para saber mais sobre o endereço IP público SKUs, consulte [o endereço IP público.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+- Apenas endereços IP públicos estáticos criados com o SKU Standard podem ser atribuídos a partir do intervalo do prefixo. Para saber mais sobre o endereço IP público SKUs, consulte [o endereço IP público.](./public-ip-addresses.md#public-ip-addresses)
 - Os endereços da gama só podem ser atribuídos aos recursos do Gestor de Recursos Azure. Os endereços não podem ser atribuídos a recursos no modelo clássico de implantação.
 - Todos os endereços IP públicos criados a partir do prefixo devem existir na mesma região de Azure e subscrição como o prefixo. Os endereços devem ser atribuídos a recursos na mesma região e subscrição.
 - Não é possível eliminar um prefixo se algum endereço nele for atribuído a recursos de endereço IP públicos associados a um recurso. Dissociem todos os recursos de endereço IP públicos que são atribuídos endereços IP a partir do prefixo primeiro.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cdd86984e5594d330f0080ee5f4cf0e9a8374652
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510612"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223548"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configure a preferência de encaminhamento para um VM usando a Azure PowerShell
 
@@ -139,7 +139,7 @@ Agora pode criar o VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O 
 
 Antes de poder ligar ao endereço IP público a partir da internet, certifique-se de que tem as portas necessárias abertas em qualquer grupo de segurança de rede que possa ter associado à interface de rede, a sub-rede em que a interface de rede está, ou ambas. Pode ver as regras de segurança eficazes para uma interface de rede e a sua sub-rede utilizando o [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli)ou [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
@@ -150,5 +150,5 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md)
-* Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
+* Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 * Saiba mais sobre [as definições de endereço IP público .](virtual-network-public-ip-address.md#create-a-public-ip-address)

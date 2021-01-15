@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 36e5bb33b7d555c3b457b63f94d9032ff390e6cb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b7c683edd15ab05e9efc239ffe07759078754607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342319"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222654"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede de Azure Kubernetes
 
@@ -38,7 +38,7 @@ Ao implementar a segurança do seu cluster, utilize grupos de segurança de rede
 O Azure NPM pode ser utilizado das seguintes formas para fornecer micro-segmentação para cápsulas.
 
 ### <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
-O NPM está disponível nativamente em AKS e pode ser ativado no momento da criação do cluster. Saiba mais sobre isso no [tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/use-network-policies).
+O NPM está disponível nativamente em AKS e pode ser ativado no momento da criação do cluster. Saiba mais sobre isso no [tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)](../aks/use-network-policies.md).
 
 ### <a name="aks-engine"></a>Motor AKS
 AKS-Engine é uma ferramenta que gera um modelo de Gestor de Recursos Azure para a implementação de um cluster Kubernetes em Azure. A configuração do cluster está especificada num ficheiro JSON transmitido à ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de definições de cluster suportadas e as respetivas descrições, veja Motor do Microsoft Azure Container Service – Definição do Cluster.
@@ -112,7 +112,7 @@ Anteriormente, os utilizadores só conseguiam aprender sobre a sua Configuraçã
 ### <a name="supported-metrics"></a>Métricas Suportadas
 Segue-se a lista de métricas suportadas:
 
-|Nome da Métrica |Descrição  |Tipo métrico Prometheus  |Etiquetas  |
+|Nome da Métrica |Description  |Tipo métrico Prometheus  |Etiquetas  |
 |---------|---------|---------|---------|
 |`npm_num_policies`     |número de políticas de rede          |Medidor         |-         |
 |`npm_num_iptables_rules`     | número de regras IPTables     | Medidor        |-         |         
@@ -130,7 +130,7 @@ Há também uma métrica "exec_time_count" e "exec_time_sum" para cada métrica 
 As métricas podem ser raspadas através do Monitor Azure para contentores ou através de Prometeu.
 
 ### <a name="setup-for-azure-monitor"></a>Configuração para Monitor Azure
-O primeiro passo é ativar o Azure Monitor para contentores para o seu cluster Kubernetes. As etapas podem ser encontradas no [Azure Monitor para recipientes visão geral](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview). Uma vez ativado o Azure Monitor para contentores, configuure o [Monitor Azure para os recipientes ConfigMap](https://aka.ms/container-azm-ms-agentconfig) para permitir a integração e recolha de métricas de NPM de NPM. Monitor azul para contentores ConfigMap tem uma ```integrations``` secção com configurações para recolher métricas de NPM. Estas definições são desativadas por padrão no ConfigMap. Ativando a definição ```collect_basic_metrics = true``` básica, recolherá métricas básicas de NPM. Permitir uma configuração avançada ```collect_advanced_metrics = true``` irá recolher métricas avançadas para além das métricas básicas. 
+O primeiro passo é ativar o Azure Monitor para contentores para o seu cluster Kubernetes. As etapas podem ser encontradas no [Azure Monitor para recipientes visão geral](../azure-monitor/insights/container-insights-overview.md). Uma vez ativado o Azure Monitor para contentores, configuure o [Monitor Azure para os recipientes ConfigMap](https://aka.ms/container-azm-ms-agentconfig) para permitir a integração e recolha de métricas de NPM de NPM. Monitor azul para contentores ConfigMap tem uma ```integrations``` secção com configurações para recolher métricas de NPM. Estas definições são desativadas por padrão no ConfigMap. Ativando a definição ```collect_basic_metrics = true``` básica, recolherá métricas básicas de NPM. Permitir uma configuração avançada ```collect_advanced_metrics = true``` irá recolher métricas avançadas para além das métricas básicas. 
 
 Depois de editar o ConfigMap, guarde-o localmente e aplique o ConfigMap no seu cluster da seguinte forma.
 
@@ -143,7 +143,7 @@ integrations: |-
 ```
 As métricas avançadas são opcionais, e ligá-las automaticamente ligará a recolha de métricas básicas. As métricas avançadas atualmente incluem apenas `npm_ipset_counts`
 
-Saiba mais sobre [o monitor Azure para configurações de recolha de contentores no mapa config](https://aka.ms/azmon-containers-agent-collection-settings-doc)
+Saiba mais sobre [o monitor Azure para configurações de recolha de contentores no mapa config](../azure-monitor/insights/container-insights-agent-config.md)
 
 ### <a name="visualization-options-for-azure-monitor"></a>Opções de visualização para monitor Azure
 Uma vez ativada a recolha de métricas NPM, pode ver as métricas no portal Azure utilizando o Container Insights ou em Grafana.
@@ -154,7 +154,7 @@ Abre o Portal do Azure. Uma vez no seu cluster's Insights, navegue para "Workboo
 Além de visualizar o livro (imagens abaixo), também pode consultar diretamente as métricas prometheus em "Logs" na secção Insights. Por exemplo, esta consulta devolverá todas as métricas recolhidas.
 | onde o Tempogenerado > há > (5h) onde o nome contém "npm_"
 
-Também pode consultar o Log Analytics diretamente para as métricas. Saiba mais sobre isso com [Começar com Consultas de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
+Também pode consultar o Log Analytics diretamente para as métricas. Saiba mais sobre isso com [Começar com Consultas de Log Analytics](../azure-monitor/insights/container-insights-log-search.md) 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Visualização no Painel grafana
 Configure o seu Servidor Grafana e configuure uma Fonte de Dados de Análise de Registo, conforme descrito [aqui.](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource) Em seguida, [importe Grafana Dashboard com um backend Log Analytics](https://grafana.com/grafana/dashboards/10956) para os seus Laboratórios Grafana.
@@ -266,4 +266,3 @@ Seguem-se alguns dashboards de amostra para métricas de NPM em Insights de Cont
 -  Saiba mais sobre [a rede de contentores.](container-networking-overview.md)
 - [Insiú-lo](deploy-container-networking.md) para os aglomerados kubernetes ou para os recipientes Docker.
 
-    

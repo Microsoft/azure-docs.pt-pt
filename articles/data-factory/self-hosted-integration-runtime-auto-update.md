@@ -1,8 +1,6 @@
 ---
-title: Atualização automática do tempo de execução da integração auto-acolessão e a notificação de expiração
+title: Atualização automática e notificação de expiração do runtime de integração autoalojado
 description: Saiba mais sobre a atualização automática do tempo de execução da integração auto-acolôda e a notificação de expiração
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -11,14 +9,14 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 6a6c897d92d469fd6247dd51f2bacb91032ac123
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122665"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222688"
 ---
-# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Atualização automática do tempo de execução da integração auto-acolessão e a notificação de expiração
+# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Atualização automática e notificação de expiração do runtime de integração autoalojado
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -33,7 +31,7 @@ A forma mais conveniente é ativar a atualização automática quando cria ou ed
 
 Pode verificar a última atualização da data no seu cliente de execução de integração auto-hospedado.
 
-![Ativar a atualização automática](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Screenshot de verificar o tempo de atualização](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > Para garantir a estabilidade do tempo de integração auto-hospedado, embora lancemos duas versões, só a atualizaremos automaticamente uma vez por mês. Por isso, por vezes, verá que a versão auto-actualizada é a versão anterior da versão mais recente. Se quiser obter a versão mais recente, pode ir ao [download do Centro.](https://www.microsoft.com/download/details.aspx?id=39717)

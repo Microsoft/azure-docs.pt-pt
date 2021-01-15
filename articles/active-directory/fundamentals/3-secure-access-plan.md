@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932525"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222335"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Criar um plano de segurança para o acesso externo 
 
@@ -195,7 +195,7 @@ Pode alcançar uma governação robusta com o Azure AD P1 e o Microsoft 365 E3
 | Colaboração Azure AD B2B| **Convidar via e-mail, OTP, self-service**| Federação Direta B2B| **Revisão periódica por parceiro**| Remover conta<br>Restringir o sinal |
 | Microsoft ou Office 365 Grupos| | | | Expiração ou supressão do grupo.<br>Remoção do grupo. |
 | Grupos de segurança| | **Adicione utilizadores externos a grupos de segurança (org, equipa, projeto, etc.)**| |  |
-| Políticas de acesso condicional| | **Políticas de acesso condicional de acesso condicionado para utilizadores externos**| |  |
+| Políticas de Acesso Condicional| | **Políticas de acesso condicional de acesso condicionado para utilizadores externos**| |  |
 
 
  ### <a name="access-to-resources"></a>Acesso a recursos.

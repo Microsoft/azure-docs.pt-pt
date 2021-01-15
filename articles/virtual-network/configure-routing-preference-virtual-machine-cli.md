@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ccd04a43e6781e8d58234cc382b2739d800e5fe7
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d375b860c6b23fd6033e985e23c6f12dfe9a3c68
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510680"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223572"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configure a preferência de encaminhamento para um VM utilizando o Azure CLI
 
@@ -58,7 +58,7 @@ Antes de implementar um VM, tem de criar recursos de rede de suporte - grupo de 
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Crie um grupo de segurança de rede para as regras que regem a comunicação de entrada e saída no seu VNet com [a rede az nsg criar](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Crie um grupo de segurança de rede para as regras que regem a comunicação de entrada e saída no seu VNet com [a rede az nsg criar](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 ```azurecli
 az network nsg create \
@@ -69,7 +69,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual com [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVNET* com sub-redes *mySubNet*:
+Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVNET* com sub-redes *mySubNet*:
 
 ```azurecli
 # Create a virtual network
@@ -89,7 +89,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Criar um NIC
 
-Crie um NIC virtual para o VM com [a criação de rede Az.](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) O exemplo a seguir cria um NIC virtual, que será anexado ao VM.
+Crie um NIC virtual para o VM com [a criação de rede Az.](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) O exemplo a seguir cria um NIC virtual, que será anexado ao VM.
 
 ```azurecli-interactive
 # Create a NIC
@@ -105,7 +105,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria um VM do servidor windows 2019 e os componentes de rede virtual necessários se ainda não existirem.
+Crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria um VM do servidor windows 2019 e os componentes de rede virtual necessários se ainda não existirem.
 
 ```azurecli
 az vm create \
@@ -117,7 +117,7 @@ az vm create \
 --admin-username myUserName
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que contém:
 
@@ -128,5 +128,5 @@ az group delete --name myResourceGroup --yes
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md)
-- Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
+- Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 - Saiba mais sobre [as definições de endereço IP público .](virtual-network-public-ip-address.md#create-a-public-ip-address)

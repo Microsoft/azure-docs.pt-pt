@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: f44751feca67fdd4473dd3f427fcf2b9d1bbe717
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916495"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222620"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurar e utilizar o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -79,16 +79,15 @@ Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipie
 O seguinte código cria um recipiente com loja analítica utilizando o .NET SDK. Desaperte a propriedade TTL analítica ao valor exigido. Para obter a lista de valores permitidos, consulte o artigo [de valores suportados pela TTL analítica:](analytical-store-introduction.md#analytical-ttl)
 
 ```csharp
-// Create a container with a partition key, and analytical TTL configured to  -1 (infinite retention)
-string containerId = “myContainerName”;
-int analyticalTtlInSec = -1;
-ContainerProperties cpInput = new ContainerProperties()
-            {
-Id = containerId,
-PartitionKeyPath = "/id",
-AnalyticalStorageTimeToLiveInSeconds = analyticalTtlInSec,
+// Create a container with a partition key, and analytical TTL configured to -1 (infinite retention)
+ContainerProperties properties = new ContainerProperties()
+{
+    Id = "myContainerId",
+    PartitionKeyPath = "/id",
+    AnalyticalStoreTimeToLiveInSeconds = -1,
 };
- await this. cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(cpInput);
+CosmosClient cosmosClient = new CosmosClient("myConnectionString");
+await cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(properties);
 ```
 
 ### <a name="java-v4-sdk"></a>Java V4 SDK
