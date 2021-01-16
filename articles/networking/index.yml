@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: efc78307a4b03c9b5a7546dd899f83b0eed76457
-  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
+  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/10/2021
-  ms.locfileid: "98059743"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98233955"
 highlightedContent:
   items:
   - title: O que é a Rede do Azure?
@@ -28,10 +28,10 @@ highlightedContent:
     url: https://azure.microsoft.com/updates/?category=networking
   - title: Opções de balanceamento de carga no Azure
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+    url: /azure/architecture/guide/technology-choices/load-balancing-overview
   - title: Topologia de rede hub and spoke no Azure
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
   - title: Orbital que é o Azure Orbital?
     itemType: concept
     url: azure-orbital-overview.md
@@ -62,7 +62,7 @@ conceptualContent:
     - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
       itemType: overview
       text: O que é o Gateway de VPN do Azure?
-    - url: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+    - url: ../vpn-gateway/tutorial-site-to-site-portal.md
       itemType: tutorial
       text: Ligações site a site
     - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
@@ -209,7 +209,7 @@ conceptualContent:
     - url: ../bastion/bastion-overview.md
       itemType: overview
       text: O que é o Azure Bastion?
-    - url: ../bastion/bastion-create-host-portal.md
+    - url: ../bastion/tutorial-create-host-portal.md
       itemType: how-to-guide
       text: Criar um anfitrião do Azure Bastion
     - url: ../bastion/troubleshoot.md
@@ -333,10 +333,10 @@ additionalContent:
   - items:
     - title: Comandos do Azure PowerShell para a rede do Azure
       summary: Saiba mais sobre os Cmdlets de rede do Azure.
-      url: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.5.0#networking
+      url: /powershell/module/az.network/?view=azps-3.5.0#networking
     - title: Comandos da CLI do Azure para a rede do Azure
       summary: Os comandos da rede do Azure estão disponíveis na referência da CLI.
-      url: https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest
+      url: /cli/azure/network?view=azure-cli-latest
     - title: Blogues de rede do Azure
       summary: Veja os mais recentes blogues na rede do Azure.
       url: https://azure.microsoft.com/blog/topics/networking/
