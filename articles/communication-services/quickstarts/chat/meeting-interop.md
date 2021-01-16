@@ -7,12 +7,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ea66e4295e8228aa382aa29a46fcca8147dcbc98
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1ad6b7241c7167c6da8952e7db2797fa275b7246
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578151"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251939"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Quickstart: Junte-se à sua app de chat para uma reunião de Equipas
 
@@ -29,15 +29,11 @@ Inicie-se com os Serviços de Comunicação Azure ligando a sua solução de cha
 
 Um utilizador dos Serviços de Comunicação que se junte a uma reunião de Equipas como utilizador convidado só pode aceder ao chat da reunião quando se juntar à chamada de reunião das Equipas. Consulte a documentação [do interop das Equipas](../voice-video-calling/get-started-teams-interop.md) para saber como adicionar um utilizador de Serviços de Comunicação a uma chamada de reunião de Equipas.
 
-A funcionalidade de interoperabilidade das Equipas encontra-se atualmente em pré-visualização privada. Para ativar esta funcionalidade para o seu recurso serviços de comunicação, por favor envie um e-mail acsfeedback@microsoft.com com: 
-1. O ID de subscrição da subscrição Azure que contém o seu recurso de Serviços de Comunicação. 
-2. A identificação do inquilino da equipa. A forma mais fácil de o obter é obter e partilhar um link com a Equipa. 
-
-Deve ser membro da organização proprietária de ambas as entidades para utilizar esta funcionalidade. 
+Deve ser membro da organização proprietária de ambas as entidades para utilizar esta funcionalidade.
 
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 9751bd082947e66b3fc5ea47448857558301a1e7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366363"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256426"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -34,7 +34,7 @@ Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **d
 | Endereços IP privados por máquina virtual |256 |
 | Endereços IP públicos por interface de rede |256 |
 | Endereços IP públicos por máquina virtual |256 |
-| [Fluxos simultâneos de TCP ou UDP por NIC de uma máquina virtual ou instância de função](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500 000 |
+| [Fluxos simultâneos de TCP ou UDP por NIC de uma máquina virtual ou instância de função](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500 000 |
 | Cartões de interface de rede |65 536 |
 | Grupos de Segurança de Rede |5000 |
 | Regras do NSG por NSG |1,000 |

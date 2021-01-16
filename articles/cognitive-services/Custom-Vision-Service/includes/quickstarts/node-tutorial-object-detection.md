@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 21f05363ed3d3aa3e9c1f1156425a6026eb21b71
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: be3f199b1b8442da38b4ad0b6b6495b533c6dfe1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97582699"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256517"
 ---
 Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Da Visão Personalizada para Node.js para construir um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -25,7 +25,7 @@ Utilize a biblioteca de clientes Custom Vision para .NET para:
 * Publique a iteração atual
 * Teste o ponto final de previsão
 
-Documentação de referência [(formação)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(previsão)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(previsão)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) / Amostras de pacote (npm) [(treino)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(previsão)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction)  |  [](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Documentação de referência [(formação)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(previsão)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(previsão)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Amostras de pacote (npm) [(treino)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(previsão)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction)  |  [](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -125,6 +125,9 @@ Inicie uma nova função para conter todas as suas chamadas de função De Visã
 
 Primeiro, descarregue as imagens da amostra para este projeto. Guarde o conteúdo da [pasta Imagens](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) da amostra para o seu dispositivo local.
 
+> [!NOTE]
+> O Trove, um projeto da Microsoft Garage, permite-lhe recolher e adquirir conjuntos de imagens para fins de treino. Uma vez recolhidas as suas imagens, pode descarregá-las e depois importá-las para o seu projeto De Visão Personalizada da forma habitual. Visite a [página do Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para saber mais.
+
 Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas. Para este tutorial, as regiões são codificadas em linha com o código. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura. Pode carregar até 64 imagens num único lote.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_upload)]
@@ -171,7 +174,7 @@ node index.js
 
 A saída da aplicação deverá aparecer na consola. Em seguida, pode verificar se a imagem de teste (encontrada em **<sampleDataRoot> /Teste)** está corretamente marcada e que a região de deteção está correta. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

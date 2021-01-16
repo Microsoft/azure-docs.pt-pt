@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 376a4941ac767b670bd2706cb3af63d139b0c3a3
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b0f0ee9477a84dc198ea3fb48b2ed81be10ea9c5
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233496"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251884"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
@@ -19,12 +19,6 @@ A Azure Database for MariaDB irá alterar o certificado de raiz para a aplicaç�
 
 >[!NOTE]
 > Com base no feedback dos clientes, alargamos a depreciação do certificado de raiz para a nossa ca raiz de Baltimore existente de 26 de outubro de 2020 até 15 de fevereiro de 2021. Esperamos que esta extensão proporcione tempo suficiente para que os nossos utilizadores implementem as alterações do cliente se forem impactadas.
-
-> [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
->
 
 ## <a name="what-update-is-going-to-happen"></a>Que atualização vai acontecer?
 
@@ -79,15 +73,17 @@ Para evitar que a disponibilidade da sua candidatura seja interrompida devido à
 
   - Para os utilizadores de .NET no Linux que utilizam SSL_CERT_DIR, certifique-se de que **baltimoreCyberTrustRoot** e **DigiCertGlobalRootG2** existem no diretório indicado por SSL_CERT_DIR. Se não existirem certificados, crie o ficheiro de certificado em falta.
 
-  - Para outros utilizadores (MariaDB Client/MariaDB Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), pode fundir dois ficheiros de certificados CA como este formato abaixo</b>
+  - Para outros utilizadores (MariaDB Client/MariaDB Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), pode fundir dois ficheiros de certificados CA como este formato abaixo
 
-    </br>-----BEGIN CERTIFICADO-----
-    </br>(Raiz CA1: BaltimoreCyberTrustRoot.crt.pem)
-    </br>-----END CERTIFICATE-----
-    </br>-----BEGIN CERTIFICADO-----
-    </br>(Raiz CA2: DigiCertGlobalRootG2.crt.pem)
-    </br>-----END CERTIFICATE-----
-
+   ```
+   -----BEGIN CERTIFICATE-----
+   (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+   -----END CERTIFICATE-----
+   -----BEGIN CERTIFICATE-----
+    (Root CA2: DigiCertGlobalRootG2.crt.pem)
+   -----END CERTIFICATE-----
+   ```
+   
 - Substitua o ficheiro ca pem de raiz original pelo ficheiro CA raiz combinado e reinicie a sua aplicação/cliente.
 - No futuro, após o novo certificado implantado no lado do servidor, pode alterar o seu ficheiro CA pem para DigiCertGlobalRootG2.crt.pem.
 
@@ -134,7 +130,7 @@ Para o conector que utiliza o Tempo de Execução de Integração Auto-hospedado
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Preciso de planear um tempo de inatividade de manutenção do servidor de bases de dados para esta mudança?
 
-Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta mudança.
+N.º Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta mudança.
 
 ### <a name="8--what-if-i-cant-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 15 de fevereiro de 2021 (02/15/2021)?
 
@@ -154,6 +150,21 @@ Uma vez que esta atualização é uma alteração do lado do cliente, se o clien
 
 ### <a name="12-if-im-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Se estou a usar a replicação do Data-in, preciso de fazer alguma ação?
 
+> [!NOTE]
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+>
+
+*   Se a replicação de dados for de uma máquina virtual (on-prem ou azure virtual machine) para Azure Database for MySQL, é necessário verificar se o SSL está a ser utilizado para criar a réplica. Executar **SHOW SLAVE STATUS** e verificar a seguinte definição.
+
+    ```azurecli-interactive
+    Master_SSL_Allowed            : Yes
+    Master_SSL_CA_File            : ~\azure_mysqlservice.pem
+    Master_SSL_CA_Path            :
+    Master_SSL_Cert               : ~\azure_mysqlclient_cert.pem
+    Master_SSL_Cipher             :
+    Master_SSL_Key                : ~\azure_mysqlclient_key.pem
+    ```
+
 Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md) para ligar à Base de Dados Azure para o MySQL, há duas coisas a considerar:
 
 - Se a replicação de dados for de uma máquina virtual (on-prem ou azure virtual machine) para Azure Database for MySQL, é necessário verificar se o SSL está a ser utilizado para criar a réplica. Executar **SHOW SLAVE STATUS** e verificar a seguinte definição. 
@@ -166,8 +177,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
   Master_SSL_Cipher             :
   Master_SSL_Key                : ~\azure_mysqlclient_key.pem
   ```
-
-    Se vir que o certificado está previsto para o CA_file, SSL_Cert e SSL_Key, terá de atualizar o ficheiro adicionando o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
+  Se vir que o certificado está previsto para o CA_file, SSL_Cert e SSL_Key, terá de atualizar o ficheiro adicionando o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
 - Se a replicação de dados estiver entre duas Bases de Dados Azure para o MySQL, então terá de redefinir a réplica executando **call mysql.az_replication_change_master** e fornecer o novo certificado de raiz dupla como último parâmetro [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication).
 
@@ -177,7 +187,7 @@ Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consu
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
 
-Não. Não é necessária nenhuma ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
+N.º Não é necessária nenhuma ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
 

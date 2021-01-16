@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 0a0ae0659e13035bfb29a0628330339ede349b8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b5884a7b1f271a88653779e46c461c29a85ab2ed
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97582499"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256494"
 ---
 Começa a usar a biblioteca de clientes Da Visão Personalizada para a Java para construir um modelo de classificação de imagem. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -25,7 +25,7 @@ Utilize a biblioteca de clientes Custom Vision para:
 * Publique a iteração atual
 * Teste o ponto final de previsão
 
-[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) / Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(previsão)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)/ Amostras de [artefactos](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) (Maven) [(treino) (previsão)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar)  | 
+[documentação de referência](/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(previsão)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| Amostras de [artefactos](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) (Maven) [(treino) (previsão)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar)  | 
  [](/samples/browse/?products=azure&terms=custom%20vision)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -154,6 +154,9 @@ Este método define as etiquetas em que vai treinar o modelo.
 
 Primeiro, descarregue as imagens da amostra para este projeto. Guarde o conteúdo da [pasta Imagens](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) da amostra para o seu dispositivo local.
 
+> [!NOTE]
+> O Trove, um projeto da Microsoft Garage, permite-lhe recolher e adquirir conjuntos de imagens para fins de treino. Uma vez recolhidas as suas imagens, pode descarregá-las e depois importá-las para o seu projeto De Visão Personalizada da forma habitual. Visite a [página do Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para saber mais.
+
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_upload)]
 
 O corte de código anterior utiliza duas funções de ajudante que recuperam as imagens como fluxos de recursos e as enviam para o serviço (pode carregar até 64 imagens num único lote).
@@ -193,7 +196,7 @@ Executar a aplicação com o `gradle run` comando:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

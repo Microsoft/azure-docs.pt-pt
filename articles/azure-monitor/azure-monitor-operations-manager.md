@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 85172e2430a3e65edb0c5ec119c920e2c7d20217
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234975"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251833"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes gestores de operações existentes
 Este artigo fornece orientações para os clientes que atualmente utilizam [o Gestor de Operações do System Center](https://docs.microsoft.com/system-center/scom/welcome) e estão a planear uma transição para o [Azure Monitor](overview.md) à medida que migram aplicações de negócios e outros recursos para o Azure. Assume que o seu objetivo final é uma transição completa para a nuvem, substituindo o máximo de funcionalidades do Gestor de Operações possível pelo Azure Monitor, sem comprometer os requisitos operacionais do seu negócio e de TI. 
@@ -63,7 +63,7 @@ Você ativa o Application Insights para cada uma das suas aplicações de negóc
 À medida que se familiariza com o Azure Monitor, começa a criar regras de alerta que são capazes de substituir algumas funcionalidades do pacote de gestão e começam a evoluir os seus processos de negócio para utilizar a nova plataforma de monitorização. Isto permite-lhe começar a remover máquinas e pacotes de gestão do grupo de gestão de Gestores de Operações. Continua a utilizar pacotes de gestão para software de servidor crítico e infraestruturas no local, mas continua a observar novas funcionalidades no Azure Monitor que lhe permitirão retirar funcionalidades adicionais.
 
 ## <a name="monitor-azure-services"></a>Monitor Azure serviços
-Os serviços Azure realmente requerem a Azure Monitor para recolher telemetria, e está ativado no momento em que você cria uma subscrição Azure. O [registo de Atividade](platform/activity-log.md) é recolhido automaticamente para a subscrição, e as [métricas](platform/data-platform-metrics.md) da plataforma são automaticamente recolhidas a partir de quaisquer recursos Azure que crie. Pode começar imediatamente a utilizar [o explorador de métricas](platform/metrics-getting-started.md), que é semelhante às vistas de desempenho na consola Operações, mas fornece análises interativas e [agregações avançadas de dados.](platform/metrics-charts.md) [Crie um alerta métrico](platform/alerts-metric.md) para ser notificado quando um valor cruza um limiar ou [adicione um gráfico a um painel Azure](platform/metrics-charts.md#pin-charts-to-dashboards) para visibilidade.
+Os serviços Azure realmente requerem a Azure Monitor para recolher telemetria, e está ativado no momento em que você cria uma subscrição Azure. O [registo de Atividade](platform/activity-log.md) é recolhido automaticamente para a subscrição, e as [métricas](platform/data-platform-metrics.md) da plataforma são automaticamente recolhidas a partir de quaisquer recursos Azure que crie. Pode começar imediatamente a utilizar [o explorador de métricas](platform/metrics-getting-started.md), que é semelhante às vistas de desempenho na consola Operações, mas fornece análises interativas e [agregações avançadas de dados.](platform/metrics-charts.md) [Crie um alerta métrico](platform/alerts-metric.md) para ser notificado quando um valor cruza um limiar ou [adicione um gráfico a um painel Azure](platform/metrics-charts.md#pinning-to-dashboards) para visibilidade.
 
 [![Explorador de Métricas](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 

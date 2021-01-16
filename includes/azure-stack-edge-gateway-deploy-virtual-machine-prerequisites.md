@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/21/2020
+ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: f2443765ecc9116193cefbc729ced25fa5657e59
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 56fc24966fa60c3a5e91f92b57332ae2f6a525ff
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763438"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256387"
 ---
 Antes de poder implantar VMs no seu dispositivo Azure Stack Edge, tem de configurar o seu cliente para se ligar ao dispositivo através do Azure Resource Manager sobre a Azure PowerShell. Para etapas detalhadas, aceda ao [Connect to Azure Resource Manager no seu dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
 
@@ -38,11 +38,3 @@ Certifique-se de que os seguintes passos podem ser utilizados para aceder ao dis
     > Se criar VMs GPU, selecione uma interface de rede ligada à Internet. Isto permite-lhe instalar a extensão GPU no seu dispositivo.
 
 
-1. Ativar o papel de VM a partir do portal Azure. Este passo cria uma subscrição única para o seu dispositivo que é usada para criar VMs através das APIs locais do dispositivo. 
-
-    1. Para ativar o papel de VM, no portal Azure, aceda ao recurso Azure Stack Edge para o seu dispositivo Azure Stack Edge. Vá ao **Edge compute > Máquinas Virtuais**.
-
-        ![Adicionar imagem VM 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
-
-    1. Selecione **Máquinas Virtuais** para ir à página **'Vista Geral'.** **Ativar a** gestão virtual da nuvem de máquina.
-        ![Adicionar imagem VM 2](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)

@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: a53b316f6d942f070ef925b369bcea8476fbfffd
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853721"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256447"
 ---
 Começa com a API De Visão Personalizada. Siga estes passos para chamar a API e construir um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -102,6 +102,9 @@ Receberá uma resposta JSON como a seguinte. Guarde o `"id"` valor de cada etiqu
 ## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 Em seguida, descarregue as imagens de amostra para este projeto. Guarde o conteúdo da [pasta Imagens](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) da amostra para o seu dispositivo local.
+
+> [!NOTE]
+> O Trove, um projeto da Microsoft Garage, permite-lhe recolher e adquirir conjuntos de imagens para fins de treino. Uma vez recolhidas as suas imagens, pode descarregá-las e depois importá-las para o seu projeto De Visão Personalizada da forma habitual. Visite a [página do Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para saber mais.
 
 Utilize o seguinte comando para fazer o upload das imagens e aplicar tags; uma vez para as imagens "Cicuta", e separadamente para as imagens "Cereja Japonesa". Consulte as [imagens Create API de dados](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) para obter mais opções.
 

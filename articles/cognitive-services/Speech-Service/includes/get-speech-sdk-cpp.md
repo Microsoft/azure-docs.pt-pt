@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99bc49dfe7b3f7b6a9d49c2947d8d8c01ad98dac
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81399966"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256569"
 ---
 :::row:::
     :::column span="3":::
@@ -30,20 +30,6 @@ O SDK de discurso C++ pode ser instalado a partir do Gestor de **Pacotes** com o
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
-
-#### <a name="c-binaries-and-header-files"></a>Binários C++ e ficheiros de cabeçalho
-
-Em alternativa, o C++ Speech SDK pode ser instalado a partir de binários. Descarregue o SDK como um <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">pacote <span class="docon docon-navigate-external x-hidden-focus"></span> de .alcatrão</a> e desembale os ficheiros num diretório à sua escolha. O conteúdo deste pacote (que inclui ficheiros de cabeçalho para as arquiteturas-alvo x86 e x64) são estruturados da seguinte forma:
-
-  | Caminho                   | Descrição                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | Licença                                              |
-  | `ThirdPartyNotices.md` | Notificações de terceiros                                  |
-  | `include`              | Ficheiros de cabeçalho para C++                                 |
-  | `lib/x64`              | Biblioteca nativa x64 para ligação com a sua aplicação |
-  | `lib/x86`              | Biblioteca nativa x86 para ligação com a sua aplicação |
-
-  Para criar uma aplicação, copie ou mova os binários (e bibliotecas) necessários para o seu ambiente de desenvolvimento. Inclua-os conforme necessário no seu processo de construção.
 
 #### <a name="additional-resources"></a>Recursos adicionais
 

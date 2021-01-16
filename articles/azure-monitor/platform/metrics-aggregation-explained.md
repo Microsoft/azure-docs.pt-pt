@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: 79728e53c1d53a8a4463fc0bd1ddee5db89fc013
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 1d83ef07714e0ce69f01aa240cc3058195c7b1af
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234932"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251986"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Agregação e visualização de métricas Azure Monitor métricas explicadas
 
@@ -125,7 +125,7 @@ Usar a filtragem permite-nos limpar a ficha para ver o que realmente está a aco
 
 :::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="Screenshot mostrando Disk Write Bytes para todas as máquinas virtuais em Grupo de recursos Contoso Hotels dividido e filtrado pelo nome de máquina virtual" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-Para obter mais informações sobre como mostrar dados de dimensão dividida num gráfico de explorador métrico, consulte [funcionalidades avançadas de métricas exploradores- filtros e divisão](metrics-charts.md#apply-filters-to-charts).
+Para obter mais informações sobre como mostrar dados de dimensão dividida num gráfico de explorador métrico, consulte [funcionalidades avançadas de métricas exploradores- filtros e divisão](metrics-charts.md#filters).
 
 ### <a name="null-and-zero-values"></a>Valores nulos e nulos
 
