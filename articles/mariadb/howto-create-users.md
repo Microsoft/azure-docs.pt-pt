@@ -6,22 +6,20 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 62aadb366fd216cb6dcefff6cdde24dc21b8483a
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 77975ae16ba6b66c55db5ef5927bfc49f9cecdc5
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231915"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251527"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar utilizadores no Azure Database for MariaDB
 
 Este artigo descreve como pode criar utilizadores na Base de Dados Azure para MariaDB.
 
 > [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
->
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+
 
 Quando criou a sua Base de Dados Azure para MariaDB, forneceu um nome de utilizador e senha de login de administração do servidor. Para mais informações, pode seguir o [Quickstart.](quickstart-create-mariadb-server-database-using-azure-portal.md) Pode localizar o nome de utilizador do seu servidor a partir do portal Azure.
 

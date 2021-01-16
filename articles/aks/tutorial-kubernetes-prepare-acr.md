@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Criar um registo de contentor
 description: Neste tutorial do Azure Kubernetes Service (AKS), vai criar uma instância do Azure Container Registry e carregar uma imagem de contentor da aplicação de exemplo.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747070"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250626"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementar e utilizar o Azure Container Registry
 
@@ -22,9 +22,9 @@ O Registo de Contentores Azure (ACR) é um registo privado para imagens de conte
 > * Carregar os ficheiros de imagem para o ACR
 > * Ver imagens no registo
 
-Em tutoriais adicionais, este exemplo de ACR é integrado com um cluster Kubernetes em AKS, e uma aplicação é implementada a partir da imagem.
+Em tutoriais posteriores, este exemplo de ACR é integrado com um cluster Kubernetes em AKS, e uma aplicação é implementada a partir da imagem.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 No [tutorial anterior][aks-tutorial-prepare-app], foi criada uma imagem de contentor para uma aplicação de Votação simples do Azure. Se não tiver criado a imagem de aplicação de Votação do Azure, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
 
@@ -34,7 +34,7 @@ Este tutorial requer que esteja a executar a versão 2.0.53 ou mais tarde do Azu
 
 Para criar um Azure Container Registry, tem de começar por obter um grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroup* na região *eualeste* :
+Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroup* na região *eualeste*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -60,12 +60,12 @@ O comando devolve uma mensagem *login concluída* uma vez concluída.
 
 Para ver uma lista das imagens locais atuais, utilize o comando [docker images][docker-images]:
 
-```azurecli
+```console
 $ docker images
 ```
-A saída de comando acima mostra a lista das imagens locais atuais:
+A saída do comando acima mostra a lista das imagens locais atuais:
 
-```
+```output
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
 mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
 mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
@@ -122,7 +122,7 @@ az acr repository list --name <acrName> --output table
 
 A saída de exemplo seguinte lista a imagem *azure-vote-front* como disponível no registo:
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -136,7 +136,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 A saída de exemplo seguinte mostra a imagem *v1* marcada num passo anterior:
 
-```
+```output
 Result
 --------
 v1

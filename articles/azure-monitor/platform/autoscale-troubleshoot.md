@@ -4,12 +4,12 @@ description: Rastrear problemas com autoscalagem Azure usados em Tecido de Servi
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979042"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251272"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Resolução de problemas Azure autoscale
  
@@ -51,13 +51,13 @@ Vamos rever as métricas do serviço de autoescala.
 
 ![Escala de máquina virtual definir percentagem de CPU exemplo](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figura 1a - Percentagem métrica do CPU para conjunto de balança de máquina virtual e a métrica de valor métrico observado para definição de autoescala***
+**_Figura 1a - Percentagem métrica do CPU para conjunto de balança de máquina virtual e a métrica de valor métrico observado para definição de autoescala_* _
 
 ![Limiar métrico e capacidade observada](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figura 1b - Limiar métrico e capacidade observada***
+_*_Figura 1b - Limiar métrico e capacidade observada_*_
 
-Na figura 1b, o **Limiar métrico** (linha azul claro) para a regra de escala é de 70.  A **Capacidade Observada** (linha azul escura) mostra o número de casos ativos, que atualmente é 3. 
+Na figura 1b, o *_ Limiar métrico** (linha azul clara) para a regra de escala é de 70.  A **Capacidade Observada** (linha azul escura) mostra o número de casos ativos, que atualmente é 3. 
 
 > [!NOTE]
 > Será necessário filtrar o **Limiar métrico** pela escala de dimensão da regra de regra do gatilho métrico para ver o limiar de escala e pela escala em regra (diminuição). 
@@ -76,18 +76,18 @@ Neste caso, o valor métrico observado pelo motor de autoescala é calculado com
 
 ![Escala de máquina virtual definir métricas de escala automática exemplo](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figura 2 - Escala de máquina virtual definir métricas de escala automática exemplo***
+**_Figura 2 - Escala de máquina virtual definir gráficos de escala automática exemplo_* _
 
 Na figura 2, pode-se ver dois gráficos métricos. 
 
-O gráfico no topo mostra o valor real da métrica **Outbound Flows.** O valor real é 6. 
+O gráfico em cima mostra o valor real da métrica _ *Outbound Flows** . O valor real é 6. 
 
 O gráfico na parte inferior mostra alguns valores. 
  - O **valor métrico observado** (azul claro) é 3 porque existem 2 instâncias ativas e 6 divididos por 2 é 3. 
  - A **Capacidade Observada** (púrpura) mostra a contagem de exemplos vista pelo motor de autoescala. 
  - O **Limiar métrico** (verde claro) está definido para 10. 
 
-Se existirem regras de ação de várias escalas, pode utilizar a divisão ou a opção **de filtro de adicionar** na tabela de exploradores métricas para olhar a métrica por uma fonte ou regra específica. Para obter mais informações sobre a divisão de um gráfico métrico, consulte [funcionalidades avançadas de gráficos métricos - divisão](metrics-charts.md#apply-splitting-to-a-chart)
+Se existirem regras de ação de várias escalas, pode utilizar a divisão ou a opção **de filtro de adicionar** na tabela de exploradores métricas para olhar a métrica por uma fonte ou regra específica. Para obter mais informações sobre a divisão de um gráfico métrico, consulte [funcionalidades avançadas de gráficos métricos - divisão](metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Exemplo 3 - Compreender eventos de autoescala
 

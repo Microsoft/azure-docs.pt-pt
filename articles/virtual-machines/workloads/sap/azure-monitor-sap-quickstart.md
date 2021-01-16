@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968592"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251000"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementar monitor de Azure para soluções SAP com portal Azure
 
@@ -46,7 +46,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Mostra o separador fornecedor para adicionar fornecedores adicionais ao seu Azure Monitor para soluções SAP." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
-2. **Selecione Adicionar o fornecedor** e escolha SAP **HANA** a partir da queda para baixo. 
+2. **Selecione Adicionar o fornecedor** e escolha SAP **HANA** a partir do drop-down. 
 
    > [!IMPORTANT]
    > Certifique-se de que o fornecedor SAP HANA está configurado para o nó sap HANA 'master'.
@@ -59,13 +59,13 @@ Inicie sessão no portal do Azure em https://portal.azure.com
 
 6. Insira o nome de utilizador da Base de Dados que pretende utilizar. Certifique-se de que o utilizador da base de dados tem as funções **de monitorização** e leitura do **catálogo** atribuídas. 
 
-7. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar fornecedores adicionais conforme necessário ou selecione **Review + criar** para completar a implementação.
+7. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a implementação.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Imagem das opções de configuração ao adicionar informações do fornecedor." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>Fornecedor de cluster de alta disponibilidade (Pacemaker)
 
-1. Selecione **cluster de alta disponibilidade (Pacemaker)** a partir da queda para baixo. 
+1. Selecione **cluster de alta disponibilidade (Pacemaker)** a partir do drop-down. 
 
    > [!IMPORTANT]
    > Para configurar o fornecedor de cluster de alta disponibilidade (Pacemaker), certifique-se de que ha_cluster_provider é instalada em cada nó. Para mais informações consulte [o exportador de clusters HA](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
@@ -74,9 +74,21 @@ Inicie sessão no portal do Azure em https://portal.azure.com
  
 3. Insira o ID do sistema (SID), nome de hospedeiro e nome do cluster.
 
-4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar fornecedores adicionais conforme necessário ou selecione **Review + criar** para completar a implementação.
+4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a implementação.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="A imagem mostra opções relacionadas com o fornecedor de pacemaker de cluster HA." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+
+### <a name="os-linux-provider"></a>Fornecedor de OS (Linux) 
+
+1. Selecione OS (Linux) a partir do drop-down 
+
+> [!IMPORTANT]
+> Para configurar o fornecedor OS (Linux), certifique-se de que Node_Exporter é instalada em cada instância BareMetal. Para mais informações, consulte [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Insira um nome, que será o identificador para a Instância BareMetal.
+3. Insira o ponto final do exportador de nó sob a forma de http://IP:9100/metrics .
+4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a   implementação. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Fornecedor de servidores Microsoft SQL
@@ -108,11 +120,11 @@ Inicie sessão no portal do Azure em https://portal.azure.com
    GO
    ``` 
 
-2. **Selecione Adicionar o fornecedor** e escolha o Microsoft **SQL Server** a partir da queda. 
+2. **Selecione Adicionar o fornecedor** e escolha o Microsoft **SQL Server** a partir do drop-down. 
 
 3. Preencha os campos utilizando informações associadas ao seu Microsoft SQL Server. 
 
-4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar fornecedores adicionais conforme necessário ou selecione **Review + criar** para completar a implementação.
+4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a implementação.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="A imagem mostra informações relacionadas com a adição do Fornecedor de Servidores SQL da Microsoft." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 10/15/2020
-ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882316"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251493"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -235,6 +235,39 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 
 <sup>3</sup> Para os trabalhadores máximos simultâneos (pedidos) para qualquer base de dados individual, consulte [os limites de recursos de base de dados individuais](resource-limits-vcore-single-databases.md). Por exemplo, se a piscina elástica estiver a utilizar a Gen5 e o max vCore por base de dados for definido em 2, então o valor máximo simultâneo dos trabalhadores é de 200.  Se o máximo vCore por base de dados for definido para 0,5, então o valor máximo simultâneo dos trabalhadores é de 50, uma vez que na Gen5 existe um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições max vCore por base de dados que sejam inferiores a 1 vCore ou menos, o número de trabalhadores máximos simultâneos é igualmente redimensionado.
 
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Finalidade geral - cálculo provisionado - séries DC
+
+|Tamanho do cálculo (objetivo de serviço)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
+|:--- | --: |--: |--: |--: |
+|Geração computacional|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|DBs max por piscina <sup>1</sup>|100|400|400|400|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
+|Tamanho máximo dos dados (GB)|756|1536|2048|2048|
+|Tamanho do tronco máximo (GB)|227|461|614|614|
+|Tamanho máximo de dados tempDB (GB)|64|128|192|256|
+|Tipo de armazenamento|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|Armazenamento Premium (Remoto)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Dados máximos IOPS por pool <sup>2</sup>|800|1600|2400|3200|
+|Taxa máxima de registo por piscina (MBps)|9.4|18.8|28,1|32,8|
+|Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|168|336|504|672|
+|Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|168|336|504|672|
+|Sessões simultâneas máx.|30,000|30,000|30,000|30,000|
+|Min/max elástico piscina vCore escolhas por base de dados|2|2...4|2...6|2...8|
+|Número de réplicas|1|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|N/D|
+|Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
+
+<sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
+
+<sup>2</sup> O valor máximo para os tamanhos de IO que variam entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
+
+<sup>3</sup> Para os trabalhadores máximos simultâneos (pedidos) para qualquer base de dados individual, consulte [os limites de recursos de base de dados individuais](resource-limits-vcore-single-databases.md). Por exemplo, se a piscina elástica estiver a utilizar a Gen5 e o max vCore por base de dados for definido em 2, então o valor máximo simultâneo dos trabalhadores é de 200.  Se o máximo vCore por base de dados for definido para 0,5, então o valor máximo simultâneo dos trabalhadores é de 50, uma vez que na Gen5 existe um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições max vCore por base de dados que sejam inferiores a 1 vCore ou menos, o número de trabalhadores máximos simultâneos é igualmente redimensionado.
+
 ## <a name="business-critical---provisioned-compute---gen4"></a>Business critical - provisioned compute - Gen4
 
 > [!IMPORTANT]
@@ -406,8 +439,6 @@ Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) 
 
 Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base de dados na piscina recebe uma quantidade igual de recursos computacional para processar consultas. A Azure SQL Database fornece equidade de partilha de recursos entre bases de dados, garantindo fatias iguais de tempo de computação. A equidade de partilha de recursos de piscina elástica é além de qualquer quantidade de recursos garantidos de outra forma a cada base de dados quando o vCore min por base de dados é definido para um valor não zero.
 
-
-
 ### <a name="m-series-compute-generation-part-2"></a>Geração de computação série M (parte 2)
 
 |Tamanho do cálculo (objetivo de serviço)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
@@ -441,6 +472,37 @@ Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base
 
 Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base de dados na piscina recebe uma quantidade igual de recursos computacional para processar consultas. A Azure SQL Database fornece equidade de partilha de recursos entre bases de dados, garantindo fatias iguais de tempo de computação. A equidade de partilha de recursos de piscina elástica é além de qualquer quantidade de recursos garantidos de outra forma a cada base de dados quando o vCore min por base de dados é definido para um valor não zero.
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Business critical - provisioned compute - DC-series
+
+|Tamanho do cálculo (objetivo de serviço)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Geração computacional|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Memória (GB)|9|18|27|36|
+|DBs max por piscina <sup>1</sup>|50|100|100|100|
+|Suporte de loja de colunas|Yes|Yes|Yes|Yes|
+|Armazenamento OLTP na memória (GB)|1.7|3.7|5.9|8.2|
+|Tamanho máximo dos dados (GB)|768|768|768|768|
+|Tamanho do tronco máximo (GB)|230|230|230|230|
+|Tamanho máximo de dados tempDB (GB)|64|128|192|256|
+|Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|
+|Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
+|Dados máximos IOPS por pool <sup>2</sup>|15750|31500|47250|56000|
+|Taxa máxima de registo por piscina (MBps)|20|60|90|120|
+|Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup>|168|336|504|672|
+|Logins simultâneos máximos por piscina (pedidos) <sup>3</sup>|168|336|504|672|
+|Sessões simultâneas máx.|30,000|30,000|30,000|30,000|
+|Min/max elástico piscina vCore escolhas por base de dados|2|2...4|2...6|2...8|
+|Número de réplicas|4|4|4|4|
+|Multi-AZ|No|No|No|No|
+|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|
+|Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
+
+<sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
+
+<sup>2</sup> O valor máximo para os tamanhos de IO que variam entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
+
+<sup>3</sup> Para os trabalhadores máximos simultâneos (pedidos) para qualquer base de dados individual, consulte [os limites de recursos de base de dados individuais](resource-limits-vcore-single-databases.md). Por exemplo, se a piscina elástica estiver a utilizar a Gen5 e o max vCore por base de dados for definido em 2, então o valor máximo simultâneo dos trabalhadores é de 200.  Se o máximo vCore por base de dados for definido para 0,5, então o valor máximo simultâneo dos trabalhadores é de 50, uma vez que na Gen5 existe um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições max vCore por base de dados que sejam inferiores a 1 vCore ou menos, o número de trabalhadores máximos simultâneos é igualmente redimensionado.
 
 ## <a name="database-properties-for-pooled-databases"></a>Propriedades da base de dados para bases de dados agrizadas
 

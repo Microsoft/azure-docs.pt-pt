@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928329"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251510"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -33,13 +33,17 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **R:** Registar um dispositivo dá acesso aos serviços da sua organização e não permite o acesso da sua organização ao seu dispositivo.
 
-## <a name="too-many-app-permissions"></a>Demasiadas permissões de aplicativos
+### <a name="too-many-app-permissions"></a>Demasiadas permissões de aplicativos
 
 **P:** Porque é que a aplicação solicita tantas permissões?
 
-**R**: Aqui está a lista completa de permissões que podem ser pedidas e como são usadas pela app. As permissões específicas que vê dependerão do tipo de telefone que tem.
+**R**: Aqui está a lista completa de permissões que podem ser pedidas e como são usadas pela app. As permissões específicas que vê dependerão do tipo de telefone que tem. Às vezes, a sua organização quer saber a sua **localização** antes de lhe permitir aceder a determinados recursos. A aplicação só solicitará esta permissão se a sua organização tiver uma política que exija localização.
 
-- **Localização**. Às vezes, a sua organização quer saber a sua localização antes de permitir o acesso a determinados recursos. A aplicação só solicitará esta permissão se a sua organização tiver uma política que exija localização. 
+### <a name="error-adding-account"></a>Conta de adicionar erros
+
+**P:** Quando tento adicionar a minha conta, recebo uma mensagem de erro a dizer "A conta que está a tentar adicionar não é válida neste momento. Contacte o seu administrador para corrigir este problema (validação de singularidade)." O que devo fazer?
+
+**R**: Contacte o seu administrador e informe-os de que está impedido de adicionar a sua conta ao Autenticador devido a um problema de validação de singularidade. Você precisa fornecer o seu nome de utilizador de inscrição para que o seu administrador possa procurar você na sua organização.
 
 ### <a name="legacy-apns-support-deprecated"></a>Apoio legado APNs deprecado
 

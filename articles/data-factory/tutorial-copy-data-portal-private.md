@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505993"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249521"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copie os dados de forma segura do armazenamento do Azure Blob para uma base de dados SQL utilizando pontos finais privados
 
@@ -76,24 +76,24 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
 1. Abra o Microsoft Edge ou o Google Chrome. Atualmente, apenas os navegadores Web Microsoft Edge e Google Chrome suportam o UI da Data Factory.
 
-1. No menu esquerdo, **selecione Criar uma** Fábrica de  >  **Analytics**  >  **Dados** de Análise de Recursos .
+1. No menu esquerdo, **selecione Criar uma** Fábrica de  >    >  **Dados** de Análise de Recursos .
 
-1. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory**.
+1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para a fábrica de dados (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](./naming-rules.md).
 
 1. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
 
-1. Em **Grupo de Recursos** , efetue um destes passos:
+1. Em **Grupo de Recursos**, efetue um destes passos:
 
     - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
     - Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
      
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
 
-1. Em **Versão** , selecione **V2**.
+1. Em **Versão**, selecione **V2**.
 
-1. Em **Localização** , selecione uma localização para a fábrica de dados. Apenas os locais suportados aparecem na lista de suspensos. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
+1. Em **Localização**, selecione uma localização para a fábrica de dados. Apenas os locais suportados aparecem na lista de suspensos. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
 
 1. Selecione **Criar**.
 
@@ -107,10 +107,11 @@ Neste passo, cria-se um tempo de integração Azure e permite a Rede Virtual Ger
 1. No portal Data Factory, vá a **Manage** e selecione **New** para criar um novo tempo de integração do Azure.
 
    ![Screenshot que mostra a criação de um novo tempo de integração Azure.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Opte por criar um tempo de integração **Azure.**
+1. Na página de configuração do tempo de execução da **Integração,** escolha o tempo de integração para criar com base nas capacidades necessárias. Neste tutorial, selecione **Azure, Self-Hosted** e, em seguida, clique em **Continuar**. 
+1. Selecione **Azure** e, em seguida, clique **em Continuar** a criar um tempo de execução de Integração Azure.
 
    ![Screenshot que mostra um novo tempo de integração Azure.](./media/tutorial-copy-data-portal-private/azure-ir.png)
-1. Na **configuração da rede virtual (Pré-visualização)** , selecione **Enable**.
+1. Na **configuração da rede virtual (Pré-visualização)**, selecione **Enable**.
 
    ![Screenshot que mostra permitir um novo tempo de integração Azure.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 1. Selecione **Criar**.
@@ -124,7 +125,7 @@ Neste passo, vai criar um pipeline com uma atividade de cópia na fábrica de da
 
 Neste tutorial, começa-se por criar um oleoduto. Em seguida, vai criar serviços ligados e conjuntos de dados quando forem necessários para configurar o pipeline.
 
-1. Na página **Vamos começar** , selecione **Criar pipeline**.
+1. Na página **Vamos começar**, selecione **Criar pipeline**.
 
    ![Screenshot que mostra a criação de um oleoduto.](./media/doc-common-process/get-started-page.png)
 1. No painel de propriedades para o oleoduto, **insira copyPipeline** para o nome do gasoduto.
@@ -166,7 +167,7 @@ Neste tutorial, começa-se por criar um oleoduto. Em seguida, vai criar serviço
 
 1. Volta para a caixa de diálogo. Selecione a **ligação de teste** novamente e selecione **Criar** para implementar o serviço ligado.
 
-1. Após a criação do serviço ligado, volta para a página **De Propriedades Definidas.** Junto a **Caminho do ficheiro** , selecione **Procurar**.
+1. Após a criação do serviço ligado, volta para a página **De Propriedades Definidas.** Junto a **Caminho do ficheiro**, selecione **Procurar**.
 
 1. Vá à pasta **adftutorial/entrada,** selecione o ficheiro **emp.txt** e, em seguida, selecione **OK**.
 
@@ -228,18 +229,18 @@ Se não selecionou a hiperligação quando testou a ligação, siga o caminho. A
 
 1. Na caixa de diálogo de **serviço novo (Azure SQL Database),** tome os seguintes passos:
 
-    1. Em **Name** , introduza **AzureSqlDatabaseLinkedService**.
-    1. Em **Nome do servidor** , selecione a sua instância do SQL Server.
+    1. Em **Name**, introduza **AzureSqlDatabaseLinkedService**.
+    1. Em **Nome do servidor**, selecione a sua instância do SQL Server.
     1. Certifique-se de que ativa **a autoria interativa.**
-    1. Em **Nome da base de dados** , selecione a sua base de dados SQL.
-    1. Em **Nome de utilizador** , introduza o nome do utilizador.
-    1. Em **Palavra-passe** , introduza a palavra-passe do utilizador.
+    1. Em **Nome da base de dados**, selecione a sua base de dados SQL.
+    1. Em **Nome de utilizador**, introduza o nome do utilizador.
+    1. Em **Palavra-passe**, introduza a palavra-passe do utilizador.
     1. Selecione **a ligação de teste**. Deve falhar porque o servidor SQL permite o acesso apenas a partir de **redes Selecionadas** e exige que a Data Factory crie um ponto final privado para o mesmo, que deve ser aprovado antes da sua utilização. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções na secção seguinte para criar um ponto final privado gerido.
     1. Mantenha a caixa de diálogo aberta e, em seguida, vá para o servidor SQL selecionado.
     1. Siga as instruções [nesta secção](#approval-of-a-private-link-in-sql-server) para aprovar o link privado.
     1. Volta para a caixa de diálogo. Selecione a **ligação de teste** novamente e selecione **Criar** para implementar o serviço ligado.
 
-1. Vai automaticamente para a caixa de diálogo **set Properties.** Em **Tabela** , selecione **[dbo].[emp]**. Em seguida, selecione **OK**.
+1. Vai automaticamente para a caixa de diálogo **set Properties.** Em **Tabela**, selecione **[dbo].[emp]**. Em seguida, selecione **OK**.
 
 1. Vá ao separador com o pipeline e no **conjunto de dados do Sink,** confirme que **o OutputSqlDataset** está selecionado.
 
@@ -275,7 +276,7 @@ Se não selecionou a hiperligação quando testou a ligação, siga o caminho. A
 
 Pode depurar um pipeline antes de publicar artefactos (serviços ligados, conjuntos de dados e pipeline) no Data Factory ou no seu próprio repositório Git do Azure.
 
-1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída** , na parte inferior da janela.
+1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela.
 1. Depois de o gasoduto poder funcionar com sucesso, na barra de ferramentas superior, **selecione Publicar tudo**. Esta ação publica entidades (conjuntos de dados e oleodutos) que criou para a Data Factory.
 1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, selecione **'Mostrar Notificações'** no canto superior direito (botão de campainha).
 

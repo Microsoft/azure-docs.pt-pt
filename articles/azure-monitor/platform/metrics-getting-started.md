@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614598"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250405"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Getting started with Azure Metrics Explorer (Introdução ao Explorador de Métricas do Azure)
 
@@ -38,7 +38,7 @@ Para criar um gráfico métrico, a partir do seu recurso, grupo de recursos, sub
 
     > ![Selecione uma métrica](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Opcionalmente, pode [alterar a agregação métrica.](metrics-charts.md#changing-aggregation) Por exemplo, pode querer que a sua tabela mostre valores mínimos, máximos ou médios da métrica.
+4. Opcionalmente, pode [alterar a agregação métrica.](metrics-charts.md#aggregation) Por exemplo, pode querer que a sua tabela mostre valores mínimos, máximos ou médios da métrica.
 
 > [!TIP]
 > Utilize o botão **métrico Adicionar** e repita estes passos se quiser ver várias métricas traçadas no mesmo gráfico. Para vários gráficos numa vista, selecione o **botão de gráfico Adicionar** em cima.
@@ -57,7 +57,7 @@ Por padrão, o gráfico mostra as 24 horas mais recentes de dados de métricas. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 
-[Filtragem](metrics-charts.md#apply-filters-to-charts) e [divisão](metrics-charts.md#apply-splitting-to-a-chart) são poderosas ferramentas de diagnóstico para as métricas que têm dimensões. Estas características mostram como vários segmentos métricos ("valores de dimensão") impactam o valor global da métrica, e permitem identificar possíveis outliers.
+[Filtragem](metrics-charts.md#filters) e [divisão](metrics-charts.md#apply-splitting) são poderosas ferramentas de diagnóstico para as métricas que têm dimensões. Estas características mostram como vários segmentos métricos ("valores de dimensão") impactam o valor global da métrica, e permitem identificar possíveis outliers.
 
 - **A filtragem** permite-lhe escolher quais os valores de dimensão incluídos na tabela. Por exemplo, é melhor mostrar pedidos bem sucedidos ao cartografar a métrica do tempo de resposta do *servidor.* É necessário aplicar o filtro sobre o sucesso da dimensão *do pedido.* 
 

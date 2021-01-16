@@ -1,5 +1,5 @@
 ---
-title: Suporte do Sistema de Ficheiros de Rede 3.0 no armazenamento Azure Blob (pré-visualização) Microsoft Docs
+title: Suporte do Sistema de Ficheiros de Rede 3.0 no armazenamento de Azure Blob (pré-visualização) | Microsoft Docs
 description: O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes Windows e Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador que funciona no local.
 author: normesta
 ms.subservice: blobs
@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922552"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250813"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)
 
@@ -102,6 +102,8 @@ As seguintes funcionalidades NFS 3.0 ainda não são suportadas com a Azure Data
 - Suportes de listagem (por exemplo: utilizando o `showmount -a` comando)
 
 - Listagem de exportações (por exemplo: utilizando o `showmount -e` comando)
+
+- Ligação dura
 
 - Exportação de um recipiente apenas para leitura
 

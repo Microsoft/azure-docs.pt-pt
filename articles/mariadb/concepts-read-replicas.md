@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 576ff68961a68a8b54037d661a51a9d2de7a56df
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c91aab2bf59f93cf897f9a1b9109172523ae4e57
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231796"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251408"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -23,10 +23,7 @@ As réplicas são novos servidores que geres similares ao Azure Database regular
 Para saber mais sobre a replicação do GTID, consulte a documentação de [replicação mariaDB](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
->
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
@@ -123,8 +120,11 @@ Como a replicação é assíncronea, há um desfasamento entre a fonte e a répl
 Depois de decidir que quer falhar para uma réplica,
 
 1. Pare a replicação na réplica<br/>
+
    Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado do mestre. Depois de iniciar a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
-2. Aponte a sua aplicação para a (antiga) réplica<br/>
+
+2. Aponte a sua aplicação para a (antiga) réplica
+
    Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez do mestre.
 
 Depois de a sua aplicação estar a processar com sucesso leituras e escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.

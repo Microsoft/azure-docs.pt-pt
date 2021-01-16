@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732092"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251629"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos em Pesquisa Cognitiva Azure
 
@@ -21,9 +21,9 @@ Com mapas de sinónimo, pode associar termos equivalentes, expandindo o âmbito 
 
 ## <a name="create-synonyms"></a>Criar sinónimos
 
-Um mapa de sinónimo é um ativo que pode ser criado uma vez e usado por muitos índices. O [nível de serviço](search-limits-quotas-capacity.md#synonym-limits) determina quantos mapas de sinónimo pode criar, variando de 3 mapas de sinónimo para níveis gratuitos e básicos, até 20 para os níveis Standard. 
+Um mapa de sinónimo é um ativo que pode ser criado uma vez e usado por muitos índices. O [nível de serviço](search-limits-quotas-capacity.md#synonym-limits) determina quantos mapas de sinónimo pode criar, variando de três mapas de sinónimo para níveis gratuitos e básicos, até 20 para os níveis Standard. 
 
-Pode criar vários mapas de sinónimos para diferentes línguas, como versões em inglês e francês, ou léxicos se o seu conteúdo incluir terminologia técnica ou obscura. Embora possa criar vários mapas de sinónimo, atualmente um campo só pode usar um deles.
+Pode criar vários mapas de sinónimos para diferentes línguas, como versões em inglês e francês, ou léxicos se o seu conteúdo incluir terminologia técnica ou obscura. Embora possa criar vários mapas de sinónimo no seu serviço de pesquisa, um campo só pode usar um deles.
 
 Um mapa de sinónimo consiste em nome, formato e regras que funcionam como entradas de mapa sinónimo. O único formato suportado é `solr` , e o formato determina a `solr` construção de regras.
 
@@ -46,11 +46,11 @@ As regras de mapeamento aderem à especificação de filtro de sinónimo de cód
 
 + equivalência (em que os termos são substitutos iguais na consulta)
 
-+ mapeamentos explícitos (quando os termos são mapeados para um termo explícito antes da consulta)
++ mapeamentos explícitos (em que os termos são mapeados para um termo explícito antes da consulta)
 
 Cada regra deve ser delimitada pelo carácter da nova linha ( `\n` ). Você pode definir até 5.000 regras por mapa de sinónimo em um serviço gratuito e 20.000 regras por mapa em outros níveis. Cada regra pode ter até 20 expansões (ou itens de uma regra). Para mais informações, consulte [os limites do Synonym.](search-limits-quotas-capacity.md#synonym-limits)
 
-Os parsers de consulta vão diminuir os termos de caso superior ou misto, mas se quiser preservar caracteres especiais na corda, como uma vírgula ou traço, adicione os caracteres de fuga apropriados ao criar o mapa do sinónimo. 
+Os parsers de consulta vão diminuir os termos de caso superior ou misto, mas se quiser preservar caracteres especiais na corda, como uma vírgula ou traço, adicione os caracteres de fuga apropriados ao criar o mapa do sinónimo.
 
 ### <a name="equivalency-rules"></a>Regras de equivalência
 
@@ -85,7 +85,7 @@ No caso explícito, uma consulta para `Washington` , `Wash.` ou será `WA` reesc
 
 ### <a name="escaping-special-characters"></a>Escapando de personagens especiais
 
-Se precisar de definir sinónimos que contenham vírgulas ou outros caracteres especiais, pode escapar-lhes com uma pestana, como neste exemplo:
+Os sinónimos são analisados durante o processamento de consultas. Se precisar de definir sinónimos que contenham vírgulas ou outros caracteres especiais, pode escapar-lhes com uma pestana, como neste exemplo:
 
 ```json
 {
@@ -143,11 +143,15 @@ POST /indexes?api-version=2020-06-30
 
 A adição de sinónimos não impõe novos requisitos para a construção de consultas. Pode emitir consultas de termo e frases, tal como fez antes da adição de sinónimos. A única diferença é que se um termo de consulta existe no mapa do sinónimo, o motor de consulta irá expandir ou reescrever o termo ou frase, dependendo da regra.
 
-## <a name="how-synonyms-interact-with-other-features"></a>Como os sinónimos interagem com outras características
+## <a name="how-synonyms-are-used-during-query-execution"></a>Como os sinónimos são usados durante a execução de consultas
 
-A função de sinónimos reescreve a consulta original com sinónimos com o operador OR. Por esta razão, os perfis de destaque e pontuação de impacto tratam o termo original e os sinónimos como equivalentes.
+Os sinónimos são uma técnica de expansão de consulta que complementa o conteúdo de um índice com termos equivalentes, mas apenas para campos que têm uma atribuição de sinónimo. Se uma consulta de campo *excluir* um campo ativado por sinónimo, não verá correspondências do mapa do sinónimo.
 
-Os sinónimos aplicam-se apenas às consultas de pesquisa e não são suportados para filtros, facetas, autocompletos ou sugestões. O autocompleto e as sugestões baseiam-se apenas no termo original; os jogos de sinónimo não aparecem na resposta.
+Para campos com sinónimos, os sinónimos estão sujeitos à mesma análise de texto que o campo associado. Por exemplo, se um campo for analisado usando o analisador padrão Lucene, os termos do sinónimo também estarão sujeitos ao analisador padrão lucene no momento da consulta. Se quiser preservar a pontuação, tais como períodos ou traços, no termo sinónimo, aplique um analisador de preservação de conteúdos no campo.
+
+Internamente, a função de sinónimos reescreve a consulta original com sinónimos com o operador DE. Por esta razão, os perfis de destaque e pontuação de impacto tratam o termo original e os sinónimos como equivalentes.
+
+Os sinónimos aplicam-se apenas a consultas de texto de formulário gratuito e não são suportados para filtros, facetas, autocompletos ou sugestões. O autocompleto e as sugestões baseiam-se apenas no termo original; os jogos de sinónimo não aparecem na resposta.
 
 As expansões de synonym não se aplicam aos termos de pesquisa wildcard; prefixo, fuzzy e termos regex não são expandidos.
 

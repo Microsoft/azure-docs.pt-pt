@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Atualizar uma aplicação
 description: Neste tutorial do Azure Kubernetes Service (AKS), saiba como atualizar uma implementação de aplicação existente no AKS com uma nova versão do código da aplicação.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.date: 01/12/2021
+ms.custom: mvc
+ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833916"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250660"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar uma aplicação no Serviço Kubernetes do Azure (AKS)
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 Para verificar se a imagem de contentor atualizada mostra as alterações, abra um browser local em `http://localhost:8080`.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Screenshot mostrando um exemplo da aplicação de voto azure de imagem de recipiente atualizada abriu com um navegador local e anfitrião local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Screenshot mostrando um exemplo da aplicação de voto azure imagem de recipiente atualizada que funciona localmente em um navegador web local":::
 
 Os valores atualizados fornecidos no *ficheiro config_file.cfg* são apresentados na sua aplicação de execução.
 
@@ -143,9 +143,9 @@ Para ver a aplicação atualizada, obtenha primeiro o endereço IP externo do se
 kubectl get service azure-vote-front
 ```
 
-Agora abra um navegador web local para o endereço IP do seu serviço:
+Agora abra um navegador web para o endereço IP do seu serviço:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot mostrando um exemplo da aplicação atualizada Azure Vote App abriu em um navegador web local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot mostrando um exemplo da aplicação de voto Azure de imagem atualizada que está a decorrer num cluster AKS aberto num navegador web local.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

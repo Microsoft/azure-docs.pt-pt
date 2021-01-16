@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962436"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250983"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -345,7 +345,7 @@ Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os se
 
 * O primeiro valor é a propriedade **zonas,** que especifica as Zonas de Disponibilidade presentes no conjunto de escala de máquina virtual.
 * O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira. **O conjunto de escalas que se estende por 3 AZ's pode escalar até 300 VMs mesmo com "singlePlacementGroup = true".**
-* O terceiro valor é "zoneBalance" e é opcional, o que garante um equilíbrio estrito da zona se definido como verdadeiro. Leia sobre [a zonaBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* O terceiro valor é "zoneBalance", que garante um equilíbrio estrito da zona se definido como verdadeiro. Recomendamos que se ajuste ao verdadeiro, para evitar uma distribuição desequilibrada de VMs através de zonas. Leia sobre [a zonaBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * As sobreposições FaultDomain e UpgradeDomain não são necessárias para serem configuradas.
 
 ```json
@@ -357,7 +357,7 @@ Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os se
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```

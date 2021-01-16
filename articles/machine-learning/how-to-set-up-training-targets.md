@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127656"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251119"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de preparação
 
@@ -75,6 +75,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 Selecione o alvo do cálculo onde o seu script de treino será executado. Se nenhum alvo de cálculo for especificado no ScriptRunConfig, ou se `compute_target='local'` , Azure ML executará o seu script localmente. 
 
 O código de exemplo neste artigo pressupõe que já criou um alvo de computação `my_compute_target` a partir da secção "Pré-requisitos".
+
+>[!Note]
+>A Azure Databricks não é suportado como um alvo de computação para a formação de modelos. Pode utilizar a Azure Databricks para tarefas de preparação e implementação de dados. 
 
 ## <a name="create-an-environment"></a>Criar um ambiente
 Os [ambientes](concept-environments.md) de aprendizagem automática Azure são uma encapsulação do ambiente onde o seu treino de aprendizagem automática acontece. Especificam os pacotes Python, a imagem do Docker, as variáveis ambientais e as definições de software em torno dos seus scripts de treino e pontuação. Também especificam os tempos de execução (Python, Spark ou Docker).

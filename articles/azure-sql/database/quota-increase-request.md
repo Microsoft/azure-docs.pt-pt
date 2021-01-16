@@ -9,17 +9,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 44a37a912c5c7a882d21631b8ce2da2c7ba9c05e
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 27719663acfbdbcd7293defc4b746153359adb61
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967706"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251862"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Aumentos de quota de pedido para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Este artigo explica como solicitar um aumento de quota para a Azure SQL Database e Azure SQL Managed Instance. Também explica como permitir o acesso por subscrição a uma região.
+Este artigo explica como solicitar um aumento de quota para a Azure SQL Database e Azure SQL Managed Instance. Também explica como permitir o acesso de subscrição a uma região e como solicitar o acesso a hardware específico numa região.
 
 ## <a name="create-a-new-support-request"></a><a id="newquota"></a> Criar um novo pedido de apoio
 
@@ -62,8 +62,7 @@ As seguintes secções descrevem as opções de aumento de quota para os tipos d
 
 - Unidades de transação de base de dados (DTUs) por servidor
 - Servidores por subscrição
-- Acesso à região da série M
-- Acesso à região
+- Acesso regional a subscrições ou hardware específico
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Unidades de transação de base de dados (DTUs) por servidor
 
@@ -109,30 +108,15 @@ Se a sua subscrição precisar de acesso numa determinada região, selecione a o
 
    ![Solicitar acesso à região](./media/quota-increase-request/quota-request.png)
 
-<!--
-### <a id="mseries"></a> Enable M-series access to a region
+### <a name="request-enabling-specific-hardware-in-a-region"></a>Pedido que permita hardware específico numa região
 
-To enable M-series hardware for a subscription and region, a support request must be opened.
+Se uma [geração de hardware](service-tiers-vcore.md#hardware-generations) que pretende utilizar não estiver disponível na sua região (ver [disponibilidade de Hardware),](service-tiers-vcore.md#hardware-availability)poderá solicitá-lo utilizando os seguintes passos.
 
-1. Select the **M-series region access** quota type.
+1. Selecione o outro tipo de quota **de pedido de quota.**
 
-1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
+1. No campo **Descrição,** indicar o seu pedido, incluindo o nome da geração de hardware e o nome da região em que precisa.
 
-
-   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
--->
-
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo de quota de instância gerida SQL
-
-Para o tipo de quota **de instância gerida SQL,** utilize os seguintes passos:
-
-1. Na lista da **Região,** selecione a região de Azure para o alvo.
-
-1. Introduza os novos limites que está a solicitar para **a Subnet** e **vCore.**
-
-   ![Detalhes da quota de instância gerida da SQL](./media/quota-increase-request/quota-details-managed-instance.png)
-
-Para obter mais informações, consulte [os limites de recursos de exemplo gerido a azure SQL](../managed-instance/resource-limits.md).
+   ![Solicite hardware numa nova região](./media/quota-increase-request/hardware-in-new-region.png)
 
 ## <a name="submit-your-request"></a>Submeter o pedido
 

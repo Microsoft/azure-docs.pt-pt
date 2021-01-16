@@ -1,5 +1,5 @@
 ---
-title: Registar aplicações de desktop que chamam APIs web - Plataforma de identidade da Microsoft Rio Azure
+title: Registar aplicações de desktop que chamam APIs web - Plataforma de identidade da Microsoft | Rio Azure
 description: Saiba como construir uma aplicação de desktop que chame APIs web (registo de aplicações)
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 08e07ac3a8079d725611f9b072e8d21dabb32867
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011565"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250609"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -42,7 +42,7 @@ Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabal
 - Se utilizar a autenticação interativa ou o fluxo de código do dispositivo, utilize `https://login.microsoftonline.com/common/oauth2/nativeclient` - Para obter esta configuração, selecione o URL correspondente na secção **autenticação** para a sua aplicação.
 
   > [!IMPORTANT]
-  > Hoje em dia, MSAL.NET usa outro URI de redirecionamento por padrão em aplicações de desktop que funcionam no Windows `urn:ietf:wg:oauth:2.0:oob` (). No futuro, vamos querer alterar este padrão, por isso recomendamos que `https://login.microsoftonline.com/common/oauth2/nativeclient` utilize.
+  > A utilização `https://login.microsoftonline.com/common/oauth2/nativeclient` como URI de redirecionamento é recomendada como uma melhor prática de segurança.  Se não for especificado nenhum URI de reorientação, MSAL.NET utiliza `urn:ietf:wg:oauth:2.0:oob` por defeito que não seja recomecer.  Este padrão será atualizado como uma mudança de rutura no próximo grande lançamento.
 
 - Se construir uma aplicação nativa Objective-C ou Swift para macOS, registe o URI de redirecionamento com base no identificador do pacote da sua aplicação no seguinte formato: `msauth.<your.app.bundle.id>://auth` . `<your.app.bundle.id>`Substitua-o pelo identificador do pacote da sua aplicação.
 - Se a sua aplicação utilizar apenas a Autenticação Integrada do Windows ou um nome de utilizador e uma palavra-passe, não precisa de registar um URI de redirecionamento para a sua aplicação. Estes fluxos fazem uma ida e volta para a plataforma de identidade da Microsoft v2.0. A sua candidatura não será chamada de volta em nenhum URI específico.
@@ -57,6 +57,6 @@ Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabal
 
 As aplicações para desktop chamam APIs para o utilizador inscrito. Precisam pedir permissões delegadas. Não podem solicitar permissões de pedidos, que são tratadas apenas em [aplicações daemon](scenario-daemon-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [configuração do Código de Aplicação](scenario-desktop-app-configuration.md).

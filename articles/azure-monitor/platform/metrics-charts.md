@@ -1,226 +1,235 @@
 ---
-title: Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
-description: Conheça as funcionalidades avançadas do Azure Monitor Metrics Explorer
+title: Características avançadas do explorador de métricas Azure
+description: Saiba mais sobre os usos avançados do explorador de métricas Azure.
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845055"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250762"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
+# <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avançadas do explorador de métricas Azure
 
 > [!NOTE]
-> Este artigo assume que está familiarizado com as características básicas do Metrics Explorer. Se é um novo utilizador e quer aprender a criar o seu primeiro gráfico métrico, consulte [Começar com o Azure Metrics Explorer](metrics-getting-started.md).
+> Este artigo pressupõe que está familiarizado com as características básicas da funcionalidade exploradora de métricas Azure do Azure Monitor. Se é um novo utilizador e quer aprender a criar o seu primeiro gráfico métrico, veja [como começar com o explorador de métricas](metrics-getting-started.md).
 
-## <a name="metrics-in-azure"></a>Métricas em Azure
+No Azure Monitor, [as métricas](data-platform-metrics.md) são uma série de valores medidos e contagens que são recolhidas e armazenadas ao longo do tempo. As métricas podem ser padrão (também chamada de "plataforma") ou personalizadas. 
 
-[As métricas no Azure Monitor](data-platform-metrics.md) são a série de valores e contagens medidos que são recolhidos e armazenados ao longo do tempo. Existem métricas padrão (ou "plataforma") e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de saúde e utilização dos seus recursos Azure. Enquanto as métricas personalizadas são enviadas para a Azure pelas suas aplicações utilizando a [API de Insights de Aplicação para eventos e métricas personalizadas,](../app/api-custom-events-metrics.md)  [extensão de Diagnóstico do Windows Azure (WAD)](./diagnostics-extension-overview.md)ou pela [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
+As métricas padrão são fornecidas pela plataforma Azure. Refletem as estatísticas de saúde e utilização dos seus recursos Azure. 
 
 ## <a name="resource-scope-picker"></a>Selecionador de âmbito de recursos
-O selecionador de recursos permite-lhe visualizar métricas em recursos únicos e múltiplos. Abaixo estão as instruções sobre como utilizar o selecionador de âmbito de recursos. 
+O selecionador de recursos permite-lhe visualizar métricas através de recursos únicos e múltiplos recursos. As seguintes secções explicam como utilizar o selecionador de âmbito de recursos. 
 
-### <a name="selecting-a-single-resource"></a>Selecionando um único recurso
-Selecione **métricas** do menu **Azure Monitor** ou da secção de **monitorização** do menu de um recurso. Clique no botão "Selecione um âmbito" para abrir o seletor de âmbito, o que lhe permitirá selecionar os recursos para os quais pretende ver métricas. Isto já deve ser preenchido se você abriu métricas explorador a partir do menu de um recurso. 
+### <a name="select-a-single-resource"></a>Selecione um único recurso
+Selecione **métricas** do menu **Azure Monitor** ou da secção de **monitorização** do menu de um recurso. Em seguida, escolha **Selecionar um âmbito** para abrir o selecionador de âmbito. 
 
-![Screenshot do selecionador de âmbito de recursos](./media/metrics-charts/scope-picker.png)
+Utilize o selecionador de âmbito para selecionar os recursos cujas métricas pretende ver. O âmbito deve ser preenchido se abrir o explorador de métricas Azure a partir do menu de um recurso. 
 
-Para certos recursos, só se pode ver as métricas de um único recurso de cada vez. Estes recursos estão na secção "Todos os tipos de recursos" na queda dos tipos de recursos.
+![Screenshot mostrando como abrir o selecionador de âmbito de recurso.](./media/metrics-charts/scope-picker.png)
 
-![Screenshot de recurso único](./media/metrics-charts/single-resource-scope.png)
+Para alguns recursos, só pode ver as métricas de um recurso de cada vez. No menu **de tipos de recursos,** estes recursos estão na secção **Todos os tipos de recursos.**
 
-Depois de clicar no seu recurso pretendido, verá todas as subscrições e grupos de recursos que contêm esse recurso.
+![Screenshot mostrando um único recurso.](./media/metrics-charts/single-resource-scope.png)
 
-![Screenshot dos recursos disponíveis](./media/metrics-charts/available-single-resource.png)
+Depois de selecionar um recurso, vê todas as subscrições e grupos de recursos que contêm esse recurso.
+
+![Screenshot mostrando recursos disponíveis.](./media/metrics-charts/available-single-resource.png)
 
 > [!TIP]
-> Se quiser ver as métricas de vários recursos ao mesmo tempo, ou métricas através de um grupo de subscrição ou recursos, clique no botão Upvote.
+> Se quiser a capacidade de visualizar as métricas de múltiplos recursos ao mesmo tempo, ou de visualizar métricas através de uma subscrição ou grupo de recursos, selecione **Upvote**.
 
-Assim que estiver satisfeito com a sua seleção, clique em "Aplicar".
+Quando estiver satisfeito com a sua seleção, **selecione Apply**.
 
-### <a name="viewing-metrics-across-multiple-resources"></a>Métricas de visualização em vários recursos
-Alguns tipos de recursos permitiram a possibilidade de consultar métricas sobre vários recursos, desde que estejam dentro da mesma subscrição e localização. Estes tipos de recursos podem ser encontrados no topo da redução dos "Tipos de Recursos". Para obter mais detalhes sobre como ver métricas através de vários recursos veja [este documento.](metrics-dynamic-scope.md#selecting-multiple-resources)
+### <a name="view-metrics-across-multiple-resources"></a>Ver métricas em vários recursos
+Alguns tipos de recursos podem consultar métricas sobre vários recursos. Os recursos devem estar dentro da mesma subscrição e local. Encontre estes tipos de recursos no topo do menu **de tipos de recursos.** 
 
-![Screenshot dos tipos de recursos cruzados](./media/metrics-charts/multi-resource-scope.png)
+Para obter mais informações, consulte [Selecione vários recursos.](metrics-dynamic-scope.md#select-multiple-resources)
 
-Para tipos compatíveis com vários recursos, também pode consultar métricas através de uma subscrição ou de vários grupos de recursos. Para aprender a fazer isto, veja [este artigo](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+![Screenshot mostrando tipos de recursos cruzados.](./media/metrics-charts/multi-resource-scope.png)
 
+Para tipos compatíveis com múltiplos recursos, pode consultar métricas através de uma subscrição ou de vários grupos de recursos. Para obter mais informações, consulte [Selecione um grupo de recursos ou subscrição](metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar vistas com várias métricas e gráficos
+## <a name="multiple-metric-lines-and-charts"></a>Múltiplas linhas métricas e gráficos
 
-Pode criar gráficos que desfiem várias linhas de métricas ou mostrem vários gráficos métricos ao mesmo tempo. Esta funcionalidade permite-lhe:
+No explorador de métricas Azure, pode criar gráficos que desfiem várias linhas métricas ou mostrem vários gráficos métricos ao mesmo tempo. Esta funcionalidade permite-lhe:
 
-- correlacionar métricas relacionadas no mesmo gráfico para ver como um valor está relacionado com outro
-- mostrar métricas com diferentes unidades de medida em proximidade
-- visualmente agregado e compare métricas de múltiplos recursos
+- Correlacionar métricas relacionadas no mesmo gráfico para ver como um valor se relaciona com o outro.
+- Vise métricas que utilizem diferentes unidades de medida em proximidade.
+- Visualmente agregado e compare métricas de múltiplos recursos.
 
-Por exemplo, se tiver 5 contas de armazenamento e quiser saber quanto espaço total é consumido entre elas, pode criar um gráfico de área (empilhado) que mostra o indivíduo e a soma de todos os valores em determinados pontos do tempo.
+Por exemplo, imagine que tem cinco contas de armazenamento, e quer saber quanto espaço consomem juntos. Pode criar um gráfico de área (empilhado) que mostre os valores individuais e a soma de todos os valores em determinados pontos do tempo.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Métricas múltiplas no mesmo gráfico
 
-Primeiro, [criar um novo gráfico.](metrics-getting-started.md#create-your-first-metric-chart) Clique **em Adicionar Métrica** e repita os passos para adicionar outra métrica no mesmo gráfico.
+Para ver várias métricas no mesmo gráfico, primeiro [crie um novo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Em seguida, **selecione Adicionar métrica**. Repita este passo para adicionar outra métrica no mesmo gráfico.
 
-   > [!NOTE]
-   > Normalmente não se quer ter métricas com diferentes unidades de medida (isto é, "milissegundos" e "kilobytes") ou com escala significativamente diferente num gráfico. Em vez disso, considere usar vários gráficos. Clique no botão Adicionar Gráfico para criar vários gráficos no explorador de métricas.
+> [!NOTE]
+> Normalmente, os seus gráficos não devem misturar métricas que usam diferentes unidades de medida. Por exemplo, evite misturar uma métrica que usa milissegundos com outra que usa quilobytes. Evite também misturar métricas cujas escamas diferem significativamente. 
+>
+> Nestes casos, considere usar vários gráficos em vez disso. No explorador de métricas, **selecione Adicionar gráfico** para criar um novo gráfico.
 
 ### <a name="multiple-charts"></a>Vários gráficos
 
-Clique na **tabela Add** e crie outro gráfico com uma métrica diferente.
+Para criar outro gráfico que utilize uma métrica diferente, **selecione Add chart**.
 
-### <a name="order-or-delete-multiple-charts"></a>Encomendar ou apagar vários gráficos
+Para reencomendar ou eliminar vários gráficos, selecione o botão elipse **(...)** para abrir o menu do gráfico. Em seguida, escolha **Mover-se,** **mover-se para baixo**, ou **eliminar**.
 
-Para encomendar ou eliminar vários gráficos, clique no símbolo das elipses **(...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **Move up**, **Move down**, ou **Delete**.
+## <a name="aggregation"></a>Agregação
 
-## <a name="changing-aggregation"></a>Alteração da agregação
+Quando se adiciona uma métrica a um gráfico, o explorador de métricas aplica automaticamente uma agregação padrão. O padrão faz sentido em cenários básicos. Mas pode usar uma agregação diferente para obter mais informações sobre a métrica. 
 
-Quando adiciona uma métrica a um gráfico, o explorador de métricas pré-selecciona automaticamente a sua agregação padrão. O padrão faz sentido nos cenários básicos, mas você pode usar uma agregação diferente para obter insights adicionais sobre a métrica. Ver agregações diferentes num gráfico requer que compreenda como o explorador de métricas as trata. 
+Antes de usar agregações diferentes num gráfico, deve entender como o explorador de métricas as trata. As métricas são uma série de medições (ou "valores métricos") que são capturadas ao longo de um período de tempo. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do grão de *tempo*. 
 
-As métricas são a série de medições (ou "valores métricos") capturadas ao longo do período de tempo. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do grão de *tempo*. Selecione o tamanho do grão de tempo utilizando o painel de recolha de tempo do [Metrics Explorer](metrics-getting-started.md#select-a-time-range). Se não fizer uma seleção explícita do grão de tempo, a granularidade do tempo é selecionada automaticamente com base no intervalo de tempo atualmente selecionado. Uma vez determinado o grão de tempo, os valores métricos que foram capturados durante cada intervalo de grão são agregados e colocados na tabela - um ponto de dados por grão de tempo.
+Selecione o tamanho do grão de tempo utilizando o painel de recolha de tempo do explorador de [métricas](metrics-getting-started.md#select-a-time-range). Se não selecionar explicitamente o grão de tempo, o intervalo de tempo atualmente selecionado é utilizado por predefinição. Após o tempo em que os grãos são determinados, os valores métricos que foram capturados durante cada vez que os grãos são agregados na tabela, um ponto de dados por grão de tempo.
 
-Por exemplo, suponha que o gráfico esteja a mostrar a métrica **do Tempo de Resposta** do Servidor utilizando a agregação **média** ao longo das **últimas 24 horas:**
+Por exemplo, suponha que um gráfico mostre a métrica do tempo de resposta do *Servidor.* Utiliza a agregação *média* ao longo do tempo das *últimas 24 horas.* Neste exemplo:
 
-- Se a granularidade do tempo estiver definida para 30 minutos, o gráfico é desenhado a partir de 48 pontos de dados agregados (por exemplo, o gráfico de linha liga 48 pontos na área do enredo do gráfico). Ou seja, 24 horas x 2 pontos de dados por hora. Cada ponto de dados representa a *média* de todos os tempos de resposta capturados para pedidos de servidor que ocorreram durante cada um dos períodos de tempo de 30 minutos relevantes.
-- Se mudar a granularidade de tempo para 15 minutos, obtém 96 pontos de dados agregados.  Ou seja, 24 horas x 4 pontos de dados por hora.
+- Se a granularidade do tempo estiver definida para 30 minutos, o gráfico é extraído de 48 pontos de dados agregados. Ou seja, o gráfico de linha conecta 48 pontos na área do enredo do gráfico (24 horas x 2 pontos de dados por hora). Cada ponto de dados representa a *média* de todos os tempos de resposta capturados para pedidos de servidor que ocorreram durante cada um dos períodos de tempo de 30 minutos relevantes.
+- Se mudar a granularidade de tempo para 15 minutos, obtém 96 pontos de dados agregados.  Ou seja, obtém-se 24 horas x 4 pontos de dados por hora.
 
-Existem cinco tipos básicos de agregação de estatísticas disponíveis no explorador de métricas: **Soma,** **Conde,** **Min,** **Max** e **Média.** A **agregação** da Soma é por vezes referida como **agregação total.** Para muitas métricas, o Metrics Explorer esconderá as agregações que são totalmente irrelevantes e não podem ser usadas.
+O explorador de métricas tem cinco tipos básicos de agregação estatística: soma, contagem, min, máx e média. A *agregação* da soma é por vezes chamada de agregação *total.* Para muitas métricas, o explorador de métricas esconde as agregações que são irrelevantes e não podem ser usadas.
 
-**Soma** – a soma de todos os valores capturados ao longo do intervalo de agregação
+* **Soma**: Soma de todos os valores capturados durante o intervalo de agregação.
 
-![Screenshot da soma do pedido](./media/metrics-charts/request-sum.png)
+    ![Screenshot de um pedido de soma.](./media/metrics-charts/request-sum.png)
 
-**Count** – o número de medições capturadas durante o intervalo de agregação. Note que **o Conde** será igual a **Sum** no caso em que a métrica é sempre capturada com o valor de 1. Isto é comum quando a métrica acompanha a contagem de eventos distintos, e cada medição representa um evento (ou seja, o código dispara um registo métrico cada vez que um novo pedido entra)
+* **Contagem**: O número de medições capturadas durante o intervalo de agregação. 
+    
+    Quando a métrica é sempre capturada com o valor de 1, a agregação da contagem é igual à agregação de soma. Este cenário é comum quando a métrica acompanha a contagem de eventos distintos e cada medida representa um evento. O código emite um registo métrico sempre que um novo pedido chega.
 
-![Screenshot da contagem de pedidos](./media/metrics-charts/request-count.png)
+    ![Screenshot de um pedido de contagem.](./media/metrics-charts/request-count.png)
 
-**Média** – a média dos valores métricos capturados ao longo do intervalo de agregação
+* **Média**: A média dos valores métricos capturados durante o intervalo de agregação.
 
-![Screenshot do pedido médio](./media/metrics-charts/request-avg.png)
+    ![Screenshot de um pedido médio.](./media/metrics-charts/request-avg.png)
 
-**Min** – o menor valor capturado ao longo do intervalo de agregação
+* **Min**: O menor valor capturado durante o intervalo de agregação.
 
-![Screenshot do pedido mínimo](./media/metrics-charts/request-min.png)
+    ![Screenshot de um pedido mínimo.](./media/metrics-charts/request-min.png)
 
-**Max** – o maior valor capturado ao longo do intervalo de agregação
+* **Max**: O maior valor capturado durante o intervalo de agregação.
 
-![Screenshot do pedido máximo](./media/metrics-charts/request-max.png)
+    ![Screenshot de um pedido máximo.](./media/metrics-charts/request-max.png)
 
-## <a name="apply-filters-to-charts"></a>Aplicar filtros em gráficos
+## <a name="filters"></a>Filtros
 
-Pode aplicar filtros nos gráficos que mostram métricas com dimensões. Por exemplo, se a métrica "Contagem de Transações" tiver uma dimensão, "Tipo de resposta", que indique se a resposta das transações foi bem sucedida ou falhada, então a filtragem nesta dimensão traçaria uma linha de gráfico apenas para transações bem sucedidas (ou apenas falhadas). 
+Pode aplicar filtros em gráficos cujas métricas têm dimensões. Por exemplo, imagine uma métrica de "contagem de transações" que tenha uma dimensão de "tipo de resposta". Esta dimensão indica se a resposta das transações foi bem sucedida ou falhada. Se filtrar esta dimensão, verá uma linha de gráfico apenas para transações bem sucedidas (ou apenas falhadas). 
 
-### <a name="to-add-a-filter"></a>Para adicionar um filtro
+### <a name="add-a-filter"></a>Adicionar um filtro
 
-1. **Selecione Adicionar filtro** acima do gráfico
+1. Acima da tabela, **selecione Adicionar filtro**.
 
-2. Selecione qual a dimensão (propriedade) que pretende filtrar
+2. Selecione uma dimensão (propriedade) para filtrar.
 
    ![Screenshot que mostra as dimensões (propriedades) que pode filtrar.](./media/metrics-charts/028.png)
 
-3. Selecione quais os valores de dimensão que pretende incluir ao traçar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem sucedidas):
+3. Selecione os valores de dimensão que pretende incluir quando traçar o gráfico. O exemplo a seguir filtra as transações de armazenamento bem sucedidas:
 
-   ![Screenshot que mostra a filtragem das transações de armazenamento bem sucedidas.](./media/metrics-charts/029.png)
+   ![Screenshot que mostra as transações de armazenamento filtradas bem sucedidas.](./media/metrics-charts/029.png)
 
-4. Depois de selecionar os valores do filtro, clique para longe do Seletor de Filtro para o fechar. Agora o gráfico mostra quantas transações de armazenamento falharam:
+4. Selecione para fora do **Seletor de Filtro** para fechá-lo. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
-   ![Screenshot que mostra quantas transações de armazenamento falharam](./media/metrics-charts/030.png)
+   ![Screenshot que mostra quantas transações de armazenamento falharam.](./media/metrics-charts/030.png)
 
-5. Pode repetir os passos 1-4 para aplicar vários filtros nas mesmas tabelas.
+Pode repetir estes passos para aplicar vários filtros nas mesmas tabelas.
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Aplicar divisão a um gráfico
+## <a name="metric-splitting"></a>Divisão métrica
 
-Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da métrica se comparam entre si, e identificar os segmentos de uma dimensão.
+Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da métrica se comparam. A divisão também pode ajudá-lo a identificar os segmentos de uma dimensão.
 
 ### <a name="apply-splitting"></a>Aplicar divisão
 
-1. Clique em **Aplicar a divisão** acima da tabela.
+1. Acima da tabela, **selecione Aplicar a divisão**.
  
    > [!NOTE]
-   > A divisão não pode ser usada com gráficos que têm várias métricas. Além disso, pode ter vários filtros, mas apenas uma dimensão de divisão aplicada a qualquer gráfico.
+   > Gráficos que têm várias métricas não podem usar a funcionalidade de divisão. Além disso, embora um gráfico possa ter vários filtros, pode ter apenas uma dimensão de divisão.
 
-2. Escolha uma dimensão na qual pretende segmentar o seu gráfico:
+2. Escolha uma dimensão para segmentar o seu gráfico:
 
-   ![Screenshot que mostra a dimensão selecionada na qual segmenta a sua tabela.](./media/metrics-charts/031.png)
+   ![Screenshot que mostra a dimensão selecionada para segmentar o gráfico.](./media/metrics-charts/031.png)
 
-   Agora o gráfico mostra agora várias linhas, uma para cada segmento de dimensão:
+   O gráfico agora mostra várias linhas, uma para cada segmento de dimensão:
 
-   ![Screenshot que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/032.png)
+   ![Screenshot que mostra linhas para cada segmento de dimensão.](./media/metrics-charts/032.png)
 
-3. Clique para longe do **Seletor de Agrupamento** para fechá-lo.
+3. Selecione fora do **Seletor de Agrupamento** para fechá-lo.
 
    > [!NOTE]
-   > Utilize filtragem e divisão na mesma dimensão para ocultar os segmentos que são irrelevantes para o seu cenário e tornar os gráficos mais fáceis de ler.
+   > Para ocultar segmentos que são irrelevantes para o seu cenário e para facilitar a leitura dos seus gráficos, utilize tanto a filtragem como a divisão na mesma dimensão.
 
-## <a name="lock-boundaries-of-chart-y-axis"></a>Limites de bloqueio do eixo gráfico y
+## <a name="locking-the-range-of-the-y-axis"></a>Bloqueando o alcance do eixo y
 
-Bloquear o alcance do eixo y torna-se importante quando o gráfico mostra flutuações menores de valores maiores. 
+Bloquear a gama do eixo de valor (y) torna-se importante em gráficos que mostram pequenas flutuações de grandes valores. 
 
-Por exemplo, quando o volume de pedidos bem sucedidos desce de 99,99% para 99,5%, pode representar uma redução significativa na qualidade do serviço. No entanto, notar uma pequena flutuação de valor numérico seria difícil ou mesmo impossível a partir das definições do gráfico predefinido. Neste caso, poderia bloquear o limite mais baixo da tabela para 99%, o que tornaria esta pequena queda mais aparente. 
+Por exemplo, uma redução do volume de pedidos bem sucedidos de 99,99% para 99,5% pode representar uma redução significativa na qualidade do serviço. Mas notar uma pequena flutuação de valor numérico seria difícil ou mesmo impossível se estiver a usar as definições de gráfico padrão. Neste caso, pode bloquear o limite mais baixo da tabela para 99% para tornar uma pequena gota mais aparente. 
 
-Outro exemplo é uma flutuação na memória disponível, onde o valor tecnicamente nunca chegará a 0. Fixar o intervalo a um valor mais elevado pode facilitar a posição das gotas na memória disponível. 
+Outro exemplo é uma flutuação na memória disponível. Neste cenário, o valor tecnicamente nunca chegará a 0. Fixar o intervalo a um valor mais elevado pode tornar as quedas na memória disponível mais fáceis de detetar. 
 
-Para controlar a gama de eixos y, use o "..." menu de gráficos e selecione **definições de Gráfico** para aceder a definições avançadas do gráfico.
+Para controlar a gama de eixos y, abra o menu do gráfico **(...**). Em seguida, selecione **definições de Gráfico** para aceder a definições de gráficos avançados.
 
-![Screenshot que realça a opção de definições de gráfico.](./media/metrics-charts/033.png)
+![Screenshot que realça a seleção de definições de gráfico.](./media/metrics-charts/033.png)
 
- Modifique os valores na secção Y-Axis Range ou use o botão **Auto** para reverter para os predefinidos.
+Modifique os valores na secção **de alcance do eixo Y** ou selecione **Auto** para reverter para os valores predefinidos.
  
  ![Screenshot que destaca a secção de alcance do eixo Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
-> Bloquear os limites do eixo y para as tabelas que acompanham várias contagens ou somas ao longo de um período de tempo (e assim utilizar a contagem, a soma, o mínimo ou as agregações máximas) geralmente requer especificar uma granularidade de tempo fixo em vez de depender dos predefinidos automáticos. Isto é necessário porque os valores nos gráficos mudam quando a granularidade é automaticamente modificada pelo utilizador redimensionando a janela do navegador ou passando de uma resolução de ecrã para outra. A alteração resultante da granularidade temporal afeta o aspeto do gráfico, invalidando a seleção atual da gama y-axis.
+> Se precisar de bloquear os limites do eixo y para gráficos que rastreiam contagens ou somas ao longo de um período de tempo (utilizando agregações de contagem, soma, min ou máximo), deve normalmente especificar uma granularidade de tempo fixo. Neste caso, não deve confiar nos predefinidos automáticos. 
+>
+> Você escolhe uma granularidade de tempo fixo porque os valores do gráfico mudam quando a granularidade é modificada automaticamente após um utilizador redimensionar uma janela do navegador ou alterar a resolução do ecrã. A alteração resultante da granularidade temporal afeta o aspeto do gráfico, invalidando a seleção atual da gama y-axis.
 
-## <a name="change-colors-of-chart-lines"></a>Alterar cores das linhas de gráfico
+## <a name="line-colors"></a>Cores de linha
 
 Depois de configurar os gráficos, as linhas de gráfico são automaticamente atribuídas uma cor a partir de uma paleta padrão. Pode mudar as cores.
 
-Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda que corresponde à tabela. O diálogo do apanhador de cores abrir-se-á. Utilize o apanhador de cores para configurar a cor da linha.
+Para alterar a cor de uma linha de gráfico, selecione a barra colorida na legenda que corresponde à tabela. Abre-se a caixa de diálogo do apanhador de cores. Utilize o apanhador de cores para configurar a cor da linha.
 
-![Screenshot que mostra como mudar de cor](./media/metrics-charts/035.png)
+![Screenshot que mostra como mudar de cor.](./media/metrics-charts/035.png)
 
-Depois de configuradas as cores do gráfico, elas permanecerão assim quando fixar a tabela num dashboard. A seguinte secção mostra como fixar um gráfico.
+As suas cores personalizadas são preservadas quando fixa o gráfico num painel de instrumentos. A seguinte secção mostra como fixar um gráfico.
 
-## <a name="pin-charts-to-dashboards"></a>Gráficos de pinos para painéis
+## <a name="pinning-to-dashboards"></a>Fixação em painéis 
 
-Depois de configurar as tabelas, pode querer adicioná-lo aos dashboards para que possa vê-lo novamente, possivelmente no contexto de outra telemetria de monitorização, ou partilhar com a sua equipa.
+Depois de configurar um gráfico, é melhor adicioná-lo a um dashboard. Ao fixar um gráfico num dashboard, pode torná-lo acessível à sua equipa. Também pode obter insights visualizando-o no contexto de outra telemetria de monitorização.
 
-Para fixar um gráfico configurado num painel de instrumentos:
+Para fixar um gráfico configurado a um painel de instrumentos, no canto superior direito da tabela, selecione Pin para painel de **instrumentos**.
 
-Depois de configurar a sua tabela, clique em Pin para painel de **instrumentos** no canto superior direito da tabela.
+![Screenshot mostrando como fixar um gráfico a um painel de instrumentos.](./media/metrics-charts/036.png)
 
-![Screenshot que mostra como pin to chart](./media/metrics-charts/036.png)
+## <a name="alert-rules"></a>Regras de alertas
 
-## <a name="create-alert-rules"></a>Criar regras de alertas
+Pode utilizar os seus critérios de visualização para criar uma regra de alerta baseada em métricas. A nova regra de alerta incluirá as dimensões do recurso-alvo, métrica, divisão e filtragem do seu gráfico. Pode modificar estas definições utilizando o painel de criação de regras de alerta.
 
-Pode utilizar os critérios definidos para visualizar as suas métricas como base de uma regra de alerta baseada em métricas. A nova regra de alerta incluirá as dimensões do seu recurso alvo, métrica, divisão e filtragem da sua tabela. Poderá modificar estas definições mais tarde no painel de criação de regras de alerta.
+Para começar, selecione **Nova regra de alerta**.
 
-### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Para criar uma nova regra de alerta, clique na **regra de Alerta Novo**
+![Screenshot que mostra o novo botão de regra de alerta realçado a vermelho.](./media/metrics-charts/042.png)
 
-![Novo botão de regra de alerta realçado no vermelho](./media/metrics-charts/042.png)
+O painel de criação de regras de alerta abre. No painel, vê-se as dimensões métricas do gráfico. Os campos no painel são pré-expulsados para ajudá-lo a personalizar a regra.
 
-Você será levado para o painel de criação de regras de alerta com as dimensões métricas subjacentes do seu gráfico pré-povoado para facilitar a geração de regras de alerta personalizados.
+![Screenshot mostrando o painel de criação de regras.](./media/metrics-charts/041.png)
 
-![Criar regra de alerta](./media/metrics-charts/041.png)
-
-Confira este [artigo](alerts-metric.md) para saber mais sobre a configuração de alertas métricos.
+Para obter mais informações, consulte [Criar, ver e gerir alertas métricos.](alerts-metric.md)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-*Não vejo nenhum dado na minha ficha.*
+Se não vir nenhum dado na sua ficha, reveja as seguintes informações de resolução de problemas:
 
-* Os filtros aplicam-se a todas as tabelas do painel. Certifique-se de que, enquanto se concentra num gráfico, não definiu um filtro que exclui todos os dados de outro.
+* Os filtros aplicam-se a todas as tabelas do painel. Enquanto se foca num gráfico, certifique-se de que não define um filtro que exclui todos os dados de outro gráfico.
 
-* Se pretender definir filtros diferentes em diferentes gráficos, crie-os em lâminas diferentes, guarde-os como favoritos separados. Se quiser, pode fixá-los no painel de instrumentos para que possa vê-los ao lado um do outro.
+* Para definir filtros diferentes em diferentes gráficos, crie as tabelas em lâminas diferentes. Em seguida, guarde as tabelas como favoritos separados. Se quiser, pode fixar as fichas no painel de instrumentos para que possa vê-las juntas.
 
-* Se segmentar um gráfico por uma propriedade que não está definida na métrica, então não haverá nada na tabela. Tente limpar a segmentação (divisão), ou escolha uma propriedade diferente.
+* Se segmentar um gráfico por uma propriedade que a métrica não define, o gráfico não apresenta nenhum conteúdo. Tente limpar a segmentação (divisão), ou escolha uma propriedade diferente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-  Leia [A criação de dashboards KPI personalizados](../learn/tutorial-app-dashboards.md) para aprender sobre as melhores práticas para criar dashboards accuáveis com métricas.
+Para criar painéis de instrumentos através da utilização de métricas, consulte [criar painéis KPI personalizados](../learn/tutorial-app-dashboards.md).
+
+ 

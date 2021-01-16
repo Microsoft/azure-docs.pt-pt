@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814266"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250337"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
 
@@ -48,7 +48,7 @@ Alguns recursos não emitem constantemente as respetivas métricas. Por exemplo,
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Todos os valores de métricas estavam fora do intervalo do eixo Y bloqueado
 
-Ao [bloquear os limites do eixo Y do gráfico](metrics-charts.md#lock-boundaries-of-chart-y-axis) pode, inadvertidamente, fazer com que a área de exibição do gráfico não mostre a linha do gráfico. Por exemplo, se o eixo Y estiver bloqueado num intervalo entre 0% e 50% e a métrica tiver um valor constante de 100%, a linha é sempre processada fora da área visível, transmitindo a ideia de que o gráfico está em branco.
+Ao [bloquear os limites do eixo Y do gráfico](metrics-charts.md#locking-the-range-of-the-y-axis) pode, inadvertidamente, fazer com que a área de exibição do gráfico não mostre a linha do gráfico. Por exemplo, se o eixo Y estiver bloqueado num intervalo entre 0% e 50% e a métrica tiver um valor constante de 100%, a linha é sempre processada fora da área visível, transmitindo a ideia de que o gráfico está em branco.
 
 **Solução:** Verifique se os limites do eixo y do gráfico não estão bloqueados fora do alcance dos valores métricos. Se os limites do eixo Y estiverem bloqueados, é recomendável que os reponha temporariamente para garantir que os valores das métricas não ficam fora do intervalo do gráfico. Não é recomendado bloquear o intervalo do eixo Y com uma granularidade automática para os gráficos com as agregações **soma**, **mín.** e **máx.**, uma vez que os valores vão mudar com a granularidade ao redimensionar a janela do browser ou ao passar de uma resolução de ecrã para outra. Mudar a granularidade pode deixar a área de exibição do seu gráfico vazia.
 

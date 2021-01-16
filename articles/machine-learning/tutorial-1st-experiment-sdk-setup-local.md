@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f33fe4fafbe194238fcfbd4942807ed2fc4d6ff
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183545"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250694"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -37,13 +37,14 @@ Na primeira parte desta série tutorial, você:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente [a aprendizagem automática Azure.](https://aka.ms/AMLFree)
-- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) para gerir ambientes virtuais Python e instalar pacotes.
+- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) para gerir ambientes virtuais Python e instalar pacotes.  
+- Se não está familiarizado com o uso de conda, veja [Como começa com conda.](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalar o Azure Machine Learning SDK
 
-Ao longo deste tutorial, você usará o Azure Machine Learning SDK para Python. Para evitar problemas de dependência de Python, criará um ambiente isolado. Esta série tutorial usa a Conda para criar esse ambiente. Se preferir utilizar outras soluções, tais como `venv` `virtualenv` , ou estivador, certifique-se de que utiliza uma versão Python >=3,5 e < 3.9.
+Ao longo deste tutorial, você usará o Azure Machine Learning SDK para Python. Para evitar problemas de dependência de Python, criará um ambiente isolado. Esta série tutorial usa conda para criar este ambiente. Se preferir utilizar outras soluções, tais como `venv` `virtualenv` , ou estivador, certifique-se de que utiliza uma versão Python >=3,5 e < 3.9.
 
-Verifique se tem a Conda instalada no seu sistema:
+Verifique se tem conda instalada no seu sistema:
     
 ```bash
 conda --version

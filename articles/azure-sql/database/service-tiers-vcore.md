@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 09/30/2020
-ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/15/2021
+ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793148"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251221"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ As opções de nível de serviço no modelo vCore incluem Final Geral, Critical 
 |-|**Fins Gerais**|**Crítico para a Empresa**|**Hyperscale**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho. Oferece opções de computação e armazenamento equilibradas, dimensionáveis e orientadas para orçamentos. |Oferece aplicações de negócio a maior resiliência às falhas usando várias réplicas isoladas, e fornece o maior desempenho de E/S por réplica de base de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento altamente escaláveis e escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica isolada da base de dados. |
-|Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância** : 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido** :<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
-|IOPS e produção (aproximada)|**Base de Dados SQL** : Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)<br/>**SQL Managed Instance** : Ver [visão geral Azure SQL Managed Instance limites de recursos](../managed-instance/resource-limits.md#service-tier-characteristics).|Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)|Hyperscale é uma arquitetura multi-camadas com caching em vários níveis. O IOPS eficaz e a produção dependerão da carga de trabalho.|
+|Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido**:<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
+|IOPS e produção (aproximada)|**Base de Dados SQL**: Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)<br/>**SQL Managed Instance**: Ver [visão geral Azure SQL Managed Instance limites de recursos](../managed-instance/resource-limits.md#service-tier-characteristics).|Consulte os limites de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas.](resource-limits-vcore-elastic-pools.md)|Hyperscale é uma arquitetura multi-camadas com caching em vários níveis. O IOPS eficaz e a produção dependerão da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas em escala de leitura|3 réplicas, 1 [réplica em escala de leitura,](read-scale-out.md)<br/>zona redundante alta disponibilidade (HA)|1 réplica de leitura-escrita, mais 0-4 [réplicas em escala de leitura](read-scale-out.md)|
 |Cópias de segurança|[Armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dias (7 dias por defeito)|[RA-GRS,](../..//storage/common/geo-redundant-design.md)7-35 dias (7 dias por defeito)|Cópias de segurança baseadas em instantâneos no armazenamento remoto Azure. Os restauradores usam estas fotos para uma rápida recuperação. As cópias de segurança são instantâneas e não têm impacto no desempenho de I/O do cálculo. As restaurações são rápidas e não são uma operação de tamanho de dados (demorando minutos em vez de horas ou dias).|
 |Dentro da memória|Não suportado|Suportado|Não suportado|
@@ -69,7 +69,7 @@ O [nível de cálculo sem servidor](serverless-tier-overview.md) calcula os recu
 
 ## <a name="hardware-generations"></a>Gerações de hardware
 
-As opções de geração de hardware no modelo vCore incluem a série Gen 4/5, M-series e Fsv2. A geração de hardware define geralmente os limites de cálculo e memória e outras características que impactam o desempenho da carga de trabalho.
+As opções de geração de hardware no modelo vCore incluem Gen 4/5, série M, série Fsv2 e séries DC. A geração de hardware define geralmente os limites de cálculo e memória e outras características que impactam o desempenho da carga de trabalho.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -84,7 +84,6 @@ Para as regiões onde a Gen4/Gen5 está disponível, consulte [a disponibilidade
 - O Fsv2 fornece menos memória e temperatura por vCore do que outros hardware, pelo que cargas de trabalho sensíveis a esses limites podem querer considerar a série Gen5 ou M.  
 
 Série Fsv2 apenas suportada no nível de Finalidade Geral. Para as regiões onde a série Fsv2 está disponível, consulte [a disponibilidade da série Fsv2](#fsv2-series-1).
-
 
 ### <a name="m-series"></a>Série M
 
@@ -101,6 +100,22 @@ Para aceder à série M, a subscrição deve ser um tipo de oferta paga, incluin
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
 
+### <a name="dc-series"></a>Série DC
+
+> [!NOTE]
+> A série DC está atualmente em **pré-visualização pública.**
+
+- O hardware da série DC utiliza processadores Intel com tecnologia De Extensões de Guarda de Software (Intel SGX).
+- A série DC é necessária para [Sempre Encriptada com enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), que não é suportado com outras configurações de hardware.
+- A série DC é projetada para cargas de trabalho que processam dados sensíveis e exigem capacidades confidenciais de processamento de consultas, fornecidas pela Always Encrypted com enclaves seguros.
+- O hardware da série DC fornece recursos de computação e memória equilibrados.
+
+A série DC só é suportada para o cálculo Provisionado (o Serverless não é suportado) e não suporta a redundância da zona. Para as regiões onde a série DC está disponível, consulte [a disponibilidade da série DC](#dc-series-1).
+
+#### <a name="azure-offer-types-supported-by-dc-series"></a>Tipos de oferta Azure suportados por séries DC
+
+Para aceder às séries DC, a subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA).  Para obter uma lista completa de tipos de oferta Azure suportados por séries DC, consulte [as ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
+
 ### <a name="compute-and-memory-specifications"></a>Especificações de cálculo e memória
 
 
@@ -110,6 +125,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Gen5     |**Cálculo provisionado**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz, Intel® SP-8160 (Skylake) \* e Intel® 8272CL (Lago cascata) 2,5 \* GHz processadores<br>- Provisão até 80 vCores (1 vCore = 1 hiper-thread)<br><br>**Computação sem servidor**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz e Intel® processadores SP-8160 (Skylake)*<br>- Escala automática até 40 vCores (1 vCore = 1 hiper-thread)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Escala automática até 24 GB por vCore<br>- Escala automática até 120 GB max|
 |Série Fsv2     |- Processadores Intel® 8168 (Skylake)<br>- Com uma velocidade do relógio turbo de 3,4 GHz e uma velocidade máxima máxima de 3,7 GHz.<br>- Provisão até 72 vCores (1 vCore = 1 hiper-thread)|- 1,9 GB por vCore<br>- Provisão até 136 GB|
 |Série M     |- Intel® E7-8890 v3 2,5 GHz e Intel® processadores 8280M 2.7 GHz (Lago cascata)<br>- Provisão até 128 vCores (1 vCore = 1 hiper-thread)|- 29 GB por vCore<br>- Provisão até 3,7 TB|
+|Série DC     | - Processadores Intel XEON E-2288G<br>- Com extensão da Intel Software Guard (Intel SGX))<br>- Provisão até 8 vCores (1 vCore = 1 núcleo físico) | 4,5 GB por vCore |
 
 \* Na [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) visão dinâmica de gestão, a geração de hardware para bases de dados que utilizam processadores Intel® SP-8160 (Skylake) aparece como Gen6, enquanto a geração de hardware para bases de dados utilizando a Intel® 8272CL (Lago de Cascade) aparece como Gen7. Os limites de recursos para todas as bases de dados da Gen5 são os mesmos, independentemente do tipo de processador (Broadwell, Skylake ou Cascade Lake).
 
@@ -138,7 +154,7 @@ Para uma base de dados, na página 'Vista Geral', selecione o link **de nível d
 
   ![alterar hardware](./media/service-tiers-vcore/change-hardware.png)
 
-Para uma piscina, na página 'Vista Geral', selecione **Configure** .
+Para uma piscina, na página 'Vista Geral', selecione **Configure**.
 
 Siga os passos para alterar a configuração e selecione a geração de hardware como descrito nos passos anteriores.
 
@@ -225,6 +241,15 @@ On the **Details** page, provide the following:
 
 Approved support requests are typically fulfilled within 5 business days.
 -->
+
+#### <a name="dc-series"></a>Série DC
+
+> [!NOTE]
+> A série DC está atualmente em **pré-visualização pública.**
+
+A série DC está disponível nas seguintes regiões: Canadá Central, Canadá Leste, Leste dos EUA, Norte da Europa, Reino Unido Sul, Europa Ocidental, Eua Ocidentais.
+
+Se necessitar de séries DC numa região atualmente não apoiada, [envie um bilhete de apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) seguindo as instruções de Pedido de aumento de quota para [Azure SQL Database e SQL Managed Instance](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral da recuperação do Azure Key Vault Microsoft Docs
+title: Visão geral da recuperação do cofre de Azure Key | Microsoft Docs
 description: As funcionalidades de recuperação do cofre de chaves foram concebidas para evitar a eliminação acidental ou maliciosa do cofre e segredos, chaves e certificados armazenados dentro do cofre de chaves.
 ms.service: key-vault
 ms.subservice: general
@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a9a783333d8edd40556b7744eb7cf7dfb52953a7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933987"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250796"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestão de recuperação do Cofre Azure Key com proteção de eliminação e purga suave
 
@@ -29,6 +29,8 @@ Para mais informações sobre o Key Vault, consulte
 * [Módulo PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 * [CLI do Azure](/cli/azure/install-azure-cli)
 * Um Cofre chave - você pode criar um usando [o portal Azure](../general/quick-create-portal.md) [CLI](../general/quick-create-cli.md), ou [Azure PowerShell](../general/quick-create-powershell.md)
+* O utilizador necessitará das seguintes permissões (a nível de subscrição) para realizar operações em cofres com isolamento suave: | Microsoft.KeyVault/locations/deletedVaults/read| Veja as propriedades de um cofre de chave apagado suave| | Microsoft.KeyVault/locations/deletedVaults/purga/ação| Purgue um cofre de chave apagado macio|
+
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>O que são a proteção de eliminação e purga suave
 

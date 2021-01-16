@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667168"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251459"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
 
@@ -93,7 +93,7 @@ Para conseguir juntar o domínio, faça as seguintes coisas em cada máquina vir
 
 1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Na máquina virtual, lance o **Painel de Controlo** e selecione **Sistema.**
-3. Selecione **nome de computador**, selecione Alterar as **definições**e, em seguida, selecione **Alterar...**
+3. Selecione **nome de computador**, selecione Alterar as **definições** e, em seguida, selecione **Alterar...**
 4. Selecione **Domínio** e, em seguida, introduza o domínio Ative Directory na rede virtual.
 5. Autenticar com uma conta de domínio que tem privilégios para máquinas de união de domínios.
 
@@ -124,7 +124,7 @@ Para registar os agentes do Windows Virtual Desktop, faça o seguinte em cada m�
 
 Terá de atualizar o agente se estiver numa das seguintes situações:
 
-- Você quer migrar uma sessão previamente registada para uma nova piscina de anfitriões
+- Você quer migrar um anfitrião de sessão previamente registrado para uma nova piscina anfitriã
 - O anfitrião da sessão não aparece na piscina do anfitrião após uma atualização
 
 Para atualizar o agente:

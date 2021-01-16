@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 34210d08ad5328f200f5b92c13bfcf85cfead3ec
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199483"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249776"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Resolver problemas de latência da replicação na Base de Dados do Azure para MySQL
 
@@ -32,9 +32,7 @@ O atraso de replicação nas réplicas de leitura secundária depende de vários
 Neste artigo, você vai aprender a resolver problemas de latência de replicação na Base de Dados Azure para MySQL. Também compreenderá algumas causas comuns de aumento da latência da replicação nos servidores de réplicas.
 
 > [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 >
 
 ## <a name="replication-concepts"></a>Conceitos de replicação

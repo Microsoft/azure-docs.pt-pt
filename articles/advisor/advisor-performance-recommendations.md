@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 8937272f8b6ef945d80076732ea38523f7b475a1
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802546"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98248433"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -177,7 +177,7 @@ Saiba mais sobre [o leitor imersivo SDK.](../cognitive-services/immersive-reader
 
 ## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>Melhorar o desempenho do VM alterando o limite máximo de sessão
 
-O Advisor deteta que você tem uma piscina hospedeira que tem o primeiro conjunto de profundidade como o algoritmo de equilíbrio de carga, e que o limite máximo de sessão da piscina do anfitrião é maior ou igual a 99999. O balanceamento de carga em profundidade utiliza o limite máximo de sessões para determinar o número máximo de utilizadores que podem ter sessões em simultâneo num anfitrião com uma única sessão. Se o limite máximo de sessão for demasiado elevado, todas as sessões de utilizador serão direcionadas para o mesmo anfitrião da sessão, o que causará problemas de desempenho e fiabilidade. Por isso, ao configurar uma piscina hospedeira para ter um primeiro equilíbrio de carga de profundidade, deve definir um limite de sessão máxima adequado de acordo com a configuração da sua implantação e capacidade dos seus VMs. 
+O Advisor deteta que você tem uma piscina hospedeira que tem o primeiro conjunto de profundidade como o algoritmo de equilíbrio de carga, e que o limite máximo de sessão da piscina do anfitrião é maior ou igual a 999999. O balanceamento de carga em profundidade utiliza o limite máximo de sessões para determinar o número máximo de utilizadores que podem ter sessões em simultâneo num anfitrião com uma única sessão. Se o limite máximo de sessão for demasiado elevado, todas as sessões de utilizador serão direcionadas para o mesmo anfitrião da sessão, o que causará problemas de desempenho e fiabilidade. Por isso, ao configurar uma piscina hospedeira para ter um primeiro equilíbrio de carga de profundidade, deve definir um limite de sessão máxima adequado de acordo com a configuração da sua implantação e capacidade dos seus VMs. 
 
 Para saber mais sobre o equilíbrio de carga no Windows Virtual Desktop, consulte [o método de equilíbrio de carga virtual do Windows Desktop](/azure/virtual-desktop/troubleshoot-set-up-overview).
 

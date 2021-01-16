@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
-ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/15/2021
+ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497134"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249448"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transforme os dados de forma segura utilizando o fluxo de dados de mapeamento
 
@@ -34,6 +34,7 @@ Neste tutorial, vai executar os seguintes passos:
 > * Monitorize uma atividade de fluxo de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento Azure**. Utiliza o Armazenamento do Lago de Dados como *fonte* e *lava* datas. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) para seguir os passos para criar uma. *Certifique-se de que a conta de armazenamento permite o acesso apenas a partir de redes selecionadas.* 
 
@@ -44,7 +45,7 @@ O ficheiro que vamos transformar neste tutorial é moviesDB.csv, que pode ser en
 Neste passo, cria-se uma fábrica de dados e abre-se a UI da Data Factory para criar um oleoduto na fábrica de dados.
 
 1. Abra o Microsoft Edge ou o Google Chrome. Atualmente, apenas os navegadores Web Microsoft Edge e Google Chrome suportam o UI da Data Factory.
-1. No menu esquerdo, **selecione Criar uma** Fábrica de  >  **Analytics**  >  **Dados** de Análise de Recursos .
+1. No menu esquerdo, **selecione Criar uma** Fábrica de  >    >  **Dados** de Análise de Recursos .
 1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para a fábrica de dados (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
@@ -64,12 +65,14 @@ Neste passo, cria-se uma fábrica de dados e abre-se a UI da Data Factory para c
 1. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Criar um Azure IR na Rede Virtual Gerida pela Fábrica de Dados
+
 Neste passo, cria-se um Azure IR e ativa a Rede Virtual Gerida pela Data Factory.
 
 1. No portal Data Factory, vá a **Manage,** e selecione **Novo** para criar um novo Azure IR.
 
    ![Screenshot que mostra a criação de um novo Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Selecione a opção **Azure** IR.
+1. Na página de configuração do tempo de execução da **Integração,** escolha o tempo de integração para criar com base nas capacidades necessárias. Neste tutorial, selecione **Azure, Self-Hosted** e, em seguida, clique em **Continuar**. 
+1. Selecione **Azure** e, em seguida, clique **em Continuar** a criar um tempo de execução de Integração Azure.
 
    ![Screenshot que mostra um novo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 

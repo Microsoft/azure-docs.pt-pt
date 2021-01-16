@@ -1,14 +1,14 @@
 ---
-title: Azure Relay FAQs / Microsoft Docs
+title: Azure Relay FAQs | Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes sobre o serviço Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131853"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250069"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes de retransmissão de Azure
 
@@ -70,7 +70,7 @@ Os retransmissores que são abertos utilizando as mensagens de tratamento de lig
 ## <a name="quotas"></a>Quotas
 | Nome da quota | Âmbito |  Notas | Valor |
 | --- | --- | --- | --- |
-| Ouvintes simultâneos num retransmissor |Entidade |Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |25 |
+| Ouvintes simultâneos num retransmissor |Entidade (ligação híbrida ou relé WCF) |Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |25 |
 | Ligações de retransmissão simultâneas por todos os pontos finais de retransmissão num espaço de nome de serviço |Espaço de Nomes |- |5000 |
 | Retransmitir pontos finais por espaço de nome de serviço |Espaço de Nomes |- |10,000 |
 | Tamanho da mensagem para [relés NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espaço de Nomes |As mensagens recebidas que excedam estas quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |

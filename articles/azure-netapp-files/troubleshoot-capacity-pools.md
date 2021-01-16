@@ -1,5 +1,5 @@
 ---
-title: Problemas de capacidade de resolução de problemas para ficheiros Azure NetApp Microsoft Docs
+title: Problemas de capacidade de resolução de problemas para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve potenciais problemas que poderá ter ao gerir os pools de capacidade e fornece soluções para os problemas.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505465"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251544"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Resolver problemas dos conjuntos de capacidade
 
@@ -34,9 +34,6 @@ Este artigo descreve resoluções para problemas que você pode ter ao gerir pis
 | A criação ou modificação de volume falha com `Requested throughput not available` erro | A produção disponível para um volume é determinada pelo tamanho da sua capacidade e pelo nível de serviço. Se não tiver produção suficiente, deverá aumentar o tamanho da piscina ou ajustar a potência de volume existente. | 
 
 ## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>Problemas ao alterar o pool de capacidade de um volume 
-
-> [!IMPORTANT] 
-> O [Dynamically alterar o nível de serviço de um registo de](dynamic-change-volume-service-level.md) pré-visualização pública de volume está suspenso até novo aviso.
 
 |     Condição de erro    |     Resolução    |
 |-|-|

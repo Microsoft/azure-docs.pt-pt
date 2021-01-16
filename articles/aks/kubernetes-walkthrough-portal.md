@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação e monitorizar o desempenho no Serviço Azure Kubernetes (AKS) utilizando o portal Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 01/13/2021
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: f4cbfb78ec0900e757683fff35403dfcbd38b391
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 9304d3ee3cac364bfec3f2686de0cf84fb1d7d92
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824680"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249130"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) utilizando o portal Azure
 
@@ -68,6 +68,9 @@ Para gerir um cluster Kubernetes, você usa [kubectl,][kubectl]o cliente da linh
 Open Cloud Shell utilizando o `>_` botão na parte superior do portal Azure.
 
 ![Abrir o Azure Cloud Shell no portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
+
+> [!NOTE]
+> Para realizar estas operações numa instalação local de concha, terá primeiro de verificar se o Azure CLI está instalado e, em seguida, ligar-se ao Azure através do `az login` comando.
 
 Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando descarrega credenciais e configura o CLI de Kubernetes para usá-las. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
@@ -278,7 +281,7 @@ Para saber mais sobre o AKS e ver um exemplo completo de código para implementa
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
 [aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md

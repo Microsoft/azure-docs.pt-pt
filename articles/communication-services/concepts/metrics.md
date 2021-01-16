@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e7ed4ba181d3730ebbea7725451567c93433afb8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106008"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251102"
 ---
 # <a name="metrics-overview"></a>Métricas panorâmicas
 
@@ -30,7 +30,7 @@ Existem dois tipos de pedidos que estão representados nas métricas dos Serviç
 
 As métricas de pedido de Chat e SMS API contêm três dimensões que pode utilizar para filtrar os seus dados métricos. Estas dimensões podem ser agregadas em conjunto utilizando o `Count` tipo de agregação e suportam todas as séries de tempo padrão de agregação Azure, incluindo, `Sum` e `Average` `Min` `Max` .
 
-Mais informações sobre tipos de agregação suportados e agregações de séries de tempo podem ser encontradas [Características avançadas do Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
+Mais informações sobre tipos de agregação suportados e agregações de séries de tempo podem ser encontradas [Características avançadas do Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#aggregation)
 
 - **Operação** - Todas as operações ou rotas que possam ser chamadas no gateway ACS Chat.
 - **Código de Estado** - A resposta do código de estado enviada após o pedido.
@@ -41,7 +41,7 @@ Mais informações sobre tipos de agregação suportados e agregações de séri
 
 As seguintes operações estão disponíveis nas métricas de pedido da Chat API:
 
-| Operação / Rota    | Descrição                                                                                    |
+| Operação / Rota    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | GetChatMessage       | Recebe uma mensagem por identificação de mensagem. |
 | ListChatMessages     | Recebe uma lista de mensagens de chat de um fio. |
@@ -68,7 +68,7 @@ Se for feito um pedido a uma operação que não seja reconhecida, receberá uma
 
 As seguintes operações estão disponíveis nas métricas de pedido de SMS API:
 
-| Operação / Rota    | Descrição                                                                                    |
+| Operação / Rota    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | SMSMessageSent       | Envia uma mensagem SMS. |
 | SMSDeliveryReportsReceived     | Obtém relatórios de entrega de SMS |
@@ -81,7 +81,7 @@ As seguintes operações estão disponíveis nas métricas de pedido de SMS API:
 
 As seguintes operações estão disponíveis nas métricas de pedido de autenticação da API:
 
-| Operação / Rota    | Descrição                                                                                    |
+| Operação / Rota    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | CreateIdentity       | Cria uma identidade que representa um único utilizador. |
 | DeleteIdentity       | Elimina uma identidade. |

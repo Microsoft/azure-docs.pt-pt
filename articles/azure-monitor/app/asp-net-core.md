@@ -1,15 +1,15 @@
 ---
-title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
+title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2921c6379b34e002013b5f0087cefd502ab0ab84
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904538"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249113"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -53,7 +53,7 @@ Para o Estúdio Visual para Mac utilize a [orientação manual.](#enable-applica
 
 3. **Selecione Começar**. O texto desta seleção pode variar, dependendo da sua versão do Visual Studio. Algumas versões anteriores usam um botão **Iniciar Livre.**
 
-4. Selecione a sua subscrição. Em seguida, selecione **Registo de Recursos**  >  **Register**.
+4. Selecione a sua subscrição. Em seguida, selecione **Registo de Recursos**  >  .
 
 5. Depois de adicionar Application Insights ao seu projeto, verifique se está a utilizar a mais recente versão estável do SDK. Vá ao **Project**  >  **Manage NuGet Packages**  >  **Microsoft.ApplicationInsights.AspNetCore**. Se precisar, escolha **Update**.
 
@@ -69,7 +69,7 @@ Para o Estúdio Visual para Mac utilize a [orientação manual.](#enable-applica
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -232,7 +232,7 @@ Consulte as [definições `ApplicationInsightsServiceOptions` configuráveis](ht
 
 ### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Recomendação de configuração para Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0 & acima
 
-A partir da versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) do Microsoft.ApplicationInsights.AspNetCore SDK, a recomendação é configurar todas as definições disponíveis em `ApplicationInsightsServiceOptions` , incluindo instrumentationkey utilizando a instância de aplicações. `IConfiguration` As definições devem estar na secção "AplicaçõesInsights", como mostra o exemplo abaixo. A secção seguinte a partir de appsettings.jsna chave de instrumentação configura, e também desativa a recolha adaptativa de amostragem e contador de desempenho.
+A partir da versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0)do Microsoft.ApplicationInsights.AspNetCore SDK, a recomendação é configurar todas as definições disponíveis em `ApplicationInsightsServiceOptions` , incluindo instrumentationkey utilizando a instância de aplicações. `IConfiguration` As definições devem estar na secção "AplicaçõesInsights", como mostra o exemplo seguinte. A secção seguinte a partir de appsettings.jsna chave de instrumentação configura, e também desativa a recolha adaptativa de amostragem e contador de desempenho.
 
 ```json
 {
@@ -398,7 +398,7 @@ O acima referido não impede que quaisquer módulos de recolha de automóveis re
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>O Application Insights suporta ASP.NET Core 3.X?
 
-Sim. Atualização para [Insights de Aplicação SDK para ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão Core 2.8.0 ou superior. Versões mais antigas do SDK não suportam ASP.NET Core 3.X.
+Yes. Atualização para [Insights de Aplicação SDK para ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão Core 2.8.0 ou superior. Versões mais antigas do SDK não suportam ASP.NET Core 3.X.
 
 Além disso, se estiver a utilizar instruções baseadas no Visual Studio a partir [daqui,](#enable-application-insights-server-side-telemetry-visual-studio)atualize a versão mais recente do Visual Studio 2019 (16.3.0) a bordo. Versões anteriores do Visual Studio não suportam a bordo automática para ASP.NET aplicações Core 3.X.
 
@@ -489,7 +489,7 @@ N.º [Atualmente, o Monitor](./monitor-performance-live-website-now.md) de Estad
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eu executar a minha candidatura no Linux, todas as funcionalidades são suportadas?
 
-Sim. Suporte de funcionalidades para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
+Yes. Suporte de funcionalidades para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
 
 * O SDK recolhe [contadores de eventos](./eventcounters.md) no Linux porque [os Contadores de Desempenho](./performance-counters.md) só são suportados no Windows. A maioria das métricas são as mesmas.
 * Apesar de `ServerTelemetryChannel` estar ativado por padrão, se a aplicação estiver em execução no Linux ou no macOS, o canal não cria automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a esta limitação, a telemetria perde-se quando existem problemas temporários de rede ou servidor. Para contornar esta questão, configuure uma pasta local para o canal:

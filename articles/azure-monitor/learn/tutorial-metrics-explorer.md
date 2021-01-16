@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 121de67ddb251e7431873c76e379eb223ceacd0d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881298"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250677"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Azure Monitor
 O explorador de métricas é uma característica do Azure Monitor no portal Azure que permite criar gráficos a partir de valores métricos, correlacionar visualmente tendências e investigar picos e mergulhos em valores métricos. Use o explorador de métricas para investigar a saúde e utilização dos seus recursos Azure ou para traçar gráficos a partir de métricas personalizadas. 
@@ -70,20 +70,20 @@ Use a **escova de tempo** para investigar uma área interessante do gráfico, co
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 Consulte as seguintes referências para funcionalidades avançadas que lhe permitem realizar análises adicionais nas suas métricas e identificar potenciais outliers nos seus dados.
 
-- [A filtragem](../platform/metrics-charts.md#apply-filters-to-charts) permite-lhe escolher quais os valores de dimensão incluídos na tabela. Por exemplo, é melhor mostrar apenas pedidos bem sucedidos ao cartografar uma métrica *do tempo de resposta do servidor.* 
+- [A filtragem](../platform/metrics-charts.md#filters) permite-lhe escolher quais os valores de dimensão incluídos na tabela. Por exemplo, é melhor mostrar apenas pedidos bem sucedidos ao cartografar uma métrica *do tempo de resposta do servidor.* 
 
-- [A divisão](../platform/metrics-charts.md#apply-splitting-to-a-chart) controla se o gráfico apresenta linhas separadas para cada valor de uma dimensão ou agrega os valores numa única linha. Por exemplo, pode querer ver uma linha durante um tempo médio de resposta em todas as instâncias do servidor ou pode querer linhas separadas para cada servidor. 
+- [A divisão](../platform/metrics-charts.md#apply-splitting) controla se o gráfico apresenta linhas separadas para cada valor de uma dimensão ou agrega os valores numa única linha. Por exemplo, pode querer ver uma linha durante um tempo médio de resposta em todas as instâncias do servidor ou pode querer linhas separadas para cada servidor. 
 
 Veja [exemplos dos gráficos](../platform/metric-chart-samples.md) que têm filtragem e divisão aplicadas.
 
 ## <a name="advanced-chart-settings"></a>Definições avançadas do gráfico
 
-Pode personalizar o estilo de gráfico, o título e modificar as definições avançadas do gráfico. Quando terminar com a personalização, coloque-o num painel de instrumentos para salvar o seu trabalho. Também pode configurar alertas de métricas. Consulte [funcionalidades avançadas do Azure Metrics Explorer](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis) para conhecer estas e outras funcionalidades avançadas do explorador de métricas Azure Monitor.
+Pode personalizar o estilo de gráfico, o título e modificar as definições avançadas do gráfico. Quando terminar com a personalização, coloque-o num painel de instrumentos para salvar o seu trabalho. Também pode configurar alertas de métricas. Consulte [funcionalidades avançadas do Azure Metrics Explorer](../platform/metrics-charts.md#locking the-range-of-the-y-axis) para conhecer estas e outras funcionalidades avançadas do explorador de métricas Azure Monitor.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a trabalhar com métricas no Azure Monitor, aprenda a usar métricas para enviar alertas pró-ativos.
 
 > [!div class="nextstepaction"]
-> [Criar, ver e gerir alertas de métricas com o Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
+> [Criar, ver e gerir alertas de métricas com o Azure Monitor](../platform/metrics-charts.md#alert-rules)
 

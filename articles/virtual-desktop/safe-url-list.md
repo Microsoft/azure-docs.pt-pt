@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621081"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251765"
 ---
 # <a name="required-url-list"></a>Lista de URL necessária
 
@@ -32,6 +32,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |*xt.blob.core.windows.net|443|Tráfego de agentes|AzureCloud|
 |*eh.servicebus.windows.net|443|Tráfego de agentes|AzureCloud|
 |*xt.table.core.windows.net|443|Tráfego de agentes|AzureCloud|
+|*xt.queue.core.windows.net|443|Tráfego de agentes|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações da pilha de agente e SXS|AzureCloud|

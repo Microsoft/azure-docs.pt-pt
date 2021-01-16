@@ -1,5 +1,5 @@
 ---
-title: Conheça os mais recentes lançamentos do Azure Guest OS Microsoft Docs
+title: Conheça os mais recentes lançamentos do Azure Guest OS | Microsoft Docs
 description: As últimas notícias de lançamento e compatibilidade da SDK para o Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2021
+ms.date: 1/15/2021
 ms.author: yohaddad
-ms.openlocfilehash: 429e343a61e61b01fa07c37a6c2b702f6ef633d1
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6c3d9f6858ced1838e062084ba08de8953e7990f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882352"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250905"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Azure Guest OS e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure Guest OS para serviços cloud. Estas informações ajudam-no a planear o seu caminho de upgrade antes de um So convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Guest OS, conforme descrito nas [Definições de Atualização do Azure Guest OS,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -41,6 +41,9 @@ Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure G
 Não tem a certeza de como atualizar o seu SO convidado? Olha para [isto.][cloud updates]
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="january-15-2021"></a>**15 de janeiro de 2021**
+O Os Convidados de dezembro foi lançado. 
 
 ###### <a name="december-19-2020"></a>**19 de dezembro de 2020**
 O Convidado OS de novembro foi lançado. 
@@ -149,8 +152,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.26_202012-01 |  15 de janeiro de 2021  |  Posto 6.28  |  
 |  WA-GUEST-OS-6.25_202011-01 |  19 de dezembro de 2020  |  Posto 6.27  |  
-|  WA-GUEST-OS-6.24_202010-02 |  17 de novembro de 2020  |  Posto 6.26  |  
+|~~WA-GUEST-OS-6.24_202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
 |~~WA-GUEST-OS-6.23_202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
 |~~WA-GUEST-OS-6.22_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
 |~~WA-GUEST-OS-6.21_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
@@ -187,8 +191,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.50_202012-01  |  15 de janeiro de 2021  |  Posto 5.52  | 
 |  WA-GUEST-OS-5.49_202011-01  |  19 de dezembro de 2020  |  Posto 5.51  | 
-|  WA-GUEST-OS-5.48_202010-02  |  17 de novembro de 2020  |  Posto 5.50  | 
+|~~WA-GUEST-OS-5.48_202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  | 
 |~~WA-GUEST-OS-5.47_202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
 |~~WA-GUEST-OS-5.46_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
 |~~WA-GUEST-OS-5.45_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
@@ -222,8 +227,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.85_202012-01  |  15 de janeiro de 2021  |  Posto 4.87  | 
 |  WA-GUEST-OS-4.84_202011-01  |  19 de dezembro de 2020  |  Posto 4.86  | 
-|  WA-GUEST-OS-4.83_202010-02  |  17 de novembro de 2020  |  Posto 4.85  | 
+|~~WA-GUEST-OS-4.83_202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  | 
 |~~WA-GUEST-OS-4.82_202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
 |~~WA-GUEST-OS-4.81_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  | 
 |~~WA-GUEST-OS-4.80_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  | 
@@ -257,8 +263,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.92_202012-01  |  15 de janeiro de 2021  |  Posto 3.94  |  
 |  WA-GUEST-OS-3.91_202011-01  |  19 de dezembro de 2020  |  Posto 3.93  |  
-|  WA-GUEST-OS-3.90_202010-02  |  17 de novembro de 2020  |  Posto 3.92  |  
+|~~WA-GUEST-OS-3.90_202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
 |~~WA-GUEST-OS-3.89_202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
 |~~WA-GUEST-OS-3.88_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
 |~~WA-GUEST-OS-3.87_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
@@ -292,8 +299,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.105_202012-01  |  15 de janeiro de 2021  |  Posto 2.107  |  
 |  WA-GUEST-OS-2.104_202011-01  |  19 de dezembro de 2020  |  Posto 2.106  |  
-|  WA-GUEST-OS-2.103_202010-02  |  17 de novembro de 2020  |  Posto 2.105  |  
+|~~WA-GUEST-OS-2.103_202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
 |~~WA-GUEST-OS-2.102_202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
 |~~WA-GUEST-OS-2.101_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020 |    
 |~~WA-GUEST-OS-2.100_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  

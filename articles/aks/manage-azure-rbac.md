@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af8d0300b533d9f25cddf225f4ffbe78ca6bf2cb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684224"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249640"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -113,9 +113,9 @@ Uma criação bem sucedida de um cluster com integração AD AZure e Azure RBAC 
 A AKS fornece as seguintes quatro funções incorporadas:
 
 
-| Função                                | Descrição  |
+| Função                                | Description  |
 |-------------------------------------|--------------|
-| Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio)  |
+| Azure Kubernetes Service RBAC Reader  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
 | Azure Kubernetes Serviço RBAC Administrador  | Permite o acesso a administrador, destinado a ser concedido dentro de um espaço de nome. Permite o acesso de leitura/escrita à maioria dos recursos num espaço de nome (ou âmbito de cluster), incluindo a capacidade de criar papéis e encadernações de papéis dentro do espaço de nomes. Esta função não permite escrever acesso à quota de recursos ou ao próprio espaço de nome. |
 | Azure Kubernetes Serviço RBAC Cluster Admin  | Permite o acesso do super-utilizador para realizar qualquer ação em qualquer recurso. Dá total controlo sobre todos os recursos do cluster e em todos os espaços de nome. |
@@ -270,7 +270,7 @@ az role definition delete -n "AKS Deployment Viewer"
 az group delete -n MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre AKS Autenticação, Autorização, Kubernetes RBAC e Azure RBAC [aqui.](concepts-identity.md)
 - Leia mais sobre a Azure RBAC [aqui.](../role-based-access-control/overview.md)

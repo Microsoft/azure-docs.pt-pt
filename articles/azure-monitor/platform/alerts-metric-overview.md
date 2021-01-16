@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que pode fazer com alertas métricos e 
 ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: d8e0621f88455a68ad0ee1b236f6b423c9d54b52
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179899"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251238"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -26,7 +26,7 @@ Digamos que criou uma regra de alerta métrica de limiar estático da seguinte f
 - Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
 - Métrica: Percentagem CPU
 - Tipo de condição: Estático
-- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [Agregações de tempo suportadas](metrics-charts.md#changing-aggregation) são Min, Max, Avg, Total, Contagem): Média
+- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [Agregações de tempo suportadas](metrics-charts.md#aggregation) são Min, Max, Avg, Total, Contagem): Média
 - Período (A janela de olhar para trás sobre os valores métricos são verificados): Ao longo dos últimos 5 minutos
 - Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
 - Operador: Maior do que
@@ -43,7 +43,7 @@ Digamos que criou uma regra simples de alerta de limiares dinâmicos da seguinte
 - Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
 - Métrica: Percentagem CPU
 - Tipo de condição: Dinâmico
-- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [Agregações de tempo suportadas](metrics-charts.md#changing-aggregation) são Min, Max, Avg, Total, Contagem): Média
+- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [Agregações de tempo suportadas](metrics-charts.md#aggregation) são Min, Max, Avg, Total, Contagem): Média
 - Período (A janela de olhar para trás sobre os valores métricos são verificados): Ao longo dos últimos 5 minutos
 - Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
 - Operador: Maior do que
@@ -139,9 +139,9 @@ Até agora, você viu como um único alerta métrico poderia ser usado para moni
 
 Esta funcionalidade é atualmente suportada para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens Azure:
 
-| Serviço | Azure Público | Governo | China |
+| Serviço | Azure Público | Administração Pública | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | Não |
+| Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | No |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |
 | Piscinas elásticas do servidor SQL | **Sim** | **Sim** | **Sim** |
 | NetApp arquiva grupos de capacidade | **Sim** | **Sim** | **Sim** |
@@ -180,7 +180,7 @@ Pode encontrar a lista completa de tipos de recursos suportados neste [artigo.](
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como criar, ver e gerir alertas métricos em Azure](alerts-metric.md)
-- [Saiba como criar alertas dentro do Azure Montior Metrics Explorer](./metrics-charts.md#create-alert-rules)
+- [Saiba como criar alertas dentro do Azure Montior Metrics Explorer](./metrics-charts.md#alert-rules)
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Azure](./alerts-metric-create-templates.md)
 - [Saiba mais sobre grupos de ação](action-groups.md)
 - [Saiba mais sobre o tipo de condição de Limiares Dinâmicos](alerts-dynamic-thresholds.md)

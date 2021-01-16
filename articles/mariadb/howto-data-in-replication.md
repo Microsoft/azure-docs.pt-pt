@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: fb7d9f78ac5498affa10521e17cff4348eecb5eb
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231949"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250422"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 
@@ -23,12 +23,6 @@ Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitation
 
 > [!NOTE]
 > Se o seu servidor de origem for a versão 10.2 ou mais recente, recomendamos que crie a Replicação de Dados utilizando [o ID de Transação Global](https://mariadb.com/kb/en/library/gtid/).
-
-> [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências às palavras _mestre_ e _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos reconhece-os](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) como palavras de exclusão. As palavras são usadas neste artigo para consistência porque são atualmente as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar alinhado.
->
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Crie um servidor MariaDB para usar como réplica
 
@@ -46,6 +40,10 @@ Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitation
 3. Adicione o endereço IP do servidor de origem às regras de firewall da réplica. 
 
    Atualize as regras de firewall com o [portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
+
+> [!NOTE]
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+>
 
 ## <a name="configure-the-source-server"></a>Configure o servidor de origem
 

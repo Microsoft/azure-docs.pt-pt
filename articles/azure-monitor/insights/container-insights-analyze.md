@@ -1,14 +1,14 @@
 ---
-title: Monitorização de Kubernetes com monitor Azure para contentores Microsoft Docs
+title: Monitorização de Kubernetes com o Azure Monitor para contentores | Microsoft Docs
 description: Este artigo descreve como pode ver e analisar o desempenho de um cluster Kubernetes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905711"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251289"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
 
@@ -130,7 +130,7 @@ No explorador de métricas, pode ver métricas de utilização de nó agregados 
 | insights.contentor/pods | |
 | | PodCount | Uma contagem de cápsulas de Kubernetes.|
 
-Pode [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) uma métrica para vê-la por dimensão e visualizar como diferentes segmentos se comparam uns aos outros. Para um nó, pode segmentar o gráfico pela dimensão do *anfitrião.* A partir de uma vagem, pode segmentá-lo pelas seguintes dimensões:
+Pode [dividir](../platform/metrics-charts.md#apply-splitting) uma métrica para vê-la por dimensão e visualizar como diferentes segmentos se comparam uns aos outros. Para um nó, pode segmentar o gráfico pela dimensão do *anfitrião.* A partir de uma vagem, pode segmentá-lo pelas seguintes dimensões:
 
 * Controlador
 * Espaço de nomes Kubernetes

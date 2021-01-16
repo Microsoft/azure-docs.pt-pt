@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Dimensionar aplicação
 description: Neste tutorial do Azure Kubernetes Service (AKS), irá aprender a dimensionar nós e pods no Kubernetes e a implementar o dimensionamento automático horizontal de pods.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825694"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251374"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -21,9 +21,9 @@ Se seguiu os tutoriais, tem um cluster Kubernetes em funcionamento na AKS e impl
 > * Dimensionar manualmente pods do Kubernetes que executam a sua aplicação
 > * Configurar pods de dimensionamento automático que executam a aplicação de front-end
 
-Em tutoriais adicionais, a aplicação Azure Vote é atualizada para uma nova versão.
+Em tutoriais posteriores, a aplicação Azure Vote é atualizada para uma nova versão.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. Esta imagem foi enviada para o Registo de Contentores Azure, e você criou um cluster AKS. A aplicação foi então implantada no cluster AKS. Se não fez estes passos e gostaria de seguir em frente, comece com [Tutorial 1 – Crie imagens de contentores.][aks-tutorial-prepare-app]
 
@@ -39,7 +39,7 @@ kubectl get pods
 
 O resultado do exemplo seguinte mostra um pod de front-end e um pod de back-end:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,7 +51,7 @@ Para alterar manualmente o número de pods na implementação do *azure-vote-fro
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Executar [kubectl obter pods][kubectl-get] novamente para verificar que AKS cria as cápsulas adicionais. Um ou dois minutos depois, os pods adicionais estão disponíveis no seu cluster:
+Executar [kubectl obter pods][kubectl-get] novamente para verificar se a AKS cria com sucesso as cápsulas adicionais. Após um minuto ou mais, as cápsulas estão disponíveis no seu cluster:
 
 ```console
 kubectl get pods
@@ -131,7 +131,7 @@ spec:
 
 Utilize `kubectl apply` para aplicar o autoescalador definido no ficheiro `azure-vote-hpa.yaml` manifesto.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 Quando o cluster tiver escalado com sucesso, a saída é semelhante ao seguinte exemplo:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,
