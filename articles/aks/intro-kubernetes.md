@@ -5,14 +5,14 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4115ab2140cd3bf67135e494e16fb8121c040ff6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681555"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246201"
 ---
-# <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
+# <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 O Azure Kubernetes Service (AKS) torna fácil implementar um cluster Kubernetes gerido no Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerir o Kubernetes ao descarregar grande parte dessa responsabilidade para o Azure. Enquanto serviço alojado do Kubernetes, o Azure lida com tarefas críticas para si, como a monitorização do estado de funcionamento e a manutenção. Os mestres do Kubernetes são geridos pelo Azure. Pode apenas gerir e manter os nós dos agentes. Como serviço Kubernetes gerido, o AKS é gratuito, paga apenas os nós dos agentes dentro dos seus clusters, não paga os mestres.
 
@@ -58,17 +58,17 @@ O Azure Kubernetes Service oferece várias versões de Kubernetes. À medida que
 
 Para saber mais sobre as versões do ciclo de vida, veja [Versões suportadas do Kubernetes no AKS][aks-supported versions]. Para obter os passos de atualização, veja [Atualizar um cluster do Azure Kubernetes Service (AKS)][aks-upgrade].
 
-### <a name="gpu-enabled-nodes"></a>Nós de GPU ativados
+### <a name="gpu-enabled-nodes"></a>GÚls de GPU
 
-O AKS suporta a criação de conjuntos de nós ativados por GPU. O Azure oferece atualmente VMs ativadas por GPU, únicas ou várias. As VMs ativadas por GPU foram concebidas para cargas de trabalho de computação intensiva, gráficos intensivos e visualização.
+A AKS apoia a criação de piscinas de nó ativadas pela GPU. A Azure fornece atualmente VMs individuais ou múltiplos ativados por GPU. Os VMs ativados pela GPU são concebidos para cargas de trabalho de visualização intensivas de cálculo, gráficas e visualização.
 
 Para obter mais informações, veja [Utilizar GPUs no AKS][aks-gpu].
 
 ### <a name="confidential-computing-nodes-public-preview"></a>Nós de computação confidencial (pré-visualização pública)
 
-A AKS apoia a criação de conjuntos de nó de computação confidencial baseados em Intel SGX (DCSv2 VMs). Os nosdes de computação confidencial permitem que os contentores corram num ambiente de execução fidedigno e isolado (enclaves). O isolamento entre contentores combinados com a integridade do código através do atestado pode ajudar com a sua estratégia de segurança de contentores em profundidade. Os nós de computação confidencial suportam tanto os contentores confidenciais (aplicações de estiva existentes) como os contentores de conhecimento do enclave.
+A AKS apoia a criação de conjuntos de nó de computação confidencial baseados em Intel SGX (DCSv2 VMs). Os nosdes de computação confidencial permitem que os contentores corram num ambiente de execução fidedigno baseado em hardware (enclaves). O isolamento entre contentores, combinado com a integridade do código através do atestado, pode ajudar com a sua estratégia de segurança de contentores em profundidade. Os nós de computação confidencial suportam tanto os contentores confidenciais (aplicações existentes do Docker) como os contentores conscientes do enclave.
 
-Para mais informações, consulte [os nódes de computação confidencial na AKS][conf-com-node]
+Para obter mais informações, consulte [os nós de computação confidencial na AKS][conf-com-node].
 
 ### <a name="storage-volume-support"></a>Suporte para volume de armazenamento
 
@@ -80,7 +80,7 @@ Iniciou-se com volumes dinâmicos e persistentes utilizando [discos Azure][azure
 
 ## <a name="virtual-networks-and-ingress"></a>Redes virtuais e entrada
 
-Um cluster do AKS pode ser implementado numa rede virtual existente. Nesta configuração, a cada pod do cluster é atribuído um endereço IP na rede virtual, e pode comunicar diretamente com outros pods no cluster e outros nós na rede virtual. Os pods também podem ligar a outros serviços numa rede virtual em modo de peering e a redes no local através do ExpressRoute ou ligações de rede de VPNs.
+Um cluster do AKS pode ser implementado numa rede virtual existente. Nesta configuração, a cada pod do cluster é atribuído um endereço IP na rede virtual, e pode comunicar diretamente com outros pods no cluster e outros nós na rede virtual. Os pods também podem ligar-se a outros serviços numa rede virtual espreitada, e a redes no local sobre ligações VPN expressRoute ou site-to-site (S2S).
 
 Para mais informações, consulte os [conceitos de Rede para aplicações em AKS][aks-networking].
 
@@ -98,15 +98,15 @@ Kubernetes tem um rico ecossistema de ferramentas de desenvolvimento e gestão, 
 
 Adicionalmente, os Espaços de Programador do Azure oferecem uma experiência de desenvolvimento do Kubernetes rápida e iterativa para equipas. Com a configuração mínima, pode executar e depurar contentores diretamente no AKS. Para obter uma introdução, veja[Azure Dev Spaces][azure-dev-spaces].
 
-O projeto Azure DevOps fornece uma solução simples para trazer código existente e o repositório Git para o Azure. O projeto DevOps cria automaticamente os recursos do Azure, como o AKS, um pipeline de lançamento no Azure DevOps Services, que inclui um pipeline de compilação para CI, configura um pipeline de lançamento para CD e, em seguida, cria um recurso do Azure Application Insights para monitorização.
+O DevOps Starter fornece uma solução simples para trazer o código existente e os repositórios de Git para o Azure. O DevOps Starter cria automaticamente recursos Azure, como a AKS, um oleoduto de libertação em Azure DevOps Services que inclui um pipeline de construção para CI, cria um pipeline de lançamento para CD e, em seguida, cria um recurso Azure Application Insights para monitorização.
 
-Para obter mais informações, veja [Projeto Azure DevOps][azure-devops].
+Para obter mais informações, consulte [o DevOps Starter][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Suporte de imagem do Docker e registo de contentor privado
 
 O AKS suporta o formato de imagem do Docker. Para o armazenamento privado das suas imagens do Docker, pode integrar AKS com o Azure Container Registry (ACR).
 
-Para criar o arquivo de imagens privado, veja [Azure Container Registry][acr-docs].
+Para criar uma loja de imagens privada, consulte [o Registo do Contentor Azure.][acr-docs]
 
 ## <a name="kubernetes-certification"></a>Certificação Kubernetes
 
@@ -116,7 +116,7 @@ O Azure Kubernetes Service (AKS) foi certificado com CNCF como sendo compatível
 
 O Azure Kubernetes Service (AKS) está em conformidade com SOC, ISO, PCI DSS e HIPAA. Para obter mais informações, consulte [a visão geral da conformidade do Microsoft Azure][compliance-doc].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CLI do Azure.
 

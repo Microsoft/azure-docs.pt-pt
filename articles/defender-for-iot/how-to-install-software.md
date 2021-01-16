@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208765"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247595"
 ---
 # <a name="defender-for-iot-installation"></a>Defender para instalação IoT
 
 Este artigo descreve como instalar os seguintes elementos do Azure Defender para IoT:
 
-- **Sensor**: O Defender para sensores IoT recolhe o tráfego da rede ICS utilizando uma monitorização passiva (sem agente). Passivo e não intrusivo, os sensores têm zero impacto nas redes e dispositivos OT e IoT. O sensor liga-se a uma porta SPAN ou à rede TAP e começa imediatamente a monitorizar a sua rede. As deteções aparecem na consola do sensor. Lá, você pode ver, investigar e analisá-los em um mapa de rede, inventário de dispositivos, e uma ampla gama de relatórios. Exemplos incluem relatórios de avaliação de risco, consultas de mineração de dados e vetores de ataque. Leia mais sobre as capacidades dos sensores no Defender para o [Guia do Utilizador do Sensor IoT (download direto)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Sensor**: O Defender para sensores IoT recolhe o tráfego da rede ICS utilizando uma monitorização passiva (sem agente). Passivo e não intrusivo, os sensores têm zero impacto nas redes e dispositivos OT e IoT. O sensor liga-se a uma porta SPAN ou à rede TAP e começa imediatamente a monitorizar a sua rede. As deteções aparecem na consola do sensor. Lá, você pode ver, investigar e analisá-los em um mapa de rede, inventário de dispositivos, e uma ampla gama de relatórios. Exemplos incluem relatórios de avaliação de risco, consultas de mineração de dados e vetores de ataque. Leia mais sobre as capacidades dos sensores no Defender para o [Guia do Utilizador do Sensor IoT (download direto)](./getting-started.md).
 
 - **Consola de gestão no local**: A consola de gestão no local permite-lhe realizar gestão de dispositivos, gestão de riscos e gestão de vulnerabilidades. Também pode usá-lo para realizar monitorização de ameaças e resposta a incidentes em toda a sua empresa. Fornece uma visão unificada de todos os dispositivos de rede, principais indicadores de risco de IoT e alertas de risco de OT detetados em instalações onde os sensores são implantados. Utilize a consola de gestão no local para visualizar e gerir sensores em redes com lacunas de ar.
 

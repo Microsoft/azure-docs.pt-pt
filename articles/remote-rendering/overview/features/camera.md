@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207262"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246286"
 ---
 # <a name="camera"></a>Câmara
 
@@ -32,7 +32,7 @@ As seguintes propriedades podem ser alteradas nas definições da câmara:
 
 **Perto e longe do avião:**
 
-Para garantir que não podem ser definidas gamas inválidas, as propriedades **NearPlane** e **FarPlane** são apenas de leitura e existe uma função separada **SetNearAndFarPlane** para alterar o intervalo. Estes dados serão enviados para o servidor no final do quadro.
+Para garantir que não podem ser definidas gamas inválidas, as propriedades **NearPlane** e **FarPlane** são apenas de leitura e existe uma função separada **SetNearAndFarPlane** para alterar o intervalo. Estes dados serão enviados para o servidor no final do quadro. Ao definir estes valores, **o NearPlane** tem de ser menor do que **o FarPlane**. Caso contrário, ocorrerá um erro.
 
 > [!IMPORTANT]
 > Em Unidade isto é tratado automaticamente ao mudar a câmara principal perto e longe de aviões.
@@ -44,6 +44,21 @@ Por vezes, é útil desativar o tampão de profundidade escrever da imagem remot
 > [!TIP]
 > Em Unidade é fornecido um componente de depurg chamado **EnableDepthComponent** que pode ser usado para alternar esta funcionalidade na UI editor.
 
+**InverteseDepth**:
+
+> [!NOTE]
+> Esta definição só é importante se `EnableDepth` estiver definida para `true` . Caso contrário, esta definição não tem impacto.
+
+Normalmente, os amortecedores de profundidade registam valores z num intervalo de ponto flutuante de [0;1], com 0 denotando a profundidade do plano próximo e 1 denotando a profundidade do plano distante. Também é possível inverter esta gama e registar valores de profundidade ao alcance [1,0], ou seja, a profundidade do plano próximo torna-se 1 e a profundidade do plano distante torna-se 0. Geralmente, este último melhora a distribuição da precisão do ponto flutuante através da gama z não linear.
+
+> [!WARNING]
+> Uma abordagem comum é inverter os valores de quase plano e de avião nos objetos da câmara. Isto falhará na renderização remota do Azure com um erro ao experimentar isto no `CameraSettings` .
+
+A Azure Remote Rendering API precisa de saber sobre a convenção de tampão de profundidade do seu renderizador local para compor corretamente a profundidade remota no tampão de profundidade local. Se o seu intervalo de tampão de profundidade for [0;1] deixe esta bandeira como `false` . Se utilizar um tampão de profundidade invertido com uma gama [1;0], coloque a `InverseDepth` bandeira em `true` .
+
+> [!NOTE]
+> Para a Unidade, a definição correta já é aplicada pelo `RemoteManager` modo como não há necessidade de intervenção manual.
+
 A alteração das definições da câmara pode ser feita da seguinte forma:
 
 ```cs
@@ -53,6 +68,7 @@ void ChangeCameraSetting(AzureSession session)
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
@@ -63,6 +79,7 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

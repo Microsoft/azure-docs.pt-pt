@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect Sync: Funções Referência / Microsoft Docs'
+title: 'Sincronização de ligação AD Ad: Funções Referenciação | Microsoft Docs'
 description: Referência das expressões declarativas de provisionamento na sincronização Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348063"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246711"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Funções Referência
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -418,7 +418,7 @@ A função CGuid converte a representação de cordas de um GUID para a sua repr
 **Sintaxe:**  
 `bin CGuid(str GUID)`
 
-* Uma corda formatada neste padrão: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxx ou {xxxxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+* Uma corda formatada neste padrão: xxxxxx-xxxx-xxxx-xxxx-xxx ou {xxxx-xxxx-xxxxx
 
 ---
 ### <a name="contains"></a>Contains
@@ -664,7 +664,7 @@ Os valores possíveis para o formato podem ser consultados aqui: [Formatos de da
 
 **Exemplo:**  
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
+`FormatDateTime(CDate("12/25/2007"),"yyyy-MM-dd")`  
 Resultados em "2007-12-25".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
@@ -792,7 +792,7 @@ Se a corda pode ser convertida para um GUID, então a função IsGuid avaliada p
 `bool IsGuid(str GUID)`
 
 **Observações:**  
-Um GUID é definido como uma corda seguindo um destes padrões: xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxx ou {xxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Um GUID é definido como uma corda seguindo um destes padrões: xxxx-xxxx-xxxx-xxxx-xxx ou {xxxx-xxxx-xxxx-xxx
 
 Usado para determinar se cGuid pode ser bem sucedido.
 

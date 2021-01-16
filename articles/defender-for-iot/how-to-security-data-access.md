@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 495f9d568760421c7f42df3acf74217c15b01a05
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092062"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246344"
 ---
 # <a name="access-your-security-data"></a>Aceda aos seus dados de segurança
 
@@ -37,7 +37,7 @@ Para aceder aos seus alertas e recomendações no seu espaço de trabalho Log An
 1. Escolha um alerta ou recomendação no Defender para IoT.
 1. Clique **em mais investigação,** em seguida, clique **em ver quais os dispositivos que têm este clique de alerta aqui e ver a coluna DeviceId**.
 
-Para obter detalhes sobre a consulta de dados do Log Analytics, consulte [Começar com consultas no Log Analytics](/azure/azure-monitor/log-query/get-started-queries).
+Para obter detalhes sobre a consulta de dados do Log Analytics, consulte [Começar com consultas no Log Analytics](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -64,7 +64,7 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | Alertaseverity | DisplayName                           | Descrição                                             | Extensões                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | Alertaseverity | DisplayName                           | Description                                             | Extensões                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta conseguiu           | Um ataque da força bruta no dispositivo foi bem sucedido        |    { "Endereço de origem completa": "[ \" 10.165.12.18: \" ]", "Nomes de utilizador": \" \" "[]", "DeviceId": "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Login local bem-sucedido no dispositivo      | Foi detetado um login local bem sucedido no dispositivo     | { "Endereço remoto": ""Porta remota": "Porta Local": "Porta de login": "Caixa de entrada/su", "Processo de Login Id": "28207", "Nome de utilizador": "atacante", "DeviceId": "IoT-Device-Linux" } |
@@ -144,7 +144,7 @@ SecurityRecommendation
 | take 2
 ```
 
-| TimeGenerated | IoTHubId | DeviceId | RecomendaçõesEverity | Estado de Recomendação | RecomendaçãoDisplayName | Descrição | RecomendaçõesAdditionalData |
+| TimeGenerated | IoTHubId | DeviceId | RecomendaçõesEverity | Estado de Recomendação | RecomendaçãoDisplayName | Description | RecomendaçõesAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
 | 2019-03-22T10:21:06.060 |    /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativo | Foi encontrada regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou portos | {"Rules":"[{ \" SourceAddress \" : , \" \" \" SourcePort : , \" \" \" \" DestinationAddress \" : , \" \" \" DestinationPort : \" \" 1337 \" }}"} |
 | 2019-03-22T10:50:27.237 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativo | Foi encontrada regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou portos | {"Rules":"[{ \" SourceAddress \" : , \" \" \" SourcePort : , \" \" \" \" DestinationAddress \" : , \" \" \" DestinationPort : \" \" 1337 \" }}"} |

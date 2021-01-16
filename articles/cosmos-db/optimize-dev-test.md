@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: b0e2cc3f23a8c39e51523e6f6fd974ebf46f7322
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ddae808fbb2e3dcfe20909c8b3d0c5a20bb04bd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097452"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247527"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Otimizar o desenvolvimento e testar o custo no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ O nível livre dura indefinidamente para a vida útil da conta e vem com todos o
 
 ## <a name="azure-free-account"></a>Conta gratuita do Azure
 
-O Azure Cosmos DB está incluído na conta gratuita do [Azure,](https://azure.microsoft.com/free)que oferece créditos e recursos da Azure gratuitamente durante um determinado período de tempo. Especificamente para a Azure Cosmos DB, esta conta gratuita oferece armazenamento de 5 GB e 400 RUs de produção provisida para todo o ano. Esta experiência permite que qualquer desenvolvedor teste facilmente as características da Azure Cosmos DB ou integre-a com outros serviços Azure a custo zero. Com a conta gratuita do Azure, recebes um crédito de 200 dólares para gastar nos primeiros 30 dias. Não será cobrado, mesmo que comece a usar os serviços até que opte por fazer upgrade. Para começar, visite a página [de conta gratuita do Azure.](https://azure.microsoft.com/free)
+O Azure Cosmos DB está incluído na conta gratuita do [Azure,](https://azure.microsoft.com/free)que oferece créditos e recursos da Azure gratuitamente durante um determinado período de tempo. Especificamente para a Azure Cosmos DB, esta conta gratuita oferece armazenamento de 25 GB e 400 RUs de produção provisida para todo o ano. Esta experiência permite que qualquer desenvolvedor teste facilmente as características da Azure Cosmos DB ou integre-a com outros serviços Azure a custo zero. Com a conta gratuita do Azure, recebes um crédito de 200 dólares para gastar nos primeiros 30 dias. Não será cobrado, mesmo que comece a usar os serviços até que opte por fazer upgrade. Para começar, visite a página [de conta gratuita do Azure.](https://azure.microsoft.com/free)
 
 ## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB sem servidor
 

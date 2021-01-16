@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
-ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188756"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247170"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como rever e publicar uma oferta ao mercado comercial
 
@@ -150,7 +150,7 @@ A imagem que se segue mostra a página **geral da Oferta** para uma oferta SaaS.
 ### <a name="previewing-and-approving-your-offer"></a>Visualização e aprovação da sua oferta
 
 > [!IMPORTANT]
-> Para validar o fluxo de compra e configuração de ponta a ponta, compre a sua oferta enquanto estiver em Pré-Visualização. Primeiro, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa.
+> Para validar o fluxo de compra e configuração de ponta a ponta, compre a sua oferta enquanto estiver em Pré-Visualização. Primeiro, notifique a Microsoft com um [bilhete de apoio](https://aka.ms/marketplacesupport) para garantir que não processamos uma taxa. Se a sua oferta for uma listagem Contacte-me, teste se um chumbo é criado como esperado, fornecendo os dados do Contact Me durante a pré-visualização.
 
 Na página **'Geral' da Oferta,** verá links de pré-visualização no botão **Go live.** Haverá um link para a pré-visualização do AppSource, pré-visualização do Azure Marketplace ou ambos dependendo das opções que escolheu ao criar a sua oferta. Se optar por vender a sua oferta através da Microsoft, qualquer pessoa que tenha sido adicionada ao público de pré-visualização pode testar a aquisição e implementação da sua oferta para garantir que ela cumpre os seus requisitos durante esta fase.
 
@@ -197,7 +197,7 @@ Para ver a história da sua oferta:
 
 |Evento    |Description    |
 |---------|---------------|
-|Oferta criada    |A oferta foi criada no Partner Center. Um utilizador selecionou o tipo de oferta, oferece iD e oferece um pseudónimo na Visão Geral **do Mercado Comercial.**  >  **Overview**    |
+|Oferta criada    |A oferta foi criada no Partner Center. Um utilizador selecionou o tipo de oferta, oferece iD e oferece um pseudónimo na Visão Geral **do Mercado Comercial.**  >      |
 |Plano criado: *nome do plano*    |Um utilizador criou um novo plano ao introduzir o ID do plano e o nome do plano no separador **Plan overview.**</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
 |Plano eliminado    |Um utilizador eliminou um projeto de plano que não tinha sido publicado selecionando **o projeto de eliminação** da página **de visão geral** do Plano.</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
 |Plano iniciado parar de vender: *nome do plano*    |Um utilizador iniciou um plano de stop-sell selecionando Parar de **vender** na página **de visão geral** do Plano.</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
@@ -225,7 +225,7 @@ Pode utilizar filtros para reduzir todo o histórico da sua oferta a eventos de 
 Há quatro filtros:
 * Eventos
 * Utilizadores
-* Data
+* Date
 * Páginas
 
 Ao escolher o filtro **Páginas,** pode selecionar qualquer uma das páginas do Centro parceiro que sejam aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **Páginas** mostra toda a **oferta submetida a eventos de pré-visualização** com alterações na página selecionada.

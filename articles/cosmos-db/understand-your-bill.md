@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938635"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247510"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -215,8 +215,12 @@ A fatura mensal total será (assumindo 30 dias/720 horas num mês) será calcula
 | | |Conta de produção para 2 regiões adicionais: Leste dos EUA, Norte da Europa (todas as regiões são writable)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Custo Total Mensal**  | |**$38.688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Exemplos de faturação com contas de nível livre
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Exemplos de faturação com contas de nível livre Azure Cosmos DB
+
 Com o nível livre de DB Azure Cosmos, você receberá os primeiros 400 RU/s e 5 GB de armazenamento na sua conta gratuitamente, aplicados ao nível da conta. Qualquer RU/s e armazenamento para além de 400 RU/s e 5 GB serão cobrados às taxas de preços regulares por página de preços. Na conta, não verá um item de custo ou linha para os 400 Ru/s e 5 GB gratuitos, apenas o RU/s e o armazenamento além do que é coberto por nível livre. O 400 RU/s aplica-se a qualquer tipo de RU/s - produção a provisionada, autoescala e várias regiões.  
+
+> [!NOTE]
+> O nível livre de Azure Cosmos DB é diferente da conta livre do Azure. A conta gratuita Azure oferece créditos e recursos Azure gratuitamente por tempo limitado. Ao utilizar o Azure Cosmos DB como parte desta conta gratuita, obtém-se um armazenamento de 25 GB e 400 RU/s de produção provisitada durante 12 meses.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemplo de faturação - contentor ou base de dados com produção prevista
 - Suponhamos que criamos uma base de dados ou um contentor numa conta de nível livre com 400 RU/s e 5 GB de armazenamento.

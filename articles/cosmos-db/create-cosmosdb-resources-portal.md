@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.openlocfilehash: baeb5fbadfaf128c2c491a1fdb7e880b413878d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 731a1fdf9520efc43c954cba79602ed84f983b3d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491091"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247255"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentor e itens a partir do portal Azure
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,7 +46,7 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
    :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="O painel Bases de dados do portal do Azure":::
 
 1. Selecione **Adicionar**.
-1. Na página **Criar Conta do Azure Cosmos DB** , introduza as definições básicas da nova conta do Azure Cosmos DB. 
+1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
 
     |Definição|Valor|Descrição |
     |---|---|---|
@@ -55,8 +55,8 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
     |Nome da Conta|Um nome exclusivo|Introduza um nome para identificar a conta do Azure Cosmos. Uma vez que *documents.azure.com* é anexado ao nome que indicar para criar o URI, utilize um nome exclusivo.<br><br>O nome só pode conter letras minúsculas, números e o caráter de hífen (-). Tem de ter entre 3 e 31 carateres.|
     |API|O tipo de conta a criar|Selecione **Núcleo (SQL)** para criar uma base de dados de documentos e consultar com a sintaxe SQL. <br><br>A API determina o tipo de conta a criar. A Azure Cosmos DB fornece cinco APIs: Core (SQL) e MongoDB para dados de documentos, Gremlin para dados gráficos, Tabela Azure e Cassandra. De momento, deve criar uma conta separada para cada API. <br><br>[Saiba mais sobre a API SQL](introduction.md).|
     |Modo de capacidade|Produção provisida ou sem servidor|**Selecione Provisão para** criar uma conta no modo [de produção previsto.](set-throughput.md) Selecione **Serverless** para criar uma conta no modo [sem servidor.](serverless.md)|
-    |Aplicar Desconto de Escalão Gratuito|Aplicar ou não aplicar|Com o nível livre Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5 GB de armazenamento gratuitamente numa conta. Saiba mais sobre [o free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
-    |Localização|A região mais próxima dos seus utilizadores|Selecione a localização geográfica para alojar a sua conta do Azure Cosmos DB. Utilize a localização mais próxima dos utilizadores para lhes dar o acesso mais rápido aos dados.|
+    |Aplicar desconto de nível gratuito Azure Cosmos DB|Aplicar ou não aplicar|Com o nível livre Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5 GB de armazenamento gratuitamente numa conta. Saiba mais sobre [o free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |A localização|A região mais próxima dos seus utilizadores|Selecione a localização geográfica para alojar a sua conta do Azure Cosmos DB. Utilize a localização mais próxima dos utilizadores para lhes dar o acesso mais rápido aos dados.|
     |Tipo de Conta|Produção ou Não Produção|Selecione **Produção** se a conta for utilizada para uma carga de trabalho de produção. Selecione **Não-Produção** se a conta for utilizada para não produção, por exemplo, desenvolvimento, teste, QA ou encenação. Esta é uma definição de marcação de recursos Azure que afina a experiência portal mas não afeta a conta DB Azure Cosmos subjacente. Pode alterar este valor a qualquer momento.|
     |Redundância Geográfica|Ativar ou Desativar|Ativar ou desativar a distribuição global na sua conta, emparelhando a sua região com uma região de pares. Pode adicionar mais regiões à sua conta mais tarde.|
     |Escritas de várias regiões|Ativar ou Desativar|A capacidade de escrita multi-região permite-lhe tirar partido da produção prevista para as suas bases de dados e contentores em todo o mundo.|
@@ -66,18 +66,18 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
 > Pode ter até uma conta DB Azure Cosmos de nível gratuito por subscrição Azure e deve optar pela criação da conta. Se não vir a opção de aplicar o desconto de nível livre, isto significa que outra conta na subscrição já foi ativada com nível gratuito.
 
 > [!NOTE]
-> As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade** :
+> As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade**:
 > - Aplicar Desconto de Escalão Gratuito
 > - Georredundância
 > - Escritas de várias regiões
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="A página da nova conta do Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="A página de nova conta do Azure Cosmos DB":::
 
 1. Selecione **Rever + criar**. Pode ignorar as secções **Rede** e **Etiquetas**.
 
 1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel de Notificações do portal do Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel Notificações do portal do Azure":::
 
 1. Selecione **Ir para recurso** para aceder à página da conta do Azure Cosmos DB. 
 

@@ -1,5 +1,5 @@
 ---
-title: O que são as revisões de acesso? - Diretório Ativo Azure / Microsoft Docs
+title: O que são as revisões de acesso? - Azure Ative Directory | Microsoft Docs
 description: Utilizando avaliações de acesso ao Azure Ative Directory, pode controlar a adesão ao grupo e o acesso à aplicação para atender a iniciativas de governação, gestão de riscos e conformidade na sua organização.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027701"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246745"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -103,7 +103,7 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores e 3 proprietários do grupo, e atribui os 3 proprietários do grupo como revisores. | 3 licenças para cada dono do grupo como revisores | 3 |
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores. Torna-se uma auto-revisão. | 500 licenças para cada utilizador como auto-revisores | 500 |
 | Um administrador cria uma revisão de acesso do Grupo C com 50 utilizadores membros e 25 utilizadores convidados. Torna-se uma auto-revisão. | 50 licenças para cada utilizador como auto-revisores.* | 50 |
-| Um administrador cria uma revisão de acesso do Grupo D com 6 utilizadores membros e 108 utilizadores convidados. Torna-se uma auto-revisão. | 6 licenças para cada utilizador como auto-revisores. Os utilizadores convidados são cobrados mensalmente por utilizador ativo (MAU). Não são necessárias licenças adicionais. *  | - |
+| Um administrador cria uma revisão de acesso do Grupo D com 6 utilizadores membros e 108 utilizadores convidados. Torna-se uma auto-revisão. | 6 licenças para cada utilizador como auto-revisores. Os utilizadores convidados são cobrados mensalmente por utilizador ativo (MAU). Não são necessárias licenças adicionais. *  | 6 |
 
 \* O preço das identidades externas da Azure AD (utilizador convidado) baseia-se nos utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo substitui o modelo de faturação de rácio de 1:5, que permitiu até cinco utilizadores convidados por cada licença Azure AD Premium no seu inquilino. Quando o seu inquilino estiver ligado a uma subscrição e utilizar funcionalidades de Identidades Externas para colaborar com os utilizadores convidados, será automaticamente faturado utilizando o modelo de faturação baseado na MAU. Para mais informações, consulte o modelo de Faturação para identidades externas Azure AD.
 

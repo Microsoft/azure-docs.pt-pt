@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas sincronização de hash de palavra-passe com sincronização Azure AD Connect / Microsoft Docs
+title: Sincronização de hash de resolução de problemas com sincronização de azure AD Connect | Microsoft Docs
 description: Este artigo fornece informações sobre como resolver problemas de sincronização de haxixe de palavras-passe.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6ec162ceb51c3bf19be42219b054d8371ff221
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317570"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247357"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas da sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 
@@ -64,7 +64,7 @@ Para resolver problemas em que não há palavras-passe sincronizadas:
 
 3. Inicie o assistente Azure AD Connect.
 
-4. Navegue na página **Tarefas Adicionais,** selecione **Resolução de Problemas**e clique em **Seguinte**.
+4. Navegue na página **Tarefas Adicionais,** selecione **Resolução de Problemas** e clique em **Seguinte**.
 
 5. Na página troubleshooting, clique em **Lançamento** para iniciar o menu de resolução de problemas em PowerShell.
 
@@ -147,7 +147,7 @@ Para resolver problemas para um objeto específico do utilizador:
 
 3. Inicie o assistente Azure AD Connect.
 
-4. Navegue na página **Tarefas Adicionais,** selecione **Resolução de Problemas**e clique em **Seguinte**.
+4. Navegue na página **Tarefas Adicionais,** selecione **Resolução de Problemas** e clique em **Seguinte**.
 
 5. Na página troubleshooting, clique em **Lançamento** para iniciar o menu de resolução de problemas em PowerShell.
 
@@ -253,7 +253,7 @@ Siga estes passos para determinar por que não há palavras-passe sincronizadas:
 
     ![Saída do script PowerShell a partir de definições de sincronização de palavra-passe](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Se a função não estiver ativada no AD Azure ou se o estado do canal de sincronização não estiver ativado, execute o assistente de instalação 'Ligar'. **Selecione Personalize as opções de sincronização**e desescole a sincronização da palavra-passe. Esta alteração desativa temporariamente a funcionalidade. Em seguida, volte a executar o assistente e volte a ativar a sincronização da palavra-passe. Volte a executar o script para verificar se a configuração está correta.
+3. Se a função não estiver ativada no AD Azure ou se o estado do canal de sincronização não estiver ativado, execute o assistente de instalação 'Ligar'. **Selecione Personalize as opções de sincronização** e desescole a sincronização da palavra-passe. Esta alteração desativa temporariamente a funcionalidade. Em seguida, volte a executar o assistente e volte a ativar a sincronização da palavra-passe. Volte a executar o script para verificar se a configuração está correta.
 
 4. Procure no registo de eventos por erros. Procure os seguintes eventos, o que indica um problema:
     * Fonte: ID de "sincronização de diretório": 0, 611, 652, 655 Se vir estes eventos, tem um problema de conectividade. A mensagem de registo do evento contém informações florestais onde você tem um problema. Para obter mais informações, consulte o [problema da Conectividade.](#connectivity problem)
@@ -272,7 +272,7 @@ Se utilizar a instalação personalizada, desa estale as permissões manualmente
     
 1. Para encontrar a conta utilizada pelo conector Ative Directory, inicie **o Gestor de Serviços de Sincronização**. 
  
-2. Vá a **Connectors**e, em seguida, procure a floresta ative directory que você está a resolver problemas. 
+2. Vá a **Connectors** e, em seguida, procure a floresta ative directory que você está a resolver problemas. 
  
 3. Selecione o conector e, em seguida, clique em **Propriedades**. 
  
@@ -281,7 +281,7 @@ Se utilizar a instalação personalizada, desa estale as permissões manualmente
     ![Conta utilizada pelo conector Ative Directory](./media/tshoot-connect-password-hash-synchronization/connectoraccount.png)  
     Note o nome de utilizador e o domínio onde a conta está localizada.
     
-5. Inicie **Utilizadores e Computadores de Diretório Ativo**e, em seguida, verifique se a conta encontrada anteriormente tem as permissões de seguimento definidas na raiz de todos os domínios da sua floresta:
+5. Inicie **Utilizadores e Computadores de Diretório Ativo** e, em seguida, verifique se a conta encontrada anteriormente tem as permissões de seguimento definidas na raiz de todos os domínios da sua floresta:
     * Alterar o diretório de replicação
     * Replicar mudanças de diretório tudo
 
@@ -346,7 +346,7 @@ Pode resolver facilmente problemas com problemas de sincronização de haxixe de
 
     ![Informação metaversa](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Selecione a linha que representa Azure AD, clique em **Propriedades**e, em seguida, clique no **separador Linhagem.** O objeto espacial do conector deve ter uma regra de saída na coluna **PasswordSync** definida como **True**. Na configuração padrão, o nome da regra de sincronização é **out to AAD - User Join**.  
+    k. Selecione a linha que representa Azure AD, clique em **Propriedades** e, em seguida, clique no **separador Linhagem.** O objeto espacial do conector deve ter uma regra de saída na coluna **PasswordSync** definida como **True**. Na configuração padrão, o nome da regra de sincronização é **out to AAD - User Join**.  
 
     ![Caixa de diálogo de propriedades de objetos de espaço do conector](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -356,7 +356,7 @@ A coluna de estado pode ter os seguintes valores:
 
 | Estado | Descrição |
 | --- | --- |
-| Success |A palavra-passe foi sincronizada com sucesso. |
+| Com êxito |A palavra-passe foi sincronizada com sucesso. |
 | FiltradoByTarget |A palavra-passe está definida para **O Utilizador tem de alterar a palavra-passe no próximo início de sê-lo.** A palavra-passe não foi sincronizada. |
 | NoTargetConnection |Nenhum objeto no metaverso ou no espaço do conector Azure AD. |
 | SourceConnectorNotPresent |Nenhum objeto encontrado no espaço do conector Ative Directory. |
@@ -380,7 +380,7 @@ if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
     if ($aadConnectors.Count -eq 1)
     {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
+        $features = Get-ADSyncAADCompanyFeature
         Write-Host
         Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
         foreach ($adConnector in $adConnectors)

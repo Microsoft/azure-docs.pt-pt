@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489374"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247187"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utilize um ponto final HTTPS para gerir os leads de marketplace comercial
 
@@ -31,11 +31,11 @@ Este artigo explica como criar um novo fluxo no Power Automamate para gerar o UR
 
     ![Assine nos meus fluxos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Em **+ Novo** , selecione + Instantâneo — a partir de **branco.**
+1. Em **+ Novo**, selecione + Instantâneo — a partir de **branco.**
 
     ![Os meus fluxos + automatizados-- de branco](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Nomeie o seu fluxo e, em seguida, em **Escolha como desencadear este fluxo** , selecione Quando receber um pedido **HTTP**.
+1. Nomeie o seu fluxo e, em seguida, em **Escolha como desencadear este fluxo**, selecione Quando receber um pedido **HTTP**.
 
     ![Construa um botão de salto de janela de fluxo automatizado](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
@@ -66,6 +66,10 @@ Este artigo explica como criar um novo fluxo no Power Automamate para gerar o UR
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {
@@ -152,25 +156,25 @@ Este artigo explica como criar um novo fluxo no Power Automamate para gerar o UR
 ### <a name="set-up-email-notification"></a>Configurar notificação de e-mail
 
 1. Agora que terminou o esquema JSON, selecione **+ Novo passo.**
-1. Em **Escolha uma ação** , selecione **Ações**.
+1. Em **Escolha uma ação**, selecione **Ações**.
 1. No separador **Ações,** selecione **Enviar um e-mail (Office 365 Outlook)**.
 
     >[!NOTE]
-    >Se quiser utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo Enviar por email o artigo Enviar por email o artigo 200.
+    >Se quiser utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo 200.
 
     ![Adicione uma ação de e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
 1. Na janela Enviar uma janela **de e-mail,** configurar os seguintes campos necessários:
 
    - **Para :** Insira pelo menos um endereço de e-mail válido onde os condutores serão enviados.
-   - **Assunto** : O Power Automate dá-lhe a opção de adicionar conteúdo dinâmico, como o **LeadSource** mostrado no ecrã seguinte. Comece por inserir um nome de campo. Em seguida, selecione a lista de recolha de conteúdo dinâmico da janela pop-up. 
+   - **Assunto**: O Power Automate dá-lhe a opção de adicionar conteúdo dinâmico, como o **LeadSource** mostrado no ecrã seguinte. Comece por inserir um nome de campo. Em seguida, selecione a lista de recolha de conteúdo dinâmico da janela pop-up. 
 
         >[!NOTE] 
         > Quando adiciona nomes de campo, pode seguir cada nome com um cólon (:) e, em seguida, **selecione Enter** para criar uma nova linha. Depois de adicionar os seus nomes de campo, pode adicionar cada parâmetro associado da lista de escolha dinâmica.
 
         ![Adicione uma ação de e-mail usando conteúdo dinâmico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Corpo** : Da lista de recolha de conteúdos dinâmicos, adicione a informação que pretende no corpo do e-mail. Por exemplo, use LastName, FirstName, Email e Company. Quando termina a configuração da notificação por e-mail, parece o exemplo no ecrã seguinte.
+   - **Corpo**: Da lista de recolha de conteúdos dinâmicos, adicione a informação que pretende no corpo do e-mail. Por exemplo, use LastName, FirstName, Email e Company. Quando termina a configuração da notificação por e-mail, parece o exemplo no ecrã seguinte.
 
 
        ![Exemplo de notificação por e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
@@ -236,7 +240,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 1. Na janela pop-up **de detalhes da Ligação,** selecione **HTTPS Endpoint** para o **destino principal**. Cole o URL HTTP POST a partir do fluxo que criou seguindo passos anteriores no campo **URL do ponto final HTTPS.**
     ![Detalhes de conexão Enviar por email de contacto](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 
-1. No **e-mail de Contato** , insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários e-mails separando-os com um ponto e vírgula.
+1. No **e-mail de Contato**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários e-mails separando-os com um ponto e vírgula.
 
 1. Selecione **OK**.
 

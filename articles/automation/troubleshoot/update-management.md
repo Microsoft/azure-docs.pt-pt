@@ -2,15 +2,15 @@
 title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: f00002c7374e0c35c7bb91c28b2dd87ad71e3350
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184922"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246269"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -144,13 +144,11 @@ Este problema pode ser causado por problemas de configuração locais ou por con
    | summarize by Computer, Solutions
    ```
 
-4. Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
+    Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
 
-5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração do âmbito. A [configuração](../update-management/scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização.
+    Se a sua máquina estiver listada nos resultados da consulta, verifique na propriedade **Solutions** que as atualizações estão **listadas.** Isto verifica que está registado na Gestão de Atualização. Se não for, verifique se existem problemas de configuração de âmbito. A [configuração](../update-management/scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização. Para configurar a configuração de âmbito para o alvo da máquina, consulte [Ativar as máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazê-lo, consulte [Ativar as máquinas no espaço de trabalho.](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)
-
-7. No seu espaço de trabalho, faça esta consulta.
+4. No seu espaço de trabalho, faça esta consulta.
 
    ```kusto
    Operation
@@ -158,9 +156,9 @@ Este problema pode ser causado por problemas de configuração locais ou por con
    | sort by TimeGenerated desc
    ```
 
-8. Se obtém um `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultado, a quota definida no seu espaço de trabalho foi alcançada, o que impediu que os dados fossem guardados. No seu espaço de trabalho, vá à gestão do **volume de dados** ao abrigo **do Uso e custos estimados,** e altere ou remova a quota.
+   Se obtém um `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultado, a quota definida no seu espaço de trabalho foi alcançada, o que impediu que os dados fossem guardados. No seu espaço de trabalho, vá à gestão do **volume de dados** ao abrigo **do Uso e custos estimados,** e altere ou remova a quota.
 
-9. Se o seu problema ainda não estiver resolvido, siga os passos no [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) para reinstalar o Trabalhador Híbrido para o Windows. Para o Linux, siga os passos em [Implementar um Trabalhador de Runbook Híbrido Linux.](../automation-linux-hrw-install.md)
+5. Se o seu problema ainda não estiver resolvido, siga os passos no [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) para reinstalar o Trabalhador Híbrido para o Windows. Para o Linux, siga os passos em [Implementar um Trabalhador de Runbook Híbrido Linux.](../automation-linux-hrw-install.md)
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Não conseguir registar fornecedor de recursos automation para subscrições
 

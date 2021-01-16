@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 8843bc803cdad07d8b66f9aeb87688c816158200
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202284"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246252"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -26,7 +26,7 @@ O Marketplace Rewards foi concebido para o apoiar na sua fase específica de cre
 
 O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento são projetados para progredir para a fase seguinte, permitindo-lhe crescer o seu negócio para os clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como a sua plataforma.
 
-Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](determine-your-listing-type.md#available-listing-options-by-offer-type)
+Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](determine-your-listing-type.md)
 
 Será contactado por um membro da equipa de Prémios quando a sua oferta for transmitida ao vivo, com base na sua elegibilidade.
 

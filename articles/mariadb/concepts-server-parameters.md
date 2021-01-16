@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 4432178d5908d4360cda05a62b62d05687be4235
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7797ee9d20b33a25c1b51289036651c7ad9f22a1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541135"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247503"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parâmetros do servidor na Base de Dados Azure para MariaDB
 
@@ -159,7 +159,7 @@ A cache de consulta é ativada por padrão em MariaDB com o `have_query_cache` p
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre este parâmetro.
 
-|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|Não configurável no nível básico|N/D|N/D|
 |Básico|2|Não configurável no nível básico|N/D|N/D|

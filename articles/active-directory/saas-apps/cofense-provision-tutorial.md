@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Cofense Recipient Sync para o fornecimento automático de utilizadores com o Azure Ative Directory / Microsoft Docs'
+title: 'Tutorial: Configurar o Cofense Recipient Sync para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desaconsitadas automaticamente de contas de utilizador do Azure AD ao Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 56b75d34bed65dae53c88eab6a16d848083ccc73
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179136"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247578"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cofense Recipient Sync para o fornecimento automático de utilizadores
 
@@ -165,9 +165,13 @@ Esta operação inicia o ciclo de sincronização inicial de todos os utilizador
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
-1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
-2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
-3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
+* Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+* Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md). 
+
+## <a name="change-log"></a>Change log
+
+* 01/15/2020 - A alteração de "Only during Object Creation" para "Always" foi implementada para o mapeamento externo do objectId ->.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

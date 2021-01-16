@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d833c32000eb91511782184ef4455bc1973a714
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: a7ee4e205851a751f7a50ac0ddadfb4e4c7eb81a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807914"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247408"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas
 
@@ -138,11 +138,6 @@ R: Não há "movimento" ou "migração". Pode optar por ativar novas funcionalid
 ### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>P: Qual é a implantação padrão de piscinas SQL dedicadas agora? 
 
 R: Por padrão, todas as novas piscinas SQL dedicadas serão implantadas num espaço de trabalho; no entanto, se precisar ainda pode criar uma piscina SQL dedicada (anteriormente SQL DW) num fator de forma autónoma. 
-
-
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>P: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscinas SQL sem servidor?
-
-R: Pode encontrar uma lista completa de diferenças nas [diferenças de características T-SQL no Synapse SQL](./sql/overview-features.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

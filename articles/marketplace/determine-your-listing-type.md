@@ -6,21 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/18/2020
-ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 01/14/2021
+ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107400"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247565"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem
-
-Você pode usar as _opções_ de listagem disponíveis no mercado comercial para se envolver com potenciais clientes de várias maneiras. Após a publicação da sua oferta, as opções de listagem que escolheu para a sua oferta aparecem como um botão no canto superior esquerdo da página de listagem da sua oferta na(s) loja(s) online. Por exemplo, a imagem que se segue mostra uma página de listagem de ofertas na loja online do Microsoft AppSource com os botões **Contact Me** e **Test Drive.**
-
-:::image type="content" source="./media/listing-options.png" alt-text="Ilustra a página de listagem para uma oferta. São mostrados os botões Contacte-me e test drive.":::
-
-## <a name="available-listing-options-by-offer-type"></a>Opções de listagem disponíveis por tipo de oferta
 
 Quando cria um tipo de oferta, escolhe uma ou mais opções de listagem. Estas opções determinam os botões que os clientes vêem na página de listagem de ofertas nas lojas online. As opções de listagem incluem _Teste Gratuito,_ _Test Drive,_ _Contato comigo_ e _Get It Now_.
 
@@ -42,7 +36,7 @@ Esta tabela mostra quais as opções de listagem disponíveis para cada tipo de 
 | Software como um serviço | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` A opção de listagem Get It Now inclui Get It Now (Grátis), trazer a sua própria licença (BYOL), Subscrição e preços baseados em Uso. Para mais detalhes, consulte [Get It Now](#get-it-now).
+&#42; a opção de listagem Get It Now inclui Get It Now (Grátis), traga a sua própria licença (BYOL), Subscrição e preços baseados em Uso. Para mais detalhes, consulte [Get It Now](#get-it-now).
 
 ### <a name="free-trial"></a>Avaliação Gratuita
 
@@ -102,9 +96,15 @@ Esta tabela mostra quais os tipos de oferta suportam as opções de preços adic
 
 Utilize esta opção de listagem para oferecer gratuitamente a sua candidatura. Os clientes usam o botão _Get It Now_ para obter a sua oferta gratuita.
 
-#### <a name="byol"></a>BYOL
+> [!NOTE]
+> As ofertas get It Now (Grátis) não são elegíveis para benefícios do Marketplace Rewards para ofertas transacionáveis. Como não há transação através da montra, estas são classificadas como "Trial". Consulte [as Recompensas do Mercado](#marketplace-rewards) abaixo.
 
-Utilize o mercado comercial para melhorar a descoberta, automatizar o fornecimento da sua solução e concluir a transação financeira separada do mercado. A opção de listagem de trazer a sua própria licença (BYOL) é ideal para migrações no local para migrações em nuvem. Os clientes usam o botão _Get It Now_ para comprar a sua oferta usando uma licença que pré-compraram de si.
+#### <a name="bring-your-own-license-byol"></a>Traga a Sua Própria Licença (BYOL)
+
+Utilize esta opção de listagem para permitir que os clientes implementem a sua oferta utilizando uma licença adquirida fora do mercado comercial. Esta opção é ideal para migrações no local para nuvem. Os clientes usam o botão _Get It Now_ para comprar a sua oferta utilizando uma licença que pré-compraram de si.
+
+> [!NOTE]
+> As ofertas da BYOL não são elegíveis para benefícios do Marketplace Rewards para ofertas transacionáveis. Porque estes requerem que um cliente adquira a licença ao parceiro e não há transação através da montra do mercado comercial, estes são categorizados como "List". Consulte [as Recompensas do Mercado](#marketplace-rewards) abaixo.
 
 #### <a name="subscription"></a>Subscrição
 
@@ -117,11 +117,17 @@ Pode cobrar uma taxa fixa por estes tipos de oferta:
 
 Os seguintes tipos de oferta suportam preços baseados na utilização:
 
-- A Azure Application (Aplicação Gerida) oferece suporte de faturação medido. Para mais detalhes, consulte [a faturação de aplicação gerida.](./partner-center-portal/azure-app-metered-billing.md)
-- O SaaS oferece suportes de faturação medido e por preço por utilizador (por assento). Para obter mais informações sobre a faturação medido, consulte [a faturação medido para SaaS utilizando o serviço de medição do mercado comercial.](./partner-center-portal/saas-metered-billing.md)
+- A Azure Application (Aplicação Gerida) oferece suporte de faturação medido. Para mais detalhes, consulte [a faturação de aplicação gerida.](partner-center-portal/azure-app-metered-billing.md)
+- O SaaS oferece suportes de faturação medido e por preço por utilizador (por assento). Para obter mais informações sobre a faturação medido, consulte [a faturação medido para SaaS utilizando o serviço de medição do mercado comercial.](partner-center-portal/saas-metered-billing.md)
 - A máquina virtual Azure oferece suporte Per core, Per core size, e Per market e preço de tamanho central. Estas opções de preços têm preços por hora e faturadas mensalmente.
 
 Ao criar uma oferta transacionável, é importante compreender os preços, faturação, faturação e considerações de pagamento antes de selecionar um tipo de oferta e criar a sua oferta. Para saber mais, consulte [lojas online de marketplace comercial.](overview.md#commercial-marketplace-online-stores)
+
+## <a name="sample-offer"></a>Oferta de amostras
+
+Após a publicação da sua oferta, a opção de listagem que escolheu aparece como um botão no canto superior esquerdo da página de listagem na(s) loja(s) online. Por exemplo, o seguinte ecrã mostra uma página de listagem de ofertas na loja online Do Microsoft AppSource com os botões **Get It Now** e Test **Drive:**
+
+:::image type="content" source="media/listing-options.png" alt-text="Ilustra a página de listagem para uma oferta com os botões Contacte-me e test drive.":::
 
 ## <a name="listing-and-pricing-options-by-online-store"></a>Opções de listagem e preços por loja online
 
@@ -149,10 +155,14 @@ A tabela a seguir mostra as opções que estão disponíveis para diferentes tip
 
 &#42;&#42; os add-ins microsoft 365 são gratuitos para instalar e podem ser rentabilizados usando uma oferta SaaS. Para mais informações, consulte [Monetize o seu add-in Office 365 através do mercado comercial da Microsoft.](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)
 
-## <a name="marketplace-rewards"></a>Recompensas do mercado
+## <a name="marketplace-rewards"></a>Marketplace Rewards
 
 As suas Recompensas marketplace são diferenciadas com base na opção de listagem que escolher. Para saber mais, consulte [os seus benefícios para o mercado comercial.](gtm-your-marketplace-benefits.md)
 
+Se a sua oferta for transacionável, ganhará benefícios à medida que aumenta as suas vendas faturadas.
+
+Ofertas não transacionáveis ganham benefícios com base no facto de um teste gratuito ser ou não anexado.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para escolher um tipo de oferta para criar, consulte [o guia de publicação por tipo de oferta.](./publisher-guide-by-offer-type.md)
+- Para escolher um tipo de oferta para criar, consulte [o guia de publicação por tipo de oferta.](publisher-guide-by-offer-type.md)

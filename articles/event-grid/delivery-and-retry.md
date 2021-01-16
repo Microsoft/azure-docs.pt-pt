@@ -3,12 +3,12 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463236"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247374"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -67,7 +67,7 @@ Seguem-se os tipos de pontos finais para os quais não acontece novamente:
 | Webhook | 400 Mau Pedido, 413 Entidade de Pedido Demasiado Grande, 403 Proibido, 404 Não Encontrado, 401 Não Autorizado |
  
 > [!NOTE]
-> Se Dead-Letter não estiver configurado para o ponto final, os eventos serão eliminados quando os erros acima acontecerem, por isso considere configurar a Carta Morta, se não quiser que este tipo de eventos sejam eliminados.
+> Se Dead-Letter não estiver configurado para o ponto final, os eventos serão eliminados quando ocorrerem erros acima. Considere configurar a Carta Morta, se não quiser que este tipo de eventos sejam eliminados.
 
 Se o erro devolvido pelo ponto final subscrito não estiver entre a lista acima, a EventGrid executa a repetição utilizando as políticas descritas abaixo:
 
@@ -80,7 +80,10 @@ A Grade de Eventos espera 30 segundos para uma resposta depois de entregar uma m
 - 10 minutos
 - 30 minutos
 - Uma hora
-- De hora a hora até 24 horas
+- 3 horas
+- 6 horas
+- A cada 12 horas até 24 horas
+
 
 Se o ponto final responder dentro de 3 minutos, a Grade de Eventos tentará remover o evento da fila de re-tentativas com a melhor base de esforço, mas as duplicações ainda podem ser recebidas.
 
@@ -104,7 +107,7 @@ Quando a Grade de Eventos não consegue entregar um evento dentro de um determin
 
 Se uma das condições for cumprida, o evento é abandonado ou sem carta.  Por defeito, a Grade de Eventos não liga letras mortas. Para o ativar, tem de especificar uma conta de armazenamento para realizar eventos não entregues ao criar a subscrição do evento. Você puxa eventos desta conta de armazenamento para resolver entregas.
 
-A Grade de Eventos envia um evento para o local da carta morta quando tentou todas as suas tentativas de repetição. Se a Grade de Evento receber um código de resposta de 400 (Mau Pedido) ou 413 (Entidade de Pedido Demasiado Grande), envia imediatamente o evento para o ponto final da letra morta. Estes códigos de resposta indicam que a entrega do evento nunca será bem sucedida.
+A Grade de Eventos envia um evento para o local da carta morta quando tentou todas as suas tentativas de repetição. Se a Grade de Evento receber um código de resposta de 400 (Mau Pedido) ou 413 (Entidade de Pedido Demasiado Grande), ele imediatamente agenda o evento para a inscrição morta. Estes códigos de resposta indicam que a entrega do evento nunca será bem sucedida.
 
 A expiração do tempo de vida é verificada apenas na próxima tentativa de entrega programada. Portanto, mesmo que o tempo de vida expire antes da próxima tentativa de entrega agendada, o prazo de validade do evento é verificado apenas no momento da próxima entrega e, em seguida, letra morta. 
 

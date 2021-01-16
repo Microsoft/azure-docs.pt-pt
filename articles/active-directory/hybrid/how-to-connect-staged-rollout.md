@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Autenticação em nuvem através do lançamento encenado Microsoft Docs'
+title: 'Azure AD Connect: Autenticação em nuvem através de | de lançamento encenado Microsoft Docs'
 description: Este artigo explica como migrar da autenticação federada, para a autenticação em nuvem, utilizando um lançamento encenado.
 author: billmath
 manager: daveba
@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500228"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247051"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -39,7 +39,7 @@ Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What 
 
 -   Decidiu mudar-se para uma das duas opções:
     - **Opção A**  -  *sincronização de hash de palavra-palavra (sincronização)*  +  *único sinal (SSO)* sem emenda .  Para mais informações, consulte [o que é sincronização de haxixe de palavra-passe](whatis-phs.md) e O que é [SSO sem costura](how-to-connect-sso.md)
-    - **Opção B**  -  autenticação pass-through *pass-through authentication*  +  *SSO sem emenda.*  Para mais informações, consulte [o que é a autenticação pass-through](how-to-connect-pta.md)  
+    - **Opção B**  -  autenticação pass-through   +  *SSO sem emenda.*  Para mais informações, consulte [o que é a autenticação pass-through](how-to-connect-pta.md)  
     
     Embora *o SSO sem emenda* seja opcional, recomendamos que ele obtenha uma experiência de entrada silenciosa para utilizadores que estão executando máquinas de domínio a partir de dentro de uma rede corporativa.
 
@@ -67,7 +67,7 @@ Os seguintes cenários são suportados para o lançamento encenado. A funcionali
 
 Os seguintes cenários não são suportados para o lançamento encenado:
 
-- Aplicações ou serviços em nuvem utilizam a autenticação antiga, como POP3 e SMTP.
+- A autenticação antiga, como pop3 e SMTP, não é suportada.
 
 - Algumas aplicações enviam o parâmetro de consulta "domain_hint" para Azure AD durante a autenticação. Estes fluxos continuarão, e os utilizadores que estejam habilitados para o lançamento encenado continuarão a utilizar a federação para a autenticação.
 
@@ -158,8 +158,8 @@ Para lançar uma função específica (*autenticação pass-through*, *sincroniz
 Pode lançar uma destas opções:
 
 - **Opção A**  -  *sincronização de haxixe*  +  de palavra-passe *SSO sem costura*
-- **Opção B**  -  autenticação pass-through *pass-through authentication*  +  *SSO sem costura*
-- **Não suportado**  -  *sincronização de haxixe*  +  de palavra-passe autenticação pass-through *pass-through authentication*  +  *SSO sem costura*
+- **Opção B**  -  autenticação pass-through   +  *SSO sem costura*
+- **Não suportado**  -  *sincronização de haxixe*  +  de palavra-passe autenticação pass-through   +  *SSO sem costura*
 
 Faça o seguinte:
 

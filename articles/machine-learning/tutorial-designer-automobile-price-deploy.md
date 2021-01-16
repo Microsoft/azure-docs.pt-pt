@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575963"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246473"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -97,11 +97,30 @@ Depois de o seu serviço AKS ter terminado o fornecimento, volte ao gasoduto de 
 
 1. Selecione o cluster AKS que criou.
 
-1. Selecione **Implementar**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot mostrando como configurar um novo ponto final em tempo real":::
 
+    Também pode alterar a definição **Avançada** para o seu ponto final em tempo real.
+    
+    |Definição avançada|Description|
+    |---|---|
+    |Ativar diagnósticos de Insights de Aplicações e recolha de dados| Se permitir que a Azure Application Ingishts recolha dados dos pontos finais implantados. </br> Por padrão: falso |
+    |Tempo limite de pontuação| Um intervalo em milissegundos para impor chamadas de pontuação para o serviço web.</br>Por padrão: 60000|
+    |Escala automática ativada|   Se permitir a autoscalagem para o serviço web.</br>Por padrão: verdadeiro|
+    |Réplicas min| O número mínimo de recipientes a utilizar ao fazer a autoscalagem deste serviço web.</br>Por predefinição: 1|
+    |Réplicas max| O número máximo de recipientes a utilizar ao fazer a autoscalagem deste serviço web.</br> Por predefinição: 10|
+    |Utilização do alvo|A utilização do alvo (em percentagem em 100) que o autoscaler deve tentar manter para este serviço web.</br> Por predefinição: 70|
+    |Período de atualização|Com que frequência (em segundos) o autoescalador tenta escalar este serviço web.</br> Por predefinição: 1|
+    |Capacidade de reserva do CPU|O número de núcleos de CPU a atribuir a este serviço web.</br> Por predefinição: 0.1|
+    |Capacidade de reserva de memória|A quantidade de memória (em GB) a atribuir a este serviço web.</br> Por predefinição: 0.5|
+        
+
+1. Selecione **Implementar**. 
+
     Uma notificação de sucesso acima da tela aparece após o fim da implantação. Pode levar alguns minutos.
+
+> [!TIP]
+> Também pode ser implantado no **Azure Container Instance** (ACI) se selecionar **Azure Container Instance** for **Compute type** na caixa de definição de ponto final em tempo real.
+> A exemplo do recipiente Azure é utilizada para testes ou desenvolvimento. Utilize ACI para cargas de trabalho baseadas em CPU de baixa escala que exijam menos de 48 GB de RAM.
 
 ## <a name="view-the-real-time-endpoint"></a>Ver o ponto final em tempo real
 

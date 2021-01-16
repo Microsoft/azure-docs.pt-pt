@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: c468b1216670ce7e6b5d252a7f7fee807199d20c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cb14cb95ec1362782a634b0e62cfa2f8237a5852
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131496"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246387"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -194,10 +194,6 @@ Yes. Os servidores de nomes Azure DNS são dupla pilha. Pilha dupla significa qu
 Os nomes de domínio internacionalizados (IDNs) codificam cada nome DNS utilizando [o código punycode](https://en.wikipedia.org/wiki/Punycode). As consultas de DNS são feitas usando estes nomes codificados por um insignificante código.
 
 Para configurar iDNs em DNS Azure, converta o nome da zona ou o nome do conjunto de registos para o código punycode. O Azure DNS não suporta atualmente a conversão incorporada para ou a partir de um código de punycode.
-
-### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>As zonas privadas Azure DNS armazenam algum conteúdo do cliente?
-
-Não, as zonas privadas Azure DNS não armazenam nenhum conteúdo do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

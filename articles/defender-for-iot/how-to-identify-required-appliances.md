@@ -1,20 +1,20 @@
 ---
-title: Identificar os aparelhos necessários
+title: Identificar as aplicações necessárias
 description: Saiba mais sobre hardware e aparelhos virtuais para sensores certificados defender para sensores IoT e a consola de gestão no local.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842558"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246575"
 ---
-# <a name="identify-required-appliances"></a>Identificar os aparelhos necessários
+# <a name="identify-required-appliances"></a>Identificar as aplicações necessárias
 
 Este artigo fornece informações sobre o Defender certificado para aparelhos de sensores IoT. O forte do defender IoT pode ser implantado em aparelhos físicos e virtuais.
 
@@ -41,7 +41,7 @@ Esta secção fornece uma visão geral dos modelos de sensores físicos que est�
 | Tipo de implantação | Empresarial | Grandes Empresas | SMB |
 |--|--|--|--|
 | Imagem | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="O modelo de nível corporativo."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível empresarial."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível SMB."::: |
-| Modelo | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
+| Modelação | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | Portas de monitorização | Até 15 RJ45 ou 8 OPT | Até 8 RJ45 ou 6 OPT | 4 RJ45 |
 | Largura de banda máxima [1](#anchortext) | 3 Gb por segundo | 1 Gb por segundo | 200 Mb por segundo |
 | Dispositivos máximos protegidos | 30,000 | 15 000 | 1,000 |
@@ -223,7 +223,7 @@ Esta secção detalha aparelhos adicionais que foram certificados pela Microsoft
 | Tipo de implantação | Grandes Empresas |
 |--|--|
 | Imagem | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Tipo de implementação da empresa."::: |
-| Modelo | Dell PowerEdge R340 XL |
+| Modelação | Dell PowerEdge R340 XL |
 | Portas de monitorização | Até nove RJ45 ou seis OPT |
 | Largura de banda Max [1](#anchortext2)| 1G Mb/seg |
 | Dispositivos max protegidos | 10,000 |
@@ -254,28 +254,6 @@ Depois de adquirir o aparelho, aceda ao **Defender para** obter  >  **sensores d
 ## <a name="dell-r340-bom"></a>Dell R340 BOM
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
-
-## <a name="smb-deployment-neousys-nuvo-5006lp"></a>Implantação SMB: Neousys Nuvo-5006LP
-
-| Componente | Especificações técnicas |
-|--|--|
-| Construção | Design de alumínio, sem ventilador e à prova de pó |
-| Dimensões | 240 mm (W) x 225 mm (D) x 77 mm (H) |
-| Peso | 3,1 kg (incluindo CPU, memória e HDD) |
-| CPU | Intel Core i5-6500TE (Cache 6M, até 3,30 GHz) S1151 |
-| Chipset | Hub controlador de plataforma Intel Q170 |
-| Memória | 8-GB DDR4 2133 MHz Temperatura ampla SODIMM |
-| Armazenamento | 128-GB 3ME3 Temperatura larga mSATA SSD |
-| Controlador de rede | Portas 6x Gigabit Ethernet por Intel I219 |
-| Acesso ao dispositivo | 4 USBs: Duas frentes, duas traseiras, uma interna |
-| Adaptador de potência | 120/240VAC-20VDC/6A |
-| Montagem | Kit de montagem, trilho DIN |
-| Temperatura operacional | \-25°C ~ 70°C |
-| Temperatura de armazenamento | \-40°C ~ 85°C |
-| Humidade | 10% ~ 90%, não condensação |
-| Vibração | Operando, 5 Grms, 5-500 Hz, 3 eixos <br>(c/ SSD, de acordo com o IEC60068-2-64) |
-| Choque | Funcionamento, 50 Grms, meia-sine 11-ms (c/ SSD, de acordo com iEC60068-2-27) |
-| EMC | Classe CE/FCC A, de acordo com a EN 55022, EN 55024 e EN 55032 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

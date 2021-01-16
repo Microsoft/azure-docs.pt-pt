@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 25f47be98b11f05ee6ac27018152ece05c0de4e4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210244"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246694"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -84,7 +84,7 @@ Receberá uma mensagem de erro se o ficheiro de ativação não puder ser carreg
 
 - **Para sensores ligados localmente**: O ficheiro de ativação não é válido. Se o ficheiro não for válido, aceda ao portal Defender para IoT. Na página **'Gestão de Sensores',** selecione o sensor com o ficheiro inválido e descarregue um novo ficheiro de ativação.
 
-- **Para sensores ligados à nuvem:** O sensor não pode ligar-se à internet. Verifique a configuração da rede do sensor. Se o seu sensor precisar de ser conectado através de um representante web para aceder à internet, verifique se o seu servidor proxy está configurado corretamente no ecrã de **Configuração da Rede de Sensores.** Verifique se \* .azure-devices.net:443 é permitido na firewall e/ou proxy. Se os wildcards não forem suportados ou se pretender mais controlo, o FQDN para o seu hub específico Defender para IoT deve ser aberto na sua firewall e/ou proxy. Para mais detalhes, consulte [pontos finais reference - IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints).  
+- **Para sensores ligados à nuvem:** O sensor não pode ligar-se à internet. Verifique a configuração da rede do sensor. Se o seu sensor precisar de ser conectado através de um representante web para aceder à internet, verifique se o seu servidor proxy está configurado corretamente no ecrã de **Configuração da Rede de Sensores.** Verifique se \* .azure-devices.net:443 é permitido na firewall e/ou proxy. Se os wildcards não forem suportados ou se pretender mais controlo, o FQDN para o seu hub específico Defender para IoT deve ser aberto na sua firewall e/ou proxy. Para mais detalhes, consulte [pontos finais reference - IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md).  
 
 - **Para sensores ligados à nuvem**: O ficheiro de ativação é válido, mas o Defender para IoT rejeitou-o. Se não conseguir resolver este problema, pode descarregar outra ativação a partir da página de Gestão de **Sensores** do portal Defender para IoT. Se isto não funcionar, contacte o Microsoft Support.
 

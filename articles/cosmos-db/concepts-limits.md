@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368745"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247430"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -256,7 +256,8 @@ A tabela que se segue lista os limites para o [Try Azure Cosmos DB para](https:/
 
 A Try Cosmos DB apoia a distribuição global apenas nas regiões central dos EUA, Norte da Europa e Sudeste Asiático. Os bilhetes de apoio Azure não podem ser criados para contas de Try Azure Cosmos DB. No entanto, é prestado apoio aos assinantes com planos de apoio existentes.
 
-## <a name="free-tier-account-limits"></a>Limites da conta de escalão gratuito
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Limites de conta de nível livre Azure Cosmos DB
+
 A tabela que se segue lista os limites para as [contas de nível livre do Azure Cosmos.](optimize-dev-test.md#azure-cosmos-db-free-tier)
 
 | Recurso | Limite predefinido |
@@ -264,11 +265,14 @@ A tabela que se segue lista os limites para as [contas de nível livre do Azure 
 | Número de contas de nível livre por subscrição do Azure | 1 |
 | Duração do desconto de nível livre | Vida inteira da conta. Deve optar durante a criação de conta. |
 | MÁXIMO RU/s grátis | 400 RU/s |
-| Armazenamento máximo gratuito | 5 GB |
+| Armazenamento máximo gratuito | 5 GB |
 | Número máximo de bases de dados de produção partilhadas | 5 |
 | Número máximo de contentores numa base de dados de produção partilhada | 25 <br>Nas contas de nível livre, o RU/s mínimo para uma base de dados de produção partilhada com até 25 contentores é de 400 RU/s. |
 
-  Para além do acima referido, os [limites da conta Per aplicam-se](#per-account-limits) também às contas de nível livre.
+Para além do acima referido, os [limites da conta Per aplicam-se](#per-account-limits) também às contas de nível livre.
+
+> [!NOTE]
+> O nível livre de Azure Cosmos DB é diferente da conta livre do Azure. A conta gratuita Azure oferece créditos e recursos Azure gratuitamente por tempo limitado. Ao utilizar o Azure Cosmos DB como parte desta conta gratuita, obtém-se um armazenamento de 25 GB e 400 RU/s de produção provisitada durante 12 meses.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b3e1bb3f418f21c75e29b5a1cad337c6f3c10145
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562604"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246643"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
@@ -258,6 +258,8 @@ Por design, cada recipiente V3 tem um despachante e um trabalhador de reconhecim
 
 O recipiente que recebe o pedido pode dividir a tarefa em sub-tarefas de página única e adicioná-las à fila universal. Qualquer trabalhador de reconhecimento de um recipiente menos ocupado pode consumir sub-tarefas de página única a partir da fila, realizar reconhecimento e carregar o resultado para o armazenamento. A produção pode ser melhorada até ao `n` momento, dependendo do número de contentores que são implantados.
 
+O recipiente v3 expõe a sonda de vida API sob o `/ContainerLiveness` caminho. Use o exemplo de implementação a seguir para configurar uma sonda de vivação para Kubernetes. 
+
 Copiar e colar o seguinte YAML num ficheiro denominado `deployment.yaml` . Substitua os `# {ENDPOINT_URI}` comentários e os comentários pelos seus `# {API_KEY}` próprios valores. Substitua o `# {AZURE_STORAGE_CONNECTION_STRING}` comentário pela sua cadeia de ligação de armazenamento Azure. Configure `replicas` o número que deseja, que é definido no exemplo `3` seguinte.
 
 ```yaml
@@ -293,6 +295,13 @@ spec:
           value: # {AZURE_STORAGE_CONNECTION_STRING}
         - name: Queue__Azure__ConnectionString
           value: # {AZURE_STORAGE_CONNECTION_STRING}
+        livenessProbe:
+          httpGet:
+            path: /ContainerLiveness
+            port: 5000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 20
 --- 
 apiVersion: v1
 kind: Service

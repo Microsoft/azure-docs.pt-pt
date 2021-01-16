@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c506c87ad5901754175f18e6b50bc6ed46a3c19
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660872"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246915"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect group writeback
 
@@ -45,7 +45,13 @@ Para ativar a gravação do grupo, utilize os seguintes passos:
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
 Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
+
+# To grant the <MSOL_account> permission to all domains in the forest:
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
+
+# To grant the <MSOL_account> permission to specific OU (eg. the OU chosen to writeback Office 365 Groups to):
+$GroupWritebackOU = <DN of OU where groups are to be written back to>
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU
 ```
 
 Para obter informações adicionais sobre a configuração dos grupos Microsoft 365 consulte [Configure Grupos Microsoft 365 com híbrido exchange no local](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).

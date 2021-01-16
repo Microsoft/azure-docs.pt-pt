@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5f49d2c918164fa529b12313e000aff5f8893a65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d691807f673dcd6c8147c9ff18a95c6ce0c88ae6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201859"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247442"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configure Blink para o fornecimento automático do utilizador
 
@@ -50,7 +50,7 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 ## <a name="setup-blink-for-provisioning"></a>Configurar blink para provisionamento
 
-1. Inicie um [caso de suporte](https://support.joinblink.com) ou e-mail Suporte **Blink** para solicitar support@joinblink.com um token SCIM. .
+1. Inicie um [caso de suporte](https://support.joinblink.com) ou e-mail Suporte **Blink** para solicitar support@joinblink.com um token SCIM.
 
 2.  Copie o **token de autenticação SCIM**. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação Blink no portal Azure.
 
@@ -117,7 +117,23 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de AZure AD para Blink na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Blink para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do utilizador blink](media/blink-provisioning-tutorial/new-user-attributes.png)
+   |Atributo|Tipo|Suportado para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Booleano|
+   |título|String|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+   |urn:ietf:params:scim:schemas:extensão:blink:2.0:User:company|String|
+   urn:ietf:params:scim:schemas:extensão:blink:2.0:User:description|String|
+   urn:ietf:params:scim:schemas:extensão:blink:2.0:Utilizador:localização|String|
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -137,15 +153,23 @@ Esta operação inicia a sincronização inicial de todos os utilizadores defini
 
 Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
+## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
+Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
+
+* Utilize os [registos de aprovisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
+* Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+* Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+
 ## <a name="change-log"></a>Change log
 
-* 01/14/2021 - **Empresa** de atributos de extensão personalizada, **descrição** e **localização** foram adicionadas.
+* 01/14/2021 - **Empresa** de atributos de extensão personalizada, **descrição** e **localização** foram adicionados.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
