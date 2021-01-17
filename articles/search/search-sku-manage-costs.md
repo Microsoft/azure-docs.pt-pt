@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: a708fb76b5a3d0fd0683cdb8915d1a5e1824a57c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251673"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539548"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Como estimar e gerir os custos de um serviço de Pesquisa Cognitiva Azure
 
@@ -25,7 +25,12 @@ A arquitetura de escalabilidade em Azure Cognitive Search baseia-se em combinaç
 
 A quantidade de recursos utilizados pelo seu serviço de pesquisa, multiplicado pela taxa de faturação estabelecida pelo nível de serviço, determina o custo de execução do serviço. Os custos e a capacidade estão bem limitados. Ao estimar os custos, compreender a capacidade necessária para executar as suas cargas de trabalho de indexação e consulta dá-lhe a melhor ideia sobre quais serão os custos previstos.
 
-Para efeitos de faturação, a Cognitive Search tem o conceito de unidade de *pesquisa* (SU). Um SU é o produto das *réplicas* e *divisórias utilizadas* por um serviço: **(R x P = SU)**. O número de SUs multiplicados pela taxa de faturação **(taxa SU * = gasto mensal)** é o principal determinante dos custos relacionados com a procura. 
+Para efeitos de faturação, existem duas fórmulas simples a ter em conta:
+
+| Fórmula | Descrição |
+|---------|-------------|
+| **R x P = SU** | O número de réplicas utilizadas, multiplicadas pelo número de divisórias utilizadas, equivale à quantidade de *unidades* de busca (SU) utilizadas por um serviço. Um SU é uma unidade de recursos, e pode ser uma divisória ou uma réplica. |
+| **SU * taxa de faturação = gasto mensal** | O número de SUs multiplicados pela taxa de faturação do nível a que adquirou o serviço é o principal determinante da sua fatura mensal global. Algumas funcionalidades ou cargas de trabalho têm dependências de outros serviços Azure, o que pode aumentar o custo da sua solução ao nível da subscrição. A secção de eventos faturais abaixo identifica funcionalidades que podem adicionar à sua conta. |
 
 Cada serviço começa com um SU (uma réplica multiplicada por uma partição) como mínimo. O máximo para qualquer serviço é 36 SUs. Este máximo pode ser alcançado de várias maneiras: 6 divisórias x 6 réplicas, ou 3 divisórias x 12 réplicas, por exemplo. É comum usar menos do que a capacidade total (por exemplo, um serviço de 3 réplicas, 3 divisórias faturadas como 9 SUs). Consulte o gráfico de [combinações de divisórias e réplicas](search-capacity-planning.md#chart) para obter combinações válidas.
 

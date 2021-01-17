@@ -2,14 +2,14 @@
 title: Melhores práticas para melhorar o desempenho usando o Azure Service Bus
 description: Descreve como usar o Service Bus para otimizar o desempenho ao trocar mensagens intermediadas.
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 01/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0457537712ccb85191f320fd348446eed9b229
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7bfff1a31365724ed1d1cb6ff1956a4e2ef4f4c0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655633"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539438"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus
 
@@ -24,22 +24,27 @@ A Service Bus permite que os clientes enviem e recebam mensagens através de um 
 2. Protocolo de mensagens de autocarro de serviço (SBMP)
 3. Protocolo HTTP (Hypertext Transfer Protocol)
 
-A AMQP é a mais eficiente, pois mantém a ligação ao Service Bus. Também implementa o loteamento e a prefetching. A menos que explicitamente mencionado, todo o conteúdo deste artigo assume a utilização de AMQP ou SBMP.
+A AMQP é a mais eficiente, pois mantém a ligação ao Service Bus. Também implementa [o loteamento](#batching-store-access) e [a prefetching.](#prefetching) A menos que explicitamente mencionado, todo o conteúdo deste artigo assume a utilização de AMQP ou SBMP.
 
 > [!IMPORTANT]
 > O SBMP só está disponível para o Quadro .NET. AMQP é o padrão para .NET Standard.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>Escolha do ônibus de serviço apropriado .NET SDK
-Existem dois Azure Service Bus (NET SDKs) suportados. As apis são semelhantes, e pode ser confuso qual escolher. Consulte a seguinte tabela para ajudar a orientar a sua decisão. Sugerimos a utilização do Microsoft.Azure.ServiceBus SDK, uma vez que é mais moderno, performante e é compatível com plataformas cruzadas. Além disso, suporta AMQP sobre WebSockets e faz parte da coleção Azure .NET SDK de projetos de código aberto.
+Existem três ônibus de serviço Azure suportados .NET SDKs. As apis são semelhantes, e pode ser confuso qual escolher. Consulte a seguinte tabela para ajudar a orientar a sua decisão. Azure.Messaging.ServiceBus SDK é o mais recente e recomendamos a sua utilização em outros SDKs. Tanto a Azure.Messaging.ServiceBus como microsoft.Azure.ServiceBus SDKs são modernos, performantes e compatíveis com plataformas cruzadas. Além disso, eles suportam AMQP sobre WebSockets e fazem parte da coleção Azure .NET SDK de projetos de código aberto.
 
 | Pacote NuGet | Espaço de nome primário | Plataformas mínimas | Protocolo(s) |
 |---------------|----------------------|---------------------|-------------|
-| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft.Azure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.Net Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma Universal Windows 10.0.16299 | AMQP<br>HTTP |
-| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .Net Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.Net Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma Universal Windows 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.Net Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma Universal Windows 10.0.16299 | AMQP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .Net Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 Para obter mais informações sobre o suporte mínimo da plataforma .NET Standard, consulte [o suporte de implementação .NET](/dotnet/standard/net-standard#net-implementation-support).
 
 ## <a name="reusing-factories-and-clients"></a>Reutilização de fábricas e clientes
+# <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+Os objetos do Service Bus que interagem com o serviço, tais como [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender,](/dotnet/api/azure.messaging.servicebus.servicebussender) [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)e [ServiceBusProcessor,](/dotnet/api/azure.messaging.servicebus.servicebusprocessor)devem ser registados para injeção de dependência como singletons (ou instantâneos uma vez e partilhados). O ServiceBusClient pode ser registado para injeção de dependência com [astensões ServiceBusClientBuilder.](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs) 
+
+Recomendamos que não feche ou deite estes objetos fora do dia de envio ou receção de cada mensagem. Fechar ou eliminar os objetos específicos da entidade (ServiceBusSender/Receiver/Processor) resulta na demolição da ligação ao serviço Service Bus. A eliminação do ServiceBusClient resulta na demolição da ligação ao serviço Service Bus. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando o mesmo ServiceBusClient e criando os objetos específicos da entidade necessária a partir da mesma instância do ServiceBusClient. Pode utilizar estes objetos clientes com segurança para operações assíncronos simultâneas e a partir de vários fios.
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -55,6 +60,27 @@ Os objetos clientes do Service Bus, tais como `QueueClient` `MessageSender` ou, 
 Operações como enviar, receber, apagar, e assim por diante, levar algum tempo. Desta vez inclui o tempo que o serviço service bus leva para processar a operação e a latência do pedido e a resposta. Para aumentar o número de operações por tempo, as operações devem ser executadas simultaneamente.
 
 O cliente agenda operações simultâneas através da realização de operações **assíncronos.** O próximo pedido é iniciado antes do pedido anterior ser concluído. O seguinte corte de código é um exemplo de uma operação de envio assíncronos:
+
+# <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+```csharp
+var messageOne = new ServiceBusMessage(body);
+var messageTwo = new ServiceBusMessage(body);
+
+var sendFirstMessageTask =
+    sender.SendMessageAsync(messageOne).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #1");
+    });
+var sendSecondMessageTask =
+    sender.SendMessageAsync(messageTwo).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #2");
+    });
+
+await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
+Console.WriteLine("All messages sent");
+
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -101,6 +127,35 @@ Console.WriteLine("All messages sent");
 ---
 
 O seguinte código é um exemplo de uma operação de receção assíncronea.
+
+# <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+
+```csharp
+var client = new ServiceBusClient(connectionString);
+var options = new ServiceBusProcessorOptions 
+{
+
+      AutoCompleteMessages = false,
+      MaxConcurrentCalls = 20
+};
+await using ServiceBusProcessor processor = client.CreateProcessor(queueName,options);
+processor.ProcessMessageAsync += MessageHandler;
+processor.ProcessErrorAsync += ErrorHandler;
+
+static Task ErrorHandler(ProcessErrorEventArgs args)
+{
+    Console.WriteLine(args.Exception);
+    return Task.CompletedTask;
+};
+
+static async Task MessageHandler(ProcessMessageEventArgs args)
+{
+Console.WriteLine("Handle message");
+      await args.CompleteMessageAsync(args.Message);
+}
+
+await processor.StartProcessingAsync();
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -168,9 +223,12 @@ A Service Bus não suporta transações para operações de receção e elimina�
 
 O lote do lado do cliente permite que uma fila ou cliente tópico atrase o envio de uma mensagem por um certo período de tempo. Se o cliente enviar mensagens adicionais durante este período de tempo, transmitirá as mensagens num único lote. O lote do lado do cliente também causa uma fila ou cliente de subscrição para lotear vários pedidos **Completos** num único pedido. O loteamento só está disponível para operações assíncronos **de envio** e **completa.** As operações sincronizadas são imediatamente enviadas para o serviço service bus. O lote não ocorre para espreitar ou receber operações, nem o lote ocorre entre os clientes.
 
+# <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+A funcionalidade de loteamento para o .NET Standard SDK ainda não expõe uma propriedade a manipular.
+
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-A funcionalidade de loteamento para o .NET Standard SDK, ainda não expõe uma propriedade a manipular.
+A funcionalidade de loteamento para o .NET Standard SDK ainda não expõe uma propriedade a manipular.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -217,6 +275,19 @@ Para aumentar a produção de uma fila, tópico ou subscrição, o Service Bus e
 As operações adicionais de loja que ocorram durante este intervalo são adicionadas ao lote. O acesso ao armazém em lote apenas afeta as operações **de envio** e **completa;** as operações de receção não são afetadas. O acesso a lojas em loted é uma propriedade de uma entidade. O lote ocorre em todas as entidades que permitem o acesso à loja em lote.
 
 Ao criar uma nova fila, tópico ou subscrição, o acesso à loja em lote é ativado por padrão.
+
+
+# <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+Para desativar o acesso à loja em lotado, necessitará de um exemplo de `ServiceBusAdministrationClient` . Crie uma `CreateQueueOptions` a partir de uma descrição de fila que define a propriedade para `EnableBatchedOperations` `false` .
+
+```csharp
+var options = new CreateQueueOptions(path)
+{
+    EnableBatchedOperations = false
+};
+var queue = await administrationClient.CreateQueueAsync(options);
+```
+
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -270,6 +341,12 @@ A propriedade time-to-live (TTL) de uma mensagem é verificada pelo servidor no 
 
 A prefetching não afeta o número de operações de mensagens faturadas, e está disponível apenas para o protocolo do cliente do Service Bus. O protocolo HTTP não suporta a pré-fetching. A prefetching está disponível para operações de receção sincronizadas e assíncronos.
 
+# <a name="azuremessagingservicebus-sdk"></a>[Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+Para mais informações, consulte as seguintes `PrefetchCount` propriedades:
+
+- [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
+- [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
 Para mais informações, consulte as seguintes `PrefetchCount` propriedades:
@@ -287,10 +364,6 @@ Para mais informações, consulte as seguintes `PrefetchCount` propriedades:
 ---
 
 ## <a name="prefetching-and-receivebatch"></a>Pré-fetching e ReceiveBatch
-
-> [!NOTE]
-> Esta secção aplica-se apenas ao WindowsAzure.ServiceBus SDK, uma vez que o Microsoft.Azure.ServiceBus SDK não expõe as funções do lote.
-
 Embora os conceitos de prefôr várias mensagens em conjunto tenham semântica semelhante ao processamento de mensagens num lote `ReceiveBatch` (), existem algumas pequenas diferenças que devem ser mantidas em mente ao usar estas abordagens em conjunto.
 
 Prefetch é uma configuração (ou modo) no cliente ( `QueueClient` e ) e é uma `SubscriptionClient` `ReceiveBatch` operação (que tem semântica de resposta de pedido).
@@ -309,7 +382,7 @@ Se uma única fila ou tópico não conseguir lidar com o esperado, utilize vári
 ## <a name="development-and-testing-features"></a>Características de desenvolvimento e teste
 
 > [!NOTE]
-> Esta secção aplica-se apenas ao WindowsAzure.ServiceBus SDK, uma vez que o Microsoft.Azure.ServiceBus SDK não expõe esta funcionalidade.
+> Esta secção aplica-se apenas ao WindowsAzure.ServiceBus SDK, uma vez que Microsoft.Azure.ServiceBus e Azure.Messaging.ServiceBus não expõem esta funcionalidade.
 
 O Service Bus tem uma característica, utilizada especificamente para o desenvolvimento, que **nunca deve ser utilizada nas configurações de produção:** [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
 
@@ -372,9 +445,9 @@ Para maximizar o rendimento, siga estas orientações:
 * Deixe o acesso ao armazém ativado. Este acesso reduz a carga global da entidade. Também reduz a taxa global a que as mensagens podem ser escritas na fila ou no tópico.
 * Desaprova a contagem de prefetchs a um pequeno valor (por exemplo, PrefetchCount = 10). Esta contagem impede que os recetores sejam inativos enquanto outros recetores têm um grande número de mensagens em cache.
 
-### <a name="topic-with-a-small-number-of-subscriptions"></a>Tópico com um pequeno número de subscrições
+### <a name="topic-with-a-few-subscriptions"></a>Tópico com algumas subscrições
 
-Objetivo: Maximizar a produção de um tópico com um pequeno número de subscrições. Uma mensagem é recebida por muitas subscrições, o que significa que a taxa de receção combinada sobre todas as subscrições é maior do que a taxa de envio. O número de remetentes é pequeno. O número de recetores por subscrição é pequeno.
+Objetivo: Maximizar a produção de um tópico com algumas subscrições. Uma mensagem é recebida por muitas subscrições, o que significa que a taxa de receção combinada sobre todas as subscrições é maior do que a taxa de envio. O número de remetentes é pequeno. O número de recetores por subscrição é pequeno.
 
 Para maximizar o rendimento, siga estas orientações:
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96992971"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540473"
 ---
 ## <a name="download-and-install"></a>Transferir e instalar
 
@@ -59,11 +59,11 @@ Siga estes passos para instalar o CLI da fala num recipiente Docker:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Instalar o <span class="docon docon-navigate-external x-hidden-focus"></span> Docker Desktop</a> para a sua plataforma se ainda não estiver instalada.
 2. Num novo comando ou terminal, digite este comando:
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Digite este comando. Deve consultar informações de ajuda para o Discurso CLI:
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -93,27 +93,27 @@ Ao ligar para o `spx` comando num recipiente Docker, deve montar um diretório n
 
 No Windows, os seus comandos começarão assim:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 No Linux ou no macOS, os seus comandos serão parecidos com a amostra abaixo. `ABSOLUTE_PATH`Substitua-o pelo caminho absoluto do seu diretório montado. Este caminho foi devolvido pelo `pwd` comando na secção anterior. 
 
 Se executar este comando antes de definir a sua chave e região, terá um erro dizendo-lhe para definir a sua chave e região:
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 Para utilizar o `spx` comando instalado num recipiente, insira sempre o comando completo acima indicado, seguido dos parâmetros do seu pedido.
 Por exemplo, no Windows, este comando define a sua chave:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Para uma interação mais alargada com a ferramenta da linha de comando, pode iniciar um recipiente com uma casca de pancada interativa adicionando um parâmetro de ponto de entrada.
 No Windows, insira este comando para iniciar um contentor que expõe uma interface de linha de comando interativa onde pode introduzir `spx` vários comandos:
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
@@ -160,7 +160,7 @@ Follow these instructions to create a shortcut:
 Para começar a utilizar o CLI do Discurso, tem de introduzir a tecla de subscrição do Discurso e o identificador da região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../overview.md#try-the-speech-service-for-free).
 Assim que tiver a chave de subscrição e o identificador da região (ex. `eastus`, `westus` executar os seguintes comandos.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

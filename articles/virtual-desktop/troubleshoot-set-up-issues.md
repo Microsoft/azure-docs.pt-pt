@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023127"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539645"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
@@ -265,10 +265,11 @@ the VM.\\\"
 
 **Correção:** Coloque o anfitrião da sessão no modo de drenagem, inscreva todos os utilizadores do anfitrião da sessão e, em seguida, elimine o anfitrião.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
+- Para resolver problemas relacionados com o agente virtual do Windows desktop ou conectividade de sessão, consulte [problemas comuns](troubleshoot-agent.md)de Computador de Secretária virtual do Windows .
 - Para resolver problemas com as ligações do cliente virtual do Windows Desktop, consulte [as ligações do serviço de desktop virtual do Windows](troubleshoot-service-connection.md).
 - Para resolver problemas com clientes de ambiente de trabalho remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
 - Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

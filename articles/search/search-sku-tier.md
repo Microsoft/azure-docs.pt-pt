@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 38ddfc2d3940bb9267edd6c5c683918c1fb5dc58
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251718"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539592"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
@@ -71,7 +71,7 @@ Os preços de nível incluem detalhes sobre o armazenamento por partição que v
 
 ## <a name="billing-rates"></a>Taxas de faturação
 
-Os níveis têm taxas de faturação diferentes, com taxas mais altas para níveis que funcionam com hardware mais caro ou fornecem funcionalidades mais caras. A taxa de faturação é o que se vê nas páginas de preços do [Azure](https://azure.microsoft.com/pricing/details/search/) para cada nível de serviço da Azure Cognitive Search.
+Os níveis têm taxas de faturação diferentes, com taxas mais altas para níveis que funcionam com hardware mais caro ou fornecem funcionalidades mais caras. A taxa de faturação por nível pode ser encontrada nas páginas de preços do [Azure](https://azure.microsoft.com/pricing/details/search/) para a Pesquisa Cognitiva Azure.
 
 Uma vez criado um serviço, a taxa de faturação torna-se simultaneamente um *custo fixo* de funcionamento do serviço 24 horas por dia, e um *custo incremental* se optar por adicionar mais capacidade.
 
