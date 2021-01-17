@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9ac92f836e1d0c1210bb16b5c1d6e232fd5c22e
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 7ffd7b4db39e6a9ced4cee37cadfc6b3cfc87301
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858472"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537905"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -40,7 +40,8 @@ Este artigo mostra-lhe como permitir a inscrição para utilizadores que usam o 
 
 ## <a name="register-an-application"></a>Registar uma aplicação
 
-Para ativar o sôm-in para utilizadores de uma organização específica da Azure AD, você precisa registrar uma aplicação dentro do inquilino organizacional Azure AD.
+Para permitir o acesso aos utilizadores com uma conta Azure AD no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no [portal Azure](https://portal.azure.com). Para obter mais informações, consulte [Registar uma aplicação com a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino organizacional Azure AD (por exemplo, contoso.com). Selecione o **filtro de subscrição Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino.

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6877a82d81b46ac2ffda8d0f0bf3fb0d7b337ff3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c7d43a55878a07e424ce1b6f55782502c244239c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663628"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537931"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta ID.me utilizando o Azure Ative Directory B2C
 
@@ -39,7 +39,7 @@ ms.locfileid: "97663628"
 
 ## <a name="create-an-idme-application"></a>Criar uma aplicação ID.me
 
-Para utilizar uma conta ID.me como fornecedor de identidade no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação em [ID.me Recursos de Desenvolvimento para a API & SDK.](https://developers.id.me/) Se ainda não tiver uma conta de programador ID.me, pode inscrever-se em [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
+Para permitir o sessão de sessão para utilizadores com uma conta ID.me no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação em [ID.me Recursos de Desenvolvimento para API & SDK.](https://developers.id.me/) Para mais informações, consulte [o Guia de Integração da OAuth.](https://developers.id.me/documentation/oauth/overview/kyc) Se ainda não tiver uma conta de programador ID.me, pode inscrever-se em [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
 
 1. Inscreva-se no [ID.me Developer Resources for API & SDK](https://developers.id.me/) com as suas credenciais de conta ID.me.
 1. Selecione **Ver as minhas aplicações** e selecione **Continue**.
@@ -191,7 +191,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInIdMe.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignIdMe`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_IdMe`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_IdMe`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada do utilizador que criou (SignUpSignIdMe).
 1. Guarde as suas alterações, faça o upload do ficheiro.
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.

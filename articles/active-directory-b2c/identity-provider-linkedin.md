@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bde7c1adefea88ed5b5d86e2c0e17f475be1bc71
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e2c576c97d170726f5ec1b06e5a6d0d859a85e64
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654375"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538110"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta LinkedIn utilizando o Azure Ative Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654375"
 
 ## <a name="create-a-linkedin-application"></a>Criar uma aplicação LinkedIn
 
-Para utilizar uma conta LinkedIn como fornecedor de [identidade](authorization-code-flow.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no seu inquilino que a represente. Se ainda não tiver uma conta LinkedIn, pode inscrever-se em [https://www.linkedin.com/](https://www.linkedin.com/) .
+Para permitir o sessão de sessão para utilizadores com uma conta LinkedIn no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no [website do LinkedIn Developers.](https://www.developer.linkedin.com/) Para mais informações, consulte [o Código de Autorização Flow](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow). Se ainda não tiver uma conta LinkedIn, pode inscrever-se em [https://www.linkedin.com/](https://www.linkedin.com/) .
 
 1. Inscreva-se no site do [LinkedIn Developers](https://www.developer.linkedin.com/) com as suas credenciais de conta LinkedIn.
 1. Selecione **as minhas apps** e, em seguida, clique em **Criar app**.
@@ -232,7 +232,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Adicionar fornecedor de identidade LinkedIn a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade LinkedIn.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade LinkedIn.
 1. Sob os **fornecedores de identidade social,** selecione **LinkedIn**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -249,7 +249,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInLinkedIn.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInLinkedIn`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_linkedin`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_linkedin`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada do utilizador que criou (SignUpSignLinkedIn).
 1. Guarde as suas alterações, carre fique no upload do ficheiro e, em seguida, selecione a nova política da lista.
 1. Certifique-se de que a aplicação AD B2C AD que criou está selecionada no campo **de aplicações Select** e, em seguida, testá-la clicando **em Executar agora**.

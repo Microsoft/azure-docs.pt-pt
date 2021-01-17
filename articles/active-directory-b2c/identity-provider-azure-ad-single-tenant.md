@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 05c4d36f266fb526a1d0232cc32f0408e4322c80
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2b640730bac410136ef8fdd4ea8e0261f68a3284
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654392"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538149"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para uma organização específica do Azure Ative Directory em Azure Ative Directory B2C
 
@@ -38,7 +38,7 @@ Este artigo mostra-lhe como ativar o início de saúde dos utilizadores de uma o
 
 ## <a name="register-an-azure-ad-app"></a>Registar uma aplicação do Azure AD
 
-Para ativar o sôm-in para utilizadores de uma organização específica da Azure AD, você precisa registrar uma aplicação dentro do inquilino organizacional Azure AD.
+Para permitir o acesso aos utilizadores com uma conta Azure AD de uma organização específica da AD Azure, no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no [portal Azure.](https://portal.azure.com) Para obter mais informações, consulte [Registar uma aplicação com a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino organizacional Azure AD (por exemplo, contoso.com). Selecione o **filtro de subscrição Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino AD Azure.
@@ -238,7 +238,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Azure AD a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade Azure AD.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade Azure AD.
 1. Sob os **fornecedores de identidade social,** selecione **Contoso Azure AD**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.

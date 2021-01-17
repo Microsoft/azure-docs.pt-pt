@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 48887df0ce6228fa436cb91bfb0a3ee7aa0f6c08
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 79fcbb6d2bf10da566139b0d103a4f31930f3200
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654511"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537992"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Amazon utilizando o Azure Ative Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654511"
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Criar uma app na consola de desenvolvedores da Amazon
 
-Para utilizar uma conta Amazon como fornecedor de identidade federada no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação nos seus [Serviços e Tecnologias de Desenvolvimento da Amazon.](https://developer.amazon.com) Se ainda não tem uma conta Amazon, pode inscrever-se em [https://www.amazon.com/](https://www.amazon.com/) .
+Para ativar o sessão para utilizadores com uma conta Amazon no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação nos [Serviços e Tecnologias de Desenvolvimento da Amazon.](https://developer.amazon.com) Para mais informações, consulte [Registar-se para Iniciar sessão com a Amazon.](https://developer.amazon.com/docs/login-with-amazon/register-web.html) Se ainda não tem uma conta Amazon, pode inscrever-se em [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
 > Utilize os seguintes URLs no **passo 8** abaixo, substituindo-os `your-tenant-name` pelo nome do seu inquilino. Ao inserir o nome do seu inquilino, utilize todas as letras minúsculas, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
@@ -181,7 +181,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade da Amazon a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade Damzon.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade Amazon.
 1. Sob os **fornecedores de identidade social,** selecione **Amazon.**
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -198,7 +198,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInAmazon.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInAmazon`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_amazon`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_amazon`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada de utilizador que criou (SignUpSignAmazon).
 1. Guarde as suas alterações, carre fique no upload do ficheiro e, em seguida, selecione a nova política da lista.
 1. Certifique-se de que a aplicação AD B2C AD que criou está selecionada no campo **de aplicações Select** e, em seguida, testá-la clicando **em Executar agora**.

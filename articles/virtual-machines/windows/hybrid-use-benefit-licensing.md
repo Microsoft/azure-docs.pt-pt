@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335991"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539166"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Garantia de Software, o Azure Hybrid Benefit for Windows Server permite-lhe utilizar as licenças do Windows Server no local e executar máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure Hybrid Benefit para o Windows Server para implementar novas máquinas virtuais com o Windows OS. Este artigo percorre os passos sobre como implementar novos VMs com Azure Hybrid Benefit para o Windows Server e como pode atualizar os VMs existentes em execução. Para obter mais informações sobre o Benefício Híbrido Azure para licenciamento e poupança de custos do Windows Server, consulte a [página de licenciamento Azure Hybrid Benefit for Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -42,10 +42,9 @@ Existem poucas formas de utilizar máquinas virtuais do Windows com o Benefício
 Todas as imagens baseadas no Windows Server OS são suportadas para O Benefício Híbrido Azure para o Servidor do Windows. Pode utilizar imagens de suporte à plataforma Azure ou fazer upload das suas próprias imagens personalizadas do Windows Server. 
 
 ### <a name="portal"></a>Portal
-Para criar um VM com Benefício Híbrido Azure para o Servidor do Windows, utilize o toggle na secção "Poupe dinheiro".
+Para criar um VM com benefício híbrido Azure para o Servidor do Windows, percorra para a parte inferior do separador **Basics** durante o processo de criação e sob **licenciamento** verifique a caixa para utilizar uma licença existente do Windows Server. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `

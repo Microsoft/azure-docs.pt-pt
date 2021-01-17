@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005219"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539739"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -82,7 +82,7 @@ A forma recomendada de providenciar VMs é usar o modelo de criação do portal 
 
 Siga estas instruções para confirmar a instalação dos componentes e para verificar se existem mensagens de erro.
 
-1. Confirme que os dois componentes estão instalados através da verificação nos Programas e Funcionalidades **dos Programas do Painel de**  >  **Programs**  >  **Controlo.** Se **o Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
+1. Confirme que os dois componentes estão instalados através da verificação nos Programas e Funcionalidades **dos Programas do Painel de**  >    >  **Controlo.** Se **o Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
 2. Abra **o Explorador de Ficheiros** e navegue para **C:\Windows\Temp\ScriptLog.log**. Se o ficheiro faltar, indica que o DSC PowerShell que instalou os dois componentes não foi capaz de funcionar no contexto de segurança fornecido.
 3. Se o ficheiro **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -310,7 +310,7 @@ Se vir qualquer uma destas mensagens, isto significa que a imagem não tem as at
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desative a definição de política de grupo de modo de licenciamento de ambiente de trabalho remoto
 
-Verifique a definição de política de grupo abrindo o Editor de Política de Grupo no VM e navegando para **os modelos**  >  **administrativos Windows Componentes Componentes**  >  **Remotos Desktop Services Remote Desktop**Session  >  **Host**  >  **Licensing**  >  **Definir o modo de licenciamento de ambiente de trabalho remoto**. Se a definição de política de grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe-o como está.
+Verifique a definição de política de grupo abrindo o Editor de Política de Grupo no VM e navegando para **os modelos**  >  **administrativos Windows Componentes Componentes**  >  **Remotos Desktop Services Remote Desktop** Session  >  **Host**  >  **Licensing**  >  **Definir o modo de licenciamento de ambiente de trabalho remoto**. Se a definição de política de grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe-o como está.
 
 >[!NOTE]
 >Se definir a política de grupo através do seu domínio, desative esta definição em políticas que direcionem estes VMs multi-sessão do Windows 10 Enterprise.
@@ -348,6 +348,7 @@ Para saber mais sobre esta política, consulte [Iniciar sessão através de Serv
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto cria uma piscina de anfitriões num ambiente de ambiente de trabalho virtual do Windows, consulte [ambiente e a criação de piscinas de anfitriões.](troubleshoot-set-up-issues.md)
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
+- Para resolver problemas relacionados com o agente virtual do Windows desktop ou conectividade de sessão, consulte [problemas comuns](troubleshoot-agent.md)de Computador de Secretária virtual do Windows .
 - Para resolver problemas com as ligações do cliente virtual do Windows Desktop, consulte [as ligações do serviço de desktop virtual do Windows](troubleshoot-service-connection.md).
 - Para resolver problemas com clientes de ambiente de trabalho remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
 - Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 129809a83bcebdcf80b05a7300dd9acf862e5886
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 92c5850c3e8c6db63bb5f6287078d2b0345a051c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900404"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538032"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Salesforce utilizando o Azure Ative Directory B2C
 
@@ -37,7 +37,7 @@ ms.locfileid: "97900404"
 
 ## <a name="create-a-salesforce-application"></a>Criar uma aplicação Salesforce
 
-Para utilizar uma conta Salesforce no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no seu **Salesforce App Manager.** Para obter mais informações, consulte [configurar configurações básicas de aplicações conectadas](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)e [ativar definições de OAuth para integração de API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
+Para ativar o sessão para utilizadores com uma conta Salesforce no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no seu [Gestor de Aplicações](https://login.salesforce.com/)Salesforce. Para obter mais informações, consulte [configurar configurações básicas de aplicações conectadas](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)e [ativar definições de OAuth para integração de API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
 1. [Inscreva-se na Salesforce.](https://login.salesforce.com/)
 1. A partir do menu, selecione **Configuração**.
@@ -210,7 +210,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Salesforce a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade Salesforce.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade Salesforce.
 1. Sob os **fornecedores de identidade social,** selecione **Salesforce**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -227,7 +227,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInSalesforce.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInSalesforce`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_Salesforce`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_Salesforce`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada de utilizador que criou (SignUpSignSalesforce).
 1. Guarde as suas alterações, faça o upload do ficheiro.
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.

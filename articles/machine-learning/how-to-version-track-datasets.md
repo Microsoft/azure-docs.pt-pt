@@ -1,7 +1,7 @@
 ---
 title: Versão do conjunto de dados
 titleSuffix: Azure Machine Learning
-description: Saiba como melhor ver os seus conjuntos de dados e como a versão funciona com os pipelines de machine learning.
+description: Saiba como ver conjuntos de dados de machine learning e como a versão funciona com os pipelines de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133451"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538162"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de dados de versão e rastreio em experiências
+# <a name="version-and-track-azure-machine-learning-datasets"></a>Versão e rastreio de conjuntos de dados de aprendizagem automática Azure
 
 Neste artigo, você vai aprender a ver e rastrear conjuntos de dados de Aprendizagem de Máquinas Azure para reprodutibilidade. A versão do Dataset é uma forma de reservar o estado dos seus dados para que possa aplicar uma versão específica do conjunto de dados para experiências futuras.
 

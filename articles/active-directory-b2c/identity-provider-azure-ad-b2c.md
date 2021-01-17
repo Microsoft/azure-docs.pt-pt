@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b8be516051f8eed0649064ae0f7c29a4dde85675
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224498"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538183"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurar inscrição e inscrição com uma conta Azure AD B2C de outro inquilino Azure AD B2C
 
@@ -30,7 +30,7 @@ ms.locfileid: "98224498"
 
 ::: zone-end
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo descreve como criar uma federação com outro inquilino Azure AD B2C. Quando as suas aplicações estão protegidas com o seu Azure AD B2C, isto permite que os utilizadores de outros Ad B2C's do Azure acedam às suas contas existentes. No diagrama seguinte, os utilizadores podem inscrever-se numa Aplicação protegida pelo Azure AD B2C da *Contoso,* com uma conta gerida pelo inquilino Azure AD B2C da *Fabrikam.* 
 
@@ -43,7 +43,7 @@ Este artigo descreve como criar uma federação com outro inquilino Azure AD B2C
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar uma aplicação AZure AD B2C
 
-Para utilizar uma conta Azure AD B2C como fornecedor de [identidade](openid-connect.md) no seu inquilino Azure AD B2C (por exemplo, Contoso), no outro Azure AD B2C (por exemplo, Fabrikam):
+Para permitir o sôm-in para utilizadores com uma conta de outro inquilino Azure AD B2C (por exemplo, Fabrikam), no seu Azure AD B2C (por exemplo, Contoso):
 
 1. Crie um [fluxo de utilizador,](tutorial-create-user-flows.md)ou uma [política personalizada.](custom-policy-get-started.md)
 1. Em seguida, crie uma aplicação no Azure AD B2C, como descreve nesta secção. 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 123b36ba854bec8b363d59bbed5e70f18da1e578
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d9cba08e5b6650edc0decd3ff9df4060e9ad815c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653712"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538001"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar o sº de inscrição e o inseúbmento com uma conta microsoft utilizando o Azure Ative Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97653712"
 
 ## <a name="create-a-microsoft-account-application"></a>Criar uma aplicação de conta Microsoft
 
-Para utilizar uma conta microsoft como fornecedor de [identidade](openid-connect.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no inquilino AZure AD. O inquilino da AD AZure não é o mesmo que o seu inquilino Azure AD B2C. Se ainda não tiver uma conta Microsoft, pode obter uma em [https://www.live.com/](https://www.live.com/) .
+Para permitir o acesso aos utilizadores com uma conta Microsoft no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no [portal Azure](https://portal.azure.com). Para obter mais informações, consulte [Registar uma aplicação com a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) Se ainda não tiver uma conta Microsoft, pode obter uma em [https://www.live.com/](https://www.live.com/) .
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
@@ -210,7 +210,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade da Microsoft a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade microsoft.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade da Microsoft.
 1. Sob os **fornecedores de identidade Social**, selecione **Microsoft Account**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -227,7 +227,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInMSA.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInMSA`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_msa`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_msa`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da jornada do utilizador que criou anteriormente (SignUpSignInMSA).
 1. Guarde as suas alterações, carre fique no upload do ficheiro e, em seguida, selecione a nova política da lista.
 1. Certifique-se de que a aplicação AD B2C AD que criou na secção anterior (ou preenchendo os pré-requisitos, por exemplo *webapp1* ou *testapp1*) é selecionada no campo **de aplicações Select** e, em seguida, testá-la clicando **em Executar agora**.

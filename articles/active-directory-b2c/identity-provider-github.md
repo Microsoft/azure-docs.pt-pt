@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 68ffde11059de4809e519c1ac4f79503f25b0004
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 38eee59ecffa0c09403f47678e588b678e038413
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653746"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537973"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta GitHub utilizando o Azure Ative Directory B2C
 
@@ -38,9 +38,9 @@ ms.locfileid: "97653746"
 
 ## <a name="create-a-github-oauth-application"></a>Criar uma aplicação GitHub OAuth
 
-Para utilizar uma conta GitHub como fornecedor de [identidade](authorization-code-flow.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no seu inquilino que a represente. Se ainda não tiver uma conta GitHub, pode inscrever-se em [https://www.github.com/](https://www.github.com/) .
+Para ativar o sessão com uma conta GitHub no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no portal [GitHub Developer.](https://github.com/settings/developers) Para obter mais informações, consulte [criar uma Aplicação OAuth.](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app) Se ainda não tiver uma conta GitHub, pode inscrever-se em [https://www.github.com/](https://www.github.com/) .
 
-1. Inscreva-se no site do [GitHub Developer](https://github.com/settings/developers) com as suas credenciais GitHub.
+1. Inscreva-se no [GitHub Developer](https://github.com/settings/developers) com as suas credenciais GitHub.
 1. Selecione **aplicações OAuth** e, em seguida, selecione **Nova App OAuth**.
 1. Introduza um **nome de aplicação** e o seu **URL de página inicial.**
 1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em URL de retorno de **autorização**. `your-tenant-name`Substitua-o pelo nome do seu inquilino Azure AD B2C. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o arrendatário seja definido com letras maiúsculas em Azure AD B2C.
@@ -218,7 +218,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-github-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade GitHub a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade GitHub.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade GitHub.
 1. Sob os **fornecedores de identidade social,** selecione **GitHub**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -235,7 +235,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInGitHub.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInGitHub`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_github`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_github`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada de utilizador que criou (SignUpSignGitHub).
 1. Guarde as suas alterações, faça o upload do ficheiro.
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4d4bdc4fa15f634b36f12a650b70b9ffd89b40e0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621319"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539117"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de resolução de problemas, feedback e suporte para Windows Virtual Desktop
 
@@ -32,7 +32,7 @@ Antes de fazer qualquer outra coisa, certifique-se de verificar a página de [es
 
 Utilize a seguinte tabela para identificar e resolver problemas que poderá encontrar ao configurar um ambiente utilizando o cliente remote desktop. Uma vez configurado o seu ambiente, você pode usar o nosso novo [serviço de Diagnóstico](diagnostics-role-service.md) para identificar problemas para cenários comuns.
 
-| **Problema**                                                            | **Solução sugerida**  |
+| **Emissão**                                                            | **Solução sugerida**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Sessão anfitrião piscina Azure Virtual Network (VNET) e definições de Rota Expresso               | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione o serviço apropriado (na categoria Networking). |
 | Sessão anfitrião pool Virtual Machine (VM) criação quando modelos de Gestor de Recursos Azure fornecidos com Windows Virtual Desktop não estão sendo usados | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione **Windows Virtual Desktop** para o serviço. <br> <br> Para problemas com os modelos do Gestor de Recursos Azure que são fornecidos com o Windows Virtual Desktop, consulte a secção de erros do modelo do Gestor de Recursos Azure da [criação](troubleshoot-set-up-issues.md)da piscina host . |
@@ -53,6 +53,7 @@ Utilize a seguinte tabela para identificar e resolver problemas que poderá enco
 
 - Para resolver problemas enquanto cria uma piscina de anfitriões num ambiente de ambiente de trabalho virtual do Windows, consulte [a criação de piscinas hospedeiras.](troubleshoot-set-up-issues.md)
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
+- Para resolver problemas relacionados com o agente virtual do Windows desktop ou conectividade de sessão, consulte [problemas comuns](troubleshoot-agent.md)de Computador de Secretária virtual do Windows .
 - Para resolver problemas com as ligações do cliente virtual do Windows Desktop, consulte [as ligações do serviço de desktop virtual do Windows](troubleshoot-service-connection.md).
 - Para resolver problemas com clientes de ambiente de trabalho remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)
 - Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

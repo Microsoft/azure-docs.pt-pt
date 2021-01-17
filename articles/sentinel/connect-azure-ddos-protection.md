@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656059"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538383"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Ligar dados da Azure DDoS Protection
 
@@ -38,7 +38,7 @@ Os ataques de negação de serviço distribuídos (DDoS) tentam esgotar os recur
 
 1. Selecione **Azure DDoS Protection** a partir da galeria de conectores de dados e, em seguida, selecione Abrir a Página do **Conector** no painel de pré-visualização.
 
-1. Ativar **registos de diagnóstico** em todas as firewalls cujos registos pretende ligar:
+1. Ativar **registos de diagnóstico** em todos os endereços IP públicos cujos registos pretende ligar:
 
     1. Selecione as **definições de Diagnóstico Aberto >** link e escolha um recurso de endereço IP **público** da lista.
 
@@ -59,7 +59,7 @@ Os ataques de negação de serviço distribuídos (DDoS) tentam esgotar os recur
 >
 > Com este conector de dados em particular, os indicadores de estado de conectividade (uma faixa de cor na galeria de conectores de dados e ícones de conexão ao lado dos nomes do tipo de dados) só mostrarão como *conectados* (verdes) se os dados ingerirem em algum ponto nas últimas duas semanas. Uma vez passadas duas semanas sem ingestão de dados, o conector mostrará como estando desligado. No momento em que mais dados chegam, o estado *ligado* voltará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os registos de Proteção Azure DDoS ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108954"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539081"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
 
@@ -49,14 +49,15 @@ Para resolver isto, tudo o que precisa de fazer é transferir os utilizadores pa
 Isto também pode acontecer se um Fornecedor CSP criou a subscrição e depois foi transferido para o cliente. Para resolver este reencamíssitão, o Fornecedor de Recursos.
 
 1. Inicie sessão no Portal do Azure.
-2. Vá à **Subscrição**e, em seguida, selecione a sua subscrição.
+2. Vá à **Subscrição** e, em seguida, selecione a sua subscrição.
 3. No menu do lado esquerdo da página, selecione **Fornecedor de Recursos**.
-4. Localizar e selecionar **Microsoft.DesktopVirtualization**e, em seguida, selecionar **Re-registrar**.
+4. Localizar e selecionar **Microsoft.DesktopVirtualization** e, em seguida, selecionar **Re-registrar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto cria um ambiente de ambiente de trabalho virtual do Windows e uma piscina de anfitrião num ambiente de ambiente de trabalho virtual do Windows, consulte [ambiente e a criação de piscinas de anfitriões.](troubleshoot-set-up-issues.md)
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
+- Para resolver problemas relacionados com o agente virtual do Windows desktop ou conectividade de sessão, consulte [problemas comuns](troubleshoot-agent.md)de Computador de Secretária virtual do Windows .
 - Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

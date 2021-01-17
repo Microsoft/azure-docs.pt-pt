@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c8b942e66a76bcc3a095f9bd3d40b44bf4217e50
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 286f4f5ca8a18a67da2ac24beb4c6935de35778d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584889"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538107"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar o sº de inscrição e o inseúbmento com uma conta google utilizando o Azure Ative Directory B2C
 
@@ -37,7 +37,7 @@ ms.locfileid: "97584889"
 
 ## <a name="create-a-google-application"></a>Criar uma aplicação google
 
-Para utilizar uma conta google como fornecedor de [identidade](authorization-code-flow.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação na consola do Google Developers. Se ainda não tiver uma conta no Google, pode inscrever-se [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) em .
+Para ativar o sessão para utilizadores com uma conta Google no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação na [Consola do Google Developers](https://console.developers.google.com/). Para obter mais informações, consulte [configurar o OAuth 2.0](https://support.google.com/googleapi/answer/6158849). Se ainda não tiver uma conta no Google, pode inscrever-se [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) em .
 
 1. Inscreva-se na Consola do [Google Developers](https://console.developers.google.com/) com as credenciais da sua conta Google.
 1. No canto superior esquerdo da página, selecione a lista de projetos e, em seguida, selecione **New Project**.
@@ -189,7 +189,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade do Google a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade do Google.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade da Google.
 1. Sob os **fornecedores de identidade social,** selecione **Google**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -206,7 +206,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInGoogle.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInGoogle`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_google`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_google`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada de utilizador que criou (SignUpSignGoogle).
 1. Guarde as suas alterações, faça o upload do ficheiro.
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.

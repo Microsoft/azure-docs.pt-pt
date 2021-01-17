@@ -1,5 +1,5 @@
 ---
-title: Criar um ponto final Azure CDN / Microsoft Docs
+title: Crie um ponto final Azure CDN | Microsoft Docs
 description: Este artigo mostra como criar um novo ponto final da Rede de Entrega de Conteúdos Azure (CDN), incluindo definições avançadas.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021967"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539702"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto final Azure CDN
 Este artigo descreve todas as definições para a criação de um ponto final [da Rede de Entrega de Conteúdos Azure (CDN)](cdn-overview.md) num perfil CDN existente. Depois de criar um perfil e um ponto final, pode começar a entregar conteúdo aos seus clientes. Para iniciar rapidamente a criação de um perfil e ponto final, consulte [Quickstart: Crie um perfil e ponto final Azure CDN](cdn-create-new-endpoint.md).
@@ -97,11 +97,11 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
     Dado que a propagação do registo demora algum tempo, o ponto final não está imediatamente disponível para utilização: 
     - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
     - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
-    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída no prazo de 90 minutos. 
+    - Para **o Azure CDN Standard da Verizon** e **Azure CDN Premium dos** perfis Verizon, a propagação geralmente completa dentro de 30 minutos. 
    
     Se tentar utilizar o nome de domínio CDN antes da configuração do ponto final se ter propagado aos servidores do ponto de presença (POP), poderá receber um estado de resposta HTTP 404. Se já passaram várias horas desde que criou o seu ponto final e ainda está a receber um estado de resposta 404, consulte [os pontos finais do Azure CDN que devolvem um código de estado 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Para eliminar um ponto final quando já não for necessário, selecione-o e, em seguida, **selecione Delete**. 
 
 ## <a name="next-steps"></a>Passos seguintes

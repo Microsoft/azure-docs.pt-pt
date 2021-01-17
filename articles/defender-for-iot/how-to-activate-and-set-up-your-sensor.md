@@ -1,20 +1,20 @@
 ---
-title: Ative e crie o seu sensor
+title: Ativar e configurar o seu sensor
 description: Este artigo descreve como iniciar s dia e ativar uma consola de sensores.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9305609b624a96e4d785657dfb63af6639e132c4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842538"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538565"
 ---
-# <a name="activate-and-set-up-your-sensor"></a>Ative e crie o seu sensor
+# <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar o seu sensor
 
 Este artigo descreve como ativar um sensor e executar a configuração inicial.
 
@@ -65,10 +65,13 @@ Estão disponíveis dois níveis de segurança:
 A consola suporta os seguintes tipos de certificados:
 
 - Infraestrutura chave privada e empresarial (PKI privado)
+
 - Infraestruturas de chaves públicas (PKI público)
+
 - Gerado localmente no aparelho (auto-assinado localmente) 
 
-  > [IMPORTANTE] Recomendamos que não utilize o certificado auto-assinado por defeito. O certificado não é seguro e deve ser utilizado apenas para ambientes de ensaio. O dono do certificado não pode ser validado, e a segurança do seu sistema não pode ser mantida. Nunca utilize esta opção para redes de produção.
+  > [!IMPORTANT]
+  > Recomendamos que não utilize o certificado auto-assinado por defeito. O certificado não é seguro e deve ser utilizado apenas para ambientes de ensaio. O dono do certificado não pode ser validado, e a segurança do seu sistema não pode ser mantida. Nunca utilize esta opção para redes de produção.
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Iniciar s.ção e ativar o sensor
 
@@ -211,10 +214,10 @@ Acede às ferramentas de consola do menu lateral.
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contacte [o Microsoft Support](https://support.microsoft.com/) para obter ajuda. |
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Ver também
 
 [A bordo de um sensor](getting-started.md#4-onboard-a-sensor)
 
 [Gerir ficheiros de ativação de sensores](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 
-[Controlar o tráfego que é monitorizado](how-to-control-what-traffic-is-monitored.md)
+[Controlar que tráfego é monitorizado](how-to-control-what-traffic-is-monitored.md)

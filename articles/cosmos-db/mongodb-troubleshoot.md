@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: 06a06d275ba6f5ded475ffd693ee61e7a72b9516
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 26097408d0b83b043f4a25183146c892fc4b48ad
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127707"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538545"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Resolução de problemas comuns na API da Azure Cosmos DB para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -36,7 +36,7 @@ O seguinte artigo descreve erros e soluções comuns para implementações usand
 | 67 | Não é tão bem | O pedido de criação de um índice não pode ser concluído. | Até 500 índices de campo único podem ser criados num recipiente. Até oito campos podem ser incluídos num índice composto (os índices compostos são suportados na versão 3.6+). |
 | 115 | ComandoNotSupiado | O pedido tentado não é apoiado. | Devem ser fornecidos detalhes adicionais no erro. Se esta funcionalidade for importante para as suas implementações, avise-nos criando um bilhete de apoio no [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) |
 | 11000 | Chave duplicada | A chave de fragmentos (chave de partição DB Azure Cosmos) do documento que está a inserir já existe na coleção ou foi violada uma restrição de campo de índice única. | Utilize a função atualização para atualizar um documento existente. Se a restrição de campo de índice único tiver sido violada, insira ou atualize o documento com um valor de campo que ainda não existe no fragmento/partição. |
-| 16500 | TooManyRequests  | O número total de unidades de pedido consumidas é maior do que a taxa pedido/unidade aprovisionada para a coleção e foi limitada. | Pondere dimensionar o débito atribuído a um contentor ou a um conjunto de contentores do portal do Azure ou pode repetir a operação. Se ativar o SSR (retentação do lado do servidor), o Azure Cosmos DB recauchuta automaticamente os pedidos que falham devido a este erro. |
+| 16500 | TooManyRequests  | O número total de unidades de pedido consumidas é maior do que a taxa pedido/unidade aprovisionada para a coleção e foi limitada. | Pondere dimensionar o débito atribuído a um contentor ou a um conjunto de contentores do portal do Azure ou pode repetir a operação. Se [ativar o SSR](prevent-rate-limiting-errors.md) (retentação do lado do servidor), o Azure Cosmos DB recauchuta automaticamente os pedidos que falham devido a este erro. |
 | 16501 | LimiteMemóriaExcedido | Como serviço multi-inquilino, a operação passou por cima do loteamento de memória do cliente. | Reduzir o âmbito de funcionamento através de critérios de consulta mais restritivos ou suporte de contacto do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Nome artístico do oleoduto não reconhecido. | O nome artístico no seu pedido de agregação não foi reconhecido. | Certifique-se de que todos os nomes do gasoduto de agregação são válidos no seu pedido. |
 | - | Problemas da versão de transmissão do MongoDB | As versões mais antigas dos condutores do MongoDB são incapazes de detetar o nome da conta Azure Cosmos nas cordas de ligação. | Append *appName=@**contaName** @* no final da sua API de ligação cosmos DB para a cadeia de conexão MongoDB, onde o nome de ***contaName*** é o seu nome de conta Cosmos DB. |

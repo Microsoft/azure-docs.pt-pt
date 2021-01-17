@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360178"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539892"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -42,7 +42,7 @@ Quando estiver pronto para utilizar os dados na sua solução de armazenamento b
 
     1. Consuma-o diretamente em soluções de aprendizagem automática do Azure, como, experiências automatizadas de aprendizagem automática (ML automatizada), oleodutos de aprendizagem automática ou o [designer de aprendizagem automática Azure.](concept-designer.md)
 
-4. Crie [monitores de conjunto de dados](#data-drift) para o conjunto de dados de saída do seu modelo para detetar a deriva de dados. 
+4. Crie [monitores de conjunto de dados](#drift) para o conjunto de dados de saída do seu modelo para detetar a deriva de dados. 
 
 5. Se for detetada a deriva de dados, atualize o conjunto de dados de entrada e retreine o seu modelo em conformidade.
 
@@ -50,7 +50,8 @@ O diagrama seguinte proporciona uma demonstração visual deste fluxo de trabalh
 
 ![O diagrama mostra o Serviço de Armazenamento Azure que flui para uma datastore, que flui para um conjunto de dados. O conjunto de dados flui para a formação de modelos, que flui para a deriva de dados, que flui de volta para o conjunto de dados.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Arquivos de dados
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Conecte-se ao armazenamento com datastores
 
 As lojas de dados Azure Machine Learning mantêm as informações de ligação ao seu armazenamento Azure, para que não tenha de codificá-la nos seus scripts. [Registe-se e crie uma loja de dados](how-to-access-data.md) para ligar facilmente à sua conta de armazenamento e aceder aos dados no seu serviço de armazenamento Azure subjacente. 
 
@@ -65,7 +66,8 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 + Sistema de Ficheiros do Databricks
 + Base de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjuntos de dados
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Dados de referência no armazenamento com conjuntos de dados
 
 Os conjuntos de dados de Aprendizagem automática Azure não são cópias dos seus dados. Ao criar um conjunto de dados, cria uma referência aos dados no seu serviço de armazenamento, juntamente com uma cópia dos seus metadados. 
 
@@ -105,7 +107,7 @@ Com conjuntos de dados, você pode realizar uma série de tarefas de machine lea
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Rotulagem de dados
+## <a name="label-data-with-data-labeling-projects"></a>Etiquetar dados com projetos de rotulagem de dados
 
 A rotulagem de grandes quantidades de dados tem sido muitas vezes uma dor de cabeça em projetos de aprendizagem automática. Aqueles com um componente de visão computacional, como classificação de imagem ou deteção de objetos, geralmente requerem milhares de imagens e etiquetas correspondentes.
 
@@ -115,13 +117,13 @@ Crie um [projeto de rotulagem de dados](how-to-create-labeling-projects.md)e pro
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Deriva de dados
+## <a name="monitor-model-performance-with-data-drift"></a>Monitorize o desempenho do modelo com deriva de dados
 
 No contexto da aprendizagem automática, a deriva de dados é a mudança nos dados de entrada do modelo que leva à degradação do desempenho do modelo. É uma das principais razões pelas quais a precisão do modelo se degrada ao longo do tempo, pelo que monitorizar a deriva de dados ajuda a detetar problemas de desempenho do modelo.
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

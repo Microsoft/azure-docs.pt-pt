@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: c91aab2bf59f93cf897f9a1b9109172523ae4e57
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251408"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540013"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -27,13 +27,13 @@ Para saber mais sobre a replicação do GTID, consulte a documentação de [repl
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
-A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas e as cargas de trabalho de escrita podem ser encaminhadas para o servidor mestre.
+A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas, enquanto as cargas de trabalho de escrita podem ser direcionadas para as primárias.
 
 Um cenário comum é fazer com que as cargas de trabalho bi e analíticas utilizem a réplica de leitura como fonte de dados para reportar.
 
-Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
+Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita nas primárias. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
 
-A funcionalidade de réplica de leitura utiliza replicação assíncronea. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
+A funcionalidade de réplica de leitura utiliza replicação assíncronea. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados sobre o primário. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 
@@ -44,11 +44,13 @@ Pode ter um servidor de origem em qualquer [Base de Dados Azure para a região M
 [![Ler regiões réplicas](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
+
 Pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor de origem está localizado. As regiões de réplica universal apoiadas incluem:
 
 Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Eua Central, Leste Asiático, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa Central, Eua Central Do Sul, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
+
 Além das regiões de réplica universal, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor de origem. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 Se estiver a utilizar réplicas transversais para o planeamento de recuperação de desastres, recomendamos que crie a réplica na região emparelhada em vez de uma das outras regiões. As regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
@@ -56,7 +58,7 @@ Se estiver a utilizar réplicas transversais para o planeamento de recuperação
 No entanto, existem limitações a considerar: 
 
 * Disponibilidade regional: A Base de Dados Azure para MariaDB está disponível em France Central, UAE Norte e Alemanha Central. No entanto, as suas regiões emparelhadas não estão disponíveis.
-    
+
 * Pares unidirecionais: Algumas regiões azures são emparelhadas apenas numa direção. Estas regiões incluem a Índia Ocidental, o Sul do Brasil e o Gov Virginia dos EUA. 
    Isto significa que um servidor de origem na Índia Ocidental pode criar uma réplica no Sul da Índia. No entanto, um servidor de origem no Sul da Índia não pode criar uma réplica na Índia Ocidental. Isto porque a região secundária da Índia Ocidental é a Índia do Sul, mas a região secundária do Sul da Índia não é a Índia Ocidental.
 
@@ -110,7 +112,7 @@ Aprenda a parar a [replicação a uma réplica.](howto-read-replicas-portal.md)
 
 ## <a name="failover"></a>Ativação pós-falha
 
-Não existe falha automatizada entre servidores de origem e réplicas. 
+Não existe falha automatizada entre servidores de origem e réplicas.
 
 Como a replicação é assíncronea, há um desfasamento entre a fonte e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor de origem e a latência entre centros de dados. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
 
@@ -119,13 +121,13 @@ Como a replicação é assíncronea, há um desfasamento entre a fonte e a répl
 
 Depois de decidir que quer falhar para uma réplica,
 
-1. Pare a replicação na réplica<br/>
+1. Pare a replicação na réplica.
 
-   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado do mestre. Depois de iniciar a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
+   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica será desvinculado das primárias. Depois de iniciar a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
 
-2. Aponte a sua aplicação para a (antiga) réplica
+2. Aponte a sua aplicação para a (antiga) réplica.
 
-   Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez do mestre.
+   Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez da primária.
 
 Depois de a sua aplicação estar a processar com sucesso leituras e escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
@@ -148,10 +150,10 @@ Uma réplica de leitura é criada como uma nova Base de Dados Azure para o servi
 
 ### <a name="replica-configuration"></a>Configuração de réplica
 
-Uma réplica é criada utilizando a mesma configuração do servidor que o mestre. Após a criação de uma réplica, várias configurações podem ser alteradas independentemente do servidor de origem: geração de computação, vCores, armazenamento, período de retenção de backup e versão do motor MariaDB. O nível de preços também pode ser alterado de forma independente, exceto de ou para o nível básico.
+Uma réplica é criada utilizando a mesma configuração do servidor que a principal. Após a criação de uma réplica, várias configurações podem ser alteradas independentemente do servidor de origem: geração de computação, vCores, armazenamento, período de retenção de backup e versão do motor MariaDB. O nível de preços também pode ser alterado de forma independente, exceto de ou para o nível básico.
 
 > [!IMPORTANT]
-> Antes de atualizar uma configuração do servidor de origem para os novos valores, atualize a configuração da réplica para valores iguais ou superiores Esta ação garante que a réplica pode acompanhar quaisquer alterações feitas no mestre.
+> Antes de atualizar uma configuração do servidor de origem para os novos valores, atualize a configuração da réplica para valores iguais ou superiores Esta ação garante que a réplica pode acompanhar quaisquer alterações feitas nas primárias.
 
 As regras de firewall e as definições de parâmetros são herdadas do servidor de origem para a réplica quando a réplica é criada. Depois, as regras da réplica são independentes.
 
@@ -172,20 +174,21 @@ Os utilizadores do servidor de origem são replicados nas réplicas de leitura. 
 Para impedir que os dados fiquem dessincronizados e evitar potenciais perdas de dados ou corrupção, a atualização de alguns parâmetros de servidor é bloqueada ao utilizar réplicas de leitura.
 
 Os seguintes parâmetros do servidor estão bloqueados tanto nos servidores de origem como em réplicas:
-- [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
-- [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
+
+* [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
+* [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parâmetro está bloqueado nos servidores de réplicas.
 
-Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
+Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro na primária e recrie réplicas.
 
 ### <a name="other"></a>Outro
 
-- A criação de uma réplica de uma réplica não é suportada.
-- As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MariaDB.
-- Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.
+* A criação de uma réplica de uma réplica não é suportada.
+* As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MariaDB.
+* Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
-- Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)
+* Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
+* Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)

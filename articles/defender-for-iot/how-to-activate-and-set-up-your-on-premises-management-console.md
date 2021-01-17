@@ -1,20 +1,20 @@
 ---
-title: Ative e crie a sua consola de gestão no local
+title: Ativar e configurar a sua consola de gestão no local
 description: A ativação e configuração de consolas de gestão garante que os sensores estão registados no Azure e enviam informações para a consola de gestão no local, e que a consola de gestão no local realiza tarefas de gestão em sensores conectados.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843816"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538583"
 ---
-# <a name="activate-and-set-up-your-on-premises-management-console"></a>Ative e crie a sua consola de gestão no local 
+# <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar a sua consola de gestão no local 
 
 Ativação e configuração da consola de gestão no local garantem que:
 
@@ -51,7 +51,7 @@ Após a ativação inicial, o número de dispositivos monitorizados pode exceder
 
 ## <a name="set-up-a-certificate"></a>Configurar um certificado
 
-Após a instalação da consola de gestão, é gerado um certificado auto-assinado local e utilizado para aceder à consola. Depois de um administrador entrar pela primeira vez na consola de gestão, esse utilizador é solicitado a embarcar num certificado SSL/TLS. Recomendamos que trabalhe com um certificado de ca-assinado fidedigno e não utilize o certificado auto-assinado gerado localmente.
+Após a instalação da consola de gestão, é gerado um certificado auto-assinado local e utilizado para aceder à consola. Depois de um administrador entrar pela primeira vez na consola de gestão, esse utilizador é solicitado a embarcar num certificado SSL/TLS. 
 
 Estão disponíveis dois níveis de segurança:
 
@@ -61,7 +61,9 @@ Estão disponíveis dois níveis de segurança:
 A consola suporta os seguintes tipos de certificados:
 
 - Infraestrutura chave privada e empresarial (PKI privado)
+
 - Infraestruturas de chaves públicas (PKI público)
+
 - Gerado localmente no aparelho (auto-assinado localmente) 
 
   > [!IMPORTANT]
@@ -314,6 +316,6 @@ Para não assinar e eliminar um sensor:
 
 3. Para eliminar o sensor não atribuído do site, selecione o sensor da lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-[Resolução de problemas da consola de gestão de sensores e no local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+[Resolver problemas do sensor e da consola de gestão no local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

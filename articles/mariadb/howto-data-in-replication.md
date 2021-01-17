@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/15/2021
-ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/18/2021
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250422"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539988"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 
@@ -23,6 +23,9 @@ Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitation
 
 > [!NOTE]
 > Se o seu servidor de origem for a versão 10.2 ou mais recente, recomendamos que crie a Replicação de Dados utilizando [o ID de Transação Global](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Crie um servidor MariaDB para usar como réplica
 
@@ -40,10 +43,6 @@ Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitation
 3. Adicione o endereço IP do servidor de origem às regras de firewall da réplica. 
 
    Atualize as regras de firewall com o [portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
-
-> [!NOTE]
-> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
->
 
 ## <a name="configure-the-source-server"></a>Configure o servidor de origem
 
@@ -95,7 +94,7 @@ Os passos seguintes preparam e configuram o servidor MariaDB alojado no local, n
 
 3. Ligue a exploração madeireira binária.
 
-    Para ver se a exploração madeireira binária está ativada no mestre, insira o seguinte comando:
+    Para ver se a exploração madeireira binária está ativada na primária, insira o seguinte comando:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a2e5cd43add6db080441812e4350d6f003ef81a2
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492612"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538491"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando o portal Azure
 
@@ -44,10 +44,10 @@ A azure Database for MySQL é um serviço gerido que utiliza para executar, geri
    Grupo de recursos | **grupo myresource** | Insira um novo grupo de recursos ou um existente a partir da sua subscrição.
    Nome do servidor | **mydemoserver** | Introduza um nome exclusivo. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres.
    Origem de dados |**Nenhuma** | Selecione **Nenhum** para criar um novo servidor de raiz. Selecione **Backup** apenas se estiver a restaurar a partir de um geo-backup de um servidor existente.
-   Localização |A sua localização desejada | Selecione uma localização da lista.
-   Versão | A versão principal mais recente| Use a versão mais recente. Consulte [todas as versões suportadas.](../postgresql/concepts-supported-versions.md)
+   A localização |A sua localização desejada | Selecione uma localização da lista.
+   Versão | A versão principal mais recente| Use a versão mais recente. Consulte [todas as versões suportadas.](../mysql/concepts-supported-versions.md)
    Computação e armazenamento | Use os predefinidos| O nível de preços predefinidos é **Finalidade Geral** com **4 vCores** e armazenamento **de 100 GB.** A retenção de backup está definida para **7 dias,** com a opção de backup **geograficamente redundante.**<br/>[Reveja a](https://azure.microsoft.com/pricing/details/mysql/) página de preços e atualize os predefinidos se necessário.
-   Nome de utilizador de administrador | **mydemoadmin** | Insira o nome de utilizador do seu administrador de servidor. Não pode utilizar **azure_superuser,** **administrador,** **raiz,** **hóspede** ou **público** para o nome de utilizador administrativo. **root**
+   Nome de utilizador de administrador | **mydemoadmin** | Insira o nome de utilizador do seu administrador de servidor. Não pode utilizar **azure_superuser,** **administrador,** **raiz,** **hóspede** ou **público** para o nome de utilizador administrativo. 
    Palavra-passe | Uma palavra-passe | Uma nova palavra-passe para o utilizador de administração do servidor. A palavra-passe deve ter 8 a 128 caracteres e conter uma combinação de letras maiúsculas ou minúsculas, números e caracteres não alfanuméricos (!, $, #, %, e assim por diante).
   
 
@@ -138,7 +138,7 @@ Pode utilizar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/mysql-doc-feedback)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Criou agora uma Base de Dados Azure para servidor MySQL num grupo de recursos.  Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos, ou simplesmente apagar o servidor MySQL. Para eliminar o grupo de recursos, complete estes passos:
 1. No portal Azure, procure e selecione **grupos de Recursos.**
 2. Na lista de grupos de recursos, selecione o nome do seu grupo de recursos.

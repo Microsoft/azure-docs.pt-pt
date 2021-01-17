@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24e267b66d11cb3c5ca2b70ed09b7acb3653da99
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 36b7618fbacc18ec506f12eabc642246d3148ce0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653610"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537919"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Weibo utilizando o Azure Ative Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "97653610"
 
 ## <a name="create-a-weibo-application"></a>Criar uma aplicação Weibo
 
-Para utilizar uma conta Weibo como fornecedor de identidade no Azure Ative Directory B2C (Azure AD B2C), você precisa criar uma aplicação no seu inquilino que a represente. Se ainda não tiver uma conta Weibo, pode inscrever-se em [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
+Para permitir o acesso aos utilizadores com uma conta Weibo no Azure Ative Directory B2C (Azure AD B2C), é necessário criar uma aplicação no [portal de desenvolvimento weibo.](https://open.weibo.com/) Se ainda não tiver uma conta Weibo, pode inscrever-se em [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Inscreva-se no [portal de desenvolvimento weibo](https://open.weibo.com/) com as suas credenciais de conta Weibo.
 1. Depois de iniciar a sessão, selecione o nome do ecrã no canto superior direito.
@@ -263,7 +263,7 @@ Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste
 ## <a name="add-weibo-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Weibo a um fluxo de utilizador 
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo de utilizador que deseja para o fornecedor de identidade Weibo.
+1. Clique no fluxo de utilizador que pretende adicionar ao fornecedor de identidade Weibo.
 1. Sob os **fornecedores de identidade social,** selecione **Weibo**.
 1. Selecione **Guardar**.
 1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
@@ -280,7 +280,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInWeibo.xml*.
 1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInWeibo`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo`http://contoso.com/B2C_1A_signup_signin_Weibo`
+1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_Weibo`
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada de utilizador que criou (SignUpSignWeibo).
 1. Guarde as suas alterações, faça o upload do ficheiro.
 1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/15/2021
+ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251442"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539860"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -22,7 +22,6 @@ Este artigo explica mensagens de erro comuns durante a publicação de imagens V
 
 > [!NOTE]
 > Se tiver dúvidas sobre este artigo ou sugestões de melhoria, contacte [o suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
-
 
 ## <a name="vm-extension-failure"></a>Falha de extensão VM
 
@@ -60,12 +59,12 @@ As questões de provisionamento podem incluir os seguintes cenários de falha:
 |1|Disco rígido virtual inválido (VHD)|Se o valor de cookie especificado no rodapé VHD estiver incorreto, o VHD será considerado inválido.|Re-crie a imagem e envie o pedido.|
 |2|Tipo de bolha inválida|O fornecimento de VM falhou porque o bloco usado é um tipo de bolha em vez de um tipo de página.|Re-crie a imagem e envie o pedido.|
 |3|Provisionamento do tempo limite ou não devidamente generalizado|Há um problema com a generalização da VM.|Re-crie a imagem com generalização e submeta o pedido.|
+|
 
 > [!NOTE]
 > Para obter mais informações sobre a generalização da VM, consulte:
 > - [Documentação linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentação do Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
-
 
 ## <a name="vhd-specifications"></a>Especificações VHD
 
@@ -93,7 +92,7 @@ Soma de verificação|4
 ID Único|16
 Estado Salvo|1
 Reservado|427
-
+|
 
 ### <a name="vhd-specifications"></a>Especificações VHD
 
@@ -139,6 +138,7 @@ A tabela que se segue lista os casos de teste Linux que o conjunto de ferramenta
 |8|Intervalo de cliente vivo|Desafie o ClientAliveInterval a 180. Sobre a necessidade de aplicação, pode ser definido de 30 a 235. Se estiver a ativar o SSH para os seus utilizadores finais, este valor deve ser definido como explicado.|
 |9|Arquitetura de SO|Apenas os sistemas operativos de 64 bits são suportados.|
 |10|Atualização automática|Identifica se a atualização automática do agente Linux está ativada.|
+|
 
 ### <a name="common-test-case-errors"></a>Erros comuns do caso de teste
 
@@ -150,7 +150,7 @@ Consulte a tabela seguinte para os erros comuns que pode ver ao executar casos d
 | 2 | Caso de teste de história de bash | Ocorre um erro se o tamanho da história da Bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que o seu ficheiro de histórico bash não contém nenhuma informação potencialmente sensível. | Resolva montando o VHD em outro VM em funcionamento e faça alterações para reduzir o tamanho para 1 KB ou menos. Por exemplo, elimine os `.bash` ficheiros de histórico. |
 | 3 | Caso de teste do parâmetro do núcleo necessário | Receberá este erro quando o valor `console` não estiver definido para `ttyS0` . Verifique executando o seguinte comando: <br /> `cat /proc/cmdline` | Descreva o valor `console` para `ttyS0` , e reenviar o pedido. |
 | 4 | Caso de teste de intervalo clientealive | Se o conjunto de ferramentas lhe der um resultado falhado para este caso de teste, há um valor inadequado para `ClientAliveInterval` . | Descreva o valor `ClientAliveInterval` para menos ou igual a 235 e, em seguida, reenvia o pedido. |
-
+|
 
 ### <a name="windows-test-cases"></a>Casos de teste do Windows
 
@@ -175,8 +175,9 @@ A tabela que se segue lista os casos de teste do Windows que o conjunto de ferra
 |15|Serviços SNMP|A funcionalidade de Serviços de Gestão de Redes Simples (SNMP) ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
 |16|Serviço de Nome da Internet do Windows|Serviço de Nome da Internet do Windows. Esta funcionalidade do servidor ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
 |17|Serviço LAN Sem Fios|Serviço LAN sem fios. Esta funcionalidade do servidor ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
+|
 
-Se encontrar falhas com os casos de teste anteriores, consulte a coluna **Descrição** na tabela para obter a solução. Para mais informações, contacte a equipa de Apoio. 
+Se encontrar falhas com os casos de teste anteriores, consulte a coluna **Descrição** na tabela para obter a solução. Para mais informações, contacte a equipa de Apoio.
 
 ## <a name="data-disk-size-verification"></a>Verificação do tamanho do disco de dados
 
@@ -192,6 +193,7 @@ Consulte as seguintes regras para limitações no tamanho do disco de SO. Quando
 |---|---|
 |Linux|1 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
+|
 
 Uma vez que os VMs permitem o acesso ao sistema operativo subjacente, certifique-se de que o tamanho VHD é suficientemente grande para o VHD. Os discos não são expansíveis sem tempo de inatividade. Utilize um tamanho de disco de 30 GB a 50 GB.
 
@@ -199,6 +201,7 @@ Uma vez que os VMs permitem o acesso ao sistema operativo subjacente, certifique
 |---|---|---|
 |>500 tebibytes (TiB)|n/a|Contacte a equipa de Apoio para obter uma aprovação de exceção.|
 |250-500 TiB|>diferença de 200 gibibytes (GiB) do tamanho do blob|Contacte a equipa de Apoio para obter uma aprovação de exceção.|
+|
 
 > [!NOTE]
 > Os tamanhos maiores do disco incorrem em custos mais elevados e resultarão num atraso durante o processo de configuração e replicação. Devido a este atraso e custo, a equipa de Apoio poderá procurar justificação para a aprovação da exceção.
@@ -209,7 +212,7 @@ Para evitar um possível ataque relacionado com o vírus WannaCry, certifique-se
 
 Pode verificar a versão do ficheiro de imagem de `C:\windows\system32\drivers\srv.sys` ou `srv2.sys` .
 
-A tabela a seguir mostra a versão mínima remendada do Windows Server: 
+A tabela a seguir mostra a versão mínima remendada do Windows Server:
 
 |SO|Versão|
 |---|---|
@@ -218,6 +221,7 @@ A tabela a seguir mostra a versão mínima remendada do Windows Server:
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|ND|
+|
 
 > [!NOTE]
 > O Windows Server 2019 não tem quaisquer requisitos de versão obrigatória.
@@ -230,8 +234,8 @@ Atualize o núcleo com uma versão aprovada e reenvia o pedido. Pode encontrar a
 
 Se a sua imagem não estiver instalada com uma das seguintes versões de kernel, atualize-a com as correções corretas. Solicite a aprovação necessária da equipa de Suporte após a atualização da imagem com estes patches necessários:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Família osa|Versão|Kernel|
@@ -278,6 +282,7 @@ Se a sua imagem não estiver instalada com uma das seguintes versões de kernel,
 ||alongamento (segurança)|4.9.168-1+deb9u3|
 ||Debian GNU/Linux 10 (buster)|Debian 6.3.0-18+deb9u1|
 ||buster, sid (extensões backports)|4.19.37-5|
+|
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>O tamanho da imagem deve estar em múltiplos de megabytes
 
@@ -303,7 +308,7 @@ Para submeter o seu pedido com imagem desativada SSH para o processo de certific
 3. Reenviar o seu pedido de certificação.
 
 ## <a name="download-failure"></a>Falha no download
-    
+
 Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega a imagem VM com um URL de assinatura de acesso partilhado (SAS).
 
 |Cenário|Erro|Razão|Solução|
@@ -314,12 +319,13 @@ Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega
 |4|Assinatura inválida|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
 |6|Cabeçalho condicional HTTP|O URL SAS é inválido.|Obtenha o URL SAS correto.|
 |7|Nome VHD inválido|Verifique se existem caracteres especiais, como um sinal por cento `%` ou aspas, `"` no nome VHD.|Mude o nome do ficheiro VHD removendo os caracteres especiais.|
+|
 
-## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Primeira partição de 1-MB (2.048 sectores, cada sector de 512 bytes)
+## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primeira partição de 1 MB (2048, cada sector de 512 bytes)
 
-Se estiver a [construir a sua própria imagem,](azure-vm-create-using-own-image.md)certifique-se de que os primeiros 2.048 sectores (1 MB) do disco de SO estão vazios. Caso contrário, a sua publicação falhará. Este requisito aplica-se apenas ao disco de so (não aos discos de dados). Se estiver a construir a sua imagem a [partir de uma base aprovada,](azure-vm-create-using-approved-base.md)pode ignorar este requisito. 
+Se estiver [a construir a sua própria imagem,](azure-vm-create-using-own-image.md)certifique-se de que os primeiros sectores de 2048 (1 MB) do disco DE ESestão vazios. Caso contrário, a sua publicação falhará. Este requisito é aplicável apenas ao disco de SO (não discos de dados). Se estiver a construir a sua imagem [a partir de uma base aprovada,](azure-vm-create-using-approved-base.md)pode ignorar este requisito.
 
-### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Criar uma divisória de 1-MB (2.048 sectores, cada sector de 512 bytes) num VHD vazio (passos apenas linux)
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Criar uma partição de 1 MB (2048, cada sector de 512 bytes) numa VHD vazia
 
 Estes passos aplicam-se apenas ao Linux.
 
@@ -374,17 +380,17 @@ Estes passos aplicam-se apenas ao Linux.
 
       ![Imagem de linha de comando do cliente putty mostrando os comandos e saída para dados apagados.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Escreva `w` para confirmar a criação de partição. 
+   1. Escreva `w` para confirmar a criação de partição.
 
       ![Imagem de linha de comando do cliente putty mostrando os comandos para criar uma divisória.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. Pode verificar a tabela de partição executando o comando `n fdisk /dev/sdb` e digitando `p` . Verá que a partição é criada com valor de compensação de 2048. 
+   1. Pode verificar a tabela de partição executando o comando `n fdisk /dev/sdb` e digitando `p` . Verá que a partição é criada com valor de compensação de 2048.
 
       ![Imagem de linha de comando do cliente putty mostrando os comandos para criar o offset de 2048.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Retire o VHD da VM e apague o VM.
 
-### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Criar uma primeira partição de 1-MB (2.048 sectores, cada sector de 512 bytes) movendo os dados existentes em VHD
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Criar uma partição de 1 MB (2048, cada sector de 512 bytes) movendo os dados existentes sobre vHD
 
 Estes passos aplicam-se apenas ao Linux.
 
@@ -452,11 +458,11 @@ Quando uma imagem é criada, pode ser mapeada ou atribuída a etiqueta de SO err
 
 Se todas as imagens que são tiradas do Azure Marketplace forem reutilizadas, o sistema operativo VHD deve ser generalizado.
 
-* Para **o Linux,** o processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado.
+- Para **o Linux,** o processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado.
 
   Na janela SSH, insira o seguinte comando: `sudo waagent -deprovision+user` .
 
-* Para **o Windows,** generalize as imagens do Windows utilizando `sysreptool` .
+- Para **o Windows,** generalize as imagens do Windows utilizando `sysreptool` .
 
   Para obter mais informações sobre a ferramenta, consulte a `sysreptool` [visão geral da preparação do sistema (Sysprep).](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
