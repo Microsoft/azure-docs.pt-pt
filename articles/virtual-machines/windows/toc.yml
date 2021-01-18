@@ -4,7 +4,7 @@
   items:
     - name: Acerca das Máquinas Virtuais
       href: overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Criar VM - Portal
       href: quick-create-portal.md
@@ -228,7 +228,7 @@
         - name: Reservas de Armazenamento de Discos
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: Desempenho da máquina virtual e do disco
-          href: disk-performance-windows.md
+          href: ../disks-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Conceber para desempenho elevado
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Expansão do disco
@@ -814,10 +814,8 @@
           href: snapshot-copy-managed-disk.md
         - name: Reservar Armazenamento de Discos
           href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Criar um instantâneo incremental - PowerShell
-          href: disks-incremental-snapshots.md
-        - name: Criar um instantâneo incremental - Portal
-          href: disks-incremental-snapshots-portal.md
+        - name: Criar um instantâneo incremental
+          href: ../disks-incremental-snapshots.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Fazer cópia de segurança de discos não geridos
           href: incremental-snapshots.md
         - name: Encriptação
@@ -851,7 +849,7 @@
             - name: Utilizar os discos ultra
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Criar um disco de referência
-              href: disks-benchmarks.md
+              href: ../disks-benchmarks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Localizar discos desanexados - PowerShell
           href: find-unattached-disks.md
         - name: Localizar discos desanexados - Portal

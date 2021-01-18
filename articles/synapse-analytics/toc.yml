@@ -392,7 +392,7 @@
                   displayname: 'transparent, data, encryption'
         - name: Gestão de cargas de trabalho
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               displayname: 'workload, management'
             - name: Classificação da carga de trabalho
@@ -1094,25 +1094,26 @@
     - name: Tutoriais
       items:
         - name: Visualizar dados com o Apache Spark
+          displayname: machine learning
           href: ./spark/apache-spark-data-visualization-tutorial.md
-          displayname: machine learning
         - name: Utilizar o assistente de classificação para conjuntos de SQL dedicados
-          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
         - name: Preparar um modelo sem código com o ML automatizado
+          displayname: machine learning
           href: ./machine-learning/tutorial-automl.md
         - name: Preparar um modelo em Python com o ML automatizado
+          displayname: machine learning
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          displayname: machine learning
         - name: Criar um modelo com o MLlib do Apache Spark
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Configurar os Serviços Cognitivos para o Azure Synapse
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
         - name: Análise de sentimentos com os Serviços Cognitivos
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Deteção de anomalias com os Serviços Cognitivos
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Configurar os Serviços Cognitivos para o Azure Synapse
-          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Catálogo de Dados e Governação
   items:
     - name: Guias de Início Rápido
