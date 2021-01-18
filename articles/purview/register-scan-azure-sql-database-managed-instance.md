@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3513ba0cd1a894b55da604d54964affa79b6adf4
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400782"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555972"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registe e digitalize uma caixa de dados de base de dados Azure SQL
 
@@ -28,19 +28,19 @@ A fonte de dados gerida por exemplo da Azure SQL suporta a seguinte funcionalida
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não suporta a digitalização de [visualizações](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) em Azure SQL Managed Instance.
+O Azure Purview não suporta a digitalização de [visualizações](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) em Azure SQL Managed Instance.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Crie uma nova conta Desemis se ainda não tiver uma.
 
-- [Configure o ponto final público em Azure SQL Gestd Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Configure o ponto final público em Azure SQL Gestd Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
     > [!Note]
     > A sua organização deve ser capaz de permitir o ponto final público, uma vez **que o ponto final privado ainda não é apoiado** pela Purview. Se utilizar o ponto final privado, a varredura não será bem sucedida.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configuração da autenticação para uma varredura
 
-Autenticação para digitalizar Azure SQL Database Managed Instance. Se precisar de criar uma nova autenticação, tem de autorizar o acesso à [base de dados para a Sql Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). Existem três métodos de autenticação que a Purview suporta hoje:
+Autenticação para digitalizar Azure SQL Database Managed Instance. Se precisar de criar uma nova autenticação, tem de autorizar o acesso à [base de dados para a Sql Database Managed Instance](/azure/azure-sql/database/logins-create-manage). Existem três métodos de autenticação que a Purview suporta hoje:
 
 - Autenticação do SQL
 - Principal de Serviço
@@ -51,7 +51,7 @@ Autenticação para digitalizar Azure SQL Database Managed Instance. Se precisar
 > [!Note]
 > Apenas o login principal de nível de servidor (criado pelo processo de provisionamento) ou os membros da função de `loginmanager` base de dados na base de dados principal podem criar novos logins. Demora cerca de **15 minutos** após a concessão de permissão, a conta Purview deve ter as permissões adequadas para poder digitalizar os recursos.
 
-Pode seguir as instruções no [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um login para Azure SQL Database Managed Instance se não tiver este disponível. Vai precisar de **nome de utilizador** e **senha** para os próximos passos.
+Pode seguir as instruções no [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um login para Azure SQL Database Managed Instance se não tiver este disponível. Vai precisar de **nome de utilizador** e **senha** para os próximos passos.
 
 1. Navegue até ao cofre chave no portal Azure
 1. Selecione **Definições > Segredos**
@@ -85,8 +85,8 @@ Para utilizar um principal de serviço, pode utilizar um existente ou criar um n
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>Configurar a autenticação Azure AD na conta de base de dados
 
 O principal do serviço ou identidade gerida deve ter permissão para obter metadados para a base de dados, esquemas e tabelas. Deve também poder consultar as tabelas a amostrar para a classificação.
-- [Configure e gere a autenticação AD AD com Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Criar um utilizador AZure AD em Azure SQL Database Managed Instance seguindo os pré-requisitos e tutoriais na [Criar utilizadores contidos mapeados para identidades AD Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- [Configure e gere a autenticação AD AD com Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Criar um utilizador AZure AD em Azure SQL Database Managed Instance seguindo os pré-requisitos e tutoriais na [Criar utilizadores contidos mapeados para identidades AD Azure](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Atribuir `db_owner` **(recomendado)** permissão à identidade
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicione o principal de serviço ao cofre-chave e à credencial de Purview

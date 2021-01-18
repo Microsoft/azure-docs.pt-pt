@@ -10,12 +10,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 545f698f444e99d3f3807f22b308963172018fcb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77283596e4b0d7e25d757c9de76c284ca4f5d4f2
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746669"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556403"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Access data stores and file shares with Windows authentication from SSIS packages in Azure (Aceder a arquivos de dados e a partilhas de ficheiros com a autenticação do Windows a partir de pacotes do SSIS no Azure)
 
@@ -170,4 +170,4 @@ Para aceder a uma partilha de ficheiros em Ficheiros Azure a partir de pacotes e
 
 - Desloquem os vossos pacotes. Para mais informações, consulte [implementar um projeto SSIS para Azure com SSMS.](/sql/integration-services/ssis-quickstart-deploy-ssms)
 - Coloquem os seus pacotes. Para mais informações, consulte [os pacotes Run SSIS em Azure com SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
-- Agende os seus pacotes. Para mais informações, consulte [os pacotes Schedule SSIS em Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Agende os seus pacotes. Para mais informações, consulte [os pacotes Schedule SSIS em Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).

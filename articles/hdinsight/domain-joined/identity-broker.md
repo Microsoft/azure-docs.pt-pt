@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8dfe9a23e5c6697323142212156006cb65d2f9b
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338134"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556533"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Corretor de ID Azure HDInsight (HIB)
 
@@ -126,9 +126,9 @@ Para resolver problemas de autenticação, consulte [este guia](./domain-joined-
 
 Na configuração do HDInsight ID Broker, as aplicações personalizadas e os clientes que se conectam ao gateway podem ser atualizados para adquirir primeiro o token OAuth necessário. Siga os passos [neste documento](../../storage/common/storage-auth-aad-app.md) para adquirir o token com as seguintes informações:
 
-*   OAu uri recurso uri: `https://hib.azurehdinsight.net` 
+*    OAu uri recurso uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   Permissão: (nome: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Permissão: (nome: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 Depois de adquirir o token OAuth, utilize-o no cabeçalho de autorização do pedido HTTP para o gateway de cluster (por exemplo, https:// <clustername> -int.azurehdinsight.net). Um comando de caracóis de amostra para Apache Livy API pode parecer este exemplo:
     
@@ -146,7 +146,7 @@ Para cada cluster, uma aplicação de terceiros será registada em AAD com o clu
 No AAD, é necessário o consentimento para todas as aplicações de terceiros antes de poder autenticar os utilizadores ou aceder aos dados.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>O consentimento pode ser aprovado de forma programaticamente?
-Microsoft Graph api permite automatizar o consentimento, ver a documentação da [API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) A sequência para automatizar o consentimento é:
+Microsoft Graph api permite automatizar o consentimento, ver a documentação da [API](/graph/api/resources/oauth2permissiongrant) A sequência para automatizar o consentimento é:
 
 * Registe uma aplicação e conceda a Aplicação.ReadWrite.Todas as permissões à aplicação, para aceder ao Microsoft Graph
 * Após a criação de um cluster, consulta para a app cluster com base no identificador uri

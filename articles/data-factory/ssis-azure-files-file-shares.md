@@ -8,12 +8,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: a2b95e0de642dc17865643ec569e7220fe5581b2
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 97ed9b6f3f21b6d9e220c1f4e17d4ba6b0d8b485
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637501"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555513"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Abra e guarde ficheiros nas instalações e no Azure com pacotes SSIS implantados no Azure
 
@@ -53,4 +53,4 @@ Para utilizar **ficheiros Azure** quando levantar e transferir pacotes que utili
 
 - Desloquem os vossos pacotes. Para mais informações, consulte [implementar um projeto SSIS para Azure com SSMS.](/sql/integration-services/ssis-quickstart-deploy-ssms)
 - Coloquem os seus pacotes. Para mais informações, consulte [os pacotes Run SSIS em Azure com SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
-- Agende os seus pacotes. Para mais informações, consulte [os pacotes Schedule SSIS em Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Agende os seus pacotes. Para mais informações, consulte [os pacotes Schedule SSIS em Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).

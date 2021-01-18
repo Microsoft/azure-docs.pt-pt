@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9609c382161514611ddc41af040e8fb438431fdf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844187"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556006"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Execução de pacotes de resolução de problemas no tempo de execução da integração do SSIS
 
@@ -28,7 +28,7 @@ Este artigo inclui os erros mais comuns que poderá encontrar quando estiver a e
 
 Utilize o portal Azure Data Factory para verificar a saída da atividade de execução do pacote SSIS. A saída inclui o resultado da execução, mensagens de erro e iD de funcionamento. Para mais informações, consulte [o gasoduto .](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline)
 
-Utilize o catálogo SSIS (SSISDB) para verificar os registos de pormenor para a execução. Para mais informações, consulte [os pacotes de execução do monitor e outras operações.](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017)
+Utilize o catálogo SSIS (SSISDB) para verificar os registos de pormenor para a execução. Para mais informações, consulte [os pacotes de execução do monitor e outras operações.](/sql/integration-services/performance/monitor-running-packages-and-other-operations)
 
 ## <a name="common-errors-causes-and-solutions"></a>Erros comuns, causas e soluções
 
@@ -91,7 +91,7 @@ Este erro significa que o disco local é utilizado no nó de tempo de execução
 Este erro ocorre quando a execução do pacote não consegue encontrar um ficheiro no disco local no tempo de execução da integração SSIS. Tente estas ações:
 * Não use o caminho absoluto no pacote que está sendo executado no tempo de integração SSIS. Utilize o diretório de trabalho de execução atual (.) ou a pasta temporária (%TEMP%) em vez disso.
 * Se precisar de persistir alguns ficheiros sobre os nós de tempo de execução de integração SSIS, prepare os ficheiros conforme descrito na [configuração Personale](how-to-configure-azure-ssis-ir-custom-setup.md). Todos os ficheiros do diretório de trabalho serão limpos depois da execução estar terminada.
-* Utilize ficheiros Azure em vez de armazenar o ficheiro no nó de tempo de execução de integração SSIS. Para mais informações, consulte [as ações de ficheiros Use Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* Utilize ficheiros Azure em vez de armazenar o ficheiro no nó de tempo de execução de integração SSIS. Para mais informações, consulte [as ações de ficheiros Use Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Error message: "The database 'SSISDB' atingiu a sua quota de tamanho"
 
@@ -154,7 +154,7 @@ Uma das causas potenciais é o seu tempo de Self-Hosted a integração não é i
 
 * Causa potencial e ação recomendada:
   * Se houver também uma mensagem de aviso "O componente não suporta a utilização do gestor de ligação com a definição de valor ConnectByProxy verdadeira" no registo de execução, isto significa que um gestor de ligação é utilizado num componente que ainda não apoiou "ConnectByProxy". Os componentes suportados podem ser encontrados na [Configure Self-Hosted IR como um representante para Azure-SSIS IR em ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
-  * O registo de execução pode ser encontrado no [relatório SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) ou na pasta de registo que especificou na atividade de execução do pacote SSIS.
+  * O registo de execução pode ser encontrado no [relatório SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) ou na pasta de registo que especificou na atividade de execução do pacote SSIS.
   * vNet também pode ser usado para aceder a dados no local como uma alternativa. Mais detalhes podem ser encontrados em [Join a Azure-SSIS integrationtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Error message: "Staging task status: Failed. Erro de tarefa: ErrorCode: 2906, ErrorMessage: A execução do pacote falhou., Saída: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "duraçãoInQueue": { "integrationRuntimeQueue": ... }}}

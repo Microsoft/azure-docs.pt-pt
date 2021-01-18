@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c95f8b9e4466b22519a4dea580a86a0dcda83857
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920266"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555938"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registar e digitalizar Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ A Azure Synapse Analytics (anteriormente SQL DW) suporta digitalizações comple
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-Azure Purview não suporta digitalização de [pontos](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) de vista no Azure Synapse Analytics
+Azure Purview não suporta digitalização de [pontos](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) de vista no Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ Existem três formas de configurar a autenticação para o armazenamento de bolh
 
 ### <a name="managed-identity-recommended"></a>Identidade gerida (Recomendada) 
    
-A sua conta Depview tem a sua própria Identidade Gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador Azure AD em Azure Synapse Analytics (anteriormente SQL DW) com o nome exato de Identidade Gerida da Purview, seguindo os pré-requisitos e tutoriais sobre [utilizadores de AD Create Azure usando aplicações AD Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+A sua conta Depview tem a sua própria Identidade Gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador Azure AD em Azure Synapse Analytics (anteriormente SQL DW) com o nome exato de Identidade Gerida da Purview, seguindo os pré-requisitos e tutoriais sobre [utilizadores de AD Create Azure usando aplicações AD Azure](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
 
@@ -102,7 +102,7 @@ GO
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
-Pode seguir as instruções no [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um login para a Azure Synapse Analytics (anteriormente SQL DW) se ainda não tiver uma.
+Pode seguir as instruções no [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) para criar um login para a Azure Synapse Analytics (anteriormente SQL DW) se ainda não tiver uma.
 
 Quando o método de autenticação selecionado for **a autenticação SQL,** tem de obter a sua palavra-passe e armazenar no cofre da chave:
 

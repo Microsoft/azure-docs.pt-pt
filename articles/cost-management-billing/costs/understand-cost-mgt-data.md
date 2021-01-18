@@ -3,18 +3,18 @@ title: Compreender os dados do Azure Cost Management
 description: Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure Cost Management e com que frequência são processados, recolhidos, mostrados e fechados.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032580"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964155"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -101,7 +101,7 @@ As seguintes tabelas mostram os dados que são incluídos ou não no Cost Manage
 
 _<sup>**5**</sup> A utilização dos serviços do Azure baseia-se na reserva e nos preços negociados._
 
-_<sup>**6**</sup> De momento, as compras do Marketplace não estão disponíveis para as ofertas MSDN e Visual Studio._
+_<sup>**6**</sup> De momento, as compras no Marketplace não estão disponíveis para as ofertas MSDN e Visual Studio._
 
 _<sup>**7**</sup> De momento, as compras de reservas apenas estão disponíveis para contas de Contrato Enterprise (EA) e Contrato de Cliente Microsoft_
 
@@ -112,17 +112,17 @@ O Azure Cost Management recebe etiquetas como parte de cada registo de utilizaç
 - As etiquetas têm de ser aplicadas diretamente aos recursos e não são implicitamente herdadas do grupo de recursos principal.
 - As etiquetas de recursos são suportadas apenas para recursos implementados em grupos de recursos.
 - Alguns recursos implementados podem não suportar etiquetas ou não incluir etiquetas nos dados de utilização.
-- As etiquetas de recursos só são incluídas nos dados de utilização enquanto a etiqueta é aplicada – as etiquetas não são aplicadas a dados históricos.
+- As etiquetas de recursos só são incluídas nos dados de utilização enquanto a etiqueta é aplicada. As etiquetas não são aplicadas a dados históricos.
 - As etiquetas de recursos só estão disponíveis no Cost Management depois de os dados serem atualizados.
-- As etiquetas de recursos só estão disponíveis no Cost Management quando o recurso estiver ativo/em execução e a produzir registos de utilização (por exemplo, quando uma VM está desalocada).
+- As etiquetas de recursos só estão disponíveis no Cost Management quando o recurso estiver ativo/em execução e a produzir registos de utilização. Por exemplo, quando uma VM está desalocada.
 - A gestão das etiquetas requer acesso de contribuidor a cada recurso.
 - A gestão das políticas de etiquetas requer acesso de proprietário ou de contribuidor de política a um grupo de gestão, subscrição ou grupo de recursos.
     
-Se não vir uma etiqueta específica no Cost Management, considere o seguinte:
+Se não vir uma etiqueta específica no Cost Management, considere as seguintes questões:
 
 - A etiqueta foi aplicada diretamente no recurso?
 - A etiqueta foi aplicada há mais de 24 horas?
-- O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização a partir de 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/management/tag-support.md) para obter a lista completa do que é suportado.
+- O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização desde 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/management/tag-support.md) para obter a lista completa do que é suportado.
     - Diretórios do Azure Active Directory B2C
     - Azure Bastion
     - Azure Firewalls
@@ -137,10 +137,9 @@ Se não vir uma etiqueta específica no Cost Management, considere o seguinte:
     
 Eis algumas sugestões para trabalhar com etiquetas:
 
-- Planeie com antecedência e defina uma estratégia de identificação que lhe permita discriminar os custos por organização, aplicação, ambiente, etc.
+- Planeie com antecedência e defina uma estratégia de identificação que lhe permita discriminar os custos por organização, aplicação, ambiente, entre outros.
 - Utilize o Azure Policy para copiar etiquetas de um grupo de recursos para recursos individuais e impor a sua estratégia de identificação.
-- Utilize a API de Etiquetas em conjunto com Query ou UsageDetails para obter todos os custos com base nas etiquetas atuais.
-
+- Utilize a API de Etiquetas com Query ou UsageDetails para obter todos os custos com base nas etiquetas atuais.
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Atualizações e retenção de dados de custos e utilização
 
@@ -151,17 +150,18 @@ Os dados de custos e utilização estão normalmente disponíveis em Cost Manage
 - Os custos estimados para o atual período de faturação pode ser alterado à medida que incorre em mais utilização.
 - Cada atualização é cumulativa e inclui todos os itens de linha e informações da atualização anterior.
 - O Azure finaliza ou _fecha_ o período de faturação atual até 72 horas (três dias do calendário) após a terminação do período de faturação.
+- Durante o período de mês aberto (não faturado), deve considerar os dados de gestão de custos apenas como uma estimativa. Em alguns casos, as cobranças podem demorar a chegar ao sistema em relação ao momento real em que a utilização ocorreu.
 
 Os seguintes exemplos ilustram a forma como os períodos de faturação podem terminar:
 
 * Subscrições de Contrato Enterprise (EA) – se o mês de faturação terminar em 31 de março, os custos estimados serão atualizados até 72 horas depois. Neste exemplo, até à meia-noite (UTC) de 4 de abril.
 * Subscrições Pay As You Go – se o mês de faturação terminar em 15 de maio, os custos estimados poderão ser atualizados até 72 horas depois. Neste exemplo, até à meia-noite (UTC) de 19 de maio.
 
-Depois de os dados de custos e utilização ficarem disponíveis em Cost Management + Faturação, serão mantidos durante, pelo menos, 7 anos.
+Depois de os dados de custos e utilização ficarem disponíveis no Cost Management + Faturação, serão mantidos durante, pelo menos, sete anos.
 
 ### <a name="rerated-data"></a>Dados reclassificados
 
-Quer utilize as APIs do Cost Management, o Power BI ou o portal do Azure para obter dados, conte com a reclassificação dos custos do período de faturação atual e, consequentemente, com a consequente alteração, até que a faturação seja fechada.
+Quer utilize as APIs do Cost Management, o Power BI ou o portal do Azure para obter dados, conte com a reclassificação das cobranças do período de faturação atual e com a consequente alteração até que a faturação seja fechada.
 
 ## <a name="cost-rounding"></a>Arredondamento dos custos
 
@@ -184,6 +184,6 @@ Os dados históricos de ofertas baseadas em crédito e de pré-pagamento podem n
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos seguintes
 
 - Se ainda não tiver concluído o primeiro início rápido do Cost Management, leia-o em [Começar a analisar os custos](./quick-acm-cost-analysis.md).

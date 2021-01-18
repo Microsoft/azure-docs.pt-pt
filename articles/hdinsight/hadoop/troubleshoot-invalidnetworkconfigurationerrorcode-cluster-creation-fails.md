@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021
-ms.openlocfilehash: 2478148f946ddc88e571b76396544b028455ec75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 82e1c6bdcd508bf1844223b331bf8363efa7b573
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132111"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555326"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>A criação de cluster falha com o InvalidNetworkConfigurationErrOrCode em Azure HDInsight
 
@@ -153,7 +153,7 @@ Outra causa para este `InvalidNetworkConfigurationErrorCode` código de erro pod
 
 ### <a name="resolution"></a>Resolução
 
-Utilize os parâmetros válidos para `Get-AzVirtualNetwork` os documentos do [Az PowerShell SDK](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-5.3.0&viewFallbackFrom=azps-4.2.0)
+Utilize os parâmetros válidos para `Get-AzVirtualNetwork` os documentos do [Az PowerShell SDK](/powershell/module/az.network/get-azvirtualnetwork)
 
 ---
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1c7c20441d12600e2101f738904caf6260509e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0305094d3883fa6fc3254a682f9aa6f3202c9e48
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496015"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555547"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados Azure utilizando a Azure Data Factory .NET SDK
 > [!NOTE]
@@ -27,7 +27,7 @@ ms.locfileid: "96496015"
 Pode criar, monitorizar e gerir fábricas de dados Azure programáticamente utilizando data factory .NET SDK. Este artigo contém uma passagem que pode seguir para criar uma aplicação de consola .NET que cria e monitoriza uma fábrica de dados. 
 
 > [!NOTE]
-> Este artigo não abrange toda a API .NET do Data Factory. Consulte [data factory .NET API Referência](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) para documentação completa em .NET API for Data Factory. 
+> Este artigo não abrange toda a API .NET do Data Factory. Consulte [data factory .NET API Referência](/dotnet/api/overview/azure/data-factory) para documentação completa em .NET API for Data Factory. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
 9. Obtenha o ID da aplicação.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication    
     ```
     Tome nota do ID da aplicação (applicationID) a partir do resultado.
 
@@ -101,7 +101,7 @@ Deve obter os quatro valores seguintes destes passos:
 
 * ID do inquilino
 * ID da subscrição
-* ID da aplicação
+* ID da Aplicação
 * Palavra-passe (especificada no primeiro comando)
 
 ## <a name="walkthrough"></a>Instruções

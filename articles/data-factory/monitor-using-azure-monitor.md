@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497899"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555717"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
 
@@ -46,7 +46,7 @@ Também pode utilizar uma conta de armazenamento ou espaço de nome de centro de
 
 Crie ou adicione definições de diagnóstico para a sua fábrica de dados.
 
-1. No portal, vá ao Monitor. Selecione **Settings**  >  **definições de diagnóstico**.
+1. No portal, vá ao Monitor. Selecione   >  **definições de diagnóstico**.
 
 1. Selecione a fábrica de dados para a qual pretende definir uma definição de diagnóstico.
 
@@ -162,7 +162,7 @@ Para aceder às métricas, preencha as instruções na [plataforma de dados Azur
 
 ## <a name="data-factory-alerts"></a>Alertas de fábrica de dados
 
-Inscreva-se no portal Azure e selecione **Monitor**  >  **Alertas de Monitorização** para criar alertas.
+Inscreva-se no portal Azure e selecione   >  **Alertas de Monitorização** para criar alertas.
 
 ![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | --- | --- | --- |
 | **armazenamentoSacountId** |String | O ID de recursos da conta de armazenamento para a qual pretende enviar registos de diagnóstico. |
 | **serviçoBusRuleId** |String | A regra de serviço-autocarro ID do espaço de nomes de autocarro de serviço no qual pretende ter Os Centros de Eventos criados para streaming de registos de diagnóstico. A regra ID tem o formato `{service bus resource ID}/authorizationrules/{key name}` .|
@@ -452,7 +452,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](/rest/api
 |**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `ActivityRuns` . | `ActivityRuns` |
 |**nível**| String | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
-|**operaçãoName**| String | O nome da atividade com o seu estado. Se a atividade for o batimento cardíaco inicial, o valor da propriedade é `MyActivity -` . Se a atividade for o batimento cardíaco final, o valor da propriedade é `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
+|**operationName**| String | O nome da atividade com o seu estado. Se a atividade for o batimento cardíaco inicial, o valor da propriedade é `MyActivity -` . Se a atividade for o batimento cardíaco final, o valor da propriedade é `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| String | O nome do oleoduto. | `MyPipeline` |
 |**nome de atividades**| String | O nome da atividade. | `MyActivity` |
 |**começar**| String | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
@@ -497,7 +497,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](/rest/api
 |**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
 |**nível**| String | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
-|**operaçãoName**| String | O nome do oleoduto juntamente com o seu estado. Após o curso do gasoduto estar concluído, o valor da propriedade é `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
+|**operationName**| String | O nome do oleoduto juntamente com o seu estado. Após o curso do gasoduto estar concluído, o valor da propriedade é `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| String | O nome do oleoduto. | `MyPipeline` |
 |**começar**| String | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`. |
 |**fim**| String | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
@@ -540,7 +540,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](/rest/api
 |**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
 |**nível**| String | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
-|**operaçãoName**| String | O nome do gatilho com o seu estado final, o que indica se o gatilho disparou com sucesso. Se o batimento cardíaco foi bem sucedido, o valor da propriedade é `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
+|**operationName**| String | O nome do gatilho com o seu estado final, o que indica se o gatilho disparou com sucesso. Se o batimento cardíaco foi bem sucedido, o valor da propriedade é `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
 |**gatilhoName**| String | O nome do gatilho. | `MyTrigger` |
 |**triggerType**| String | O tipo do gatilho. Possíveis valores de propriedade são `Manual Trigger` `Schedule Trigger` e. | `ScheduleTrigger` |
 |**triggerEvent**| String | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
@@ -571,7 +571,7 @@ Aqui estão os atributos de registo das operações de arranque/paragem/manuten�
 | Propriedade                   | Tipo   | Descrição                                                   | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | O nome da sua operação SSIS IR                            | `Start/Stop/Maintenance` |
+| **operationName**          | String | O nome da sua operação SSIS IR                            | `Start/Stop/Maintenance` |
 | **categoria**               | String | A categoria de registos de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | O nome da sua ADF                                          | `MyADFv2` |
@@ -583,7 +583,7 @@ Aqui estão os atributos de registo das operações de arranque/paragem/manuten�
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atributos de registo de registo de mensagem de evento SSIS
 
-Aqui estão os atributos de registo de condições relacionadas com mensagens de evento que são geradas por execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à tabela de contexto de mensagem de evento do [catálogo SSIS (SSISDB) ou à visão](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) que mostra valores de tempo de execução de muitas propriedades de pacotes SSIS. São geradas quando seleciona `Basic/Verbose` o nível de registo e é útil para depurar/verificar conformidade.
+Aqui estão os atributos de registo de condições relacionadas com mensagens de evento que são geradas por execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à tabela de contexto de mensagem de evento do [catálogo SSIS (SSISDB) ou à visão](/sql/integration-services/system-views/catalog-event-message-context) que mostra valores de tempo de execução de muitas propriedades de pacotes SSIS. São geradas quando seleciona `Basic/Verbose` o nível de registo e é útil para depurar/verificar conformidade.
 
 ```json
 {
@@ -611,7 +611,7 @@ Aqui estão os atributos de registo de condições relacionadas com mensagens de
 | Propriedade                   | Tipo   | Descrição                                                          | Exemplo                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **operationName**          | String | Isto está definido para `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome da sua ADF                                                 | `MyADFv2` |
@@ -620,7 +620,7 @@ Aqui estão os atributos de registo de condições relacionadas com mensagens de
 | **operationId**            | String | O ID único para rastrear uma determinada operação no SSISDB          | `1` (1 significa operações relacionadas com embalagens **não** armazenadas em SSISDB/invocadas via T-SQL) |
 | **contextDepth**           | String | A profundidade do contexto da sua mensagem de evento                              | `0` (0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro, e aumenta à medida que o contexto está mais longe do erro) |
 | **packagePath**            | String | O caminho do objeto do pacote como fonte de contexto de mensagem de evento      | `\Package` |
-| **type de contexto**            | String | O tipo de objeto pacote como fonte de contexto de mensagem de evento      | `60`(ver [mais tipos de contexto)](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks) |
+| **type de contexto**            | String | O tipo de objeto pacote como fonte de contexto de mensagem de evento      | `60`(ver [mais tipos de contexto)](/sql/integration-services/system-views/catalog-event-message-context#remarks) |
 | **nome de contextoSourceName**      | String | O nome do objeto do pacote como fonte de contexto de mensagem de evento      | `MyPackage` |
 | **contextSourceId**        | String | O ID único do objeto do pacote como fonte de contexto de mensagem de evento | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
 | **nome de propriedade**           | String | O nome da propriedade do pacote para a fonte de contexto de mensagem do seu evento   | `DelayValidation` |
@@ -629,7 +629,7 @@ Aqui estão os atributos de registo de condições relacionadas com mensagens de
 
 #### <a name="ssis-event-messages-log-attributes"></a>Atributos de registo de mensagens de evento SSIS
 
-Aqui estão os atributos de registo de mensagens de evento que são geradas por execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à [tabela de mensagens de evento SSISDB ou visualização](/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) que mostra o texto/metadados detalhados das mensagens de evento. São gerados em qualquer nível de registo, `None` exceto.
+Aqui estão os atributos de registo de mensagens de evento que são geradas por execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à [tabela de mensagens de evento SSISDB ou visualização](/sql/integration-services/system-views/catalog-event-messages) que mostra o texto/metadados detalhados das mensagens de evento. São gerados em qualquer nível de registo, `None` exceto.
 
 ```json
 {
@@ -661,7 +661,7 @@ Aqui estão os atributos de registo de mensagens de evento que são geradas por 
 | Propriedade                   | Tipo   | Descrição                                                        | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **operationName**          | String | Isto está definido para `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                    | `SSISPackageEventMessages` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome da sua ADF                                               | `MyADFv2` |
@@ -669,8 +669,8 @@ Aqui estão os atributos de registo de mensagens de evento que são geradas por 
 | **nível**                  | String | O nível de registos de diagnóstico                                       | `Informational` |
 | **operationId**            | String | O ID único para rastrear uma determinada operação no SSISDB        | `1` (1 significa operações relacionadas com embalagens **não** armazenadas em SSISDB/invocadas via T-SQL) |
 | **hora da mensagem**            | String | O momento em que a sua mensagem de evento é criada em formato UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **mensagemType**            | String | O tipo da sua mensagem de evento                                     | `70`(ver [mais tipos de mensagens)](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
-| **mensagemSourceType**      | String | O tipo de origem da sua mensagem de evento                              | `20`(ver [mais tipos de origem de mensagens)](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
+| **mensagemType**            | String | O tipo da sua mensagem de evento                                     | `70`(ver [mais tipos de mensagens)](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks) |
+| **mensagemSourceType**      | String | O tipo de origem da sua mensagem de evento                              | `20`(ver [mais tipos de origem de mensagens)](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks) |
 | **Mensagem**                | String | O texto da sua mensagem de evento                                     | `MyPackage:Validation has started.` |
 | **nome de pacote**            | String | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
 | **nome de evento**              | String | O nome do evento relacionado em tempo de execução                                 | `OnPreValidate` |
@@ -683,7 +683,7 @@ Aqui estão os atributos de registo de mensagens de evento que são geradas por 
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Atributos de registo de registo de estatísticas executáveis SSIS
 
-Aqui estão os atributos de registo de estatísticas executáveis que são geradas por execuções de pacotes SSIS no seu SSIS IR, onde os executáveis são contentores ou tarefas no fluxo de controlo de pacotes. Transmitem informações semelhantes à [tabela de estatísticas executáveis do SSISDB ou à visão](/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) que mostra uma linha para cada execução executável, incluindo as suas iterações. São gerados em qualquer nível de registo, exceto `None` e úteis para identificar estrangulamentos/falhas de nível de tarefa.
+Aqui estão os atributos de registo de estatísticas executáveis que são geradas por execuções de pacotes SSIS no seu SSIS IR, onde os executáveis são contentores ou tarefas no fluxo de controlo de pacotes. Transmitem informações semelhantes à [tabela de estatísticas executáveis do SSISDB ou à visão](/sql/integration-services/system-views/catalog-executable-statistics) que mostra uma linha para cada execução executável, incluindo as suas iterações. São gerados em qualquer nível de registo, exceto `None` e úteis para identificar estrangulamentos/falhas de nível de tarefa.
 
 ```json
 {
@@ -710,7 +710,7 @@ Aqui estão os atributos de registo de estatísticas executáveis que são gerad
 | Propriedade                   | Tipo   | Descrição                                                      | Exemplo                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **operationName**          | String | Isto está definido para `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome da sua ADF                                             | `MyADFv2` |
@@ -727,7 +727,7 @@ Aqui estão os atributos de registo de estatísticas executáveis que são gerad
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Atributos de registo de fases de execução SSIS
 
-Aqui estão os atributos de registo de estatísticas de tempo de execução para componentes de fluxo de dados que são gerados pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à [tabela de fases de execução SSISDB ou vista](/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) que mostra o tempo gasto pelos componentes do fluxo de dados em todas as suas fases de execução. São geradas quando seleciona `Performance/Verbose` o nível de registo e é útil para capturar estatísticas de execução de fluxo de dados.
+Aqui estão os atributos de registo de estatísticas de tempo de execução para componentes de fluxo de dados que são gerados pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à [tabela de fases de execução SSISDB ou vista](/sql/integration-services/system-views/catalog-execution-component-phases) que mostra o tempo gasto pelos componentes do fluxo de dados em todas as suas fases de execução. São geradas quando seleciona `Performance/Verbose` o nível de registo e é útil para capturar estatísticas de execução de fluxo de dados.
 
 ```json
 {
@@ -755,7 +755,7 @@ Aqui estão os atributos de registo de estatísticas de tempo de execução para
 | Propriedade                   | Tipo   | Descrição                                                         | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **operationName**          | String | Isto está definido para `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | String | O nome da sua ADF                                                | `MyADFv2` |
@@ -773,7 +773,7 @@ Aqui estão os atributos de registo de estatísticas de tempo de execução para
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Atributos de registo de estatísticas de execução SSIS
 
-Aqui estão os atributos de registo de movimentos de dados através de cada parte dos oleodutos de fluxo de dados, desde a montante até componentes a jusante, que são gerados pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à tabela de estatísticas de [resultados de execução do SSISDB ou à visão](/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) que mostra a contagem de dados movidos através de tarefas de fluxo de dados. São geradas quando seleciona `Verbose` o nível de registo e é útil para calcular o fluxo de dados.
+Aqui estão os atributos de registo de movimentos de dados através de cada parte dos oleodutos de fluxo de dados, desde a montante até componentes a jusante, que são gerados pelas execuções de pacotes SSIS no seu SSIS IR. Transmitem informações semelhantes à tabela de estatísticas de [resultados de execução do SSISDB ou à visão](/sql/integration-services/system-views/catalog-execution-data-statistics) que mostra a contagem de dados movidos através de tarefas de fluxo de dados. São geradas quando seleciona `Verbose` o nível de registo e é útil para calcular o fluxo de dados.
 
 ```json
 {
@@ -803,7 +803,7 @@ Aqui estão os atributos de registo de movimentos de dados através de cada part
 | Propriedade                     | Tipo   | Descrição                                                        | Exemplo                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **Hora**                     | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**            | String | Isto está definido para `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **operationName**            | String | Isto está definido para `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **categoria**                 | String | A categoria de registos de diagnóstico                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**          | String | O nome da sua ADF                                               | `MyADFv2` |
@@ -850,7 +850,7 @@ Para levantar & deslocar as suas cargas de trabalho SSIS, pode [providenciar SSI
 - Pacotes de execução implantados no catálogo SSIS (SSISDB) hospedados pelo servidor de base de dados Azure SQL/Gestão de Instâncias (Modelo de Implementação de Projetos)
 - Executando pacotes implantados no sistema de ficheiros, ficheiros Azure ou base de dados do SQL Server (MSDB) hospedada por Azure SQL Managed Instance (Modelo de Implementação de Pacotes)
 
-Uma vez previsto, pode [verificar o estado operacional do SSIS **Monitor** IR utilizando o Azure PowerShell ou no centro monitor do portal ADF](./monitor-integration-runtime.md#azure-ssis-integration-runtime). Com o Modelo de Implementação do Projeto, os registos de execução de pacotes SSIS são armazenados em tabelas ou vistas internas SSISDB, para que possa consultar, analisar e apresentar visualmente usando ferramentas designadas como SSMS. Com o Modelo de Implementação de Pacotes, os registos de execução de pacotes SSIS podem ser armazenados no sistema de ficheiros ou ficheiros Azure como ficheiros CSV que ainda precisa de analisar e processar utilizando outras ferramentas designadas antes de poder consultar, analisar e apresentar visualmente.
+Uma vez previsto, pode [verificar o estado operacional do SSIS  IR utilizando o Azure PowerShell ou no centro monitor do portal ADF](./monitor-integration-runtime.md#azure-ssis-integration-runtime). Com o Modelo de Implementação do Projeto, os registos de execução de pacotes SSIS são armazenados em tabelas ou vistas internas SSISDB, para que possa consultar, analisar e apresentar visualmente usando ferramentas designadas como SSMS. Com o Modelo de Implementação de Pacotes, os registos de execução de pacotes SSIS podem ser armazenados no sistema de ficheiros ou ficheiros Azure como ficheiros CSV que ainda precisa de analisar e processar utilizando outras ferramentas designadas antes de poder consultar, analisar e apresentar visualmente.
 
 Agora, com a integração [do Azure Monitor,](../azure-monitor/platform/data-platform.md) pode consultar, analisar e apresentar visualmente todas as métricas e registos gerados a partir de operações do SSIS IR e execuções de pacotes SSIS no portal Azure. Além disso, também pode levantar alertas sobre eles.
 

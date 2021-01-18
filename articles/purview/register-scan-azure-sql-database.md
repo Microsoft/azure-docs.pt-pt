@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739795"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555955"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -28,7 +28,7 @@ A fonte de dados da Base de Dados Azure SQL suporta a seguinte funcionalidade:
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não suporta a digitalização de [visualizações](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) na Base de Dados Azure SQL. 
+O Azure Purview não suporta a digitalização de [visualizações](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) na Base de Dados Azure SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Autenticação para digitalizar base de dados Azure SQL. Se precisar de criar um
 > [!Note]
 > Apenas o login principal de nível de servidor (criado pelo processo de provisionamento) ou os membros da função de `loginmanager` base de dados na base de dados principal podem criar novos logins. Demora cerca de **15 minutos** após a concessão de permissão, a conta Purview deve ter as permissões adequadas para poder digitalizar os recursos.
 
-Pode seguir as instruções no [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um login para a Base de Dados Azure SQL se não tiver esta informação disponível. Vai precisar de **nome de utilizador** e **senha** para os próximos passos.
+Pode seguir as instruções no [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um login para a Base de Dados Azure SQL se não tiver esta informação disponível. Vai precisar de **nome de utilizador** e **senha** para os próximos passos.
 
 1. Navegue até ao cofre chave no portal Azure
 1. Selecione **Definições > Segredos**
@@ -100,7 +100,7 @@ O principal do serviço ou identidade gerida deve ter permissão para obter meta
     ```
 
     > [!Note]
-    > É `Username` o seu próprio chefe de serviço ou a identidade gerida de Purview. Pode ler mais sobre [funções de base de dados fixas e suas capacidades.](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles)
+    > É `Username` o seu próprio chefe de serviço ou a identidade gerida de Purview. Pode ler mais sobre [funções de base de dados fixas e suas capacidades.](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles)
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicione o principal de serviço ao cofre-chave e à credencial de Purview
 

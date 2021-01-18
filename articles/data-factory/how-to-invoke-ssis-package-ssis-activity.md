@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
-ms.openlocfilehash: 1bd983f7faeff456b04d4b2958236193a827a2cc
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: de9cd7e77e558c4d1a0aa62af17bc612eee5ec56
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635019"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555846"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory)
 
@@ -43,7 +43,7 @@ Neste passo, você usa a UI da Data Factory ou app para criar um pipeline. Adici
 
    ![Página inicial da Fábrica de Dados](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   Na página **Vamos começar** , selecione **Criar pipeline** . 
+   Na página **Vamos começar**, selecione **Criar pipeline**. 
 
    ![Página Introdução](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 
@@ -51,7 +51,7 @@ Neste passo, você usa a UI da Data Factory ou app para criar um pipeline. Adici
 
    ![Arraste uma atividade de pacote SSIS executada para a superfície do designer](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-   Selecione o objeto de atividade do Pacote Executar SSIS para configurar os seus separadores **Gerais** , **Definições,** **Parâmetros SSIS,** **Gestores de Ligação** e **separadores de sobreposições** de propriedade.
+   Selecione o objeto de atividade do Pacote Executar SSIS para configurar os seus separadores **Gerais**, **Definições,** **Parâmetros SSIS,** **Gestores de Ligação** e **separadores de sobreposições** de propriedade.
 
 #### <a name="general-tab"></a>Separador Geral
 
@@ -67,7 +67,7 @@ No separador **Geral** da atividade do Pacote SSIS, complete os seguintes passos
 
    1. Para **refazer,** introduza o número máximo de tentativas de repetição para a sua atividade do Pacote SSIS Executar.
 
-   1. Para **o intervalo Desatry** , insira o número de segundos entre cada tentativa de repetição para a sua atividade 'Executar O Pacote SSIS'. O padrão é de 30 segundos.
+   1. Para **o intervalo Desatry**, insira o número de segundos entre cada tentativa de repetição para a sua atividade 'Executar O Pacote SSIS'. O padrão é de 30 segundos.
 
    1. Selecione a caixa de **verificação de saída Secure** para escolher se pretende excluir a saída da sua atividade do Pacote SSIS Executar de registo.
 
@@ -91,7 +91,7 @@ No **separador Definições** da atividade do Pacote SSIS Execute, complete os s
       
    1. Selecione a caixa **de verificação de tempo de execução de 32 Bits** para escolher se o seu pacote precisa de 32 bits de tempo de execução para ser executado.
 
-   1. Para **localização do pacote** , selecione **SSISDB,** **Sistema de Ficheiros (Pacote)** , **Sistema de Ficheiros (Projeto)** , **Pacote Incorporado** ou Loja **de Pacotes** . 
+   1. Para **localização do pacote**, selecione **SSISDB,** **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado** ou Loja **de Pacotes**. 
 
 ##### <a name="package-location-ssisdb"></a>Localização do pacote: SSISDB
 
@@ -197,9 +197,9 @@ Se selecionar **a loja Pacote** como localização da sua embalagem, complete os
 
 ![Definir propriedades no separador Definições - Loja de pacotes](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
-   1. Para **o nome da loja Pacote** , selecione uma loja de pacotes existente que está anexada ao seu Azure-SSIS IR.
+   1. Para **o nome da loja Pacote**, selecione uma loja de pacotes existente que está anexada ao seu Azure-SSIS IR.
 
-   1. Especifique a sua embalagem para executar fornecendo o seu caminho (sem `.dtsx` ) a partir da loja de pacotes selecionada na caixa de caminho **pacote.** Se a loja de pacotes selecionada estiver em cima do sistema de ficheiros/Ficheiros Azure, pode navegar e selecionar o seu pacote selecionando **o armazenamento de ficheiros Browse,** caso contrário poderá introduzir o seu caminho no formato de `<folder name>\<package name>` . Também pode importar novos pacotes para a loja de pacotes selecionada através do SQL Server Management Studio (SSMS) semelhante à [antiga loja de pacotes SSIS](/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Para obter mais informações, consulte [os pacotes SSIS com lojas de pacotes Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
+   1. Especifique a sua embalagem para executar fornecendo o seu caminho (sem `.dtsx` ) a partir da loja de pacotes selecionada na caixa de caminho **pacote.** Se a loja de pacotes selecionada estiver em cima do sistema de ficheiros/Ficheiros Azure, pode navegar e selecionar o seu pacote selecionando **o armazenamento de ficheiros Browse,** caso contrário poderá introduzir o seu caminho no formato de `<folder name>\<package name>` . Também pode importar novos pacotes para a loja de pacotes selecionada através do SQL Server Management Studio (SSMS) semelhante à [antiga loja de pacotes SSIS](/sql/integration-services/service/package-management-ssis-service). Para obter mais informações, consulte [os pacotes SSIS com lojas de pacotes Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
 
    1. Se configurar o seu pacote num ficheiro separado, tem de fornecer um caminho UNC para o seu ficheiro de configuração `.dtsConfig` (com) na caixa de caminho de **configuração.** Pode navegar e selecionar a sua configuração selecionando **o armazenamento de ficheiros Browse ou insira** o seu caminho manualmente. Por exemplo, se armazenar a sua configuração em Ficheiros Azure, o seu caminho é `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig` .
 
@@ -231,7 +231,7 @@ No separador **parâmetros SSIS** da atividade do Pacote SSIS, complete os segui
 
    1. Se o seu Azure-SSIS IR estiver em execução, **o SSISDB** é selecionado como a **sua localização** do pacote, e a caixa de verificação de entradas manual no separador **Definições** é apurada, os parâmetros SSIS existentes no seu projeto selecionado e pacote do SSISDB são apresentados para que você atribua valores aos mesmos. Caso contrário, pode inscrevê-los um a um para lhes atribuir valores manualmente. Certifique-se de que existem e que estão corretamente inseridos para que a sua execução do pacote tenha sucesso. 
    
-   1. Se utilizou o nível de proteção **CrisensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)** , **Sistema de Ficheiros (Projeto)** , **Pacote Incorporado** ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nos seus parâmetros sensíveis para lhes atribuir valores neste separador. 
+   1. Se utilizou o nível de proteção **CrisensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado** ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nos seus parâmetros sensíveis para lhes atribuir valores neste separador. 
    
 Quando atribui valores aos seus parâmetros, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory.
 
@@ -251,11 +251,11 @@ No **separador Gestores** de Ligação da atividade do Pacote SSIS, complete os 
 
       Por exemplo, sem modificar o seu pacote original em SSDT, pode converter os seus fluxos de dados no local para as instalações que funcionam no SQL Server em fluxos de dados em nuvem em funcionamento no SSIS IR em ADF, sobressaltando os valores das propriedades da **ConnectByProxy,** **ConnectionString** e **ConnectUsingManagedIdentity** em gestores de conexão existentes no tempo de execução.
       
-      Estas sobreposições de tempo de execução podem permitir Self-Hosted IR (SHIR) como representante do SSIS IR ao aceder aos dados nas instalações, ver [Configurar o SHIR como um proxy para as](./self-hosted-integration-runtime-proxy-ssis.md)ligações SSIS IR , e Azure SQL Database/Managed Instance utilizando o mais recente controlador MSOLEDBSQL que, por sua vez, permite a autenticação do Azure Ative Directory (AAD) com identidade gerida pela ADF, ver [autenticação AAD configurada com identidade gerida pela ADF para ligações OLEDB](/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+      Estas sobreposições de tempo de execução podem permitir Self-Hosted IR (SHIR) como representante do SSIS IR ao aceder aos dados nas instalações, ver [Configurar o SHIR como um proxy para as](./self-hosted-integration-runtime-proxy-ssis.md)ligações SSIS IR , e Azure SQL Database/Managed Instance utilizando o mais recente controlador MSOLEDBSQL que, por sua vez, permite a autenticação do Azure Ative Directory (AAD) com identidade gerida pela ADF, ver [autenticação AAD configurada com identidade gerida pela ADF para ligações OLEDB](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
 
       ![Definir propriedades a partir de SSDT no separador Gestores de Ligação](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    
-   1. Se utilizou o nível de proteção **CriptografiaSensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)** , **Sistema de Ficheiros (Projeto)** , **Pacote Incorporado** ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas propriedades do seu gestor de ligação sensível para atribuir valores a eles neste separador. 
+   1. Se utilizou o nível de proteção **CriptografiaSensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado** ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas propriedades do seu gestor de ligação sensível para atribuir valores a eles neste separador. 
 
 Quando atribui valores às propriedades do seu gestor de ligação, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory. 
 
@@ -269,13 +269,13 @@ No **separador Propriedade Sobrepõe-se** à atividade do Pacote SSIS Execute, c
 
    1. Introduza os caminhos das propriedades existentes no seu pacote selecionado, um a um, para lhes atribuir valores manualmente. Certifique-se de que existem e que estão corretamente inseridos para que a sua execução do pacote tenha sucesso. Por exemplo, para anular o valor da variável do utilizador, insira o seu caminho no seguinte formato: `\Package.Variables[User::<variable name>].Value` . 
 
-      Pode obter o **CAMINHO DE PROPRIEDADE** correto para qualquer propriedade de pacote, abrindo o pacote que o contém em SSDT. Após a abertura do pacote, selecione o seu fluxo de controlo e a propriedade **Configurações** na janela **Propriedades** do SSDT. Em seguida, selecione o botão **elipse** **(...** ) ao lado da sua propriedade Configurações para abrir o **Organizador de Configurações** de Pacotes que é normalmente utilizado para criar configurações de pacote no Modelo de [Implementação de Pacotes](/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
+      Pode obter o **CAMINHO DE PROPRIEDADE** correto para qualquer propriedade de pacote, abrindo o pacote que o contém em SSDT. Após a abertura do pacote, selecione o seu fluxo de controlo e a propriedade **Configurações** na janela **Propriedades** do SSDT. Em seguida, selecione o botão **elipse** **(...**) ao lado da sua propriedade Configurações para abrir o **Organizador de Configurações** de Pacotes que é normalmente utilizado para criar configurações de pacote no Modelo de [Implementação de Pacotes](/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Obtenha propriedades de pacotes a partir de propriedade SSDT - Configurações](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 
-      No **Organizador de Configurações de Pacotes** , selecione a caixa de **verificação de configurações de pacotes de ativação** e o botão **Adicionar...** para abrir o **Assistente de Configuração de Pacotes** . 
+      No **Organizador de Configurações de Pacotes**, selecione a caixa de **verificação de configurações de pacotes de ativação** e o botão **Adicionar...** para abrir o **Assistente de Configuração de Pacotes**. 
       
-      No Assistente de Configuração de **Pacotes** , selecione o item **de ficheiro de configuração XML** no menu de retirada **do tipo de configuração** de configuração e as **definições de configuração de especificar diretamente,** introduzir o nome do ficheiro de configuração e selecionar o botão **seguinte >.** 
+      No Assistente de Configuração de **Pacotes**, selecione o item **de ficheiro de configuração XML** no menu de retirada **do tipo de configuração** de configuração e as **definições de configuração de especificar diretamente,** introduzir o nome do ficheiro de configuração e selecionar o botão **seguinte >.** 
 
       ![Obtenha propriedades de pacotes da SSDT - Organizador de Configurações](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
 
@@ -283,7 +283,7 @@ No **separador Propriedade Sobrepõe-se** à atividade do Pacote SSIS Execute, c
 
       ![Obtenha propriedades de pacotes de SSDT - Assistente de configuração](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
-   1. Se utilizou o nível de proteção **CrisensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)** , **Sistema de Ficheiros (Projeto)** , **Pacote Incorporado** ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas suas propriedades de pacotes sensíveis para lhes atribuir valores neste separador. 
+   1. Se utilizou o nível de proteção **CrisensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado** ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas suas propriedades de pacotes sensíveis para lhes atribuir valores neste separador. 
    
 Quando atribui valores às propriedades do seu pacote, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory.
 
@@ -291,24 +291,24 @@ Os valores atribuídos em ficheiros de configuração e no separador **Parâmetr
 
 Para validar a configuração do pipeline, **selecione Validate** na barra de ferramentas. Para encerrar o **Relatório de Validação** do Gasoduto, selecione **>>** .
 
-Para publicar o pipeline na Data Factory, **selecione Publicar Tudo** . 
+Para publicar o pipeline na Data Factory, **selecione Publicar Tudo**. 
 
 ### <a name="run-the-pipeline"></a>Executar o pipeline
 Neste passo, desencadeia-se uma corrida de oleoduto. 
 
-1. Para ativar uma execução do gasoduto, selecione **Trigger** na barra de ferramentas e selecione **Trigger agora** . 
+1. Para ativar uma execução do gasoduto, selecione **Trigger** na barra de ferramentas e selecione **Trigger agora**. 
 
    ![Acionar agora](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
-2. Na janela **Executar Pipeline** , selecione **Concluir** . 
+2. Na janela **Executar Pipeline**, selecione **Concluir**. 
 
 ### <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 
-1. Mude para o separador **Monitorizar** , no lado esquerdo. Vê o gasoduto a funcionar e o seu estado juntamente com outras informações, como a hora **de início de funcionação.** Para atualizar a vista, selecione **Atualizar** .
+1. Mude para o separador **Monitorizar**, no lado esquerdo. Vê o gasoduto a funcionar e o seu estado juntamente com outras informações, como a hora **de início de funcionação.** Para atualizar a vista, selecione **Atualizar**.
 
    ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-2. Selecione a ligação **Ver Execuções de Atividades** na coluna **Ações** . Só se vê uma atividade a funcionar porque o oleoduto tem apenas uma atividade. É a atividade do Pacote SSIS executar.
+2. Selecione a ligação **Ver Execuções de Atividades** na coluna **Ações**. Só se vê uma atividade a funcionar porque o oleoduto tem apenas uma atividade. É a atividade do Pacote SSIS executar.
 
    ![Execuções de atividade](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 

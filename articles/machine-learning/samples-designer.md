@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555503"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556176"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines de exemplo & conjuntos de dados para o designer de aprendizagem de máquinas Azure
 
@@ -72,7 +72,7 @@ Explore estas amostras de regressão incorporadas.
 
 ## <a name="classification"></a>Classificação
 
-Explore estas amostras de classificação incorporadas. Pode aprender mais sobre as amostras sem ligações de documentação abrindo as amostras e visualizando os comentários do módulo.
+Explore estas amostras de classificação incorporadas. Você pode aprender mais sobre as amostras abrindo as amostras e visualizando os comentários do módulo no designer.
 
 | Título de exemplo | Description | 
 | --- | --- |
@@ -84,13 +84,15 @@ Explore estas amostras de classificação incorporadas. Pode aprender mais sobre
 
 ## <a name="computer-vision"></a>Imagem digitalizada
 
-Explore estas amostras de visão computacional incorporadas. Pode aprender mais sobre as amostras sem ligações de documentação abrindo as amostras e visualizando os comentários do módulo.
+Explore estas amostras de visão computacional incorporadas. Você pode aprender mais sobre as amostras abrindo as amostras e visualizando os comentários do módulo no designer.
 
-| Classificação de imagem usando DenseNet Utilize módulos de visão computacional para construir um modelo de classificação de imagem baseado no PyTorch DenseNet./ 
+| Título de exemplo | Description | 
+| --- | --- |
+| Classificação de imagem usando DenseNet | Utilize módulos de visão computacional para construir um modelo de classificação de imagem baseado no PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Recomendador
 
-Explore estas amostras de recomendadores incorporadas. Pode aprender mais sobre as amostras sem ligações de documentação abrindo as amostras e visualizando os comentários do módulo.
+Explore estas amostras de recomendadores incorporadas. Você pode aprender mais sobre as amostras abrindo as amostras e visualizando os comentários do módulo no designer.
 
 | Título de exemplo | Description | 
 | --- | --- |
@@ -99,7 +101,7 @@ Explore estas amostras de recomendadores incorporadas. Pode aprender mais sobre 
 
 ## <a name="utility"></a>Utilitário
 
-Saiba mais sobre as amostras que demonstram serviços e funcionalidades de aprendizagem automática. Pode aprender mais sobre as amostras sem ligações de documentação abrindo as amostras e visualizando os comentários do módulo.
+Saiba mais sobre as amostras que demonstram serviços e funcionalidades de aprendizagem automática. Você pode aprender mais sobre as amostras abrindo as amostras e visualizando os comentários do módulo no designer.
 
 | Título de exemplo | Description | 
 | --- | --- |
@@ -117,8 +119,8 @@ Os conjuntos de dados da amostra estão disponíveis na categoria **Datasets** -
 
 | Nome do conjunto de &nbsp; dados&nbsp;&nbsp;&nbsp;&nbsp;| Descrição do conjunto de dados |
 |-------------|:--------------------|
-| Conjunto de dados de classificação binária de rendimento do rendimento do rendimento de adultos | Um subconjunto da base de dados do Censos de 1994, utilizando adultos que trabalham com mais de 16 anos com um índice de rendimento ajustado de > 100.<br/>**Utilização** : Classifique as pessoas que usam a demografia para prever se uma pessoa ganha mais de 50 mil por ano.<br/> **Investigação Relacionada** : Kohavi, R., Becker, B., (1996). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação|
-|Dados sobre os preços do automóvel (Raw)|Informação sobre automóveis por marca e modelo, incluindo o preço, características como o número de cilindros e MPG, bem como uma pontuação de risco de seguro.<br/> A pontuação de risco está inicialmente associada ao preço automóvel. É então ajustado para o risco real num processo conhecido pelos atuadores como símbolo. Um valor de +3 indica que o automóvel é arriscado, e um valor de -3 que provavelmente é seguro.<br/>**Utilização** : Prever a pontuação de risco por características, utilizando a regressão ou a classificação multivariada.<br/>**Investigação Relacionada** : Schlimmer, J.C. (1987). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação. |
+| Conjunto de dados de classificação binária de rendimento do rendimento do rendimento de adultos | Um subconjunto da base de dados do Censos de 1994, utilizando adultos que trabalham com mais de 16 anos com um índice de rendimento ajustado de > 100.<br/>**Utilização**: Classifique as pessoas que usam a demografia para prever se uma pessoa ganha mais de 50 mil por ano.<br/> **Investigação Relacionada**: Kohavi, R., Becker, B., (1996). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação|
+|Dados sobre os preços do automóvel (Raw)|Informação sobre automóveis por marca e modelo, incluindo o preço, características como o número de cilindros e MPG, bem como uma pontuação de risco de seguro.<br/> A pontuação de risco está inicialmente associada ao preço automóvel. É então ajustado para o risco real num processo conhecido pelos atuadores como símbolo. Um valor de +3 indica que o automóvel é arriscado, e um valor de -3 que provavelmente é seguro.<br/>**Utilização**: Prever a pontuação de risco por características, utilizando a regressão ou a classificação multivariada.<br/>**Investigação Relacionada**: Schlimmer, J.C. (1987). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação. |
 | Rótulos de Appetency CRM compartilhados |Etiquetas do desafio de previsão da relação com o cliente KDD Cup 2009[(orange_small_train_appetency.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |Etiquetas CRM Churn Compartilhadas|Etiquetas do desafio de previsão da relação com o cliente KDD Cup 2009[(orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
 |Conjunto de dados crm compartilhado | Estes dados provêm do desafio de previsão da relação com o cliente da KDD Cup 2009[ (orange_small_train.data.zip). ](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip) <br/>O conjunto de dados contém 50 mil clientes da empresa francesa de telecomunicações Orange. Cada cliente tem 230 funcionalidades anonimizadas, 190 das quais numéricas e 40 são categóricas. As características são muito escassas. |
@@ -129,9 +131,9 @@ Os conjuntos de dados da amostra estão disponíveis na categoria **Datasets** -
 |Classificações de Filmes|O conjunto de dados é uma versão estendida do conjunto de dados do Movie Tweetings. O conjunto de dados tem classificações de 170K para filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é um tuple: ID do utilizador, ID de filme IMDB, classificação, timetamp, número de favoritos para este tweet, e número de retweets deste tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para o Recommender Systems Challenge 2014.|
 |Conjunto de dados meteorológicos|Observações meteorológicas por hora da NOAA[(dados fundidos de 201304 a 201310).](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)<br/>Os dados meteorológicos cobrem observações feitas a partir de estações meteorológicas do aeroporto, abrangendo o período April-October 2013. Antes de enviar para o designer, o conjunto de dados foi processado da seguinte forma:    <br/> - Os IDs da estação meteorológica foram mapeados para os iDs do aeroporto correspondentes    <br/> - Estações meteorológicas não associadas aos 70 aeroportos mais movimentados foram filtradas    <br/> - A coluna Date foi dividida em colunas separadas de ano, mês e dia    <br/> - Foram selecionadas as seguintes colunas: AirportID, Ano, Mês, Dia, Tempo, TimeZone, SkyCondition, Visibilidade, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, Hourciply, Alprettime, Alpretertime, Alpretertime,|
 |Conjunto de dados Wikipedia SP 500|Os dados são derivados da Wikipédia ( https://www.wikipedia.org/) com base em artigos de cada empresa S&P 500, armazenados como dados XML.    <br/>Antes de enviar para o designer, o conjunto de dados foi processado da seguinte forma:    <br/> - Extrair conteúdo de texto para cada empresa específica    <br/> - Remover a formatação wiki    <br/> - Remover caracteres não alfanuméricos    <br/> - Converter todo o texto em minúsculas    <br/> - Foram adicionadas categorias de empresas conhecidas    <br/>Note-se que para algumas empresas não foi possível encontrar um artigo, pelo que o número de registos é inferior a 500.|
-|Dados de Características do Restaurante| Um conjunto de metadados sobre restaurantes e suas características, como tipo de comida, estilo de jantar e localização. <br/>**Utilização** : Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendadores.<br/> **Investigação Relacionada** : Bache, K. e Lichman, M. (2013). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.|
-|Classificações de Restaurantes| Contém classificações dadas pelos utilizadores a restaurantes numa escala de 0 a 2.<br/>**Utilização** : Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendadores. <br/>**Investigação Relacionada** : Bache, K. e Lichman, M. (2013). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.|
-|Dados do Cliente do Restaurante| Um conjunto de metadados sobre clientes, incluindo demografia e preferências. <br/>**Utilização** : Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendadores. <br/> **Investigação Relacionada** : Bache, K. e Lichman, M. (2013). [Repositório de Aprendizagem automática da UCI](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.|
+|Dados de Características do Restaurante| Um conjunto de metadados sobre restaurantes e suas características, como tipo de comida, estilo de jantar e localização. <br/>**Utilização**: Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendadores.<br/> **Investigação Relacionada**: Bache, K. e Lichman, M. (2013). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.|
+|Classificações de Restaurantes| Contém classificações dadas pelos utilizadores a restaurantes numa escala de 0 a 2.<br/>**Utilização**: Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendadores. <br/>**Investigação Relacionada**: Bache, K. e Lichman, M. (2013). [Repositório de Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.|
+|Dados do Cliente do Restaurante| Um conjunto de metadados sobre clientes, incluindo demografia e preferências. <br/>**Utilização**: Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendadores. <br/> **Investigação Relacionada**: Bache, K. e Lichman, M. (2013). [Repositório de Aprendizagem automática da UCI](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.|
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

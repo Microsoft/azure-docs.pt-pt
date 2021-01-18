@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965855"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133575"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introdução à conta de faturação do Azure atualizada
 
@@ -40,7 +40,7 @@ As funções na conta de faturação têm o nível mais elevado de permissões. 
 
 Quando a conta for atualizada, é criado automaticamente um perfil de faturação para cada subscrição. Os custos da subscrição são faturados no perfil de faturação e apresentados na respetiva fatura.
 
-As funções nos perfis de faturação têm permissões para ver e gerir faturas e métodos de pagamento. Estas funções devem ser atribuídas a utilizadores que pagam faturas, como membros da equipa de contabilidade numa organização. Para obter mais informações, veja [Funções e tarefas do perfil de faturação](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
+As funções nos perfis de faturação têm permissões para ver e gerir faturas e métodos de pagamento. Estas funções devem ser atribuídas a utilizadores que pagam faturas, como membros da equipa de contabilidade numa organização. Para obter mais informações, veja [Funções e tarefas do perfil de faturação](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 Quando a conta for atualizada, para cada subscrição na qual concedeu permissão para [ver faturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), os utilizadores que tiverem uma função do Azure de proprietário, contribuidor, leitor ou leitor de faturação receberão a função de leitor no respetivo perfil de faturação.
 
@@ -48,7 +48,7 @@ Quando a conta for atualizada, para cada subscrição na qual concedeu permissã
 
 É utilizada uma secção de faturação para organizar os custos na fatura. Por exemplo, pode precisar de uma única fatura, mas quer organizar os custos por departamento, equipa ou projeto. Para este cenário, existe um único perfil de faturação onde se cria uma secção de faturação para cada departamento, equipa ou projeto.
 
-Quando a conta for atualizada, é criada uma secção de faturação para cada perfil de faturação e a subscrição relacionada é atribuída à secção de faturação. Ao adicionar mais subscrições, pode criar secções adicionais e atribuir as subscrições às secções de faturação. Verá que as secções na fatura do perfil de faturação refletem a utilização de cada subscrição que atribuiu às mesmas.
+Quando a conta for atualizada, é criada uma secção de faturação para cada perfil de faturação e a subscrição relacionada é atribuída à secção de faturação. Ao adicionar mais subscrições, pode criar mais secções e atribuir as subscrições às secções de faturação. Verá que as secções na fatura do perfil de faturação refletem a utilização de cada subscrição que atribuiu às mesmas.
 
 As funções na secção de faturação têm permissões para controlar quem cria as subscrições do Azure. As funções devem ser atribuídas a utilizadores que configuram o ambiente do Azure para as equipas numa organização, como líderes de engenharia e arquitetos técnicos. Para obter mais informações, veja [Funções e tarefas da secção de faturação](../manage/understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -80,15 +80,15 @@ A nova experiência inclui as seguintes capacidades de gestão de custos e fatur
 
 #### <a name="account-and-subscription-management"></a>Gestão de contas e subscrições
 
-**Atribua vários administradores para realizar operações de faturação** - Atribua permissões de faturação a vários utilizadores para gerir a faturação da sua conta. Obtenha flexibilidade ao fornecer permissões de leitura, escrita ou ambas a outras pessoas.
+**Atribua vários administradores para realizar operações de faturação** - Atribua permissões de faturação a vários utilizadores para gerir a faturação da sua conta. Obtenha flexibilidade ao dar permissões de leitura, escrita ou ambas a outras pessoas.
 
-**Crie subscrições adicionais diretamente no portal do Azure** - Crie todas as suas subscrições com um único clique no portal do Azure.
+**Crie mais subscrições diretamente no portal do Azure** - Crie todas as suas subscrições com uma única seleção no portal do Azure.
 
 #### <a name="api-support"></a>Suporte de API
 
-**Realize operações de gestão de custos e faturação através de APIs, SDKs e do PowerShell** - Utilize APIs de gestão de custos, faturação e consumo para extrair dados de faturação e custos para as suas ferramentas de análise de dados preferidas.
+**Realize operações de faturação e de gestão de custos através de APIs, SDK e do PowerShell** - Utilize APIs de gestão de custos, faturação e consumo para extrair dados de faturação e de custos para as suas ferramentas de análise de dados preferidas.
 
-**Execute todas as operações de subscrição através de APIs, SDKs e do PowerShell** - Utilize APIs de subscrição do Azure para automatizar a gestão das suas subscrições do Azure, incluindo criar, mudar o nome e cancelar uma subscrição.
+**Realize todas as operações de subscrição através de APIs, SDK e do PowerShell** - Utilize APIs de subscrição do Azure para automatizar a gestão das suas subscrições do Azure, incluindo criar, mudar o nome e cancelar uma subscrição.
 
 ## <a name="get-prepared-for-your-new-experience"></a>Prepare-se para a nova experiência
 
@@ -100,12 +100,63 @@ Na nova experiência, a sua fatura será gerada por volta do nono dia de cada m�
 
 **Novas APIs de gestão de custos e faturação**
 
-Se estiver a utilizar APIs de Gestão e Custos e Faturação para ver e atualizar os dados de faturação ou de custos, tem de utilizar novas APIs. A tabela seguinte lista as APIs que não funcionarão na nova conta de faturação e as alterações que tem de fazer na sua nova conta de faturação.
+Se estiver a utilizar APIs do Cost Management ou de Faturação para consultar e atualizar os dados de faturação ou de custos, tem de utilizar novas APIs. A tabela seguinte lista as APIs que não funcionarão na nova conta de faturação e as alterações que tem de fazer na sua nova conta de faturação.
 
 |API | Alterações  |
 |---------|---------|
-|[Contas de Faturação - Listar](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Na API Contas de Faturação - Listar, a conta de faturação antiga tem agreementType **MicrosoftOnlineServiceProgram** e a nova conta de faturação terá agreementType **MicrosoftCustomerAgreement**. Se assumir uma dependência de agreementType, atualize-a. |
+|[Contas de Faturação - Listar](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Na API Contas de Faturação - Listar, a conta de faturação antiga tem agreementType **MicrosoftOnlineServiceProgram** e a nova conta de faturação terá agreementType **MicrosoftCustomerAgreement**. Se assumir uma dependência em agreementType, atualize-a. |
 |[Faturas - Listar Por Subscrição de Faturação](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Esta API devolverá apenas as faturas que foram geradas antes da atualização da conta. Terá de utilizar a API [Faturas - Listar Por Conta de Faturação](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) para obter as faturas geradas na nova conta de faturação. |
+
+## <a name="cost-management-updates-after-account-update"></a>Atualizações do Cost Management após uma atualização da conta
+
+A sua conta de faturação do Azure atualizada do seu Contrato de Cliente Microsoft dá-lhe acesso a novas experiências avançadas do Cost Management no portal do Azure que não tinha com a sua conta do pay as you go.
+
+### <a name="new-capabilities"></a>Novas funcionalidades
+
+As novas capacidades seguintes estão disponíveis com a sua conta de faturação do Azure.
+
+#### <a name="new-billing-scopes"></a>Novos âmbitos de faturação
+
+Como parte da sua conta atualizada, tem novos âmbito no Cost Management + Faturação. Para além de ajudarem com a organização hierárquica e a faturação, estes âmbitos também permitem ver as cobranças combinadas de várias subscrições subjacentes. Para obter mais informações sobre os âmbitos de faturação, veja [Âmbitos do Contrato de Cliente Microsoft](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
+
+Também pode aceder às APIs do Cost Management para obter vistas de custos combinados em âmbitos mais altos. Todas as APIs do Cost Management que utilizam o âmbito de subscrição ainda estão disponíveis com algumas pequenas alterações no esquema. Para obter mais informações sobre as APIs, veja [APIs do Azure Cost Management](/rest/api/cost-management/) e [APIs de Consumo do Azure](/rest/api/consumption/).
+
+#### <a name="cost-allocation"></a>Alocação de custos
+
+Com a sua conta atualizada, pode utilizar as capacidades de alocação de custos para distribuir custos de serviços partilhados na sua organização. Para obter mais informações sobre a alocação de custos, veja [Criar e gerir regras de alocação de custos do Azure](../costs/allocate-costs.md).
+
+#### <a name="power-bi"></a>Power BI
+
+O conector do Azure Cost Management para o Power BI Desktop ajuda-o a criar visualizações e relatórios personalizados da utilização e gastos que faz no Azure. Pode aceder aos seus dados de custos e utilização depois de se ligar à sua conta atualizada. Para obter mais informações sobre o conector do Azure Cost Management para o Power BI Desktop, veja [Criar elementos visuais e relatórios com o conector do Azure Cost Management no Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+
+### <a name="updated-capabilities"></a>Capacidades atualizadas
+
+As capacidades atualizadas que se seguem estão disponíveis com a sua conta de faturação do Azure.
+
+#### <a name="cost-analysis"></a>Análise de custos
+
+Pode continuar a ver e rastrear os seus custos de consumo mês a mês, além de que, agora, pode ver os custos de compra de reservas e de compras no Marketplace na Análise de custos.
+
+Com a sua conta atualizada, recebe uma única fatura para todas as cobranças do Azure. Agora, também tem uma vista única de calendário mensal simplificada que vem substituir a vista dos períodos de faturação que tinha anteriormente.
+
+Por exemplo, se o período de faturação da sua conta antiga ia de 24 de novembro a 23 de dezembro, nesse caso, após a atualização, o período passa a ser de 1 de novembro a 30 de novembro, de 1 de dezembro a 31 de dezembro e assim sucessivamente.
+
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Imagem que mostra uma comparação entre os novos períodos de faturação e os antigos" lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+
+#### <a name="budgets"></a>Orçamentos
+
+Agora, pode criar orçamentos para a conta de faturação, o que lhe permite controlar os custos nas várias subscrições. Também utilizar orçamentos para se manter a par das suas cobranças de compras. Para obter mais informações sobre orçamentos, veja [Criar e gerir orçamentos do Azure](../costs/tutorial-acm-create-budgets.md).
+
+#### <a name="exports"></a>Exportações
+
+A sua nova conta de faturação fornece funcionalidade de exportação melhorada. Por exemplo, pode criar exportações de custos reais que incluam compras ou custos amortizados (os custos de compra de reservas são distribuídos pelo termo da compra). Também pode criar uma exportação da conta de faturação para obter dados de utilização e de cobranças em todas as subscrições da conta de faturação. Para obter mais informações sobre exportações, veja [Criar e gerir dados exportados](../costs/tutorial-export-acm-data.md).
+
+> [!NOTE]
+> As exportações criadas antes da atualização da sua conta com o tipo **Exportação mensal dos custos do último mês** irá exportar os dados do último mês do calendário, não do último período de faturação.
+
+Por exemplo, para um período de faturação que fosse de 23 de dezembro a 22 de Janeiro, o ficheiro CSV exportado teria os dados de utilização e de custos referentes a esse período. Após a atualização, a exportação passa a conter os dados do mês de calendário. Por exemplo, de 1 de janeiro a 31 de janeiro e assim por diante.
+
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Imagem que mostra uma comparação entre os novos detalhes de exportação e os antigos" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>Informações adicionais
 
@@ -117,7 +168,7 @@ As secções seguintes fornecem informações adicionais sobre a nova experiênc
 
 **As faturas anteriores estão disponíveis na nova experiência** As faturas geradas antes da atualização da conta continuam disponíveis no portal do Azure.
 
-**Faturas da conta atualizadas a meio do mês** Se a conta for atualizada a meio do mês, obterá uma fatura para os custos acumulados até ao dia em que a conta for atualizada. Receberá outra fatura referente ao restante do mês. Por exemplo, a sua conta tem uma subscrição e é atualizada a 15 de setembro. Receberá uma fatura dos custos acumulados até 15 de setembro. Receberá outra fatura pelo período entre 15 e 30 de setembro. Após setembro, obterá uma fatura por mês.
+**Faturas da conta atualizadas a meio do mês** Se a conta for atualizada a meio do mês, obterá uma fatura para os custos acumulados até ao dia em que a conta for atualizada. Receberá outra fatura referente ao resto do mês. Por exemplo, a sua conta tem uma subscrição que é atualizada a 15 de setembro. Receberá uma fatura das cobranças acumuladas até 15 de setembro. Receberá outra fatura pelo período entre 15 e 30 de setembro. Após setembro, obterá uma fatura por mês.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

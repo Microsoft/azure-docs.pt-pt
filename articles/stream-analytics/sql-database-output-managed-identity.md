@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014150"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555598"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -123,7 +123,7 @@ Depois de ter criado um utilizador de base de dados contido e de ter acesso aos 
 
 Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Identidade Gerida para **ligar** ao seu recurso de base de dados Azure Synapse através de identidade gerida. Recomendamos que conceda ainda as permissões de OPERAÇÕES DE SELECT, INSERT e GESTÃO DE BASE DE DADOS para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na base de dados Azure Synapse. As permissões **de OPERAÇÕES** A GRANEL DE **INSERT** e GESTÃO DE DADOS permitem testar consultas de stream analytics de ponta a ponta uma vez configuradas uma entrada e a saída da base de dados Azure Synapse.
 
-Para conceder a permissão de OPERAÇÕES A GRANEL da BASE DE DADOS, terá de conceder todas as permissões que estejam rotuladas como **CONTROL** [sob a permissão implícita por base de dados](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) para o trabalho de Stream Analytics. Necessita desta permissão porque o trabalho stream Analytics executa a declaração COPY, que requer [administrar operações a granel de base de dados e inserir](/sql/t-sql/statements/copy-into-transact-sql).
+Para conceder a permissão de OPERAÇÕES A GRANEL da BASE DE DADOS, terá de conceder todas as permissões que estejam rotuladas como **CONTROL** [sob a permissão implícita por base de dados](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) para o trabalho de Stream Analytics. Necessita desta permissão porque o trabalho stream Analytics executa a declaração COPY, que requer [administrar operações a granel de base de dados e inserir](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 
@@ -179,7 +179,7 @@ Certifique-se de que criou uma tabela na sua base de dados Azure Synapse com o e
 
 A Identidade Gerida criada para um trabalho stream Analytics só é eliminada quando o trabalho é eliminado. Não há como apagar a Identidade Gerida sem apagar o trabalho. Se já não pretender utilizar a Identidade Gerida, pode alterar o método de autenticação para a saída. A Identidade Gerida continuará a existir até que o trabalho seja eliminado, e será utilizado se decidir voltar a utilizar a autenticação identidade gerida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Saída Azure Stream Analytics para Azure SQL Database](stream-analytics-sql-output-perf.md)

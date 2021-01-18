@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62b1575e2ab379e6b4e61926e00dfad85ffeb6c0
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350947"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556363"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração Azure-SSIS na Azure Data Factory
 
@@ -27,7 +27,7 @@ Este artigo fornece passos para o provisionamento de um tempo de integração de
 - Pacotes de execução implantados no catálogo SSIS (SSISDB) hospedados pelo servidor de base de dados Azure SQL/Gestão de Instâncias (Modelo de Implementação de Projetos)
 - Executando pacotes implantados no sistema de ficheiros, ficheiros Azure ou base de dados do SQL Server (MSDB) hospedada por Azure SQL Managed Instance (Modelo de Implementação de Pacotes)
 
-Depois de ser alojado um Azure-SSIS IR, pode utilizar ferramentas familiares para implantar e executar as suas encomendas em Azure. Estas ferramentas já estão ativadas pelo Azure e incluem ferramentas de dados do servidor SQL (SSDT), SQL Server Management Studio (SSMS) e utilitários de linha de comando como [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) e [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
+Depois de ser alojado um Azure-SSIS IR, pode utilizar ferramentas familiares para implantar e executar as suas encomendas em Azure. Estas ferramentas já estão ativadas pelo Azure e incluem ferramentas de dados do servidor SQL (SSDT), SQL Server Management Studio (SSMS) e utilitários de linha de comando como [dtutil](/sql/integration-services/dtutil-utility) e [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
 O tutorial [Provisioning Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md) mostra como criar um Azure-SSIS IR através do portal Azure ou da app Data Factory. O tutorial também mostra como utilizar opcionalmente um servidor de base de dados Azure SQL ou uma instância gerida para hospedar o SSISDB. Este artigo expande-se no tutorial e descreve como fazer estas tarefas opcionais:
 
@@ -79,9 +79,9 @@ Para obter uma lista das regiões de Azure em que a Data Factory e um Azure-SSIS
 
 A tabela a seguir compara certas funcionalidades de um servidor de base de dados Azure SQL e da SQL Managed Instance no que diz respeito ao Azure-SSIR IR:
 
-| Funcionalidade | Base de Dados SQL| SQL Caso gerido |
+| Funcionalidade | SQL Database| SQL Caso gerido |
 |---------|--------------|------------------|
-| **Agendamento** | O Agente de Servidor SQL não está disponível.<br/><br/>Consulte [a execução de um pacote num oleoduto da Fábrica de Dados.](/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)| O Agente de Instância Gerida está disponível. |
+| **Agendamento** | O Agente de Servidor SQL não está disponível.<br/><br/>Consulte [a execução de um pacote num oleoduto da Fábrica de Dados.](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity)| O Agente de Instância Gerida está disponível. |
 | **Autenticação** | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente qualquer grupo AD Azure com a identidade gerida da sua fábrica de dados como membro na **função db_owner.**<br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB no servidor base de dados Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente a identidade gerida da sua fábrica de dados. <br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB em Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
 | **Escalão de serviço** | Quando criar um Azure-SSIS IR com o seu servidor Azure SQL Database, pode selecionar o nível de serviço para SSISDB. Há vários níveis de serviço. | Quando cria um Azure-SSIS IR com a sua instância gerida, não pode selecionar o nível de serviço para SSISDB. Todas as bases de dados do seu caso gerido partilham o mesmo recurso atribuído a esse caso. |
 | **Rede virtual** | O seu Azure-SSIS IR pode aderir a uma rede virtual Azure Resource Manager se utilizar um servidor de base de dados Azure SQL com regras de firewall IP/pontos finais de serviço de rede virtual. | O seu Azure-SSIS IR pode aderir a uma rede virtual Azure Resource Manager se utilizar uma instância gerida com um ponto final privado. A rede virtual é necessária quando não ativa um ponto final público para a sua instância gerida.<br/><br/>Se se juntar ao seu Azure-SSIS IR à mesma rede virtual que a sua instância gerida, certifique-se de que o seu Azure-SSIS IR está numa sub-rede diferente da sua instância gerida. Se se juntar ao seu Azure-SSIS IR a uma rede virtual diferente da sua instância gerida, recomendamos um espreitamento de rede virtual ou uma ligação rede-a-rede. Consulte [a sua aplicação a uma base de dados Azure SQL Gestão de Casos](../azure-sql/managed-instance/connect-application-instance.md). |
@@ -173,7 +173,7 @@ Selecione **a ligação de teste** quando aplicável e se for bem sucedida, sele
 
 Na página de definições de implementação do painel de configuração do tempo de execução de **integração,** se pretender gerir os seus pacotes que são implantados em MSDB, sistema de ficheiros ou **Ficheiros** Azure (Modelo de Implementação de Pacotes) com lojas de pacotes Azure-SSIS IR, selecione as **lojas de pacotes Create para gerir os seus pacotes que são implantados no sistema de ficheiros/Ficheiros Azure/Base de dados do SLL Server (MSDB) hospedados por Azure-SSIS Managed Instance.**
    
-A loja de pacotes Azure-SSIS IR permite importar/eliminar/eliminar/executar pacotes e monitorizar/parar de funcionar pacotes através de SSMS semelhantes à [antiga loja de pacotes SSIS](/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Para obter mais informações, consulte [os pacotes SSIS com lojas de pacotes Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
+A loja de pacotes Azure-SSIS IR permite importar/eliminar/eliminar/executar pacotes e monitorizar/parar de funcionar pacotes através de SSMS semelhantes à [antiga loja de pacotes SSIS](/sql/integration-services/service/package-management-ssis-service). Para obter mais informações, consulte [os pacotes SSIS com lojas de pacotes Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
    
 Se selecionar esta caixa de verificação, pode adicionar várias lojas de pacotes ao seu Azure-SSIS IR selecionando **New**. Inversamente, uma loja de pacotes pode ser partilhada por vários IRs Azure-SSIS.
 
@@ -250,7 +250,7 @@ Na página **de configurações avançadas** do painel de configuração do temp
 
       1. Para **configuração personalizada express**, selecione **Novo** para abrir o painel **de configuração personalizado Add Express** e, em seguida, selecione quaisquer tipos no menu de **dropdown do tipo de configuração personalizada Express,** por exemplo, **Executar comando cmdkey**, Adicionar **variável ambiente,** **instalar componente licenciado,** etc.
 
-         Se selecionar o tipo **de componente licenciado instalar,** pode selecionar quaisquer componentes integrados dos nossos parceiros ISV no menu de dropdown **de nome componente** e, se necessário, introduzir a chave de licença do produto/carregar o ficheiro de licença do produto que adquiriu na caixa de **License key** / **ficheiros da chave licença.**
+         Se selecionar o tipo **de componente licenciado instalar,** pode selecionar quaisquer componentes integrados dos nossos parceiros ISV no menu de dropdown **de nome componente** e, se necessário, introduzir a chave de licença do produto/carregar o ficheiro de licença do produto que adquiriu na caixa de  / **ficheiros da chave licença.**
   
          As configurações personalizadas expressas adicionadas aparecerão na página **de definições Avançadas.** Para removê-las, pode selecionar as suas caixas de verificação e, em seguida, selecionar **Eliminar**.
 
@@ -1004,9 +1004,9 @@ Se utilizar o SSISDB, pode colocar as suas encomendas nele e executá-las no seu
 - Para uma instância gerida com ponto final privado, o formato de ponto final do servidor é `<server name>.<dns prefix>.database.windows.net` .
 - Para um caso gerido com ponto final público, o formato de ponto final do servidor é `<server name>.public.<dns prefix>.database.windows.net,3342` . 
 
-Se não utilizar o SSISDB, pode implantar as suas encomendas no sistema de ficheiros, ficheiros Azure ou MSDB hospedados pela sua Azure SQL Managed Instance e executá-las no seu Azure-SSIS IR utilizando utilitários de linha de comando [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) e [AzureDTExec.](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) 
+Se não utilizar o SSISDB, pode implantar as suas encomendas no sistema de ficheiros, ficheiros Azure ou MSDB hospedados pela sua Azure SQL Managed Instance e executá-las no seu Azure-SSIS IR utilizando utilitários de linha de comando [dtutil](/sql/integration-services/dtutil-utility) e [AzureDTExec.](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) 
 
-Para obter mais informações, consulte [projetos/pacotes SSIS de implementação.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-ver15)
+Para obter mais informações, consulte [projetos/pacotes SSIS de implementação.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages)
 
 Em ambos os casos, também pode executar os seus pacotes implantados no Azure-SSIS IR utilizando a atividade do Pacote SSIS executar em pipelines data Factory. Para obter mais informações, consulte a execução do [pacote SSIS como uma atividade de primeira classe data factory](./how-to-invoke-ssis-package-ssis-activity.md).
 

@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: bc5d2cad7b4fbf1871d2c02dc91db30daf55e855
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b9dc88c5773d1329ad4fb4d1c45a0cbc88737423
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600732"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556584"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um tempo de execução de integração Azure-SSIS
 
@@ -345,7 +345,7 @@ Para visualizar e reutilizar algumas amostras de configurações personalizadas 
 
       * Uma pasta *TLS 1.2,* que contém um script de configuração personalizado *(main.cmd*) para utilizar uma criptografia forte e um protocolo de rede mais seguro (TLS 1.2) em cada nó do seu Azure-SSIS IR. O script também desativa as versões SSL/TLS mais antigas.
 
-      * Uma pasta *ZULU OPENJDK,* que contém um script de configuração personalizado *(main.cmd*) e um ficheiro PowerShell *(install_openjdk.ps1*) para instalar o Zulu OpenJDK em cada nó do seu Azure-SSIS IR. Esta configuração permite-lhe utilizar a Azure Data Lake Store e os conectores de ficheiros flexíveis para processar ficheiros ORC e Parquet. Para mais informações, consulte [o Azure Feature Pack para serviços de integração.](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java) 
+      * Uma pasta *ZULU OPENJDK,* que contém um script de configuração personalizado *(main.cmd*) e um ficheiro PowerShell *(install_openjdk.ps1*) para instalar o Zulu OpenJDK em cada nó do seu Azure-SSIS IR. Esta configuração permite-lhe utilizar a Azure Data Lake Store e os conectores de ficheiros flexíveis para processar ficheiros ORC e Parquet. Para mais informações, consulte [o Azure Feature Pack para serviços de integração.](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#dependency-on-java) 
       
         Primeiro, [faça o download do mais recente Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (por exemplo, *zulu8.33.0.1-jdk8.0.192-win_x64.zip),* e depois carreje-o juntamente com *o main.cmd* e *install_openjdk.ps1* para o seu contentor.
 
@@ -359,7 +359,7 @@ Para visualizar e reutilizar algumas amostras de configurações personalizadas 
 
 1. Depois de terminar a configuração personalizada padrão e o seu Azure-SSIS IR começar, pode encontrar todos os registos de configuração personalizados na pasta *principal.cmd.log* do seu recipiente. Incluem a saída padrão do *main.cmd* e outros registos de execução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a Edição Empresarial da Azure-SSIS IR](how-to-configure-azure-ssis-ir-enterprise-edition.md)
 - [Desenvolver componentes pagos ou licenciados para a Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md)

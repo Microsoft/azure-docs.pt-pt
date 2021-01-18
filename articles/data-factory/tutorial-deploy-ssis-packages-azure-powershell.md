@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: afc2f05d61c888e50ec9de5edaa7806e6c6b5d3c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e2ace9a8d7d9c0229e7e06847c2ce56bea11c138
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636243"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555819"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Criar um Azure-SSIS IR na Azure Data Factory utilizando o PowerShell
 
@@ -30,7 +30,7 @@ Este tutorial fornece passos para a utilização do PowerShell para fornecer um 
 - Pacotes de execução implantados no catálogo SSIS (SSISDB) hospedados pelo servidor de base de dados Azure SQL/Gestão de Instâncias (Modelo de Implementação de Projetos)
 - Executando pacotes implantados no sistema de ficheiros, ficheiros Azure ou base de dados do SQL Server (MSDB) hospedada por Azure SQL Managed Instance (Modelo de Implementação de Pacotes)
 
-Depois de ser alojado um Azure-SSIS IR, pode utilizar ferramentas familiares para implantar e executar as suas encomendas em Azure. Estas ferramentas já estão ativadas pelo Azure e incluem ferramentas de dados do servidor SQL (SSDT), SQL Server Management Studio (SSMS) e utilitários de linha de comando como [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) e [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
+Depois de ser alojado um Azure-SSIS IR, pode utilizar ferramentas familiares para implantar e executar as suas encomendas em Azure. Estas ferramentas já estão ativadas pelo Azure e incluem ferramentas de dados do servidor SQL (SSDT), SQL Server Management Studio (SSMS) e utilitários de linha de comando como [dtutil](/sql/integration-services/dtutil-utility) e [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
 Para obter informações concetuais sobre IRs Azure-SSIS, veja [Descrição geral do runtime de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
@@ -49,9 +49,9 @@ Neste tutorial, vai:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Assinatura Azure** . Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- **Servidor de base de dados Azure SQL ou instância gerida (opcional)** . Se ainda não tiver um servidor de base de dados, crie um no portal do Azure antes de começar. A Data Factory criará, por sua vez, uma instância SSISDB neste servidor de base de dados. 
+- **Servidor de base de dados Azure SQL ou instância gerida (opcional)**. Se ainda não tiver um servidor de base de dados, crie um no portal do Azure antes de começar. A Data Factory criará, por sua vez, uma instância SSISDB neste servidor de base de dados. 
 
   Recomendamos que crie o servidor de base de dados na mesma região do Azure que o integration runtime. Esta configuração permite que o tempo de execução da integração escreva os registos de execução em SSISDB sem atravessar regiões de Azure.
 
@@ -69,7 +69,7 @@ Neste tutorial, vai:
 
   - Confirme que o seu servidor de base de dados ainda não tem uma instância SSISDB. O provisionamento de um IR Azure-SSIS não suporta utilizando uma instância SSISDB existente.
 
-- **Azure PowerShell** . Para executar um script PowerShell para configurar o seu Azure-SSIS IR, siga as instruções em [Instalar e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. Para executar um script PowerShell para configurar o seu Azure-SSIS IR, siga as instruções em [Instalar e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
 
 > [!NOTE]
 > Para uma lista das regiões de Azure em que a Azure Data Factory e a Azure-SSIS IR estão atualmente disponíveis, consulte [a Azure Data Factory e a disponibilidade do Azure-SSIS IR por região.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all) 
@@ -595,9 +595,9 @@ Se utilizar o SSISDB, pode colocar as suas encomendas nele e executá-las no seu
 - Para uma instância gerida com ponto final privado, o formato de ponto final do servidor é `<server name>.<dns prefix>.database.windows.net` .
 - Para um caso gerido com ponto final público, o formato de ponto final do servidor é `<server name>.public.<dns prefix>.database.windows.net,3342` . 
 
-Se não utilizar o SSISDB, pode implantar as suas encomendas no sistema de ficheiros, ficheiros Azure ou MSDB hospedados pela sua Azure SQL Managed Instance e executá-las no seu Azure-SSIS IR utilizando utilitários de linha de comando [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) e [AzureDTExec.](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) 
+Se não utilizar o SSISDB, pode implantar as suas encomendas no sistema de ficheiros, ficheiros Azure ou MSDB hospedados pela sua Azure SQL Managed Instance e executá-las no seu Azure-SSIS IR utilizando utilitários de linha de comando [dtutil](/sql/integration-services/dtutil-utility) e [AzureDTExec.](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) 
 
-Para obter mais informações, consulte [projetos/pacotes SSIS de implementação.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-ver15)
+Para obter mais informações, consulte [projetos/pacotes SSIS de implementação.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages)
 
 Em ambos os casos, também pode executar os seus pacotes implantados no Azure-SSIS IR utilizando a atividade do Pacote SSIS executar em pipelines data Factory. Para obter mais informações, consulte a execução do [pacote SSIS como uma atividade de primeira classe data factory](./how-to-invoke-ssis-package-ssis-activity.md).
 

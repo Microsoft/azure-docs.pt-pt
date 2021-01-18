@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: 98484655dec069c3a284dce0ea83477faf75d9a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5f8b18375c517ab5b620b2d6d897f5133b14705d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637756"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556465"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Executar pacotes SSIS utilizando o agente de instância gerido Azure SQL
 
@@ -24,7 +24,7 @@ Com esta funcionalidade, pode executar pacotes SSIS que são armazenados em SSIS
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar esta funcionalidade, [descarregue](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e instale o mais recente SQL Server Management Studio (SSMS). Detalhes de suporte da versão como abaixo:
+Para utilizar esta funcionalidade, [descarregue](/sql/ssms/download-sql-server-management-studio-ssms) e instale o mais recente SQL Server Management Studio (SSMS). Detalhes de suporte da versão como abaixo:
 
 - Para executar pacotes em SSISDB ou sistema de ficheiros, instale a versão SSMS 18.5 ou superior.
 - Para executar pacotes na loja de pacotes, instale a versão SSMS 18.6 ou superior.
@@ -36,7 +36,7 @@ Também precisa de [providenciar um tempo de integração Azure-SSIS](./tutorial
 Neste procedimento, utiliza o SqL Managed Instance Agent para invocar um pacote SSIS que está armazenado no SSISDB.
 
 1. Na versão mais recente do SSMS, ligue-se a uma SQL Managed Instance.
-1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job** .
+1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job**.
 
    ![Seleções para criar um novo trabalho de agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -52,9 +52,9 @@ Neste procedimento, utiliza o SqL Managed Instance Agent para invocar um pacote 
 
 1. No **separador Configuração,** pode:
   
-   - Especifique os valores dos parâmetros nos **parâmetros** .
+   - Especifique os valores dos parâmetros nos **parâmetros**.
    - Sobrepõe-se aos valores em **"Connection Managers".**
-   - Sobrepõe-se à propriedade e escolha o nível de registo em **Advanced** .
+   - Sobrepõe-se à propriedade e escolha o nível de registo em **Advanced**.
 
    ![Separador de configuração com seleções para o tipo de fonte de pacote](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
 
@@ -66,7 +66,7 @@ Neste procedimento, utiliza o SqL Managed Instance Agent para invocar um pacote 
 Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote SSIS que está armazenado no sistema de ficheiros.
 
 1. Na versão mais recente do SSMS, ligue-se a uma SQL Managed Instance.
-1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job** .
+1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job**.
 
    ![Seleções para criar um novo trabalho de agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -76,19 +76,19 @@ Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote
 
 1. No **separador Pacote:**
 
-   1. Para **a localização do pacote** , selecione o sistema de **ficheiros** .
+   1. Para **a localização do pacote**, selecione o sistema de **ficheiros**.
 
    1. Para **o tipo de origem de ficheiro:**
 
-      - Se o seu pacote for enviado para ficheiros Azure, selecione **a partilha de ficheiros Azure** .
+      - Se o seu pacote for enviado para ficheiros Azure, selecione **a partilha de ficheiros Azure**.
 
         ![Opções para tipo de origem de ficheiros](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
 
         O caminho do pacote **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** é.
 
-        In **Package file access credencial** , insira o nome da conta de ficheiro Azure e a chave de conta para aceder ao ficheiro Azure. O domínio é definido como **Azure.**
+        In **Package file access credencial**, insira o nome da conta de ficheiro Azure e a chave de conta para aceder ao ficheiro Azure. O domínio é definido como **Azure.**
 
-      - Se o seu pacote for enviado para uma partilha de rede, selecione **Network share** .
+      - Se o seu pacote for enviado para uma partilha de rede, selecione **Network share**.
 
         O caminho do pacote é o caminho unc do seu ficheiro de pacote com a sua extensão .dtsx.
 
@@ -111,7 +111,7 @@ Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote
 Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote SSIS que está armazenado na loja de pacotes Azure-SSIS IR.
 
 1. Na versão mais recente do SSMS, ligue-se a uma SQL Managed Instance.
-1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job** .
+1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job**.
 
    ![Seleções para criar um novo trabalho de agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
@@ -121,7 +121,7 @@ Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote
 
 1. No **separador Pacote:**
 
-   1. Para **a localização do pacote** , selecione Package **Store** .
+   1. Para **a localização do pacote**, selecione Package **Store**.
 
    1. Para **o caminho do pacote:**
 
@@ -151,12 +151,12 @@ Para cancelar a execução de pacotes a partir de um trabalho de Agente de Inst�
    ```sql
    select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
-   Se os seus pacotes SSIS estiverem no SSISDB, use **ssisdb.internal.execution_parameter_values** como tabela para a execução de empregos. Se as suas embalagens SSIS estiverem no sistema de ficheiros, utilize **ssisdb.internal.execution_parameter_values_noncatalog** .
-1. Clique com o botão direito no catálogo SSISDB e, em seguida, selecione **Ative Operations** .
+   Se os seus pacotes SSIS estiverem no SSISDB, use **ssisdb.internal.execution_parameter_values** como tabela para a execução de empregos. Se as suas embalagens SSIS estiverem no sistema de ficheiros, utilize **ssisdb.internal.execution_parameter_values_noncatalog**.
+1. Clique com o botão direito no catálogo SSISDB e, em seguida, selecione **Ative Operations**.
 
    !["Operações Ativas" no menu de atalho para o catálogo SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
 
-1. Parar a operação correspondente com base na **execuçãoId** .
+1. Parar a operação correspondente com base na **execuçãoId**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Também pode agendar pacotes SSIS utilizando a Azure Data Factory. Para obter instruções passo a passo, consulte o gatilho do [evento Azure Data Factory](how-to-create-event-trigger.md).

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ec3892c5e47c372d9f54d4a4224e94183e31f181
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: bd95acf5c07786f725398416f220d3ba638c515e
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251136"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555700"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerir instâncias em Funções Duradouras em Azure
 
@@ -992,8 +992,8 @@ from datetime import datetime, timedelta
 
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
-    created_time_from = datetime.datetime()
-    created_time_to = datetime.datetime.today + timedelta(days = -30)
+    created_time_from = datetime.min
+    created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
     return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)

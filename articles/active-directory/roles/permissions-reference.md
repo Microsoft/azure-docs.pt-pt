@@ -1,5 +1,5 @@
 ---
-title: Descrições e permissões de funções da AZure AD - Azure Ative Directory Microsoft Docs
+title: Descrições e permissões de funções da AZure AD - Azure Ative Directory | Microsoft Docs
 description: Uma função administrativa pode adicionar utilizadores, atribuir funções administrativas, redefinir palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios.
 services: active-directory
 author: curtand
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107927"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555734"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -56,7 +56,7 @@ Estão disponíveis as seguintes funções de administrador:
 
 Os utilizadores desta função podem criar e gerir todos os aspetos das aplicações empresariais, registos de aplicações e configurações de procuração de aplicações. Note que os utilizadores destacados para esta função não são adicionados como proprietários na criação de novos registos de aplicações ou aplicações empresariais.
 
-Esta função também concede a capacidade de _consentir_ com permissões delegadas e permissões de aplicação, com exceção das permissões na API do Gráfico da Microsoft.
+Esta função também concede a capacidade de _consentir_ com permissões delegadas e permissões de aplicação, com exceção das permissões de aplicação na API do Microsoft Graph.
 
 > [!IMPORTANT]
 > Esta exceção significa que ainda pode consentir permissões para _outras_ aplicações (por exemplo, aplicações ou aplicações não Microsoft que tenha registado), mas não para permissões em Azure AD em si. Ainda pode _solicitar_ estas permissões como parte do registo da app, mas _conceder_ (isto é, consentir) estas permissões requer um administrador AD AZure. Isto significa que um utilizador malicioso não pode facilmente elevar as suas permissões, por exemplo, criando e consentindo numa aplicação que possa escrever para todo o diretório e através das permissões dessa aplicação elevam-se para se tornarem administradores globais.

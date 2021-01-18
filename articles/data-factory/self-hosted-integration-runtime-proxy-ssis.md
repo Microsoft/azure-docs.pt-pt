@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bde8bc11a959bea4bd2c05c5ae75db81192aad6a
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352223"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555870"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como representante de um Azure-SSIS IR na Azure Data Factory
 
@@ -54,9 +54,9 @@ Por fim, descarrega e instala a versão mais recente do IR auto-hospedado, bem c
 
 ### <a name="enable-windows-authentication-for-on-premises-staging-tasks"></a>Ativar a autenticação do Windows para tarefas de preparação no local
 
-Se as tarefas de preparação no local do seu IR auto-hospedado exigirem a autenticação do Windows, [configuure os seus pacotes SSIS para utilizar a mesma autenticação do Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+Se as tarefas de preparação no local do seu IR auto-hospedado exigirem a autenticação do Windows, [configuure os seus pacotes SSIS para utilizar a mesma autenticação do Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). 
 
-As suas tarefas de preparação no local serão invocadas com a conta de serviço de IR auto-hospedada *(NT SERVICE\DIAHostService,* por padrão), e as suas lojas de dados serão acedidas com a conta de autenticação do Windows. Ambas as contas exigem que sejam atribuídas determinadas políticas de segurança. Na máquina de INFRAVERMELHOs auto-hospedada, vá à Atribuição de Direitos de Utilizador de Políticas Locais **de**  >  **Segurança**  >  **User Rights Assignment** Local, e, em seguida, faça o seguinte:
+As suas tarefas de preparação no local serão invocadas com a conta de serviço de IR auto-hospedada *(NT SERVICE\DIAHostService,* por padrão), e as suas lojas de dados serão acedidas com a conta de autenticação do Windows. Ambas as contas exigem que sejam atribuídas determinadas políticas de segurança. Na máquina de INFRAVERMELHOs auto-hospedada, vá à Atribuição de Direitos de Utilizador de Políticas Locais **de**  >  **Segurança**  >  Local, e, em seguida, faça o seguinte:
 
 1. Atribua as *quotas de memória ajustar para um processo* e substituir as políticas de símbolo de *nível* de processo na conta de serviço de ir auto-hospedada. Isto deve ocorrer automaticamente quando instalar o seu IR auto-hospedado com a conta de serviço predefinida. Se não, atribua essas apólices manualmente. Se utilizar uma conta de serviço diferente, atribua-lhe as mesmas políticas.
 
@@ -70,7 +70,7 @@ Se ainda não o fez, crie um serviço de armazenamento Azure Blob na mesma fábr
 - Para **método de autenticação**, selecione **Tecla de conta,** **SAS URI,** **Principal de Serviço** ou Identidade **Gerida.**  
 
 >[!TIP]
->Se selecionar o método Principal de **Serviço,** conceda ao seu titular de serviço pelo menos uma função *de Contribuinte de Dados blob de armazenamento.* Para mais informações, consulte [o conector de armazenamento Azure Blob](connector-azure-blob-storage.md#linked-service-properties). Se selecionar o método **identidade gerida,** conceda à sua identidade gerida pela ADF funções adequadas para aceder ao Azure Blob Storage. Para obter mais informações, consulte [o Access Azure Blob Storage utilizando a autenticação do Azure Ative Directory com identidade gerida pela ADF.](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)
+>Se selecionar o método Principal de **Serviço,** conceda ao seu titular de serviço pelo menos uma função *de Contribuinte de Dados blob de armazenamento.* Para mais informações, consulte [o conector de armazenamento Azure Blob](connector-azure-blob-storage.md#linked-service-properties). Se selecionar o método **identidade gerida,** conceda à sua identidade gerida pela ADF funções adequadas para aceder ao Azure Blob Storage. Para obter mais informações, consulte [o Access Azure Blob Storage utilizando a autenticação do Azure Ative Directory com identidade gerida pela ADF.](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)
 
 ![Prepare o serviço ligado ao armazenamento Azure Blob para a realização](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -132,7 +132,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 Ao utilizar o SSDT mais recente como extensão de Projetos SSIS para Estúdio Visual ou um instalador autónomo, pode encontrar uma nova `ConnectByProxy` propriedade que foi adicionada nos gestores de ligação para componentes de fluxo de dados suportados.
 * [Descarregue a extensão dos Projetos SSIS para o Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
-* [Descarregue o instalador autónomo](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
+* [Descarregue o instalador autónomo](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)   
 
 Quando concebe novos pacotes que contenham tarefas de fluxo de dados com componentes que acedam aos dados nas instalações, pode ativar esta propriedade definindo-a para *True* no painel **de Propriedades** dos gestores de conexão relevantes.
 
