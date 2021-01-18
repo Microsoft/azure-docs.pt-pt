@@ -467,18 +467,26 @@
       displayName: SPX
       items:
         - name: Descrição geral da CLI de Voz
-          displayName: What is SPX?
+          displayName: 'What is SPX?, spx, spx overview'
           href: spx-overview.md
-        - name: Noções Básicas da CLI de Voz
-          displayName: SPX basics
+        - name: Início rápido da CLI de Voz
+          displayName: 'spx basics, spx quickstart, spx get started, speech cli get started'
           href: spx-basics.md
+        - name: Guias de procedimentos
+          items:
+            - name: Opções de configuração da CLI de Voz
+              displayName: 'SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore'
+              href: spx-data-store-configuration.md
+            - name: Operações de lote da CLI de Voz
+              displayName: 'spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch'
+              href: spx-batch-operations.md
     - name: Speech Studio
       items:
         - name: Descrição geral do Speech Studio
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: ./quickstart-custom-commands-application.md
-- name: Implementação
+- name: Implementar
   items:
     - name: Ativar registo
       href: how-to-use-logging.md

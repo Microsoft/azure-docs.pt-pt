@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/19/2020
-  ms.openlocfilehash: 772fa134eabc45dcbaa9e9b05c573aec493dd57b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 01/15/2020
+  ms.openlocfilehash: 3aaf42935e292bda64d9227d01f498c83f4c9f7a
+  ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89438163"
+  ms.lasthandoff: 01/16/2021
+  ms.locfileid: "98250779"
 landingContent:
 - title: Acerca da WAN Virtual
   linkLists:
@@ -75,12 +75,14 @@ landingContent:
       url: about-virtual-hub-routing.md
     - text: Cenário - Encaminhar o tráfego através de uma NVA
       url: scenario-route-through-nva.md
-    - text: Cenário - Any-to-any
+    - text: Cenário - Qualquer spoke para qualquer spoke
       url: scenario-any-to-any.md
-    - text: Cenário - Isolar VNets
+    - text: Cenário - Isolar uma VNet
       url: scenario-isolate-vnets.md
-    - text: Cenário - VNets de Serviços Partilhados
+    - text: Cenário - Encaminhar para uma VNet de serviços partilhados
       url: scenario-shared-services-vnet.md
+    - text: Cenário - Encaminhamento personalizado através do Azure Firewall
+      url: scenario-route-between-vnets-firewall.md
   - linkListType: how-to-guide
     links:
     - text: Configurar o encaminhamento do hub virtual

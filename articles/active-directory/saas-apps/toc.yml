@@ -869,10 +869,10 @@
           href: instavr-viewer-tutorial.md
         - name: insuite
           href: insuite-tutorial.md
-        - name: Intacct
-          href: intacct-tutorial.md
         - name: IntelligenceBank
           href: intelligencebank-tutorial.md
+        - name: International SOS Assistance Products
+          href: international-sos-assistance-products-tutorial.md
         - name: InTime
           href: intime-tutorial.md
         - name: Intralinks
@@ -1167,6 +1167,8 @@
           href: namely-tutorial.md
         - name: Nature Research
           href: nature-research-tutorial.md
+        - name: NAVEX One
+          href: navex-one-tutorial.md
         - name: Início de Sessão Único (SSO) do NegometrixPortal
           href: negometrixportal-tutorial.md
         - name: NEOGOV
@@ -1479,6 +1481,8 @@
           href: safeconnect-tutorial.md
         - name: SafetyNet
           href: safetynet-tutorial.md
+        - name: Sage Intacct
+          href: intacct-tutorial.md
         - name: SailPoint IdentityNow
           href: sailpoint-identitynow-tutorial.md
         - name: Salesforce
@@ -2046,6 +2050,8 @@
           href: clarizen-one-provisioning-tutorial.md
         - name: Code42
           href: code42-provisioning-tutorial.md
+        - name: Cofense Recipient Sync
+          href: cofense-provision-tutorial.md
         - name: Contentful
           href: contentful-provisioning-tutorial.md
         - name: Comeet Recruiting Software

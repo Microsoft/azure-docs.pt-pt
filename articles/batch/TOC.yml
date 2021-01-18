@@ -223,14 +223,12 @@
           items:
             - name: Composição com o Azure
               href: batch-rendering-service.md
-            - name: Composição de imagens de VM
+            - name: Composição em lote de imagens de VM
               href: batch-rendering-applications.md
             - name: Capacidades de composição do Batch
               href: batch-rendering-functionality.md
             - name: Utilizar a composição do Batch
               href: batch-rendering-using.md
-            - name: Utilizar gestores de composição
-              href: batch-rendering-render-managers.md
             - name: Composição de referência de aplicação
               href: batch-rendering-application-reference.md
             - name: Movimento de dados e armazenamento

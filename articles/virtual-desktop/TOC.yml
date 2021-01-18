@@ -128,6 +128,8 @@
       href: authentication.md
     - name: Ambiente do Windows Virtual Desktop
       href: environment-setup.md
+    - name: Agente do Windows Virtual Desktop
+      href: agent-overview.md
     - name: Conectividade de rede
       items:
         - name: Compreender a conectividade da rede
@@ -180,6 +182,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Ligações do serviço de Ambiente de Trabalho Remoto
       href: troubleshoot-service-connection.md
+    - name: Agente do Windows Virtual Desktop
+      href: troubleshoot-agent.md
     - name: Problemas no cliente de Ambiente de Trabalho Remoto
       href: troubleshoot-client.md
     - name: Windows Virtual Desktop PowerShell

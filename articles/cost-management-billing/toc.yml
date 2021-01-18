@@ -188,16 +188,6 @@
               href: manage/pay-by-invoice.md
             - name: Criar subscrições adicionais
               href: manage/create-subscription.md
-            - name: Criar subscrições EA através de programação
-              href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: Criar subscrições MCA através de programação
-              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: Criar subscrições MPA através de programação
-              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Criar subscrições - Modelo do ARM
-              href: manage/create-subscription-template.md
-            - name: Criar subscrições através de programação - pré-visualização
-              href: manage/programmatically-create-subscription-preview.md
             - name: Conceder acesso para criar subscrições de EA
               href: manage/grant-access-to-create-subscription.md
             - name: Exportar as informações de subscrição
@@ -214,6 +204,20 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: Cancelar subscrição
               href: manage/cancel-azure-subscription.md
+        - name: Criar subscrições através de programação
+          items:
+            - name: Criar subscrições através de programação
+              href: manage/programmatically-create-subscription.md
+            - name: Criar subscrições EA através de programação
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: Criar subscrições MCA através de programação
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: Criar subscrições MPA através de programação
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: Criar subscrições - Modelo do ARM
+              href: manage/create-subscription-template.md
+            - name: Criar subscrições através de programação - APIs de pré-visualização
+              href: manage/programmatically-create-subscription-preview.md
         - name: Gerir as subscrições do Contrato Enterprise
           items:
             - name: Funções de EA no Azure

@@ -55,6 +55,8 @@
               href: ./database/security-controls-policy.md
             - name: Linha de base de segurança
               href: database/security-baseline.md
+            - name: Sempre Encriptado
+              href: database/always-encrypted-landing.yml
             - name: Azure Defender para SQL
               href: database/azure-defender-for-sql.md
             - name: Proteção Avançada Contra Ameaças
@@ -255,6 +257,8 @@
               href: database/service-tier-hyperscale.md
             - name: Perguntas Frequentes do Hyperscale
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+        - name: Planear e gerir custos
+          href: database/cost-management.md
     - name: Guias de Início Rápido
       href: database/quickstart-content-reference-guide.md
       items:
@@ -293,14 +297,16 @@
               href: database/active-geo-replication-configure-portal.md
         - name: Segurança
           items:
+            - name: Always Encrypted com enclaves protegidos
+              href: database/always-encrypted-enclaves-getting-started.md
             - name: Configurar a segurança
               href: database/secure-database-tutorial.md
+            - name: Criar utilizadores com principais de serviço
+              href: database/authentication-aad-service-principal-tutorial.md
             - name: Rodar chaves BYOK de TDE
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: Remover o protetor de TDE
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
-            - name: Criar utilizadores com principais de serviço
-              href: database/authentication-aad-service-principal-tutorial.md
         - name: Mover dados
           items:
             - name: Migrar com o DMS
@@ -371,6 +377,19 @@
               href: database/sql-data-sync-troubleshoot.md
         - name: Segurança
           items:
+            - name: Sempre Encriptado
+              href: database/always-encrypted-landing.yml
+            - name: Always Encrypted com enclaves protegidos
+              href: database/always-encrypted-with-secure-enclaves-landing.yml
+              items:
+                - name: Configurar e utilizar Always Encrypted com enclaves protegidos >
+                  href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+                - name: Planear para enclaves e atestado do Intel SGX
+                  href: database/always-encrypted-enclaves-plan.md
+                - name: Ativar o Intel SGX
+                  href: database/always-encrypted-enclaves-enable-sgx.md
+                - name: Configurar o Azure Attestation
+                  href: database/always-encrypted-enclaves-configure-attestation.md
             - name: Auditoria de SQL do Azure
               href: database/auditing-overview.md
             - name: Formato do registo de auditoria
@@ -922,10 +941,12 @@
               href: /sql/relational-databases/database-mail/database-mail?toc=%2fazure%2fazure-sql%2ftoc.json
         - name: Segurança
           items:
-            - name: Pontos finais públicos seguros
-              href: managed-instance/public-endpoint-overview.md
+            - name: Sempre Encriptado
+              href: database/always-encrypted-landing.yml
             - name: Auditoria
               href: managed-instance/auditing-configure.md
+            - name: Pontos finais públicos seguros
+              href: managed-instance/public-endpoint-overview.md
             - name: Grupos de confiança de servidor
               href: managed-instance/server-trust-group-overview.md
     - name: Procedimento

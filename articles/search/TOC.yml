@@ -308,10 +308,10 @@
       items:
         - name: Escolha um escalão
           href: search-sku-tier.md
-        - name: Calcular a capacidade e o custo
-          href: search-sku-manage-costs.md
-        - name: Ajustar a capacidade
+        - name: Estimar e gerir a capacidade
           href: search-capacity-planning.md
+        - name: Cálculo de custos
+          href: search-sku-manage-costs.md
         - name: Limites do serviço
           href: search-limits-quotas-capacity.md
         - name: Dimensionamento para desempenho
