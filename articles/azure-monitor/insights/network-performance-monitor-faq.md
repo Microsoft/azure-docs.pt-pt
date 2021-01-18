@@ -1,17 +1,17 @@
 ---
-title: PERGUNTAS Frequentes - Solução monitor de desempenho de rede em Azure Microsoft Docs
+title: PERGUNTAS Frequentes - Solução de Monitor de Desempenho de Rede em Azure | Microsoft Docs
 description: Este artigo captura as perguntas frequentes sobre o Monitor de Desempenho da Rede em Azure. O Monitor de Desempenho da Rede (NPM) ajuda-o a monitorizar o desempenho das suas redes em tempo real e a detetar e localizar estrangulamentos de desempenho da rede.
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: dd6c6248fcdf30350daecaa4857a81447bbdb7a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8e26a4d996e4c1767856b3dd98ae318d8992a89b
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280315"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562697"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -34,7 +34,7 @@ Listados abaixo estão os requisitos da plataforma para as várias capacidades d
 - A capacidade do Monitor ExpressRoute da NPM suporta apenas o sistema operativo Windows server (2008 SP1 ou posterior).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Posso usar as máquinas Linux como nós de monitorização em NPM?
-A capacidade de monitorizar redes utilizando nós baseados em Linux está atualmente em pré-visualização. A acccess o agente [aqui.](../../virtual-machines/extensions/oms-linux.md) Contacte o seu Gestor de Contas para saber mais. Os agentes Linux fornecem capacidade de monitorização apenas para a capacidade do Monitor de Desempenho da NPM, e não estão disponíveis para as capacidades do Monitor de Conectividade de Serviço e do Monitor ExpressRoute
+A capacidade de monitorizar redes utilizando nós baseados em Linux está agora geralmente disponível. A acccess o agente [aqui.](../../virtual-machines/extensions/oms-linux.md) Os agentes Linux fornecem capacidade de monitorização apenas para a capacidade do Monitor de Desempenho da NPM, e não estão disponíveis para as capacidades do Monitor de Conectividade de Serviço e do Monitor ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de tamanho dos nós a utilizar para monitorização por NPM?
 Para executar a solução NPM em VMs de nó para monitorizar as redes, os nós devem ter pelo menos 500-MB de memória e um núcleo. Não é preciso usar nós separados para executar NPM. A solução pode funcionar em nós que têm outras cargas de trabalho em execução. A solução tem a capacidade de parar o processo de monitorização se utilizar mais de 5% de CPU.
@@ -149,7 +149,7 @@ NetworkMonitoring
 O NPM apenas identifica o nome IP e anfitrião do lúpulo de rede subjacente (comutadores, routers, servidores, etc.) entre os IPs de origem e destino. Também identifica a latência entre estes lúpulos identificados. Não monitoriza individualmente estes lúpulos subjacentes.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>O NPM pode ser utilizado para monitorizar a conectividade da rede entre o Azure e o AWS?
-Sim. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
+Yes. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>O uso da largura de banda ExpressRoute está a chegar ou a sair?
 O uso da largura de banda é o total de largura de banda de entrada e saída. É expressa em Bits/seg.

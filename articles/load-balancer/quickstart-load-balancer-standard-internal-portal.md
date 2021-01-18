@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704338"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562357"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -41,11 +41,13 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos padrão do balanceador de carga criados para o arranque rápido." border="false":::
-
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
 
 Quando cria um equilibrador de carga interno, uma rede virtual é configurada como a rede para o equilibrador de carga. 
+
+O diagrama a seguir mostra os recursos criados neste arranque rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos padrão do balanceador de carga criados para o arranque rápido." border="false":::
 
 Um endereço IP privado na rede virtual é configurado como o frontend (nomeado como **LoadBalancerFrontend** por padrão) para o balançador de carga. 
 
@@ -66,7 +68,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -111,9 +113,9 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | O grupo de recursos         | Selecione **CreateIntLBQS-rg** criado no passo anterior.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Grupo de recursos         | Selecione **CreateIntLBQS-rg** criado no passo anterior.|
+    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -199,12 +201,8 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
     | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
     | Reset TCP | Selecione **Ativado**. |
-    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer acesso aos membros do pool de backend à internet.** |
-
+    
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
-
->[!NOTE]
->As máquinas virtuais no pool de backend não terão conectividade de internet de saída com esta configuração. </br> Para obter mais informações sobre o fornecimento de conectividade de saída, consulte: </br> **[Ligações de saída no Azure](load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balanceador de carga só de saída](egress-only.md)** </br> **[O que é Virtual Network NAT?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
@@ -230,7 +228,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **zonas de disponibilidade** |
     | Zona de disponibilidade | Selecione **1** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
@@ -268,7 +266,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2 | VM 3 |
     | ------- | ----- | ---- |
-    | Nome |  **myVM2** | **myVM3** |
+    | Name |  **myVM2** | **myVM3** |
     | Zona de disponibilidade | **2** | **3** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente |
 
@@ -278,11 +276,13 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos básicos do balanceador de carga criados em arranque rápido." border="false":::
-
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
 
 Quando cria um equilibrador de carga interno, uma rede virtual é configurada como a rede para o equilibrador de carga. 
+
+O diagrama a seguir mostra os recursos criados neste arranque rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos básicos do balanceador de carga criados em arranque rápido." border="false":::
 
 Um endereço IP privado na rede virtual é configurado como o frontend (nomeado como **LoadBalancerFrontend** por padrão) para o balançador de carga. 
 
@@ -303,7 +303,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -348,9 +348,9 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | O grupo de recursos         | Selecione **CreateIntLBQS-rg** criado no passo anterior.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Grupo de recursos         | Selecione **CreateIntLBQS-rg** criado no passo anterior.|
+    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Basic** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -389,7 +389,7 @@ Crie o pool de endereços de backend **myBackendPool** para incluir máquinas vi
     | Rede virtual | Selecione **myVNet**. |
     | Associado a | Selecione **máquinas virtuais** |
 
-4. Selecione **Add** (Adicionar).
+4. Selecione **Adicionar**.
 
 ### <a name="create-a-health-probe"></a>Criar uma sonda de estado de funcionamento
 
@@ -472,7 +472,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Conjunto de disponibilidade** |
     | Conjunto de disponibilidade | Selecione **Criar novo**. </br> Insira **o mySilabilitySet** no **nome**. </br> Selecione **OK** |
     | Imagem | **Windows Server 2019 Datacenter** |
@@ -506,7 +506,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2 | VM 3 |
     | ------- | ----- | ---- |
-    | Nome |  **myVM2** | **myVM3** |
+    | Name |  **myVM2** | **myVM3** |
     | Conjunto de disponibilidade | Selecione **mySIlabilitySet** | Selecione **mySIlabilitySet** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente | Selecione o **myNSG** existente |
 
@@ -524,7 +524,7 @@ Os VMs criados nos passos anteriores devem ser adicionados ao pool de backend do
 
 5. Selecione as caixas ao lado **do myVM1,** **myVM2,** e **myVM3**.
 
-6. Selecione **Add** (Adicionar).
+6. Selecione **Adicionar**.
 
 7. Selecione **Guardar**.
 ---
@@ -544,7 +544,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
     | Grupo de Recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myTestVM** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -625,7 +625,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
    
 Para ver o balanceador de carga distribuir tráfego em ambos os VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos **CreateIntLBQS-rg** que contém os recursos e, em seguida, selecione **Delete**.
 

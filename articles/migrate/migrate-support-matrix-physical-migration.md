@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968573"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562646"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidores físicos
 
-Este artigo resume as configurações e limitações de suporte para a migração de servidores físicos com [Azure Migrate: Migração do Servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) . Se procura informações sobre a avaliação de servidores físicos para migração para Azure, reveja a matriz de suporte de [avaliação](migrate-support-matrix-physical.md).
+Este artigo resume as configurações e limitações de suporte para migrar servidores físicos para Azure com [Azure Migrate: Migração do servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) . Se procura informações sobre a avaliação de servidores físicos para migração para Azure, reveja a matriz de suporte de [avaliação](migrate-support-matrix-physical.md).
 
 ## <a name="migrating-machines-as-physical"></a>Máquinas migratórias como físicas
 
@@ -25,7 +25,7 @@ Pode migrar máquinas no local como servidores físicos, utilizando a replicaç�
 - VMs virtualizados por plataformas como Xen, KVM.
 - VMs hiper-V ou VMware se por alguma razão não quiser utilizar os fluxos padrão [de Hiper-V](tutorial-migrate-hyper-v.md) ou [VMware.](server-migrate-overview.md)
 - VMs correndo em nuvens privadas.
-- VMs correndo em nuvens públicas como Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
+- VMs correndo em nuvens públicas, incluindo Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
 
 ## <a name="migration-limitations"></a>Limitações da migração
@@ -57,7 +57,6 @@ A tabela resume o suporte para servidores físicos que pretende migrar usando mi
 **NFS** | Os volumes NFS montados à medida que os volumes das máquinas não serão replicados.
 **metas iSCSI** | As máquinas com alvos iSCSI não são suportadas para migração sem agentes.
 **IO multipata** | Não suportado.
-**Armazenamento vMotion** | Suportado
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
 

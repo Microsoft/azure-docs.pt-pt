@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127214"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562748"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -45,7 +45,7 @@ Após a configuração da chave gerida pelo Cliente, novos dados ingeridos em es
 
 ![Visão geral da chave gerida pelo cliente](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Cofre de Chaves
 2. Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster de Log Analytics dedicado
 3. Cluster dedicado log analytics
 4. Espaços de trabalho ligados ao recurso *Cluster* 
@@ -95,7 +95,7 @@ N/D
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Ao utilizar o REST, a resposta devolve inicialmente um código de estado HTTP 200 (OK) e cabeçalho com propriedade *Azure-AsyncOperation* quando aceite:
+Ao utilizar o REST, a resposta devolve inicialmente um código de estado HTTP 202 (Aceito) e cabeçalho com propriedade *Azure-AsyncOperation:*
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -200,7 +200,7 @@ Leva alguns minutos para a propagação da chave. Pode verificar o estado de atu
 1. Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronos](#asynchronous-operations-and-status-check).
 2. Envie um pedido GET sobre o cluster e veja as propriedades *KeyVaultProperties.* A sua chave recentemente atualizada deve voltar na resposta.
 
-Uma resposta ao pedido GET deve ser assim quando a atualização chave estiver completa: 200 OK e cabeçalho
+Uma resposta ao pedido GET deve ser assim quando a atualização chave estiver completa: 202 (Aceito) e cabeçalho
 ```json
 {
   "identity": {

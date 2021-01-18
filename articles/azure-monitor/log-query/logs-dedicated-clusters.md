@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831776"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562680"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -58,7 +58,7 @@ Mais detalhes são faturação para clusters dedicados Log Analytics estão disp
 
 ## <a name="asynchronous-operations-and-status-check"></a>Operações assíncronos e verificação de estado
 
-Alguns dos passos de configuração são assíncronos porque não podem ser concluídos rapidamente. O estado de resposta pode ser um dos seguintes: "InProgress", "Atualizar", "Excluir", "Bem sucedido ou Falhado" incluindo o código de erro. Ao utilizar o REST, a resposta devolve inicialmente um código de estado HTTP 200 (OK) e cabeçalho com Azure-AsyncOperation propriedade quando aceite:
+Alguns dos passos de configuração são assíncronos porque não podem ser concluídos rapidamente. O estado de resposta pode ser um dos seguintes: "InProgress", "Atualizar", "Excluir", "Bem sucedido ou Falhado" incluindo o código de erro. Ao utilizar o REST, a resposta devolve inicialmente um código de estado HTTP 202 (Aceito) e cabeçalho com Azure-AsyncOperation propriedade:
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -125,7 +125,7 @@ Content-type: application/json
 
 *Response*
 
-Deve ser 200 OK e um cabeçalho.
+Deve ser 202 (Aceito) e um cabeçalho.
 
 ### <a name="check-cluster-provisioning-status"></a>Verifique o estado de provisionamento do cluster
 
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *Response*
 
-200 OK e cabeçalho.
+202 (Aceito) e cabeçalho.
 
 ### <a name="check-workspace-link-status"></a>Verifique o estado da ligação do espaço de trabalho
   
