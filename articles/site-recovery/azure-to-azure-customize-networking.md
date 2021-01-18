@@ -1,5 +1,5 @@
 ---
-title: Personalizar configurações de networking para um VM failover / Microsoft Docs
+title: Personalize as configurações de networking para um | VM de failover Microsoft Docs
 description: Fornece uma visão geral das configurações de networking personalizadas para um VM de failover na replicação de VMs Azure usando Azure Site Recovery.
 services: site-recovery
 author: sideeksh
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426372"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541195"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizar as configurações de rede da VM do Azure de destino
 
@@ -44,7 +44,7 @@ Pode fornecer as seguintes configurações de recursos chave para o VM de failov
 
      ![Personalize as configurações de rede de failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Selecione uma rede virtual de falha de teste. Pode optar por deixá-lo em branco e selecionar um no momento do teste.
+4. Selecione uma rede virtual de falha de teste.
 5. A rede failover é Select **Edit** perto do NIC que pretende configurar. Na lâmina seguinte que se abre, selecione os recursos pré-criados correspondentes na falha de teste e na localização de falha.
 
     ![Editar a configuração NIC](media/azure-to-azure-customize-networking/nic-drilldown.png) 

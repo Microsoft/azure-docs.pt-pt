@@ -1,5 +1,5 @@
 ---
-title: Ligue fontes de dados ao Azure Sentinel ! Microsoft Docs
+title: Ligue fontes de dados ao | Azure Sentinel Microsoft Docs
 description: Saiba como ligar fontes de dados como o Microsoft 365 Defender (anteriormente Microsoft Threat Protection), Microsoft 365 e Office 365, Azure AD, ATP e Cloud App Security ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 432104c7e2cb9486dfb47a793ae73829d8705b60
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e294423e3f078253984dc4fcd8695c2676abb236
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655821"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541262"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -48,7 +48,7 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
     - [Azure Ative Directory](connect-azure-active-directory.md) - registos de auditoria e registos de login
     - [Atividades Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Proteção contra DDoS do Azure](connect-azure-ddos-protection.md)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
     - [Azure Defender for IoT](connect-asc-iot.md) (anteriormente Azure Security Center for IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Firewall](connect-azure-firewall.md)
@@ -69,6 +69,8 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Barracuda WAF](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+    - [Melhor Defesa de Ameaças Móveis](connect-better-mtd.md)
+    - [Beyond Security beSECURE](connect-besecure.md)
     - [Citrix Analytics (Segurança)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
@@ -93,6 +95,8 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [Citrix WAF](connect-citrix-waf.md)
+        - [CyberArk Enterprise Password Vault](connect-cyberark.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
         - [F5 ASM](connect-f5.md)
         - [Produtos da Forcepoint](connect-forcepoint-casb-ngfw.md)
@@ -101,6 +105,8 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
+        - [Tendência Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+        - [Plataforma forense da rede WireX](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Outros aparelhos baseados em CEF](connect-common-event-format.md)
     - **Firewalls, proxies e pontos finais - Syslog:**
@@ -165,7 +171,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Barracuda_CL | [Ligar a Barracuda](connect-barracuda.md) | &#10003; | |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

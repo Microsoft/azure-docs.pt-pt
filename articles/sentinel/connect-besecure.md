@@ -1,5 +1,5 @@
 ---
-title: Connect Beyond Security beSECURE dados ao Azure Sentinel ; Microsoft Docs
+title: Conecte os dados do Azure Sentinel para a | Microsoft Docs
 description: Saiba como utilizar o conector de dados Beyond Security beSECURE para puxar os registos beSECURE no Azure Sentinel. Ver dados do BESECURE nos livros de trabalho, criar alertas e melhorar a investigação.
 services: sentinel
 documentationcenter: na
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2020
+ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: f6fd6920fafe4c1080cb5539e4e0222d9d6e18cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 313f201aeabd470850b27d979dc5253f80e82a55
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103026"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541172"
 ---
 # <a name="connect-your-beyond-security-besecure-to-azure-sentinel"></a>Ligue o seu beSECURE beyond Security ao Azure Sentinel
 
 > [!IMPORTANT]
-> O conector de dados Beyond Security beSECURE em Azure Sentinel está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O conector Beyond Security beSECURE está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
-Além da Segurança, o conector beSECURE permite-lhe ligar facilmente todos os seus registos de solução de segurança beSECURE com o seu Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação. A integração entre beSECURE e Azure Sentinel faz uso da REST API.
+O conector Beyond Security beSECURE permite-lhe ligar facilmente todos os registos da sua solução de segurança beSECURE com o seu Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação. A integração entre beSECURE e Azure Sentinel faz uso da REST API.
 
 > [!NOTE]
 > Os dados serão armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
@@ -36,7 +36,9 @@ Além da Segurança, o conector beSECURE permite-lhe ligar facilmente todos os s
 
 o beSECURE pode integrar-se e exportar registos diretamente para o Azure Sentinel.
 
-1. No portal Azure Sentinel, clique nos **conectores de dados** e selecione **Beyond Security beSECURE (Preview)** e, em seguida, **Abra a página do conector** .
+1. No menu de navegação Azure Sentinel, selecione **Conectores de dados**.
+
+1. A partir da galeria **de conectores de dados,** selecione **Beyond Security beSECURE (Preview)** e, em seguida, **Abra a página do conector**.
 
 1. Siga os passos abaixo para configurar a sua solução BESECURE para enviar resultados de digitalização, estado de digitalização e registos de pistas de auditoria para Azure Sentinel.
 
@@ -49,8 +51,11 @@ o beSECURE pode integrar-se e exportar registos diretamente para o Azure Sentine
 
     1. Ativar o Azure Sentinel
 
-    **Forneça as definições do Azure Sentinel.**
-      - Copie os valores de *ID* e *Chave Primária* do Espaço de Trabalho a partir da página do conector Azure Sentinel, cole-os na configuração beSECURE e clique em **Modificar** .
+    **Fornecer configurações do BeSECURE com Azure Sentinel:**
+
+      Copie os valores de *ID* e *Chave Primária* do Espaço de Trabalho a partir da página do conector Azure Sentinel, cole-os na configuração beSECURE e clique em **Modificar**.
+      
+      :::image type="content" source="media/connectors/workspace-id-primary-key.png" alt-text="{ID do espaço de trabalho e chave primária}":::
 
 ## <a name="find-your-data"></a>Encontre os seus dados
 
@@ -59,13 +64,13 @@ Após a criação de uma ligação bem sucedida, os dados aparecem em **Logs,** 
   - `beSECURE_ScanEvents_CL`
   - `beSECURE_Audit_CL`
 
-Para consultar os registos beSECURE no Log Analytics, insira um dos nomes de tabela acima no topo da janela de consulta.
+Para consultar os registos beSECURE em regras de análise, consultas de caça, investigações ou em qualquer outro lugar em Azure Sentinel, insira um dos nomes de tabela acima no topo da janela de consulta.
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o BESECURE ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Saiba como [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
 - [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.

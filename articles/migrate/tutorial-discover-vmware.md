@@ -7,18 +7,18 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e11c3277ffa07fe0a8d5fc7495e2c09152ce585f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: c697a8a944c74d12202c4e9e148713c4c8433026
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704299"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541364"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descubra VMware VMs com avaliação do servidor
 
-Como parte da sua viagem de migração para Azure, você descobre o seu inventário no local e cargas de trabalho. 
+Como parte da sua viagem de migração para Azure, você descobre o seu inventário no local e cargas de trabalho.
 
-Este tutorial mostra-lhe como descobrir no local máquinas virtuais VMware (VMs) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Implementa o aparelho como VMware VM, para descobrir continuamente metadados de VM e desempenho, aplicações em execução em VMs e dependências de VM.
+Este tutorial mostra-lhe como descobrir no local máquinas virtuais VMware (VMs) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Implementa o aparelho como VMware VM, para descobrir continuamente VMs e seus metadados de desempenho, aplicações em execução em VMs e dependências de VM.
 
 Neste tutorial, vai aprender a:
 
@@ -42,16 +42,17 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 
 **Requisito** | **Detalhes**
 --- | ---
-**vCenter Server/ESXi anfitrião** | Precisa de um servidor vCenter que executa a versão 5.5, 6.0, 6.5 ou 6.7.<br/><br/> Os VMs devem ser hospedados numa versão de execução de anfitrião ESXi 5.5 ou posterior.<br/><br/> No vCenter Server, permita ligações de entrada na porta TCP 443, para que o aparelho possa recolher dados de avaliação.<br/><br/> O aparelho liga-se ao vCenter na porta 443 por defeito. Se o servidor vCenter ouvir numa porta diferente, pode modificar a porta quando ligar do aparelho ao servidor para iniciar a descoberta.<br/><br/> No servidor EXSi que acolhe os VMs, certifique-se de que o acesso à entrada é permitido na porta TCP 443, para a descoberta de aplicações.
-**Aparelho** | vCenter Server precisa de recursos para alocar um VM para o aparelho Azure Migrate:<br/><br/> - Windows Server 2016<br/><br/> - 32 GB de RAM, oito vCPUs e cerca de 80 GB de armazenamento de disco.<br/><br/> - Um interruptor virtual externo e acesso à Internet para o VM, diretamente ou através de um representante.
-**VMs** | Para utilizar este tutorial, os VMs do Windows devem estar a executar o Windows Server 2016, 2012 R2, 2012 ou 2008 R2.<br/><br/> Os VMs linux devem estar a executar Red Hat Enterprise Linux 7/6/5, Ubuntu Linux 14.04/16.04, Debian 7/8, Oracle Linux 6/7 ou CentOS 5/6/7.<br/><br/> Os VMs precisam de ferramentas VMware (uma versão posterior a 10.2.0) instaladas e em funcionamento.<br/><br/> Nos VMs do Windows, o Windows PowerShell 2.0 ou mais tarde deve ser instalado.
+**vCenter Server/ESXi anfitrião** | Precisa de um servidor vCenter que executa a versão 5.5, 6.0, 6.5 ou 6.7.<br/><br/> Os VMs devem ser hospedados numa versão de execução de anfitrião ESXi 5.5 ou posterior.<br/><br/> No servidor vCenter, permita ligações de entrada na porta TCP 443, para que o aparelho possa recolher os metadados de configuração e desempenho .<br/><br/> O aparelho liga-se ao vCenter na porta 443 por defeito. Se o vCenter Server ouvir numa porta diferente, pode modificar a porta quando fornecer os dados do vCenter Server no gestor de configuração do aparelho.<br/><br/> No servidor ESXi que acolhe os VMs, certifique-se de que o acesso à entrada é permitido na porta TCP 443 para descobrir as aplicações instaladas nas dependências de VMs e VM.
+**Aparelho** | vCenter Server precisa de recursos para alocar um VM para o aparelho Azure Migrate:<br/><br/> - 32 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> - Um interruptor virtual externo e acesso à Internet no VM do aparelho, diretamente ou através de um representante.
+**VMs** | Todas as versões Windows e Linux OS são suportadas para a descoberta de metadados de configuração e desempenho, bem como para a descoberta de aplicações instaladas em VMs. <br/><br/> Consulte [aqui](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) as versões de SO suportadas para análise de dependência sem agentes.<br/><br/> Para descobrir aplicações instaladas e dependências de VM, as Ferramentas VMware (mais tarde de 10.2.0) devem ser instaladas e em funcionamento em VMs e VMs do Windows devem ter a versão PowerShell 2.0 ou posteriormente instalada.
 
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
 Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa de uma conta com:
-- Permissões de colaborador ou proprietário numa subscrição do Azure.
-- Permissões para registar aplicações do Azure Ative Directory.
+- Permissões do Contribuinte ou proprietário na subscrição do Azure
+- Permissões para registar aplicações do Azure Ative Directory (AAD)
+- Permissões de administrador de acesso ao utilizador e de entrada no Azure para criar um Cofre chave, utilizado durante a migração de VMware sem agente
 
 Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
@@ -70,16 +71,19 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 
     ![Abre a página de atribuição de Função Adicionar para atribuir uma função à conta](./media/tutorial-discover-vmware/assign-role.png)
 
-7. No portal, procure utilizadores e em **Serviços,** selecione **Utilizadores.**
-8. Nas **definições do Utilizador,** verifique se os utilizadores de Ad Azure podem registar aplicações (definidas para **Sim** por predefinição).
+1. Para registar o aparelho, a sua conta Azure necessita de **permissões para registar aplicações AAD.**
+1. No portal Azure, navegue para as Definições de Utilizador de Utilizadores **do Diretório Ativo Azure**  >    >  .
+1. Nas **definições do Utilizador,** verifique se os utilizadores de Ad Azure podem registar aplicações (definidas para **Sim** por predefinição).
 
     ![Verifique nas Definições do Utilizador que os utilizadores podem registar aplicações de Ative Directory](./media/tutorial-discover-vmware/register-apps.png)
 
-9. Em alternativa, o inquilino/administrador global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo de App(s) AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Caso as definições de 'Registos de aplicações' sejam definidas como 'Não', solicite ao arrendatário/administrador global que atribua a permissão necessária. Em alternativa, o administrador inquilino/global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo da App AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>Preparar VMware
 
-No vCenter Server, crie uma conta que o aparelho possa utilizar para aceder ao servidor vCenter e verifique se as portas necessárias estão abertas. Também precisa de uma conta que o aparelho pode usar para aceder a VMs. 
+No vCenter Server, verifique se a sua conta tem permissões para criar um VM utilizando um ficheiro OVA. Isto é necessário quando colocar o aparelho Azure Migrate como VMware VM, utilizando um ficheiro OVA.
+
+A Avaliação do Servidor necessita de uma conta de leitura do vCenter Server apenas para a descoberta e avaliação de VMware VMs. Se também pretender descobrir aplicações instaladas e dependências de VM, a conta necessita de privilégios ativados para **Máquinas Virtuais > Operações de Hóspedes.**
 
 ### <a name="create-an-account-to-access-vcenter"></a>Criar uma conta para aceder ao vCenter
 
@@ -90,20 +94,20 @@ No vSphere Web Client, crie uma conta da seguinte forma:
 3. Nos **Utilizadores,** adicione um novo utilizador.
 4. Em **Novo Utilizador,** digite os detalhes da conta. Em seguida, clique em **OK**.
 5. Em **Permissões Globais,** selecione a conta de utilizador e atribua a **função Read-only** à conta. Em seguida, clique em **OK**.
-6. Em **Papéis** > selecione o papel **apenas para ler,** e em **Privileges**, selecione **Guest Operations**. Estes privilégios são necessários para descobrir aplicações em execução em VMs e para analisar as dependências de VM.
+6. Se também pretender descobrir aplicações instaladas e dependências de VM, vá a **Roles** > selecione a função **Read-only,** e em **Privileges**, selecione **Guest Operations**. Pode propagar os privilégios a todos os objetos sob o servidor vCenter selecionando a caixa de verificação "Propagate to children".
  
     ![Caixa de verificação para permitir operações de hóspedes no papel apenas de leitura](./media/tutorial-discover-vmware/guest-operations.png)
 
 
 ### <a name="create-an-account-to-access-vms"></a>Criar uma conta para aceder a VMs
 
-O aparelho acede aos VMs para descobrir aplicações e analisar as dependências de VM. O aparelho não instala agentes em VMs.
+Precisa de uma conta de utilizador com os privilégios necessários nos VMs para descobrir aplicações instaladas e dependências de VM. Pode fornecer a conta de utilizador no gestor de configuração do aparelho. O aparelho não instala quaisquer agentes nos VMs.
 
-1. Crie uma conta Dedmin Local que o aparelho pode usar para descobrir aplicações e dependências em VMs windows.
-2. Para as máquinas Linux, crie uma conta de utilizador com privilégios Root, ou alternadamente, uma conta de utilizador com estas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
+1. Para os VMs do Windows, crie uma conta (local ou domínio) com permissões administrativas nos VMs.
+2. Para os VMs Linux, crie uma conta com privilégios Root. Em alternativa, pode criar uma conta com estas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 > [!NOTE]
-> O Azure Migrate suporta uma credencial para a descoberta de aplicações em todos os servidores do Windows, e uma credencial para a descoberta de apps em todas as máquinas Linux.
+> Atualmente, a Azure Migrate suporta uma conta de utilizador para VMs windows e uma conta de utilizador para Os VMs Linux que podem ser fornecidos no aparelho para a descoberta de aplicações instaladas e dependências de VM.
 
 
 ## <a name="set-up-a-project"></a>Criar um projeto
@@ -119,34 +123,30 @@ Crie um novo projeto Azure Migrate.
    ![Caixas para nome e região do projeto](./media/tutorial-discover-vmware/new-project.png)
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado.
-
-A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao novo projeto.
+8. Aguarde alguns minutos para o projeto Azure Migrate ser implantado. A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao novo projeto.
 
 ![Página mostrando a ferramenta de avaliação do servidor adicionada por padrão](./media/tutorial-discover-vmware/added-tool.png)
 
+> [!NOTE]
+> Se já criou um projeto, pode usar o mesmo projeto para registar aparelhos adicionais para descobrir e avaliar mais nenhum dos VMs.[Saiba mais](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o aparelho
 
-Para configurar o aparelho utilizando um modelo OVA:
-- Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal
-- Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server.
-- Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
-- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
+Azure Migrate: A avaliação do servidor utiliza um aparelho Azure Migrate leve. O aparelho executa a descoberta VM e envia metadados de configuração e desempenho VM para Azure Migrate. O aparelho pode ser configurado através da implementação de um modelo OVA que pode ser descarregado a partir do projeto Azure Migrate.
 
 > [!NOTE]
-> Se, por alguma razão, não conseguir configurar o aparelho utilizando o gabarito, pode 15 000% pode use-lo com um script PowerShell. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
+> Se por alguma razão não conseguir configurar o aparelho utilizando o modelo, pode alterá-lo utilizando um script PowerShell num servidor do Windows Server 2016 existente. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
 
 
 ### <a name="deploy-with-ova"></a>Implementar com OVA
 
 Para configurar o aparelho utilizando um modelo OVA:
-- Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal
-- Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server.
-- Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
-- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
+1. Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal
+1. Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server. Verifique se o OVA está seguro.
+1. Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
+1. Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto Azure Migrate
 
 1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** 
@@ -155,10 +155,9 @@ Para configurar o aparelho utilizando um modelo OVA:
 1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
-### <a name="download-the-ova-template"></a>Descarregue o modelo OVA
+### <a name="2-download-the-ova-template"></a>2. Descarregue o modelo OVA
 
-Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro OVA e clique no **Download**. 
-
+Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro OVA e clique no **Download**.
 
 ### <a name="verify-security"></a>Verificar segurança
 
@@ -185,10 +184,7 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
         --- | --- | ---
         VMware (85.8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195d7d7c83527a9af0b860e2a627979085ca
 
-
-
-
-### <a name="create-the-appliance-vm"></a>Criar o aparelho VM
+### <a name="3-create-the-appliance-vm"></a>3. Criar o aparelho VM
 
 Importe o ficheiro descarregado e crie um VM.
 
@@ -207,7 +203,7 @@ Importe o ficheiro descarregado e crie um VM.
 Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 
-### <a name="configure-the-appliance"></a>Configure o aparelho
+### <a name="4-configure-the-appliance"></a>4. Configurar o aparelho
 
 Coloque o aparelho pela primeira vez.
 
@@ -263,15 +259,16 @@ O aparelho precisa de se ligar ao servidor vCenter para descobrir a configuraç�
 1. Pode **revalidar** a conectividade ao vCenter Server a qualquer momento antes de iniciar a descoberta.
 1. No **passo 3: Forneça credenciais VM para descobrir aplicações instaladas e realizar mapeamento de dependência sem agente,** clique **em Adicionar credenciais,** e especifique o sistema operativo para o qual as credenciais são fornecidas, nome amigável para credenciais e o **nome** de utilizador e **senha**. Em seguida, clique em **Guardar**.
 
-    - Você opcionalmente adiciona credenciais aqui se você criou uma conta para usar para o recurso de descoberta de [aplicações](how-to-discover-applications.md), ou a [funcionalidade de análise de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
+    - Você opcionalmente adiciona credenciais aqui se você criou uma conta para usar para [a descoberta de aplicações](how-to-discover-applications.md), ou [análise de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
     - Se não quiser utilizar estas funcionalidades, pode clicar no slider para saltar o passo. Pode inverter a intenção a qualquer momento depois.
-    - Reveja as credenciais necessárias para [a descoberta de aplicações,](migrate-support-matrix-vmware.md#application-discovery-requirements)ou para [análise de dependência sem agentes.](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)
+    - Reveja as permissões necessárias na conta para a descoberta de [aplicações,](migrate-support-matrix-vmware.md#application-discovery-requirements)ou para [análise de dependência de agente.](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)
 
 5. Clique em **Iniciar a descoberta,** para iniciar a descoberta de VM. Após a descoberta ter sido iniciada com sucesso, pode verificar o estado de descoberta com o endereço IP/FQDN do servidor vCenter na tabela.
 
 A descoberta funciona da seguinte forma:
 - Leva cerca de 15 minutos para que os metadados VM descobertos apareçam no portal.
 - A descoberta de aplicações, funções e funcionalidades instaladas leva algum tempo. A duração depende do número de VMs descobertos. Para 500 VMs, leva aproximadamente uma hora para o inventário da aplicação aparecer no portal Azure Migrate.
+- Após a descoberta dos VMs estar concluída, pode permitir a análise de dependência sem agentes nos VMs desejados a partir do portal.
 
 
 ## <a name="next-steps"></a>Passos seguintes

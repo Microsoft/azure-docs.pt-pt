@@ -1,5 +1,5 @@
 ---
-title: Configure a sua solução de segurança para ligar os dados do CEF ao Azure Sentinel Preview Microsoft Docs
+title: Configure a sua solução de segurança para ligar os dados do CEF à Pré-visualização do Sentinela Azure| Microsoft Docs
 description: Saiba como configurar a sua solução de segurança para ligar dados CEF ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: fec3f25c4b401ff7c3bc73d249b716b9c12e6529
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 36c832e198d7b6e9a6c3f6ddc19ad87c87917f38
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548550"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541279"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASSO 2: Configurar a sua solução de segurança para enviar mensagens CEF
 
@@ -31,15 +31,19 @@ Se a sua solução de segurança já tiver um conector existente, utilize as ins
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Check Point](connect-checkpoint.md)
-- [Cisco](connect-cisco.md)
+- [Cisco ASA](connect-cisco.md)
+- [Citrix WAF](connect-citrix-waf.md)
+- [CyberArk Enterprise Password Vault](connect-cyberark.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
-- [F5 ASM](connect-f5.md)  
+- [F5 ASM](connect-f5.md)
 - [Produtos da Forcepoint](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
+- [Tendência Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+- [Plataforma forense da rede WireX](connect-wirex-systems.md)
 - [Zscaler](connect-zscaler.md)
 ## <a name="configure-any-other-solution"></a>Configure qualquer outra solução
 

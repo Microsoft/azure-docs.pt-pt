@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 109f61d9ff76d084b292dbe3cc8ce663b50141ae
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861905"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541330"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -42,16 +42,14 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 **Requisito** | **Detalhes**
 --- | ---
 **Anfitrião Hyper-V** | Os anfitriões hiper-V nos quais os VMs estão localizados podem ser autónomos, ou num cluster.<br/><br/> O anfitrião deve estar a executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2.<br/><br/> Verifique se as ligações de entrada são permitidas na porta WinRM 5985 (HTTP), para que o aparelho possa ligar-se para retirar metadados VM e dados de desempenho, utilizando uma sessão de Modelo de Informação Comum (CIM).
-**Implantação do aparelho** | O hospedeiro Hiper-V necessita de recursos para alocar um VM para o aparelho:<br/><br/> - Windows Server 2016<br/><br/> -16 GB de RAM<br/><br/> - Oito vCPUs<br/><br/> - Cerca de 80 GB de armazenamento de disco.<br/><br/> - Um interruptor virtual externo.<br/><br/> - Acesso à Internet para o VM, diretamente ou através de um representante.
+**Implantação do aparelho** | O hospedeiro Hiper-V necessita de recursos para alocar um VM para o aparelho:<br/><br/> - 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> - Um interruptor virtual externo e acesso à Internet no VM do aparelho, diretamente ou através de um representante.
 **VMs** | Os VMs podem estar a executar qualquer sistema operativo Windows ou Linux. 
-
-Antes de começar, pode [rever os dados](migrate-appliance.md#collected-data---hyper-v) que o aparelho recolhe durante a descoberta.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
 Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa de uma conta com:
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
-- Permissões para registar aplicações do Azure Ative Directory.
+- Permissões para registar aplicações Azure Ative Directory (AAD).
 
 Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
@@ -71,20 +69,20 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 
     ![Abre a página de atribuição de Função Adicionar para atribuir uma função à conta](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. No portal, procure utilizadores e em **Serviços,** selecione **Utilizadores.**
-8. Nas **definições do Utilizador,** verifique se os utilizadores de Ad Azure podem registar aplicações (definidas para **Sim** por predefinição).
+1. Para registar o aparelho, a sua conta Azure necessita de **permissões para registar aplicações AAD.**
+1. No portal Azure, navegue para as Definições de Utilizador de Utilizadores **do Diretório Ativo Azure**  >    >  .
+1. Nas **definições do Utilizador,** verifique se os utilizadores de Ad Azure podem registar aplicações (definidas para **Sim** por predefinição).
 
     ![Verifique nas Definições do Utilizador que os utilizadores podem registar aplicações de Ative Directory](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. Em alternativa, o inquilino/administrador global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo de App(s) AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Caso as definições de 'Registos de aplicações' sejam definidas como 'Não', solicite ao arrendatário/administrador global que atribua a permissão necessária. Em alternativa, o administrador inquilino/global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo da App AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Preparar anfitriões Hiper-V
 
 Crie uma conta com acesso ao Administrador nos anfitriões Hiper-V. O aparelho utiliza esta conta para ser descoberto.
 
 - Opção 1: Preparar uma conta com o acesso do Administrador à máquina de anfitrião Hyper-V.
-- Opção 2: Preparar uma conta de administração local, ou conta Dedmin de Domínio, e adicionar a conta a estes grupos: Utilizadores de Gestão Remota, Administradores de Hiper-V e Utilizadores de Monitores de Desempenho.
-
+- Opção 2: Se não quiser atribuir permissões de Administrador, crie uma conta de utilizador local ou de domínio e adicione a conta de utilizador a estes grupos- Utilizadores de Gestão Remota, Administradores de Hiper-V e Monitor de Desempenho.
 
 ## <a name="set-up-a-project"></a>Criar um projeto
 
@@ -99,26 +97,28 @@ Crie um novo projeto Azure Migrate.
    ![Caixas para nome e região do projeto](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado.
-
-A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao novo projeto.
+8. Aguarde alguns minutos para o projeto Azure Migrate ser implantado. A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao novo projeto.
 
 ![Página mostrando a ferramenta de avaliação do servidor adicionada por padrão](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> Se já criou um projeto, pode usar o mesmo projeto para registar aparelhos adicionais para descobrir e avaliar mais nenhum dos VMs.[Saiba mais](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o aparelho
 
+Azure Migrate: A avaliação do servidor utiliza um aparelho Azure Migrate leve. O aparelho executa a descoberta VM e envia metadados de configuração e desempenho VM para Azure Migrate. O aparelho pode ser configurado através da implantação de um ficheiro VHD que pode ser descarregado do projeto Azure Migrate.
+
+> [!NOTE]
+> Se por alguma razão não conseguir configurar o aparelho utilizando o modelo, pode alterá-lo utilizando um script PowerShell num servidor do Windows Server 2016 existente. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+
 Este tutorial configura o aparelho num Hiper-V VM, da seguinte forma:
 
-- Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal.
-- Faça o download de um Hiper-VHD comprimido do portal Azure.
-- Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
-- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
-> [!NOTE]
-> Se, por alguma razão, não conseguir configurar o aparelho utilizando um modelo, pode 15 000% pode utilizá-lo com um script PowerShell. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+1. Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal.
+1. Faça o download de um Hiper-VHD comprimido do portal Azure.
+1. Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
+1. Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
 
-
-### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto Azure Migrate
 
 1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** 
@@ -127,10 +127,9 @@ Este tutorial configura o aparelho num Hiper-V VM, da seguinte forma:
 1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
-### <a name="download-the-vhd"></a>Descarregue o VHD
+### <a name="2-download-the-vhd"></a>2. Descarregue o VHD
 
-Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro VHD e clique no **Download**. 
-
+Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro VHD e clique no **Download**.
 
 ### <a name="verify-security"></a>Verificar segurança
 
@@ -156,7 +155,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
         --- | --- | ---
         Hiper-V (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc350716bae30b257f
 
-### <a name="create-the-appliance-vm"></a>Criar o aparelho VM
+### <a name="3-create-the-appliance-vm"></a>3. Criar o aparelho VM
 
 Importe o ficheiro descarregado e crie o VM.
 
@@ -177,7 +176,7 @@ Importe o ficheiro descarregado e crie o VM.
 
 Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
-### <a name="configure-the-appliance"></a>Configure o aparelho
+### <a name="4-configure-the-appliance"></a>4. Configurar o aparelho
 
 Coloque o aparelho pela primeira vez.
 
@@ -214,8 +213,6 @@ Coloque o aparelho pela primeira vez.
 1. Depois de iniciar sessão com sucesso, volte ao separador anterior com o gestor de configuração do aparelho.
 4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as permissões certas sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Credenciais de delegado para VHDs SMB
 
