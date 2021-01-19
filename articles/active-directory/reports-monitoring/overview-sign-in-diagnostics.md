@@ -1,6 +1,6 @@
 ---
-title: O que é o Diagnóstico de Inscrição em Azure AD? | Microsoft Docs
-description: Fornece uma visão geral geral do Diagnóstico de Inscrição em Azure AD.
+title: Qual é o diagnóstico de inscrição para o Azure Ative Directory?
+description: Fornece uma visão geral geral do diagnóstico de inscrição no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,170 +17,161 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cdef3e1f1a60c9eb0c751855837e9cbe77e015e9
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608923"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572294"
 ---
-# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>O que é o Diagnóstico de Inscrição em Azure AD?
+# <a name="what-is-the-sign-in-diagnostic-in-azure-ad"></a>Qual é o diagnóstico de inscrição no Azure AD?
 
-O Azure AD fornece-lhe um modelo de segurança flexível para controlar o que os utilizadores podem fazer com os recursos geridos. O acesso a estes recursos não é apenas controlado por **quem** é, mas também pela **forma como** os acede. Normalmente, a flexibilidade vem junto com um certo grau de complexidade devido ao número de opções de configuração que você tem. A complexidade tem o potencial de aumentar o risco de erros.
+O Azure Ative Directory (Azure AD) fornece-lhe um modelo de segurança flexível para controlar o que os utilizadores podem fazer com recursos geridos. O acesso a estes recursos é controlado não só por *quem* são, mas também pela *forma como* os acedem. Normalmente, um modelo flexível vem com um certo grau de complexidade devido ao número de opções de configuração que você tem. A complexidade tem o potencial de aumentar o risco de erros.
 
-Como administrador de TI, precisa de uma solução que lhe dê o nível certo de insights sobre as atividades no seu sistema para que possa facilmente diagnosticar e resolver problemas quando ocorrem. O Diagnóstico de Inscrição para Azure AD é um exemplo para tal solução. Utilize o diagnóstico para analisar o que aconteceu durante uma sindes de saúde e que ações pode tomar para resolver problemas sem ser obrigado a envolver o suporte da Microsoft.
+Como administrador de TI, precisa de uma solução que lhe dê uma visão das atividades do seu sistema. Esta visibilidade pode permitir diagnosticar e resolver problemas quando ocorrem. O diagnóstico de inscrição para Azure AD é um exemplo de tal solução. Pode utilizar o diagnóstico para analisar o que aconteceu durante uma tentativa de iniciar sing-in e obter recomendações para resolver problemas sem precisar de envolver o suporte da Microsoft.
 
 Este artigo dá-lhe uma visão geral do que a solução faz e como pode usá-la.
 
-
 ## <a name="requirements"></a>Requisitos
 
-O Sign-in Diagnostics está disponível em todas as edições do Azure AD.<br> Deve ser um administrador global na Azure AD para usá-lo.
+O diagnóstico de inscrição está disponível em todas as edições do Azure AD.
+
+Deve ser um administrador global na Azure AD para usá-lo.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Em Azure AD, a resposta a uma tentativa de inscrição está ligada a **quem** você é e **como** você acede ao seu inquilino. Por exemplo, como administrador, normalmente pode configurar todos os aspetos do seu inquilino quando iniciar seduca na sua rede corporativa. No entanto, pode até ser bloqueado quando iniciar sedutada com a mesma conta de uma rede não fidedqui nem fided quanto a isso.
- 
+Em Azure AD, a resposta a uma tentativa de inscrição está ligada a *quem* assina e *como* acedem ao inquilino. Por exemplo, um administrador pode tipicamente configurar todos os aspetos do inquilino quando eles assinam a partir da rede corporativa. Mas o mesmo utilizador pode estar bloqueado quando iniciar sôms com a mesma conta a partir de uma rede não fidedquirida.
+
 Devido à maior flexibilidade do sistema para responder a uma tentativa de inscrição, pode terminar em cenários em que precisa de resolução de problemas. O diagnóstico de inscrição é uma característica que:
 
-- Analisa dados de insusous. 
+- Analisa dados de eventos de inscrição.
 
-- Mostra o que aconteceu e recomendações sobre como resolver problemas. 
+- Mostra o que aconteceu.
 
-O Diagnóstico de Inscrição para Azure AD foi concebido para permitir o autodiagnóstico de erros de inscrição. Para completar o processo de diagnóstico, é necessário:
+- Fornece recomendações para como resolver problemas.
 
-![Processo de diagnóstico de inscrição](./media/overview-sign-in-diagnostics/process.png)
- 
-1. **Defina** o âmbito dos eventos de inscrição que lhe interessam
+O diagnóstico de inscrição para Azure AD foi concebido para permitir o autodiagnóstico de erros de inscrição. Para completar o processo de diagnóstico, é necessário:
 
-2. **Selecione** o sinal de in que pretende rever
+![Diagrama mostrando o diagnóstico de inscrição.](./media/overview-sign-in-diagnostics/process.png)
 
-3. **Reveja** o resultado do diagnóstico
+1. Defina o âmbito dos eventos de inscrição que lhe interessam.
 
-4. **Tomar** ações
+2. Selecione o s-in que pretende rever.
 
- 
+3. Reveja os resultados do diagnóstico.
+
+4. Tome medidas.
+
 ### <a name="define-scope"></a>Definir âmbito
 
-O objetivo deste passo é definir a margem para os sign-ins que pretende investigar. O seu âmbito de aplicação baseia-se num utilizador ou num identificador (correlationId, requestId) e num intervalo de tempo. Para reduzir ainda mais o âmbito, também pode especificar um nome de aplicação. A Azure AD utiliza as informações de âmbito para localizar os eventos certos para si.  
+O objetivo deste passo é definir o âmbito dos eventos de inscrição para investigar. O seu âmbito de aplicação baseia-se num utilizador ou num identificador (correlationId, requestId) e num intervalo de tempo. Para reduzir ainda mais o âmbito, pode especificar um nome de aplicação. A Azure AD utiliza as informações de âmbito para localizar os eventos certos para si.  
 
 ### <a name="select-sign-in"></a>Selecione iniciar s-in  
 
-Com base nos seus critérios de pesquisa, o Azure AD recupera todos os sign-ins correspondentes e apresenta-os numa vista de lista de resumo de autenticação. 
+Com base nos seus critérios de pesquisa, o Azure AD recupera todos os eventos de inscrição correspondentes e apresenta-os numa vista de lista de resumo de autenticação.
 
-![Resumo da autenticação](./media/overview-sign-in-diagnostics/authentication-summary.png)
- 
+![Imagem parcial mostrando a secção de resumo da autenticação.](./media/overview-sign-in-diagnostics/authentication-summary.png)
+
 Pode personalizar as colunas apresentadas nesta vista.
 
-### <a name="review-diagnostic"></a>Revisão de diagnóstico 
+### <a name="review-diagnostic"></a>Revisão de diagnóstico
 
-Para o evento de inscrição selecionado, o Azure AD fornece-lhe um resultado de diagnóstico. 
+Para o evento de inscrição selecionado, o Azure AD fornece-lhe resultados de diagnóstico.
 
-![Resultados de diagnóstico](./media/overview-sign-in-diagnostics/diagnostics-results.png)
+![Imagem parcial mostrando a secção de resultados de diagnóstico.](./media/overview-sign-in-diagnostics/diagnostics-results.png)
 
- 
-O resultado começa com uma avaliação. A avaliação explica em poucas frases o que aconteceu. A explicação ajuda-o a compreender o comportamento do sistema. 
+Estes resultados começam com uma avaliação, que explica o que aconteceu em algumas frases. A explicação ajuda-o a compreender o comportamento do sistema.
 
-Como passo seguinte, obtém-se um resumo das políticas de acesso condicional relacionadas que foram aplicadas ao sin-in selecionado. Esta peça é completada por medidas de reparação recomendadas para resolver o seu problema. Como nem sempre é possível resolver problemas sem ajuda adicional, um passo recomendado pode ser abrir um bilhete de apoio. 
+Em seguida, obtém-se um resumo das políticas de acesso condicional relacionadas que foram aplicadas ao evento de inscrição selecionado. Os resultados do diagnóstico também incluem medidas de reparação recomendadas para resolver o seu problema. Como nem sempre é possível resolver problemas sem mais ajuda, um passo recomendado pode ser abrir um bilhete de apoio.
 
-### <a name="take-action"></a>Tomar medidas 
+### <a name="take-action"></a>Tomar medidas
+
 Neste momento, deve ter a informação necessária para corrigir o seu problema.
-
 
 ## <a name="scenarios"></a>Cenários
 
-Esta secção fornece-lhe uma visão geral dos cenários de diagnóstico cobertos. São implementados os seguintes cenários: 
- 
+Os seguintes cenários são abrangidos pelo diagnóstico de inscrição:
+
 - Bloqueado por acesso condicional
 
 - Acesso condicional falhado
 
-- MFA do acesso condicional
+- Autenticação multifactor (MFA) a partir de acesso condicional
 
 - MFA de outros requisitos
 
-- MFA Prova necessária
+- MFA comprovativo necessário
 
-- MFA Proof up necessário, mas tentativa de inscrição do utilizador não é de localização segura
+- Prova de MFA necessária (local de inscrição arriscada)
 
 - Sindução bem sucedida
 
-
 ### <a name="blocked-by-conditional-access"></a>Bloqueado por acesso condicional
 
-Este cenário baseia-se numa inscrição que foi bloqueada por uma política de acesso condicional.
+Neste cenário, uma tentativa de inscrição foi bloqueada por uma política de acesso condicional.
 
-![Bloquear o acesso](./media/overview-sign-in-diagnostics/block-access.png)
+![Screenshot mostrando a configuração de acesso com acesso ao Bloco selecionado.](./media/overview-sign-in-diagnostics/block-access.png)
 
-A secção de diagnóstico deste cenário mostra detalhes sobre o início de saúde do utilizador e as políticas aplicadas.
-
+A secção de diagnóstico deste cenário mostra detalhes sobre o evento de inscrição do utilizador e as políticas aplicadas.
 
 ### <a name="failed-conditional-access"></a>Acesso condicional falhado
 
-Este cenário é normalmente o resultado de uma assinatura que falhou porque os requisitos de uma política de acesso condicional não estavam satisfeitos. Alguns exemplos comuns são:
+Este cenário é normalmente o resultado de uma tentativa de inscrição que falhou porque os requisitos de uma política de acesso condicional não estavam satisfeitos. Alguns exemplos comuns são:
 
-![Exigir controlos](./media/overview-sign-in-diagnostics/require-controls.png)
+![Screenshot mostrando configuração de acesso com exemplos de política comum e acesso grant selecionado.](./media/overview-sign-in-diagnostics/require-controls.png)
 
 - Requerem o dispositivo híbrido Azure AD
 
 - Requera uma aplicação de cliente aprovada
 
-- Pedir uma política de proteção de aplicações   
+- Pedir uma política de proteção de aplicações
 
-
-A secção de diagnóstico deste cenário mostra detalhes sobre o início de saúde do utilizador e as políticas aplicadas.
-
+A secção de diagnóstico deste cenário mostra detalhes sobre a tentativa de inscrição do utilizador e as políticas aplicadas.
 
 ### <a name="mfa-from-conditional-access"></a>MFA do acesso condicional
 
-Este cenário baseia-se numa política de acesso condicional que tem a obrigação de iniciar sação utilizando um conjunto de autenticação de vários fatores.
+Neste cenário, uma política de acesso condicional tem a obrigação de assinar usando o conjunto de autenticação multifactor.
 
-![Requerem autenticação de vários fatores](./media/overview-sign-in-diagnostics/require-mfa.png)
+![Screenshot mostrando a configuração de acesso com requerer a autenticação multifactor selecionada.](./media/overview-sign-in-diagnostics/require-mfa.png)
 
-A secção de diagnóstico deste cenário mostra detalhes sobre o início de saúde do utilizador e as políticas aplicadas.
-
-
+A secção de diagnóstico deste cenário mostra detalhes sobre a tentativa de inscrição do utilizador e as políticas aplicadas.
 
 ### <a name="mfa-from-other-requirements"></a>MFA de outros requisitos
 
-Este cenário baseia-se num requisito de autenticação de vários fatores que não foi aplicado por uma política de acesso condicional. Por exemplo, a autenticação de vários fatores por utilizador.
+Neste cenário, um requisito de autenticação multifactor não foi aplicado por uma política de acesso condicional. Por exemplo, a autenticação multifactor por utilizador.
 
-
-![Requerem autenticação de vários fatores por utilizador](./media/overview-sign-in-diagnostics/mfa-per-user.png)
-
+![Screenshot mostrando autenticação multifactor por configuração do utilizador.](./media/overview-sign-in-diagnostics/mfa-per-user.png)
 
 A intenção deste cenário de diagnóstico é fornecer mais detalhes sobre:
 
-- A origem da interrupção da autenticação multi-factor. 
-- O resultado da interação do cliente.
+- A origem da interrupção da autenticação multifactor
+- O resultado da interação do cliente
 
-Além disso, esta secção também lhe fornece todos os detalhes sobre a tentativa de início de s.a. 
-
+Também pode ver todos os detalhes da tentativa de iniciar sposição do utilizador.
 
 ### <a name="mfa-proof-up-required"></a>MFA comprovativo necessário
 
-Este cenário baseia-se em inscrições que foram interrompidas por pedidos de configuração da autenticação de vários fatores. Esta configuração também é conhecida como "prova".
+Neste cenário, as tentativas de inscrição foram interrompidas por pedidos de criação de autenticação multifactor. Esta configuração também é conhecida como prova.
 
-A prova de autenticação multi-factor ocorre quando um utilizador é obrigado a utilizar a autenticação de vários fatores, mas ainda não a configura, ou um administrador configura o utilizador para o configurar.
+A prova de autenticação multifactor ocorre quando um utilizador é obrigado a utilizar a autenticação multifactor, mas ainda não a configura, ou um administrador exigiu que o utilizador o configurasse.
 
-A intenção deste cenário de diagnóstico é fornecer a introspeção de que a interrupção da autenticação de vários fatores foi a sua configuração e fornecer a recomendação para que o utilizador complete a prova.
+A intenção deste cenário de diagnóstico é revelar que a interrupção da autenticação multifactor se deveu à falta de configuração do utilizador. A solução recomendada é que o utilizador complete a prova.
 
-### <a name="mfa-proof-up-required-from-a-risky-sign-in"></a>MFA comprovativo exigido de um sinal de risco
+### <a name="mfa-proof-up-required-risky-sign-in-location"></a>Prova de MFA necessária (local de inscrição arriscada)
 
-Este cenário resulta de inscrições que foram interrompidas por um pedido de configuração da autenticação de vários fatores a partir de uma sinalização de risco. 
+Neste cenário, as tentativas de inscrição foram interrompidas por um pedido de criação de autenticação multifactor a partir de um local de inscrição arriscado.
 
-A intenção deste cenário de diagnóstico é fornecer a introspeção de que a interrupção da autenticação de vários fatores foi a sua configuração, fornecer a recomendação para que o utilizador complete a prova, mas para fazê-lo a partir de um local de rede que não pareça arriscado. Por exemplo, se uma rede corporativa for definida como uma tentativa de localização nomeada para fazer a Prova da rede corporativa em vez disso.
+A intenção deste cenário de diagnóstico é revelar que a interrupção da autenticação multifactor se deveu à falta de configuração do utilizador. A solução recomendada é que o utilizador complete a prova, especificamente a partir de uma localização de rede que não pareça arriscada.
 
+Por exemplo, se uma rede corporativa for definida como um local nomeado, o utilizador deve tentar fazer a prova a partir da rede corporativa.
 
 ### <a name="successful-sign-in"></a>Sindução bem sucedida
 
-Este cenário baseia-se em inscrições que não foram interrompidas por acesso condicional ou autenticação de vários fatores.
+Neste cenário, os eventos de inscrição não foram interrompidos por acesso condicional ou autenticação multifactor.
 
-A intenção deste cenário de diagnóstico é fornecer informações sobre o que o utilizador forneceu durante a entrada em causa no caso de existir uma política de Acesso Condicional ou políticas que se esperassem aplicar, ou uma autenticação configurada de vários fatores que se esperasse que interrompesse o início de saúde do utilizador.
-
-
+Este cenário de diagnóstico fornece detalhes sobre eventos de inscrição do utilizador que se esperava que fossem interrompidos devido a políticas de acesso condicional ou autenticação multifactor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que são os relatórios do Azure Active Directory?](overview-reports.md)
-* [O que é a monitorização do Azure Active Directory?](overview-monitoring.md)
+- [O que são os relatórios do Azure Active Directory?](overview-reports.md)
+- [O que é a monitorização do Azure Active Directory?](overview-monitoring.md)

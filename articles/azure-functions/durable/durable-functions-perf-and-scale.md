@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97931743"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572804"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
 
@@ -103,7 +103,7 @@ As funções de atividade são apátridas e escalonada automaticamente adicionan
   "extensions": {
     "durableTask": {
       "storageProvider": {
-          "partitionCount": 3
+        "partitionCount": 3
       }
     }
   }
@@ -264,7 +264,7 @@ Ao planear utilizar Funções Duradouras para uma aplicação de produção, é 
 
 A tabela seguinte mostra os números *máximos* de produção esperados para os cenários previamente descritos. "Instance" refere-se a uma única instância de uma função orquestradora que funciona num único pequeno[(A1](../../virtual-machines/sizes-previous-gen.md)) VM em Azure App Service. Em todos os casos, presume-se que as [sessões prolongadas](#orchestrator-function-replay) estão habilitados. Os resultados reais podem variar dependendo do trabalho de CPU ou I/S realizado pelo código de função.
 
-| Scenario | Débito máximo |
+| Cenário | Débito máximo |
 |-|-|
 | Execução de atividade sequencial | 5 atividades por segundo, por exemplo |
 | Execução paralela da atividade (fan-out) | 100 atividades por segundo, por exemplo |

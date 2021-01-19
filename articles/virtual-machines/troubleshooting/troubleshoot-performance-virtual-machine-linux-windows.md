@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526661"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573314"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Resolução de problemas Desempenho da máquina virtual Azure em Linux ou Windows
 
@@ -52,7 +52,7 @@ Pode verificar a conta de armazenamento utilizada para a configuração de Diagn
 
 O armazenamento é um nível muito importante quando pretendemos analisar o desempenho de IO para uma Máquina Virtual em Azure. Para métricas relacionadas com o armazenamento precisamos de permitir o diagnóstico como um passo adicional. Isto também poderia ser ativado, se apenas quisermos analisar os balcões relacionados com o armazenamento.
 
-1. Identifique qual a conta de armazenamento (ou contas) que o seu VM está a utilizar selecionando o VM. Clique em **Definições**e, em seguida, clique em **Discos**:
+1. Identifique qual a conta de armazenamento (ou contas) que o seu VM está a utilizar selecionando o VM. Clique em **Definições** e, em seguida, clique em **Discos**:
 
    ![Clique em Definições e, em seguida, Discos](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
@@ -208,7 +208,7 @@ Para identificar se está a atingir o limite do IOPS, entre nos diagnósticos da
 
 Com novas ofertas de discos sob armazenamento standard, os limites de IOPS e Depute podem diferir, mas o limite acumulado da conta standard de armazenamento é 20000 IOPS (O armazenamento premium tem limites diferentes a nível da conta ou do disco). Leia mais sobre diferentes ofertas padrão de disco de armazenamento e por limites de disco:
 
-* [Metas de escalabilidade e desempenho para discos VM no Windows](../windows/disk-scalability-targets.md).
+* [Metas de escalabilidade e desempenho para discos VM no Windows](../disks-scalability-targets.md).
 
 #### <a name="references"></a>Referências
 
@@ -224,7 +224,7 @@ Verifique os limites de produção dos VHDs ligados ao VM. Adicione as métricas
 
 As novas ofertas de discos sob armazenamento standard têm diferentes IOPS e limites de produção (O IOPS não está exposto por VHD). Veja os dados para ver se está a atingir os limites de MB de produção combinada dos VHD(s) a nível VM utilizando a Leitura e a Escrita do Disco, em seguida, otimize a sua configuração de armazenamento VM para escalar os limites de VHD únicos. Leia mais sobre diferentes ofertas padrão de disco de armazenamento e por limites de disco:
 
-* [Metas de escalabilidade e desempenho para discos VM no Windows](../windows/disk-scalability-targets.md).
+* [Metas de escalabilidade e desempenho para discos VM no Windows](../disks-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Reparação de alta utilização/latência do disco
 

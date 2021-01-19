@@ -1,5 +1,5 @@
 ---
-title: Limites de disco de caixa de dados Azure / Microsoft Docs
+title: Limites de disco de caixa de dados Azure | Microsoft Docs
 description: Descreve os limites do sistema e os tamanhos recomendados para o Disco de Caixa de Dados Azure da Microsoft.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124174"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573195"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados Azure
 
@@ -44,7 +44,7 @@ Para obter as informações mais recentes sobre os limites do serviço de armaze
 
 ## <a name="data-upload-caveats"></a>Limitações do carregamento de dados
 
-- Não copie os dados diretamente nos discos. Copie os dados para as pastas *BlockBlob,**PageBlob*e *AzureFile* pré-criadas.
+- Não copie os dados diretamente nos discos. Copie os dados para as pastas *BlockBlob,**PageBlob* e *AzureFile* pré-criadas.
 - Uma pasta sob o *BlockBlob* e *PageBlob* é um recipiente. Por exemplo, os contentores são criados como *BlockBlob/container* e *PageBlob/container*.
 - Se tiver um objeto Azure existente (como uma bolha) na nuvem com o mesmo nome que o objeto que está a ser copiado, o Disco de Caixa de Dados mudará o nome do ficheiro como ficheiro(1) na nuvem.
 - Todos os ficheiros escritos nas ações *do BlockBlob* e *do PageBlob* são carregados como uma bolha de bloco e uma bolha de página, respectivamente.
@@ -76,7 +76,7 @@ Aqui estão os tamanhos dos objetos Azure que podem ser escritos. Certifique-se 
 | Blob de Bloco        | ~ 4.75 TiB                                                 |
 | Blob de página         | 8 TiB <br> (Todos os ficheiros carregados no formato Page Blob devem estar alinhados com 512 bytes, caso contrário o upload falha. <br> Tanto o VHD como o VHDX estão alinhados com 512 bytes.) |
 |Ficheiros do Azure        | 1 TiB <br> Um máximo de tamanho de ação é 5 TiB     |
-| Managed disks     |4 TiB <br> Para obter mais informações sobre o tamanho e os limites, consulte: <li>[Metas de escalabilidade para discos geridos](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed disks     |4 TiB <br> Para obter mais informações sobre o tamanho e os limites, consulte: <li>[Metas de escalabilidade para discos geridos](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Blob bloco Azure, bolha de página e convenções de nomeação de arquivos

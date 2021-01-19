@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209699"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573364"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -35,11 +35,15 @@ Os dados de uma conta de Armazenamento Azure são sempre replicados três vezes 
 
 ### <a name="locally-redundant-storage"></a>Armazenamento localmente redundante
 
-O armazenamento localmente redundante (LRS) replica os seus dados três vezes num único local físico na região primária. O LRS proporciona pelo menos 99.99999999999999999 % (11 noves) de durabilidade de objetos durante um determinado ano.
+O armazenamento localmente redundante (LRS) replica os seus dados três vezes dentro de um único centro de dados na região primária. O LRS proporciona pelo menos 99.99999999999999999 % (11 noves) de durabilidade de objetos durante um determinado ano.
 
 O LRS é a opção de despedimento mais barata e oferece a menor durabilidade em comparação com outras opções. O LRS protege os seus dados contra as falhas de suporte do servidor e da unidade. No entanto, se ocorrer uma catástrofe como incêndio ou inundação dentro do centro de dados, todas as réplicas de uma conta de armazenamento utilizando LRS podem ser perdidas ou irrecuperáveis. Para mitigar este risco, a Microsoft recomenda a utilização [de armazenamento redundante de zona](#zone-redundant-storage) (ZRS), armazenamento [geo-redundante](#geo-redundant-storage) (GRS) ou [armazenamento de zonas geo-redundantes](#geo-zone-redundant-storage) (GZRS).
 
 Um pedido de escrita para uma conta de armazenamento que está a usar LRS acontece sincronizadamente. A operação de escrita só regressa com sucesso depois de os dados terem sido escritos às três réplicas.
+
+O diagrama a seguir mostra como os seus dados são replicados num único centro de dados com LRS:
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados num único centro de dados com LRS":::
 
 LRS é uma boa escolha para os seguintes cenários:
 
@@ -54,7 +58,11 @@ Com o ZRS, os seus dados ainda estão acessíveis tanto para operações de leit
 
 Um pedido de escrita para uma conta de armazenamento que está a usar o ZRS acontece sincronizadamente. A operação de escrita só regressa com sucesso depois de os dados forem escritos a todas as réplicas nas três zonas de disponibilidade.
 
-A Microsoft recomenda a utilização de ZRS na região primária para cenários que exijam consistência, durabilidade e alta disponibilidade. Recomendamos também a utilização de ZRS se pretender restringir uma aplicação para replicar dados apenas dentro de um país ou região devido aos requisitos de governação de dados.
+A Microsoft recomenda a utilização de ZRS na região primária para cenários que exijam consistência, durabilidade e alta disponibilidade. O ZRS também é recomendado para restringir a replicação de dados a um país ou região para satisfazer os requisitos de governação de dados.
+
+O seguinte diagrama mostra como os seus dados são replicados em zonas de disponibilidade na região primária com ZRS:
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados na região primária com ZRS":::
 
 O ZRS proporciona um excelente desempenho, baixa latência e resiliência para os seus dados se ficar temporariamente indisponível. No entanto, o ZRS por si só pode não proteger os seus dados contra um desastre regional onde várias zonas são permanentemente afetadas. Para proteção contra desastres regionais, a Microsoft recomenda a utilização [de armazenamento redundante de geo-zona](#geo-zone-redundant-storage) (GZRS), que utiliza ZRS na região primária e também geo-replica os seus dados para uma região secundária.
 
@@ -171,10 +179,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
-| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
+| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 

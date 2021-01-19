@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 2dbd7cd756e386b44c6933697ff50180021ac035
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569968"
+ms.locfileid: "98572311"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -213,7 +213,7 @@ Alterações offline para discos protegidos | Desligar discos e fazer modificaç
 
 Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco temporário.
 
-- É importante observar os limites e alvos do disco VM para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) e [do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar quaisquer problemas de desempenho.
+- É importante observar os limites e alvos do disco VM para [discos geridos](../virtual-machines/disks-scalability-targets.md) para evitar quaisquer problemas de desempenho.
 - Se implementar com as definições predefinidos, a Recuperação do Site cria automaticamente discos e contas de armazenamento com base nas definições de origem.
 - Se personalizar, certifique-se de que segue as diretrizes.
 
@@ -261,7 +261,7 @@ Escreva discos ativados pelo acelerador | Não suportado
 Etiquetas  | As tags geradas pelo utilizador são replicadas a cada 24 horas.
 
 >[!IMPORTANT]
-> Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os alvos de desempenho para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [do Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.
+> Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os objetivos de desempenho dos [discos geridos](../virtual-machines/disks-scalability-targets.md). Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.
 
 ## <a name="limits-and-data-change-rates"></a>Limites e taxas de alteração de dados
 

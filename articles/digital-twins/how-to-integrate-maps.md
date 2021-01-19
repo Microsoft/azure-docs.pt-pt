@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Veja como usar as Funções Azure para criar uma função que pode usar o gráfico gémeo e as notificações de Azure Digital Twins para atualizar um mapa interior do Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 24487d3028b90d28f302a6f259096ba68c964541
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222127"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573042"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -72,7 +72,7 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
 
 ## <a name="create-a-function-to-update-maps"></a>Criar uma função para atualizar mapas
 
-Vai criar uma *função desencadeada por Event Grid* dentro da sua aplicação de função a partir do tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta).*](./tutorial-end-to-end.md) Esta função irá desembalar essas notificações e enviar atualizações para um estado de funcionalidade do Azure Maps para atualizar a temperatura de um quarto. 
+Vai criar uma **função desencadeada por Event Grid** dentro da sua aplicação de função a partir do tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta).*](./tutorial-end-to-end.md) Esta função irá desembalar essas notificações e enviar atualizações para um estado de funcionalidade do Azure Maps para atualizar a temperatura de um quarto.
 
 Consulte o seguinte documento para obter informações de referência: [*Azure Event Grid trigger for Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 

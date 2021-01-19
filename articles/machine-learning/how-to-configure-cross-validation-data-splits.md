@@ -11,18 +11,18 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185687"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573297"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no machine learning automatizado
 
 Neste artigo, aprende-se as diferentes opções para configurar divisões de dados de treino/validação e validação cruzada para a sua aprendizagem automática de máquinas, ML automatizado, experiências.
 
-No Azure Machine Learning, quando utiliza ML automatizado para construir vários modelos ML, cada corrida infantil precisa de validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Estas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais de observações anteriores nos dados de validação. 
+No Azure Machine Learning, quando utiliza ML automatizado para construir vários modelos ML, cada corrida infantil precisa de validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Estas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais de observações anteriores nos dados de validação. [Saiba mais sobre como as métricas são calculadas com base no tipo de validação.](#metric-calculation-for-cross-validation-in-machine-learning) 
 
 Experiências automatizadas de ML realizam validação de modelos automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
@@ -43,9 +43,9 @@ Para este artigo que precisa,
 
     * [Sobre conjuntos de comboios, validação e testes em machine learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [Compreender validação cruzada na aprendizagem automática](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [Compreender validação cruzada na aprendizagem automática](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
-## <a name="default-data-splits-and-cross-validation"></a>Os dados predefinidos dividem-se e validam-se cruzadas
+## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Os dados predefinidos dividem-se e validam-se cruzadamente na aprendizagem automática
 
 Utilize o objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) para definir as definições de experiência e treino. No seguinte corte de código, note que apenas os parâmetros necessários são definidos, que são os parâmetros para `n_cross_validation` ou `validation_ data` **não** estão incluídos.
 
@@ -155,6 +155,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 > [!NOTE]
 > Para utilizar `cv_split_column_names` `training_data` `label_column_name` e, por favor, atualize a sua versão Azure Machine Learning Python SDK 1.6.0 ou mais tarde. Para versões SDK anteriores, consulte a utilização `cv_splits_indices` , mas note que é utilizado apenas com a entrada de conjunto de `X` `y` dados. 
+
+
+## <a name="metric-calculation-for-cross-validation-in-machine-learning"></a>Cálculo métrico para validação cruzada na aprendizagem automática
+
+Quando a validação cruzada de K-fold ou Monte Carlo é utilizada, as métricas são calculadas em cada dobra de validação e, em seguida, agregadas. A operação de agregação é uma média para métricas escalar e uma soma para gráficos. As métricas calculadas durante a validação cruzada baseiam-se em todas as dobras e, portanto, em todas as amostras do conjunto de treino. [Saiba mais sobre métricas na aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
+
+Quando um conjunto de validação personalizado ou um conjunto de validação selecionado automaticamente são utilizados, as métricas de avaliação do modelo são calculadas a partir apenas desse conjunto de validação, e não dos dados de treino.
 
 ## <a name="next-steps"></a>Passos seguintes
 

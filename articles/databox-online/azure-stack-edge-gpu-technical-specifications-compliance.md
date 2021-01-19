@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Stack Edge Pro com especificações técnicas da GPU e conformidade Microsoft Docs
+title: Microsoft Azure Stack Edge Pro com especificações técnicas da GPU e conformidade| Microsoft Docs
 description: Conheça as especificações técnicas e a conformidade do seu dispositivo Azure Stack Edge Pro com GPU
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839950"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573331"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack Edge Pro com GPU 
 
@@ -26,7 +26,7 @@ O dispositivo Azure Stack Edge Pro tem as seguintes especificações para cálcu
 | Especificação           | Valor                  |
 |-------------------------|----------------------------|
 | CPU                     | 2 X Intel Xeon Silver 4214 (Lago cascata) CPU            |
-| Memória                  | 128 (8x16 GB) GB RAM                     |
+| Memória                  | 128 (8x16 GB) GB RAM <br> Dell Compatível 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registado RDIMM       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Especificações de aceleração computacional
@@ -56,7 +56,7 @@ O seu dispositivo Azure Stack Edge Pro tem seis interfaces de rede, PORT1-PORT6.
 
 | Especificação           | Descrição                 |
 |-------------------------|----------------------------|
-|  Interfaces de rede    | **2 interfaces X 1 GbE** – 1 interface de gestão A Porta 1 é utilizada para a configuração inicial e está estática por predefinição. Após a configuração inicial estar concluída, pode utilizar a interface para obter dados com qualquer endereço IP. No entanto, no reset, a interface volta a ip estática. <br>A outra interface A Porta 2 é configurável pelo utilizador, pode ser usada para transferência de dados, e é DHCP por padrão. <br>**4 X 25 Interfaces GbE** – Estas interfaces de dados, Porta 3 até à Porta 6, podem ser configuradas pelo utilizador como DHCP (padrão) ou estática. Estes também podem funcionar como interfaces de 10 GbE.  | 
+|  Interfaces de rede    | **2 interfaces X 1 GbE** – 1 interface de gestão A Porta 1 é utilizada para a configuração inicial e está estática por predefinição. Após a configuração inicial estar concluída, pode utilizar a interface para obter dados com qualquer endereço IP. No entanto, no reset, a interface volta a ip estática. <br>A outra interface A Porta 2 é configurável pelo utilizador, pode ser usada para transferência de dados, e é DHCP por padrão. <br>**4 X 25 Interfaces GbE** – Estas interfaces de dados, Porta 3 até à Porta 6, podem ser configuradas pelo utilizador como DHCP (padrão) ou estática. Também podem funcionar como interfaces de 10 GbE.  | 
 
 O seu dispositivo Azure Stack Edge Pro tem o seguinte hardware de rede:
 
@@ -67,8 +67,8 @@ Aqui estão os detalhes do cartão Mellanox:
 
 | Parâmetro           | Descrição                 |
 |-------------------------|----------------------------|
-| Modelo    | Cartão de interface de rede ConnectX®-4 Lx EN                      |
-| Descrição do modelo               | 25GbE de duas portas SFP28; PCIe3.0 x8; ROHS R6                    |
+| Modelação    | Cartão de interface de rede ConnectX®-4 Lx EN                      |
+| Descrição do modelo               | 25 GbE de duas portas SFP28; PCIe3.0 x8; ROHS R6                    |
 | Número da peça do dispositivo (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
@@ -88,11 +88,9 @@ Os dispositivos Azure Stack Edge Pro têm cinco SSDs NVMe DC P4610 de 2,5", cada
 |    Boot SATA unidades de estado sólido (SSD)      |    1                  |
 |    Capacidade SSD de arranque                       |    240 GB             |
 |    Capacidade total                          |    8.0 TB             |
-|    Capacidade total utilizável*                  |    ~ 4.19 TB          |
+|    Capacidade total utilizável                   |    ~ 4.19 TB          |
+|    Configuração RAID                      |    Espaços de armazenamento Direto com uma combinação de espelhamento e paridade  |
 |    Controlador SAS                          |    HBA330 12 Gbps     |
-
-
-**Após a resiliência da paridade e reservando espaço para uso interno.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -150,6 +148,7 @@ Esta secção enumera as especificações relacionadas com o ambiente do recinto
 |     Recinto                           |     Especificações operacionais                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Fluxo de ar                              |    O fluxo de ar do sistema é frontal para a traseira. O sistema deve ser acionado com uma instalação de exaustão traseira de baixa pressão. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
+| Proteção contra entradas (IP)                 |    Este tipo de equipamento montado na cremalheira para uso no interior normalmente não é testado para proteção contra entradas (proteção contra sólidos e líquidos para um recinto elétrico). A avaliação de segurança do fabricante mostra o IPXO (sem proteção contra entradas).  |
 |    Altitude máxima, operacional        |    3048 metros (10.000 pés) com temperatura máxima de funcionamento desapurado determinada pelas [especificações de desins classificação da temperatura de funcionamento](#operating-temperature-de-rating-specifications).                                                                                |
 |    Altitude máxima, não operacional    |    12.000 metros (39.370 pés)                                                                                                                                                                                         |
 |    Choque, operacional                   |    6 G para 11 milissegundos em 6 orientações                                                                                                                                                                         |

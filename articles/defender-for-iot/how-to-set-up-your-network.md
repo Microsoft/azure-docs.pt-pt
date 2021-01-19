@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861961"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573144"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre o Azure Defender para a configuração da rede IoT
 
@@ -223,7 +223,7 @@ Numa rede estelar, cada hospedeiro está ligado a um centro central. Na sua form
 
 Aqui estão algumas recomendações para a implementação de vários sensores:
 
-| **Número **| **Medidores** | **Dependência** | **Número de sensores** |
+| **Number** | **Medidores** | **Dependência** | **Número de sensores** |
 |--|--|--|--|
 | A distância máxima entre os interruptores | 80 metros | Cabo Ethernet preparado | Mais de 1 |
 | Número de redes OT | Mais de 1 | Sem conectividade física | Mais de 1 |
@@ -363,7 +363,7 @@ Os agregadores de TAP também podem ser utilizados para monitorização portuár
 
 Estes modelos foram testados para compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
-| Imagem | Modelo |
+| Imagem | Modelação |
 | -- | -- |
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Imagem de Garland P1GCCAS.":::  | Garland P1GCCAS  |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot de IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
@@ -591,7 +591,7 @@ Uma visão geral do diagrama da rede industrial permitir-lhe-á definir a locali
 
 5. Para verificar se os comutadores têm capacidade de espelhamento da porta, forneça os números do modelo do switch a que a plataforma Defender para IoT deve ligar:
 
-    | **#** | **Comutador** | **Modelo** | **Suporte para espelhamento de tráfego (SPAN, RSPAN, ou nenhum)** |
+    | **#** | **Comutador** | **Modelação** | **Suporte para espelhamento de tráfego (SPAN, RSPAN, ou nenhum)** |
     |--|--|--|--|
     | 1 |  |  |
     | 2 |  |  |
@@ -694,6 +694,6 @@ Contacte um administrador ative directory para criar um grupo de utilizadores do
 | Câmara | |
 | Máquina de raio-X | |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Sobre o Defender para instalação IoT](how-to-install-software.md)

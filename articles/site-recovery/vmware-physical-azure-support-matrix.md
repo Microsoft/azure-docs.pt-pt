@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: eaf12a9799f834046bc3914816f38d672fcc931b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4bf0227cf11b21d7cde2807d465385bfc2b998b5
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234091"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573059"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -57,6 +57,9 @@ IIS | Certifique-se de:<br/><br/> - Não tem um website pre-existente <br/> - At
 Tipo NIC | VMXNET3 (quando implementado como VMware VM)
 Tipo de endereço IP | Estático
 Portas | 443 usado para orquestração de canais de controlo<br/>9443 para transporte de dados
+
+> [!NOTE]
+O sistema operativo tem de ser instalado com o local inglês. A conversão da instalação de postes locais pode resultar em potenciais problemas.
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
@@ -200,7 +203,7 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saib
 Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
-Traffic Manager do Azure | Sim
+Gestor de Tráfego do Azure | Sim
 Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim

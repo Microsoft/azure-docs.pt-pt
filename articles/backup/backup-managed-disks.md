@@ -3,12 +3,12 @@ title: Back up Azure Managed Disks
 description: Saiba como fazer o back up Azure Managed Disks a partir do portal Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: c4e2d4e649d59389ac3f8bd115e43acabc792eb2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558370"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573127"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Faça o back up Azure Managed Disks (na pré-visualização)
 
@@ -129,6 +129,8 @@ São necessários os seguintes pré-requisitos para configurar a cópia de segur
    >Digite o nome do cofre de reserva para selecionar a identidade gerida do cofre.
 
    ![Adicione a função de contribuinte snapshot de disco](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
+
+1. Se o disco a ser apoiado for encriptado com [teclas geridas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou utilizando [encriptação dupla utilizando chaves geridas pela plataforma e teclas geridas pelo cliente,](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal)atribua a permissão de função do **Leitor** à identidade gerida do Cofre de Cópia de Segurança no recurso **Conjunto de Encriptação** do Disco.
 
 1. Verifique se a identidade gerida do cofre de backup tem o conjunto certo de atribuições de funções no disco de origem e no grupo de recursos que serve como a loja de dados instantânea.
 

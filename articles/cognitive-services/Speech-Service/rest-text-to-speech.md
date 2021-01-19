@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9bee5fa6b76aad9305947ebe460f37c399340038
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: d858474eca34243a007d0d0ac1e023a4a0fab8ec
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033479"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572345"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -60,9 +60,11 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 | Coreia do Sul Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Centro-Norte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa do Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte da África do Sul | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Centro-Sul | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| E.U.A. Centro-Oeste | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -211,10 +213,10 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-
 
 | Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Obrigatório |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Obrigatório |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Obrigatório |
-| `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Obrigatório |
+| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Necessário |
+| `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Necessário |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 

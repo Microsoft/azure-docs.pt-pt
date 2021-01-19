@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: a9591a394d80e7b4c60f28fda6c0a425ba3d0a4f
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 05d6607c091361ecee3fcd5527025b6f9fb59051
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180069"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573212"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -360,7 +360,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. Adicione as seguintes variáveis ambientais ao seu módulo Edge Hub:
 
-    | Name | Valor |
+    | Nome | Valor |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -373,7 +373,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. No separador variáveis ambientais, insira o seguinte par de valor-nome variável do ambiente:
 
-    | Name | Valor |
+    | Nome | Valor |
     | - | - |
     | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
@@ -425,6 +425,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
                            "env": {
                                "REGISTRY_PROXY_REMOTEURL": {
                                    "value": "https://mcr.microsoft.com"
+                               } 
                            },
                            "status": "running",
                            "restartPolicy": "always"
@@ -453,7 +454,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },
@@ -531,7 +532,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. Adicione as seguintes variáveis ambientais ao seu módulo Edge Hub:
 
-    | Name | Valor |
+    | Nome | Valor |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -575,7 +576,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },
@@ -650,7 +651,7 @@ sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azur
    
 O `azureiotedge-diagnostics` valor é retirado do registo do contentor que está ligado ao módulo de registo. Este tutorial tem definido por padrão para https://mcr.microsoft.com:
 
-| Name | Valor |
+| Nome | Valor |
 | - | - |
 | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 

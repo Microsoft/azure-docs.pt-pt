@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c1b17d8c624d4bef74278acc24ece37a736a5ca8
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906408"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572974"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 
@@ -78,7 +78,7 @@ Criará o gateway de aplicações utilizando os separadores na página **Criar u
    > [!NOTE]
    > Para o Gateway de Aplicação v2 SKU, deve haver uma configuração IP frontal **do público.** Ainda pode ter uma configuração IP de frontend pública e privada, mas a configuração IP de frontend privada (apenas o modo ILB) não está ativada para o V2 SKU. 
 
-2. Escolha **Criar novo** para o endereço IP **público** e insira o *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
+2. **Selecione Adicionar novo** para o endereço IP **público** e insira *o myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
      ![Criar novo gateway de aplicações: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -86,9 +86,9 @@ Criará o gateway de aplicações utilizando os separadores na página **Criar u
 
 ### <a name="backends-tab"></a>Separador backends
 
-O pool backend é usado para encaminhar pedidos para os servidores backend que servem o pedido. As piscinas backend podem ser compostas por NICs, conjuntos de escala de máquinas virtuais, IPs públicos, IPs internos, nomes de domínio totalmente qualificados (FQDN) e back-ends multi-inquilinos como O Azure App Service. Neste exemplo, você vai criar uma piscina de backend vazia com o seu gateway de aplicação e, em seguida, adicionar alvos de backend para a piscina de backend.
+O pool backend é usado para encaminhar pedidos para os servidores backend que servem o pedido. As piscinas backend podem ser compostas por NICs, conjuntos de escala de máquinas virtuais, endereços IP públicos, endereços IP internos, nomes de domínio totalmente qualificados (FQDN) e back-ends multi-inquilinos como O Azure App Service. Neste exemplo, você vai criar uma piscina de backend vazia com o seu gateway de aplicação e, em seguida, adicionar alvos de backend para a piscina de backend.
 
-1. No **separador Backends,** selecione **+Adicione uma piscina de backend**.
+1. No **separador Backends,** **selecione Adicione uma piscina de backend**.
 
 2. Na janela **de piscina de backend** que se abre, introduza os seguintes valores para criar uma piscina de backend vazia:
 
@@ -105,7 +105,7 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 
 No separador **Configuração,** irá ligar o frontend e o pool de backend que criou usando uma regra de encaminhamento.
 
-1. **Selecione Adicione uma regra** na coluna de **regras de encaminhamento.**
+1. **Selecione Adicione uma regra de encaminhamento** na coluna de **regras de encaminhamento.**
 
 2. Na janela de **regra de encaminhamento Adicionar uma** janela de regra de encaminhamento que se abre, *introduza o myRoutingRule* para o **nome regra**.
 
@@ -120,7 +120,7 @@ No separador **Configuração,** irá ligar o frontend e o pool de backend que c
 
 4. No separador **alvos de Backend,** selecione **myBackendPool** para o **alvo Backend**.
 
-5. Para a **definição HTTP**, selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP** e *80* para a **porta Backend**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
+5. Para a **definição HTTP**, selecione **Adicione novo** para adicionar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP** e *80* para a **porta Backend**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
 
      ![Criar novo gateway de aplicações: definição HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -147,7 +147,7 @@ Para fazer isto, vai:
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
-2. Selecione **o Centro de Dados do Windows Server 2016** na lista **Popular.** Aparece a página **de máquina virtual Create a.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza um Datacenter Windows Server 2016.
+2. Selecione **o Centro de Dados do Windows Server 2016** na lista **Popular.** Aparece a página **de máquina virtual Create a.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza-se uma máquina virtual do Datacenter 2016 do Windows Server.
 3. Introduza estes valores no separador **Básicos** para as seguintes definições de máquina virtual:
 
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
@@ -165,9 +165,11 @@ Para fazer isto, vai:
 
 ### <a name="install-iis-for-testing"></a>Instalar o IIS para testes
 
-Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o Azure criou o gateway de aplicações com sucesso.
+Neste exemplo, instala o IIS nas máquinas virtuais para verificar se o Azure criou o gateway de aplicações com sucesso.
 
-1. Abra o Azure PowerShell. Selecione **Cloud Shell** a partir da barra de navegação superior do portal Azure e, em seguida, selecione **PowerShell** da lista de drop-down. 
+1. Abra o Azure PowerShell.
+
+   Selecione **Cloud Shell** a partir da barra de navegação superior do portal Azure e, em seguida, selecione **PowerShell** da lista de drop-down. 
 
     ![Instalar uma extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -208,7 +210,9 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Embora o IIS não seja obrigado a criar o gateway de aplicações, instalou-o neste quickstart para verificar se o Azure criou com sucesso o gateway de aplicações. Utilize o IIS para testar o gateway de aplicações:
+Embora o IIS não seja obrigado a criar o gateway de aplicações, instalou-o neste quickstart para verificar se o Azure criou com sucesso o gateway de aplicações. 
+
+Utilize o IIS para testar o gateway de aplicações:
 
 1. Encontre o endereço IP público para a porta de aplicação na sua página **de visão geral.** ![ Registar endereço IP público de gateway de aplicações ](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Ou, pode selecionar **Todos os recursos,** inserir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **'Vista Geral'.**
 2. Copie o endereço IP público e, em seguida, cole-o na barra de endereço do seu navegador para navegar nesse endereço IP.
@@ -227,7 +231,7 @@ Para eliminar o grupo de recursos:
 1. No menu do portal Azure, selecione **grupos de recursos** ou procure e selecione *grupos de Recursos.*
 2. Na página **de grupos de recursos,** procure **o myResourceGroupAG** na lista e, em seguida, selecione-o.
 3. Na **página** do grupo Recursos , selecione **Eliminar grupo de recursos**.
-4. Introduza *myResourceGroupAG* para **escrever o nome do grupo de recursos** e, em seguida, selecione **Eliminar**
+4. Introduza *myResourceGroupAG* em **TYPE THE RESOURCE GROUP NAME** e, em seguida, selecione **Eliminar**
 
 ## <a name="next-steps"></a>Passos seguintes
 

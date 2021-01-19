@@ -1,15 +1,15 @@
 ---
 title: Entenda como os alertas métricos funcionam no Azure Monitor.
 description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Azure Monitor.
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251238"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572736"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -26,9 +26,9 @@ Digamos que criou uma regra de alerta métrica de limiar estático da seguinte f
 - Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
 - Métrica: Percentagem CPU
 - Tipo de condição: Estático
-- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [Agregações de tempo suportadas](metrics-charts.md#aggregation) são Min, Max, Avg, Total, Contagem): Média
-- Período (A janela de olhar para trás sobre os valores métricos são verificados): Ao longo dos últimos 5 minutos
-- Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
+- Tipo de agregação (uma estatística que é atropelada por valores métricos brutos. [Os tipos de agregação suportados](./metrics-aggregation-explained.md#aggregation-types) são mínimos, máximo, médio, total, contagem): Média
+- Período (a janela de olhar para trás sobre os valores métricos são verificados): Ao longo dos últimos 5 minutos
+- Frequência (a frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
 - Operador: Maior do que
 - Limiar: 70
 
@@ -43,9 +43,9 @@ Digamos que criou uma regra simples de alerta de limiares dinâmicos da seguinte
 - Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
 - Métrica: Percentagem CPU
 - Tipo de condição: Dinâmico
-- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [Agregações de tempo suportadas](metrics-charts.md#aggregation) são Min, Max, Avg, Total, Contagem): Média
-- Período (A janela de olhar para trás sobre os valores métricos são verificados): Ao longo dos últimos 5 minutos
-- Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
+- Tipo de agregação (uma estatística que é atropelada por valores métricos brutos. [Os tipos de agregação suportados](./metrics-aggregation-explained.md#aggregation-types) são mínimos, máximo, médio, total, contagem): Média
+- Período (a janela de olhar para trás sobre os valores métricos são verificados): Ao longo dos últimos 5 minutos
+- Frequência (a frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
 - Operador: Maior do que
 - Sensibilidade: Médio
 - Olhar para trás Períodos: 4
@@ -80,7 +80,7 @@ Diga que tem um plano de Serviço de Aplicações para o seu website. Pretende m
 - Tipo de condição: Estático
 - Dimensões
   - Instância = InstanceName1, InstanceName2
-- Agregação de tempo: Média
+- Tipo de agregação: Média
 - Período: Nos últimos 5 minutos
 - Frequência: 1 min
 - Operador: GreaterThan
@@ -95,7 +95,7 @@ Digamos que tem uma aplicação web que está a ver uma procura massiva e que te
 - Tipo de condição: Estático
 - Dimensões
   - Instância = *
-- Agregação de tempo: Média
+- Tipo de agregação: Média
 - Período: Nos últimos 5 minutos
 - Frequência: 1 min
 - Operador: GreaterThan
@@ -112,7 +112,7 @@ Digamos que tem uma aplicação web com muitos casos e não sabe qual é o limia
 - Tipo de condição: Dinâmico
 - Dimensões
   - Instância = *
-- Agregação de tempo: Média
+- Tipo de agregação: Média
 - Período: Nos últimos 5 minutos
 - Frequência: 1 min
 - Operador: GreaterThan
@@ -141,7 +141,7 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 
 | Serviço | Azure Público | Administração Pública | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | No |
+| Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | Não |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |
 | Piscinas elásticas do servidor SQL | **Sim** | **Sim** | **Sim** |
 | NetApp arquiva grupos de capacidade | **Sim** | **Sim** | **Sim** |

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524254"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572192"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -113,7 +113,7 @@ Extensões | Não suportado | As extensões não são copiadas para o VM na regi
 
 ## <a name="supported-vm-storage-settings"></a>Definições de armazenamento de VM suportadas
 
-Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco temporário. É importante observar os limites e alvos do disco VM para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) e [do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar quaisquer problemas de desempenho.
+Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco temporário. É importante observar os limites e alvos do disco VM para [discos geridos](../virtual-machines/disks-scalability-targets.md) para evitar quaisquer problemas de desempenho.
 
 > [!NOTE]
 > O tamanho do VM alvo deve ser igual ou maior do que o VM de origem. Os parâmetros utilizados para validação são: Contagem de Discos de Dados, contagem de NICs, CPUs disponíveis, Memória em GB. Se não for um erro, é emitido um erro.
@@ -170,7 +170,7 @@ VMs Azure que você quer mover precisam de acesso de saída.
 
  Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-**Name** | **Nuvem pública azul** | **Detalhes** 
+**Nome** | **Nuvem pública azul** | **Detalhes** 
 --- | --- | --- 
 Armazenamento | `*.blob.core.windows.net`  | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. 
 Azure Active Directory | `login.microsoftonline.com`  | Fornece autorização e autenticação para os URLs do serviço Site Recovery. 
