@@ -4,12 +4,12 @@ description: Saiba mais sobre a Base de Dados Azure para cópia de segurança p�
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734645"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569492"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)
 
@@ -135,7 +135,7 @@ As seguintes instruções são um guia passo a passo para configurar a cópia de
 
 1. Defina **as definições de retenção.** Pode adicionar uma ou mais regras de retenção. Cada regra de retenção pressupõe entradas para cópias de segurança específicas e a duração da loja de dados e retenção para essas cópias de segurança.
 
-1. Pode optar por armazenar as suas cópias de segurança numa das duas lojas de dados (ou níveis): **Loja de dados de backup** (hot tier) ou loja de **dados Archive** (em pré-visualização). Pode escolher entre **duas opções de tiering** para definir quando as cópias de segurança são niveladas nas duas datastores:
+1. Pode optar por armazenar as suas cópias de segurança numa das duas lojas de dados (ou níveis): **Loja de dados de backup** (nível padrão) ou loja de **dados Archive** (em pré-visualização). Pode escolher entre **duas opções de tiering** para definir quando as cópias de segurança são niveladas nas duas datastores:
 
     - Opte por copiar **imediatamente** se preferir ter uma cópia de segurança nas lojas de dados de backup e arquivo simultaneamente.
     - Opte por **mover-se No-expiry** se preferir mover a cópia de segurança para arquivar a loja de dados no seu termo na loja de dados de backup.

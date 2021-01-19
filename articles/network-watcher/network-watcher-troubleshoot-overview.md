@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858642"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569985"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Observador da Rede Azure
 
@@ -54,11 +54,11 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 | PlannedMaintenance |  A instância gateway está sob manutenção  |Não|
 | UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | No|
-| ServiceNotRunning | O serviço subjacente não está a funcionar. | No|
-| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| No|
-| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Yes|
-| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Yes |
+| PlatformInActive | Existe um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
+| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| Não|
+| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
@@ -68,15 +68,15 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 | GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |Não|
 | PlannedMaintenance | A instância gateway está sob manutenção  |Não|
 | UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | No |
-| Entidade de ConexãoNotFound | Falta a configuração de ligação | No |
-| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |No|
-| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Yes |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Yes|
-| Autenticação | Desajuste de chave pré-partilhada | Yes|
-| PeerReachability | O portal dos pares não é alcançável. | Yes|
-| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Yes|
-| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Yes|
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
+| Entidade de ConexãoNotFound | Falta a configuração de ligação | Não |
+| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |Não|
+| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
+| Autenticação | Desajuste de chave pré-partilhada | Sim|
+| PeerReachability | O portal dos pares não é alcançável. | Sim|
+| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Sim|
+| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
 
@@ -209,7 +209,9 @@ Elapsed Time            330 sec
 ```
 
 ## <a name="considerations"></a>Considerações 
+* Apenas uma operação de resolução de problemas pode ser executada de cada vez por subscrição. Para executar outra operação de resolução de problemas, aguarde que a anterior esteja concluída. Desencadear mais operações enquanto uma anterior ainda não ter terminado fará com que as operações subsequentes falhem. 
 * CLI Bug: Se estiver a utilizar o Azure CLI para executar o comando, o Gateway VPN e a conta de Armazenamento têm de estar no mesmo grupo de recursos. Os clientes com recursos em diferentes grupos de recursos podem usar o PowerShell ou o portal Azure.  
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

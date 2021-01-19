@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95993b35174b80dae8c878c22554ee60afeb8a14
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 57a9f6f11283e020efc25f55f1df473a6cb2d321
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206225"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570002"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -65,9 +65,9 @@ O objeto recuperado `FrameStatistics` contém os seguintes membros:
 | Membro | Explicação |
 |:-|:-|
 | latênciaPoseToReceive | A latência da câmara representa a estimativa no dispositivo do cliente até que uma moldura do servidor para esta pose esteja totalmente disponível para a aplicação do cliente. Este valor inclui ida e volta de rede, tempo de renderização do servidor, descodificar vídeo e compensação de nervosismo. Consulte **o intervalo 1 na ilustração acima.**|
-| latênciaReceiveToPresent | Latência da disponibilidade de um quadro remoto recebido até que a aplicação do cliente ligue para PresentFrame no CPU. |
-| latênciaPresentToDisplay  | Latência de apresentar uma moldura no CPU até que o visor se aceda. Este valor inclui o tempo de GPU do cliente, qualquer buffering de quadro realizado pelo SO, reprojecção de hardware e tempo de verificação do ecrã dependente do dispositivo. Consulte **o intervalo 2 na ilustração acima.**|
-| timeSinceLastPresent | O tempo entre chamadas subsequentes para PresentFrame no CPU. Valores superiores à duração do visor (por exemplo, 16,6 ms num dispositivo cliente de 60 Hz) indicam problemas causados pela aplicação do cliente que não termina a sua carga de trabalho de CPU a tempo. Consulte **o intervalo 3 na ilustração acima.**|
+| latênciaReceiveToPresent | Latência da disponibilidade de um quadro remoto recebido até que a aplicação do cliente ligue para PresentFrame no CPU. Consulte **o intervalo 2 na ilustração acima.**|
+| latênciaPresentToDisplay  | Latência de apresentar uma moldura no CPU até que o visor se aceda. Este valor inclui o tempo de GPU do cliente, qualquer buffering de quadro realizado pelo SO, reprojecção de hardware e tempo de verificação do ecrã dependente do dispositivo. Consulte **o intervalo 3 na ilustração acima.**|
+| timeSinceLastPresent | O tempo entre chamadas subsequentes para PresentFrame no CPU. Valores superiores à duração do visor (por exemplo, 16,6 ms num dispositivo cliente de 60 Hz) indicam problemas causados pela aplicação do cliente que não termina a sua carga de trabalho de CPU a tempo.|
 | videoFramesReceived | O número de fotogramas recebidos do servidor no último segundo. |
 | videoFrameReusedCount | Número de fotogramas recebidos no último segundo que foram utilizados no dispositivo mais de uma vez. Valores não nulos indicam que os quadros tiveram de ser reutilizados e reprojados devido ao nervosismo da rede ou ao tempo excessivo de renderização do servidor. |
 | videoFramesSkipped | Número de quadros recebidos no último segundo que foram descodificados, mas não mostrados no ecrã porque chegou uma moldura mais recente. Valores não nulos indicam que o nervosismo da rede fez com que vários quadros fossem atrasados e, em seguida, chegassem juntos ao dispositivo cliente numa explosão. |

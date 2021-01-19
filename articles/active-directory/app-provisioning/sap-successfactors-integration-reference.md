@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969528"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569458"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Como o provisionamento do Azure Ative Directory se integra com os SAP SuccessFactors 
 
@@ -52,24 +52,25 @@ Para cada utilizador em SuccessFactors, o serviço de fornecimento AZure AD recu
 | 3  | PerPhone                               | telefoneNav                     | Sempre           |
 | 4  | Peremail                               | e-mailNav                     | Sempre           |
 | 5  | EmpEmployment                          | empregoNav                | Sempre           |
-| 6  | Utilizador                                   | empregoNav/userNav        | Sempre           |
+| 6  | User                                   | empregoNav/userNav        | Sempre           |
 | 7  | EmpJob                                 | empregoNav/jobInfoNav     | Sempre           |
 | 8  | EmpEmploymentTermination               | activeEmpresocount       | Sempre           |
-| 9  | FOCompany                              | empregoNav/jobInfoNav/companyNav | Apenas se `company` ou `companyId` atributo for mapeado |
-| 10 | FODepartment                           | empregoNav/jobInfoNav/departmentNav | Apenas se `department` ou `departmentId` atributo for mapeado |
-| 11 | FOBusinessUnit                         | empregoNav/jobInfoNav/businessUnitNav | Apenas se `businessUnit` ou `businessUnitId` atributo for mapeado |
-| 12 | FOCostCenter                           | empregoNav/jobInfoNav/costCenterNav | Apenas se `costCenter` ou `costCenterId` atributo for mapeado |
-| 13 | FODivision                             | empregoNav/jobInfoNav/divisionNav  | Apenas se `division` ou `divisionId` atributo for mapeado |
-| 14 | FOJobCode                              | empregoNav/jobInfoNav/jobCodeNav  | Apenas se `jobCode` ou `jobCodeId` atributo for mapeado |
-| 15 | FOPayGrade                             | empregoNav/jobInfoNav/payGradeNav  | Só se `payGrade` o atributo for mapeado |
-| 16 | FOLocation                             | empregoNav/jobInfoNav/locationNav  | Só se `location` o atributo for mapeado |
-| 17 | FOCorporateAddressDEFLT                | empregoNav/jobInfoNav/addressNavDEFLT  | Se o mapeamento contiver um dos seguintes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | empregoNav/jobInfoNav/eventReasonNav  | Só se `eventReason` o atributo for mapeado |
-| 19 | EmpGlobalAssignment                    | empregoNav/empGlobalAssignmentNav | Só se `assignmentType` for mapeado |
-| 20 | Lista de Picklist de Mente De Emprego                | empregoNav/jobInfoNav/employmentTypeNav | Só se `employmentType` for mapeado |
-| 21 | Lista de Picklist classe de empregados                 | empregoNav/jobInfoNav/employeeClassNav | Só se `employeeClass` for mapeado |
-| 22 | EmplStatus Picklist                    | empregoNav/jobInfoNav/emplStatusNav | Só se `emplStatus` for mapeado |
-| 23 | Lista de Picklist deType de atribuição                | empregoNav/empGlobalAssignmentNav/assignmentTypeNav | Só se `assignmentType` for mapeado |
+| 9  | Gestor do utilizador                         | empregoNav/userNav/manager/empInfo | Sempre  |
+| 10 | FOCompany                              | empregoNav/jobInfoNav/companyNav | Apenas se `company` ou `companyId` atributo for mapeado |
+| 11 | FODepartment                           | empregoNav/jobInfoNav/departmentNav | Apenas se `department` ou `departmentId` atributo for mapeado |
+| 12 | FOBusinessUnit                         | empregoNav/jobInfoNav/businessUnitNav | Apenas se `businessUnit` ou `businessUnitId` atributo for mapeado |
+| 13 | FOCostCenter                           | empregoNav/jobInfoNav/costCenterNav | Apenas se `costCenter` ou `costCenterId` atributo for mapeado |
+| 14 | FODivision                             | empregoNav/jobInfoNav/divisionNav  | Apenas se `division` ou `divisionId` atributo for mapeado |
+| 15 | FOJobCode                              | empregoNav/jobInfoNav/jobCodeNav  | Apenas se `jobCode` ou `jobCodeId` atributo for mapeado |
+| 16 | FOPayGrade                             | empregoNav/jobInfoNav/payGradeNav  | Só se `payGrade` o atributo for mapeado |
+| 17 | FOLocation                             | empregoNav/jobInfoNav/locationNav  | Só se `location` o atributo for mapeado |
+| 18 | FOCorporateAddressDEFLT                | empregoNav/jobInfoNav/addressNavDEFLT  | Se o mapeamento contiver um dos seguintes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | empregoNav/jobInfoNav/eventReasonNav  | Só se `eventReason` o atributo for mapeado |
+| 20 | EmpGlobalAssignment                    | empregoNav/empGlobalAssignmentNav | Só se `assignmentType` for mapeado |
+| 21 | Lista de Picklist de Mente De Emprego                | empregoNav/jobInfoNav/employmentTypeNav | Só se `employmentType` for mapeado |
+| 22 | Lista de Picklist classe de empregados                 | empregoNav/jobInfoNav/employeeClassNav | Só se `employeeClass` for mapeado |
+| 23 | EmplStatus Picklist                    | empregoNav/jobInfoNav/emplStatusNav | Só se `emplStatus` for mapeado |
+| 24 | Lista de Picklist deType de atribuição                | empregoNav/empGlobalAssignmentNav/assignmentTypeNav | Só se `assignmentType` for mapeado |
 
 ## <a name="how-full-sync-works"></a>Como funciona a sincronização completa
 Com base no mapeamento de atributos, durante o serviço de fornecimento de Ad Azure em sincronização completa envia a seguinte consulta "GET" OData API para obter dados eficazes de todos os utilizadores ativos. 
@@ -113,7 +114,7 @@ Quando o serviço de fornecimento de Azure AD consulta o SuccessFactors, recuper
 
 Para obter atributos adicionais, siga os passos listados abaixo:
     
-1. Navegue para **aplicações empresariais**  ->  **SuccessFactors App**  ->  **Provisioning**  ->  **Editing Edição Página**de  ->  **mapeamento de atributos**.
+1. Navegue para **aplicações empresariais**  ->  **SuccessFactors App**  ->  **Provisioning**  ->  **Editing Edição Página** de  ->  **mapeamento de atributos**.
 1. Desloque-se para baixo e clique **Mostrar Opções avançadas**.
 1. Clique na **lista de atributos Editar para SuccessFactors**. 
 
@@ -167,7 +168,7 @@ O padrão Azure AD SuccessFactors fornecendo navios de esquema de aplicativos co
    * Se o atributo faz parte da entidade *EmpJob,* procure o atributo no *nó de EmpregoNav/jobInfoNav.* 
 1. Construa o Caminho JSON associado ao atributo e adicione este novo atributo à lista de atributos SuccessFactors. 
    * Exemplo 1: Digamos que quer adicionar o atributo *okToRehire,* que faz parte da entidade *employmentNav,* em seguida, use o JSONPath  `$.employmentNav.results[0].okToRehire`
-   * Exemplo 2: Digamos que pretende adicionar o *timeZone*do atributo, que faz parte da entidade *userNav,* e depois use o JSONPath `$.employmentNav.results[0].userNav.timeZone`
+   * Exemplo 2: Digamos que pretende adicionar o *timeZone* do atributo, que faz parte da entidade *userNav,* e depois use o JSONPath `$.employmentNav.results[0].userNav.timeZone`
    * Exemplo 3: Digamos que quer adicionar o atributo *flsaStatus,* que faz parte da entidade *jobInfoNav,* e depois use o JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Salve o esquema. 
 1. Reinicie o provisionamento.
@@ -244,8 +245,8 @@ Esta alteração de esquema também apoia o cenário de conversão dos trabalhad
 ### <a name="handling-global-assignment-scenario"></a>Lidar com o cenário de atribuição global
 
 Quando um utilizador na Central de Empregados é processado para atribuição global, o SuccessFactors adiciona uma nova entidade *EmpEmployment* e define a *atribuiçãoClass* para "GA". Também cria uma nova entidade *utilizadora.* Assim, o utilizador tem agora:
-* Uma entidade *utilizadora empEmployment*  +  *User* que corresponde à atribuição de casa com *atribuiçãoClass* definido para "ST" e 
-* Outra entidade *utilizadora empEmployment*  +  *User* que corresponde à atribuição global com *atribuiçãoClass* definido para "GA"
+* Uma entidade *utilizadora empEmployment*  +   que corresponde à atribuição de casa com *atribuiçãoClass* definido para "ST" e 
+* Outra entidade *utilizadora empEmployment*  +   que corresponde à atribuição global com *atribuiçãoClass* definido para "GA"
 
 Para obter atributos pertencentes à atribuição padrão e ao perfil de utilizador de atribuição global, utilize os passos listados abaixo: 
 
@@ -291,11 +292,11 @@ Esta secção abrange diferentes cenários de recuo. Recomenda abordagens de con
 
 | \# | Requisito de cenário | E-mail primário <br> valor da bandeira | Telefone da empresa <br> valor da bandeira primária | Telemóvel <br> valor da bandeira primária | Telefone da empresa <br> mapeamento | Telemóvel <br> mapeamento |
 |--|--|--|--|--|--|--|
-| 1 | * Apenas definir o e-mail de negócios como principal. <br> Não estabeleça números de telefone. | true | true | false | \[Não Definido\] | \[Não Definido\] | 
-| 2 | * No SuccessFactors, o e-mail de negócios e o telefone de negócios é primordial <br> * Flua sempre o número de telefone Azure AD para o telefone comercial e para o telemóvel. | true | true | false | número de telefone | dispositivo móvel | 
-| 3 | * No SuccessFactors, o email de negócios e o telemóvel é primordial <br> * Flua sempre o número de telefone Azure AD para o telefone comercial e para o telemóvel para o telemóvel | true | false | true |  número de telefone | dispositivo móvel | 
-| 4 | * No SuccessFactors o email de negócios é primário <br> * Em Azure AD, verifique se o número de telefone do trabalho está presente, se estiver presente, então verifique se o número de telemóvel também está presente, marque o número de telefone de trabalho como principal apenas se o número de telemóvel não estiver presente. | true | Use mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | número de telefone | dispositivo móvel | 
-| 5 | * No SuccessFactors o email de negócios e o telefone de negócios é primordial. <br> * Em Azure AD, se o telemóvel estiver disponível, em seguida, desfiá-lo como telefone comercial, senão use o telefoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Não Definido\] | 
+| 1 | * Apenas definir o e-mail de negócios como principal. <br> Não estabeleça números de telefone. | true | true | false | \[Não definir\] | \[Não definir\] | 
+| 2 | * No SuccessFactors, o e-mail de negócios e o telefone de negócios é primordial <br> * Flua sempre o número de telefone Azure AD para o telefone comercial e para o telemóvel. | true | true | false | telephoneNumber | dispositivo móvel | 
+| 3 | * No SuccessFactors, o email de negócios e o telemóvel é primordial <br> * Flua sempre o número de telefone Azure AD para o telefone comercial e para o telemóvel para o telemóvel | true | false | true |  telephoneNumber | dispositivo móvel | 
+| 4 | * No SuccessFactors o email de negócios é primário <br> * Em Azure AD, verifique se o número de telefone do trabalho está presente, se estiver presente, então verifique se o número de telemóvel também está presente, marque o número de telefone de trabalho como principal apenas se o número de telemóvel não estiver presente. | true | Use mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | dispositivo móvel | 
+| 5 | * No SuccessFactors o email de negócios e o telefone de negócios é primordial. <br> * Em Azure AD, se o telemóvel estiver disponível, em seguida, desfiá-lo como telefone comercial, senão use o telefoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Não definir\] | 
 
 * Se não houver mapeamento para número de telefone no resmapeamento do atributo de rescamada, então apenas o e-mail é incluído na write-back.
 * Durante o novo aluguer de bordo na Central de Empregados, o email de negócios e o número de telefone podem não estar disponíveis. Se definir o e-mail de negócios e o telefone comercial como principal é obrigatório durante o embarque, pode definir um valor falso para telefone comercial e e-mail durante a nova criação de aluguer, que acabará por ser atualizado pela app de write-back.

@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116369"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569924"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Azure Synapse Analytics Rede Virtual Gerida
 
@@ -52,8 +52,21 @@ Se deixar a caixa de verificação desmarcada, o seu espaço de trabalho não te
 
 ![Ativar rede virtual de espaço de trabalho gerido](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+Depois de optar por associar uma Rede Virtual gerida ao seu espaço de trabalho, pode proteger contra a exfiltração de dados, permitindo a conectividade de saída da Rede Virtual do espaço de trabalho gerido apenas a alvos aprovados utilizando [pontos finais privados geridos.](./synapse-workspace-managed-private-endpoints.md) Selecione **Sim** para limitar o tráfego de saída da Rede Virtual do espaço de trabalho gerido para alvos através de pontos finais privados geridos. 
 
-Pode verificar se o seu espaço de trabalho Azure Synapse está associado a uma Rede Virtual de espaço de trabalho gerido selecionando a **Visão Geral** do portal Azure.
+
+>[!IMPORTANT]
+>A Metastore é desativada em espaços de trabalho da Synapse que têm Rede Virtual Gerida com proteção de exfiltração de dados ativada. Não poderá utilizar o Spark SQL nestes espaços de trabalho.
+
+![Tráfego de saída utilizando pontos finais privados geridos](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Selecione **Não** para permitir o tráfego de saída do espaço de trabalho para qualquer alvo.
+
+Também pode controlar os alvos aos quais os pontos finais privados geridos são criados a partir do seu espaço de trabalho Azure Synapse. Por padrão, são permitidos pontos finais privados geridos para recursos no mesmo inquilino da AAD a que a sua subscrição pertence. Se você quiser criar um ponto final privado gerido a um recurso em um inquilino AAD que é diferente daquele a que a sua subscrição pertence, então você pode adicionar esse inquilino AAD selecionando **+ Adicionar**. Você pode selecionar o inquilino AAD a partir do dropdown ou entrar manualmente no ID do inquilino AAD.
+
+![Adicione inquilinos adicionais da AAD](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+Após a criação do espaço de trabalho, pode verificar se o seu espaço de trabalho Azure Synapse está associado a uma Rede Virtual gerida do espaço de trabalho, selecionando a **Visão Geral** do portal Azure.
 
 ![Visão geral do espaço de trabalho no portal Azure](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

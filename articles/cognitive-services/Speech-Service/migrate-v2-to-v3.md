@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630620"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569849"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Código migrar de v2.0 a v3.0 da API REST
 
@@ -24,11 +24,51 @@ Em comparação com o v2, a versão v3 dos serviços de fala REST API para discu
 
 ## <a name="forward-compatibility"></a>Compatibilidade a prazo
 
-Todas as entidades da V2 podem também ser encontradas na V3 API com a mesma identidade. Quando o esquema de um resultado tiver mudado, (por exemplo, transcrições), o resultado de um GET na versão v3 da API utiliza o esquema v3. O resultado de um GET na versão v2 da API utiliza o mesmo esquema v2. As entidades recém-criadas na V3 **não** estão disponíveis nos resultados das APIs v2.
+Todas as entidades da V2 podem ainda ser encontradas na V3 API com a mesma identidade. Quando o esquema de um resultado tiver mudado, (por exemplo, transcrições), o resultado de um GET na versão v3 da API utiliza o esquema v3. O resultado de um GET na versão v2 da API utiliza o mesmo esquema v2. As entidades recém-criadas na V3 **não** estão   disponíveis em respostas das APIs v2. 
+
+## <a name="migration-steps"></a>Passos de migração
+
+Esta é uma lista resumida de itens que precisa de ter em conta quando se prepara para a migração. Os detalhes são encontrados nos links individuais. Dependendo da sua utilização atual da API, nem todos os passos listados aqui podem ser aplicados. Apenas algumas alterações requerem alterações não triviais no código de chamada. A maioria das alterações requer apenas uma alteração aos nomes dos artigos. 
+
+Alterações gerais: 
+
+1. [Mude o nome do anfitrião](#host-name-changes)
+
+1. [Mude o nome do id da propriedade para si mesmo no seu código cliente](#identity-of-an-entity) 
+
+1. [Alterar código para iterar sobre coleções de entidades](#working-with-collections-of-entities)
+
+1. [Mude o nome da propriedade para exibir Nome no seu código cliente](#name-of-an-entity)
+
+1. [Ajustar a recuperação dos metadados das entidades referenciadas](#accessing-referenced-entities)
+
+1. Se utilizar a transcrição do Lote: 
+
+    * [Ajuste o código para criar transcrições de lotes](#creating-transcriptions) 
+
+    * [Adaptar código ao novo esquema de resultados da transcrição](#format-of-v3-transcription-results)
+
+    * [Ajuste o código para a recuperação dos resultados](#getting-the-content-of-entities-and-the-results)
+
+1. Se utilizar APIs de treino/teste de modelos personalizados: 
+
+    * [Aplicar modificações na formação de modelos personalizados](#customizing-models)
+
+    * [Alterar como os modelos de base e personalizados são recuperados](#retrieving-base-and-custom-models)
+
+    * [Rebatize a precisão do segmento do caminho para avaliações no código do seu cliente](#accuracy-tests)
+
+1. Se utilizar apis pontos finais:
+
+    * [Alterar a forma como os registos de ponto final são recuperados](#retrieving-endpoint-logs)
+
+1. Outras pequenas alterações: 
+
+    * [Passe todas as propriedades personalizadas como propriedades personalizadas em vez de propriedades nos seus pedidos POST](#using-custom-properties)
+
+    * [Leia o local a partir do cabeçalho de resposta Localização em vez de Operação-Localização](#response-headers)
 
 ## <a name="breaking-changes"></a>Alterações interruptivas
-
-A lista de alterações de rutura foi classificada pela magnitude das alterações necessárias para se adaptar. Apenas algumas alterações requerem alterações não triviais no código de chamada. A maioria das alterações requer apenas uma alteração aos nomes dos artigos.
 
 ### <a name="host-name-changes"></a>Alterações no nome do anfitrião
 

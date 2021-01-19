@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Stack Edge Pro com visão geral da GPU Microsoft Docs
+title: Microsoft Azure Stack Edge Pro com visão geral da GPU | Microsoft Docs
 description: Descreve o Azure Stack Edge Pro com a GPU, uma solução de armazenamento que utiliza um dispositivo físico para transferência baseada em rede para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 31947ca4d5eb632998f5c50257c12ef9a52dfc66
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937071"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570104"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -71,7 +71,7 @@ A solução Azure Stack Edge Pro é composta por recurso Azure Stack Edge, dispo
 
 Dispositivo físico Azure Stack Edge Pro, recurso Azure e conta de armazenamento alvo para a qual transfere dados nem todos têm de estar na mesma região.
 
-- **Disponibilidade de recursos** - Para esta versão de pré-visualização, o recurso está disponível nas regiões leste dos EUA, DaE e do Sudeste Asiático.
+- **Disponibilidade de recursos** - Para esta libertação, o recurso está disponível nas regiões leste dos EUA, DaE e do Sudeste Asiático.
 
 - **Disponibilidade do dispositivo** - Para uma lista de todos os países/regiões onde o dispositivo Azure Stack Edge Pro está disponível, aceda à secção **Disponibilidade** no separador **Azure Stack Edge Pro** para preços [Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     

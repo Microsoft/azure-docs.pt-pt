@@ -1,5 +1,5 @@
 ---
-title: Começar com a SAP em VMs Azure / Microsoft Docs
+title: Começa com a SAP na Azure VMs | Microsoft Docs
 description: Conheça as soluções SAP que funcionam em máquinas virtuais (VMs) no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3a4c367bbe0770495a63c00ca33861ac815460f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0b323268c625ed25236cf4a9f9faa17606bd967c
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121010"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570070"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -49,7 +49,8 @@ Se tiver questões específicas, vamos indicar-lhe documentos ou fluxos específ
 - Qual é o melhor armazenamento do Azure para o meu cenário? Leia [os tipos de armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md)
 - O núcleo do Chapéu Vermelho na Oracle Enterprise Linux é apoiado pela SAP? Leia [a nota de suporte da](https://launchpad.support.sap.com/#/notes/1565179) SAP SAP #1565179
 - Porque é que as famílias VM da Azure [Da(s)v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series) / [Ea](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) não estão certificadas para a SAP HANA? As famílias Azure Das/Eas VM baseiam-se em hardware movido a processador AMD. SAP HANA não suporta processadores AMD, nem mesmo em cenários virtualizados
-- Porque é que ainda estou a receber a mensagem: "As bandeiras do CPU para a instrução DO RDTSCP ou as bandeiras do CPU para constant_tsc ou nonstop_tsc não estão definidas nem current_clocksource e available_clocksource não estão corretamente configuradas" com o SAP HANA, apesar de eu estar a executar os mais recentes núcleos linux. Para obter a resposta, consulte a [nota de apoio da SAP #2791572](https://launchpad.support.sap.com/#/notes/2791572) 
+- Porque é que ainda estou a receber a mensagem: "As bandeiras do CPU para a instrução DO RDTSCP ou as bandeiras do CPU para constant_tsc ou nonstop_tsc não estão definidas nem current_clocksource e available_clocksource não estão corretamente configuradas" com o SAP HANA, apesar de eu estar a executar os mais recentes núcleos linux. Para obter a resposta, consulte a [nota de apoio da SAP #2791572](https://launchpad.support.sap.com/#/notes/2791572)
+- Onde posso encontrar arquiteturas para implantar SAP Fiori em Azure? Confira o blog [SAP on Azure: Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/) 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA no Azure (Instâncias Grandes)
@@ -83,6 +84,7 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 01/18/2021: Suporte adicional de apps Azure net Ficheiros baseados NFS para Oracle em [Azure Máquinas Virtuais Oracle DBMS implantação para carga](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) de trabalho SAP e ajuste decimais em tabela no documento [volumes NFS v4.1 em Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 01/11/2021: Pequenas alterações em [HA para SAP NW em Azure VMs em RHEL para aplicações SAP](./high-availability-guide-rhel.md), HA para SAP NW em [VMs Azure em RHEL com ANF](./high-availability-guide-rhel-netapp-files.md) e [HA para SAP NW em Azure VMs no guia RHEL multi-SID](./high-availability-guide-rhel-multi-sid.md) para ajustar comandos para trabalhar tanto para RHEL8 como RHEL7, e ENSA1 e ENSA2
 - 01/05/2021: Alterações na [escala SAP HANA com nó de espera em VMs Azure com ANF em escala SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e [SAP HANA com nó de espera em VMs Azure com ANF na RHEL,](./sap-hana-scale-out-standby-netapp-files-rhel.md)revisão da configuração recomendada para permitir que o Agente Anfitrião SAP gere a gama portuária local  
 - 01/04/2021: Adicione novas regiões de Azure apoiadas pelo HLI [no que é SAP HANA em Azure (Grandes Instâncias)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)

@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0c7e23e45a84fa73c7e63b5aaa6280177cf8b27
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541313"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569968"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -44,13 +44,13 @@ Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geo
 **Aglomerado geográfico** | **Regiões do Azure**
 -- | --
 América | Canadá Leste, Canadá Central, Centro Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Central EUA, Norte-Americanos do Centro Norte
-Europa | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, França Central, Suíça Norte
+Europa | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, França Central, Suíça Norte, Alemanha Central
 Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
 Austrália    | Austrália Leste, Austrália Sudeste, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Alemanha    | Alemanha Central, Alemanha Nordeste
 China | China Leste, China Norte, China Norte2, China Leste2
-Regiões restritas reservadas à recuperação de desastres no país |Alemanha Norte reservada para a Alemanha West Central, Suíça West reservada à Suíça Norte, França Sul reservada à France Central, UAE Central restrita para os clientes do Norte dos Emirados Árabes Unidos, Noruega Oeste para clientes noruegueses
+Regiões restritas reservadas à recuperação de desastres no país |Suíça West reservada à Suíça Norte, França Sul reservada à France Central, UAE Central restrita para clientes do Norte dos Emirados Árabes Unidos, Noruega Oeste para clientes noruegueses do Leste
 
 >[!NOTE]
 >

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165727"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569951"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Sinapse Geridos pontos finais privados
 
@@ -23,7 +23,7 @@ Este artigo explicará os pontos finais privados geridos na Azure Synapse Analyt
 
 Os pontos finais privados geridos são pontos finais privados criados numa Rede Virtual Gerida associada ao seu espaço de trabalho Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada com os recursos da Azure. Azure Synapse gere estes pontos finais privados em seu nome. Pode criar pontos finais privados geridos a partir do seu espaço de trabalho Azure Synapse para aceder aos serviços Azure (como Azure Storage ou Azure Cosmos DB) e serviços de cliente/parceiro hospedados pela Azure.
 
-Quando geriu pontos finais privados, o tráfego entre o seu espaço de trabalho Azure Synapse e outros recursos Azure atravessa inteiramente a rede de espinha dorsal da Microsoft. Os pontos finais privados geridos protegem contra a exfiltração de dados. Um ponto final privado gerido utiliza o endereço IP privado da sua Rede Virtual Gerida para efetivamente trazer o serviço Azure que o seu espaço de trabalho Azure Synapse está a comunicar na sua Rede Virtual. Os pontos finais privados geridos são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. 
+Quando utiliza pontos finais privados geridos, o tráfego entre o seu espaço de trabalho Azure Synapse e outros recursos Azure atravessa inteiramente a rede de espinha dorsal da Microsoft. Os pontos finais privados geridos protegem contra a exfiltração de dados. Um ponto final privado gerido utiliza o endereço IP privado da sua Rede Virtual Gerida para efetivamente trazer o serviço Azure que o seu espaço de trabalho Azure Synapse está a comunicar na sua Rede Virtual. Os pontos finais privados geridos são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. 
 
 Saiba mais sobre [links privados e pontos finais privados.](../../private-link/index.yml)
 

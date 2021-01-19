@@ -1,5 +1,5 @@
 ---
-title: Configuração DA MÁQUINA VIRTUAL SAP HANA Azure / Microsoft Docs
+title: Configuração DE ANF de máquina virtual SAP HANA Azure | Microsoft Docs
 description: Recomendações de armazenamento de ficheiros Azure NetApp para SAP HANA.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967487"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570087"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 

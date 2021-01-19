@@ -1,5 +1,5 @@
 ---
-title: Oracle Azure Virtual Machines DBMS implantação para carga de trabalho SAP / Microsoft Docs
+title: Implantação DBMS de máquinas virtuais Oracle Azure para | de carga de trabalho SAP Microsoft Docs
 description: Implementação em Oracle do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e99b3a8960eb49856e9a016eb054eed41eccde9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b4cf2e79acf4cd58ff94a2e90f07202341672a1d
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965260"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569441"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP
 
@@ -347,7 +347,7 @@ Mesmo que esteja a executar as suas instâncias de aplicação Oracle DBMS e SAP
 
 De acordo com o manual de instalação SAP, os ficheiros relacionados com a Oracle não devem ser instalados ou localizados no disco OS do VM (unidade c:). Máquinas virtuais de diferentes tamanhos podem suportar um número variado de discos anexos. Os tipos de máquinas virtuais mais pequenos podem suportar um número menor de discos anexos. 
 
-Se tiver VMs mais pequenos e atingir o limite do número de discos que pode anexar ao VM, pode instalar/localizar o Oracle em casa, estágio, `saptrace` , , , , ou no disco `saparch` `sapbackup` `sapcheck` `sapreorg` oss. Estas partes dos componentes do Oracle DBMS não são muito intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho predefinido do disco de so deve ser de 127 GB. 
+Se tiver VMs mais pequenos e atingir o limite do número de discos que pode anexar ao VM, pode instalar/localizar o Oracle em casa, estágio, `saptrace` `saparch` ou no disco `sapbackup` `sapcheck` `sapreorg` oss. Estas partes dos componentes do Oracle DBMS não são muito intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho predefinido do disco de so deve ser de 127 GB. 
 
 A Oracle Database e os ficheiros de registo de redo precisam de ser armazenados em discos de dados separados. Há uma exceção para o espaço temporário do Oráculo. `Tempfiles` pode ser criado em D:/ (unidade não persistente). O D não persistente:\ drive também oferece melhor latência e produção de I/O (com exceção de VMs série A). 
 
@@ -360,7 +360,7 @@ Consulte o artigo [Azure Storage types for SAP workload](./planning-guide-storag
 
 Recomendamos vivamente a utilização de [Discos Geridos Azure](../../managed-disks-overview.md). Recomendamos também vivamente a utilização de [armazenamento premium Azure ou disco Azure Ultra](../../disks-types.md) para as suas implementações oracle Database.
 
-As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, consulte:
+As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, veja:
 
 - [Introdução ao Serviço do Ficheiro do Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -399,7 +399,7 @@ A configuração de desempenho é a seguinte:
 | \oráculo \<SID> \oraarca* | Disco premium ou ultra | Nenhum | Não necessário |
 | Oracle Home, `saptrace` ... | Disco DE SO (Premium) | Não necessário |
 
-*(n+1): sistema de hospedagem, TEMP e espaços de mesa UNDO. O padrão de I/O dos espaços de tabelas System e Undo são diferentes dos outros espaços de mesa que hospedam dados de aplicações. Não fazer caching é a melhor opção para o desempenho dos espaços de mesa System e U do do dou.
+*(n+1): sistema de hospedagem, TEMP e espaços de mesa UNDO. O padrão de I/O dos espaços de tabelas System e Undo são diferentes dos outros espaços de mesa que hospedam dados de aplicações. Não fazer caching é a melhor opção para o desempenho dos espaços de mesa System e U dou.
 
 *oraarca: a piscina de armazenamento não é necessária do ponto de vista do desempenho. Pode ser usado para ter mais espaço.
 
@@ -423,7 +423,7 @@ Para obter mais informações sobre a recuperação de desastres para bases de d
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente uma rede acelerada, tal como descrito em [rede acelerada Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para a Oracle Database em Oracle Linux
@@ -440,20 +440,24 @@ Informações gerais sobre a gestão da SAP Business Suite na Oracle podem ser e
 
 De acordo com os manuais de instalação DA SAP, os ficheiros relacionados com a Oracle não devem ser instalados ou localizados em controladores de sistema para o disco de arranque de um VM. Diferentes tamanhos de máquinas virtuais suportam um número variado de discos anexos. Os tipos de máquinas virtuais mais pequenos podem suportar um número menor de discos anexos. 
 
-Neste caso, recomendamos a instalação/localização da Oracle em casa, palco, `saptrace` , , , ou para iniciar o `saparch` `sapbackup` `sapcheck` `sapreorg` disco. Estas partes dos componentes do Oracle DBMS não são intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho padrão do disco de so é de 30 GB. Pode expandir o disco de arranque utilizando o portal Azure, PowerShell ou CLI. Depois de o disco de arranque ter sido expandido, pode adicionar uma divisória adicional para binários Oráculos.
+Neste caso, recomendamos a instalação/localização da Oracle em casa, palco, `saptrace` ou para iniciar o `saparch` `sapbackup` `sapcheck` `sapreorg` disco. Estas partes dos componentes do Oracle DBMS não são intensas na produção de I/O e I/O. Isto significa que o disco DE pode lidar com os requisitos de E/S. O tamanho padrão do disco de so é de 30 GB. Pode expandir o disco de arranque utilizando o portal Azure, PowerShell ou CLI. Depois de o disco de arranque ter sido expandido, pode adicionar uma divisória adicional para binários Oráculos.
 
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento
 
-Os sistemas de ficheiros de ext4, xfs ou Oracle ASM são suportados para ficheiros Oracle Database em Azure. Todos os ficheiros de base de dados devem ser armazenados nestes sistemas de ficheiros com base em VHDs ou Discos Geridos. Estes discos são montados no Azure VM e são baseados no [armazenamento de blob de página Azure](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou [em Discos Geridos Azure](../../managed-disks-overview.md).
+Os sistemas de ficheiros de ext4, xfs, NFSv4.1 (apenas em Ficheiros Azure NetApp (ANF)) ou Oracle ASM (ver [#2039619](https://launchpad.support.sap.com/#/notes/2039619) DE NOTA SAP para requisitos de versão/versão) são suportados para ficheiros Oracle Database em Azure. Todos os ficheiros de base de dados devem ser armazenados nestes sistemas de ficheiros com base em VHDs, Discos Geridos ou ANF. Estes discos são montados no Azure VM e são baseados no [armazenamento de blob de página Azure,](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) [discos geridos Azure](../../managed-disks-overview.md)ou [Ficheiros Azure NetApp](https://azure.microsoft.com/services/netapp/).
 
-Para os núcleos Oracle Linux UEK, é necessário um mínimo de versão UEK 4 para suportar [SSDs premium Azure](../../premium-storage-performance.md#disk-caching).
+Lista de requisitos mínimos como: 
+
+- Para os núcleos Oracle Linux UEK, é necessário um mínimo de versão UEK 4 para suportar [SSDs premium Azure](../../premium-storage-performance.md#disk-caching).
+- Para a Oracle com ANF o Oracle Linux suportado mínimo é de 8.2.
+- Para a Oracle com ANF a versão mínima suportada oracle é de 19c (19.8.0.0)
 
 Confira o artigo [Azure Storage types for SAP workload](./planning-guide-storage.md) for get more details of the specific Azure block storage types suitable for DBMS workload.
 
-É altamente recomendado utilizar [discos geridos Azure](../../managed-disks-overview.md). Também é altamente recomendado usando [SSDs premium Azure](../../disks-types.md) para as suas implementações oracle Database.
+Utilizando o armazenamento do bloco Azure, é altamente recomendado utilizar [discos geridos Azure](../../managed-disks-overview.md) e [SSDs premium Azure](../../disks-types.md) para as suas implementações oracle Database.
 
-As unidades de rede ou as ações remotas, como os serviços de ficheiros Azure, não são suportadas por ficheiros Oracle Database. Para obter mais informações, consulte o seguinte: 
+Com exceção dos Ficheiros Azure NetApp, outros discos partilhados, unidades de rede ou ações remotas como os Azure File Services (AFS) não são suportados por ficheiros Oracle Database. Para obter mais informações, consulte o seguinte: 
 
 - [Introdução ao Serviço do Ficheiro do Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -469,10 +473,10 @@ Configuração mínima:
 
 | Componente | Disco | Colocação em cache | Despida* |
 | --- | ---| --- | --- |
-| /oráculo/ \<SID> /origlogaA & mirrlogB | Disco premium ou ultra | Nenhum | Não necessário |
-| /oráculo/ \<SID> /origlogaB & mirrlogA | Disco premium ou ultra | Nenhum | Não necessário |
-| /oráculo/ \<SID> /sapdata1... n | Disco premium ou ultra | Só de leitura | Pode ser usado para Premium |
-| /oráculo/ \<SID> /oraarca | Standard | Nenhum | Não necessário |
+| /oráculo/ \<SID> /origlogaA & mirrlogB | Premium, Ultra disco ou ANF | Nenhum | Não necessário |
+| /oráculo/ \<SID> /origlogaB & mirrlogA | Premium, Ultra disco ou ANF | Nenhum | Não necessário |
+| /oráculo/ \<SID> /sapdata1... n | Premium, Ultra disco ou ANF | Só de leitura | Pode ser usado para Premium |
+| /oráculo/ \<SID> /oraarca | Standard ou ANF | Nenhum | Não necessário |
 | Oracle Home, `saptrace` ... | Disco DE SO (Premium) | | Não necessário |
 
 *Descascar: listras LVM ou MDADM usando RAID0
@@ -483,23 +487,27 @@ Configuração de desempenho:
 
 | Componente | Disco | Colocação em cache | Despida* |
 | --- | ---| --- | --- |
-| /oráculo/ \<SID> /origlogaA | Disco premium ou ultra | Nenhum | Pode ser usado para Premium  |
-| /oráculo/ \<SID> /origlogaB | Disco premium ou ultra | Nenhum | Pode ser usado para Premium |
-| /oráculo/ \<SID> /mirrlogAB | Disco premium ou ultra | Nenhum | Pode ser usado para Premium |
-| /oráculo/ \<SID> /mirrlogBA | Disco premium ou ultra | Nenhum | Pode ser usado para Premium |
-| /oráculo/ \<SID> /sapdata1... n | Disco premium ou ultra | Só de leitura | Recomendado para Premium  |
-| /oráculo/ \<SID> /sapdata(n+1)* | Disco premium ou ultra | Nenhum | Pode ser usado para Premium |
-| /oráculo/ \<SID> /oraarca* | Disco premium ou ultra | Nenhum | Não necessário |
+| /oráculo/ \<SID> /origlogaA | Premium, Ultra disco ou ANF | Nenhum | Pode ser usado para Premium  |
+| /oráculo/ \<SID> /origlogaB | Premium, Ultra disco ou ANF | Nenhum | Pode ser usado para Premium |
+| /oráculo/ \<SID> /mirrlogAB | Premium, Ultra disco ou ANF | Nenhum | Pode ser usado para Premium |
+| /oráculo/ \<SID> /mirrlogBA | Premium, Ultra disco ou ANF | Nenhum | Pode ser usado para Premium |
+| /oráculo/ \<SID> /sapdata1... n | Premium, Ultra disco ou ANF | Só de leitura | Recomendado para Premium  |
+| /oráculo/ \<SID> /sapdata(n+1)* | Premium, Ultra disco ou ANF | Nenhum | Pode ser usado para Premium |
+| /oráculo/ \<SID> /oraarca* | Premium, Ultra disco ou ANF | Nenhum | Não necessário |
 | Oracle Home, `saptrace` ... | Disco DE SO (Premium) | Não necessário |
 
 *Descascar: listras LVM ou MDADM usando RAID0
 
-*(n+1):hosting SYSTEM, TEMP e UNDO tablespaces: O padrão de E/S dos espaços de mesa System e Undo são diferentes dos outros espaços de mesa que hospedam dados de aplicações. Não fazer caching é a melhor opção para o desempenho dos espaços de mesa System e U do do dou.
+*(n+1):hosting SYSTEM, TEMP e UNDO tablespaces: O padrão de E/S dos espaços de mesa System e Undo são diferentes dos outros espaços de mesa que hospedam dados de aplicações. Não fazer caching é a melhor opção para o desempenho dos espaços de mesa System e U dou.
 
 *oraarca: a piscina de armazenamento não é necessária do ponto de vista do desempenho.
 
 
 Se forem necessários mais IOPS ao utilizar o armazenamento premium Azure, recomendamos a utilização de LVM (Logical Volume Manager) ou MDADM para criar um grande volume lógico sobre vários discos montados. Para obter mais informações, consulte [considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) no que diz respeito a diretrizes e ponteiros sobre como alavancar a LVM ou o MDADM. Esta abordagem simplifica a sobrecarga da administração da gestão do espaço do disco e ajuda-o a evitar o esforço de distribuir manualmente ficheiros por vários discos montados.
+
+Se planeia utilizar ficheiros Azure NetApp certifique-se de que o cliente dNFS está configurado corretamente. A utilização do dNFS é obrigatória para ter um ambiente suportado. A configuração do dNFS está documentada no artigo [Criar uma Base de Dados Oráculo em NFS Direta.](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA)
+
+Um exemplo que demonstra a utilização de NFS baseados em Ficheiros Azure NetApp para bases de dados Oracle é apresentado no blog [Deploy SAP AnyDB (Oracle 19c) com ficheiros Azure NetApp](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043).
 
 
 #### <a name="write-accelerator"></a>Acelerador de Escritas

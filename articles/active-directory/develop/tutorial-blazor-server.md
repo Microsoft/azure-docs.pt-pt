@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar uma aplicação Blazor Server que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure
+title: Tutorial - Crie uma aplicação Blazor Server que utilize a plataforma de identidade da Microsoft para autenticação | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, configura a autenticação utilizando a plataforma de identidade da Microsoft numa aplicação do Blazor Server.
 author: knicholasa
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: d499a0e7d3ca7933632b52d5edbd8094a29dbcaa
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: b67d75ac99f247659723ac0b5a90fd32ebf627e3
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979900"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569883"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Criar uma aplicação Blazor Server que utiliza a plataforma de identidade da Microsoft para autenticação
 
@@ -40,7 +40,7 @@ Todas as aplicações que utilizem o Azure Ative Directory (Azure AD) para auten
 - Para **tipos de conta suportada**, selecione Contas **apenas neste diretório organizacional**.
 - Deixe o **URI de redirecionamento** descer definido para **Web** e insira `https://localhost:5001/signin-oidc` . A porta padrão para uma aplicação em execução em Kestrel é 5001. Se a aplicação estiver disponível numa porta diferente, especifique o número da porta em vez de `5001` .
 
-Na **Authentication**  >  **concessão Autenticação Implícita**, selecione as caixas de verificação para **tokens de acesso** e **fichas de identificação** e, em seguida, selecione o botão **Guardar.**
+Na   >  **concessão Autenticação Implícita**, selecione as caixas de verificação para **tokens de acesso** e **fichas de identificação** e, em seguida, selecione o botão **Guardar.**
 
 Finalmente, como a aplicação chama uma API protegida (neste caso, o Microsoft Graph), precisa de um segredo de cliente para verificar a sua identidade quando solicita um token de acesso para chamar essa API.
 
@@ -71,7 +71,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 Agora, navegue para a sua nova app Blazor no seu editor e adicione o segredo do cliente ao *appsettings.jsem* arquivo, substituindo o texto "secret-from-app-registration".
 
 ```json
-"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+"ClientSecret": "secret-from-app-registration",
 ```
 
 ## <a name="test-the-app"></a>Testar a aplicação

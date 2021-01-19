@@ -3,12 +3,12 @@ title: Novidades do Azure Backup
 description: Conheça as novidades no Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309669"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569424"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades do Azure Backup
 
@@ -18,6 +18,9 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
 
 ## <a name="updates-summary"></a>Resumo das atualizações
 
+- Janeiro de 2021
+  - [Backup do disco Azure (na pré-visualização)](disk-backup-overview.md)
+  - [Encriptação em repouso usando chaves geridas pelo cliente agora geralmente disponíveis](encryption-at-rest-with-cmk.md)
 - Novembro de 2020
   - [Modelo de gestor de recursos Azure para a partilha de ficheiros Azure (AFS) backup](#azure-resource-manager-template-for-afs-backup)
   - [Backups incrementais para bases de dados SAP HANA em VMs Azure](#incremental-backups-for-sap-hana-databases)
@@ -31,6 +34,18 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
   - [Backup SAP HANA em RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Armazenamento redundante de zona (ZRS) para dados de backup](#zone-redundant-storage-zrs-for-backup-data)
   - [Excluir suave para as cargas de trabalho do SQL Server e DASA HANA em VMs Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-in-preview"></a>Backup do disco Azure (na pré-visualização)
+
+O Azure Disk Backup oferece uma solução chave na mão que fornece uma gestão instantânea do ciclo de vida para [discos geridos azure,](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) automatizando a criação periódica de instantâneos e mantendo-o por uma duração configurada usando a política de backup. Você pode gerir os instantâneos do disco com custos de infraestrutura zero e sem a necessidade de scripts personalizados ou qualquer sobrecarga de gestão. Esta é uma solução de backup consistente por falhas que requer uma cópia de segurança pontual de um disco gerido usando [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) com suporte para múltiplas cópias de segurança por dia. É também uma solução sem agente e não tem impacto no desempenho da aplicação de produção. Suporta a cópia de segurança e a restauração dos discos de SEGURANÇA e de dados (incluindo discos partilhados), quer estejam ou não ligados a uma máquina virtual Azure em funcionamento.
+
+Para obter mais informações, consulte [a cópia de segurança do disco Azure (em pré-visualização)](disk-backup-overview.md).
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Encriptação em repouso usando chaves geridas pelo cliente
+
+O suporte para encriptação em repouso utilizando chaves geridas pelo cliente está geralmente disponível. Isto dá-lhe a capacidade de encriptar os dados de backup nos cofres dos Serviços de Recuperação utilizando as suas próprias chaves armazenadas em Cofres chave Azure. A chave de encriptação utilizada para encriptar cópias de segurança no cofre dos Serviços de Recuperação pode ser diferente das utilizadas para encriptar a fonte. Os dados estão protegidos utilizando uma chave de encriptação de dados baseada em AES 256 (DEK), que está, por sua vez, protegida utilizando as suas chaves armazenadas no Cofre de Chaves. Em comparação com a encriptação utilizando teclas geridas pela plataforma (que está disponível por padrão), isto dá-lhe mais controlo sobre as suas chaves e pode ajudá-lo a satisfazer melhor as suas necessidades de conformidade.
+
+Para obter mais informações, consulte [encriptação de dados de backup utilizando as teclas geridas pelo cliente](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>Modelo de gestor de recursos Azure para backup AFS
 
@@ -106,6 +121,6 @@ Agora, além do suporte de eliminação suave para VMs Azure, sql server e carga
 
 Para obter mais informações, consulte [Soft delete para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM](soft-delete-sql-saphana-in-azure-vm.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Orientação de backup Azure e boas práticas](guidance-best-practices.md)
