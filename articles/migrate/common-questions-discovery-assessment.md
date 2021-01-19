@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 4531d68c2fbd0698c33d70a75bb82ac9c7f52f49
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 944d867ef888e70faa659adcc0e2d4c02f003c97
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752248"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567402"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -46,7 +46,8 @@ Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 1000 servid
 Na avaliação “Baseada no desempenho”, a exportação do relatório de avaliação indica “PercentageOfCoresUtilizedMissing” ou “PercentageOfMemoryUtilizedMissing” quando a aplicação Azure Migrate não consegue recolher os dados de desempenho das VMs no local. Verifique:
 
 - Se as VMs estão ligadas durante o período para o qual está a criar a avaliação
-- Se apenas os contadores de memória estiverem ausentes e tentar avaliar as VMs do Hyper-V, verifique se tem a memória dinâmica ativada nessas VMs. Há um problema conhecido atualmente que faz com que a aplicação do Azure Migrate não consiga recolher a utilização da memória dessas VMs.
+- Se faltarem apenas contadores de memória e estiveres a tentar avaliar os Hiper-VM. Neste cenário, por favor, permita a memória dinâmica nos VMs e 'Recalcular' a avaliação para refletir as últimas alterações. O aparelho só pode recolher valores de utilização da memória para VMs hiper-V quando o VM tiver uma memória dinâmica ativada.
+
 - Se todos os contadores de desempenho estiverem em falta, certifique-se de que as ligações de saída nas portas 443 (HTTPS) são permitidas.
 
 Nota – se algum dos contadores de desempenho estiver ausente, o Azure Migrate: Avaliação do Servidor reverterá para os núcleos/memória alocados no local e recomendará um tamanho de VM em conformidade.
@@ -57,7 +58,12 @@ A classificação de confiança é calculada para as avaliações “Baseadas no
 
 - Não analisou o ambiente durante o tempo para a qual está a criar a avaliação. Por exemplo, se estiver a criar uma avaliação com a duração de desempenho definida para uma semana, terá de aguardar, pelo menos, uma semana após iniciar a deteção de todos os pontos de dados serem recolhidos. Se não puder esperar pela duração, altere a duração do desempenho para um período mais curto e “Recalcule” a avaliação.
  
-- A Avaliação do Servidor não é capaz de recolher os dados de desempenho para alguns ou todos os VMs no período de avaliação. Verifique se as VMs foram ligadas durante a avaliação e se são permitidas ligações de saída nas portas 443. Para as VMs Hyper-V, se a memória dinâmica estiver ativada, os contadores de memória estarão em falta, o que levará a uma classificação de baixa confiança. “Recalcule” a avaliação para refletir as últimas alterações na classificação de confiança. 
+- A Avaliação do Servidor não é capaz de recolher os dados de desempenho para alguns ou todos os VMs no período de avaliação. Para uma alta classificação de confiança, certifique-se de que: 
+    - Os VM são alimentados durante a duração da avaliação
+    - São permitidas ligações de saída nas portas 443
+    - Para a memória dinâmica Hiper-VMs está ativada 
+
+    “Recalcule” a avaliação para refletir as últimas alterações na classificação de confiança.
 
 - Algumas VMs foram criadas após a deteção numa Avaliação do Servidor ter sido iniciada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
 
@@ -146,7 +152,7 @@ As diferenças entre visualização sem agente e visualização baseada em agent
 Suporte | Esta opção está atualmente em pré-visualização, e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operativos suportados. | Em disponibilidade geral (GA).
 Agente | Não é necessário instalar agentes em máquinas que pretende verificar. | Agentes a instalar em cada máquina no local que pretende analisar: O agente de monitorização da [Microsoft (MMA)](../azure-monitor/platform/agent-windows.md)e o [agente Desadependido](../azure-monitor/platform/agents-overview.md#dependency-agent). 
 Pré-requisitos | [Reveja](concepts-dependency-visualization.md#agentless-analysis) os requisitos pré-requisitos e requisitos de implantação. | [Reveja](concepts-dependency-visualization.md#agent-based-analysis) os requisitos pré-requisitos e requisitos de implantação.
-Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/insights/service-map.md) nos [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
+Log Analytics | Não necessárias. | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/insights/service-map.md) nos [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
 Como funciona | Captura dados de ligação TCP em máquinas ativadas para visualização de dependência. Após a descoberta, recolhe dados em intervalos de cinco minutos. | Os agentes do Mapa de Serviço instalados numa máquina recolhem dados sobre processos TCP e ligações de entrada/saída para cada processo.
 Dados | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome do servidor da máquina de destino, processo, nome da aplicação e porta. | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome do servidor da máquina de destino, processo, nome da aplicação e porta.<br/><br/> O número de ligações, latência e informações de transferência de dados são recolhidos e disponíveis para consultas de Log Analytics. 
 Visualização | O mapa de dependência de um único servidor pode ser visto durante uma hora a 30 dias. | Mapa de dependência de um único servidor.<br/><br/> O mapa pode ser visto apenas durante uma hora.<br/><br/> Mapa de dependência de um grupo de servidores.<br/><br/> Adicione e remova os servidores num grupo a partir da vista do mapa.
@@ -159,7 +165,7 @@ Sim, o [aparelho Azure Migrate](migrate-appliance.md) deve ser acionado.
 
 ## <a name="do-i-pay-for-dependency-visualization"></a>Pago pela visualização da dependência?
 
-Não. Saiba mais sobre [os preços da Azure Migrate.](https://azure.microsoft.com/pricing/details/azure-migrate/)
+N.º Saiba mais sobre [os preços da Azure Migrate.](https://azure.microsoft.com/pricing/details/azure-migrate/)
 
 ## <a name="what-do-i-install-for-agent-based-dependency-visualization"></a>O que é que instalo para visualização de dependência baseada em agentes?
 

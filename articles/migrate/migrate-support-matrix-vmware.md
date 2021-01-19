@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: e6582443ddc56b315c1c666c81a596fa71b1d54f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753982"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567428"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
@@ -23,10 +23,10 @@ Se quiser migrar VMware VMs para Azure, reveja a matriz de suporte à [migraçã
 
 ## <a name="limitations"></a>Limitações
 
-**Suporte** | **Detalhes**
+**Requisito** | **Detalhes**
 --- | ---
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure.<br/><br/> Você pode descobrir e avaliar até 35.000 VMware VMs em um único [projeto](migrate-support-matrix.md#azure-migrate-projects). Um projeto também pode incluir servidores físicos, e Hiper-VMs, até os limites de avaliação para cada um.
-**Deteção** | O aparelho Azure Migrate pode descobrir até 10.000 VMware VMs num servidor vCenter.
+**Descoberta** | O aparelho Azure Migrate pode descobrir até 10.000 VMware VMs num servidor vCenter.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 VMs numa única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -37,7 +37,7 @@ Se quiser migrar VMware VMs para Azure, reveja a matriz de suporte à [migraçã
 **VMware** | **Detalhes**
 --- | ---
 **vCenter Server** | As máquinas que pretende descobrir e avaliar devem ser geridas pela versão 5.5, 6.0, 6.5, 6.7 ou 7.0 do vCenter Server.<br/><br/> A descoberta de VMware VMs fornecendo detalhes do anfitrião ESXi no aparelho não é suportada.
-**Permissões** | A Avaliação do Servidor necessita de uma conta de leitura do vCenter Server apenas para a descoberta e avaliação.<br/><br/> Se pretender fazer a descoberta de aplicações ou visualização de dependência, a conta necessita de privilégios para operações **de hóspedes de máquinas virtuais.**  >  **Guest Operations**
+**Permissões** | A Avaliação do Servidor necessita de uma conta de leitura do vCenter Server apenas para a descoberta e avaliação.<br/><br/> Se pretender fazer a descoberta de aplicações ou visualização de dependência, a conta necessita de privilégios para operações **de hóspedes de máquinas virtuais.**  >  
 
 ## <a name="vm-requirements"></a>Requisitos de VM
 **VMware** | **Detalhes**
@@ -72,8 +72,8 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Máquinas suportadas** | Atualmente suportado apenas para VMware VMs. Pode descobrir aplicações instaladas em até 10000 VMware VMs, de cada aparelho Azure Migrate.
 **Sistemas operativos** | Suporte para VMs executando todas as versões Windows e Linux.
 **Requisitos de VM** | As ferramentas VMware devem ser instaladas e em execução em VMs nas quais pretende descobrir aplicações. <br/><br/> A versão VMware tools deve ser mais tarde do que 10.2.0.<br/><br/> Os VMs devem ter a versão PowerShell 2.0 ou posteriormente instalada.
-**Deteção** | As informações sobre aplicações instaladas num VM são retiradas do servidor vCenter, utilizando ferramentas VMware instaladas no VM. O aparelho recolhe as informações da aplicação a partir do servidor vCenter, utilizando APIs vSphere. A descoberta de aplicações é sem agente. Nada está instalado em VMs e o aparelho não se liga diretamente aos VMs. O WMI/SSH deve ser ativado e disponível em VMs.
-**vCenter** | A conta de leitura vCenter Server utilizada para avaliação, necessita de privilégios habilitados para operações **de hóspedes de máquinas virtuais,**  >  **Guest Operations** de forma a interagir com o VM para a descoberta de aplicações.
+**Descoberta** | As informações sobre aplicações instaladas num VM são retiradas do servidor vCenter, utilizando ferramentas VMware instaladas no VM. O aparelho recolhe as informações da aplicação a partir do servidor vCenter, utilizando APIs vSphere. A descoberta de aplicações é sem agente. Nada está instalado em VMs e o aparelho não se liga diretamente aos VMs. O WMI/SSH deve ser ativado e disponível em VMs.
+**vCenter** | A conta de leitura vCenter Server utilizada para avaliação, necessita de privilégios habilitados para operações **de hóspedes de máquinas virtuais,**  >  de forma a interagir com o VM para a descoberta de aplicações.
 **Acesso VM** | A descoberta de aplicações necessita de uma conta de utilizador local no VM para a descoberta de aplicações.<br/><br/> A Azure Migrate suporta atualmente o uso de uma credencial para todos os servidores windows, e uma credencial para todos os servidores Linux.<br/><br/> Cria uma conta de utilizador para vMs do Windows e uma conta de utilizador regular/normal (acesso não sudo) para todos os VMs Do Linux.
 **Acesso portuário** | O aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443 nos anfitriões ESXi que executam VMs nos quais pretende descobrir aplicações. O vCenter Server devolve uma ligação de anfitrião ESXI para descarregar o ficheiro que contém as informações da aplicação.
 
@@ -81,9 +81,9 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisitos de análise de dependência (sem agente)
 
-[A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar dependências entre máquinas no local que pretende avaliar e migrar para Azure. A tabela resume os requisitos para a criação de uma análise de dependência sem agentes.
+[A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar dependências entre máquinas no local que pretende avaliar e migrar para Azure. A tabela resume os requisitos para a criação de uma análise de dependência sem agentes. 
 
-**Requisito** | **Detalhes**
+**Suporte** | **Detalhes**
 --- | --- 
 **Máquinas suportadas** | Atualmente suportado apenas para VMware VMs.
 **VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). 
@@ -107,7 +107,7 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Azure Government** | A visualização da dependência não está disponível no Governo de Azure.
 **Log Analytics** | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/insights/service-map.md) nos [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para visualização da dependência.<br/><br/> Associa um novo ou existente espaço de trabalho log analytics a um projeto Azure Migrate. O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de ser adicionado. <br/><br/> O espaço de trabalho deve estar na mesma subscrição que o projeto Azure Migrate.<br/><br/> O espaço de trabalho deve residir nas regiões do Leste dos EUA, Sudeste Asiático ou Europa Ocidental. Espaços de trabalho noutras regiões não podem ser associados a um projeto.<br/><br/> O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)<br/><br/> No Log Analytics, o espaço de trabalho associado ao Azure Migrate está marcado com a chave do Projeto migratório e o nome do projeto.
 **Agentes necessários** | Em cada máquina que pretende analisar, instale os seguintes agentes:<br/><br/> O [agente de monitorização da Microsoft (MMA)](../azure-monitor/platform/agent-windows.md).<br/> O [agente de dependência.](../azure-monitor/platform/agents-overview.md#dependency-agent)<br/><br/> Se as máquinas no local não estiverem ligadas à internet, é necessário descarregar e instalar o Gateway Log Analytics nelas.<br/><br/> Saiba mais sobre a instalação do [agente Desadependante](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e [MMA.](how-to-create-group-machine-dependencies.md#install-the-mma)
-**Log Analytics espaço de trabalho** | O espaço de trabalho deve estar na mesma subscrição que o projeto Azure Migrate.<br/><br/> Azure Migrate apoia espaços de trabalho residentes nas regiões do Leste dos EUA, Sudeste Asiático e Europa Ocidental.<br/><br/>  O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)<br/><br/> O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de ser adicionado.
+**Área de trabalho do Log Analytics** | O espaço de trabalho deve estar na mesma subscrição que o projeto Azure Migrate.<br/><br/> Azure Migrate apoia espaços de trabalho residentes nas regiões do Leste dos EUA, Sudeste Asiático e Europa Ocidental.<br/><br/>  O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)<br/><br/> O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de ser adicionado.
 **Custos** | A solução Mapa de Serviço não incorre em quaisquer encargos nos primeiros 180 dias (a partir do dia em que associar o espaço de trabalho log Analytics ao projeto Azure Migrate)/<br/><br/> Após 180 dias, aplicar-se-ão as cobranças padrão do Log Analytics.<br/><br/> A utilização de qualquer solução que não o Mapa de Serviços no espaço de trabalho associado do Log Analytics incorrerá em [taxas padrão](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics.<br/><br/> Quando o projeto Azure Migrate é eliminado, o espaço de trabalho não é apagado juntamente com ele. Após a eliminação do projeto, o uso do Mapa de Serviço não é gratuito, e cada nó será cobrado de acordo com o nível pago do espaço de trabalho Log Analytics/<br/><br/>Se tiver projetos que criou antes da disponibilidade geral da Azure Migrate (GA- 28 de fevereiro de 2018), poderá ter incorrido em taxas adicionais do Mapa de Serviços. Para garantir o pagamento após apenas 180 dias, recomendamos que crie um novo projeto, uma vez que os espaços de trabalho existentes antes da AG ainda são exejáveis.
 **Gestão** | Quando regista agentes no espaço de trabalho, utiliza o ID e a chave fornecida pelo projeto Azure Migrate.<br/><br/> Pode utilizar o espaço de trabalho Log Analytics fora de Azure Migrate.<br/><br/> Se eliminar o projeto Azure Migrate associado, o espaço de trabalho não é apagado automaticamente. [Elimine-o manualmente.](../azure-monitor/platform/manage-access.md)<br/><br/> Não elimine o espaço de trabalho criado pela Azure Migrate, a menos que elimine o projeto Azure Migrate. Se o fizer, a funcionalidade de visualização de dependência não funcionará como esperado.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.

@@ -1,21 +1,21 @@
 ---
 title: Criar e gerir projetos de migrações do Azure Migrate
 description: Localizar, criar, gerir e apagar projetos em Azure Migrate.
-author: ms-psharma
-ms.author: panshar
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 445e08b255e5b4dd67dd1c6a47c8df6ce59df5bd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753829"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567776"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerir projetos de migrações do Azure Migrate
 
-Este artigo descreve como criar, gerir e eliminar projetos [da Azure Migrate.](migrate-services-overview.md)
+Este artigo descreve como criar, gerir e eliminar projetos [da Azure Migrate.](migrate-services-overview.md) Se estiver a utilizar projetos Classic Azure Migrate, por favor, apague esses projetos e siga os passos para criar um novo projeto Azure Migrate. Não é possível atualizar projetos ou componentes da Classic Azure Migrate para o Azure Migrate.
 
 Um projeto Azure Migrate é usado para armazenar metadados de descoberta, avaliação e migração recolhidos do ambiente que está a avaliar ou migrar. Num projeto é possível rastrear ativos descobertos, criar avaliações e orquestrar migrações para Azure.  
 
@@ -120,7 +120,7 @@ Tenha em atenção que:
 
 1. Navegue pelo espaço de trabalho Log Analytics ligado ao projeto.
 
-    - Se não eliminou o projeto Azure Migrate, pode encontrar a **Essentials** ligação ao espaço de trabalho na  >  **Avaliação do Servidor** Essencial.
+    - Se não eliminou o projeto Azure Migrate, pode encontrar a ligação ao espaço de trabalho na  >  **Avaliação do Servidor** Essencial.
        ![Espaço de trabalho de LA ](./media/create-manage-projects/loganalytics-workspace.png) .
        
     - Se já eliminou o projeto Azure Migrate, selecione **Grupos** de Recursos no painel esquerdo do portal Azure e encontre o espaço de trabalho.

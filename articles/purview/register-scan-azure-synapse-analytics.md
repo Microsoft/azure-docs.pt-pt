@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: c95f8b9e4466b22519a4dea580a86a0dcda83857
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555938"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567273"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registar e digitalizar Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Azure Purview não suporta digitalização de [pontos](/sql/relational-databases
  
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuração da autenticação para uma varredura
 
-Existem três formas de configurar a autenticação para o armazenamento de bolhas Azure:
+Existem três formas de configurar a autenticação para a Azure Synapse Analytics:
 
 - Identidade Gerida
 - Autenticação SQL

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752231"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567755"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs Azure)
 
@@ -157,7 +157,7 @@ Propriedade | Detalhes | Estatuto de prontidão Azure
 **Núcleos** | Cada máquina não deve ter mais de 128 núcleos, que é o número máximo que um Azure VM suporta.<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera os núcleos utilizados para comparação. Se as definições de avaliação especificarem um fator de conforto, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos para aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
 **RAM** | Cada máquina não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma série M Azure Standard_M128m &nbsp; <sup>suportes de 2</sup> VM. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera a RAM utilizada para comparação. Se for especificado um fator de conforto, a RAM utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a RAM atribuída é usada para aplicar um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
 **Disco de armazenamento** | O tamanho atribuído de um disco não deve ser superior a 32 TB. Embora o Azure suporte discos de 64-TB com discos Azure Ultra SSD, Azure Migrate: A Avaliação do Servidor verifica atualmente 32 TB como limite de tamanho do disco porque ainda não suporta Ultra SSD. <br/><br/> O número de discos ligados à máquina, incluindo o disco SO, deve ser de 65 ou menos. | Pronto se o tamanho e o número do disco estiverem dentro dos limites
-**Rede** | Uma máquina não deve ter mais de 32 interfaces de rede (NICs) ligadas a ela. | Pronto se o número de NICs estiver dentro do limite
+**Redes** | Uma máquina não deve ter mais de 32 interfaces de rede (NICs) ligadas a ela. | Pronto se o número de NICs estiver dentro do limite
 
 ### <a name="guest-operating-system"></a>Sistema operativo convidado
 
@@ -249,7 +249,7 @@ Cada avaliação Azure VM baseada no desempenho em Azure Migrate está associada
 Se algum destes números de utilização não estiver disponível, as recomendações de tamanho podem não ser fiáveis.
 
 > [!NOTE]
-> As classificações de confiança não são atribuídas para servidores avaliados usando um ficheiro CSV importado. As classificações também não são aplicáveis para a avaliação como-é-no-no-no-no-no-ins.
+> As classificações de confiança não são atribuídas para servidores avaliados usando um ficheiro CSV importado. As classificações também não são aplicáveis para a avaliação como-é-no-ins.
 
 ### <a name="ratings"></a>Classificações
 
@@ -268,8 +268,14 @@ Este quadro mostra as classificações de confiança da avaliação, que depende
 Eis algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 
 - Não perfilou o seu ambiente durante a duração pela qual está a criar a avaliação. Por exemplo, se criar a avaliação com a duração de desempenho definida para um dia, deve esperar pelo menos um dia depois de começar a descobrir todos os pontos de dados para ser recolhido.
-- Alguns VM foram encerrados durante o período para o qual a avaliação foi calculada. Se quaisquer VMs forem desligados durante algum tempo, a Avaliação do Servidor não pode recolher os dados de desempenho desse período.
-- Foram criados alguns VM durante o período para o qual a avaliação foi calculada. Por exemplo, assuma que criou uma avaliação para o histórico de desempenho do mês passado, mas alguns VMs foram criados apenas há uma semana. O histórico de desempenho dos novos VMs não existirá durante toda a duração.
+- A avaliação não é capaz de recolher os dados de desempenho para alguns ou todos os VMs no período de avaliação. Para uma alta classificação de confiança, certifique-se de que: 
+    - Os VM são alimentados durante a duração da avaliação
+    - São permitidas ligações de saída nas portas 443
+    - Para a memória dinâmica Hiper-VMs está ativada 
+    
+    “Recalcule” a avaliação para refletir as últimas alterações na classificação de confiança.
+
+- Foram criados alguns VM durante o período para o qual a avaliação foi calculada. Por exemplo, assuma que criou uma avaliação para o histórico de desempenho do mês passado, mas alguns VMs foram criados apenas há uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
 
 > [!NOTE]
 > Se a classificação de confiança de qualquer avaliação for inferior a cinco estrelas, recomendamos que espere pelo menos um dia para que o aparelho perfile o ambiente e, em seguida, recalcule a avaliação. Caso contrário, o tamanho baseado no desempenho pode não ser fiável. Nesse caso, recomendamos que altere a avaliação para o tamanho do local.
@@ -285,7 +291,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação do Az
     - Garantia de software
     - Instâncias reservadas
     - Tempo de atividade de VM
-    - Localização
+    - A localização
     - Definições de moeda
 
     A Avaliação do Servidor agrega o custo em todas as máquinas para calcular o custo total mensal do cálculo.

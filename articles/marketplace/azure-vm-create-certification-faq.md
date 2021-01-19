@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 01/15/2021
-ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 01/18/2021
+ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539860"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567396"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -70,7 +70,7 @@ As questões de provisionamento podem incluir os seguintes cenários de falha:
 
 ### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookie conectix e outras especificações de VHD
 
-A cadeia 'conectix' faz parte da especificação VHD. É definido como o cookie de 8 byte no rodapé VHD que identifica o criador de ficheiros. Todos os ficheiros VHD criados pela Microsoft têm este cookie. 
+A cadeia 'conectix' faz parte da especificação VHD. É definido como o cookie de 8 byte no rodapé VHD que identifica o criador de ficheiros. Todos os ficheiros VHD criados pela Microsoft têm este cookie.
 
 Uma bolha em formato VHD deve ter um rodapé de 512 byte neste formato:
 
@@ -311,14 +311,14 @@ Para submeter o seu pedido com imagem desativada SSH para o processo de certific
 
 Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega a imagem VM com um URL de assinatura de acesso partilhado (SAS).
 
-|Cenário|Erro|Razão|Solução|
-|---|---|---|---|
-|1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.|| 
-|2|Bolha em uso|O VHD é utilizado por outro processo interno.|O VHD deve estar num estado usado quando o descarrega com um URL SAS.|
-|3|URL DE SAS inválido|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
-|4|Assinatura inválida|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
-|6|Cabeçalho condicional HTTP|O URL SAS é inválido.|Obtenha o URL SAS correto.|
-|7|Nome VHD inválido|Verifique se existem caracteres especiais, como um sinal por cento `%` ou aspas, `"` no nome VHD.|Mude o nome do ficheiro VHD removendo os caracteres especiais.|
+|Erro|Razão|Solução|
+|---|---|---|
+|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.|| 
+|Bolha em uso|O VHD é utilizado por outro processo interno.|O VHD deve estar num estado usado quando o descarrega com um URL SAS.|
+|URL DE SAS inválido|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
+|Assinatura inválida|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
+|Cabeçalho condicional HTTP|O URL SAS é inválido.|Obtenha o URL SAS correto.|
+|Nome VHD inválido|Verifique se existem caracteres especiais, como um sinal por cento `%` ou aspas, `"` no nome VHD.|Mude o nome do ficheiro VHD removendo os caracteres especiais.|
 |
 
 ## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primeira partição de 1 MB (2048, cada sector de 512 bytes)
@@ -558,7 +558,7 @@ Para fornecer uma imagem VM fixa para substituir uma imagem VM que tenha uma vul
 
 #### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Fornecer uma nova imagem VM para abordar a vulnerabilidade de segurança ou explorar
 
-Para completar estes passos, prepare os ativos técnicos para a imagem VM que pretende adicionar. Para obter mais informações, consulte [Criar uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md)ou Criar uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md) e Gerar [um SAS URI para a sua imagem VM](azure-vm-get-sas-uri.md).
+Para completar estes passos, prepare os ativos técnicos para a imagem VM que pretende adicionar. Para obter mais informações, consulte [Criar uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou Criar uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md) e Gerar [um SAS URI para a sua imagem VM](azure-vm-get-sas-uri.md).
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No painel esquerdo, selecione **Commercial Marketplace**  >  **Overview**.

@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c2a6a88e9f730e17c929cf7949352448903435f6
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118460"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567526"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
-O Azure PostgreSQL aproveita a [encriptação do Azure Storage](../storage/common/storage-service-encryption.md) para encriptar os dados em repouso por padrão utilizando as teclas geridas pela Microsoft. Para os utilizadores do Azure PostgreSQL, é muito semelhante ao Encrupção de Dados Transparente (TDE) em outras bases de dados, como o SQL Server. Muitas organizações exigem o controlo total do acesso aos dados utilizando uma chave gerida pelo cliente. A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados. Com a encriptação gerida pelo cliente, para além de ser o responsável pelo ciclo de vida de uma chave, pelas permissões de utilização da chave e pela auditoria das operações nas chaves, também possui o controlo total.
+O Azure PostgreSQL aproveita a [encriptação do Azure Storage](../storage/common/storage-service-encryption.md) para encriptar os dados em repouso por padrão utilizando as teclas geridas pela Microsoft. Para os utilizadores do Azure PostgreSQL, é muito semelhante à Encriptação de Dados Transparente (TDE) noutras bases de dados, como o SQL Server. Muitas organizações exigem o controlo total do acesso aos dados utilizando uma chave gerida pelo cliente. A encriptação de dados com as chaves geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados. Com a encriptação gerida pelo cliente, para além de ser o responsável pelo ciclo de vida de uma chave, pelas permissões de utilização da chave e pela auditoria das operações nas chaves, também possui o controlo total.
 
 A encriptação de dados com as teclas geridas pelo cliente para a Base de Dados Azure para o servidor PostgreSQL Single está definida ao nível do servidor. Para um determinado servidor, uma chave gerida pelo cliente, chamada chave de encriptação (KEK), é usada para encriptar a chave de encriptação de dados (DEK) utilizada pelo serviço. O KEK é uma chave assimétrica armazenada numa instância [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) de propriedade do cliente e gerida pelo cliente. A chave de encriptação chave (KEK) e a chave de encriptação de dados (DEK) é descrita mais detalhadamente mais tarde neste artigo.
 

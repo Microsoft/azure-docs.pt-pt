@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 109f61d9ff76d084b292dbe3cc8ce663b50141ae
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: eb10001436d3184b89aa064ec82fcd1f56bea931
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541330"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566934"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -79,10 +79,41 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 
 ## <a name="prepare-hyper-v-hosts"></a>Preparar anfitriões Hiper-V
 
-Crie uma conta com acesso ao Administrador nos anfitriões Hiper-V. O aparelho utiliza esta conta para ser descoberto.
+Pode preparar os anfitriões Hyper-V manualmente ou usar um script. Os passos de preparação são resumidos na tabela. O script prepara-os automaticamente.
 
-- Opção 1: Preparar uma conta com o acesso do Administrador à máquina de anfitrião Hyper-V.
-- Opção 2: Se não quiser atribuir permissões de Administrador, crie uma conta de utilizador local ou de domínio e adicione a conta de utilizador a estes grupos- Utilizadores de Gestão Remota, Administradores de Hiper-V e Monitor de Desempenho.
+**Passo** | **Roteiro** | **Manual**
+--- | --- | ---
+Verificar os requisitos do anfitrião | Verifica se o anfitrião está a executar uma versão suportada do Hyper-V e o papel de Hiper-V.<br/><br/>Ativa o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no anfitrião (necessário para a recolha de metadados). | O anfitrião deve estar a executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2.<br/><br/> Verifique se as ligações de entrada são permitidas na porta WinRM 5985 (HTTP), para que o aparelho possa ligar-se para retirar metadados VM e dados de desempenho, utilizando uma sessão de Modelo de Informação Comum (CIM).
+Verificar a versão PowerShell | Verifica se está a executar o script numa versão suportada do PowerShell. | Verifique se está a executar a versão 4.0 do PowerShell ou mais tarde no anfitrião Hyper-V.
+Criar uma conta | Verifica se tem as permissões corretas no anfitrião Do Hiper-V.<br/><br/> Permite-lhe criar uma conta de utilizador local com as permissões corretas. | Opção 1: Preparar uma conta com o acesso do Administrador à máquina de anfitrião Hyper-V.<br/><br/> Opção 2: Preparar uma conta de administração local, ou conta Dedmin de Domínio, e adicionar a conta a estes grupos: Utilizadores de Gestão Remota, Administradores de Hiper-V e Utilizadores de Monitores de Desempenho.
+Ativar a remoing powerShell | Ativa a remoagem powerShell no hospedeiro, de modo a que o aparelho Azure Migrate possa executar comandos PowerShell no hospedeiro, sobre uma ligação WinRM. | Para configurar, em cada anfitrião, abra uma consola PowerShell como administrador, e executar este comando: ``` powershell Enable-PSRemoting -force ```
+Criar serviços de integração Hyper-V | Verifica se os Serviços de Integração Hiper-V estão ativados em todos os VM geridos pelo anfitrião. | [Ativar serviços de integração de hiper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) em cada VM.<br/><br/> Se estiver a executar o Windows Server 2003, [siga estas instruções](prepare-windows-server-2003-migration.md).
+Credenciais de delegado se os discos VM estiverem localizados em ações remotas de SMB | Credenciais de delegados | Executar este comando para permitir que o CredSSP delegue credenciais em anfitriões que executam VMs Hiper-V com discos em ações SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> Pode executar este comando remotamente em todos os anfitriões Do Hiper-V.<br/><br/> Se adicionar novos nós de anfitrião num cluster, são automaticamente adicionados para serem descobertos, mas precisa de ativar o CredSSP manualmente.<br/><br/> Ao configurar o aparelho, termine de configurar o CredSSP, [colocando-o no aparelho](#delegate-credentials-for-smb-vhds). 
+
+### <a name="run-the-script"></a>Executar o script
+
+1. Descarregue o script do [Microsoft Download Center](https://aka.ms/migrate/script/hyperv). O guião é assinado criptograficamente pela Microsoft.
+2. Valide a integridade do script utilizando ficheiros de haxixe MD5 ou SHA256. Os valores da hashtag estão abaixo. Executar este comando para gerar o haxixe para o script:
+
+    ```powershell
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Utilização de exemplo:
+
+    ```powershell
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    ```
+3. Depois de validar a integridade do script, execute o script em cada anfitrião Hyper-V com este comando PowerShell:
+
+    ```powershell
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+Os valores do haxixe são:
+
+**Hash** |  **Valor**
+--- | ---
+MD5 | 0ef418f31915d01f896ac42a80dc414e
+SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Criar um projeto
 

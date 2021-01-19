@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831674"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567134"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir da cópia de segurança de máquinas virtuais do Azure
 
@@ -188,7 +188,7 @@ No Linux, os volumes do ponto de recuperação são montados na pasta onde o scr
 Se o processo de recuperação do ficheiro ficar suspenso depois de executar o script de restauro de ficheiros (por exemplo, se os discos nunca forem montados, ou estiverem montados mas os volumes não aparecerem), execute os seguintes passos:
 
 1. No ficheiro /etc/iscsi/iscsid.conf, altere a definição de:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  Para `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  Para `node.conn[0].timeo.noop_out_timeout = 120`
 2. Depois de fazer as alterações acima, reexame o script. Se houver falhas transitórias, certifique-se de que existe uma lacuna de 20 a 30 minutos entre repetições para evitar sucessivas explosões de pedidos com impacto na preparação do alvo. Este intervalo entre re-runs garantirá que o alvo está pronto para a ligação a partir do script.
 3. Após a recuperação do ficheiro, certifique-se de que volta ao portal e selecione **Discos Desmonte** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a chance de recuperação.
 

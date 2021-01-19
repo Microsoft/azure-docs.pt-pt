@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901937"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567732"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Visão geral de networking - Base de dados Azure para PostgreSQL - Servidor Flexível
 
@@ -74,7 +74,7 @@ Aqui estão alguns conceitos a conhecer ao usar redes virtuais com servidores fl
 Saiba como criar um servidor flexível com acesso privado (integração VNet) [no portal Azure](how-to-manage-virtual-network-portal.md) ou [no Azure CLI](how-to-manage-virtual-network-cli.md).
 
 > [!NOTE]
-> Se estiver a utilizar o servidor DNS personalizado, deve utilizar um reencaminhador DNS para resolver o FQDN da Base de Dados Azure para o MySQL - Servidor Flexível. Consulte a [resolução de nomes que utiliza o seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) para saber mais.
+> Se estiver a utilizar o servidor DNS personalizado, deve utilizar um reencaminhador DNS para resolver o FQDN da Base de Dados Azure para o PostgreSQL - Servidor Flexível. Consulte a [resolução de nomes que utiliza o seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) para saber mais.
 
 ## <a name="public-access-allowed-ip-addresses"></a>Acesso público (endereços IP permitidos)
 As características do método de acesso público incluem:

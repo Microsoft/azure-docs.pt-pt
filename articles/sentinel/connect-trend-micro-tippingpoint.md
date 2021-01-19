@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 549b4e1e5e1aef3f6957fa52d69d252c55934286
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 989520e079988e1821d8bb9a936f857e1f62c11a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541576"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567772"
 ---
 # <a name="connect-your-trend-micro-tippingpoint-solution-to-azure-sentinel"></a>Ligue a sua solução Trend Micro TippingPoint ao Azure Sentinel
 
@@ -48,15 +48,15 @@ Para obter os seus logins no Azure Sentinel, configuure a sua solução TipPoint
 
 1. Siga as instruções no separador **Instruções,** na **Configuração:**
 
-    1. **1. Configuração do agente Linux Syslog** - Faça este passo se ainda não tiver um reencaminhador de log em funcionamento, ou se precisar de outro. Ver [PASSO 1: Desloque o reencaminhador](connect-cef-agent.md) de registo na documentação do Sentinela Azure para obter instruções e explicações mais detalhadas.
+    1. Menos **de 1. Configuração do agente Linux Syslog** - Faça este passo se ainda não tiver um reencaminhador de log em execução, ou se precisar de outro. Ver [PASSO 1: Desloque o reencaminhador](connect-cef-agent.md) de registo na documentação do Sentinela Azure para obter instruções e explicações mais detalhadas.
 
-    1. **2. Tendência avançada Micro TippingPoint registos SMS para o agente Syslog** - Esta configuração deve incluir os seguintes elementos:
+    1. Menos **de 2. Tendência avançada Micro TippingPoint registos SMS para o agente Syslog** - Esta configuração deve incluir os seguintes elementos:
         - Destino de registo - o nome de anfitrião e/ou endereço IP do seu servidor de reencaminhamento de registo
         - Protocolo e porta – **TCP 514** (se recomendado de outra forma, certifique-se de fazer a alteração paralela no daemon do syslog no seu servidor de reencaminhamento de log)
         - Formato de registo – **Formato CEF ArcSight v4.2**
         - Tipos de registos - todos disponíveis
 
-    1. **3. Validar a ligação** - Verificar a ingestão de dados copiando o comando na página do conector e executando-o no seu reencaminhador de registo. Ver [PASSO 3: Validar a conectividade](connect-cef-verify.md) na documentação do Sentinela Azure para obter instruções e explicações mais detalhadas.
+    1. Menos **de 3. Validar a ligação** - Verifique a ingestão de dados copiando o comando na página do conector e executando-o no seu reencaminhador de registo. Ver [PASSO 3: Validar a conectividade](connect-cef-verify.md) na documentação do Sentinela Azure para obter instruções e explicações mais detalhadas.
 
         Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 

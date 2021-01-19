@@ -1,17 +1,17 @@
 ---
-title: Cálculos de avaliação do AVS em Azure Migrate Microsoft Docs
+title: Cálculos de avaliação do AVS em Azure Migrate | Microsoft Docs
 description: Fornece uma visão geral dos cálculos de avaliação do AVS no serviço Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753812"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567706"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a Solução VMware Azure)
 
@@ -207,6 +207,8 @@ Após a determinação do valor de utilização efetiva, o armazenamento, a rede
 
 Se utilizar *como dimensionamento no local,* a Avaliação do Servidor não considera o histórico de desempenho dos VMs e discos. Em vez disso, atribui nós AVS com base no tamanho atribuído no local. O tipo de armazenamento predefinido é vSAN em AVS.
 
+[Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) sobre como rever uma avaliação da Solução VMware Azure.
+
 ## <a name="confidence-ratings"></a>Classificações de confiança
 
 Cada avaliação baseada no desempenho em Azure Migrate está associada a uma classificação de confiança que varia de uma (mais baixa) a cinco estrelas (mais alta).
@@ -235,9 +237,15 @@ Dependendo da percentagem de pontos de dados disponíveis, a classificação de 
 
 Eis algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 
-- Não perfilou o seu ambiente durante a duração da avaliação. Por exemplo, se criar a avaliação com a duração de desempenho definida para um dia, deve esperar pelo menos um dia depois de começar a descobrir todos os pontos de dados para ser recolhido.
-- Alguns VM foram encerrados durante o período durante o qual a avaliação foi calculada. Se quaisquer VMs forem desligados durante algum tempo, a Avaliação do Servidor não pode recolher os dados de desempenho desse período.
-- Foram criados alguns VM durante o período para o qual a avaliação foi calculada. Por exemplo, se criasse uma avaliação para o histórico de desempenho do mês passado, mas alguns VMs foram criados no ambiente apenas há uma semana, o histórico de desempenho dos novos VMs não existirá durante toda a duração.
+- Não perfilou o seu ambiente durante a duração pela qual está a criar a avaliação. Por exemplo, se criar a avaliação com a duração de desempenho definida para um dia, deve esperar pelo menos um dia depois de começar a descobrir todos os pontos de dados para ser recolhido.
+- A avaliação não é capaz de recolher os dados de desempenho para alguns ou todos os VMs no período de avaliação. Para uma alta classificação de confiança, certifique-se de que: 
+    - Os VM são alimentados durante a duração da avaliação
+    - São permitidas ligações de saída nas portas 443
+    - Para a memória dinâmica Hiper-VMs está ativada 
+    
+    “Recalcule” a avaliação para refletir as últimas alterações na classificação de confiança.
+
+- Foram criados alguns VM durante o período para o qual a avaliação foi calculada. Por exemplo, assuma que criou uma avaliação para o histórico de desempenho do mês passado, mas alguns VMs foram criados apenas há uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
 
 > [!NOTE]
 > Se a classificação de confiança de qualquer avaliação for inferior a cinco estrelas, recomendamos que espere pelo menos um dia para que o aparelho perfile o ambiente e, em seguida, recalcule a avaliação. Se não o fizeres, o tamanho baseado no desempenho pode não ser fiável. Nesse caso, recomendamos que altere a avaliação para o tamanho do local.

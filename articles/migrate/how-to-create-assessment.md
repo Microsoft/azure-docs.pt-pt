@@ -1,17 +1,17 @@
 ---
-title: Criar uma avaliação de VM Azure com avaliação do servidor Azure Migrate Microsoft Docs
+title: Crie uma avaliação de VM Azure com a avaliação do servidor Azure Migrate | Microsoft Docs
 description: Descreve como criar uma avaliação de VM Azure com a ferramenta de avaliação do servidor Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.openlocfilehash: cc7101c61db8f0863c3a16b1c17f04188f9bee4e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 178bdca78c6f011c607de8e1f5d5eabcdbaab7d4
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754305"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567693"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Criar uma avaliação de VM do Azure
 
@@ -40,29 +40,81 @@ Existem dois tipos de critérios de dimensionamento que pode utilizar para criar
 
 E executar uma avaliação da seguinte forma:
 
-1. Reveja as [melhores práticas](best-practices-assessment.md) para criar avaliações.
-2. No separador **Servidores,** em **Azure Migrate: Telha de Avaliação** do Servidor, clique em **Avaliar**.
+1. Na página de **Servidores** > **servidores Windows e Linux,** clique em **Avaliar e migrar servidores**.
 
-    ![A screenshot mostra servidores Azure Migrate com Avaliação selecionados em ferramentas de avaliação.](./media/how-to-create-assessment/assess.png)
+   ![Localização do botão de avaliar e migrar servidores](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-3. Nos **servidores avaliação**, selecione o tipo de avaliação como "Azure VM", selecione a fonte de descoberta e especifique o nome de avaliação.
+2. Em **Azure Migrate: Avaliação do servidor,** clique em **Avaliar**.
 
-    ![Noções Básicas de Avaliação](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Localização do botão Avaliar](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-4. Clique em **Ver tudo** para rever as propriedades de avaliação.
+3. No tipo de avaliação **de servidores,**  >  selecione **Azure VM**.
+4. Na **fonte discovery:**
 
-    ![Propriedades da avaliação](./media/how-to-create-assessment//view-all.png)
+    - Se descobrir máquinas que utilizem o aparelho, selecione **Máquinas descobertas a partir do aparelho Azure Migrate**.
+    - Se descobrir máquinas utilizando um ficheiro CSV importado, selecione **máquinas importadas.** 
+    
+1. Clique **em Editar** para rever as propriedades de avaliação.
 
-5. Clique em **seguinte** para **Selecionar as máquinas a avaliar**. Em **Selecionar ou criar um grupo**, selecione **Criar Novo** e especifique um nome do grupo. Um grupo reúne uma ou mais VMs para avaliação.
-6. No **Adicionar máquinas ao grupo,** selecione VMs para adicionar ao grupo.
-7. Clique em **seguinte** para **Rever + criar avaliação** e reveja os detalhes da avaliação.
-8. Clique **em Criar Avaliação** para criar o grupo e executar a avaliação.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Localização do botão Editar para rever propriedades de avaliação":::
 
-    ![Criar uma avaliação](./media/how-to-create-assessment//assessment-create.png)
+1. Em **Propriedades de Avaliação**  >  **Propriedades-Alvo**:
+    - Na **localização do alvo,** especifique a região de Azure para a qual pretende migrar.
+        - As recomendações de tamanho e custo baseiam-se na localização que especifica. Assim que alterar a localização do alvo por defeito, será solicitado que especifique **As Instâncias Reservadas** e **as séries VM**.
+        - No Governo de Azure, pode visar avaliações [nestas regiões](migrate-support-matrix.md#supported-geographies-azure-government)
+    - No **tipo de armazenamento,**
+        - Se pretender utilizar dados baseados no desempenho na avaliação, selecione **Automatic** for Azure Migrate para recomendar um tipo de armazenamento, baseado no disco IOPS e na produção.
+        - Em alternativa, selecione o tipo de armazenamento que pretende utilizar para VM quando o migrar.
+    - Em **Instâncias Reservadas**, especifique se pretende utilizar instâncias de reserva para o VM quando o migrar.
+        - Se selecionar para utilizar uma instância reservada, não pode especificar '**Desconto (%)** ou **uptime VM**. 
+        - [Saiba mais](https://aka.ms/azurereservedinstances).
+ 1. Em **tamanho VM:**
+     - No **critério Sizing,** selecione se pretende basear a avaliação em dados/metadados de configuração da máquina ou em dados baseados no desempenho. Se utilizar dados de desempenho:
+        - No **histórico de desempenho**, indique a duração dos dados em que pretende basear a avaliação
+        - Na **utilização do Percentil,** especifique o valor percentil que pretende utilizar para a amostra de desempenho. 
+    - Na **Série VM**, especifique a série Azure VM que pretende considerar.
+        - Se estiver a utilizar uma avaliação baseada no desempenho, a Azure Migrate sugere um valor para si.
+        - Ajuste as definições conforme necessário. Por exemplo, se não tiver um ambiente de produção que precise de VMs da série A em Azure, pode excluir a série A da lista de séries.
+    - No **fator Comfort,** indique o tampão que pretende utilizar durante a avaliação. Isto explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro. Por exemplo, se utilizar um fator de conforto de dois:
+    
+        **Componente** | **Utilização eficaz** | **Adicionar fator de conforto (2.0)**
+        --- | --- | ---
+        Núcleos | 2  | 4
+        Memória | 8 GB | 16 GB
+   
+1. Na **fixação de preços:**
+    - In **Offer**, especifique a [oferta Azure](https://azure.microsoft.com/support/legal/offer-details/) se estiver inscrito. A Avaliação do Servidor estima o custo dessa oferta.
+    - Em **Moeda,** selecione a moeda de faturação para a sua conta.
+    - Em **Desconto (%)**, adicione quaisquer descontos específicos de subscrição que receba em cima da oferta Azure. A predefinição é 0%.
+    - No **VM Uptime,** especifique a duração (dias por mês/hora por dia) que os VMs irão executar.
+        - Isto é útil para VMs Azure que não serão executados continuamente.
+        - As estimativas de custos baseiam-se na duração especificada.
+        - O padrão é de 31 dias por mês/24 horas por dia.
+    - Na **Subscrição da EA**, especifique se deve ter em conta um desconto de subscrição do Enterprise Agreement (EA) para a estimativa de custos. 
+    - No **Azure Hybrid Benefit**, especifique se já tem uma licença do Windows Server. Se o fizer e estiver coberto com uma garantia de software ativa das subscrições do Servidor do Windows, pode candidatar-se ao [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) quando levar licenças ao Azure.
 
-9. Após a criação da avaliação, veja-a em **Servidor** > **Azure Migrate: Avaliação do Servidor** > **Avaliações**.
-10. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
+1. Clique **em Guardar** se escoda alterações.
 
+    ![Propriedades da avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
+
+1. Em **Avaliar servidores** > clique em **Seguinte**.
+
+1. Nas **máquinas Select para avaliar o** nome de  >  **avaliação** > especificar um nome para a avaliação. 
+
+1. Em **Select ou criar um grupo** > selecione Create **New** e especifique um nome de grupo. 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Adicionar VMs a um grupo":::
+
+1. Selecione o aparelho e selecione os VMs que pretende adicionar ao grupo. Em seguida, clique em **Seguinte**.
+
+
+1. Em **Review + criar avaliação,** rever os detalhes da avaliação e clicar em Criar **Avaliação** para criar o grupo e executar a avaliação.
+
+1. Após a criação da avaliação, veja-a em **Servidor** > **Azure Migrate: Avaliação do Servidor** > **Avaliações**.
+
+1. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
+    > [!NOTE]
+    > Para avaliações baseadas no desempenho, recomendamos que espere pelo menos um dia após iniciar a descoberta antes de criar uma avaliação. Isto dá tempo para recolher dados de desempenho com maior confiança. Idealmente, depois de começar a ser descoberto, aguarde a duração de desempenho que especifica (dia/semana/mês) para uma classificação de alta confiança.
 
 
 ## <a name="review-an-azure-vm-assessment"></a>Rever uma avaliação de VM do Azure

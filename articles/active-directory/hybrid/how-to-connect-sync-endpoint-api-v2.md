@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Sync V2 endpoint / Microsoft Docs
+title: Azure AD Connect Sync V2 | Microsoft Docs
 description: Este documento cobre atualizações à Azure AD connect sync v2 pontos finais API.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608304"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567623"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto final do Azure AD Connect sync V2 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -28,7 +28,7 @@ A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que me
 > [!NOTE]
 > Atualmente, o novo ponto final não tem um limite de tamanho de grupo configurado para os grupos Microsoft 365 que estão reensitados. Isto pode ter um efeito no seu Diretório Ativo e latências de ciclo sincronizado. Recomenda-se aumentar gradualmente os tamanhos do grupo.  
 
-## <a name="pre-requisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Para utilizar o novo ponto final V2, terá de utilizar a [versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior do Azure AD Connect e seguir os passos de implementação abaixo fornecidos para ativar o ponto final V2 para o seu servidor Azure AD Connect.   
 
 ## <a name="deployment-guidance"></a>Orientação de implantação 
@@ -176,7 +176,7 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes  
  
 **Quando é que o novo ponto final se tornará o padrão para upgrades e novas instalações?**  
-</br>Estamos a planear um novo lançamento do AADConnect para download em janeiro de 2021. Esta versão utilizará o ponto de final V2 por predefinição e permitirá que grupos de sincronização maiores do que 50K com qualquer configuração adicional. A versão THis será posteriormente publicada para upgrade automático para servidores elegíveis.
+</br>Estamos a planear um novo lançamento do AADConnect para download em janeiro de 2021. Esta versão utilizará o ponto de final V2 por predefinição e permitirá a sincronização de grupos maiores do que 50K sem qualquer configuração adicional. A versão THis será posteriormente publicada para upgrade automático para servidores elegíveis.
  
 ## <a name="next-steps"></a>Passos seguintes
 

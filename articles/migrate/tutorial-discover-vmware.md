@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 9/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c697a8a944c74d12202c4e9e148713c4c8433026
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 0e06d82c30743a4084cfc5ff856b4a9c8d548146
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541364"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566944"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descubra VMware VMs com avaliação do servidor
 
