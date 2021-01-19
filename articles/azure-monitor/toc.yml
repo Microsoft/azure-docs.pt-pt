@@ -573,9 +573,13 @@
             - name: Resolver problemas do Conector do ITSM
               items:
                 - name: Descrição Geral
+                  href: platform/itsmc-troubleshoot-overview.md
+                - name: Conector do ITSM de Sincronização
                   href: platform/itsmc-resync-servicenow.md
                 - name: Investigação do Dashboard
                   href: platform/itsmc-dashboard.md
+                - name: Erros Comuns
+                  href: platform/itsmc-dashboard-errors.md
             - name: Integrar com a Exportação Segura
               items:
                 - name: Descrição geral

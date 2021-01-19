@@ -159,6 +159,20 @@
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: Configurar a monitorização MIB do SNMP
           href: how-to-set-up-snmp-mib-monitoring.md
+        - name: Integrar com parceiros
+          items:
+            - name: Integração do Cisco ISE pxGrid
+              href: integration-cisco-ise-pxgrid.md
+            - name: Integração da Forescout
+              href: integration-forescout.md
+            - name: Integração da Fortinet
+              href: integration-fortinet.md
+            - name: Integração da Palo Alto
+              href: integration-palo-alto.md
+            - name: Integração da ServiceNow
+              href: integration-servicenow.md
+            - name: Integração da Splunk
+              href: integration-splunk.md
     - name: Solução com base em Agente para Criadores de Dispositivos
       items:
         - name: Trabalhar com o Módulo de Segurança para Azure RTOS
@@ -223,7 +237,7 @@
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
 - name: Recursos
   items:
-    - name: Solução com base em agente para criadores de dispositivos
+    - name: Solução com base em agente para Criadores de Dispositivos
       items:
         - name: Desenvolver as suas competências de segurança com o Microsoft Learn
           href: /learn/browse/?term=securityS&terms=securityS

@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matriz de suporte de cópia de segurança da partilha de ficheiros do Azure
           href: azure-file-share-support-matrix.md
+        - name: Matriz de suporte da Cópia de Segurança de Discos do Azure
+          href: disk-backup-support-matrix.md
         - name: Controladores de domínio do Active Directory
           href: active-directory-backup-restore.md
         - name: SKUs de VM com suporte para o Azure Policy
@@ -82,6 +84,8 @@
           href: backup-azure-file-folder-backup-faq.md
         - name: FAQ - Fazer cópias de segurança de Ficheiros do Azure
           href: backup-azure-files-faq.md
+        - name: FAQ - Cópia de Segurança de Discos do Azure
+          href: disk-backup-faq.md
         - name: FAQ - Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
           href: faq-backup-sql-server.md
         - name: FAQ - Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
@@ -210,6 +214,14 @@
               href: backup-azure-restore-system-state.md
         - name: Gerir
           href: backup-azure-manage-mars.md
+    - name: Cópia de segurança de Discos do Azure
+      items:
+        - name: Descrição geral
+          href: disk-backup-overview.md
+        - name: Cópia de segurança
+          href: backup-managed-disks.md
+        - name: Restauro
+          href: restore-managed-disks.md
     - name: Cópia de segurança da partilha de Ficheiros do Azure
       items:
         - name: Descrição geral
@@ -441,6 +453,8 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Partilha de Ficheiros do Azure
           href: troubleshoot-azure-files.md
+        - name: Cópia de Segurança de Discos do Azure
+          href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
         - name: Cópia de segurança do SAP HANA em VMs do Azure

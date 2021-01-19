@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e2afc60f6fa67c1dc0582839e2d3f7480907facc
+  ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91620125"
+  ms.lasthandoff: 01/18/2021
+  ms.locfileid: "98556499"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:
@@ -56,6 +56,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Cópia de Segurança de Discos do Azure
+      url: disk-backup-overview.md
     - text: Centro de Cópias de Segurança
       url: backup-center-overview.md
     - text: Cópia de Segurança da Base de Dados do Azure para PostgreSQL
