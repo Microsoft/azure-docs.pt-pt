@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: d944512e5f6126920ab4fba99fb70513b93177ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936826"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610272"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -154,13 +154,15 @@ Correr numa máquina com mais memória nem sempre significa que a sua aplicaçã
 
 Por exemplo, uma aplicação de função JavaScript é limitada pelo limite de memória padrão em Node.js. Para aumentar este limite de memória fixa, adicione a definição da aplicação `languageWorkers:node:arguments` com um valor de `--max-old-space-size=<max memory in MB>` .
 
+E para planos com memória superior a 4GB, certifique-se de que a Definição da Plataforma bitness está definida `64 Bit` em [Definições Gerais](/azure/app-service/configure-common#configure-general-settings).
+
 ## <a name="region-max-scale-out"></a>Escala Max Região Para fora
 
 Abaixo estão os valores máximos de escala suportados atualmente para um único plano em cada região e configuração de SO. Para solicitar um aumento, você pode abrir um bilhete de apoio.
 
 Consulte a disponibilidade regional completa de Funções no site da [Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region| Windows | Linux |
+|Região| Windows | Linux |
 |--| -- | -- |
 |Austrália Central| 100 | Não Disponível |
 |Austrália Central 2| 100 | Não Disponível |

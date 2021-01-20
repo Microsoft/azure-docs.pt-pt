@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750718"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610255"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar uma aplicação para implantação em Azure Spring Cloud
 
@@ -146,40 +146,14 @@ A azure Spring Cloud suporta apenas aplicações Spring Boot ou versão Spring B
 
 Versão Boot de primavera | Versão Cloud de primavera
 ---|---
-2.1 | Greenwich.RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+2.4.1+ | 2020.0.0
 
 > [!NOTE]
-> Identificamos um problema com o Spring Boot 2.4 na autenticação TLS entre as suas apps e eureka e estamos atualmente a trabalhar com a comunidade spring para resolvê-lo. Por favor, consulte as nossas [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para a solução alternativa.
+> Identificamos um problema com o Boot 2.4.0 da autenticação TLS entre as suas apps e eureka, por favor use 2.4.1 ou superior. Por favor, consulte as [nossas FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para a solução alternativa se insistir em usar 2.4.0.
 
-### <a name="dependencies-for-spring-boot-version-21"></a>Dependências para a versão 2.1 do Boot de Mola
-
-Para a versão Spring Boot 2.1 adicione as seguintes dependências ao ficheiro POM da aplicação.
-
-```xml
-    <!-- Spring Boot dependencies -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.12.RELEASE</version>
-    </parent>
-
-    <!-- Spring Cloud dependencies -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-```
-
-### <a name="dependencies-for-spring-boot-version-22"></a>Dependências para a versão 2.2 do Boot de Mola
+### <a name="dependencies-for-spring-boot-version-2223"></a>Dependências para a versão 2.2/2.3 do Boot de Mola
 
 Para a versão Spring Boot 2.2 adicione as seguintes dependências ao ficheiro POM da aplicação.
 
@@ -204,16 +178,17 @@ Para a versão Spring Boot 2.2 adicione as seguintes dependências ao ficheiro P
         </dependencies>
     </dependencyManagement>
 ```
-### <a name="dependencies-for-spring-boot-version-23"></a>Dependências para a versão 2.3 do Boot de Mola
 
-Para a versão Spring Boot 2.3 adicione as seguintes dependências ao ficheiro POM da aplicação.
+### <a name="dependencies-for-spring-boot-version-24"></a>Dependências para a versão 2.4 do Boot de Mola
+
+Para a versão Spring Boot 2.2 adicione as seguintes dependências ao ficheiro POM da aplicação.
 
 ```xml
     <!-- Spring Boot dependencies -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.0.RELEASE</version>
+        <version>2.4.1.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -222,34 +197,14 @@ Para a versão Spring Boot 2.3 adicione as seguintes dependências ao ficheiro P
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR8</version>
+                <version>2020.0.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 ```
-## <a name="azure-spring-cloud-client-dependency"></a>Dependência do cliente Azure Spring Cloud
 
-Azure Spring Cloud acolhe e gere componentes da Cloud spring. Os componentes incluem o Registo de Serviço de Nuvem de primavera e o Servidor Config da Nuvem de primavera. Recomenda-se a utilização do Porta-malas de mola 2.2 ou 2.3. Para o Boot 2.1 da primavera, terá de incluir a biblioteca de clientes Azure Spring Cloud nas suas dependências para permitir a comunicação com a sua instância de serviço Azure Spring Cloud.
-
-A tabela que se segue lista as versões Azure Spring Cloud corretas para a sua aplicação que utiliza o Spring Boot e o Spring Cloud.
-
-Versão Boot de primavera | Versão Cloud de primavera | Versão inicial do cliente Azure Spring Cloud
----|---|---
-2.1.x | Greenwich.RELEASE | 2.1.2
-2.2.x | Hoxton.SR8 | Não necessário
-2.3.x | Hoxton.SR8 | Não necessário
-
-Inclua a seguinte dependência no seu ficheiro pom.xml se estiver a utilizar o Boot 2.1 da Mola.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.2</version>
-</dependency>
-```
 > [!WARNING]
 > Não especifique `server.port` na sua configuração. A Azure Spring Cloud ultrapassará esta definição para um número fixo da porta. Respeite também esta definição e não especifique a porta do servidor no seu código.
 
@@ -329,6 +284,9 @@ Inclua a `spring-boot-starter-actuator` dependência na secção de dependência
 
 ### <a name="distributed-tracing"></a>Rastreio distribuído
 
+Também precisa de permitir que uma instância Azure Application Insights funcione com a sua instância de serviço Azure Spring Cloud. Para obter informações sobre como utilizar o Application Insights com Azure Spring Cloud, consulte a [documentação sobre o rastreio distribuído.](spring-cloud-tutorial-distributed-tracing.md)
+
+#### <a name="spring-boot-2223"></a>Bota de primavera 2.2/2.3
 Inclua o seguinte `spring-cloud-starter-sleuth` e `spring-cloud-starter-zipkin` dependências na secção de dependências do seu ficheiro pom.xml:
 
 ```xml
@@ -342,7 +300,15 @@ Inclua o seguinte `spring-cloud-starter-sleuth` e `spring-cloud-starter-zipkin` 
 </dependency>
 ```
 
- Também precisa de permitir que uma instância Azure Application Insights funcione com a sua instância de serviço Azure Spring Cloud. Para obter informações sobre como utilizar o Application Insights com Azure Spring Cloud, consulte a [documentação sobre o rastreio distribuído.](spring-cloud-tutorial-distributed-tracing.md)
+#### <a name="spring-boot-24"></a>Bota de primavera 2.4
+Inclua a seguinte `spring-cloud-sleuth-zipkin` dependência na secção de dependências do seu ficheiro pom.xml:
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+```
 
 ## <a name="see-also"></a>Ver também
 * [Analisar registos de aplicações e métricas](./diagnostic-services.md)

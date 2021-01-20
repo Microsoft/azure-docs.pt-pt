@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e87c9efc910d08307d40d42e58f8272a01902a41
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554274"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610374"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Controlo de acesso baseado em funções no Plano de Dados da Azure Purview
 
@@ -23,7 +23,7 @@ Este artigo descreve como Role-Based Access Control (RBAC) é implementado no Pl
 
 ## <a name="azure-purviews-pre-defined-data-plane-roles"></a>As funções pré-definidas do Plano de Dados da Azure Purview
 
-A Azure Purview define um conjunto de funções pré-definidas do Plano de Dados que podem ser usadas para controlar quem pode aceder ao que, em Azure Purview. Estes papéis são:
+A Azure Purview define um conjunto de funções pré-definidas do Plano de Dados que podem ser usadas para controlar quem pode aceder ao que, em Azure Purview. Essas funções são:
 
 * **Função de leitor de dados de visão** - Tem acesso ao portal Desresvisão e pode ler todos os conteúdos em Azure Purview, exceto para encadernações de digitalização
 * **Função de Curador de Dados** - Tem acesso ao portal Desreserva e pode ler todos os conteúdos em Azure Purview, exceto para encadernações de digitalização, pode editar informações sobre ativos, editar definições de classificação e termos glossários, e pode aplicar classificações e termos glossários a ativos.
@@ -31,9 +31,9 @@ A Azure Purview define um conjunto de funções pré-definidas do Plano de Dados
 
 ## <a name="understanding-how-to-use-azure-purviews-data-plane-roles"></a>Compreender como usar as funções do Plano de Dados da Azure Purview
 
-Quando uma Conta Azure Purview for criada, o criador será tratado como se estivesse tanto no Curador de Dados de Purview como em Funções de Administrador de Fonte de Dados de Purview. Mas o criador da conta não é atribuído a estas funções na loja de funções. A Azure Purview reconhece que o principal é o criador da conta e estende-lhes essas capacidades com base na sua identidade.
+Quando uma Conta Azure Purview for criada, o criador será tratado como se estivesse tanto no Curador de Dados de Purview como em Funções de Administrador de Fonte de Dados de Purview. No entanto, essas funções não lhe são atribuídas no arquivo de funções. O Azure Purview reconhece que o principal é o criador da conta e concede-lhe estas capacidades com base na sua identidade.
 
-Todos os outros utilizadores só podem utilizar a Conta Azure Purview se forem colocados em pelo menos uma destas funções. Isto significa que quando uma Conta Azure Purview é criada, ninguém além do criador pode aceder à conta ou usar as suas APIs até que sejam colocadas numa ou mais das funções definidas anteriores.
+Todos os outros utilizadores só podem utilizar a Conta do Azure Purview se tiverem, pelo menos, uma destas funções. Isto significa que quando uma Conta Azure Purview é criada, ninguém além do criador pode aceder à conta ou usar as suas APIs até que sejam colocadas numa ou mais das funções definidas anteriores.
 
 Por favor, note que a função de Administrador de Fonte de Dados de Purview tem dois cenários suportados. O primeiro cenário é para utilizadores que já estejam a receber leitores de dados ou curadores de dados de purview que também precisam de ser capazes de criar digitalizações. Esses utilizadores precisam de estar em duas funções, pelo menos um do Purview Data Reader ou do Purview Data Curator, bem como ser colocado na Função de Administrador de Fonte de Dados de Purview.
 
@@ -77,8 +77,8 @@ Para os utilizadores que tenham acesso ao [portal Azure](https://portal.azure.co
 |Preciso de permitir que um Diretor de Serviço ou outra identidade programática crie e monitorize as sondagens em Azure Purview sem permitir que a identidade programática aceda à informação do catálogo |Função de administrador de fonte de dados de competência|
 |Preciso colocar os utilizadores em funções no Azure Purview | Proprietário ou Administrador de Acesso ao Utilizador |
 
-Avance para o próximo artigo para aprender a adicionar um diretor de segurança a um papel.
+Para obter mais informações sobre como adicionar um principal de segurança a uma função, consulte [Quickstart: Create a Azure Purview account](create-catalog-portal.md) .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Criar uma conta Azure Purview](create-catalog-portal.md)
+* [Informações de dados](concept-insights.md)

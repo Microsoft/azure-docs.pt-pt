@@ -11,26 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134420"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610306"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>A participação de dados na aprendizagem automática de máquinas
 
-
-
-Conheça as definições de exibição de dados no Azure Machine Learning e como personalizar essas funcionalidades para [experiências automatizadas de ML](concept-automated-ml.md).
+Conheça as definições de exibição de dados no Azure Machine Learning e como personalizar essas funcionalidades para [experiências automatizadas de aprendizagem automática de máquinas.](concept-automated-ml.md)
 
 ## <a name="feature-engineering-and-featurization"></a>Engenharia de recursos e a presença
 
-*A engenharia* de recursos é o processo de utilização do conhecimento de domínio dos dados para criar funcionalidades que ajudam a aprendizagem automática (ML) algoritmos para aprender melhor. No Azure Machine Learning, as técnicas de dimensionamento de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, estas técnicas e esta engenharia de recursos são chamadas *de caracterização* em machine learning automatizado, ou *autoML,* experiências.
+Os dados de formação consistem em linhas e colunas. Cada linha é uma observação ou registo, e as colunas de cada linha são as características que descrevem cada registo. Tipicamente, as funcionalidades que melhor caracterizam os padrões dos dados são selecionadas para criar modelos preditivos.
+
+Embora muitos dos campos de dados brutos possam ser usados diretamente para treinar um modelo, é muitas vezes necessário criar funcionalidades adicionais (projetadas) que forneçam informações que melhor diferenciam padrões nos dados. Este processo chama-se engenharia de **recursos,** onde o uso do conhecimento de domínio dos dados é alavancado para criar funcionalidades que, por sua vez, ajudam algoritmos de aprendizagem automática a aprender melhor. 
+
+No Azure Machine Learning, as técnicas de dimensionamento de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, estas técnicas e esta engenharia de recursos são chamadas **de caracterização** em experiências automatizadas de ML.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo assume que já sabe configurar uma experiência AutoML. Para obter informações sobre a configuração, consulte os seguintes artigos:
+Este artigo assume que já sabe configurar uma experiência automatizada de ML. Para obter informações sobre a configuração, consulte os seguintes artigos:
 
 - Para uma experiência de código-primeiro: [Configure experiências automatizadas de ML utilizando o Azure Machine Learning SDK para Python](how-to-configure-auto-train.md).
 - Para uma experiência de baixo código ou sem código: [Crie, reveja e implemente modelos automatizados de aprendizagem automática de máquinas utilizando o estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md).
@@ -59,7 +61,7 @@ A tabela seguinte mostra as definições aceites para `featurization` a [classe 
 A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus dados. Estas técnicas são aplicadas para experiências que são configuradas usando o SDK ou o estúdio. Para desativar este comportamento, coloque `"featurization": 'off'` no seu `AutoMLConfig` objeto.
 
 > [!NOTE]
-> Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
+> Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Etapas de exibição &nbsp;| Descrição |
 | ------------- | ------------- |

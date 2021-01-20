@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968539"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610986"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -211,31 +211,30 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
    ![pyspark instalado com sucesso](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Utilize o pedido de comando para executar **pip para instalar numpy == 1.19.3**, e, em seguida, recarregar novamente a janela VSCode.
 
-8. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server**.
+7. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server**.
 
    ![selecione intérprete para iniciar o servidor jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-9. Selecione a opção python abaixo.
+8. Selecione a opção python abaixo.
 
    ![escolher a opção abaixo](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-10. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window**.
+9. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window**.
 
     ![janela de recarga](./media/hdinsight-for-vscode/reload-window.png)
 
-11. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
+10. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
-12. Selecione todo o código, clique com o direito no editor de scripts e selecione **Spark: PySpark Interactive / Synapse: Pyspark Interactive** para submeter a consulta. 
+11. Selecione todo o código, clique com o direito no editor de scripts e selecione **Spark: PySpark Interactive / Synapse: Pyspark Interactive** para submeter a consulta. 
 
     ![menu de contexto interativo pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-13. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark**, e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
+12. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark**, e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
 
     ![pyspark janela interativa python](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-14. Introduza **%%info** e, em seguida, pressione Shift+Enter para ver as informações de trabalho (opcional):
+13. Introduza **%%info** e, em seguida, pressione Shift+Enter para ver as informações de trabalho (opcional):
 
     ![pyspark interactive view informações de trabalho](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 

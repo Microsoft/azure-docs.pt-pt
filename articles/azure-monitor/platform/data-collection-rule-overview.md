@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.date: 01/19/2021
+ms.openlocfilehash: 7013a4ab1becd6108d30d8369f1f72bcb3e55c37
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315537"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611071"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -53,10 +53,20 @@ Para limites aplicáveis a cada regra de recolha de [dados, consulte os limites 
 
 
 ## <a name="create-a-dcr"></a>Criar um DCR
-Existem atualmente dois métodos disponíveis para criar um DCR:
+Atualmente pode utilizar qualquer um dos seguintes métodos para criar um DCR:
 
 - [Utilize o portal Azure](data-collection-rule-azure-monitor-agent.md) para criar uma regra de recolha de dados e associá-la a uma ou mais máquinas virtuais.
 - Editar diretamente a regra de recolha de dados em JSON e [submeter-se através da API REST](/rest/api/monitor/datacollectionrules).
+- Criar DCR e associações com [a Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
+- Crie DCR e associações com a Azure PowerShell.
+  - [Get-AzDataCollectionrule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
+  - [Novo-AzDataCollectionrule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
+  - [Set-AzDataCollectionrule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
+  - [Atualização-AzDataCollectionrule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
+  - [Remover-AzDataCollectionrule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
+  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
+  - [Nova-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
+  - [Remover-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>Regra de recolha de dados de amostra
 A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o agente da Azure Management e tem os seguintes detalhes:
@@ -184,6 +194,6 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie uma regra de recolha de dados](data-collection-rule-azure-monitor-agent.md) e uma associação a partir de uma máquina virtual utilizando o agente Azure Monitor.

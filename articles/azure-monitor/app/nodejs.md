@@ -4,12 +4,12 @@ description: Monitorize o desempenho e diagnostique problemas em serviços Node.
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920583"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611020"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -181,7 +181,7 @@ A fim de rastrear o contexto através de chamadas assíncronos, são necessária
 
  As manchas individuais de macaco podem ser desativadas, definindo a `APPLICATION_INSIGHTS_NO_PATCH_MODULES` variável ambiente para uma lista separada de vírgulas de pacotes para desativar (por exemplo, `APPLICATION_INSIGHTS_NO_PATCH_MODULES=console,redis` ) para evitar remendar as `console` embalagens e as `redis` embalagens.
 
-Atualmente existem nove pacotes que são instrumentados: `bunyan` , , , , , , , , , `console` e `mongodb` `mongodb-core` `mysql` `redis` `winston` `pg` `pg-pool` . Visite a [README dos editores de canais de diagnóstico](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md) para obter informações sobre a versão exata destes pacotes.
+Atualmente existem nove pacotes que são instrumentados: `bunyan` `console` , e `mongodb` `mongodb-core` `mysql` `redis` `winston` `pg` `pg-pool` . Visite a [README dos editores de canais de diagnóstico](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md) para obter informações sobre a versão exata destes pacotes.
 
 Os `bunyan` , e patches `winston` `console` gerarão insights de aplicação trace eventos baseados em se `setAutoCollectConsole` está ativado. O resto gerará eventos de dependência de Insights de Aplicação com base no facto `setAutoCollectDependencies` de estar ativado.
 
@@ -334,6 +334,12 @@ server.on("listening", () => {
   appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
+
+### <a name="flush"></a>Flush
+
+Por predefinição, a telemetria é tamponada durante 15 segundos antes de ser enviada para o servidor de ingestão. Se a sua aplicação tiver um tempo de vida útil curto (por exemplo, uma ferramenta CLI), poderá ser necessário lavar manualmente a telemetria tamponada quando a aplicação terminar, `appInsights.defaultClient.flush()` .
+
+Se o SDK detetar que a sua aplicação está a falhar, chamará flush para `appInsights.defaultClient.flush({ isAppCrashing: true })` si. Com a opção `isAppCrashing` flush, presume-se que a sua aplicação se encontra num estado anormal, não é adequada para o envio de telemetria. Em vez disso, o SDK poupará toda a telemetria tamponada para [armazenamento persistente](./data-retention-privacy.md#nodejs) e deixará a sua aplicação terminar. Quando a sua aplicação recomeçar, tentará enviar qualquer telemetria que tenha sido guardada para armazenamento persistente.
 
 ### <a name="preprocess-data-with-telemetry-processors"></a>Dados de pré-processamento com processadores de telemetria
 

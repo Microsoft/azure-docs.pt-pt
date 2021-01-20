@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/24/2020
-ms.openlocfilehash: 7ee203595a796529ae0aefe8b0c52a689ac29968
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762334"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611207"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um balanceador de carga azure cross-region usando o portal Azure
 
 Um equilibrador de carga transversal garante que um serviço está disponível globalmente em várias regiões de Azure. Se uma região falhar, o tráfego é encaminhado para o próximo e mais próximo e saudável equilibrador regional de carga.  
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar balanceador de carga entre regiões.
@@ -35,13 +35,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure.
-- Dois **standard** balançadores de carga sku Azure standard com piscinas de backend implantadas em duas regiões Azure diferentes.
+- Dois  balançadores de carga sku Azure standard com piscinas de backend implantadas em duas regiões Azure diferentes.
     - Para obter informações sobre a criação de um balanceador de carga padrão regional e máquinas virtuais para piscinas de backend, consulte [Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure](quickstart-load-balancer-standard-public-portal.md).
         - Apeia o nome dos equilibradores de carga, máquinas virtuais e outros recursos em cada região com um **-R1** e **-R2**. 
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
-[Inscreva-se no](https://preview.portal.azure.com) portal de pré-visualização do Azure.
+[Inscreva-se no](https://portal.azure.com) portal de pré-visualização do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar balanceador de carga entre regiões
 

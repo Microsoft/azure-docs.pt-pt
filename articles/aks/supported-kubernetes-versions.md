@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 53093edb1d3c142336f06ec8544aaa7b55e37477
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296119"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611258"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -138,13 +138,14 @@ Para a história do lançamento passado, consulte [Kubernetes.](https://en.wikip
 
 |  Versão K8s | Libertação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da vida |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | Jan 2021* | 
+| 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | jan 2021| 
 | 1.17  | Dez-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
 | 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA |
+| 1.21  | Abr-08-21* | Maio de 2021   | Jul 2021  | 1.24 GA |
 
-\* Devido à época de férias, a AKS prolonga a vida útil de 1,16 de novembro de 2020 até janeiro de 2021. [Leia mais.](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+\* A versão Kubernetes 1.21 Upstream está sujeita a alterações, uma vez que o calender upstream ainda está por finalizar.
 
 
 ## <a name="faq"></a>FAQ

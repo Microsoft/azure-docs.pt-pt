@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562748"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611088"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -386,15 +386,11 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
 ## <a name="limitations-and-constraints"></a>Limitações e constrangimentos
 
-- A chave gerida pelo cliente é suportada no cluster dedicado Log Analytics e adequada para clientes que enviam 1TB por dia ou mais.
-
 - O número máximo de cluster por região e subscrição é de 2
 
-- O máximo de espaços de trabalho ligados ao cluster é 1000
+- O número máximo de espaços de trabalho que podem ser ligados a um cluster é de 1000
 
 - Pode ligar um espaço de trabalho ao seu cluster e depois desvincular o mesmo. O número de operações de ligação do espaço de trabalho em determinado espaço de trabalho é limitado a 2 num período de 30 dias.
-
-- A ligação do espaço de trabalho ao cluster deve ser transportada apenas depois de ter verificado que o fornecimento do cluster Log Analytics foi concluído. Os dados enviados para o seu espaço de trabalho antes da conclusão serão retirados e não serão recuperáveis.
 
 - A encriptação da chave gerida pelo cliente aplica-se aos dados recém-ingeridos após o tempo de configuração. Os dados que foram ingeridos antes da configuração, permanecem encriptados com a tecla microsoft. Pode consultar os dados ingeridos antes e depois da configuração da chave gerida pelo Cliente de forma perfeita.
 
@@ -404,14 +400,12 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
 - A mudança do cluster para outro grupo de recursos ou subscrição não é suportada atualmente.
 
-- O seu Azure Key Vault, cluster e espaços de trabalho ligados devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições.
-
-- A ligação do espaço de trabalho ao cluster falhará se estiver ligada a outro cluster.
+- O seu Azure Key Vault, cluster e espaços de trabalho devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em subscrições diferentes.
 
 - O Lockbox não está disponível na China atualmente. 
 
-- [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões apoiadas. Pode verificar se o seu cluster está configurado para encriptação dupla através de um pedido GET no cluster e observando o `"isDoubleEncryptionEnabled"` valor da propriedade - é para `true` clusters com encriptação dupla ativada. 
-  - Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster sem a Double Encryption. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` propriedade no corpo de pedido REST.
+- [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões apoiadas. Pode verificar se o seu cluster está configurado para dupla encriptação, enviando um pedido GET no cluster e observando que o `isDoubleEncryptionEnabled` valor é `true` para clusters com encriptação dupla ativada. 
+  - Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster sem encriptação dupla adicionando `"properties": {"isDoubleEncryptionEnabled": false}` no corpo de pedidos REST.
   - A definição de encriptação dupla não pode ser alterada após a criação do cluster.
 
   - Se o seu cluster estiver definido com a identidade gerida atribuída pelo Utilizador, a definição `UserAssignedIdentities` com `None` suspensão do cluster e impede o acesso aos seus dados, mas não pode reverter a revogação e ativar o cluster sem abrir o pedido de suporte. Esta limitação é aplicada à identidade gerida atribuída pelo Sistema.
@@ -429,13 +423,15 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
   - A frequência a que o Azure Monitor Storage acede ao Cofre chave para operações de embrulho e desembrulhar é entre 6 a 60 segundos.
 
-- Se criar um cluster e especificar imediatamente as Propriedades KeyVault, a operação pode falhar, uma vez que a política de acesso não pode ser definida até que a identidade do sistema seja atribuída ao cluster.
-
-- Se atualizar o cluster existente com KeyVaultProperties e a chave 'Obter' 'Obter' está em falta no Key Vault, a operação falhará.
+- Se atualizar o seu cluster enquanto o cluster estiver no estado de provisionamento ou atualização, a atualização falhará.
 
 - Se tiver erro de conflito ao criar um cluster – Pode ser que tenha apagado o seu cluster nos últimos 14 dias e esteja num período de eliminação suave. O nome do cluster permanece reservado durante o período de eliminação suave e não é possível criar um novo cluster com esse nome. O nome é lançado após o período de eliminação suave quando o cluster é permanentemente eliminado.
 
-- Se atualizar o seu cluster enquanto uma operação está em curso, a operação falhará.
+- A ligação do espaço de trabalho ao cluster falhará se estiver ligada a outro cluster.
+
+- Se criar um cluster e especificar imediatamente as Propriedades KeyVault, a operação pode falhar, uma vez que a política de acesso não pode ser definida até que a identidade do sistema seja atribuída ao cluster.
+
+- Se atualizar o cluster existente com KeyVaultProperties e a chave 'Obter' 'Obter' está em falta no Key Vault, a operação falhará.
 
 - Se não implementar o seu cluster, verifique se o seu Cofre de Chaves Azure, cluster e espaços de trabalho ligados ao Log Analytics estão na mesma região. Pode estar em diferentes subscrições.
 

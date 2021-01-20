@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 52872175eb799785674c331ad4d687ff8ef427a4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134284"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611003"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Como utilizar comandos numa solução Azure IoT Central
 
@@ -40,7 +40,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo             |Descrição|
 |-------------------|-----------|
 |Nome a Apresentar       |O valor de comando utilizado nos painéis e formulários.|
-| Name            | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. O código do dispositivo utiliza este valor **Nome.**|
+| Nome            | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. O código do dispositivo utiliza este valor **Nome.**|
 | Tipo de Capacidade | O comando.|
 | Fila se offline | Se fazer deste comando um comando *offline.* |
 | Descrição     | Uma descrição da capacidade de comando.|
@@ -248,6 +248,9 @@ A saída do corte de código anterior mostra a carga útil com os valores **Star
 Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
 Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-name","value":"GenerateDiagnostics"}]}
 ```
+
+> [!NOTE]
+> O tempo de vida padrão para comandos offline é de 24 horas, após o qual a mensagem expira.
 
 ## <a name="next-steps"></a>Passos seguintes
 

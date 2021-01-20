@@ -1,5 +1,5 @@
 ---
-title: Planejando uma implementação de Azure File Sync / Microsoft Docs
+title: Planejando uma implementação de Azure File Sync | Microsoft Docs
 description: Planeie uma implementação com o Azure File Sync, um serviço que lhe permite cache de várias ações de ficheiros Azure num Windows Server ou em nuvem VM.
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 29f7f241f119ca7fab50409881b517961b00cf20
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492097"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610476"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -50,6 +50,9 @@ Os grupos sync são implantados nos **Serviços de Sincronização de Armazename
 Antes de criar um grupo de sincronização num Serviço de Sincronização de Armazenamento, tem primeiro de registar um Servidor Windows com o Serviço de Sincronização de Armazenamento. Isto cria um objeto **de servidor registado,** que representa uma relação de confiança entre o seu servidor ou cluster e o Serviço de Sincronização de Armazenamento. Para registar um Serviço de Sincronização de Armazenamento, tem primeiro de instalar o agente Azure File Sync no servidor. Um servidor ou cluster individual pode ser registado com apenas um Serviço de Sincronização de Armazenamento de cada vez.
 
 Um grupo de sincronização contém um ponto final em nuvem, ou partilha de ficheiros Azure, e pelo menos um ponto final do servidor. O ponto final do servidor contém as definições que configuram a capacidade **de tiering** da nuvem, que fornece a capacidade de caching do Azure File Sync. Para sincronizar com uma partilha de ficheiros Azure, a conta de armazenamento que contém a partilha de ficheiros Azure deve estar na mesma região Azure que o Serviço de Sincronização de Armazenamento.
+
+> [!Important]  
+> Pode escoar alterações em qualquer ponto final da nuvem ou ponto final do servidor no grupo de sincronização e ter os seus ficheiros sincronizados com os outros pontos finais do grupo de sincronização. Se fizer uma alteração direta no ponto final da nuvem (partilha de ficheiros Azure), as alterações têm primeiro de ser descobertas por um trabalho de deteção de alteração de ficheiros Azure. Um trabalho de deteção de alterações é iniciado para um ponto final de nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [a Azure Files com frequência a fazer perguntas.](storage-files-faq.md#afs-change-detection)
 
 ### <a name="management-guidance"></a>Orientação de gestão
 Ao implementar o Azure File Sync, recomendamos:
@@ -99,8 +102,8 @@ Na tabela seguinte, fornecemos tanto o tamanho do espaço de nome como uma conve
 | 3        | 1.4     | 2        | 8 (sincronização inicial)/ 2 (churn típico)      |
 | 5        | 2.3     | 2        | 16 (sincronização inicial)/ 4 (churn típico)    |
 | 10       | 4.7     | 4        | 32 (sincronização inicial)/ 8 (churn típico)   |
-| 30       | 14.0    | 8        | 48 (sincronização inicial)/ 16 (churn típico)   |
-| 50       | 23.3    | 16       | 64 (sincronização inicial)/ 32 (churn típico)  |
+| 30       | 14,0    | 8        | 48 (sincronização inicial)/ 16 (churn típico)   |
+| 50       | 23,3    | 16       | 64 (sincronização inicial)/ 32 (churn típico)  |
 | 100*     | 46.6    | 32       | 128 (sincronização inicial)/ 32 (churn típico)  |
 
 \*Sincronizar mais de 100 milhões de ficheiros & diretórios não é recomendado neste momento. Este é um limite suave baseado nos nossos limiares testados. Para obter mais informações, consulte [os objetivos de escalabilidade e desempenho dos Ficheiros Azure.](storage-files-scale-targets.md#azure-file-sync-scale-targets)
@@ -152,7 +155,7 @@ A tabela a seguir mostra o estado de interop das funcionalidades do sistema de f
 | Listas de controlo de acesso (ACL) | Totalmente suportado | As listas de controlo de acesso discricionário do estilo Windows são preservadas pelo Azure File Sync e são executadas pelo Windows Server nos pontos finais do servidor. Os ACLs também podem ser aplicados ao montar diretamente a partilha de ficheiros Azure, no entanto isso requer uma configuração adicional. Consulte a [secção Identidade](#identity) para mais informações. |
 | Ligações fixas | Ignorado | |
 | Ligações simbólicas | Ignorado | |
-| Pontos de montagem | Parcialmente suportado | Os pontos de montagem podem ser a raiz de um ponto final do servidor, mas são ignorados se estiverem contidos no espaço de nome de um ponto final do servidor. |
+| Pontos de montagem | Parcialmente suportadas | Os pontos de montagem podem ser a raiz de um ponto final do servidor, mas são ignorados se estiverem contidos no espaço de nome de um ponto final do servidor. |
 | Junções | Ignorado | Por exemplo, pastas DfrsrPrivate e DFSRoots do Sistema de Ficheiros Distribuídos. |
 | Pontos de reanálise | Ignorado | |
 | Compressão NTFS | Totalmente suportado | |
@@ -245,7 +248,7 @@ Apesar de as alterações efetuadas diretamente na partilha de ficheiros Azure d
 > [!Important]  
 > O domínio que une a sua conta de armazenamento ao Ative Directory não é necessário para implementar com sucesso o Azure File Sync. Este é um passo estritamente opcional que permite que a partilha de ficheiros Azure aplique ACLs no local quando os utilizadores montam a partilha de ficheiros Azure diretamente.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 O agente Azure File Sync comunica com o seu Serviço de Sincronização de Armazenamento e partilha de ficheiros Azure utilizando o protocolo Azure File Sync REST e o protocolo FileREST, ambos os quais utilizam sempre HTTPS sobre a porta 443. O SMB nunca é utilizado para carregar ou transferir dados entre o seu Servidor do Windows e a partilha de ficheiros Azure. Como a maioria das organizações permite o tráfego HTTPS sobre a porta 443, como requisito para visitar a maioria dos websites, a configuração especial de rede não é geralmente necessária para implementar O Azure File Sync.
 
 Com base na política da sua organização ou requisitos regulamentares únicos, poderá necessitar de uma comunicação mais restritiva com o Azure, pelo que o Azure File Sync fornece vários mecanismos para configurar a rede. Com base nos seus requisitos, pode:
@@ -367,7 +370,7 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > [!Note]  
 > Os fornecedores antivírus podem verificar a compatibilidade entre o seu produto e o Azure File Sync, utilizando o [Azure File Sync Antivirus Compatibilidade Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Cópia de segurança 
 Se o tiering da nuvem estiver ativado, não devem ser utilizadas soluções que recuem diretamente no ponto final do servidor ou num VM no qual se encontra o ponto final do servidor. O tiering em nuvem faz com que apenas um subconjunto dos seus dados seja armazenado no ponto final do servidor, com o conjunto de dados completo a residir na sua partilha de ficheiros Azure. Dependendo da solução de backup utilizada, os ficheiros hierárquicos serão ignorados e não apoiados (porque têm o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto de atributos), ou serão chamados ao disco, resultando em elevadas cargas de saída. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup diretamente na partilha de ficheiros Azure. Para obter mais informações, consulte [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ou contacte o seu fornecedor de backup para ver se suportam o backup das ações de ficheiros Azure.
 
 Se preferir utilizar uma solução de backup no local, as cópias de segurança devem ser realizadas num servidor do grupo de sincronização que tenha o tiering da nuvem desativado. Ao efetuar uma restauração, utilize as opções de restauro de nível de volume ou de nível de ficheiro. Os ficheiros restaurados utilizando a opção de restauro do nível de ficheiro serão sincronizados em todos os pontos finais do grupo de sincronização e os ficheiros existentes serão substituídos pela versão restaurada a partir da cópia de segurança.  As restaurações ao nível do volume não substituirão as versões de ficheiros mais recentes na partilha de ficheiros Azure ou noutros pontos finais do servidor.

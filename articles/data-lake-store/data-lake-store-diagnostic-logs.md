@@ -1,5 +1,5 @@
 ---
-title: Visualização de registos de diagnóstico para Azure Data Lake Storage Gen1 [ Microsoft Docs
+title: Visualização de registos de diagnóstico para Azure Data Lake Storage Gen1 | Microsoft Docs
 description: 'Entenda como configurar e aceder a registos de diagnóstico para Azure Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350046"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610459"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para Azure Data Lake Storage Gen1
 Aprenda a ativar o registo de diagnóstico para a sua conta Azure Data Lake Storage Gen1 e como ver os registos recolhidos para a sua conta.
@@ -136,6 +136,8 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 | ClientRequestId |String |O ID que identifica exclusivamente este pedido |
 | StartTime |String |O momento em que o servidor recebeu o pedido |
 | EndTime |String |O momento em que o servidor enviou uma resposta |
+| Armazenar Tamanho |Longo |Tamanho em bytes ingressados para data lake store |
+| StoreEgressize |Longo |Tamanho em bytes retirados da Data Lake Store |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. Cada bolha tem um objeto raiz chamado **registos** que contém uma variedade de objetos de log

@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e69d5cc76f8f4b14ab87e13546c98859bb801418
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234967"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610085"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique no plugin de recolha automática de analíticos para insights de aplicação JavaScript SDK
 
-Clique no plugin de recolha automática analytics para Insights de Aplicação JavaScript SDK, ativa o rastreio automático dos eventos de clique em páginas web com base em `data-*` meta tags. Este plugin utiliza os `data-*` atributos globais para capturar os eventos de clique e povoar dados de telemetria.
+Este plugin rastreia automaticamente eventos de clique em páginas web e utiliza atributos de dados-* em elementos HTML para preencher telemetria de eventos.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -101,19 +101,19 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nome                      | Tipo    | Predefinição   | Descrição                                                                                       |
-|---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | false     | Quando um determinado elemento não está marcado com o costume padrãoDataPrefix ou o CustomDataPrefix não é fornecido pelo utilizador, esta bandeira é utilizada para recolher o atributo HTML padrão para o nome de conteúdo. |
-| CustomDataPrefixo          | string  | `data-`   | Denominação de conteúdo de captura automática e valor dos elementos que estão marcados com prefixo fornecido.       |
-| aiBlobAttributeTag        | string  | `ai-blob` | O Plugin suporta uma marcação de meta dados de conteúdo sonoro JSON em vez de `data-*` atributos individuais. |
-| MeTadaPrefixo            | string  | nulo      | Captura automática O nome e conteúdo do meta-elemento da cabeça HTML com prefixo fornecido. |
-| capturarAllMetaDataContent | string  | nulo      | Capture automaticamente todos os nomes e conteúdos dos elementos de meta do html head. A predefinição é falso. Se estiver ativado, irá substituir o metadaDataPrefix. |
-| ParentDataTag             | string  | nulo      | Para de atravessar o DOM para capturar o nome do conteúdo e o valor dos elementos quando encontrados com esta etiqueta.|
-| dntDataTag                | string  | `ai-dnt`  | Os elementos HTML com este atributo serão ignorados pelo plugin para capturar dados de telemetria.|
+| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Descrição                                                                                |
+|---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
+| useDefaultContentNameOrId | boolean | false     | N/D         |Recolhe atributo HTML padrão para o nome de conteúdo quando um determinado elemento não está marcado com o Costume DefaultDataPrefix ou quando oDataPrefix personalizado não é fornecido pelo utilizador. |
+| CustomDataPrefixo          | string  | `data-`   | `data-*`| Denominação de conteúdo de captura automática e valor dos elementos que estão marcados com prefixo fornecido. Por `data-*-id` exemplo, `data-<yourcustomattribute>` pode ser utilizado nas tags HTML.   |
+| aiBlobAttributeTag        | string  | `ai-blob` |  `data-ai-blob`| O Plugin suporta um atributo de blob JSON em vez de `data-*` atributos individuais. |
+| MeTadaPrefixo            | string  | nulo      | N/D  | Captura automática o nome e conteúdo do meta-elemento da cabeça HTML com prefixo fornecido durante a captura. Por exemplo, `custom-` pode ser usado na meta tag HTML. |
+| capturarAllMetaDataContent | boolean | false     | N/D   | Capture automaticamente todos os nomes e conteúdos dos elementos de meta do html head. A predefinição é falso. Se estiver ativado, irá substituir o metadaDataPrefix. |
+| ParentDataTag             | string  | nulo      |  N/D  | Para de atravessar o DOM para capturar o nome do conteúdo e o valor dos elementos quando encontrados com esta etiqueta. Por exemplo, `data-<yourparentDataTag>` pode ser utilizado nas tags HTML.|
+| dntDataTag                | string  | `ai-dnt`  |  `data-ai-dnt`| Os elementos HTML com este atributo serão ignorados pelo plugin para capturar dados de telemetria.|
 
 ### <a name="behaviorvalidator"></a>comportamentoValidator
 
-Pode utilizar a função de gestor de comportamentos quando pretender garantir a consistência dos dados, embora verificasse automaticamente que os comportamentos marcados em código estejam em conformidade com uma lista pré-definida de taxonomia conhecida e aceite dentro da sua empresa. Não é necessário ou esperado que a maioria dos clientes do Azure Monitor utilizem isto, mas está disponível para cenários avançados. Existem três comportamentos diferentes Funções de retorno doValidator expostas como parte desta extensão. No entanto, os utilizadores podem utilizar as suas próprias funções de retorno se as funções expostas não resolverem o seu requisito. A intenção é trazer a sua própria estrutura de dados de comportamentos, o plugin usa esta função validador enquanto extrai os comportamentos das etiquetas de dados.
+O comportamento Funciona oValidator verifica automaticamente se os comportamentos marcados no código estão em conformidade com uma lista pré-definida. Isto garante que os comportamentos marcados são consistentes com a taxonomia estabelecida da sua empresa. Não é necessário ou esperado que a maioria dos clientes do Azure Monitor utilizem isto, mas está disponível para cenários avançados. Existem três comportamentos diferentes Funções de retorno doValidator expostas como parte desta extensão. No entanto, os utilizadores podem utilizar as suas próprias funções de retorno se as funções expostas não resolverem o seu requisito. A intenção é trazer a sua própria estrutura de dados de comportamentos, o plugin usa esta função validador enquanto extrai os comportamentos das etiquetas de dados.
 
 | Nome                   | Descrição                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -312,6 +312,7 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Consulte o [Pacote De Repositório GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e [NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para o Plugin de Recolha Automática Click Analytics.
 - Use [análise de eventos na experiência de utilização](usage-segmentation.md) para analisar cliques de topo e corte pelas dimensões disponíveis.
 - Encontre os dados de clique no campo de conteúdo dentro do atributo CustomEvents na [Tabela De Registos.](../log-query/log-analytics-tutorial.md#write-a-query)
 - Construa um [Livro de Trabalho](../platform/workbooks-overview.md) para criar visualizações personalizadas de dados de clique.

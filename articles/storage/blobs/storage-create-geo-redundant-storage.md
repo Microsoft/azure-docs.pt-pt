@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 1c1ba7d8cd0e4202003a98153a48e0593d1fcd04
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dfb7e7c7c93a8af2b59f6d3d7049e2c14b8f382a
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543158"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611054"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
 
@@ -73,8 +73,8 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
    | Definição       | Valor da amostra | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Subscrição** | *A minha assinatura* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
-   | **Grupo de Recursos** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-   | **Name** | *conta de mystorage* | Um nome único para a sua conta de armazenamento. |
+   | **ResourceGroup** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+   | **Nome** | *conta de mystorage* | Um nome único para a sua conta de armazenamento. |
    | **Localização** | *E.U.A. Leste* | Escolher uma localização. |
    | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |
    | **Tipo de conta** | *StorageV2* | Recomenda-se a utilização de uma conta de armazenamento v2 para fins gerais. Para obter mais informações sobre tipos de contas de armazenamento Azure, consulte [a visão geral da conta de Armazenamento](../common/storage-account-overview.md). |
@@ -184,17 +184,17 @@ Para executar a aplicação num terminal ou numa linha de comandos, aceda ao dir
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
-No código de exemplo, o método `run_circuit_breaker` no ficheiro `circuitbreaker.py` é utilizado para transferir uma imagem da conta de armazenamento através do método [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python-previous#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-).
+No código de exemplo, o método `run_circuit_breaker` no ficheiro `circuitbreaker.py` é utilizado para transferir uma imagem da conta de armazenamento através do método [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-).
 
 A função de repetição do objeto de armazenamento está definida como uma política de repetição linear. A função de repetição determina se deve repetir um pedido e especifica o número de segundos a aguardar antes da repetição. Defina o valor **retry\_to\_secondary** como verdadeiro se pretender repetir o pedido para o ponto final secundário, caso o pedido inicial para o primário falhe. A aplicação de exemplo, é definida uma política de repetição personalizada na função `retry_callback` do objeto de armazenamento.
 
-Antes do download, o objeto de serviço [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) função é definido. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
+Antes do download, o objeto de serviço [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) e [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) função é definido. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Para executar a amostra, abra um pedido de comando, navegue na pasta da amostra e, em seguida, introduza `node index.js` .
 
-A amostra cria um recipiente na sua conta de armazenamento Blob, envia **HelloWorld.png** para o recipiente e, em seguida, verifica repetidamente se o recipiente e a imagem se replicaram para a região secundária. Após a replicação, pede-lhe que introduza **D** ou **Q** (seguido por ENTER) para descarregar ou desistir. A sua saída deve ser semelhante ao seguinte exemplo:
+A amostra cria um recipiente na sua conta de armazenamento Blob, envia **HelloWorld.png** para o recipiente e, em seguida, verifica repetidamente se o recipiente e a imagem se replicaram para a região secundária. Após a replicação, pede-lhe que introduza **D** ou **Q** (seguido por ENTER) para descarregar ou desistir. O resultado deverá ter um aspeto semelhante ao seguinte exemplo:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -276,7 +276,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>Processador de eventos de repetição
 
-O processador de eventos `retry_callback` é chamado quando a transferência da imagem falha e está definida para repetir. Se for atingido o número máximo de repetições definidas na aplicação, [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode?view=azure-python) do pedido é alterado para `SECONDARY`. Esta definição força a aplicação a tentar transferir a imagem do ponto final secundário. Esta configuração reduz o tempo que demora a pedir a imagem, porque o ponto final primário não é repetido indefinidamente.
+O processador de eventos `retry_callback` é chamado quando a transferência da imagem falha e está definida para repetir. Se for atingido o número máximo de repetições definidas na aplicação, [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) do pedido é alterado para `SECONDARY`. Esta definição força a aplicação a tentar transferir a imagem do ponto final secundário. Esta configuração reduz o tempo que demora a pedir a imagem, porque o ponto final primário não é repetido indefinidamente.
 
 ```python
 def retry_callback(retry_context):
@@ -300,7 +300,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>Processador de eventos de pedido concluído
 
-O processador de eventos `response_callback` é chamado quando a transferência da imagem é bem-sucedida. Se a aplicação estiver a utilizar o ponto final secundário, continua a utilizar este ponto final até 20 vezes. Ao fim dessas 20 vezes, a aplicação define [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode?view=azure-python) novamente como `PRIMARY` e repete o ponto final primário. Se um pedido for bem-sucedido, a aplicação continua a ler a partir do ponto final primário.
+O processador de eventos `response_callback` é chamado quando a transferência da imagem é bem-sucedida. Se a aplicação estiver a utilizar o ponto final secundário, continua a utilizar este ponto final até 20 vezes. Ao fim dessas 20 vezes, a aplicação define [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) novamente como `PRIMARY` e repete o ponto final primário. Se um pedido for bem-sucedido, a aplicação continua a ler a partir do ponto final primário.
 
 ```python
 def response_callback(response):

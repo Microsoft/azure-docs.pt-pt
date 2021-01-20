@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 04/15/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db87887fc2b51c7cb8cb300eb8e711d3ae9b6ac8
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741699"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610794"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Resolução de problemas combinado de registo de informações de segurança
 
@@ -24,22 +24,22 @@ As informações deste artigo destinam-se a orientar os administradores que est�
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
-Os eventos registados para registo combinado estão na categoria Métodos de Autenticação nos registos de auditoria Azure AD.
+Os eventos registados para registo combinado estão no serviço Métodos de Autenticação nos registos de auditoria Azure AD.
 
 ![Interface de registos de auditoria Azure AD mostrando eventos de registo](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 O quadro que se segue lista todos os eventos de auditoria gerados pelo registo combinado:
 
-| Atividade | Estado | Razão | Description |
+| Atividade | Estado | Razão | Descrição |
 | --- | --- | --- | --- |
-| Utilizador registou todas as informações de segurança necessárias | Success | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
+| Utilizador registou todas as informações de segurança necessárias | Com êxito | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
 | Utilizador registou todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancela o registo do modo de interrupção.|
-| Informação de segurança registada pelo utilizador | Success | Método *registado* pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.| 
-| Informação de segurança revista pelo utilizador | Success | O utilizador reviu com sucesso as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança.|
+| Informação de segurança registada pelo utilizador | Com êxito | Método *registado* pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.| 
+| Informação de segurança revista pelo utilizador | Com êxito | O utilizador reviu com sucesso as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança.|
 | Informação de segurança revista pelo utilizador | Falha | O utilizador não reviu as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança, mas algo falha no backend.|
-| Informação de segurança eliminada pelo utilizador | Success | Método eliminado pelo *utilizador.* | Este evento ocorre quando um utilizador elimina um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
+| Informação de segurança eliminada pelo utilizador | Com êxito | Método eliminado pelo *utilizador.* | Este evento ocorre quando um utilizador elimina um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
 | Informação de segurança eliminada pelo utilizador | Falha | O utilizador não conseguiu eliminar o *método.* | Este evento ocorre quando um utilizador tenta apagar um método, mas a tentativa falha por alguma razão. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
-| O utilizador alterou as informações de segurança predefinidos | Success | O utilizador alterou a informação de segurança predefinida para *o método*. | Este evento ocorre quando um utilizador altera o método predefinido. *O método* pode ser notificação de aplicação autenticador, um código da minha app autenticadora ou token, Call +X XXXXXXXXX, Texto de um código para +X XXXXXXX, e assim por diante.|
+| O utilizador alterou as informações de segurança predefinidos | Com êxito | O utilizador alterou a informação de segurança predefinida para *o método*. | Este evento ocorre quando um utilizador altera o método predefinido. *O método* pode ser notificação de aplicação autenticador, um código da minha app autenticadora ou token, Call +X XXXXXXXXX, Texto de um código para +X XXXXXXX, e assim por diante.|
 | O utilizador alterou as informações de segurança predefinidos | Falha | O utilizador não alterou a informação de segurança predefinida para *o método*. | Este evento ocorre quando um utilizador tenta alterar o método padrão, mas a tentativa falha por alguma razão. *O método* pode ser notificação de aplicação autenticador, um código da minha app autenticadora ou token, Call +X XXXXXXXXX, Texto de um código para +X XXXXXXX, e assim por diante.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Modo de interrupção de resolução de problemas
@@ -150,7 +150,7 @@ Numa janela PowerShell, execute o seguinte comando, fornecendo as localizações
 Para desativar a experiência atualizada para os seus utilizadores, complete estes passos:
 
 1. Inscreva-se no portal Azure como administrador de utilizador.
-2. Vá às definições do Utilizador **do Diretor Ativo Azure**  >  **User settings**  >  **Gerir as definições para funcionalidades de pré-visualização do painel** de acesso .
+2. Vá às definições do Utilizador **do Diretor Ativo Azure**  >    >  **Gerir as definições para funcionalidades de pré-visualização do painel** de acesso .
 3. Em **Utilizadores podem utilizar funcionalidades de pré-visualização para registar e gerir informações de segurança**, definir o seletor para **Nenhum**, e, em seguida, selecionar **Guardar**.
 
 Os utilizadores deixarão de ser solicitados a registarem-se utilizando a experiência atualizada.

@@ -3,12 +3,12 @@ title: Restaurar Discos Geridos Azure
 description: Saiba como restaurar os Discos Geridos Azure a partir do portal Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 043a10a7359c95529ff1c4dcc181ea4aba75cb5f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558380"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611139"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restaurar Discos Geridos Azure (na pré-visualização)
 
@@ -65,6 +65,8 @@ São necessários os seguintes pré-requisitos para a realização de uma opera�
     >Embora as atribuições de funções sejam refletidas corretamente no portal, pode levar aproximadamente 15 minutos para que a permissão seja aplicada na identidade gerida do cofre de reserva.
     >
     >Durante as cópias de segurança programadas ou uma operação de backup a pedido, o Azure Backup armazena as imagens incrementais do disco no Grupo de Recursos Instantâneos fornecidas durante a configuração da cópia de segurança do disco. A Azure Backup utiliza estas imagens incrementais durante a operação de restauro. Se as imagens forem eliminadas ou retiradas do Grupo de Recursos Instantâneos ou se as atribuições de funções de abóbada de cópias de segurança forem revogadas no Grupo de Recursos Instantâneos, a operação de restauro falhará.
+
+1. Se o disco a ser restaurado for encriptado com [teclas geridas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou utilizando [uma dupla encriptação utilizando chaves geridas pela plataforma e teclas geridas pelo cliente,](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal)atribua a permissão de função do **Leitor** à identidade gerida do Cofre de Cópia de Segurança no recurso Conjunto de Encriptação do **Disco.**
 
 Assim que os pré-requisitos forem cumpridos, siga estes passos para executar a operação de restauro.
 
