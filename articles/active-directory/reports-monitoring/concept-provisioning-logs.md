@@ -1,5 +1,5 @@
 ---
-title: Provisionamento de registos no portal Azure Ative Directory (pré-visualização) Microsoft Docs
+title: Provisionamento de registos no portal Azure Ative Directory (pré-visualização) | Microsoft Docs
 description: Introdução aos relatórios de registos de provisionamento no portal Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803532"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600751"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -121,7 +121,7 @@ Quando selecionar um prazo personalizado, pode configurar uma data de início e 
 O filtro **'Estado'** permite-lhe selecionar:
 
 - Todos
-- Success
+- Com êxito
 - Falha
 - Ignorado
 
@@ -133,7 +133,7 @@ O filtro **Action** permite filtrar o:
 - Atualizar
 - Eliminar
 - Desativar
-- Outros
+- Outro
 
 Além disso, para os filtros da vista padrão, também pode definir os seguintes filtros:
 
@@ -216,8 +216,6 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 - Pode utilizar o atributo Change ID como identificador único. Isto é, por exemplo, útil quando interage com o suporte do produto.
 
-- Não existe atualmente qualquer opção para descarregar dados de fornecimento como um ficheiro CSV, mas pode exportar os dados usando o [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
-
 - Pode ver eventos ignorados para utilizadores que não estão no âmbito. Isto é esperado, especialmente quando o âmbito de sincronização é definido para todos os utilizadores e grupos. O nosso serviço irá avaliar todos os objetos do arrendatário, mesmo os que estão fora de alcance. 
 
 - Os registos de provisionamento estão atualmente indisponíveis na nuvem governamental. Se não conseguir aceder aos registos de provisionamento, utilize os registos de auditoria como uma solução temporária. 
@@ -228,7 +226,7 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 Utilize a tabela abaixo para entender melhor como resolver os erros que pode encontrar nos registos de provisionamento. Para quaisquer códigos de erro que faltem, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de Erro|Description|
+|Código de Erro|Descrição|
 |---|---|
 |Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AD ou na aplicação, ou reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa for correspondida e assumida. Reveja a seguinte [documentação](../app-provisioning/customize-application-attributes.md) para obter mais informações sobre a configuração de atributos correspondentes.|
 |TooManyRequests|A aplicação-alvo rejeitou esta tentativa de atualizar o utilizador por estar sobrecarregado e receber demasiados pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|

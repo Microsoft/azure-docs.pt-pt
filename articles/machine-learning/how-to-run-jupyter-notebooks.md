@@ -1,7 +1,7 @@
 ---
-title: Como executar os Jupyter Notebooks na área de trabalho
+title: Como executar cadernos Jupyter no seu espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: Saiba como gerir um Jupyter Notebook sem deixar o seu espaço de trabalho no estúdio Azure Machine Learning.
+description: Saiba como executar um caderno Jupyter sem deixar o seu espaço de trabalho no estúdio Azure Machine Learning.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 06/27/2020
-ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 01/19/2021
+ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325406"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599312"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
-
-Aprenda a executar os seus Cadernos Jupyter diretamente no seu espaço de trabalho no estúdio Azure Machine Learning. Enquanto pode lançar [Jupyter](https://jupyter.org/) ou [JupyterLab,](https://jupyterlab.readthedocs.io)também pode editar e executar os seus cadernos sem sair do espaço de trabalho.
-
-Veja como pode:
-
-* Crie cadernos Jupyter no seu espaço de trabalho
-* Executar uma experiência a partir de um caderno
-* Alterar o ambiente do caderno
-* Encontre detalhes das instâncias computacional usadas para executar os seus cadernos
+Aprenda a executar os seus cadernos Jupyter diretamente no seu espaço de trabalho no estúdio Azure Machine Learning. Enquanto pode lançar [Jupyter](https://jupyter.org/) ou [JupyterLab,](https://jupyterlab.readthedocs.io)também pode editar e executar os seus cadernos sem sair do espaço de trabalho.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -105,9 +97,9 @@ Para editar um bloco de notas, abra qualquer caderno localizado na secção de *
 
 Pode editar o caderno sem se ligar a uma instância de computação.  Quando pretender executar as células no caderno, selecione ou crie uma instância de computação.  Se selecionar uma instância de computação parada, começará automaticamente quando executar a primeira célula.
 
-Quando uma instância computacional está em execução, também pode utilizar a conclusão de código, alimentada pelo [Intellisense,](https://code.visualstudio.com/docs/editor/intellisense)em qualquer Notebook Python.
+Quando uma instância computacional está em execução, também pode utilizar a conclusão de código, alimentada pelo [Intellisense,](https://code.visualstudio.com/docs/editor/intellisense)em qualquer caderno Python.
 
-Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas Notebook.  O Azure Machine Learning não fornece atualizações e corre bugs do Jupyter ou do JupyterLab, uma vez que são produtos Open Source fora do limite do Microsoft Support.
+Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas do portátil.  O Azure Machine Learning não fornece atualizações e corre bugs do Jupyter ou do JupyterLab, uma vez que são produtos Open Source fora do limite do Microsoft Support.
 
 ### <a name="focus-mode"></a>Modo de detalhe
 
@@ -153,18 +145,6 @@ Todos os cadernos são automaticamente a cada 30 segundos. Faça automaticamente
  
 Selecione **Checkpoints** no menu do portátil para criar um ponto de verificação nomeado e reverter o caderno para um ponto de verificação guardado.
 
-
-### <a name="useful-keyboard-shortcuts"></a>Atalhos de teclado úteis
-
-|Teclado  |Ação  |
-|---------|---------|
-|Shift+Enter     |  Executar uma célula       |
-|Ctrl+Espaço | Ativar o IntelliSense |
-|Ctrl+M(Janelas)     |  Ativar/desativar a aba de armadilhagem no caderno.       |
-|Ctrl+Shift+M(Mac & Linux)     |    Ativar/desativar a aba de armadilhagem no caderno.     |
-|Separador (quando a patilha estiver ativada) | Adicione um caráter '\t' (travessão)
-|Separador (quando a patilha é desativada) | Mude o foco para o próximo item focalizável (apagar botão de célula, botão de funcionação, etc.)
-
 ## <a name="delete-a-notebook"></a>Eliminar um bloco de notas
 
 *Não pode* apagar os cadernos **samples.**  Estes cadernos fazem parte do estúdio e são atualizados cada vez que um novo SDK é publicado.  
@@ -172,27 +152,45 @@ Selecione **Checkpoints** no menu do portátil para criar um ponto de verificaç
 *Pode* eliminar **os ficheiros do Utilizador** de qualquer forma:
 
 * No estúdio, selecione o **...** no final de uma pasta ou arquivo.  Certifique-se de que utiliza um browser suportado (Microsoft Edge, Chrome ou Firefox).
-* A partir de qualquer barra de ferramentas Portátil, selecione [**Open terminal**](#terminal)  para aceder à janela do terminal para a instância computacional.
+* A partir de qualquer barra de ferramentas de portátil, selecione [**Open terminal**](#terminal)  para aceder à janela do terminal para a instância computacional.
 * No Jupyter ou no JupyterLab com as suas ferramentas.
 
-## <a name="run-an-experiment"></a>Fazer uma experiência
+## <a name="run-a-notebook-or-python-script"></a>Executar um caderno ou script Python
 
-Para executar uma experiência a partir de um Caderno, você primeiro se conecta a uma [instância de cálculo de execução](concept-compute-instance.md). Se não tiver uma instância computacional, use estes passos para criar um: 
+Para executar um caderno ou um script Python, você primeiro se conecta a uma [instância de cálculo de execução](concept-compute-instance.md). Se não tiver uma instância computacional, use estes passos para criar um: 
 
-1. Selecione **+** na barra de ferramentas Do Notebook. 
+1. Selecione **+** no bloco de ferramentas do caderno ou do script. 
 2. Nomeie o Compute e escolha um **tamanho de máquina virtual.** 
 3. Selecione **Criar**.
-4. A instância computacional está ligada automaticamente ao Caderno e agora pode executar as suas células.
+4. A instância de cálculo está ligada automaticamente ao ficheiro.  Agora pode executar as células de caderno ou o script Python usando a ferramenta à esquerda da instância computacional
 
 Só você pode ver e usar as instâncias de cálculo que cria.  Os **ficheiros do** utilizador são armazenados separadamente do VM e são partilhados entre todas as instâncias computacional no espaço de trabalho.
 
 ### <a name="view-logs-and-output"></a>Ver registos e saída
 
-Utilize [widgets notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
+Utilize [widgets de portátil](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Widget de caderno Jupyter ":::
+
+## <a name="explore-variables-in-the-notebook"></a>Explore variáveis no caderno
+
+Na barra de ferramentas do portátil, utilize a ferramenta **exploradora Variável** para mostrar o nome, o tipo, o comprimento e os valores da amostra para todas as variáveis que tenham sido criadas no seu caderno.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer.png" alt-text="Screenshot: Ferramenta exploradora variável":::
+
+Selecione a ferramenta para mostrar a janela do explorador variável.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer-window.png" alt-text="Screenshot: Janela do explorador variável":::
+
+## <a name="navigate-with-a-toc"></a>Navegue com um TOC
+
+Na barra  **de ferramentas** do portátil, utilize a ferramenta tabela de conteúdos para visualizar ou ocultar a tabela de conteúdos.  Inicie uma célula de marcação com um título para adicioná-la à tabela de conteúdos. Clique numa entrada na tabela para deslocar para a célula no caderno.  
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Screenshot: Tabela de conteúdos no caderno":::
 
 ## <a name="change-the-notebook-environment"></a>Alterar o ambiente do caderno
 
-A barra de ferramentas Portátil permite-lhe alterar o ambiente em que funciona o seu Caderno.  
+A barra de ferramentas do portátil permite-lhe alterar o ambiente em que o seu caderno funciona.  
 
 Estas ações não alterarão o estado do caderno nem os valores de quaisquer variáveis no caderno:
 
@@ -213,9 +211,9 @@ Estas ações irão redefinir o estado do caderno e redefinirão todas as variá
 
 ### <a name="add-new-kernels"></a>Adicione novos núcleos
 
-O Notebook irá automaticamente encontrar todos os núcleos jupyter instalados na instância de computação conectada.  Para adicionar um núcleo à instância de cálculo:
+O portátil irá automaticamente encontrar todos os núcleos jupyter instalados na instância de computação conectada.  Para adicionar um núcleo à instância de cálculo:
 
-1. Selecione [**o terminal aberto**](#terminal) na barra de ferramentas do Bloco de Notas.
+1. Selecione [**o terminal aberto**](#terminal) na barra de ferramentas do portátil.
 1. Utilize a janela do terminal para criar um novo ambiente.  Por exemplo, o código abaixo `newenv` cria:
     ```shell
     conda create -y --name newenv
@@ -234,7 +232,7 @@ O Notebook irá automaticamente encontrar todos os núcleos jupyter instalados n
     ```
 
 > [!NOTE]
-> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento** , em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
+> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento**, em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
 
 Qualquer um dos [Jupyter Kernels disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
 
@@ -242,7 +240,7 @@ Qualquer um dos [Jupyter Kernels disponíveis](https://github.com/jupyter/jupyte
 
 Um indicador ao lado da queda do **Compute** mostra o seu estado.  O estado também é mostrado na própria queda.  
 
-|Color |Estado do cálculo |
+|Cor |Estado do cálculo |
 |---------|---------| 
 | Green | Execução de cálculo |
 | Red |O cálculo falhou | 
@@ -252,12 +250,95 @@ Um indicador ao lado da queda do **Compute** mostra o seu estado.  O estado tamb
 
 Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 
-|Color |Estatuto de kernel |
+|Cor |Estatuto de kernel |
 |---------|---------|
 |  Green |Kernel conectado, ocioso, ocupado|
 |  Cinzento |Kernel não ligado |
 
-## <a name="find-compute-details"></a>Encontre detalhes do cálculo 
+## <a name="shortcut-keys"></a>Chaves de atalho
+Semelhante aos Cadernos Jupyter, os cadernos Azure Machine Learning Studio têm uma interface de utilizador modal. O teclado faz coisas diferentes dependendo do modo em que a célula de portátil está. Os cadernos Azure Machine Learning Studio suportam os seguintes dois modos para uma determinada célula de código: modo de comando e modo de edição.
+
+### <a name="command-mode-shortcuts"></a>Atalhos do modo de comando
+
+Uma célula está no modo de comando quando não há cursor de texto que lhe ordene a escrever. Quando uma célula está no modo Comando, pode editar o caderno como um todo, mas não digitar em células individuais. Introduza o modo de comando premindo `ESC` ou utilizando o rato para selecionar fora da área de editor de uma célula.  A borda esquerda da célula ativa é azul e sólida, e o botão **Run** é azul.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula de portátil no modo de comando ":::
+
+| Atalho                      | Descrição                          |
+| ----------------------------- | ------------------------------------|
+| ENTER                         | Entrar no modo de edição             |        
+| Shift + Enter                 | Executar célula, selecione abaixo         |     
+| Controlo/Comando + Introdução       | Célula de execução                            |
+| Alt + Entrar                   | Executar célula, inserir célula de código abaixo    |
+| Controlo/Comando + Alt + Entrar | Executar célula, inserir a célula de marcação abaixo|
+| Alt + R                       | Executar tudo      |                       
+| Y                             | Converter célula em código    |                         
+| M                             | Converter célula para marcação  |                       
+| Up/K                          | Selecione a célula acima    |               
+| Down/J                        | Selecione a célula abaixo    |               
+| A                             | Insira a célula de código acima  |            
+| B                             | Insira a célula de código abaixo   |           
+| Controlo/Comando + Mudança + A   | Insira a célula de marcação acima    |      
+| Controlo/Comando + Mudança + B   | Insira a célula de marcação abaixo   |       
+| X                             | Corte a célula selecionada    |               
+| C                             | Copiar célula selecionada   |               
+| Mudança + V                     | Colar célula selecionada acima           |
+| V                             | Colar célula selecionada abaixo    |       
+| D D                           | Excluir célula selecionada|                
+| O                             | Saída de alternância         |              
+| Mudança + O                     | Deslocamento de saída de alternância   |          
+| I I                           | Interromper o núcleo |                   
+| 0 0                           | Reiniciar o núcleo |                     
+| Mudança + Espaço                 | Rolar para cima  |                         
+| Espaço                         | Rolar para baixo|
+| Tecla de Tabulação                           | Mude o foco para o próximo item focalizável (quando a armadilha do separador for desativada)|
+| Controlo/Comando + S           | Salvar caderno |                      
+| 1                             | Mudar para h1|                       
+| 2                             | Mudar para h2|                        
+| 3                             | Mudar para h3|                        
+| 4                             | Mudar para h4 |                       
+| 5                             | Mudar para h5 |                       
+| 6                             | Alteração para h6 |                       
+
+### <a name="edit-mode-shortcuts"></a>Atalhos de modo de edição
+
+O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, pode digitar na célula. Introduza o modo de edição premindo `Enter` ou utilizando o rato para selecionar na área de editor de uma célula. A fronteira esquerda da célula ativa é verde e eclodida, e o botão **Run** é verde. Também vê o cursor no modo editar na célula.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Célula de portátil no modo de edição":::
+
+Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais facilmente em cadernos Azure Machine Learning quando estiver no modo Editar.
+
+| Atalho                      | Descrição|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Esc                        | Insira o modo de comando|  
+| Controlo/Comando + Espaço       | Ativar o IntelliSense |
+| Shift + Enter                 | Executar célula, selecione abaixo |                         
+| Controlo/Comando + Introdução       | Célula de execução  |                                      
+| Alt + Entrar                   | Executar célula, inserir célula de código abaixo  |              
+| Controlo/Comando + Alt + Entrar | Executar célula, inserir a célula de marcação abaixo  |          
+| Alt + R                       | Executar todas as células     |                              
+| Cima                            | Mover cursor para cima ou célula anterior    |             
+| Baixo                          | Mover cursor para baixo ou próxima célula |                  
+| Controlo/Comando + S           | Salvar caderno   |                                
+| Controlo/Comando + Up          | Vá para o início da célula   |                             
+| Controlo/Comando + Para baixo        | Ir para o fim da cela |                                 
+| Tecla de Tabulação                           | Conclusão do código ou travessão (se a patilha estiver ativada) |
+| Controlo/Comando + M           | Ativar/desativar a armadilha do separador  |                       
+| Controlo/Comando + ]           | Travessão |                                         
+| Controlo/Comando +           | Dedent  |                                        
+| Controlo/Comando + A           | Selecionar tudo|                                      
+| Controlo/Comando + Z           | Anular |                                           
+| Controlo/Comando + Mudança + Z   | Refazer |                                           
+| Controlo/Comando + Y           | Refazer |                                           
+| Controlo/Comando + Casa        | Vá para o início da célula|                                
+| Controlo/Comando + Fim         | Ir para o fim da cela   |                               
+| Controlo/Comando + Esquerda        | Vai uma palavra à esquerda |                               
+| Controlo/Comando + Direito       | Vai uma palavra à direita |                              
+| Controlo/Comando + Backspace   | Apagar palavra antes |                             
+| Controlo/Comando + Eliminar      | Apagar palavra depois |                              
+| Controlo/Comando + /           | Toggle comentário sobre cu
+
+## <a name="find-compute-details"></a>Encontre detalhes do cálculo
 
 Encontre detalhes sobre as suas instâncias de computação na página **compute** em [estúdio](https://ml.azure.com).
 

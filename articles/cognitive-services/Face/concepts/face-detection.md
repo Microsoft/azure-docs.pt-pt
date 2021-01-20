@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504134"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600181"
 ---
 # <a name="face-detection-and-attributes"></a>Deteção de rosto e atributos
 
@@ -64,7 +64,9 @@ Utilize as seguintes dicas para se certificar de que as suas imagens de entrada 
 
 * Os formatos de imagem de entrada suportados são JPEG, PNG, GIF para o primeiro quadro e BMP.
 * O tamanho do ficheiro de imagem não deve ser superior a 6 MB.
-* A gama de tamanhos faciais detetáveis é de 36 x 36 a 4096 x 4096 pixels. Rostos fora deste alcance não serão detetados.
+* O tamanho mínimo de rosto detetável é de 36 x 36 pixels numa imagem que não é maior que 1920 x 1080 pixels. As imagens com maiores de 1920 x 1080 pixels têm um tamanho mínimo proporcionalmente maior. A redução do tamanho do rosto pode fazer com que alguns rostos não sejam detetados, mesmo que sejam maiores do que o tamanho mínimo detetável do rosto.
+* O tamanho máximo de rosto detetável é de 4096 x 4096 pixels.
+* Não serão detetados rostos fora da gama de tamanhos de 36 x 36 a 4096 x 4096 pixels.
 * Alguns rostos podem não ser detetados devido a desafios técnicos. Ângulos faciais extremos (pose da cabeça) ou oclusão facial (objetos como óculos de sol ou mãos que bloqueiam parte da face) podem afetar a deteção. Rostos frontais e quase frontais dão os melhores resultados.
 
 Se estiver a detetar rostos a partir de um feed de vídeo, poderá ser capaz de melhorar o desempenho ajustando determinadas definições na sua câmara de vídeo:

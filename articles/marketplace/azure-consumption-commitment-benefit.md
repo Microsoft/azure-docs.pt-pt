@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 748b6c3506127de8fce153a77571664ea531ffa1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814436"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601360"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Benefício do compromisso de consumo do Azure
 
@@ -24,7 +24,7 @@ Um conjunto selecionado de ofertas de marketplace comercial da Microsoft contrib
 
 Validamos todas as ofertas que participam neste programa para garantir que recebe soluções de alta qualidade.
 
-Para tirar partido deste benefício, basta comprar uma oferta e qualitádutiva no Azure Marketplace usando uma subscrição relacionada com o seu acordo Azure. O pré-pagamento e os compromissos monetários não são elegíveis para este benefício.
+Para tirar partido deste benefício, basta comprar uma oferta e qualitádutiva no Azure Marketplace usando uma subscrição relacionada com o seu acordo Azure. O pré-pagamento Azure (anteriormente denominado compromisso monetário) não é elegível para este benefício.
 
 > [!IMPORTANT]
 > As exclusões podem aplicar-se aos acordos ctc assinados antes deste benefício do mercado. Se tiver dúvidas sobre elegibilidade, contacte o seu executivo de conta Microsoft.

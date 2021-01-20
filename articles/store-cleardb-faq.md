@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: 25cc4dfaabee58a47cc33fe4be8dc7375bc804d2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491647"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599788"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ para bases de dados ClearDB MySql com Serviço de Aplicações Azure
 Esta FAQ responde a perguntas comuns sobre a utilização e compra de bases de dados ClearDB MySQL para aplicações web Azure.
@@ -42,13 +42,13 @@ Isto depende do tipo de subscrição que está a utilizar. Aqui estão alguns ti
 * [Pague como você vai](https://azure.microsoft.com/offers/ms-azr-0003p/): Requer um cartão de crédito, e quando você compra uma base de dados MySQL paga o seu cartão de crédito é cobrado.
 * [Teste gratuito](https://azure.microsoft.com/pricing/free-trial/): Inclui créditos para uso com os serviços microsoft Azure, mas não permite a compra de recursos de terceiros. Para adquirir serviços de terceiros ou uma base de dados MySQL paga, é necessário utilizar uma subscrição ativada por um cartão de crédito. Para aplicações web, pode criar uma base de dados MySQL Free ClearDB.
 * [Subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) e **MSDN Dev Test Pay** à medida que vai: Semelhante ao teste gratuito, uma subscrição da MSDN requer que você tenha um cartão de crédito para comprar uma solução MySQL paga à ClearDB.
-* [Acordo de Empresa (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): Os clientes da EA são faturados contra os seus EA a cada trimestre para todas as suas compras Azure Marketplace (terceiros) numa fatura separada e consolidada. Você está fora do compromisso monetário para qualquer compra de mercado. Por favor, note que, neste momento, a Azure Store não está disponível para clientes matriculados no Azerbaijão, Croácia, Noruega e Porto Rico. 
+* [Acordo de Empresa (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): Os clientes da EA são faturados contra os seus EA a cada trimestre para todas as suas compras Azure Marketplace (terceiros) numa fatura separada e consolidada. Você é cobrado fora do Azure Prepayment (anteriormente chamado compromisso monetário) para qualquer compra de mercado. Por favor, note que, neste momento, a Azure Store não está disponível para clientes matriculados no Azerbaijão, Croácia, Noruega e Porto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Porque me cobraram $3,50 por uma aplicação Web + MySQL do Azure Marketplace?
 A opção de base de dados padrão é Titan, que é $3,50. Não mostramos o custo durante a criação da base de dados, e pode por engano comprar uma base de dados que não pretendia. Estamos a tentar encontrar uma maneira de melhorar a experiência, mas até lá tem de verificar todos os seus níveis de preços selecionados para aplicações web e base de dados antes de clicar em **Criar** e iniciar a implementação dos recursos.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Estou a executar o MySQL na minha própria máquina virtual Azure. Posso ligar o meu aplicativo Azure à minha base de dados?
-Sim. Pode ligar a sua aplicação web à sua base de dados desde que o seu VM Azure tenha dado acesso remoto à sua aplicação web. Para obter mais informações, consulte [instalar o MySQL numa máquina virtual.](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Yes. Pode ligar a sua aplicação web à sua base de dados desde que o seu VM Azure tenha dado acesso remoto à sua aplicação web. Para obter mais informações, consulte [instalar o MySQL numa máquina virtual.](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Em que países/regiões são apoiados os clusters MySQL premium Da ClearDB?
 Os clusters MySQL Premium Da ClearDB estão disponíveis em todas as regiões do Azure em todo o mundo, com exceção da Índia, Austrália, Brasil Sul e China.
@@ -94,10 +94,10 @@ As bases de dados ClearDB existentes utilizam o cartão de crédito associado à
 * Atualize a sua aplicação para utilizar a nova base de dados.
 * Elimine a sua antiga base de dados ClearDB.
 
-Quando cria uma nova aplicação web com o MySQL (ClearDB) ou cria uma base de dados MySQL (ClearDB), a subscrição que escolhe determina como vai pagar pelo serviço. Com uma subscrição da EA, não bloquearemos a aquisição de serviços de terceiros, como o ClearDB no portal Azure. As assinaturas da EA são faturadas fora do Compromisso Monetário e são faturadas trimestralmente e em atraso. O cliente da EA teria de criar um método de pagamento, como um cartão de crédito, para pagar quaisquer serviços de mercado de terceiros.
+Quando cria uma nova aplicação web com o MySQL (ClearDB) ou cria uma base de dados MySQL (ClearDB), a subscrição que escolhe determina como vai pagar pelo serviço. Com uma subscrição da EA, não bloquearemos a aquisição de serviços de terceiros, como o ClearDB no portal Azure. As assinaturas EA são faturadas fora do Pré-pagamento Azure e são faturadas trimestralmente e em atraso. O cliente da EA teria de criar um método de pagamento, como um cartão de crédito, para pagar quaisquer serviços de mercado de terceiros.
 
 ## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Onde posso ver os encargos com os recursos da ClearDB numa subscrição da EA?
-Para os clientes diretos da EA, os encargos do Azure Marketplace são visíveis no Portal da Empresa. Note que todas as compras e consumos do mercado são faturados fora do Compromisso Monetário e são cobrados trimestralmente e em atraso. Os clientes da EA têm de pagar diretamente aos prestadores de serviços de terceiros e podem fazê-lo, permitindo um método de pagamento, como um cartão de crédito com a sua conta EA.
+Para os clientes diretos da EA, os encargos do Azure Marketplace são visíveis no Portal da Empresa. Note que todas as compras e consumos do mercado são faturados fora do Pré-pagamento Azure e são cobrados trimestralmente e em atraso. Os clientes da EA têm de pagar diretamente aos prestadores de serviços de terceiros e podem fazê-lo, permitindo um método de pagamento, como um cartão de crédito com a sua conta EA.
 
 Os clientes indiretos da EA podem encontrar as suas subscrições Azure Marketplace na página de Subscrições de **Gestão** do Portal da Empresa, mas os preços estão escondidos. Os clientes devem entrar em contacto com o seu LSP para obter informações sobre os custos do Marketplace.
 

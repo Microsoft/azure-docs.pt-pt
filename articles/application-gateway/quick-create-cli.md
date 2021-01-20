@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: d4b6fc296ae41667d271e243e9aca9b594e4a5b6
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1a691d8ab212dd436b0dc9f7aafbc19a406b12b7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886707"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601783"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure
 
 Neste arranque rápido, você usa Azure CLI para criar um gateway de aplicação. Em seguida, teste-o para se certificar de que funciona corretamente. 
 
-O gateway de aplicações direciona o tráfego web da aplicação para recursos específicos numa piscina de backend. Você atribui os ouvintes aos portos, cria regras e adiciona recursos a uma piscina de backend. Por uma questão de simplicidade, este artigo usa uma configuração simples com um IP frontal público, um ouvinte básico para hospedar um único site no gateway de aplicação, uma regra de encaminhamento de pedido básico, e duas máquinas virtuais na piscina de backend.
+O gateway de aplicações direciona o tráfego web da aplicação para recursos específicos numa piscina de backend. Você atribui os ouvintes aos portos, cria regras e adiciona recursos a uma piscina de backend. Por uma questão de simplicidade, este artigo utiliza uma configuração simples com um endereço IP frontal público, um ouvinte básico para hospedar um único site no gateway de aplicação, uma regra de encaminhamento de pedidos básicos e duas máquinas virtuais na piscina de backend.
 
 Também pode completar este quickstart utilizando [o Azure PowerShell](quick-create-powershell.md) ou o [portal Azure](quick-create-portal.md).
 
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-the-backend-servers"></a>Criar os servidores backend
 
-Um backend pode ter NICs, conjuntos de escala de máquinas virtuais, IPs públicos, IPs internos, nomes de domínio totalmente qualificados (FQDN), e back-ends multi-inquilinos como O Azure App Service. Neste exemplo, cria-se duas máquinas virtuais para utilizar como servidores de backend para o gateway de aplicações. Também instala iIS nas máquinas virtuais para testar o gateway de aplicação.
+Um backend pode ter NICs, conjuntos de escala de máquinas virtuais, endereços IP públicos, endereços IP internos, nomes de domínio totalmente qualificados (FQDN) e back-ends multi-inquilinos como O Azure App Service. Neste exemplo, cria-se duas máquinas virtuais para utilizar como servidores de backend para o gateway de aplicações. Também instala iIS nas máquinas virtuais para testar o gateway de aplicação.
 
 #### <a name="create-two-virtual-machines"></a>Criar duas máquinas virtuais
 

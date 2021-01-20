@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f464664737ab56b43ca0c0a159837487494a1eaa
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 2da90a2c8950d85d8db2a414bbe63dfc7b94cf01
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826038"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601322"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 
@@ -131,6 +131,8 @@ myenv.docker.base_image_registry="your_registry_location"
 #### <a name="use-your-own-dockerfile"></a>Use o seu próprio Dockerfile 
 
 Também pode especificar um Dockerfile personalizado. É mais simples começar a partir de uma das imagens base de Azure Machine Learning usando ```FROM``` o comando Docker, e depois adicionar os seus próprios passos personalizados. Utilize esta abordagem se precisar de instalar pacotes não Python como dependências. Lembre-se de definir a imagem base para Nenhum.
+
+Por favor, note que Python é uma dependência implícita no Azure Machine Learning, pelo que um estivador personalizado deve ter Python instalado.
 
 ```python
 # Specify docker steps as a string. 

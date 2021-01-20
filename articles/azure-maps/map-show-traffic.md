@@ -1,5 +1,5 @@
 ---
-title: Mostrar tráfego num mapa Microsoft Azure Maps
+title: Mostrar tráfego em um mapa | Microsoft Azure Maps
 description: Descubra como adicionar dados de tráfego aos mapas. Saiba mais sobre os dados de fluxo e veja como usar o Azure Maps Web SDK para adicionar dados de incidentes e dados de fluxo para mapas.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890671"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599550"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
 Existem dois tipos de dados de tráfego disponíveis no Azure Maps:
 
 - Dados de incidentes - consiste em dados de pontos e linhas para coisas como construção, encerramentos de estradas e acidentes.
-- Flow data - fornece métricas sobre o fluxo de tráfego nas estradas. Muitas vezes, os dados de fluxo de tráfego são usados para colorir as estradas. As cores baseiam-se na quantidade de tráfego que está a abrandar o fluxo, em relação ao limite de velocidade, ou noutra métrica. Os dados de fluxo de tráfego no Azure Maps têm três métricas diferentes de medição:
-    - `relative` - é relativo à velocidade de livre circulação da estrada.
-    - `absolute` - é a velocidade absoluta de todos os veículos na estrada.
-    - `relative-delay` - exibe áreas mais lentas do que a média esperada.
+- Flow data - fornece métricas sobre o fluxo de tráfego nas estradas. Muitas vezes, os dados de fluxo de tráfego são usados para colorir as estradas. As cores baseiam-se na quantidade de tráfego que está a abrandar o fluxo, em relação ao limite de velocidade, ou noutra métrica. Há quatro valores que podem ser passados para a opção de tráfego `flow` do mapa.
+
+    |Valor do fluxo | Descrição|
+    | :-- | :-- |
+    | `none` | Não exibe dados de tráfego no mapa |
+    | `relative` | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |
+    | `relative-delay` | Exibe áreas mais lentas do que a média esperada |
+    | `absolute` | Mostra a velocidade absoluta de todos os veículos na estrada |
 
 O código que se segue mostra como exibir dados de tráfego no mapa.
 

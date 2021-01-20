@@ -1,19 +1,19 @@
 ---
-title: Azure Service Bus rastreio e diagnósticos de autocarros Microsoft Docs
+title: Azure Service Bus rastreio e diagnósticos | Microsoft Docs
 description: Visão geral dos diagnósticos de clientes do Service Bus e rastreio de ponta a ponta (cliente através de todos os serviços envolvidos no processamento.)
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bc7dab21fc01b624e8ab122fe883be89ea8633f6
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832697"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601264"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação através de mensagens de Bus de Serviço
 
-Um dos problemas comuns no desenvolvimento de microserviços é a capacidade de rastrear a operação de um cliente através de todos os serviços que estão envolvidos no processamento. É útil para depurar, análise de desempenho, testes A/B e outros cenários típicos de diagnóstico.
+Um dos problemas comuns no desenvolvimento de micro serviços é a capacidade de rastrear a operação de um cliente através de todos os serviços que estão envolvidos no processamento. É útil para depurar, análise de desempenho, testes A/B e outros cenários típicos de diagnóstico.
 Uma parte deste problema é rastrear peças lógicas de trabalho. Inclui o resultado do processamento de mensagens e as chamadas de latência e dependência externa. Outra parte é a correlação destes eventos de diagnóstico para além dos limites do processo.
 
 Quando um produtor envia uma mensagem através de uma fila, normalmente acontece no âmbito de outra operação lógica, iniciada por algum outro cliente ou serviço. A mesma operação é continuada pelo consumidor assim que recebe uma mensagem. Tanto o produtor como o consumidor (e outros serviços que processam a operação), presumivelmente emitem eventos de telemetria para rastrear o fluxo de operação e o resultado. Para correlacionar tais eventos e rastrear a operação de ponta a ponta, cada serviço que reporte telemetria tem de carimbar todos os eventos com um contexto de traço.
@@ -21,7 +21,187 @@ Quando um produtor envia uma mensagem através de uma fila, normalmente acontece
 A microsoft Azure Service Bus as mensagens definiram propriedades de carga útil que os produtores e consumidores devem usar para passar esse contexto de traço.
 O protocolo baseia-se no [protocolo HTTP Correlation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome da Propriedade        | Description                                                 |
+# <a name="azuremessagingservicebus-sdk-latest"></a>[Azure.messaging.ServiceBus SDK (mais recente)](#tab/net-standard-sdk-2)
+| Nome da Propriedade        | Descrição                                                 |
+|----------------------|-------------------------------------------------------------|
+|  Diagnostic-Id       | Identificador único de uma chamada externa do produtor para a fila. Consulte o [Pedido-Id no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
+
+## <a name="service-bus-net-client-autotracing"></a>Service Bus .NET Cliente autotracing
+A `ServiceBusProcessor` classe do cliente [Azure Messaging Service Bus para .NET](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) fornece pontos de instrumentação de rastreio que podem ser ligados por sistemas de rastreio ou pedaço de código do cliente. A instrumentação permite rastrear todas as chamadas para o serviço de mensagens Service Bus do lado do cliente. Se o processamento de mensagens for feito utilizando (padrão de manipulador [ `ProcessMessageAsync` de `ServiceBusProcessor` ](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) mensagens), o processamento da mensagem também é instrumentado.
+
+### <a name="tracking-with-azure-application-insights"></a>Rastreio com insights de aplicação Azure
+
+[O Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) fornece capacidades de monitorização de desempenho ricas, incluindo pedidos autómicos e rastreio de dependência.
+
+Dependendo do seu tipo de projeto, instale a Application Insights SDK:
+- [ASP.NET](../azure-monitor/app/asp-net.md) - instale a versão 2.5-beta2 ou superior
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - instale a versão 2.2.0-beta2 ou superior.
+Estas ligações fornecem detalhes sobre a instalação do SDK, a criação de recursos e a configuração da SDK (se necessário). Para non-ASP.NET aplicações, consulte o artigo [Azure Application Insights for Console Applications.](../azure-monitor/app/console.md)
+
+Se utilizar (padrão de manipulador [ `ProcessMessageAsync` de `ServiceBusProcessor` ](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) mensagens) para processar mensagens, o processamento da mensagem também é instrumentado. Todas as chamadas de Service Bus efetuadas pelo seu serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Caso contrário, consulte o seguinte exemplo para o rastreio manual de processamento de mensagens.
+
+#### <a name="trace-message-processing"></a>Processamento de mensagens de rastreio
+
+```csharp
+async Task ProcessAsync(ProcessMessageEventArgs args)
+{
+    ServiceBusReceivedMessage message = args.Message;
+    if (message.ApplicationProperties.TryGetValue("Diagnostic-Id", out var objectId) && objectId is string diagnosticId)
+    {
+        var activity = new Activity("ServiceBusProcessor.ProcessMessage");
+        activity.SetParentId(diagnosticId);
+        // If you're using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
+        using (var operation = telemetryClient.StartOperation<RequestTelemetry>("Process", activity.RootId, activity.ParentId))
+        {
+            telemetryClient.TrackTrace("Received message");
+            try 
+            {
+            // process message
+            }
+            catch (Exception ex)
+            {
+                telemetryClient.TrackException(ex);
+                operation.Telemetry.Success = false;
+                throw;
+            }
+
+            telemetryClient.TrackTrace("Done");
+        }
+    }
+}
+```
+
+Neste exemplo, é reportado o pedido de telemetria para cada mensagem processada, com um tempotalho, duração e resultado (sucesso). A telemetria também tem um conjunto de propriedades de correlação. Vestígios aninhados e exceções relatados durante o processamento de mensagens são também carimbados com propriedades de correlação que os representam como "crianças" do `RequestTelemetry` .
+
+Caso escdaize chamadas para componentes externos suportados durante o processamento de mensagens, também são automaticamente rastreados e correlacionados. Consulte [as operações personalizadas de rastreio com Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md) para rastreio manual e correlação.
+
+Se estiver a executar algum código externo para além do SDK Application Insights, espere ver uma **duração** mais longa ao visualizar os registos de Insights de Aplicação. 
+
+![Duração mais longa no registo de Insights de Aplicação](./media/service-bus-end-to-end-tracing/longer-duration.png)
+
+Não significa que houve um atraso em receber a mensagem. Neste cenário, a mensagem já foi recebida desde que a mensagem é transmitida como um parâmetro para o código SDK. E a etiqueta **de nome** nos registos app Insights **(Processo)** indica que a mensagem está agora a ser processada pelo seu código de processamento de eventos externo. Esta questão não tem a ver com o Azure. Em vez disso, estas métricas referem-se à eficiência do seu código externo, dado que a mensagem já foi recebida da Service Bus. 
+
+### <a name="tracking-without-tracing-system"></a>Rastreio sem sistema de rastreio
+Caso o seu sistema de rastreio não suporte chamadas automáticas de Service Bus, poderá estar a tentar adicionar esse suporte a um sistema de rastreio ou à sua aplicação. Esta secção descreve eventos de diagnóstico enviados pelo cliente Service Bus .NET.  
+
+Service Bus .NET Client é instrumentado utilizando sistema primitivos de rastreio [.NET.Diagnósticos.Atividade](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) e [Sistema.Diagnósticos.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
+
+`Activity` serve como um contexto de traço enquanto `DiagnosticSource` é um mecanismo de notificação. 
+
+Se não houver ouvinte para os eventos DiagnosticSource, a instrumentação está desligada, mantendo zero custos de instrumentação. O DiagnosticSource dá todo o controlo ao ouvinte:
+- controlos ouvintes que fontes e eventos para ouvir
+- ouvinte controla taxa de evento e amostragem
+- os eventos são enviados com uma carga útil que fornece todo o contexto para que possa aceder e modificar o objeto de mensagem durante o evento
+
+Familiarize-se com [o Guia do Utilizador DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) antes de prosseguir com a implementação.
+
+Vamos criar um ouvinte para eventos de Service Bus em ASP.NET aplicação Core que escreve registos com microsoft.Extension.Logger.
+Utiliza a biblioteca [System.Reative.Core](https://www.nuget.org/packages/System.Reactive.Core) para subscrever o DiagnosticSource (também é fácil subscrever o DiagnosticSource sem ele)
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory, IApplicationLifetime applicationLifetime)
+{
+    // configuration...
+
+    var serviceBusLogger = factory.CreateLogger("Azure.Messaging.ServiceBus");
+
+    IDisposable innerSubscription = null;
+    IDisposable outerSubscription = DiagnosticListener.AllListeners.Subscribe(delegate (DiagnosticListener listener)
+    {
+        // subscribe to the Service Bus DiagnosticSource
+        if (listener.Name == "Azure.Messaging.ServiceBus")
+        {
+            // receive event from Service Bus DiagnosticSource
+            innerSubscription = listener.Subscribe(delegate (KeyValuePair<string, object> evnt)
+            {
+                // Log operation details once it's done
+                if (evnt.Key.EndsWith("Stop"))
+                {
+                    Activity currentActivity = Activity.Current;
+                    serviceBusLogger.LogInformation($"Operation {currentActivity.OperationName} is finished, Duration={currentActivity.Duration}, Id={currentActivity.Id}, StartTime={currentActivity.StartTimeUtc}");
+                }
+            });
+        }
+    });
+
+    applicationLifetime.ApplicationStopping.Register(() =>
+    {
+        outerSubscription?.Dispose();
+        innerSubscription?.Dispose();
+    });
+}
+```
+
+Neste exemplo, o ouvinte regista a duração, o resultado, o identificador único e a hora de início de cada operação do Service Bus.
+
+### <a name="events"></a>Eventos
+Para cada operação, são enviados dois eventos: "Iniciar" e "Parar". Provavelmente, só está interessado em eventos de "Stop". Fornecem o resultado da operação, e iniciam a hora e a duração como propriedades da Atividade.
+
+A carga útil do evento fornece a um ouvinte o contexto da operação, replica os parâmetros de entrada da API e o valor de retorno. A carga útil do evento 'Stop' tem todas as propriedades da carga útil do evento 'Start', para que possa ignorar completamente o evento 'Iniciar'.
+
+Cada evento 'Stop' tem `Status` propriedade com `TaskStatus` operação async foi concluído com, que também é omitido na tabela seguinte para simplicidade.
+
+Todos os eventos terão as seguintes propriedades que estejam em conformidade com a especificação de telemetria aberta: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
+
+- `message_bus.destination` – fila/tópico/caminho de subscrição
+- `peer.address` – espaço de nome totalmente qualificado
+- `kind` – produtor, consumidor ou cliente. O produtor é utilizado no envio de mensagens, consumidor ao receber e cliente quando se acomoda.
+- `component` – `servicebus`
+
+Todos os eventos também têm propriedades 'Entidade' e 'Endpoint', são omitidos em abaixo da tabela
+  * `string Entity` - - Nome da entidade (fila, tópico, e assim por diante.)
+  * `Uri Endpoint` - Service Bus endpoint URL
+
+### <a name="instrumented-operations"></a>Operações instrumentadas
+Aqui está a lista completa de operações instrumentadas:
+
+| Nome da Operação | API rastreado |
+| -------------- | ----------- | 
+| ServiceBusSender.Send | ServiceBusSender.SendMessageAsync<br/>ServiceBusSender.SendMessagesAsync |
+| ServiceBusSender.Schedule | ServiceBusSender.ScheduleMessageAsync<br/>ServiceBusSender.ScheduleMessagesAsync | 
+| ServiceBusSender.Cancela | ServiceBusSender.CancelScheduledMessageAsync<br/>ServiceBusSender.CancelScheduledMessAsync |
+| ServiceBusReceiver.Receive | ServiceBusReceiver.ReceiveMessageAsync<br/>ServiceBusReceiver.ReceiveMessagesAsync |
+| ServiceBusReceiver.ReceiveDefer | ServiceBusReceiver.ReceiveDeferredMessagesAsync |
+| ServiceBusReceiver.Peek | ServiceBusReceiver.PeekMessageAsync<br/>ServiceBusReceiver.PeekMessagesAsync |
+| ServiceBusReceiver.Abandone | ServiceBusReceiver.AbandonMessagesAsync |
+| ServiceBusReceiver.Complete | ServiceBusReceiver.CompleteMessagesAsync |
+| ServiceBusReceiver.DeadLetter | ServiceBusReceiver.DeadLetterMessagesAsync |
+| ServiceBusReceiver.Diferir |  ServiceBusReceiver.DeferMessagesAsync |
+| ServiceBusReceiver.RenewMessageLock | ServiceBusReceiver.RenewMessageLockAsync |
+| ServiceBusSessionReceiver.RenewSessionLock | ServiceBusSessionReceiver.RenewSessionLockAsync |
+| ServiceBusSessionReceiver.GetSessionState | ServiceBusSessionReceiver.GetSessionStateAsync |
+| ServiceBusSessionReceiver.SetSessionState | ServiceBusSessionReceiver.SetSessionStateAsync |
+| ServiceBusProcessor.ProcessMessage | Conjunto de chamada de processador no ServiceBusProcessor. Propriedade ProcessMessageAsync |
+| ServiceBusSessionProcessor.ProcessSessionMessage | Conjunto de chamada de processador no ServiceBusSessionProcessor. Propriedade ProcessMessageAsync |
+
+### <a name="filtering-and-sampling"></a>Filtragem e amostragem
+
+Em alguns casos, é desejável registar apenas uma parte dos eventos para reduzir o desempenho ou o consumo de armazenamento. Pode registar apenas eventos 'Stop' (como em exemplo anterior) ou percentagem de amostra dos eventos. 
+`DiagnosticSource` fornecer maneira de alcançá-lo com `IsEnabled` predicado. Para obter mais informações, consulte [a filtragem baseada em contexto em DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
+
+`IsEnabled` pode ser chamado várias vezes para uma única operação para minimizar o impacto do desempenho.
+
+`IsEnabled` é chamada na seguinte sequência:
+
+1. `IsEnabled(<OperationName>, string entity, null)` por exemplo, `IsEnabled("ServiceBusSender.Send", "MyQueue1")` . . Note que não há "Iniciar" ou "Stop" no final. Utilize-o para filtrar determinadas operações ou filas. Se o método de retorno `false` voltar, os eventos para a operação não são enviados.
+
+   * Para as operações de 'Processo' e 'ProcessoSession', também `IsEnabled(<OperationName>, string entity, Activity activity)` recebes chamadas de retorno. Utilize-o para filtrar eventos baseados em `activity.Id` propriedades ou Tags.
+  
+2. `IsEnabled(<OperationName>.Start)` por exemplo, `IsEnabled("ServiceBusSender.Send.Start")` . . Verifique se o evento "Iniciar" deve ser disparado. O resultado apenas afeta o evento 'Iniciar', mas a instrumentação adicional não depende dele.
+
+Não há `IsEnabled` nada para o evento "Stop".
+
+Se algum resultado de operação for exceção, `IsEnabled("ServiceBusSender.Send.Exception")` é chamado. Só pode subscrever eventos de "Exceção" e impedir o resto da instrumentação. Neste caso, ainda tens de lidar com tais exceções. Uma vez que outras instrumentações são desativadas, não deve esperar que o contexto do traço flua com as mensagens de consumidor para produtor.
+
+Também pode utilizar `IsEnabled` estratégias de amostragem. A amostragem com base na `Activity.Id` ou `Activity.RootId` garante uma amostragem consistente em todos os pneus (desde que seja propagada pelo sistema de rastreio ou pelo seu próprio código).
+
+Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é suficiente para apenas um ouvinte aceitar o evento, por isso não há garantias que `IsEnabled` seja chamada.
+
+
+
+# <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
+
+| Nome da Propriedade        | Descrição                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificador único de uma chamada externa do produtor para a fila. Consulte o [Pedido-Id no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
 |  Correlation-Context | Contexto de operação, que é propagado em todos os serviços envolvidos no processamento de operações. Para mais informações, consulte [Correlation-Context no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -51,7 +231,7 @@ async Task ProcessAsync(Message message)
 {
     var activity = message.ExtractActivity();
     
-    // If you are using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
+    // If you're using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
     using (var operation = telemetryClient.StartOperation<RequestTelemetry>("Process", activity.RootId, activity.ParentId))
     {
         telemetryClient.TrackTrace("Received message");
@@ -80,7 +260,7 @@ Se estiver a executar algum código externo para além do SDK Application Insigh
 
 ![Duração mais longa no registo de Insights de Aplicação](./media/service-bus-end-to-end-tracing/longer-duration.png)
 
-Não significa que houve um atraso em receber a mensagem. Neste cenário, a mensagem já foi recebida desde que a mensagem é transmitida como um parâmetro para o código SDK. E a etiqueta **de nome** nos registos app Insights **(Processo)** indica que a mensagem está agora a ser processada pelo seu código de processamento de eventos externo. Esta questão não está relacionada com o Azure. Em vez disso, estas métricas referem-se à eficiência do seu código externo, dado que a mensagem já foi recebida da Service Bus. Consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) para ver onde a etiqueta **Processo** é gerada e atribuída uma vez que a mensagem tenha sido recebida da Service Bus. 
+Não significa que houve um atraso em receber a mensagem. Neste cenário, a mensagem já foi recebida desde que a mensagem é transmitida como um parâmetro para o código SDK. E a etiqueta **de nome** nos registos app Insights **(Processo)** indica que a mensagem está agora a ser processada pelo seu código de processamento de eventos externo. Esta questão não tem a ver com o Azure. Em vez disso, estas métricas referem-se à eficiência do seu código externo, dado que a mensagem já foi recebida da Service Bus. Consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) para ver onde a etiqueta **Processo** é gerada e atribuída uma vez que a mensagem tenha sido recebida da Service Bus. 
 
 ### <a name="tracking-without-tracing-system"></a>Rastreio sem sistema de rastreio
 Caso o seu sistema de rastreio não suporte chamadas automáticas de Service Bus, poderá estar a tentar adicionar esse suporte a um sistema de rastreio ou à sua aplicação. Esta secção descreve eventos de diagnóstico enviados pelo cliente Service Bus .NET.  
@@ -89,7 +269,7 @@ Service Bus .NET Client é instrumentado utilizando sistema primitivos de rastre
 
 `Activity` serve como um contexto de traço enquanto `DiagnosticSource` é um mecanismo de notificação. 
 
-Se não houver ouvinte para os eventos DiagnosticSource, a instrumentação está desligada, mantendo custos de instrumentação zero. O DiagnosticSource dá todo o controlo ao ouvinte:
+Se não houver ouvinte para os eventos DiagnosticSource, a instrumentação está desligada, mantendo zero custos de instrumentação. O DiagnosticSource dá todo o controlo ao ouvinte:
 - controlos ouvintes que fontes e eventos para ouvir
 - ouvinte controla taxa de evento e amostragem
 - os eventos são enviados com uma carga útil que fornece todo o contexto para que possa aceder e modificar o objeto de mensagem durante o evento
@@ -138,11 +318,11 @@ Neste exemplo, o ouvinte regista a duração, o resultado, o identificador únic
 
 #### <a name="events"></a>Eventos
 
-Para cada operação, são enviados dois eventos: "Iniciar" e "Parar". Provavelmente, só está interessado em eventos de "Stop". Fornecem o resultado da operação, bem como a hora de início e a duração como propriedades de Atividade.
+Para cada operação, são enviados dois eventos: "Iniciar" e "Parar". Provavelmente, só está interessado em eventos de "Stop". Fornecem o resultado da operação, e iniciam a hora e a duração como propriedades da Atividade.
 
 A carga útil do evento fornece a um ouvinte o contexto da operação, replica os parâmetros de entrada da API e o valor de retorno. A carga útil do evento 'Stop' tem todas as propriedades da carga útil do evento 'Start', para que possa ignorar completamente o evento 'Iniciar'.
 
-Todos os eventos também têm propriedades 'Entidade' e 'Endpoint', são omitidos em tabela abaixo
+Todos os eventos também têm propriedades 'Entidade' e 'Endpoint', são omitidos em abaixo da tabela
   * `string Entity` - - Nome da entidade (fila, tópico, etc.)
   * `Uri Endpoint` - Service Bus endpoint URL
 
@@ -176,13 +356,13 @@ Aqui está a lista completa de operações instrumentadas:
 
 Em todos os eventos, pode aceder `Activity.Current` ao contexto de funcionamento atual.
 
-#### <a name="logging-additional-properties"></a>Registar propriedades adicionais
+#### <a name="logging-more-properties"></a>Registar mais propriedades
 
-`Activity.Current` fornece um contexto detalhado da operação atual e dos seus pais. Para mais informações, consulte [a documentação da Atividade](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para mais detalhes.
-A instrumentação do Service Bus fornece informações adicionais no `Activity.Current.Tags` - eles detêm `MessageId` e sempre `SessionId` que estão disponíveis.
+`Activity.Current` fornece um contexto detalhado da operação atual e dos seus pais. Para mais informações, consulte [a documentação da Atividade.](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)
+A instrumentação do Service Bus fornece mais informações no `Activity.Current.Tags` - eles têm e sempre que `MessageId` `SessionId` estão disponíveis.
 
 As atividades que acompanham o evento 'Receber', 'Peek' e 'ReceiveDeferred' também podem ter `RelatedTo` etiqueta. Detém uma lista distinta de `Diagnostic-Id` (s) mensagens que foram recebidas como resultado.
-Tal operação pode resultar em várias mensagens não relacionadas a serem recebidas. Além disso, `Diagnostic-Id` não se sabe quando a operação começa, pelo que as operações de "Receber" podem ser correlacionadas com operações de 'Processo' utilizando apenas esta Tag. É útil ao analisar problemas de desempenho para verificar o tempo que demorou a receber a mensagem.
+Tal operação pode resultar em várias mensagens não relacionadas a serem recebidas. Além disso, `Diagnostic-Id` não se sabe quando a operação começa, pelo que as operações de "Receber" podem ser correlacionadas com operações de 'Processo' usando apenas esta Tag. É útil ao analisar problemas de desempenho para verificar o tempo que demorou a receber a mensagem.
 
 Uma forma eficiente de registar tags é iterar sobre elas, por isso adicionar Tags ao exemplo anterior parece 
 
@@ -208,22 +388,25 @@ Em alguns casos, é desejável registar apenas uma parte dos eventos para reduzi
 
 `IsEnabled` é chamada na seguinte sequência:
 
-1. `IsEnabled(<OperationName>, string entity, null)` por exemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . . Note que não existe 'Iniciar' ou 'Stop' no final. Utilize-o para filtrar determinadas operações ou filas. Se o retorno de retorno `false` de retorno, os eventos para a operação não são enviados
+1. `IsEnabled(<OperationName>, string entity, null)` por exemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . . Note que não há "Iniciar" ou "Stop" no final. Utilize-o para filtrar determinadas operações ou filas. Se o método de retorno do `false` retorno, os eventos para a operação não são enviados
 
    * Para as operações de 'Processo' e 'ProcessoSession', também `IsEnabled(<OperationName>, string entity, Activity activity)` recebes chamadas de retorno. Utilize-o para filtrar eventos baseados em `activity.Id` propriedades ou Tags.
   
 2. `IsEnabled(<OperationName>.Start)` por exemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . . Verifique se o evento "Iniciar" deve ser disparado. O resultado apenas afeta o evento 'Iniciar', mas a instrumentação adicional não depende dele.
 
-Não há `IsEnabled` para o evento "Stop".
+Não há `IsEnabled` nada para o evento "Stop".
 
-Se algum resultado de operação for exceção, `IsEnabled("Microsoft.Azure.ServiceBus.Exception")` é chamado. Só pode subscrever eventos de "Exceção" e impedir o resto da instrumentação. Neste caso, ainda tens de lidar com tais exceções. Uma vez que outras instrumentações são desativadas, não deve esperar que o contexto do traço flua com as mensagens do consumidor para o produtor.
+Se algum resultado de operação for exceção, `IsEnabled("Microsoft.Azure.ServiceBus.Exception")` é chamado. Só pode subscrever eventos de "Exceção" e impedir o resto da instrumentação. Neste caso, ainda tens de lidar com tais exceções. Uma vez que outras instrumentações são desativadas, não deve esperar que o contexto do traço flua com as mensagens de consumidor para produtor.
 
 Também pode utilizar `IsEnabled` estratégias de amostragem. A amostragem com base na `Activity.Id` ou `Activity.RootId` garante uma amostragem consistente em todos os pneus (desde que seja propagada pelo sistema de rastreio ou pelo seu próprio código).
 
-Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é suficiente para apenas um ouvinte aceitar o evento, por isso `IsEnabled` não é garantido que seja chamado,
+Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é suficiente para apenas um ouvinte aceitar o evento, por isso não há garantias que `IsEnabled` seja chamada.
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Correlação de Insights de Aplicação](../azure-monitor/app/correlation.md)
 * [Application Insights Monitor Dependencies](../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasá-lo.
 * [Acompanhe as operações personalizadas com o Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md)
+

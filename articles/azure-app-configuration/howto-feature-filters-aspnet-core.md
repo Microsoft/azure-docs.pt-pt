@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203145"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602296"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Utilize filtros de funcionalidades para permitir bandeiras de características condicionais
 
@@ -31,7 +31,7 @@ Também pode criar o seu próprio filtro de funcionalidades que implementa a [in
 
 ## <a name="registering-a-feature-filter"></a>Registar um filtro de recurso
 
-Regista um filtro de funcionalidades chamando o `AddFeatureFilter` método, especificando o nome do filtro de funcionalidades. Por exemplo, os seguintes registos de `PercentageFilter` código:
+Regista um filtro de funcionalidades chamando o `AddFeatureFilter` método, especificando o nome do tipo do filtro de características pretendido. Por exemplo, os seguintes registos de `PercentageFilter` código:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,14 +56,14 @@ Pode configurar estas definições para bandeiras de funcionalidades definidas n
     > [!div class="mx-imgBorder"]
     > ![Editar bandeira de recurso Beta](./media/edit-beta-feature-flag.png)
 
-1. No ecrã **Editar,** selecione o botão **de bandeira de função Ativa** se ainda não estiver selecionado. Em seguida, clique no botão **de filtro de função Utilizar** e selecione **Custom**. 
+1. No ecrã **Editar,** verifique a caixa de verificação **da bandeira de funcionalidade Enable** se ainda não está ativada. Em seguida, verifique a caixa de verificação **do filtro de recurso Use** e selecione **Custom**. 
 
-1. No campo **Chave,** insira *Microsoft.Percentagem*.
+1. No campo **Nome,** selecione *Microsoft.Percentagem*.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar filtro de funcionalidade](./media/feature-flag-add-filter.png)
 
-1. Clique no menu de contexto ao lado da tecla do filtro de funcionalidades. Clique **em Editar os parâmetros do filtro**.
+1. Clique no menu de contexto ao lado do nome do filtro de funcionalidade. Clique **em Editar os parâmetros do filtro**.
 
     > [!div class="mx-imgBorder"]
     > ![Editar parâmetros de filtro de recursos](./media/feature-flags-edit-filter-parameters.png)
@@ -75,10 +75,10 @@ Pode configurar estas definições para bandeiras de funcionalidades definidas n
 
 1. Clique **em Aplicar** para voltar ao ecrã da bandeira da funcionalidade **Editar.** Em seguida, clique em **Aplicar** novamente para guardar as definições da bandeira de recurso.
 
-1. O **Estado** da bandeira aparece agora como *Condicional.* Este estado indica que a bandeira de recurso será ativada ou desativada por pedido, com base nos critérios aplicados pelo filtro de funcionalidades.
+1. Na página **do gestor de funcionalidades,** a bandeira de funcionalidade tem agora um valor de **filtro de funcionalidade** de *Costume*. 
 
     > [!div class="mx-imgBorder"]
-    > ![Bandeira de característica condicional](./media/feature-flag-filter-enabled.png)
+    > ![Bandeira de recurso listada com um valor de filtro de recurso de "Personalizado"](./media/feature-flag-filter-custom.png)
 
 ## <a name="feature-filters-in-action"></a>Filtros de recurso em ação
 

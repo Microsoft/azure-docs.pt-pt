@@ -1,7 +1,7 @@
 ---
 title: Assistentes de voz frequentemente fazem perguntas
 titleSuffix: Azure Cognitive Services
-description: Obtenha respostas às perguntas mais populares sobre assistentes de voz usando Comandos Personalizados (Preview) ou o canal Direct Line Speech.
+description: Obtenha respostas às perguntas mais populares sobre assistentes de voz usando Comandos Personalizados ou o canal De Fala de Linha Direta.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353736"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599417"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Assistentes de voz frequentemente fazem perguntas
 
@@ -25,11 +25,11 @@ Se não conseguir encontrar respostas às suas perguntas neste documento, consul
 
 **Q: O que é um assistente de voz?**
 
-**A:** Tal como cortana, um assistente de voz é uma solução que ouve as declarações faladas de um utilizador, analisa o conteúdo dessas expressões para significado, executa uma ou mais ações em resposta à intenção da expressão, e depois fornece uma resposta ao utilizador que muitas vezes inclui um componente falado. É uma experiência de "voice-in, voice-out" para interagir com um sistema. Os autores assistentes de voz criam uma aplicação no dispositivo utilizando `DialogServiceConnector` o SDK de voz para comunicar com um assistente criado usando [Comandos Personalizados (Preview)](custom-commands.md) ou o canal de fala de [linha direta](direct-line-speech.md) do Quadro bot. Estes assistentes podem usar palavras-chave personalizadas, discurso personalizado e voz personalizada para proporcionar uma experiência à medida da sua marca ou produto.
+**A:** Tal como cortana, um assistente de voz é uma solução que ouve as declarações faladas de um utilizador, analisa o conteúdo dessas expressões para significado, executa uma ou mais ações em resposta à intenção da expressão, e depois fornece uma resposta ao utilizador que muitas vezes inclui um componente falado. É uma experiência de "voice-in, voice-out" para interagir com um sistema. Os autores assistentes de voz criam uma aplicação on-device utilizando `DialogServiceConnector` o SDK de voz para comunicar com um assistente criado usando [Comandos Personalizados](custom-commands.md) ou o canal de fala de [linha direta](direct-line-speech.md) do Quadro bot. Estes assistentes podem usar palavras-chave personalizadas, discurso personalizado e voz personalizada para proporcionar uma experiência à medida da sua marca ou produto.
 
-**P: Devo utilizar Comandos Personalizados (Pré-visualização) ou Discurso de Linha Direta? Qual é a diferença?**
+**P: Devo usar comandos personalizados ou discurso de linha direta? Qual é a diferença?**
 
-**R:** [Comandos personalizados (Preview)](custom-commands.md) é um conjunto de ferramentas de menor complexidade para criar e hospedar facilmente um assistente que é adequado para cenários de conclusão de tarefas. [O Direct Line Speech](direct-line-speech.md) oferece capacidades mais ricas e sofisticadas que podem permitir cenários de conversação robustos. Consulte a [comparação de soluções de assistente](voice-assistants.md#choosing-an-assistant-solution) para obter mais informações.
+**R:** [Comandos Personalizados](custom-commands.md) é um conjunto de ferramentas de menor complexidade para facilmente criar e hospedar um assistente que é adequado para cenários de conclusão de tarefas. [O Direct Line Speech](direct-line-speech.md) oferece capacidades mais ricas e sofisticadas que podem permitir cenários de conversação robustos. Consulte a [comparação de soluções de assistente](voice-assistants.md#choosing-an-assistant-solution) para obter mais informações.
 
 **P: Como é que começo?**
 
@@ -61,7 +61,7 @@ Para obter um guia mais detalhado, consulte a [secção tutorial](tutorial-voice
 
 **A:** Este erro indica um problema de comunicação entre o seu assistente e o serviço de assistente de voz.
 
-- Para comandos personalizados (pré-visualização), certifique-se de que a sua Aplicação de Comandos Personalizados (Pré-visualização) é publicada
+- Para comandos personalizados, certifique-se de que a sua Aplicação de Comandos Personalizados é publicada
 - Para o Discurso de Linha Direta, certifique-se de que [ligou o seu bot ao canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech), adicione suporte ao protocolo de [streaming](/azure/bot-service/directline-speech-bot) ao seu bot (com o suporte de tomada web relacionado) e, em seguida, verifique se o seu bot está a responder às solicitações recebidas do canal.
 
 **P: Este código ainda não funciona e/ou estou a ter um erro diferente ao usar um `DialogServiceConnector` . O que devo fazer?**

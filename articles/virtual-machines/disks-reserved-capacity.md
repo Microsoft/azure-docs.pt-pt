@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968690"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602637"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com a Reserva de Discos do Azure
 
@@ -70,7 +70,7 @@ Siga estes passos para adquirir a capacidade reservada:
    |Elemento  |Descrição  |
    |---------|---------|
    |**Âmbito**   |  Quantas subscrições podem utilizar o benefício de faturação associado à reserva. Este valor também especifica como a reserva é aplicada a subscrições específicas. <br/><br/> Se selecionar **Shared,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure em cada subscrição dentro do seu contexto de faturação. O contexto de faturação baseia-se na forma como se inscreveu no Azure. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para os clientes pay-as-you-go, o âmbito partilhado inclui todas as subscrições individuais com taxas pay-as-you-go criadas pelo administrador da conta.  <br/><br/>  Se selecionar **uma subscrição única,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada. <br/><br/> Se selecionar **um grupo de recursos único,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada e no grupo de recursos selecionado dessa subscrição. <br/><br/> Pode alterar o âmbito da reserva depois de comprar a reserva.  |
-   |**Subscrição**  | A subscrição que utiliza para pagar a reserva de Armazenamento Azure. O método de pagamento na subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos:<br/><ul><li> Contrato de Empresa (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como excesso.</li><br/><li>Subscrição individual com tarifas pay-as-you-go (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma subscrição individual com taxas de pagamento, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.</li></ul>    |
+   |**Subscrição**  | A subscrição que utiliza para pagar a reserva de Armazenamento Azure. O método de pagamento na subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos:<br/><ul><li> Contrato de Empresa (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma subscrição da Enterprise, os encargos são deduzidos do saldo do pré-pagamento Azure (anteriormente chamado de compromisso monetário) ou cobrados como excesso de idade.</li><br/><li>Subscrição individual com tarifas pay-as-you-go (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma subscrição individual com taxas de pagamento, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.</li></ul>    |
    | **Discos** | O SKU que quer criar. |
    | **Região** | A região onde a reserva está em vigor. |
    | **Frequência de faturação** | Quantas vezes a conta é cobrada para a reserva. As opções incluem **Mensal e** **Inicial.** |

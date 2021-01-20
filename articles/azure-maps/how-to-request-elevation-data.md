@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094204"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602435"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicite dados de elevação utilizando o serviço Azure Maps Elevation (Pré-visualização)
 
@@ -256,7 +256,7 @@ Espera-se que latitudes e longitudes no URL estejam em grau decimal WGS84 (World
 
 ### <a name="request-elevation-data-by-bounding-box"></a>Solicite dados de elevação por Bounding Box
 
-Agora vamos usar o [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) para solicitar dados de elevação perto de Mt. Rainier, WA. Os dados de elevação serão devolvidos em locais igualmente espaçados dentro de uma caixa de delimitação. A área de delimitação definida por (2) conjuntos de coordenadas lat/long (latitude sul, longitude oeste / latitude norte, longitude leste) é dividida em linhas e colunas. As bordas da caixa de delimitação representam duas (2) das linhas e duas (2) das colunas. As elevações são devolvidas para os vértices da grelha criados nas intersecções de linha e colunas. Até 2000 elevações podem ser devolvidas num único pedido.
+Agora vamos usar o [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) para solicitar dados de elevação perto de Mt. Rainier, WA. Os dados de elevação serão devolvidos em locais igualmente espaçados dentro de uma caixa de delimitação. A área de delimitação definida por (2) conjuntos de coordenadas lat/long (latitude sul, longitude oeste | latitude norte, longitude leste) é dividida em linhas e colunas. As bordas da caixa de delimitação representam duas (2) das linhas e duas (2) das colunas. As elevações são devolvidas para os vértices da grelha criados nas intersecções de linha e colunas. Até 2000 elevações podem ser devolvidas num único pedido.
 
 Neste exemplo, especificaremos linhas=3 e colunas=6. 18 valores de elevação são devolvidos na resposta. No diagrama seguinte, os valores de elevação são ordenados começando pelo canto sudoeste, e depois continuar de oeste para leste e sul para norte.  Os pontos de elevação estão numerados na ordem de serem devolvidos.
 
@@ -469,9 +469,9 @@ A página web da amostra que se segue mostra como usar o controlo do mapa para e
 Consulte as <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>Elevações pen por limite de</a> Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-### <a name="get-elevation-data-by-polyline-path"></a>Obtenha dados de elevação pelo caminho PolyLine
+### <a name="get-elevation-data-by-polyline-path"></a>Obtenha dados de elevação por caminho de Polyline
 
-A página web da amostra que se segue mostra como usar o controlo do mapa para exibir dados de elevação ao longo de um caminho. O utilizador define o caminho clicando no `PolyLine` ícone no canto superior esquerdo e desenhando o PolyLine no mapa. O controlo do mapa torna então os dados de elevação em cores especificadas na chave localizada no canto superior direito.
+A página web da amostra que se segue mostra como usar o controlo do mapa para exibir dados de elevação ao longo de um caminho. O utilizador define o caminho clicando no `Polyline` ícone no canto superior esquerdo e desenhando o Poliline no mapa. O controlo do mapa torna então os dados de elevação em cores especificadas na chave localizada no canto superior direito.
 
 <br/>
 

@@ -9,34 +9,34 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 1814555f738f37523c5b23ae729bf20bff62e1f9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 3f62ab20359273aec6743c27ab46b33027e82b55
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679528"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598394"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é o Azure Cognitive Search?
 
 Azure Cognitive Search[é](whats-new.md#new-service-name)um serviço de pesquisa em nuvem que fornece apis e ferramentas para construir uma rica experiência de pesquisa sobre conteúdo privado, heterogéneo em aplicações web, móveis e empresariais. 
 
-Quando cria um serviço de Pesquisa Cognitiva, obtém-se:
+Um serviço de pesquisa tem os seguintes componentes:
 
-+ Um motor de busca que realiza a indexação e execução de consultas
-+ Armazenamento persistente de índices de pesquisa que cria e gere
-+ Uma linguagem de consulta para compor consultas simples e complexas
-+ [Enriquecimentos orientados pela IA,](cognitive-search-concept-intro.md)criando conteúdo pesmável a partir de imagens, texto em bruto, ficheiros de aplicações
-+ Integração com outros serviços Azure para dados, machine learning/IA e segurança
++ Motor de busca para indexação e execução de consultas
++ Armazenamento persistente de índices de pesquisa de propriedade do utilizador
++ Linguagem de consulta para compor consultas simples e complexas
++ [Enriquecimentos opcionais baseados em IA,](cognitive-search-concept-intro.md)criando conteúdo pes pescável a partir de imagens, texto em bruto, ficheiros de aplicações
++ Integração opcional com outros serviços Azure para dados, machine learning/IA e segurança
 
 Em termos arquitetónicos, um serviço de pesquisa situa-se entre as lojas de dados externos que contêm os seus dados não indexados, e uma aplicação de cliente que envia pedidos de consulta para um índice de pesquisa e trata a resposta.
 
 ![Arquitetura de Pesquisa Cognitiva Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Arquitetura de Pesquisa Cognitiva Azure")
 
-Exteriormente, um serviço de pesquisa integra-se com outros serviços Azure sob a forma de *indexantes* que automatizam a ingestão/recuperação de dados a partir de fontes de dados Azure, e *skillsets* que incorporam IA consumível dos Serviços Cognitivos, tais como imagem e análise de texto, ou IA personalizada que você cria em Azure Machine Learning ou embrulhe dentro de Funções Azure.
+Exteriormente, a pesquisa pode integrar-se com outros serviços Azure sob a forma de *indexantes* que automatizam a ingestão/recuperação de dados a partir de fontes de dados Azure, e *skillsets* que incorporam IA consumível dos Serviços Cognitivos, tais como análise de imagem e texto, ou IA personalizada que você cria em Azure Machine Learning ou embrulhe dentro de Funções Azure.
 
 No próprio serviço de pesquisa, as duas cargas de trabalho primárias estão *a indexar* e *a consultar.* 
 
-+ A indexação traz texto para o seu serviço de pesquisa e torna-o pesmável. Internamente, o texto de entrada é processado em fichas e armazenado em índices invertidos para digitalizações rápidas. 
++ Indexar o texto ao seu serviço de pesquisa torna-o pesmável. Internamente, o texto de entrada é processado em fichas e armazenado em índices invertidos para digitalizações rápidas. Pode fazer o upload de qualquer conteúdo que esteja na forma de documentos JSON.
 
   Dentro da indexação, você tem a opção de adicionar *enriquecimento* de IA através de [habilidades cognitivas](cognitive-search-working-with-skillsets.md), ou pré-finadas da Microsoft ou habilidades personalizadas que você cria. As análises e transformações subsequentes podem resultar em novas informações e estruturas que anteriormente não existiam, proporcionando alta utilidade para muitos cenários de pesquisa e mineração de conhecimento.
 
@@ -48,13 +48,13 @@ A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchs
 
 A Azure Cognitive Search é adequada para os seguintes cenários de aplicação:
 
-+ Consolidar o conteúdo heterogéneo num índice de pesquisa definido pelo utilizador. Pode preencher um índice de pesquisa com fluxos de documentos JSON de qualquer fonte. Para obter fontes apoiadas no Azure, utilize um *indexante* para automatizar a indexação. O controlo sobre o esquema de índice e o calendário de atualização é uma razão fundamental para a utilização da Pesquisa Cognitiva.
++ Consolidar o conteúdo heterogéneo num índice de pesquisa definido pelo utilizador.
 
-+ Fácil implementação de funcionalidades relacionadas com a pesquisa. As APIs de pesquisa simplificam a construção de consultas, a navegação frontal, os filtros (incluindo a pesquisa geo-espacial), o mapeamento de sinónimos, o preâmlo e a sintonização de relevância. Utilizando funcionalidades incorporadas, pode satisfazer as expectativas dos utilizadores finais para uma experiência de pesquisa semelhante a motores de pesquisa web comerciais.
++ Implementar facilmente funcionalidades relacionadas com a pesquisa: afinação de relevância, navegação frontal, filtros (incluindo pesquisa geo-espacial), mapeamento de sinónimo e preconização automática.
 
-+ O conteúdo bruto é um grande ficheiro de texto ou imagem indiferenciado ou ficheiros de aplicações armazenados no armazenamento de Azure Blob ou na Cosmos DB. Pode aplicar [competências cognitivas](cognitive-search-concept-intro.md) durante a indexação para identificar e extrair texto, criar estrutura ou criar novas informações, como texto traduzido ou entidades.
++ Transforme grandes ficheiros de texto ou imagem indiferenciados, ou ficheiros de aplicação armazenados no armazenamento de Azure Blob ou Na Cosmos DB, em documentos JSON pesjáveis. Isto é conseguido durante o índice através de [habilidades cognitivas](cognitive-search-concept-intro.md) que adicionam processamento externo.
 
-+ O conteúdo necessita de análise de texto linguística ou personalizada. Se tiver conteúdo não inglês, o Azure Cognitive Search suporta tanto os analisadores de Lucene como os processadores de linguagem natural da Microsoft. Também pode configurar analisadores para obter o processamento especializado de conteúdo bruto, como filtrar diacríticos, ou reconhecer e preservar padrões em cordas.
++ Adicione análise de texto linguística ou personalizada. Se tiver conteúdo não inglês, o Azure Cognitive Search suporta tanto os analisadores de Lucene como os processadores de linguagem natural da Microsoft. Também pode configurar analisadores para obter o processamento especializado de conteúdo bruto, como filtrar diacríticos, ou reconhecer e preservar padrões em cordas.
 
 Para obter mais informações sobre funcionalidades específicas, consulte [funcionalidades de Pesquisa Cognitiva Azure](search-features-list.md)
 
@@ -62,11 +62,11 @@ Para obter mais informações sobre funcionalidades específicas, consulte [func
 
 Uma exploração de ponta a ponta das funcionalidades de pesquisa do núcleo pode ser alcançada em quatro etapas:
 
-1. [**Crie um serviço de pesquisa**](search-create-service-portal.md) no nível Gratuito partilhado com outros subscritores, ou um [nível pago](https://azure.microsoft.com/pricing/details/search/) para recursos dedicados utilizados apenas pelo seu serviço. Todos os inícios rápidos e tutoriais podem ser concluídos no serviço gratuito.
+1. [**Crie um serviço de pesquisa**](search-create-service-portal.md) no nível gratuito partilhado ou num [nível faturado](https://azure.microsoft.com/pricing/details/search/) para recursos dedicados utilizados apenas pelo seu serviço. Todos os quickstarts e tutoriais podem ser concluídos num serviço partilhado.
 
-1. [**Criar um índice de pesquisa**](search-what-is-an-index.md) utilizando o portal REST [API](/rest/api/searchservice/create-index). [.NET SDK,](search-howto-dotnet-sdk.md)ou outro SDK. O esquema de índice define a estrutura do conteúdo pesmável.
+1. [**Crie um índice de pesquisa**](search-what-is-an-index.md) utilizando o portal REST [API](/rest/api/searchservice/create-index), [.NET SDK,](search-howto-dotnet-sdk.md)ou outro SDK. O esquema de índice define a estrutura do conteúdo pesmável.
 
-1. [**Faça**](search-what-is-data-import.md) o upload do conteúdo para o índice. Utilize o [modelo "push"](tutorial-optimize-indexing-push-api.md) para empurrar os documentos JSON de qualquer fonte, ou utilize o [modelo "pull" (indexadores)](search-indexer-overview.md) se os seus dados de origem estiverem no Azure.
+1. [**Faça upload de conteúdo**](search-what-is-data-import.md) usando o [modelo "push"](tutorial-optimize-indexing-push-api.md) para empurrar documentos JSON de qualquer fonte, ou use o [modelo "pull" (indexantes)](search-indexer-overview.md) se os seus dados de origem estiverem no Azure.
 
 1. [**Consultar um índice**](search-query-overview.md) utilizando o [Explorador de Pesquisa](search-explorer.md) no portal, REST [API](search-get-started-rest.md), [.NET SDK,](/dotnet/api/azure.search.documents.searchclient.search)ou outro SDK.
 

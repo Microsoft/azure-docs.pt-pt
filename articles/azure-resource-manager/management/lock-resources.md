@@ -4,16 +4,16 @@ description: Impedir que os utilizadores atualem ou apaguem os recursos do Azure
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555673"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602209"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
-Como administrador, pode precisar de bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos importantes. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
+Como administrador, pode ser necessário bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
 
 * **CanNotDelete** significa que os utilizadores autorizados ainda podem ler e modificar um recurso, mas não podem eliminar o recurso.
 * **ReadOnly** significa que os utilizadores autorizados podem ler um recurso, mas não podem eliminar ou atualizar o recurso. A aplicação deste bloqueio é semelhante a restringir todos os utilizadores autorizados às permissões concedidas pela função **Reader.**
@@ -28,7 +28,7 @@ Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no 
 
 ## <a name="considerations-before-applying-locks"></a>Considerações antes de aplicar fechaduras
 
-A aplicação de bloqueios pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso requerem realmente ações que são bloqueadas pelo bloqueio. Alguns exemplos comuns das operações que são bloqueadas por fechaduras são:
+A aplicação de bloqueios pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso requerem realmente ações que são bloqueadas pelo bloqueio. O Bloqueio impedirá qualquer operação que exija um pedido de CORREIO à API gestora de recursos Azure. Alguns exemplos comuns das operações que são bloqueadas por fechaduras são:
 
 * Um bloqueio apenas de leitura numa **conta de armazenamento** impede todos os utilizadores de listar as chaves. A operação de listar chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita.
 
