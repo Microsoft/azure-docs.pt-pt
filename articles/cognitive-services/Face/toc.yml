@@ -35,6 +35,8 @@
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Especifique um modelo de deteção facial
       href: Face-API-How-to-Topics/specify-detection-model.md
+    - name: Mitigar a latência ao utilizar o serviço Face
+      href: Face-API-How-to-Topics/how-to-mitigate-latency.md
     - name: Utilizar a funcionalidade de grande escala
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Analisar vídeos em tempo real
@@ -76,7 +78,7 @@
           href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
         - name: Node.js
           href: /javascript/api/@azure/cognitiveservices-face
-        - name: Ir
+        - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Recursos
   items:

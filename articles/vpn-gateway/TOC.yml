@@ -101,6 +101,8 @@
           href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: VPN através de peering privado
           href: site-to-site-vpn-private-peering.md
+    - name: Ligação Site a Site entre o Azure e o AWS
+      href: create-vpn-azure-aws-managed-solutions.md
     - name: Ligações VNet a VNet
       items:
         - name: Configurar ligações VNet a VNet

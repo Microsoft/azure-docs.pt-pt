@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: a94e30beb495d3ead38a14ef86c050dfc1afd0fd
-  ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+  ms.openlocfilehash: c456153b3efe3da28d9cd7b2fd39c1eca073e656
+  ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/01/2021
-  ms.locfileid: "97845271"
+  ms.lasthandoff: 01/20/2021
+  ms.locfileid: "98598141"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -46,6 +46,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Utilizar a API REST (cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api
+  - linkListType: tutorial
+    links:
+    - text: Extrair dados de formulário em massa
+      url: tutorial-bulk-processing.md
 - title: Criar um conjunto de dados de preparação
   linkLists:
   - linkListType: how-to-guide
