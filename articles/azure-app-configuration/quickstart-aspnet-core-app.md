@@ -1,5 +1,5 @@
 ---
-title: Quickstart para Configuração de AplicativoS Azure com ASP.NET Core [ Microsoft Docs
+title: Quickstart para configuração de aplicativos Azure com ASP.NET core | Microsoft Docs
 description: Crie uma aplicação Core ASP.NET com configuração de aplicação Azure para centralizar o armazenamento e gestão das definições de aplicações para uma aplicação core ASP.NET.
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
-ms.openlocfilehash: d1582cda4b083623daf7bb756d0bc8aa3e74eae8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d0e564b98ab6331677451afd32a0848e7f5594dd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033651"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598734"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > Algumas conchas truncam a corda de ligação a menos que esteja fechada em aspas. Certifique-se de que a saída do `dotnet user-secrets` comando mostra toda a cadeia de ligação. Se não o fizer, reexame o comando, encerrando a cadeia de ligação em aspas.
+    > Algumas conchas truncam a corda de ligação a menos que esteja fechada em aspas. Certifique-se de que a saída do `dotnet user-secrets list` comando mostra toda a cadeia de ligação. Se não o fizer, reexame o comando, encerrando a cadeia de ligação em aspas.
 
     O Secret Manager é usado apenas para testar a aplicação web localmente. Quando a aplicação for implantada no [Azure App Service,](https://azure.microsoft.com/services/app-service/web)utilize a definição da aplicação **Connection Strings** no Serviço de Aplicações em vez de Secret Manager para armazenar a cadeia de ligação.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: f2170aad9bc0218d39244d08f5cc838235f8fee9
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134369"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600069"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -65,7 +65,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 O machine learning automatizado suporta os dados que residem no ambiente de trabalho local ou na cloud, como o Armazenamento de Blobs do Azure. Os dados podem ser lidos num **DataFrame pandas** ou num **Separador de Aprendizagem de Máquinas Azure.** [Saiba mais sobre os conjuntos de dados](how-to-create-register-datasets.md).
 
-Requisitos dos dados de preparação:
+Requisitos para a formação de dados em machine learning:
 - Os dados devem estar em forma tabular.
 - O valor a prever, coluna-alvo, deve estar nos dados.
 
@@ -96,9 +96,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Dados de treino, validação e teste
 
-Pode especificar conjuntos de **treino e validação separados** diretamente no `AutoMLConfig` construtor. Saiba mais sobre [como configurar as divisões de dados e validação cruzada](how-to-configure-cross-validation-data-splits.md) para as suas experiências AutoML. 
+Pode especificar dados de **formação separados e conjuntos de dados de validação** diretamente no `AutoMLConfig` construtor. Saiba mais sobre [como configurar as divisões de dados e validação cruzada](how-to-configure-cross-validation-data-splits.md) para as suas experiências AutoML. 
 
-Se não especificar explicitamente um `validation_data` ou `n_cross_validation` parâmetro, o AutoML aplica técnicas predefinidos para determinar como a validação é realizada. Esta determinação depende do número de linhas no conjunto de dados atribuído ao seu `training_data` parâmetro. 
+Se não especificar explicitamente um `validation_data` ou `n_cross_validation` parâmetro, o ML automatizado aplica técnicas predefinidos para determinar como a validação é realizada. Esta determinação depende do número de linhas no conjunto de dados atribuído ao seu `training_data` parâmetro. 
 
 |Tamanho dos &nbsp; dados de formação &nbsp;| Técnica de validação |
 |---|-----|

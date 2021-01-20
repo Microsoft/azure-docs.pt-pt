@@ -1,5 +1,5 @@
 ---
-title: Azure Maps comunidade Projetos de código aberto / Microsoft Azure Maps
+title: Comunidade Azure Maps Projetos de código aberto | Microsoft Azure Maps
 description: Projetos de código aberto coordenados para a plataforma Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0f0d94dbc7b2c720faa1da41a88e3c3313dac377
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680758"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601589"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade Azure Maps - Projetos de código aberto
 
@@ -65,6 +65,12 @@ Segue-se uma lista de projetos de código aberto que alargam as capacidades do A
 | [Azure Maps .NET UWP IoT Remote Control](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Esta é uma aplicação de amostra que mostra como construir um mapa controlado remotamente usando os serviços de hub Azure Maps e IoT. |
 | [Implementar a análise espacial IoT com o Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Rastrear e capturar eventos relevantes que ocorrem no espaço e no tempo é um cenário comum de IoT. |
 
+**Plugins de controlo de mapas de terceiros**
+
+| Nome do Projeto | Descrição |
+|-|-|
+| [Plugin de folheto Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Um [plugin](https://leafletjs.com/) JavaScript folheto que facilita a sobreposição de camadas de azulejos dos [serviços de azulejos Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+ 
 **Ferramentas e recursos**
 
 | Nome do Projeto | Descrição |

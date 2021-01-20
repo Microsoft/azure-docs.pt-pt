@@ -1,5 +1,5 @@
 ---
-title: Inicializar MSAL.NET aplicações de clientes / Rio Azure
+title: Inicializar MSAL.NET aplicações de clientes | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como rubricar aplicações de cliente público e cliente confidencial utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064730"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600286"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialize as aplicações do cliente utilizando MSAL.NET
 Este artigo descreve a inicialização de aplicações de cliente público e cliente confidencial utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente e opções de configuração de aplicações, leia a [visão geral](msal-client-applications.md).
@@ -166,3 +166,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+Depois de rubricar a aplicação do cliente, a sua próxima tarefa é adicionar suporte para o login do utilizador, acesso autorizado a API, ou ambos.
+
+A documentação do nosso cenário de aplicação fornece orientações para a assinatura de um utilizador e para adquirir um token de acesso para aceder a uma API em nome desse utilizador:
+
+- [Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out](scenario-web-app-sign-user-sign-in.md)
+- [Aplicação web que chama APIs web: Adquirir um token](scenario-web-app-call-api-acquire-token.md)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 01/18/2021
-ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567396"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600989"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -321,7 +321,7 @@ Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega
 |Nome VHD inválido|Verifique se existem caracteres especiais, como um sinal por cento `%` ou aspas, `"` no nome VHD.|Mude o nome do ficheiro VHD removendo os caracteres especiais.|
 |
 
-## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primeira partição de 1 MB (2048, cada sector de 512 bytes)
+## <a name="first-partition-starts-at-1-mb-2048-sectors"></a>A primeira partição começa em 1 MB (2048 Sectores)
 
 Se estiver [a construir a sua própria imagem,](azure-vm-create-using-own-image.md)certifique-se de que os primeiros sectores de 2048 (1 MB) do disco DE ESestão vazios. Caso contrário, a sua publicação falhará. Este requisito é aplicável apenas ao disco de SO (não discos de dados). Se estiver a construir a sua imagem [a partir de uma base aprovada,](azure-vm-create-using-approved-base.md)pode ignorar este requisito.
 

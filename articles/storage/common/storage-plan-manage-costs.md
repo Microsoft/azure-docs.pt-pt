@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 14e53efb7be9eef3ca388e6524e5ffd678671cd0
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251646"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601315"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planear e gerir os custos do armazenamento da Azure Blob
 
@@ -41,7 +41,7 @@ Utilize a [calculadora de preços Azure](https://azure.microsoft.com/pricing/cal
 4. Modifique as opções restantes para ver o seu efeito na sua estimativa.
 
    > [!NOTE]
-   > Você pode pagar por taxas de armazenamento Azure Blob com o seu crédito de compromisso monetário Azure Enterprise Agreement. No entanto, não pode usar o crédito de compromisso monetário para pagar os encargos de produtos e serviços de terceiros, incluindo os do Azure Marketplace.
+   > Você pode pagar os custos de armazenamento Azure Blob com o seu crédito Azure Prepayment (anteriormente chamado de compromisso monetário). No entanto, não pode usar o crédito Azure Prepayment para pagar os custos de produtos e serviços de terceiros, incluindo os do Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Otimizar custos
 

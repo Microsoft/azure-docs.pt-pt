@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244317"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602650"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Como se inscrever para Tradutor
 
@@ -41,7 +41,7 @@ Depois de iniciar sessão no portal, pode criar uma subscrição para Tradutor d
 Ao inscrever-se no Tradutor, obtém uma chave de acesso personalizada única à sua subscrição. Esta chave é necessária em cada chamada para o Tradutor.
 
 1. Recupere a sua chave de autenticação selecionando pela primeira vez a subscrição apropriada.
-1. Selecione **Chaves** na secção **de Gestão** de Recursos dos detalhes da sua subscrição.
+1. Selecione **Chaves e Ponto Final** na secção de **Gestão** de Recursos dos detalhes da sua subscrição.
 1. Copie qualquer uma das chaves listadas para a sua subscrição.
 
 ## <a name="learn-test-and-get-support"></a>Aprenda, teste e obtenha apoio

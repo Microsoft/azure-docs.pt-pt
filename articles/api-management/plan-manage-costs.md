@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 90449a29f58f31827e2a36b5f6c41563e88ac032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 799ef33e78737bfd2e1c1a1cfa4991f44c8f5ec0
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251357"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599638"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planear e gerir custos para a Gestão da API
 
@@ -49,7 +49,7 @@ Para obter preços adicionais e detalhes sobre funcionalidades, consulte:
 
 ### <a name="using-monetary-credit-with-api-management"></a>Utilização de crédito monetário com API Management
 
-Você pode pagar os encargos de Gestão da API com o seu crédito de compromisso monetário EA. No entanto, não pode usar o crédito de compromisso monetário da EA para pagar os encargos com produtos e serviços de terceiros, incluindo os do Azure Marketplace.
+Você pode pagar os encargos de Gestão da API com o seu pré-pagamento Azure (anteriormente chamado compromisso monetário). No entanto, não pode usar o crédito Azure Prepayment para pagar os custos de produtos e serviços de terceiros, incluindo os do Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorizar os custos
 

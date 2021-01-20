@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: f92b766fc1122456fda70d2deff81fa80a02d159
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 85035ff894127df4e9eb8334702fd9546d7a63c3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250116"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598706"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planear e gerir os custos do Azure App Service
 
@@ -61,7 +61,7 @@ Depois de eliminar os recursos do Azure App Service, os recursos dos serviços A
 
 ### <a name="using-monetary-credit-with-azure-app-service"></a>Utilização de Crédito Monetário com Serviço de Aplicações Azure
 
-Você pode pagar os custos do Azure App Service com o seu crédito de compromisso monetário EA. No entanto, não pode usar o crédito de compromisso monetário da EA para pagar os encargos com produtos e serviços de terceiros, incluindo os do Azure Marketplace.
+Você pode pagar os custos do Azure App Service com o seu crédito Azure Prepayment (anteriormente chamado de compromisso monetário). No entanto, não pode usar o crédito Azure Prepayment para pagar os custos de produtos e serviços de terceiros, incluindo os do Azure Marketplace.
 
 ## <a name="estimate-costs"></a>Cálculo de custos
 

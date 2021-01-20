@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369264"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602462"
 ---
 # <a name="understand-azure-role-definitions"></a>Compreender definições de função Azure
 
@@ -291,11 +291,27 @@ A `Actions` permissão especifica as operações de gestão que o papel permite 
 
 ## <a name="notactions"></a>NotActions
 
-A `NotActions` permissão especifica as operações de gestão que estão excluídas do `Actions` permitido. Utilize a `NotActions` permissão se o conjunto de operações que pretende permitir for mais facilmente definido excluindo operações restritas. O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as `NotActions` operações das `Actions` operações.
+A `NotActions` permissão especifica as operações de gestão que são subtraídas ou excluídas do permitido `Actions` que têm um wildcard `*` (). Utilize a `NotActions` permissão se o conjunto de operações que pretende permitir for mais facilmente definido subtraindo a partir do `Actions` qual tem um wildcard `*` (). O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as `NotActions` operações das `Actions` operações.
+
+`Actions - NotActions = Effective management permissions`
+
+A tabela a seguir mostra dois exemplos das permissões eficazes para uma operação [wildcard Microsoft.CostManagement:](resource-provider-operations.md#microsoftcostmanagement)
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Permissões de gestão eficazes |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *nenhum* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > Se um utilizador tiver uma função que exclua uma operação em `NotActions` , e lhe for atribuída uma segunda função que garanta o acesso à mesma operação, o utilizador pode realizar essa operação. `NotActions` não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações permitidas quando as operações específicas precisam de ser excluídas.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>Diferenças entre NotActions e negar atribuições
+
+`NotActions` e negar atribuições não são as mesmas e servir propósitos diferentes. `NotActions` são uma forma conveniente de subtrair ações específicas de uma operação wildcard `*` ()
+
+Negar que as atribuições bloqueiam os utilizadores de realizarem ações específicas, mesmo que uma atribuição de funções lhes conceda acesso. Para obter mais informações, consulte [Understand Azure negar atribuições.](deny-assignments.md)
 
 ## <a name="dataactions"></a>DataActions
 
@@ -311,7 +327,17 @@ A `DataActions` permissão especifica as operações de dados que a função per
 
 ## <a name="notdataactions"></a>NotDataActions
 
-A `NotDataActions` permissão especifica as operações de dados que estão excluídas do permitido `DataActions` . O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as `NotDataActions` operações das `DataActions` operações. Cada fornecedor de recursos fornece o seu respetivo conjunto de APIs para realizar operações de dados.
+A `NotDataActions` permissão especifica as operações de dados que são subtraídas ou excluídas do permitido `DataActions` que têm um wildcard `*` (). Utilize a `NotDataActions` permissão se o conjunto de operações que pretende permitir for mais facilmente definido subtraindo a partir do `DataActions` qual tem um wildcard `*` (). O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as `NotDataActions` operações das `DataActions` operações. Cada fornecedor de recursos fornece o seu respetivo conjunto de APIs para realizar operações de dados.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+A tabela a seguir mostra dois exemplos das permissões eficazes para uma operação [wildcard microsoft.storage:](resource-provider-operations.md#microsoftstorage)
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | Permissões de dados eficazes |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *nenhum* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > Se um utilizador tiver uma função que exclua uma operação de dados em `NotDataActions` , e lhe for atribuída uma segunda função que concede acesso à mesma operação de dados, o utilizador pode realizar essa operação de dados. `NotDataActions` não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações de dados permitidas quando as operações específicas de dados precisam de ser excluídas.

@@ -1,23 +1,28 @@
 ---
-title: Resolução de problemas conhecidos com HPC e GPU VMs - Azure Virtual Machines Microsoft Docs
+title: Resolução de problemas conhecidos com VMs HPC e GPU - Azure Virtual Machines | Microsoft Docs
 description: Saiba mais sobre problemas conhecidos com tamanhos de HPC e GPU VM em Azure.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 1/19/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f4e93deb40799cbcc9c86aff454e250f1ab71712
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 777c78047ec9bf195c5e0c823aa0edfb287b3998
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963339"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598323"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos relacionados com as VMs da série H e série N
 
 Este artigo fornece as questões e soluções mais comuns ao utilizar os [VMs da série Hpc](../../sizes-hpc.md) e [N-série HPC](../../sizes-gpu.md) e GPU.
+
+## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rede Acelerada em HB, HC, HBv2 e NDv2
+
+[O Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está agora disponível nos tamanhos VM habilidosos de RDMA e InfiniBand e SR-IOV habilitados [HB,](../../hb-series.md) [HC,](../../hc-series.md) [HBv2](../../hbv2-series.md) e [NDv2](../../ndv2-series.md). Esta capacidade permite agora um aumento em toda (até 30 Gbps) e latências sobre a rede Azure Ethernet. Embora isto seja separado das capacidades de RDMA sobre a rede InfiniBand, algumas mudanças na plataforma para esta capacidade podem ter impacto no comportamento de certas implementações de MPI ao executar empregos sobre a InfiniBand. Especificamente, a interface InfiniBand em alguns VMs pode ter um nome ligeiramente diferente (mlx5_1 em oposição a mlx5_0 anteriores) e isso pode exigir o ajuste das linhas de comando MPI especialmente quando se utiliza a interface UCX (geralmente com OpenMPI e HPC-X).
+Mais detalhes sobre este artigo estão disponíveis neste [artigo de blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) com instruções sobre como lidar com quaisquer questões observadas.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalação do condutor InfiniBand em VMs da série N
 

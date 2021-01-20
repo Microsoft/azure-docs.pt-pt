@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 72068e5b0af35adce4188a8922cb2415d1f5f71f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9b74f6e82e39955554c13f6ce3490bc3c22c2b98
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250731"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600451"
 ---
 # <a name="plan-and-manage-costs-for-azure-expressroute"></a>Planear e gerir os custos da Azure ExpressRoute
 
@@ -76,9 +76,9 @@ Quando criar um circuito ExpressRoute, poderá optar por criar uma porta de entr
 
 Se tiver uma porta de entrada ExpressRoute depois de eliminar o circuito ExpressRoute, continuará a ser cobrado pelo custo até o eliminar.
 
-### <a name="using-monetary-credit"></a>Utilização de Crédito Monetário
+### <a name="using-azure-prepayment-credit"></a>Utilização do crédito pré-pagamento da Azure
 
-Pode pagar os encargos expressRoute com o seu crédito de compromisso monetário da EA. No entanto, não pode usar o crédito de compromisso monetário da EA para pagar os encargos com produtos e serviços de terceiros, incluindo os do Azure Marketplace.
+Você pode pagar por custos ExpressRoute com o seu crédito Azure Prepayment (anteriormente chamado de compromisso monetário). No entanto, não pode usar o crédito Azure Prepayment para pagar os custos de produtos e serviços de terceiros, incluindo os do Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorizar os custos
 

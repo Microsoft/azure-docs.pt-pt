@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722883"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600145"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web do Gestor de Serviços utilizando o script automatizado
 
@@ -21,7 +21,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
-- A localização
+- Localização
 - Detalhes do servidor do Gestor de Serviço (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo de nome do site para a sua aplicação Web
 - Espaço de nomes ServiceBus.
@@ -317,6 +317,11 @@ if(!$err)
 }
 ```
 
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação de aplicativos web do Gestor de Serviço de Resolução de Problemas
+
+-   Se tiver problemas com a implementação de aplicações web, certifique-se de que tem permissões para criar/implementar recursos na subscrição.
+-   Se obtém uma **referência de Objeto não definida como uma instância de um** erro de objeto quando executar o [script](itsmc-service-manager-script.md), certifique-se de que introduziu valores válidos na secção configuração do **utilizador.**
+-   Se não criar o espaço de nome de retransmissão de ônibus de serviço, certifique-se de que o fornecedor de recursos necessário está registado na subscrição. Se não estiver registado, crie manualmente o espaço de nome do retransmissor de autocarro de serviço a partir do portal Azure. Também pode criá-lo quando [criar a ligação híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) no portal Azure.
+
 ## <a name="next-steps"></a>Passos seguintes
 [Configure a ligação Híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
-

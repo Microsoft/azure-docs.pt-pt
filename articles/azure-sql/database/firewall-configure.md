@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 9fe0c79a2f65b27b35aa5029d0a53de62ef08078
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251680"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602220"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database e regras de firewall IP Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -43,6 +43,9 @@ Pode configurar as regras de firewall IP ao nível do servidor utilizando as dec
 
 - Para utilizar o portal ou PowerShell, tem de ser o proprietário da subscrição ou um contribuinte de subscrição.
 - Para utilizar o Transact-SQL, tem de ligar-se à base de dados *principal* como o login principal de nível do servidor ou como administrador do Azure Ative Directory. (Uma regra de firewall IP ao nível do servidor deve ser criada primeiro por um utilizador que tenha permissões ao nível do Azure.)
+
+> [!NOTE]
+> Por predefinição, durante a criação de um novo servidor lógico SQL a partir do portal Azure, os **Serviços e recursos de Permitir a Azure para aceder a esta** definição de servidor estão definidos para **Nº**.
 
 ### <a name="database-level-ip-firewall-rules"></a>Regras de firewall IP ao nível da base de dados
 
@@ -152,7 +155,7 @@ A página geral do seu servidor abre. Mostra o nome do servidor totalmente quali
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Utilize o Transact-SQL para gerir as regras de firewall IP
 
-| Vista de catálogo ou procedimento armazenado | Level | Description |
+| Vista de catálogo ou procedimento armazenado | Level | Descrição |
 | --- | --- | --- |
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |Servidor |Exibe as atuais regras de firewall IP de nível de servidor |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |Servidor |Cria ou atualiza as regras de firewall IP de nível de servidor |
@@ -186,7 +189,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento é agora para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos nos módulos Az e AzureRm são substancialmente idênticos.
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | Descrição |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Servidor |Devolve as regras de firewall ao nível do servidor atuais |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Servidor |Cria uma regra de firewall ao nível do servidor nova |
@@ -208,7 +211,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Utilize o CLI para gerir as regras de firewall IP de nível de servidor
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | Descrição |
 | --- | --- | --- |
 |[az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall IP do servidor|
 |[lista de regras de firewall do servidor az sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor|Lista as regras de firewall IP num servidor|
@@ -230,7 +233,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>Utilize uma API REST para gerir as regras de firewall IP de nível de servidor
 
-| API | Level | Description |
+| API | Level | Descrição |
 | --- | --- | --- |
 | [Listar regras de firewall](/rest/api/sql/firewallrules/listbyserver) |Servidor |Exibe as atuais regras de firewall IP de nível de servidor |
 | [Criar ou atualizar regras de firewall](/rest/api/sql/firewallrules/createorupdate) |Servidor |Cria ou atualiza as regras de firewall IP de nível de servidor |

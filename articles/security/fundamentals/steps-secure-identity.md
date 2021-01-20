@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842027"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602451"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco passos para garantir a sua infraestrutura de identidade
 
@@ -81,7 +81,7 @@ Pode utilizar [o PowerShell para evitar que as palavras-passe expirem](../../act
 
 Se a sua organização utilizar uma solução de identidade híbrida com autenticação ou federação pass-through, então deve ativar a sincronização de haxixe de palavra-passe pelas seguintes razões:
 
-* Os [Utilizadores com credenciais vazadas reportam](../../active-directory/identity-protection/overview-identity-protection.md) na gestão AZure AD alerta para o nome de utilizador e os pares de palavras-passe, que foram expostos na "dark web". Um volume incrível de palavras-passe é vazado através de phishing, malware e reutilização de palavras-passe em sites de terceiros que são posteriormente violados. A Microsoft encontra muitas destas credenciais vazadas e dir-lhe-á, neste relatório, se correspondem às credenciais da sua organização – mas apenas se [ativar a sincronização de haxixe de palavra-passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
+* Os [Utilizadores com credenciais vazadas reportam](../../active-directory/identity-protection/overview-identity-protection.md) na gestão AZure AD alerta para o nome de utilizador e os pares de palavras-passe, que foram expostos na "dark web". Um volume incrível de palavras-passe é vazado através de phishing, malware e reutilização de palavras-passe em sites de terceiros que são posteriormente violados. A Microsoft encontra muitas destas credenciais vazadas e dir-lhe-á, neste relatório, se correspondem às credenciais da sua organização – mas apenas se [ativar a sincronização de haxixe de palavra-passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) ou tiver identidades apenas na nuvem!
 * Em caso de paragem no local (por exemplo, num ataque de ransomware) pode passar a utilizar a autenticação na [nuvem utilizando a sincronização de haxixe de palavra-passe](../../active-directory/hybrid/choose-ad-authn.md). Este método de autenticação de backup permitirá continuar a aceder a aplicações configuradas para autenticação com o Azure Ative Directory, incluindo o Microsoft 365. Neste caso, o pessoal de TI não precisará recorrer a contas de email pessoais para partilhar dados até que a paralisação no local seja resolvida.
 
 Saiba mais sobre como funciona a [sincronização de haxixe de palavra-passe.](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)

@@ -3,17 +3,17 @@ title: Procure uma localização utilizando os serviços de pesquisa do Azure Ma
 description: Saiba mais sobre o serviço de pesquisa Azure Maps. Veja como usar este conjunto de APIs para geocoding, geocoding invertido, pesquisas difusas e buscas inversas nas ruas.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910989"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598364"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Procure uma localização utilizando os serviços de pesquisa do Azure Maps
 
@@ -41,9 +41,9 @@ Neste exemplo, usaremos o Azure Maps [Obter Endereço de Pesquisa API](/rest/api
 >[!TIP]
 >Se tiver um conjunto de endereços para geocódigo, pode utilizar a API do [Lote de Endereço de Pesquisa Pós-Pesquisa](/rest/api/maps/search/postsearchaddressbatch) para enviar um lote de consultas numa única chamada API.
 
-1. Abra a aplicação do Carteiro. Perto do topo da aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar.** Você usará esta coleção para o resto dos exemplos neste documento.
+1. Abra a aplicação do Carteiro. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.** Você usará esta coleção para o resto dos exemplos neste documento.
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar** .
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar**.
 
 3. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Neste pedido, estamos à procura de um endereço específico: `400 Braod St, Seattle, WA 98109` . Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -75,7 +75,7 @@ Neste exemplo, usaremos a Fuzzy Search para procurar em todo o `pizza` mundo.  E
 >[!IMPORTANT]
 >Para os resultados da geobias para a área relevante para os seus utilizadores, adicione sempre o máximo de detalhes de localização possível. Para saber mais, consulte [as Melhores Práticas de Pesquisa.](how-to-use-best-practices-for-search.md#geobiased-search-results)
 
-1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar** .
+1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -94,7 +94,7 @@ Neste exemplo, usaremos a Fuzzy Search para procurar em todo o `pizza` mundo.  E
 
 4. O comportamento padrão é procurar em todo o mundo, potencialmente devolvendo resultados desnecessários. A seguir, vamos procurar pizza apenas nos Estados Unidos. Adicione a `countrySet` chave à secção **Params** e defina o seu valor para `US` . Definir a `countrySet` chave para `US` vincular os resultados aos Estados Unidos.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Procurar endereço":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Pesquisa de pizza nos Estados Unidos":::
 
     Os resultados estão agora limitados pelo código do país e a consulta devolve restaurantes de pizza nos Estados Unidos.
 
@@ -107,9 +107,9 @@ Neste exemplo, usaremos a Fuzzy Search para procurar em todo o `pizza` mundo.  E
     | lat | 47.620525 |
     | lon | -122.349274 |
     | raio | 400 |
-    | limite | 5|
+    | limit | 5|
 
-6. Clique em **Enviar** . A resposta inclui resultados para restaurantes de pizza perto da Seattle Space Needle.
+6. Clique em **Enviar**. A resposta inclui resultados para restaurantes de pizza perto da Seattle Space Needle.
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Procure um endereço de rua utilizando a Pesquisa de Endereços Reverso
 
@@ -123,7 +123,7 @@ O Azure Maps [Obter Endereço de Pesquisa API reverso]( https://docs.microsoft.c
 
 Neste exemplo, vamos fazer pesquisas inversas usando alguns dos parâmetros opcionais que estão disponíveis. Para obter a lista completa dos parâmetros opcionais, consulte [os parâmetros de pesquisa reversos.](/rest/api/maps/search/getsearchaddressreverse#uri-parameters)
 
-1. Na aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na primeira secção ou crie uma nova e, em seguida, **selecione Save** .
+1. Na aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na primeira secção ou crie uma nova e, em seguida, **selecione Save**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária. O pedido deve parecer-se com o seguinte URL:
 
@@ -142,15 +142,15 @@ Neste exemplo, vamos fazer pesquisas inversas usando alguns dos parâmetros opci
     | returnRoadUse | true | Devoluções de tipos de uso da estrada no endereço. Para todos os tipos possíveis de utilização rodoviária, consulte [os tipos de utilização rodoviária.](/rest/api/maps/search/getsearchaddressreverse#uri-parameters)|
     | retornadoMatchType | true| Devolve o tipo de jogo. Para todos os valores possíveis, consulte [resultados de pesquisa de endereços invertidos](/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Procurar endereço":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Procure ao contrário.":::
 
 5. Clique **em Enviar** e rever o corpo de resposta.
 
 6. Em seguida, vamos adicionar a `entityType` chave, e definir o seu valor para `Municipality` . A `entityType` chave irá sobrepor-se à `returnMatchType` chave no passo anterior. Também precisamos de remover `returnSpeedLimit` e `returnRoadUse` já que estamos a pedir informações sobre o município.  Para todos os tipos possíveis de entidades, consulte [Os Tipos de Entidade.](/rest/api/maps/search/getsearchaddressreverse#entitytype)
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Procurar endereço":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Pesquisar entidade inversaType.":::
 
-7. Clique em **Enviar** . Compare os resultados com os resultados devolvidos no passo 5.  Como o tipo de entidade solicitada é `municipality` agora, a resposta não inclui informações de endereço de rua. Além disso, o devolvido `geometryId` pode ser usado para solicitar o polígono de fronteira através do Azure Maps Obter [API de Poligon de Pesquisa.](/rest/api/maps/search/getsearchpolygon)
+7. Clique em **Enviar**. Compare os resultados com os resultados devolvidos no passo 5.  Como o tipo de entidade solicitada é `municipality` agora, a resposta não inclui informações de endereço de rua. Além disso, o devolvido `geometryId` pode ser usado para solicitar o polígono de fronteira através do Azure Maps Obter [API de Poligon de Pesquisa.](/rest/api/maps/search/getsearchpolygon)
 
 >[!TIP]
 >Para obter mais informações sobre estes parâmetros, bem como para aprender sobre os outros, consulte a [secção Parâmetros de Pesquisa Inversa](/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
@@ -159,7 +159,7 @@ Neste exemplo, vamos fazer pesquisas inversas usando alguns dos parâmetros opci
 
 Neste exemplo, vamos procurar uma rua transversal baseada nas coordenadas de um endereço.
 
-1. Na aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na primeira secção ou crie uma nova e, em seguida, **selecione Save** .
+1. Na aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na primeira secção ou crie uma nova e, em seguida, **selecione Save**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária. O pedido deve parecer-se com o seguinte URL:
   
@@ -167,9 +167,9 @@ Neste exemplo, vamos procurar uma rua transversal baseada nas coordenadas de um 
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Procurar endereço":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Procurem na rua.":::
   
-3. Clique **em Enviar** e rever o corpo de resposta. Vai notar que a resposta contém um `crossStreet` valor de `Occidental Avenue South` .
+3. Clique **em Enviar** e rever o corpo de resposta. Vai notar que a resposta contém um `crossStreet` valor de `South Atlantic Street` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

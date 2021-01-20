@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6c4f23406c97d647002fbb3ab4a3544866303cf4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6f74f973abc33d809624bd8abd5a514a52ccfe70
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051348"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602699"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conecte aplicações de função em Azure para processamento de dados
 
@@ -27,7 +27,7 @@ Aqui está uma visão geral dos passos que contém:
 1. Criar um projeto de funções do Azure no Visual Studio
 2. Escreva uma função com um gatilho [de Grade de Eventos](../event-grid/overview.md)
 3. Adicione código de autenticação à função (para poder aceder a Azure Digital Twins)
-4. Publique a app de função para a Azure
+4. Publique a aplicação de funções no Azure
 5. Configurar o acesso à [segurança](concepts-security.md) para a aplicação de função
 
 ## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Pré-requisito: Configurar a instância Azure Digital Twins
@@ -63,24 +63,20 @@ Para utilizar o SDK, terá de incluir os seguintes pacotes no seu projeto. Pode 
 Pode fazê-lo selecionando à direita no seu projeto e selecione _Gerir Pacotes NuGet_ da lista. Em seguida, na janela que se abre, selecione procurar o separador _Browse_ e procure os seguintes pacotes. Selecione _Instalar_ e _aceitar_ o contrato de Licença para instalar as embalagens.
 
 * `Azure.DigitalTwins.Core`
-* `Azure.Identity` 
-
-Para a configuração do gasoduto Azure SDK para configurar corretamente para as Funções Azure, também necessitará das seguintes embalagens. Repita o mesmo processo que acima para instalar todas as embalagens.
-
+* `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core.Pipeline`
+* `Azure.Core`
 
 **Opção 2. Adicione pacotes utilizando `dotnet` a ferramenta de linha de comando:**
 
 Em alternativa, pode utilizar os `dotnet add` seguintes comandos numa ferramenta de linha de comando:
-```cmd/sh
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
 
-Em seguida, adicione mais duas dependências ao seu projeto que serão necessários para trabalhar com a Azure Digital Twins. Pode utilizar os links abaixo para navegar para os pacotes no NuGet, onde pode encontrar os comandos da consola (incluindo para .NET CLI) para adicionar a versão mais recente de cada um ao seu projeto.
- * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
- * [**Azure.Identidade.**](https://www.nuget.org/packages/Azure.Identity) Esta biblioteca fornece ferramentas para ajudar na autenticação contra o Azure.
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+dotnet add package System.Net.Http
+dotnet add package Azure.Core
+```
 
 Em seguida, no seu Visual Studio Solution Explorer, abra _function.cs_ ficheiro onde tem código de amostra e adicione as seguintes declarações _usando_ a sua função. 
 
@@ -110,7 +106,7 @@ Após estas alterações, o seu código de função será semelhante ao seguinte
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
-## <a name="publish-the-function-app-to-azure"></a>Publique a app de função para a Azure
+## <a name="publish-the-function-app-to-azure"></a>Publique a aplicação de funções no Azure
 
 Para publicar o projeto numa aplicação de função em Azure, selecione à direita o projeto de função (não a solução) no Solution Explorer e escolha **publicar**.
 
@@ -154,7 +150,7 @@ Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome not
 ```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Utilize o valor _principalid_ no seguinte comando para atribuir a identidade da aplicação de função à função _Azure Digital Twins Data Owner_ para a sua instância Azure Digital Twins.
+Utilize o valor _principalId_ no seguinte comando para atribuir a identidade da aplicação de funções à função _Proprietário dos Dados do Azure Digital Twins_ para a sua instância do Azure Digital Twins.
 
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"

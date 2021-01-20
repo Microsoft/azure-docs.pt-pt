@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02194bd6122cc97ac9dfd6887c6ae2161182c13a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0fbf5c07b2d8fd5d754a46484d6b072cc9b682d6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120432"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599852"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -95,7 +95,7 @@ data_source_name
 
 Especifica o nome definido pelo utilizador para a fonte de dados. O nome deve ser único na base de dados.
 
-#### <a name="location"></a>A localização
+#### <a name="location"></a>Localização
 LOCALIZAÇÃO = `'<prefix>://<path>'`   - Fornece o protocolo de conectividade e o caminho para a fonte de dados externa. Os seguintes padrões podem ser utilizados no local:
 
 | Fonte de Dados Externos        | Prefixo de localização | Caminho de localização                                         |
@@ -233,16 +233,16 @@ WITH (
 
 file_format_name- Especifica um nome para o formato de ficheiro externo.
 
-FORMAT_TYPE = [ PARQUET ] DELIMITEDTEXT]- Especifica o formato dos dados externos.
+FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT]- Especifica o formato dos dados externos.
 
 - PARQUET - Especifica um formato Parquet.
 - DELIMITEDTEXT - Especifica um formato de texto com delimiters de coluna, também chamados exterminadores de campo.
 
-FIELD_TERMINATOR = *field_terminator* - Aplica-se apenas a ficheiros de texto delimitados. O exterminador de campo especifica um ou mais caracteres que marcam a extremidade de cada campo (coluna) no ficheiro delimitado por texto. O padrão é o caractere do tubo (ꞌ/ꞌ).
+FIELD_TERMINATOR = *field_terminator* - Aplica-se apenas a ficheiros de texto delimitados. O exterminador de campo especifica um ou mais caracteres que marcam a extremidade de cada campo (coluna) no ficheiro delimitado por texto. O padrão é o caractere do tubo (ꞌ|ꞌ).
 
 Exemplos:
 
-- FIELD_TERMINATOR = '''
+- FIELD_TERMINATOR = '|'
 - FIELD_TERMINATOR = '
 - FIELD_TERMINATOR = ꞌ\tꞌ
 
@@ -256,7 +256,7 @@ Exemplos:
 
 FIRST_ROW = *First_row_int* - Especifica o número de linha que é lido primeiro e se aplica a todos os ficheiros. Definir o valor em dois faz com que a primeira linha em cada ficheiro (linha do cabeçalho) seja ignorada quando os dados são carregados. As linhas são ignoradas com base na existência de terminadores de linha (/r/n, /r, /n).
 
-USE_TYPE_DEFAULT = { TRUE **FALSO}** - Especifica como lidar com valores em falta em ficheiros de texto delimitados ao recuperar dados do ficheiro de texto.
+USE_TYPE_DEFAULT = { TRUE | **FALSO}** - Especifica como lidar com valores em falta em ficheiros de texto delimitados ao recuperar dados do ficheiro de texto.
 
 VERDADEIRO - Se estiver a recolher dados do ficheiro de texto, guarde cada valor em falta utilizando o tipo de dados do valor predefinido para a coluna correspondente na definição da tabela externa. Por exemplo, substitua um valor em falta por:
 
@@ -266,7 +266,7 @@ VERDADEIRO - Se estiver a recolher dados do ficheiro de texto, guarde cada valor
 
 FALSO - Guarde todos os valores em falta como NULO. Quaisquer valores NULOS que sejam armazenados utilizando a palavra NULO no ficheiro de texto delimitado são importados como o string 'NULL'.
 
-Codificação = {'UTF8' 'UTF16'} - A piscina SQL sem servidor pode ler ficheiros de texto delimitados UTF8 e UTF16 codificados.
+Codificação = {'UTF8' | 'UTF16'} - A piscina SQL sem servidor pode ler ficheiros de texto delimitados UTF8 e UTF16 codificados.
 
 DATA_COMPRESSION = *data_compression_method* - Este argumento especifica o método de compressão de dados para os dados externos. 
 
@@ -319,7 +319,7 @@ column_name <data_type>
 
 ### <a name="arguments-create-external-table"></a>Argumentos CRIAM TABELA EXTERNA
 
-*{ database_name.schema_name.table_name / schema_name.table_name [ table_name }*
+*{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
 O nome de uma a três partes da mesa para criar. Para uma tabela externa, a piscina SQL sem servidor armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em piscina SQL sem servidor.
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Criar e consultar tabelas externas a partir de um ficheiro no Lago de Dados Azure
 
-Utilizando as capacidades de exploração do Data Lake, pode agora criar e consultar uma tabela externa utilizando uma piscina SQL dedicada ou piscina SQL sem servidor com um simples clique à direita no ficheiro.
+Utilizando as capacidades de exploração do Data Lake, pode agora criar e consultar uma tabela externa utilizando uma piscina SQL dedicada ou piscina SQL sem servidor com um simples clique à direita no ficheiro. O gesto de um clique para criar tabelas externas a partir da conta de armazenamento ADLS Gen2 é suportado apenas para ficheiros Parquet. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

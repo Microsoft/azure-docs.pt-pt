@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628293"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600404"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
 
@@ -25,7 +25,7 @@ Antes de iniciar, [Crie uma conta de marketplace comercial no Partner Center](./
 
 O processo de conceção, construção e testes oferece tempo e requer experiência tanto na plataforma Azure como nas tecnologias usadas para construir a sua oferta. A sua equipa de engenharia deverá ter um conhecimento de trabalho das [Máquinas Virtuais Azure,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)e [Azure Networking,](https://azure.microsoft.com/services/?filter=networking#networking)bem como proficiência com o [design e arquitetura das aplicações Azure.](https://azure.microsoft.com/solutions/architecture/) Consulte estes recursos técnicos adicionais: 
 
-- Tutorials (Tutoriais)
+- Tutoriais
   - [VMs do Linux](../virtual-machines/linux/tutorial-manage-vm.md)
   - [VMs do Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
@@ -73,7 +73,7 @@ As ofertas de VM requerem pelo menos um plano. Um plano define o âmbito e os li
 Os VMs são totalmente habilitados para o comércio, utilizando modelos de licenciamento pay-as-you-go ou bring-your-own-license (BYOL). A Microsoft acolhe a transação de comércio e fatura o seu cliente em seu nome. Obtém o benefício de utilizar a relação de pagamento preferida entre o seu cliente e a Microsoft, incluindo quaisquer Acordos empresariais. Para obter mais informações, consulte [as capacidades de transação do mercado comercial.](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 > [!NOTE]
-> Os compromissos monetários associados a um Acordo de Empresa podem ser usados contra o uso do Azure do seu VM, mas não contra as suas taxas de licenciamento de software.
+> O pré-pagamento Azure (anteriormente chamado de compromisso monetário) associado a um Acordo de Empresa pode ser usado contra o uso Azure do seu VM, mas não contra as suas taxas de licenciamento de software.
 
 ### <a name="licensing-options"></a>Opções de licenciamento
 

@@ -1,5 +1,5 @@
 ---
-title: Criar uma quota NFS - Azure Files
+title: Criar uma partilha NFS - Azure Files (pré-visualização)
 description: Saiba como criar uma partilha de ficheiros Azure que pode ser montada usando o protocolo sistema de ficheiros de rede.
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 323eed77d6f7a6ccfcdd0a7c7aecff3a125300dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620954"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602674"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar uma quota NFS
 

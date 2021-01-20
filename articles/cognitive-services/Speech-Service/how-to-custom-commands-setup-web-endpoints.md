@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025896"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602152"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
@@ -23,7 +23,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
 
 - Configurar os pontos finais Web na aplicação de Comandos Personalizados
 - Chamar os pontos finais Web na aplicação de Comandos Personalizados
-- Receber a resposta dos pontos finais Web 
+- Receber a resposta dos pontos finais Web
 - Integrar a resposta dos pontos finais Web num payload JSON personalizado, enviar e visualizá-la a partir de uma aplicação cliente com o SDK de Voz UWP C#
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,7 +35,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
 
 ## <a name="setup-web-endpoints"></a>Configurar pontos finais Web
 
-1. Abra a aplicação de Comandos Personalizados que criou anteriormente. 
+1. Abra a aplicação de Comandos Personalizados que criou anteriormente.
 1. Aceda a "Pontos finais Web" e clique em "Novo ponto final Web".
 
    > [!div class="mx-imgBorder"]
@@ -61,7 +61,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
 1. Aceda ao comando **TurnOnOff**, selecione **ConfirmationResponse** na regra de conclusão e, em seguida, selecione **Adicionar uma ação**.
 1. Em **Nova Ação-Tipo**, selecione **Chamar ponto final Web**
 1. Em **Editar Ação – Pontos finais**, selecione **UpdateDeviceState**, que é o ponto final Web que criámos.  
-1. Em **Configuração**, coloque os seguintes valores: 
+1. Em **Configuração**, coloque os seguintes valores:
    > [!div class="mx-imgBorder"]
    > ![Parâmetros de ação para chamar pontos finais Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
     > - Os parâmetros da consulta sugerida apenas são necessários para o ponto final de exemplo
 
 1. Em **Em Caso de Êxito – Ação a executar**, selecione **Enviar resposta de voz**.
-    
+
     No **Editor simples**, introduza `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot que mostra o On Success - Ação para executar o ecrã.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Definição | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
    | Ação a executar | Enviar resposta de voz | Ação a executar se o pedido ao ponto final Web for realizado com êxito |
-   
+
    > [!NOTE]
    > - Também pode aceder diretamente aos campos na resposta http com `{YourWebEndpointName.FieldName}`. Por exemplo: `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` é opcional. Pode removê-lo se não quiser expor nenhuma mensagem de erro.
-   > - No nosso ponto final de exemplo, enviámos a resposta http com mensagens de erro detalhadas para erros comuns, como parâmetros de cabeçalho em falta. 
+   > - No nosso ponto final de exemplo, enviámos a resposta http com mensagens de erro detalhadas para erros comuns, como parâmetros de cabeçalho em falta.
 
 ### <a name="try-it-out-in-test-portal"></a>Experimente no portal de teste
 - Resposta Em Caso de Êxito\
@@ -119,7 +119,7 @@ Em [Procedimentos: Enviar a atividade para a aplicação cliente (Pré-visualiza
 No entanto, na maioria dos casos, vai querer apenas enviar atividade para a aplicação cliente quando a chamada para o ponto final Web é realizada com êxito. Neste exemplo, isto ocorre quando o estado do dispositivo é atualizado com êxito.
 
 1. Elimine a ação **Enviar atividade para o cliente** que adicionou anteriormente.
-1. Edite o ponto final Web da chamada: 
+1. Edite o ponto final Web da chamada:
     1. Em **Configuração**, confirme que os **Parâmetros de Consulta** são `item={SubjectDevice}&&value={OnOff}`
     1. Em **Em Caso de Êxito**, altere **Ação a executar** para **Enviar atividade para o cliente**
     1. Copie o JSON abaixo para o **Conteúdo da Atividade**
@@ -133,7 +133,6 @@ No entanto, na maioria dos casos, vai querer apenas enviar atividade para a apli
       }
     }
    ```
-   
 Agora envia apenas atividade para o cliente quando o pedido ao ponto final Web é realizado com êxito.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Criar elementos visuais para sincronizar o estado do dispositivo
@@ -147,7 +146,7 @@ Adicione o seguinte XML a `MainPage.xaml` acima do bloco `"EnableMicrophoneButto
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Sincronizar o estado do dispositivo 
+### <a name="sync-device-state"></a>Sincronizar o estado do dispositivo
 
 Em `MainPage.xaml.cs`, adicione a referência `using Windows.Web.Http;`. Adicione o seguinte código à classe `MainPage`. Este método vai enviar um pedido GET para o ponto final de exemplo e extrair o estado atual do dispositivo para a sua aplicação. Confirme que altera `<your_app_name>` para o que utilizou no **cabeçalho** no ponto final Web de Comando Personalizado
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

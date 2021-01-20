@@ -3,19 +3,22 @@ title: Prepare e personalize uma imagem master VHD - Azure
 description: Como preparar, personalizar e carregar uma imagem principal do Windows Virtual Desktop para o Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023399"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602377"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
 Este artigo diz-lhe como preparar uma imagem de disco rígido virtual (VHD) para o upload para a Azure, incluindo como criar máquinas virtuais (VMs) e instalar software nelas. Estas instruções são para uma configuração virtual do Windows que pode ser usada com os processos existentes da sua organização.
+
+>[!IMPORTANT]
+>Recomendamos que utilize uma imagem da Galeria de Imagens Azure. No entanto, se necessitar de usar uma imagem personalizada, certifique-se de que já não tem o Agente virtual de Desktop da WIndows instalado no seu dispositivo. A utilização de uma imagem personalizada com o Windows Virtual Desktop Agent pode causar problemas com a imagem.  
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -114,7 +117,7 @@ Para redirecionar os fusos horários:
 1. No servidor Ative Directory, abra a **Consola de Gestão de Políticas de Grupo**.
 2. Expanda o seu domínio e objetos de política de grupo.
 3. Clique com o botão direito no **Objeto de Política de Grupo** que criou para as definições de política de grupo e selecione **Editar**.
-4. No Editor de **Gestão de Políticas** de Grupo , navegue para políticas **de configuração de computador**  >  **Policies**  >  **Modelos administrativos** Windows Componentes  >  **Componentes**  >  **Remotos Desktop** Session  >  **Host** Device e  >  **Reorientação de Recursos**.
+4. No Editor de **Gestão de Políticas** de Grupo , navegue para políticas **de configuração de computador**  >    >  **Modelos administrativos** Windows Componentes  >  **Componentes**  >  **Remotos Desktop** Session  >  **Host** Device e  >  **Reorientação de Recursos**.
 5. Ativar a **definição de reorientação do fuso horário** Desemitamento.
 
 Também pode executar este comando na imagem principal para redirecionar fusos horários:
@@ -204,7 +207,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 

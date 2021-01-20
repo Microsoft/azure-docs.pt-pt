@@ -4,12 +4,12 @@ description: Saiba como utilizar identidades geridas no Serviço Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607291"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599606"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -131,7 +131,7 @@ Atualizar a identidade atribuída ao utilizador:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Uma vez atualizadas as identidades atribuídas ao sistema ou atribuídas ao utilizador para a identidade gerida, execute um `az nodepool upgrade --node-image-only` nos seus nós para completar a atualização para a identidade gerida.
+> Uma vez atualizadas as identidades atribuídas ao sistema ou atribuídas ao utilizador para a identidade gerida, execute um `az aks nodepool upgrade --node-image-only` nos seus nós para completar a atualização para a identidade gerida.
 
 ## <a name="bring-your-own-control-plane-mi"></a>Traga o seu próprio avião de controlo MI
 Uma identidade de plano de controlo personalizado permite o acesso à identidade existente antes da criação do cluster. Esta funcionalidade permite cenários como a utilização de um VNET personalizado ou um Tipo de UDR de saída com uma identidade gerida pré-criada.

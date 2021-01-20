@@ -1,5 +1,5 @@
 ---
-title: O que é o Azure Active Directory? - Diretório Ativo Azure / Microsoft Docs
+title: O que é o Azure Active Directory? - Azure Ative Directory | Microsoft Docs
 description: Visão geral e informação conceptual sobre o Azure Ative Directory, incluindo terminologia, quais as licenças disponíveis, e uma lista de funcionalidades associadas com links para mais informações.
 services: active-directory
 author: ajburnle
@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e773be4331be3170a04c8cf5221200589dd13689
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 128e93720da54132b9bc7c8a191038339434f096
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029033"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598937"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
@@ -92,7 +92,7 @@ Para melhor entender a Azure AD e a sua documentação, recomendamos a revisão 
 |Conta do Azure AD| Uma identidade criada através do Azure AD ou de outro serviço de cloud da Microsoft, como o Microsoft 365. As identidades são armazenadas em Azure AD e acessíveis às subscrições de serviços em nuvem da sua organização. Esta conta também é por vezes chamada de conta de trabalho ou escola.|
 |Administrador de Conta|Esta função clássica de administrador de subscrição é conceptualmente a proprietária de uma subscrição. Esta função tem acesso ao [Centro de Conta Azure](https://account.azure.com/Subscriptions) e permite-lhe gerir todas as subscrições numa conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de Serviços|Esta função clássica de administrador de subscrição permite-lhe gerir todos os recursos da Azure, incluindo o acesso. Esta função tem o acesso equivalente a um utilizador a quem é atribuída a função De proprietário no âmbito de subscrição. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Proprietário|Este papel ajuda-o a gerir todos os recursos da Azure, incluindo o acesso. Esta função baseia-se num novo sistema de autorização chamado Azure role-base access control (Azure RBAC) que fornece uma gestão de acesso de grãos finos aos recursos Azure. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Proprietário|Este papel ajuda-o a gerir todos os recursos da Azure, incluindo o acesso. Esta função baseia-se num novo sistema de autorização chamado Azure role-based access control (Azure RBAC) que fornece uma gestão de acesso de grãos finos aos recursos Azure. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador global do Azure AD|Esta função de administrador é automaticamente atribuída a quem criou o inquilino Azure AD. Os administradores globais podem fazer todas as funções administrativas do Azure AD e quaisquer serviços que federam para a Azure AD, tais como Exchange Online, SharePoint Online e Skype for Business Online. Pode ter vários administradores globais, mas apenas os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos utilizadores. Note que esta função de administrador é chamada de administrador global no portal Azure, mas é chamado **de administrador** da Empresa na Microsoft Graph API e Azure AD PowerShell. Para obter mais informações sobre as várias funções de administrador, consulte [permissões de função de administrador no Diretório Ativo Azure](../roles/permissions-reference.md).|
 |Subscrição do Azure| Costumava pagar pelos serviços de nuvem Azure. Pode ter muitas subscrições e estão ligadas a um cartão de crédito.|
 |Inquilino do Azure| Uma instância dedicada e fidedigna do Azure AD que é automaticamente criada quando a sua organização se inscreve para uma subscrição de serviço na nuvem da Microsoft, como Microsoft Azure, Microsoft Intune ou Microsoft 365. Um inquilino do Azure representa uma única organização.|

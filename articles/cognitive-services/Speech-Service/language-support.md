@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 3f8e497fb21b3fac6a2bc5842e6bc56c47444c8b
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: e51354b1c2905d0532ce4eb49236dda8550f98a4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572498"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600090"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -128,6 +128,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 ## <a name="text-to-speech"></a>Conversão de texto em voz
 
 Tanto os Microsoft Speech SDK como os REST APIs suportam estas vozes, cada uma das quais suporta uma linguagem e dialeto específicos, identificados pelo local. Também pode obter uma lista completa de línguas e vozes apoiadas para cada região/ponto final específico através das [vozes/lista API](rest-text-to-speech.md#get-a-list-of-voices). 
+
+Para aprender como pode configurar e ajustar estilos de fala, incluindo vozes neurais, veja o [como fazer](speech-synthesis-markup.md#adjust-speaking-styles) na Linguagem de Marcação de Síntese de Fala.
 
 > [!IMPORTANT]
 > Os preços variam para vozes normais, personalizadas e neurais. Visite a página [de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter informações adicionais.
@@ -286,8 +288,6 @@ Abaixo as vozes neurais estão na pré-visualização pública.
 > As vozes na pré-visualização pública só estão disponíveis em 3 regiões de serviço: Leste dos EUA, Europa Ocidental e Sudeste Asiático.
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
-
-Para aprender como pode configurar e ajustar vozes neurais, tais como Estilos de Fala, consulte [a Linguagem de Marcação de Síntese de Fala](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > A `en-US-JessaNeural` voz mudou `en-US-AriaNeural` para. Se já usaste "Jessa" antes, converte-te em "Aria".

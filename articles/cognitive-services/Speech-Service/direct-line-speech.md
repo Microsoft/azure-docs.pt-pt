@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021886"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601115"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é a Voz do Direct Line?
 
@@ -23,7 +23,7 @@ ms.locfileid: "95021886"
 
 [Os assistentes de](voice-assistants.md) voz ouvem os utilizadores e tomam medidas em resposta, muitas vezes respondendo. Usam [a palavra-a-texto para](speech-to-text.md) transcrever o discurso do utilizador e, em seguida, tomam medidas sobre a compreensão da linguagem natural do texto. Esta ação inclui frequentemente a saída falada do assistente gerado com [texto-a-voz](text-to-speech.md).
 
-O Direct Line Speech oferece os mais altos níveis de personalização e sofisticação para assistentes de voz. É projetado para cenários de conversação que são abertos, naturais ou híbridos dos dois com conclusão de tarefa ou uso de comando e controlo. Este alto grau de flexibilidade vem com uma maior complexidade, e cenários que são alargados a tarefas bem definidas usando a entrada de linguagem natural podem querer considerar [comandos personalizados (Preview)](custom-commands.md) para uma experiência de solução simplificada.
+O Direct Line Speech oferece os mais altos níveis de personalização e sofisticação para assistentes de voz. É projetado para cenários de conversação que são abertos, naturais ou híbridos dos dois com conclusão de tarefa ou uso de comando e controlo. Este alto grau de flexibilidade vem com uma maior complexidade, e cenários que são alargados a tarefas bem definidas usando a entrada de linguagem natural podem querer considerar [comandos personalizados](custom-commands.md) para uma experiência de solução simplificada.
 
 ## <a name="getting-started-with-direct-line-speech"></a>Começando com discurso de linha direta
 
@@ -45,7 +45,7 @@ Também oferecemos quickstarts projetados para que você executa o código e apr
 
 O código de amostra para criar um assistente de voz está disponível no GitHub. Estas amostras cobrem a aplicação do cliente para ligação ao seu assistente em várias línguas de programação populares.
 
-* [Amostras de assistente de voz (SDK)](https://aka.ms/csspeech/samples)
+* [Amostras de assistente de voz (SDK)](https://aka.ms/csspeech/samples/#voice-assistants-quickstarts)
 * [Tutorial: A voz permite o seu assistente com o Discurso SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>Personalização
@@ -62,7 +62,7 @@ O Discurso de Linha Direta e a sua funcionalidade associada para assistentes de 
 * [API de Voz](./speech-sdk.md)
 * [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Obtenha o Discurso SDK](speech-sdk.md)

@@ -3,17 +3,17 @@ title: 'Quickstart: Azure Blob storage client library v10 for JavaScript'
 description: Criar, carregar e apagar bolhas e recipientes em Node.js com a biblioteca de clientes Azure Storage v10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1f47c35997fe060fd3c318602bcad17de83b530c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2371c789b9e4a9fc70f4207fd8a634e419c97912
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249625"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599454"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Quickstart: Gerir blobs com JavaScript v10 SDK em Node.js
 
@@ -139,7 +139,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Os pedidos feitos pela API podem ser definidos para intervalo após um determinado intervalo. A classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) é responsável por gerir a forma como os pedidos excedem o limite de tempo e a constante seguinte serve para definir os tempos limite utilizados neste exemplo.
+Os pedidos feitos pela API podem ser definidos para intervalo após um determinado intervalo. A classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy&preserve-view=true) é responsável por gerir a forma como os pedidos excedem o limite de tempo e a constante seguinte serve para definir os tempos limite utilizados neste exemplo.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -178,13 +178,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 
 As seguintes classes são utilizadas neste bloco de código:
 
-- A classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) é responsável pelo encapsulamento num wrapper das credenciais da conta de armazenamento, para fornecê-las a um pipeline de pedido.
+- A classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy&preserve-view=true) é responsável pelo encapsulamento num wrapper das credenciais da conta de armazenamento, para fornecê-las a um pipeline de pedido.
 
-- A classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) é responsável por criar um novo pipeline.
+- A classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy&preserve-view=true) é responsável por criar um novo pipeline.
 
-- A classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy) modela um URL utilizado na API REST. As instâncias desta classe permitem-lhe executar ações como listar contentores e fornecer informações de contexto para gerar URLs de contentor.
+- A classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy&preserve-view=true) modela um URL utilizado na API REST. As instâncias desta classe permitem-lhe executar ações como listar contentores e fornecer informações de contexto para gerar URLs de contentor.
 
-A instância de *ServiceURL* é utilizado com as instâncias de [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) para gerir contentores e blobs na sua conta de armazenamento.
+A instância de *ServiceURL* é utilizado com as instâncias de [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy&preserve-view=true) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy&preserve-view=true) para gerir contentores e blobs na sua conta de armazenamento.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -403,7 +403,7 @@ await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Todos os dados escritos na conta de armazenamento são eliminados automaticamente no fim do código de exemplo. 
 

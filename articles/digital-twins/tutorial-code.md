@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: fd958c09a14334d8230e52413c590febb2148851
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048963"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602128"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -57,9 +57,12 @@ Isto irá criar vários ficheiros dentro do seu diretório, incluindo um chamado
 
 Mantenha a janela de comando aberta, pois continuará a usá-la durante todo o tutorial.
 
-Em seguida, **adicione duas dependências ao seu projeto** que serão necessárias para trabalhar com a Azure Digital Twins. Pode utilizar os links abaixo para navegar para os pacotes no NuGet, onde pode encontrar os comandos da consola (incluindo para .NET CLI) para adicionar a versão mais recente de cada um ao seu projeto.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-* [**Azure.Identidade.**](https://www.nuget.org/packages/Azure.Identity) Esta biblioteca fornece ferramentas para ajudar na autenticação contra o Azure.
+Em seguida, **adicione duas dependências ao seu projeto** que serão necessárias para trabalhar com a Azure Digital Twins. O primeiro é o pacote para o [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), o segundo fornece ferramentas para ajudar na autenticação contra o Azure.
+
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+```
 
 ## <a name="get-started-with-project-code"></a>Começar com o código do projeto
 
@@ -181,7 +184,7 @@ Agora, se executar o programa com `dotnet run` a sua janela de comando agora, ve
 
 A partir de agora, o tutorial irá embrulhar todas as chamadas para métodos de serviço em manipuladores de tentativa/captura.
 
-### <a name="create-digital-twins"></a>Criar gémeos digitais
+### <a name="create-digital-twins"></a>Criar duplos digitais
 
 Agora que fez o upload de um modelo para Azure Digital Twins, pode usar esta definição de modelo para criar **gémeos digitais.** [Gémeos digitais](concepts-twins-graph.md) são exemplos de um modelo, e representam as entidades dentro do seu ambiente de negócios — coisas como sensores numa quinta, quartos num edifício ou luzes num carro. Esta secção cria alguns gémeos digitais com base no modelo que carregou anteriormente.
 
@@ -195,7 +198,7 @@ Então, executar o programa de novo.
 
 Note que não se comete nenhum erro quando os gémeos são criados pela segunda vez, mesmo que os gémeos já existam após a primeira corrida. Ao contrário da criação de modelos, a criação de gémeos é, no nível REST, uma chamada *PUT* com semântica *upsert.* Isto significa que, se um gémeo já existir, uma tentativa de criar o mesmo gémeo novamente irá apenas substituir o gémeo original. Nenhum erro é atirado.
 
-### <a name="create-relationships"></a>Criar relacionamentos
+### <a name="create-relationships"></a>Criar relações
 
 Em seguida, pode criar **relações** entre os gémeos que criou, para ligá-los a um **gráfico gémeo.** [Os gráficos gémeos](concepts-twins-graph.md) são usados para representar todo o seu ambiente.
 

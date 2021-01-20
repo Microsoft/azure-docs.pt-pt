@@ -1,5 +1,5 @@
 ---
-title: Web SDK suportado navegadores Microsoft Azure Maps
+title: Web SDK suporta navegadores | Microsoft Azure Maps
 description: Descubra como verificar se o Azure Maps Web SDK suporta um navegador. Veja uma lista de navegadores suportados. Saiba como usar os serviços de mapas com navegadores antigos.
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 43bf70d66c42bc0ecd5e26e4cc724456bd4bf84e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896927"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601149"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browsers suportados por SDK web
 
@@ -36,7 +36,7 @@ O Azure Maps Web SDK suporta os seguintes navegadores de ambiente de trabalho:
 - Microsoft Edge (versão atual e anterior)
 - Google Chrome (versão atual e anterior)
 - Mozilla Firefox (versão atual e anterior)
-- Apple Safari (Mac OS X) (versão atual e anterior)
+- Apple Safari (macOS X) (versão atual e anterior)
 
 Consulte também [navegadores legados target](#Target-Legacy-Browsers) mais tarde neste artigo.
 
@@ -59,11 +59,11 @@ O Azure Maps Web SDK suporta os seguintes navegadores móveis:
 
 Os seguintes módulos Web SDK também são suportados em Node.js:
 
-- Módulo de serviços[(módulo npm documentação)](how-to-use-services-module.md)  |  [npm module](https://www.npmjs.com/package/azure-maps-rest)
+- Módulo de serviços[(módulo npm documentação)](how-to-use-services-module.md)  |  [](https://www.npmjs.com/package/azure-maps-rest)
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Navegadores legados alvo
 
-Você pode querer direcionar navegadores mais antigos que não suportam WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que utilize os serviços Azure Maps juntamente com um controlo de mapas de código aberto como [o Folheto](https://leafletjs.com/). Eis um exemplo:
+Você pode querer direcionar navegadores mais antigos que não suportam WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que utilize os serviços Azure Maps juntamente com um controlo de mapas de código aberto como [o Folheto](https://leafletjs.com/). Aqui está um exemplo que faz uso do plugin de [folheto azure Maps de](https://github.com/azure-samples/azure-maps-leaflet)código aberto.
 
 <br/>
 
@@ -71,6 +71,7 @@ Você pode querer direcionar navegadores mais antigos que não suportam WebGL ou
 Consulte os Mapas Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure + Folheto</a> by Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Podem ser [encontradas](https://azuremapscodesamples.azurewebsites.net/?search=leaflet)aqui amostras de código adicionais utilizando mapas Azure em Folheto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

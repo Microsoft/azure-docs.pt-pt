@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/19/2021
+ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170833"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602395"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -109,7 +109,7 @@ A resposta desses métodos contém também o [rendimento mínimo previsto](conce
 O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas geralmente é o máximo de:
 
 * 400 RU/s 
-* Armazenamento atual em GB * 10 RU/s (a menos que o seu recipiente ou base de dados contenha mais de 1 TB de dados, consulte o nosso [programa de alto armazenamento/baixo rendimento)](#high-storage-low-throughput-program)
+* Armazenamento atual em GB * 10 RU/s (esta restrição pode ser relaxada em alguns casos, ver o nosso [programa de alto armazenamento /baixo produção)](#high-storage-low-throughput-program)
 * RU/s mais elevados a provisionados na base de dados ou no contentor / 100
 
 ### <a name="changing-the-provisioned-throughput"></a>Alteração da produção a provisionada
@@ -139,7 +139,7 @@ Tal como descrito na secção [de produção](#current-provisioned-throughput) a
 
 Isto pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas tem baixos requisitos de produção em comparação. Para melhor acomodar estes cenários, a Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixo rendimento"** que diminui a restrição RU/s por GB em contas elegíveis.
 
-Atualmente precisa de ter pelo menos 1 contentor ou base de dados de produção partilhada contendo mais de 1 TB de dados na sua conta para ser elegível. Para aderir a este programa e avaliar a sua plena elegibilidade, tudo o que tem de fazer é preencher [esta pesquisa.](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u) A equipa DB da Azure Cosmos irá então acompanhar e proceder com o seu embarque.
+Para aderir a este programa e avaliar a sua plena elegibilidade, tudo o que tem de fazer é preencher [esta pesquisa.](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u) A equipa DB da Azure Cosmos irá então acompanhar e proceder com o seu embarque.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 Este quadro mostra uma comparação entre a produção padrão de provisionamento (manual) numa base de dados vs. num contentor. 

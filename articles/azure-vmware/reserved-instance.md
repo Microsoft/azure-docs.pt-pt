@@ -3,12 +3,12 @@ title: Economize custos com a Azure VMware Solution reservado instância
 description: Saiba como comprar uma instância reservada para a Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327402"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600865"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a Azure VMware Solution
 
@@ -54,7 +54,7 @@ Estes requisitos aplicam-se à compra de um caso de anfitrião dedicado reservad
 
    | Campo        |  Descrição |
    | ------------ | ------------ |
-   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), Microsoft Customer Agreement, ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo de fidelização monetária, se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas de pagamento, os encargos são cobrados no cartão de crédito da subscrição ou num método de pagamento de fatura. |
+   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), Microsoft Customer Agreement, ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo Azure Prepayment (anteriormente chamado de compromisso monetário), se disponível, ou cobrado como excesso. Para uma subscrição com taxas de pagamento, os encargos são cobrados no cartão de crédito da subscrição ou num método de pagamento de fatura. |
    | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
    | Região       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |

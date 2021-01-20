@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333788"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599360"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -107,6 +107,73 @@ As consultas com uma função de sistema agregada e um subquery com `DISTINCT` n
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## <a name="like"></a>COMO
+
+Devolve um valor Boolean dependendo se uma corda de carácter específico corresponde a um padrão especificado. Um padrão pode incluir caracteres regulares e caracteres wildcard. Pode escrever consultas logicamente equivalentes utilizando a `LIKE` palavra-chave ou a função do sistema [RegexMatch.](sql-query-regexmatch.md) Observará a mesma utilização do índice independentemente da escolha. Por isso, deve utilizar `LIKE` se preferir a sintaxe mais do que expressões regulares.
+
+> [!NOTE]
+> Porque `LIKE` pode utilizar um índice, deve criar um índice de [gama](indexing-policy.md) para propriedades que está a comparar usando `LIKE` .
+
+Pode utilizar os seguintes caracteres wildcard com LIKE:
+
+| Personagem wildcard | Descrição                                                  | Exemplo                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Qualquer cadeia de caracteres zero ou mais                      | ONDE c.description LIKE "%SO%PS%"      |
+| _ (sublinhado)     | Qualquer personagem                                       | ONDE c.description LIKE "%SO_PS%"      |
+| [ ]                  | Qualquer caracteres dentro do intervalo especificado ([a-f]) ou definido ([abcdef]). | ONDE c.description LIKE "%SO[t-z]PS%"  |
+| [^]                  | Qualquer caracteres não dentro do intervalo especificado ([^a-f]) ou definido ([^abcdef]). | ONDE c.description LIKE "%SO[^abc]PS%" |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>Usando LIKE com o caráter % wildcard
+
+O `%` personagem corresponde a qualquer sequência de zero ou mais caracteres. Por exemplo, colocando um `%` no início e no fim do padrão, a seguinte consulta devolve todos os itens com uma descrição que `fruit` contém:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+Se usasse apenas um `%` personagem no início do padrão, só devolveria itens com uma descrição que começou `fruit` com:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>Usar NÃO GOSTO
+
+O exemplo abaixo devolve todos os itens com uma descrição que não `fruit` contenha:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Usando a cláusula de fuga
+
+Pode pesquisar padrões que incluam um ou mais caracteres wildcard usando a cláusula ESCAPE. Por exemplo, se quisesse procurar descrições que contivessem a `20-30%` corda, não quereria interpretar o `%` carácter como um personagem wildcard.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>Usando caracteres wildcard como literais
+
+Você pode incluir caracteres wildcard em parênteses para tratá-los como caracteres literais. Quando se encerra um personagem wildcard nos parênteses, remove-se quaisquer atributos especiais. Eis alguns exemplos:
+
+| Padrão           | Significado |
+| ----------------- | ------- |
+| COMO "20-30[%]" | 20-30%  |
+| LIKE "[_]n"     | _n      |
+| COMO "[[]"    | [       |
+| COMO "]"        | ]       |
 
 ## <a name="in"></a>IN
 

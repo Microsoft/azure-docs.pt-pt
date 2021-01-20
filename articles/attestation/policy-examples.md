@@ -7,18 +7,18 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7af91e2065235d749d3a690a3c4c244fc45c0e5a
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572770"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602307"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemplos de uma política de atestado
 
 A política de atestado é usada para processar as provas de atestado e determinar se o Azure Attestation emitirá um token de atestado. A geração de token attestation pode ser controlada com políticas personalizadas. Seguem-se alguns exemplos de uma política de atestado.
 
-## <a name="default-policy-for-an-sgx-enclave-in-text-format"></a>Política padrão para um enclave SGX em formato de texto
+## <a name="default-policy-for-an-sgx-enclave"></a>Política padrão para um enclave SGX 
 
 ```
 version= 1.0;
@@ -38,26 +38,17 @@ issuancerules
 };
 ```
 
-## <a name="sample-custom-policy-for-an-sgx-enclave-in-text-format"></a>Política personalizada de amostra para um enclave SGX em formato de texto
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Experimente a política personalizada para um enclave SGX 
 
 ```
-Version= 1.0;
-authorizationrules 
+version= 1.0;
+authorizationrules
 {
        [ type=="x-ms-sgx-is-debuggable", value==false ]
         && [ type=="x-ms-sgx-product-id", value==<product-id> ]
         && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"] 
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
     => permit();
-};
-issuancerules
-{
-    c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);
-    c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
-    c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
-    c:[type=="x-ms-sgx-product-id"] => issue(type="product-id", value=c.value);
-    c:[type=="x-ms-sgx-svn"] => issue(type="svn", value=c.value);
-    c:[type=="x-ms-sgx-tee"] => issue(type="tee", value=c.value);
 };
 ```
 

@@ -1,18 +1,18 @@
 ---
-title: Obtenha apoio para o portal do mercado comercial no Partner Center
-description: Saiba mais sobre as suas opções de suporte no Partner Center, incluindo como apresentar um pedido de suporte.
+title: Obtenha apoio para o programa de marketplace comercial no Partner Center
+description: Conheça as suas opções de suporte para o programa de marketplace comercial no Partner Center, incluindo como apresentar um pedido de suporte.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/14/2020
-ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.date: 01/19/2020
+ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183443"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602559"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Apoio ao programa de marketplace comercial no Partner Center
 
@@ -22,60 +22,43 @@ A Microsoft fornece suporte para uma grande variedade de produtos e serviços. E
 - Se você é um editor e detetou um problema de segurança com uma aplicação em execução no Azure, consulte [como registar um bilhete de suporte para eventos de segurança](/azure/security/fundamentals/event-support-ticket). Os editores devem reportar casos de segurança suspeitos, incluindo incidentes de segurança e vulnerabilidades do seu software e ofertas de serviços Azure Marketplace, o mais rapidamente possível.
 - Se é editor e tem uma pergunta relacionada com a sua app ou serviço, reveja as seguintes opções de suporte.
 
-## <a name="support-options-for-publishers"></a>Opções de apoio para editores
+## <a name="get-help-or-open-a-support-ticket"></a>Obtenha ajuda ou abra um bilhete de apoio
 
-1. Inscreva-se no [programa de marketplace comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com a sua conta de trabalho (se ainda não o fez, terá de criar uma conta Partner [Center](partner-center-portal/create-account.md).
+1. Inscreva-se na sua conta de trabalho. Se ainda não o fez, terá de [criar uma conta Partner Center](partner-center-portal/create-account.md).
 
-2. No menu superior do lado direito da página, selecione o ícone **'Suporte'.**
+1. No menu no canto superior direito da página, selecione o ícone **De suporte.** O **painel de ajuda e apoio** aparece no lado direito da página.
 
-3. O **painel de ajuda e apoio** aparecerá do lado direito da página.
+1. Para obter ajuda no mercado comercial, **selecione Commercial Marketplace**.
 
    ![Suporte menu suspenso](./media/support/commercial-marketplace-support-pane.png)
 
-    Ou vá ao **painel da página** inicial e selecione Ajuda e **suporte**.
+1. Na caixa **de resumo de problema,** introduza uma breve descrição da questão.
 
-   ![Ajuda e apoio da página inicial](./media/support/homepage-help-support.png)
+1. Na caixa **de tipo Problema,** faça uma das seguintes:
 
-4. Selecione **[Documentação](../index.yml)** para rever respostas abrangentes a perguntas e recursos.
+    - **Opção 1**: Introduza palavras-chave como: Marketplace, app Azure, oferta SaaS, gestão de conta, gestão de chumbo, emissão de implementação, pagamento ou co-venda de ofertas migratórias. Em seguida, selecione um tipo de problema da lista recomendada que aparece.
 
-5. Selecione **[o Fórum comunitário Marketplace Partner](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder às suas perguntas aproveitando o conhecimento de outras editoras da Microsoft.
+    - **Opção 2**: **Selecione Procurar tópicos** da lista de **categorias** e, em seguida, selecione **Mercado Comercial**. Em seguida, selecione o **tópico** e **o subtópico** apropriados.
 
-6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um novo bilhete **de pedido de apoio.**  
+1. Depois de ter encontrado o tópico da sua escolha, selecione **Soluções de Revisão.**
 
-## <a name="how-to-open-a-support-ticket"></a>Como abrir um bilhete de apoio
+    ![Passo seguinte](./media/support/next-step.png)
 
-Agora está pronto para abrir um bilhete de apoio no ecrã **de Ajuda e Apoio.**
+São apresentadas as seguintes opções:
 
-![Ajuda e suporte](./media/support/help-and-support.png)
+- Para selecionar um tópico diferente, clique **em Selecionar um problema diferente.**
+- Para ajudar a resolver o problema, reveja os passos e documentos recomendados, se disponível.
 
->[!Note]
->Se estiver registado no Partner Center, receberá uma melhor experiência com suporte.
+    ![Soluções recomendadas](./media/support/recommended-solutions.png)
 
-**Opção 1:** Introduza palavras-chave como: Marketplace, app Azure, oferta SaaS, gestão de conta, gestão de chumbo, emissão de implementação, pagamento, etc.
-
-**Opção 2:** Pesquise tópicos -> selecione **Category** = mercado comercial -> selecione o **tópico** apropriado então **Subtópico**.
-
-Assim que tiver encontrado o tópico da sua escolha, selecione **Soluções de Revisão**.
-
-![Passo seguinte](./media/support/next-step.png)
-
-As seguintes opções ficarão disponíveis:
-
-- Para selecionar um tópico diferente, selecione um link de tópico diferente em **questão selecionada**.
-- Reveja a descrição para este edição, se disponível.  É o texto acima **indicado.**
-- Reveja **os passos recomendados,** se disponível.
-- Reveja **os documentos recomendados,** se disponível.
-
-![Soluções recomendadas](./media/support/recommended-solutions.png)
-
-Se não conseguir encontrar a sua resposta em **soluções recomendadas,** **selecione fornecer detalhes de problemas**. Preencha todos os campos necessários para acelerar o processo de resolução e, em seguida, selecione **submeter**.
+Se não conseguir encontrar a sua resposta na autoajuda, **selecione Forneça detalhes de emissão**. Preencha todos os campos necessários para acelerar o processo de resolução e, em seguida, **selecione Enviar por isso**.
 
 >[!Note]
->Se não tiver iniciado sessão no Partner Center e o tópico necessitar de autenticação, será solicitado que faça login antes de poder prosseguir.  Para temas públicos, a autenticação não é necessária.
+>Se não se inscreveu no Partner Center, poderá ser obrigado a iniciar sessão antes de poder criar um bilhete.
 
 ## <a name="track-your-existing-support-requests"></a>Acompanhe os seus pedidos de apoio existentes
 
-Para rever todos os seus bilhetes abertos e fechados, vá ao **Mercado Comercial** na barra de navegação à esquerda e, em seguida, selecione **suporte**.
+Para rever os seus bilhetes abertos e fechados, no menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Support**.
 
 ## <a name="record-issue-details-with-a-har-file"></a>Registar detalhes de emissão com um ficheiro HAR
 

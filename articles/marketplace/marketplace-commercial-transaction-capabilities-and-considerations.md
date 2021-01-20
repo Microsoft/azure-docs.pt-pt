@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822391"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600390"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -115,7 +115,7 @@ Neste cenário, a Microsoft fatura 1,14 dólares por hora para utilização da s
 |Microsoft mantém 100% do custo de utilização do Azure | $0,14 por hora |
 ||
 
-**Traga a Sua Própria Licença (BYOL)**
+**Traga a sua própria licença (BYOL)**
 
 A BYOL tem a seguinte estrutura de custos:
 
@@ -160,7 +160,7 @@ Neste cenário, a Microsoft fatura $100,00 pela sua licença de software e paga 
 
 **Cartões de crédito e fatura mensal** – Os clientes também podem pagar com cartão de crédito e uma fatura mensal. Neste caso, as suas taxas de licença de software serão faturadas tal como o cenário do Acordo Empresarial, como um custo itemtado, separado de quaisquer custos de utilização específicos do Azure.
 
-**Créditos gratuitos e compromisso monetário** – Alguns clientes optam por pré-pagar a Azure com um compromisso monetário no Acordo Empresarial ou receberam créditos gratuitos para uso com a Azure. Embora estes créditos possam ser usados para pagar o uso do Azure, eles não podem ser usados para pagar as taxas de licença de software de editor.
+**Créditos gratuitos e Pré-pagamento Azure** – Alguns clientes optam por pré-pagar a Azure com o Azure Prepayment (anteriormente chamado compromisso monetário) no Acordo de Empresa ou foram concedidos créditos gratuitos para uso com a Azure. Embora estes créditos possam ser usados para pagar o uso do Azure, eles não podem ser usados para pagar as taxas de licença de software de editor.
 
 **Faturação e coleções** – A faturação da licença de software da Editora é apresentada utilizando o método de faturação selecionado pelo cliente e segue a linha temporal de faturação. Os clientes sem um Acordo Empresarial em vigor são cobrados mensalmente para licenças de software de marketplace. Os clientes com Contrato Empresarial são faturados mensalmente através de uma fatura que é apresentada trimestralmente.
 

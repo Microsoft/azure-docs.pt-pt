@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356966"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600525"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Cabeçalhos de resposta do servidor Azure Cosmos DB Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -36,13 +36,12 @@ Tenha em mente que, tendo em conta estes cabeçalhos, está a limitar a portabil
 
 ## <a name="status-codes"></a>Códigos de estado
 
-Os códigos de estado mais comuns devolvidos pelo servidor estão listados abaixo.
+Os códigos mais comuns devolvidos para `x-ms-status-code` atributo de estado pelo servidor estão listados abaixo.
 
 | Estado | Explicação |
 | --- | --- |
 | **401** | A mensagem de erro `"Unauthorized: Invalid credentials provided"` é devolvida quando a palavra-passe de autenticação não corresponde à chave da conta Cosmos DB. Navegue na sua conta Cosmos DB Gremlin no portal Azure e confirme que a chave está correta.|
 | **404** | Operações simultâneas que tentam eliminar e atualizar simultaneamente a mesma borda ou vértice. A mensagem de erro `"Owner resource does not exist"` indica que a base de dados ou a coleção especificada está incorreta nos parâmetros de ligação no formato `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"` indica que traversal demorou mais de **30 segundos** e foi cancelado pelo servidor. Otimize os seus traversais para correr rapidamente filtrando vértices ou arestas em cada salto de travessia para reduzir o alcance de pesquisa.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` normalmente, ocorre quando um vértice ou uma margem com um identificador já existe no gráfico.| 
 | **412** | O código de estado é complementado com uma mensagem de erro `"PreconditionFailedException": One of the specified pre-condition is not met` . Este erro é indicativo de uma violação otimista do controlo da concordância entre ler uma borda ou vértice e escrevê-lo de volta à loja após modificação. A maioria das situações comuns quando este erro ocorre é modificação de propriedade, por exemplo `g.V('identifier').property('name','value')` . O motor Gremlin lia o vértice, modificava-o e escrevia-o de volta. Se houver outra travessia em paralelo a tentar escrever o mesmo vértice ou uma borda, um deles receberá este erro. A aplicação deve submeter transversalmente ao servidor novamente.| 
 | **429** | Pedido foi acelerado e deve ser novamente julgado após valor em **x-ms-retry-after-ms**| 
@@ -53,6 +52,7 @@ Os códigos de estado mais comuns devolvidos pelo servidor estão listados abaix
 | **1004** | Este código de estado indica um pedido de gráfico mal formado. O pedido pode ser mal formado quando falha na deserialização, o tipo sem valor está a ser deserializado como tipo de valor ou operação gremlin não suportada solicitada. O pedido não deve voltar a julgar o pedido porque não será bem sucedido. | 
 | **1007** | Normalmente, este código de estado é devolvido com mensagem de erro `"Could not process request. Underlying connection has been closed."` . Esta situação pode acontecer se o condutor do cliente tentar utilizar uma ligação que está a ser fechada pelo servidor. A aplicação deve voltar a tentar a travessia numa ligação diferente.
 | **1008** | O servidor Cosmos DB Gremlin pode terminar as ligações para reequilibrar o tráfego no cluster. Os controladores de clientes devem lidar com esta situação e usar apenas ligações ao vivo para enviar pedidos para o servidor. Ocasionalmente, os condutores de clientes podem não detetar que a ligação foi fechada. Quando a aplicação encontra um erro, `"Connection is too busy. Please retry after sometime or open more connections."` deve voltar a tentar atravessar numa ligação diferente.
+| **1009** | A operação não foi concluída no tempo atribuído e foi cancelada pelo servidor. Otimize os seus traversais para correr rapidamente filtrando vértices ou arestas em cada salto de travessia para estreitar o alcance da pesquisa. O prazo de padrão de pedido é de **60 segundos**. |
 
 ## <a name="samples"></a>Amostras
 
@@ -108,7 +108,7 @@ try {
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Códigos de estado HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
 * [Cabeçalhos de resposta Common Azure Cosmos DB REST](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [Requisitos do fornecedor do controlador de gráficos TinkerPop]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)
