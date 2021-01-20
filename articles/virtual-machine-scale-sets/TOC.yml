@@ -182,7 +182,7 @@
         - name: Discos de SO Efémeros
           href: ../virtual-machines/ephemeral-os-disks.md
         - name: Destinos de escalabilidade para discos
-          href: ../virtual-machines/windows/disk-scalability-targets.md
+          href: ../virtual-machines/disks-scalability-targets.md
           maintainContext: true
         - name: Cópia de Segurança e recuperação após desastre para discos
           href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md

@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 74acabf21252acfd79520d7f24ff79503734a235
-  ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+  ms.openlocfilehash: 10c606ab86a577f22167197138e56a14d176b88a
+  ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/05/2021
-  ms.locfileid: "97901526"
+  ms.lasthandoff: 01/19/2021
+  ms.locfileid: "98570138"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     - text: Criar a sua primeira função (Go)
       url: create-first-function-vs-code-other.md?tabs=go
     - text: Criar a sua primeira função (Java)
-      url: create-first-function-vs-code-java.md
+      url: create-first-function-cli-java.md?tabs=bash%2Cazure-cli%2Cbrowser
     - text: Criar a sua primeira função (JavaScript)
       url: create-first-function-vs-code-node.md
     - text: Criar a sua primeira função (PowerShell)

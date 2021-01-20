@@ -453,6 +453,10 @@
               href: flexible-server/connect-workbench.md
             - name: Python
               href: flexible-server/connect-python.md
+            - name: Java
+              href: flexible-server/connect-java.md
+            - name: .NET
+              href: flexible-server/connect-csharp.md
     - name: Tutoriais
       items:
         - name: WordPress no Azure Kubernetes
