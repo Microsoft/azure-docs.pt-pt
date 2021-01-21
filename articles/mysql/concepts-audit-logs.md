@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: aac8e6e04b8bac7a1d27fefc780fb9fadb3122dc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534182"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630505"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registos de auditoria na Base de Dados Azure para o MySQL
 
@@ -43,7 +43,7 @@ Outros parâmetros que pode ajustar incluem:
 | `DCL` | Consultas como "GRANT PERMISSION" |
 | `ADMIN` | Consultas como "SHOW STATUS" |
 | `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN |
-| `TABLE_ACCESS` | - Disponível apenas para MySQL 5.7 <br> - Declarações de leitura de tabelas, tais como SELECT ou INSERT INTO... SELECIONE <br> - Tabela eliminar declarações, tais como DELETE ou TABELA TRUNCATE <br> - Declarações de inserção de tabelas, tais como INSERT ou REPLACE <br> - Declarações de atualização de tabelas, tais como UPDATE |
+| `TABLE_ACCESS` | - Disponível para MySQL 5.7 e MySQL 8.0 <br> - Declarações de leitura de tabelas, tais como SELECT ou INSERT INTO... SELECIONE <br> - Tabela eliminar declarações, tais como DELETE ou TABELA TRUNCATE <br> - Declarações de inserção de tabelas, tais como INSERT ou REPLACE <br> - Declarações de atualização de tabelas, tais como UPDATE |
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
 

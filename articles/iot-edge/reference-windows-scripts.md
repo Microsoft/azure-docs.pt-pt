@@ -1,5 +1,5 @@
 ---
-title: Scripts do Windows para Azure IoT Edge Microsoft Docs
+title: Scripts windows para Azure IoT Edge | Microsoft Docs
 description: Informações de referência para scripts IoT Edge PowerShell para instalar, desinstalar ou atualizar em dispositivos Windows
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a082ccb62103ab5bd027bf49b9ee05bc48c63115
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979675"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630621"
 ---
 # <a name="powershell-scripts-for-iot-edge-on-windows"></a>Scripts PowerShell para IoT Edge no Windows
 
@@ -53,7 +53,7 @@ O comando Deploy-IoTEdge descarrega e implementa o IoT Edge Security Daemon e as
 | **Proxy** | URL de procuração | Inclua este parâmetro se o seu dispositivo precisar de passar por um servidor proxy para chegar à internet. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se este parâmetro for incluído, o instalador verificará o diretório listado para os ficheiros MSI de cabaça IoT Edge e VC runtime necessários para a instalação. Todos os ficheiros não encontrados no diretório são descarregados. Se ambos os ficheiros estiverem no diretório, pode instalar o IoT Edge sem uma ligação à Internet. Também pode utilizar este parâmetro para utilizar uma versão específica. |
 | **Invocar WebRequestParameters** | Haxixe de parâmetros e valores | Durante a instalação, são feitos vários pedidos web. Utilize este campo para definir parâmetros para esses pedidos web. Este parâmetro é útil para configurar credenciais para servidores proxy. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
-| **RestartIfNeed** | nenhuma | Esta bandeira permite que o script de implantação reinicie a máquina sem aviso, se necessário. |
+| **RestartIfNeed** | nenhum | Esta bandeira permite que o script de implantação reinicie a máquina sem aviso, se necessário. |
 
 ## <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -90,19 +90,17 @@ O comando Initialize-IoTEdge configura o IoT Edge com a cadeia de ligação do d
 | **Proxy** | URL de procuração | Inclua este parâmetro se o seu dispositivo precisar de passar por um servidor proxy para chegar à internet. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **Invocar WebRequestParameters** | Haxixe de parâmetros e valores | Durante a instalação, são feitos vários pedidos web. Utilize este campo para definir parâmetros para esses pedidos web. Este parâmetro é útil para configurar credenciais para servidores proxy. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se este parâmetro for incluído, o instalador verificará o diretório listado para os ficheiros MSI de cabaça IoT Edge e VC runtime necessários para a instalação. Todos os ficheiros não encontrados no diretório são descarregados. Se ambos os ficheiros estiverem no diretório, pode instalar o IoT Edge sem uma ligação à Internet. Também pode utilizar este parâmetro para utilizar uma versão específica. |
-| **RestartIfNeed** | nenhuma | Esta bandeira permite que o script de implantação reinicie a máquina sem aviso, se necessário. |
+| **RestartIfNeed** | nenhum | Esta bandeira permite que o script de implantação reinicie a máquina sem aviso, se necessário. |
 
 ## <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
-| **Força** | nenhuma | Esta bandeira força a desinstalação no caso de a tentativa anterior de desinstalar não ter sido bem sucedida.
-| **RestartIfNeed** | nenhuma | Esta bandeira permite que o script de desinstalar reinicie a máquina sem aviso, se necessário. |
+| **Force** | nenhum | Esta bandeira força a desinstalação no caso de a tentativa anterior de desinstalar não ter sido bem sucedida.
+| **RestartIfNeed** | nenhum | Esta bandeira permite que o script de desinstalar reinicie a máquina sem aviso, se necessário. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como utilizar estes comandos nos seguintes artigos:
+Saiba como utilizar estes comandos no seguinte artigo:
 
-* [Instale ou desinstale o tempo de execução do Azure IoT Edge](how-to-install-iot-edge.md)
-* [Disposição de um dispositivo Azure IoT Edge com autenticação de chave simétrica](how-to-manual-provision-symmetric-key.md)
-* [Fornecimento de um dispositivo Azure IoT Edge com autenticação de certificado X.509](how-to-manual-provision-x509.md)
+* [Instale ou desinstale a borda IoT do Azure para windows](how-to-install-iot-edge-windows-on-windows.md)

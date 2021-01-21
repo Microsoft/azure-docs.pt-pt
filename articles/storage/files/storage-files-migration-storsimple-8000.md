@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 76a244810042adf3cec64b15fe847c5b684527c2
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134352"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631189"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -145,7 +145,7 @@ Os grupos de recursos estão a ajudar na organização de recursos e permissões
 
 O nome da sua conta de armazenamento passará a fazer parte de um URL e tem determinadas limitações de caracteres. Na sua convenção de nomeação, considere que os nomes das contas de armazenamento têm de ser únicos no mundo, permitem apenas letras e números minúsculos, requerem entre 3 a 24 caracteres, e não permitem caracteres especiais como hífens ou sublinhados. Para obter mais informações, consulte [as regras de nomeação de recursos de armazenamento Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>A localização
+#### <a name="location"></a>Localização
 
 A localização ou região de Azure de uma conta de armazenamento é muito importante. Se utilizar o Azure File Sync, todas as suas contas de armazenamento devem estar na mesma região que o seu recurso De Serviço de Sincronização de Armazenamento. A região Azure que escolher deve ser próxima ou central para os seus servidores e utilizadores locais. Depois de o seu recurso ter sido implantado, não pode mudar a sua região.
 
@@ -160,7 +160,7 @@ Tem a opção de escolher armazenamento premium (SSD) para ações de ficheiros 
 
 Ainda não tem certeza?
 
-* Escolha o armazenamento premium se precisar do [desempenho de uma partilha de ficheiros Azure premium.](understanding-billing.md#provisioned-billing)
+* Escolha o armazenamento premium se precisar do [desempenho de uma partilha de ficheiros Azure premium.](understanding-billing.md#provisioned-model)
 * Escolha o armazenamento padrão para as cargas de trabalho do servidor de ficheiros de uso geral, que inclui dados quentes e dados de arquivo. Escolha também o armazenamento padrão se a única carga de trabalho na partilha na nuvem será O Azure File Sync.
 
 #### <a name="account-kind"></a>Tipo de conta

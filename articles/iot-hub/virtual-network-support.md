@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703811"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630298"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -70,6 +70,9 @@ O [ponto final compatível com o Event Hub também](iot-hub-devguide-messages-re
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Imagem mostrando dois pontos finais privados dado cada link privado IoT Hub":::
 
+O [filtro IP](iot-hub-ip-filtering.md) do IoT Hub pode controlar opcionalmente o acesso do público ao ponto final incorporado. 
+
+Para bloquear completamente o acesso da rede pública ao seu hub IoT, desligue o [acesso à rede pública](iot-hub-public-network-access.md) ou utilize o filtro IP para bloquear todo o IP e selecione a opção de aplicar regras ao ponto final incorporado.
 
 ### <a name="pricing-for-private-link"></a>Preços para Ligação Privada
 

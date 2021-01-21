@@ -1,5 +1,5 @@
 ---
-title: Ligar dispositivos IoT Edge a jusante - Azure IoT Edge / Microsoft Docs
+title: Ligar dispositivos IoT Edge a jusante - Azure IoT Edge | Microsoft Docs
 description: Como configurar um dispositivo IoT Edge para ligar aos dispositivos de gateway Azure IoT Edge.
 author: kgremban
 manager: philmea
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187838"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629408"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Ligue um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge (Pré-visualização)
 
@@ -63,7 +63,7 @@ No portal Azure, pode gerir a relação pai/filho quando criar novas identidades
 
 Quando cria um novo dispositivo IoT Edge, tem a opção de escolher dispositivos de pais e crianças da lista de dispositivos IoT Edge existentes naquele centro.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue para o seu hub IoT.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao seu hub IoT.
 1. Selecione **IoT Edge** do menu de navegação.
 1. **Selecione Adicione um dispositivo IoT Edge**.
 1. Juntamente com a definição do ID do dispositivo e as definições de autenticação, pode **definir um dispositivo-mãe** ou **escolher dispositivos para crianças**.
@@ -71,7 +71,7 @@ Quando cria um novo dispositivo IoT Edge, tem a opção de escolher dispositivos
 
 Também pode criar ou gerir relações entre pais e filhos para dispositivos existentes.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue para o seu hub IoT.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao seu hub IoT.
 1. Selecione **IoT Edge** do menu de navegação.
 1. Selecione o dispositivo que pretende gerir a partir da lista de **dispositivos IoT Edge**.
 1. Selecione **Definir um dispositivo-mãe** ou **gerir dispositivos para crianças**.
@@ -118,7 +118,7 @@ Para permitir a descoberta do gateway, todos os dispositivos de gateway IoT Edge
 
 Para permitir ligações seguras, todos os dispositivos IoT Edge num cenário de gateway precisam de ser configurados com um certificado CA de dispositivo único e uma cópia do certificado de CA raiz partilhado por todos os dispositivos da hierarquia gateway.
 
-Já deve ter o IoT Edge instalado no seu dispositivo. Caso contrário, siga os passos para [instalar o tempo de funcionamento do Azure IoT Edge](how-to-install-iot-edge.md) e, em seguida, forneça o seu dispositivo com [autenticação simétrica de teclas](how-to-manual-provision-symmetric-key.md) ou [autenticação de certificado X.509](how-to-manual-provision-x509.md).
+Já deve ter o IoT Edge instalado no seu dispositivo. Caso contrário, siga os passos para [registar um dispositivo IoT Edge no IoT Hub](how-to-register-device.md) e, em seguida, [instale o tempo de execução Azure IoT Edge](how-to-install-iot-edge.md).
 
 Os passos nesta secção referem o **certificado de CA raiz** e o certificado de CA do dispositivo e a chave **privada** que foram discutidos anteriormente neste artigo. Se criou esses certificados num dispositivo diferente, disponibilize-os neste dispositivo. Pode transferir os ficheiros fisicamente, como com uma unidade USB, com um serviço como [o Azure Key Vault,](../key-vault/general/overview.md)ou com uma função como [cópia de ficheiro Secure](https://www.ssh.com/ssh/scp/).
 
@@ -206,7 +206,7 @@ Enquanto esta funcionalidade se encontra em pré-visualização pública, é nec
 
 1. Configure as seguintes variáveis ambientais para o módulo edgeHub:
 
-   | Name | Valor |
+   | Nome | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -248,7 +248,7 @@ O dispositivo IoT Edge na camada superior de uma hierarquia gateway tem um conju
 
 O módulo de procuração API foi projetado para ser personalizado para lidar com os cenários de gateway mais comuns. Este artigo fornece e exemplo para configurar os módulos numa configuração básica. Consulte o [módulo de procuração API para o seu cenário de hierarquia gateway](how-to-configure-api-proxy-module.md) para obter informações e exemplos mais detalhados.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue para o seu hub IoT.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao seu hub IoT.
 1. Selecione **IoT Edge** do menu de navegação.
 1. Selecione o dispositivo de camada superior que está a configurar a partir da lista de **dispositivos IoT Edge**.
 1. Selecione **Definir módulos**.
@@ -378,7 +378,7 @@ O **módulo de procuração API** é necessário para encaminhar todas as comuni
 
 O módulo de procuração API foi projetado para ser personalizado para lidar com os cenários de gateway mais comuns. Este artigo toca brevemente nos passos para configurar os módulos numa configuração básica. Consulte o [módulo de procuração API para o seu cenário de hierarquia gateway](how-to-configure-api-proxy-module.md) para obter informações e exemplos mais detalhados.
 
-1. No [Portal do Azure](https://portal.azure.com), navegue para o seu hub IoT.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao seu hub IoT.
 1. Selecione **IoT Edge** do menu de navegação.
 1. Selecione o dispositivo de camada inferior que está a configurar a partir da lista de **dispositivos IoT Edge**.
 1. Selecione **Definir módulos**.

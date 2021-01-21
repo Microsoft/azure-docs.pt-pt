@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 233dcbeee0bccc714e3b4fe93e7c8b19aa9f2df0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e9182a2a0b88f85af5305f5794fec2ffe7935701
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242454"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631738"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura MySQL dupla encriptação
 
@@ -20,7 +20,7 @@ A Azure Database for MySQL utiliza encriptação de armazenamento [de dados em r
 A encriptação dupla da infraestrutura adiciona uma segunda camada de encriptação usando chaves geridas pelo serviço. Utiliza o módulo criptográfico validado FIPS 140-2, mas com um algoritmo de encriptação diferente. Isto fornece uma camada adicional de proteção para os seus dados em repouso. A chave utilizada na encriptação dupla infraestrutura também é gerida pela Base de Dados Azure para o serviço MySQL. A dupla encriptação da infraestrutura não é ativada por padrão, uma vez que a camada adicional de encriptação pode ter um impacto de desempenho.
 
 > [!NOTE]
-> Esta funcionalidade é suportada apenas para os níveis de preços "Final geral" e "Memory Optimized" na Base de Dados Azure para PostgreSQL.
+> Esta funcionalidade é suportada apenas para os níveis de preços "Final geral" e "Memory Optimized" na Base de Dados Azure para o MySQL.
 
 A encriptação Infrastructure Layer tem o benefício de ser implementada na camada mais próxima do dispositivo de armazenamento ou dos fios de rede. A Azure Database for MySQL implementa as duas camadas de encriptação utilizando chaves geridas pelo serviço. Apesar de ainda tecnicamente na camada de serviço, está muito perto do hardware que armazena os dados em repouso. Pode ainda ativar opcionalmente a encriptação de dados em repouso utilizando a [chave gerida pelo cliente](concepts-data-encryption-mysql.md) para o servidor MySQL fortalhado. 
 
@@ -59,13 +59,7 @@ As capacidades de encriptação fornecidas pela Azure Database para o MySQL pode
 Para a base de dados Azure para o MySQL, o suporte para a dupla encriptação de infraestrutura utilizando a chave gerida pelo serviço tem as seguintes limitações:
 
 * O suporte para esta funcionalidade está limitado aos níveis de preços otimizados para **fins gerais** e **memória.**
-* Pode criar uma Base de Dados Azure para o MySQL com encriptação de infraestrutura ativada nas seguintes regiões:
-
-   * E.U.A. Leste
-   * E.U.A. Centro-Sul
-   * E.U.A. Oeste 2
-   
-* * Esta funcionalidade é suportada apenas em regiões e servidores, que suportam o armazenamento até 16 TB. Para a lista das regiões de Azure que suportam o armazenamento até 16 TB, consulte a [documentação](concepts-pricing-tiers.md#storage)de armazenamento .
+* Esta funcionalidade é suportada apenas em regiões e servidores, que suportam o armazenamento até 16 TB. Para a lista das regiões de Azure que suportam o armazenamento até 16 TB, consulte a [documentação](concepts-pricing-tiers.md#storage)de armazenamento .
 
     > [!NOTE]
     > - Todos os **novos** servidores MySQL criados nas regiões acima listadas também suportam encriptação de dados com chaves de gestor de clientes. Neste caso, os servidores criados através de restauro pontual (PITR) ou réplicas de leitura não se qualificam como "novos".

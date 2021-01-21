@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7f10654e1c96f1756e5864d20fa2a6817385e994
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366858"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629798"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replicar máquinas no local utilizando pontos finais privados
 
@@ -57,7 +57,7 @@ Uma [identidade gerida](../active-directory/managed-identities-azure-resources/o
 
 1. Vai para o cofre dos Serviços de Recuperação. Selecione **identidade** em **Definições**:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Screenshot que mostra a página de definições de identidade.":::
 
 1. Alterar o **Estado** para **On** e selecionar **Guardar**.
 
@@ -69,21 +69,21 @@ Para proteger as máquinas na rede de fontes no local, vai precisar de um ponto 
 
 1. Na caixa de pesquisa do portal Azure, procure por "link privado". Selecione **Private Link** para ir ao Private Link Center:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Screenshot que mostra a pesquisa no portal Azure para Private Link Center.":::
 
 1. No painel esquerdo, selecione **Pontos finais privados**. Na página **private endpoints,** selecione **Adicionar** para começar a criar um ponto final privado para o seu cofre:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Screenshot que mostra como criar um ponto final privado no Private Link Center.":::
 
 1. Na página **'Criar' privado,** especifique os detalhes para criar a sua ligação de ponto final privado.
 
    1. **Básicos.** Forneça os detalhes básicos para os seus pontos finais privados. Utilize a região que utilizou para a rede de bypass:
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Screenshot que mostra o separador Básico para criar um ponto final privado.":::
 
    1. **Recurso.** Neste separador, tem de especificar o recurso plataforma-as-a-service para o qual pretende criar a sua ligação. Sob **o tipo de recurso** para a subscrição selecionada, selecione **Microsoft.RecoveryServices/vaults**. Escolha o nome do cofre dos Serviços de Recuperação em **Recurso.** Selecione **Azure Site Recovery** como **sub-recurso target**.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Screenshot que mostra o separador Recursos para ligar a um ponto final privado.":::
 
    1. **Configuração**. Neste separador, especifique a rede de bypass e a sub-rede onde pretende que o ponto final privado seja criado. 
 
@@ -96,7 +96,7 @@ Para proteger as máquinas na rede de fontes no local, vai precisar de um ponto 
 
       Para criar manualmente a zona privada de DNS, siga os passos em [criar zonas privadas de DNS e adicione registos DNS manualmente](#create-private-dns-zones-and-add-dns-records-manually).
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Screenshot que mostra o separador Configuração para configuração de um ponto final privado.":::
 
    1. **Etiquetas.** Opcionalmente, pode adicionar tags para o seu ponto final privado.
 
@@ -114,11 +114,14 @@ Se criar o ponto final privado e for também o proprietário do cofre dos Servi�
 
 Pode recorrer ao recurso de ponto final privado para rever o estado da ligação antes de continuar:
 
-:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Screenshot que mostra a página de ligações de ponto final privado do cofre e a lista de ligações.":::
 
 ### <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a><a name="create-private-endpoints-for-the-cache-storage-account"></a>(Opcional) Criar pontos finais privados para a conta de armazenamento de cache
 
 Pode utilizar um ponto final privado para o Azure Storage. Criar pontos finais privados para acesso ao armazenamento é opcional para a replicação do Azure Site Recovery. Se criar um ponto final privado para armazenamento, precisa de um ponto final privado para a conta de armazenamento cache/log na sua rede virtual de bypass.
+
+> [!NOTE]
+> Se os pontos finais privados não estiverem ativados na conta de armazenamento, a proteção continuaria a ser bem sucedida. No entanto, o tráfego de replicação passaria através da internet para os pontos finais públicos de recuperação do local de Azure. Para garantir fluxos de tráfego de replicação através de ligações privadas, a conta de armazenamento deve ser ativada com pontos finais privados.
 
 > [!NOTE]
 > Os pontos finais privados para armazenamento só podem ser criados nas contas de armazenamento V2 de Finalidade Geral. Para obter informações sobre preços, consulte os preços da [Azure Page Blobs](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
@@ -147,11 +150,11 @@ Estes passos descrevem como adicionar uma atribuição de função à sua conta 
 
 1. Na secção Adicionar uma tarefa **de função,** selecione **Adicionar**:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Screenshot que mostra a página de Controlo de Acesso (IAM) para uma conta de armazenamento.":::
 
 1. Na página **De atribuição de funções,** na lista **Role,** selecione o papel da lista no início desta secção. Introduza o nome do cofre e, em seguida, **selecione Save**.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Screenshot que mostra a página de atribuição de funções Adicionar.":::
 
 Depois de adicionar estas permissões, tem de permitir o acesso aos serviços fidedignos da Microsoft. Vá a **Firewalls e redes virtuais** e selecione **Permita que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento** em **Exceções.**
 
@@ -174,15 +177,15 @@ Crie uma zona privada de DNS para permitir que o fornecedor de Recuperação de 
 
    1. Procure por "zona privada de DNS" na caixa de pesquisa de **todos os serviços** e, em seguida, selecione **a zona privada de DNS** nos resultados:
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Screenshot que mostra a procura de zona de dns privada na página de novos recursos no portal Azure.":::
 
    1. Na página **zonas privadas de DNS,** selecione o botão **Adicionar** para começar a criar uma nova zona.
 
    1. Na página privada da **zona DO DNS,** insira os detalhes necessários. Introduza **privatelink.siterecovery.windowsazure.com** para o nome da zona privada do DNS. Pode escolher qualquer grupo de recursos e qualquer subscrição.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot que mostra o separador Básico da página da zona de DNS Criar Privada.":::
 
-   1. Continue a fazer o separador **'Revisão' \+ ** para rever e criar a zona DNS.
+   1. Continue a fazer o separador **'Revisão' \+** para rever e criar a zona DNS.
 
 1. Ligue a zona privada do DNS à sua rede virtual.
 
@@ -192,7 +195,7 @@ Crie uma zona privada de DNS para permitir que o fornecedor de Recuperação de 
 
    1. Insira os detalhes necessários. Nas listas **de subscrição** e **rede virtual,** selecione detalhes que correspondam à rede de bypass. Deixe os valores predefinidos nos outros campos.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Screenshot que mostra a página de link de rede virtual Add.":::
 
 1. Adicione registos DNS.
 
@@ -209,7 +212,7 @@ Crie uma zona privada de DNS para permitir que o fornecedor de Recuperação de 
 
       Estes nomes de domínio totalmente qualificados correspondem a este padrão: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Diagrama que mostra a arquitetura para recuperação do local de Azure e pontos finais privados.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Screenshot que mostra a página de conjunto de discos Add.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

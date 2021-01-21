@@ -1,15 +1,15 @@
 ---
-title: Disponibilidade e consistência - Azure Event Hubs Microsoft Docs
+title: Disponibilidade e consistência - Azure Event Hubs | Microsoft Docs
 description: Como fornecer a quantidade máxima de disponibilidade e consistência com os Azure Event Hubs usando divisórias.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902906"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631924"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
 
@@ -30,10 +30,10 @@ Os Centros de Eventos são construídos em cima de um modelo de dados dividido. 
 A forma mais simples de começar com os Centros de Eventos é usar o comportamento padrão. 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 ou mais tarde)](#tab/latest)
-Se criar um novo objeto **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** e utilizar o método **[SendAsync,](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** os seus eventos são automaticamente distribuídos entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de mente.
+Se criar um novo objeto **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** e utilizar o método **[SendAsync,](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** os seus eventos são automaticamente distribuídos entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de mente.
 
 #### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 ou mais cedo)](#tab/old)
-Se criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e utilizar o método **[Enviar,](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** os seus eventos são automaticamente distribuídos entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de mente.
+Se criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e utilizar o método **[Enviar,](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** os seus eventos são automaticamente distribuídos entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de mente.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Ligar registos do Office 365 ao Azure Sentinel Microsoft Docs
+title: Ligar os registos do Office 365 ao | de Azure Sentinel Microsoft Docs
 description: Aprenda a utilizar o conector de log office 365 para obter informações sobre as atividades de utilizador e administração em curso em Exchange, Teams e SharePoint, incluindo o OneDrive.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655375"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632187"
 ---
-# <a name="connect-office-365-logs-to-azure-sentinel"></a>Ligar registos do Office 365 ao Azure Sentinel
+# <a name="connect-office-365-logs-to-azure-sentinel"></a>Ligar os Registos do Office 365 ao Azure Sentinel
 
 O conector de log [office 365](/office/) traz informações sobre o Azure Sentinel sobre as atividades de utilizador e administração em curso em **Exchange** and **SharePoint** (incluindo **OneDrive),** e agora também em **Equipas.** Esta informação inclui detalhes de ações como transferências de ficheiros, pedidos de acesso enviados, alterações em eventos de grupo, operações de caixa de correio, eventos de Equipas (como eventos de chat, equipa, membro e canal), bem como os detalhes do utilizador que realizou as ações. Ligar os registos do Office 365 ao Azure Sentinel permite-lhe visualizar e analisar estes dados nos seus livros, consultar-se para criar alertas personalizados e incorporá-los para melhorar o seu processo de investigação, dando-lhe mais informações sobre a segurança do seu Office 365.
-
-> [!IMPORTANT]
-> A extensão do conector de registo do Office 365 **para os registos** da Microsoft Teams encontra-se atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +62,7 @@ O conector de log [office 365](/office/) traz informações sobre o Azure Sentin
 - Para consultar manualmente os dados de registo do Office 365 em **Logs,** introduza `OfficeActivity` na primeira linha da janela de consulta.
    - Para filtrar a consulta de um tipo de registo específico, insira `| where OfficeWorkload == "<logtype>"` na segunda linha da consulta, onde *\<logtype\>* `SharePoint` `OneDrive` está, ou `Exchange` `MicrosoftTeams` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Office 365 ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
 - Começa a detetar ameaças com o Azure Sentinel, utilizando regras [incorporadas](tutorial-detect-threats-built-in.md) ou [personalizadas.](tutorial-detect-threats-custom.md)

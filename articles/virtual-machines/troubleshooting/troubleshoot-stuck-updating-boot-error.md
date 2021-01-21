@@ -1,5 +1,5 @@
 ---
-title: A startup Azure VM está presa no Windows Update Microsoft Docs
+title: A startup Azure VM está presa no Windows Update| Microsoft Docs
 description: Saiba como resolver o problema quando uma startup Azure VM está presa na atualização do Windows.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734570"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632008"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Startup Azure VM está presa na atualização do Windows
 
@@ -32,11 +32,13 @@ Este artigo ajuda a resolver o problema quando a sua Máquina Virtual (VM) está
 - Mantenha o seu PC ligado até que isto esteja terminado. Instalar atualização # de #... 
 - Não conseguimos completar as atualizações Desfazer alterações Não desligue o computador
 - Falha na configuração das atualizações do Windows Reverter alterações Não desligue o computador
-- Error < error code > applying update operations ##### of ##########(\Regist...)
-- Erro Fatal < código de erro > aplicando operações de atualização #### de #############$...)
+- Error < error code > applying update operations ## of #(\Regist...)
+- Erro Fatal < código de erro > aplicando operações de atualização # de #$...)
 
 
 ## <a name="solution"></a>Solução
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 Dependendo do número de atualizações que estão a ser instaladas ou enroladas, o processo de atualização pode demorar algum tempo. Deixe o VM neste estado por 8 horas. Se o VM ainda estiver neste estado após esse período, reinicie o VM a partir do portal Azure e veja se pode começar normalmente. Se este passo não funcionar, tente a seguinte solução.
 

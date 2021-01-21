@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d1cf8638f922bb0275322568eb1399db4f49e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069155"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629730"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Erro de arranque de resolução de problemas - erro de leitura de disco ocorreu
 
@@ -38,6 +38,9 @@ Esta mensagem de erro indica que a estrutura do disco está corrompida e ilegív
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Criar e Aceder a um VM de reparação.
 1. Selecione uma solução:

@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Service B
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 35680819350582062dd4227c65f9e72ae8b3ee5c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489705"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631771"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
 A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Service Bus Premium conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
@@ -45,12 +45,12 @@ Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida pelo cliente ao seu espaço de nomes Azure Service Bus. O Service Bus suporta apenas o Cofre da Chave Azure. Se ativar a **Encriptação com** a opção chave gerida pelo cliente na secção anterior, precisa de ter a chave importada para o Cofre da Chave Azure. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configuradas para a chave. Estas definições podem ser configuradas utilizando [PowerShell](../key-vault/general/key-vault-recovery.md) ou [CLI](../key-vault/general/key-vault-recovery.md).
 
 1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/general/overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [sobre chaves, segredos e certificados.](../key-vault/general/about-keys-secrets-certificates.md)
-1. Para ligar a proteção de eliminação e purga suave ao criar um cofre, utilize o [comando de criação de chave-teclas az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+1. Para ligar a proteção de eliminação e purga suave ao criar um cofre, utilize o [comando de criação de chave-teclas az.](/cli/azure/keyvault#az-keyvault-create)
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Para adicionar proteção de purga a um cofre existente (que já tem exclusão suave ativada), utilize o comando [de atualização az keyvault.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)
+1. Para adicionar proteção de purga a um cofre existente (que já tem exclusão suave ativada), utilize o comando [de atualização az keyvault.](/cli/azure/keyvault#az-keyvault-update)
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true

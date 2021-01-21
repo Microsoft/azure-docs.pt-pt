@@ -1,6 +1,6 @@
 ---
-title: Windows reinicia loop em um Azure VM / Microsoft Docs
-description: Saiba como resolver o windows reboot loop Microsoft Docs
+title: Windows reinicia loop em um Azure VM | Microsoft Docs
+description: Saiba como resolver problemas com o ciclo de reinicialização do Windows | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500927"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629645"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Windows reinicia loop em um Azure VM
 Este artigo descreve o loop de reinicialização que pode experimentar numa Máquina Virtual Do Windows (VM) no Microsoft Azure.
@@ -32,11 +32,11 @@ Quando utiliza [diagnósticos boot](./boot-diagnostics.md) para obter as imagens
 
 O ciclo de reinicialização ocorre devido às seguintes causas:
 
-### <a name="cause-1"></a>Causa 1
+### <a name="cause-1"></a>Motivo 1
 
 Há um serviço de terceiros que é sinalizado como crítico e não pode ser iniciado. Isto faz com que o sistema operativo reinicie.
 
-### <a name="cause-2"></a>Causa 2
+### <a name="cause-2"></a>Motivo 2
 
 Foram feitas algumas alterações ao sistema operativo. Normalmente, estas estão relacionadas com uma instalação de atualização, instalação de aplicações ou uma nova política. Poderá ter de verificar os seguintes registos para obter mais detalhes:
 
@@ -50,6 +50,9 @@ Corrupção no sistema de ficheiros pode causar isto. No entanto, é difícil di
 
 ## <a name="solution"></a>Solução
 
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
+
 Para resolver este problema, [faça uma lavagem ao disco de so](../windows/snapshot-copy-managed-disk.md), e ligue o disco de SO a um [VM de resgate](./troubleshoot-recovery-disks-portal-windows.md), e, em seguida, siga as opções de solução em conformidade, ou experimente as soluções uma a uma.
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
@@ -62,7 +65,7 @@ Para resolver este problema, [faça uma lavagem ao disco de so](../windows/snaps
 
 4. No VM de resgate, abra o Editor de Registo do Windows (regedit).
 
-5. Selecione a **tecla HKEY_LOCAL_MACHINE** e, em seguida, selecione a Colmeia de Carga de **Ficheiros**  >  **Load Hive** no menu.
+5. Selecione a **tecla HKEY_LOCAL_MACHINE** e, em seguida, selecione a Colmeia de Carga de **Ficheiros**  >   no menu.
 
 6. Navegue no ficheiro SYSTEM na pasta **\Windows\System32\config.**
 
@@ -86,7 +89,7 @@ Para resolver este problema, [faça uma lavagem ao disco de so](../windows/snaps
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Selecione a **tecla BROKENSYSTEM** e, em seguida, selecione A Colmeia de Descarregamento de **File**  >  **Ficheiros** no menu.
+13. Selecione a **tecla BROKENSYSTEM** e, em seguida, selecione A Colmeia de Descarregamento de   >  **Ficheiros** no menu.
 
 14. Retire o disco de SO do VM de resolução de problemas.
 

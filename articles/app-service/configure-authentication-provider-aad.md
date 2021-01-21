@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 0c06cb11d916b417cf577b7b8f3578749feddd62
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092232"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630035"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD
 
@@ -78,7 +78,7 @@ Efetue os seguintes passos:
 1. Selecione **Azure Ative Directory**  >  **App registra**  >  **novo registo**.
 1. Na página **registar uma candidatura,** insira um **Nome** para o registo da sua aplicação.
 1. In **Redirect URI**, selecione **Web** e type `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Selecione **Criar**.
+1. **Selecione REGISTAR- SEC**.
 1. Após a criação do registo da aplicação, copie o **ID da Aplicação (cliente)** e o ID do **Diretório (inquilino)** para mais tarde.
 1. Selecione **Autenticação**. Ao abrigo **da concessão implícita**, permita **que os tokens de ID** permitam iniciar ins ins de utilizador OpenID Connect a partir do Serviço de Aplicações.
 1. (Opcional) **Selecione Branding**. No **URL da página inicial,** insira o URL da sua aplicação de Serviço de Aplicações e selecione **Save**.
@@ -156,7 +156,7 @@ Neste momento, isto permite que _qualquer_ aplicação do cliente no seu inquili
 
 Agora configuraste uma aplicação para clientes daemon que pode aceder à tua aplicação de Serviço de Aplicações usando a sua própria identidade.
 
-## <a name="next-steps"></a><a name="related-content"> </a>Próximos passos
+## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 * [Tutorial: Autenticar e autorizar utilizadores numa aplicação web que acede ao Azure Storage e ao Microsoft Graph](scenario-secure-app-authentication-app-service.md)

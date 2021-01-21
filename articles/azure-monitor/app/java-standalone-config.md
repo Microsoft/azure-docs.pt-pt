@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625335"
+ms.locfileid: "98631326"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -296,7 +296,9 @@ Se a sua aplicação estiver por detrás de uma firewall e não puder ligar-se d
 }
 ```
 
-[//]: # "NOTA não publicitar suporte OpenTelemetry até apoiarmos 0.10.0, que tem mudanças de rutura massivas a partir de 0.9.0"
+Application Insights Java 3.0 também respeita o global `-Dhttps.proxyHost` e se estes são `-Dhttps.proxyPort` definidos.
+
+[//]: # "NOTA O suporte openTelemetry está em pré-visualização privada até que a API openTelemetry atinja 1.0"
 
 [//]: # "## Suporte para lançamentos pré-1.0 da API da OpenTelemetry"
 
@@ -343,6 +345,8 @@ Por predefinição, os registos De Aplicação Java 3.0 estão ao nível `INFO` 
 `maxSizeMb` é o tamanho máximo do ficheiro de registo antes de rolar.
 
 `maxHistory` é o número de ficheiros de registo retorlados que são retidos (além do ficheiro de registo atual).
+
+A partir da versão 3.0.2, também pode definir os autodiagnóstos `level` utilizando a variável ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
 
 ## <a name="an-example"></a>Um exemplo
 

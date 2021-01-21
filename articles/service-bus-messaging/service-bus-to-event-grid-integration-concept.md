@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5cc112767b2204d019cb1b7bd23b1603cefdf416
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882522"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629152"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -174,7 +174,7 @@ Pode criar subscrições do Event Grid para espaços de nomes do Service Bus de 
 Para criar uma nova subscrição do Event Grid, efetue o seguinte:
 1. No portal do Azure, aceda ao seu espaço de nomes.
 2. No painel esquerdo, selecione **Event Grid**. 
-3. Selecione **Subscrição de Eventos**.  
+3. Selecione **subscrição de eventos**.  
 
    A imagem seguinte mostra um espaço de nomes que tem uma subscrição do Event Grid:
 
@@ -186,7 +186,7 @@ Para criar uma nova subscrição do Event Grid, efetue o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Descarregue o instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra uma nova consola PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Descarregue o instalador](/cli/azure/install-azure-cli). Selecione **Windows + X** e, em seguida, abra uma nova consola PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 Execute o seguinte código:
 

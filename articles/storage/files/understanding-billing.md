@@ -1,25 +1,25 @@
 ---
-title: Compreensão da faturação dos Ficheiros Azure Microsoft Docs
+title: Compreender a faturação dos ficheiros Azure | Microsoft Docs
 description: Saiba como interpretar os modelos de faturação a provisionados e pay-as-you-go para ações de ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831470"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632483"
 ---
 # <a name="understanding-azure-files-billing"></a>Compreensão da faturação dos Ficheiros Azure
 A Azure Files fornece dois modelos de faturação distintos: provisionados e pay-as-you-go. O modelo provisionado só está disponível para ações de ficheiros premium, que são ações de ficheiros implantadas no tipo de conta de armazenamento **FileStorage.** O modelo pay-as-you-go só está disponível para ações de ficheiros padrão, que são ações de ficheiros implantadas no tipo de conta de armazenamento **versão 2 (GPv2) para fins gerais.** Este artigo explica como ambos os modelos funcionam de forma a ajudá-lo a entender a sua conta mensal de Ficheiros Azure.
 
 Os preços atuais dos Ficheiros Azure podem ser encontrados na página de preços dos [Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="provisioned-billing"></a>Faturação prevista
+## <a name="provisioned-model"></a>Modelo provisionado
 A Azure Files utiliza um modelo provisionado para ações de ficheiros premium. Num modelo de negócio a provisionado, especifica proativamente ao serviço Azure Files quais são os seus requisitos de armazenamento, em vez de ser faturado com base no que utiliza. Isto é semelhante à compra de hardware no local, na medida em que quando fornece uma parte de ficheiro Azure com uma certa quantidade de armazenamento, você paga por esse armazenamento independentemente de usá-lo ou não, assim como você não começa a pagar os custos de meios físicos no local quando você começa a usar o espaço. Ao contrário da compra de meios físicos no local, as ações de ficheiros a provisionadas podem ser dinamicamente dimensionadas para cima ou para baixo, dependendo do seu armazenamento e características de desempenho de IO.
 
 Ao providenciar uma parte de ficheiro premium, especifica quantos GiBs a sua carga de trabalho requer. Cada GiB que fornece dá-lhe direito a IOPS adicional e produção numa relação fixa. Além do IOPS de base para o qual está garantido, cada partilha de ficheiros premium suporta rebentar com uma base de esforço melhor. As fórmulas para iops e produção são as seguintes:
@@ -63,7 +63,7 @@ Os créditos de ações têm três estados:
 
 As novas ações de ficheiros começam com o número total de créditos no seu balde de rebentamento. Os créditos de rutura não serão acumulados se o IOPS de ações cair abaixo do IOPS de base devido ao estrangulamento pelo servidor.
 
-## <a name="pay-as-you-go-billing"></a>Faturação paga
+## <a name="pay-as-you-go-model"></a>Modelo pay-as-you-go
 A Azure Files usa um modelo de negócio pay-as-you-go para ações de ficheiros padrão. Num modelo de negócio pay-as-you-go, o valor que paga é determinado pelo valor que realmente utiliza, em vez de se basear num valor provisitado. A um nível elevado, você paga um custo pela quantidade de dados armazenados no disco, e, em seguida, um conjunto adicional de transações com base no seu uso desses dados. Um modelo pay-as-you-go pode ser rentável, porque não precisa de uma visão excessiva para ter em conta os requisitos futuros de crescimento ou desempenho ou desprovisionamento se a sua carga de trabalho for a pegada de dados varia ao longo do tempo. Por outro lado, um modelo pay-as-you-go também pode ser difícil de planear como parte de um processo de orçamentação, porque o modelo de faturação pay-as-you-go é impulsionado pelo consumo de utilizador final.
 
 ### <a name="differences-in-standard-tiers"></a>Diferenças nos níveis padrão
@@ -92,7 +92,7 @@ Existem cinco categorias básicas de transações: escrever, listar, ler, outras
 > [!Note]  
 > O NFS 4.1 só está disponível para ações de ficheiros premium, que utilizam o modelo de faturação previsto, as transações não afetam a faturação das ações de ficheiros premium.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 - [Página de preços do Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 - Planejando uma implementação e planeamento [de ficheiros Azure](./storage-files-planning.md) [para uma implementação de Azure File Sync](./storage-sync-files-planning.md).
 - [Crie uma partilha de ficheiros](./storage-how-to-create-file-share.md) e [implemente o Sync de Ficheiros Azure](./storage-sync-files-deployment-guide.md).

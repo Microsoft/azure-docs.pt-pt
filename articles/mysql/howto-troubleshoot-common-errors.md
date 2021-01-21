@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510967"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631372"
 ---
 # <a name="common-errors"></a>Erros comuns
 
 Azure Database for MySQL é um serviço totalmente gerido alimentado pela versão comunitária do MySQL. A experiência MySQL num ambiente de serviço gerido pode diferir de executar o MySQL no seu próprio ambiente. Neste artigo, irá ver alguns dos erros comuns que os utilizadores podem encontrar durante a migração ou desenvolvimento na Base de Dados Azure para o serviço MySQL pela primeira vez.
+
+## <a name="common-connection-errors"></a>Erros de conexão comuns
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERRO 1184 (08S01): Ligação abortada 22 a db: utilizador 'db-name': 'user' host: 'hostIP' (init_connect comando falhou)
+O erro acima ocorre após o login bem sucedido, mas antes de executar qualquer comando quando a sessão é estabelecida. A mensagem acima indica que definiu um valor incorreto do init_connect parâmetro do servidor que está a causar a falha na inicialização da sessão.
+
+Existem alguns parâmetros do servidor como require_secure_transport que não são suportados ao nível da sessão e, portanto, tentar alterar os valores destes parâmetros usando init_connect pode resultar no Erro 1184 enquanto se conecta ao servidor MySQL como mostrado abaixo
+
+mysql> mostrar bases de dados; ERROR 2006 (HY000): O servidor MySQL desapareceu Sem ligação. A tentar reconectar-se... Id de ligação: 64897 Base de dados atual: *** NONE **_ ERRO 1184 (08S01): Ligação abortada 22 a db: utilizador 'db-name': 'user' host: 'hostIP' (init_connect comando falhou)
+
+_ *Resolução** : Deve redefinir init_connect valor no separador parâmetros do Servidor no portal Azure e definir apenas os parâmetros do servidor suportados utilizando init_connect parâmetro. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erros por falta de privilégios super e papel da DBA
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a Formação de Sensibilização para a Segurança da Webroot para o fornecimento automático de utilizadores com diretório ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar a Formação de Sensibilização para a Segurança da Webroot para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como providenciar e desincêrenciar automaticamente contas de utilizadores do Azure AD à Webroot Security Awareness Training.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 143c1a183ba697cbf5d9b19d7e0868a638650bc8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181352"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632017"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: Configurar a Formação de Sensibilização para a Segurança da Webroot para o fornecimento automático de utilizadores
 
@@ -120,7 +120,8 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|Suportado para filtragem|
    |---|---|---|
-   |externalId|String|&check;|
+   |userName|String|&check;|
+   |externalId|String|
    |name.givenName|String|
    |name.familyName|String|
    |emails[type eq "work"].value|String|

@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/19/2021
+ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196593"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630281"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -32,18 +32,18 @@ Em Purview, as classificações são semelhantes às tags de assunto, e são usa
 
 A Purview utiliza as mesmas classificações, também conhecidas como tipos de informação sensível, como o Microsoft 365.  As etiquetas de sensibilidade MIP são criadas no Microsoft 365 Security and Compliance Center (SCC). Isto permite-lhe estender as suas etiquetas de sensibilidade existentes através dos seus ativos Azure Purview.
 
-> [!NOTE]
-> As classificações são correspondidas diretamente, como um número de segurança social, que tem uma classificação de Número de **Segurança Social.** 
->
-> Em contrapartida, aplicam-se etiquetas de sensibilidade quando uma ou mais classificações e condições são encontradas em conjunto. Neste contexto, [as condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) referem-se a todos os parâmetros que pode definir para dados não estruturados, tais como **a proximidade a outra classificação**, e **a confiança de %**. 
+**As classificações** são correspondidas diretamente, como um número de segurança social, que tem uma classificação de Número de **Segurança Social.** 
+
+Em contrapartida, **aplicam-se etiquetas de sensibilidade** quando uma ou mais classificações e condições são encontradas em conjunto. Neste contexto, [as condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) referem-se a todos os parâmetros que pode definir para dados não estruturados, tais como *a proximidade a outra classificação*, e *a confiança de %*. 
 
 As etiquetas de sensibilidade no Azure Purview podem ser utilizadas para aplicar automaticamente rótulos em ficheiros e colunas de bases de dados.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Conheça as etiquetas de sensibilidade](/microsoft-365/compliance/sensitivity-labels) na documentação da Microsoft 365
 - [O que são regras de autolibulação?](#what-are-autolabeling-rules)
 - [Tipos de dados suportados para etiquetas de sensibilidade em Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [Rotulagem para colunas de base de dados SQL](#labeling-for-sql-database-columns)
 
 #### <a name="what-are-autolabeling-rules"></a>O que são regras de autolibulação?
 
@@ -54,7 +54,6 @@ As regras de autolibmento são condições que especifica, indicando quando deve
 Quando criar as suas etiquetas, certifique-se de definir regras de autolibulação para [ficheiros](#define-autolabeling-rules-for-files) e [colunas de base de dados](#define-autolabeling-rules-for-database-columns) para aplicar automaticamente as suas etiquetas com cada verificação de dados. 
 
 Depois de digitalizar os seus dados em Purview, pode ver as etiquetas automaticamente aplicadas nos relatórios do Catálogo e Insight de Purview.
-
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipos de dados suportados para etiquetas de sensibilidade em Azure Purview
 
 As etiquetas de sensibilidade são suportadas no Azure Purview para os seguintes tipos de dados:
@@ -62,14 +61,22 @@ As etiquetas de sensibilidade são suportadas no Azure Purview para os seguintes
 |Tipo de dados  |Origens  |
 |---------|---------|
 |Rotulagem automática para ficheiros     |     - Armazenamento Azure Blob  </br>- Azure Data Lake Storage Gen 1 e Gen 2  |
-|Rotulagem automática para colunas de base de dados     |  - Servidor SQL </br>- Base de dados Azure SQL </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB   |
+|Rotulagem automática para colunas de base de dados     |  - Servidor SQL </br>- Base de dados Azure SQL </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB <br><br>Para obter mais informações, consulte [a rotulagem das colunas de base de dados SQL](#labeling-for-sql-database-columns) abaixo.  |
 | | |
+
+#### <a name="labeling-for-sql-database-columns"></a>Rotulagem para colunas de base de dados SQL
+
+Além da rotulagem de Purview para colunas de bases de dados, a Microsoft também suporta a rotulagem para colunas de base de dados SQL usando a classificação de dados SQL no [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Enquanto a Purview utiliza os [rótulos globais de sensibilidade mip,](/microsoft-365/compliance/sensitivity-labels)o SSMS utiliza apenas rótulos definidos localmente.
+
+A rotulagem em Purview e a rotulagem em SSMS são processos separados que não interagem atualmente entre si. Por conseguinte, as etiquetas aplicadas em SSMS não são mostradas em Purview, e vice-versa. Recomendamos a Azure Purview para a rotulagem das bases de dados SQL, uma vez que utiliza rótulos MIP globais que podem ser aplicados em várias plataformas.
+
+Para mais informações, consulte a [documentação de descoberta e classificação de dados SQL.](/sql/relational-databases/security/sql-data-discovery-and-classification)
 
 ## <a name="how-to-create-sensitivity-labels-in-microsoft-365"></a>Como criar etiquetas de sensibilidade na Microsoft 365
 
 Se ainda não tiver etiquetas de sensibilidade, terá de criá-las e disponibilizá-las para o Azure Purview. Os rótulos de sensibilidade existentes também podem ser modificados para os disponibilizar para o Azure Purview.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Requisitos de licenciamento](#licensing-requirements)
 - [Alargamento dos rótulos de sensibilidade à Azure Purview](#extending-sensitivity-labels-to-azure-purview)
@@ -86,7 +93,7 @@ Por padrão, as etiquetas de sensibilidade MIP só estão disponíveis para ativ
 
 Para aplicar etiquetas de sensibilidade MIP aos ativos da Azure em Azure Purview, tem de consentir explicitamente em alargar as etiquetas e selecionar as etiquetas específicas que pretende estar disponível em Purview.
 
-Ao alargar os rótulos de sensibilidade do MIP com o Azure Purview, as organizações podem agora descobrir, classificar e obter informações sobre a sensibilidade através de uma gama mais alargada de fontes de dados, minimizando o risco de conformidade.
+Ao alargar os rótulos de sensibilidade do MIP com o Azure Purview, as organizações podem agora descobrir, classificar e obter uma visão da sensibilidade através de uma gama mais ampla de fontes de dados, minimizando o risco de conformidade.
 
 > [!NOTE]
 > Uma vez que a Microsoft 365 e a Azure Purview são serviços separados, existe a possibilidade de serem implantados em diferentes regiões. Os nomes de etiquetas e os nomes de tipo informação sensível personalizado são considerados dados do cliente, e são mantidos dentro da mesma localização GEO por padrão para proteger a sensibilidade dos seus dados e evitar as leis do RGPD.
@@ -123,7 +130,7 @@ Uma vez que estenda a rotulagem aos ativos em Azure Purview, pode selecionar as 
 
     Para obter mais informações sobre as opções de assistente, consulte [o que as etiquetas de sensibilidade podem fazer](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) na documentação da Microsoft 365.
 
-1. Repita os passos listados acima para criar etiquetas adicionais. 
+1. Repita os passos listados acima para criar mais etiquetas. 
 
     Para criar um sublbel, selecione a etiqueta dos pais > **...**  >  **Mais ações**  >  **Adicione a etiqueta de sub.**
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: cdb575d7b3884370e1a53f79f1184d40cd15d270
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: eb88d2cf96cc8557f2b8c729554106530cf6f956
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732398"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629628"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting
 
@@ -32,7 +32,7 @@ Incluído abaixo é uma arquitetura de alto nível e iIS Smooth Streaming Portin
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrição
 A SSPK é licenciada em termos que oferecem excelente valor de negócio. A licença SSPK fornece à indústria:
 
 * Fonte do Kit de Porting de Streaming Suave em C++ 
@@ -128,6 +128,7 @@ Os licenciados provisórios e finais da SSPK podem submeter perguntas técnicas 
 * Hong Kong Konka Ltd
 * Corporação Innolux
 * Innopia Technologies, Inc
+* Jinpin Electric Company Ltd.Zhuhai.S.E.Z
 * K-Tronics (Suzhou) Technology Co., Ltd. 
 * Kaonmedia Co., Ltd.
 * Corporação KDDI

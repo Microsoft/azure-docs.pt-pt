@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 9700e5d9179f7c1e33b2371eea89be9bb1c8d08f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621367"
+ms.locfileid: "98632296"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Ligar dados do Azure Ative Directory (Azure AD)
 
@@ -28,7 +28,7 @@ Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter uma assinatura [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) para ingerir logins de entrada em Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
+- Qualquer licença AD Azure (Grátis/O365/P1/P2) é suficiente para ingerir registos de entrada no Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
 
 - O seu utilizador deve ser atribuído ao contributo do Azure Sentinel no espaço de trabalho.
 
@@ -42,11 +42,27 @@ Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [A
 
 1. Na galeria de conectores de dados, selecione **Azure Ative Directory** e, em seguida, selecione **Abrir a página do conector**.
 
-1. Marque as caixas de verificação ao lado dos registos que pretende transmitir para Azure Sentinel e clique em **Connect**.
+1. Marque as caixas de verificação ao lado dos tipos de registo que pretende transmitir para Azure Sentinel e clique em **Connect**. Estes são os tipos de registo que pode escolher:
 
-1. Pode selecionar se deseja que os alertas do Azure AD gerem automaticamente incidentes em Azure Sentinel. Em **Configurar incidentes** selecione Ativar para **ativar** a regra de análise padrão que cria incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Em seguida, pode editar esta regra sob **a análise** e, em seguida, **as regras Ative**.
+    - Registos de início de sessão
+    - Registos de auditoria
+    - Registos de inscrição de utilizadores não interativos
+    - Registos de inscrição principal de serviço
+    - Registos de registo de identidade geridos
+    - Registos de aprovisionamento
 
-1. Para utilizar o esquema relevante no Log Analytics para consulta de alertas Azure AD, tipo `SigninLogs` ou na janela de `AuditLogs` consulta.
+## <a name="find-your-data"></a>Encontre os seus dados
+
+Após a criação de uma ligação bem sucedida, os dados aparecem em **Logs,** sob a secção **De Gestão** de Registos, nas seguintes tabelas:
+
+- `SigninLogs`
+- `AuditLogs`
+- `AADNonInteractiveUserSignInLogs`
+- `AADServicePrincipalSignInLogs`
+- `AADManagedIdentitySignInLogs`
+- `AADProvisioningLogs`
+
+Para consultar os registos AZure AD, insira o nome de mesa relevante no topo da janela de consulta.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Azure Ative Directory ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:

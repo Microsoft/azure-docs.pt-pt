@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 03d52611c89012d1132b4a27820f7f47e6cdd512
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 83635b732318a4ada76d1d71c1ce419cae8b35e9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242029"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630151"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura pós-SQL dupla encriptação
 
@@ -59,12 +59,6 @@ As capacidades de encriptação fornecidas pela Azure Database para PostgreSQL p
 Para a Base de Dados Azure para PostgreSQL, o suporte para a dupla encriptação de infraestrutura utilizando a chave gerida pelo serviço tem as seguintes limitações:
 
 * O suporte para esta funcionalidade está limitado aos níveis de preços otimizados para **fins gerais** e **memória.**
-* Pode criar uma Base de Dados Azure para PostgreSQL com infraestrutura dupla encriptação ativada nas seguintes regiões:
-
-   * E.U.A. Leste
-   * E.U.A. Centro-Sul
-   * E.U.A. Oeste 2
-   
 * Esta funcionalidade é suportada apenas em regiões e servidores, que suportam o armazenamento até 16 TB. Para a lista das regiões de Azure que suportam o armazenamento até 16 TB, consulte a [documentação](concepts-pricing-tiers.md#storage)de armazenamento .
 
     > [!NOTE]

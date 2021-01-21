@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969607"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629577"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erro do gestor de arranque do Windows - 0xC0000428 Estado De imagem Inválida Hash
 
@@ -65,6 +65,9 @@ Não pode prolongar a data de expiração de uma imagem de visualização. Quand
 - No Azure, todas as imagens para o Windows que são versões de pré-visualização incluirão uma nota na sua descrição de que não se destinam à produção e que estão disponíveis para utilização apenas durante um período experimental especificado ou como um "lançamento de pré-visualização".
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 Se a sua imagem for uma imagem de pré-visualização, não há forma de prolongar a data de validade da imagem utilizada, terá de [implementar um novo VM](../windows/quick-create-portal.md) utilizando uma imagem de não pré-visualização. Os passos abaixo irão ajudá-lo a identificar se utilizou uma imagem de pré-visualização, bem como fornecer recursos para ajudá-lo a transferir dados deste VM para um novo VM. Se identificou positivamente a imagem como uma imagem de pré-visualização, a imagem não é recuperável, uma vez que está agora expirada.
 

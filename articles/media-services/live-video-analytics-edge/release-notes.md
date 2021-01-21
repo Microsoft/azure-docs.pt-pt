@@ -3,12 +3,12 @@ title: Live Video Analytics em notas de lançamento IoT Edge - Azure
 description: Este tópico fornece notas de lançamento de Live Video Analytics sobre lançamentos, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121248"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629781"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Vídeo ao vivo analítico em notas de lançamento do IoT Edge
 
@@ -51,9 +51,12 @@ Este lançamento é o lançamento da atualização de visualização pública do
 * Suporte adicional para gestão de espaço em disco para nós de pia.
 * `MediaGraphGrpcExtension` o nó suporta agora [a extensãoConfiguration](grpc-extension-protocol.md) property para usar vários modelos de IA dentro de um único servidor gRPC.
 * Suporte adicional à recolha de métricas de módulos de vídeo ao vivo no [formato Prometheus](https://prometheus.io/docs/practices/naming/). Saiba mais sobre como [recolher métricas e ver no Azure Monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* Adicionou a capacidade de filtrar a seleção de saída. Pode passar **apenas áudio** ou **apenas vídeo** ou áudio e **vídeo,** ambos com a ajuda de qualquer nó `outputSelectors` gráfico. 
 * O processador frame Rate Filter é **precotado.**  
     * A gestão da taxa de fotogramas está agora disponível dentro dos nós do processador de extensão de gráfico.
 
+### <a name="visual-studio-code-extension"></a>Extensão do Visual Studio Code
+* Lançado [Live Video Analytics no IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) - Uma extensão visual Studio Code para ajudá-lo a gerir gráficos de mídia LVA. Esta extensão funciona com **o módulo LVA 2.0** e oferece gráficos de edição e gestão de mídia com uma interface gráfica muito elegante e fácil de usar.
 ## <a name="september-22-2020"></a>22 de setembro de 2020
 
 Esta etiqueta de lançamento é para a atualização de setembro de 2020 do módulo é:

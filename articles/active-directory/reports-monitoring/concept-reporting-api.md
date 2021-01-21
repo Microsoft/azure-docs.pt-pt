@@ -1,5 +1,5 @@
 ---
-title: Começar com a AZure AD reportando API / Microsoft Docs
+title: Começa com a AZure AD a reportar a API | Microsoft Docs
 description: Como começar com o Azure Ative Directory reportando API
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af448d5d28c5add39176500b988824b17f85b9fb
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 2027f713baf2b8039187e933ffc7bb0b68b5cc5f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861974"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631966"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
 
@@ -49,8 +49,10 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao 
 
 O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](/graph/api/resources/directoryaudit) de auditoria e [a referência API de acesso](/graph/api/resources/signIn)a sinal .
 
-Além disso, pode utilizar a [API de deteção de risco de Proteção de Identidade](/graph/api/resources/identityriskevent?view=graph-rest-beta) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
+Pode utilizar a [API de deteção de risco de Proteção de Identidade](/graph/api/resources/identityriskevent?view=graph-rest-beta) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
+Você também pode usar os [registos de provisionamento API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para obter acesso programático a eventos de provisionamento no seu inquilino. 
+
 ## <a name="apis-with-microsoft-graph-explorer"></a>APIs com Microsoft Graph Explorer
 
 Pode utilizar o explorador de [gráficos](https://developer.microsoft.com/graph/graph-explorer) da Microsoft para verificar o seu sômis e auditar dados de API. Certifique-se de iniciar sposição na sua conta usando ambos os botões de inscrição no UI do Graph Explorer e de definir **AuditLog.Read.All** and **Directory.Read.Todas as** permissões para o seu inquilino, como mostrado.   

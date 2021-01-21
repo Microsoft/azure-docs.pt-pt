@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Citrix ShareFile Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Citrix ShareFile | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Citrix ShareFile.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: ebd07990767d91c88f245b4ed7f8a66f93de0b85
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724005"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Ative Directory com o Citrix ShareFile
 
@@ -32,7 +32,7 @@ A integração do Citrix ShareFile com a Azure AD proporciona-lhe os seguintes b
 Para configurar a integração AZure AD com o Citrix ShareFile, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Citrix ShareFile assinatura única ativada
+* Citrix ShareFile subscrição única ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -126,7 +126,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-citrix-sharefile-sso"></a>Configure Citrix ShareFile SSO
@@ -141,7 +141,7 @@ Se estiver à espera que uma função seja atribuída aos utilizadores, pode sel
 
 3. Se pretender configurar o Citrix ShareFile manualmente, numa janela diferente do navegador web, inscreva-se no site da empresa Citrix ShareFile como administrador.
 
-1. No **painel de instrumentos**, clique em **Definições** e selecione **Definições de Administração**
+1. No **painel de instrumentos**, clique em **Definições** e selecione **Definições de Administração**.
 
     ![Administração](./media/sharefile-tutorial/settings.png)
 
@@ -165,7 +165,9 @@ Se estiver à espera que uma função seja atribuída aos utilizadores, pode sel
     
     f. Na caixa **de textos LOGOUT URL,** cole o valor do **URL logout** que copiou do portal Azure.
 
-5. Clique em **Guardar** no portal de gestão Citrix ShareFile.
+    exemplo, Nas **Definições Opcionais,** escolha **o contexto de auth iniciado pela SP** como Nome de Utilizador e **Palavra-passe** e **Exato**.
+
+5. Clique em **Guardar**.
 
 ## <a name="create-citrix-sharefile-test-user"></a>Criar utilizador de teste Citrix ShareFile
 

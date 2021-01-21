@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724668"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632500"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -46,7 +46,7 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
 ### <a name="solution"></a>Solução
 
 - Se estiver a utilizar uma parte de ficheiro padrão, ative [grandes ações de ficheiros](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) na sua conta de armazenamento. As grandes ações suportam até 10.000 IOPS por ação.
-- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte o [Provisioning Understanding para ações de ficheiros premium.](./understanding-billing.md#provisioned-billing)
+- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte o [Provisioning Understanding para ações de ficheiros premium.](./understanding-billing.md#provisioned-model)
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: Metadados ou carga de trabalho pesada do espaço de nome
 
@@ -285,7 +285,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 - [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)  
 - [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [FAQ sobre Ficheiros do Azure](storage-files-faq.md)

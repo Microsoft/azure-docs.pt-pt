@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724821"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630858"
 ---
 # <a name="smb-multichannel-performance"></a>Desempenho SMB Multicanal
 
@@ -119,7 +119,7 @@ As seguintes dicas podem ajudá-lo a otimizar o seu desempenho:
 - Certifique-se de que a sua conta de armazenamento e o seu cliente estão na mesma região de Azure para reduzir a latência da rede.
 - Utilize aplicações com vários fios e espalhe a carga em vários ficheiros.
 - Os benefícios de desempenho do SMB Multichannel aumentam com o número de ficheiros distribuindo carga.
-- O desempenho das ações premium está vinculado pelo tamanho das ações previstas (IOPS/egress/ingress) e pelos limites de ficheiros únicos. Para mais informações, consulte [a compreensão das ações de ficheiros premium](understanding-billing.md#provisioned-billing).
+- O desempenho das ações premium está vinculado pelo tamanho das ações previstas (IOPS/egress/ingress) e pelos limites de ficheiros únicos. Para mais informações, consulte [a compreensão das ações de ficheiros premium](understanding-billing.md#provisioned-model).
 - O desempenho máximo de um único cliente VM ainda está vinculado aos limites de VM. Por exemplo, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) pode suportar uma largura de banda máxima de 16.000 MBps (ou 2GBps), a saída do VM (escreve para armazenamento) é medido, a entrada (lê-se no armazenamento) não é. O desempenho da partilha de ficheiros está sujeito a limites de rede de máquinas, CPUs, armazenamento interno disponível largura de banda de rede, tamanhos de IO, paralelismo, bem como outros fatores.
 - O teste inicial é geralmente um aquecimento, deita fora os seus resultados e repete o teste.
 - Se o desempenho for limitado por um único cliente e a carga de trabalho ainda estiver abaixo dos limites de ações previstos, um desempenho mais elevado pode ser alcançado espalhando carga sobre vários clientes.

@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724804"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630756"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
@@ -172,7 +172,7 @@ A propriedade **de quota** significa algo ligeiramente diferente entre as açõe
 
 - Para ações de ficheiros padrão, é um limite superior da partilha de ficheiros Azure, para além da qual os utilizadores finais não podem ir. O principal objetivo da quota para uma quota-padrão é o orçamento: "Não quero que esta parte dos ficheiros cresça para além deste ponto". Se uma quota não for especificada, a quota-padrão pode abranger até 100 TiB (ou 5 TiB se a propriedade de grandes ações não estiver definida para uma conta de armazenamento).
 
-- No caso das ações de ficheiros premium, a quota está sobrecarregada para o **tamanho previsto.** O tamanho previsto é o valor que será cobrado, independentemente do uso real. Ao providenciar uma parte de ficheiro premium, pretende considerar dois fatores: 1) o crescimento futuro da parte numa perspetiva de utilização do espaço e 2) o IOPS necessário para a sua carga de trabalho. Cada GiB abasteci-se a um IOPS adicional reservado e rebentado. Para obter mais informações sobre como planear uma partilha de ficheiros premium, consulte [a provisionar ações de ficheiros premium](understanding-billing.md#provisioned-billing).
+- No caso das ações de ficheiros premium, a quota está sobrecarregada para o **tamanho previsto.** O tamanho previsto é o valor que será cobrado, independentemente do uso real. Ao providenciar uma parte de ficheiro premium, pretende considerar dois fatores: 1) o crescimento futuro da parte numa perspetiva de utilização do espaço e 2) o IOPS necessário para a sua carga de trabalho. Cada GiB abasteci-se a um IOPS adicional reservado e rebentado. Para obter mais informações sobre como planear uma partilha de ficheiros premium, consulte [a provisionar ações de ficheiros premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Se acabou de criar a sua conta de armazenamento, pode navegar para ela a partir do ecrã de implementação selecionando **Go para o recurso**. Se criou previamente a conta de armazenamento, pode navegar para ela através do grupo de recursos que a contém. Uma vez na conta de armazenamento, selecione as **ações de ficheiro** com rótulo de azulejo (também pode navegar para **arquivar ações** através da tabela de conteúdos para a conta de armazenamento).

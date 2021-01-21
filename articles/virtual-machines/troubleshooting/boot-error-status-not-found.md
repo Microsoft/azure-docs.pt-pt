@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657129"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632229"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Erro do Gestor de Boot do Windows de resolução de problemas - 0xC000225 "Estado não encontrado"
  
@@ -79,6 +79,9 @@ Uma corrupção de colmeia de registo pode ser devido a:
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Criar e aceder a um VM de reparação.
 1. Selecione uma solução:
@@ -180,7 +183,7 @@ Se esta recolha de informações apresentar um erro em que não exista um fichei
 
          A imagem a seguir mostra os resultados da listagem e seleção de um disco. O disco 0 (127 GB / Online), o disco 1 (32 GB / Online) e o Disco 2 (127 GB / Online) estão listados, tendo o Disco 2 sido selecionado utilizando o comando `sel disk 2` .
 
-         ![Os resultados da listagem e, em seguida, a seleção de um disco. Disco 0 (127 GB ] Online), Disco 1 (32 GB ! Online) e Disco 2 (127 GB / Online) estão listados, com o Disco 2 a ser selecionado.](./media/troubleshoot-boot-error-status-not-found/9.png)
+         ![Os resultados da listagem e, em seguida, a seleção de um disco. Disco 0 (127 GB | Online), Disco 1 (32 GB | Online) e Disco 2 (127 GB | Online) estão listados, com o Disco 2 a ser selecionado.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
       1. Listar as divisórias e selecionar a partição do sistema EFI identificada no passo anterior:
       
@@ -191,7 +194,7 @@ Se esta recolha de informações apresentar um erro em que não exista um fichei
 
          A imagem a seguir mostra os resultados da listagem e da seleção de uma partição. Estão listadas a partição 1 (Reservada / 16MB), Partição 2 (Sistema / 100MB) e Partição 3 (Primária / 126 GB), com a Partição 2 a ser selecionada utilizando o comando `sel part 2` .
 
-         ![Os resultados da listagem e, em seguida, a seleção de uma divisória. Estão listadas a partição 1 (Reservada / 16MB), Partição 2 (Sistema / 100MB) e Partição 3 (Primária / 126 GB), com a Partição 2 a ser selecionada.](./media/troubleshoot-boot-error-status-not-found/10.png)
+         ![Os resultados da listagem e, em seguida, a seleção de uma divisória. Estão listadas a partição 1 (Reservada | 16MB), Partição 2 (System | 100MB) e Partição 3 (| 126 GB) estão selecionadas, tendo sido selecionada a Partição 2.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
       1. Atribua uma carta à partição EFI utilizando o comando `assign` .
 

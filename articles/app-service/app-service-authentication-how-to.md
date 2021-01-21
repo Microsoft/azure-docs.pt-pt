@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601786"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630332"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -225,7 +225,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Tanto a Microsoft Account como o Azure Ative Directory permitem iniciar seduções a partir de vários domínios. Por exemplo, a Microsoft Account permite _outlook.com_, _live.com_ e _contas hotmail.com._ O Azure AD permite qualquer número de domínios personalizados para as contas de inscrição. No entanto, é possível que queira acelerar os seus utilizadores diretamente para a sua própria página de inscrição Azure AD (tal `contoso.com` como). Para sugerir o nome de domínio das contas de inscrição, siga estes passos.
 
-Em [https://resources.azure.com](https://resources.azure.com) , navegar para **subscrições** > **_\<subscription\_name_** > **recursos Grupos** > ** **_ \<resource\_group\_name> _** ** > **fornecedores**  >  **Microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings**. 
+Em [https://resources.azure.com](https://resources.azure.com) , navegar para **subscrições** > **_\<subscription\_name_** > **recursos Grupos** > ** **_ \<resource\_group\_name> _> **fornecedores**  >  **Microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings**. 
 
 Clique **em Editar,** modifique a seguinte propriedade e, em seguida, clique em **Colocar**. Certifique-se de que substitui _\<domain\_name>_ pelo domínio que deseja.
 
@@ -280,6 +280,150 @@ O fornecedor de identidade pode fornecer determinada autorização chave-na-curv
 
 Se algum dos outros níveis não fornecer a autorização de que necessita, ou se a sua plataforma ou fornecedor de identidade não for suportado, deve escrever código personalizado para autorizar os utilizadores com base nas alegações do [utilizador.](#access-user-claims)
 
+## <a name="updating-the-configuration-version-preview"></a>Atualizar a versão de configuração (pré-visualização)
+
+Existem duas versões da API de gestão para a funcionalidade autenticação/Autorização. A versão V2 de pré-visualização é necessária para a experiência "Autenticação (pré-visualização)" no portal Azure. Uma aplicação que já utiliza a API V1 pode fazer upgrade para a versão V2 uma vez que algumas alterações tenham sido feitas. Especificamente, a configuração secreta deve ser movida para as definições de aplicações pegajosas. A configuração do fornecedor de Conta Microsoft também não é suportada atualmente em V2.
+
+> [!WARNING]
+> A migração para a pré-visualização V2 irá desativar a gestão da funcionalidade de Autenticação/Autorização do Serviço de Aplicações para a sua aplicação através de alguns clientes, como a sua experiência existente no portal Azure, Azure CLI e Azure PowerShell. Isto não pode ser invertido. Durante a pré-visualização, a migração das cargas de trabalho de produção não é encorajada ou apoiada. Só deve seguir os passos desta secção para aplicações de teste.
+
+### <a name="moving-secrets-to-application-settings"></a>Movendo segredos para configurações de aplicações
+
+1. Obtenha a sua configuração existente utilizando a API V1:
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   Na carga útil JSON resultante, tome nota do valor secreto utilizado para cada fornecedor que configura:
+
+   * AAD: `clientSecret`
+   * Google: `googleClientSecret`
+   * Facebook: `facebookAppSecret`
+   * Twitter: `twitterConsumerSecret`
+   * Conta Microsoft: `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > Os valores secretos são importantes credenciais de segurança e devem ser tratados cuidadosamente. Não partilhe estes valores nem os persista numa máquina local.
+
+1. Crie configurações de aplicações pegajosas para cada valor secreto. Pode escolher o nome de cada definição de candidatura. O seu valor deve corresponder ao que obteve no passo anterior ou [referenciar um segredo do Cofre chave](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) que criou com esse valor.
+
+   Para criar a definição, pode utilizar o portal Azure ou executar uma variação do seguinte para cada fornecedor:
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > As definições de aplicação para esta configuração devem ser marcadas como adesivos de slot, o que significa que não se movem entre ambientes durante uma [operação de troca de faixas horárias](./deploy-staging-slots.md). Isto porque a sua configuração de autenticação em si está ligada ao ambiente. 
+
+1. Crie um novo ficheiro JSON chamado `authsettings.json` . Pegue na saída que recebeu anteriormente e remova cada valor secreto daí resultante. Escreva a saída restante para o ficheiro, certificando-se de que nenhum segredo está incluído. Em alguns casos, a configuração pode ter matrizes que contenham cordas vazias. Certifique-se de que `microsoftAccountOAuthScopes` isso não, e se o fizer, mude esse valor para `null` .
+
+1. Adicione um imóvel ao `authsettings.json` qual aponta para o nome de definição de aplicação que criou anteriormente para cada fornecedor:
+ 
+   * AAD: `clientSecretSettingName`
+   * Google: `googleClientSecretSettingName`
+   * Facebook: `facebookAppSecretSettingName`
+   * Twitter: `twitterConsumerSecretSettingName`
+   * Conta Microsoft: `microsoftAccountClientSecretSettingName`
+
+   Um ficheiro de exemplo após esta operação pode parecer semelhante ao seguinte, neste caso apenas configurado para AAD:
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. Submeta este ficheiro como a nova configuração de Autenticação/Autorização para a sua aplicação:
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. Valide que a sua aplicação ainda está a funcionar como esperado após este gesto.
+
+1. Elimine o ficheiro utilizado nos passos anteriores.
+
+Já emigrou a app para armazenar segredos de fornecedor de identidade como configurações de aplicações.
+
+### <a name="support-for-microsoft-account-registrations"></a>Suporte para registos de conta microsoft
+
+A API V2 não suporta atualmente a Microsoft Account como um fornecedor distinto. Em vez disso, aproveita a plataforma de identidade da [Microsoft](../active-directory/develop/v2-overview.md) convergida para utilizadores que se inscrevam com contas pessoais da Microsoft. Ao mudar para a API V2, a configuração V1 Azure Ative Directory é utilizada para configurar o fornecedor da Plataforma de Identidade da Microsoft.
+
+Se a sua configuração existente contiver um fornecedor de Conta Microsoft e não contiver um fornecedor de Diretório Azure Ative, pode mudar a configuração para o fornecedor de Diretório Ativo Azure e, em seguida, executar a migração. Para efetuar este procedimento:
+
+1. Vá às [**inscrições**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure e encontre o registo associado ao seu fornecedor de Conta Microsoft. Pode estar na rubrica "Aplicações de conta pessoal".
+1. Navegue na página "Autenticação" para a inscrição. Em "Redirecionar URIs" deverá ver uma entrada terminando em `/.auth/login/microsoftaccount/callback` . Copie este URI.
+1. Adicione um novo URI que corresponda ao que acabou de copiar, exceto que, em vez disso, o tenha acabado `/.auth/login/aad/callback` em . Isto permitirá que o registo seja utilizado pela configuração de Autenticação/Autorização do Serviço de Aplicações.
+1. Navegue para a configuração de Autenticação/Autorização do Serviço de Aplicações para a sua aplicação.
+1. Colete a configuração para o fornecedor de Conta Microsoft.
+1. Configure o fornecedor de Diretório Ativo Azure utilizando o modo de gestão "Avançado", fornecendo o ID do cliente e os valores secretos do cliente que recolheu no passo anterior. Para o URL emitente, utilize- o , `<authentication-endpoint>/<tenant-id>/v2.0` e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) o seu ambiente em nuvem (por exemplo, https://login.microsoftonline.com " para Azure global), substituindo também *\<tenant-id>* o seu **ID do Diretório (inquilino).**
+1. Depois de ter guardado a configuração, teste o fluxo de login navegando no seu navegador até ao `/.auth/login/aad` ponto final do seu site e complete o fluxo de entrada.
+1. Neste momento, copiou com sucesso a configuração, mas a configuração do fornecedor de Conta microsoft existente permanece. Antes de o remover, certifique-se de que todas as partes da sua aplicação referenciam o fornecedor Azure Ative Directory através de links de login, etc. Verifique se todas as partes da sua aplicação funcionam como esperado.
+1. Depois de ter validado que as coisas funcionam contra o fornecedor de Diretório AAD Azure Ative, poderá remover a configuração do fornecedor de conta da Microsoft.
+
+Algumas aplicações podem já ter registos separados para o Azure Ative Directory e para a Microsoft Account. Estas aplicações não podem ser migradas neste momento. 
+
+> [!WARNING]
+> É possível convergir os dois registos modificando os [tipos de conta suportados](../active-directory/develop/supported-accounts-validation.md) para o registo de aplicações AAD. No entanto, isto forçaria um novo consentimento para os utilizadores da Microsoft Account, e as alegações de identidade desses utilizadores podem ser diferentes na estrutura, `sub` nomeadamente alterando valores uma vez que um novo ID da App está a ser utilizado. Esta abordagem não é recomendada a menos que seja compreendida minuciosamente. Em vez disso, deve aguardar o apoio para as duas inscrições na superfície da API V2.
+
+### <a name="switching-to-v2"></a>Mudar para V2
+
+Uma vez realizados os passos acima, navegue para a aplicação no portal Azure. Selecione a secção "Autenticação (pré-visualização)". 
+
+Em alternativa, pode fazer um pedido PUT contra o `config/authsettingsv2` recurso sob o recurso do site. O esquema para a carga útil é o mesmo que capturado no [Configure usando uma](#config-file) secção de ficheiro.
+
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>Configure usando um ficheiro (pré-visualização)
 
 As definições de auth podem ser configuradas opcionalmente através de um ficheiro fornecido pela sua implementação. Isto pode ser exigido por certas capacidades de pré-visualização de Autenticação/Autorização do Serviço de Aplicações.
@@ -303,7 +447,7 @@ As definições de auth podem ser configuradas opcionalmente através de um fich
 > [!NOTE]
 > O formato para `authFilePath` varia entre plataformas. No Windows, os caminhos relativos e absolutos são suportados. O parente é recomendado. Para o Linux, apenas os caminhos absolutos são suportados atualmente, pelo que o valor da definição deve ser "/home/site/wwwroot/auth.json" ou similar.
 
-Uma vez então então então a atualização de configuração, o conteúdo do ficheiro será utilizado para definir o comportamento da Autenticação/Autorização do Serviço de Aplicações para esse site. Se alguma vez desejar voltar à configuração do Gestor de Recursos Azure, pode fazê-lo `isAuthFromFile` definindo de volta para "falso".
+Uma vez então a atualização de configuração, o conteúdo do ficheiro será utilizado para definir o comportamento da Autenticação/Autorização do Serviço de Aplicações para esse site. Se alguma vez desejar voltar à configuração do Gestor de Recursos Azure, pode fazê-lo `isAuthFromFile` definindo de volta para "falso".
 
 ### <a name="configuration-file-reference"></a>Referência de ficheiro de configuração
 
@@ -545,9 +689,9 @@ az webapp auth update --name <my_app_name> \
 
 `<my_app_name>`Substitua-o pelo nome da sua aplicação. Substitua também `<my_resource_group>` o nome do grupo de recursos para a sua aplicação. Além disso, `<version>` substitua por uma versão válida do tempo de execução 1.x ou `~1` pela versão mais recente. Pode encontrar as notas de lançamento nas diferentes versões de tempo de execução [aqui] ( https://github.com/Azure/app-service-announcements) para ajudar a determinar a versão a fixar.
 
-Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
+Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior.  Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Autenticar e autorizar utilizadores ponto a ponto](tutorial-auth-aad.md)

@@ -1,15 +1,15 @@
 ---
-title: Filas de cartas mortas do Service Bus Microsoft Docs
+title: Filas de cartas mortas do Autocarro de Serviço | Microsoft Docs
 description: Descreve filas de cartas mortas no Azure Service Bus. As filas de autocarros de serviço e as subscrições de tópicos fornecem um subqueue secundário, chamado de fila de letras mortas.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad62f946584071e7ce6fd55f48b5f7ee8db44a2f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301028"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630103"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
 
@@ -30,7 +30,7 @@ Não é possível obter a contagem de mensagens na fila das letras mortas ao ní
 
 ![Contagem de mensagens DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Também pode obter a contagem de mensagens DLQ utilizando o comando Azure CLI: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show) . 
+Também pode obter a contagem de mensagens DLQ utilizando o comando Azure CLI: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) . 
 
 ## <a name="moving-messages-to-the-dlq"></a>Mensagens de deslocação para o DLQ
 

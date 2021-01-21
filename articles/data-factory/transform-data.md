@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637688"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632330"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -27,7 +27,7 @@ ms.locfileid: "92637688"
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
 > * [Azure Machine Learning Studio (clássico)](transform-data-using-machine-learning.md) 
-> * [Procedimento armazenado](transform-data-using-stored-procedure.md)
+> * [Procedimento Armazenado](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Caderno databricks](transform-data-databricks-notebook.md)
 > * [Frasco de dados](transform-data-databricks-jar.md)
@@ -47,9 +47,9 @@ A Data Factory suporta as seguintes atividades de transformação de dados que p
 
 Os fluxos de dados de mapeamento são transformações de dados visualmente projetadas na Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam lógicas de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro dos oleodutos da Azure Data Factory que utilizam clusters de faíscas em escala. As atividades de fluxo de dados podem ser operacionalizadas através do agendamento, controlo, fluxo e capacidades de monitorização existentes da Data Factory. Para obter mais informações, consulte [os fluxos de dados de mapeamento.](concepts-data-flow-overview.md)
 
-### <a name="wrangling-data-flows"></a>Fluxos de dados de estrangulamento
+### <a name="data-wrangling"></a>Conflito de dados
 
-Os fluxos de dados de escoaragem na Azure Data Factory permitem-lhe fazer a preparação de dados sem código em iterativas à escala de nuvem. Os fluxos de dados de estrangulamento integram-se com [a Power Query Online](/power-query/) e disponibilizam funções de Power Query M para a luta de dados à escala de nuvem através da execução de faíscas. Para obter mais informações, consulte [os fluxos de dados](wrangling-data-flow-overview.md)de estrangulamento.
+A consulta de energia na Azure Data Factory permite a criação de dados em escala de nuvem, o que permite fazer a preparação de dados sem código em iterativas em escala de nuvem. A disputa de dados integra-se com [a Power Query Online](/power-query/) e disponibiliza funções de Power Query M para a luta de dados à escala de nuvem através da execução de faíscas. Para obter mais informações, consulte [os dados em que estão a ser discutidos na ADF.](wrangling-overview.md)
 
 ## <a name="external-transformations"></a>Transformações externas
 
@@ -78,7 +78,7 @@ Com o tempo, os modelos preditivos no Estúdio (clássico) experiências de pont
 Consulte [as atividades do Use Azure Machine Learning Studio (clássico)](transform-data-using-machine-learning.md) para mais detalhes sobre estas atividades do Studio (clássico). 
 
 ### <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server Database na sua empresa ou um VM Azure. Consulte o artigo [de atividade do Procedimento Armazenado](transform-data-using-stored-procedure.md) para obter mais informações.  
+Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure Synapse Analytics, SQL Server Database na sua empresa ou um Azure VM. Consulte o artigo [de atividade do Procedimento Armazenado](transform-data-using-stored-procedure.md) para obter mais informações.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Atividade U-SQL do Data Lake Analytics
 Data Lake Analytics U-SQL atividade executa um script U-SQL em um cluster Azure Data Lake Analytics. Consulte o artigo [de atividade u-SQL da Data Analytics](transform-data-using-data-lake-analytics.md) para obter mais detalhes. 
@@ -103,8 +103,8 @@ Pode criar uma atividade personalizada para executar scripts R no seu cluster do
 ### <a name="compute-environments"></a>Ambientes computacional
 Cria um serviço ligado para o ambiente computacional e, em seguida, utiliza o serviço ligado ao definir uma atividade de transformação. Existem dois tipos de ambientes computativos suportados pela Data Factory. 
 
-- **A pedido** : Neste caso, o ambiente de computação é totalmente gerido pela Data Factory. É automaticamente criado pelo serviço Data Factory antes de um trabalho ser submetido para processar dados e removido quando o trabalho estiver concluído. Você pode configurar e controlar configurações granulares do ambiente de computação a pedido para execução de emprego, gestão de clusters e ações de bootstrapping. 
-- **Bring Your Own** : Neste caso, pode registar o seu próprio ambiente de computação (por exemplo, cluster HDInsight) como um serviço ligado na Data Factory. O ambiente de computação é gerido por si e o serviço Data Factory utiliza-o para executar as atividades. 
+- **A pedido**: Neste caso, o ambiente de computação é totalmente gerido pela Data Factory. É automaticamente criado pelo serviço Data Factory antes de um trabalho ser submetido para processar dados e removido quando o trabalho estiver concluído. Você pode configurar e controlar configurações granulares do ambiente de computação a pedido para execução de emprego, gestão de clusters e ações de bootstrapping. 
+- **Bring Your Own**: Neste caso, pode registar o seu próprio ambiente de computação (por exemplo, cluster HDInsight) como um serviço ligado na Data Factory. O ambiente de computação é gerido por si e o serviço Data Factory utiliza-o para executar as atividades. 
 
 Consulte o artigo [da Compute Linked Services](compute-linked-services.md) para saber mais sobre os serviços de computação suportados pela Data Factory. 
 

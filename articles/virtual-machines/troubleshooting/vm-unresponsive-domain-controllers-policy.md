@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6c139398182ca9d875de0d3b21c58afe503bd8a5
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963130"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632279"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>A VM não responde quando se aplica a política de controladores de domínio predefinida
 
@@ -38,6 +38,9 @@ Este problema pode dever-se a alterações recentes feitas à Política de Contr
 
 ## <a name="solution"></a>Solução
 
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
+
 Se recentemente tiver feito alterações na Política de Controladores de Domínio Predefinidos, poderá pretender desfazer essas alterações para corrigir o problema. Se não tem a certeza do que está a causar o problema, recolha um depósito de memória e, em seguida, envie um bilhete de apoio.
 
 ### <a name="collect-the-memory-dump-file"></a>Recolher o ficheiro de despejo de memória
@@ -54,6 +57,6 @@ Para resolver este problema, deve primeiro recolher o ficheiro de despejo de mem
 
 1. Na vM de reparação, aceda à pasta Windows no disco oss anexado. Se a letra de unidade atribuída ao disco do SO anexado for `F`, terá de aceder a `F:\Windows`.
 
-1. Localize o ficheiro memory.dmp e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
+1. Localize o ficheiro .dmp memória e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
 
-1. Se tiver dificuldade em localizar o ficheiro memory.dmp, pode desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Siga o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Se tiver dificuldade em localizar o ficheiro .dmp memória, poderá desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Siga o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).

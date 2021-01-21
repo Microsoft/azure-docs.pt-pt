@@ -1,5 +1,5 @@
 ---
-title: Executar Azure IoT Edge em Máquinas Virtuais Ubuntu Microsoft Docs
+title: Executar Azure IoT Edge em máquinas virtuais Ubuntu | Microsoft Docs
 description: Instruções de configuração Azure IoT Edge para máquinas virtuais Ubuntu 18.04 LTS
 author: toolboc
 manager: veyalla
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d14ef742c19556a9df2bd193a54bfaa1672d5964
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0e044e8102308fce4145d4aa6c887cefaa99be34
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044229"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629967"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar borda Azure IoT em máquinas virtuais Ubuntu
 
@@ -50,7 +50,7 @@ O [Botão Implementar para Azure](../azure-resource-manager/templates/deploy-to-
 
     **Nome de utilizador Admin**: Um nome de utilizador, que será fornecido privilégios de raiz na implementação.
 
-    **Cadeia de ligação do dispositivo**: uma [cadeia de ligação](./how-to-manual-provision-symmetric-key.md) do dispositivo para um dispositivo que foi criado dentro do seu [hub IoT](../iot-hub/about-iot-hub.md)pretendido .
+    **Cadeia de ligação do dispositivo**: Uma [cadeia de ligação](./how-to-register-device.md) do dispositivo para um dispositivo que foi criado dentro do seu [hub IoT](../iot-hub/about-iot-hub.md)pretendido .
 
     **Tamanho VM**: O [tamanho](../cloud-services/cloud-services-sizes-specs.md) da máquina virtual a ser implantada
 
@@ -66,7 +66,7 @@ O [Botão Implementar para Azure](../azure-resource-manager/templates/deploy-to-
 
 1. Verifique se a implementação foi concluída com êxito.  Um recurso da máquina virtual devia ter sido implementado no grupo de recursos selecionados.  Tome nota do nome da máquina, este deve estar no formato `vm-0000000000000` . Além disso, tome nota do **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    O **Nome DNS ** pode ser obtido na secção **Descrição geral** da máquina virtual recentemente implementada no portal do Azure.
+    O **Nome DNS** pode ser obtido na secção **Descrição geral** da máquina virtual recentemente implementada no portal do Azure.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot mostrando o nome dns do iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)

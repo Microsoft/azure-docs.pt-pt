@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6cb3467fec99bd12810ed058a61de1be7b39cdd0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977053"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629594"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Resolução de problemas em que o Windows não consegue concluir a configuração do sistema
 
@@ -39,5 +39,8 @@ Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a im
 Este erro é causado quando o sistema operativo (OS) não consegue completar o [processo Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Este erro ocorrerá quando se tenta uma bota inicial de um VM generalizado. Se encontrar este problema, recrie a imagem generalizada, uma vez que a imagem está num estado intransmissível e não pode ser recuperada.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 Para corrigir este problema, siga a orientação do [Azure sobre a preparação/captura de uma imagem](../windows/upload-generalized-managed.md) e prepare uma nova imagem generalizada.

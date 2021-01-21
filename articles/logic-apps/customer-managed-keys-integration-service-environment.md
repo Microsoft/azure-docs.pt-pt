@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/20/2021
+ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741053"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629679"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Confiem chaves geridas pelo cliente para encriptar dados em repouso para ambientes de serviço de integração (ISEs) em Azure Logic Apps
 
 A Azure Logic Apps conta com o Azure Storage para armazenar e encriptar automaticamente [os dados em repouso](../storage/common/storage-service-encryption.md). Esta encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. Por predefinição, o Azure Storage utiliza chaves geridas pela Microsoft para encriptar os seus dados. Para obter mais informações sobre o funcionamento da encriptação do Azure Storage, consulte [a encriptação do Armazenamento Azure para obter dados em repouso](../storage/common/storage-service-encryption.md) e [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
 
-Quando criar um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar as suas aplicações lógicas, e pretender mais controlo sobre as chaves de encriptação utilizadas pelo Azure Storage, pode configurar, utilizar e gerir a sua própria chave utilizando o [Azure Key Vault](../key-vault/general/overview.md). Esta capacidade também é conhecida como "Bring Your Own Key" (BYOK), e a sua chave é chamada de "chave gerida pelo cliente".
+Quando criar um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar as suas aplicações lógicas, e pretender mais controlo sobre as chaves de encriptação utilizadas pelo Azure Storage, pode configurar, utilizar e gerir a sua própria chave utilizando o [Azure Key Vault](../key-vault/general/overview.md). Esta capacidade é conhecida como "Bring Your Own Key" (BYOK), e a sua chave é chamada de "chave gerida pelo cliente". Com esta capacidade, o Azure Storage permite automaticamente [encriptação dupla ou encriptação de *infraestrutura* utilizando chaves geridas pela plataforma](../security/fundamentals/double-encryption.md) para a sua chave. Para saber mais, consulte [dominativamente os dados com encriptação de infraestrutura.](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)
 
 Este tópico mostra como configurar e especificar a sua própria chave de encriptação para usar quando cria o ISE utilizando a API de Apps Lógicas REST. Para que os passos gerais para criar um ISE através de Apps Lógicas REST API, consulte [Criar um ambiente de serviço de integração (ISE) utilizando a API de Apps Lógicas](../logic-apps/create-integration-service-environment-rest-api.md)REST .
 
@@ -51,7 +51,7 @@ Este tópico mostra como configurar e especificar a sua própria chave de encrip
   |----------|-------|
   | **Tipo chave** | RSA |
   | **Tamanho da chave RSA** | 2048 |
-  | **Ativado** | Yes |
+  | **Ativado** | Sim |
   |||
 
   ![Crie a sua chave de encriptação gerida pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -232,7 +232,7 @@ Para esta tarefa, pode utilizar o comando Azure PowerShell [Set-AzKeyVaultAccess
 
    1. Selecione estas opções:
 
-      | Definições | Valores |
+      | Definição | Valores |
       |---------|--------|
       | **Configurar da lista de modelos (opcional)** | Gestão de Chaves |
       | **Permissões-chave** | - **Principais Operações de Gestão**: Obter, Lista <p><p>- **Operações criptográficas**: Desembrulhar chave, chave de embrulho |
