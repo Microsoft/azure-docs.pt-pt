@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 145d58013b259bf14c26d0840b8cd4299cfe85f0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200724"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632627"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>VM não responde com erro "C01A001D" ao aplicar a atualização do Windows
 
@@ -38,6 +38,9 @@ Um ficheiro central não pode ser criado no sistema de ficheiros. O sistema oper
 ## <a name="resolution"></a>Resolução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. [Criar e aceder a um VM de reparação.](#create-and-access-a-repair-vm)
 2. [Liberte espaço no disco rígido.](#free-up-space-on-the-hard-disk)

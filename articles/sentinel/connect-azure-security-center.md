@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bb188aa79015c2123b9d9d8b6baf277dfadf2f9c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655957"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633049"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Ligue os dados de alerta do Azure Defender do Azure Security Center
 
@@ -38,7 +38,9 @@ Utilize o conector de alerta Azure Defender para ingerir os alertas do Azure Def
 
 1. Para utilizar o esquema relevante no Log Analytics para os alertas do Azure Defender, procure por **SecurityAlert**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
 Neste documento, aprendeu a ligar o Azure Defender ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

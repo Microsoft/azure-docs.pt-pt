@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681912"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632551"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>VM não responde enquanto espera pelo serviço local de Gerente de Sessão
 
@@ -35,6 +35,9 @@ Pode haver várias razões para um VM ficar preso à espera do Gerente local da 
 
 ## <a name="solution"></a>Solução
 
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
+
 Em alguns casos, simplesmente esperar que o processo termine irá resolver a questão. Se o seu VM não responder e permanecer no ecrã de espera por mais de uma hora, deve recolher uma lixeira de memória e, em seguida, contactar o suporte da Microsoft.
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
@@ -50,7 +53,7 @@ Em alguns casos, simplesmente esperar que o processo termine irá resolver a que
 
 Para obter mais informações sobre chamadas NMI, consulte as chamadas NMI no guia do utilizador [da Consola em Série Azure.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Resolução de problemas Erros de arranque da Máquina Virtual Azure](boot-error-troubleshoot.md)

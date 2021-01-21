@@ -1,18 +1,18 @@
 ---
-title: Azure Service Bus Subscription Rule SQL Action sintaxe Microsoft Docs
+title: Azure Service Bus Subscription Rule SQL Action syntax | Microsoft Docs
 description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são escritas na sintaxe baseada em linguagem SQL que é realizada contra uma mensagem.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489399"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632816"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Regra de subscrição SQL Action Syntax
 
-Uma *ação SQL* é usada para manipular metadados de mensagens depois de uma mensagem ter sido selecionada por um filtro de uma regra de subscrição. É uma expressão de texto que se apoia num subconjunto da norma SQL-92. Expressões de ação são usadas com o `sqlExpression` elemento da propriedade de 'ação' de um Service Bus em um modelo de Gestor de Recursos `Rule` [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir regras de subscrição.
+Uma *ação SQL* é usada para manipular metadados de mensagens depois de uma mensagem ter sido selecionada por um filtro de uma regra de subscrição. É uma expressão de texto que se apoia num subconjunto da norma SQL-92. Expressões de ação são usadas com o `sqlExpression` elemento da propriedade de 'ação' de um Service Bus em um modelo de Gestor de Recursos `Rule` [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir regras de subscrição.
   
   
 ```  
@@ -185,7 +185,7 @@ As constantes booleanas são representadas pelas palavras-chave `TRUE` ou `FALSE
   
 As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a> Função   
+## <a name="function"></a>função  
   
 ```  
 <function> :=  

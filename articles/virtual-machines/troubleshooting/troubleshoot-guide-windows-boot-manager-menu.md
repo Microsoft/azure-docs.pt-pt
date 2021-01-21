@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526544"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632568"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows VM não pode arrancar devido ao Windows Boot Manager
 
@@ -40,6 +40,9 @@ Figura 1
 O erro deve-se a um *displaybootmenu* de bandeira BCD no Windows Boot Manager. Quando a bandeira está ativada, o Windows Boot Manager pede ao utilizador, durante o processo de arranque, que selecione o carregador que pretende executar, causando um atraso no arranque. Em Azure, esta funcionalidade pode adicionar ao tempo que leva para iniciar um VM.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 Visão geral do processo:
 

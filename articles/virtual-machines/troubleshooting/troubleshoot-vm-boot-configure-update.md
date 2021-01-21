@@ -1,5 +1,5 @@
 ---
-title: A startup VM está presa em "Getting Windows ready. Não desligue o computador" em Azure Microsoft Docs
+title: A startup VM está presa em "Getting Windows ready. Não desligue o computador" em Azure | Microsoft Docs
 description: Introduza os passos para resolver o problema em que a startup VM está presa em "Getting Windows ready. Não desligue o computador."
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079847"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633015"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A startup VM está presa em "Getting Windows ready. Não desligue o computador" em Azure
 
@@ -40,6 +40,9 @@ Normalmente, este problema ocorre quando o servidor está a fazer o reboot final
 
 ## <a name="collect-an-os-memory-dump"></a>Recolha um depósito de memória de SO
 
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
+
 Se o problema não se resolver depois de esperar pelas alterações ao processo, terá de recolher um ficheiro de despejo de memória e suporte de contacto. Para recolher o ficheiro de despejo, siga estes passos:
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Ligue o disco de SO a um VM de recuperação
@@ -52,7 +55,7 @@ Se o problema não se resolver depois de esperar pelas alterações ao processo,
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
 1. No VM de recuperação, vá à pasta do windows no disco oss anexado. Se a carta do controlador que é atribuída ao disco de oss anexado for F, tem de ir para F:\Windows.
-2. Localize o ficheiro memory.dmp e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo. 
+2. Localize o ficheiro .dmp memória e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo. 
 
 Se não conseguir encontrar o ficheiro de despejo, mova o próximo passo para ativar o registo de despejo e a Consola em Série.
 

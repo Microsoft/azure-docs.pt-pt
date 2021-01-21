@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165795"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632585"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (pré-visualização) - Azure Monitor Application Insights for Java
 
@@ -38,7 +38,7 @@ Um período é um termo geral para qualquer uma destas três coisas:
 
 Para efeitos de transformadores de telemetria, os componentes importantes de um vão são:
 
-* Name
+* Nome
 * Atributos
 
 O nome de envergadura é o visor principal utilizado para pedidos e dependências no portal Azure.
@@ -241,7 +241,7 @@ Para a `hash` ação, são necessários seguintes
 ### `extract`
 
 > [!NOTE]
-> Esta funcionalidade é apenas em 3.0.1 e mais tarde
+> Esta característica é apenas em 3.0.2 e mais tarde
 
 Extrai valores utilizando uma regra de expressão regular da chave de entrada para as teclas-alvo especificadas na regra. Se já existe uma chave-alvo, será ultrapassada. Comporta-se de forma semelhante à definição [do Processador de Esversar](#extract-attributes-from-span-name) `toAttributes` com o atributo existente como fonte.
 

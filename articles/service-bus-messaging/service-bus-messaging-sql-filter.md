@@ -1,18 +1,18 @@
 ---
-title: Azure Service Bus Subscription Rule SQL Filter sintaxe / Microsoft Docs
+title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: Este artigo fornece detalhes sobre a gramática do filtro SQL. Um filtro SQL suporta um subconjunto da norma SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 9bff18b2161e419d728c360c9ed950ac2867fea8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 60f3cb6e85cef7a166c353f78cfb50405b962bdd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498681"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633176"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintaxe de filtro SQL regra de subscrição
 
-Um *filtro SQL* é um dos tipos de filtros disponíveis para subscrições de tópicos service bus. É uma expressão de texto que se apoia num subconjunto da norma SQL-92. Expressões de filtro são usadas com o `sqlExpression` elemento da propriedade 'sqlFilter' de um Service Bus `Rule` num modelo de Gestor de Recursos [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir as regras de subscrição.
+Um *filtro SQL* é um dos tipos de filtros disponíveis para subscrições de tópicos service bus. É uma expressão de texto que se apoia num subconjunto da norma SQL-92. Expressões de filtro são usadas com o `sqlExpression` elemento da propriedade 'sqlFilter' de um Service Bus `Rule` num modelo de Gestor de Recursos [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir as regras de subscrição.
 
 O Service Bus Premium também suporta a sintaxe do [seletor de mensagens JMS SQL](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) através da API JMS 2.0.
 
@@ -183,7 +183,7 @@ As constantes booleanas são representadas pelas palavras-chave **TRUE** ou **FA
 
 As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a> Função   
+## <a name="function"></a>função  
   
 ```  
 <function> :=  
@@ -265,9 +265,9 @@ Considere as seguintes semânticas [SqlFilter:](/dotnet/api/microsoft.servicebus
   
 ### <a name="operator-binding-semantics"></a>Semântica de ligação do operador
   
--   Operadores de comparação `>` `>=` como, `<` , , , , e `<=` `!=` `=` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.  
+-   Operadores de comparação `>` `>=` como, `<` e `<=` `!=` `=` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.  
   
--   Operadores aritméticos `+` `-` como, `*` , , , `/` e `%` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.
+-   Operadores aritméticos `+` `-` como, `*` e `/` `%` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.
 
 
 ## <a name="examples"></a>Exemplos

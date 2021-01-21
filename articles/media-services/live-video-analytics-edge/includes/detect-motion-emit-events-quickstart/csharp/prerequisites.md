@@ -1,13 +1,15 @@
 ---
-ms.openlocfilehash: 704fae07e4d72897fc44a0262796e31eb3c08861
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 60f6af92054fe9e8dc38aa4bf3c9fb5032b44c7e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691064"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633304"
 ---
 
 * Uma conta Azure que tem uma subscrição ativa. [Crie uma conta gratuita se](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ainda não tiver uma.
+  > [!NOTE]
+  > Você precisará de uma subscrição Azure com permissões para criar principais serviços **(a função do proprietário** fornece isso). Se não tiver as permissões certas, contacte o administrador da sua conta para lhe conceder as permissões certas. 
 * [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)

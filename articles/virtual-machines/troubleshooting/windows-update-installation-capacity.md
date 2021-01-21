@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635710"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633159"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Start start-up de SISTEMA de Resolução de Problemas – Capacidade de instalação do Windows Update
 
@@ -27,7 +27,7 @@ Este artigo fornece medidas para resolver problemas numa máquina virtual Azure 
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar diagnósticos boot para visualizar a imagem do VM, verá que a imagem mostra o Windows Update (KB) em andamento, mas falhando com o código de erro: **C01A001D**. A imagem a seguir mostra o Windows Update (KB) preso com a mensagem "Error C01A001D applying update operation ##### of #######)":
+Quando utilizar diagnósticos boot para visualizar a imagem do VM, verá que a imagem mostra o Windows Update (KB) em andamento, mas falhando com o código de erro: **C01A001D**. A imagem a seguir mostra o Windows Update (KB) preso com a mensagem "Error C01A001D applying update operation # of #)":
 
 ![O Windows Update (KB) está preso à mensagem: "Erro C01A001D aplicando a operação de atualização X de Y (Z)".](./media/troubleshoot-windows-update-installation-capacity/1.png)
 
@@ -38,6 +38,9 @@ Nesta situação, o sistema operativo (OS) não consegue completar uma instalaç
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo:
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Criar e aceder a um VM de reparação.
 1. Espaço livre no disco.
@@ -87,7 +90,7 @@ Dependendo do nível de fragmentação, a deses fragmentação pode demorar vár
 
 1. Verifique se o espaço livre no disco de so é maior do que o tamanho da memória (RAM) no VM.
 
-   Se não houver espaço suficiente no disco de so, altere o local onde o ficheiro de despejo de memória será criado e encaminhe essa localização para qualquer disco de dados anexado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua **%SystemRoot%** pela letra de acionamento do disco de dados, como **F:** , nos seguintes comandos.
+   Se não houver espaço suficiente no disco de so, altere o local onde o ficheiro de despejo de memória será criado e encaminhe essa localização para qualquer disco de dados anexado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua **%SystemRoot%** pela letra de acionamento do disco de dados, como **F:**, nos seguintes comandos.
 
    Configuração sugerida para permitir o despejo de OS:
 
@@ -97,7 +100,7 @@ Dependendo do nível de fragmentação, a deses fragmentação pode demorar vár
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Ativar no ControlSet001** :
+   **Ativar no ControlSet001**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 

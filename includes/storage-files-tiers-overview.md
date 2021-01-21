@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3ba7baf79ee972ed7289a1aab93484108da70cf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724247"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633456"
 ---
 A Azure Files oferece quatro níveis diferentes de armazenamento, premium, transação otimizado, quente e fresco para permitir-lhe adaptar as suas ações aos requisitos de desempenho e preço do seu cenário:
 
@@ -22,7 +22,7 @@ A Azure Files oferece quatro níveis diferentes de armazenamento, premium, trans
 - **Hot**: As ações de ficheiros quentes oferecem armazenamento otimizado para cenários de partilha de ficheiros para fins gerais, tais como ações da equipa. As ações de ficheiros quentes são oferecidas no hardware de armazenamento padrão apoiado por HDDs.
 - **Cool**: As ações de ficheiros cool oferecem armazenamento eficiente em termos de custos otimizados para cenários de armazenamento de arquivo online. As ações de ficheiros cool são oferecidas no hardware de armazenamento padrão apoiado por HDDs.
 
-As ações de ficheiros premium são implantadas no tipo **de conta de armazenamento FileStorage** e só estão disponíveis num modelo de faturação provisionado. Para obter mais informações sobre o modelo de faturação previsto para ações de ficheiros premium, consulte [a compreensão das ações de ficheiros premium](../articles/storage/files/understanding-billing.md#provisioned-billing). As ações de ficheiros standard, incluindo ações de ficheiros otimizadas, quentes e cool, são implantadas no tipo de conta de armazenamento versão **2 (GPv2) de finalidade geral,** e estão disponíveis através de pagamento à medida que vai fazendo a faturação. As ações de ficheiros quentes e frescos estão disponíveis em todas as regiões do Governo Azure Public e Azure. As ações de ficheiros otimizadas de transações estão disponíveis em todas as regiões do Azure, incluindo as regiões da Azure China e Azure Germany.
+As ações de ficheiros premium são implantadas no tipo **de conta de armazenamento FileStorage** e só estão disponíveis num modelo de faturação provisionado. Para obter mais informações sobre o modelo de faturação previsto para ações de ficheiros premium, consulte [a compreensão das ações de ficheiros premium](../articles/storage/files/understanding-billing.md#provisioned-model). As ações de ficheiros standard, incluindo ações de ficheiros otimizadas, quentes e cool, são implantadas no tipo de conta de armazenamento versão **2 (GPv2) de finalidade geral,** e estão disponíveis através de pagamento à medida que vai fazendo a faturação. As ações de ficheiros quentes e frescos estão disponíveis em todas as regiões do Governo Azure Public e Azure. As ações de ficheiros otimizadas de transações estão disponíveis em todas as regiões do Azure, incluindo as regiões da Azure China e Azure Germany.
 
 Ao selecionar um nível de armazenamento para a sua carga de trabalho, considere os seus requisitos de desempenho e utilização. Se a sua carga de trabalho requer latência de um dígito, ou estiver a utilizar os meios de armazenamento SSD no local, o nível premium é provavelmente o melhor. Se a baixa latência não for tão preocupante, por exemplo, com ações de equipas montadas no local a partir do Azure ou em cache no local usando o Azure File Sync, o armazenamento padrão pode ser melhor do ponto de vista de custos.
 

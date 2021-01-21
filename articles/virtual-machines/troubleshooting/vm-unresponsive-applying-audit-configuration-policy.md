@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f286542c91ba473d13595d8e8299b1bbd8c93856
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977957"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632610"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>A máquina virtual não responde ao aplicar a política de configuração da política de auditoria
 
@@ -45,6 +45,9 @@ Eis a política problemática: Configuração do *computador\Políticas\Modelos 
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Criar e Aceder a um VM de reparação.
 1. Desative a apólice.
@@ -106,7 +109,7 @@ Eis a política problemática: Configuração do *computador\Políticas\Modelos 
 
       - No comando, `<LETTER OF THE EFI SYSTEM PARTITION>` substitua-se pela letra da Partição do Sistema EFI.
       - Pode ser útil lançar a consola de Gestão de Discos para identificar a partição do sistema adequada rotulada como **Partição do Sistema EFI**.
-      - O identificador pode ser um GUID único ou pode ser o **bootmgr**padrão .
+      - O identificador pode ser um GUID único ou pode ser o **bootmgr** padrão .
 
 1. Execute os seguintes comandos:
 

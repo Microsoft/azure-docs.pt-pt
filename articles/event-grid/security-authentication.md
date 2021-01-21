@@ -3,12 +3,12 @@ title: Autenticar a entrega do evento aos manipuladores de eventos (Azure Event 
 description: Este artigo descreve diferentes formas de autenticar a entrega aos manipuladores de eventos na Azure Event Grid.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015543"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633125"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega do evento aos manipuladores de eventos (Azure Event Grid)
 Este artigo fornece informações sobre a autenticação da entrega de eventos aos manipuladores de eventos. Também mostra como proteger os pontos finais do webhook que são usados para receber eventos da Grade de Eventos usando O Diretório Ativo Azure (Azure AD) ou um segredo partilhado.
@@ -35,7 +35,7 @@ Você pode proteger o ponto final webhook que é usado para receber eventos da G
 ### <a name="using-client-secret-as-a-query-parameter"></a>Usando o segredo do cliente como parâmetro de consulta
 Também pode proteger o seu ponto final webhook adicionando parâmetros de consulta ao URL de destino webhook especificado como parte da criação de uma Subscrição de Eventos. Desacorde um dos parâmetros de consulta para ser um segredo de cliente, como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) ou um segredo partilhado. O serviço 'Grade de Eventos' inclui todos os parâmetros de consulta em cada pedido de entrega de eventos ao webhook. O serviço webhook pode recuperar e validar o segredo. Se o segredo do cliente for atualizado, a subscrição do evento também precisa de ser atualizada. Para evitar falhas de entrega durante esta rotação secreta, faça com que o webhook aceite segredos antigos e novos por uma duração limitada antes de atualizar a subscrição do evento com o novo segredo. 
 
-Como os parâmetros de consulta podem conter segredos de clientes, eles são tratados com cuidado extra. São armazenados como encriptados e não são acessíveis aos operadores de serviço. Não são registados como parte dos registos/vestígios de serviço. Ao recuperar as propriedades de Subscrição de Eventos, os parâmetros de consulta de destino não são devolvidos por padrão. Por exemplo: --incluir o parâmetro [url-end deve](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) ser utilizado em Azure [CLI](/cli/azure?view=azure-cli-latest).
+Como os parâmetros de consulta podem conter segredos de clientes, eles são tratados com cuidado extra. São armazenados como encriptados e não são acessíveis aos operadores de serviço. Não são registados como parte dos registos/vestígios de serviço. Ao recuperar as propriedades de Subscrição de Eventos, os parâmetros de consulta de destino não são devolvidos por padrão. Por exemplo: --incluir o parâmetro [url-end deve](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) ser utilizado em Azure [CLI](/cli/azure).
 
 Para obter mais informações sobre a entrega de eventos a webhooks, consulte [a entrega do evento Webhook](webhook-event-delivery.md)
 
@@ -46,5 +46,5 @@ A Azure Event Grid suporta apenas pontos finais **https** webhook.
 Se já está familiarizado com a Grade de Eventos, poderá estar ciente do aperto de mão de validação de ponto final para prevenir abusos. O CloudEvents v1.0 implementa a sua própria [semântica de proteção](webhook-event-delivery.md) contra abusos utilizando o método **HTTP OPTIONS.** Para ler mais sobre o mesmo, consulte [HTTP 1.1 Web Hooks para entrega de eventos - Versão 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando utiliza o esquema cloudEvents para saída, a Grade de Eventos utiliza a proteção contra abusos CloudEvents v1.0 em vez do mecanismo de validação da Grelha de Eventos. Para obter mais informações, consulte [o esquema de utilização de CloudEvents v1.0 com grelha de eventos](cloudevents-schema.md). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte [clientes editoriais Authenticate](security-authenticate-publishing-clients.md) para saber sobre autenticar clientes que publicam eventos em tópicos ou domínios. 

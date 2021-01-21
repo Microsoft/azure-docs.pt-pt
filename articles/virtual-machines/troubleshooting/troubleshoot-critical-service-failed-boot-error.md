@@ -1,6 +1,6 @@
 ---
-title: SERVIÇO CRÍTICO FALHADO ao iniciar um VM Azure / Microsoft Docs
-description: Saiba como resolver o erro "0x0000000A-CRITICAL SERVICE FAILED" que ocorre no arranque Microsoft Docs
+title: SERVIÇO CRÍTICO FALHADO AO iniciar um | Azure VM Microsoft Docs
+description: Saiba como resolver os problemas do erro "0x0000000A-CRITICAL SERVICE FAILED" que ocorre ao iniciar | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a937528e3bfd8bea16912d614133988763748bab
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86129861"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632964"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRITICAL SERVICE FAILED" no ecrã azul ao iniciar um VM Azure
 Este artigo descreve o erro "CRITICAL SERVICE FAILED" que poderá experimentar ao iniciar uma Máquina Virtual do Windows (VM) no Microsoft Azure. Fornece medidas de resolução de problemas para ajudar a resolver os problemas. 
@@ -38,6 +38,9 @@ Há várias causas para erros de paragem. As causas mais comuns são:
 - Candidatura acessa um setor proibido da memória
 
 ## <a name="solution"></a>Solução 
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 Para resolver este problema, [contacte o suporte e envie um ficheiro de despejo,](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)o que nos ajudará a diagnosticar o problema mais rapidamente, ou tentará a seguinte solução de autoajuda.
 
@@ -96,7 +99,7 @@ Para ativar registos de despejo e Consola em Série, execute o seguinte script.
 
 2. [Retire o disco de SO e, em seguida, reencamqui o disco de SO ao VM afetado](troubleshoot-recovery-disks-portal-windows.md). O VM entrará no modo Safe. Se ainda sentir o erro, vá para o passo opcional.
 3. Abra a caixa **'Executar'** e verifique o **verificador** para iniciar a ferramenta Driver Verifier Manager.
-4. Selecione **automaticamente selecionar controladores não assinados**e, em seguida, clique em **Seguinte**.
+4. Selecione **automaticamente selecionar controladores não assinados** e, em seguida, clique em **Seguinte**.
 5. Receberá a lista dos ficheiros de motorista que não estão assinados. Lembre-se dos nomes dos ficheiros.
 6. Copie as mesmas versões destes ficheiros a partir de um VM em funcionamento e, em seguida, substitua estes ficheiros não assinados. 
 
@@ -123,7 +126,7 @@ Para analisar os registos de despejo, siga estes passos:
 
     CrashDumpEnabled = 2
 7.  Selecione **BROKENSYSTEM**. No menu, selecione **File**  >  **Unload Hive**.
-8.  Modifique a configuração BCD para iniciar o modo de depuração. Executar os seguintes comandos a partir de uma solicitação de comando elevada:
+8.  Modifique a configuração BCD para iniciar o modo de depuração. Execute o seguinte comando numa linha de comandos elevada:
 
     ```cmd
     REM Setup some debugging flags on the boot manager

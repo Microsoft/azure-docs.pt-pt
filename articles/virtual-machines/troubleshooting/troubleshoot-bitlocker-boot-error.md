@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Erros de arranque BitLocker num VM Azure Microsoft Docs
+title: Erros de arranque BitLocker na resolução de problemas da bota BitLocker num | VM Azure Microsoft Docs
 description: Saiba como resolver erros de arranque BitLocker num Azure VM
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,18 +13,16 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 00095eed3fe6d143d9ed7a0c748c4702028f4632
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 87bf311b5199ec187c24c28a42314d9dc6787998
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832065"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633032"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque BitLocker num Azure VM
 
  Este artigo descreve os erros do BitLocker que poderá experimentar quando iniciar uma máquina virtual (VM) do Windows no Microsoft Azure.
-
- 
 
 ## <a name="symptom"></a>Sintoma
 
@@ -42,6 +40,9 @@ ms.locfileid: "97832065"
 Este problema pode ocorrer se o VM não conseguir localizar o ficheiro BitLocker Recovery Key (BEK) para desencriptar o disco encriptado.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 Para resolver este problema, pare e transloja o VM e, em seguida, inicie-o. Esta operação força o VM a recuperar o ficheiro BEK do Cofre da Chave Azure e, em seguida, colocá-lo no disco encriptado. 
 
@@ -148,7 +149,7 @@ Se este método não resolver o problema, siga estes passos para restaurar manua
 
 Para um cenário chave de encriptação, siga estes passos:
 
-1. Certifique-se de que a conta de utilizador com sessão registada requer a permissão "desembrulhada" nas políticas de Acesso ao Cofre de Chaves no **UTILIZADOR. Permissões-chave. Operações Criptográficas Chave de desembrulhar**.
+1. Certifique-se de que a conta de utilizador iniciada requer a permissão "desembrulhada" nas políticas de Acesso ao Cofre de Chaves no **UTILIZADOR| Permissões chave| Operações criptográficas| Chave de desembrulhar**.
 2. Guarde o seguinte script para um . Ficheiro PS1:
 
     ```powershell

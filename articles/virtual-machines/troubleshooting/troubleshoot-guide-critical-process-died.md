@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509108"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632838"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Erro de paragem do Windows - #0x000000EF "Processo Crítico Morreu"
 
@@ -38,6 +38,9 @@ Normalmente, isto deve-se a uma falha crítica do sistema durante o arranque. Po
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo:
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Criar e Aceder a um VM de reparação.
 2. Conserte qualquer corrupção de SO.
@@ -76,7 +79,7 @@ Se o problema persistir após a execução do SFC, será necessária uma anális
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
 3. Na vM de reparação, vá à pasta do janela no disco oss anexado. Se a letra do controlador que é atribuída ao disco de oss anexado for *F,* tem de ir para *F:\Windows*.
-4. Localize o ficheiro *memory.dmp* e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
+4. Localize o ficheiro *.dmp memória* e, em seguida, envie um bilhete [de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
 
    > [!NOTE]
    > Se não conseguir encontrar o ficheiro de despejo, preencha os passos abaixo para permitir a recolha de lixo de memória e consola em série, em seguida, volte a esta secção e repita os passos na tarefa acima para recolher o ficheiro de despejo de memória.
