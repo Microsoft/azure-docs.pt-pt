@@ -4,12 +4,12 @@ description: Saiba como resolver problemas com o agente Java para Azure Monitor 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2876abd3749c9e56cef462e41b8268135f82cd12
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 788eea17cabbea46578d0f59919ae95a59f2223f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232221"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625352"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de resolução de problemas: Azure Monitor Application Insights for Java
 
@@ -17,7 +17,7 @@ Neste artigo, cobrimos algumas das questões comuns que pode enfrentar ao instru
 
 ## <a name="check-the-self-diagnostic-log-file"></a>Verifique o ficheiro de registo de autodiagnósto
 
-Por predefinição, o agente Java 3.0 para Application Insights produz um ficheiro de registo nomeado `applicationinsights.log` no mesmo diretório que detém o `applicationinsights-agent-3.0.1.jar` ficheiro.
+Por predefinição, o agente Java 3.0 para Application Insights produz um ficheiro de registo nomeado `applicationinsights.log` no mesmo diretório que detém o `applicationinsights-agent-3.0.2.jar` ficheiro.
 
 Este ficheiro de registo é o primeiro local para verificar se existem pistas sobre quaisquer problemas que possa estar a passar.
 

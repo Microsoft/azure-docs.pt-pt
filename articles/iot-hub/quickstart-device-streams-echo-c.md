@@ -1,5 +1,5 @@
 ---
-title: Comunicar para aplicativo de dispositivo em C com fluxos de dispositivoS Azure IoT Hub
+title: Quickstart - Comunique à aplicação do dispositivo em C com fluxos de dispositivoS Azure IoT Hub
 description: Neste arranque rápido, você executou uma aplicação do lado do dispositivo C que comunica com um dispositivo IoT através de um fluxo de dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: de310846ad0449a0dac7eccd60d82d4c68ef519b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 403fe82c46c90c5f8efb48ce0a394a2f63488fed
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832216"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624630"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C via fluxos de dispositivo ioT Hub (pré-visualização)
 
@@ -114,7 +114,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Tem de registar um dispositivo com o seu hub IoT antes de poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [Extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para registar um dispositivo simulado.
+Tem de registar um dispositivo com o seu hub IoT antes de poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [Extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para registar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, executar o seguinte comando em Cloud Shell:
 
@@ -132,7 +132,7 @@ Tem de registar um dispositivo com o seu hub IoT antes de poder ligar. Nesta sec
    > Substitua o espaço reservado *YourIoTHubName* pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Note a cadeia de ligação do dispositivo devolvido para posterior utilização neste arranque rápido. O aspeto é igual ao do exemplo abaixo:

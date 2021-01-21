@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913407"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624780"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)
 
@@ -80,7 +80,7 @@ Para descarregar ficheiros utilizando **o Azure Storage Explorer,** com um fiche
 
 Pode definir permissões na raiz do seu recipiente. Para tal, tem de iniciar sessão no Azure Storage Explorer com a sua conta individual com direitos para o fazer (ao contrário de uma cadeia de ligação). Clique com o botão direito no seu recipiente e **selecione Permissões de Gestão,** trazendo a caixa de diálogo **de 'Gestão' de permissão.**
 
-![Microsoft Azure Storage Explorer - Gerir o acesso ao diretório](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Gerir o acesso ao diretório](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 A caixa de diálogo **'Obter Permissão'** permite-lhe gerir permissões para o proprietário e o grupo de proprietários. Também permite adicionar novos utilizadores e grupos à lista de controlo de acessos para os quais poderá gerir permissões.
 
@@ -105,6 +105,10 @@ Em ambas as categorias, existem três permissões que pode atribuir em ficheiros
 > Fazer seleções aqui não definirá permissões em qualquer item atualmente existente dentro do diretório. Deve ir a cada item individual e definir as permissões manualmente, se o ficheiro já existir.
 
 Pode gerir permissões em diretórios individuais, bem como em ficheiros individuais, que são o que lhe permite um controlo de acesso com grãos finos. O processo de gestão de permissões para diretórios e ficheiros é o mesmo que descrito acima. Clique com o direito no ficheiro ou diretório em que deseja gerir permissões e seguir o mesmo processo.
+
+## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Pontos finais privados em Azure Data Lake Storage Gen2
+
+O Storage Explorer utiliza tanto o Blob (blob) & data lake storage gen2 [(dfs)](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) quando trabalha com a Azure Data Lake Storage Gen2. Se o acesso ao Azure Data Lake Storage Gen2 estiver configurado utilizando pontos finais privados, certifique-se de que são criados dois pontos finais privados para a conta de armazenamento: um com o sub-recurso-alvo `blob` e o outro com o sub-recurso alvo `dfs` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

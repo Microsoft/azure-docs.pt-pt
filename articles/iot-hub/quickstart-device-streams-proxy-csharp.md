@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Hub streams C# quickstart para SSH e RDP
+title: Quickstart - Azure IoT Hub streams C# quickstart para SSH e RDP
 description: Neste quickstart, você executou duas aplicações C# de amostra que permitem cenários SSH e RDP sobre um fluxo de dispositivo ioT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 12e26818f86fc4abdc1873d031182fd994c04687
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831927"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624376"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivo IoT Hub utilizando uma aplicação de procuração C# (pré-visualização)
 
@@ -25,25 +25,6 @@ O Microsoft Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma
 [As correntes de dispositivos IoT Hub](iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivos se comuniquem de forma segura e amiga da firewall. Este guia de arranque rápido envolve duas aplicações C# que permitem que o tráfego de aplicações do servidor do cliente (como Secure Shell [SSH] e Remote Desktop Protocol [RDP] seja enviado através de um fluxo de dispositivos estabelecido através de um hub IoT. Para uma visão geral da configuração, consulte a [amostra de aplicação de procuração local para SSH ou RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Este artigo descreve primeiro a configuração para SSH (utilizando a porta 22) e, em seguida, descreve como modificar a porta da configuração para RDP. Como os fluxos de dispositivos são aplicações e protocolo-agnósticos, a mesma amostra pode ser modificada para acomodar outros tipos de tráfego de aplicações. Esta modificação geralmente envolve apenas a alteração da porta de comunicação para a que é usada pela aplicação pretendida.
-
-## <a name="how-it-works"></a>Como funciona
-
-A figura a seguir ilustra como as aplicações de procuração local e local de dispositivo nesta amostra permitem a conectividade de ponta a ponta entre o cliente SSH e os processos de daemon SSH. Aqui, assumimos que o daemon está a funcionar no mesmo dispositivo que a aplicação de procuração local do dispositivo.
-
-![Configuração de aplicação de procuração local](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
-
-1. A aplicação de procuração local de serviço liga-se ao hub IoT e inicia um fluxo de dispositivo para o dispositivo alvo.
-
-1. A aplicação proxy local do dispositivo completa o aperto de mão de iniciação do fluxo e estabelece um túnel de streaming de ponta a ponta através do ponto final de streaming do hub IoT para o lado de serviço.
-
-1. A aplicação proxy local do dispositivo liga-se ao daemon SSH que está a ouvir na porta 22 do dispositivo. Esta definição é configurável, tal como descrito na secção "Executar a aplicação proxy local do dispositivo".
-
-1. A aplicação de procuração local de serviço aguarda novas ligações SSH de um utilizador ouvindo numa porta designada, que neste caso é a porta 2222. Esta definição é configurável, tal como descrito na secção "Executar a aplicação de procuração local de serviço". Quando o utilizador se conecta através do cliente SSH, o túnel permite que o tráfego de aplicações SSH seja transferido entre o cliente SSH e a aplicação do servidor.
-
-> [!NOTE]
-> O tráfego SSH que é enviado através de um fluxo de dispositivo é escavado através do ponto de streaming do hub IoT em vez de ser enviado diretamente entre o serviço e o dispositivo. Para obter mais informações, consulte os [benefícios da utilização de fluxos de dispositivos Iot Hub](iot-hub-device-streams-overview.md#benefits).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,6 +53,25 @@ A figura a seguir ilustra como as aplicações de procuração local e local de 
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
+## <a name="how-it-works"></a>Como funciona
+
+A figura a seguir ilustra como as aplicações de procuração local e local de dispositivo nesta amostra permitem a conectividade de ponta a ponta entre o cliente SSH e os processos de daemon SSH. Aqui, assumimos que o daemon está a funcionar no mesmo dispositivo que a aplicação de procuração local do dispositivo.
+
+![Configuração de aplicação de procuração local](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
+
+1. A aplicação de procuração local de serviço liga-se ao hub IoT e inicia um fluxo de dispositivo para o dispositivo alvo.
+
+1. A aplicação proxy local do dispositivo completa o aperto de mão de iniciação do fluxo e estabelece um túnel de streaming de ponta a ponta através do ponto final de streaming do hub IoT para o lado de serviço.
+
+1. A aplicação proxy local do dispositivo liga-se ao daemon SSH que está a ouvir na porta 22 do dispositivo. Esta definição é configurável, tal como descrito na secção "Executar a aplicação proxy local do dispositivo".
+
+1. A aplicação de procuração local de serviço aguarda novas ligações SSH de um utilizador ouvindo numa porta designada, que neste caso é a porta 2222. Esta definição é configurável, tal como descrito na secção "Executar a aplicação de procuração local de serviço". Quando o utilizador se conecta através do cliente SSH, o túnel permite que o tráfego de aplicações SSH seja transferido entre o cliente SSH e a aplicação do servidor.
+
+> [!NOTE]
+> O tráfego SSH que é enviado através de um fluxo de dispositivo é escavado através do ponto de streaming do hub IoT em vez de ser enviado diretamente entre o serviço e o dispositivo. Para obter mais informações, consulte os [benefícios da utilização de fluxos de dispositivos Iot Hub](iot-hub-device-streams-overview.md#benefits).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -96,7 +96,7 @@ A figura a seguir ilustra como as aplicações de procuração local e local de 
    > Substitua o espaço reservado *YourIoTHubName* pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Note a cadeia de ligação do dispositivo devolvido para posterior utilização neste arranque rápido. O aspeto é igual ao do exemplo abaixo:

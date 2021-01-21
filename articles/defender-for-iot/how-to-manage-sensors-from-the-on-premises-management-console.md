@@ -1,5 +1,5 @@
 ---
-title: Gerir sensores a partir da consola de gestão no local
+title: Gerir sensores na consola de gestão no local
 description: Saiba como gerir os sensores a partir da consola de gestão, incluindo atualizar versões de sensores, empurrar as definições do sistema para os sensores e ativar e desativar os motores nos sensores.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841925"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624596"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerir sensores a partir da consola de gestão
 
@@ -144,13 +144,13 @@ Pode enviar alertas a terceiros com informações sobre sensores desligados. Par
 
 Os sensores estão protegidos por cinco motores Defender para motores IoT. Pode ativar ou desativar os motores para sensores ligados.
 
-| Motor | Description | Cenário de exemplo |
+| Motor | Descrição | Cenário de exemplo |
 |--|--|--|
 | Motor de violação de protocolo | Uma violação do protocolo ocorre quando a estrutura do pacote ou os valores de campo não cumprem a especificação do protocolo. | alerta "Operação Ilegal de MODBUS (Código de Função Zero)". Este alerta indica que um dispositivo primário enviou um pedido com o código de função 0 para um dispositivo secundário. Isto não é permitido de acordo com a especificação do protocolo, e o dispositivo secundário pode não manusear corretamente a entrada. |
 | Motor de violação de políticas | Uma violação de política ocorre com um desvio do comportamento básico definido na política aprendida ou configurada. | Alerta "Agente de Utilizador HTTP NÃO Autorizado". Este alerta indica que uma aplicação que não tenha sido aprendida ou aprovada pela apólice é utilizada como cliente HTTP num dispositivo. Este pode ser um novo navegador web ou aplicação nesse dispositivo. |
 | Motor de malware | O motor de malware deteta atividade de rede maliciosa. | Alerta "Suspeita de Atividade Maliciosa (Stuxnet)". Este alerta indica que o sensor encontrou atividades suspeitas de rede conhecidas por estarem relacionadas com o malware Stuxnet, que é uma ameaça persistente avançada direcionada ao controlo industrial e redes SCADA. |
 | Motor de anomalia | O motor de malware deteta uma anomalia no comportamento da rede. | "Comportamento periódico no Canal de Comunicação.". Este é um componente que inspeciona as ligações de rede e encontra comportamento periódico ou cíclico da transmissão de dados, que é comum nas redes industriais. |
-| Motor operacional | Este motor deteta incidentes operacionais ou entidades com mau funcionamento. | "O ativo é suspeito de estar desligado (sem resposta)". Este alerta foi desencadeado quando um dispositivo não está a responder a quaisquer pedidos para um período predefinido. Pode indicar uma paragem do dispositivo, desconexão ou mau funcionamento.
+| Motor operacional | Este motor deteta incidentes operacionais ou entidades com mau funcionamento. | `Device is Suspected to be Disconnected (Unresponsive)` alerta. Este alerta foi desencadeado quando um dispositivo não está a responder a quaisquer pedidos para um período predefinido. Pode indicar uma paragem do dispositivo, desconexão ou mau funcionamento.
 |
 
 Para ativar ou desativar os motores para sensores ligados:
@@ -315,6 +315,6 @@ Para configurar um servidor SMB para que possa guardar uma cópia de segurança 
 
 9. Definir `Backup.shared_location` para `<backup_folder_name_on_cyberx_server>` .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Gerir sensores individuais](how-to-manage-individual-sensors.md)

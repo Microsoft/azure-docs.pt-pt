@@ -1,14 +1,14 @@
 ---
-title: AMQP 1.0 no Azure Service Bus and Event Hubs guia de protocolos / Microsoft Docs
+title: AMQP 1.0 no guia de protocolos Azure Service Bus and Event Hubs | Microsoft Docs
 description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure Service Bus and Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736719"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624494"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
 
@@ -73,7 +73,7 @@ Ligações, canais e sessões são efémeras. Se a ligação subjacente colapsar
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída amQP
 
-Os clientes que utilizam ligações AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas na firewall local. Juntamente com estas portas, poderá ser necessário abrir portas adicionais se a função [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver ativada. `EnableLinkRedirect` é uma nova funcionalidade de mensagens que ajuda a saltar um salto enquanto recebe mensagens, ajudando assim a aumentar a produção. O cliente começaria a comunicar diretamente com o serviço back-end sobre a gama de portas 104XX, como mostrado na imagem seguinte. 
+Os clientes que utilizam ligações AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas na firewall local. Juntamente com estas portas, poderá ser necessário abrir portas adicionais se a função [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) estiver ativada. `EnableLinkRedirect` é uma nova funcionalidade de mensagens que ajuda a saltar um salto enquanto recebe mensagens, ajudando assim a aumentar a produção. O cliente começaria a comunicar diretamente com o serviço back-end sobre a gama de portas 104XX, como mostrado na imagem seguinte. 
 
 ![Lista de portos de destino][4]
 
@@ -172,14 +172,14 @@ As setas na tabela seguinte mostram a direção de fluxo performativa.
 
 | Cliente | Service Bus |
 | --- | --- |
-| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=**false** falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
+| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
 | Sem ação |<- disposição.<br/>role=recetor,<br/>first={delivery ID},<br/>ID de entrega last={},<br/>resolvido=**verdadeiro,**<br/>estado=**aceito**<br/>) |
 
 #### <a name="send-error"></a>Enviar (erro)
 
 | Cliente | Service Bus |
 | --- | --- |
-| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=**false** falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
+| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
 | Sem ação |<- disposição.<br/>role=recetor,<br/>first={delivery ID},<br/>ID de entrega last={},<br/>resolvido=**verdadeiro,**<br/>estado=**rejeitado**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
@@ -223,7 +223,7 @@ Qualquer propriedade que a aplicação precise definir deve ser mapeada para o m
 | mensagem id |Identificador de formulário livre definido para aplicação para esta mensagem. Usado para deteção duplicada. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de utilizador definido por aplicação, não interpretado pela Service Bus. |Não acessível através da API de autocarro de serviço. |
 | para |Identificador de destino definido por aplicação, não interpretado pela Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| Assunto |Identificador de finalidade de mensagem definido pela aplicação, não interpretado pela Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade de mensagem definido pela aplicação, não interpretado pela Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | resposta a |Indicador de linha de resposta definido por aplicação, não interpretado pela Service Bus. |[RespostaTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definido por aplicação, não interpretado pela Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | tipo de conteúdo |Indicador de tipo de conteúdo definido para aplicação para o corpo, não interpretado pela Service Bus. |[ConteúdoType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -240,14 +240,14 @@ Existem poucas outras propriedades de mensagem de ônibus de serviço, que não 
 
 | Chave do mapa de anotação | Utilização | Nome da API |
 | --- | --- | --- |
-| x-opt-programado-enqueue-time | Declara em que momento a mensagem deve aparecer na entidade |[Horário DeEnqueue Hora do Tempo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | Chave definida pela aplicação que dita em que partição a mensagem deve pousar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partição-chave | Valor chave de partição definido pela aplicação quando uma transação deve ser usada para enviar mensagens através de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enquesed-time | Tempo UTC definido pelo serviço que representa o tempo real de mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-se-número de sequência | Número único definido pelo serviço atribuído a uma mensagem. | [SequênciaNumer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Número de sequência encostado definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-bloqueado-até | Definido pelo serviço. A data e a hora até à qual a mensagem será bloqueada na fila/subscrição. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-fonte | Definido pelo serviço. Se a mensagem for recebida da fila da carta morta, a fonte da mensagem original. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-programado-enqueue-time | Declara em que momento a mensagem deve aparecer na entidade |[Horário DeEnqueue Hora do Tempo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | Chave definida pela aplicação que dita em que partição a mensagem deve pousar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partição-chave | Valor chave de partição definido pela aplicação quando uma transação deve ser usada para enviar mensagens através de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enquesed-time | Tempo UTC definido pelo serviço que representa o tempo real de mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-se-número de sequência | Número único definido pelo serviço atribuído a uma mensagem. | [SequênciaNumer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Número de sequência encostado definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-bloqueado-até | Definido pelo serviço. A data e a hora até à qual a mensagem será bloqueada na fila/subscrição. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-fonte | Definido pelo serviço. Se a mensagem for recebida da fila da carta morta, a fonte da mensagem original. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Capacidade de transação
 
@@ -359,10 +359,10 @@ A mensagem de pedido tem as seguintes propriedades de aplicação:
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operation |No |string |**put-token** |
-| tipo |No |string |O tipo de símbolo que está a ser colocado. |
-| name |No |string |O "público" a que o símbolo se aplica. |
-| expiração |Yes |carimbo de data/hora |O prazo de validade do token. |
+| operation |Não |string |**put-token** |
+| tipo |Não |string |O tipo de símbolo que está a ser colocado. |
+| name |Não |string |O "público" a que o símbolo se aplica. |
+| expiração |Sim |carimbo de data/hora |O prazo de validade do token. |
 
 O *nome* da propriedade identifica a entidade com a qual o símbolo deve ser associado. No Service Bus é o caminho para a fila, ou tópico/subscrição. A propriedade *tipo* identifica o tipo de símbolo:
 
@@ -378,8 +378,8 @@ A mensagem de resposta tem os seguintes valores *de propriedades de aplicação*
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |No |int |Código de resposta HTTP **[RFC2616]**. |
-| descrição do estado |Yes |string |Descrição do estado. |
+| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| descrição do estado |Sim |string |Descrição do estado. |
 
 O cliente pode ligar *para o put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens são telescópios para o cliente atual e ancorados na ligação atual, o que significa que o servidor deixa cair quaisquer fichas retidas quando a ligação cai.
 

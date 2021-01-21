@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Hub streams C quickstart para SSH e RDP
+title: Quickstart - Azure IoT Hub streams C quickstart para SSH e RDP
 description: Neste quickstart, você executou uma aplicação de amostra C que funciona como um proxy para permitir cenários SSH e RDP sobre fluxos de dispositivos IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2305a87b91160b5de90f4cbfbc9418adc50bb92a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831995"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624410"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivo ioT Hub utilizando uma aplicação de procuração C (pré-visualização)
 
@@ -25,6 +25,22 @@ O Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma funcional
 [As correntes de dispositivos IoT Hub](./iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivos se comuniquem de forma segura e amiga da firewall. Para obter uma visão geral da configuração, consulte [a página local de amostra de procuração.](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)
 
 Este quickstart descreve a configuração para fazer túneis de tráfego Secure Shell (SSH) (utilizando a porta 22) através de correntes de dispositivo. A configuração para o tráfego de Protocolo de Ambiente de Trabalho Remoto (RDP) é semelhante e requer uma simples alteração de configuração. Como os fluxos de dispositivos são aplicações e protocolo-agnóstico, pode modificar este quickstart para acomodar outros tipos de tráfego de aplicações.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* A pré-visualização dos fluxos de dispositivos é atualmente suportada apenas para centros IoT que são criados nas seguintes regiões:
+
+  * E.U.A. Central
+  * EUA Central EUAP
+  * Europa do Norte
+  * Sudeste Asiático
+
+* Instale [o Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do Desktop com a carga de trabalho [C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ativada.
+* Instale a versão mais recente do [Git](https://git-scm.com/download/).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -47,22 +63,6 @@ A figura a seguir ilustra como os programas de procuração local e de dispositi
 > O tráfego SSH que é enviado através de um fluxo de dispositivo é escavado através do ponto de streaming do hub IoT em vez de ser enviado diretamente entre o serviço e o dispositivo. Para obter mais informações, consulte os [benefícios da utilização de fluxos de dispositivos Iot Hub](iot-hub-device-streams-overview.md#benefits). Além disso, a figura ilustra o daemon SSH que está a funcionar no mesmo dispositivo (ou máquina) que o dispositivo-procuração local. Neste arranque rápido, o fornecimento do endereço IP do daemon SSH permite que o dispositivo-procuração local e o daemon também funcionam em diferentes máquinas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* A pré-visualização dos fluxos de dispositivos é atualmente suportada apenas para centros IoT que são criados nas seguintes regiões:
-
-  * E.U.A. Central
-  * EUA Central EUAP
-  * Europa do Norte
-  * Sudeste Asiático
-
-* Instale [o Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do Desktop com a carga de trabalho [C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ativada.
-* Instale a versão mais recente do [Git](https://git-scm.com/download/).
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -120,7 +120,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilize a Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para registar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, executar o seguinte comando em Cloud Shell:
 
@@ -138,7 +138,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
    > Substitua o espaço reservado *YourIoTHubName* pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Note a cadeia de ligação do dispositivo devolvido para posterior utilização neste arranque rápido. O aspeto é igual ao do exemplo abaixo:

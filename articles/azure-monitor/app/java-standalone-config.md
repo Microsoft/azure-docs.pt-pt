@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233666"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625335"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -39,14 +39,14 @@ Encontrará mais detalhes e opções de configuração adicionais abaixo.
 
 ## <a name="configuration-file-path"></a>Caminho do arquivo de configuração
 
-Por predefinição, a Application Insights Java 3.0 espera que o ficheiro de configuração seja `applicationinsights.json` nomeado, e que esteja localizado no mesmo diretório que `applicationinsights-agent-3.0.1.jar` .
+Por predefinição, a Application Insights Java 3.0 espera que o ficheiro de configuração seja `applicationinsights.json` nomeado, e que esteja localizado no mesmo diretório que `applicationinsights-agent-3.0.2.jar` .
 
 Pode especificar o seu próprio caminho de ficheiro de configuração usando qualquer um
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` variável de ambiente, ou
 * `applicationinsights.configuration.file` Propriedade do sistema Java
 
-Se especificar um caminho relativo, será resolvido em relação ao diretório onde `applicationinsights-agent-3.0.1.jar` está localizado.
+Se especificar um caminho relativo, será resolvido em relação ao diretório onde `applicationinsights-agent-3.0.2.jar` está localizado.
 
 ## <a name="connection-string"></a>Cadeia de ligação
 
@@ -170,7 +170,7 @@ Se quiser adicionar dimensões personalizadas a toda a sua telemetria:
 `${...}` pode ser usado para ler o valor da variável ambiente especificado no arranque.
 
 > [!NOTE]
-> A partir da versão 3.0.1, se adicionar uma dimensão personalizada `service.version` nomeada, o valor será armazenado na `application_Version` coluna na tabela 'Registos de Insights de Aplicação' e não como uma dimensão personalizada.
+> A partir da versão 3.0.2, se adicionar uma dimensão personalizada `service.version` nomeada, o valor será armazenado na `application_Version` coluna na tabela 'Registos de Insights de Aplicação' em vez de como uma dimensão personalizada.
 
 ## <a name="telemetry-processors-preview"></a>Processadores de telemetria (pré-visualização)
 
@@ -241,7 +241,7 @@ Para desativar a recolha automática de métricas do Micrometro (incluindo métr
 
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Suprimir a telemetria auto-recolhida específica
 
-A partir da versão 3.0.1, a telemetria auto-recolhida específica pode ser suprimida utilizando estas opções de configuração:
+A partir da versão 3.0.2, a telemetria auto-recolhida específica pode ser suprimida utilizando estas opções de configuração:
 
 ```json
 {
@@ -338,7 +338,7 @@ Por predefinição, os registos De Aplicação Java 3.0 estão ao nível `INFO` 
 
 `level` pode ser um `OFF` `ERROR` dos, `WARN` , , , , ou `INFO` `DEBUG` `TRACE` .
 
-`path` pode ser um caminho absoluto ou relativo. Caminhos relativos são resolvidos contra o diretório onde `applicationinsights-agent-3.0.1.jar` está localizado.
+`path` pode ser um caminho absoluto ou relativo. Caminhos relativos são resolvidos contra o diretório onde `applicationinsights-agent-3.0.2.jar` está localizado.
 
 `maxSizeMb` é o tamanho máximo do ficheiro de registo antes de rolar.
 

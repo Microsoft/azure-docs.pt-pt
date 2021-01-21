@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar análise espacial IoT / Microsoft Azure Maps'
+title: 'Tutorial: Implementar análise espacial IoT | Microsoft Azure Maps'
 description: Tutorial sobre como integrar o IoT Hub com apIs de serviço microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d475c76d338270cb9b8e34ea8563cdfd8fdf5122
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a3481830a09b183213e84490b5300f2fb38f8d19
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563063"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625069"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT utilizando mapas Azure
 
@@ -283,6 +283,10 @@ Para obter uma lista completa das APIs de REST do Azure Maps, consulte:
 Para obter uma lista de dispositivos certificados Azure para IoT, visite:
 
 * [Dispositivos certificados Azure](https://catalog.azureiotsolutions.com/)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 

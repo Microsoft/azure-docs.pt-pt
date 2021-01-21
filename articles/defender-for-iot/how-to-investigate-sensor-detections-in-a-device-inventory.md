@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: f3058953e702f40fa1500441e382898b0314ddbb
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841808"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625436"
 ---
-# <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar deteções de sensores num inventário de dispositivos
+# <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar as deteções do sensor num inventário de dispositivos
 
 O inventário do dispositivo apresenta uma vasta gama de atributos do dispositivo que um sensor deteta. As opções estão disponíveis para:
 
@@ -147,7 +147,7 @@ Pode pesquisar os seguintes sistemas operativos Windows:
 
 - Windows Server 2003/2008/2012/2016
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Para trabalhar com o script, você precisa cumprir os seguintes requisitos:
 
@@ -223,8 +223,8 @@ Para exportar um ficheiro CSV:
 
 - No menu superior direito do inventário do dispositivo, selecione :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . O relatório do CSV é gerado e descarregado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-[Investigue todas as deteções de sensores empresariais num inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+[Investigar todas as deteções do sensor empresarial num inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 [Trabalhar com vistas do mapa do site](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)

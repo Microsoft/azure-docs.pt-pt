@@ -1,6 +1,6 @@
 ---
-title: Ver resultados de encaminhamento de mensagens Azure IoT Hub (.NET) Microsoft Docs
-description: Depois de configurar todos os recursos utilizando a Parte 1 do tutorial, adicione a capacidade de encaminhar mensagens para Azure Stream Analytics e ver os resultados no PowerBI.
+title: Tutorial - Ver resultados de encaminhamento de mensagens Azure IoT Hub (.NET) | Microsoft Docs
+description: Tutorial - Depois de configurar todos os recursos utilizando a Parte 1 do tutorial, adicione a capacidade de encaminhar mensagens para Azure Stream Analytics e ver os resultados no Power BI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0db05c8caae8483de3b55448bfbe6b2bcfc23187
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149213"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625286"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 - Ver as mensagens encaminhadas
 
@@ -96,7 +96,7 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 ### <a name="create-the-stream-analytics-job"></a>Criar tarefa do Stream Analytics
 
-1. No [portal Azure,](https://portal.azure.com) **selecione Criar um recurso**de internet de  >  **coisas**stream  >  **analytics .**
+1. No [portal Azure,](https://portal.azure.com) **selecione Criar um recurso** de internet de  >  **coisas** stream  >  **analytics .**
 
 2. Introduza as seguintes informações para a tarefa.
 
@@ -144,7 +144,7 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 1. Em **Job Topology**, selecione **Outputs**.
 
-2. No painel **outputs,** **selecione Adicionar**e, em seguida, selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **outputs,** **selecione Adicionar** e, em seguida, selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: o alias exclusivo da saída. Este tutorial utiliza **contosooutputs**. 
 
@@ -154,7 +154,7 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    Aceite as predefinições no resto dos campos.
 
-3. **Selecione Authorize**e inscreva-se na sua conta Power BI. (Isto pode levar mais do que uma tentativa).
+3. **Selecione Authorize** e inscreva-se na sua conta Power BI. (Isto pode levar mais do que uma tentativa).
 
    ![Configurar as saídas para o trabalho de análise de fluxo](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
@@ -218,7 +218,7 @@ Se tudo estiver configurado corretamente, neste momento, deverá ver os seguinte
 
 2. No [portal Azure,](https://portal.azure.com)selecione **grupos de recursos** e selecione o seu Grupo de Recursos. Este tutorial utiliza **ContosoResources**. 
 
-    Selecione a conta de armazenamento, selecione **Recipientes**e, em seguida, selecione o Recipiente. Este tutorial utiliza **contosoresults**. Deverá ver uma pasta e poderá pesquisar através dos diretórios até ver um ou mais ficheiros. Abra um desses ficheiros; contêm as entradas encaminhadas para a conta de armazenamento. 
+    Selecione a conta de armazenamento, selecione **Recipientes** e, em seguida, selecione o Recipiente. Este tutorial utiliza **contosoresults**. Deverá ver uma pasta e poderá pesquisar através dos diretórios até ver um ou mais ficheiros. Abra um desses ficheiros; contêm as entradas encaminhadas para a conta de armazenamento. 
 
    ![Os ficheiros de resultados no armazenamento](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -270,7 +270,7 @@ Poderá ver os dados em ambos os gráficos. Este resultado significa que as segu
 
 Pode atualizar as tabelas para ver os dados mais recentes selecionando o botão Refresh na parte superior da janela Power BI. 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Se quiser remover todos os recursos do Azure que criou através de ambas as partes deste tutorial, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, o espaço de nomes e a fila do Service Bus, a Aplicação Lógica, a conta de armazenamento e o próprio grupo de recursos. Também pode remover os recursos do Power BI e limpar os e-mails enviados durante o tutorial.
 
@@ -280,7 +280,7 @@ Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Use o CLI Azure para limpar recursos
 
-Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` foi definido para **ContosoResources** de volta no início deste tutorial.
+Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` foi definido para **ContosoResources** de volta no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

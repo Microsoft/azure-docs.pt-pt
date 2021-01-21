@@ -1,6 +1,6 @@
 ---
-title: Configurar e utilizar métricas e troncos com um hub Azure IoT
-description: Aprenda a configurar e a usar métricas e troncos com um hub Azure IoT. Isto fornecerá dados para analisar para ajudar a diagnosticar problemas que o seu hub pode estar a ter.
+title: Tutorial - Configurar e utilizar métricas e troncos com um hub Azure IoT
+description: Tutorial - Aprenda a configurar e a utilizar métricas e troncos com um hub Azure IoT. Isto fornecerá dados para analisar para ajudar a diagnosticar problemas que o seu hub pode estar a ter.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436492"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625203"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e troncos com um hub IoT
 

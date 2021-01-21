@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com o Defender para APIs IoT
+title: Trabalhar com as APIs do Defender para IoT
 description: Utilize uma API rest externa para aceder aos dados descobertos por sensores e consolas de gestão e realizar ações com esses dados.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: d49aa50b1b8843dfb5c3d32983ff0bb129543bb0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843675"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624579"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender para APIs de sensor e consola de ioT
 
@@ -44,7 +44,7 @@ Para gerar um símbolo:
 
 5. Selecione **Concluir**. Os tokens que cria aparecem na caixa de diálogo **Access Tokens.**
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot da caixa de diálogo de Tokens de Ativos com fichas cheias":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot da caixa de diálogo Device Tokens com fichas cheias":::
 
    **Usado** indica a última vez que uma chamada externa com este símbolo foi recebida.
 
@@ -86,7 +86,7 @@ Utilize esta API para solicitar uma lista de todos os dispositivos detetados por
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 Solicita uma lista de todos os dispositivos detetados pelo Defender para o sensor IoT.
 
@@ -112,38 +112,38 @@ Matriz de objetos JSON que representam dispositivos.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **id** | Numérico | No | - |
-| **ipAddresses** | Matriz JSON | Yes | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
-| **nome** | String | No | - |
-| **tipo** | String | No | Desconhecido, Estação de Engenharia, PLC, HMI, Historiador, Controlador de Domínio, Servidor DB, Ponto de Acesso Sem Fios, Router, Switch, Servidor, Estação de Trabalho, Câmara IP, Impressora, Firewall, Estação terminal, Gateway VPN, Internet ou Multicast e Transmissão |
-| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
-| **sistema operativo** | String | Yes | - |
-| **engenhariaStation** | Booleano | No | Verdadeiro ou falso |
-| **scanner** | Booleano | No | Verdadeiro ou falso |
-| **autorizado** | Booleano | No | Verdadeiro ou falso |
-| **fornecedor** | String | Yes | - |
-| **protocolos** | Matriz JSON | Yes | Objeto de protocolo |
-| **firmware** | Matriz JSON | Yes | Objeto firmware |
+| **id** | Operador numérico | Não | - |
+| **ipAddresses** | Matriz JSON | Sim | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
+| **name** | String | Não | - |
+| **tipo** | String | Não | Desconhecido, Estação de Engenharia, PLC, HMI, Historiador, Controlador de Domínio, Servidor DB, Ponto de Acesso Sem Fios, Router, Switch, Servidor, Estação de Trabalho, Câmara IP, Impressora, Firewall, Estação terminal, Gateway VPN, Internet ou Multicast e Transmissão |
+| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
+| **sistema operativo** | String | Sim | - |
+| **engenhariaStation** | Booleano | Não | Verdadeiro ou falso |
+| **scanner** | Booleano | Não | Verdadeiro ou falso |
+| **autorizado** | Booleano | Não | Verdadeiro ou falso |
+| **fornecedor** | String | Sim | - |
+| **protocolos** | Matriz JSON | Sim | Objeto de protocolo |
+| **firmware** | Matriz JSON | Sim | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **Nome** | String | No |  |
-| **Endereços** | Matriz JSON | Yes | Valores mestres ou numéricos |
+| **Nome** | String | Não |  |
+| **Endereços** | Matriz JSON | Sim | Valores mestres ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **série** | String | No | N/A, ou o valor real |
-| **modelo** | String | No | N/A, ou o valor real |
-| **firmwareVersion** | Double (Duplo) | No | N/A, ou o valor real |
-| **AdicionalData** | String | No | N/A, ou o valor real |
-| **móduloAddress** | String | No | N/A, ou o valor real |
-| **rack** | String | No | N/A, ou o valor real |
-| **slot** | String | No | N/A, ou o valor real |
-| **endereço** | String | No | N/A, ou o valor real |
+| **série** | String | Não | N/A, ou o valor real |
+| **modelo** | String | Não | N/A, ou o valor real |
+| **firmwareVersion** | Double (Duplo) | Não | N/A, ou o valor real |
+| **AdicionalData** | String | Não | N/A, ou o valor real |
+| **móduloAddress** | String | Não | N/A, ou o valor real |
+| **rack** | String | Não | N/A, ou o valor real |
+| **slot** | String | Não | N/A, ou o valor real |
+| **endereço** | String | Não | N/A, ou o valor real |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -287,7 +287,7 @@ Utilize esta API para solicitar uma lista de todas as ligações por dispositivo
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -333,19 +333,19 @@ Matriz de objetos JSON que representam ligações do dispositivo.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **firstDeviceId** | Numérico | No | - |
-| **secondDeviceId** | Numérico | No | - |
-| **lastSeen** | Numérico | No | Época (UTC) |
-| **descoberto** | Numérico | No | Época (UTC) |
-| **portos** | Matriz de números | No | - |
-| **protocolos** | Matriz JSON | No | Campo de protocolo |
+| **firstDeviceId** | Operador numérico | Não | - |
+| **secondDeviceId** | Operador numérico | Não | - |
+| **lastSeen** | Operador numérico | Não | Época (UTC) |
+| **descoberto** | Operador numérico | Não | Época (UTC) |
+| **portos** | Matriz de números | Não | - |
+| **protocolos** | Matriz JSON | Não | Campo de protocolo |
 
 #### <a name="protocol-field"></a>Campo de protocolo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **nome** | String | No | - |
-| **comandos** | Matriz de cadeias | No | - |
+| **name** | String | Não | - |
+| **comandos** | Matriz de cadeias | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -455,7 +455,7 @@ Utilize esta API para solicitar uma lista de todos os CVEs conhecidos descoberto
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -491,11 +491,11 @@ Matriz de objetos JSON que representam CVEs identificados em endereços IP.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **cveId** | String | No | - |
-| **ipAddress** | String | No | Endereço IP |
-| **pontuação** | String | No | 0.0 - 10.0 |
-| **atacarVector** | String | No | Rede, Rede Adjacente, Local ou Física |
-| **descrição** | String | No | - |
+| **cveId** | String | Não | - |
+| **ipAddress** | String | Não | Endereço IP |
+| **pontuação** | String | Não | 0.0 - 10.0 |
+| **atacarVector** | String | Não | Rede, Rede Adjacente, Local ou Física |
+| **descrição** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -565,7 +565,7 @@ Utilize esta API para solicitar uma lista de todos os alertas detetados pelo Sen
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -605,21 +605,21 @@ Matriz de objetos JSON que representam alertas.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **ID** | Numérico | No | - |
-| **Hora** | Numérico | No | Época (UTC) |
-| **título** | String | No | - |
-| **Mensagem** | String | No | - |
-| **severidade** | String | No | Aviso, Menor, Major ou Crítico |
-| **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
-| **fonteDevice** | Numérico | Yes | ID do Dispositivo |
-| **destinoDevice** | Numérico | Yes | ID do Dispositivo |
-| **informação adicional** | Objeto de informação adicional | Yes | - |
+| **ID** | Operador numérico | Não | - |
+| **Hora** | Operador numérico | Não | Época (UTC) |
+| **título** | String | Não | - |
+| **Mensagem** | String | Não | - |
+| **severidade** | String | Não | Aviso, Menor, Major ou Crítico |
+| **motor** | String | Não | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
+| **fonteDevice** | Operador numérico | Sim | ID do Dispositivo |
+| **destinoDevice** | Operador numérico | Sim | ID do Dispositivo |
+| **informação adicional** | Objeto de informação adicional | Sim | - |
 
 #### <a name="additional-information-fields"></a>Campos de informação adicionais
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **descrição** | String | No | - |
+| **descrição** | String | Não | - |
 | **informação** | Matriz JSON | Não | String |
 
 #### <a name="response-example"></a>Exemplo de resposta
@@ -693,7 +693,7 @@ Utilize esta API para solicitar uma lista de eventos reportados à linha tempora
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -723,11 +723,11 @@ Matriz de objetos JSON que representam alertas.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|--|
-| **timetamp** | Numérico | No | Época (UTC) |
-| **título** | String | No | - |
-| **severidade** | String | No | INFO, AVISO OU ALERTA |
-| **proprietário** | String | Yes | Se o evento foi criado manualmente, este campo incluirá o nome de utilizador que criou o evento |
-| **conteúdo** | String | No | - |
+| **timetamp** | Operador numérico | Não | Época (UTC) |
+| **título** | String | Não | - |
+| **severidade** | String | Não | INFO, AVISO OU ALERTA |
+| **proprietário** | String | Sim | Se o evento foi criado manualmente, este campo incluirá o nome de utilizador que criou o evento |
+| **conteúdo** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -810,7 +810,7 @@ Utilize esta API para solicitar resultados de avaliação de vulnerabilidade par
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="response-type"></a>Tipo de resposta
 
@@ -832,74 +832,74 @@ O objeto do dispositivo contém:
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **nome** | String | No | - |
-| **ipAddresses** | Matriz JSON | No | - |
-| **securityScore** | Numérico | No | - |
-| **fornecedor** | String | Yes |  |
-| **firmwareVersion** | String | Yes | - |
-| **modelo** | String | Yes | - |
-| **isWirelessAccessPoint** | Booleano | No | Verdadeiro ou falso |
-| **sistema operativo** | Objeto do sistema operativo | Yes | - |
-| **vulnerabilidades** | Objeto de vulnerabilidades | Yes | - |
+| **name** | String | Não | - |
+| **ipAddresses** | Matriz JSON | Não | - |
+| **securityScore** | Operador numérico | Não | - |
+| **fornecedor** | String | Sim |  |
+| **firmwareVersion** | String | Sim | - |
+| **modelo** | String | Sim | - |
+| **isWirelessAccessPoint** | Booleano | Não | Verdadeiro ou falso |
+| **sistema operativo** | Objeto do sistema operativo | Sim | - |
+| **vulnerabilidades** | Objeto de vulnerabilidades | Sim | - |
 
 #### <a name="operating-system-fields"></a>Campos do sistema operativo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **Nome** | String | Yes | - |
-| **Tipo** | String | Yes | - |
-| **Versão** | String | Yes | - |
-| **últimaversão** | String | Yes | - |
+| **Nome** | String | Sim | - |
+| **Tipo** | String | Sim | - |
+| **Versão** | String | Sim | - |
+| **últimaversão** | String | Sim | - |
 
 #### <a name="vulnerabilities-fields"></a>Campos de vulnerabilidades
  
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **antiVírus** | Matriz JSON | Yes | Nomes antivírus |
-| **palavras simplesTextPass** | Matriz JSON | Yes | Objetos de senha |
-| **remotoAccess** | Matriz JSON | Yes | Objetos de acesso remoto |
-| **isBackupServer** | Booleano | No | Verdadeiro ou falso |
-| **openPorts** | Matriz JSON | Yes | Objetos de porta abertos |
-| **isEngineeringStation** | Booleano | No | Verdadeiro ou falso |
-| **isKnownScanner** | Booleano | No | Verdadeiro ou falso |
-| **cves** | Matriz JSON | Yes | Objetos CVE |
-| **isunauthorized** | Booleano | No | Verdadeiro ou falso |
-| **malwareDesdedetectado** | Booleano | No | Verdadeiro ou falso |
-| **fracoAufercção** | Matriz JSON | Yes | Aplicações detetadas que estão a usar a autenticação fraca |
+| **antiVírus** | Matriz JSON | Sim | Nomes antivírus |
+| **palavras simplesTextPass** | Matriz JSON | Sim | Objetos de senha |
+| **remotoAccess** | Matriz JSON | Sim | Objetos de acesso remoto |
+| **isBackupServer** | Booleano | Não | Verdadeiro ou falso |
+| **openPorts** | Matriz JSON | Sim | Objetos de porta abertos |
+| **isEngineeringStation** | Booleano | Não | Verdadeiro ou falso |
+| **isKnownScanner** | Booleano | Não | Verdadeiro ou falso |
+| **cves** | Matriz JSON | Sim | Objetos CVE |
+| **isunauthorized** | Booleano | Não | Verdadeiro ou falso |
+| **malwareDesdedetectado** | Booleano | Não | Verdadeiro ou falso |
+| **fracoAufercção** | Matriz JSON | Sim | Aplicações detetadas que estão a usar a autenticação fraca |
 
 #### <a name="password-fields"></a>Campos de palavra-passe
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **palavra-passe** | String | No | - |
-| **protocolo** | String | No | - |
-| **força** | String | No | Muito fraco, fraco, médio ou forte |
+| **palavra-passe** | String | Não | - |
+| **protocolo** | String | Não | - |
+| **força** | String | Não | Muito fraco, fraco, médio ou forte |
 
 #### <a name="remote-access-fields"></a>Campos de acesso remoto
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **porto** | Numérico | No | - |
-| **transporte** | String | No | TCP ou UDP |
-| **cliente** | String | No | Endereço IP |
-| **clienteSoftware** | String | No | SSH, VNC, desktop remoto ou espectador de equipa |
+| **porto** | Operador numérico | Não | - |
+| **transporte** | String | Não | TCP ou UDP |
+| **cliente** | String | Não | Endereço IP |
+| **clienteSoftware** | String | Não | SSH, VNC, desktop remoto ou espectador de equipa |
 
 #### <a name="open-port-fields"></a>Campos portuários abertos
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **porto** | Numérico | No | - |
-| **transporte** | String | No | TCP ou UDP |
-| **protocolo** | String | Yes | - |
-| **isConflictingWithFirewall** | Booleano | No | Verdadeiro ou falso |
+| **porto** | Operador numérico | Não | - |
+| **transporte** | String | Não | TCP ou UDP |
+| **protocolo** | String | Sim | - |
+| **isConflictingWithFirewall** | Booleano | Não | Verdadeiro ou falso |
 
 #### <a name="cve-fields"></a>Campos CVE
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **ID** | String | No | - |
-| **pontuação** | Numérico | No | Double (Duplo) |
-| **descrição** | String | No | - |
+| **ID** | String | Não | - |
+| **pontuação** | Operador numérico | Não | Double (Duplo) |
+| **descrição** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -1062,7 +1062,7 @@ Esta avaliação baseia-se em informações gerais da rede e do sistema e não n
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="response-type"></a>Tipo de resposta
 
@@ -1081,9 +1081,9 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulada. Ca
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
 | **endereço** | String | Endereço IP |
-| **nome** | String | - |
-| **firstDetectionTime** | Numérico | Época (UTC) |
-| lastSeen | Numérico | Época (UTC) |
+| **name** | String | - |
+| **firstDetectionTime** | Operador numérico | Época (UTC) |
+| lastSeen | Operador numérico | Época (UTC) |
 
 **ilegalTrafficByFirewallRules**
 
@@ -1091,7 +1091,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulada. Ca
 | ---------- | ---- | -------------- |
 | **servidor** | String | Endereço IP |
 | **cliente** | String | Endereço IP |
-| **porto** | Numérico | - |
+| **porto** | Operador numérico | - |
 | **transporte** | String | TCP, UDP ou ICMP |
 
 **fracas Regras de Fogo**
@@ -1109,7 +1109,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulada. Ca
 | **macAddress** | String | Endereço MAC |
 | **fornecedor** | String | Nome do fornecedor |
 | **ipAddress** | String | Endereço IP, ou N/A |
-| **nome** | String | Nome do dispositivo, ou N/A |
+| **name** | String | Nome do dispositivo, ou N/A |
 | **sem fios** | String | Não, suspeito, ou sim. |
 
 **conexõesBetweenSubnets**
@@ -1123,7 +1123,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulada. Ca
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
-| **hora de deteção** | Numérico | Época (UTC) |
+| **hora de deteção** | Operador numérico | Época (UTC) |
 | **alertaMessage** | String | - |
 | **descrição** | String | - |
 | **dispositivos** | Matriz JSON | Nomes do dispositivo | 
@@ -1303,7 +1303,7 @@ Utilize esta API para solicitar resultados de uma avaliação geral da vulnerabi
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="response-type"></a>Tipo de resposta
 
@@ -1323,16 +1323,16 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma série d
 |--|--|--|
 | **fonte** | String | Endereço IP |
 | **destino** | String | Endereço IP |
-| **porto** | Numérico | - |
+| **porto** | Operador numérico | - |
 | **transporte** | String | TCP ou UDP |
 | **backupMaximalInterval** | String | - |
-| **lastSeenBackup** | Numérico | Época (UTC) |
+| **lastSeenBackup** | Operador numérico | Época (UTC) |
 
 **ipNetworks**
 
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
-| **endereço** s | Numérico | - |
+| **endereço** s | Operador numérico | - |
 | **rede** | String | Endereço IP |
 | **mask** | String | Máscara de sub-rede |
 
@@ -1343,7 +1343,7 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma série d
 | **protocolo** | String | - |
 | **endereços** | Matriz JSON | Endereços IP |
 | **alerta** | String | - |
-| **reportTime** | Numérico | Época (UTC) |
+| **reportTime** | Operador numérico | Época (UTC) |
 
 **protocoloDataVolumes**
 
@@ -1358,8 +1358,8 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma série d
 |--|--|--|
 | **ativoAddress** | String | Endereço IP |
 | **nome de ativo** | String | - |
-| **última Hora da Deteção** | Numérico | Época (UTC) |
-| **backToNormalTime** | Numérico | Época (UTC) |     
+| **última Hora da Deteção** | Operador numérico | Época (UTC) |
+| **backToNormalTime** | Operador numérico | Época (UTC) |     
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -1508,8 +1508,8 @@ Você não precisa de um Defender para o token de acesso IoT para usar esta API.
 
 | **Nome** | **Tipo** | **Pode ser nulo** |
 |--|--|--|
-| **nome de utilizador** | String | No |
-| **palavra-passe** | String | No |
+| **nome de utilizador** | String | Não |
+| **palavra-passe** | String | Não |
 
 #### <a name="request-example"></a>Exemplo de pedido
 
@@ -1617,9 +1617,9 @@ response:
 
 | **Nome** | **Tipo** | **Pode ser nulo** |
 |--|--|--|
-| **nome de utilizador** | String | No |
-| **palavra-passe** | String | No |
-| **new_password** | String | No |
+| **nome de utilizador** | String | Não |
+| **palavra-passe** | String | Não |
+| **new_password** | String | Não |
 
 ### <a name="user-password-update-by-system-admin"></a>Atualização da palavra-passe do utilizador por administração do sistema
 
@@ -1692,10 +1692,10 @@ response:
 
 | **Nome** | **Tipo** | **Pode ser nulo** |
 |--|--|--|
-| **admin_username** | String | No |
-| **admin_password** | String | No |
-| **nome de utilizador** | String | No |
-| **new_password** | String | No |
+| **admin_username** | String | Não |
+| **admin_password** | String | Não |
+| **nome de utilizador** | String | Não |
+| **new_password** | String | Não |
 
 ## <a name="on-premises-management-console-api-specifications"></a>Especificações de API de consola de gestão no local
 
@@ -1746,7 +1746,7 @@ Esta API solicita uma lista de todos os dispositivos detetados pelo Defender par
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="response-type"></a>Tipo de resposta
 
@@ -1784,40 +1784,40 @@ Matriz de objetos JSON que representam dispositivos.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **sensorid** | Numérico | No | - |
-| **zoneId** | Numérico | Yes | - |
-| **siteId** | Numérico | Yes | - |
-| **ipAddresses** | Matriz JSON | Yes | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
-| **nome** | String | No | - |
-| **tipo** | String | No | Desconhecido, Estação de Engenharia, PLC, HMI, Historiador, Controlador de Domínio, Servidor DB, Ponto de Acesso Sem Fios, Router, Switch, Servidor, Estação de Trabalho, Câmara IP, Impressora, Firewall, Estação terminal, Gateway VPN, Internet ou Multicast e Transmissão |
-| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
-| **sistema operativo** | String | Yes | - |
-| **engenhariaStation** | Booleano | No | Verdadeiro ou falso |
-| **scanner** | Booleano | No | Verdadeiro ou falso |
-| **autorizado** | Booleano | No | Verdadeiro ou falso |
-| **fornecedor** | String | Yes | - |
-| **Protocolos** | Matriz JSON | Yes | Objeto de protocolo |
-| **firmware** | Matriz JSON | Yes | Objeto firmware |
+| **sensorid** | Operador numérico | Não | - |
+| **zoneId** | Operador numérico | Sim | - |
+| **siteId** | Operador numérico | Sim | - |
+| **ipAddresses** | Matriz JSON | Sim | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
+| **name** | String | Não | - |
+| **tipo** | String | Não | Desconhecido, Estação de Engenharia, PLC, HMI, Historiador, Controlador de Domínio, Servidor DB, Ponto de Acesso Sem Fios, Router, Switch, Servidor, Estação de Trabalho, Câmara IP, Impressora, Firewall, Estação terminal, Gateway VPN, Internet ou Multicast e Transmissão |
+| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
+| **sistema operativo** | String | Sim | - |
+| **engenhariaStation** | Booleano | Não | Verdadeiro ou falso |
+| **scanner** | Booleano | Não | Verdadeiro ou falso |
+| **autorizado** | Booleano | Não | Verdadeiro ou falso |
+| **fornecedor** | String | Sim | - |
+| **Protocolos** | Matriz JSON | Sim | Objeto de protocolo |
+| **firmware** | Matriz JSON | Sim | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| Nome | String | No | - |
-| Endereços | Matriz JSON | Yes | Valores mestres ou numéricos |
+| Nome | String | Não | - |
+| Endereços | Matriz JSON | Sim | Valores mestres ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **série** | String | No | N/A, ou o valor real |
-| **modelo** | String | No | N/A, ou o valor real |
-| **firmwareVersion** | Double (Duplo) | No | N/A, ou o valor real |
-| **AdicionalData** | String | No | N/A, ou o valor real |
-| **móduloAddress** | String | No | N/A, ou o valor real |
-| **rack** | String | No | N/A, ou o valor real |
-| **slot** | String | No | N/A, ou o valor real |
-| **endereço** | String | No | N/A, ou o valor real |
+| **série** | String | Não | N/A, ou o valor real |
+| **modelo** | String | Não | N/A, ou o valor real |
+| **firmwareVersion** | Double (Duplo) | Não | N/A, ou o valor real |
+| **AdicionalData** | String | Não | N/A, ou o valor real |
+| **móduloAddress** | String | Não | N/A, ou o valor real |
+| **rack** | String | Não | N/A, ou o valor real |
+| **slot** | String | Não | N/A, ou o valor real |
+| **endereço** | String | Não | N/A, ou o valor real |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -1967,7 +1967,7 @@ Utilize esta API para recuperar todos ou alertas filtrados de uma consola de ges
 
 #### <a name="method"></a>Método
 
-**GET**
+**Obter**
 
 #### <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -2001,21 +2001,21 @@ Utilize esta API para recuperar todos ou alertas filtrados de uma consola de ges
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **ID** | Numérico | No | - |
-| **Hora** | Numérico | No | Época (UTC) |
-| **título** | String | No | - |
-| **Mensagem** | String | No | - |
-| **severidade** | String | No | Aviso, Menor, Major ou Crítico |
-| **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
-| **fonteDevice** | Numérico | Yes | ID do Dispositivo |
-| **destinoDevice** | Numérico | Yes | ID do Dispositivo |
-| **informação adicional** | Objeto de informação adicional | Yes | - |
+| **ID** | Operador numérico | Não | - |
+| **Hora** | Operador numérico | Não | Época (UTC) |
+| **título** | String | Não | - |
+| **Mensagem** | String | Não | - |
+| **severidade** | String | Não | Aviso, Menor, Major ou Crítico |
+| **motor** | String | Não | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
+| **fonteDevice** | Operador numérico | Sim | ID do Dispositivo |
+| **destinoDevice** | Operador numérico | Sim | ID do Dispositivo |
+| **informação adicional** | Objeto de informação adicional | Sim | - |
 
 #### <a name="additional-information-fields"></a>Campos de informação adicionais
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **descrição** | String | No | - |
+| **descrição** | String | Não | - |
 | **informação** | Matriz JSON | Não | String |
 
 #### <a name="response-example"></a>Exemplo de resposta
@@ -2156,7 +2156,7 @@ Objeto JSON que representa a ação a executar no alerta que contém o UUID.
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **ação** | String | No | manusear ou manusearAndLearn |
+| **ação** | String | Não | manusear ou manusearAndLearn |
 
 #### <a name="request-example"></a>Exemplo de pedido
 
@@ -2180,7 +2180,7 @@ Matriz de objetos JSON que representam dispositivos.
 
 | Nome | Tipo | Pode ser nulo | Descrição |
 |--|--|--|--|
-| **conteúdo / erro** | String | No | Se o pedido for bem sucedido, a propriedade de conteúdo aparece. Caso contrário, a propriedade de erro aparece. |
+| **conteúdo / erro** | String | Não | Se o pedido for bem sucedido, a propriedade de conteúdo aparece. Caso contrário, a propriedade de erro aparece. |
 
 #### <a name="possible-content-values"></a>Possíveis valores de conteúdo
 
@@ -2364,7 +2364,7 @@ Matriz de objetos JSON que representam operações de janela de manutenção.
 | **motores** | Matriz da cadeia | - | sim |
 | **sensorids** | Matriz da cadeia | - | sim |
 | **sub-redes** | Matriz da cadeia | - | sim |
-| **ttl** | Numérico | - | sim |
+| **ttl** | Operador numérico | - | sim |
 | **operaçãoType** | String | Os valores são "OPEN", "UPDATE" e "CLOSE" | não |
 
 ### <a name="authenticate-user-credentials"></a>Autenticar credenciais de utilizador
@@ -2411,8 +2411,8 @@ Cadeia de mensagens com os detalhes do estado da operação:
 
 | **Nome** | **Tipo** | **Pode ser nulo** |
 |--|--|--|
-| **nome de utilizador** | String | No |
-| **palavra-passe** | String | No |
+| **nome de utilizador** | String | Não |
+| **palavra-passe** | String | Não |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -2492,9 +2492,9 @@ response:
 
 | **Nome** | **Tipo** | **Pode ser nulo** |
 |--|--|--|
-| **nome de utilizador** | String | No |
-| **palavra-passe** | String | No |
-| **new_password** | String | No |
+| **nome de utilizador** | String | Não |
+| **palavra-passe** | String | Não |
+| **new_password** | String | Não |
 
 ### <a name="user-password-update-by-system-admin"></a>Atualização da palavra-passe do utilizador por administração do sistema
 
@@ -2567,11 +2567,11 @@ response:
 
 | **Nome** | **Tipo** | **Pode ser nulo** |
 |--|--|--|
-| **admin_username** | String | No |
-| **admin_password** | String | No |
-| **nome de utilizador** | String | No |
-| **new_password** | String | No |
+| **admin_username** | String | Não |
+| **admin_password** | String | Não |
+| **nome de utilizador** | String | Não |
+| **new_password** | String | Não |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 [Investigar deteções de sensores num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Investigue todas as deteções de sensores empresariais num inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

@@ -6,16 +6,16 @@ ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dc590593b9bff8f646ee6155d32a2ce3f9790f6e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020439"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625253"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introdução às funções geoespaciais stream Analytics
 
-As funções geoespaciais no Azure Stream Analytics permitem análises em tempo real no streaming de dados geoespaciais. Com apenas algumas linhas de código, pode desenvolver uma solução de grau de produção para cenários complexos. 
+As funções geoespaciais no Azure Stream Analytics permitem análises em tempo real no streaming de dados geoespaciais. Com apenas algumas linhas de código, pode desenvolver uma solução de grau de produção para cenários complexos. Estas funções suportam todos os tipos de WKT e GeoJSON Point, Polygon e LineString.
 
 Exemplos de cenários que podem beneficiar de funções geoespaciais incluem:
 
@@ -110,7 +110,7 @@ Para saber mais, visite a referência [CreatePolygon.](/stream-analytics-query/c
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-A `ST_DISTANCE` função devolve a distância entre dois pontos em metros. 
+A `ST_DISTANCE` função devolve a distância entre duas geometrias em metros. 
 
 A seguinte consulta usa `ST_DISTANCE` para gerar um evento quando um posto de gasolina está a menos de 10 km do carro.
 
@@ -123,7 +123,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 Para saber mais, visite a [referência ST_DISTANCE.](/stream-analytics-query/st-distance)
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-A `ST_OVERLAPS` função compara dois polígonos. Se os polígonos se sobrepõem, a função retorna a 1. A função retorna 0 se os polígonos não se sobreporem. 
+A `ST_OVERLAPS` função compara duas geometrias. Se as geometrias se sobrepõem, a função retorna a 1. A função retorna 0 se as geometrias não se sobreporem. 
 
 A seguinte consulta usa `ST_OVERLAPS` para gerar um evento quando um edifício está dentro de uma possível zona de inundação.
 
@@ -144,7 +144,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 Para saber mais, visite a [referência ST_OVERLAPS.](/stream-analytics-query/st-overlaps)
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-A `ST_INTERSECTS` função compara dois LineString. Se o LineString se cruzar, a função retorna 1. A função retorna 0 se o LineString não se cruzar.
+A `ST_INTERSECTS` função compara duas geometrias. Se as geometrias se cruzam, então a função retorna 1. A função retorna 0 se as geometrias não se cruzarem.
 
 A seguinte consulta de exemplo utiliza `ST_INTERSECTS` para determinar se uma estrada pavimentada intersecta uma estrada de terra batida.
 
@@ -170,7 +170,7 @@ FROM input
 Para saber mais, visite a [referência ST_INTERSECTS.](/stream-analytics-query/st-intersects)
 
 ## <a name="st_within"></a>ST_WITHIN
-A `ST_WITHIN` função determina se um ponto ou polígono está dentro de um polígono. Se o polígono contiver o ponto ou o polígono, a função retornará 1. A função retornará 0 se o ponto ou o polígono não estiverem localizados dentro do polígono declarado.
+A `ST_WITHIN` função determina se uma geometria está dentro de outra geometria. Se a primeira estiver contida na última, a função retornará 1. A função retornará 0 se a primeira geometria não estiver localizada dentro da última.
 
 A seguinte consulta de exemplo utiliza `ST_WITHIN` para determinar se o ponto de destino de entrega está dentro do polígono do armazém dado.
 
@@ -195,7 +195,7 @@ FROM input
 
 Para saber mais, visite a [referência ST_WITHIN.](/stream-analytics-query/st-within)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

@@ -3,12 +3,12 @@ title: Entender a linguagem de consulta
 description: Descreve tabelas de gráficos de recursos e os tipos de dados, operadores e funções disponíveis de Kusto utilizáveis com o Azure Resource Graph.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: f94023d47153dc64ca78e0386edd87a9821515be
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251731"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624763"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Compreender a linguagem de consulta de gráfico de recurso Azure
 
@@ -26,20 +26,20 @@ Este artigo abrange os componentes linguísticos suportados pelo Gráfico de Rec
 
 O Resource Graph fornece várias tabelas para os dados que armazena sobre os tipos de recursos do Azure Resource Manager e as suas propriedades. Algumas tabelas podem ser `join` usadas ou `union` operadores para obter propriedades de tipos de recursos relacionados. Aqui está a lista de tabelas disponíveis no Gráfico de Recursos:
 
-|Tabela de gráficos de recursos |Outras `join` mesas? |Description |
-|---|---|
-|Recursos |Yes |A tabela predefinitiva se nenhuma for definida na consulta. A maioria dos tipos e propriedades de recursos do Gestor de Recursos estão aqui. |
-|RecursosContainers |Yes |Inclui a subscrição (na pré-visualização -- `Microsoft.Resources/subscriptions` ) e os tipos de recursos e dados do grupo de `Microsoft.Resources/subscriptions/resourcegroups` recursos. |
+|Tabela de gráficos de recursos |Outras `join` mesas? |Descrição |
+|---|---|---|
+|Recursos |Sim |A tabela predefinitiva se nenhuma for definida na consulta. A maioria dos tipos e propriedades de recursos do Gestor de Recursos estão aqui. |
+|RecursosContainers |Sim |Inclui a subscrição (na pré-visualização -- `Microsoft.Resources/subscriptions` ) e os tipos de recursos e dados do grupo de `Microsoft.Resources/subscriptions/resourcegroups` recursos. |
 |Recursos Consultivos |Sim (pré-visualização) |Inclui recursos _relacionados_ `Microsoft.Advisor` com. |
 |AlertasManagementResources |Sim (pré-visualização) |Inclui recursos _relacionados_ `Microsoft.AlertsManagement` com. |
-|GuestConfigurationResources |No |Inclui recursos _relacionados_ `Microsoft.GuestConfiguration` com. |
+|GuestConfigurationResources |Não |Inclui recursos _relacionados_ `Microsoft.GuestConfiguration` com. |
 |Fontes de manutenção |Parcial, _junte-se apenas._ (pré-visualização) |Inclui recursos _relacionados_ `Microsoft.Maintenance` com. |
-|PatchAssessmentResources|No |Inclui recursos _relacionados com_ a avaliação de patch de máquinas virtuais Azure. |
-|PatchInstallationResources|No |Inclui recursos _relacionados com_ a instalação de patch de máquinas virtuais Azure. |
-|Recursos de Política |No |Inclui recursos _relacionados_ `Microsoft.PolicyInsights` com. **(Pré-visualização)**|
+|PatchAssessmentResources|Não |Inclui recursos _relacionados com_ a avaliação de patch de máquinas virtuais Azure. |
+|PatchInstallationResources|Não |Inclui recursos _relacionados com_ a instalação de patch de máquinas virtuais Azure. |
+|Recursos de Política |Não |Inclui recursos _relacionados_ `Microsoft.PolicyInsights` com. **(Pré-visualização)**|
 |RecoveryServicesResources |Parcial, _junte-se apenas._ (pré-visualização) |Inclui recursos _relacionados com_ `Microsoft.DataProtection` e `Microsoft.RecoveryServices` . |
 |Recursos de Segurança |Parcial, _junte-se apenas._ (pré-visualização) |Inclui recursos _relacionados_ `Microsoft.Security` com. |
-|ServiceHealthResources |No |Inclui recursos _relacionados_ `Microsoft.ResourceHealth` com. |
+|ServiceHealthResources |Não |Inclui recursos _relacionados_ `Microsoft.ResourceHealth` com. |
 
 Para obter uma lista completa, incluindo tipos de recursos, consulte [Referência: Tabelas suportadas e tipos de recursos](../reference/supported-tables-resources.md).
 
@@ -132,7 +132,7 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 |[juntar-se](/azure/kusto/query/joinoperator) |[Cofre de chave com nome de assinatura](../samples/advanced.md#join) |Junte os sabores suportados: [interior,](/azure/kusto/query/joinoperator#default-join-flavor) [interior,](/azure/kusto/query/joinoperator#inner-join) [canhoto.](/azure/kusto/query/joinoperator#left-outer-join) Limite de 3 `join` numa única consulta, 1 dos quais pode ser uma mesa transversal `join` . Se toda a utilização da tabela cruzada `join` for entre _Recursos_ e _RecursosContainers,_ são permitidas 3 tabelas `join` cruzadas. Estratégias de junção personalizadas, como a junção de transmissão, não são permitidas. Para as tabelas que podem ser `join` [utilizadas,](#resource-graph-tables)consulte as tabelas De Gráfico de Recursos . |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo `take` de. Não funciona com [o Skip.](./work-with-data.md#skipping-records) |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador legado, use `mv-expand` em vez disso. _LinhaLimit_ max de 400. O padrão é 128. |
-|[mv-expandir](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB com locais de escrita específicos](../samples/advanced.md#mvexpand-cosmosdb) |_LinhaLimit_ max de 400. O padrão é 128. |
+|[mv-expandir](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB com locais de escrita específicos](../samples/advanced.md#mvexpand-cosmosdb) |_LinhaLimit_ max de 400. O padrão é 128. Limite de 3 `mv-expand` numa única consulta.|
 |[order](/azure/kusto/query/orderoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de `sort` |
 |[projeto](/azure/kusto/query/projectoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) | |
 |[projeto-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
@@ -142,6 +142,10 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 |[Início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais pelo nome e o seu tipo de SO](../samples/starter.md#show-sorted) | |
 |[união](/azure/kusto/query/unionoperator) |[Combine resultados de duas consultas num único resultado](../samples/advanced.md#unionresults) |Tabela única permitida: _Tabela T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] . Limite de 3 `union` pernas numa única consulta. Não é permitida a resolução fuzzy das mesas das `union` pernas. Pode ser usado dentro de uma única tabela ou entre as _tabelas Recursos_ e _RecursosContainers._ |
 |[onde](/azure/kusto/query/whereoperator) |[Mostrar recursos que contenham armazenamento](../samples/starter.md#show-storage) | |
+
+Existe um limite padrão de 3 `join` e 3 `mv-expand` operadores numa única consulta SDK de gráfico de recurso. Pode solicitar um aumento destes limites para o seu inquilino através do **apoio Help +**.
+
+Para suportar a experiência do portal "Open Query", o Azure Resource Graph Explorer tem um limite global superior ao do Resource Graph SDK.
 
 ## <a name="query-scope"></a>Âmbito de consulta
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 11/09/2020
+ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033753"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624545"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -160,6 +160,10 @@ Precisa de permissões em todo o âmbito da sua nova definição de papel. Por e
 
 > [!NOTE]
 > As atualizações de funções podem demorar 15 minutos a uma hora a aplicar-se em todas as atribuições de funções nesse âmbito.
+
+## <a name="use-azure-resource-manager-templates-for-repeatability"></a>Utilize modelos de Gestor de Recursos Azure para a repetibilidade
+
+Se antecipar que terá de recriar atribuições complexas de funções, um modelo do Gestor de Recursos Azure pode ser uma grande ajuda. O [modelo de atribuição de funções de aprendizagem-máquina-201-dependências](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) mostra como as atribuições de funções podem ser especificadas no código-fonte para reutilização. 
 
 ## <a name="common-scenarios"></a>Cenários comuns
 

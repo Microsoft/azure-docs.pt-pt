@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com NetSuite Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com netSuite | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o NetSuite.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181973"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625485"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integre o Azure AD single sign-on (SSO) com NetSuite
 
@@ -41,7 +41,6 @@ Suportes NetSuite:
 
 * SSO iniciado pelo IDP.
 * JIT (just-in-time) fornecimento de utilizador.
-* [Fornecimento automatizado de utilizadores](NetSuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Como o identificador desta aplicação é um valor fixo de cadeia, apenas um caso pode ser configurado em um inquilino.
@@ -104,7 +103,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 1. Além de acima, a aplicação NetSuite espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | ---------------| --------------- |
     | conta  | `account id` |
 
@@ -123,7 +122,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. No painel esquerdo do portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -153,7 +152,7 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, p
 
 1. Abra um novo separador no seu navegador e inscreva-se no site da empresa NetSuite como administrador.
 
-2. Na barra de navegação superior, selecione **Configuração** e, em seguida, selecione **Company**  >  **Funcionalidades de Ativação** da Empresa .
+2. Na barra de navegação superior, selecione **Configuração** e, em seguida, selecione   >  **Funcionalidades de Ativação** da Empresa .
 
     ![Screenshot mostra Enable Features selecionados da Empresa.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
@@ -187,7 +186,7 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, p
 
     c. Selecione **Submeter**.
 
-9. Na barra de navegação superior NetSuite, selecione **Configuração** e, em seguida, selecione **Company**  >  **Informações da Empresa**.
+9. Na barra de navegação superior NetSuite, selecione **Configuração** e, em seguida, selecione   >  **Informações da Empresa**.
 
     ![A screenshot mostra informações da empresa selecionadas da Empresa.](./media/NetSuite-tutorial/ns-com.png)
 

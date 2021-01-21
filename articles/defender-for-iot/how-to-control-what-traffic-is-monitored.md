@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977090"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624689"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar que tráfego é monitorizado
 
@@ -90,7 +90,7 @@ Para configurar sub-redes:
 
 10. Para exportar sub-redes configuradas, selecione **Export**. A tabela de sub-redes é descarregada para a sua estação de trabalho.
 
-11. Selecione **Save** (Guardar).
+11. Selecione **Guardar**.
 
 ### <a name="importing-information"></a>Informação de importação 
 
@@ -182,15 +182,15 @@ Para definir uma gama de endereços DHCP:
     > [!NOTE]
     > As gamas que importa de um ficheiro CSV substituem as definições de gama existentes.
 
-6. Selecione **Save** (Guardar).
+6. Selecione **Guardar**.
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurar servidores DNS para resolução de procura inversa
 
-Para melhorar o enriquecimento de ativos, pode configurar vários servidores DNS para realizar pesquisas inversas. Pode resolver nomes de anfitriões ou FQDNs associados aos endereços IP detetados nas sub-redes de rede. Por exemplo, se um sensor descobrir um endereço IP, poderá consultar vários servidores DNS para resolver o nome de anfitrião.
+Para melhorar o enriquecimento do dispositivo, pode configurar vários servidores DNS para realizar pesquisas inversas. Pode resolver nomes de anfitriões ou FQDNs associados aos endereços IP detetados nas sub-redes de rede. Por exemplo, se um sensor descobrir um endereço IP, poderá consultar vários servidores DNS para resolver o nome de anfitrião.
 
 Todos os formatos CIDR são suportados.
 
-O nome do anfitrião aparece no inventário de ativos e mapa de ativos, bem como em relatórios.
+O nome do anfitrião aparece no inventário do dispositivo, no mapa do dispositivo e nos relatórios.
 
 Pode agendar horários de resolução de procura inversa para intervalos específicos de hora, como a cada 12 horas. Ou pode agendar uma hora específica.
 
@@ -212,7 +212,7 @@ Para definir servidores DNS:
 
 5. No campo **DNS Server Port,** insira a porta DNS.
 
-6. Resolva os endereços IP da rede para ativos FQDNs. No campo **Número de Etiquetas,** adicione o número de etiquetas de domínio a visualizar. São exibidos até 30 caracteres da esquerda para a direita.
+6. Resolva os endereços IP da rede para o dispositivo FQDNs. No campo **Número de Etiquetas,** adicione o número de etiquetas de domínio a visualizar. São exibidos até 30 caracteres da esquerda para a direita.
 
 7. No campo **Subnetas,** introduza as sub-redes que pretende que o servidor DNS faça a consulta.
 
@@ -220,7 +220,7 @@ Para definir servidores DNS:
 
 ### <a name="test-the-dns-configuration"></a>Teste a configuração DE DNS 
 
-Ao utilizar um ativo de teste, verifique se as definições definidas funcionam corretamente:
+Ao utilizar um dispositivo de teste, verifique se as definições definidas funcionam corretamente:
 
 1. Ativar o **alternância dns.**
 
@@ -277,7 +277,7 @@ Para configurar uma varredura automática:
 
 7. Para remover um intervalo, selecione :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: ao lado do alcance.
 
-8. Selecione **Save** (Guardar). A caixa de diálogo **de configuração de configuração editar** fecha-se e o número de intervalos aparece no painel **de verificação de gamas.**
+8. Selecione **Guardar**. A caixa de diálogo **de configuração de configuração editar** fecha-se e o número de intervalos aparece no painel **de verificação de gamas.**
 
 Para efetuar uma varredura manual:
 

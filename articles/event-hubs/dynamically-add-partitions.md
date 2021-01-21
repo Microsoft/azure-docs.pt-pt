@@ -3,12 +3,12 @@ title: Adicione dinamicamente divisórias a um centro de eventos em Azure Event 
 description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a um centro de eventos em Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e6efdc7bab309f825032555c97f1e1128f5addd6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132176"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625270"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs
 O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos. Uma partição é uma sequência ordenada de eventos mantida num hub de eventos. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Para obter mais informações sobre divisórias em geral, consulte [As Partições](event-hubs-scalability.md#partitions)
@@ -26,14 +26,14 @@ Pode especificar o número de divisórias no momento da criação de um centro d
 Esta secção mostra-lhe como atualizar a contagem de partição de um centro de eventos de diferentes maneiras (PowerShell, CLI, e assim por diante).).
 
 ### <a name="powershell"></a>PowerShell
-Utilize o comando [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) PowerShell para atualizar as divisórias num centro de eventos. 
+Utilize o comando [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub) PowerShell para atualizar as divisórias num centro de eventos. 
 
 ```azurepowershell-interactive
 Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
 ```
 
 ### <a name="cli"></a>CLI
-Utilize o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) comando CLI para atualizar as divisórias num centro de eventos. 
+Utilize o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) comando CLI para atualizar as divisórias num centro de eventos. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12

@@ -1,5 +1,5 @@
 ---
-title: Definir o controlo global de acesso ao utilizador
+title: Definir o controlo de acesso de utilizador global
 description: Em grandes organizações, as permissões de utilizador podem ser complexas e podem ser determinadas por uma estrutura organizacional global, além da estrutura padrão do site e da zona.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: de3ff6ead1f0dd86e07c86b992a720a676a2095c
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843288"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624647"
 ---
 # <a name="define-global-access-control"></a>Definir controlo global de acesso
 
@@ -20,7 +20,7 @@ Em grandes organizações, as permissões de utilizador podem ser complexas e po
 
 Para apoiar a procura de permissões de acesso ao utilizador que sejam globais e mais complexas, você pode criar uma topologia de negócios global baseada em unidades de negócio, regiões e sites. Em seguida, pode definir permissões de acesso ao utilizador em torno destas entidades.
 
-Trabalhar com ferramentas de acesso para topologia de negócios ajuda as organizações a implementar estratégias de confiança zero, controlando melhor onde os utilizadores gerem e analisam ativos na plataforma Azure Defender para IoT.
+Trabalhar com ferramentas de acesso para topologia de negócios ajuda as organizações a implementar estratégias de confiança zero, controlando melhor onde os utilizadores gerem e analisam dispositivos na plataforma Azure Defender para IoT.
 
 ## <a name="about-access-groups"></a>Sobre grupos de acesso
 
@@ -88,6 +88,6 @@ Quando estiver a criar regras, esteja atento às seguintes informações:
 
 - Se nenhuma unidade de negócio ou região for selecionada, os utilizadores terão acesso a todas as unidades e regiões de negócio definidas.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Sobre o Defender para utilizadores de consolas IoT](how-to-create-and-manage-users.md)

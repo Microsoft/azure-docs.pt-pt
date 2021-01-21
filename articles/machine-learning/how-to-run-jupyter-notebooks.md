@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cdd8783daf9e1e1458f47e773eb3b6ccedfbae83
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599312"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624562"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
@@ -342,7 +342,14 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 
 Encontre detalhes sobre as suas instâncias de computação na página **compute** em [estúdio](https://ml.azure.com).
 
+## <a name="troubleshooting"></a>Resolução de problemas
+
+* Se não conseguir ligar-se a um bloco de notas, certifique-se de que a comunicação da tomada web **não** está desativada. Para que a funcionalidade do Jupyter funcione, a comunicação da tomada web deve ser ativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms. 
+
+* Quando a instância de computação é implantada num espaço de trabalho de ligação privada, só pode ser acedida a partir de uma rede virtual. Se estiver a utilizar o ficheiro DNS ou hostis personalizado, por favor adicione uma entrada para <nome de exemplo <region>>. instances.azureml.ms com endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli)
+    
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Executar a sua primeira experiência](tutorial-1st-experiment-sdk-train.md)
 * [Faça backup do armazenamento do seu ficheiro com instantâneos](../storage/files/storage-snapshots-files.md)
+* [Trabalhar em ambientes seguros](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Encontre caminho para um local / Microsoft Azure Maps'
+title: 'Tutorial: Encontre caminho para um local | Microsoft Azure Maps'
 description: Tutorial sobre como encontrar uma rota para um ponto de interesse. Veja como definir coordenadas de endereço e consultar o serviço de Rota Azure Maps para as direções ao ponto.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896685"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624987"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Como exibir direções de rota usando o serviço de rota Azure Maps e o controlo do mapa
 
@@ -39,7 +39,7 @@ Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Az
 
 Os passos a seguir mostram-lhe como criar e exibir o controlo do Mapa numa página web.
 
-1. No seu computador local, crie um novo ficheiro e dê a este o nome de **MapRoute.html** .
+1. No seu computador local, crie um novo ficheiro e dê a este o nome de **MapRoute.html**.
 2. Copiar/colar a seguinte marcação HTML no ficheiro.
 
     ```HTML
@@ -170,11 +170,11 @@ Neste tutorial, faremos a rota usando uma camada de linha. Os pontos de partida 
 
     Este código cria dois [objetos GeoJSON Point](https://en.wikipedia.org/wiki/GeoJSON) para representar pontos de partida e de fim, que são adicionados à fonte de dados. 
 
-    O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visualização das câmaras de mapa em toda a rota utilizando a `map.setCamera` função. O estofamento é adicionado para compensar as dimensões dos pixels dos ícones do símbolo. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions ] CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) propriedade.
+    O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visualização das câmaras de mapa em toda a rota utilizando a `map.setCamera` função. O estofamento é adicionado para compensar as dimensões dos pixels dos ícones do símbolo. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) propriedade.
 
 3. Guarde **MapRoute.htmi** e refresque o seu navegador. O mapa está agora centrado em Seattle. O pino azul lágrima marca o ponto de partida. O pino azul redondo marca o ponto final.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Ver ponto de partida e fim das rotas no mapa":::
 
 <a id="getroute"></a>
 
@@ -216,9 +216,13 @@ Esta secção mostra-lhe como utilizar a API das Direções de Rota do Azure Map
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. O mapa deve agora mostrar a rota do início ao ponto final.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Serviço de controlo e rota do mapa Azure":::
 
 Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 

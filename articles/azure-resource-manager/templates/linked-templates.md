@@ -2,13 +2,13 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/20/2021
+ms.openlocfilehash: dd810167e07f1bb23f9563936cb481652953ccd1
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760627"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624863"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -162,7 +162,7 @@ O modelo a seguir demonstra como as expressões do modelo são resolvidas de aco
 
 O valor das `exampleVar` alterações dependendo do valor do `scope` imóvel em `expressionEvaluationOptions` . A tabela seguinte mostra os resultados de ambos os âmbitos.
 
-| `expressionEvaluationOptions` âmbito | Saída |
+| Âmbito de avaliação | Saída |
 | ----- | ------ |
 | interior | do modelo aninhado |
 | exterior (ou padrão) | do modelo dos pais |
@@ -277,6 +277,129 @@ O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre cha
 }
 ```
 
+Tenha cuidado ao utilizar valores de parâmetros seguros num modelo aninhado. Se definir o âmbito exterior, os valores de segurança são armazenados como texto simples no histórico de implantação. Um utilizador que visualiza o modelo no histórico de implementação poderia ver os valores de segurança. Em vez disso, use o âmbito interno ou adicione ao modelo principal os recursos que precisam de valores seguros.
+
+O seguinte excerto mostra quais valores são seguros e que não são seguros.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPasswordOrKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+      }
+    }
+  },
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "mainTemplate",
+      "properties": {
+        ...
+        "osProfile": {
+          "computerName": "mainTemplate",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in parent template
+        }
+      }
+    },
+    {
+      "name": "outer",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "outer"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "outer",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "outer",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // No, not secure because resource is in nested template with outer scope
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inner",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "adminPasswordOrKey": {
+              "value": "[parameters('adminPasswordOrKey')]"
+          },
+          "adminUsername": {
+              "value": "[parameters('adminUsername')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Username for the Virtual Machine."
+              }
+            },
+            "adminPasswordOrKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "inner",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "inner",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in nested template and scope is inner
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 > [!NOTE]
 >
 > Quando o âmbito está definido `outer` para , não é possível utilizar a `reference` função na secção de saídas de um modelo aninhado para um recurso que implementou no modelo aninhado. Para devolver os valores de um recurso implantado num modelo aninhado, utilize `inner` o âmbito ou converta o seu modelo aninhado num modelo ligado.
@@ -377,7 +500,7 @@ Não é possível utilizar os parâmetros inline e um link para um ficheiro de p
 
 Em vez de manter os seus modelos ligados num ponto final acessível, pode criar uma [especificação de modelo](template-specs.md) que embala o modelo principal e os seus modelos ligados numa única entidade que pode implementar. A especificação do modelo é um recurso na sua subscrição Azure. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Tutorial: Criar uma especificação de modelo com modelos ligados.](./template-specs-create-linked.md)
 - [Tutorial: Implementar uma especificação de modelo como um modelo ligado](./template-specs-deploy-linked-template.md).
@@ -674,7 +797,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 
-|Modelo principal  |Modelo associado |Description  |
+|Modelo principal  |Modelo associado |Descrição  |
 |---------|---------| ---------|
 |[Olá, mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a corda do modelo ligado. |
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |

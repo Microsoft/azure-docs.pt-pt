@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 47e3833fe9f35467c1d16945a9b336d4014b2efd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841848"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625469"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Investigue todas as deteções de sensores empresariais no inventário do dispositivo
 
@@ -67,7 +67,7 @@ Pode usar esta informação para aprender. Por exemplo:
 
 - Utilizadores inscritos em dispositivos
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabela de dados no ecrã de inventário de ativos.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabela de dados no ecrã de inventário do dispositivo.":::
 
 Pode integrar dados por qualquer um dos dois:
 
@@ -131,13 +131,13 @@ Trabalhe com o Defender para comandos IoT API para recuperar e integrar esta inf
 
 Pode filtrar o inventário do dispositivo para mostrar colunas de interesse. Por exemplo, pode ver as informações do dispositivo PLC.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot do inventário de bens.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot do inventário do dispositivo.":::
 
 O filtro está limpo quando sai da janela.
 
 Para utilizar o mesmo filtro várias vezes, pode guardar um filtro ou uma combinação de filtros de que necessita. Pode abrir um painel esquerdo e ver os filtros que guardou:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Tela de inventários de ativos.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Tela de inventários de dispositivos.":::
 
 Para filtrar o inventário do dispositivo:
 
@@ -187,7 +187,7 @@ As seguintes ferramentas estão disponíveis para visualizar dispositivos e info
 
 - **Ver as propriedades** do dispositivo : Por exemplo, o sensor que está a monitorizar o dispositivo e as propriedades básicas do dispositivo. Clique com o botão direito para ver as propriedades do dispositivo.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot da vista Propriedades do Ativo.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot da vista propriedades do dispositivo.":::
 
 - **Alerta associado a um dispositivo:** Clique com o botão direito no dispositivo para visualizar alertas relacionados.
 
@@ -225,6 +225,6 @@ Estão disponíveis as seguintes informações adicionais sobre zonas:
 
 - **Atualização do progresso**: Se o sensor ligado estiver a ser atualizado, aparecerão os estados de atualização. Durante a atualização, a consola de gestão no local não recebe informações do dispositivo do sensor.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-[Investigar deteções de sensores num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Investigar as deteções do sensor num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

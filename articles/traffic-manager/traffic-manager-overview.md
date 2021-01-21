@@ -1,28 +1,27 @@
 ---
 title: Gestor de Tráfego do Azure | Microsoft Docs
-description: Este artigo mostra uma descrição geral do Gestor de Tráfego do Azure. Saiba se esta é a escolha certa para fazer o balanceamento de carga do tráfego dos utilizadores para a sua aplicação.
+description: Este artigo mostra uma descrição geral do Gestor de Tráfego do Azure. Descubra se é a escolha certa para o tráfego de utilizador de equilíbrio de carga para a sua aplicação.
 services: traffic-manager
 author: duongau
-manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
+ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: e2a4db1404709dadb2500df29f3f7acf8787c2b2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185736"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624914"
 ---
 # <a name="what-is-traffic-manager"></a>O que é o Gestor de Tráfego?
-O Gestor de Tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que lhe permite distribuir o tráfego de forma otimizada para serviços nas regiões globais do Azure, proporcionando, ao mesmo tempo, elevada disponibilidade e capacidade de resposta.
+Azure Traffic Manager é um equilibrador de carga baseado em DNS. Este serviço permite-lhe distribuir tráfego para as suas aplicações viradas para o público em todas as regiões globais do Azure. O Traffic Manager também fornece aos seus pontos finais públicos uma elevada disponibilidade e uma capacidade de resposta rápida.
 
-O Gestor de Tráfego utiliza o DNS para direcionar os pedidos do cliente para o ponto final de serviço mais adequado com base num método de encaminhamento de tráfego e no estado de funcionamento dos pontos finais. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure. O Gestor de Tráfego proporciona vários [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) e [opções de monitorização de pontos finais](traffic-manager-monitoring.md) para satisfazer diferentes necessidades das aplicações e modelos de ativação pós-falha automática. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
+O Gestor de Tráfego utiliza o DNS para direcionar os pedidos do cliente para o ponto final de serviço apropriado com base num método de encaminhamento de tráfego. O gestor de tráfego também fornece monitorização de saúde para cada ponto final. O ponto final pode ser qualquer serviço virado para a Internet hospedado dentro ou fora de Azure. O Gestor de Tráfego proporciona vários [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) e [opções de monitorização de pontos finais](traffic-manager-monitoring.md) para satisfazer diferentes necessidades das aplicações e modelos de ativação pós-falha automática. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
 
 >[!NOTE]
 > O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se estiver à procura de terminação de protocolo TLS (Transport Layer Security) (“descarga de SSL”) ou de processamento de camada de aplicação por pedido HTTP/HTTPS, reveja [Gateway de Aplicação](../application-gateway/overview.md). Se procura o equilíbrio regional da carga, reveja [o Balanceador de Carga](../load-balancer/load-balancer-overview.md). Combinar estas soluções conforme necessário poderá trazer benefícios aos seus cenários completos.
@@ -37,11 +36,11 @@ O Gestor de Tráfego proporciona elevada disponibilidade às suas aplicações c
     
 ## <a name="improve-application-performance"></a>Melhorar o desempenho das aplicações
 
-O Azure permite-lhe executar serviços cloud ou sites em datacenters em todo o mundo. O Gestor de Tráfego melhora a capacidade de resposta das aplicações ao direcionar o tráfego para o ponto final com a latência de rede mais baixa para o cliente.
+O Azure permite-lhe executar serviços e websites em datacenters localizados em todo o mundo. O Traffic Manager pode melhorar a capacidade de resposta do seu website direcionando o tráfego para o ponto final com a menor latência.
 
-## <a name="perform-service-maintenance-without-downtime"></a>Realizar a manutenção de serviços sem tempo de inatividade
+## <a name="service-maintenance-without-downtime"></a>Manutenção de serviço sem tempo de inatividade
 
-Pode realizar operações de manutenção planeada nas suas aplicações sem tempo de inatividade. O Gestor de Tráfego pode direcionar o tráfego para pontos finais alternativos enquanto a manutenção está em andamento.
+Pode ter planeado a manutenção nas suas aplicações sem tempo de inatividade. O Gestor de Tráfego pode direcionar o tráfego para pontos finais alternativos enquanto a manutenção está em andamento.
 
 ## <a name="combine-hybrid-applications"></a>Combinar aplicações híbridas
 

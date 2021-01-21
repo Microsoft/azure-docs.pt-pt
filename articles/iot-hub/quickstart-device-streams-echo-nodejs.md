@@ -1,5 +1,5 @@
 ---
-title: Comunique a aplicação do dispositivo em Node.js com fluxos de dispositivos Azure IoT Hub
+title: Quickstart - Comunique à aplicação do dispositivo em Node.js com streams de dispositivos Azure IoT Hub
 description: Neste arranque rápido, irá executar uma aplicação Node.js do lado do serviço que comunica com um dispositivo IoT através de um fluxo de dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832012"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624393"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em Node.js através de fluxos de dispositivos IoT Hub (pré-visualização)
 
@@ -79,7 +79,7 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
     **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Note o fio de ligação de serviço devolvido para posterior utilização neste arranque rápido. O aspeto é igual ao do exemplo abaixo:
@@ -154,4 +154,4 @@ Neste arranque rápido, criou um hub IoT, registou um dispositivo, estabeleceu u
 Use os links abaixo para saber mais sobre os fluxos de dispositivos:
 
 > [!div class="nextstepaction"]
-> [Visão geral dos fluxos de dispositivos](./iot-hub-device-streams-overview.md) 
+> [Visão geral dos fluxos de dispositivos](./iot-hub-device-streams-overview.md)

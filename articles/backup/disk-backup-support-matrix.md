@@ -1,15 +1,15 @@
 ---
-title: Matriz de suporte de backup do disco Azure
+title: Matriz de suporte da Cópia de Segurança de Discos do Azure
 description: Fornece um resumo das definições de suporte e limitações Azure Disk Backup.
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558427"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624939"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte de backup do disco Azure (na pré-visualização)
 
@@ -55,6 +55,8 @@ Serão anunciadas mais regiões quando estiverem disponíveis.
 - Atualmente, a política de Backup não pode ser modificada, e o grupo de Recursos Instantâneos que é atribuído a uma instância de backup quando configurar a cópia de segurança de um disco não pode ser alterado.
 
 - Atualmente, a experiência do portal Azure para configurar a cópia de segurança dos discos está limitada a um máximo de 20 discos da mesma subscrição.
+
+- Atualmente (durante a pré-visualização), a utilização do PowerShell e do Azure CLI para configurar a cópia de segurança e a restauração dos discos não é suportada.
 
 - Ao configurar a cópia de segurança, o disco selecionado para ser apoiado e o grupo de recursos instantâneos onde as imagens devem ser armazenadas deve fazer parte da mesma subscrição. Não é possível criar uma imagem incremental para um disco específico fora da subscrição do disco. Saiba mais sobre [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) para o disco gerido. Para obter mais informações sobre como escolher um grupo de recursos instantâneos, consulte  [a cópia de segurança Configure](backup-managed-disks.md#configure-backup).
 

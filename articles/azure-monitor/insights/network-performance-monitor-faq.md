@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8e26a4d996e4c1767856b3dd98ae318d8992a89b
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562697"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625170"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -34,7 +34,7 @@ Listados abaixo estão os requisitos da plataforma para as várias capacidades d
 - A capacidade do Monitor ExpressRoute da NPM suporta apenas o sistema operativo Windows server (2008 SP1 ou posterior).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Posso usar as máquinas Linux como nós de monitorização em NPM?
-A capacidade de monitorizar redes utilizando nós baseados em Linux está agora geralmente disponível. A acccess o agente [aqui.](../../virtual-machines/extensions/oms-linux.md) Os agentes Linux fornecem capacidade de monitorização apenas para a capacidade do Monitor de Desempenho da NPM, e não estão disponíveis para as capacidades do Monitor de Conectividade de Serviço e do Monitor ExpressRoute
+A capacidade de monitorizar redes utilizando nós baseados em Linux está agora geralmente disponível. A acccess o agente [aqui.](../../virtual-machines/extensions/oms-linux.md) 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de tamanho dos nós a utilizar para monitorização por NPM?
 Para executar a solução NPM em VMs de nó para monitorizar as redes, os nós devem ter pelo menos 500-MB de memória e um núcleo. Não é preciso usar nós separados para executar NPM. A solução pode funcionar em nós que têm outras cargas de trabalho em execução. A solução tem a capacidade de parar o processo de monitorização se utilizar mais de 5% de CPU.

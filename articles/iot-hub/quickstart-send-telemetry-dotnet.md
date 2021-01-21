@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: enviar telemetria para o Hub IoT do Azure (C#) | Microsoft Docs'
+title: Quickstart - Envie telemetria para Azure IoT Hub quickstart (C#) | Microsoft Docs
 description: Neste início rápido, irá executar duas aplicações C# de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
 author: robinsh
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: b515274ef4bcf494c071ddb487590ff9cdccf4c0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 914df5b80dee7da041b268a3aaf25ac493d0cf5b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121494"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624444"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de serviço (.NET)
 
@@ -157,7 +157,7 @@ A aplicação de serviço conecta-se ao ponto final do lado do serviço **Evento
 
     ![Executar a aplicação de serviço](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

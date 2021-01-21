@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 259db10aa8f5cd2b711eca001bc6d48057d5280d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 32ce875600bb948e7c3e8479f712e99d25eb6367
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683207"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624955"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python)
 
@@ -197,7 +197,11 @@ Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
 
 Para obter uma lista completa de APIs DE REST Azure Maps, consulte [Azure Maps REST APIs](./consumption-model.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre cadernos Azure, ver
 

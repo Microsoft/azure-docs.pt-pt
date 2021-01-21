@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Pesquisa de localizações próximas num mapa Microsoft Azure Maps'
+title: 'Tutorial: Procure locais próximos num mapa | Microsoft Azure Maps'
 description: Tutorial sobre como procurar pontos de interesse num mapa. Veja como usar o Azure Maps Web SDK para adicionar capacidades de pesquisa e caixas popup interativas a um mapa.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896665"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624971"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Procure pontos de interesse nas proximidades usando Azure Maps
 
-Este tutorial mostra como configurar uma conta com o Azure Maps e, em seguida, utilizar as APIs do Maps para procurar um ponto de interesse. Neste tutorial, ficará a saber como:
+Este tutorial mostra como configurar uma conta com o Azure Maps e, em seguida, utilizar as APIs do Maps para procurar um ponto de interesse. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta do Azure Maps
@@ -41,7 +41,7 @@ Este tutorial mostra como configurar uma conta com o Azure Maps e, em seguida, u
 
 A API de Controlo de Mapas é uma biblioteca de clientes conveniente. Esta API permite-lhe integrar facilmente o Maps na sua aplicação web. Esconde a complexidade das chamadas de serviço REST e aumenta a sua produtividade com componentes personalizáveis. Os passos seguintes mostram como criar uma página HTML estática incorporada com a API de Controlo de Mapas.
 
-1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapSearch.html** .
+1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapSearch.html**.
 2. Adicione os seguintes componentes HTML ao ficheiro:
 
    ```HTML
@@ -246,6 +246,10 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
     ![Search Service e Controlo de Mapas do Azure](./media/tutorial-search-location/popup-map.png)
 
 Para ver o código completo para este tutorial, clique [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html) Para ver a amostra ao vivo, clique [aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 

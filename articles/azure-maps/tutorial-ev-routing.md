@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7a33cf4e66ce31f8fb8534de25d7564a5784ca3a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905745"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625053"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python)
 
@@ -76,7 +76,7 @@ Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e 
 
 Tente entender a funcionalidade que é implementada no ficheiro Jupyter Notebook. Executar o código, no ficheiro do Caderno Jupyter, uma célula de cada vez. Pode executar o código em cada célula selecionando o botão **Executar** na parte superior da aplicação Jupyter Notebook.
 
-  ![O botão Executar](./media/tutorial-ev-routing/run.png)
+  ![Botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
@@ -398,6 +398,10 @@ Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
 * [Matriz de rota pós-rota](/rest/api/maps/route/postroutematrix)
 * [Obter Direções de Rota](/rest/api/maps/route/getroutedirections)
 * [Azure Maps REST APIs](./consumption-model.md)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 

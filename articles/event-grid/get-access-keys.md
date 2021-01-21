@@ -3,12 +3,12 @@ title: Obtenha a chave de acesso para um recurso de Grade de Eventos
 description: Este artigo descreve como obter a chave de acesso para um tópico ou domínio de Grade de Eventos
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: e5694fe0b5f22f7f76285c344627005ea727ae3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e258cebe1652178a67c292d0cccab3a151eddf7
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105868"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624839"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obtenha chaves de acesso para recursos da Grade de Eventos (tópicos ou domínios)
 As teclas de acesso são utilizadas para autenticar uma aplicação que publica eventos para recursos da Azure Event Grid (tópicos e domínios). Recomendamos que se regenerar regularmente as suas chaves e guardá-las de forma segura. É-lhe fornecida duas teclas de acesso para que possa manter as ligações utilizando uma chave enquanto regenera a outra.
@@ -21,13 +21,13 @@ No portal Azure, altere para o separador **teclas** de acesso do **Tópico de Gr
 :::image type="content" source="./media/get-access-keys/azure-portal.png" alt-text="Página de chaves de acesso":::
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Utilize o comando [Get-AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey?view=azps-4.3.0) para obter teclas de acesso para tópicos. 
+Utilize o comando [Get-AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey) para obter teclas de acesso para tópicos. 
 
 ```azurepowershell-interactive
 Get-AzEventGridTopicKey -ResourceGroup <RESOURCE GROUP NAME> -Name <TOPIC NAME>
 ```
 
-Utilize o comando [Get-AzEventGridDomainKey](/powershell/module/az.eventgrid/get-azeventgriddomainkey?view=azps-4.3.0) para obter chaves de acesso para domínios. 
+Utilize o comando [Get-AzEventGridDomainKey](/powershell/module/az.eventgrid/get-azeventgriddomainkey) para obter chaves de acesso para domínios. 
 
 ```azurepowershell-interactive
 Get-AzEventGridDomainKey -ResourceGroup <RESOURCE GROUP NAME> -Name <DOMAIN NAME>

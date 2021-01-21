@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997278"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625037"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar um perímetro geográfico com o Azure Maps
 
@@ -205,7 +205,7 @@ Em seguida, cria dois pontos finais [de aplicações lógicas](../event-grid/han
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
-6. Selecione **Review + Criar**. Reveja as suas definições e **selecione Criar** para submeter a implementação. Quando a implementação estiver concluída com sucesso, selecione **Ir para o recurso**. Você é levado para **o Logic App Designer.**
+6. Selecione **Rever + Criar**. Reveja as suas definições e **selecione Criar** para submeter a implementação. Quando a implementação estiver concluída com sucesso, selecione **Ir para o recurso**. Você é levado para **o Logic App Designer.**
 
 7. Selecione um tipo de gatilho. Desloque-se até ao Início com uma secção **de gatilho comum.** Selecione **Quando um pedido HTTP for recebido**.
 
@@ -282,7 +282,7 @@ Cada uma das seguintes secções faz pedidos de API utilizando as cinco coordena
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Selecione **Send** (Enviar). O seguinte GeoJSON aparece na janela de resposta.
+3. Selecione **Enviar**. O seguinte GeoJSON aparece na janela de resposta.
 
     ```json
     {
@@ -322,7 +322,7 @@ Na resposta anterior à GeoJSON, a distância negativa da geofência do local pr
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Selecione **Send** (Enviar). O seguinte GeoJSON aparece na janela de resposta:
+3. Selecione **Enviar**. O seguinte GeoJSON aparece na janela de resposta:
 
     ```json
     {
@@ -362,7 +362,7 @@ Na resposta anterior à GeoJSON, o equipamento permaneceu na geofência do local
       https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
-3. Selecione **Send** (Enviar). O seguinte GeoJSON aparece na janela de resposta:
+3. Selecione **Enviar**. O seguinte GeoJSON aparece na janela de resposta:
 
     ```json
     {
@@ -405,7 +405,7 @@ Na resposta anterior à GeoJSON, o equipamento permaneceu na geofência do local
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Selecione **Send** (Enviar). O seguinte GeoJSON aparece na janela de resposta:
+3. Selecione **Enviar**. O seguinte GeoJSON aparece na janela de resposta:
 
     ```json
     {
@@ -439,7 +439,7 @@ Na resposta anterior à GeoJSON, o equipamento permaneceu na geofência do local
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Selecione **Send** (Enviar). O seguinte GeoJSON aparece na janela de resposta:
+3. Selecione **Enviar**. O seguinte GeoJSON aparece na janela de resposta:
 
     ```json
     {
@@ -471,6 +471,10 @@ Na resposta anterior à GeoJSON, o equipamento saiu da geofência do local princ
 
 
 Também pode [enviar notificações por e-mail usando apps de rede de eventos e lógicas](../event-grid/publish-iot-hub-events-to-logic-apps.md) e verificar [handlers de eventos suportados na grelha de eventos](../event-grid/event-handlers.md) usando Azure Maps.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 

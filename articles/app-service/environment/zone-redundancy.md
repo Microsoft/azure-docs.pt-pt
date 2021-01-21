@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605078"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624730"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Apoio à Zona de Disponibilidade para Ambientes de Serviço de Aplicações
 
@@ -30,14 +30,12 @@ A menos que os passos descritos neste artigo sejam seguidos, as ASEs ILB não s�
 AsES zonais ILB podem ser criadas em qualquer uma das seguintes regiões:
 
 - Leste da Austrália
-- Sul do Brasil
 - Canadá Central
 - E.U.A. Central
 - E.U.A. Leste
 - E.U.A. Leste 2
 - Leste dos EUA 2 (EUAP)
 - França Central 
-- Alemanha Centro-Oeste
 - Leste do Japão
 - Europa do Norte
 - Europa Ocidental
@@ -51,9 +49,9 @@ As aplicações implantadas numa zonal ILB ASE continuarão a funcionar e a serv
 
 AsE zonal ILB devem ser criadas com modelos ARM. Uma vez que um ILB ASE zonal é criado através de um modelo ARM, pode ser visto e interagido através do portal Azure e CLI.  Um modelo ARM só é necessário para a criação inicial de um ILB ASE zonal.
 
-A única alteração necessária num modelo ARM para especificar uma zonal ILB ASE é a propriedade das novas ***zonas.*** A propriedade das ***zonas*** deve ser definida como um valor de "1", "2" ou "3" dependendo da zona de disponibilidade lógica a que o ILB ASE deve ser fixado.
+A única alteração necessária num modelo ARM para especificar uma zonal ILB ASE é a nova ***zonas** _ propriedade. A propriedade das _*_zonas_*_ deve ser definida como um valor de "1", "2" ou "3" dependendo da zona de disponibilidade lógica a que o ILB ASE deve ser fixado.
 
-O exemplo do corte do modelo ARM abaixo mostra a propriedade das novas ***zonas*** especificando que o ILB ASE deve ser fixado à zona 2.
+O exemplo do corte do modelo ARM abaixo mostra a propriedade das novas _*_zonas_*_ especificando que o ILB ASE deve ser fixado à zona 2.
 
 ```
    "resources": [
@@ -91,6 +89,6 @@ Os clientes asseguram a residência de dados de uma região única seguindo os p
 
 Os clientes podem validar que um Ambiente de Serviço de Aplicações está devidamente configurado para armazenar dados numa única região, seguindo estes passos: 
 
-1. Utilizando [o Resource Explorer](https://resources.azure.com), navegue para o recurso ARM para o Ambiente de Serviço de Aplicações.  AsEs estão listadas em *fornecedores/Microsoft.Web/hostingEnvironments*.
+1. Utilizando [o Resource Explorer](https://resources.azure.com), navegue para o recurso ARM para o Ambiente de Serviço de Aplicações.  AsEs estão listadas em _providers/Microsoft.Web/hostingEnvironments*.
 2. Se uma propriedade de *zonas* existe na vista da sintaxe ARM JSON, e contém uma única matriz JSON valorizada com um valor de "1", "2" ou "3", então o ASE é implementado zonalmente e os dados do cliente permanecem na mesma região.
 2. Se uma propriedade *de zonas* não existir, ou se o imóvel não tiver valor de zona válido como especificado anteriormente, então o ASE não é implantado zonalmente, e os dados do cliente não são armazenados exclusivamente na mesma região.

@@ -1,5 +1,5 @@
 ---
-title: Informações sobre dispositivos de importação
+title: Importar as informações do dispositivo
 description: Defender os sensores IoT monitorizam e analisam o tráfego espelhado. Nestes casos, poderá querer importar dados para enriquecer a informação sobre dispositivos já detetados.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0a443ba7b41615fc62882bd8de6bf077c6b5a137
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842508"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625419"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importar informações do dispositivo a um sensor
 
@@ -67,7 +67,7 @@ Esta secção descreve como importar o endereço IP do dispositivo, o sistema op
 
 Para importar o endereço IP, o sistema operativo e o nível de correção:
 
-1. Faça o download do ficheiro [assets_info_2.2.8 e up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de [Ajuda](https://cyberx-labs.zendesk.com/hc/en-us) e introduza a informação da seguinte forma:
+1. Faça o download do ficheiro [devices_info_2.2.8 e up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de [Ajuda](https://cyberx-labs.zendesk.com/hc/en-us) e introduza a informação da seguinte forma:
 
    - **Endereço IP**: Introduza o endereço IP do dispositivo.
 
@@ -85,7 +85,7 @@ Para importar o endereço IP, o sistema operativo e o nível de correção:
 
 Para importar o estado de autorização:
 
-1. Faça o download e guarde o ficheiro [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de Ajuda Do Defender para IoT. Verifique se guardou o ficheiro como CSV.
+1. Faça o download e guarde o ficheiro [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de Ajuda Do Defender para IoT. Verifique se guardou o ficheiro como CSV.
 
 2. Insira a informação como:
 
@@ -154,7 +154,7 @@ Esta secção descreve como importar o endereço IP do dispositivo, o sistema op
 
 Para importar o endereço IP, o sistema operativo e o nível de correção:
 
-1. Faça o download do ficheiro [assets_info_2.2.8 e up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de [Ajuda](https://cyberx-labs.zendesk.com/hc/en-us) e introduza a informação da seguinte forma:
+1. Faça o download do ficheiro [devices_info_2.2.8 e up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de [Ajuda](https://cyberx-labs.zendesk.com/hc/en-us) e introduza a informação da seguinte forma:
 
    - **Endereço IP**: O endereço IP do dispositivo.
 
@@ -172,7 +172,7 @@ Para importar o endereço IP, o sistema operativo e o nível de correção:
 
 Para importar o estado de autorização:
 
-1. Faça o download e guarde o ficheiro [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de Ajuda Do Defender para IoT. Verifique se guardou o ficheiro como CSV.
+1. Faça o download e guarde o ficheiro [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de Ajuda Do Defender para IoT. Verifique se guardou o ficheiro como CSV.
 
 2. Insira a informação como:
 
@@ -188,8 +188,8 @@ Para importar o estado de autorização:
 
 Quando a informação é importada, recebe alertas sobre dispositivos não autorizados para todos os dispositivos que não aparecem nesta lista.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-[Controlar o tráfego que é monitorizado](how-to-control-what-traffic-is-monitored.md)
+[Controlar que tráfego é monitorizado](how-to-control-what-traffic-is-monitored.md)
 
-[Investigar deteções de sensores num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Investigar as deteções do sensor num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

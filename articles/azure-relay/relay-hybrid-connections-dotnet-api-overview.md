@@ -1,15 +1,15 @@
 ---
-title: Visão geral do Azure Relay .NET Standard APIs / Microsoft Docs
+title: Visão geral do Azure Relay .NET As APIs standard | Microsoft Docs
 description: Este artigo resume algumas das chaves uma visão geral das Ligações Híbridas Azure Relay .NET Standard API.
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 44d5800c08b49118e99a678e31d02e5b7a1f550c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935675"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625136"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Conexões híbridas Azure Relay .NET Standard API visão geral
 
@@ -83,7 +83,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>Receber dados
 
-A classe [HybridConnectionStream][HCStream] permite uma comunicação bidirecional. Na maioria dos casos, recebes continuamente do fluxo. Se estiver a ler texto a partir do stream, também poderá querer utilizar um objeto [StreamReader,](/dotnet/api/system.io.streamreader?view=netcore-3.1) que permite uma análise mais fácil dos dados. Por exemplo, pode ler dados como texto, em vez de como `byte[]` .
+A classe [HybridConnectionStream][HCStream] permite uma comunicação bidirecional. Na maioria dos casos, recebes continuamente do fluxo. Se estiver a ler texto a partir do stream, também poderá querer utilizar um objeto [StreamReader,](/dotnet/api/system.io.streamreader) que permite uma análise mais fácil dos dados. Por exemplo, pode ler dados como texto, em vez de como `byte[]` .
 
 O seguinte código lê linhas individuais de texto a partir do fluxo até que seja solicitado um cancelamento:
 
@@ -110,14 +110,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Envio de dados
 
-Uma vez estabelecida uma ligação, pode enviar uma mensagem para o ponto final do Retransmissor. Como o objeto de ligação herda [o Stream,](/dotnet/api/system.io.stream?view=netcore-3.1)envie os seus dados como um `byte[]` . O exemplo a seguir mostra como fazê-lo:
+Uma vez estabelecida uma ligação, pode enviar uma mensagem para o ponto final do Retransmissor. Como o objeto de ligação herda [o Stream,](/dotnet/api/system.io.stream)envie os seus dados como um `byte[]` . O exemplo a seguir mostra como fazê-lo:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-No entanto, se pretender enviar texto diretamente, sem precisar de codificar a cadeia de cada vez, pode embrulhar o `hybridConnectionStream` objeto com um objeto [StreamWriter.](/dotnet/api/system.io.streamwriter?view=netcore-3.1)
+No entanto, se pretender enviar texto diretamente, sem precisar de codificar a cadeia de cada vez, pode embrulhar o `hybridConnectionStream` objeto com um objeto [StreamWriter.](/dotnet/api/system.io.streamwriter)
 
 ```csharp
 // The StreamWriter object only needs to be created once

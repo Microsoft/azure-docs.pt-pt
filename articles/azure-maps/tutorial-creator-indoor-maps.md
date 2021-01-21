@@ -8,20 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905728"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625020"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Use Creator (Preview) para criar mapas interiores
 
 > [!IMPORTANT]
 > Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 
 Este tutorial mostra-lhe como criar mapas interiores. Neste tutorial, você aprenderá a usar a API para:
 
@@ -411,6 +409,10 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 A [API de Estados-Recursos](/rest/api/maps/featurestate/getstatespreview) permite-lhe recuperar o estado de uma funcionalidade utilizando a sua `ID` funcionalidade. Também pode eliminar o estado e os seus recursos utilizando a [API de eliminação do Estado de funcionalidade.](/rest/api/maps/featurestate/deletestatesetpreview)
 
 Para saber mais sobre os diferentes serviços do Azure Maps Creator (Preview) discutidos neste artigo ver, [Creator Indoor Maps](creator-indoor-maps.md).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 

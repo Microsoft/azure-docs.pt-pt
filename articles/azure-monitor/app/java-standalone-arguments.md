@@ -6,12 +6,12 @@ ms.date: 04/16/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 21465305e635cba7d8d4f912bcca2b0306b294e9
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: bd6ed2e5c848b39ad946209d5ea92fcf6ce3b438
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233700"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625369"
 ---
 # <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>Adicionar o JVM arg - Azure Monitor Application Insights for Java
 
@@ -23,24 +23,24 @@ Configure [os Serviços de Aplicações.](../../app-service/configure-language-j
 
 ## <a name="spring-boot"></a>Spring Boot
 
-Adicione o arg JVM `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` em algum lugar antes , por `-jar` exemplo:
+Adicione o arg JVM `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` em algum lugar antes , por `-jar` exemplo:
 
 ```
-java -javaagent:path/to/applicationinsights-agent-3.0.1.jar -jar <myapp.jar>
+java -javaagent:path/to/applicationinsights-agent-3.0.2.jar -jar <myapp.jar>
 ```
 
 ## <a name="spring-boot-via-docker-entry-point"></a>Bota de primavera via ponto de entrada do Docker
 
-Se estiver a utilizar o formulário *executivo,* adicione o parâmetro `"-javaagent:path/to/applicationinsights-agent-3.0.1.jar"` à lista de parâmetros algures antes do `"-jar"` parâmetro, por exemplo:
+Se estiver a utilizar o formulário *executivo,* adicione o parâmetro `"-javaagent:path/to/applicationinsights-agent-3.0.2.jar"` à lista de parâmetros algures antes do `"-jar"` parâmetro, por exemplo:
 
 ```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.1.jar", "-jar", "<myapp.jar>"]
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.2.jar", "-jar", "<myapp.jar>"]
 ```
 
-Se estiver a utilizar o *formulário de concha,* adicione o arg JVM `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` em algum lugar antes , por `-jar` exemplo:
+Se estiver a utilizar o *formulário de concha,* adicione o arg JVM `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` em algum lugar antes , por `-jar` exemplo:
 
 ```
-ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.1.jar -jar <myapp.jar>
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.2.jar -jar <myapp.jar>
 ```
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
@@ -50,7 +50,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.1.jar -jar <mya
 Se instalou o Tomcat via `apt-get` `yum` ou, então deve ter um ficheiro `/etc/tomcat8/tomcat8.conf` .  Adicione esta linha ao fim do ficheiro:
 
 ```
-JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.1.jar"
+JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.2.jar"
 ```
 
 ### <a name="tomcat-installed-via-download-and-unzip"></a>Tomcat instalado via download e unzip
@@ -58,10 +58,10 @@ JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.1.jar"
 Se instalou o Tomcat através do download e desapertar [https://tomcat.apache.org](https://tomcat.apache.org) de , então deve ter um ficheiro `<tomcat>/bin/catalina.sh` .  Criar um novo ficheiro no mesmo diretório nomeado `<tomcat>/bin/setenv.sh` com o seguinte conteúdo:
 
 ```
-CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.1.jar"
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.2.jar"
 ```
 
-Se o ficheiro `<tomcat>/bin/setenv.sh` já existir, então modifique esse ficheiro e adicione `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` a `CATALINA_OPTS` .
+Se o ficheiro `<tomcat>/bin/setenv.sh` já existir, então modifique esse ficheiro e adicione `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` a `CATALINA_OPTS` .
 
 
 ## <a name="tomcat-8-windows"></a>Tomcat 8 (Janelas)
@@ -71,36 +71,36 @@ Se o ficheiro `<tomcat>/bin/setenv.sh` já existir, então modifique esse fichei
 Localize o ficheiro `<tomcat>/bin/catalina.bat` .  Criar um novo ficheiro no mesmo diretório nomeado `<tomcat>/bin/setenv.bat` com o seguinte conteúdo:
 
 ```
-set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.1.jar
+set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.2.jar
 ```
 
 As cotações não são necessárias, mas se quiser incluí-las, a colocação adequada é:
 
 ```
-set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.1.jar"
+set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.2.jar"
 ```
 
-Se o ficheiro `<tomcat>/bin/setenv.bat` já existir, basta modificar esse ficheiro e adicionar `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` a `CATALINA_OPTS` .
+Se o ficheiro `<tomcat>/bin/setenv.bat` já existir, basta modificar esse ficheiro e adicionar `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` a `CATALINA_OPTS` .
 
 ### <a name="running-tomcat-as-a-windows-service"></a>Executar Tomcat como um serviço Windows
 
-Localize o ficheiro `<tomcat>/bin/tomcat8w.exe` .  Execute-o executável e adicione `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` a parte de baixo da `Java Options` `Java` conta.
+Localize o ficheiro `<tomcat>/bin/tomcat8w.exe` .  Execute-o executável e adicione `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` a parte de baixo da `Java Options` `Java` conta.
 
 
 ## <a name="jboss-eap-7"></a>JBoss EAP 7
 
 ### <a name="standalone-server"></a>Servidor autónomo
 
-Adicione `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` à variável ambiente existente `JAVA_OPTS` no ficheiro `JBOSS_HOME/bin/standalone.conf` (Linux) ou `JBOSS_HOME/bin/standalone.conf.bat` (Windows):
+Adicione `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` à variável ambiente existente `JAVA_OPTS` no ficheiro `JBOSS_HOME/bin/standalone.conf` (Linux) ou `JBOSS_HOME/bin/standalone.conf.bat` (Windows):
 
 ```java    ...
-    JAVA_OPTS="<b>-javaagent:path/to/applicationinsights-agent-3.0.1.jar</b> -Xms1303m -Xmx1303m ..."
+    JAVA_OPTS="<b>-javaagent:path/to/applicationinsights-agent-3.0.2.jar</b> -Xms1303m -Xmx1303m ..."
     ...
 ```
 
 ### <a name="domain-server"></a>Servidor de domínio
 
-Adicione `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` ao existente `jvm-options` `JBOSS_HOME/domain/configuration/host.xml` em:
+Adicione `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` ao existente `jvm-options` `JBOSS_HOME/domain/configuration/host.xml` em:
 
 ```xml
 ...
@@ -110,7 +110,7 @@ Adicione `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` ao existente `
         <jvm-options>
             <option value="-server"/>
             <!--Add Java agent jar file here-->
-            <option value="-javaagent:path/to/applicationinsights-agent-3.0.1.jar"/>
+            <option value="-javaagent:path/to/applicationinsights-agent-3.0.2.jar"/>
             <option value="-XX:MetaspaceSize=96m"/>
             <option value="-XX:MaxMetaspaceSize=256m"/>
         </jvm-options>
@@ -150,20 +150,20 @@ Adicione estas linhas para `start.ini`
 
 ```
 --exec
--javaagent:path/to/applicationinsights-agent-3.0.1.jar
+-javaagent:path/to/applicationinsights-agent-3.0.2.jar
 ```
 
 
 ## <a name="payara-5"></a>Payara 5
 
-Adicione `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` ao existente `jvm-options` `glassfish/domains/domain1/config/domain.xml` em:
+Adicione `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` ao existente `jvm-options` `glassfish/domains/domain1/config/domain.xml` em:
 
 ```xml
 ...
 <java-config ...>
     <!--Edit the JVM options here-->
     <jvm-options>
-        -javaagent:path/to/applicationinsights-agent-3.0.1.jar>
+        -javaagent:path/to/applicationinsights-agent-3.0.2.jar>
     </jvm-options>
         ...
 </java-config>
@@ -179,7 +179,7 @@ Java and Process Management > Process definition >  Java Virtual Machine
 ```
 Em "Argumentos Genéricos JVM" adicione o seguinte:
 ```
--javaagent:path/to/applicationinsights-agent-3.0.1.jar
+-javaagent:path/to/applicationinsights-agent-3.0.2.jar
 ```
 Depois disso, guarde e reinicie o servidor de aplicações.
 
@@ -188,5 +188,5 @@ Depois disso, guarde e reinicie o servidor de aplicações.
 
 Crie um novo ficheiro `jvm.options` no diretório do servidor (por `<openliberty>/usr/servers/defaultServer` exemplo), e adicione esta linha:
 ```
--javaagent:path/to/applicationinsights-agent-3.0.1.jar
+-javaagent:path/to/applicationinsights-agent-3.0.2.jar
 ```

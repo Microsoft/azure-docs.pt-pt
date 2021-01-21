@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 63184a623c6f0a8c53e09e6af92c05e45c5e0794
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b530fc320f6c29dd7a86a39c5a7019265bb6b724
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185988"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624427"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -69,6 +69,38 @@ Estes são os parâmetros exigidos por cada uma destas operações de análise e
 | DETECTOR_NODE_CONFIG | JSON indicando qual a GPU para executar o nó do detetor. Deve estar no seguinte formato: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | Configuração JSON para zona e linha como descrito abaixo.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` para permitir detetar pessoas que usam máscaras faciais no fluxo de vídeo, `False` para desativá-la. Por predefinição, isto é desativado. A deteção da máscara facial requer que o parâmetro de largura de vídeo de entrada seja 1920 `"INPUT_VIDEO_WIDTH": 1920` . O atributo da máscara facial não será devolvido se as pessoas detetadas não estiverem viradas para a câmara ou estiverem muito longe dela. Consulte o guia [de colocação da câmara](spatial-analysis-camera-placement.md) para obter mais informações |
+
+Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações de análise espacial.
+
+```json
+{
+"gpu_index": 0,
+"do_calibration": true,
+"enable_recalibration": true,
+"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_sampling_num": 80,
+"calibration_quality_check_sampling_times": 5,
+"calibration_quality_check_sample_collect_frequency_seconds": 300,
+"calibration_quality_check_one_round_sample_collect_num":10,
+"calibration_quality_check_queue_max_size":1000,
+"recalibration_score": 75
+}
+```
+
+| Nome | Tipo| Description|
+|---------|---------|---------|
+| `gpu_index` | cadeia (de carateres)| O índice de GPU em que esta operação será executada.|
+| `do_calibration` | string | Indica que a calibração está ligada. `do_calibration` deve ser verdadeiro para **os serviços cognitivos.vision.espacialanalysis-persondistance** para funcionar corretamente. do_calibration é definido por defeito para True. |
+| `enable_recalibration` | bool | Indica se a recalibração automática está ligada. A predefinição é `true`.|
+| `calibration_quality_check_frequency_seconds` | int | Número mínimo de segundos entre cada verificação de qualidade para determinar se é necessária ou não recalibração. O padrão é `86400` (24 horas). Só é utilizado quando `enable_recalibration=True` .|
+| `calibration_quality_check_sampling_num` | int | Número de amostras de dados armazenadas aleatoriamente selecionadas para utilizar por medição de erro de verificação de qualidade. A predefinição é `80`. Só é utilizado quando `enable_recalibration=True` .|
+| `calibration_quality_check_sampling_times` | int | Número de medições de erro de vezes será realizada em diferentes conjuntos de amostras de dados selecionadas aleatoriamente por verificação de qualidade. A predefinição é `5`. Só é utilizado quando `enable_recalibration=True` .|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | Número mínimo de segundos entre a recolha de novas amostras de dados para recalibração e verificação de qualidade. O padrão é `300` (5 minutos). Só é utilizado quando `enable_recalibration=True` .|
+| `calibration_quality_check_one_round_sample_collect_num` | int | Número mínimo de novas amostras de dados para recolher por rodada de recolha de amostras. A predefinição é `10`. Só é utilizado quando `enable_recalibration=True` .|
+| `calibration_quality_check_queue_max_size` | int | Número máximo de amostras de dados para armazenar quando o modelo da câmara estiver calibrado. A predefinição é `1000`. Só é utilizado quando `enable_recalibration=True` .|
+| `recalibration_score` | int | Limiar de qualidade máxima para iniciar a recalibração. A predefinição é `75`. Só é utilizado quando `enable_recalibration=True` . A qualidade de calibração é calculada com base numa relação inversa com o erro de reprojecção do alvo de imagem. Tendo em conta os alvos detetados em quadros de imagem 2D, os alvos são projetados para o espaço 3D e re-projetados de volta para a moldura de imagem 2D usando os parâmetros de calibração da câmara existentes. O erro de reprojecção é medido pelas distâncias médias entre os alvos detetados e os alvos reprojados.|
+| `enable_breakpad`| bool | Indica se pretende ativar o breakpad, que é utilizado para gerar despejo de falha para utilização de depuradores. É `false` por defeito. Se o `true` configurar, também tem de adicionar a parte do `"CapAdd": ["SYS_PTRACE"]` `HostConfig` `createOptions` recipiente. Por predefinição, o despejo de falhas é enviado para a aplicação [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter, se quiser que os despejos de falhas sejam enviados para a sua própria aplicação AppCenter, pode sobrepor a variável ambiental com o `RTPT_APPCENTER_APP_SECRET` segredo da aplicação da sua aplicação.
+
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Configuração de zona para serviços cognitivos.vision.spatialanalysis-personcount
 
@@ -142,10 +174,10 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 | `line` | lista| A definição da linha. Esta é uma linha direcional que lhe permite entender "entrada" vs. "saída".|
 | `start` | par de valor| x, y coordenadas para o ponto de partida da linha. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. |
 | `end` | par de valor| x, y coordenadas para o ponto final da linha. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. |
-| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. |
+| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. O valor predefinido é 16. Este é o valor recomendado para obter a máxima precisão. |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-personcrossingline** este deve ser `linecrossing` .|
 |`trigger`|string|O tipo de gatilho para enviar um evento.<br>Valores suportados: "evento": fogo quando alguém cruza a linha.|
-| `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa).|
+| `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa). O valor padrão é a pegada.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Configuração de zona para serviços cognitivos.vision.spatialanalysis-personcrossingpolygon
 
@@ -186,10 +218,10 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
 | `polygon` | lista| Cada par de valor representa o x,y para vértices de polígono. O polígono representa as áreas em que as pessoas são rastreadas ou contadas. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. 
-| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. |
+| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. O valor predefinido é de 48 quando o tipo está a atravessar a zona e 16 quando o tempo é DwellTime. Estes são os valores recomendados para obter a máxima precisão.  |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-personcrossingpolygon** este deve ser `zonecrossing` ou `zonedwelltime` .|
 | `trigger`|string|O tipo de gatilho para o envio de um evento<br>Valores suportados: "evento": fogo quando alguém entra ou sai da zona.|
-| `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa).|
+| `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa). O valor padrão é a pegada.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Configuração de zona para serviços cognitivos.vision.spatialanalysis-persondistance
 
@@ -228,29 +260,6 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 | `minimum_distance_threshold` | float| Uma distância nos pés que irá desencadear um evento "TooClose" quando as pessoas estão a menos de essa distância.|
 | `maximum_distance_threshold` | float| Uma distância nos pés que irá desencadear um evento "TooFar" quando as pessoas são maiores do que essa distância.|
 | `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa).|
-
-Este é um exemplo de uma entrada JSON para o DETETOR_NODE_CONFIG parâmetro que configura uma zona **cognitiva.vision.espacialanalysis-persondistance.**
-
-```json
-{ 
-"gpu_index": 0, 
-"do_calibration": true
-}
-```
-
-| Nome | Tipo| Description|
-|---------|---------|---------|
-| `gpu_index` | cadeia (de carateres)| O índice de GPU em que esta operação será executada.|
-| `do_calibration` | string | Indica que a calibração está ligada. `do_calibration` deve ser verdadeiro para **os serviços cognitivos.vision.espacialanalysis-persondistance** para funcionar corretamente.|
-| `enable_recalibration` | bool | Indica se a recalibração automática está ligada. A predefinição é `true`.|
-| `calibration_quality_check_frequency_seconds` | int | Número mínimo de segundos entre cada verificação de qualidade para determinar se é necessária ou não recalibração. O padrão é `86400` (24 horas). Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_num` | int | Número de amostras de dados armazenadas aleatoriamente selecionadas para utilizar por medição de erro de verificação de qualidade. A predefinição é `80`. Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_times` | int | Número de medições de erro de vezes será realizada em diferentes conjuntos de amostras de dados selecionadas aleatoriamente por verificação de qualidade. A predefinição é `5`. Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | Número mínimo de segundos entre a recolha de novas amostras de dados para recalibração e verificação de qualidade. O padrão é `300` (5 minutos). Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_one_round_sample_collect_num` | int | Número mínimo de novas amostras de dados para recolher por rodada de recolha de amostras. A predefinição é `10`. Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_queue_max_size` | int | Número máximo de amostras de dados para armazenar quando o modelo da câmara estiver calibrado. A predefinição é `1000`. Só é utilizado quando `enable_recalibration=True` .|
-| `recalibration_score` | int | Limiar de qualidade máxima para iniciar a recalibração. A predefinição é `75`. Só é utilizado quando `enable_recalibration=True` . A qualidade de calibração é calculada com base numa relação inversa com o erro de reprojecção do alvo de imagem. Tendo em conta os alvos detetados em quadros de imagem 2D, os alvos são projetados para o espaço 3D e re-projetados de volta para a moldura de imagem 2D usando os parâmetros de calibração da câmara existentes. O erro de reprojecção é medido pelas distâncias médias entre os alvos detetados e os alvos reprojados.|
-| `enable_breakpad`| bool | Indica se pretende ativar o breakpad, que é utilizado para gerar despejo de falha para utilização de depuradores. É `false` por defeito. Se o `true` configurar, também tem de adicionar a parte do `"CapAdd": ["SYS_PTRACE"]` `HostConfig` `createOptions` recipiente. Por predefinição, o despejo de falhas é enviado para a aplicação [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter, se quiser que os despejos de falhas sejam enviados para a sua própria aplicação AppCenter, pode sobrepor a variável ambiental com o `RTPT_APPCENTER_APP_SECRET` segredo da aplicação da sua aplicação.
 
 Consulte as diretrizes [de colocação](spatial-analysis-camera-placement.md) da câmara para saber mais sobre configurações de zona e linha.
 
@@ -606,7 +615,7 @@ Amostra JSON para deteção de saída por esta operação com `zonedwelltime` SP
 | `trackinId` | string| Identificador único da pessoa detetada|
 | `status` | string| Direção das travessias do polígono, quer 'Enter' ou 'Exit'|
 | `side` | int| O número do lado do polígono que a pessoa atravessou. Cada lado é uma borda numerada entre os dois vértices do polígono que representa a sua zona. A borda entre os dois primeiros vértices do polígono representam o primeiro lado|
-| `durationMs` | int | O número de milissegundos que representam o tempo que a pessoa passou na zona. Este campo é fornecido quando o tipo de evento é _personZoneDwellTimeEvent_|
+| `durationMs` | float | O número de milissegundos que representam o tempo que a pessoa passou na zona. Este campo é fornecido quando o tipo de evento é _personZoneDwellTimeEvent_|
 | `zone` | string | O campo de "nome" do polígono que representa a zona que foi atravessada|
 
 | Nome do campo de deteções | Tipo| Description|

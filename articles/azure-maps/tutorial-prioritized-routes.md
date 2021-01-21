@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Encontre várias rotas por modo de viagem Microsoft Azure Maps'
+title: 'Tutorial: Encontre várias rotas por modo de viagem | Microsoft Azure Maps'
 description: Tutorial sobre como usar o Azure Maps para encontrar rotas para modos de viagem específicos para pontos de interesse. Veja como exibir várias rotas nos mapas.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896706"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625003"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontrar e exibir rotas para diferentes modos de viagem usando mapas Azure
 
-Este tutorial mostra-lhe como utilizar o serviço Azure Maps [Route](/rest/api/maps/route) e [o controlo do mapa](./how-to-use-map-control.md) para exibir direções de rota tanto para veículos particulares como para veículos comerciais (camiões) com tipo de `USHazmatClass2` carga. Além disso, vamos contar-lhe como visualizar dados de tráfego em tempo real num mapa. Neste tutorial, ficará a saber como:
+Este tutorial mostra-lhe como utilizar o serviço Azure Maps [Route](/rest/api/maps/route) e [o controlo do mapa](./how-to-use-map-control.md) para exibir direções de rota tanto para veículos particulares como para veículos comerciais (camiões) com tipo de `USHazmatClass2` carga. Além disso, vamos contar-lhe como visualizar dados de tráfego em tempo real num mapa. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar e exibir o controlo do Mapa numa página web
@@ -39,7 +39,7 @@ Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Az
 
 Os passos a seguir mostram-lhe como criar e exibir o controlo do Mapa numa página web.
 
-1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapTruckRoute.html** .
+1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapTruckRoute.html**.
 2. Copiar/colar a seguinte marcação HTML no ficheiro.
 
     ```HTML
@@ -121,7 +121,7 @@ Os passos a seguir mostram-lhe como criar e exibir o controlo do Mapa numa pági
 
 2. Guarde o ficheiro **MapTruckRoute.html** e atualize a página no browser. Se você aproximar em qualquer cidade, como Los Angeles, você verá que as ruas exibem com os dados atuais do fluxo de tráfego.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Ver tráfego em um mapa":::
 
 <a id="queryroutes"></a>
 
@@ -193,11 +193,11 @@ Neste tutorial, dois trajetos serão calculados e processados no mapa. A primeir
 
     Este código cria dois [objetos GeoJSON Point](https://en.wikipedia.org/wiki/GeoJSON) para representar pontos de partida e de fim, que são adicionados à fonte de dados.
 
-    O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visualização das câmaras de mapa em toda a rota utilizando a `map.setCamera` função. O estofamento é adicionado para compensar as dimensões dos pixels dos ícones do símbolo. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions ] CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) propriedade.
+    O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Os pontos de início e de fim são adicionados à origem de dados. A caixa delimitadora para os pontos de início e de fim é calculada com a função `atlas.data.BoundingBox.fromData`. Esta caixa de delimitação é usada para definir a visualização das câmaras de mapa em toda a rota utilizando a `map.setCamera` função. O estofamento é adicionado para compensar as dimensões dos pixels dos ícones do símbolo. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) propriedade.
 
 3. Guarde **TruckRoute.htmi** e refresque o seu navegador. O mapa está agora centrado em Seattle. O pino azul lágrima marca o ponto de partida. O pino azul redondo marca o ponto final.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Ver mapa com os pontos de partida e de início":::
 
 <a id="multipleroutes"></a>
 
@@ -277,7 +277,7 @@ Esta secção mostra-lhe como utilizar o serviço Azure Maps Route para obter di
 
 4. Guarde o **TruckRoute.htmficheiro i** e refresque o seu navegador web. O mapa deve agora mostrar as rotas do caminhão e do carro.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Rotas de veículos particulares e comerciais em um mapa com Serviço de Rota Azure":::
 
     A rota do caminhão é exibida com uma linha azul grossa. A rota do carro é exibida utilizando uma linha roxa fina. A rota do carro atravessa o Lago Washington através da I-90, passando por túneis sob áreas residenciais. Como os túneis estão perto de áreas residenciais, a carga de resíduos perigosos é restrita. A rota do caminhão, que especifica um tipo de `USHazmatClass2` carga, é direcionada para usar uma estrada diferente.
 
@@ -285,7 +285,9 @@ Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Az
 
 Também pode [utilizar expressões de estilo orientadas por dados](data-driven-style-expressions-web-sdk.md)
 
+## <a name="clean-up-resources"></a>Limpar os recursos
 
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Passos seguintes
 
