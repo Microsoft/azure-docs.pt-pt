@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: d465f3c44ede8b4df56ef0da08c5bbbcd477d93f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a4890dd93cf77e20aff09ca6fd33ec3434a45a4b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932158"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663051"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
@@ -29,7 +29,7 @@ As bibliotecas de Gestão de Recursos Centrais .NET alargam o quadro com suporte
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-8. Selecione **Operations**  >  **Gestor de Funcionalidades de** Operações  >  **Adicione** para adicionar uma bandeira de recurso chamada *Beta*.
+8. Selecione   >  **Gestor de Funcionalidades de** Operações  >  **Adicione** para adicionar uma bandeira de recurso chamada *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
@@ -75,6 +75,21 @@ dotnet new mvc --no-https --output TestFeatureFlags
     > [!IMPORTANT]
     > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.x. Selecione a sintaxe correta com base no seu ambiente.
 
+     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(connection).UseFeatureFlags());
+                }).UseStartup<Startup>());
+    ```
+
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -116,6 +131,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Atualize o `Startup.ConfigureServices` método para adicionar suporte de bandeira de recurso chamando o `AddFeatureManagement` método. Opcionalmente, pode incluir qualquer filtro a ser usado com bandeiras de características `AddFeatureFilter<FilterType>()` chamando:
 
+     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp    

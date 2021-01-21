@@ -3,16 +3,16 @@ title: 'Quickstart: Criar um Azure DB para MariaDB - modelo ARM'
 description: Neste artigo quickstart, aprenda a criar uma Base de Dados Azure para servidor MariaDB utilizando um modelo de Gestor de Recursos Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: de6df8349025c3e87e5b005196008053039fa49f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b40aa30121bf98e756e26d70b44bc74a500de79f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537148"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662078"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para servidor MariaDB
 
@@ -70,7 +70,7 @@ Selecione o seguinte link para implementar o modelo de servidor Azure Para o ser
 
 Na **Base de Dados de Azure de implantação para MariaDB com página VNet:**
 
-1. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+1. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
 
 2. Se criou um novo grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
@@ -80,20 +80,20 @@ Na **Base de Dados de Azure de implantação para MariaDB com página VNet:**
 
 4. Altere as outras definições predefinidos se quiser:
 
-    * **Subscrição** : a subscrição Azure que pretende utilizar para o servidor.
-    * **Capacidade Sku** : capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32* , ou *64*.
-    * **Nome Sku** : o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1* , *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
-    * **Tamanho Sku MB** : o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MariaDB *(padrão 51200).*
-    * **Sku Tier** : o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
-    * **Família Sku** : *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
-    * **Versão Mariadb** : a versão do servidor MariaDB a ser implantada, tal como *10.2* , ou *10.3* (o padrão).
-    * **Dias de Retenção de Cópia de Segurança** : o período desejado para a retenção de backup geo-redundante, em dias (padrão *7* ).
-    * **Cópia de segurança geo redundante** : *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
-    * **Nome da rede virtual** : o nome da rede virtual *(azure_mariadb_vnet* padrão).
-    * **Nome da sub-rede** : o nome da sub-rede *(azure_mariadb_subnet* predefinidos ).
-    * **Nome da regra da rede virtual** : o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
-    * **Prefixo do endereço Vnet** : o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16* ).
-    * **Prefixo do sub-rede** : o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16* ).
+    * **Subscrição**: a subscrição Azure que pretende utilizar para o servidor.
+    * **Capacidade Sku**: capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32*, ou *64*.
+    * **Nome Sku**: o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1*, *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
+    * **Tamanho Sku MB**: o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MariaDB *(padrão 51200).*
+    * **Sku Tier**: o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
+    * **Família Sku**: *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
+    * **Versão Mariadb**: a versão do servidor MariaDB a ser implantada, tal como *10.2*, ou *10.3* (o padrão).
+    * **Dias de Retenção de Cópia de Segurança**: o período desejado para a retenção de backup geo-redundante, em dias (padrão *7*).
+    * **Cópia de segurança geo redundante**: *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
+    * **Nome da rede virtual**: o nome da rede virtual *(azure_mariadb_vnet* padrão).
+    * **Nome da sub-rede**: o nome da sub-rede *(azure_mariadb_subnet* predefinidos ).
+    * **Nome da regra da rede virtual**: o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
+    * **Prefixo do endereço Vnet**: o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16*).
+    * **Prefixo do sub-rede**: o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16*).
 
 5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados**.
 
@@ -175,7 +175,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

@@ -3,15 +3,15 @@ title: Pontos finais de serviço VNet - Base de Dados Azure para MariaDB
 description: Descreve como os pontos finais do serviço VNet funcionam para o seu Azure Database para o servidor MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: bd7d08e4f65612b9a76b63e8153603d043209ad3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0f90e64f2a20b6455d5a169025230b78e64287cc
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453376"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662683"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar regras e pontos finais de serviço da Rede Virtual para o Azure Database for MariaDB
 

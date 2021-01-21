@@ -3,17 +3,17 @@ title: Amostras Azure CLI - Base de Dados Azure para MariaDB
 description: Este artigo lista as amostras de código Azure CLI disponíveis para interagir com a Base de Dados Azure para MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
-ms.openlocfilehash: aa9efba1c49063d40b4df0444fb3bc63b124a0a0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5218d087a622c1f651785afd1ab7cb418732b093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536777"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664603"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Amostras de Azure CLI para Azure Database for MariaDB 
 A tabela seguinte inclui links para a amostra de scripts Azure CLI para Azure Database for MariaDB.

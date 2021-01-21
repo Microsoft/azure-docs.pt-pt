@@ -3,19 +3,19 @@ title: Backup e restauro - Azure Database for MariaDB
 description: Saiba mais sobre cópias de segurança automáticas e restauro da sua Base de Dados Azure para o servidor MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1d5fc158d2e37223e048c4106206ddba4602fabb
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541747"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659942"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
 
-A Azure Database for MariaDB cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.
+A Azure Database for MariaDB cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. A cópia de segurança e o restauro são uma parte essencial de qualquer estratégia de continuidade empresarial, uma vez que protegem os seus dados contra danos e a eliminação acidentais.
 
 ## <a name="backups"></a>Cópias de segurança
 
@@ -91,7 +91,7 @@ Pode restaurar um servidor para outra região do Azure onde o serviço está dis
 O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Geo-restauro utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
 
 > [!IMPORTANT]
->Se um geo-restauro for realizado para um servidor recém-criado, a sincronização inicial de backup pode demorar mais de 24 horas, dependendo do tamanho dos dados, uma vez que o tempo inicial de cópia de cópia de cópia de cópia de cópia de instantâneo completo é muito maior. As cópias de segurança instantânea subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se estiver a avaliar geo-restauros para definir o seu RTO, recomendamos que espere e avalie o geo-restauro **apenas após 24 horas** de criação do servidor para obter melhores estimativas.
+>Se um geo-restauro for realizado para um servidor recém-criado, a sincronização inicial de backup pode demorar mais de 24 horas, dependendo do tamanho dos dados, uma vez que o tempo inicial de cópia de cópia de instantâneo completo é muito maior. As cópias de segurança instantânea subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se estiver a avaliar geo-restauros para definir o seu RTO, recomendamos que espere e avalie o geo-restauro **apenas após 24 horas** de criação do servidor para obter melhores estimativas.
 
 Durante o geo-restauro, as configurações do servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do nível de preços (Básico, Final geral ou memória otimizada) ou o tamanho do armazenamento durante a geo-restauração não é suportado.
 

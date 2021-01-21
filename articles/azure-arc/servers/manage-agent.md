@@ -1,14 +1,14 @@
 ---
 title: Gerir o agente de servidores ativado pelo Arco Azure
 description: Este artigo descreve as diferentes tarefas de gestão que normalmente irá executar durante o ciclo de vida do agente ativado pelos servidores Azure Arc Connected Machine.
-ms.date: 12/21/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 27712dcd30857ca8c677de4f99dc4ed7e2e7b292
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724379"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662131"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerir e manter o agente da Máquina Conectada
 
@@ -34,7 +34,74 @@ Para servidores ou máquinas que já não pretende gerir com servidores ativados
 
     * Utilizando o [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) ou [a Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). Para a utilização do `ResourceType` parâmetro `Microsoft.HybridCompute/machines` .
 
-3. Desinstale o agente da máquina ou do servidor. Siga os passos abaixo.
+3. [Desinstale o agente](#remove-the-agent) da máquina ou do servidor seguindo os passos abaixo.
+
+## <a name="renaming-a-machine"></a>Renomear uma máquina
+
+Quando altera o nome da máquina Linux ou Windows ligada aos servidores ativados do Azure Arc, o novo nome não é reconhecido automaticamente porque o nome do recurso em Azure é imutável. Tal como acontece com outros recursos Azure, tem de eliminar o recurso e reproduê-lo para utilizar o novo nome.
+
+Para os servidores ativados pelo Arc, antes de mudar o nome da máquina, é necessário remover as extensões VM antes de prosseguir.
+
+> [!NOTE]
+> Enquanto as extensões instaladas continuarem a funcionar e a executar o seu funcionamento normal após este procedimento estar concluído, não será capaz de as gerir. Se tentar recolocar as extensões na máquina, poderá experimentar comportamentos imprevisíveis.
+
+> [!WARNING]
+> Recomendamos que evite renomear o nome do computador da máquina e só efetue este procedimento se for absolutamente necessário.
+
+Os passos abaixo resumem o procedimento de renomeação do computador.
+
+1. Audite as extensões VM instaladas na máquina e note a sua configuração, utilizando o [CLI Azure](manage-vm-extensions-cli.md#list-extensions-installed) ou utilizando [o Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
+
+2. Remova as extensões VM utilizando o PowerShell, o Azure CLI ou do portal Azure.
+
+    > [!NOTE]
+    > Se implementou o agente Azure Monitor para VMs (insights) ou o agente Log Analytics utilizando uma política de configuração de convidados Azure Policy, os agentes são reencamônituídos após o próximo [ciclo de avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) e após o rebatizador da máquina ser registado com servidores ativados pelo Arc.
+
+3. Desligue a máquina dos servidores ativados do Arc utilizando o PowerShell, o Azure CLI ou a partir do portal.
+
+4. Mude o nome do computador.
+
+5. Ligue a máquina aos servidores ativados do Arc utilizando a `Azcmagent` ferramenta para registar e criar um novo recurso em Azure.
+
+6. Implementar extensões VM previamente instaladas na máquina-alvo.
+
+Utilize os seguintes passos para completar esta tarefa.
+
+1. Remova as extensões VM instaladas a partir do [portal Azure,](manage-vm-extensions-portal.md#uninstall-extension)utilizando o [Azure CLI,](manage-vm-extensions-cli.md#remove-an-installed-extension)ou utilizando [a Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+
+2. Utilize um dos seguintes métodos para desligar a máquina do Arco Azure. Desligar a máquina dos servidores ativados pelo Arc não remove o agente 'Máquina Conectada' e não é necessário remover o agente como parte deste processo. Quaisquer extensões VM que sejam implantadas na máquina continuam a funcionar durante este processo.
+
+    # <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+
+    1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
+    1. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
+    1. A partir do servidor ativado arc registado selecionado, **selecione Delete** da barra superior para eliminar o recurso em Azure.
+
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+    
+    ```azurecli
+    az resource delete \
+      --resource-group ExampleResourceGroup \
+      --name ExampleArcMachine \
+      --resource-type "Microsoft.HybridCompute/machines"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    Remove-AzResource `
+     -ResourceGroupName ExampleResourceGroup `
+     -ResourceName ExampleArcMachine `
+     -ResourceType Microsoft.HybridCompute/machines
+    ```
+
+3. Mude o nome do computador da máquina.
+
+### <a name="after-renaming-operation"></a>Após a operação de renomeação
+
+Depois de uma máquina ter sido renomeada, o agente 'Máquina Conectada' tem de ser re-registado com servidores ativados pelo Arc. Executar a `azcmagent` ferramenta com o parâmetro ['Ligar'](#connect) completa este passo.
+
+Recolocar as extensões VM que foram originalmente implantadas na máquina a partir de servidores ativados pelo Arc. Se implementou o agente Azure Monitor para VMs (insights) ou o agente Log Analytics utilizando uma política de configuração de convidados de política Azure, os agentes são reencamôde após o ciclo de [avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)seguinte .
 
 ## <a name="upgrading-agent"></a>Agente de upgrade
 
@@ -229,7 +296,7 @@ Ambos os métodos seguintes removem o agente, mas não removem a pasta *C:\Progr
 
 Para desinstalar manualmente o agente a partir do Pedido de Comando ou para utilizar um método automatizado, como um script, pode utilizar o seguinte exemplo. Primeiro, é necessário recuperar o código do produto, que é um GUID que é o principal identificador do pacote de aplicações, do sistema operativo. A desinstalação é realizada utilizando a linha de comando Msiexec.exe - `msiexec /x {Product Code}` .
 
-1. Abra o Editor de Registos.
+1. Abra o Editor de Registo.
 
 2. Na tecla de `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` registo, procure e copie o código do produto GUID.
 

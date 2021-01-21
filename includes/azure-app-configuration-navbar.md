@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
@@ -8,14 +8,15 @@ ms.topic: include
 ms.date: 11/11/2020
 ms.author: alkemper
 ms.custom: include file
-ms.openlocfilehash: 58450b451f50b9d03503bf4704e46ce94f27161e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: be7443493b2eeb5c43ee96eb7cd4a85ce9919f86
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932149"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663017"
 ---
 ```html
+ //...
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
@@ -40,4 +41,5 @@ ms.locfileid: "96932149"
         </div>
     </div>
 </nav>
+//...
 ```

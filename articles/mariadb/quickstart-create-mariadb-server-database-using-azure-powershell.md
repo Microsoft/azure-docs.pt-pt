@@ -3,17 +3,17 @@ title: 'Quickstart: Criar um servidor - Azure PowerShell - Azure Database for Ma
 description: Este quickstart descreve como usar o PowerShell para criar uma Base de Dados Azure para servidor MariaDB num grupo de recursos Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 91472d3f3cb39d34f560715f511f666079b1d1c0
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999489"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664669"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MariaDB utilizando PowerShell
 
@@ -61,7 +61,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 |        **Definição**         | **Valor de exemplo** |                                                                                                                                                             **Descrição**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nome                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MariaDB. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
+| Name                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MariaDB. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
 | ResourceGroupName          | myResourceGroup  | Indique o nome do grupo de recursos do Azure.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | O nome do SKU. Segue em **abreviatura os \_ \_ vCores de geração de preços de** convenção. Para obter mais informações sobre o parâmetro Sku, consulte as informações que se seguem a esta tabela.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35.                                                                                                                                                                                                                                                                       |

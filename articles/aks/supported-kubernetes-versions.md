@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 53093edb1d3c142336f06ec8544aaa7b55e37477
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 138e3ee5272d790130cebfd8a1f61da7bed970d8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611258"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663973"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -143,7 +143,7 @@ Para a história do lançamento passado, consulte [Kubernetes.](https://en.wikip
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
 | 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA |
-| 1.21  | Abr-08-21* | Maio de 2021   | Jul 2021  | 1.24 GA |
+| 1.21  | Abr-08-21* | Maio de 2021   | Jun 2021  | 1.24 GA |
 
 \* A versão Kubernetes 1.21 Upstream está sujeita a alterações, uma vez que o calender upstream ainda está por finalizar.
 

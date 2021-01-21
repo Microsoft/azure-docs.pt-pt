@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos Serviços de Domínio do Diretório Ativo Azure / Microsoft Docs
+title: Visão geral dos serviços de domínio do diretório ativo Azure | Microsoft Docs
 description: Nesta visão geral, saiba o que a Azure Ative Directory Domain Services fornece e como usá-lo na sua organização para fornecer serviços de identidade a aplicações e serviços na nuvem.
 services: active-directory-ds
 author: justinha
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 194a5420f38e99d45f74241f67ae8cfbbaaee8f4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861511"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661002"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>O que é o Azure Active Directory Domain Services?
 
@@ -24,10 +24,14 @@ A Azure Ative Directory Domain Services (AD DS) fornece serviços de domínio ge
 
 Um domínio gerido pela Azure AD DS permite executar aplicações antigas na nuvem que não podem usar métodos modernos de autenticação, ou onde você não quer que as imagens de diretórios voltem sempre a um ambiente AD DS no local. Você pode levantar e deslocar essas aplicações antigas do seu ambiente no local para um domínio gerido, sem precisar de gerir o ambiente AD DS na nuvem.
 
-A Azure AD DS integra-se com o seu inquilino AZure AD existente. Esta integração permite que os utilizadores inscrevam-se no serviço e aplicações ligadas ao domínio gerido utilizando as suas credenciais existentes. Também pode utilizar grupos e contas de utilizador existentes para garantir o acesso aos recursos. Estas características proporcionam um levantamento e mudança mais suaves dos recursos no local para Azure.
+A Azure AD DS integra-se com o seu inquilino AZure AD existente. Esta integração permite que os utilizadores inscrevam-se em serviços e aplicações ligadas ao domínio gerido utilizando as suas credenciais existentes. Também pode utilizar grupos e contas de utilizador existentes para garantir o acesso aos recursos. Estas características proporcionam um levantamento e mudança mais suaves dos recursos no local para Azure.
 
 > [!div class="nextstepaction"]
 > [Para começar, crie um domínio gerido Azure AD DS utilizando o portal Azure][tutorial-create]
+
+Veja o nosso pequeno vídeo para saber mais sobre a Azure AD DS.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LblD]
 
 ## <a name="how-does-azure-ad-ds-work"></a>Como funciona o Azure AD DS?
 
@@ -35,7 +39,7 @@ Quando cria um domínio gerido AZure AD DS, define um espaço de nome único. Es
 
 Não precisa de gerir, configurar ou atualizar estes DCs. A plataforma Azure trata os DCs como parte do domínio gerido, incluindo cópias de segurança e encriptação em repouso usando encriptação de disco Azure.
 
-Um domínio gerido é configurado para realizar uma sincronização unidirecional a partir de Azure AD para fornecer acesso a um conjunto central de utilizadores, grupos e credenciais. Pode criar recursos diretamente no domínio gerido, mas não são sincronizados de volta ao Azure AD. Aplicações, serviços e VMs em Azure que se conectam ao domínio gerido podem então usar funcionalidades comuns de DS AD tais como a adesão de domínio, política de grupo, LDAP e a autenticação Kerberos /NTLM.
+Um domínio gerido é configurado para realizar uma sincronização unidirecional a partir de Azure AD para fornecer acesso a um conjunto central de utilizadores, grupos e credenciais. Pode criar recursos diretamente no domínio gerido, mas não são sincronizados de volta ao Azure AD. Aplicações, serviços e VMs em Azure que se conectam ao domínio gerido podem então usar funcionalidades comuns de DS AD tais como a adesão de domínio, política de grupo, LDAP e a autenticação Kerberos/NTLM.
 
 Num ambiente híbrido com um ambiente AD DS no local, [o Azure AD Connect][azure-ad-connect] sincroniza a informação de identidade com o Azure AD, que é então sincronizado com o domínio gerido.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631990"
+ms.locfileid: "98661311"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erro de paragem do Windows - 0x000000074 Bad System Config Info
 
@@ -34,7 +34,7 @@ Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a im
  *Se ligar para uma pessoa de apoio, dê-lhe esta informação:* 
  *Código de paragem: BAD_SYSTEM_CONFIG_INFO*
 
-  ![O código de paragem do Windows 0x00000074, que também é mostrado como "BAD_SYSTEM_CONFIG_INFO". O Windows informa o utilizador de que o seu PC teve um problema e precisa de reiniciar.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![O código de paragem do Windows 0x00000074, que também é mostrado como "BAD_SYSTEM_CONFIG_INFO". O Windows informa o utilizador de que o seu PC teve um problema e precisa de reiniciar.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>Causa
 
@@ -56,8 +56,8 @@ O código de paragem **BAD_SYSTEM_CONFIG_INFO** ocorre se a colmeia de registo *
 1. Ativar a recolha de consolas em série e de despejo de memória.
 1. Reconstruir o VM.
 
-> [!NOTE]
-> Ao encontrar este erro, o sistema operativo Guest (OS) não está operacional. Irá resolver problemas em modo offline para resolver este problema.
+   > [!NOTE]
+   > Ao encontrar este erro, o sistema operativo Guest (OS) não está operacional. Irá resolver problemas em modo offline para resolver este problema.
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e aceder a um VM de reparação
 
@@ -66,8 +66,8 @@ O código de paragem **BAD_SYSTEM_CONFIG_INFO** ocorre se a colmeia de registo *
 1. Utilize ligação de ambiente de trabalho remoto para ligar ao VM de reparação.
 1. Copie a `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta e guarde-a na sua divisória de disco saudável ou noutro local seguro. Faça o reforço desta pasta como precaução, uma vez que irá editar ficheiros de registo críticos. 
 
-> [!NOTE]
-> Faça uma cópia da `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta como cópia de segurança no caso de precisar de reverter quaisquer alterações que fizer ao registo.
+   > [!NOTE]
+   > Faça uma cópia da `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta como cópia de segurança no caso de precisar de reverter quaisquer alterações que fizer ao registo.
 
 ### <a name="check-for-hive-corruption"></a>Verifique a corrupção da colmeia
 
@@ -80,7 +80,7 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
 
    1. Se a colmeia não abrir, ou se estiver vazia, então a colmeia é corrompida. Se a colmeia tiver sido corrompida, [abra um bilhete de apoio.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 
-     ![Ocorre um erro indicando que o Editor de Registo não pode carregar a colmeia.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![Ocorre um erro indicando que o Editor de Registo não pode carregar a colmeia.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Se a colmeia abrir normalmente, então a colmeia não estava bem fechada. Continue a passo 5.
 
@@ -95,7 +95,7 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
 
    **Ativar a Consola em Série:**
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -108,13 +108,13 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
 
    **Colmeia de registo de carga do disco de oss quebrado:**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Ativar no ControlSet001:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -122,7 +122,7 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
 
    **Ativar no ControlSet002:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -130,7 +130,7 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
 
    **Descarregar disco de SO quebrado:**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

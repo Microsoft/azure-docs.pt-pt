@@ -4,12 +4,12 @@ description: Saiba como criar uma ligação SSH com os nós de cluster do Servi�
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 50a52584618e505aa2ae7bd9ed7e0a9f6bc330a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c044b552cd0c28a7073364c48b9572045a290331
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015617"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662860"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ligar com SSH aos nós de cluster do Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
 
@@ -17,7 +17,7 @@ Durante todo o ciclo de vida do seu cluster Azure Kubernetes Service (AKS), pode
 
 Este artigo mostra-lhe como criar uma ligação SSH com um nó AKS usando os seus endereços IP privados.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -25,7 +25,7 @@ Por predefinição, as teclas SSH são obtidas ou geradas e adicionadas aos nós
 
 Este artigo também assume que tem uma chave SSH. Pode criar uma chave SSH utilizando [macOS ou Linux][ssh-nix] ou [Windows][ssh-windows]. Se utilizar o PuTTY Gen para criar o par de chaves, guarde o par de chaves num formato OpenSSH em vez do formato de chave privada PuTTy padrão (ficheiro.ppk).
 
-Também precisa da versão Azure CLI 2.0.64 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.64 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Configurar clusters AKS baseados em escala de máquina virtual para acesso SSH
 
@@ -35,7 +35,7 @@ Use o comando [az aks show][az-aks-show] para obter o nome de grupo de recursos 
 
 ```azurecli-interactive
 CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query '[0].name' -o tsv)
 ```
 
 O exemplo acima atribui o nome do grupo de recursos de cluster para o *myAKSCluster* no *myResourceGroup* para *CLUSTER_RESOURCE_GROUP*. O exemplo utiliza *CLUSTER_RESOURCE_GROUP* para listar o nome definido da escala e atribuí-lo a *SCALE_SET_NAME*.

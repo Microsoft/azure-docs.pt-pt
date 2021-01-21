@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005910"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664686"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Erro de paragem do Windows - Estado Sem Memória
 
@@ -44,6 +44,9 @@ O disco do sistema operativo está cheio, demasiado fragmentado, ou o sistema op
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo:
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Criar e Aceder a um VM de reparação
 1. Espaço livre no disco
@@ -175,7 +178,7 @@ Para ativar a recolha de despejo de memória e a Consola em Série, execute o se
    
    - No comando, `<LETTER OF THE EFI SYSTEM PARTITION>` substitua-se pela letra da Partição do Sistema EFI.
    - Pode ser útil lançar a consola de Gestão de Discos para identificar a partição do sistema adequada rotulada como **Partição do Sistema EFI**.
-   - O identificador pode ser um GUID único ou pode ser o **bootmgr**padrão .
+   - O identificador pode ser um GUID único ou pode ser o **bootmgr** padrão .
 
 1. Executar os seguintes comandos para ativar a Consola em Série:
 

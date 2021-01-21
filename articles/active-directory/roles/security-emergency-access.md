@@ -1,5 +1,5 @@
 ---
-title: Gerir contas de administração de acesso de emergência - Azure AD / Microsoft Docs
+title: Gerir contas de administração de acesso de emergência - Azure AD
 description: Este artigo descreve como usar contas de acesso de emergência para ajudar a evitar ser inadvertidamente bloqueado fora da sua organização Azure Ative Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ef8e7ed662d8c0acfc7c43112d6d7edb1cb9a94
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834443"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660652"
 ---
-# <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência em Azure AD
+# <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência no AAD
 
 É importante que evite ser acidentalmente bloqueado fora da sua organização Azure Ative Directory (Azure AD) porque não pode iniciar sôm ou ativar a conta de outro utilizador como administrador. Pode mitigar o impacto da falta acidental de acesso administrativo criando *duas* ou mais contas de acesso de emergência na sua organização.
 
-As contas de acesso de emergência são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários de emergência ou "vidro quebrado", onde as contas administrativas normais não podem ser utilizadas. Recomendamos que mantenha o objetivo de restringir o uso da conta de emergência apenas aos momentos em que seja absolutamente necessário.
+As contas de acesso de emergência são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou de “interrupção de emergência”, em que as contas administrativas normais não podem ser utilizadas. Recomendamos que mantenha o objetivo de restringir o uso da conta de emergência apenas aos momentos em que seja absolutamente necessário.
 
 Este artigo fornece orientações para a gestão de contas de acesso de emergência em Azure AD.
 
@@ -60,7 +60,7 @@ Durante uma emergência, não pretende que uma política bloqueie potencialmente
 
 ## <a name="federation-guidance"></a>Orientação da Federação
 
-Uma opção adicional para as organizações que utilizam serviços de domínio AD e ADFS ou fornecedor de identidade semelhante para federar para a Azure AD, é configurar uma conta de acesso de emergência cuja alegação de MFA poderia ser fornecida por esse fornecedor de identidade.  Por exemplo, a conta de acesso de emergência poderia ser apoiada por um certificado e um par de chaves, como um armazenado num smartcard.  Quando esse utilizador é autenticado em AD, a ADFS pode fornecer uma reclamação à Azure AD indicando que o utilizador cumpriu os requisitos de MFA.  Mesmo com esta abordagem, as organizações devem ainda ter contas de acesso de emergência baseadas na nuvem, caso a federação não possa ser estabelecida. 
+Algumas organizações usam Serviços de Domínio AD e ADFS ou fornecedor de identidade semelhante para federado a Azure AD. [Não deve haver contas no local com privilégios administrativos.](../fundamentals/protect-m365-from-on-premises-attacks.md) Dominar e ou fornecer autenticação para contas com privilégio administrativo fora da Azure AD adiciona riscos desnecessários em caso de interrupção ou compromisso desses sistemas.
 
 ## <a name="store-account-credentials-safely"></a>Armazenar credenciais de conta com segurança
 
@@ -79,7 +79,7 @@ As organizações devem monitorizar a atividade de registo de login e auditoria 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obter IDs de objeto das contas de vidro quebrado
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta atribuída à função de administrador do Utilizador.
-1. Selecione **Utilizadores de Diretório Ativo Azure**  >  **Users**.
+1. Selecione **Utilizadores de Diretório Ativo Azure**  >  .
 1. Procure a conta de break-glass e selecione o nome do utilizador.
 1. Copie e guarde o atributo de ID do objeto para que possa usá-lo mais tarde.
 1. Repita os passos anteriores para a segunda conta de break-glass.

@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 01/07/2020
+ms.date: 01/20/2021
 ms.topic: conceptual
-ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 0e380b49f122e63113e790f4e866fed40aa9beac
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131768"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662717"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -173,6 +173,7 @@ Com todos os cenários, esteja atento às seguintes limitações atuais:
 - As atribuições de funções devem utilizar [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md) Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para o Proprietário ou quaisquer funções incorporadas com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na [atribuição de funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
 - Enquanto você pode a bordo subscrições que usam Azure Databricks, os utilizadores no inquilino gerente não podem lançar espaços de trabalho Azure Databricks em uma subscrição delegada neste momento.
 - Embora possa embarcar subscrições e grupos de recursos que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
+- A delegação de assinaturas através de uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e da nuvem pública de Azure, ou através de duas nuvens nacionais separadas, não é apoiada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

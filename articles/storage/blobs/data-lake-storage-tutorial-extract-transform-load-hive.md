@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7640b7a6053532360da4c908089aecfe163bd3de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f8210c3bc0437180ace110f8decd9f83e18650ed
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912659"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661937"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados utilizando a Azure HDInsight
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 * **Base de Dados Azure SQL**: Utiliza a Base de Dados Azure SQL como uma loja de dados de destino. Se não tiver uma base de dados na Base de Dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL no portal Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **Azure CLI**: Se ainda não instalou o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Azure CLI**: Se ainda não instalou o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 * **Um cliente Secure Shell (SSH):** Para obter mais informações, consulte [Connect to HDInsight (Hadoop) utilizando sSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 2. Na página, selecione os seguintes valores:
 
-   | Nome | Valor |
+   | Name | Valor |
    | --- | --- |
    | Filtrar Ano |2013 |
    | Filtrar Período |Janeiro |

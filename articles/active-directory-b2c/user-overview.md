@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928618"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661090"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C
 
@@ -38,7 +38,7 @@ Quando adicionar uma nova conta de trabalho, tem de considerar as seguintes defi
 
 - **Nome** e **nome de utilizador** - A propriedade **Name** contém o dado e o sobrenome do utilizador. O **nome de Utilizador** é o identificador em que o utilizador entra para iniciar súm. O nome de utilizador inclui todo o domínio. A parte do nome de domínio do nome de utilizador deve ser o nome de domínio padrão inicial *your-domain.onmicrosoft.com*, ou um nome de [domínio personalizado](../active-directory/fundamentals/add-custom-domain.md) não federado verificado, como *contoso.com*.
 - **Perfil** - A conta é configurada com um perfil de dados do utilizador. Tem a oportunidade de introduzir um primeiro nome, apelido, cargo e nome do departamento. Pode editar o perfil após a criação da conta.
-- **Grupos** - Utilize um grupo para executar tarefas de gestão, tais como atribuir licenças ou permissões a vários utilizadores ou dispositivos ao mesmo tempo. Pode colocar a nova conta num [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no seu inquilino.
+- **Grupos** - Utilize grupos para executar tarefas de gestão, tais como atribuir licenças ou permissões a muitos utilizadores ou dispositivos ao mesmo tempo. Pode colocar a nova conta num [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no seu inquilino.
 - **Função diretório** - É necessário especificar o nível de acesso que a conta de utilizador tem para recursos no seu inquilino. Estão disponíveis os seguintes níveis de permissão:
 
     - **Utilizador** - Os utilizadores podem aceder aos recursos atribuídos, mas não conseguem gerir a maioria dos recursos dos inquilinos.
@@ -70,7 +70,7 @@ Pode utilizar as seguintes informações para redefinir a palavra-passe de um ut
 
 Pode convidar utilizadores externos para o seu inquilino como utilizador convidado. Um cenário típico para convidar um utilizador convidado para o seu inquilino Azure AD B2C é partilhar responsabilidades administrativas. Para um exemplo de utilização de uma conta de hóspedes, consulte [propriedades de um utilizador de colaboração Azure Ative Directory B2B](../active-directory/external-identities/user-properties.md).
 
-Quando convida um utilizador convidado para o seu inquilino, fornece o endereço de e-mail do destinatário e uma mensagem descrevendo o convite. O link de convite leva o utilizador à página de consentimento onde o botão **Get Started** é selecionado e a revisão das permissões é aceite. Se uma caixa de entrada não estiver anexada ao endereço de e-mail, o utilizador pode navegar para a página de consentimento indo para uma página da Microsoft usando as credenciais convidadas. O utilizador é então obrigado a resgatar o convite da mesma forma que clicar no link no e-mail. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Quando convida um utilizador convidado para o seu inquilino, fornece o endereço de e-mail do destinatário e uma mensagem descrevendo o convite. O link de convite leva o utilizador à página de consentimento. Se uma caixa de entrada não estiver anexada ao endereço de e-mail, o utilizador pode navegar para a página de consentimento indo para uma página da Microsoft usando as credenciais convidadas. O utilizador é então obrigado a resgatar o convite da mesma forma que clicar no link no e-mail. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
 Também pode utilizar a [API do Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) para convidar um utilizador convidado.
 
@@ -78,7 +78,7 @@ Também pode utilizar a [API do Microsoft Graph](/graph/api/invitation-post?view
 
 O utilizador do consumidor pode iniciar seducação em aplicações protegidas pelo Azure AD B2C, mas não consegue aceder a recursos Azure, como o portal Azure. O consumidor pode utilizar uma conta local ou contas federadas, como o Facebook ou o Twitter. Uma conta de consumo é criada utilizando um [fluxo de utilizador de inscrição ou de entrada,](user-flow-overview.md)utilizando a API do Microsoft Graph ou utilizando o portal Azure.
 
-Pode especificar os dados recolhidos quando uma conta de utilizador de consumo é criada utilizando atributos personalizados do utilizador. Para obter mais informações, consulte [Definir atributos personalizados no Azure Ative Directory B2C](user-flow-custom-attributes.md).
+Pode especificar os dados recolhidos quando uma conta de utilizador de consumo é criada. Para obter mais informações, consulte [Adicionar os atributos do utilizador e personalizar a entrada do utilizador.](configure-user-input.md)
 
 Para obter mais informações sobre a gestão das contas dos consumidores, consulte [as contas de utilizadores do Manage AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).
 

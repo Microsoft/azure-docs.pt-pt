@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681895"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661396"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Erro de paragem do Windows - 0x000000007E exceção do fio do sistema não manuseado
 
@@ -35,6 +35,10 @@ A causa não pode ser determinada até que um ficheiro de despejo de memória se
 
 ## <a name="solution"></a>Solução
 
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
+
+
 Para resolver este problema, primeiro precisa de recolher o ficheiro de despejo de memória para a falha e depois enviar o ficheiro para o suporte da Microsoft. Para recolher o ficheiro de despejo, siga as instruções nas duas secções seguintes.
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
@@ -50,7 +54,7 @@ Para resolver este problema, primeiro precisa de recolher o ficheiro de despejo 
 
 Para obter mais informações sobre chamadas NMI, consulte as chamadas NMI no guia do utilizador [da Consola em Série Azure.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Resolução de problemas Erros de arranque da Máquina Virtual Azure](./boot-error-troubleshoot.md)

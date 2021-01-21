@@ -3,17 +3,17 @@ title: 'Quickstart: Criar um servidor - Azure CLI - Azure Database for MariaDB'
 description: Este início rápido descreve como pode utilizar a CLI do Azure para criar uma Azure Database for MariaDB Server num grupo de recursos do Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 2242b0842bda9587915fc949046b8fa7effb725c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435744"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662165"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
 
@@ -45,7 +45,7 @@ az group create --name myresourcegroup --location westus
 
 Crie um servidor do Azure Database for MariaDB com o comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-Definição | Valor da amostra | Descrição
+Definição | Valor da amostra | Description
 ---|---|---
 name | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | **grupo myresource** | Introduza o nome do grupo de recursos do Azure.
