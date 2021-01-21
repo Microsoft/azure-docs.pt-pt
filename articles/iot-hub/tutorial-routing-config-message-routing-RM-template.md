@@ -1,6 +1,6 @@
 ---
-title: Configurar o encaminhamento de mensagens para Azure IoT Hub usando um modelo de Gestor de Recursos Azure
-description: Configurar o encaminhamento de mensagens para Azure IoT Hub usando um modelo de Gestor de Recursos Azure
+title: Tutorial - Configurar o encaminhamento de mensagens para Azure IoT Hub usando um modelo de Gestor de Recursos Azure
+description: Tutorial - Configurar o encaminhamento de mensagens para Azure IoT Hub usando um modelo de Gestor de Recursos Azure
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53217340b0d91f3de77e5e0d8c0a82e30599d6ed
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480110"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621432"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Use um modelo de Gestor de Recursos Azure para configurar o encaminhamento de mensagens IoT Hub
 
@@ -30,7 +30,7 @@ ms.locfileid: "92480110"
 
 Para a segunda parte deste tutorial, você descarrega e execute uma aplicação Visual Studio para enviar mensagens para o IoT Hub. Existe uma pasta nesse download que contém o modelo e o ficheiro de parâmetros do Azure Resource Manager, bem como os scripts Azure CLI e PowerShell.
 
-Vá em frente e baixe já as [amostras Azure IoT C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Desaperte o ficheiro master.zip. O modelo do Gestor de Recursos e o ficheiro de parâmetros estão em /iot-hub/Tutorials/Encaminhamento/SimulatedDevice/resources/ à medida ** quetemplate_iothub.jse**template_iothub_parameters.js** em**.
+Vá em frente e baixe já as [amostras Azure IoT C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Desaperte o ficheiro master.zip. O modelo do Gestor de Recursos e o ficheiro de parâmetros estão em /iot-hub/Tutorials/Encaminhamento/SimulatedDevice/resources/ à medida **quetemplate_iothub.jse** template_iothub_parameters.js **em**.
 
 ## <a name="create-your-resources"></a>Crie os seus recursos
 
@@ -88,7 +88,7 @@ Estes valores são usados no modelo, e são derivados principalmente de parâmet
 
 **service_bus_queue**: Este campo é o nome da fila do Service Bus depois de ter concatenado aleatoriamente.
 
-**sbVersion**: Versão THe da API do Service Bus para usar. Neste caso, é "2017-04-01".
+**sbVersion**: A versão da API do Autocarro de Serviço para utilizar. Neste caso, é "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Recursos: Conta de armazenamento e contentor
 
@@ -364,7 +364,7 @@ Utilize o Explorador de Ficheiros que aparece para encontrar os ficheiros no dis
 
 Depois de os ficheiros serem carregados, um diálogo de resultados mostra algo como a seguinte imagem.
 
-![Barra de menu Cloud Shell com ficheiros upload/download em destaque](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Barra de menu Cloud Shell com resultados de Upload/Download em destaque](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
 Os ficheiros são enviados para a partilha utilizada pela sua instância Cloud Shell. 
 

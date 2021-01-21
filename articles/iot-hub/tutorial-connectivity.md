@@ -1,6 +1,6 @@
 ---
-title: Verificar a conectividade do dispositivo com o Hub IoT do Azure
-description: Utilize as ferramentas do Hub IoT para, durante o desenvolvimento, resolver problemas de conectividade do dispositivo com o seu hub do IoT.
+title: Tutorial - Verifique a conectividade do dispositivo com o Azure IoT Hub
+description: Tutorial - Utilize ferramentas IoT Hub para resolver problemas, durante o desenvolvimento, problemas de conectividade do dispositivo no seu hub IoT.
 services: iot-hub
 author: wesmc7777
 manager: philmea
@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 1eead9bb93fe8b753ace518cde18b240ab1a3cd4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 060ed8bfc424fcb9dab8fc12faf5e3822fa86a31
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572682"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621448"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
@@ -29,7 +29,7 @@ Neste tutorial, irá utilizar ferramentas do portal do Hub IoT do Azure e comand
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Verificar a autenticação do dispositivo
 > * Verificar a conectividade do dispositivo para a cloud
@@ -256,7 +256,7 @@ O dispositivo simulado imprime uma mensagem quando recebe uma atualização de p
 
 Além de receber as alterações de propriedades pretendidas à medida que são feitas, o dispositivo simulado verifica automaticamente a existência de propriedades pretendidas quando é iniciado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 

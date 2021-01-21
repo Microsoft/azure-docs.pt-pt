@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072161"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622799"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 
@@ -99,6 +99,20 @@ tutorial
 ```
 
 Se não correu `train.py` localmente no tutorial anterior, não terá o `data/` diretório. Neste caso, execute o `torchvision.datasets.CIFAR10` método localmente com `download=True` o seu `train.py` script.
+
+Além disso, para correr no local, certifique-se de sair do ambiente tutorial e ativar o novo ambiente conda:
+
+```bash
+conda deactivate                # If you are still using the tutorial environment, exit it
+```
+
+```bash
+conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+```
+
+```bash
+conda activate pytorch-aml-env          # activate new conda environment
+```
 
 Para executar o roteiro de treino modificado localmente, ligue:
 
@@ -271,7 +285,7 @@ Aviso:
 > [!div class="nextstepaction"]
 > [Inspecionei o ficheiro de registo](?success=inspect-log#clean-up-resources) que [encontrei num problema.](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

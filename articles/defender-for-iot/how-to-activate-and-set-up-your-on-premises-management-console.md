@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538583"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623759"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar a sua consola de gestão no local 
 
@@ -147,13 +147,13 @@ Para configurar o túnel no sensor:
 
 ## <a name="set-up-a-site"></a>Criar um site
 
-O mapa padrão da empresa fornece uma visão geral dos seus ativos de acordo com vários níveis de localizações geográficas.
+O mapa padrão da empresa fornece uma visão geral dos seus dispositivos de acordo com vários níveis de localizações geográficas.
 
-A visão dos seus ativos poderá ser necessária quando a estrutura organizacional e as permissões do utilizador são complexas. Nestes casos, a configuração do site pode ser determinada por uma estrutura organizacional global, além da estrutura padrão do site ou da zona.
+A visão dos seus dispositivos pode ser necessária onde a estrutura organizacional e as permissões do utilizador são complexas. Nestes casos, a configuração do site pode ser determinada por uma estrutura organizacional global, além da estrutura padrão do site ou da zona.
 
 Para apoiar este ambiente, você precisa criar uma topologia de negócios global baseada nas unidades de negócio, regiões, locais e zonas da sua organização. Também é necessário definir permissões de acesso ao utilizador em torno destas entidades, utilizando grupos de acesso.
 
-Os grupos de acesso permitem um melhor controlo sobre onde os utilizadores gerem e analisam os ativos na plataforma Defender para IoT.
+Os grupos de acesso permitem um melhor controlo sobre onde os utilizadores gerem e analisam dispositivos na plataforma Defender para IoT.
 
 ### <a name="how-it-works"></a>Como funciona
 
@@ -215,7 +215,7 @@ Para eliminar um site:
 
 ## <a name="create-enterprise-zones"></a>Criar zonas empresariais
 
-As zonas são entidades lógicas que lhe permitem dividir os ativos dentro de um site em grupos de acordo com várias características. Por exemplo, pode criar grupos para linhas de produção, subestações, áreas de site ou tipos de ativos. Você pode definir zonas com base em qualquer característica que seja adequada para a sua organização.
+As zonas são entidades lógicas que permitem dividir os dispositivos dentro de um site em grupos de acordo com várias características. Por exemplo, pode criar grupos para linhas de produção, subestações, áreas de site ou tipos de dispositivos. Você pode definir zonas com base em qualquer característica que seja adequada para a sua organização.
 
 Configura zonas como parte do processo de configuração do site.
 
@@ -231,7 +231,7 @@ A tabela seguinte descreve os parâmetros na janela **de Gestão** do Local.
 | Conectividade | O estado de conectividade do sensor. O estado pode ser **ligado** ou **desligado**. |
 | Última Atualização | A data da última atualização. |
 | Atualizar o Progresso | A barra de progresso mostra o estado do processo de atualização, da seguinte forma:<br />- Pacote de upload<br />- Preparação para instalar<br />- Parar processos<br />- Backup de dados<br />- Tirar fotografias<br />- Configuração de atualização<br />- Atualização das dependências<br />- Atualizar bibliotecas<br />- Bases de dados de remendação<br />- Iniciar processos<br />- Validação da sanidade do sistema<br />- Validação conseguiu<br />- Sucesso<br />- Falha<br />- A atualização começou<br />- Início da instalaçãoogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >Para obter mais informações sobre a atualização, consulte o [Microsoft Support](https://support.microsoft.com/) para obter ajuda. |
-| Elementos | O número de ativos OT que o sensor monitoriza. |
+| Dispositivos | O número de dispositivos OT que o sensor monitoriza. |
 | Alertas | O número de alertas no sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Permite atribuir um sensor a zonas. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Permite eliminar um sensor desligado do local. |

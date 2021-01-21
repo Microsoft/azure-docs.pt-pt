@@ -8,17 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398220"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621883"
 ---
 # <a name="configure-private-link"></a>Configure a ligação privada
-
-> [!IMPORTANT]
-> Esta capacidade está disponível em pré-visualização pública, é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O link privado permite-lhe aceder a Azure API para FHIR através de um ponto final privado, uma interface de rede que o conecta de forma privada e segura utilizando um endereço IP privado a partir da sua rede virtual. Com um link privado, pode aceder aos nossos serviços de forma segura a partir do seu Vnet como um serviço de primeira festa sem ter de passar por um DNS público. Este artigo acompanha-o como criar, testar e gerir o seu ponto final privado para a Azure API para fHIR.
 
@@ -54,7 +51,7 @@ Para o Tipo de Recurso, procure e selecione "Microsoft.HealthcareApis/services".
 
 ![Separador de recursos do portal Azure](media/private-link/private-link-portal1.png)
 
-Se não tiver uma Zona Privada de DNS existente, selecione "(New)privatelink.azurehealthcareapis.com". Se já tiver a sua Zona DE DNS privada configurada, pode selecioná-la na lista. Deve estar no formato de "privatelink.azurehealthcareapis.com".
+Se não tiver uma Zona Privada de DNS existente, selecione "(New)privatelink.azurehealthcareapapis.com". Se já tiver a sua Zona DE DNS privada configurada, pode selecioná-la na lista. Deve estar no formato de "privatelink.azurehealthcareapis.com".
 
 ![Separador de configuração do portal Azure](media/private-link/private-link-portal3.png)
 
@@ -90,6 +87,6 @@ Os Pontos Finais Privados e o NIC associado são visíveis no portal Azure a par
 
 ### <a name="delete"></a>Eliminar
 
-Os pontos finais privados só podem ser eliminados do portal Azure através da lâmina de visão geral (como abaixo) ou através da opção Eliminar no separador "Ligações de ponto final privados" da rede (pré-visualização). Clicar no botão eliminar irá eliminar o ponto final privado e o NIC associado. Se eliminar todos os pontos finais privados do recurso FHIR e o acesso à rede pública for desativado, nenhum pedido chegará ao seu servidor FHIR. Todos os pontos finais privados devem ser eliminados do recurso FHIR antes que o recurso FHIR possa ser eliminado ou movido.
+Os pontos finais privados só podem ser eliminados do portal Azure através da lâmina de visão geral (como abaixo) ou através da opção Eliminar no separador "Ligações de ponto final privados" da rede (pré-visualização). Clicar no botão eliminar irá eliminar o ponto final privado e o NIC associado. Se eliminar todos os pontos finais privados do recurso FHIR e o acesso à rede pública for desativado, nenhum pedido chegará ao seu servidor FHIR.
 
 ![Eliminar ponto de final privado](media/private-link/private-link-delete.png)

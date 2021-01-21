@@ -1,5 +1,5 @@
 ---
-title: Ligue o Microsoft Defender para os dados do Endpoint ao Azure Sentinel Microsoft Docs
+title: Ligue o Microsoft Defender para os dados do Ponto Final ao Azure Sentinel | Microsoft Docs
 description: Saiba como ligar o Microsoft Defender para os dados do Endpoint (anteriormente Microsoft Defender ATP) ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0db4e0fe0472c75f1eae392980ae697f53007244
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655532"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623371"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Ligue os alertas do Microsoft Defender para Endpoint (anteriormente Microsoft Defender ATP)
 
@@ -28,10 +28,6 @@ ms.locfileid: "94655532"
 > - **O Microsoft Defender for Endpoint** era anteriormente conhecido como **Microsoft Defender Advanced Threat Protection** ou **MDATP**.
 >
 >     Pode ver o nome antigo ainda em uso no produto (incluindo o seu conector de dados em Azure Sentinel) por um período de tempo.
->
-> - A ingestão de alertas microsoft Defender para endpoint está atualmente em visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O [conector Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) permite-lhe transmitir alertas do Microsoft Defender para Endpoint para o Azure Sentinel. Isto irá permitir-lhe analisar de forma mais abrangente eventos de segurança em toda a sua organização e construir playbooks para uma resposta eficaz e imediata.
 
@@ -55,7 +51,7 @@ Se o Microsoft Defender for Endpoint estiver implantado e ingerir os seus dados,
 
 1. Para consultar o Microsoft Defender para alertas de ponto final em **Logs,** insira o **SecurityAlert** na janela de consulta e adicione um filtro onde o **nome do Fornecedor** é **MDATP**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Microsoft Defender para Endpoint ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

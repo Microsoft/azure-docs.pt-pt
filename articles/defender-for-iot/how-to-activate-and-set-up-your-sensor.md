@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538565"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623594"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar o seu sensor
 
@@ -44,7 +44,7 @@ Antes de iniciar sessão na consola de sensores, os utilizadores do administrado
 
 O seu sensor foi a bordo do Azure Defender para IoT num modo de gestão específico:
 
-| Tipo de modo | Description |
+| Tipo de modo | Descrição |
 |--|--|
 | **Modo ligado à nuvem** | A informação que o sensor deteta é exibida na consola do sensor. As informações de alerta também são entregues através do hub IoT e podem ser partilhadas com outros serviços da Azure, como o Azure Sentinel. |
 | **Modo ligado localmente** | A informação que o sensor deteta é exibida na consola do sensor. As informações de deteção também são partilhadas com a consola de gestão no local, se o sensor estiver ligado à sua. |
@@ -134,9 +134,9 @@ Depois da sua sação, abre o Azure Defender para a consola IoT.
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Configuração e aprendizagem iniciais (para administradores)
 
-Após o seu primeiro início de sação, o sensor Azure Defender para IoT começa a monitorizar automaticamente a sua rede. Os ativos da rede aparecerão nas secções de inventário de ativos e de ativos. O Azure Defender for IoT começará a detetá-lo e alertá-lo sobre todos os incidentes de segurança e operacionais que ocorram na sua rede. Em seguida, pode criar relatórios e consultas com base nas informações detetadas.
+Após o seu primeiro início de sação, o sensor Azure Defender para IoT começa a monitorizar automaticamente a sua rede. Os dispositivos de rede aparecerão nas secções de inventário do mapa do dispositivo e do dispositivo. O Azure Defender for IoT começará a detetá-lo e alertá-lo sobre todos os incidentes de segurança e operacionais que ocorram na sua rede. Em seguida, pode criar relatórios e consultas com base nas informações detetadas.
 
-Inicialmente esta atividade é realizada no modo de aprendizagem, que instrui o seu sensor a aprender a atividade habitual da sua rede. Por exemplo, o sensor aprende os ativos descobertos na sua rede, protocolos detetados na rede e transferências de ficheiros que ocorrem entre ativos específicos. Esta atividade torna-se a atividade de base da sua rede.
+Inicialmente esta atividade é realizada no modo de aprendizagem, que instrui o seu sensor a aprender a atividade habitual da sua rede. Por exemplo, o sensor aprende dispositivos descobertos na sua rede, protocolos detetados na rede e transferências de ficheiros que ocorrem entre dispositivos específicos. Esta atividade torna-se a atividade de base da sua rede.
 
 ### <a name="review-and-update-basic-system-settings"></a>Rever e atualizar as definições básicas do sistema
 
@@ -177,7 +177,7 @@ Acede às ferramentas de consola do menu lateral.
 
 **Navegação** 
 
-| Janela | Ícone | Description |
+| Janela | Ícone | Descrição |
 | -----------|--|--|
 | Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Veja uma imagem intuitiva do estado de segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Veja os dispositivos de rede, as ligações do dispositivo e as propriedades do dispositivo num mapa. Várias opções de zooms, destaque e filtro estão disponíveis para exibir a sua rede. |
@@ -187,13 +187,13 @@ Acede às ferramentas de consola do menu lateral.
 
 **Análise**
 
-| Janela| Ícone | Description |
+| Janela| Ícone | Descrição |
 |---|---|---|
 | Cronologia do evento | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | Ver uma linha temporal com informações sobre alertas, eventos de rede (informativos) e operações de utilizador, tais como ins- ins de utilizador e eliminações de utilizadores.|
 
 **Navegação**
 
-| Janela | Ícone | Description |
+| Janela | Ícone | Descrição |
 |---|---|---|
 | Mineração de dados | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Gere informação abrangente e granular sobre os dispositivos da sua rede em várias camadas. |
 | Tendências e estatísticas | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Ver tendências e estatísticas numa vasta gama de widgets. |
@@ -201,7 +201,7 @@ Acede às ferramentas de consola do menu lateral.
 
 **Administração**
 
-| Janela | Ícone | Description |
+| Janela | Ícone | Descrição |
 |---|---|---|
 | Utilizadores | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Defina utilizadores e funções com vários níveis de acesso. |
 | Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhar informações de alerta para parceiros que integram com o Defender para IoT, para endereços de e-mail, para servidores webhook, e muito mais. <br /> Consulte [as informações do alerta para](how-to-forward-alert-information-to-partners.md) a frente para mais detalhes. |
@@ -210,7 +210,7 @@ Acede às ferramentas de consola do menu lateral.
 
 **Suporte**
 
-| Janela| Ícone | Description |
+| Janela| Ícone | Descrição |
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contacte [o Microsoft Support](https://support.microsoft.com/) para obter ajuda. |
 

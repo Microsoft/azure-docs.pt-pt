@@ -1,5 +1,5 @@
 ---
-title: Envie telemetria para Azure IoT Hub quickstart (Android) Microsoft Docs
+title: Quickstart - Envie telemetria para Azure IoT Hub quickstart (Android) | Microsoft Docs
 description: Neste quickstart, você executou uma aplicação Android de amostra para enviar telemetria simulada para um hub IoT e para ler telemetria a partir do hub IoT para processamento na nuvem.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: d9598f7a0bc8e4a8b92ac53612023585eb19f4c4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dd622f0d55be000e2318c53f200bebf49c373724
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121537"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624325"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Quickstart: Enviar telemetria IoT a partir de um dispositivo Android
 
@@ -100,7 +100,7 @@ Neste arranque rápido, envia telemetria para um Azure IoT Hub a partir de uma a
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
-Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para monitorizar as mensagens do dispositivo que são enviadas pelo dispositivo Android.
+Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para monitorizar as mensagens do dispositivo que são enviadas pelo dispositivo Android.
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 
@@ -113,7 +113,7 @@ Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/
     A imagem que se segue mostra a saída, uma vez que o hub IoT recebe telemetria enviada pelo dispositivo Android:
 
       ![Ler as mensagens do dispositivo com a CLI do Azure](media/quickstart-send-telemetry-android/read-data.png)
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

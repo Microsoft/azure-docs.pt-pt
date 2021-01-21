@@ -11,12 +11,12 @@ ms.date: 09/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0daca8b19f9a712253bc231cba9a0245553b0adb
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 6ac186d4b460165605ccf0fc53bdb0b691348bf3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614107"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622529"
 ---
 # <a name="azure-ad-connect-cloud-sync-on-demand-provisioning"></a>Azure AD Connect sincronização de nuvem on-demand provisioning
 
@@ -32,9 +32,9 @@ Para utilizar a nova funcionalidade, siga os passos abaixo.
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 2.  Selecione **Azure Ad Connect**.
-3.  **Selecione Gerir o provisionamento**.
+3.  **Selecione Gerir a sincronização de nuvens**.
 
-    ![Gerir o provisionamento](media/how-to-configure/manage-1.png)
+    ![Gerir o provisionamento](media/how-to-install/install-6.png)
 4. Em **Configuração,** selecione a sua configuração.
 5. Em **Validação** clique no botão **'Disposição'.** 
 

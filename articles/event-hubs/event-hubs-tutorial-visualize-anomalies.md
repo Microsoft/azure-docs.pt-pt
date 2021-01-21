@@ -3,12 +3,12 @@ title: Azure Event Hubs - Visualizar anomalias de dados em eventos em tempo real
 description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos da Microsoft Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: b72b82f3959565e6bd0598fef8e21bb64fedb053
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655684"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623463"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
@@ -16,7 +16,7 @@ Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para ver
 
 Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, você leu o fluxo de dados em tempo real com a Azure Stream Analytics, que separa as transações válidas das transações inválidas, e depois usa o Power BI para identificar visualmente as transações que são marcadas como inválidas.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Criar um hub de eventos
@@ -349,7 +349,7 @@ Inicie sessão na sua conta do Power BI. Aceda a **A minha área de trabalho**. 
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar os recursos com a CLI do Azure
 
-Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

@@ -2,13 +2,13 @@
 title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure (modelos ARM) para a implementação de recursos.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657316"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621844"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -125,6 +125,12 @@ Se imaginar as suas camadas com ciclos de vida separados, pode implementar as tr
 ![modelo de camadas](./media/overview/tier-templates.png)
 
 Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos ligados com o Azure Resource Manager](linked-templates.md).
+
+## <a name="share-templates"></a>Modelos de partilha
+
+Depois de criar o seu modelo, poderá pretender partilhá-lo com outros utilizadores da sua organização. [As especificações do modelo](template-specs.md) permitem-lhe armazenar um modelo como um tipo de recurso. Utiliza o controlo de acesso baseado em funções para gerir o acesso à especificação do modelo. Os utilizadores com acesso lido à especificação do modelo podem implantá-lo, mas não alterar o modelo.
+
+Esta abordagem significa que você pode compartilhar com segurança modelos que cumprem os padrões da sua organização.
 
 ## <a name="next-steps"></a>Passos seguintes
 

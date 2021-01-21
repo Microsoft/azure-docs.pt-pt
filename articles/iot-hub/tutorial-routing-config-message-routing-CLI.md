@@ -1,6 +1,6 @@
 ---
-title: Configure encaminhamento de mensagens para Azure IoT Hub usando o Azure CLI
-description: Configurar o encaminhamento de mensagens para Azure IoT Hub utilizando o Azure CLI. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou uma fila de ônibus de serviço.
+title: Tutorial - Configurar o encaminhamento de mensagens para Azure IoT Hub utilizando o Azure CLI
+description: Tutorial - Configurar o encaminhamento de mensagens para Azure IoT Hub utilizando o Azure CLI. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou uma fila de ônibus de serviço.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 239d8f2bcc1422a1098fb8f6cb3fba6706d671f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c3ff7582ed408776c0ae6904e4bacddd89e40b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500202"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624175"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Use o CLI Azure para configurar o encaminhamento de mensagens IoT Hub
 
@@ -147,7 +147,7 @@ Agora que os recursos base estão configurado, pode configurar o encaminhamento 
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Para criar um ponto final de encaminhamento, utilize [o ponto final de encaminhamento do hub az iot](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Para criar a rota de mensagem para o ponto final, utilize [a rota az iot hub create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Para criar um ponto final de encaminhamento, utilize [o ponto final de encaminhamento do hub az iot](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create&preserve-view=true). Para criar a rota de mensagem para o ponto final, utilize [a rota az iot hub create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create&preserve-view=true).
 
 ### <a name="route-to-a-storage-account"></a>Rota para uma conta de armazenamento
 

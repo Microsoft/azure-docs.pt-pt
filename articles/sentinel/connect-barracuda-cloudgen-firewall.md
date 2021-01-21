@@ -1,5 +1,5 @@
 ---
-title: Ligue barracuda CloudGen Firewall a Azure Sentinel Microsoft Docs
+title: Ligue barracuda CloudGen Firewall a Azure Sentinel| Microsoft Docs
 description: Saiba como ligar barracuda CloudGen Firewall ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0115fa34b10805570b6e9d8d09ae96fc169dfc
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588506"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621136"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Ligar a Barracuda CloudGen Firewall
 
 O conector Barracuda CloudGen Firewall (CGFW) permite ligar facilmente os seus registos Barracuda CGFW com a Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação. Isto dá-lhe mais informações sobre a rede da sua organização e melhora as suas capacidades de operação de segurança.
-
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

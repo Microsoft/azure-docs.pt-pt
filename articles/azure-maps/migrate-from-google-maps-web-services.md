@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Migrar serviços web do Google Maps Microsoft Azure Maps
+title: Tutorial - Migrar serviços web do Google Maps | Microsoft Azure Maps
 description: Tutorial sobre como migrar serviços web do Google Maps para o Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 444e7c9ad06c6f2ad584c0701fa652b901a4c3e7
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680766"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624043"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migrar o serviço web do Google Maps
 
@@ -22,6 +22,7 @@ Tanto o Azure como o Google Maps fornecem acesso a APIs espaciais através de se
 
 Neste tutorial, vai aprender a:
 
+> [!div class="checklist"]
 > * Geocoding para a frente e reverso
 > * Procurar pontos de interesse
 > * Calcular rotas e direções

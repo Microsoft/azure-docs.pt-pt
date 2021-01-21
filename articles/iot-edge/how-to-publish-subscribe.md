@@ -1,5 +1,5 @@
 ---
-title: Publicar e subscrever com a Azure IoT Edge Microsoft Docs
+title: Publique e subscreva com a Azure IoT Edge | Microsoft Docs
 description: Utilize o corretor IoT Edge MQTT para publicar e subscrever mensagens
 services: iot-edge
 keywords: ''
@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922587"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621900"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
 
@@ -251,7 +251,7 @@ Crie dois dispositivos IoT no IoT Hub e obtenha as suas palavras-passe. Utilizan
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>Autorizar clientes editores e assinantes
 
-Para autorizar o editor e o assinante, edite o hub twin IoT Edge através do código Azure CLI, Visual Studio ou Visual Studio para incluir a seguinte política de autorização:
+Para autorizar o editor e o assinante, edite o hub twin IoT Edge criando uma implementação IoT Edge através do código Azure CLI, Visual Studio ou Visual Studio para incluir a seguinte política de autorização:
 
 ```json
 {

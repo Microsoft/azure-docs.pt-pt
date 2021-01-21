@@ -17,12 +17,12 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600751"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624240"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -37,7 +37,11 @@ A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguin
     - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador.
     - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
 
-Este tópico dá-lhe uma visão geral do relatório de provisionamento.
+Este tópico dá-lhe uma visão geral dos registos de provisionamento. Fornecem respostas a questões como: 
+
+* Que grupos foram criados com sucesso no ServiceNow?
+* Que utilizadores foram removidos com sucesso da Adobe?
+* Que utilizadores do Workday foram criados com sucesso no Ative Directory? 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,14 +56,16 @@ Este tópico dá-lhe uma visão geral do relatório de provisionamento.
 
 O seu inquilino deve ter uma licença Azure AD Premium associada a ela para ver o relatório de atividades de provisionamento. Veja [como começar com o Azure Ative Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Ative Directory. 
 
-## <a name="provisioning-logs"></a>Registos de aprovisionamento
 
-Os registos de provisionamento fornecem respostas às seguintes questões:
+## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Formas de interagir com os registos de provisionamento 
+Os clientes têm quatro formas de interagir com os registos de provisionamento:
 
-* Que grupos foram criados com sucesso no ServiceNow?
-* Que utilizadores foram removidos com sucesso da Adobe?
-* Que utilizadores foram criados sem sucesso no DropBox?
+1. Aceder aos registos do portal Azure como descrito abaixo.
+1. Streaming dos registos de provisionamento no [Azure Monitor,](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)permitindo uma retenção alargada de dados, construção de dashboards personalizados, alertas e consultas.
+1. Consulta da [API do Gráfico microsoft](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os registos de provisionamento.
+1. Descarregando os registos de provisionamento como um ficheiro CSV ou json.
 
+## <a name="access-the-logs-from-the-azure-portal"></a>Aceda aos registos a partir do portal Azure
 Pode aceder aos registos de provisionamento selecionando **Registos de Provisionamento** na secção de **Monitorização** da lâmina do **Diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registos de provisionamento apareçam no portal.
 
 ![Registos de aprovisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
@@ -205,10 +211,57 @@ O **separador de resolução de problemas e recomendações** fornece o código 
 
 As **propriedades modificadas** mostram o valor antigo e o novo valor. Nos casos em que não há valor antigo, a coluna de valor antigo está em branco. 
 
-
 ### <a name="summary"></a>Resumo
 
 O **separador resumo** fornece uma visão geral do que aconteceu e identifica o objeto no sistema de origem e alvo. 
+
+## <a name="download-logs-as-csv-or-json"></a>Baixar registos como CSV ou JSON
+
+Pode descarregar os registos de provisionamento para utilização mais tarde navegando nos registos do portal Azure e clicando no download. O ficheiro será filtrado com base nos critérios de filtragem selecionados. É possível que queira tornar os filtros o mais específicos possível para reduzir o tempo que demora a descarregar e o tamanho do download. O download do CSV é dividido em três ficheiros:
+
+* ProvisioningLogs: Descarrega todos os registos, exceto as etapas de provisionamento e propriedades modificadas.
+* ProvisioningLogs_ProvisioningSteps: Contém os passos de provisionamento e a alteração do ID. O ID de alteração pode ser usado para se juntar ao evento com os outros dois ficheiros.
+* ProvisioningLogs_ModifiedProperties: Contém os atributos que foram alterados e o ID de alteração. O ID de alteração pode ser usado para se juntar ao evento com os outros dois ficheiros.
+
+#### <a name="opening-the-json-file"></a>Abertura do ficheiro JSON
+Para abrir o ficheiro Json, utilize um editor de texto como [o Microsoft Visual Studio Code](https://aka.ms/vscode). O Visual Studio Code facilita a leitura através do destaque da sintaxe. O ficheiro json também pode ser aberto usando navegadores num formato não editável, por [exemplo, Microsoft Edge](https://aka.ms/msedge) 
+
+#### <a name="prettifying-the-json-file"></a>Prettifying o ficheiro JSON
+O ficheiro JSON é descarregado em formato minificado para reduzir o tamanho do download. Isto, por sua vez, pode dificultar a leitura da carga útil. Confira duas opções para preentificar o ficheiro:
+
+1. Use código de estúdio visual para formatar o JSON
+
+Siga as instruções [aqui](https://code.visualstudio.com/docs/languages/json#_formatting) definidas para formatar o ficheiro JSON utilizando o Código do Estúdio Visual.
+
+2. Use powerShell para formatar o JSON
+
+Este script irá fazer o json num formato prettificado com separadores e espaços. 
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+#### <a name="parsing-the-json-file"></a>Analisar o ficheiro JSON
+
+Aqui estão alguns comandos de amostra para trabalhar com o ficheiro JSON usando o PowerShell. Pode utilizar qualquer linguagem de programação com a quais se sinta confortável.  
+
+Primeiro, [leia o ficheiro JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando:
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+Agora pode analisar os dados de acordo com o seu cenário. Eis alguns exemplos: 
+
+1. Produção de todos os trabalhosIDs no JsonFile
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+2. Todas as alterações de produção para eventos onde a ação foi "criar"
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
@@ -234,14 +287,14 @@ Utilize a tabela abaixo para entender melhor como resolver os erros que pode enc
 |Direitos insuficientes, MétodoNotAllowed, Não Autorizado, Não Autorizado| A Azure AD conseguiu autenticar-se com a aplicação-alvo, mas não estava autorizada a realizar a atualização. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo, bem como o respetivo [tutorial de](../saas-apps/tutorial-list.md)aplicação.|
 |Entidade Não Processável|O pedido de destino devolveu uma resposta inesperada. A configuração da aplicação-alvo pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione.|
 |WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP durante a ligação à aplicação-alvo. Não há nada a fazer. Esta tentativa será automaticamente retirada em 40 minutos.|
-|InvalidAnchor|Um utilizador que tenha sido previamente criado ou correspondido pelo serviço de fornecimento já não existe. Verifique se o utilizador existe. Para forçar uma nova correspondência de todos os utilizadores, utilize a API ms graph para reiniciar o [trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Note que o reatamento irá desencadear um ciclo inicial, que pode levar tempo a ser concluído. Elimina igualmente a cache que o serviço de fornecimento utiliza para funcionar, o que significa que todos os utilizadores e grupos do arrendatário terão de ser novamente avaliados e certos eventos de provisionamento poderão ser eliminados.|
-|Não ÉDopliizado | A aplicação-alvo devolveu uma resposta inesperada. A configuração da aplicação pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo, bem como o respetivo [tutorial de](../saas-apps/tutorial-list.md)aplicação. |
+|InvalidAnchor|Um utilizador que tenha sido previamente criado ou correspondido pelo serviço de fornecimento já não existe. Verifique se o utilizador existe. Para forçar uma nova correspondência de todos os utilizadores, utilize a API ms graph para reiniciar o [trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). O reinício do provisionamento irá desencadear um ciclo inicial, que pode levar algum tempo a ser concluído. Elimina igualmente a cache que o serviço de fornecimento utiliza para funcionar, o que significa que todos os utilizadores e grupos do arrendatário terão de ser novamente avaliados e certos eventos de provisionamento poderão ser eliminados.|
+|Não ÉDopliizado | A aplicação-alvo devolveu uma resposta inesperada. A configuração da aplicação pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo e pelo [respetivo tutorial de](../saas-apps/tutorial-list.md)aplicação. |
 |Aeródromos ObrigatóriasMissing, MissingValues |O utilizador não pôde ser criado porque faltam valores necessários. Corrija os valores de atributos em falta no registo de origem ou reveja a configuração do seu atributo correspondente para garantir que os campos necessários não sejam omitidos. [Saiba mais](../app-provisioning/customize-application-attributes.md) sobre configurar atributos correspondentes.|
 |SchemaAttributeNotFound |Não foi possível efetuar a operação porque foi especificado um atributo que não existe na aplicação-alvo. Consulte a [documentação](../app-provisioning/customize-application-attributes.md) sobre a personalização do atributo e certifique-se de que a sua configuração está correta.|
 |InternalError |Ocorreu um erro de serviço interno no serviço de fornecimento de Azure AD. Não há nada a fazer. Esta tentativa será automaticamente novamente julgada em 40 minutos.|
 |InvalidDomain |A operação não pôde ser realizada devido a um valor de atributo que continha um nome de domínio inválido. Atualize o nome de domínio no utilizador ou adicione-o à lista permitida na aplicação-alvo. |
 |Tempo Limite |A operação não pôde ser concluída porque o pedido-alvo demorou demasiado tempo a responder. Não há nada a fazer. Esta tentativa será automaticamente novamente julgada em 40 minutos.|
-|LicençaLimitExceed|O utilizador não pôde ser criado na aplicação-alvo porque não existem licenças disponíveis para este utilizador. Ou obtém licenças adicionais para a aplicação-alvo, ou revê as suas atribuições de utilizador e atribui a configuração de mapeamento para garantir que os utilizadores corretos são atribuídos com os atributos corretos.|
+|LicençaLimitExceed|O utilizador não pôde ser criado na aplicação-alvo porque não existem licenças disponíveis para este utilizador. Ou obtém mais licenças para a aplicação-alvo, ou revê as suas atribuições de utilizador e atribui a configuração de mapeamento para garantir que os utilizadores corretos são atribuídos com os atributos corretos.|
 |DuplicateTargets  |A operação não pôde ser concluída porque mais de um utilizador na aplicação-alvo foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado da aplicação-alvo ou reconfigure os mapeamentos do seu atributo como descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado ou reconfigure os mapeamentos do seu atributo como descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada utilizador é avaliado, tentamos importar o utilizador do sistema de origem. Este erro ocorre geralmente quando o utilizador que está a ser importado está a perder a propriedade correspondente definida nos mapeamentos do seu atributo. Sem um valor presente no objeto do utilizador para o atributo correspondente, não podemos avaliar alterações de scoping, correspondência ou exportação. Note-se que a presença deste erro não indica que o utilizador esteja no âmbito, uma vez que ainda não avaliámos a verificação para o utilizador.|

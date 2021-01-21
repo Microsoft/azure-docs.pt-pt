@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Consola De Administração Mimecast Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Consola De Administrador Mimecast | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Mimecast Admin Console.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 8f0274aa15d965a4e06a096c21c0fd282ec1d12a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7198d341de9de42f28aeafe0fb94273b916482f1
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522616"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621283"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Consola de Administração Mimecast
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar a Consola de Administração Mimec
 * Control em Azure AD que tem acesso à Consola de Administração Mimecast.
 * Ative os seus utilizadores a serem automaticamente inscritos na Consola de Administração Mimecast com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,24 +38,23 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Consola Mimecast Admin suporta **SP e IDP** iniciado SSO
-* Assim que configurar a Consola De Administração Mimecast pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-mimecast-admin-console-from-the-gallery"></a>Adicionar Consola De Administração Mimecast da galeria
+## <a name="add-mimecast-admin-console-from-the-gallery"></a>Adicione a Consola de Administração Mimecast da galeria
 
 Para configurar a integração da Consola Admin Mimecast em Azure AD, é necessário adicionar a Consola De Administração Mimecast da galeria à sua lista de aplicações geridas para o SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite Mimecast Admin Console** na caixa de pesquisa.
 1. Selecione **Mimecast Admin Consola** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-mimecast-admin-console"></a>Configurar e testar Azure AD único sinal para a Consola de Administração Mimecast
+## <a name="configure-and-test-azure-ad-sso-for-mimecast-admin-console"></a>Configure e teste Azure AD SSO para a Consola De Administração Mimecast
 
 Configure e teste Azure AD SSO com Mimecast Admin Console usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado na Consola de Administração Mimecast.
 
-Para configurar e testar O Azure AD SSO com a Consola De Administração Mimecast, complete os seguintes blocos de construção:
+Para configurar e testar O Azure AD SSO com a Consola De Administração Mimecast, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -70,17 +67,17 @@ Para configurar e testar O Azure AD SSO com a Consola De Administração Mimecas
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **mimecast Admin Consola,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **Mimecast Admin Console,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo IDP, execute os seguintes passos:
 
-    a. Na caixa de texto **identifier,** digite um URL utilizando o seguinte padrão:
+    a. Na caixa de texto **identifier,** digite o URL utilizando o seguinte padrão:
 
-    | Region  |  Valor | 
+    | Região  |  Valor | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | Estados Unidos da América   | `https://us-api.mimecast.com/sso/<accountcode>`|
@@ -89,11 +86,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
 
     > [!NOTE]
-    > Encontrará o `accountcode` valor na Consola de Administração **Account**Mimecast no Código  >  **de Definições de**  >  **Conta**. Anexar o `accountcode` identificador.
+    > Encontrará o `accountcode` valor na Consola de Administração Mimecast no Código  >  **de Definições de**  >  **Conta**. Anexar o `accountcode` identificador.
 
-    b. Na caixa de texto **URL de resposta,** digite um URL: 
+    b. Na caixa de texto **URL de resposta,** digite o URL: 
 
-    | Region  |  Valor | 
+    | Região  |  Valor | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Estados Unidos da América   | `https://us-api.mimecast.com/login/saml`|
@@ -103,9 +100,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Se desejar configurar a aplicação no modo iniciado pela **SP:**
 
-    Na caixa de texto **url de entrada de inscrição,** digite um URL: 
+    Na caixa de texto **URL de entrada de sinais,** digite o URL: 
 
-    | Region  |  Valor | 
+    | Região  |  Valor | 
     | --------------- | --------------- | 
     | Europa          | `https://login-eu.mimecast.com/administration/app/#/administration-dashboard`|
     | Estados Unidos da América   | `https://login-us.mimecast.com/administration/app/#/administration-dashboard`|
@@ -135,25 +132,19 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Consola de Administração Mimecast.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Mimecast Admin Console**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-mimecast-admin-console-sso"></a>Configurar a Consola Admin mimecast SSO
 
 1. Numa janela diferente do navegador web, inscreva-se na Consola de Administração Mimecast.
 
-1. Navegar **Administration**para  >  aplicações**de**  >  **serviços de administração.**
+1. Navegar para  >  aplicações **de**  >  **serviços de administração.**
 
     ![A screenshot mostra a janela Mimecast com aplicações selecionadas.](./media/mimecast-admin-console-tutorial/services.png)
 
@@ -187,7 +178,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se na Consola de Administração Mimecast.
 
-1. Navegar **Administration**para  >  **Diretórios**  >  **Internos de**Administração .
+1. Navegar para  >  **Diretórios**  >  **Internos de** Administração .
 
     ![A screenshot mostra a janela mimecast com diretórios internos selecionados.](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
@@ -205,7 +196,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a. Na caixa de texto **do Endereço de E-mail,** insira o endereço de e-mail do utilizador como `B.Simon@yourdomainname.com` .
 
-    b. Na caixa de texto **GLobal Name,** insira o **nome completo** do utilizador.
+    b. Na caixa de texto **'Nome Global',** insira o **nome completo** do utilizador.
 
     c. Nas **caixas** de texto password e **confirmar palavra-passe,** introduza a palavra-passe do utilizador.
 
@@ -219,20 +210,20 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo da Consola De Administração Mimecast no Painel de Acesso, deverá ser automaticamente inscrito na Consola de Administração Mimecast para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Sinal de Consola de Administração Mimecast no URL, onde pode iniciar o fluxo de login.  
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Vá diretamente ao URL de assinatura da consola de administração mimecast e inicie o fluxo de login a partir daí.
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na Consola de Administração Mimecast para a qual configura o SSO 
 
-- [Experimente a Consola De Administração Mimecast com Azure AD](https://aad.portal.azure.com/)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo da Consola de Admin Mimecast nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Consola de Administração Mimecast para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Passos seguintes
 
-- [Como proteger a Consola de Administração Mimecast com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
+Uma vez configurado a Consola De Administração Mimecast pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

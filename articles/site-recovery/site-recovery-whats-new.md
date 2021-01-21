@@ -2,13 +2,13 @@
 title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 3667f963eac0ebc719872db00ac069c7da70ec91
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.date: 01/20/2021
+ms.openlocfilehash: 2778f1af99512c4594d2d688eea7e04b3b81ae47
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310362"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621765"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -22,13 +22,27 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 
 **Atualizar** |  **Configuração Unificada** | **Óvulo do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Sítios** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[Rollup 53](https://support.microsoft.com/help/4602881/)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Rollup 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Rollup 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Rollup 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Rollup 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
-[Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e suporte de atualização.
+
+## <a name="updates-january-2021"></a>Atualizações (janeiro de 2021)
+
+### <a name="update-rollup-53"></a>Atualização rollup 53
+
+[O rollup de atualização 53](https://support.microsoft.com/help/4602881/update-rollup-53-for-azure-site-recovery) fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para agentes e fornecedores de Recuperação de Locais conforme detalhado no rollup.
+**Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup. 
+**Recuperação de desastres em Azure VM** | A replicação das etiquetas está agora suportada. Quaisquer tags adicionadas aos VMs, discos e NICs da região de origem são replicadas em máquinas na região alvo.<br/><br/> Os VMs Azure que executam o Debian 10 estão agora suportados para replicação.
+**VMware VM/recuperação de desastres físicos para Azure** | A atualização inclui melhorias de registo para a replicação de VMware VM para Azure e mensagens de erro melhoradas.<br/><br/> VMware VMs e máquinas físicas em execução Debian 10 são agora suportados para replicação.
 
 
 ## <a name="updates-november-2020"></a>Atualizações (novembro 2020)
@@ -606,6 +620,6 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Mantenha-se atualizado com as nossas atualizações na página [Azure Updates.](https://azure.microsoft.com/updates/?product=site-recovery)

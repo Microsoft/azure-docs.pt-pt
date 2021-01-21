@@ -1,5 +1,5 @@
 ---
-title: Controle um dispositivo a partir de Azure IoT Hub quickstart (Android) Microsoft Docs
+title: Quickstart - Controle um dispositivo a partir do Azure IoT Hub quickstart (Android) | Microsoft Docs
 description: Neste guia de início rápido, irá executar duas aplicações Java de exemplo. Uma aplicação é uma aplicação de serviço que pode controlar remotamente dispositivos ligados ao seu hub. A outra aplicação funciona num dispositivo físico ou simulado ligado ao seu hub que pode ser controlado remotamente.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 969ae6dc1e3667bc360890c292371a0a9b1ba2dc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 345b82d8120be52066ce6f834b7f2338b6c3bfd0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844596"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623303"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Quickstart: Controle um dispositivo ligado a um hub IoT (Android)
 
@@ -73,7 +73,7 @@ Se tiver completado o [Quickstart anterior: Enviar telemetria de um dispositivo 
    **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show\
       --hub-name {YourIoTHubName} \
       --device-id MyAndroidDevice \
       --output table
@@ -123,7 +123,7 @@ A aplicação de amostra SDK do dispositivo pode ser executada num dispositivo A
    > * As versões do plugin Android Gradle e Gradle referenciadas no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para fazer referência e instalar as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e descarregar o SDK.
 
-4. Uma vez concluída a **Run** construção, clique em  >  **'app'** Run Run . Configurar a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
+4. Uma vez concluída a construção, clique em  >  **'app'** Run Run . Configurar a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
 
 5. Uma vez que a aplicação carrega, clique no botão **Iniciar** para começar a enviar telemetria para o seu IoT Hub:
 
@@ -133,7 +133,7 @@ Esta aplicação precisa de ser deixada em execução num dispositivo físico ou
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
-Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para monitorizar as mensagens que são enviadas pelo dispositivo Android.
+Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para monitorizar as mensagens que são enviadas pelo dispositivo Android.
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 
@@ -174,7 +174,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
    > * As versões do plugin Android Gradle e Gradle referenciadas no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para fazer referência e instalar as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e descarregar o SDK.
 
-4. Uma vez concluída a **Run** construção, clique em  >  **'app'** Run Run . Configure a aplicação para executar em um dispositivo Físico Android separado ou um emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
+4. Uma vez concluída a construção, clique em  >  **'app'** Run Run . Configure a aplicação para executar em um dispositivo Físico Android separado ou um emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
 
 5. Uma vez carregada a aplicação, atualize o valor **de intervalo de mensagens definida** para **1000** e clique em **Invocar**.
 

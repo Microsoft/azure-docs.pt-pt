@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539565"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621219"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -282,7 +282,7 @@ Quando estiver a utilizar o comando CLI:
 
 Gerencie os seus certificados com os seguintes comandos:
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Gerar uma nova chave privada e pedido de assinatura de certificado | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | Gerar um certificado autoassinado | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -292,7 +292,7 @@ Gerencie os seus certificados com os seguintes comandos:
 
 Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave Privada, utilize estes comandos;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Consulte um pedido de assinatura de certificado (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
 | Verifique uma chave privada | `openssl rsa -in privateKey.key -check` |
@@ -300,13 +300,13 @@ Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave
 
 Se receber um erro que a tecla privada não corresponda ao certificado, ou que não seja confiável um certificado que instalou num site, utilize estes comandos para corrigir o erro;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Verifique um hash MD5 da chave pública para garantir que corresponde ao que está numa rse ou chave privada | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 Para converter certificados e chaves em diferentes formatos para torná-los compatíveis com tipos específicos de servidores, ou software, utilize estes comandos;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Converter um ficheiro DER (.crt .cer .der) para PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | Converter um ficheiro PEM para DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -315,7 +315,7 @@ Para converter certificados e chaves em diferentes formatos para torná-los comp
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Ligue um sensor à consola de gestão
 
-Esta secção descreve como garantir a ligação entre o sensor e a consola de gestão no local. Faça isto se estiver a trabalhar numa rede de falhas aéreas e quiser enviar informações de ativos e alerta para a consola de gestão a partir do sensor. Esta ligação também permite que a consola de gestão empurre as definições do sistema para o sensor e execute outras tarefas de gestão no sensor.
+Esta secção descreve como garantir a ligação entre o sensor e a consola de gestão no local. Tem de o fazer se estiver a trabalhar numa rede com lacunas de ar e quiser enviar informações de dispositivo e alerta para a consola de gestão a partir do sensor. Esta ligação também permite que a consola de gestão empurre as definições do sistema para o sensor e execute outras tarefas de gestão no sensor.
 
 Para ligar:
 

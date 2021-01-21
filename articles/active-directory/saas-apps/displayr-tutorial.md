@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Displayr Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Displayr | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Displayr.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 13edc0280f1a6f7e962e8e4593d8a17990dd9e6f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454750"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622495"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutorial: Integrar o Displayr com o Azure Ative Directory
 
@@ -78,6 +78,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<YOURDOMAIN>.displayr.com`
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`<YOURDOMAIN>.displayr.com`
+    
+    c. Na caixa de texto **URL de resposta,** escreva `https://app.displayr.com/Login/ProcessSamlResponse` .
+    
+    d. Clique em **Guardar**.
 
     >[!NOTE]
     >Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente do Displayr](mailto:support@displayr.com) para obter estes valores. Também pode consultar os padrões indicados na secção de Configuração BÁSICA SAML no portal Azure.
@@ -88,25 +92,23 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação do Displayr espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![Screenshot que mostra a secção "Atributos do Utilizador" com o ícone "Editar" em destaque.](common/edit-attribute.png)
+   ![Screenshot que mostra a secção "Atributos do Utilizador" com o ícone "Editar" em destaque.](common/edit-attribute.png)
 
 1. Além de acima, a aplicação Do Displayr espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
-    a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
+   a. Clique **em Adicionar uma reivindicação de grupo**.
 
-    ![Screenshot que mostra a secção "Atributos do Utilizador & Reclamações" com o ícone "Pen" ao lado de "Grupos devolvidos em reclamação" selecionados.](./media/displayr-tutorial/config04.png)
+      ![Screenshot que mostra a janela "Group Claims (Preview) com definições selecionadas.](./media/displayr-tutorial/config05.png)
 
-    ![Screenshot que mostra a janela "Group Claims (Preview) com definições selecionadas.](./media/displayr-tutorial/config05.png)
+   b. Selecione **Todos os Grupos** da lista de rádio.
 
-    b. Selecione **Todos os Grupos** da lista de rádio.
+   c. Selecione **Atributo de Origem** do **ID do Grupo**.
 
-    c. Selecione **Atributo de Origem** do **ID do Grupo**.
+   d. Verifique **personalizar o nome da reclamação do grupo**.
 
-    d. Verifique **personalizar o nome da reclamação do grupo**.
+   e. Verifique **os grupos Emit como reivindicações de funções**.
 
-    e. Verifique **os grupos Emit como reivindicações de funções**.
-
-    f. Clique em **Guardar**.
+   f. Clique em **Guardar**.
 
 1. Na secção **'Set-up Displayr',** copie os URL(s) apropriados com base no seu requisito.
 
@@ -166,7 +168,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao Displayr.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Displayr**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -204,7 +206,7 @@ Para ativar os utilizadores Azure AD, inscreva-se no Displayr, devem ser adustad
 
     b. Na caixa de texto **por e-mail,** insira o e-mail do utilizador como `Brittasimon@contoso.com` .
 
-    c. Selecione a **sua adesão**ao Grupo apropriada .
+    c. Selecione a **sua adesão** ao Grupo apropriada .
 
     d. Clique em **Guardar**.
 

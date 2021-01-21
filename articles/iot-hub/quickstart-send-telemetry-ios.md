@@ -1,6 +1,6 @@
 ---
-title: Envie telemetria para a Azure IoT Hub quickstart (iOS)
-description: Executar uma aplicação de iOS de amostra para enviar telemetria simulada para um hub IoT e para ler telemetria a partir do hub IoT para processamento na nuvem.
+title: Quickstart - Enviar telemetria para Azure IoT Hub quickstart (iOS)
+description: Neste início rápido, vai executar uma aplicação iOS de exemplo para enviar telemetria simulada para um hub do IoT e ler telemetria do mesmo, para processamento na cloud.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 ms.date: 04/03/2019
-ms.openlocfilehash: 6699015a3c8939f012eb837da3d8b0c3d49527d5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4af985d93c5b02ab20df97abd5fa0371edf889f5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121493"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624257"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT (iOS)
 
@@ -135,7 +135,7 @@ A captura de ecrã abaixo mostra o tipo de telemetria que vai ver na janela de t
 
 ![Ver telemetria](media/quickstart-send-telemetry-ios/view-telemetry.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

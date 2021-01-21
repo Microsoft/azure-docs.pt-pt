@@ -4,16 +4,16 @@ description: Tutorial mostrando como usar enriquecimentos de mensagens para mens
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436713"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624060"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens Azure IoT Hub
 
@@ -62,7 +62,7 @@ Além de criar os recursos necessários, o script Azure CLI configura também as
 > Todas as mensagens são encaminhadas para ambos os pontos finais, mas apenas as mensagens que vão para o ponto final com enriquecimentos de mensagens configuradas serão enriquecidas.
 >
 
-Pode utilizar o script que se segue ou pode abrir o script na pasta /recursos do repositório descarregado. O script realiza os seguintes passos:
+Pode utilizar o script que se segue ou pode abrir o script na pasta /recursos do repositório descarregado. O script realiza os passos seguintes:
 
 * Criar um hub IoT.
 * Criar uma conta de armazenamento.
@@ -77,7 +77,7 @@ Se ainda não o fez, abra uma janela Azure [Cloud Shell](https://shell.azure.com
 
 Aqui estão os recursos criados pelo guião. *Enriquecido* significa que o recurso é para mensagens com enriquecimentos. *Original* significa que o recurso é para mensagens que não são enriquecidas.
 
-| Name | Valor |
+| Nome | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do recipiente | Original  |
@@ -279,7 +279,7 @@ Neste momento, os recursos estão todos preparados e o encaminhamento de mensage
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Criar e configurar usando um modelo de Gestor de Recursos
 Pode utilizar um modelo de Gestor de Recursos para criar e configurar os recursos, encaminhamento de mensagens e enriquecimentos de mensagens.
 
-1. Inicie sessão no portal do Azure. Selecione **+ Criar um recurso** para criar uma caixa de pesquisa. Introduza *a implementação do modelo* e procure-o. No painel de resultados, selecione a **implementação do modelo (implementar utilizando o modelo personalizado)**.
+1. Inicie sessão no Portal do Azure. Selecione **+ Criar um recurso** para criar uma caixa de pesquisa. Introduza *a implementação do modelo* e procure-o. No painel de resultados, selecione a **implementação do modelo (implementar utilizando o modelo personalizado)**.
 
    ![Implantação do modelo no portal Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -297,7 +297,7 @@ Pode utilizar um modelo de Gestor de Recursos para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Enriquecido** significa que o recurso é para mensagens com enriquecimentos. **Original** significa que o recurso é para mensagens que não são enriquecidas. Estes são os mesmos valores utilizados no script Azure CLI.
 
-   | Name | Valor |
+   | Nome | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do recipiente | Original  |
@@ -386,7 +386,7 @@ Para remover todos os recursos que criou neste tutorial, elimine o grupo de recu
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Use o CLI Azure para limpar recursos
 
-Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). Lembre-se que `$resourceGroup` foi definido para **ContosoResourcesMsgEn** no início deste tutorial.
+Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Lembre-se que `$resourceGroup` foi definido para **ContosoResourcesMsgEn** no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -397,6 +397,7 @@ az group delete --name $resourceGroup
 Neste tutorial, configura e testou a adição de enriquecimentos de mensagens às mensagens IoT Hub utilizando os seguintes passos:
 
 **Use enriquecimentos de mensagens IoT Hub**
+
 > [!div class="checklist"]
 > * Primeiro método: Criar recursos e configurar o encaminhamento de mensagens utilizando o Azure CLI. Configure manualmente os enriquecimentos de mensagens utilizando o [portal Azure](https://portal.azure.com).
 > * Segundo método: Criar recursos e configurar o encaminhamento de mensagens e enriquecimentos de mensagens utilizando um modelo de Gestor de Recursos Azure.
@@ -407,5 +408,8 @@ Para mais informações sobre enriquecimento de mensagens, consulte [a visão ge
 
 Para obter mais informações sobre o encaminhamento de mensagens, consulte estes artigos:
 
-* [Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais](iot-hub-devguide-messages-d2c.md)
-* [Tutorial: Encaminhamento IoT Hub](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Encaminhamento IoT Hub](tutorial-routing.md)

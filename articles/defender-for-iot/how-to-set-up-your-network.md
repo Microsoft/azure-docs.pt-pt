@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573144"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621317"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre o Azure Defender para a configuração da rede IoT
 
@@ -94,35 +94,36 @@ Os seguintes navegadores são suportados para os sensores e aplicações web de 
 
 Verifique se a sua política de segurança organizacional permite o acesso ao seguinte:
 
-| **Objetivo** | **Protocolo** | **Transporte** | **Dentro ou fora** | **Porta** | **Categoria** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Acesso à consola web** | HTTPS | TCP | Dentro ou fora | 443 | Consola de gestão no local para o Defender para plataforma IoT |
-| **Acesso ao CLI** | SSH | TCP | Dentro ou fora | 22 | CLI |
-| **Ligação entre o Defender para plataforma IoT e a consola de gestão no local** | SSL | TCP | Dentro ou fora | 443 | Consola de gestão de sensores e no local|
-| **Consola de gestão no local utilizada como NTP para o sensor** | NTP | UDP| Dentro para CM | 123 | Sincronização da hora | 
-| **Sensor ligado ao servidor NTP externo (se relevante)** | NTP | UDP | Dentro ou fora| 123 | Sincronização da hora |
-| **Ligação entre o Defender para plataforma ioT e plataforma de gestão e o servidor de correio (se relevante)** | SMTP | TCP | Fora da gestão de sensores | 25 | E-mail |
-| **Registos que enviam da consola de gestão no local para o servidor Syslog (se relevante)** | Syslog | UDP | Fora da gestão de sensores| 514 | LEEF |
-| **Porta de servidor DNS (se relevante)** | DNS | N/D | Dentro ou fora| 53 | DNS |
-| **Ligação entre o Defender para plataforma IoT e a consola de gestão no local ao Ative Directory (se for caso disso)** | LDAPS | TCP | Dentro ou fora | 636 <br />389 | Active Directory |
-| **Coletores remotos do SNMP (se relevantes)** | SNMP | UDP | Fora da gestão de sensores| 161 | Monitorização |
-| **Monitorização do ponto final do Windows (se for caso disso)** | WMI | UDP | Fora da gestão de sensores| 135 | Monitorização |
-| **Monitorização do ponto final do Windows (se for caso disso)** | WMI | TCP | Fora da gestão de sensores| 1024 e acima | Monitorização |
-| **Túneis (se for caso disso)** | Túnel | TCP | IN a CM | 9000<br />além do porto 443<br />Do utilizador final à consola de gestão no local <br />Porta 22 do sensor para a consola de gestão no local | Monitorização |
-| **Saída para o Defender para o hub IoT** | HTTPS | TCP | Fora da gestão de sensores| **URL**<br />*.azure-devices.net:443<br />ou se os wildcards não são suportados<br />{o nome do hub IoT}.azure-devices.net:443 |
+| Protocolo | Transporte | Entrada/saída | Porta | Utilizada | Objetivo | Origem | Destino |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | ENTRAR/SAIR | 443 | Consola Web de consola de gestão de sensores e instalações | Acesso à consola Web | Cliente | Consola de gestão de sensores e no local |
+| SSH | TCP | ENTRAR/SAIR | 22 | CLI | Acesso ao CLI | Cliente | Consola de gestão de sensores e no local |
+| SSL | TCP | ENTRAR/SAIR | 443 | Consola de gestão de sensores e no local | Ligação entre a plataforma CyberX e a plataforma de Gestão Central | sensor | Consola de gestão no local |
+| NTP | UDP | IN | 123 | Sincronização de tempo | Utilização da consola de gestão no local como NTP para sensor | sensor | consola de gestão no local |
+| NTP | UDP | ENTRAR/SAIR | 123 | Sincronização de tempo | Sensor ligado ao servidor NTP externo, quando não existe uma consola de gestão no local instalada | sensor | NTP |
+| SMTP | TCP | FORA | 25 | E-mail | A ligação entre a plataforma CyberX e a plataforma Management e o servidor de correio | Consola de gestão de sensores e instalações | Servidor de e-mail |
+| Syslog | UDP | FORA | 514 | LEEF | Registos que enviam da consola de gestão no local para o servidor Syslog | Consola de gestão no local e sensor | Syslog server |
+| DNS |  | ENTRAR/SAIR | 53 | DNS | Porta de servidor DNS | Consola de gestão no local e sensor | Servidor DNS |
+| LDAP | TCP | ENTRAR/SAIR | 389 | Active Directory | A ligação entre a plataforma CyberX e a plataforma de Gestão ao Ative Directory | Consola de gestão no local e sensor | Servidor LDAP |
+| LDAPS | TCP | ENTRAR/SAIR | 636 | Active Directory | A ligação entre a plataforma CyberX e a plataforma de Gestão ao Ative Directory | Consola de gestão no local e sensor | Servidor LDAPS |
+| SNMP | UDP | FORA | 161 | Monitorização | Colecionadores remotos do SNMP. | Consola de gestão no local e sensor | Servidor SNMP |
+| WMI | UDP | FORA | 135 | monitorização | Monitorização do ponto final do Windows | Sensor | Elemento de rede relevante |
+| Túnel | TCP | IN | 9000 <br /><br />- em cima do porto 443 <br /><br />Do utilizador final à consola de gestão no local. <br /><br />- Porta 22 do sensor para a consola de gestão no local  | monitorização | Túnel | Sensor | Consola de gestão no local |
 
 ### <a name="planning-rack-installation"></a>Instalação de cremalheira de planeamento
 
 Para planear a sua instalação de cremalheira:
 
 1. Prepare um monitor e um teclado para as definições da rede do seu aparelho.
-2. Aloque o espaço da cremalheira para o aparelho.
-3. Tenha a alimentação cacács disponível para o aparelho.
-4. Prepare o cabo LAN para ligar a gestão ao interruptor de rede.
-5. Prepare os cabos LAN para ligar as portas DO interruptor SPAN (espelho) e ou as torneiras de rede ao Defender para aparelho IoT. 
-6. Configure, conecte e valide as portas SPAN nos interruptores espelhados, conforme descrito na sessão de revisão da arquitetura.
-7. Ligue a porta SPAN configurada a um computador que executa o Wireshark e verifique se a porta está configurada corretamente.
-8. Abra todas as portas de firewall relevantes.
+
+1. Aloque o espaço da cremalheira para o aparelho.
+
+1. Tenha a alimentação cacács disponível para o aparelho.
+1. Prepare o cabo LAN para ligar a gestão ao interruptor de rede.
+1. Prepare os cabos LAN para ligar as portas DO interruptor SPAN (espelho) e ou as torneiras de rede ao Defender para aparelho IoT. 
+1. Configure, conecte e valide as portas SPAN nos interruptores espelhados, conforme descrito na sessão de revisão da arquitetura.
+1. Ligue a porta SPAN configurada a um computador que executa o Wireshark e verifique se a porta está configurada corretamente.
+1. Abra todas as portas de firewall relevantes.
 
 ## <a name="about-passive-network-monitoring"></a>Sobre monitorização passiva da rede
 
@@ -141,6 +142,7 @@ As seguintes secções descrevem os níveis de Purdue.
 O nível 0 consiste numa grande variedade de sensores, actuadores e dispositivos envolvidos no processo básico de fabrico. Estes dispositivos desempenham as funções básicas do sistema de automação e controlo industrial, tais como:
 
 - Dirigindo um motor.
+
 - Medindo variáveis.
 - Definindo uma saída.
 - Desempenhando funções-chave, tais como pintura, soldadura e dobragem.
@@ -227,7 +229,7 @@ Aqui estão algumas recomendações para a implementação de vários sensores:
 |--|--|--|--|
 | A distância máxima entre os interruptores | 80 metros | Cabo Ethernet preparado | Mais de 1 |
 | Número de redes OT | Mais de 1 | Sem conectividade física | Mais de 1 |
-| Número de interruptores | Pode usar a configuração RSPAN | Até 8 interruptores com extensão local perto do sensor por distância de cablagem | Mais de 1 |
+| Número de interruptores | Pode usar a configuração RSPAN | Até oito interruptores com extensão local perto do sensor por distância de cablagem | Mais de 1 |
 
 #### <a name="traffic-mirroring"></a>Espelhamento de tráfego  
 
@@ -353,7 +355,7 @@ RSPAN: Baseado no catalisador Cisco 2960 (24 portas).
 
 O ponto de acesso ao terminal (TAP) é um dispositivo de hardware que permite que o tráfego de rede flua da porta A para a porta B, e da porta B para a porta A, sem interrupção. Cria uma cópia exata de ambos os lados do fluxo de tráfego, continuamente, sem comprometer a integridade da rede. Alguns TAPs agregam transmitir e receber tráfego utilizando as definições do interruptor, se desejar. Se a agregação não for suportada, cada TAP utiliza duas portas sensoriais para monitorizar o envio e receber o tráfego.
 
-Os TAPs são vantajosos por uma variedade de razões. São baseados em hardware e não podem ser comprometidos. Passam por todo o tráfego, até mensagens danificadas, que os interruptores muitas vezes baixam. Não são sensíveis ao processador, por isso o tempo de envio é exato onde os interruptores manuseiam a função de espelho como uma tarefa de baixa prioridade que pode afetar o tempo dos pacotes espelhados. Para fins forenses, uma TAP é o melhor dispositivo.
+Os TAPs são vantajosos por várias razões. São baseados em hardware e não podem ser comprometidos. Passam por todo o tráfego, até mensagens danificadas, que os interruptores muitas vezes baixam. Não são sensíveis ao processador, por isso o tempo de envio é exato onde os interruptores manuseiam a função de espelho como uma tarefa de baixa prioridade que pode afetar o tempo dos pacotes espelhados. Para fins forenses, uma TAP é o melhor dispositivo.
 
 Os agregadores de TAP também podem ser utilizados para monitorização portuária. Estes dispositivos são baseados em processadores e não são tão intrinsecamente seguros como OS TAPs de hardware. Podem não refletir o timing exato do pacote.
 
@@ -364,10 +366,10 @@ Os agregadores de TAP também podem ser utilizados para monitorização portuár
 Estes modelos foram testados para compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
 | Imagem | Modelação |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Imagem de Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot de IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot da USR USR 4503 da USR.":::  | USSID 4503 robótica dos EUA  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Imagem de Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot da USR USR 4503 da USR."::: | USSID 4503 robótica dos EUA |
 
 ##### <a name="special-tap-configuration"></a>Configuração especial da TAP
 
@@ -425,7 +427,7 @@ Informações relevantes:
 
 - Se o dispositivo Defender for IoT estiver ligado a esse interruptor, existe espaço de cremalheira físico disponível nesse armário?
 
-#### <a name="additional-considerations"></a>Considerações adicionais
+#### <a name="other-considerations"></a>Outras considerações
 
 O objetivo do dispositivo Defender para o aparelho IoT é monitorizar o tráfego das camadas 1 e 2.
 
@@ -547,7 +549,7 @@ Reveja esta lista antes da implementação do site:
 | 14 | Grelhar e cabo dos aparelhos. | ☐ |  |
 | 15 | Alocar recursos do site para apoiar a implantação. | ☐ |  |
 | 16 | Crie grupos de Diretório Ativo ou utilizadores locais. | ☐ |  |
-| 17 | Configurar formação (autoaprendizagem). | ☐ |  |
+| 17 | Formação de configuração (autoaprendizagem). | ☐ |  |
 | 18 | Vai ou não. | ☐ |  |
 | 19 | Agende a data de implantação. | ☐ |  |
 
@@ -671,7 +673,7 @@ Forneça detalhes de endereço para o sensor NIC que será conectado na rede cor
 | Chave secreta | |
 | Cadeia comunitária SNMP v2 |
 
-### <a name="cm-ssl-certificate"></a>Certificado CM SSL
+### <a name="on-premises-management-console-ssl-certificate"></a>Certificado SSL de consola de gestão no local
 
 Está a planear usar um certificado SSL? Sim ou Não
 

@@ -4,12 +4,12 @@ description: Este artigo explica como adiar a entrega de mensagens Azure Service
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511284"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622050"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
 
@@ -26,7 +26,7 @@ Em última análise, os auxiliares de diferimento na reordenação das mensagens
 
 ## <a name="message-deferral-apis"></a>APIs de diferimento de mensagem
 
-A API é [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) ou [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) no cliente .NET Framework, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) no cliente .NET Standard, e [IMessageReceiver.defereiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) no cliente Java. [IMessageReceiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) 
+A API é [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) ou [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) no cliente .NET Framework, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) no cliente .NET Standard, e [IMessageReceiver.defereiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer) no cliente Java. [](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync) 
 
 As mensagens diferidas permanecem na fila principal juntamente com todas as outras mensagens ativas (ao contrário de mensagens de letra morta que vivem num subqueue), mas já não podem ser recebidas usando as funções regulares de Receber/Receber. As mensagens diferidas podem ser descobertas através da [navegação por mensagens](message-browsing.md) se uma aplicação perder o controlo das mesmos.
 

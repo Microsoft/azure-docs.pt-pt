@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com PagerDuty Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com PagerDuty | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o PagerDuty.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: ec3bcda7953d3b5cb1cb1dae1feebe1da4a9fb04
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 57c6057e2515a497faa5731a20ce84e6fc9d1185
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513386"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624223"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Tutorial: Azure Ative Directory integração única (SSO) com PagerDuty
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar PagerDuty com Azure Ative Director
 * Controle em Azure AD que tem acesso ao PagerDuty.
 * Ativar os seus utilizadores a serem automaticamente inscritos no PagerDuty com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,13 +41,12 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * PagerDuty suporta **SSO** iniciado SP
-* Uma vez configurado PagerDuty, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-pagerduty-from-the-gallery"></a>Adicionar PagerDuty da galeria
+## <a name="add-pagerduty-from-the-gallery"></a>Adicione PagerDuty da galeria
 
 Para configurar a integração do PagerDuty no AD Azure, é necessário adicionar PagerDuty da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -73,9 +70,9 @@ Para configurar e testar o Azure AD SSO com pagerDuty, complete os seguintes blo
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **PagerDuty,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **PagerDuty,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,16 +111,10 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao PagerDuty.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **PagerDuty**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
@@ -181,27 +172,21 @@ Para permitir que os utilizadores de Azure AD assinem no PagerDuty, devem ser at
    
     b. Insira o endereço de **e-mail** do utilizador como **b.simon \@ contoso.com**.
    
-    c. Clique **em Adicionar**e, em seguida, clique em Enviar **Convites.**
+    c. Clique **em Adicionar** e, em seguida, clique em Enviar **Convites.**
    
     > [!NOTE]
     > Todos os utilizadores adicionados receberão um convite para criar uma conta PagerDuty.
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo PagerDuty no Painel de Acesso, deverá ser automaticamente inscrito no PagerDuty para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de assinatura pagerDuty, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Vá diretamente ao URL de login do PagerDuty e inicie o fluxo de login a partir daí.
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo PagerDuty nas Minhas Apps, este irá redirecionar para o URL de assinatura pagerDuty. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente PagerDuty com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger pagerDuty com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
+Uma vez configurado PagerDuty pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

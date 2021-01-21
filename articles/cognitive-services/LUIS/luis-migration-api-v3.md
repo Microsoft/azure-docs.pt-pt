@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018791"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624308"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final de previsão para V3
 
@@ -66,9 +66,6 @@ Esta API não é suportada no ponto final de previsão V3 - continue a utilizar 
 
 Continue a utilizar o ponto final de previsão da API V2 até que o V4.7 do Quadro Bot seja libertado.
 
-## <a name="v2-api-deprecation"></a>V2 API Deprecação
-
-A previsão V2 API não será depreciada durante pelo menos 9 meses após a pré-visualização da V3, 8 de junho de 2020.
 
 ## <a name="endpoint-url-changes"></a>Alterações de URL de ponto final
 
@@ -105,8 +102,8 @@ Se quiser consultar por versão, primeiro tem de [publicar via API](https://west
 
 |Propriedade|Tipo|Versão|Predefinição|Objetivo|
 |--|--|--|--|--|
-|`dynamicLists`|matriz|Apenas V3|Não é necessário.|[As listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem-lhe alargar uma entidade de listas treinada e publicada existente, já na app LUIS.|
-|`externalEntities`|matriz|Apenas V3|Não é necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão à sua app LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usadas como funcionalidades para as entidades existentes. |
+|`dynamicLists`|matriz|Apenas V3|Não necessárias.|[As listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem-lhe alargar uma entidade de listas treinada e publicada existente, já na app LUIS.|
+|`externalEntities`|matriz|Apenas V3|Não necessárias.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão à sua app LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usadas como funcionalidades para as entidades existentes. |
 |`options.datetimeReference`|string|Apenas V3|Sem incumprimento|Utilizado para determinar a [compensação do tempo de dataV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para a datatimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Apenas V3|false|Especifica se a entidade externa do utilizador [(com o mesmo nome que a entidade existente)](schema-change-prediction-runtime.md#override-existing-model-predictions) é utilizada ou se a entidade existente no modelo é utilizada para previsão. |
 |`query`|string|Apenas V3|Obrigatório.|**Em V2,** a expressão a prever está no `q` parâmetro. <br><br>**Em V3,** a funcionalidade é passada no `query` parâmetro.|
@@ -268,10 +265,7 @@ Na V3, o mesmo resultado com a `verbose` bandeira para devolver metadados da ent
 
 Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender a app no tempo de previsão.
 
-## <a name="deprecation"></a>Preterição
 
-A API V2 não será depreciada durante pelo menos 9 meses após a pré-visualização do V3.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize a documentação V3 API para atualizar as chamadas REST existentes para ASP do [ponto final](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) da LUIS.

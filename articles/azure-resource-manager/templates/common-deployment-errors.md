@@ -3,13 +3,13 @@ title: Resolver erros de implementação comuns
 description: Descreve como resolver erros comuns quando implementa recursos para o Azure usando o Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 09/09/2020
-ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/20/2021
+ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185832"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622816"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -25,7 +25,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ContaPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [armazenamento Contas](/azure/templates/microsoft.storage/storageaccounts) |
 | AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md) [provisionamento e atribuição de](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) falhas na atribuição de janelas e [resolução de problemas](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | Outra OperaçãoInProgress | Aguarde que a operação simultânea esteja concluída. | |
-| Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
+| Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
 | BadRequest | Enviaste valores de implantação que não correspondem ao esperado pelo Gestor de Recursos. Verifique a mensagem de estado interior para obter ajuda com a resolução de problemas. | [Referência do modelo](/azure/templates/) e [locais suportados](resource-location.md) |
 | Conflito | Está a pedir uma operação que não é permitida no estado atual dos recursos. Por exemplo, o redimensionamento do disco só é permitido quando se cria um VM ou quando o VM é transacionado. | |
 | ImplementaçãoActiveAndUneditable | Aguarde a implementação simultânea deste grupo de recursos para completar. | |
@@ -34,7 +34,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ImplementaçãoNameLengthLimitExceed | Os nomes de implantação estão limitados a 64 caracteres.  | |
 | ImplantaçãoFailed | O erro de Implementação É um erro geral que não fornece os detalhes necessários para resolver o erro. Procure nos detalhes de erro um código de erro que forneça mais informações. | [Encontrar código de erro](#find-error-code) |
 | DeploymentQuotaExceeded | Se atingir o limite de 800 implementações por grupo de recursos, elimine as implementações do histórico que já não são necessárias. | [Resolver erro quando a contagem de implementação excede 800](deployment-quota-exceeded.md) |
-| ImplementaçãoSizeExceed | Simplifique o seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
+| ImplementaçãoJobSizeExceed | Simplifique o seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | DnsRecordInUse | O nome do registo do DNS deve ser único. Insira um nome diferente. | |
 | ImagemNotFound | Verifique as definições de imagem em VM. |  |
 | InUseSubnetCannotBedeleted | Pode obter este erro ao tentar atualizar um recurso, e o pedido é processado eliminando e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |

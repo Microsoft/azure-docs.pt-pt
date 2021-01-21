@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Coupa Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com coupa | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Coupa.
 services: active-directory
 author: jeevansd
@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 01/14/2021
 ms.author: jeedes
-ms.openlocfilehash: c6d102f4d9a67f58469242cb44d2c6466782f006
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674186"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Diretório Ativo Azure com Coupa
 
-Neste tutorial, aprende-se a integrar Coupa com o Azure Ative Directory (Azure AD).
-A integração de Coupa com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar Coupa com Azure Ative Directory (Azure AD). Quando integrar coupa com Azure AD, você pode:
 
-* Podes controlar em Azure AD que tem acesso a Coupa.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Coupa (Sign-on único) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Controlo em Azure AD que tem acesso a Coupa.
+* Ative os seus utilizadores a serem automaticamente inscritos na Coupa com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração AZure AD com Coupa, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura ativada por coupa única
+* Coupa assinatura única ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -43,70 +39,48 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Coupa apoia **SP** iniciado SSO
 
-## <a name="adding-coupa-from-the-gallery"></a>Adicionando Coupa da galeria
+## <a name="add-coupa-from-the-gallery"></a>Adicione Coupa da galeria
 
 Para configurar a integração de Coupa em Azure AD, você precisa adicionar Coupa da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar Coupa da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar da secção **da galeria,** **digite Coupa** na caixa de pesquisa.
+1. Selecione **Coupa** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso-for-coupa"></a>Configurar e testar Azure AD SSO para Coupa
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com Coupa usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Coupa.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar a Azure AD SSO com Coupa, execute os seguintes passos:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure coupa SSO](#configure-coupa-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create Coupa test user](#create-coupa-test-user)** - para ter uma contraparte de B.Simon inCoupa que está ligada à representação AD AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, **digite Coupa,** **selecione Coupa** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+1. No portal Azure, na página de integração da aplicação **Coupa,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-    ![Coupa na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, você configura e testa Azure AD single sign-on com Coupa com base em um utilizador de teste chamado **Britta Simon**.
-Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Coupa.
-
-Para configurar e testar o Azure AD com coupa, você precisa completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure coupa single sign-on](#configure-coupa-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Coupa test user](#create-coupa-test-user)** - para ter uma contraparte de Britta Simon em Coupa que está ligada à representação AD AD do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD com coupa, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Coupa,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
-
-    ![Coupa Domain e URLs informações únicas de assinatura](common/sp-identifier-reply.png)
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
     > O valor url de inscrição não é real. Atualize este valor com o URL Sign-On real. Contacte [a equipa de apoio ao Cliente Coupa](https://success.coupa.com/Support/Contact_Us?) para obter este valor.
 
-    b. Na caixa **identifier,** digite um URL:
+    b. Na caixa **identifier,** digite o URL:
 
     | Ambiente  | URL |
     |:-------------|----|
@@ -114,7 +88,7 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
     | Produção | `sso-prd1.coupahost.com`|
     | | |
 
-    c. Na caixa de texto **URL de resposta,** digite um URL:
+    c. Na caixa de texto **URL de resposta,** digite o URL:
 
     | Ambiente | URL |
     |------------- |----|
@@ -130,13 +104,31 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    b. Identificador Azure Ad
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
-### <a name="configure-coupa-single-sign-on"></a>Configurar coupa single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Coupa.
+
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, **selecione Coupa**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+### <a name="configure-coupa-sso"></a>Configure Coupa SSO
 
 1. Inscreva-se no site da sua empresa Coupa como administrador.
 
@@ -153,57 +145,6 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
     b. Clique **em Procurar** para carregar os metadados descarregados a partir do portal Azure.
 
     c. Clique em **Guardar**.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-
-    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Coupa.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Coupa**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de candidaturas, **selecione Coupa**.
-
-    ![O link Coupa na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
 ### <a name="create-coupa-test-user"></a>Criar utilizador de teste coupa
 
@@ -238,16 +179,16 @@ Para permitir que os utilizadores da Azure AD acedam a Coupa, devem ser a provis
 >[!NOTE]
 >Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador Coupa ou APIs fornecidas pela Coupa para fornecer contas de utilizador Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo coupa no Painel de Acesso, deverá ser automaticamente inscrito no Coupa para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para coupa Url de entrada de assinatura, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Vá diretamente ao URL de assinatura coupa e inicie o fluxo de login a partir daí.
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo coupa nas Minhas Apps, deverá ser automaticamente inscrito no Coupa para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado Coupa, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)

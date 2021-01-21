@@ -1,15 +1,15 @@
 ---
-title: .NET Guia de programação - Azure Event Hubs (legado) / Microsoft Docs
+title: .NET Guia de programação - Azure Event Hubs (legado) | Microsoft Docs
 description: Este artigo fornece informações sobre como escrever código para Azure Event Hubs usando o Azure .NET SDK.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131241"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623053"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>.NET Guia de programação para Azure Event Hubs (pacote legado Microsoft.Azure.EventHubs)
 Este artigo discute alguns cenários comuns em código de escrita usando Azure Event Hubs. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](./event-hubs-about.md).
@@ -97,7 +97,7 @@ Um único lote não deve exceder o limite de 1 MB de um evento. Além disso, cad
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Enviar no modo assíncrono e enviar à escala
 
-Envia eventos para um centro de eventos assíncronosamente. O envio assíncronos aumenta a taxa a que um cliente é capaz de enviar eventos. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) devolve um objeto [de Tarefa.](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) Pode utilizar a aula [de RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) no cliente para controlar as opções de repetição do cliente.
+Envia eventos para um centro de eventos assíncronosamente. O envio assíncronos aumenta a taxa a que um cliente é capaz de enviar eventos. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) devolve um objeto [de Tarefa.](/dotnet/api/system.threading.tasks.task) Pode utilizar a aula [de RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) no cliente para controlar as opções de repetição do cliente.
 
 ## <a name="event-consumers"></a>Consumidores de eventos
 A classe [EventProcessorHost][] processa dados dos Event Hubs. Deve utilizar esta implementação quando criar os leitores dos eventos na plataforma .NET. O [EventProcessorHost][] fornece um ambiente de tempo de execução seguro para thread com vários processos para as implementações do processador de eventos que também fornece pontos de verificação e gestão da concessão da partição.

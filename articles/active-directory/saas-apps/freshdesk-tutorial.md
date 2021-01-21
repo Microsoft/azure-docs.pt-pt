@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o FreshDesk Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | da FreshDesk Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o FreshDesk.
 services: active-directory
 author: jeevansd
@@ -9,46 +9,41 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: f120554574f8dc7d0b97744af6dad447b404005b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d14f69865c254becc8295034b6311b1641dfd498
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92451568"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Diretório Ativo Azure com o FreshDesk
 
-Neste tutorial, aprende-se a integrar o FreshDesk com o Azure Ative Directory (Azure AD).
-A integração da FreshDesk com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar o FreshDesk com o Azure Ative Directory (Azure AD). Quando integrar o FreshDesk com a AD Azure, pode:
 
-* Você pode controlar em Azure AD que tem acesso ao FreshDesk.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no FreshDesk (Single Sign-On) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Controlo em Azure AD que tem acesso ao FreshDesk.
+* Ative os seus utilizadores a serem automaticamente inscritos no FreshDesk com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AZure AD com o FreshDesk, precisa dos seguintes itens:
-
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Subscrição ativada por um único sinal de FreshDesk
+Para começar, precisa dos seguintes itens:
+ 
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Uma assinatura ativada por FreshDesk (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
 * FreshDesk suporta SSO iniciado **pela SP**
-* Uma vez configurado o FreshDesk, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-freshdesk-from-the-gallery"></a>Adicionando FreshDesk da galeria
+## <a name="add-freshdesk-from-the-gallery"></a>Adicione FreshDesk da galeria
 
 Para configurar a integração do FreshDesk no AD AZure, precisa de adicionar o FreshDesk da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -59,20 +54,20 @@ Para configurar a integração do FreshDesk no AD AZure, precisa de adicionar o 
 
 Configure e teste Azure AD SSO com FreshDesk usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no FreshDesk.
 
-Para configurar e testar o Azure AD SSO com o FreshDesk, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o FreshDesk, execute os seguintes passos:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-1. **[Configure o Sign-On Único do FreshDesk](#configure-freshdesk-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+1. **[Configure o FreshDesk SSO](#configure-freshdesk-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create FreshDesk test user](#create-freshdesk-test-user)** - para ter uma contraparte de Britta Simon em FreshDesk que está ligada à representação AD AD do utilizador.
-1. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **FreshDesk,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. No portal Azure, na página de integração de aplicações **FreshDesk,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **único sign-on de Configuração com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **único sinal de configuração com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -99,65 +94,32 @@ Para configurar e testar o Azure AD SSO com o FreshDesk, complete os seguintes b
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure Ad
-
-    c. Logout URL
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome,** **insira BrittaSimon**.
-  
-    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao FreshDesk.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao FreshDesk.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **FreshDesk**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **FreshDesk**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, escreva e selecione **FreshDesk**.
-
-    ![O link FreshDesk na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
-
-## <a name="configure-freshdesk-single-sign-on"></a>Configurar Sign-On single freshdesk
+## <a name="configure-freshdesk-sso"></a>Configurar SSO freshdesk
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Freshdesk como administrador.
 
@@ -167,7 +129,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
   
     a. Para **um único sinal ligado**, selecione **On**.
 
-    b. No **Método de Início**de Sessão, selecione **SAML SSO**.
+    b. No **Método de Início** de Sessão, selecione **SAML SSO**.
 
     c. No ID da Entidade fornecido pela caixa de texto **IdP,** cole o valor ID da **Entidade,** que copiou do portal Azure.
 
@@ -208,16 +170,16 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
     >[!NOTE]
     >Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador da Freshdesk ou APIs fornecidas pela Freshdesk para fornecer contas de utilizador Azure AD à FreshDesk.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo FreshDesk no Painel de Acesso, deverá ser automaticamente inscrito no FreshDesk para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de entrada de sinal de FreshDesk, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Vá diretamente ao URL de inscrição do FreshDesk e inicie o fluxo de login a partir daí.
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo FreshDesk nas Minhas Apps, deverá ser automaticamente inscrito no FreshDesk para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado o FreshDesk, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

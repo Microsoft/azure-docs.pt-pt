@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 1ac87f98af555aae155a201cc20692c950fc7924
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841715"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621933"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos 
 
@@ -22,7 +22,7 @@ Este artigo descreve as principais vantagens do Azure Defender para ioT.
 
 O Defender para os sensores IoT liga-se a uma porta SPAN ou à rede TAP e começa imediatamente a recolher o tráfego da rede ICS através de uma monitorização passiva (sem agente). A inspeção de pacotes profundos (DPI) é usada para dissecar o tráfego tanto de equipamentos de rede de controlo de série como de ethernet. O Defender for IoT tem zero impacto nas redes OT porque não está colocado na via dos dados e não digitaliza ativamente os dispositivos OT. 
 
-Para fornecer instantâneos instantâneos de informações detalhadas sobre o ativo, o Defender for IoT complementa a monitorização passiva com um componente ativo opcional. Este componente utiliza comandos seguros e aprovados pelo fornecedor para consultar tanto o Windows como os dispositivos controladores para obter detalhes do ativo, com a frequência ou com a frequência que desejar.
+Para fornecer instantâneos instantâneos de informações detalhadas do dispositivo, o Defender for IoT complementa a monitorização passiva com um componente ativo opcional. Este componente utiliza comandos seguros e aprovados pelo fornecedor para consultar tanto o Windows como os dispositivos controladores para detalhes do dispositivo, com a frequência ou com a frequência que pretende.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Conhecimento incorporado de protocolos, dispositivos e aplicações do ICS
 
@@ -34,7 +34,7 @@ Os motores identificam problemas de segurança através de monitorização cont�
 
 - **Deteção de violação** de protocolo : Identifica a utilização de estruturas de pacotes e valores de campo que violem as especificações do protocolo ICS.
 
-- **Deteção de violação de** políticas : Identifica violações de políticas como a utilização não autorizada de códigos de função, acesso a objetos específicos ou alterações na configuração do ativo.
+- **Deteção de violações de** políticas : Identifica violações de políticas como a utilização não autorizada de códigos de função, acesso a objetos específicos ou alterações na configuração do dispositivo.
 
 - **Deteção industrial de malware**: Identifica comportamentos que indicam a presença de malware conhecido como Conficker, Black Energy, Havex, WannaCry e NotPetya.
 

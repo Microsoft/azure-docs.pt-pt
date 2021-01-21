@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Azure Ative Directory ao Azure Sentinel Microsoft Docs
+title: Ligue os dados do Azure Ative Directory ao Azure Sentinel | Microsoft Docs
 description: Saiba como recolher dados do Azure Ative Directory e transmitir registos de login azure AD e registos de auditoria no Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 279f54c3de964580cc37d1288a6e1b7726348e10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9700e5d9179f7c1e33b2371eea89be9bb1c8d08f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208627"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621367"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Ligar dados do Azure Ative Directory (Azure AD)
-
-
 
 Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) e transmiti-lo para o Azure Sentinel. O conector permite-lhe transmitir [registos de login](../active-directory/reports-monitoring/concept-sign-ins.md) e [registos](../active-directory/reports-monitoring/concept-audit-logs.md)de auditoria .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
-- Qualquer licença AD Azure (Grátis/O365/P1/P2) é suficiente para ingerir registos de entrada no Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
+- Você deve ter uma assinatura [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) para ingerir logins de entrada em Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
 
 - O seu utilizador deve ser atribuído ao contributo do Azure Sentinel no espaço de trabalho.
 
 - O seu utilizador deve ser atribuído às funções de Administrador Global ou Administrador de Segurança no inquilino a partir do quais pretende transmitir os registos.
 
 - O seu utilizador deve ter lido e escrito permissões para as definições de diagnóstico AZure AD para poder ver o estado da ligação. 
-
 
 ## <a name="connect-to-azure-active-directory"></a>Ligue-se ao Diretório Ativo Azure
 

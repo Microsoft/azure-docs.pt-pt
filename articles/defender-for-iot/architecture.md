@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201485"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621102"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender para arquitetura IoT
 
@@ -81,7 +81,7 @@ Gerir o Azure Defender para IoT em ambientes híbridos é realizado através de 
 - O portal do Azure
 
 ### <a name="sensor-console"></a>Consola de sensores
-As deteções de sensores são exibidas na consola de sensores, onde podem ser visualizadas, investigadas e analisadas num mapa de rede, inventário de ativos e numa vasta gama de relatórios, por exemplo, relatórios de avaliação de riscos, consultas de mineração de dados e vetores de ataque. Também pode utilizar a consola para visualizar e lidar com ameaças detetadas pelos motores sensores, encaminhar informações para sistemas parceiros, gerir utilizadores e muito mais.
+As deteções de sensores são exibidas na consola de sensores, onde podem ser visualizadas, investigadas e analisadas num mapa de rede, inventário de dispositivos e numa vasta gama de relatórios, por exemplo, relatórios de avaliação de riscos, consultas de mineração de dados e vetores de ataque. Também pode utilizar a consola para visualizar e lidar com ameaças detetadas pelos motores sensores, encaminhar informações para sistemas parceiros, gerir utilizadores e muito mais.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender para consola de sensores IoT":::
 
@@ -96,7 +96,7 @@ A consola de gestão pode ser implementada para configuração de alta disponibi
 
 Fortemente integrado com os seus fluxos de trabalho SOC e livros de execução, permite uma priorização fácil de atividades de mitigação e correlação de ameaças entre locais.
 
-- Holistic - reduza a complexidade com uma única plataforma unificada para a gestão de ativos, gestão de riscos e vulnerabilidades, bem como monitorização de ameaças com resposta a incidentes.
+- Holistic - reduza a complexidade com uma única plataforma unificada para a gestão de dispositivos, gestão de riscos e vulnerabilidades, bem como monitorização de ameaças com resposta a incidentes.
 
 - Agregação e correlação – mostrar, agregar e analisar dados e alertas recolhidos de todos os sites.
 
